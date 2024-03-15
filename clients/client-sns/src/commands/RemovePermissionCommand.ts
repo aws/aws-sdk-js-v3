@@ -27,7 +27,6 @@ export interface RemovePermissionCommandInput extends RemovePermissionInput {}
 export interface RemovePermissionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a statement from a topic's access control policy.</p>
  *          <note>
  *             <p>To remove the ability to change topic permissions, you must deny permissions to
@@ -72,6 +71,7 @@ export interface RemovePermissionCommandOutput extends __MetadataBearer {}
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * @public
  */
 export class RemovePermissionCommand extends $Command
   .classBuilder<

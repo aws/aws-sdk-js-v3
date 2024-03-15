@@ -32,7 +32,6 @@ export interface CreateResourceDefinitionVersionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * Creates a version of a resource definition that has already been defined.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -112,6 +111,7 @@ export interface CreateResourceDefinitionVersionCommandOutput
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class CreateResourceDefinitionVersionCommand extends $Command
   .classBuilder<

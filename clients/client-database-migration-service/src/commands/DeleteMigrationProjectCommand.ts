@@ -31,7 +31,6 @@ export interface DeleteMigrationProjectCommandInput extends DeleteMigrationProje
 export interface DeleteMigrationProjectCommandOutput extends DeleteMigrationProjectResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified migration project.</p>
  *          <note>
  *             <p>The migration project must be closed before you can delete it.</p>
@@ -100,6 +99,7 @@ export interface DeleteMigrationProjectCommandOutput extends DeleteMigrationProj
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Delete Migration Project
  * ```javascript
  * // Deletes the specified migration project.

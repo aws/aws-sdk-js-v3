@@ -27,7 +27,6 @@ export interface AbortMultipartUploadCommandInput extends AbortMultipartUploadIn
 export interface AbortMultipartUploadCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation aborts a multipart upload identified by the upload ID.</p>
  *
  *
@@ -85,6 +84,7 @@ export interface AbortMultipartUploadCommandOutput extends __MetadataBearer {}
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * @public
  * @example To abort a multipart upload identified by the upload ID
  * ```javascript
  * // The example deletes an in-progress multipart upload to a vault named my-vault:

@@ -32,7 +32,6 @@ export interface CreateResourceCommandInput extends CreateResourceInput {}
 export interface CreateResourceCommandOutput extends CreateResourceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates the specified resource. For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-create.html">Creating a
  *         resource</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
  *          <p>After you have initiated a resource creation request, you can monitor the progress of your
@@ -152,6 +151,7 @@ export interface CreateResourceCommandOutput extends CreateResourceOutput, __Met
  * @throws {@link CloudControlServiceException}
  * <p>Base exception class for all service exceptions from CloudControl service.</p>
  *
+ * @public
  */
 export class CreateResourceCommand extends $Command
   .classBuilder<

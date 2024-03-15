@@ -27,7 +27,6 @@ export interface DescribeHubContentCommandInput extends DescribeHubContentReques
 export interface DescribeHubContentCommandOutput extends DescribeHubContentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describe the content of a hub.</p>
  *          <note>
  *             <p>Hub APIs are only callable through SageMaker Studio.</p>
@@ -86,6 +85,7 @@ export interface DescribeHubContentCommandOutput extends DescribeHubContentRespo
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeHubContentCommand extends $Command
   .classBuilder<

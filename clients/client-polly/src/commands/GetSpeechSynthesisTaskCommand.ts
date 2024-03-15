@@ -27,7 +27,6 @@ export interface GetSpeechSynthesisTaskCommandInput extends GetSpeechSynthesisTa
 export interface GetSpeechSynthesisTaskCommandOutput extends GetSpeechSynthesisTaskOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a specific SpeechSynthesisTask object based on its TaskID.
  *       This object contains information about the given speech synthesis task,
  *       including the status of the task, and a link to the S3 bucket containing
@@ -89,6 +88,7 @@ export interface GetSpeechSynthesisTaskCommandOutput extends GetSpeechSynthesisT
  * @throws {@link PollyServiceException}
  * <p>Base exception class for all service exceptions from Polly service.</p>
  *
+ * @public
  */
 export class GetSpeechSynthesisTaskCommand extends $Command
   .classBuilder<

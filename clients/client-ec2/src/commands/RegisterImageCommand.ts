@@ -27,7 +27,6 @@ export interface RegisterImageCommandInput extends RegisterImageRequest {}
 export interface RegisterImageCommandOutput extends RegisterImageResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers an AMI. When you're creating an instance-store backed AMI, registering the AMI
  *       is the final step in the creation process. For more information about creating AMIs, see
  *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Create your
@@ -149,6 +148,7 @@ export interface RegisterImageCommandOutput extends RegisterImageResult, __Metad
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class RegisterImageCommand extends $Command
   .classBuilder<

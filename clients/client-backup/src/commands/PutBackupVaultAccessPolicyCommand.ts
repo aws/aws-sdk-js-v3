@@ -27,7 +27,6 @@ export interface PutBackupVaultAccessPolicyCommandInput extends PutBackupVaultAc
 export interface PutBackupVaultAccessPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets a resource-based policy that is used to manage access permissions on the target
  *          backup vault. Requires a backup vault name and an access policy document in JSON
  *          format.</p>
@@ -69,6 +68,7 @@ export interface PutBackupVaultAccessPolicyCommandOutput extends __MetadataBeare
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class PutBackupVaultAccessPolicyCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateCustomActionTypeCommandInput extends CreateCustomActionTy
 export interface CreateCustomActionTypeCommandOutput extends CreateCustomActionTypeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new custom action that can be used in all pipelines associated with the
  *                 Amazon Web Services account. Only used for custom actions.</p>
  * @example
@@ -143,6 +142,7 @@ export interface CreateCustomActionTypeCommandOutput extends CreateCustomActionT
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * @public
  */
 export class CreateCustomActionTypeCommand extends $Command
   .classBuilder<

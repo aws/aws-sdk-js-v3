@@ -32,7 +32,6 @@ export interface CancelMaintenanceWindowExecutionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a maintenance window execution that is already in progress and cancels any tasks in
  *    the window that haven't already starting running. Tasks already in progress will continue to
  *    completion.</p>
@@ -71,6 +70,7 @@ export interface CancelMaintenanceWindowExecutionCommandOutput
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class CancelMaintenanceWindowExecutionCommand extends $Command
   .classBuilder<

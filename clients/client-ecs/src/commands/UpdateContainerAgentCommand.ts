@@ -27,7 +27,6 @@ export interface UpdateContainerAgentCommandInput extends UpdateContainerAgentRe
 export interface UpdateContainerAgentCommandOutput extends UpdateContainerAgentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the Amazon ECS container agent on a specified container instance. Updating the
  * 			Amazon ECS container agent doesn't interrupt running tasks or services on the container
  * 			instance. The process for updating the agent differs depending on whether your container
@@ -186,6 +185,7 @@ export interface UpdateContainerAgentCommandOutput extends UpdateContainerAgentR
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  */
 export class UpdateContainerAgentCommand extends $Command
   .classBuilder<

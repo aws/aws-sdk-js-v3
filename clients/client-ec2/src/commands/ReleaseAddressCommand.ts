@@ -27,7 +27,6 @@ export interface ReleaseAddressCommandInput extends ReleaseAddressRequest {}
 export interface ReleaseAddressCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Releases the specified Elastic IP address.</p>
  *          <p>[Default VPC] Releasing an Elastic IP address automatically disassociates it
  * 				from any instance that it's associated with. To disassociate an Elastic IP address without
@@ -67,6 +66,7 @@ export interface ReleaseAddressCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To release an Elastic IP address
  * ```javascript
  * // This example releases the specified Elastic IP address.

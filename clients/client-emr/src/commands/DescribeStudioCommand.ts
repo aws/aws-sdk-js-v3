@@ -27,7 +27,6 @@ export interface DescribeStudioCommandInput extends DescribeStudioInput {}
 export interface DescribeStudioCommandOutput extends DescribeStudioOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns details for the specified Amazon EMR Studio including ID, Name, VPC,
  *          Studio access URL, and so on.</p>
  * @example
@@ -92,6 +91,7 @@ export interface DescribeStudioCommandOutput extends DescribeStudioOutput, __Met
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class DescribeStudioCommand extends $Command
   .classBuilder<

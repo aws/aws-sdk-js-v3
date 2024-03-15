@@ -27,7 +27,6 @@ export interface AssociateConnectPeerCommandInput extends AssociateConnectPeerRe
 export interface AssociateConnectPeerCommandOutput extends AssociateConnectPeerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a core network Connect peer with a device and optionally, with a link. </p>
  *          <p>If you specify a link, it must be associated with the specified device. You can only
  *          associate core network Connect peers that have been created on a core network Connect
@@ -89,6 +88,7 @@ export interface AssociateConnectPeerCommandOutput extends AssociateConnectPeerR
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class AssociateConnectPeerCommand extends $Command
   .classBuilder<

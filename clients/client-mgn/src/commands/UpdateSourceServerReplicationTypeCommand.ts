@@ -34,7 +34,6 @@ export interface UpdateSourceServerReplicationTypeCommandInput extends UpdateSou
 export interface UpdateSourceServerReplicationTypeCommandOutput extends SourceServer, __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows you to change between the AGENT_BASED replication type and the SNAPSHOT_SHIPPING replication type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -191,6 +190,7 @@ export interface UpdateSourceServerReplicationTypeCommandOutput extends SourceSe
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * @public
  */
 export class UpdateSourceServerReplicationTypeCommand extends $Command
   .classBuilder<

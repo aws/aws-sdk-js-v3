@@ -27,7 +27,6 @@ export interface DescribeTagsCommandInput extends DescribeTagsRequest {}
 export interface DescribeTagsCommandOutput extends DescribeTagsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified tags for your EC2 resources.</p>
  *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag your Amazon EC2 resources</a> in the
  *             <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -80,6 +79,7 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResult, __Metadat
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To describe the tags for a single resource
  * ```javascript
  * // This example describes the tags for the specified instance.

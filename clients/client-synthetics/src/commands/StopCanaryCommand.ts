@@ -27,7 +27,6 @@ export interface StopCanaryCommandInput extends StopCanaryRequest {}
 export interface StopCanaryCommandOutput extends StopCanaryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops the canary to prevent all future runs. If the canary is currently running,the
  *         run that is in progress completes on its own, publishes metrics, and uploads artifacts, but
  *          it is not recorded in Synthetics as a completed run.</p>
@@ -69,6 +68,7 @@ export interface StopCanaryCommandOutput extends StopCanaryResponse, __MetadataB
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ * @public
  */
 export class StopCanaryCommand extends $Command
   .classBuilder<

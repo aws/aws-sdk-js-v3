@@ -32,7 +32,6 @@ export interface AllocateTransitVirtualInterfaceCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Provisions a transit virtual interface to be owned by the specified Amazon Web Services account. Use this type of interface to connect a transit gateway to your Direct Connect gateway.</p>
  *          <p>The owner of a connection provisions a transit virtual interface to be owned by the specified Amazon Web Services account.</p>
  *          <p>After you create a transit virtual interface, it must be confirmed by the owner using <a>ConfirmTransitVirtualInterface</a>. Until this step has been completed, the transit virtual interface is in the <code>requested</code> state and is not available to handle traffic.</p>
@@ -140,6 +139,7 @@ export interface AllocateTransitVirtualInterfaceCommandOutput
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class AllocateTransitVirtualInterfaceCommand extends $Command
   .classBuilder<

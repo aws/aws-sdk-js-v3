@@ -35,7 +35,6 @@ export interface GetEnvironmentCommandInput extends GetEnvironmentRequest {}
 export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information for an environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -111,6 +110,7 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __M
  * @throws {@link WorkSpacesThinClientServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesThinClient service.</p>
  *
+ * @public
  */
 export class GetEnvironmentCommand extends $Command
   .classBuilder<

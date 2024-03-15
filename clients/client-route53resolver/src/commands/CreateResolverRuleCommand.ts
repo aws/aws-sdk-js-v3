@@ -27,7 +27,6 @@ export interface CreateResolverRuleCommandInput extends CreateResolverRuleReques
 export interface CreateResolverRuleCommandOutput extends CreateResolverRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>For DNS queries that originate in your VPCs, specifies which Resolver endpoint the queries pass through,
  * 			one domain name that you want to forward to your network, and the IP addresses of the DNS resolvers in your network.</p>
  * @example
@@ -123,6 +122,7 @@ export interface CreateResolverRuleCommandOutput extends CreateResolverRuleRespo
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class CreateResolverRuleCommand extends $Command
   .classBuilder<

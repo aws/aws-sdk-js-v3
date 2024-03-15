@@ -27,7 +27,6 @@ export interface UpdateDiscovererCommandInput extends UpdateDiscovererRequest {}
 export interface UpdateDiscovererCommandOutput extends UpdateDiscovererResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the discoverer</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface UpdateDiscovererCommandOutput extends UpdateDiscovererResponse,
  * @throws {@link SchemasServiceException}
  * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ * @public
  */
 export class UpdateDiscovererCommand extends $Command
   .classBuilder<

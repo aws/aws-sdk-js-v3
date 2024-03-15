@@ -27,7 +27,6 @@ export interface DeleteKxDataviewCommandInput extends DeleteKxDataviewRequest {}
 export interface DeleteKxDataviewCommandOutput extends DeleteKxDataviewResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  * Deletes the specified dataview. Before deleting a dataview, make sure that it is not in use by any cluster. </p>
  * @example
@@ -76,6 +75,7 @@ export interface DeleteKxDataviewCommandOutput extends DeleteKxDataviewResponse,
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class DeleteKxDataviewCommand extends $Command
   .classBuilder<

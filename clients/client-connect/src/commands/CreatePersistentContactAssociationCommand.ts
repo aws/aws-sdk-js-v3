@@ -35,7 +35,6 @@ export interface CreatePersistentContactAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables rehydration of chats for the lifespan of a contact. For more information about chat
  *    rehydration, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a> in the
  *      <i>Amazon Connect Administrator Guide</i>. </p>
@@ -87,6 +86,7 @@ export interface CreatePersistentContactAssociationCommandOutput
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class CreatePersistentContactAssociationCommand extends $Command
   .classBuilder<

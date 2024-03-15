@@ -27,7 +27,6 @@ export interface CreateClusterSecurityGroupCommandInput extends CreateClusterSec
 export interface CreateClusterSecurityGroupCommandOutput extends CreateClusterSecurityGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new Amazon Redshift security group. You use security groups to control access
  *             to non-VPC clusters.</p>
  *          <p>
@@ -117,6 +116,7 @@ export interface CreateClusterSecurityGroupCommandOutput extends CreateClusterSe
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class CreateClusterSecurityGroupCommand extends $Command
   .classBuilder<

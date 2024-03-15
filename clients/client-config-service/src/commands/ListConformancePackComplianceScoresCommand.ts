@@ -35,7 +35,6 @@ export interface ListConformancePackComplianceScoresCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of conformance pack compliance scores.
  * 			A compliance score is the percentage of the number of compliant rule-resource combinations in a conformance pack compared to the number of total possible rule-resource combinations in the conformance pack.
  * 			This metric provides you with a high-level view of the compliance state of your conformance packs. You can use it to identify, investigate, and understand
@@ -96,6 +95,7 @@ export interface ListConformancePackComplianceScoresCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class ListConformancePackComplianceScoresCommand extends $Command
   .classBuilder<

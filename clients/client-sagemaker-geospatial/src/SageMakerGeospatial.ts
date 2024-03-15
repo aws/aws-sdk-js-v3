@@ -424,8 +424,8 @@ export interface SageMakerGeospatial {
 }
 
 /**
- * @public
  * <p>Provides APIs for creating and managing SageMaker geospatial resources.</p>
+ * @public
  */
 export class SageMakerGeospatial extends SageMakerGeospatialClient implements SageMakerGeospatial {}
 createAggregatedClient(commands, SageMakerGeospatial);

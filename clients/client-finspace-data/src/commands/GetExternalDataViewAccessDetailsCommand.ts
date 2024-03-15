@@ -36,9 +36,6 @@ export interface GetExternalDataViewAccessDetailsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This method will be discontinued.
- *
  * <p>Returns the credentials to access the external Dataview from an S3 location. To call this API:</p>
  *          <ul>
  *             <li>
@@ -100,6 +97,8 @@ export interface GetExternalDataViewAccessDetailsCommandOutput
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ * @public
+ * @deprecated This method will be discontinued.
  */
 export class GetExternalDataViewAccessDetailsCommand extends $Command
   .classBuilder<

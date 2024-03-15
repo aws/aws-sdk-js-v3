@@ -27,7 +27,6 @@ export interface ListJobsCommandInput extends ListJobsRequest {}
 export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about jobs for a given test run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -148,6 +147,7 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To get information about jobs
  * ```javascript
  * // The following example returns information about jobs in a specific project.

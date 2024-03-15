@@ -543,8 +543,8 @@ export interface ServiceCatalogAppRegistry {
 }
 
 /**
- * @public
  * <p> Amazon Web Services Service Catalog AppRegistry enables organizations to understand the application context of their Amazon Web Services resources. AppRegistry provides a repository of your applications, their resources, and the application metadata that you use within your enterprise.</p>
+ * @public
  */
 export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient implements ServiceCatalogAppRegistry {}
 createAggregatedClient(commands, ServiceCatalogAppRegistry);

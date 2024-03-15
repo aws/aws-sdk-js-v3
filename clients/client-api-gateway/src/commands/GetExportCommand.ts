@@ -35,7 +35,6 @@ export type GetExportCommandOutputType = Omit<ExportResponse, "body"> & {
 export interface GetExportCommandOutput extends GetExportCommandOutputType, __MetadataBearer {}
 
 /**
- * @public
  * <p>Exports a deployed version of a RestApi in a specified format.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface GetExportCommandOutput extends GetExportCommandOutputType, __Me
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class GetExportCommand extends $Command
   .classBuilder<

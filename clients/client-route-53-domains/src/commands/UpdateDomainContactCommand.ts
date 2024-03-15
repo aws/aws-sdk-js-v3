@@ -31,7 +31,6 @@ export interface UpdateDomainContactCommandInput extends UpdateDomainContactRequ
 export interface UpdateDomainContactCommandOutput extends UpdateDomainContactResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation updates the contact information for a particular domain. You must
  * 			specify information for at least one contact: registrant, administrator, or
  * 			technical.</p>
@@ -171,6 +170,7 @@ export interface UpdateDomainContactCommandOutput extends UpdateDomainContactRes
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * @public
  */
 export class UpdateDomainContactCommand extends $Command
   .classBuilder<

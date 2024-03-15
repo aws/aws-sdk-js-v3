@@ -27,7 +27,6 @@ export interface ListBackupJobsCommandInput extends ListBackupJobsInput {}
 export interface ListBackupJobsCommandOutput extends ListBackupJobsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of existing backup jobs for an authenticated account for the last 30
  *          days. For a longer period of time, consider using these <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">monitoring tools</a>.</p>
  * @example
@@ -111,6 +110,7 @@ export interface ListBackupJobsCommandOutput extends ListBackupJobsOutput, __Met
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class ListBackupJobsCommand extends $Command
   .classBuilder<

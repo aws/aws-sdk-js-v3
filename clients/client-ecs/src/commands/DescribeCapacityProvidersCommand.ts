@@ -27,7 +27,6 @@ export interface DescribeCapacityProvidersCommandInput extends DescribeCapacityP
 export interface DescribeCapacityProvidersCommandOutput extends DescribeCapacityProvidersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes one or more of your capacity providers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -108,6 +107,7 @@ export interface DescribeCapacityProvidersCommandOutput extends DescribeCapacity
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  */
 export class DescribeCapacityProvidersCommand extends $Command
   .classBuilder<

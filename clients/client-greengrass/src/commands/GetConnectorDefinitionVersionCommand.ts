@@ -32,7 +32,6 @@ export interface GetConnectorDefinitionVersionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * Retrieves information about a connector definition version, including the connectors that the version contains. Connectors are prebuilt modules that interact with local infrastructure, device protocols, AWS, and other cloud services.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface GetConnectorDefinitionVersionCommandOutput
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class GetConnectorDefinitionVersionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface TestConnectionCommandInput extends TestConnectionRequest {}
 export interface TestConnectionCommandOutput extends TestConnectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Tests whether your SFTP connector is set up successfully. We highly recommend that you call this
  *     operation to test your ability to transfer files between local Amazon Web Services storage and a trading partner's
  *     SFTP server.</p>
@@ -72,6 +71,7 @@ export interface TestConnectionCommandOutput extends TestConnectionResponse, __M
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class TestConnectionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeEventsCommandInput extends DescribeEventsMessage {}
 export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns events related to clusters, security groups, snapshots, and parameter
  *             groups for the past 14 days. Events specific to a particular cluster, security group,
  *             snapshot or parameter group can be obtained by providing the name as a parameter. By
@@ -77,6 +76,7 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DescribeEventsCommand extends $Command
   .classBuilder<

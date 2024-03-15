@@ -27,7 +27,6 @@ export interface CreateRepositoryCommandInput extends CreateRepositoryRequest {}
 export interface CreateRepositoryCommandOutput extends CreateRepositoryResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *         Creates a repository.
  *       </p>
@@ -124,6 +123,7 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryResult, _
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * @public
  */
 export class CreateRepositoryCommand extends $Command
   .classBuilder<

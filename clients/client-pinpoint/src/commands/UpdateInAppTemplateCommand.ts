@@ -27,7 +27,6 @@ export interface UpdateInAppTemplateCommandInput extends UpdateInAppTemplateRequ
 export interface UpdateInAppTemplateCommandOutput extends UpdateInAppTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing message template for messages sent through the in-app message channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -148,6 +147,7 @@ export interface UpdateInAppTemplateCommandOutput extends UpdateInAppTemplateRes
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class UpdateInAppTemplateCommand extends $Command
   .classBuilder<

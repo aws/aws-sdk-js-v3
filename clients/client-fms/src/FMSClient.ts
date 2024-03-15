@@ -435,7 +435,6 @@ export type FMSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
 export interface FMSClientResolvedConfig extends FMSClientResolvedConfigType {}
 
 /**
- * @public
  * <p>This is the <i>Firewall Manager API Reference</i>. This guide is for
  *       developers who need detailed information about the Firewall Manager API actions, data
  *       types, and errors. For detailed information about Firewall Manager features, see the
@@ -443,6 +442,7 @@ export interface FMSClientResolvedConfig extends FMSClientResolvedConfigType {}
  *          <p>Some API actions require explicit resource permissions. For information, see the developer guide topic
  *         <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-security_iam_service-with-iam.html#fms-security_iam_service-with-iam-roles-service">Service roles for Firewall Manager</a>.
  * </p>
+ * @public
  */
 export class FMSClient extends __Client<
   __HttpHandlerOptions,

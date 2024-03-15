@@ -27,7 +27,6 @@ export interface DisableStageTransitionCommandInput extends DisableStageTransiti
 export interface DisableStageTransitionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Prevents artifacts in a pipeline from transitioning to the next stage in the
  *             pipeline.</p>
  * @example
@@ -66,6 +65,7 @@ export interface DisableStageTransitionCommandOutput extends __MetadataBearer {}
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * @public
  */
 export class DisableStageTransitionCommand extends $Command
   .classBuilder<

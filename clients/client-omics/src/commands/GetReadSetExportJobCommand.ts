@@ -27,7 +27,6 @@ export interface GetReadSetExportJobCommandInput extends GetReadSetExportJobRequ
 export interface GetReadSetExportJobCommandOutput extends GetReadSetExportJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a read set export job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface GetReadSetExportJobCommandOutput extends GetReadSetExportJobRes
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class GetReadSetExportJobCommand extends $Command
   .classBuilder<

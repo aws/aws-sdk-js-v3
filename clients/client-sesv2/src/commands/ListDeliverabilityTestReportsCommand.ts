@@ -32,7 +32,6 @@ export interface ListDeliverabilityTestReportsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Show a list of the predictive inbox placement tests that you've performed, regardless of their statuses. For
  *             predictive inbox placement tests that are complete, you can use the <code>GetDeliverabilityTestReport</code>
  *             operation to view the results.</p>
@@ -82,6 +81,7 @@ export interface ListDeliverabilityTestReportsCommandOutput
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class ListDeliverabilityTestReportsCommand extends $Command
   .classBuilder<

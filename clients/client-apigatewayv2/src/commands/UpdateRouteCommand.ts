@@ -27,7 +27,6 @@ export interface UpdateRouteCommandInput extends UpdateRouteRequest {}
 export interface UpdateRouteCommandOutput extends UpdateRouteResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a Route.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -107,6 +106,7 @@ export interface UpdateRouteCommandOutput extends UpdateRouteResult, __MetadataB
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ * @public
  */
 export class UpdateRouteCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface RegisterOrganizationAdminAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p> Enables an Amazon Web Services account within the organization as the delegated
  *          administrator for Audit Manager. </p>
  * @example
@@ -76,6 +75,7 @@ export interface RegisterOrganizationAdminAccountCommandOutput
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class RegisterOrganizationAdminAccountCommand extends $Command
   .classBuilder<

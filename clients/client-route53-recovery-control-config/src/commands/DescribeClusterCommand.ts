@@ -31,7 +31,6 @@ export interface DescribeClusterCommandInput extends DescribeClusterRequest {}
 export interface DescribeClusterCommandOutput extends DescribeClusterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Display the details about a cluster. The response includes the cluster name, endpoints, status, and Amazon Resource Name (ARN).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * @throws {@link Route53RecoveryControlConfigServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
+ * @public
  */
 export class DescribeClusterCommand extends $Command
   .classBuilder<

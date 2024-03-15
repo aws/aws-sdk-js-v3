@@ -27,7 +27,6 @@ export interface GetGatewayCommandInput extends GetGatewayInput {}
 export interface GetGatewayCommandOutput extends GetGatewayOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>By providing the ARN (Amazon Resource Name), this
  *       API returns the gateway.</p>
  * @example
@@ -83,6 +82,7 @@ export interface GetGatewayCommandOutput extends GetGatewayOutput, __MetadataBea
  * @throws {@link BackupGatewayServiceException}
  * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
+ * @public
  */
 export class GetGatewayCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetIntegrationCommandInput extends GetIntegrationRequest {}
 export interface GetIntegrationCommandOutput extends GetIntegrationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an integration for a domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface GetIntegrationCommandOutput extends GetIntegrationResponse, __M
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * @public
  */
 export class GetIntegrationCommand extends $Command
   .classBuilder<

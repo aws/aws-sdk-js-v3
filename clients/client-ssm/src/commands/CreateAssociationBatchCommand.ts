@@ -32,7 +32,6 @@ export interface CreateAssociationBatchCommandInput extends CreateAssociationBat
 export interface CreateAssociationBatchCommandOutput extends CreateAssociationBatchResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates the specified Amazon Web Services Systems Manager document (SSM document) with the specified managed nodes
  *    or targets.</p>
  *          <p>When you associate a document with one or more managed nodes using IDs or tags, Amazon Web Services Systems Manager
@@ -363,6 +362,7 @@ export interface CreateAssociationBatchCommandOutput extends CreateAssociationBa
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class CreateAssociationBatchCommand extends $Command
   .classBuilder<

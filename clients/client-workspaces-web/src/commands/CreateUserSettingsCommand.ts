@@ -31,7 +31,6 @@ export interface CreateUserSettingsCommandInput extends CreateUserSettingsReques
 export interface CreateUserSettingsCommandOutput extends CreateUserSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a user settings resource that can be associated with a web portal. Once
  *          associated with a web portal, user settings control how users can transfer data between a
  *          streaming session and the their local devices. </p>
@@ -112,6 +111,7 @@ export interface CreateUserSettingsCommandOutput extends CreateUserSettingsRespo
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * @public
  */
 export class CreateUserSettingsCommand extends $Command
   .classBuilder<

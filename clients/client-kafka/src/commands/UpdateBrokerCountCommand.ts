@@ -27,7 +27,6 @@ export interface UpdateBrokerCountCommandInput extends UpdateBrokerCountRequest 
 export interface UpdateBrokerCountCommandOutput extends UpdateBrokerCountResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the number of broker nodes in the cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface UpdateBrokerCountCommandOutput extends UpdateBrokerCountRespons
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ * @public
  */
 export class UpdateBrokerCountCommand extends $Command
   .classBuilder<

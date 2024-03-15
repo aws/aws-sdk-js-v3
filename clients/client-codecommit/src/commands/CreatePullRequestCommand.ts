@@ -27,7 +27,6 @@ export interface CreatePullRequestCommandInput extends CreatePullRequestInput {}
 export interface CreatePullRequestCommandOutput extends CreatePullRequestOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a pull request in the specified repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -196,6 +195,7 @@ export interface CreatePullRequestCommandOutput extends CreatePullRequestOutput,
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class CreatePullRequestCommand extends $Command
   .classBuilder<

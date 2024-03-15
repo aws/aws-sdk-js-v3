@@ -27,7 +27,6 @@ export interface DeleteCertificateCommandInput extends DeleteCertificateRequest 
 export interface DeleteCertificateCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the certificate that's specified in the <code>CertificateId</code>
  *       parameter.</p>
  * @example
@@ -67,6 +66,7 @@ export interface DeleteCertificateCommandOutput extends __MetadataBearer {}
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class DeleteCertificateCommand extends $Command
   .classBuilder<

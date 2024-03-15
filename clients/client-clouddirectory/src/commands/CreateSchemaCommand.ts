@@ -27,7 +27,6 @@ export interface CreateSchemaCommandInput extends CreateSchemaRequest {}
 export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new schema in a development state. A schema can exist in three
  *       phases:</p>
  *          <ul>
@@ -98,6 +97,7 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class CreateSchemaCommand extends $Command
   .classBuilder<

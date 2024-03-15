@@ -27,7 +27,6 @@ export interface ListCisScansCommandInput extends ListCisScansRequest {}
 export interface ListCisScansCommandOutput extends ListCisScansResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a CIS scan list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -155,6 +154,7 @@ export interface ListCisScansCommandOutput extends ListCisScansResponse, __Metad
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class ListCisScansCommand extends $Command
   .classBuilder<

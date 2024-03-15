@@ -27,9 +27,6 @@ export interface ListDevicesCommandInput extends ListDevicesRequest {}
 export interface ListDevicesCommandOutput extends ListDevicesResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
- *
  * <p>Retrieves a list of devices registered with the specified fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +77,8 @@ export interface ListDevicesCommandOutput extends ListDevicesResponse, __Metadat
  * @throws {@link WorkLinkServiceException}
  * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
+ * @public
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  */
 export class ListDevicesCommand extends $Command
   .classBuilder<

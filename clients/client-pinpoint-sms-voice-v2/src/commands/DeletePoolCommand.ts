@@ -31,7 +31,6 @@ export interface DeletePoolCommandInput extends DeletePoolRequest {}
 export interface DeletePoolCommandOutput extends DeletePoolResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing pool. Deleting a pool disassociates all origination identities
  *             from that pool.</p>
  *          <p>If the pool status isn't active or if deletion protection is enabled, an error is
@@ -99,6 +98,7 @@ export interface DeletePoolCommandOutput extends DeletePoolResult, __MetadataBea
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class DeletePoolCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateCustomLogSourceCommandInput extends CreateCustomLogSource
 export interface CreateCustomLogSourceCommandOutput extends CreateCustomLogSourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a third-party custom source in Amazon Security Lake, from the Amazon Web Services Region
  *          where you want to create a custom source. Security Lake can collect logs and events from
  *          third-party custom sources. After creating the appropriate IAM role to
@@ -111,6 +110,7 @@ export interface CreateCustomLogSourceCommandOutput extends CreateCustomLogSourc
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ * @public
  */
 export class CreateCustomLogSourceCommand extends $Command
   .classBuilder<

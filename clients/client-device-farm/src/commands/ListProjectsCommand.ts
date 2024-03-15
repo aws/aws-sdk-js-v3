@@ -27,7 +27,6 @@ export interface ListProjectsCommandInput extends ListProjectsRequest {}
 export interface ListProjectsCommandOutput extends ListProjectsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about projects.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface ListProjectsCommandOutput extends ListProjectsResult, __Metadat
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To get information about a Device Farm project
  * ```javascript
  * // The following example returns information about the specified project in Device Farm.

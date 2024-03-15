@@ -32,7 +32,6 @@ export interface GetAWSOrganizationsAccessStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Get the Access Status for Organizations portfolio share feature. This API can only be
  *          called by the management account in the organization or by a delegated admin.</p>
  * @example
@@ -65,6 +64,7 @@ export interface GetAWSOrganizationsAccessStatusCommandOutput
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class GetAWSOrganizationsAccessStatusCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface StopInstanceCommandInput extends StopInstanceRequest {}
 export interface StopInstanceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a specified instance. When you stop a standard instance, the data disappears and must
  *       be reinstalled when you restart the instance. You can stop an Amazon EBS-backed instance without
  *       losing data. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html">Starting,
@@ -68,6 +67,7 @@ export interface StopInstanceCommandOutput extends __MetadataBearer {}
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class StopInstanceCommand extends $Command
   .classBuilder<

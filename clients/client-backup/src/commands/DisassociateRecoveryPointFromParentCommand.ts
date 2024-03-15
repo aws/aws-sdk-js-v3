@@ -30,7 +30,6 @@ export interface DisassociateRecoveryPointFromParentCommandInput extends Disasso
 export interface DisassociateRecoveryPointFromParentCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>This action to a specific child (nested) recovery point removes the relationship
  *          between the specified recovery point and its parent (composite) recovery point.</p>
  * @example
@@ -75,6 +74,7 @@ export interface DisassociateRecoveryPointFromParentCommandOutput extends __Meta
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class DisassociateRecoveryPointFromParentCommand extends $Command
   .classBuilder<

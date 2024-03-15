@@ -40,7 +40,6 @@ export interface StartElasticsearchServiceSoftwareUpdateCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Schedules a service software update for an Amazon ES domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface StartElasticsearchServiceSoftwareUpdateCommandOutput
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * @public
  */
 export class StartElasticsearchServiceSoftwareUpdateCommand extends $Command
   .classBuilder<

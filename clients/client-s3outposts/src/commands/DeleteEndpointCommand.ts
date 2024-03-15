@@ -27,7 +27,6 @@ export interface DeleteEndpointCommandInput extends DeleteEndpointRequest {}
 export interface DeleteEndpointCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an endpoint.</p>
  *          <note>
  *             <p>It can take up to 5 minutes for this action to finish.</p>
@@ -89,6 +88,7 @@ export interface DeleteEndpointCommandOutput extends __MetadataBearer {}
  * @throws {@link S3OutpostsServiceException}
  * <p>Base exception class for all service exceptions from S3Outposts service.</p>
  *
+ * @public
  */
 export class DeleteEndpointCommand extends $Command
   .classBuilder<

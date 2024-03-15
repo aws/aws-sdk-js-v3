@@ -27,7 +27,6 @@ export interface UpdateDatabaseCommandInput extends UpdateDatabaseRequest {}
 export interface UpdateDatabaseCommandOutput extends UpdateDatabaseResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing database definition in a Data Catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface UpdateDatabaseCommandOutput extends UpdateDatabaseResponse, __M
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class UpdateDatabaseCommand extends $Command
   .classBuilder<

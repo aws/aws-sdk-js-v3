@@ -27,7 +27,6 @@ export interface AssociateBrowserSettingsCommandInput extends AssociateBrowserSe
 export interface AssociateBrowserSettingsCommandOutput extends AssociateBrowserSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a browser settings resource with a web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface AssociateBrowserSettingsCommandOutput extends AssociateBrowserS
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * @public
  */
 export class AssociateBrowserSettingsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteMLEndpointCommandInput extends DeleteMLEndpointInput {}
 export interface DeleteMLEndpointCommandOutput extends DeleteMLEndpointOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels the creation of a Neptune ML inference endpoint. See
  *       <a href="https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-endpoints.html">Managing
  *       inference endpoints using the endpoints command</a>.</p>
@@ -96,6 +95,7 @@ export interface DeleteMLEndpointCommandOutput extends DeleteMLEndpointOutput, _
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * @public
  */
 export class DeleteMLEndpointCommand extends $Command
   .classBuilder<

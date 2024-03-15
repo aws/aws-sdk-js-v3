@@ -27,7 +27,6 @@ export interface ListRuleGroupsCommandInput extends ListRuleGroupsRequest {}
 export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves an array of <a>RuleGroupSummary</a> objects for the rule groups
  *          that you manage. </p>
  * @example
@@ -95,6 +94,7 @@ export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __M
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class ListRuleGroupsCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface RestorePhoneNumberCommandInput extends RestorePhoneNumberReques
 export interface RestorePhoneNumberCommandOutput extends RestorePhoneNumberResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Moves a phone number from the <b>Deletion queue</b> back into the
  *             phone number <b>Inventory</b>.</p>
  * @example
@@ -111,6 +110,7 @@ export interface RestorePhoneNumberCommandOutput extends RestorePhoneNumberRespo
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class RestorePhoneNumberCommand extends $Command
   .classBuilder<

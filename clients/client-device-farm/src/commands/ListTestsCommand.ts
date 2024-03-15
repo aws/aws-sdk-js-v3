@@ -27,7 +27,6 @@ export interface ListTestsCommandInput extends ListTestsRequest {}
 export interface ListTestsCommandOutput extends ListTestsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about tests in a given test suite.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface ListTestsCommandOutput extends ListTestsResult, __MetadataBeare
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To get information about tests
  * ```javascript
  * // The following example returns information about tests, given a specific Device Farm project.

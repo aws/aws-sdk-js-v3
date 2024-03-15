@@ -27,7 +27,6 @@ export interface ListPublicKeysCommandInput extends ListPublicKeysRequest {}
 export interface ListPublicKeysCommandOutput extends ListPublicKeysResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>List all public keys that have been added to CloudFront for this account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface ListPublicKeysCommandOutput extends ListPublicKeysResult, __Met
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class ListPublicKeysCommand extends $Command
   .classBuilder<

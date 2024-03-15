@@ -27,7 +27,6 @@ export interface ListGatewaysCommandInput extends ListGatewaysInput {}
 export interface ListGatewaysCommandOutput extends ListGatewaysOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists gateways owned by an Amazon Web Services account in an Amazon Web Services Region
  *          specified in the request. The returned list is ordered by gateway Amazon Resource Name
  *          (ARN).</p>
@@ -87,6 +86,7 @@ export interface ListGatewaysCommandOutput extends ListGatewaysOutput, __Metadat
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To lists region specific gateways per AWS account
  * ```javascript
  * // Lists gateways owned by an AWS account in a specified region as requested. Results are sorted by gateway ARN up to a maximum of 100 gateways.

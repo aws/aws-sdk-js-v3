@@ -27,7 +27,6 @@ export interface CreateBackendCommandInput extends CreateBackendRequest {}
 export interface CreateBackendCommandOutput extends CreateBackendResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation creates a backend for an Amplify app. Backends are automatically created at the time of app creation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface CreateBackendCommandOutput extends CreateBackendResponse, __Met
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ * @public
  */
 export class CreateBackendCommand extends $Command
   .classBuilder<

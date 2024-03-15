@@ -31,7 +31,6 @@ export interface GetDevicePositionCommandInput extends GetDevicePositionRequest 
 export interface GetDevicePositionCommandOutput extends GetDevicePositionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a device's most recent position according to its sample time.</p>
  *          <note>
  *             <p>Device positions are deleted after 30 days.</p>
@@ -90,6 +89,7 @@ export interface GetDevicePositionCommandOutput extends GetDevicePositionRespons
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class GetDevicePositionCommand extends $Command
   .classBuilder<

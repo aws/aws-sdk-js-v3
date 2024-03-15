@@ -31,7 +31,6 @@ export interface CopyDistributionCommandInput extends CopyDistributionRequest {}
 export interface CopyDistributionCommandOutput extends CopyDistributionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a staging distribution using the configuration of the provided primary
  * 			distribution. A staging distribution is a copy of an existing distribution (called the
  * 			primary distribution) that you can use in a continuous deployment workflow.</p>
@@ -651,6 +650,7 @@ export interface CopyDistributionCommandOutput extends CopyDistributionResult, _
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class CopyDistributionCommand extends $Command
   .classBuilder<

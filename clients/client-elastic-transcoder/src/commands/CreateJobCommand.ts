@@ -31,7 +31,6 @@ export interface CreateJobCommandInput extends CreateJobRequest {}
 export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>When you create a job, Elastic Transcoder returns JSON data that includes the values that you specified
  *             plus information about the job that is created.</p>
  *         <p>If you have specified more than one output for your jobs (for example, one output for the
@@ -544,6 +543,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * @throws {@link ElasticTranscoderServiceException}
  * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
+ * @public
  */
 export class CreateJobCommand extends $Command
   .classBuilder<

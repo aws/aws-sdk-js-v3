@@ -27,9 +27,6 @@ export interface RetryDataReplicationCommandInput extends RetryDataReplicationRe
 export interface RetryDataReplicationCommandOutput extends SourceServer, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated WARNING: RetryDataReplication is deprecated
- *
  * <p>WARNING: RetryDataReplication is deprecated.
  *               Causes the data replication initiation sequence to begin immediately upon next Handshake for the specified Source Server ID, regardless of when the previous initiation started. This command will work only if the Source Server is stalled or is in a DISCONNECTED or STOPPED state.
  *         </p>
@@ -175,6 +172,8 @@ export interface RetryDataReplicationCommandOutput extends SourceServer, __Metad
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * @public
+ * @deprecated WARNING: RetryDataReplication is deprecated
  */
 export class RetryDataReplicationCommand extends $Command
   .classBuilder<

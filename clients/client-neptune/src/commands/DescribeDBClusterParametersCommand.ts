@@ -27,7 +27,6 @@ export interface DescribeDBClusterParametersCommandInput extends DescribeDBClust
 export interface DescribeDBClusterParametersCommandOutput extends DBClusterParameterGroupDetails, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the detailed parameter list for a particular DB cluster parameter group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface DescribeDBClusterParametersCommandOutput extends DBClusterParam
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class DescribeDBClusterParametersCommand extends $Command
   .classBuilder<

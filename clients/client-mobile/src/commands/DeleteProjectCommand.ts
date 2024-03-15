@@ -27,7 +27,6 @@ export interface DeleteProjectCommandInput extends DeleteProjectRequest {}
 export interface DeleteProjectCommandOutput extends DeleteProjectResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Delets a project in AWS Mobile Hub.
  *         </p>
@@ -106,6 +105,7 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResult, __Metad
  * @throws {@link MobileServiceException}
  * <p>Base exception class for all service exceptions from Mobile service.</p>
  *
+ * @public
  */
 export class DeleteProjectCommand extends $Command
   .classBuilder<

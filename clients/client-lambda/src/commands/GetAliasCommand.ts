@@ -27,7 +27,6 @@ export interface GetAliasCommandInput extends GetAliasRequest {}
 export interface GetAliasCommandOutput extends AliasConfiguration, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns details about a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface GetAliasCommandOutput extends AliasConfiguration, __MetadataBea
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class GetAliasCommand extends $Command
   .classBuilder<

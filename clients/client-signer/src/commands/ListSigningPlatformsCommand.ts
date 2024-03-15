@@ -27,7 +27,6 @@ export interface ListSigningPlatformsCommandInput extends ListSigningPlatformsRe
 export interface ListSigningPlatformsCommandOutput extends ListSigningPlatformsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all signing platforms available in AWS Signer that match the request parameters. If
  * 			additional jobs remain to be listed, Signer returns a <code>nextToken</code> value.
  * 			Use this value in subsequent calls to <code>ListSigningJobs</code> to fetch the
@@ -109,6 +108,7 @@ export interface ListSigningPlatformsCommandOutput extends ListSigningPlatformsR
  * @throws {@link SignerServiceException}
  * <p>Base exception class for all service exceptions from Signer service.</p>
  *
+ * @public
  */
 export class ListSigningPlatformsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetContactCommandInput extends GetContactRequest {}
 export interface GetContactCommandOutput extends GetContactResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a contact from a contact list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface GetContactCommandOutput extends GetContactResponse, __MetadataB
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class GetContactCommand extends $Command
   .classBuilder<

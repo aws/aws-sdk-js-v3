@@ -37,7 +37,6 @@ export interface UpdateServiceTemplateVersionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Update a major or minor version of a service template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -117,6 +116,7 @@ export interface UpdateServiceTemplateVersionCommandOutput
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class UpdateServiceTemplateVersionCommand extends $Command
   .classBuilder<

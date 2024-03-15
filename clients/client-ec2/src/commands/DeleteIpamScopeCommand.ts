@@ -27,7 +27,6 @@ export interface DeleteIpamScopeCommandInput extends DeleteIpamScopeRequest {}
 export interface DeleteIpamScopeCommandOutput extends DeleteIpamScopeResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete the scope for an IPAM. You cannot delete the default scopes.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/delete-scope-ipam.html">Delete a scope</a> in the <i>Amazon VPC IPAM User Guide</i>.
  *       </p>
@@ -75,6 +74,7 @@ export interface DeleteIpamScopeCommandOutput extends DeleteIpamScopeResult, __M
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DeleteIpamScopeCommand extends $Command
   .classBuilder<

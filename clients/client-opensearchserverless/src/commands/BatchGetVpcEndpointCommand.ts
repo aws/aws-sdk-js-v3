@@ -31,7 +31,6 @@ export interface BatchGetVpcEndpointCommandInput extends BatchGetVpcEndpointRequ
 export interface BatchGetVpcEndpointCommandOutput extends BatchGetVpcEndpointResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns attributes for one or more VPC endpoints associated with the current account.
  *             For more information, see
  *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html">Access Amazon OpenSearch Serverless using an interface endpoint</a>.</p>
@@ -91,6 +90,7 @@ export interface BatchGetVpcEndpointCommandOutput extends BatchGetVpcEndpointRes
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ * @public
  */
 export class BatchGetVpcEndpointCommand extends $Command
   .classBuilder<

@@ -10,8 +10,8 @@ import { WorkMailMessageFlowServiceException as __BaseException } from "./WorkMa
  */
 export interface GetRawMessageContentRequest {
   /**
-   * @public
    * <p>The identifier of the email message to retrieve.</p>
+   * @public
    */
   messageId: string | undefined;
 }
@@ -21,15 +21,15 @@ export interface GetRawMessageContentRequest {
  */
 export interface GetRawMessageContentResponse {
   /**
-   * @public
    * <p>The raw content of the email message, in MIME format.</p>
+   * @public
    */
   messageContent: StreamingBlobTypes | undefined;
 }
 
 /**
- * @public
  * <p>The requested email message is not found.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -48,7 +48,6 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>WorkMail could not access the updated email content. Possible reasons:</p>
  *          <ul>
  *             <li>
@@ -66,6 +65,7 @@ export class ResourceNotFoundException extends __BaseException {
  *           Guide</i>.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class InvalidContentLocation extends __BaseException {
   readonly name: "InvalidContentLocation" = "InvalidContentLocation";
@@ -84,8 +84,8 @@ export class InvalidContentLocation extends __BaseException {
 }
 
 /**
- * @public
  * <p>The requested email is not eligible for update. This is usually the case for a redirected email.</p>
+ * @public
  */
 export class MessageFrozen extends __BaseException {
   readonly name: "MessageFrozen" = "MessageFrozen";
@@ -104,9 +104,9 @@ export class MessageFrozen extends __BaseException {
 }
 
 /**
- * @public
  * <p>The requested email could not be updated due to an error in the MIME content. Check the error message for more information about
  *       what caused the error.</p>
+ * @public
  */
 export class MessageRejected extends __BaseException {
   readonly name: "MessageRejected" = "MessageRejected";
@@ -125,7 +125,6 @@ export class MessageRejected extends __BaseException {
 }
 
 /**
- * @public
  * <p>Amazon S3 object representing the updated message content, in MIME format.</p>
  *          <note>
  *             <p>The region for the S3 bucket containing the S3 object must match the region used for WorkMail operations. Also, for WorkMail to process
@@ -133,29 +132,29 @@ export class MessageRejected extends __BaseException {
  *       <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/update-with-lambda.html">
  *         Updating message content with AWS Lambda</a>.</p>
  *          </note>
+ * @public
  */
 export interface S3Reference {
   /**
-   * @public
    * <p>The S3 bucket name.</p>
+   * @public
    */
   bucket: string | undefined;
 
   /**
-   * @public
    * <p>The S3 key object name.</p>
+   * @public
    */
   key: string | undefined;
 
   /**
-   * @public
    * <p>If you enable versioning for the bucket, you can specify the object version.</p>
+   * @public
    */
   objectVersion?: string;
 }
 
 /**
- * @public
  * <p>Provides the MIME content of the updated email message as an S3 object. All MIME content must meet the following criteria:</p>
  *          <ul>
  *             <li>
@@ -183,11 +182,12 @@ export interface S3Reference {
  *                <p>Certain unique headers can only appear once. Check the returned error message for more information.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export interface RawMessageContent {
   /**
-   * @public
    * <p>The S3 reference of an email message.</p>
+   * @public
    */
   s3Reference: S3Reference | undefined;
 }
@@ -197,14 +197,14 @@ export interface RawMessageContent {
  */
 export interface PutRawMessageContentRequest {
   /**
-   * @public
    * <p>The identifier of the email message being updated.</p>
+   * @public
    */
   messageId: string | undefined;
 
   /**
-   * @public
    * <p>Describes the raw message content of the updated email message.</p>
+   * @public
    */
   content: RawMessageContent | undefined;
 }

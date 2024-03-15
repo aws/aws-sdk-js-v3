@@ -27,7 +27,6 @@ export interface ListConnectorsCommandInput extends ListConnectorsRequest {}
 export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the list of all registered custom connectors in your Amazon Web Services account.
  *       This API lists only custom connectors registered in this account, not the Amazon Web Services
  *       authored connectors. </p>
@@ -85,6 +84,7 @@ export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __M
  * @throws {@link AppflowServiceException}
  * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ * @public
  */
 export class ListConnectorsCommand extends $Command
   .classBuilder<

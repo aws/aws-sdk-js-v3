@@ -27,9 +27,6 @@ export interface RegisterAVSDeviceCommandInput extends RegisterAVSDeviceRequest 
 export interface RegisterAVSDeviceCommandOutput extends RegisterAVSDeviceResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Registers an Alexa-enabled device built by an Original Equipment Manufacturer (OEM)
  *          using Alexa Voice Service (AVS).</p>
  * @example
@@ -81,6 +78,8 @@ export interface RegisterAVSDeviceCommandOutput extends RegisterAVSDeviceRespons
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class RegisterAVSDeviceCommand extends $Command
   .classBuilder<

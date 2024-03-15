@@ -33,7 +33,6 @@ export interface GetClipCommandOutput extends Omit<GetClipOutput, "Payload">, __
 }
 
 /**
- * @public
  * <p>Downloads an MP4 file (clip) containing the archived, on-demand media from the
  *             specified video stream over the specified time range. </p>
  *          <p>Both the StreamName and the StreamARN parameters are optional, but you must specify
@@ -153,6 +152,7 @@ export interface GetClipCommandOutput extends Omit<GetClipOutput, "Payload">, __
  * @throws {@link KinesisVideoArchivedMediaServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideoArchivedMedia service.</p>
  *
+ * @public
  */
 export class GetClipCommand extends $Command
   .classBuilder<

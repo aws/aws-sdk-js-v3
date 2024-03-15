@@ -30,7 +30,6 @@ export interface IncreaseStreamRetentionPeriodCommandInput extends IncreaseStrea
 export interface IncreaseStreamRetentionPeriodCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Increases the Kinesis data stream's retention period, which is the length of time data
  *             records are accessible after they are added to the stream. The maximum value of a
  *             stream's retention period is 8760 hours (365 days).</p>
@@ -91,6 +90,7 @@ export interface IncreaseStreamRetentionPeriodCommandOutput extends __MetadataBe
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * @public
  */
 export class IncreaseStreamRetentionPeriodCommand extends $Command
   .classBuilder<

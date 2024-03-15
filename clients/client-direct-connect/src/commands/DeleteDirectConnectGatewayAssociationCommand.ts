@@ -36,7 +36,6 @@ export interface DeleteDirectConnectGatewayAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the association between the specified Direct Connect gateway and virtual private gateway.</p>
  *          <p>We recommend that you specify the <code>associationID</code> to delete the association. Alternatively, if you own virtual gateway and a Direct Connect gateway association, you can specify the <code>virtualGatewayId</code> and <code>directConnectGatewayId</code> to delete an association.</p>
  * @example
@@ -93,6 +92,7 @@ export interface DeleteDirectConnectGatewayAssociationCommandOutput
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class DeleteDirectConnectGatewayAssociationCommand extends $Command
   .classBuilder<

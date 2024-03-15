@@ -27,7 +27,6 @@ export interface StopDevEnvironmentSessionCommandInput extends StopDevEnvironmen
 export interface StopDevEnvironmentSessionCommandOutput extends StopDevEnvironmentSessionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a session for a specified Dev Environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface StopDevEnvironmentSessionCommandOutput extends StopDevEnvironme
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ * @public
  */
 export class StopDevEnvironmentSessionCommand extends $Command
   .classBuilder<

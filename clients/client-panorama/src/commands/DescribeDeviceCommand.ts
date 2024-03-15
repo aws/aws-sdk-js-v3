@@ -27,7 +27,6 @@ export interface DescribeDeviceCommandInput extends DescribeDeviceRequest {}
 export interface DescribeDeviceCommandOutput extends DescribeDeviceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -141,6 +140,7 @@ export interface DescribeDeviceCommandOutput extends DescribeDeviceResponse, __M
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ * @public
  */
 export class DescribeDeviceCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface AuthorizeEndpointAccessCommandInput extends AuthorizeEndpointAc
 export interface AuthorizeEndpointAccessCommandOutput extends EndpointAuthorization, __MetadataBearer {}
 
 /**
- * @public
  * <p>Grants access to a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface AuthorizeEndpointAccessCommandOutput extends EndpointAuthorizat
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class AuthorizeEndpointAccessCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface CreateLocationFsxOpenZfsCommandInput extends CreateLocationFsxO
 export interface CreateLocationFsxOpenZfsCommandOutput extends CreateLocationFsxOpenZfsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a transfer <i>location</i> for an Amazon FSx for OpenZFS file system.
  *       DataSync can use this location as a source or destination for transferring
  *       data.</p>
@@ -99,6 +98,7 @@ export interface CreateLocationFsxOpenZfsCommandOutput extends CreateLocationFsx
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class CreateLocationFsxOpenZfsCommand extends $Command
   .classBuilder<

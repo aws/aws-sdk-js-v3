@@ -27,7 +27,6 @@ export interface CreateWebhookCommandInput extends CreateWebhookRequest {}
 export interface CreateWebhookCommandOutput extends CreateWebhookResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new webhook on an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface CreateWebhookCommandOutput extends CreateWebhookResult, __Metad
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ * @public
  */
 export class CreateWebhookCommand extends $Command
   .classBuilder<

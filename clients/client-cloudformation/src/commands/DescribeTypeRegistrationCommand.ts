@@ -27,7 +27,6 @@ export interface DescribeTypeRegistrationCommandInput extends DescribeTypeRegist
 export interface DescribeTypeRegistrationCommandOutput extends DescribeTypeRegistrationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about an extension's registration, including its current status and type and version
  *    identifiers.</p>
  *          <p>When you initiate a registration request using <a>RegisterType</a>, you can then use <a>DescribeTypeRegistration</a> to monitor the progress of that registration request.</p>
@@ -65,6 +64,7 @@ export interface DescribeTypeRegistrationCommandOutput extends DescribeTypeRegis
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class DescribeTypeRegistrationCommand extends $Command
   .classBuilder<

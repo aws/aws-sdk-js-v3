@@ -27,7 +27,6 @@ export interface DescribeTapeRecoveryPointsCommandInput extends DescribeTapeReco
 export interface DescribeTapeRecoveryPointsCommandOutput extends DescribeTapeRecoveryPointsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of virtual tape recovery points that are available for the specified tape
  *          gateway.</p>
  *          <p>A recovery point is a point-in-time view of a virtual tape at which all the data on the
@@ -79,6 +78,7 @@ export interface DescribeTapeRecoveryPointsCommandOutput extends DescribeTapeRec
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To describe virtual tape recovery points
  * ```javascript
  * // Returns a list of virtual tape recovery points that are available for the specified gateway-VTL.

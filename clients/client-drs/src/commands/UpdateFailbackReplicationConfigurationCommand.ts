@@ -31,7 +31,6 @@ export interface UpdateFailbackReplicationConfigurationCommandInput
 export interface UpdateFailbackReplicationConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows you to update the failback replication configuration of a Recovery Instance by ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface UpdateFailbackReplicationConfigurationCommandOutput extends __M
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * @public
  */
 export class UpdateFailbackReplicationConfigurationCommand extends $Command
   .classBuilder<

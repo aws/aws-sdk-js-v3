@@ -30,7 +30,6 @@ export interface DeleteNotificationConfigurationCommandInput extends DeleteNotif
 export interface DeleteNotificationConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified notification.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,6 +60,7 @@ export interface DeleteNotificationConfigurationCommandOutput extends __Metadata
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To delete an Auto Scaling notification
  * ```javascript
  * // This example deletes the specified notification from the specified Auto Scaling group.

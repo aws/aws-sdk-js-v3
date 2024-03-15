@@ -4,15 +4,15 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { IvsServiceException as __BaseException } from "./IvsServiceException";
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>User does not have sufficient access to perform this action.</p>
+   * @public
    */
   exceptionMessage?: string;
   /**
@@ -34,8 +34,8 @@ export class AccessDeniedException extends __BaseException {
  */
 export interface BatchGetChannelRequest {
   /**
-   * @public
    * <p>Array of ARNs, one per channel.</p>
+   * @public
    */
   arns: string[] | undefined;
 }
@@ -85,118 +85,118 @@ export const ChannelType = {
 export type ChannelType = (typeof ChannelType)[keyof typeof ChannelType];
 
 /**
- * @public
  * <p>Object specifying a channel.</p>
+ * @public
  */
 export interface Channel {
   /**
-   * @public
    * <p>Channel ARN.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>Channel name.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Channel latency mode. Use <code>NORMAL</code> to broadcast and deliver live video up to
    *       Full HD. Use <code>LOW</code> for near-real-time interaction with viewers. Default:
    *         <code>LOW</code>.</p>
+   * @public
    */
   latencyMode?: ChannelLatencyMode;
 
   /**
-   * @public
    * <p>Channel type, which determines the allowable resolution and bitrate. <i>If you
    *         exceed the allowable input resolution or bitrate, the stream probably will disconnect
    *         immediately.</i> Default: <code>STANDARD</code>. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/channel-types.html">Channel
    *         Types</a>.</p>
+   * @public
    */
   type?: ChannelType;
 
   /**
-   * @public
    * <p>Recording-configuration ARN. A valid ARN value here both specifies the ARN and enables recording.
    *     Default: "" (empty string, recording is disabled).</p>
+   * @public
    */
   recordingConfigurationArn?: string;
 
   /**
-   * @public
    * <p>Channel ingest endpoint, part of the definition of an ingest server, used when you set up
    *       streaming software.</p>
+   * @public
    */
   ingestEndpoint?: string;
 
   /**
-   * @public
    * <p>Channel playback URL.</p>
+   * @public
    */
   playbackUrl?: string;
 
   /**
-   * @public
    * <p>Whether the channel is private (enabled for playback authorization). Default:
    *         <code>false</code>.</p>
+   * @public
    */
   authorized?: boolean;
 
   /**
-   * @public
    * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string
    *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for more information, including restrictions
    *       that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
    *       service-specific constraints beyond what is documented there.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>Whether the channel allows insecure RTMP ingest. Default: <code>false</code>.</p>
+   * @public
    */
   insecureIngest?: boolean;
 
   /**
-   * @public
    * <p>Optional transcode preset for the channel. This is selectable only for
    *         <code>ADVANCED_HD</code> and <code>ADVANCED_SD</code> channel types. For those channel
    *       types, the default <code>preset</code> is <code>HIGHER_BANDWIDTH_DELIVERY</code>. For other
    *       channel types (<code>BASIC</code> and <code>STANDARD</code>), <code>preset</code> is the empty
    *       string (<code>""</code>).</p>
+   * @public
    */
   preset?: TranscodePreset;
 
   /**
-   * @public
    * <p>Playback-restriction-policy ARN. A valid ARN value here both specifies the ARN and enables playback restriction. Default: "" (empty string, no playback restriction policy is applied).</p>
+   * @public
    */
   playbackRestrictionPolicyArn?: string;
 }
 
 /**
- * @public
  * <p>Error related to a specific channel, specified by its ARN.</p>
+ * @public
  */
 export interface BatchError {
   /**
-   * @public
    * <p>Channel ARN.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>Error code.</p>
+   * @public
    */
   code?: string;
 
   /**
-   * @public
    * <p>Error message, determined by the application.</p>
+   * @public
    */
   message?: string;
 }
@@ -206,14 +206,14 @@ export interface BatchError {
  */
 export interface BatchGetChannelResponse {
   /**
-   * @public
    * <p/>
+   * @public
    */
   channels?: Channel[];
 
   /**
-   * @public
    * <p>Each error object is related to a specific ARN in the request.</p>
+   * @public
    */
   errors?: BatchError[];
 }
@@ -223,41 +223,41 @@ export interface BatchGetChannelResponse {
  */
 export interface BatchGetStreamKeyRequest {
   /**
-   * @public
    * <p>Array of ARNs, one per stream key.</p>
+   * @public
    */
   arns: string[] | undefined;
 }
 
 /**
- * @public
  * <p>Object specifying a stream key.</p>
+ * @public
  */
 export interface StreamKey {
   /**
-   * @public
    * <p>Stream-key ARN.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>Stream-key value.</p>
+   * @public
    */
   value?: string;
 
   /**
-   * @public
    * <p>Channel ARN for the stream.</p>
+   * @public
    */
   channelArn?: string;
 
   /**
-   * @public
    * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string
    *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for more information, including restrictions
    *       that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
    *       service-specific constraints beyond what is documented there.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -267,40 +267,40 @@ export interface StreamKey {
  */
 export interface BatchGetStreamKeyResponse {
   /**
-   * @public
    * <p/>
+   * @public
    */
   streamKeys?: StreamKey[];
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   errors?: BatchError[];
 }
 
 /**
- * @public
  * <p>A viewer session to revoke in the call to <a>BatchStartViewerSessionRevocation</a>.</p>
+ * @public
  */
 export interface BatchStartViewerSessionRevocationViewerSession {
   /**
-   * @public
    * <p>The ARN of the channel associated with the viewer session to revoke.</p>
+   * @public
    */
   channelArn: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the viewer associated with the viewer session to revoke. Do not use this field
    *       for personally identifying, confidential, or sensitive information.</p>
+   * @public
    */
   viewerId: string | undefined;
 
   /**
-   * @public
    * <p>An optional filter on which versions of the viewer session to revoke. All versions less
    *       than or equal to the specified version will be revoked. Default: 0.</p>
+   * @public
    */
   viewerSessionVersionsLessThanOrEqualTo?: number;
 }
@@ -310,39 +310,39 @@ export interface BatchStartViewerSessionRevocationViewerSession {
  */
 export interface BatchStartViewerSessionRevocationRequest {
   /**
-   * @public
    * <p>Array of viewer sessions, one per channel-ARN and viewer-ID pair.</p>
+   * @public
    */
   viewerSessions: BatchStartViewerSessionRevocationViewerSession[] | undefined;
 }
 
 /**
- * @public
  * <p>Error for a request in the batch for BatchStartViewerSessionRevocation. Each error is
  *       related to a specific channel-ARN and viewer-ID pair.</p>
+ * @public
  */
 export interface BatchStartViewerSessionRevocationError {
   /**
-   * @public
    * <p>Channel ARN.</p>
+   * @public
    */
   channelArn: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the viewer session to revoke.</p>
+   * @public
    */
   viewerId: string | undefined;
 
   /**
-   * @public
    * <p>Error code.</p>
+   * @public
    */
   code?: string;
 
   /**
-   * @public
    * <p>Error message, determined by the application.</p>
+   * @public
    */
   message?: string;
 }
@@ -352,23 +352,23 @@ export interface BatchStartViewerSessionRevocationError {
  */
 export interface BatchStartViewerSessionRevocationResponse {
   /**
-   * @public
    * <p>Each error object is related to a specific <code>channelArn</code> and
    *         <code>viewerId</code> pair in the request.</p>
+   * @public
    */
   errors?: BatchStartViewerSessionRevocationError[];
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export class PendingVerification extends __BaseException {
   readonly name: "PendingVerification" = "PendingVerification";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p> Your account is pending verification. </p>
+   * @public
    */
   exceptionMessage?: string;
   /**
@@ -386,15 +386,15 @@ export class PendingVerification extends __BaseException {
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>Request was denied due to request throttling.</p>
+   * @public
    */
   exceptionMessage?: string;
   /**
@@ -412,15 +412,15 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+   * @public
    */
   exceptionMessage?: string;
   /**
@@ -442,70 +442,70 @@ export class ValidationException extends __BaseException {
  */
 export interface CreateChannelRequest {
   /**
-   * @public
    * <p>Channel name.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Channel latency mode. Use <code>NORMAL</code> to broadcast and deliver live video up to
    *       Full HD. Use <code>LOW</code> for near-real-time interaction with viewers. Default: <code>LOW</code>.</p>
+   * @public
    */
   latencyMode?: ChannelLatencyMode;
 
   /**
-   * @public
    * <p>Channel type, which determines the allowable resolution and bitrate. <i>If you
    *         exceed the allowable input resolution or bitrate, the stream probably will disconnect
    *         immediately.</i> Default: <code>STANDARD</code>. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/channel-types.html">Channel
    *         Types</a>.</p>
+   * @public
    */
   type?: ChannelType;
 
   /**
-   * @public
    * <p>Whether the channel is private (enabled for playback authorization). Default:
    *         <code>false</code>.</p>
+   * @public
    */
   authorized?: boolean;
 
   /**
-   * @public
    * <p>Recording-configuration ARN. A valid ARN value here both specifies the ARN and enables recording.
    *      Default: "" (empty string, recording is disabled).</p>
+   * @public
    */
   recordingConfigurationArn?: string;
 
   /**
-   * @public
    * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
    *         Resources</a> for more information, including restrictions that apply to tags and "Tag
    *       naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is
    *       documented there.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>Whether the channel allows insecure RTMP ingest. Default: <code>false</code>.</p>
+   * @public
    */
   insecureIngest?: boolean;
 
   /**
-   * @public
    * <p>Optional transcode preset for the channel. This is selectable only for
    *         <code>ADVANCED_HD</code> and <code>ADVANCED_SD</code> channel types. For those channel
    *       types, the default <code>preset</code> is <code>HIGHER_BANDWIDTH_DELIVERY</code>. For other
    *       channel types (<code>BASIC</code> and <code>STANDARD</code>), <code>preset</code> is the empty
    *       string (<code>""</code>).</p>
+   * @public
    */
   preset?: TranscodePreset;
 
   /**
-   * @public
    * <p>Playback-restriction-policy ARN. A valid ARN value here both specifies the ARN and enables playback restriction.
    *     Default: "" (empty string, no playback restriction policy is applied).</p>
+   * @public
    */
   playbackRestrictionPolicyArn?: string;
 }
@@ -515,28 +515,28 @@ export interface CreateChannelRequest {
  */
 export interface CreateChannelResponse {
   /**
-   * @public
    * <p/>
+   * @public
    */
   channel?: Channel;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   streamKey?: StreamKey;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>Request references a resource which does not exist.</p>
+   * @public
    */
   exceptionMessage?: string;
   /**
@@ -554,15 +554,15 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>Request would cause a service quota to be exceeded.</p>
+   * @public
    */
   exceptionMessage?: string;
   /**
@@ -584,89 +584,89 @@ export class ServiceQuotaExceededException extends __BaseException {
  */
 export interface CreatePlaybackRestrictionPolicyRequest {
   /**
-   * @public
    * <p>A list of country codes that control geoblocking restriction. Allowed values are the
    *       officially assigned <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1
    *         alpha-2</a> codes. Default: All countries (an empty array).</p>
+   * @public
    */
   allowedCountries?: string[];
 
   /**
-   * @public
    * <p>A list of origin sites that control CORS restriction. Allowed values are the same as valid
    *       values of the Origin header defined at <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin</a>. Default: All
    *       origins (an empty array).</p>
+   * @public
    */
   allowedOrigins?: string[];
 
   /**
-   * @public
    * <p>Whether channel playback is constrained by origin site. Default:
    *       <code>false</code>.</p>
+   * @public
    */
   enableStrictOriginEnforcement?: boolean;
 
   /**
-   * @public
    * <p>Playback-restriction-policy name. The value does not need to be unique.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
    *         Resources</a> for more information, including restrictions that apply to tags and "Tag
    *       naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is
    *       documented there.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
 
 /**
- * @public
  * <p>An object representing a policy to constrain playback by country and/or origin
  *       sites.</p>
+ * @public
  */
 export interface PlaybackRestrictionPolicy {
   /**
-   * @public
    * <p>Playback-restriction-policy ARN</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>A list of country codes that control geoblocking restriction. Allowed values are the
    *       officially assigned <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> codes. Default: All countries (an empty array).</p>
+   * @public
    */
   allowedCountries: string[] | undefined;
 
   /**
-   * @public
    * <p>A list of origin sites that control CORS restriction. Allowed values are the same as valid
    *       values of the Origin header defined at <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin</a>. Default: All origins (an empty array).</p>
+   * @public
    */
   allowedOrigins: string[] | undefined;
 
   /**
-   * @public
    * <p>Whether channel playback is constrained by origin site. Default:
    *       <code>false</code>.</p>
+   * @public
    */
   enableStrictOriginEnforcement?: boolean;
 
   /**
-   * @public
    * <p>Playback-restriction-policy name. The value does not need to be unique.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string
    *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for more information, including restrictions
    *       that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
    *       service-specific constraints beyond what is documented there.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -676,22 +676,22 @@ export interface PlaybackRestrictionPolicy {
  */
 export interface CreatePlaybackRestrictionPolicyResponse {
   /**
-   * @public
    * <p/>
+   * @public
    */
   playbackRestrictionPolicy?: PlaybackRestrictionPolicy;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>Updating or deleting a resource can cause an inconsistent state.</p>
+   * @public
    */
   exceptionMessage?: string;
   /**
@@ -709,27 +709,27 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A complex type that describes an S3 location where recorded videos will be stored.</p>
+ * @public
  */
 export interface S3DestinationConfiguration {
   /**
-   * @public
    * <p>Location (S3 bucket name) where recorded videos will be stored.</p>
+   * @public
    */
   bucketName: string | undefined;
 }
 
 /**
- * @public
  * <p>A complex type that describes a location where recorded videos will be stored. Each member
  *       represents a type of destination configuration. For recording, you define one and only one
  *       type of destination configuration.</p>
+ * @public
  */
 export interface DestinationConfiguration {
   /**
-   * @public
    * <p>An S3 destination configuration where recorded videos will be stored.</p>
+   * @public
    */
   s3?: S3DestinationConfiguration;
 }
@@ -768,26 +768,26 @@ export type RenditionConfigurationRenditionSelection =
   (typeof RenditionConfigurationRenditionSelection)[keyof typeof RenditionConfigurationRenditionSelection];
 
 /**
- * @public
  * <p>Object that describes which renditions should be recorded for a stream.</p>
+ * @public
  */
 export interface RenditionConfiguration {
   /**
-   * @public
    * <p>Indicates which set of renditions are recorded for a stream. For <code>BASIC</code>
    *       channels, the <code>CUSTOM</code> value has no effect. If <code>CUSTOM</code> is specified, a
    *       set of renditions must be specified in the <code>renditions</code> field. Default:
    *         <code>ALL</code>.</p>
+   * @public
    */
   renditionSelection?: RenditionConfigurationRenditionSelection;
 
   /**
-   * @public
    * <p>Indicates which renditions are recorded for a stream, if <code>renditionSelection</code>
    *       is <code>CUSTOM</code>; otherwise, this field is irrelevant. The selected renditions are
    *       recorded if they are available during the stream. If a selected rendition is unavailable, the
    *       best available rendition is recorded. For details on the resolution dimensions of each
    *       rendition, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/record-to-s3.html">Auto-Record to Amazon S3</a>.</p>
+   * @public
    */
   renditions?: RenditionConfigurationRendition[];
 }
@@ -839,18 +839,17 @@ export type ThumbnailConfigurationStorage =
   (typeof ThumbnailConfigurationStorage)[keyof typeof ThumbnailConfigurationStorage];
 
 /**
- * @public
  * <p>An object representing a configuration of thumbnails for recorded video.</p>
+ * @public
  */
 export interface ThumbnailConfiguration {
   /**
-   * @public
    * <p>Thumbnail recording mode. Default: <code>INTERVAL</code>.</p>
+   * @public
    */
   recordingMode?: RecordingMode;
 
   /**
-   * @public
    * <p>The targeted thumbnail-generation interval in seconds. This is configurable (and required)
    *       only if <code>recordingMode</code> is <code>INTERVAL</code>. Default: 60.</p>
    *          <p>
@@ -861,26 +860,27 @@ export interface ThumbnailConfiguration {
    *       input video must be less than the <code>targetIntervalSeconds</code> value. See <a href="https://docs.aws.amazon.com/ivs/latest/userguide/streaming-config.html"> Amazon IVS Streaming
    *         Configuration</a> for information on setting <code>IDR/Keyframe</code> to the
    *       recommended value in video-encoder settings.</p>
+   * @public
    */
   targetIntervalSeconds?: number;
 
   /**
-   * @public
    * <p>Indicates the desired resolution of recorded thumbnails. Thumbnails are recorded at the
    *       selected resolution if the corresponding rendition is available during the stream; otherwise,
    *       they are recorded at source resolution. For more information about resolution values and their
    *       corresponding height and width dimensions, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/record-to-s3.html">Auto-Record to Amazon S3</a>. Default:
    *       Null (source resolution is returned).</p>
+   * @public
    */
   resolution?: ThumbnailConfigurationResolution;
 
   /**
-   * @public
    * <p>Indicates the format in which thumbnails are recorded. <code>SEQUENTIAL</code> records all
    *       generated thumbnails in a serial manner, to the media/thumbnails directory.
    *         <code>LATEST</code> saves the latest thumbnail in media/latest_thumbnail/thumb.jpg and
    *       overwrites it at the interval specified by <code>targetIntervalSeconds</code>. You can enable
    *       both <code>SEQUENTIAL</code> and <code>LATEST</code>. Default: <code>SEQUENTIAL</code>.</p>
+   * @public
    */
   storage?: ThumbnailConfigurationStorage[];
 }
@@ -890,44 +890,44 @@ export interface ThumbnailConfiguration {
  */
 export interface CreateRecordingConfigurationRequest {
   /**
-   * @public
    * <p>Recording-configuration name. The value does not need to be unique.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>A complex type that contains a destination configuration for where recorded video will be
    *       stored.</p>
+   * @public
    */
   destinationConfiguration: DestinationConfiguration | undefined;
 
   /**
-   * @public
    * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
    *         Resources</a> for more information, including restrictions that apply to tags and "Tag
    *       naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is
    *       documented there.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>A complex type that allows you to enable/disable the recording of thumbnails for a live
    *       session and modify the interval at which thumbnails are generated for the live session.</p>
+   * @public
    */
   thumbnailConfiguration?: ThumbnailConfiguration;
 
   /**
-   * @public
    * <p>If a broadcast disconnects and then reconnects within the specified interval, the multiple
    *       streams will be considered a single broadcast and merged together. Default: 0.</p>
+   * @public
    */
   recordingReconnectWindowSeconds?: number;
 
   /**
-   * @public
    * <p>Object that describes which renditions should be recorded for a stream.</p>
+   * @public
    */
   renditionConfiguration?: RenditionConfiguration;
 }
@@ -949,61 +949,61 @@ export type RecordingConfigurationState =
   (typeof RecordingConfigurationState)[keyof typeof RecordingConfigurationState];
 
 /**
- * @public
  * <p>An object representing a configuration to record a channel stream.</p>
+ * @public
  */
 export interface RecordingConfiguration {
   /**
-   * @public
    * <p>Recording-configuration ARN.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>Recording-configuration name. The value does not need to be unique.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>A complex type that contains information about where recorded video will be stored.</p>
+   * @public
    */
   destinationConfiguration: DestinationConfiguration | undefined;
 
   /**
-   * @public
    * <p>Indicates the current state of the recording configuration. When the state is
    *         <code>ACTIVE</code>, the configuration is ready for recording a channel stream.</p>
+   * @public
    */
   state: RecordingConfigurationState | undefined;
 
   /**
-   * @public
    * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string
    *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for more information, including restrictions
    *       that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
    *       service-specific constraints beyond what is documented there.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>A complex type that allows you to enable/disable the recording of thumbnails for a live
    *       session and modify the interval at which thumbnails are generated for the live session.</p>
+   * @public
    */
   thumbnailConfiguration?: ThumbnailConfiguration;
 
   /**
-   * @public
    * <p>If a broadcast disconnects and then reconnects within the specified interval, the multiple
    *       streams will be considered a single broadcast and merged together. Default: 0.</p>
+   * @public
    */
   recordingReconnectWindowSeconds?: number;
 
   /**
-   * @public
    * <p>Object that describes which renditions should be recorded for a stream.</p>
+   * @public
    */
   renditionConfiguration?: RenditionConfiguration;
 }
@@ -1013,22 +1013,22 @@ export interface RecordingConfiguration {
  */
 export interface CreateRecordingConfigurationResponse {
   /**
-   * @public
    *
+   * @public
    */
   recordingConfiguration?: RecordingConfiguration;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
   /**
-   * @public
    * <p>Unexpected error during processing of request.</p>
+   * @public
    */
   exceptionMessage?: string;
   /**
@@ -1050,17 +1050,17 @@ export class InternalServerException extends __BaseException {
  */
 export interface CreateStreamKeyRequest {
   /**
-   * @public
    * <p>ARN of the channel for which to create the stream key.</p>
+   * @public
    */
   channelArn: string | undefined;
 
   /**
-   * @public
    * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
    *         Resources</a> for more information, including restrictions that apply to tags and "Tag
    *       naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is
    *       documented there.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1070,8 +1070,8 @@ export interface CreateStreamKeyRequest {
  */
 export interface CreateStreamKeyResponse {
   /**
-   * @public
    * <p>Stream key used to authenticate an RTMPS stream for ingestion.</p>
+   * @public
    */
   streamKey?: StreamKey;
 }
@@ -1081,8 +1081,8 @@ export interface CreateStreamKeyResponse {
  */
 export interface DeleteChannelRequest {
   /**
-   * @public
    * <p>ARN of the channel to be deleted.</p>
+   * @public
    */
   arn: string | undefined;
 }
@@ -1092,8 +1092,8 @@ export interface DeleteChannelRequest {
  */
 export interface DeletePlaybackKeyPairRequest {
   /**
-   * @public
    * <p>ARN of the key pair to be deleted.</p>
+   * @public
    */
   arn: string | undefined;
 }
@@ -1108,8 +1108,8 @@ export interface DeletePlaybackKeyPairResponse {}
  */
 export interface DeletePlaybackRestrictionPolicyRequest {
   /**
-   * @public
    * <p>ARN of the playback restriction policy to be deleted.</p>
+   * @public
    */
   arn: string | undefined;
 }
@@ -1119,8 +1119,8 @@ export interface DeletePlaybackRestrictionPolicyRequest {
  */
 export interface DeleteRecordingConfigurationRequest {
   /**
-   * @public
    * <p>ARN of the recording configuration to be deleted.</p>
+   * @public
    */
   arn: string | undefined;
 }
@@ -1130,8 +1130,8 @@ export interface DeleteRecordingConfigurationRequest {
  */
 export interface DeleteStreamKeyRequest {
   /**
-   * @public
    * <p>ARN of the stream key to be deleted.</p>
+   * @public
    */
   arn: string | undefined;
 }
@@ -1141,8 +1141,8 @@ export interface DeleteStreamKeyRequest {
  */
 export interface GetChannelRequest {
   /**
-   * @public
    * <p>ARN of the channel for which the configuration is to be retrieved.</p>
+   * @public
    */
   arn: string | undefined;
 }
@@ -1152,8 +1152,8 @@ export interface GetChannelRequest {
  */
 export interface GetChannelResponse {
   /**
-   * @public
    * <p/>
+   * @public
    */
   channel?: Channel;
 }
@@ -1163,41 +1163,41 @@ export interface GetChannelResponse {
  */
 export interface GetPlaybackKeyPairRequest {
   /**
-   * @public
    * <p>ARN of the key pair to be returned.</p>
+   * @public
    */
   arn: string | undefined;
 }
 
 /**
- * @public
  * <p>A key pair used to sign and validate a playback authorization token.</p>
+ * @public
  */
 export interface PlaybackKeyPair {
   /**
-   * @public
    * <p>Key-pair ARN.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>Playback-key-pair name. The value does not need to be unique.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Key-pair identifier.</p>
+   * @public
    */
   fingerprint?: string;
 
   /**
-   * @public
    * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string
    *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for more information, including restrictions
    *       that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
    *       service-specific constraints beyond what is documented there.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1207,8 +1207,8 @@ export interface PlaybackKeyPair {
  */
 export interface GetPlaybackKeyPairResponse {
   /**
-   * @public
    *
+   * @public
    */
   keyPair?: PlaybackKeyPair;
 }
@@ -1218,8 +1218,8 @@ export interface GetPlaybackKeyPairResponse {
  */
 export interface GetPlaybackRestrictionPolicyRequest {
   /**
-   * @public
    * <p>ARN of the playback restriction policy to be returned.</p>
+   * @public
    */
   arn: string | undefined;
 }
@@ -1229,8 +1229,8 @@ export interface GetPlaybackRestrictionPolicyRequest {
  */
 export interface GetPlaybackRestrictionPolicyResponse {
   /**
-   * @public
    * <p/>
+   * @public
    */
   playbackRestrictionPolicy?: PlaybackRestrictionPolicy;
 }
@@ -1240,8 +1240,8 @@ export interface GetPlaybackRestrictionPolicyResponse {
  */
 export interface GetRecordingConfigurationRequest {
   /**
-   * @public
    * <p>ARN of the recording configuration to be retrieved.</p>
+   * @public
    */
   arn: string | undefined;
 }
@@ -1251,22 +1251,22 @@ export interface GetRecordingConfigurationRequest {
  */
 export interface GetRecordingConfigurationResponse {
   /**
-   * @public
    *
+   * @public
    */
   recordingConfiguration?: RecordingConfiguration;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export class ChannelNotBroadcasting extends __BaseException {
   readonly name: "ChannelNotBroadcasting" = "ChannelNotBroadcasting";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The stream is offline for the given channel ARN.</p>
+   * @public
    */
   exceptionMessage?: string;
   /**
@@ -1288,8 +1288,8 @@ export class ChannelNotBroadcasting extends __BaseException {
  */
 export interface GetStreamRequest {
   /**
-   * @public
    * <p>Channel ARN for stream to be accessed.</p>
+   * @public
    */
   channelArn: string | undefined;
 }
@@ -1324,55 +1324,55 @@ export const StreamState = {
 export type StreamState = (typeof StreamState)[keyof typeof StreamState];
 
 /**
- * @public
  * <p>Specifies a live video stream that has been ingested and distributed.</p>
+ * @public
  */
 export interface _Stream {
   /**
-   * @public
    * <p>Channel ARN for the stream.</p>
+   * @public
    */
   channelArn?: string;
 
   /**
-   * @public
    * <p>Unique identifier for a live or previously live stream in the specified channel.</p>
+   * @public
    */
   streamId?: string;
 
   /**
-   * @public
    * <p>URL of the master playlist, required by the video player to play the HLS stream.</p>
+   * @public
    */
   playbackUrl?: string;
 
   /**
-   * @public
    * <p>Time of the stream’s start. This is an ISO 8601 timestamp; <i>note that this is
    *         returned as a string</i>.</p>
+   * @public
    */
   startTime?: Date;
 
   /**
-   * @public
    * <p>The stream’s state. Do not rely on the <code>OFFLINE</code> state, as the API may not
    *       return it; instead, a "NotBroadcasting" error will indicate that the stream is not
    *       live.</p>
+   * @public
    */
   state?: StreamState;
 
   /**
-   * @public
    * <p>The stream’s health.</p>
+   * @public
    */
   health?: StreamHealth;
 
   /**
-   * @public
    * <p>A count of concurrent views of the stream. Typically, a new view appears in
    *         <code>viewerCount</code> within 15 seconds of when video playback starts and a view is
    *       removed from <code>viewerCount</code> within 1 minute of when video playback ends. A value of
    *       -1 indicates that the request timed out; in this case, retry.</p>
+   * @public
    */
   viewerCount?: number;
 }
@@ -1382,8 +1382,8 @@ export interface _Stream {
  */
 export interface GetStreamResponse {
   /**
-   * @public
    * <p/>
+   * @public
    */
   stream?: _Stream;
 }
@@ -1393,8 +1393,8 @@ export interface GetStreamResponse {
  */
 export interface GetStreamKeyRequest {
   /**
-   * @public
    * <p>ARN for the stream key to be retrieved.</p>
+   * @public
    */
   arn: string | undefined;
 }
@@ -1404,8 +1404,8 @@ export interface GetStreamKeyRequest {
  */
 export interface GetStreamKeyResponse {
   /**
-   * @public
    *
+   * @public
    */
   streamKey?: StreamKey;
 }
@@ -1415,205 +1415,205 @@ export interface GetStreamKeyResponse {
  */
 export interface GetStreamSessionRequest {
   /**
-   * @public
    * <p>ARN of the channel resource</p>
+   * @public
    */
   channelArn: string | undefined;
 
   /**
-   * @public
    * <p>Unique identifier for a live or previously live stream in the specified channel. If no
    *         <code>streamId</code> is provided, this returns the most recent stream session for the
    *       channel, if it exists.</p>
+   * @public
    */
   streamId?: string;
 }
 
 /**
- * @public
  * <p>Object specifying a stream’s audio configuration, as set up by the broadcaster (usually in
  *       an encoder). This is part of the <a>IngestConfiguration</a> object and used for
  *       monitoring stream health.</p>
+ * @public
  */
 export interface AudioConfiguration {
   /**
-   * @public
    * <p>Codec used for the audio encoding.</p>
+   * @public
    */
   codec?: string;
 
   /**
-   * @public
    * <p>The expected ingest bitrate (bits per second). This is configured in the encoder.</p>
+   * @public
    */
   targetBitrate?: number;
 
   /**
-   * @public
    * <p>Number of audio samples recorded per second.</p>
+   * @public
    */
   sampleRate?: number;
 
   /**
-   * @public
    * <p>Number of audio channels.</p>
+   * @public
    */
   channels?: number;
 }
 
 /**
- * @public
  * <p>Object specifying a stream’s video configuration, as set up by the broadcaster (usually in
  *       an encoder). This is part of the <a>IngestConfiguration</a> object and used for
  *       monitoring stream health.</p>
+ * @public
  */
 export interface VideoConfiguration {
   /**
-   * @public
    * <p>Indicates to the decoder the requirements for decoding the stream. For definitions of the
    *       valid values, see the H.264 specification.</p>
+   * @public
    */
   avcProfile?: string;
 
   /**
-   * @public
    * <p>Indicates the degree of required decoder performance for a profile. Normally this is set
    *       automatically by the encoder. For details, see the H.264 specification.</p>
+   * @public
    */
   avcLevel?: string;
 
   /**
-   * @public
    * <p>Codec used for the video encoding.</p>
+   * @public
    */
   codec?: string;
 
   /**
-   * @public
    * <p>Software or hardware used to encode the video.</p>
+   * @public
    */
   encoder?: string;
 
   /**
-   * @public
    * <p>The expected ingest bitrate (bits per second). This is configured in the encoder.</p>
+   * @public
    */
   targetBitrate?: number;
 
   /**
-   * @public
    * <p>The expected ingest framerate. This is configured in the encoder.</p>
+   * @public
    */
   targetFramerate?: number;
 
   /**
-   * @public
    * <p>Video-resolution height in pixels.</p>
+   * @public
    */
   videoHeight?: number;
 
   /**
-   * @public
    * <p>Video-resolution width in pixels.</p>
+   * @public
    */
   videoWidth?: number;
 }
 
 /**
- * @public
  * <p>Object specifying the ingest configuration set up by the broadcaster, usually in an
  *       encoder.</p>
+ * @public
  */
 export interface IngestConfiguration {
   /**
-   * @public
    * <p>Encoder settings for video.</p>
+   * @public
    */
   video?: VideoConfiguration;
 
   /**
-   * @public
    * <p>Encoder settings for audio.</p>
+   * @public
    */
   audio?: AudioConfiguration;
 }
 
 /**
- * @public
  * <p>Object specifying a stream’s events. For a list of events, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/eventbridge.html">Using Amazon EventBridge with Amazon
  *       IVS</a>.</p>
+ * @public
  */
 export interface StreamEvent {
   /**
-   * @public
    * <p>Name that identifies the stream event within a <code>type</code>.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Logical group for certain events.</p>
+   * @public
    */
   type?: string;
 
   /**
-   * @public
    * <p>Time when the event occurred. This is an ISO 8601 timestamp; <i>note that this is
    *         returned as a string</i>.</p>
+   * @public
    */
   eventTime?: Date;
 }
 
 /**
- * @public
  * <p>Object that captures the Amazon IVS configuration that the customer provisioned, the
  *       ingest configurations that the broadcaster used, and the most recent Amazon IVS stream events
  *       it encountered.</p>
+ * @public
  */
 export interface StreamSession {
   /**
-   * @public
    * <p>Unique identifier for a live or previously live stream in the specified channel.</p>
+   * @public
    */
   streamId?: string;
 
   /**
-   * @public
    * <p>Time when the channel went live. This is an ISO 8601 timestamp; <i>note that this
    *         is returned as a string</i>.</p>
+   * @public
    */
   startTime?: Date;
 
   /**
-   * @public
    * <p>Time when the channel went offline. This is an ISO 8601 timestamp; <i>note that
    *         this is returned as a string</i>. For live streams, this is <code>NULL</code>.</p>
+   * @public
    */
   endTime?: Date;
 
   /**
-   * @public
    * <p>The properties of the channel at the time of going live.</p>
+   * @public
    */
   channel?: Channel;
 
   /**
-   * @public
    * <p>The properties of the incoming RTMP stream for the stream.</p>
+   * @public
    */
   ingestConfiguration?: IngestConfiguration;
 
   /**
-   * @public
    * <p>The properties of recording the live stream.</p>
+   * @public
    */
   recordingConfiguration?: RecordingConfiguration;
 
   /**
-   * @public
    * <p>List of Amazon IVS events that the stream encountered. The list is sorted by most recent
    *       events and contains up to 500 events. For Amazon IVS events, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/eventbridge.html">Using Amazon EventBridge with Amazon
    *       IVS</a>.</p>
+   * @public
    */
   truncatedEvents?: StreamEvent[];
 }
@@ -1623,8 +1623,8 @@ export interface StreamSession {
  */
 export interface GetStreamSessionResponse {
   /**
-   * @public
    * <p>List of stream details.</p>
+   * @public
    */
   streamSession?: StreamSession;
 }
@@ -1634,23 +1634,23 @@ export interface GetStreamSessionResponse {
  */
 export interface ImportPlaybackKeyPairRequest {
   /**
-   * @public
    * <p>The public portion of a customer-generated key pair.</p>
+   * @public
    */
   publicKeyMaterial: string | undefined;
 
   /**
-   * @public
    * <p>Playback-key-pair name. The value does not need to be unique.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Any tags provided with the request are added to the playback key pair tags. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
    *         Resources</a> for more information, including restrictions that apply to tags and "Tag
    *       naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is
    *       documented there.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1660,8 +1660,8 @@ export interface ImportPlaybackKeyPairRequest {
  */
 export interface ImportPlaybackKeyPairResponse {
   /**
-   * @public
    * <p/>
+   * @public
    */
   keyPair?: PlaybackKeyPair;
 }
@@ -1671,114 +1671,114 @@ export interface ImportPlaybackKeyPairResponse {
  */
 export interface ListChannelsRequest {
   /**
-   * @public
    * <p>Filters the channel list to match the specified name.</p>
+   * @public
    */
   filterByName?: string;
 
   /**
-   * @public
    * <p>Filters the channel list to match the specified recording-configuration ARN.</p>
+   * @public
    */
   filterByRecordingConfigurationArn?: string;
 
   /**
-   * @public
    * <p>Filters the channel list to match the specified policy.</p>
+   * @public
    */
   filterByPlaybackRestrictionPolicyArn?: string;
 
   /**
-   * @public
    * <p>The first channel to retrieve. This is used for pagination; see the <code>nextToken</code>
    *       response field.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Maximum number of channels to return. Default: 100.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Summary information about a channel.</p>
+ * @public
  */
 export interface ChannelSummary {
   /**
-   * @public
    * <p>Channel ARN.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>Channel name.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Channel latency mode. Use <code>NORMAL</code> to broadcast and deliver live video up to
    *       Full HD. Use <code>LOW</code> for near-real-time interaction with viewers. Default:
    *         <code>LOW</code>.</p>
+   * @public
    */
   latencyMode?: ChannelLatencyMode;
 
   /**
-   * @public
    * <p>Whether the channel is private (enabled for playback authorization). Default:
    *         <code>false</code>.</p>
+   * @public
    */
   authorized?: boolean;
 
   /**
-   * @public
    * <p>Recording-configuration ARN. A valid ARN value here both specifies the ARN and enables recording.
    *       Default: "" (empty string, recording is disabled).</p>
+   * @public
    */
   recordingConfigurationArn?: string;
 
   /**
-   * @public
    * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string
    *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for more information, including restrictions
    *       that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
    *       service-specific constraints beyond what is documented there.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>Whether the channel allows insecure RTMP ingest. Default: <code>false</code>.</p>
+   * @public
    */
   insecureIngest?: boolean;
 
   /**
-   * @public
    * <p>Channel type, which determines the allowable resolution and bitrate. <i>If you
    *         exceed the allowable input resolution or bitrate, the stream probably will disconnect
    *         immediately.</i> Default: <code>STANDARD</code>. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/channel-types.html">Channel
    *         Types</a>.</p>
+   * @public
    */
   type?: ChannelType;
 
   /**
-   * @public
    * <p>Optional transcode preset for the channel. This is selectable only for
    *         <code>ADVANCED_HD</code> and <code>ADVANCED_SD</code> channel types. For those channel
    *       types, the default <code>preset</code> is <code>HIGHER_BANDWIDTH_DELIVERY</code>. For other
    *       channel types (<code>BASIC</code> and <code>STANDARD</code>), <code>preset</code> is the empty
    *       string (<code>""</code>).</p>
+   * @public
    */
   preset?: TranscodePreset;
 
   /**
-   * @public
    * <p>Playback-restriction-policy ARN. A valid ARN value here both specifies the ARN and enables playback restriction.
    *     Default: "" (empty string, no playback restriction policy is applied).</p>
+   * @public
    */
   playbackRestrictionPolicyArn?: string;
 }
@@ -1788,15 +1788,15 @@ export interface ChannelSummary {
  */
 export interface ListChannelsResponse {
   /**
-   * @public
    * <p>List of the matching channels.</p>
+   * @public
    */
   channels: ChannelSummary[] | undefined;
 
   /**
-   * @public
    * <p>If there are more channels than <code>maxResults</code>, use <code>nextToken</code> in the
    *       request to get the next set.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1806,43 +1806,43 @@ export interface ListChannelsResponse {
  */
 export interface ListPlaybackKeyPairsRequest {
   /**
-   * @public
    * <p>The first key pair to retrieve. This is used for pagination; see the
    *         <code>nextToken</code> response field.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Maximum number of key pairs to return. Default: your service quota or 100, whichever is
    *       smaller.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Summary information about a playback key pair.</p>
+ * @public
  */
 export interface PlaybackKeyPairSummary {
   /**
-   * @public
    * <p>Key-pair ARN.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>Playback-key-pair name. The value does not need to be unique.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string
    *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for more information, including restrictions
    *       that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
    *       service-specific constraints beyond what is documented there.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1852,15 +1852,15 @@ export interface PlaybackKeyPairSummary {
  */
 export interface ListPlaybackKeyPairsResponse {
   /**
-   * @public
    * <p>List of key pairs.</p>
+   * @public
    */
   keyPairs: PlaybackKeyPairSummary[] | undefined;
 
   /**
-   * @public
    * <p>If there are more key pairs than <code>maxResults</code>, use <code>nextToken</code> in
    *       the request to get the next set.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1870,64 +1870,64 @@ export interface ListPlaybackKeyPairsResponse {
  */
 export interface ListPlaybackRestrictionPoliciesRequest {
   /**
-   * @public
    * <p>The first policy to retrieve. This is used for pagination; see the <code>nextToken</code>
    *       response field.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Maximum number of policies to return. Default: 1.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Summary information about a PlaybackRestrictionPolicy.</p>
+ * @public
  */
 export interface PlaybackRestrictionPolicySummary {
   /**
-   * @public
    * <p>Playback-restriction-policy ARN</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>A list of country codes that control geoblocking restriction. Allowed values are the
    *       officially assigned <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1
    *         alpha-2</a> codes. Default: All countries (an empty array).</p>
+   * @public
    */
   allowedCountries: string[] | undefined;
 
   /**
-   * @public
    * <p>A list of origin sites that control CORS restriction. Allowed values are the same as valid
    *       values of the Origin header defined at <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin</a>. Default: All origins (an empty array).</p>
+   * @public
    */
   allowedOrigins: string[] | undefined;
 
   /**
-   * @public
    * <p>Whether channel playback is constrained by origin site. Default:
    *       <code>false</code>.</p>
+   * @public
    */
   enableStrictOriginEnforcement?: boolean;
 
   /**
-   * @public
    * <p>Playback-restriction-policy name. The value does not need to be unique.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string
    *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for more information, including restrictions
    *       that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
    *       service-specific constraints beyond what is documented there.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1937,15 +1937,15 @@ export interface PlaybackRestrictionPolicySummary {
  */
 export interface ListPlaybackRestrictionPoliciesResponse {
   /**
-   * @public
    * <p>List of the matching policies.</p>
+   * @public
    */
   playbackRestrictionPolicies: PlaybackRestrictionPolicySummary[] | undefined;
 
   /**
-   * @public
    * <p>If there are more channels than <code>maxResults</code>, use <code>nextToken</code> in the
    *       request to get the next set.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1955,56 +1955,56 @@ export interface ListPlaybackRestrictionPoliciesResponse {
  */
 export interface ListRecordingConfigurationsRequest {
   /**
-   * @public
    * <p>The first recording configuration to retrieve. This is used for pagination; see the
    *         <code>nextToken</code> response field.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Maximum number of recording configurations to return. Default: your service quota or 100,
    *       whichever is smaller. </p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Summary information about a RecordingConfiguration.</p>
+ * @public
  */
 export interface RecordingConfigurationSummary {
   /**
-   * @public
    * <p>Recording-configuration ARN.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>Recording-configuration name. The value does not need to be unique.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>A complex type that contains information about where recorded video will be stored.</p>
+   * @public
    */
   destinationConfiguration: DestinationConfiguration | undefined;
 
   /**
-   * @public
    * <p>Indicates the current state of the recording configuration. When the state is
    *         <code>ACTIVE</code>, the configuration is ready for recording a channel stream.</p>
+   * @public
    */
   state: RecordingConfigurationState | undefined;
 
   /**
-   * @public
    * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string
    *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for more information, including restrictions
    *       that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
    *       service-specific constraints beyond what is documented there.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -2014,15 +2014,15 @@ export interface RecordingConfigurationSummary {
  */
 export interface ListRecordingConfigurationsResponse {
   /**
-   * @public
    * <p>List of the matching recording configurations.</p>
+   * @public
    */
   recordingConfigurations: RecordingConfigurationSummary[] | undefined;
 
   /**
-   * @public
    * <p>If there are more recording configurations than <code>maxResults</code>, use
    *         <code>nextToken</code> in the request to get the next set.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2032,48 +2032,48 @@ export interface ListRecordingConfigurationsResponse {
  */
 export interface ListStreamKeysRequest {
   /**
-   * @public
    * <p>Channel ARN used to filter the list.</p>
+   * @public
    */
   channelArn: string | undefined;
 
   /**
-   * @public
    * <p>The first stream key to retrieve. This is used for pagination; see the
    *         <code>nextToken</code> response field.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Maximum number of streamKeys to return. Default: 1.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Summary information about a stream key.</p>
+ * @public
  */
 export interface StreamKeySummary {
   /**
-   * @public
    * <p>Stream-key ARN.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>Channel ARN for the stream.</p>
+   * @public
    */
   channelArn?: string;
 
   /**
-   * @public
    * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string
    *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for more information, including restrictions
    *       that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
    *       service-specific constraints beyond what is documented there.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -2083,27 +2083,27 @@ export interface StreamKeySummary {
  */
 export interface ListStreamKeysResponse {
   /**
-   * @public
    * <p>List of stream keys.</p>
+   * @public
    */
   streamKeys: StreamKeySummary[] | undefined;
 
   /**
-   * @public
    * <p>If there are more stream keys than <code>maxResults</code>, use <code>nextToken</code> in
    *       the request to get the next set.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>Object specifying the stream attribute on which to filter.</p>
+ * @public
  */
 export interface StreamFilters {
   /**
-   * @public
    * <p>The stream’s health.</p>
+   * @public
    */
   health?: StreamHealth;
 }
@@ -2113,69 +2113,69 @@ export interface StreamFilters {
  */
 export interface ListStreamsRequest {
   /**
-   * @public
    * <p>Filters the stream list to match the specified criterion.</p>
+   * @public
    */
   filterBy?: StreamFilters;
 
   /**
-   * @public
    * <p>The first stream to retrieve. This is used for pagination; see the <code>nextToken</code>
    *       response field.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Maximum number of streams to return. Default: 100.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Summary information about a stream.</p>
+ * @public
  */
 export interface StreamSummary {
   /**
-   * @public
    * <p>Channel ARN for the stream.</p>
+   * @public
    */
   channelArn?: string;
 
   /**
-   * @public
    * <p>Unique identifier for a live or previously live stream in the specified channel.</p>
+   * @public
    */
   streamId?: string;
 
   /**
-   * @public
    * <p>The stream’s state. Do not rely on the <code>OFFLINE</code> state, as the API may not
    *       return it; instead, a "NotBroadcasting" error will indicate that the stream is not
    *       live.</p>
+   * @public
    */
   state?: StreamState;
 
   /**
-   * @public
    * <p>The stream’s health.</p>
+   * @public
    */
   health?: StreamHealth;
 
   /**
-   * @public
    * <p>A count of concurrent views of the stream. Typically, a new view appears in
    *         <code>viewerCount</code> within 15 seconds of when video playback starts and a view is
    *       removed from <code>viewerCount</code> within 1 minute of when video playback ends. A value of
    *       -1 indicates that the request timed out; in this case, retry.</p>
+   * @public
    */
   viewerCount?: number;
 
   /**
-   * @public
    * <p>Time of the stream’s start. This is an ISO 8601 timestamp; <i>note that this is
    *         returned as a string</i>. </p>
+   * @public
    */
   startTime?: Date;
 }
@@ -2185,15 +2185,15 @@ export interface StreamSummary {
  */
 export interface ListStreamsResponse {
   /**
-   * @public
    * <p>List of streams.</p>
+   * @public
    */
   streams: StreamSummary[] | undefined;
 
   /**
-   * @public
    * <p>If there are more streams than <code>maxResults</code>, use <code>nextToken</code> in the
    *       request to get the next set.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2203,53 +2203,53 @@ export interface ListStreamsResponse {
  */
 export interface ListStreamSessionsRequest {
   /**
-   * @public
    * <p>Channel ARN used to filter the list.</p>
+   * @public
    */
   channelArn: string | undefined;
 
   /**
-   * @public
    * <p>The first stream to retrieve. This is used for pagination; see the <code>nextToken</code>
    *       response field.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Maximum number of streams to return. Default: 100.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Summary information about a stream session.</p>
+ * @public
  */
 export interface StreamSessionSummary {
   /**
-   * @public
    * <p>Unique identifier for a live or previously live stream in the specified channel.</p>
+   * @public
    */
   streamId?: string;
 
   /**
-   * @public
    * <p>Time when the channel went live. This is an ISO 8601 timestamp; <i>note that this
    *         is returned as a string</i>.</p>
+   * @public
    */
   startTime?: Date;
 
   /**
-   * @public
    * <p>Time when the channel went offline. This is an ISO 8601 timestamp; <i>note that
    *         this is returned as a string</i>. For live streams, this is <code>NULL</code>.</p>
+   * @public
    */
   endTime?: Date;
 
   /**
-   * @public
    * <p>If <code>true</code>, this stream encountered a quota breach or failure.</p>
+   * @public
    */
   hasErrorEvent?: boolean;
 }
@@ -2259,15 +2259,15 @@ export interface StreamSessionSummary {
  */
 export interface ListStreamSessionsResponse {
   /**
-   * @public
    * <p>List of stream sessions.</p>
+   * @public
    */
   streamSessions: StreamSessionSummary[] | undefined;
 
   /**
-   * @public
    * <p>If there are more streams than <code>maxResults</code>, use <code>nextToken</code> in the
    *       request to get the next set.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2277,8 +2277,8 @@ export interface ListStreamSessionsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The ARN of the resource to be retrieved. The ARN must be URL-encoded.</p>
+   * @public
    */
   resourceArn: string | undefined;
 }
@@ -2288,9 +2288,9 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
    *         (key:value)</code>.</p>
+   * @public
    */
   tags: Record<string, string> | undefined;
 }
@@ -2300,15 +2300,15 @@ export interface ListTagsForResourceResponse {
  */
 export interface PutMetadataRequest {
   /**
-   * @public
    * <p>ARN of the channel into which metadata is inserted. This channel must have an active
    *       stream.</p>
+   * @public
    */
   channelArn: string | undefined;
 
   /**
-   * @public
    * <p>Metadata to insert into the stream. Maximum: 1 KB per request.</p>
+   * @public
    */
   metadata: string | undefined;
 }
@@ -2318,22 +2318,22 @@ export interface PutMetadataRequest {
  */
 export interface StartViewerSessionRevocationRequest {
   /**
-   * @public
    * <p>The ARN of the channel associated with the viewer session to revoke.</p>
+   * @public
    */
   channelArn: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the viewer associated with the viewer session to revoke. Do not use this field
    *       for personally identifying, confidential, or sensitive information.</p>
+   * @public
    */
   viewerId: string | undefined;
 
   /**
-   * @public
    * <p>An optional filter on which versions of the viewer session to revoke. All versions less
    *       than or equal to the specified version will be revoked. Default: 0.</p>
+   * @public
    */
   viewerSessionVersionsLessThanOrEqualTo?: number;
 }
@@ -2348,8 +2348,8 @@ export interface StartViewerSessionRevocationResponse {}
  */
 export interface StopStreamRequest {
   /**
-   * @public
    * <p>ARN of the channel for which the stream is to be stopped.</p>
+   * @public
    */
   channelArn: string | undefined;
 }
@@ -2360,15 +2360,15 @@ export interface StopStreamRequest {
 export interface StopStreamResponse {}
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export class StreamUnavailable extends __BaseException {
   readonly name: "StreamUnavailable" = "StreamUnavailable";
   readonly $fault: "server" = "server";
   /**
-   * @public
    * <p>The stream is temporarily unavailable.</p>
+   * @public
    */
   exceptionMessage?: string;
   /**
@@ -2390,18 +2390,18 @@ export class StreamUnavailable extends __BaseException {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>ARN of the resource for which tags are to be added or updated. The ARN must be
    *       URL-encoded.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>Array of tags to be added or updated. Array of maps, each of the form <code>string:string
    *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for more information, including restrictions
    *       that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
    *       service-specific constraints beyond what is documented there.</p>
+   * @public
    */
   tags: Record<string, string> | undefined;
 }
@@ -2416,17 +2416,17 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>ARN of the resource for which tags are to be removed. The ARN must be URL-encoded.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>Array of tags to be removed. Array of maps, each of the form <code>string:string
    *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> for more information, including restrictions
    *       that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no
    *       service-specific constraints beyond what is documented there.</p>
+   * @public
    */
   tagKeys: string[] | undefined;
 }
@@ -2441,66 +2441,66 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateChannelRequest {
   /**
-   * @public
    * <p>ARN of the channel to be updated.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>Channel name.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Channel latency mode. Use <code>NORMAL</code> to broadcast and deliver live video up to
    *       Full HD. Use <code>LOW</code> for near-real-time interaction with viewers.</p>
+   * @public
    */
   latencyMode?: ChannelLatencyMode;
 
   /**
-   * @public
    * <p>Channel type, which determines the allowable resolution and bitrate. <i>If you
    *         exceed the allowable input resolution or bitrate, the stream probably will disconnect
    *         immediately.</i> Default: <code>STANDARD</code>. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/channel-types.html">Channel
    *         Types</a>.</p>
+   * @public
    */
   type?: ChannelType;
 
   /**
-   * @public
    * <p>Whether the channel is private (enabled for playback authorization).</p>
+   * @public
    */
   authorized?: boolean;
 
   /**
-   * @public
    * <p>Recording-configuration ARN. A valid ARN value here both specifies the ARN and enables recording.
    *     If this is set to an empty string, recording is disabled.</p>
+   * @public
    */
   recordingConfigurationArn?: string;
 
   /**
-   * @public
    * <p>Whether the channel allows insecure RTMP ingest. Default: <code>false</code>.</p>
+   * @public
    */
   insecureIngest?: boolean;
 
   /**
-   * @public
    * <p>Optional transcode preset for the channel. This is selectable only for
    *         <code>ADVANCED_HD</code> and <code>ADVANCED_SD</code> channel types. For those channel
    *       types, the default <code>preset</code> is <code>HIGHER_BANDWIDTH_DELIVERY</code>. For other
    *       channel types (<code>BASIC</code> and <code>STANDARD</code>), <code>preset</code> is the empty
    *       string (<code>""</code>).</p>
+   * @public
    */
   preset?: TranscodePreset;
 
   /**
-   * @public
    * <p>Playback-restriction-policy ARN. A valid ARN value here both specifies the ARN and enables playback restriction.
    *      If this is set to an empty string, playback restriction policy is disabled.</p>
+   * @public
    */
   playbackRestrictionPolicyArn?: string;
 }
@@ -2510,8 +2510,8 @@ export interface UpdateChannelRequest {
  */
 export interface UpdateChannelResponse {
   /**
-   * @public
    * <p>Object specifying the updated channel.</p>
+   * @public
    */
   channel?: Channel;
 }
@@ -2521,37 +2521,37 @@ export interface UpdateChannelResponse {
  */
 export interface UpdatePlaybackRestrictionPolicyRequest {
   /**
-   * @public
    * <p>ARN of the playback-restriction-policy to be updated.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>A list of country codes that control geoblocking restriction. Allowed values are the
    *       officially assigned <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1
    *         alpha-2</a> codes. Default: All countries (an empty array).</p>
+   * @public
    */
   allowedCountries?: string[];
 
   /**
-   * @public
    * <p>A list of origin sites that control CORS restriction. Allowed values are the same as valid
    *       values of the Origin header defined at <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin</a>. Default: All
    *       origins (an empty array).</p>
+   * @public
    */
   allowedOrigins?: string[];
 
   /**
-   * @public
    * <p>Whether channel playback is constrained by origin site. Default:
    *       <code>false</code>.</p>
+   * @public
    */
   enableStrictOriginEnforcement?: boolean;
 
   /**
-   * @public
    * <p>Playback-restriction-policy name. The value does not need to be unique.</p>
+   * @public
    */
   name?: string;
 }
@@ -2561,8 +2561,8 @@ export interface UpdatePlaybackRestrictionPolicyRequest {
  */
 export interface UpdatePlaybackRestrictionPolicyResponse {
   /**
-   * @public
    * <p>Object specifying the updated policy.</p>
+   * @public
    */
   playbackRestrictionPolicy?: PlaybackRestrictionPolicy;
 }

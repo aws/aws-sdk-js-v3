@@ -41,7 +41,6 @@ export interface CreateMediaInsightsPipelineCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a media insights pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -192,6 +191,7 @@ export interface CreateMediaInsightsPipelineCommandOutput
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ * @public
  */
 export class CreateMediaInsightsPipelineCommand extends $Command
   .classBuilder<

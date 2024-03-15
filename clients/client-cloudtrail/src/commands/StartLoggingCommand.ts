@@ -27,7 +27,6 @@ export interface StartLoggingCommandInput extends StartLoggingRequest {}
 export interface StartLoggingCommandOutput extends StartLoggingResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts the recording of Amazon Web Services API calls and log file delivery for a trail.
  *          For a trail that is enabled in all Regions, this operation must be called from the Region
  *          in which the trail was created. This operation cannot be called on the shadow trails
@@ -128,6 +127,7 @@ export interface StartLoggingCommandOutput extends StartLoggingResponse, __Metad
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class StartLoggingCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteThemeAliasCommandInput extends DeleteThemeAliasRequest {}
 export interface DeleteThemeAliasCommandOutput extends DeleteThemeAliasResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the version of the theme that the specified theme alias points to.
  * 			If you provide a specific alias, you delete the version of the theme
  * 			that the alias points to.</p>
@@ -84,6 +83,7 @@ export interface DeleteThemeAliasCommandOutput extends DeleteThemeAliasResponse,
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DeleteThemeAliasCommand extends $Command
   .classBuilder<

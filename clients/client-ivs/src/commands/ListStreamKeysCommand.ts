@@ -27,7 +27,6 @@ export interface ListStreamKeysCommandInput extends ListStreamKeysRequest {}
 export interface ListStreamKeysCommandOutput extends ListStreamKeysResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets summary information about stream keys for the specified channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface ListStreamKeysCommandOutput extends ListStreamKeysResponse, __M
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ * @public
  */
 export class ListStreamKeysCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface DescribeDomainChangeProgressCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the current blue/green deployment happening on a domain, including
  *         a change ID, status, and progress stages.</p>
  * @example
@@ -100,6 +99,7 @@ export interface DescribeDomainChangeProgressCommandOutput
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * @public
  */
 export class DescribeDomainChangeProgressCommand extends $Command
   .classBuilder<

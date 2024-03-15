@@ -27,7 +27,6 @@ export interface UpdateUserCommandInput extends UpdateUserRequest {}
 export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates data for the user. To have the latest information, it must be preceded by a
  *             <a>DescribeUser</a> call. The dataset in the request should be the one
  *          expected when performing another <code>DescribeUser</code> call.</p>
@@ -99,6 +98,7 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class UpdateUserCommand extends $Command
   .classBuilder<

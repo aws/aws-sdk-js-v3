@@ -27,7 +27,6 @@ export interface UpdateNotificationSettingsCommandInput extends UpdateNotificati
 export interface UpdateNotificationSettingsCommandOutput extends UpdateNotificationSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The <code>UpdateNotificationSettings</code> operation creates, updates,
  *             disables or re-enables notifications for a HIT type.
@@ -79,6 +78,7 @@ export interface UpdateNotificationSettingsCommandOutput extends UpdateNotificat
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * @public
  */
 export class UpdateNotificationSettingsCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface UpdateAccessLogSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified access log subscription.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface UpdateAccessLogSubscriptionCommandOutput
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class UpdateAccessLogSubscriptionCommand extends $Command
   .classBuilder<

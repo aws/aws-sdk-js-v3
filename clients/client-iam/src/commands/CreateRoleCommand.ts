@@ -27,7 +27,6 @@ export interface CreateRoleCommandInput extends CreateRoleRequest {}
 export interface CreateRoleCommandOutput extends CreateRoleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new role for your Amazon Web Services account.</p>
  *          <p> For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM roles</a> in the
  *                 <i>IAM User Guide</i>. For information about quotas for role names
@@ -117,6 +116,7 @@ export interface CreateRoleCommandOutput extends CreateRoleResponse, __MetadataB
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To create an IAM role
  * ```javascript
  * // The following command creates a role named Test-Role and attaches a trust policy that you must convert from JSON to a string. Upon success, the response includes the same policy as a URL-encoded JSON string.

@@ -36,7 +36,6 @@ export interface CancelServicePipelineDeploymentCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Attempts to cancel a service pipeline deployment on an <a>UpdateServicePipeline</a> action, if the deployment is <code>IN_PROGRESS</code>. For
  *       more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-svc-pipeline-update.html">Update a service pipeline</a>
  *       in the <i>Proton User guide</i>.</p>
@@ -113,6 +112,7 @@ export interface CancelServicePipelineDeploymentCommandOutput
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class CancelServicePipelineDeploymentCommand extends $Command
   .classBuilder<

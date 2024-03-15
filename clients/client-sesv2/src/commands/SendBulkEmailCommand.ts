@@ -27,7 +27,6 @@ export interface SendBulkEmailCommandInput extends SendBulkEmailRequest {}
 export interface SendBulkEmailCommandOutput extends SendBulkEmailResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Composes an email message to multiple destinations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -139,6 +138,7 @@ export interface SendBulkEmailCommandOutput extends SendBulkEmailResponse, __Met
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class SendBulkEmailCommand extends $Command
   .classBuilder<

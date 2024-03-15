@@ -27,7 +27,6 @@ export interface DeregisterPackageVersionCommandInput extends DeregisterPackageV
 export interface DeregisterPackageVersionCommandOutput extends DeregisterPackageVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deregisters a package version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface DeregisterPackageVersionCommandOutput extends DeregisterPackage
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ * @public
  */
 export class DeregisterPackageVersionCommand extends $Command
   .classBuilder<

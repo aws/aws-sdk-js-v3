@@ -27,7 +27,6 @@ export interface ExportBundleCommandInput extends ExportBundleRequest {}
 export interface ExportBundleCommandOutput extends ExportBundleResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Generates customized software development kit (SDK) and or tool packages
  *             used to integrate mobile web or mobile app clients with backend AWS resources.
@@ -94,6 +93,7 @@ export interface ExportBundleCommandOutput extends ExportBundleResult, __Metadat
  * @throws {@link MobileServiceException}
  * <p>Base exception class for all service exceptions from Mobile service.</p>
  *
+ * @public
  */
 export class ExportBundleCommand extends $Command
   .classBuilder<

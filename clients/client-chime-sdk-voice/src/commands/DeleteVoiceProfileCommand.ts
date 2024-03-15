@@ -27,7 +27,6 @@ export interface DeleteVoiceProfileCommandInput extends DeleteVoiceProfileReques
 export interface DeleteVoiceProfileCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a voice profile, including its voice print and enrollment data. WARNING: This action is not reversible.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface DeleteVoiceProfileCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class DeleteVoiceProfileCommand extends $Command
   .classBuilder<

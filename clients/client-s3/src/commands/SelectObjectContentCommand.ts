@@ -33,7 +33,6 @@ export interface SelectObjectContentCommandInput extends SelectObjectContentRequ
 export interface SelectObjectContentCommandOutput extends SelectObjectContentOutput, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -244,6 +243,7 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  */
 export class SelectObjectContentCommand extends $Command
   .classBuilder<

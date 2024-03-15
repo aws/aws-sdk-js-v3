@@ -27,7 +27,6 @@ export interface StopLaunchCommandInput extends StopLaunchRequest {}
 export interface StopLaunchCommandOutput extends StopLaunchResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a launch that is currently running. After you stop a launch, you will not be able to resume it or restart it.
  *        Also, it
  *        will not be evaluated as a rule for traffic allocation, and the traffic that was allocated to the launch
@@ -74,6 +73,7 @@ export interface StopLaunchCommandOutput extends StopLaunchResponse, __MetadataB
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ * @public
  */
 export class StopLaunchCommand extends $Command
   .classBuilder<

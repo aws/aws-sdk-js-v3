@@ -27,7 +27,6 @@ export interface DescribeNotebookExecutionCommandInput extends DescribeNotebookE
 export interface DescribeNotebookExecutionCommandOutput extends DescribeNotebookExecutionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides details of a notebook execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface DescribeNotebookExecutionCommandOutput extends DescribeNotebook
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class DescribeNotebookExecutionCommand extends $Command
   .classBuilder<

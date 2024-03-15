@@ -27,7 +27,6 @@ export interface ListPricesCommandInput extends ListPricesRequest {}
 export interface ListPricesCommandOutput extends ListPricesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the following prices for either all the TLDs supported by Route 53, or
  * 			the specified TLD:</p>
  *          <ul>
@@ -109,6 +108,7 @@ export interface ListPricesCommandOutput extends ListPricesResponse, __MetadataB
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * @public
  */
 export class ListPricesCommand extends $Command
   .classBuilder<

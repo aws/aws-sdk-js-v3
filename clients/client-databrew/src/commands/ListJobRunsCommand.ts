@@ -27,7 +27,6 @@ export interface ListJobRunsCommandInput extends ListJobRunsRequest {}
 export interface ListJobRunsCommandOutput extends ListJobRunsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all of the previous runs of a particular DataBrew job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -151,6 +150,7 @@ export interface ListJobRunsCommandOutput extends ListJobRunsResponse, __Metadat
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * @public
  */
 export class ListJobRunsCommand extends $Command
   .classBuilder<

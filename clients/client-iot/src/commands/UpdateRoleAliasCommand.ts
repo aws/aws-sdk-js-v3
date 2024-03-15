@@ -27,7 +27,6 @@ export interface UpdateRoleAliasCommandInput extends UpdateRoleAliasRequest {}
 export interface UpdateRoleAliasCommandOutput extends UpdateRoleAliasResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a role alias.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateRoleAlias</a> action.</p>
  * @example
@@ -77,6 +76,7 @@ export interface UpdateRoleAliasCommandOutput extends UpdateRoleAliasResponse, _
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class UpdateRoleAliasCommand extends $Command
   .classBuilder<

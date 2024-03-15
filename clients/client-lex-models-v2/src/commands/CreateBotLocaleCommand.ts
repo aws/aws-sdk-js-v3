@@ -27,7 +27,6 @@ export interface CreateBotLocaleCommandInput extends CreateBotLocaleRequest {}
 export interface CreateBotLocaleCommandOutput extends CreateBotLocaleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a locale in the bot. The locale contains the intents and
  *          slot types that the bot uses in conversations with users in the
  *          specified language and locale. You must add a locale to a bot before
@@ -150,6 +149,7 @@ export interface CreateBotLocaleCommandOutput extends CreateBotLocaleResponse, _
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class CreateBotLocaleCommand extends $Command
   .classBuilder<

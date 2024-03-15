@@ -27,7 +27,6 @@ export interface DeleteServerlessCacheCommandInput extends DeleteServerlessCache
 export interface DeleteServerlessCacheCommandOutput extends DeleteServerlessCacheResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specified existing serverless cache.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -113,6 +112,7 @@ export interface DeleteServerlessCacheCommandOutput extends DeleteServerlessCach
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  */
 export class DeleteServerlessCacheCommand extends $Command
   .classBuilder<

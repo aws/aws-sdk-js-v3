@@ -31,7 +31,6 @@ export interface RestoreFromClusterSnapshotCommandInput extends RestoreFromClust
 export interface RestoreFromClusterSnapshotCommandOutput extends RestoreFromClusterSnapshotResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new cluster from a snapshot. By default, Amazon Redshift creates the resulting
  *             cluster with the same configuration as the original cluster from which the snapshot was
  *             created, except that the new cluster is created with the default cluster security and
@@ -417,6 +416,7 @@ export interface RestoreFromClusterSnapshotCommandOutput extends RestoreFromClus
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class RestoreFromClusterSnapshotCommand extends $Command
   .classBuilder<

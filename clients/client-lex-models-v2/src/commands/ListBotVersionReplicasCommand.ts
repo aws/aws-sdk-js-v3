@@ -27,7 +27,6 @@ export interface ListBotVersionReplicasCommandInput extends ListBotVersionReplic
 export interface ListBotVersionReplicasCommandOutput extends ListBotVersionReplicasResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Contains information about all the versions replication statuses applicable for Global Resiliency.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface ListBotVersionReplicasCommandOutput extends ListBotVersionRepli
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class ListBotVersionReplicasCommand extends $Command
   .classBuilder<

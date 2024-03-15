@@ -27,7 +27,6 @@ export interface GetDataQualityRulesetCommandInput extends GetDataQualityRuleset
 export interface GetDataQualityRulesetCommandOutput extends GetDataQualityRulesetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an existing ruleset by identifier or name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface GetDataQualityRulesetCommandOutput extends GetDataQualityRulese
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetDataQualityRulesetCommand extends $Command
   .classBuilder<

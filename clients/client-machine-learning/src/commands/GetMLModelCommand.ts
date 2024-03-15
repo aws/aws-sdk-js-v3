@@ -27,7 +27,6 @@ export interface GetMLModelCommandInput extends GetMLModelInput {}
 export interface GetMLModelCommandOutput extends GetMLModelOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an <code>MLModel</code> that includes detailed metadata, data source information, and the current status of the <code>MLModel</code>.</p>
  *         <p>
  *             <code>GetMLModel</code> provides results in normal or verbose format. </p>
@@ -94,6 +93,7 @@ export interface GetMLModelCommandOutput extends GetMLModelOutput, __MetadataBea
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * @public
  */
 export class GetMLModelCommand extends $Command
   .classBuilder<

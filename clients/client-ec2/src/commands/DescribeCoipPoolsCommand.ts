@@ -27,7 +27,6 @@ export interface DescribeCoipPoolsCommandInput extends DescribeCoipPoolsRequest 
 export interface DescribeCoipPoolsCommandOutput extends DescribeCoipPoolsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified customer-owned address pools or all of your customer-owned address pools.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface DescribeCoipPoolsCommandOutput extends DescribeCoipPoolsResult,
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeCoipPoolsCommand extends $Command
   .classBuilder<

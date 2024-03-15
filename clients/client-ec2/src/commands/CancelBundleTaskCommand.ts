@@ -31,7 +31,6 @@ export interface CancelBundleTaskCommandInput extends CancelBundleTaskRequest {}
 export interface CancelBundleTaskCommandOutput extends CancelBundleTaskResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels a bundling operation for an instance store-backed Windows instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface CancelBundleTaskCommandOutput extends CancelBundleTaskResult, _
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CancelBundleTaskCommand extends $Command
   .classBuilder<

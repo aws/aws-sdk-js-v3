@@ -27,7 +27,6 @@ export interface CreateDashboardCommandInput extends CreateDashboardRequest {}
 export interface CreateDashboardCommandOutput extends CreateDashboardResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a dashboard in an IoT SiteWise Monitor project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class CreateDashboardCommand extends $Command
   .classBuilder<

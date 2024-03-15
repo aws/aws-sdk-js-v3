@@ -28,7 +28,6 @@ export interface DeleteStorageLensGroupCommandInput extends DeleteStorageLensGro
 export interface DeleteStorageLensGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>
  * Deletes an existing S3 Storage Lens group.</p>
  *          <p>To use this operation, you must have the permission to perform the
@@ -61,6 +60,7 @@ export interface DeleteStorageLensGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class DeleteStorageLensGroupCommand extends $Command
   .classBuilder<

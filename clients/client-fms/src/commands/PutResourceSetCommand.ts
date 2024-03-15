@@ -27,7 +27,6 @@ export interface PutResourceSetCommandInput extends PutResourceSetRequest {}
 export interface PutResourceSetCommandOutput extends PutResourceSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates the resource set.</p>
  *          <p>An Firewall Manager resource set defines the resources to import into an Firewall Manager policy from another Amazon Web Services service.</p>
  * @example
@@ -103,6 +102,7 @@ export interface PutResourceSetCommandOutput extends PutResourceSetResponse, __M
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * @public
  */
 export class PutResourceSetCommand extends $Command
   .classBuilder<

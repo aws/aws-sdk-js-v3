@@ -27,7 +27,6 @@ export interface UpdateOriginEndpointCommandInput extends UpdateOriginEndpointRe
 export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update the specified origin endpoint. Edit the packaging preferences on an endpoint to optimize the viewing experience. You can't edit the name of the endpoint.</p>
  *          <p>Any edits you make that impact the video output may not be reflected for a few minutes.</p>
  * @example
@@ -229,6 +228,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
+ * @public
  */
 export class UpdateOriginEndpointCommand extends $Command
   .classBuilder<

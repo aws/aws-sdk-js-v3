@@ -27,7 +27,6 @@ export interface DeleteExtensionCommandInput extends DeleteExtensionRequest {}
 export interface DeleteExtensionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an AppConfig extension. You must delete all associations to an
  *          extension before you delete the extension.</p>
  * @example
@@ -64,6 +63,7 @@ export interface DeleteExtensionCommandOutput extends __MetadataBearer {}
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  */
 export class DeleteExtensionCommand extends $Command
   .classBuilder<

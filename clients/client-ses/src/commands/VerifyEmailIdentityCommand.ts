@@ -27,7 +27,6 @@ export interface VerifyEmailIdentityCommandInput extends VerifyEmailIdentityRequ
 export interface VerifyEmailIdentityCommandOutput extends VerifyEmailIdentityResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds an email address to the list of identities for your Amazon SES account in the current
  *             Amazon Web Services Region and attempts to verify it. As a result of executing this operation, a
  *             verification email is sent to the specified address.</p>
@@ -56,6 +55,7 @@ export interface VerifyEmailIdentityCommandOutput extends VerifyEmailIdentityRes
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example VerifyEmailIdentity
  * ```javascript
  * // The following example starts the email address verification process with Amazon SES:

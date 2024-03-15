@@ -27,7 +27,6 @@ export interface DescribeRouteCalculatorCommandInput extends DescribeRouteCalcul
 export interface DescribeRouteCalculatorCommandOutput extends DescribeRouteCalculatorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the route calculator resource details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface DescribeRouteCalculatorCommandOutput extends DescribeRouteCalcu
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class DescribeRouteCalculatorCommand extends $Command
   .classBuilder<

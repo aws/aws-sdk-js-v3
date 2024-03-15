@@ -27,7 +27,6 @@ export interface ListResolverRulesCommandInput extends ListResolverRulesRequest 
 export interface ListResolverRulesCommandOutput extends ListResolverRulesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the Resolver rules that were created using the current Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -105,6 +104,7 @@ export interface ListResolverRulesCommandOutput extends ListResolverRulesRespons
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class ListResolverRulesCommand extends $Command
   .classBuilder<

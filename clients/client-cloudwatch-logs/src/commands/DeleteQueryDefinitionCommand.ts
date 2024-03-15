@@ -27,7 +27,6 @@ export interface DeleteQueryDefinitionCommandInput extends DeleteQueryDefinition
 export interface DeleteQueryDefinitionCommandOutput extends DeleteQueryDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a saved CloudWatch Logs Insights query definition.
  *       A query definition contains details about a saved CloudWatch Logs Insights query.</p>
  *          <p>Each <code>DeleteQueryDefinition</code> operation can delete one query definition.</p>
@@ -68,6 +67,7 @@ export interface DeleteQueryDefinitionCommandOutput extends DeleteQueryDefinitio
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class DeleteQueryDefinitionCommand extends $Command
   .classBuilder<

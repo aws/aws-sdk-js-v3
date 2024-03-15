@@ -27,7 +27,6 @@ export interface ListSchemaVersionsCommandInput extends ListSchemaVersionsReques
 export interface ListSchemaVersionsCommandOutput extends ListSchemaVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a list of the schema versions and related information.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface ListSchemaVersionsCommandOutput extends ListSchemaVersionsRespo
  * @throws {@link SchemasServiceException}
  * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ * @public
  */
 export class ListSchemaVersionsCommand extends $Command
   .classBuilder<

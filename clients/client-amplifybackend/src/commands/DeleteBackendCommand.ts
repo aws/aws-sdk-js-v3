@@ -27,7 +27,6 @@ export interface DeleteBackendCommandInput extends DeleteBackendRequest {}
 export interface DeleteBackendCommandOutput extends DeleteBackendResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes an existing environment from your Amplify project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface DeleteBackendCommandOutput extends DeleteBackendResponse, __Met
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ * @public
  */
 export class DeleteBackendCommand extends $Command
   .classBuilder<

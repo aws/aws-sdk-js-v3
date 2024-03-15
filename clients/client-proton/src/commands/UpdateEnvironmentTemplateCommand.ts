@@ -32,7 +32,6 @@ export interface UpdateEnvironmentTemplateCommandInput extends UpdateEnvironment
 export interface UpdateEnvironmentTemplateCommandOutput extends UpdateEnvironmentTemplateOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update an environment template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface UpdateEnvironmentTemplateCommandOutput extends UpdateEnvironmen
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class UpdateEnvironmentTemplateCommand extends $Command
   .classBuilder<

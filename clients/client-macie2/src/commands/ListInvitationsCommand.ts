@@ -27,7 +27,6 @@ export interface ListInvitationsCommandInput extends ListInvitationsRequest {}
 export interface ListInvitationsCommandOutput extends ListInvitationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the Amazon Macie membership invitations that were received by an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class ListInvitationsCommand extends $Command
   .classBuilder<

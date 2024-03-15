@@ -32,7 +32,6 @@ export interface ListOrganizationAdminAccountsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the Security Hub administrator accounts. Can only be called by the organization
  *          management account.</p>
  * @example
@@ -82,6 +81,7 @@ export interface ListOrganizationAdminAccountsCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To list administrator acccounts for an organization
  * ```javascript
  * // The following example lists the Security  Hub administrator accounts for an organization. Only the organization management account can call this operation.

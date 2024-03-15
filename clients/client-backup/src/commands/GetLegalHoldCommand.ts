@@ -27,7 +27,6 @@ export interface GetLegalHoldCommandInput extends GetLegalHoldInput {}
 export interface GetLegalHoldCommandOutput extends GetLegalHoldOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This action returns details for a specified legal hold. The details are the
  *          body of a legal hold in JSON format, in addition to metadata.</p>
  * @example
@@ -89,6 +88,7 @@ export interface GetLegalHoldCommandOutput extends GetLegalHoldOutput, __Metadat
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class GetLegalHoldCommand extends $Command
   .classBuilder<

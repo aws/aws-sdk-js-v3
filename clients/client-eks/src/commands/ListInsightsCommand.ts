@@ -27,7 +27,6 @@ export interface ListInsightsCommandInput extends ListInsightsRequest {}
 export interface ListInsightsCommandOutput extends ListInsightsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all insights checked for against the specified cluster. You can filter which insights are returned by category, associated Kubernetes version, and status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface ListInsightsCommandOutput extends ListInsightsResponse, __Metad
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class ListInsightsCommand extends $Command
   .classBuilder<

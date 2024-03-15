@@ -27,7 +27,6 @@ export interface DescribeRuntimeVersionsCommandInput extends DescribeRuntimeVers
 export interface DescribeRuntimeVersionsCommandOutput extends DescribeRuntimeVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of Synthetics canary runtime versions. For more information,
  *          see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html">
  *             Canary Runtime Versions</a>.</p>
@@ -72,6 +71,7 @@ export interface DescribeRuntimeVersionsCommandOutput extends DescribeRuntimeVer
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ * @public
  */
 export class DescribeRuntimeVersionsCommand extends $Command
   .classBuilder<

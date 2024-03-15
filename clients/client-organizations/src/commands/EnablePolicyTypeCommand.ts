@@ -27,7 +27,6 @@ export interface EnablePolicyTypeCommandInput extends EnablePolicyTypeRequest {}
 export interface EnablePolicyTypeCommandOutput extends EnablePolicyTypeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables a policy type in a root. After you enable a policy type in a root, you can
  *             attach policies of that type to the root, any organizational unit (OU), or account in
  *             that root. You can undo this by using the <a>DisablePolicyType</a>
@@ -422,6 +421,7 @@ export interface EnablePolicyTypeCommandOutput extends EnablePolicyTypeResponse,
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  * @example To enable a policy type in a root
  * ```javascript
  * // The following example shows how to enable the service control policy (SCP) policy type in a root. The output shows a root object with a PolicyTypes response element showing that SCPs are now enabled:/n/n

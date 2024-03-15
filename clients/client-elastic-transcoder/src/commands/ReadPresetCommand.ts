@@ -31,7 +31,6 @@ export interface ReadPresetCommandInput extends ReadPresetRequest {}
 export interface ReadPresetCommandOutput extends ReadPresetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The ReadPreset operation gets detailed information about a preset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -136,6 +135,7 @@ export interface ReadPresetCommandOutput extends ReadPresetResponse, __MetadataB
  * @throws {@link ElasticTranscoderServiceException}
  * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
+ * @public
  */
 export class ReadPresetCommand extends $Command
   .classBuilder<

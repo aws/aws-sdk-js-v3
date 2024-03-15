@@ -31,7 +31,6 @@ export interface GetCSVHeaderCommandInput extends GetCSVHeaderRequest {}
 export interface GetCSVHeaderCommandOutput extends GetCSVHeaderResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the header information for the comma-separated value (CSV) file to be used as
  *             input for the user import job.</p>
  * @example
@@ -81,6 +80,7 @@ export interface GetCSVHeaderCommandOutput extends GetCSVHeaderResponse, __Metad
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class GetCSVHeaderCommand extends $Command
   .classBuilder<

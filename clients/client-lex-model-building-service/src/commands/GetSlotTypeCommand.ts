@@ -31,7 +31,6 @@ export interface GetSlotTypeCommandInput extends GetSlotTypeRequest {}
 export interface GetSlotTypeCommandOutput extends GetSlotTypeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a specific version of a slot type. In
  *       addition to specifying the slot type name, you must specify the slot type
  *       version.</p>
@@ -101,6 +100,7 @@ export interface GetSlotTypeCommandOutput extends GetSlotTypeResponse, __Metadat
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * @public
  * @example To get information about a slot type
  * ```javascript
  * // This example shows how to get information about a slot type.

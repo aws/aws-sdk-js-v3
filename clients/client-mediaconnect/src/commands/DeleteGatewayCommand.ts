@@ -27,7 +27,6 @@ export interface DeleteGatewayCommandInput extends DeleteGatewayRequest {}
 export interface DeleteGatewayCommandOutput extends DeleteGatewayResponse, __MetadataBearer {}
 
 /**
- * @public
  * Deletes a gateway. Before you can delete a gateway, you must deregister its instances and delete its bridges.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface DeleteGatewayCommandOutput extends DeleteGatewayResponse, __Met
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ * @public
  */
 export class DeleteGatewayCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetPluginCommandInput extends GetPluginRequest {}
 export interface GetPluginCommandOutput extends GetPluginResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about an existing Amazon Q plugin.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface GetPluginCommandOutput extends GetPluginResponse, __MetadataBea
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ * @public
  */
 export class GetPluginCommand extends $Command
   .classBuilder<

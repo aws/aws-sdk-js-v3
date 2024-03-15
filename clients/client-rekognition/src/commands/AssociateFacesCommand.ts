@@ -27,7 +27,6 @@ export interface AssociateFacesCommandInput extends AssociateFacesRequest {}
 export interface AssociateFacesCommandOutput extends AssociateFacesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates one or more faces with an existing UserID. Takes an array of
  *         <code>FaceIds</code>. Each <code>FaceId</code> that are present in the <code>FaceIds</code>
  *       list is associated with the provided UserID. The maximum number of total <code>FaceIds</code>
@@ -139,6 +138,7 @@ export interface AssociateFacesCommandOutput extends AssociateFacesResponse, __M
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example AssociateFaces
  * ```javascript
  * // This operation associates one or more faces with an existing UserID.

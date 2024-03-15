@@ -27,7 +27,6 @@ export interface PutSuppressedDestinationCommandInput extends PutSuppressedDesti
 export interface PutSuppressedDestinationCommandOutput extends PutSuppressedDestinationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds an email address to the suppression list for your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -60,6 +59,7 @@ export interface PutSuppressedDestinationCommandOutput extends PutSuppressedDest
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class PutSuppressedDestinationCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface DescribeAutomationExecutionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides details about all active and terminated Automation executions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -198,6 +197,7 @@ export interface DescribeAutomationExecutionsCommandOutput
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DescribeAutomationExecutionsCommand extends $Command
   .classBuilder<

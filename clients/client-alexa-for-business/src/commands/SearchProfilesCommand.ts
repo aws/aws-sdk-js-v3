@@ -27,9 +27,6 @@ export interface SearchProfilesCommandInput extends SearchProfilesRequest {}
 export interface SearchProfilesCommandOutput extends SearchProfilesResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Searches room profiles and lists the ones that meet a set of filter
  *          criteria.</p>
  * @example
@@ -87,6 +84,8 @@ export interface SearchProfilesCommandOutput extends SearchProfilesResponse, __M
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class SearchProfilesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ModifyClusterCommandInput extends ModifyClusterRequest {}
 export interface ModifyClusterCommandOutput extends ModifyClusterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies AWS CloudHSM cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -120,6 +119,7 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResponse, __Met
  * @throws {@link CloudHSMV2ServiceException}
  * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
+ * @public
  */
 export class ModifyClusterCommand extends $Command
   .classBuilder<

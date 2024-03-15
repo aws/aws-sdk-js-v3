@@ -27,7 +27,6 @@ export interface DeleteSchemaCommandInput extends DeleteSchemaRequest {}
 export interface DeleteSchemaCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a schema. Before deleting a schema, you must delete all
  *       datasets referencing the schema. For more information on schemas, see
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html">CreateSchema</a>.</p>
@@ -64,6 +63,7 @@ export interface DeleteSchemaCommandOutput extends __MetadataBearer {}
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class DeleteSchemaCommand extends $Command
   .classBuilder<

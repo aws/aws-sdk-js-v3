@@ -363,7 +363,6 @@ export type IVSRealTimeClientResolvedConfigType = __SmithyResolvedConfiguration<
 export interface IVSRealTimeClientResolvedConfig extends IVSRealTimeClientResolvedConfigType {}
 
 /**
- * @public
  * <p>
  *             <b>Introduction</b>
  *          </p>
@@ -572,6 +571,7 @@ export interface IVSRealTimeClientResolvedConfig extends IVSRealTimeClientResolv
  *           specified ARN.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class IVSRealTimeClient extends __Client<
   __HttpHandlerOptions,

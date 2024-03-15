@@ -27,9 +27,6 @@ export interface GetWorkingLocationCommandInput extends GetWorkingLocationReques
 export interface GetWorkingLocationCommandOutput extends GetWorkingLocationResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This method will be discontinued.
- *
  * <p>A temporary Amazon S3 location, where you can copy your files from a source location to stage or use
  *       as a scratch space in FinSpace notebook.</p>
  * @example
@@ -73,6 +70,8 @@ export interface GetWorkingLocationCommandOutput extends GetWorkingLocationRespo
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ * @public
+ * @deprecated This method will be discontinued.
  */
 export class GetWorkingLocationCommand extends $Command
   .classBuilder<

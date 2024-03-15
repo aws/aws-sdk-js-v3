@@ -1919,7 +1919,6 @@ export interface StorageGateway {
 }
 
 /**
- * @public
  * <fullname>Storage Gateway Service</fullname>
  *          <p>Storage Gateway is the service that connects an on-premises software appliance
  *          with cloud-based storage to provide seamless and secure integration between an
@@ -1979,6 +1978,7 @@ export interface StorageGateway {
  *                Heads-up – Longer Storage Gateway volume and snapshot IDs coming in
  *             2016</a>.</p>
  *          </important>
+ * @public
  */
 export class StorageGateway extends StorageGatewayClient implements StorageGateway {}
 createAggregatedClient(commands, StorageGateway);

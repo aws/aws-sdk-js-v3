@@ -31,7 +31,6 @@ export interface SetDefaultSenderIdCommandInput extends SetDefaultSenderIdReques
 export interface SetDefaultSenderIdCommandOutput extends SetDefaultSenderIdResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets default sender ID on a configuration set.</p>
  *          <p>When sending a text message to a destination country that supports sender IDs, the
  *             default sender ID on the configuration set specified will be used if no dedicated
@@ -83,6 +82,7 @@ export interface SetDefaultSenderIdCommandOutput extends SetDefaultSenderIdResul
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class SetDefaultSenderIdCommand extends $Command
   .classBuilder<

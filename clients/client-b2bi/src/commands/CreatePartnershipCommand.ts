@@ -32,7 +32,6 @@ export interface CreatePartnershipCommandInput extends CreatePartnershipRequest 
 export interface CreatePartnershipCommandOutput extends CreatePartnershipResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a partnership between a customer and a trading partner, based on the supplied parameters. A partnership represents the connection between you and your trading partner. It ties
  *    together a profile and one or more trading capabilities.</p>
  * @example
@@ -105,6 +104,7 @@ export interface CreatePartnershipCommandOutput extends CreatePartnershipRespons
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
+ * @public
  * @example Sample CreatePartnership call
  * ```javascript
  * //

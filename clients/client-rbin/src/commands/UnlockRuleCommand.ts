@@ -27,7 +27,6 @@ export interface UnlockRuleCommandInput extends UnlockRuleRequest {}
 export interface UnlockRuleCommandOutput extends UnlockRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Unlocks a retention rule. After a retention rule is unlocked, it can be modified or deleted
  *       only after the unlock delay period expires.</p>
  * @example
@@ -90,6 +89,7 @@ export interface UnlockRuleCommandOutput extends UnlockRuleResponse, __MetadataB
  * @throws {@link RbinServiceException}
  * <p>Base exception class for all service exceptions from Rbin service.</p>
  *
+ * @public
  */
 export class UnlockRuleCommand extends $Command
   .classBuilder<

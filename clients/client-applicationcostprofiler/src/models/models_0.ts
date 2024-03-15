@@ -4,8 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { ApplicationCostProfilerServiceException as __BaseException } from "./ApplicationCostProfilerServiceException";
 
 /**
- * @public
  * <p>You do not have permission to perform this action.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -28,8 +28,8 @@ export class AccessDeniedException extends __BaseException {
  */
 export interface DeleteReportDefinitionRequest {
   /**
-   * @public
    * <p>Required. ID of the report to delete.</p>
+   * @public
    */
   reportId: string | undefined;
 }
@@ -39,15 +39,15 @@ export interface DeleteReportDefinitionRequest {
  */
 export interface DeleteReportDefinitionResult {
   /**
-   * @public
    * <p>ID of the report that was deleted.</p>
+   * @public
    */
   reportId?: string;
 }
 
 /**
- * @public
  * <p>An internal server error occurred. Retry your request.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -66,8 +66,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The calls to AWS Application Cost Profiler API are throttled. The request was denied.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -86,8 +86,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The input fails to satisfy the constraints for the API.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -110,27 +110,27 @@ export class ValidationException extends __BaseException {
  */
 export interface GetReportDefinitionRequest {
   /**
-   * @public
    * <p>ID of the report to retrieve.</p>
+   * @public
    */
   reportId: string | undefined;
 }
 
 /**
- * @public
  * <p>Represents the Amazon Simple Storage Service (Amazon S3) location where AWS Application Cost Profiler
  *       reports are generated and then written to.</p>
+ * @public
  */
 export interface S3Location {
   /**
-   * @public
    * <p>Name of the S3 bucket.</p>
+   * @public
    */
   bucket: string | undefined;
 
   /**
-   * @public
    * <p>Prefix for the location to write to.</p>
+   * @public
    */
   prefix: string | undefined;
 }
@@ -169,44 +169,44 @@ export type ReportFrequency = (typeof ReportFrequency)[keyof typeof ReportFreque
  */
 export interface GetReportDefinitionResult {
   /**
-   * @public
    * <p>ID of the report retrieved.</p>
+   * @public
    */
   reportId: string | undefined;
 
   /**
-   * @public
    * <p>Description of the report.</p>
+   * @public
    */
   reportDescription: string | undefined;
 
   /**
-   * @public
    * <p>Cadence used to generate the report.</p>
+   * @public
    */
   reportFrequency: ReportFrequency | undefined;
 
   /**
-   * @public
    * <p>Format of the generated report.</p>
+   * @public
    */
   format: Format | undefined;
 
   /**
-   * @public
    * <p>Amazon Simple Storage Service (Amazon S3) location where the report is uploaded.</p>
+   * @public
    */
   destinationS3Location: S3Location | undefined;
 
   /**
-   * @public
    * <p>Timestamp (milliseconds) when this report definition was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>Timestamp (milliseconds) when this report definition was last updated.</p>
+   * @public
    */
   lastUpdated: Date | undefined;
 }
@@ -228,28 +228,28 @@ export const S3BucketRegion = {
 export type S3BucketRegion = (typeof S3BucketRegion)[keyof typeof S3BucketRegion];
 
 /**
- * @public
  * <p>Represents the Amazon Simple Storage Service (Amazon S3) location where usage data is read
  *       from.</p>
+ * @public
  */
 export interface SourceS3Location {
   /**
-   * @public
    * <p>Name of the bucket.</p>
+   * @public
    */
   bucket: string | undefined;
 
   /**
-   * @public
    * <p>Key of the object.</p>
+   * @public
    */
   key: string | undefined;
 
   /**
-   * @public
    * <p>Region of the bucket. Only required for Regions that are disabled by default.
    *         For more infomration about Regions that are disabled by default, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable">
    *           Enabling a Region</a> in the <i>AWS General Reference guide</i>.</p>
+   * @public
    */
   region?: S3BucketRegion;
 }
@@ -259,8 +259,8 @@ export interface SourceS3Location {
  */
 export interface ImportApplicationUsageRequest {
   /**
-   * @public
    * <p>Amazon S3 location to import application usage data from.</p>
+   * @public
    */
   sourceS3Location: SourceS3Location | undefined;
 }
@@ -270,8 +270,8 @@ export interface ImportApplicationUsageRequest {
  */
 export interface ImportApplicationUsageResult {
   /**
-   * @public
    * <p>ID of the import request.</p>
+   * @public
    */
   importId: string | undefined;
 }
@@ -281,62 +281,62 @@ export interface ImportApplicationUsageResult {
  */
 export interface ListReportDefinitionsRequest {
   /**
-   * @public
    * <p>The token value from a previous call to access the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>The configuration of a report in AWS Application Cost Profiler.</p>
+ * @public
  */
 export interface ReportDefinition {
   /**
-   * @public
    * <p>The ID of the report.</p>
+   * @public
    */
   reportId?: string;
 
   /**
-   * @public
    * <p>Description of the report</p>
+   * @public
    */
   reportDescription?: string;
 
   /**
-   * @public
    * <p>The cadence at which the report is generated.</p>
+   * @public
    */
   reportFrequency?: ReportFrequency;
 
   /**
-   * @public
    * <p>The format used for the generated reports.</p>
+   * @public
    */
   format?: Format;
 
   /**
-   * @public
    * <p>The location in Amazon Simple Storage Service (Amazon S3) the reports should be saved to.</p>
+   * @public
    */
   destinationS3Location?: S3Location;
 
   /**
-   * @public
    * <p>Timestamp (milliseconds) when this report definition was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>Timestamp (milliseconds) when this report definition was last updated.</p>
+   * @public
    */
   lastUpdatedAt?: Date;
 }
@@ -346,14 +346,14 @@ export interface ReportDefinition {
  */
 export interface ListReportDefinitionsResult {
   /**
-   * @public
    * <p>The retrieved reports.</p>
+   * @public
    */
   reportDefinitions?: ReportDefinition[];
 
   /**
-   * @public
    * <p>The value of the next token, if it exists. Null if there are no more results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -363,34 +363,34 @@ export interface ListReportDefinitionsResult {
  */
 export interface PutReportDefinitionRequest {
   /**
-   * @public
    * <p>Required. ID of the report. You can choose any valid string matching the pattern for the
    *       ID.</p>
+   * @public
    */
   reportId: string | undefined;
 
   /**
-   * @public
    * <p>Required. Description of the report.</p>
+   * @public
    */
   reportDescription: string | undefined;
 
   /**
-   * @public
    * <p>Required. The cadence to generate the report.</p>
+   * @public
    */
   reportFrequency: ReportFrequency | undefined;
 
   /**
-   * @public
    * <p>Required. The format to use for the generated report.</p>
+   * @public
    */
   format: Format | undefined;
 
   /**
-   * @public
    * <p>Required. Amazon Simple Storage Service (Amazon S3) location where Application Cost Profiler uploads the
    *       report.</p>
+   * @public
    */
   destinationS3Location: S3Location | undefined;
 }
@@ -400,15 +400,15 @@ export interface PutReportDefinitionRequest {
  */
 export interface PutReportDefinitionResult {
   /**
-   * @public
    * <p>ID of the report.</p>
+   * @public
    */
   reportId?: string;
 }
 
 /**
- * @public
  * <p>Your request exceeds one or more of the service quotas.</p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
@@ -431,33 +431,33 @@ export class ServiceQuotaExceededException extends __BaseException {
  */
 export interface UpdateReportDefinitionRequest {
   /**
-   * @public
    * <p>Required. ID of the report to update.</p>
+   * @public
    */
   reportId: string | undefined;
 
   /**
-   * @public
    * <p>Required. Description of the report.</p>
+   * @public
    */
   reportDescription: string | undefined;
 
   /**
-   * @public
    * <p>Required. The cadence to generate the report.</p>
+   * @public
    */
   reportFrequency: ReportFrequency | undefined;
 
   /**
-   * @public
    * <p>Required. The format to use for the generated report.</p>
+   * @public
    */
   format: Format | undefined;
 
   /**
-   * @public
    * <p>Required. Amazon Simple Storage Service (Amazon S3) location where Application Cost Profiler uploads the
    *       report.</p>
+   * @public
    */
   destinationS3Location: S3Location | undefined;
 }
@@ -467,8 +467,8 @@ export interface UpdateReportDefinitionRequest {
  */
 export interface UpdateReportDefinitionResult {
   /**
-   * @public
    * <p>ID of the report.</p>
+   * @public
    */
   reportId?: string;
 }

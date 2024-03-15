@@ -27,7 +27,6 @@ export interface UpdateVTLDeviceTypeCommandInput extends UpdateVTLDeviceTypeInpu
 export interface UpdateVTLDeviceTypeCommandOutput extends UpdateVTLDeviceTypeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the type of medium changer in a tape gateway. When you activate a tape gateway,
  *          you select a medium changer type for the tape gateway. This operation enables you to select
  *          a different type of medium changer after a tape gateway is activated. This operation is
@@ -67,6 +66,7 @@ export interface UpdateVTLDeviceTypeCommandOutput extends UpdateVTLDeviceTypeOut
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To update a VTL device type
  * ```javascript
  * // Updates the type of medium changer in a gateway-VTL after a gateway-VTL is activated.

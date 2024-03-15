@@ -27,7 +27,6 @@ export interface DeleteLexiconCommandInput extends DeleteLexiconInput {}
 export interface DeleteLexiconCommandOutput extends DeleteLexiconOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified pronunciation lexicon stored in an Amazon Web Services Region. A lexicon which has been deleted is not available for
  *       speech synthesis, nor is it possible to retrieve it using either the
  *         <code>GetLexicon</code> or <code>ListLexicon</code> APIs.</p>
@@ -66,6 +65,7 @@ export interface DeleteLexiconCommandOutput extends DeleteLexiconOutput, __Metad
  * @throws {@link PollyServiceException}
  * <p>Base exception class for all service exceptions from Polly service.</p>
  *
+ * @public
  * @example To delete a lexicon
  * ```javascript
  * // Deletes a specified pronunciation lexicon stored in an AWS Region.

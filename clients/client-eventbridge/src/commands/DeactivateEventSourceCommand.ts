@@ -27,7 +27,6 @@ export interface DeactivateEventSourceCommandInput extends DeactivateEventSource
 export interface DeactivateEventSourceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>You can use this operation to temporarily stop receiving events from the specified partner
  *       event source. The matching event bus is not deleted. </p>
  *          <p>When you deactivate a partner event source, the source goes into PENDING state. If it
@@ -72,6 +71,7 @@ export interface DeactivateEventSourceCommandOutput extends __MetadataBearer {}
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * @public
  */
 export class DeactivateEventSourceCommand extends $Command
   .classBuilder<

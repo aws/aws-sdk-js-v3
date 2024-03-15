@@ -27,7 +27,6 @@ export interface DescribeAccountCommandInput extends DescribeAccountRequest {}
 export interface DescribeAccountCommandOutput extends DescribeAccountResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list that describes the configuration of Bring Your Own License (BYOL) for
  *          the specified account.</p>
  * @example
@@ -58,6 +57,7 @@ export interface DescribeAccountCommandOutput extends DescribeAccountResult, __M
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class DescribeAccountCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface CalculateRouteMatrixCommandInput extends CalculateRouteMatrixRe
 export interface CalculateRouteMatrixCommandOutput extends CalculateRouteMatrixResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html"> Calculates a route
  *                 matrix</a> given the following required parameters:
@@ -177,6 +176,7 @@ export interface CalculateRouteMatrixCommandOutput extends CalculateRouteMatrixR
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class CalculateRouteMatrixCommand extends $Command
   .classBuilder<

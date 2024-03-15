@@ -27,7 +27,6 @@ export interface UpdateDomainCommandInput extends UpdateDomainRequest {}
 export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the default settings for new user profiles in the domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -272,6 +271,7 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class UpdateDomainCommand extends $Command
   .classBuilder<

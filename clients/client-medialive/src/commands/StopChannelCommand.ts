@@ -27,7 +27,6 @@ export interface StopChannelCommandInput extends StopChannelRequest {}
 export interface StopChannelCommandOutput extends StopChannelResponse, __MetadataBearer {}
 
 /**
- * @public
  * Stops a running channel
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -1106,6 +1105,7 @@ export interface StopChannelCommandOutput extends StopChannelResponse, __Metadat
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class StopChannelCommand extends $Command
   .classBuilder<

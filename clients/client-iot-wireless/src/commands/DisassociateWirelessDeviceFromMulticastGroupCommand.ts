@@ -36,7 +36,6 @@ export interface DisassociateWirelessDeviceFromMulticastGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates a wireless device from a multicast group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface DisassociateWirelessDeviceFromMulticastGroupCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class DisassociateWirelessDeviceFromMulticastGroupCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface BatchAssociateScramSecretCommandInput extends BatchAssociateScr
 export interface BatchAssociateScramSecretCommandOutput extends BatchAssociateScramSecretResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates one or more Scram Secrets with an Amazon MSK cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface BatchAssociateScramSecretCommandOutput extends BatchAssociateSc
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ * @public
  */
 export class BatchAssociateScramSecretCommand extends $Command
   .classBuilder<

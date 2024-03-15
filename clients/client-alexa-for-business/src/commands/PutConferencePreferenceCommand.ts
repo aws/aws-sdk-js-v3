@@ -27,9 +27,6 @@ export interface PutConferencePreferenceCommandInput extends PutConferencePrefer
 export interface PutConferencePreferenceCommandOutput extends PutConferencePreferenceResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Sets the conference preferences on a specific conference provider at the account
  *          level.</p>
  * @example
@@ -61,6 +58,8 @@ export interface PutConferencePreferenceCommandOutput extends PutConferencePrefe
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class PutConferencePreferenceCommand extends $Command
   .classBuilder<

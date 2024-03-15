@@ -27,7 +27,6 @@ export interface DescribePipelinesCommandInput extends DescribePipelinesInput {}
 export interface DescribePipelinesCommandOutput extends DescribePipelinesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves metadata about one or more pipelines. The information retrieved includes the name of the pipeline, the pipeline identifier,
  *             its current state, and the user account that owns the pipeline. Using account credentials, you can retrieve metadata about pipelines
  *             that you or your IAM users have created. If you are using an IAM user account, you can retrieve metadata about only those pipelines
@@ -149,6 +148,7 @@ export interface DescribePipelinesCommandOutput extends DescribePipelinesOutput,
  * @throws {@link DataPipelineServiceException}
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ * @public
  */
 export class DescribePipelinesCommand extends $Command
   .classBuilder<

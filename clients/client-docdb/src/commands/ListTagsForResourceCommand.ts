@@ -27,7 +27,6 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceMess
 export interface ListTagsForResourceCommandOutput extends TagListMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all tags on an Amazon DocumentDB resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class ListTagsForResourceCommand extends $Command
   .classBuilder<

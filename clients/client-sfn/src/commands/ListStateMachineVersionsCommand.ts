@@ -27,7 +27,6 @@ export interface ListStateMachineVersionsCommandInput extends ListStateMachineVe
 export interface ListStateMachineVersionsCommandOutput extends ListStateMachineVersionsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html">versions</a> for the specified state machine Amazon Resource Name (ARN).</p>
  *          <p>The results are sorted in descending order of the version creation time.</p>
  *          <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
@@ -90,6 +89,7 @@ export interface ListStateMachineVersionsCommandOutput extends ListStateMachineV
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * @public
  */
 export class ListStateMachineVersionsCommand extends $Command
   .classBuilder<

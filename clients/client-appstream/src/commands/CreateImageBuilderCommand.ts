@@ -27,7 +27,6 @@ export interface CreateImageBuilderCommandInput extends CreateImageBuilderReques
 export interface CreateImageBuilderCommandOutput extends CreateImageBuilderResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an image builder. An image builder is a virtual machine that is used to create an image.</p>
  *          <p>The initial state of the builder is <code>PENDING</code>. When it is ready, the state is <code>RUNNING</code>.</p>
  * @example
@@ -164,6 +163,7 @@ export interface CreateImageBuilderCommandOutput extends CreateImageBuilderResul
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class CreateImageBuilderCommand extends $Command
   .classBuilder<

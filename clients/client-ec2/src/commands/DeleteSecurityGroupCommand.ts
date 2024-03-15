@@ -27,7 +27,6 @@ export interface DeleteSecurityGroupCommandInput extends DeleteSecurityGroupRequ
 export interface DeleteSecurityGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a security group.</p>
  *          <p>If you attempt to delete a security group that is associated with an instance or network interface or is
  * 			  referenced by another security group, the operation fails with
@@ -58,6 +57,7 @@ export interface DeleteSecurityGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To delete a security group
  * ```javascript
  * // This example deletes the specified security group.

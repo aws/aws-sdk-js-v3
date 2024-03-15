@@ -27,7 +27,6 @@ export interface CopyDBParameterGroupCommandInput extends CopyDBParameterGroupMe
 export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Copies the specified DB parameter group.</p>
  *          <note>
  *             <p>You can't copy a default DB parameter group. Instead, create a new custom DB parameter group, which copies the default
@@ -84,6 +83,7 @@ export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupR
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To copy a DB parameter group
  * ```javascript
  * // The following example makes a copy of a DB parameter group.

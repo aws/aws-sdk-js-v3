@@ -27,7 +27,6 @@ export interface ListClustersCommandInput extends ListClustersInput {}
 export interface ListClustersCommandOutput extends ListClustersOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides the status of all clusters visible to this Amazon Web Services account. Allows
  *          you to filter the list of clusters based on certain criteria; for example, filtering by
  *          cluster creation date and time or by status. This call returns a maximum of 50 clusters in
@@ -103,6 +102,7 @@ export interface ListClustersCommandOutput extends ListClustersOutput, __Metadat
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class ListClustersCommand extends $Command
   .classBuilder<

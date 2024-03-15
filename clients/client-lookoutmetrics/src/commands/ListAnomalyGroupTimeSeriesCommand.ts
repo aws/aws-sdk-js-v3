@@ -27,7 +27,6 @@ export interface ListAnomalyGroupTimeSeriesCommandInput extends ListAnomalyGroup
 export interface ListAnomalyGroupTimeSeriesCommandOutput extends ListAnomalyGroupTimeSeriesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of anomalous metrics for a measure in an anomaly group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface ListAnomalyGroupTimeSeriesCommandOutput extends ListAnomalyGrou
  * @throws {@link LookoutMetricsServiceException}
  * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
+ * @public
  */
 export class ListAnomalyGroupTimeSeriesCommand extends $Command
   .classBuilder<

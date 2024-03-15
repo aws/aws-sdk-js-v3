@@ -32,7 +32,6 @@ export interface CreateSolNetworkPackageCommandInput extends CreateSolNetworkPac
 export interface CreateSolNetworkPackageCommandOutput extends CreateSolNetworkPackageOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a network package.</p>
  *          <p>A network package is a .zip file in CSAR (Cloud Service Archive) format defines the function packages you want to deploy and the Amazon Web Services infrastructure you want to deploy them on. For more information, see <a href="https://docs.aws.amazon.com/tnb/latest/ug/network-instances.html">Network instances</a> in the <i>Amazon Web Services Telco Network Builder User Guide</i>.
  *       </p>
@@ -88,6 +87,7 @@ export interface CreateSolNetworkPackageCommandOutput extends CreateSolNetworkPa
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ * @public
  */
 export class CreateSolNetworkPackageCommand extends $Command
   .classBuilder<

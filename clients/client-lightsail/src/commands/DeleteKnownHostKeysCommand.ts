@@ -27,7 +27,6 @@ export interface DeleteKnownHostKeysCommandInput extends DeleteKnownHostKeysRequ
 export interface DeleteKnownHostKeysCommandOutput extends DeleteKnownHostKeysResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the known host key or certificate used by the Amazon Lightsail browser-based SSH or
  *       RDP clients to authenticate an instance. This operation enables the Lightsail browser-based
  *       SSH or RDP clients to connect to the instance after a host key mismatch.</p>
@@ -111,6 +110,7 @@ export interface DeleteKnownHostKeysCommandOutput extends DeleteKnownHostKeysRes
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class DeleteKnownHostKeysCommand extends $Command
   .classBuilder<

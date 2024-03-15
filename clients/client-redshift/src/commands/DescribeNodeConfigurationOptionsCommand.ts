@@ -32,7 +32,6 @@ export interface DescribeNodeConfigurationOptionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns properties of possible node configurations such as node type, number of nodes, and
  *             disk usage for the specified action type.</p>
  * @example
@@ -102,6 +101,7 @@ export interface DescribeNodeConfigurationOptionsCommandOutput
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DescribeNodeConfigurationOptionsCommand extends $Command
   .classBuilder<

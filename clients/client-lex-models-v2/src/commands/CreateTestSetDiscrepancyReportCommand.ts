@@ -32,7 +32,6 @@ export interface CreateTestSetDiscrepancyReportCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a report that describes the differences between the bot and the test set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface CreateTestSetDiscrepancyReportCommandOutput
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class CreateTestSetDiscrepancyReportCommand extends $Command
   .classBuilder<

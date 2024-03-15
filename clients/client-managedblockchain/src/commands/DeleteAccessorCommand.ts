@@ -31,7 +31,6 @@ export interface DeleteAccessorCommandInput extends DeleteAccessorInput {}
 export interface DeleteAccessorCommandOutput extends DeleteAccessorOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an accessor that your Amazon Web Services account owns. An accessor object is a container that has the
  *          information required for token based access to your Ethereum nodes including, the
  *          <code>BILLING_TOKEN</code>. After an accessor is deleted, the status of the accessor changes
@@ -81,6 +80,7 @@ export interface DeleteAccessorCommandOutput extends DeleteAccessorOutput, __Met
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ * @public
  */
 export class DeleteAccessorCommand extends $Command
   .classBuilder<

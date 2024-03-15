@@ -27,7 +27,6 @@ export interface DeleteAnomalyMonitorCommandInput extends DeleteAnomalyMonitorRe
 export interface DeleteAnomalyMonitorCommandOutput extends DeleteAnomalyMonitorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a cost anomaly monitor. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +58,7 @@ export interface DeleteAnomalyMonitorCommandOutput extends DeleteAnomalyMonitorR
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * @public
  */
 export class DeleteAnomalyMonitorCommand extends $Command
   .classBuilder<

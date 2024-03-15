@@ -27,7 +27,6 @@ export interface GetVpnConnectionDeviceTypesCommandInput extends GetVpnConnectio
 export interface GetVpnConnectionDeviceTypesCommandOutput extends GetVpnConnectionDeviceTypesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Obtain a list of customer gateway devices for which sample configuration
  *             files can be provided. The request has no additional parameters. You can also see the
  *             list of device types with sample configuration files available under <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/your-cgw.html">Your customer gateway
@@ -68,6 +67,7 @@ export interface GetVpnConnectionDeviceTypesCommandOutput extends GetVpnConnecti
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class GetVpnConnectionDeviceTypesCommand extends $Command
   .classBuilder<

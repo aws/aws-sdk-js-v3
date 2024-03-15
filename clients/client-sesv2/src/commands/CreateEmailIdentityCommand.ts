@@ -31,7 +31,6 @@ export interface CreateEmailIdentityCommandInput extends CreateEmailIdentityRequ
 export interface CreateEmailIdentityCommandOutput extends CreateEmailIdentityResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts the process of verifying an email identity. An <i>identity</i> is
  *             an email address or domain that you use when you send email. Before you can use an
  *             identity to send email, you first have to verify it. By verifying an identity, you
@@ -126,6 +125,7 @@ export interface CreateEmailIdentityCommandOutput extends CreateEmailIdentityRes
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class CreateEmailIdentityCommand extends $Command
   .classBuilder<

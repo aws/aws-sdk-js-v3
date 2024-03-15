@@ -27,7 +27,6 @@ export interface DeleteQuickResponseCommandInput extends DeleteQuickResponseRequ
 export interface DeleteQuickResponseCommandOutput extends DeleteQuickResponseResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a quick response.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +62,7 @@ export interface DeleteQuickResponseCommandOutput extends DeleteQuickResponseRes
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ * @public
  */
 export class DeleteQuickResponseCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface StartAppReplicationCommandInput extends StartAppReplicationRequ
 export interface StartAppReplicationCommandOutput extends StartAppReplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts replicating the specified application by creating replication jobs for each server in the
  *             application.</p>
  * @example
@@ -70,6 +69,7 @@ export interface StartAppReplicationCommandOutput extends StartAppReplicationRes
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ * @public
  */
 export class StartAppReplicationCommand extends $Command
   .classBuilder<

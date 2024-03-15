@@ -36,7 +36,6 @@ export interface GetPerformanceAnalysisReportCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the report including the report ID, status, time details, and the insights
  *             with recommendations. The report status can be <code>RUNNING</code>,
  *             <code>SUCCEEDED</code>, or <code>FAILED</code>. The insights include the
@@ -171,6 +170,7 @@ export interface GetPerformanceAnalysisReportCommandOutput
  * @throws {@link PIServiceException}
  * <p>Base exception class for all service exceptions from PI service.</p>
  *
+ * @public
  */
 export class GetPerformanceAnalysisReportCommand extends $Command
   .classBuilder<

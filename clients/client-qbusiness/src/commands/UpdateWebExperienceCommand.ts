@@ -27,7 +27,6 @@ export interface UpdateWebExperienceCommandInput extends UpdateWebExperienceRequ
 export interface UpdateWebExperienceCommandOutput extends UpdateWebExperienceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an Amazon Q web experience. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface UpdateWebExperienceCommandOutput extends UpdateWebExperienceRes
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ * @public
  */
 export class UpdateWebExperienceCommand extends $Command
   .classBuilder<

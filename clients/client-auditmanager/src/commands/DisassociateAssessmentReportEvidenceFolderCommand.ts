@@ -36,7 +36,6 @@ export interface DisassociateAssessmentReportEvidenceFolderCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p> Disassociates an evidence folder from the specified assessment report in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface DisassociateAssessmentReportEvidenceFolderCommandOutput
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class DisassociateAssessmentReportEvidenceFolderCommand extends $Command
   .classBuilder<

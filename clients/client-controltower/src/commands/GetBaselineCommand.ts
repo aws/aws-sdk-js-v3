@@ -27,7 +27,6 @@ export interface GetBaselineCommandInput extends GetBaselineInput {}
 export interface GetBaselineCommandOutput extends GetBaselineOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieve details about an existing <code>Baseline</code> resource by specifying its identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface GetBaselineCommandOutput extends GetBaselineOutput, __MetadataB
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ * @public
  */
 export class GetBaselineCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteUserCommandInput extends DeleteUserRequest {}
 export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the Amazon QuickSight user that is associated with the identity of the
  * 			IAM user or role that's making the call. The IAM user
  * 			isn't deleted as a result of this call. </p>
@@ -84,6 +83,7 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DeleteUserCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListTableMetadataCommandInput extends ListTableMetadataInput {}
 export interface ListTableMetadataCommandOutput extends ListTableMetadataOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the metadata for the tables in the specified data catalog database.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface ListTableMetadataCommandOutput extends ListTableMetadataOutput,
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class ListTableMetadataCommand extends $Command
   .classBuilder<

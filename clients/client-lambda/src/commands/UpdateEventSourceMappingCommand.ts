@@ -27,7 +27,6 @@ export interface UpdateEventSourceMappingCommandInput extends UpdateEventSourceM
 export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappingConfiguration, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an event source mapping. You can change the function that Lambda invokes, or pause
  *       invocation and resume later from the same location.</p>
  *          <p>For details about how to configure different event sources, see the following topics. </p>
@@ -295,6 +294,7 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class UpdateEventSourceMappingCommand extends $Command
   .classBuilder<

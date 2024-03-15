@@ -27,7 +27,6 @@ export interface GetSchemaVersionCommandInput extends GetSchemaVersionInput {}
 export interface GetSchemaVersionCommandOutput extends GetSchemaVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get the specified schema by its unique ID assigned when a version of the schema is created or registered. Schema versions in Deleted status will not be included in the results.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface GetSchemaVersionCommandOutput extends GetSchemaVersionResponse,
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetSchemaVersionCommand extends $Command
   .classBuilder<

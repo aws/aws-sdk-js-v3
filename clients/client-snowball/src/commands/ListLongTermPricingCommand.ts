@@ -27,7 +27,6 @@ export interface ListLongTermPricingCommandInput extends ListLongTermPricingRequ
 export interface ListLongTermPricingCommandOutput extends ListLongTermPricingResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all long-term pricing types.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface ListLongTermPricingCommandOutput extends ListLongTermPricingRes
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * @public
  */
 export class ListLongTermPricingCommand extends $Command
   .classBuilder<

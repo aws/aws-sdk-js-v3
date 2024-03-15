@@ -27,7 +27,6 @@ export interface DescribeScraperCommandInput extends DescribeScraperRequest {}
 export interface DescribeScraperCommandOutput extends DescribeScraperResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The <code>DescribeScraper</code> operation displays information about an existing
  *             scraper.</p>
  * @example
@@ -105,6 +104,7 @@ export interface DescribeScraperCommandOutput extends DescribeScraperResponse, _
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ * @public
  */
 export class DescribeScraperCommand extends $Command
   .classBuilder<

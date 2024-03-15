@@ -27,7 +27,6 @@ export interface GetEndpointCommandInput extends GetEndpointRequest {}
 export interface GetEndpointCommandOutput extends GetEndpointResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the settings and attributes of a specific endpoint for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -122,6 +121,7 @@ export interface GetEndpointCommandOutput extends GetEndpointResponse, __Metadat
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class GetEndpointCommand extends $Command
   .classBuilder<

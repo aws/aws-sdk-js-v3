@@ -27,7 +27,6 @@ export interface DeleteFeatureCommandInput extends DeleteFeatureRequest {}
 export interface DeleteFeatureCommandOutput extends DeleteFeatureResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Evidently feature.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface DeleteFeatureCommandOutput extends DeleteFeatureResponse, __Met
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ * @public
  */
 export class DeleteFeatureCommand extends $Command
   .classBuilder<

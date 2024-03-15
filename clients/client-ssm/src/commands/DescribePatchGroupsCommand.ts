@@ -27,7 +27,6 @@ export interface DescribePatchGroupsCommandInput extends DescribePatchGroupsRequ
 export interface DescribePatchGroupsCommandOutput extends DescribePatchGroupsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all patch groups that have been registered with patch baselines.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface DescribePatchGroupsCommandOutput extends DescribePatchGroupsRes
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DescribePatchGroupsCommand extends $Command
   .classBuilder<

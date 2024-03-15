@@ -254,7 +254,6 @@ export type AppConfigDataClientResolvedConfigType = __SmithyResolvedConfiguratio
 export interface AppConfigDataClientResolvedConfig extends AppConfigDataClientResolvedConfigType {}
 
 /**
- * @public
  * <p>AppConfig Data provides the data plane APIs your application uses to retrieve
  *          configuration data. Here's how it works:</p>
  *          <p>Your application retrieves configuration data by first establishing a configuration
@@ -314,6 +313,7 @@ export interface AppConfigDataClientResolvedConfig extends AppConfigDataClientRe
  *          configuration using the AppConfig Data <code>StartConfigurationSession</code> and
  *             <code>GetLatestConfiguration</code> API actions, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration">Retrieving the
  *             configuration</a> in the <i>AppConfig User Guide</i>.</p>
+ * @public
  */
 export class AppConfigDataClient extends __Client<
   __HttpHandlerOptions,

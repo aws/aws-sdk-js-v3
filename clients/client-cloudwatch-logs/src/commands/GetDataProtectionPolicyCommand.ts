@@ -27,7 +27,6 @@ export interface GetDataProtectionPolicyCommandInput extends GetDataProtectionPo
 export interface GetDataProtectionPolicyCommandOutput extends GetDataProtectionPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a log group data protection policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface GetDataProtectionPolicyCommandOutput extends GetDataProtectionP
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class GetDataProtectionPolicyCommand extends $Command
   .classBuilder<

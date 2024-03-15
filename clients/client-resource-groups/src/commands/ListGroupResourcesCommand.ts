@@ -27,7 +27,6 @@ export interface ListGroupResourcesCommandInput extends ListGroupResourcesInput 
 export interface ListGroupResourcesCommandOutput extends ListGroupResourcesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of ARNs of the resources that are members of a specified resource
  *             group.</p>
  *          <p>
@@ -139,6 +138,7 @@ export interface ListGroupResourcesCommandOutput extends ListGroupResourcesOutpu
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ * @public
  */
 export class ListGroupResourcesCommand extends $Command
   .classBuilder<

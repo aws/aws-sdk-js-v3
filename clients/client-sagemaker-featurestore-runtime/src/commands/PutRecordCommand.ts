@@ -31,7 +31,6 @@ export interface PutRecordCommandInput extends PutRecordRequest {}
 export interface PutRecordCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>The <code>PutRecord</code> API is used to ingest a list of <code>Records</code> into
  *          your feature group. </p>
  *          <p>If a new record’s <code>EventTime</code> is greater, the new record is written to both
@@ -101,6 +100,7 @@ export interface PutRecordCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerFeatureStoreRuntimeServiceException}
  * <p>Base exception class for all service exceptions from SageMakerFeatureStoreRuntime service.</p>
  *
+ * @public
  */
 export class PutRecordCommand extends $Command
   .classBuilder<

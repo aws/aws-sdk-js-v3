@@ -32,7 +32,6 @@ export interface CreateContainerServiceDeploymentCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a deployment for your Amazon Lightsail container service.</p>
  *          <p>A deployment specifies the containers that will be launched on the container service and
  *       their settings, such as the ports to open, the environment variables to apply, and the launch
@@ -218,6 +217,7 @@ export interface CreateContainerServiceDeploymentCommandOutput
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class CreateContainerServiceDeploymentCommand extends $Command
   .classBuilder<

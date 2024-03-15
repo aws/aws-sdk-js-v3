@@ -31,7 +31,6 @@ export interface CreateRuleCommandInput extends CreateRuleInput {}
 export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a rule for the specified listener. The listener must be associated with an
  *       Application Load Balancer.</p>
  *          <p>Each rule consists of a priority, one or more actions, and one or more conditions. Rules
@@ -326,6 +325,7 @@ export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBea
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  * @example To create a rule
  * ```javascript
  * // This example creates a rule that forwards requests to the specified target group if the URL contains the specified pattern (for example, /img/*).

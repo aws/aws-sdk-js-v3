@@ -29,7 +29,6 @@ export interface GetAccessGrantsLocationCommandInput extends GetAccessGrantsLoca
 export interface GetAccessGrantsLocationCommandOutput extends GetAccessGrantsLocationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the details of a particular location registered in your S3 Access Grants instance. </p>
  *          <dl>
  *             <dt>Permissions</dt>
@@ -68,6 +67,7 @@ export interface GetAccessGrantsLocationCommandOutput extends GetAccessGrantsLoc
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class GetAccessGrantsLocationCommand extends $Command
   .classBuilder<

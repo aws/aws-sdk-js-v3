@@ -27,7 +27,6 @@ export interface DescribeTaskExecutionCommandInput extends DescribeTaskExecution
 export interface DescribeTaskExecutionCommandOutput extends DescribeTaskExecutionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides information about an execution of your DataSync task. You can
  *       use this operation to help monitor the progress of an ongoing transfer or check the results of
  *       the transfer.</p>
@@ -159,6 +158,7 @@ export interface DescribeTaskExecutionCommandOutput extends DescribeTaskExecutio
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class DescribeTaskExecutionCommand extends $Command
   .classBuilder<

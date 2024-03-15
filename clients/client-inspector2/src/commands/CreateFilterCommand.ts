@@ -27,7 +27,6 @@ export interface CreateFilterCommandInput extends CreateFilterRequest {}
 export interface CreateFilterCommandOutput extends CreateFilterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a filter resource using specified filter criteria. When the filter action is set to <code>SUPPRESS</code> this action creates a suppression rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -209,6 +208,7 @@ export interface CreateFilterCommandOutput extends CreateFilterResponse, __Metad
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class CreateFilterCommand extends $Command
   .classBuilder<

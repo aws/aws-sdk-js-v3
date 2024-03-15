@@ -27,7 +27,6 @@ export interface StopImageBuilderCommandInput extends StopImageBuilderRequest {}
 export interface StopImageBuilderCommandOutput extends StopImageBuilderResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops the specified image builder.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -110,6 +109,7 @@ export interface StopImageBuilderCommandOutput extends StopImageBuilderResult, _
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class StopImageBuilderCommand extends $Command
   .classBuilder<

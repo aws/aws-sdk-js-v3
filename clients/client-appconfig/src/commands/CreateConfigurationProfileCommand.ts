@@ -32,7 +32,6 @@ export interface CreateConfigurationProfileCommandInput extends CreateConfigurat
 export interface CreateConfigurationProfileCommandOutput extends ConfigurationProfile, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a configuration profile, which is information that enables AppConfig
  *          to access the configuration source. Valid configuration sources include the
  *          following:</p>
@@ -148,6 +147,7 @@ export interface CreateConfigurationProfileCommandOutput extends ConfigurationPr
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  * @example To create a configuration profile
  * ```javascript
  * // The following create-configuration-profile example creates a configuration profile using a configuration stored in Parameter Store, a capability of Systems Manager.

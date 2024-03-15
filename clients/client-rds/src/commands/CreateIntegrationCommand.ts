@@ -27,7 +27,6 @@ export interface CreateIntegrationCommandInput extends CreateIntegrationMessage 
 export interface CreateIntegrationCommandOutput extends Integration, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a zero-ETL integration with Amazon Redshift.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -110,6 +109,7 @@ export interface CreateIntegrationCommandOutput extends Integration, __MetadataB
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To create a zero-ETL integration
  * ```javascript
  * // The following example creates a zero-ETL integration with Amazon Redshift.

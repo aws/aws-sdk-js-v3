@@ -27,7 +27,6 @@ export interface ListDatasetExportJobsCommandInput extends ListDatasetExportJobs
 export interface ListDatasetExportJobsCommandOutput extends ListDatasetExportJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of dataset export jobs that use the given dataset. When
  *       a dataset is not specified, all the dataset export jobs associated with
  *       the account are listed. The response provides the properties for each
@@ -78,6 +77,7 @@ export interface ListDatasetExportJobsCommandOutput extends ListDatasetExportJob
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class ListDatasetExportJobsCommand extends $Command
   .classBuilder<

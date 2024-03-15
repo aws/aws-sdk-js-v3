@@ -27,7 +27,6 @@ export interface PutInsightRuleCommandInput extends PutInsightRuleInput {}
 export interface PutInsightRuleCommandOutput extends PutInsightRuleOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Contributor Insights rule. Rules evaluate log events in a
  * 		CloudWatch Logs log group, enabling you to find contributor data for the log events in that log group. For more information,
  * 		see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html">Using Contributor Insights to Analyze High-Cardinality Data</a>.</p>
@@ -74,6 +73,7 @@ export interface PutInsightRuleCommandOutput extends PutInsightRuleOutput, __Met
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * @public
  */
 export class PutInsightRuleCommand extends $Command
   .classBuilder<

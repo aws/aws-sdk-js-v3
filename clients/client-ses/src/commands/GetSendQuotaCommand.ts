@@ -27,7 +27,6 @@ export interface GetSendQuotaCommandInput {}
 export interface GetSendQuotaCommandOutput extends GetSendQuotaResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides the sending limits for the Amazon SES account. </p>
  *          <p>You can execute this operation no more than once per second.</p>
  * @example
@@ -56,6 +55,7 @@ export interface GetSendQuotaCommandOutput extends GetSendQuotaResponse, __Metad
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example GetSendQuota
  * ```javascript
  * // The following example returns the Amazon SES sending limits for an AWS account:

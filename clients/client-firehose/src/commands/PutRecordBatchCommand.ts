@@ -27,7 +27,6 @@ export interface PutRecordBatchCommandInput extends PutRecordBatchInput {}
 export interface PutRecordBatchCommandOutput extends PutRecordBatchOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Writes multiple data records into a delivery stream in a single call, which can
  *          achieve higher throughput per producer than when writing single records. To write single
  *          data records into a delivery stream, use <a>PutRecord</a>. Applications using
@@ -143,6 +142,7 @@ export interface PutRecordBatchCommandOutput extends PutRecordBatchOutput, __Met
  * @throws {@link FirehoseServiceException}
  * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
+ * @public
  */
 export class PutRecordBatchCommand extends $Command
   .classBuilder<

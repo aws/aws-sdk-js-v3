@@ -27,7 +27,6 @@ export interface TerminateEnvironmentCommandInput extends TerminateEnvironmentMe
 export interface TerminateEnvironmentCommandOutput extends EnvironmentDescription, __MetadataBearer {}
 
 /**
- * @public
  * <p>Terminates the specified environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface TerminateEnvironmentCommandOutput extends EnvironmentDescriptio
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  * @example To terminate an environment
  * ```javascript
  * // The following operation terminates an Elastic Beanstalk environment named my-env:

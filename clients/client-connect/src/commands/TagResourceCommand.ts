@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds the specified tags to the specified resource.</p>
  *          <p>Some of the supported resource types are agents, routing profiles, queues, quick connects,
  *    contact flows, agent statuses, hours of operation, phone numbers, security profiles, and task
@@ -77,6 +76,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

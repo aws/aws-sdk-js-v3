@@ -27,7 +27,6 @@ export interface DeleteDevEndpointCommandInput extends DeleteDevEndpointRequest 
 export interface DeleteDevEndpointCommandOutput extends DeleteDevEndpointResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specified development endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface DeleteDevEndpointCommandOutput extends DeleteDevEndpointRespons
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class DeleteDevEndpointCommand extends $Command
   .classBuilder<

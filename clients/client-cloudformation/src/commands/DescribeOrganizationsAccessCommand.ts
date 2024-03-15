@@ -27,7 +27,6 @@ export interface DescribeOrganizationsAccessCommandInput extends DescribeOrganiz
 export interface DescribeOrganizationsAccessCommandOutput extends DescribeOrganizationsAccessOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the account's <code>OrganizationAccess</code> status. This API can be called either
  *    by the management account or the delegated administrator by using the <code>CallAs</code> parameter. This API can
  *    also be called without the <code>CallAs</code> parameter by the management account.</p>
@@ -63,6 +62,7 @@ export interface DescribeOrganizationsAccessCommandOutput extends DescribeOrgani
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class DescribeOrganizationsAccessCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface StartClusterCommandInput extends StartClusterInput {}
 export interface StartClusterCommandOutput extends StartClusterOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Restarts the stopped elastic cluster that is specified by <code>clusterARN</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface StartClusterCommandOutput extends StartClusterOutput, __Metadat
  * @throws {@link DocDBElasticServiceException}
  * <p>Base exception class for all service exceptions from DocDBElastic service.</p>
  *
+ * @public
  */
 export class StartClusterCommand extends $Command
   .classBuilder<

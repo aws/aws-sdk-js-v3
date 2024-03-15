@@ -27,7 +27,6 @@ export interface CreateContactMethodCommandInput extends CreateContactMethodRequ
 export interface CreateContactMethodCommandOutput extends CreateContactMethodResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an email or SMS text message contact method.</p>
  *          <p>A contact method is used to send you notifications about your Amazon Lightsail resources.
  *       You can add one email address and one mobile phone number contact method in each Amazon Web Services Region. However, SMS text messaging is not supported in some Amazon Web Services
@@ -104,6 +103,7 @@ export interface CreateContactMethodCommandOutput extends CreateContactMethodRes
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class CreateContactMethodCommand extends $Command
   .classBuilder<

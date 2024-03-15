@@ -31,7 +31,6 @@ export interface StopWorkflowCommandInput extends StopMigrationWorkflowRequest {
 export interface StopWorkflowCommandOutput extends StopMigrationWorkflowResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stop an ongoing migration workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface StopWorkflowCommandOutput extends StopMigrationWorkflowResponse
  * @throws {@link MigrationHubOrchestratorServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
+ * @public
  */
 export class StopWorkflowCommand extends $Command
   .classBuilder<

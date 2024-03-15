@@ -27,7 +27,6 @@ export interface GetMetricDataCommandInput extends GetMetricDataRequest {}
 export interface GetMetricDataCommandOutput extends GetMetricDataResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets historical metric data from the specified Amazon Connect instance.</p>
  *          <p>For a description of each historical metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical Metrics
  *     Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
@@ -143,6 +142,7 @@ export interface GetMetricDataCommandOutput extends GetMetricDataResponse, __Met
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class GetMetricDataCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface PauseContactCommandInput extends PauseContactRequest {}
 export interface PauseContactCommandOutput extends PauseContactResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows pausing an ongoing task contact.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface PauseContactCommandOutput extends PauseContactResponse, __Metad
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class PauseContactCommand extends $Command
   .classBuilder<

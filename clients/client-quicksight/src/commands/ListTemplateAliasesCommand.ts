@@ -27,7 +27,6 @@ export interface ListTemplateAliasesCommandInput extends ListTemplateAliasesRequ
 export interface ListTemplateAliasesCommandOutput extends ListTemplateAliasesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the aliases of a template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface ListTemplateAliasesCommandOutput extends ListTemplateAliasesRes
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class ListTemplateAliasesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeSecurityPolicyCommandInput extends DescribeSecurityPoli
 export interface DescribeSecurityPolicyCommandOutput extends DescribeSecurityPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the security policy that is attached to your file transfer protocol-enabled
  *       server. The response contains a description of the security policy's properties. For more
  *       information about security policies, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html">Working with security
@@ -86,6 +85,7 @@ export interface DescribeSecurityPolicyCommandOutput extends DescribeSecurityPol
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class DescribeSecurityPolicyCommand extends $Command
   .classBuilder<

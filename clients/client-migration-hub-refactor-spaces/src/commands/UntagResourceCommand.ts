@@ -35,7 +35,6 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds to or modifies the tags of the given resource. Tags are metadata which can be used to
  *       manage a resource. To untag a resource, the caller account must be the same as the resource’s
  *         <code>OwnerAccountId</code>. Untagging resources across accounts is not supported. </p>
@@ -76,6 +75,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link MigrationHubRefactorSpacesServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
+ * @public
  */
 export class UntagResourceCommand extends $Command
   .classBuilder<

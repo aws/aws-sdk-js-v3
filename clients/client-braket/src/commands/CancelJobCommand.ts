@@ -27,7 +27,6 @@ export interface CancelJobCommandInput extends CancelJobRequest {}
 export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels an Amazon Braket job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  * @throws {@link BraketServiceException}
  * <p>Base exception class for all service exceptions from Braket service.</p>
  *
+ * @public
  */
 export class CancelJobCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeDefaultParametersCommandInput extends DescribeDefaultPa
 export interface DescribeDefaultParametersCommandOutput extends DescribeDefaultParametersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the default system parameter information for the DAX caching
  *             software.</p>
  * @example
@@ -85,6 +84,7 @@ export interface DescribeDefaultParametersCommandOutput extends DescribeDefaultP
  * @throws {@link DAXServiceException}
  * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ * @public
  */
 export class DescribeDefaultParametersCommand extends $Command
   .classBuilder<

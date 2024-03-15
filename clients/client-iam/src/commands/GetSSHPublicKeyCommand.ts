@@ -27,7 +27,6 @@ export interface GetSSHPublicKeyCommandInput extends GetSSHPublicKeyRequest {}
 export interface GetSSHPublicKeyCommandOutput extends GetSSHPublicKeyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the specified SSH public key, including metadata about the key.</p>
  *          <p>The SSH public key retrieved by this operation is used only for authenticating the
  *             associated IAM user to an CodeCommit repository. For more information about using SSH keys
@@ -76,6 +75,7 @@ export interface GetSSHPublicKeyCommandOutput extends GetSSHPublicKeyResponse, _
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class GetSSHPublicKeyCommand extends $Command
   .classBuilder<

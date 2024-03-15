@@ -27,7 +27,6 @@ export interface CreateAccessPointCommandInput extends CreateAccessPointRequest 
 export interface CreateAccessPointCommandOutput extends AccessPointDescription, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an EFS access point. An access point is an application-specific view
  *       into an EFS file system that applies an operating system user and group, and a file
  *       system path, to any file system request made through the access point. The operating system
@@ -151,6 +150,7 @@ export interface CreateAccessPointCommandOutput extends AccessPointDescription, 
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * @public
  */
 export class CreateAccessPointCommand extends $Command
   .classBuilder<

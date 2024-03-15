@@ -27,7 +27,6 @@ export interface AllocateAddressCommandInput extends AllocateAddressRequest {}
 export interface AllocateAddressCommandOutput extends AllocateAddressResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Allocates an Elastic IP address to your Amazon Web Services account. After you allocate the Elastic IP address you can associate
  *          it with an instance or network interface. After you release an Elastic IP address, it is released to the IP address
  *          pool and can be allocated to a different Amazon Web Services account.</p>
@@ -89,6 +88,7 @@ export interface AllocateAddressCommandOutput extends AllocateAddressResult, __M
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To allocate an Elastic IP address
  * ```javascript
  * // This example allocates an Elastic IP address.

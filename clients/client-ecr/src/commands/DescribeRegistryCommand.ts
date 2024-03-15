@@ -27,7 +27,6 @@ export interface DescribeRegistryCommandInput extends DescribeRegistryRequest {}
 export interface DescribeRegistryCommandOutput extends DescribeRegistryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the settings for a registry. The replication configuration for a repository
  *             can be created or updated with the <a>PutReplicationConfiguration</a> API
  *             action.</p>
@@ -83,6 +82,7 @@ export interface DescribeRegistryCommandOutput extends DescribeRegistryResponse,
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * @public
  */
 export class DescribeRegistryCommand extends $Command
   .classBuilder<

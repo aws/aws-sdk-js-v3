@@ -31,7 +31,6 @@ export interface ListRoutingControlsCommandInput extends ListRoutingControlsRequ
 export interface ListRoutingControlsCommandOutput extends ListRoutingControlsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List routing control names and Amazon Resource Names (ARNs), as well as the routing control
  * 			state for each routing control, along with the control panel name and control panel ARN for the routing controls.
  * 			If you specify a control panel ARN, this call lists the routing controls in the control panel. Otherwise, it lists
@@ -120,6 +119,7 @@ export interface ListRoutingControlsCommandOutput extends ListRoutingControlsRes
  * @throws {@link Route53RecoveryClusterServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryCluster service.</p>
  *
+ * @public
  */
 export class ListRoutingControlsCommand extends $Command
   .classBuilder<

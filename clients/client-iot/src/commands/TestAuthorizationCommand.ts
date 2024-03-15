@@ -27,7 +27,6 @@ export interface TestAuthorizationCommandInput extends TestAuthorizationRequest 
 export interface TestAuthorizationCommandOutput extends TestAuthorizationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Tests if a specified principal is authorized to perform an IoT action on a
  *          specified resource. Use this to test and debug the authorization behavior of devices that
  *          connect to the IoT device gateway.</p>
@@ -134,6 +133,7 @@ export interface TestAuthorizationCommandOutput extends TestAuthorizationRespons
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class TestAuthorizationCommand extends $Command
   .classBuilder<

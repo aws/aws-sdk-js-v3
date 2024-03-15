@@ -31,7 +31,6 @@ export interface CreateDashboardCommandInput extends CreateDashboardRequest {}
 export interface CreateDashboardCommandOutput extends CreateDashboardResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a dashboard from either a template or directly with a <code>DashboardDefinition</code>. To first create a template, see the
  *         <code>
  *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>
@@ -4770,6 +4769,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class CreateDashboardCommand extends $Command
   .classBuilder<

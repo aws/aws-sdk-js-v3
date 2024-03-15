@@ -32,7 +32,6 @@ export interface CreateImageBuilderStreamingURLCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a URL to start an image builder streaming session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface CreateImageBuilderStreamingURLCommandOutput
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class CreateImageBuilderStreamingURLCommand extends $Command
   .classBuilder<

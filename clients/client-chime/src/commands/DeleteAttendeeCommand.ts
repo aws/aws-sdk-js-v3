@@ -27,9 +27,6 @@ export interface DeleteAttendeeCommandInput extends DeleteAttendeeRequest {}
 export interface DeleteAttendeeCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by DeleteAttendee in the Amazon Chime SDK Meetings Namespace
- *
  * <p>Deletes an attendee from the specified Amazon Chime SDK meeting and deletes their
  * <code>JoinToken</code>. Attendees are automatically deleted when a Amazon Chime SDK meeting is deleted. For more information about the Amazon Chime SDK, see
  * <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
@@ -87,6 +84,8 @@ export interface DeleteAttendeeCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by DeleteAttendee in the Amazon Chime SDK Meetings Namespace
  */
 export class DeleteAttendeeCommand extends $Command
   .classBuilder<

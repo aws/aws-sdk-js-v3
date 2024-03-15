@@ -27,7 +27,6 @@ export interface PublishBatchCommandInput extends PublishBatchInput {}
 export interface PublishBatchCommandOutput extends PublishBatchResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Publishes up to ten messages to the specified topic. This is a batch version of
  *                 <code>Publish</code>. For FIFO topics, multiple messages within a single batch are
  *             published in the order they are sent, and messages are deduplicated within the batch and
@@ -176,6 +175,7 @@ export interface PublishBatchCommandOutput extends PublishBatchResponse, __Metad
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * @public
  */
 export class PublishBatchCommand extends $Command
   .classBuilder<

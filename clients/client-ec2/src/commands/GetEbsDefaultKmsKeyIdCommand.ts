@@ -27,7 +27,6 @@ export interface GetEbsDefaultKmsKeyIdCommandInput extends GetEbsDefaultKmsKeyId
 export interface GetEbsDefaultKmsKeyIdCommandOutput extends GetEbsDefaultKmsKeyIdResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the default KMS key for EBS encryption by default for your account in this Region.
  *   		You can change the default KMS key for encryption by default using <a>ModifyEbsDefaultKmsKeyId</a> or
  *       <a>ResetEbsDefaultKmsKeyId</a>.</p>
@@ -59,6 +58,7 @@ export interface GetEbsDefaultKmsKeyIdCommandOutput extends GetEbsDefaultKmsKeyI
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class GetEbsDefaultKmsKeyIdCommand extends $Command
   .classBuilder<

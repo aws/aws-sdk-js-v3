@@ -31,7 +31,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the tags of a given resource. Tags are metadata which can be used to manage a
  *       resource. To tag a resource, the caller account must be the same as the resource’s
  *         <code>OwnerAccountId</code>. Tagging resources in other accounts is not supported.</p>
@@ -76,6 +75,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link MigrationHubRefactorSpacesServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

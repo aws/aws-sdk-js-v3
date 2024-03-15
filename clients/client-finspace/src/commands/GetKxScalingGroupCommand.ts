@@ -27,7 +27,6 @@ export interface GetKxScalingGroupCommandInput extends GetKxScalingGroupRequest 
 export interface GetKxScalingGroupCommandOutput extends GetKxScalingGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  * Retrieves details of a scaling group.</p>
  * @example
@@ -89,6 +88,7 @@ export interface GetKxScalingGroupCommandOutput extends GetKxScalingGroupRespons
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class GetKxScalingGroupCommand extends $Command
   .classBuilder<

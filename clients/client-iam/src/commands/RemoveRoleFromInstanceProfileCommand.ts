@@ -30,7 +30,6 @@ export interface RemoveRoleFromInstanceProfileCommandInput extends RemoveRoleFro
 export interface RemoveRoleFromInstanceProfileCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified IAM role from the specified EC2 instance profile.</p>
  *          <important>
  *             <p>Make sure that you do not have any Amazon EC2 instances running with the role you
@@ -85,6 +84,7 @@ export interface RemoveRoleFromInstanceProfileCommandOutput extends __MetadataBe
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To remove a role from an instance profile
  * ```javascript
  * // The following command removes the role named Test-Role from the instance profile named ExampleInstanceProfile.

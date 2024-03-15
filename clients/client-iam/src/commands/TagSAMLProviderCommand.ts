@@ -27,7 +27,6 @@ export interface TagSAMLProviderCommandInput extends TagSAMLProviderRequest {}
 export interface TagSAMLProviderCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds one or more tags to a Security Assertion Markup Language (SAML) identity provider.
  *       For more information about these providers, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html">About SAML 2.0-based federation </a>.
  *       If a tag with the same key name already exists, then that tag is overwritten with the new
@@ -116,6 +115,7 @@ export interface TagSAMLProviderCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class TagSAMLProviderCommand extends $Command
   .classBuilder<

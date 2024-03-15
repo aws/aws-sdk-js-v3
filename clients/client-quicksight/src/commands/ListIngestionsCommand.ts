@@ -27,7 +27,6 @@ export interface ListIngestionsCommandInput extends ListIngestionsRequest {}
 export interface ListIngestionsCommandOutput extends ListIngestionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the history of SPICE ingestions for a dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -109,6 +108,7 @@ export interface ListIngestionsCommandOutput extends ListIngestionsResponse, __M
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class ListIngestionsCommand extends $Command
   .classBuilder<

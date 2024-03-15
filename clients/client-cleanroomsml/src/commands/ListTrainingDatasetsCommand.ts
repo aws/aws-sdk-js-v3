@@ -27,7 +27,6 @@ export interface ListTrainingDatasetsCommandInput extends ListTrainingDatasetsRe
 export interface ListTrainingDatasetsCommandOutput extends ListTrainingDatasetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of training datasets.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface ListTrainingDatasetsCommandOutput extends ListTrainingDatasetsR
  * @throws {@link CleanRoomsMLServiceException}
  * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
+ * @public
  */
 export class ListTrainingDatasetsCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface PutReportDefinitionCommandInput extends PutReportDefinitionRequ
 export interface PutReportDefinitionCommandOutput extends PutReportDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new report using the description that you provide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface PutReportDefinitionCommandOutput extends PutReportDefinitionRes
  * @throws {@link CostAndUsageReportServiceServiceException}
  * <p>Base exception class for all service exceptions from CostAndUsageReportService service.</p>
  *
+ * @public
  * @example To create a report named ExampleReport.
  * ```javascript
  * // The following example creates a AWS Cost and Usage report named ExampleReport.

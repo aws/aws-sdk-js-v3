@@ -27,7 +27,6 @@ export interface ListClustersCommandInput extends ListClustersRequest {}
 export interface ListClustersCommandOutput extends ListClustersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all the MSK clusters in the current Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -194,6 +193,7 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ * @public
  */
 export class ListClustersCommand extends $Command
   .classBuilder<

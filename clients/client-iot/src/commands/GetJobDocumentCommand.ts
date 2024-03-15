@@ -27,7 +27,6 @@ export interface GetJobDocumentCommandInput extends GetJobDocumentRequest {}
 export interface GetJobDocumentCommandOutput extends GetJobDocumentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a job document.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetJobDocument</a> action.</p>
  * @example
@@ -68,6 +67,7 @@ export interface GetJobDocumentCommandOutput extends GetJobDocumentResponse, __M
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class GetJobDocumentCommand extends $Command
   .classBuilder<

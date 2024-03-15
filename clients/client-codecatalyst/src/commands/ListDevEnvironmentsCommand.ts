@@ -27,7 +27,6 @@ export interface ListDevEnvironmentsCommandInput extends ListDevEnvironmentsRequ
 export interface ListDevEnvironmentsCommandOutput extends ListDevEnvironmentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of Dev Environments in a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -117,6 +116,7 @@ export interface ListDevEnvironmentsCommandOutput extends ListDevEnvironmentsRes
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ * @public
  */
 export class ListDevEnvironmentsCommand extends $Command
   .classBuilder<

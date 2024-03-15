@@ -35,7 +35,6 @@ export interface UpdateLicenseManagerReportGeneratorCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a report generator.</p>
  *          <p>After you make changes to a report generator, it starts generating new reports within 60 minutes of being updated.</p>
  * @example
@@ -102,6 +101,7 @@ export interface UpdateLicenseManagerReportGeneratorCommandOutput
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * @public
  */
 export class UpdateLicenseManagerReportGeneratorCommand extends $Command
   .classBuilder<

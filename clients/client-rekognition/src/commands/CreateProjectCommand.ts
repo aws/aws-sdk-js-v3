@@ -27,7 +27,6 @@ export interface CreateProjectCommandInput extends CreateProjectRequest {}
 export interface CreateProjectCommandOutput extends CreateProjectResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new Amazon Rekognition project. A project is a group of resources (datasets, model
  *          versions) that you use to create and manage a Amazon Rekognition Custom Labels Model or custom adapter. You can
  *          specify a feature to create the project with, if no feature is specified then Custom Labels
@@ -89,6 +88,7 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example To create an Amazon Rekognition Custom Labels project
  * ```javascript
  * // Creates an Amazon Rekognition Custom Labels project.

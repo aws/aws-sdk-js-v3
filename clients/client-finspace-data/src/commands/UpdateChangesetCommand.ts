@@ -27,9 +27,6 @@ export interface UpdateChangesetCommandInput extends UpdateChangesetRequest {}
 export interface UpdateChangesetCommandOutput extends UpdateChangesetResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This method will be discontinued.
- *
  * <p>Updates a FinSpace Changeset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +82,8 @@ export interface UpdateChangesetCommandOutput extends UpdateChangesetResponse, _
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ * @public
+ * @deprecated This method will be discontinued.
  */
 export class UpdateChangesetCommand extends $Command
   .classBuilder<

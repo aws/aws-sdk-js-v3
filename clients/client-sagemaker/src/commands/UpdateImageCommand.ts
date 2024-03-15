@@ -27,7 +27,6 @@ export interface UpdateImageCommandInput extends UpdateImageRequest {}
 export interface UpdateImageCommandOutput extends UpdateImageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the properties of a SageMaker image. To change the image's tags, use the
  *          <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AddTags.html">AddTags</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteTags.html">DeleteTags</a> APIs.</p>
  * @example
@@ -68,6 +67,7 @@ export interface UpdateImageCommandOutput extends UpdateImageResponse, __Metadat
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class UpdateImageCommand extends $Command
   .classBuilder<

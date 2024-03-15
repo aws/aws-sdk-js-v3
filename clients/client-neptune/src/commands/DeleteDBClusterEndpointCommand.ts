@@ -27,7 +27,6 @@ export interface DeleteDBClusterEndpointCommandInput extends DeleteDBClusterEndp
 export interface DeleteDBClusterEndpointCommandOutput extends DeleteDBClusterEndpointOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a custom endpoint and removes it from an Amazon Neptune DB cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface DeleteDBClusterEndpointCommandOutput extends DeleteDBClusterEnd
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class DeleteDBClusterEndpointCommand extends $Command
   .classBuilder<

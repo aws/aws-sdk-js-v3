@@ -27,7 +27,6 @@ export interface GetGroupQueryCommandInput extends GetGroupQueryInput {}
 export interface GetGroupQueryCommandOutput extends GetGroupQueryOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the resource query associated with the specified resource group. For more
  *             information about resource queries, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag">Create
  *                 a tag-based group in Resource Groups</a>.</p>
@@ -94,6 +93,7 @@ export interface GetGroupQueryCommandOutput extends GetGroupQueryOutput, __Metad
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ * @public
  */
 export class GetGroupQueryCommand extends $Command
   .classBuilder<

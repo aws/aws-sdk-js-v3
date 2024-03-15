@@ -32,9 +32,6 @@ export interface StartSmartHomeApplianceDiscoveryCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Initiates the discovery of any smart home appliances associated with the
  *          room.</p>
  * @example
@@ -64,6 +61,8 @@ export interface StartSmartHomeApplianceDiscoveryCommandOutput
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class StartSmartHomeApplianceDiscoveryCommand extends $Command
   .classBuilder<

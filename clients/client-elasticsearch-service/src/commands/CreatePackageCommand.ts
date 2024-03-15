@@ -31,7 +31,6 @@ export interface CreatePackageCommandInput extends CreatePackageRequest {}
 export interface CreatePackageCommandOutput extends CreatePackageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a package for use with Amazon ES domains.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface CreatePackageCommandOutput extends CreatePackageResponse, __Met
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * @public
  */
 export class CreatePackageCommand extends $Command
   .classBuilder<

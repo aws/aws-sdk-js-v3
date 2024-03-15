@@ -27,7 +27,6 @@ export interface UpdateResourcePolicyCommandInput extends UpdateResourcePolicyRe
 export interface UpdateResourcePolicyCommandOutput extends UpdateResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Replaces the existing resource policy for a bot or bot alias with a
  *          new one. If the policy doesn't exist, Amazon Lex returns an
  *          exception.</p>
@@ -84,6 +83,7 @@ export interface UpdateResourcePolicyCommandOutput extends UpdateResourcePolicyR
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class UpdateResourcePolicyCommand extends $Command
   .classBuilder<

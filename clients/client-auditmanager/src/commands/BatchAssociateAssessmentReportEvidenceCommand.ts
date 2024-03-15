@@ -36,7 +36,6 @@ export interface BatchAssociateAssessmentReportEvidenceCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p> Associates a list of evidence to an assessment report in an Audit Manager
  *          assessment. </p>
  * @example
@@ -92,6 +91,7 @@ export interface BatchAssociateAssessmentReportEvidenceCommandOutput
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class BatchAssociateAssessmentReportEvidenceCommand extends $Command
   .classBuilder<

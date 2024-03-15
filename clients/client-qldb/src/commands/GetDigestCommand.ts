@@ -27,7 +27,6 @@ export interface GetDigestCommandInput extends GetDigestRequest {}
 export interface GetDigestCommandOutput extends GetDigestResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the digest of a ledger at the latest committed block in the journal. The
  *          response includes a 256-bit hash value and a block address.</p>
  * @example
@@ -68,6 +67,7 @@ export interface GetDigestCommandOutput extends GetDigestResponse, __MetadataBea
  * @throws {@link QLDBServiceException}
  * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
+ * @public
  */
 export class GetDigestCommand extends $Command
   .classBuilder<

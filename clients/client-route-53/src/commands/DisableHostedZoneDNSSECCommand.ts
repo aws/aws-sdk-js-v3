@@ -28,7 +28,6 @@ export interface DisableHostedZoneDNSSECCommandInput extends DisableHostedZoneDN
 export interface DisableHostedZoneDNSSECCommandOutput extends DisableHostedZoneDNSSECResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables DNSSEC signing in a specific hosted zone. This action does not deactivate any
  * 			key-signing keys (KSKs) that are active in the hosted zone.</p>
  * @example
@@ -89,6 +88,7 @@ export interface DisableHostedZoneDNSSECCommandOutput extends DisableHostedZoneD
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class DisableHostedZoneDNSSECCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetDisksCommandInput extends GetDisksRequest {}
 export interface GetDisksCommandOutput extends GetDisksResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about all block storage disks in your AWS account and region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -124,6 +123,7 @@ export interface GetDisksCommandOutput extends GetDisksResult, __MetadataBearer 
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetDisksCommand extends $Command
   .classBuilder<

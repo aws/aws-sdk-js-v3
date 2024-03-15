@@ -351,7 +351,6 @@ export type CodeGuruProfilerClientResolvedConfigType = __SmithyResolvedConfigura
 export interface CodeGuruProfilerClientResolvedConfig extends CodeGuruProfilerClientResolvedConfigType {}
 
 /**
- * @public
  * <p>
  *           This section provides documentation for the Amazon CodeGuru Profiler API operations.
  *       </p>
@@ -375,6 +374,7 @@ export interface CodeGuruProfilerClientResolvedConfig extends CodeGuruProfilerCl
  *          For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-ug/what-is-codeguru-profiler.html">What is Amazon CodeGuru Profiler</a> in
  *          the <i>Amazon CodeGuru Profiler User Guide</i>.
  *       </p>
+ * @public
  */
 export class CodeGuruProfilerClient extends __Client<
   __HttpHandlerOptions,

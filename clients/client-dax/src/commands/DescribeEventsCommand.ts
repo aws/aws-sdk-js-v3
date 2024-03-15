@@ -27,7 +27,6 @@ export interface DescribeEventsCommandInput extends DescribeEventsRequest {}
 export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns events related to DAX clusters and parameter groups. You can obtain
  *             events specific to a particular DAX cluster or parameter group by providing the name
  *             as a parameter.</p>
@@ -82,6 +81,7 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * @throws {@link DAXServiceException}
  * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ * @public
  */
 export class DescribeEventsCommand extends $Command
   .classBuilder<

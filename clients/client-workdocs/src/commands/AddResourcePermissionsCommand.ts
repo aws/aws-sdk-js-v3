@@ -32,7 +32,6 @@ export interface AddResourcePermissionsCommandInput extends AddResourcePermissio
 export interface AddResourcePermissionsCommandOutput extends AddResourcePermissionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a set of permissions for the specified folder or document. The resource
  *             permissions are overwritten if the principals already have different
  *             permissions.</p>
@@ -100,6 +99,7 @@ export interface AddResourcePermissionsCommandOutput extends AddResourcePermissi
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class AddResourcePermissionsCommand extends $Command
   .classBuilder<

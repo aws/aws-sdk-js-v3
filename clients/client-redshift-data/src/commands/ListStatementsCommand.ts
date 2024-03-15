@@ -27,7 +27,6 @@ export interface ListStatementsCommandInput extends ListStatementsRequest {}
 export interface ListStatementsCommandOutput extends ListStatementsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List of SQL statements. By default, only finished statements are shown.
  *         A token is returned to page through the statement list. </p>
  *          <p>For more information about the Amazon Redshift Data API and CLI usage examples, see
@@ -90,6 +89,7 @@ export interface ListStatementsCommandOutput extends ListStatementsResponse, __M
  * @throws {@link RedshiftDataServiceException}
  * <p>Base exception class for all service exceptions from RedshiftData service.</p>
  *
+ * @public
  */
 export class ListStatementsCommand extends $Command
   .classBuilder<

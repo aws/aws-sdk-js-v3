@@ -34,7 +34,6 @@ export interface DeleteVoiceConnectorTerminationCredentialsCommandInput
 export interface DeleteVoiceConnectorTerminationCredentialsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified SIP credentials used by your equipment to
  *          authenticate during call termination.</p>
  * @example
@@ -85,6 +84,7 @@ export interface DeleteVoiceConnectorTerminationCredentialsCommandOutput extends
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class DeleteVoiceConnectorTerminationCredentialsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListTemplateVersionsCommandInput extends ListTemplateVersionsRe
 export interface ListTemplateVersionsCommandOutput extends ListTemplateVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about all the versions of a specific message template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface ListTemplateVersionsCommandOutput extends ListTemplateVersionsR
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class ListTemplateVersionsCommand extends $Command
   .classBuilder<

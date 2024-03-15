@@ -27,7 +27,6 @@ export interface DeleteOriginAccessControlCommandInput extends DeleteOriginAcces
 export interface DeleteOriginAccessControlCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a CloudFront origin access control.</p>
  *          <p>You cannot delete an origin access control if it's in use. First, update all
  * 			distributions to remove the origin access control from all origins, then delete the
@@ -74,6 +73,7 @@ export interface DeleteOriginAccessControlCommandOutput extends __MetadataBearer
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class DeleteOriginAccessControlCommand extends $Command
   .classBuilder<

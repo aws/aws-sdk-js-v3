@@ -27,7 +27,6 @@ export interface CreateClusterSubnetGroupCommandInput extends CreateClusterSubne
 export interface CreateClusterSubnetGroupCommandOutput extends CreateClusterSubnetGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new Amazon Redshift subnet group. You must provide a list of one or more
  *             subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when creating
  *             Amazon Redshift subnet group.</p>
@@ -134,6 +133,7 @@ export interface CreateClusterSubnetGroupCommandOutput extends CreateClusterSubn
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class CreateClusterSubnetGroupCommand extends $Command
   .classBuilder<

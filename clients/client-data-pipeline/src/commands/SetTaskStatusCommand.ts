@@ -27,7 +27,6 @@ export interface SetTaskStatusCommandInput extends SetTaskStatusInput {}
 export interface SetTaskStatusCommandOutput extends SetTaskStatusOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Task runners call <code>SetTaskStatus</code> to notify AWS Data Pipeline that a task is completed and provide information about the final status.
  *             A task runner makes this call regardless of whether the task was sucessful. A task runner does not need to call <code>SetTaskStatus</code> for
  *             tasks that are canceled by the web service during a call to <a>ReportTaskProgress</a>.</p>
@@ -102,6 +101,7 @@ export interface SetTaskStatusCommandOutput extends SetTaskStatusOutput, __Metad
  * @throws {@link DataPipelineServiceException}
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ * @public
  */
 export class SetTaskStatusCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListPropertiesCommandInput extends ListPropertiesRequest {}
 export interface ListPropertiesCommandOutput extends ListPropertiesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This API lists the properties of a component.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -149,6 +148,7 @@ export interface ListPropertiesCommandOutput extends ListPropertiesResponse, __M
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ * @public
  */
 export class ListPropertiesCommand extends $Command
   .classBuilder<

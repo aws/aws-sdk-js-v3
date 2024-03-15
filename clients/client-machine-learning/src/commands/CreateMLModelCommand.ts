@@ -27,7 +27,6 @@ export interface CreateMLModelCommandInput extends CreateMLModelInput {}
 export interface CreateMLModelCommandOutput extends CreateMLModelOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new <code>MLModel</code> using the <code>DataSource</code> and the recipe as
  *             information sources. </p>
  *         <p>An <code>MLModel</code> is nearly immutable. Users can update only the
@@ -91,6 +90,7 @@ export interface CreateMLModelCommandOutput extends CreateMLModelOutput, __Metad
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * @public
  */
 export class CreateMLModelCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteDatastoreCommandInput extends DeleteDatastoreRequest {}
 export interface DeleteDatastoreCommandOutput extends DeleteDatastoreResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete a data store.</p>
  *          <note>
  *             <p>Before a data store can be deleted, you must first delete all image sets within it.</p>
@@ -77,6 +76,7 @@ export interface DeleteDatastoreCommandOutput extends DeleteDatastoreResponse, _
  * @throws {@link MedicalImagingServiceException}
  * <p>Base exception class for all service exceptions from MedicalImaging service.</p>
  *
+ * @public
  */
 export class DeleteDatastoreCommand extends $Command
   .classBuilder<

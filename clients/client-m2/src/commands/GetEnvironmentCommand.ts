@@ -27,7 +27,6 @@ export interface GetEnvironmentCommandInput extends GetEnvironmentRequest {}
 export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a specific runtime environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -116,6 +115,7 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __M
  * @throws {@link M2ServiceException}
  * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ * @public
  */
 export class GetEnvironmentCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface GetPullRequestApprovalStatesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the approval states for a specified pull request. Approval states only apply to pull requests that have one or more
  *         approval rules applied to them.</p>
  * @example
@@ -97,6 +96,7 @@ export interface GetPullRequestApprovalStatesCommandOutput
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class GetPullRequestApprovalStatesCommand extends $Command
   .classBuilder<

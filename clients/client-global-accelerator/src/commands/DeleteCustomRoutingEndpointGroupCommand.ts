@@ -34,7 +34,6 @@ export interface DeleteCustomRoutingEndpointGroupCommandInput extends DeleteCust
 export interface DeleteCustomRoutingEndpointGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete an endpoint group from a listener for a custom routing accelerator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface DeleteCustomRoutingEndpointGroupCommandOutput extends __Metadat
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class DeleteCustomRoutingEndpointGroupCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface CreateModelCustomizationJobCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a fine-tuning job to customize a base model.</p>
  *          <p>You specify the base foundation model and the location of the training data.
  *          After the  model-customization job completes successfully, your custom model resource will be ready to use. Training data
@@ -137,6 +136,7 @@ export interface CreateModelCustomizationJobCommandOutput
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ * @public
  */
 export class CreateModelCustomizationJobCommand extends $Command
   .classBuilder<

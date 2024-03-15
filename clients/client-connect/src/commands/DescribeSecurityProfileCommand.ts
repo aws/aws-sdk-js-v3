@@ -27,7 +27,6 @@ export interface DescribeSecurityProfileCommandInput extends DescribeSecurityPro
 export interface DescribeSecurityProfileCommandOutput extends DescribeSecurityProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets basic information about the security profle.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface DescribeSecurityProfileCommandOutput extends DescribeSecurityPr
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DescribeSecurityProfileCommand extends $Command
   .classBuilder<

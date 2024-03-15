@@ -29,7 +29,6 @@ export interface DescribeDataRepositoryTasksCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the description of specific Amazon FSx for Lustre or Amazon File Cache data repository tasks, if
  *             one or more <code>TaskIds</code> values are provided in the request, or if filters are used in the request.
  *             You can use filters to narrow the response to include just tasks for specific file systems or caches,
@@ -135,6 +134,7 @@ export interface DescribeDataRepositoryTasksCommandOutput
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  */
 export class DescribeDataRepositoryTasksCommand extends $Command
   .classBuilder<

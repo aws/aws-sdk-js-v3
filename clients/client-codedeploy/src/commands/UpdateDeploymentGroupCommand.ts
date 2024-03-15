@@ -27,7 +27,6 @@ export interface UpdateDeploymentGroupCommandInput extends UpdateDeploymentGroup
 export interface UpdateDeploymentGroupCommandOutput extends UpdateDeploymentGroupOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes information about a deployment group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -309,6 +308,7 @@ export interface UpdateDeploymentGroupCommandOutput extends UpdateDeploymentGrou
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
  */
 export class UpdateDeploymentGroupCommand extends $Command
   .classBuilder<

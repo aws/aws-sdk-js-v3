@@ -27,7 +27,6 @@ export interface DeleteAppInstanceUserCommandInput extends DeleteAppInstanceUser
 export interface DeleteAppInstanceUserCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an <code>AppInstanceUser</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface DeleteAppInstanceUserCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeSDKIdentityServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
+ * @public
  */
 export class DeleteAppInstanceUserCommand extends $Command
   .classBuilder<

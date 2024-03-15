@@ -27,7 +27,6 @@ export interface UpdateSiteAddressCommandInput extends UpdateSiteAddressInput {}
 export interface UpdateSiteAddressCommandOutput extends UpdateSiteAddressOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the address of the specified site.</p>
  *          <p>You can't update a site address if there is an order in progress. You must wait for the
  *       order to complete or cancel the order.</p>
@@ -101,6 +100,7 @@ export interface UpdateSiteAddressCommandOutput extends UpdateSiteAddressOutput,
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ * @public
  */
 export class UpdateSiteAddressCommand extends $Command
   .classBuilder<

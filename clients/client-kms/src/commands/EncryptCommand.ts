@@ -27,7 +27,6 @@ export interface EncryptCommandInput extends EncryptRequest {}
 export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Encrypts plaintext of up to 4,096 bytes using a KMS key. You can use a symmetric or
  *       asymmetric KMS key with a <code>KeyUsage</code> of <code>ENCRYPT_DECRYPT</code>.</p>
  *          <p>You can use this operation to encrypt small amounts of arbitrary data, such as a personal
@@ -243,6 +242,7 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To encrypt data with a symmetric encryption KMS key
  * ```javascript
  * // The following example encrypts data with the specified symmetric encryption KMS key.

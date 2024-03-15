@@ -27,7 +27,6 @@ export interface CreateResourceShareCommandInput extends CreateResourceShareRequ
 export interface CreateResourceShareCommandOutput extends CreateResourceShareResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a resource share. You can provide a list of the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> for the resources that you
  *             want to share, a list of principals you want to share the resources with, and the
  *             permissions to grant those principals.</p>
@@ -144,6 +143,7 @@ export interface CreateResourceShareCommandOutput extends CreateResourceShareRes
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * @public
  */
 export class CreateResourceShareCommand extends $Command
   .classBuilder<

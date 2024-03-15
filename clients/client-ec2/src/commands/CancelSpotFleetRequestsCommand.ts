@@ -27,7 +27,6 @@ export interface CancelSpotFleetRequestsCommandInput extends CancelSpotFleetRequ
 export interface CancelSpotFleetRequestsCommandOutput extends CancelSpotFleetRequestsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels the specified Spot Fleet requests.</p>
  *          <p>After you cancel a Spot Fleet request, the Spot Fleet launches no new instances.</p>
  *          <p>You must also specify whether a canceled Spot Fleet request should terminate its instances. If you
@@ -80,6 +79,7 @@ export interface CancelSpotFleetRequestsCommandOutput extends CancelSpotFleetReq
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To cancel a Spot fleet request
  * ```javascript
  * // This example cancels the specified Spot fleet request and terminates its associated Spot Instances.

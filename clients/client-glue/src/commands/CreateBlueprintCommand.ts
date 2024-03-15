@@ -27,7 +27,6 @@ export interface CreateBlueprintCommandInput extends CreateBlueprintRequest {}
 export interface CreateBlueprintCommandOutput extends CreateBlueprintResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers a blueprint with Glue.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface CreateBlueprintCommandOutput extends CreateBlueprintResponse, _
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class CreateBlueprintCommand extends $Command
   .classBuilder<

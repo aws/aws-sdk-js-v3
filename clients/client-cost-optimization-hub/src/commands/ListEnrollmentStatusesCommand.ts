@@ -31,7 +31,6 @@ export interface ListEnrollmentStatusesCommandInput extends ListEnrollmentStatus
 export interface ListEnrollmentStatusesCommandOutput extends ListEnrollmentStatusesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the enrollment status for an account. It can also return the list of accounts
  *       that are enrolled under the organization.</p>
  * @example
@@ -86,6 +85,7 @@ export interface ListEnrollmentStatusesCommandOutput extends ListEnrollmentStatu
  * @throws {@link CostOptimizationHubServiceException}
  * <p>Base exception class for all service exceptions from CostOptimizationHub service.</p>
  *
+ * @public
  */
 export class ListEnrollmentStatusesCommand extends $Command
   .classBuilder<

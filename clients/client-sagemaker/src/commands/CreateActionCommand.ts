@@ -27,7 +27,6 @@ export interface CreateActionCommandInput extends CreateActionRequest {}
 export interface CreateActionCommandOutput extends CreateActionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an <i>action</i>. An action is a lineage tracking entity that
  *         represents an action or activity. For example, a model deployment or an HPO job.
  *         Generally, an action involves at least one input or output artifact. For more information, see
@@ -86,6 +85,7 @@ export interface CreateActionCommandOutput extends CreateActionResponse, __Metad
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateActionCommand extends $Command
   .classBuilder<

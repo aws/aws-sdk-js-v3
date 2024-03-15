@@ -27,7 +27,6 @@ export interface StopStreamProcessorCommandInput extends StopStreamProcessorRequ
 export interface StopStreamProcessorCommandOutput extends StopStreamProcessorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a running stream processor that was created by <a>CreateStreamProcessor</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface StopStreamProcessorCommandOutput extends StopStreamProcessorRes
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  */
 export class StopStreamProcessorCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListAccessTokensCommandInput extends ListAccessTokensRequest {}
 export interface ListAccessTokensCommandOutput extends ListAccessTokensResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all personal access tokens (PATs) associated with the user who calls the API. You can only list PATs associated with your Amazon Web Services Builder ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface ListAccessTokensCommandOutput extends ListAccessTokensResponse,
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ * @public
  */
 export class ListAccessTokensCommand extends $Command
   .classBuilder<

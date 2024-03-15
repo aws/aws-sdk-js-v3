@@ -27,7 +27,6 @@ export interface ListWorkspacesCommandInput extends ListWorkspacesRequest {}
 export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all of the Amazon Managed Service for Prometheus workspaces in your account. This includes
  *             workspaces being created or deleted. </p>
  * @example
@@ -86,6 +85,7 @@ export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __M
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ * @public
  */
 export class ListWorkspacesCommand extends $Command
   .classBuilder<

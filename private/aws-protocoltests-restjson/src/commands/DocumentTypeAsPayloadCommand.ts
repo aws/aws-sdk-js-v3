@@ -25,7 +25,6 @@ export interface DocumentTypeAsPayloadCommandInput extends DocumentTypeAsPayload
 export interface DocumentTypeAsPayloadCommandOutput extends DocumentTypeAsPayloadInputOutput, __MetadataBearer {}
 
 /**
- * @public
  * This example serializes a document as the entire HTTP payload.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,6 +52,7 @@ export interface DocumentTypeAsPayloadCommandOutput extends DocumentTypeAsPayloa
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ * @public
  */
 export class DocumentTypeAsPayloadCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface RetrieveDomainAuthCodeCommandInput extends RetrieveDomainAuthCo
 export interface RetrieveDomainAuthCodeCommandOutput extends RetrieveDomainAuthCodeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation returns the authorization code for the domain. To transfer a domain to
  * 			another registrar, you provide this value to the new registrar.</p>
  * @example
@@ -69,6 +68,7 @@ export interface RetrieveDomainAuthCodeCommandOutput extends RetrieveDomainAuthC
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * @public
  */
 export class RetrieveDomainAuthCodeCommand extends $Command
   .classBuilder<

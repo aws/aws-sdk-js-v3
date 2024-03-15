@@ -27,7 +27,6 @@ export interface CreateCertificateFromCsrCommandInput extends CreateCertificateF
 export interface CreateCertificateFromCsrCommandOutput extends CreateCertificateFromCsrResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an X.509 certificate using the specified certificate signing
  *          request.
  *       </p>
@@ -120,6 +119,7 @@ export interface CreateCertificateFromCsrCommandOutput extends CreateCertificate
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class CreateCertificateFromCsrCommand extends $Command
   .classBuilder<

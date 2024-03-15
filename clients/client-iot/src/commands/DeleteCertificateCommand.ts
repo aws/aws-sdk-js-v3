@@ -27,7 +27,6 @@ export interface DeleteCertificateCommandInput extends DeleteCertificateRequest 
 export interface DeleteCertificateCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified certificate.</p>
  *          <p>A certificate cannot be deleted if it has a policy or IoT thing attached to it or if
  *          its status is set to ACTIVE. To delete a certificate, first use the <a>DetachPolicy</a> action to detach all policies. Next, use the <a>UpdateCertificate</a> action to set the certificate to the INACTIVE
@@ -83,6 +82,7 @@ export interface DeleteCertificateCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DeleteCertificateCommand extends $Command
   .classBuilder<

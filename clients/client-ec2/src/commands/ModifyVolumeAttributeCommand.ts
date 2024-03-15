@@ -27,7 +27,6 @@ export interface ModifyVolumeAttributeCommandInput extends ModifyVolumeAttribute
 export interface ModifyVolumeAttributeCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies a volume attribute.</p>
  *          <p>By default, all I/O operations for the volume are suspended when the data on the volume is
  *       determined to be potentially inconsistent, to prevent undetectable, latent data corruption.
@@ -63,6 +62,7 @@ export interface ModifyVolumeAttributeCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To modify a volume attribute
  * ```javascript
  * // This example sets the ``autoEnableIo`` attribute of the volume with the ID ``vol-1234567890abcdef0`` to ``true``. If the command succeeds, no output is returned.

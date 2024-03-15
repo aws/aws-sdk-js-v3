@@ -27,7 +27,6 @@ export interface DescribeEventSubscriptionsCommandInput extends DescribeEventSub
 export interface DescribeEventSubscriptionsCommandOutput extends EventSubscriptionsMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the subscription descriptions for a customer account. The description for a subscription includes <code>SubscriptionName</code>, <code>SNSTopicARN</code>, <code>CustomerID</code>, <code>SourceType</code>, <code>SourceID</code>, <code>CreationTime</code>, and <code>Status</code>.</p>
  *          <p>If you specify a <code>SubscriptionName</code>, lists the description for that subscription.</p>
  * @example
@@ -87,6 +86,7 @@ export interface DescribeEventSubscriptionsCommandOutput extends EventSubscripti
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class DescribeEventSubscriptionsCommand extends $Command
   .classBuilder<

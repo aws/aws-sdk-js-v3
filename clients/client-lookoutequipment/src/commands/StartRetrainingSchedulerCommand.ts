@@ -27,7 +27,6 @@ export interface StartRetrainingSchedulerCommandInput extends StartRetrainingSch
 export interface StartRetrainingSchedulerCommandOutput extends StartRetrainingSchedulerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a retraining scheduler. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface StartRetrainingSchedulerCommandOutput extends StartRetrainingSc
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  * @example Starts a retraining scheduler
  * ```javascript
  * //

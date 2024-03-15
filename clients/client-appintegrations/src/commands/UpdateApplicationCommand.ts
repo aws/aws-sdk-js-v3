@@ -27,7 +27,6 @@ export interface UpdateApplicationCommandInput extends UpdateApplicationRequest 
 export interface UpdateApplicationCommandOutput extends UpdateApplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is in preview release and subject to change.</p>
  *          <p>Updates and persists an Application resource.</p>
  * @example
@@ -98,6 +97,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * @throws {@link AppIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
+ * @public
  * @example To update an application
  * ```javascript
  * // The following updates an existing application named with a new name.

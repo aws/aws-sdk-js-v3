@@ -31,7 +31,6 @@ export interface DescribeRecoveryInstancesCommandInput extends DescribeRecoveryI
 export interface DescribeRecoveryInstancesCommandOutput extends DescribeRecoveryInstancesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all Recovery Instances or multiple Recovery Instances by ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -173,6 +172,7 @@ export interface DescribeRecoveryInstancesCommandOutput extends DescribeRecovery
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * @public
  */
 export class DescribeRecoveryInstancesCommand extends $Command
   .classBuilder<

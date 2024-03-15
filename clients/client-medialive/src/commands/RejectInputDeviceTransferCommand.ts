@@ -27,7 +27,6 @@ export interface RejectInputDeviceTransferCommandInput extends RejectInputDevice
 export interface RejectInputDeviceTransferCommandOutput extends RejectInputDeviceTransferResponse, __MetadataBearer {}
 
 /**
- * @public
  * Reject the transfer of the specified input device to your AWS account.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface RejectInputDeviceTransferCommandOutput extends RejectInputDevic
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class RejectInputDeviceTransferCommand extends $Command
   .classBuilder<

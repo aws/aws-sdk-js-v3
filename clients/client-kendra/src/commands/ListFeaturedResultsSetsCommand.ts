@@ -27,7 +27,6 @@ export interface ListFeaturedResultsSetsCommandInput extends ListFeaturedResults
 export interface ListFeaturedResultsSetsCommandOutput extends ListFeaturedResultsSetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all your sets of featured results for a given index. Features results
  *             are placed above all other results for certain queries. If there's an exact match
  *             of a query, then one or more specific documents are featured in the search results.</p>
@@ -88,6 +87,7 @@ export interface ListFeaturedResultsSetsCommandOutput extends ListFeaturedResult
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class ListFeaturedResultsSetsCommand extends $Command
   .classBuilder<

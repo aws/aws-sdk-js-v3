@@ -28,7 +28,6 @@ export interface UpdateDatabaseCommandInput extends UpdateDatabaseRequest {}
 export interface UpdateDatabaseCommandOutput extends UpdateDatabaseResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Modifies the KMS key for an existing database. While updating the
  *          database, you must specify the database name and the identifier of the new KMS key to be used (<code>KmsKeyId</code>). If there are any concurrent
  *             <code>UpdateDatabase</code> requests, first writer wins. </p>
@@ -93,6 +92,7 @@ export interface UpdateDatabaseCommandOutput extends UpdateDatabaseResponse, __M
  * @throws {@link TimestreamWriteServiceException}
  * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
+ * @public
  */
 export class UpdateDatabaseCommand extends $Command
   .classBuilder<

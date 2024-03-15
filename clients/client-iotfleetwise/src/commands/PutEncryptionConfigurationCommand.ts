@@ -27,7 +27,6 @@ export interface PutEncryptionConfigurationCommandInput extends PutEncryptionCon
 export interface PutEncryptionConfigurationCommandOutput extends PutEncryptionConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates the encryption configuration. Amazon Web Services IoT FleetWise can encrypt your data and resources using an Amazon Web Services managed key. Or, you can use a KMS key that you own and manage. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/data-encryption.html">Data encryption</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface PutEncryptionConfigurationCommandOutput extends PutEncryptionCo
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class PutEncryptionConfigurationCommand extends $Command
   .classBuilder<

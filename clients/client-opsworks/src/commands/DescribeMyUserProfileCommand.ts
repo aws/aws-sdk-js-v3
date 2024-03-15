@@ -27,7 +27,6 @@ export interface DescribeMyUserProfileCommandInput {}
 export interface DescribeMyUserProfileCommandOutput extends DescribeMyUserProfileResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a user's SSH information.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have self-management
@@ -63,6 +62,7 @@ export interface DescribeMyUserProfileCommandOutput extends DescribeMyUserProfil
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class DescribeMyUserProfileCommand extends $Command
   .classBuilder<

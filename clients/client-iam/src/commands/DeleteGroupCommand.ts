@@ -27,7 +27,6 @@ export interface DeleteGroupCommandInput extends DeleteGroupRequest {}
 export interface DeleteGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified IAM group. The group must not contain any users or have any
  *             attached policies.</p>
  * @example
@@ -70,6 +69,7 @@ export interface DeleteGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class DeleteGroupCommand extends $Command
   .classBuilder<

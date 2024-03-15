@@ -27,7 +27,6 @@ export interface BatchGetApplicationsCommandInput extends BatchGetApplicationsIn
 export interface BatchGetApplicationsCommandOutput extends BatchGetApplicationsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about one or more applications. The maximum number of applications
  *             that can be returned is 100.</p>
  * @example
@@ -79,6 +78,7 @@ export interface BatchGetApplicationsCommandOutput extends BatchGetApplicationsO
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
  */
 export class BatchGetApplicationsCommand extends $Command
   .classBuilder<

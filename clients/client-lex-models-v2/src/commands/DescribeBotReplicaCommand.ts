@@ -27,7 +27,6 @@ export interface DescribeBotReplicaCommandInput extends DescribeBotReplicaReques
 export interface DescribeBotReplicaCommandOutput extends DescribeBotReplicaResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Monitors the bot replication status through the UI console.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface DescribeBotReplicaCommandOutput extends DescribeBotReplicaRespo
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class DescribeBotReplicaCommand extends $Command
   .classBuilder<

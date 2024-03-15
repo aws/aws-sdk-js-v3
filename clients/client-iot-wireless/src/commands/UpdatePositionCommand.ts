@@ -27,9 +27,6 @@ export interface UpdatePositionCommandInput extends UpdatePositionRequest {}
 export interface UpdatePositionCommandOutput extends UpdatePositionResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This operation is no longer supported.
- *
  * <p>Update the position information of a resource.</p>
  *          <important>
  *             <p>This action is no longer supported. Calls to update the position information
@@ -78,6 +75,8 @@ export interface UpdatePositionCommandOutput extends UpdatePositionResponse, __M
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
+ * @deprecated This operation is no longer supported.
  */
 export class UpdatePositionCommand extends $Command
   .classBuilder<

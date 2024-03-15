@@ -27,7 +27,6 @@ export interface ListTokensCommandInput extends ListTokensRequest {}
 export interface ListTokensCommandOutput extends ListTokensResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists your tokens.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface ListTokensCommandOutput extends ListTokensResponse, __MetadataB
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * @public
  */
 export class ListTokensCommand extends $Command
   .classBuilder<

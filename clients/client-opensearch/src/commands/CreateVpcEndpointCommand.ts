@@ -27,7 +27,6 @@ export interface CreateVpcEndpointCommandInput extends CreateVpcEndpointRequest 
 export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon OpenSearch Service-managed VPC endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointRespons
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class CreateVpcEndpointCommand extends $Command
   .classBuilder<

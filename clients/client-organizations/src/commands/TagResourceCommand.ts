@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds one or more tags to the specified resource.</p>
  *          <p>Currently, you can attach tags to the following resources in Organizations.</p>
  *          <ul>
@@ -406,6 +405,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

@@ -34,7 +34,6 @@ export interface StreamingTraitsRequireLengthCommandInput extends Omit<Streaming
 export interface StreamingTraitsRequireLengthCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * This examples serializes a streaming blob shape with a required content
  * length in the request body.
  *
@@ -65,6 +64,7 @@ export interface StreamingTraitsRequireLengthCommandOutput extends __MetadataBea
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ * @public
  */
 export class StreamingTraitsRequireLengthCommand extends $Command
   .classBuilder<

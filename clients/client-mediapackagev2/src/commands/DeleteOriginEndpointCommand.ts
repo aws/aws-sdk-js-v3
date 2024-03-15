@@ -27,7 +27,6 @@ export interface DeleteOriginEndpointCommandInput extends DeleteOriginEndpointRe
 export interface DeleteOriginEndpointCommandOutput extends DeleteOriginEndpointResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Origin endpoints can serve content until they're deleted. Delete the endpoint if it should no longer respond to playback requests. You must delete all endpoints from a channel before you can delete the channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface DeleteOriginEndpointCommandOutput extends DeleteOriginEndpointR
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
+ * @public
  */
 export class DeleteOriginEndpointCommand extends $Command
   .classBuilder<

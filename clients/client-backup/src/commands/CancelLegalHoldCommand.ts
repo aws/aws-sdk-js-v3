@@ -27,7 +27,6 @@ export interface CancelLegalHoldCommandInput extends CancelLegalHoldInput {}
 export interface CancelLegalHoldCommandOutput extends CancelLegalHoldOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This action removes the specified legal hold on a recovery point.
  *          This action can only be performed by a user with sufficient permissions.</p>
  * @example
@@ -73,6 +72,7 @@ export interface CancelLegalHoldCommandOutput extends CancelLegalHoldOutput, __M
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class CancelLegalHoldCommand extends $Command
   .classBuilder<

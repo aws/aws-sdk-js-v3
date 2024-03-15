@@ -31,7 +31,6 @@ export interface StopEntitiesDetectionV2JobCommandInput extends StopEntitiesDete
 export interface StopEntitiesDetectionV2JobCommandOutput extends StopEntitiesDetectionV2JobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a medical entities detection job in progress.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface StopEntitiesDetectionV2JobCommandOutput extends StopEntitiesDet
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ * @public
  */
 export class StopEntitiesDetectionV2JobCommand extends $Command
   .classBuilder<

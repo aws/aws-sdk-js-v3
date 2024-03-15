@@ -32,7 +32,6 @@ export interface UpdateEksAnywhereSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Update an EKS Anywhere Subscription. Only auto renewal and tags can be updated after
  *             subscription creation.</p>
  * @example
@@ -104,6 +103,7 @@ export interface UpdateEksAnywhereSubscriptionCommandOutput
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class UpdateEksAnywhereSubscriptionCommand extends $Command
   .classBuilder<

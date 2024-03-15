@@ -31,7 +31,6 @@ export interface GetTranscriptCommandInput extends GetTranscriptRequest {}
 export interface GetTranscriptCommandOutput extends GetTranscriptResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a transcript of the session, including details about any attachments. For
  *             information about accessing past chat contact transcripts for a persistent chat, see
  *             <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a>. </p>
@@ -153,6 +152,7 @@ export interface GetTranscriptCommandOutput extends GetTranscriptResponse, __Met
  * @throws {@link ConnectParticipantServiceException}
  * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
+ * @public
  */
 export class GetTranscriptCommand extends $Command
   .classBuilder<

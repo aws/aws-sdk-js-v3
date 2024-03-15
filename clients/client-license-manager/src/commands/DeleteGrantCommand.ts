@@ -27,7 +27,6 @@ export interface DeleteGrantCommandInput extends DeleteGrantRequest {}
 export interface DeleteGrantCommandOutput extends DeleteGrantResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified grant.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface DeleteGrantCommandOutput extends DeleteGrantResponse, __Metadat
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * @public
  */
 export class DeleteGrantCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteInputCommandInput extends DeleteInputRequest {}
 export interface DeleteInputCommandOutput extends DeleteInputResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an input.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface DeleteInputCommandOutput extends DeleteInputResponse, __Metadat
  * @throws {@link IoTEventsServiceException}
  * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
+ * @public
  */
 export class DeleteInputCommand extends $Command
   .classBuilder<

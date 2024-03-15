@@ -27,7 +27,6 @@ export interface CreateIpamResourceDiscoveryCommandInput extends CreateIpamResou
 export interface CreateIpamResourceDiscoveryCommandOutput extends CreateIpamResourceDiscoveryResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an IPAM resource discovery. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface CreateIpamResourceDiscoveryCommandOutput extends CreateIpamReso
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateIpamResourceDiscoveryCommand extends $Command
   .classBuilder<

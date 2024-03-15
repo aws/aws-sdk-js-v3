@@ -27,7 +27,6 @@ export interface GetStreamingSessionCommandInput extends GetStreamingSessionRequ
 export interface GetStreamingSessionCommandOutput extends GetStreamingSessionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets StreamingSession resource.</p>
  *         <p>Invoke this operation to poll for a streaming session state while creating or deleting
  *             a session.</p>
@@ -116,6 +115,7 @@ export interface GetStreamingSessionCommandOutput extends GetStreamingSessionRes
  * @throws {@link NimbleServiceException}
  * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
+ * @public
  */
 export class GetStreamingSessionCommand extends $Command
   .classBuilder<

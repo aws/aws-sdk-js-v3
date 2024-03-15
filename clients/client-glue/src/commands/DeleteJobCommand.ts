@@ -27,7 +27,6 @@ export interface DeleteJobCommandInput extends DeleteJobRequest {}
 export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specified job definition. If the job definition
  *       is not found, no exception is thrown.</p>
  * @example
@@ -65,6 +64,7 @@ export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBea
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class DeleteJobCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListDatasetLabelsCommandInput extends ListDatasetLabelsRequest 
 export interface ListDatasetLabelsCommandOutput extends ListDatasetLabelsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation applies only to Amazon Rekognition Custom Labels.</p>
  *          </note>
@@ -105,6 +104,7 @@ export interface ListDatasetLabelsCommandOutput extends ListDatasetLabelsRespons
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example To list the entries in an Amazon Rekognition Custom Labels dataset
  * ```javascript
  * // Lists the JSON line entries in an Amazon Rekognition Custom Labels dataset.

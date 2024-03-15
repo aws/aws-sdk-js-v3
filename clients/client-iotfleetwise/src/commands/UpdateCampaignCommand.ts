@@ -27,7 +27,6 @@ export interface UpdateCampaignCommandInput extends UpdateCampaignRequest {}
 export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Updates a campaign. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class UpdateCampaignCommand extends $Command
   .classBuilder<

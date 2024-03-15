@@ -33,7 +33,6 @@ export interface UpdateStorageVirtualMachineCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an FSx for ONTAP storage virtual machine (SVM).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -150,6 +149,7 @@ export interface UpdateStorageVirtualMachineCommandOutput
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  */
 export class UpdateStorageVirtualMachineCommand extends $Command
   .classBuilder<

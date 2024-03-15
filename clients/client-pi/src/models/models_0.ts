@@ -17,49 +17,49 @@ export const AcceptLanguage = {
 export type AcceptLanguage = (typeof AcceptLanguage)[keyof typeof AcceptLanguage];
 
 /**
- * @public
  * <p>This data type helps to determine Performance Insights metric to render for the insight.</p>
+ * @public
  */
 export interface PerformanceInsightsMetric {
   /**
-   * @public
    * <p>The Performance Insights metric.</p>
+   * @public
    */
   Metric?: string;
 
   /**
-   * @public
    * <p>The Performance Insights metric name.</p>
+   * @public
    */
   DisplayName?: string;
 
   /**
-   * @public
    * <p>A dimension map that contains the dimensions for this partition.</p>
+   * @public
    */
   Dimensions?: Record<string, string>;
 
   /**
-   * @public
    * <p>The value of the metric. For example, <code>9</code> for <code>db.load.avg</code>.</p>
+   * @public
    */
   Value?: number;
 }
 
 /**
- * @public
  * <p>List of data objects which provide details about source metrics.
  *             This field can be used to determine the PI metric to render
  *             for the insight. This data type also includes static values
  *             for the metrics for the Insight that were calculated and included
  *             in text and annotations on the DB load chart.</p>
+ * @public
  */
 export interface Data {
   /**
-   * @public
    * <p>This field determines the Performance Insights metric to render
    *             for the insight. The <code>name</code> field refers to a Performance Insights metric.
    *         </p>
+   * @public
    */
   PerformanceInsightsMetric?: PerformanceInsightsMetric;
 }
@@ -79,21 +79,21 @@ export const ContextType = {
 export type ContextType = (typeof ContextType)[keyof typeof ContextType];
 
 /**
- * @public
  * <p>The list of recommendations for the insight.</p>
+ * @public
  */
 export interface Recommendation {
   /**
-   * @public
    * <p>The unique identifier for the recommendation.</p>
+   * @public
    */
   RecommendationId?: string;
 
   /**
-   * @public
    * <p>The recommendation details to help resolve the performance issue. For example,
    *             <code>Investigate the following SQLs that contributed to 100% of the total DBLoad during that time period: sql-id</code>
    *          </p>
+   * @public
    */
   RecommendationDescription?: string;
 }
@@ -143,67 +143,67 @@ export const AnalysisStatus = {
 export type AnalysisStatus = (typeof AnalysisStatus)[keyof typeof AnalysisStatus];
 
 /**
- * @public
  * <p>Metadata assigned to an Amazon RDS resource consisting of a key-value pair.</p>
+ * @public
  */
 export interface Tag {
   /**
-   * @public
    * <p>A key is the required name of the tag. The string value can be from 1 to 128 Unicode
    *             characters in length and can't be prefixed with <code>aws:</code> or <code>rds:</code>.
    *             The string can only contain only the set of Unicode letters, digits,
    *             white-space, '_', '.', ':', '/', '=', '+', '-', '@' (Java regex: <code>"^([\\p\{L\}\\p\{Z\}\\p\{N\}_.:/=+\\-@]*)$"</code>).</p>
+   * @public
    */
   Key: string | undefined;
 
   /**
-   * @public
    * <p>A value is the optional value of the tag. The string value can be from 1 to 256
    *             Unicode characters in length and can't be prefixed with <code>aws:</code> or <code>rds:</code>.
    *             The string can only contain only the set of Unicode letters, digits,
    *             white-space, '_', '.', ':', '/', '=', '+', '-', '@' (Java regex: "^([\\p\{L\}\\p\{Z\}\\p\{N\}_.:/=+\\-@]*)$").</p>
+   * @public
    */
   Value: string | undefined;
 }
 
 /**
- * @public
  * <p>Retrieves the details of the performance analysis report.</p>
+ * @public
  */
 export interface AnalysisReportSummary {
   /**
-   * @public
    * <p>The name of the analysis report.</p>
+   * @public
    */
   AnalysisReportId?: string;
 
   /**
-   * @public
    * <p>The time you created the analysis report.</p>
+   * @public
    */
   CreateTime?: Date;
 
   /**
-   * @public
    * <p>The start time of the analysis in the report.</p>
+   * @public
    */
   StartTime?: Date;
 
   /**
-   * @public
    * <p>The end time of the analysis in the report.</p>
+   * @public
    */
   EndTime?: Date;
 
   /**
-   * @public
    * <p>The status of the analysis report.</p>
+   * @public
    */
   Status?: AnalysisStatus;
 
   /**
-   * @public
    * <p>List of all the tags added to the analysis report.</p>
+   * @public
    */
   Tags?: Tag[];
 }
@@ -213,35 +213,35 @@ export interface AnalysisReportSummary {
  */
 export interface CreatePerformanceAnalysisReportRequest {
   /**
-   * @public
    * <p>The Amazon Web Services service for which Performance Insights will return metrics. Valid value is <code>RDS</code>.</p>
+   * @public
    */
   ServiceType: ServiceType | undefined;
 
   /**
-   * @public
    * <p>An immutable, Amazon Web Services Region-unique identifier for a data source. Performance Insights gathers metrics from
    *             this data source.</p>
    *          <p>To use an Amazon RDS instance as a data source, you specify its <code>DbiResourceId</code> value.
    *             For example, specify <code>db-ADECBTYHKTSAUMUZQYPDS2GW4A</code>.</p>
+   * @public
    */
   Identifier: string | undefined;
 
   /**
-   * @public
    * <p>The start time defined for the analysis report.</p>
+   * @public
    */
   StartTime: Date | undefined;
 
   /**
-   * @public
    * <p>The end time defined for the analysis report.</p>
+   * @public
    */
   EndTime: Date | undefined;
 
   /**
-   * @public
    * <p>The metadata assigned to the analysis report consisting of a key-value pair.</p>
+   * @public
    */
   Tags?: Tag[];
 }
@@ -251,15 +251,15 @@ export interface CreatePerformanceAnalysisReportRequest {
  */
 export interface CreatePerformanceAnalysisReportResponse {
   /**
-   * @public
    * <p>A unique identifier for the created analysis report.</p>
+   * @public
    */
   AnalysisReportId?: string;
 }
 
 /**
- * @public
  * <p>The request failed due to an unknown error.</p>
+ * @public
  */
 export class InternalServiceError extends __BaseException {
   readonly name: "InternalServiceError" = "InternalServiceError";
@@ -280,8 +280,8 @@ export class InternalServiceError extends __BaseException {
 }
 
 /**
- * @public
  * <p>One of the arguments provided is invalid for this request.</p>
+ * @public
  */
 export class InvalidArgumentException extends __BaseException {
   readonly name: "InvalidArgumentException" = "InvalidArgumentException";
@@ -302,8 +302,8 @@ export class InvalidArgumentException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The user is not authorized to perform this request.</p>
+ * @public
  */
 export class NotAuthorizedException extends __BaseException {
   readonly name: "NotAuthorizedException" = "NotAuthorizedException";
@@ -324,19 +324,19 @@ export class NotAuthorizedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A timestamp, and a single numerical value, which together represent a measurement at a particular point in time.</p>
+ * @public
  */
 export interface DataPoint {
   /**
-   * @public
    * <p>The time, in epoch format, associated with a particular <code>Value</code>.</p>
+   * @public
    */
   Timestamp: Date | undefined;
 
   /**
-   * @public
    * <p>The actual value associated with a particular <code>Timestamp</code>.</p>
+   * @public
    */
   Value: number | undefined;
 }
@@ -346,24 +346,24 @@ export interface DataPoint {
  */
 export interface DeletePerformanceAnalysisReportRequest {
   /**
-   * @public
    * <p>The Amazon Web Services service for which Performance Insights will return metrics. Valid value is <code>RDS</code>.</p>
+   * @public
    */
   ServiceType: ServiceType | undefined;
 
   /**
-   * @public
    * <p>An immutable identifier for a data source that is unique for an Amazon Web Services Region. Performance Insights gathers metrics from this data source.
    *             In the console, the identifier is shown as <i>ResourceID</i>. When you
    *             call <code>DescribeDBInstances</code>, the identifier is returned as <code>DbiResourceId</code>.</p>
    *          <p>To use a DB instance as a data source, specify its <code>DbiResourceId</code> value. For example, specify
    *             <code>db-ABCDEFGHIJKLMNOPQRSTU1VW2X</code>.</p>
+   * @public
    */
   Identifier: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of the analysis report for deletion.</p>
+   * @public
    */
   AnalysisReportId: string | undefined;
 }
@@ -374,7 +374,6 @@ export interface DeletePerformanceAnalysisReportRequest {
 export interface DeletePerformanceAnalysisReportResponse {}
 
 /**
- * @public
  * <p>A logical grouping of Performance Insights metrics for a related subject area. For example, the
  *         <code>db.sql</code> dimension group consists of the following dimensions:</p>
  *          <ul>
@@ -401,10 +400,10 @@ export interface DeletePerformanceAnalysisReportResponse {}
  *             <p>Each response element returns a maximum of 500 bytes. For larger elements, such as SQL
  *                 statements, only the first 500 bytes are returned.</p>
  *          </note>
+ * @public
  */
 export interface DimensionGroup {
   /**
-   * @public
    * <p>The name of the dimension group. Valid values are as follows:</p>
    *          <ul>
    *             <li>
@@ -488,11 +487,11 @@ export interface DimensionGroup {
    *                   <code>db.wait_state</code> - The event for which the database backend is waiting (only Amazon DocumentDB).</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Group: string | undefined;
 
   /**
-   * @public
    * <p>A list of specific dimensions from a dimension group. If this parameter is not present,
    *             then it signifies that all of the dimensions in the group were requested, or are present in
    *             the response.</p>
@@ -639,12 +638,13 @@ export interface DimensionGroup {
    *                   <code>db.wait_state.name</code> - The event for which the backend is waiting (only Amazon DocumentDB).</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Dimensions?: string[];
 
   /**
-   * @public
    * <p>The maximum number of items to fetch for this dimension group.</p>
+   * @public
    */
   Limit?: number;
 }
@@ -654,7 +654,6 @@ export interface DimensionGroup {
  */
 export interface DescribeDimensionKeysRequest {
   /**
-   * @public
    * <p>The Amazon Web Services service for which Performance Insights will return metrics. Valid values are as follows:</p>
    *          <ul>
    *             <li>
@@ -668,41 +667,41 @@ export interface DescribeDimensionKeysRequest {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   ServiceType: ServiceType | undefined;
 
   /**
-   * @public
    * <p>An immutable, Amazon Web Services Region-unique identifier for a data source. Performance Insights gathers metrics from
    *             this data source.</p>
    *          <p>To use an Amazon RDS instance as a data source, you specify its <code>DbiResourceId</code> value.
    *             For example, specify <code>db-FAIHNTYBKTGAUSUZQYPDS2GW4A</code>.
    *         </p>
+   * @public
    */
   Identifier: string | undefined;
 
   /**
-   * @public
    * <p>The date and time specifying the beginning of the requested time series data. You must specify a
    *             <code>StartTime</code> within the past 7 days. The value specified is <i>inclusive</i>,
    *             which means that data points equal to or greater than <code>StartTime</code> are returned.
    *         </p>
    *          <p>The value for <code>StartTime</code> must be earlier than the value for <code>EndTime</code>.
    *         </p>
+   * @public
    */
   StartTime: Date | undefined;
 
   /**
-   * @public
    * <p>The date and time specifying the end of the requested time series data. The value specified is
    *       <i>exclusive</i>, which means that data points less than (but not equal to) <code>EndTime</code> are
    *       returned.</p>
    *          <p>The value for <code>EndTime</code> must be later than the value for <code>StartTime</code>.</p>
+   * @public
    */
   EndTime: Date | undefined;
 
   /**
-   * @public
    * <p>The name of a Performance Insights metric to be measured.</p>
    *          <p>Valid values for <code>Metric</code> are:</p>
    *          <ul>
@@ -722,11 +721,11 @@ export interface DescribeDimensionKeysRequest {
    *             <code>db.sampledload.avg</code> less than <code>db.load.avg</code>. For most use cases, you can
    *             query <code>db.load.avg</code> only.
    *         </p>
+   * @public
    */
   Metric: string | undefined;
 
   /**
-   * @public
    * <p>The granularity, in seconds, of the data points returned from Performance Insights. A period can be as short as
    *             one second, or as long as one day (86400 seconds). Valid values are:
    *         </p>
@@ -755,35 +754,35 @@ export interface DescribeDimensionKeysRequest {
    *          <p>If you don't specify <code>PeriodInSeconds</code>, then Performance Insights chooses a value for you, with a
    *             goal of returning roughly 100-200 data points in the response.
    *         </p>
+   * @public
    */
   PeriodInSeconds?: number;
 
   /**
-   * @public
    * <p>A specification for how to aggregate the data points from a query result. You must specify a valid dimension group. Performance Insights returns all
    *             dimensions within this group, unless you provide the names of specific dimensions within this group. You can also request that Performance Insights return
    *             a limited number of values for a dimension. </p>
+   * @public
    */
   GroupBy: DimensionGroup | undefined;
 
   /**
-   * @public
    * <p>Additional metrics for the top <code>N</code> dimension keys. If the specified dimension group in the <code>GroupBy</code> parameter is
    *                 <code>db.sql_tokenized</code>, you can specify per-SQL metrics to get the values for the top <code>N</code> SQL digests. The response
    *             syntax is as follows: <code>"AdditionalMetrics" : \{ "<i>string</i>" : "<i>string</i>" \}</code>. </p>
+   * @public
    */
   AdditionalMetrics?: string[];
 
   /**
-   * @public
    * <p>For each dimension specified in <code>GroupBy</code>, specify a secondary dimension
    *             to further subdivide the partition keys in the response.
    *         </p>
+   * @public
    */
   PartitionBy?: DimensionGroup;
 
   /**
-   * @public
    * <p>One or more filters to apply in the request. Restrictions:</p>
    *          <ul>
    *             <li>
@@ -794,65 +793,66 @@ export interface DescribeDimensionKeysRequest {
    *                <p>A single filter for any other dimension in this dimension group.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filter?: Record<string, string>;
 
   /**
-   * @public
    * <p>The maximum number of items to return in the response. If more items exist than the specified <code>MaxRecords</code> value, a
    *             pagination token is included in the response so that the remaining results can be retrieved. </p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond
    *             the token, up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>An object that includes the requested dimension key values and aggregated metric values
  *           within a dimension group.</p>
+ * @public
  */
 export interface DimensionKeyDescription {
   /**
-   * @public
    * <p>A map of name-value pairs for the dimensions in the group.</p>
+   * @public
    */
   Dimensions?: Record<string, string>;
 
   /**
-   * @public
    * <p>The aggregated metric value for the dimensions, over the requested time range.</p>
+   * @public
    */
   Total?: number;
 
   /**
-   * @public
    * <p>A map that contains the value for each additional metric.</p>
+   * @public
    */
   AdditionalMetrics?: Record<string, number>;
 
   /**
-   * @public
    * <p>If <code>PartitionBy</code> was specified, <code>PartitionKeys</code> contains the dimensions that were.</p>
+   * @public
    */
   Partitions?: number[];
 }
 
 /**
- * @public
  * <p>If <code>PartitionBy</code> was specified in a <code>DescribeDimensionKeys</code>
  *       request, the dimensions are returned in an array. Each element in the array specifies one
  *       dimension. </p>
+ * @public
  */
 export interface ResponsePartitionKey {
   /**
-   * @public
    * <p>A dimension map that contains the dimensions for this partition.</p>
+   * @public
    */
   Dimensions: Record<string, string> | undefined;
 }
@@ -862,36 +862,36 @@ export interface ResponsePartitionKey {
  */
 export interface DescribeDimensionKeysResponse {
   /**
-   * @public
    * <p>The start time for the returned dimension keys, after alignment to a granular boundary (as specified by <code>PeriodInSeconds</code>).
    *             <code>AlignedStartTime</code> will be less than or equal to the value of the user-specified <code>StartTime</code>. </p>
+   * @public
    */
   AlignedStartTime?: Date;
 
   /**
-   * @public
    * <p>The end time for the returned dimension keys, after alignment to a granular boundary (as specified by <code>PeriodInSeconds</code>).
    *             <code>AlignedEndTime</code> will be greater than or equal to the value of the user-specified <code>Endtime</code>. </p>
+   * @public
    */
   AlignedEndTime?: Date;
 
   /**
-   * @public
    * <p>If <code>PartitionBy</code> was present in the request, <code>PartitionKeys</code> contains the breakdown of dimension keys by the
    *             specified partitions. </p>
+   * @public
    */
   PartitionKeys?: ResponsePartitionKey[];
 
   /**
-   * @public
    * <p>The dimension keys that were requested.</p>
+   * @public
    */
   Keys?: DimensionKeyDescription[];
 
   /**
-   * @public
    * <p>A pagination token that indicates the response didn’t return all available records because <code>MaxRecords</code> was specified in the
    *             previous request. To get the remaining records, specify <code>NextToken</code> in a separate request with this value. </p>
+   * @public
    */
   NextToken?: string;
 }
@@ -912,42 +912,41 @@ export const DetailStatus = {
 export type DetailStatus = (typeof DetailStatus)[keyof typeof DetailStatus];
 
 /**
- * @public
  * <p>The information about a dimension.</p>
+ * @public
  */
 export interface DimensionDetail {
   /**
-   * @public
    * <p>The identifier of a dimension.</p>
+   * @public
    */
   Identifier?: string;
 }
 
 /**
- * @public
  * <p>Information about dimensions within a dimension group.</p>
+ * @public
  */
 export interface DimensionGroupDetail {
   /**
-   * @public
    * <p>The name of the dimension group.</p>
+   * @public
    */
   Group?: string;
 
   /**
-   * @public
    * <p>The dimensions within a dimension group.</p>
+   * @public
    */
   Dimensions?: DimensionDetail[];
 }
 
 /**
- * @public
  * <p>An object that describes the details for a specified dimension.</p>
+ * @public
  */
 export interface DimensionKeyDetail {
   /**
-   * @public
    * <p>The value of the dimension detail data. Depending on the return status, this value is either the
    *           full or truncated SQL query for the following dimensions:</p>
    *          <ul>
@@ -960,11 +959,11 @@ export interface DimensionKeyDetail {
    *                   <code>db.sql.statement</code> (Amazon RDS and Aurora)</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Value?: string;
 
   /**
-   * @public
    * <p>The full name of the dimension. The full name includes the group name and key name. The following values are valid:</p>
    *          <ul>
    *             <li>
@@ -976,11 +975,11 @@ export interface DimensionKeyDetail {
    *                   <code>db.sql.statement</code> (Amazon RDS and Aurora)</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Dimension?: string;
 
   /**
-   * @public
    * <p>The status of the dimension detail data. Possible values include the following:</p>
    *          <ul>
    *             <li>
@@ -997,6 +996,7 @@ export interface DimensionKeyDetail {
    *                   <code>UNAVAILABLE</code> - The dimension detail data could not be collected successfully.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Status?: DetailStatus;
 }
@@ -1020,13 +1020,12 @@ export const FeatureStatus = {
 export type FeatureStatus = (typeof FeatureStatus)[keyof typeof FeatureStatus];
 
 /**
- * @public
  * <p>The metadata for a feature. For example, the metadata might indicate that a feature is
  *           turned on or off on a specific DB instance.</p>
+ * @public
  */
 export interface FeatureMetadata {
   /**
-   * @public
    * <p>The status of the feature on the DB instance. Possible values include the following:</p>
    *          <ul>
    *             <li>
@@ -1054,6 +1053,7 @@ export interface FeatureMetadata {
    *                   <code>UNKNOWN</code> - The feature status couldn't be determined.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Status?: FeatureStatus;
 }
@@ -1063,22 +1063,21 @@ export interface FeatureMetadata {
  */
 export interface GetDimensionKeyDetailsRequest {
   /**
-   * @public
    * <p>The Amazon Web Services service for which Performance Insights returns data. The only valid value is <code>RDS</code>.</p>
+   * @public
    */
   ServiceType: ServiceType | undefined;
 
   /**
-   * @public
    * <p>The ID for a data source from which to gather dimension data. This ID must be immutable and
    *           unique within an Amazon Web Services Region. When a DB instance is the data source, specify its
    *           <code>DbiResourceId</code> value. For example, specify <code>db-ABCDEFGHIJKLMNOPQRSTU1VW2X</code>.
    *       </p>
+   * @public
    */
   Identifier: string | undefined;
 
   /**
-   * @public
    * <p>The name of the dimension group. Performance Insights searches the specified group for the dimension group ID. The following group name values are
    *             valid:</p>
    *          <ul>
@@ -1091,11 +1090,11 @@ export interface GetDimensionKeyDetailsRequest {
    *                   <code>db.sql</code> (Amazon RDS and Aurora only)</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Group: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the dimension group from which to retrieve dimension details. For dimension group <code>db.sql</code>, the group ID is
    *                 <code>db.sql.id</code>. The following group ID values are valid:</p>
    *          <ul>
@@ -1108,11 +1107,11 @@ export interface GetDimensionKeyDetailsRequest {
    *                   <code>db.query.id</code> for dimension group <code>db.query</code> (DocumentDB only)</p>
    *             </li>
    *          </ul>
+   * @public
    */
   GroupIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>A list of dimensions to retrieve the detail data for within the given dimension group. If you don't specify this parameter, Performance Insights returns
    *             all dimension data within the specified dimension group. Specify dimension names for the following dimension groups:</p>
    *          <ul>
@@ -1127,6 +1126,7 @@ export interface GetDimensionKeyDetailsRequest {
    *                         <code>statement</code> (DocumentDB only).</p>
    *             </li>
    *          </ul>
+   * @public
    */
   RequestedDimensions?: string[];
 }
@@ -1136,8 +1136,8 @@ export interface GetDimensionKeyDetailsRequest {
  */
 export interface GetDimensionKeyDetailsResponse {
   /**
-   * @public
    * <p>The details for the requested dimensions.</p>
+   * @public
    */
   Dimensions?: DimensionKeyDetail[];
 }
@@ -1161,42 +1161,42 @@ export type TextFormat = (typeof TextFormat)[keyof typeof TextFormat];
  */
 export interface GetPerformanceAnalysisReportRequest {
   /**
-   * @public
    * <p>The Amazon Web Services service for which Performance Insights will return metrics. Valid value is
    *             <code>RDS</code>.</p>
+   * @public
    */
   ServiceType: ServiceType | undefined;
 
   /**
-   * @public
    * <p>An immutable identifier for a data source that is unique for an Amazon Web Services Region. Performance Insights gathers
    *             metrics from this data source. In the console, the identifier is shown as
    *             <i>ResourceID</i>. When you call <code>DescribeDBInstances</code>, the identifier is
    *             returned as <code>DbiResourceId</code>.</p>
    *          <p>To use a DB instance as a data source, specify its <code>DbiResourceId</code> value. For example, specify
    *             <code>db-ABCDEFGHIJKLMNOPQRSTU1VW2X</code>.</p>
+   * @public
    */
   Identifier: string | undefined;
 
   /**
-   * @public
    * <p>A unique identifier of the created analysis report. For example,
    *             <code>report-12345678901234567</code>
    *          </p>
+   * @public
    */
   AnalysisReportId: string | undefined;
 
   /**
-   * @public
    * <p>Indicates the text format in the report. The options are <code>PLAIN_TEXT</code> or <code>MARKDOWN</code>. The default
    *             value is <code>plain text</code>.</p>
+   * @public
    */
   TextFormat?: TextFormat;
 
   /**
-   * @public
    * <p>The text language in the report. The default language is <code>EN_US</code> (English).
    *         </p>
+   * @public
    */
   AcceptLanguage?: AcceptLanguage;
 }
@@ -1206,17 +1206,17 @@ export interface GetPerformanceAnalysisReportRequest {
  */
 export interface GetResourceMetadataRequest {
   /**
-   * @public
    * <p>The Amazon Web Services service for which Performance Insights returns metrics.</p>
+   * @public
    */
   ServiceType: ServiceType | undefined;
 
   /**
-   * @public
    * <p>An immutable identifier for a data source that is unique for an Amazon Web Services Region.
    *             Performance Insights gathers metrics from this data source. To use a DB instance as a data source,
    *             specify its <code>DbiResourceId</code> value. For example, specify <code>db-ABCDEFGHIJKLMNOPQRSTU1VW2X</code>.
    *         </p>
+   * @public
    */
   Identifier: string | undefined;
 }
@@ -1226,33 +1226,32 @@ export interface GetResourceMetadataRequest {
  */
 export interface GetResourceMetadataResponse {
   /**
-   * @public
    * <p>An immutable identifier for a data source that is unique for an Amazon Web Services Region.
    *
    *       Performance Insights gathers metrics from this data source. To use a DB instance as a data source,
    *             specify its <code>DbiResourceId</code> value. For example, specify <code>db-ABCDEFGHIJKLMNOPQRSTU1VW2X</code>.
    *         </p>
+   * @public
    */
   Identifier?: string;
 
   /**
-   * @public
    * <p>The metadata for different features. For example, the metadata might indicate that a feature is
    *             turned on or off on a specific DB instance.</p>
+   * @public
    */
   Features?: Record<string, FeatureMetadata>;
 }
 
 /**
- * @public
  * <p>A single query to be processed. You must provide the metric to query. If no other
  *       parameters are specified, Performance Insights returns all data points for the specified metric. Optionally, you can
  *       request that the data points be aggregated by dimension group (<code>GroupBy</code>), and return only
  *           those data points that match your criteria (<code>Filter</code>).</p>
+ * @public
  */
 export interface MetricQuery {
   /**
-   * @public
    * <p>The name of a Performance Insights metric to be measured.</p>
    *          <p>Valid values for <code>Metric</code> are:</p>
    *          <ul>
@@ -1274,20 +1273,20 @@ export interface MetricQuery {
    *             value. If the number of active sessions is greater than the internal threshold, Performance Insights samples the active sessions, with <code>db.load.avg</code> showing the
    *             scaled values, <code>db.sampledload.avg</code> showing the raw values, and <code>db.sampledload.avg</code> less than
    *                 <code>db.load.avg</code>. For most use cases, you can query <code>db.load.avg</code> only.</p>
+   * @public
    */
   Metric: string | undefined;
 
   /**
-   * @public
    * <p>A specification for how to aggregate the data points from a query result. You must
    *       specify a valid dimension group.  Performance Insights will return all of the dimensions within that group,
    *       unless you provide the names of specific dimensions within that group. You can also request
    *       that Performance Insights return a limited number of values for a dimension.</p>
+   * @public
    */
   GroupBy?: DimensionGroup;
 
   /**
-   * @public
    * <p>One or more filters to apply in the request.  Restrictions:</p>
    *          <ul>
    *             <li>
@@ -1297,6 +1296,7 @@ export interface MetricQuery {
    *                <p>A single filter for any other dimension in this dimension group.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filter?: Record<string, string>;
 }
@@ -1320,7 +1320,6 @@ export type PeriodAlignment = (typeof PeriodAlignment)[keyof typeof PeriodAlignm
  */
 export interface GetResourceMetricsRequest {
   /**
-   * @public
    * <p>The Amazon Web Services service for which Performance Insights returns metrics. Valid values are as follows:</p>
    *          <ul>
    *             <li>
@@ -1334,48 +1333,48 @@ export interface GetResourceMetricsRequest {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   ServiceType: ServiceType | undefined;
 
   /**
-   * @public
    * <p>An immutable identifier for a data source that is unique for an Amazon Web Services Region. Performance Insights gathers metrics from this data source. In the
    *             console, the identifier is shown as <i>ResourceID</i>. When you call <code>DescribeDBInstances</code>, the identifier is
    *             returned as <code>DbiResourceId</code>.</p>
    *          <p>To use a DB instance as a data source, specify its <code>DbiResourceId</code> value. For example, specify
    *                 <code>db-ABCDEFGHIJKLMNOPQRSTU1VW2X</code>.</p>
+   * @public
    */
   Identifier: string | undefined;
 
   /**
-   * @public
    * <p>An array of one or more queries to perform. Each query must specify a Performance Insights metric, and can optionally specify aggregation and filtering
    *             criteria.</p>
+   * @public
    */
   MetricQueries: MetricQuery[] | undefined;
 
   /**
-   * @public
    * <p>The date and time specifying the beginning of the requested time series query range. You can't
    *             specify a <code>StartTime</code> that is earlier than 7 days ago. By default, Performance Insights has 7 days of
    *             retention, but you can extend this range up to 2 years. The value specified is
    *             <i>inclusive</i>. Thus, the command returns data points equal to or greater
    *             than <code>StartTime</code>.</p>
    *          <p>The value for <code>StartTime</code> must be earlier than the value for <code>EndTime</code>.</p>
+   * @public
    */
   StartTime: Date | undefined;
 
   /**
-   * @public
    * <p>The date and time specifying the end of the requested time series query range. The value
    *             specified is <i>exclusive</i>. Thus, the command returns data points less than
    *             (but not equal to) <code>EndTime</code>.</p>
    *          <p>The value for <code>EndTime</code> must be later than the value for <code>StartTime</code>.</p>
+   * @public
    */
   EndTime: Date | undefined;
 
   /**
-   * @public
    * <p>The granularity, in seconds, of the data points returned from Performance Insights. A period can be as short as one second, or as long as one day (86400
    *             seconds). Valid values are:</p>
    *          <ul>
@@ -1402,37 +1401,37 @@ export interface GetResourceMetricsRequest {
    *          </ul>
    *          <p>If you don't specify <code>PeriodInSeconds</code>, then Performance Insights will choose a value for you, with a goal of returning roughly 100-200 data
    *             points in the response.</p>
+   * @public
    */
   PeriodInSeconds?: number;
 
   /**
-   * @public
    * <p>The maximum number of items to return in the response. If more items exist than the specified <code>MaxRecords</code> value, a
    *             pagination token is included in the response so that the remaining results can be retrieved. </p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond
    *             the token, up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The returned timestamp which is the start or end time of the time periods. The default value is <code>END_TIME</code>.</p>
+   * @public
    */
   PeriodAlignment?: PeriodAlignment;
 }
 
 /**
- * @public
  * <p>An object describing a Performance Insights metric and one or more dimensions for that metric.</p>
+ * @public
  */
 export interface ResponseResourceMetricKey {
   /**
-   * @public
    * <p>The name of a Performance Insights metric to be measured.</p>
    *          <p>Valid values for <code>Metric</code> are:</p>
    *          <ul>
@@ -1455,31 +1454,32 @@ export interface ResponseResourceMetricKey {
    *           <code>db.sampledload.avg</code> showing the raw values, and <code>db.sampledload.avg</code> less
    *           than <code>db.load.avg</code>. For most use cases, you can query <code>db.load.avg</code> only.
    *       </p>
+   * @public
    */
   Metric: string | undefined;
 
   /**
-   * @public
    * <p>The valid dimensions for the metric.</p>
+   * @public
    */
   Dimensions?: Record<string, string>;
 }
 
 /**
- * @public
  * <p>A time-ordered series of data points, corresponding to a dimension of a Performance Insights
  *       metric.</p>
+ * @public
  */
 export interface MetricKeyDataPoints {
   /**
-   * @public
    * <p>The dimensions to which the data points apply.</p>
+   * @public
    */
   Key?: ResponseResourceMetricKey;
 
   /**
-   * @public
    * <p>An array of timestamp-value pairs, representing measurements over a period of time.</p>
+   * @public
    */
   DataPoints?: DataPoint[];
 }
@@ -1489,39 +1489,39 @@ export interface MetricKeyDataPoints {
  */
 export interface GetResourceMetricsResponse {
   /**
-   * @public
    * <p>The start time for the returned metrics, after alignment to a granular boundary (as specified by <code>PeriodInSeconds</code>).
    *                 <code>AlignedStartTime</code> will be less than or equal to the value of the user-specified <code>StartTime</code>.</p>
+   * @public
    */
   AlignedStartTime?: Date;
 
   /**
-   * @public
    * <p>The end time for the returned metrics, after alignment to a granular boundary (as specified by <code>PeriodInSeconds</code>).
    *                 <code>AlignedEndTime</code> will be greater than or equal to the value of the user-specified <code>Endtime</code>.</p>
+   * @public
    */
   AlignedEndTime?: Date;
 
   /**
-   * @public
    * <p>An immutable identifier for a data source that is unique for an Amazon Web Services Region. Performance Insights gathers metrics from this data source. In the
    *             console, the identifier is shown as <i>ResourceID</i>. When you call <code>DescribeDBInstances</code>, the identifier is
    *             returned as <code>DbiResourceId</code>.</p>
+   * @public
    */
   Identifier?: string;
 
   /**
-   * @public
    * <p>An array of metric results, where each array element contains all of the data points for a
    *           particular dimension.</p>
+   * @public
    */
   MetricList?: MetricKeyDataPoints[];
 
   /**
-   * @public
    * <p>An optional pagination token provided by a previous request. If this parameter is specified,
    *           the response includes only records beyond the token, up to the value specified by <code>MaxRecords</code>.
    *       </p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1531,56 +1531,56 @@ export interface GetResourceMetricsResponse {
  */
 export interface ListAvailableResourceDimensionsRequest {
   /**
-   * @public
    * <p>The Amazon Web Services service for which Performance Insights returns metrics.</p>
+   * @public
    */
   ServiceType: ServiceType | undefined;
 
   /**
-   * @public
    * <p>An immutable identifier for a data source that is unique within an Amazon Web Services Region. Performance Insights gathers
    *             metrics from this data source. To use an Amazon RDS DB instance as a data source, specify its
    *                 <code>DbiResourceId</code> value. For example, specify <code>db-ABCDEFGHIJKLMNOPQRSTU1VWZ</code>. </p>
+   * @public
    */
   Identifier: string | undefined;
 
   /**
-   * @public
    * <p>The types of metrics for which to retrieve dimensions. Valid values include <code>db.load</code>.</p>
+   * @public
    */
   Metrics: string[] | undefined;
 
   /**
-   * @public
    * <p>The maximum number of items to return in the response. If more items exist than the specified
    *             <code>MaxRecords</code> value, a pagination token is included in the response so that the remaining
    *             results can be retrieved.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>An optional pagination token provided by a previous request. If this parameter is specified,
    *             the response includes only records beyond the token, up to the value specified by <code>MaxRecords</code>.
    *         </p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>The available dimension information for a metric type.</p>
+ * @public
  */
 export interface MetricDimensionGroups {
   /**
-   * @public
    * <p>The metric type to which the dimension information belongs.</p>
+   * @public
    */
   Metric?: string;
 
   /**
-   * @public
    * <p>The available dimension groups for a metric type.</p>
+   * @public
    */
   Groups?: DimensionGroupDetail[];
 }
@@ -1590,15 +1590,15 @@ export interface MetricDimensionGroups {
  */
 export interface ListAvailableResourceDimensionsResponse {
   /**
-   * @public
    * <p>The dimension information returned for requested metric types.</p>
+   * @public
    */
   MetricDimensions?: MetricDimensionGroups[];
 
   /**
-   * @public
    * <p>An optional pagination token provided by a previous request. If this parameter is specified,
    *             the response includes only records beyond the token, up to the value specified by <code>MaxRecords</code>.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1608,21 +1608,20 @@ export interface ListAvailableResourceDimensionsResponse {
  */
 export interface ListAvailableResourceMetricsRequest {
   /**
-   * @public
    * <p>The Amazon Web Services service for which Performance Insights returns metrics.</p>
+   * @public
    */
   ServiceType: ServiceType | undefined;
 
   /**
-   * @public
    * <p>An immutable identifier for a data source that is unique within an Amazon Web Services Region. Performance Insights gathers
    *             metrics from this data source. To use an Amazon RDS DB instance as a data source, specify its
    *                 <code>DbiResourceId</code> value. For example, specify <code>db-ABCDEFGHIJKLMNOPQRSTU1VWZ</code>. </p>
+   * @public
    */
   Identifier: string | undefined;
 
   /**
-   * @public
    * <p>The types of metrics to return in the response. Valid values in the array include the following:</p>
    *          <ul>
    *             <li>
@@ -1642,46 +1641,47 @@ export interface ListAvailableResourceMetricsRequest {
    *                   <code>db.sql_tokenized.stats</code> (per-SQL digest metrics) - All engines except for Amazon DocumentDB</p>
    *             </li>
    *          </ul>
+   * @public
    */
   MetricTypes: string[] | undefined;
 
   /**
-   * @public
    * <p>An optional pagination token provided by a previous request. If this parameter is specified,
    *           the response includes only records beyond the token, up to the value specified by <code>MaxRecords</code>.
    *       </p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of items to return. If the <code>MaxRecords</code> value is less than the number
    *             of existing items, the response includes a pagination token. </p>
+   * @public
    */
   MaxResults?: number;
 }
 
 /**
- * @public
  * <p>An object that contains the full name, description, and unit of a metric.
  *       </p>
+ * @public
  */
 export interface ResponseResourceMetric {
   /**
-   * @public
    * <p>The full name of the metric.</p>
+   * @public
    */
   Metric?: string;
 
   /**
-   * @public
    * <p>The description of the metric.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The unit of the metric.</p>
+   * @public
    */
   Unit?: string;
 }
@@ -1691,17 +1691,17 @@ export interface ResponseResourceMetric {
  */
 export interface ListAvailableResourceMetricsResponse {
   /**
-   * @public
    * <p>An array of metrics available to query. Each array element contains the full name,
    *             description, and unit of the metric.
    *         </p>
+   * @public
    */
   Metrics?: ResponseResourceMetric[];
 
   /**
-   * @public
    * <p>A pagination token that indicates the response didn’t return all available records because <code>MaxRecords</code> was specified in the
    *             previous request. To get the remaining records, specify <code>NextToken</code> in a separate request with this value. </p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1711,40 +1711,40 @@ export interface ListAvailableResourceMetricsResponse {
  */
 export interface ListPerformanceAnalysisReportsRequest {
   /**
-   * @public
    * <p>The Amazon Web Services service for which Performance Insights returns metrics. Valid value is
    *             <code>RDS</code>.</p>
+   * @public
    */
   ServiceType: ServiceType | undefined;
 
   /**
-   * @public
    * <p>An immutable identifier for a data source that is unique for an Amazon Web Services Region. Performance Insights gathers metrics from this data source. In the
    *             console, the identifier is shown as <i>ResourceID</i>. When you call <code>DescribeDBInstances</code>, the identifier is
    *             returned as <code>DbiResourceId</code>.</p>
    *          <p>To use a DB instance as a data source, specify its <code>DbiResourceId</code> value. For example, specify
    *             <code>db-ABCDEFGHIJKLMNOPQRSTU1VW2X</code>.</p>
+   * @public
    */
   Identifier: string | undefined;
 
   /**
-   * @public
    * <p>An optional pagination token provided by a previous request.
    *             If this parameter is specified, the response includes only records beyond
    *             the token, up to the value specified by <code>MaxResults</code>.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of items to return in the response. If more items exist than the specified <code>MaxResults</code> value, a
    *             pagination token is included in the response so that the remaining results can be retrieved. </p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>Specifies whether or not to include the list of tags in the response.</p>
+   * @public
    */
   ListTags?: boolean;
 }
@@ -1754,17 +1754,17 @@ export interface ListPerformanceAnalysisReportsRequest {
  */
 export interface ListPerformanceAnalysisReportsResponse {
   /**
-   * @public
    * <p>List of reports including the report identifier, start and end time, creation time,
    *             and status.</p>
+   * @public
    */
   AnalysisReports?: AnalysisReportSummary[];
 
   /**
-   * @public
    * <p>An optional pagination token provided by a previous request.
    *             If this parameter is specified, the response includes only records beyond the token,
    *             up to the value specified by <code>MaxResults</code>.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1774,17 +1774,17 @@ export interface ListPerformanceAnalysisReportsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>List the tags for the Amazon Web Services service for which Performance Insights returns metrics. Valid value is <code>RDS</code>.</p>
+   * @public
    */
   ServiceType: ServiceType | undefined;
 
   /**
-   * @public
    * <p>Lists all the tags for the Amazon RDS Performance Insights resource. This value is an
    *             Amazon Resource Name (ARN). For information about creating an ARN,
    *             see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
    *                 Constructing an RDS Amazon Resource Name (ARN)</a>.</p>
+   * @public
    */
   ResourceARN: string | undefined;
 }
@@ -1794,8 +1794,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>The metadata assigned to an Amazon RDS resource consisting of a key-value pair.</p>
+   * @public
    */
   Tags?: Tag[];
 }
@@ -1805,22 +1805,22 @@ export interface ListTagsForResourceResponse {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Web Services service for which Performance Insights returns metrics. Valid value is <code>RDS</code>.</p>
+   * @public
    */
   ServiceType: ServiceType | undefined;
 
   /**
-   * @public
    * <p>The Amazon RDS Performance Insights resource that the tags are added to. This value is an Amazon Resource Name (ARN). For information about
    *             creating an ARN, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
    *                 Constructing an RDS Amazon Resource Name (ARN)</a>.</p>
+   * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * @public
    * <p>The metadata assigned to an Amazon RDS resource consisting of a key-value pair.</p>
+   * @public
    */
   Tags: Tag[] | undefined;
 }
@@ -1835,22 +1835,22 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>List the tags for the Amazon Web Services service for which Performance Insights returns metrics. Valid value is <code>RDS</code>.</p>
+   * @public
    */
   ServiceType: ServiceType | undefined;
 
   /**
-   * @public
    * <p>The Amazon RDS Performance Insights resource that the tags are added to. This value is an Amazon Resource Name (ARN). For information about
    *             creating an ARN, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
    *                 Constructing an RDS Amazon Resource Name (ARN)</a>.</p>
+   * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * @public
    * <p>The metadata assigned to an Amazon RDS Performance Insights resource consisting of a key-value pair.</p>
+   * @public
    */
   TagKeys: string[] | undefined;
 }
@@ -1861,103 +1861,102 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 /**
- * @public
  * <p>Retrieves the list of performance issues which are identified.</p>
+ * @public
  */
 export interface Insight {
   /**
-   * @public
    * <p>The unique identifier for the insight. For example, <code>insight-12345678901234567</code>.</p>
+   * @public
    */
   InsightId: string | undefined;
 
   /**
-   * @public
    * <p>The type of insight. For example, <code>HighDBLoad</code>, <code>HighCPU</code>, or <code>DominatingSQLs</code>.</p>
+   * @public
    */
   InsightType?: string;
 
   /**
-   * @public
    * <p>Indicates if the insight is causal or correlated insight.</p>
+   * @public
    */
   Context?: ContextType;
 
   /**
-   * @public
    * <p>The start time of the insight. For example, <code>2018-10-30T00:00:00Z</code>.</p>
+   * @public
    */
   StartTime?: Date;
 
   /**
-   * @public
    * <p>The end time of the insight. For example, <code>2018-10-30T00:00:00Z</code>.</p>
+   * @public
    */
   EndTime?: Date;
 
   /**
-   * @public
    * <p>The severity of the insight. The values are: <code>Low</code>, <code>Medium</code>, or <code>High</code>.</p>
+   * @public
    */
   Severity?: Severity;
 
   /**
-   * @public
    * <p>List of supporting insights that provide additional factors for the insight.</p>
+   * @public
    */
   SupportingInsights?: Insight[];
 
   /**
-   * @public
    * <p>Description of the insight. For example:
    *             <code>A high severity Insight found between 02:00 to 02:30,
    *                 where there was an unusually high DB load 600x above baseline.
    *                 Likely performance impact</code>.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>List of recommendations for the insight.
    *             For example, <code>Investigate the following SQLs that contributed
    *                 to 100% of the total DBLoad during that time period: sql-id</code>.</p>
+   * @public
    */
   Recommendations?: Recommendation[];
 
   /**
-   * @public
    * <p>List of data objects containing metrics and references from the time range while generating the insight.</p>
+   * @public
    */
   InsightData?: Data[];
 
   /**
-   * @public
    * <p>
    *             Metric names and values from the timeframe
    *             used as baseline to generate the insight.</p>
+   * @public
    */
   BaselineData?: Data[];
 }
 
 /**
- * @public
  * <p>Retrieves the summary of the performance analysis report created for a time period.</p>
+ * @public
  */
 export interface AnalysisReport {
   /**
-   * @public
    * <p>The name of the analysis report.</p>
+   * @public
    */
   AnalysisReportId: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of the analysis report.</p>
+   * @public
    */
   Identifier?: string;
 
   /**
-   * @public
    * <p>List the tags for the Amazon Web Services service for which Performance Insights returns metrics. Valid values are as follows:</p>
    *          <ul>
    *             <li>
@@ -1971,36 +1970,37 @@ export interface AnalysisReport {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   ServiceType?: ServiceType;
 
   /**
-   * @public
    * <p>The time you created the analysis report.</p>
+   * @public
    */
   CreateTime?: Date;
 
   /**
-   * @public
    * <p>The analysis start time in the report.</p>
+   * @public
    */
   StartTime?: Date;
 
   /**
-   * @public
    * <p>The analysis end time in the report.</p>
+   * @public
    */
   EndTime?: Date;
 
   /**
-   * @public
    * <p>The status of the created analysis report.</p>
+   * @public
    */
   Status?: AnalysisStatus;
 
   /**
-   * @public
    * <p>The list of identified insights in the analysis report.</p>
+   * @public
    */
   Insights?: Insight[];
 }
@@ -2010,8 +2010,8 @@ export interface AnalysisReport {
  */
 export interface GetPerformanceAnalysisReportResponse {
   /**
-   * @public
    * <p>The summary of the performance analysis report created for a time period.</p>
+   * @public
    */
   AnalysisReport?: AnalysisReport;
 }

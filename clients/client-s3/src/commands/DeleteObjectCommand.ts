@@ -27,7 +27,6 @@ export interface DeleteObjectCommandInput extends DeleteObjectRequest {}
 export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes an object from a bucket. The behavior depends on the bucket's versioning state: </p>
  *          <ul>
  *             <li>
@@ -160,6 +159,7 @@ export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __Metadat
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example To delete an object (from a non-versioned bucket)
  * ```javascript
  * // The following example deletes an object from a non-versioned bucket.

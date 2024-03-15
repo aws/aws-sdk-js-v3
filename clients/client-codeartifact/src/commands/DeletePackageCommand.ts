@@ -27,7 +27,6 @@ export interface DeletePackageCommandInput extends DeletePackageRequest {}
 export interface DeletePackageCommandOutput extends DeletePackageResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a package and all associated package versions. A deleted package cannot be restored. To delete one or more package versions, use the
  *      <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DeletePackageVersions.html">DeletePackageVersions</a> API.</p>
  * @example
@@ -99,6 +98,7 @@ export interface DeletePackageCommandOutput extends DeletePackageResult, __Metad
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * @public
  */
 export class DeletePackageCommand extends $Command
   .classBuilder<

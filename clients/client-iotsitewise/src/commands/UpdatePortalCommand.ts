@@ -27,7 +27,6 @@ export interface UpdatePortalCommandInput extends UpdatePortalRequest {}
 export interface UpdatePortalCommandOutput extends UpdatePortalResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an IoT SiteWise Monitor portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface UpdatePortalCommandOutput extends UpdatePortalResponse, __Metad
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class UpdatePortalCommand extends $Command
   .classBuilder<

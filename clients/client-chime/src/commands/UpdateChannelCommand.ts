@@ -31,9 +31,6 @@ export interface UpdateChannelCommandInput extends UpdateChannelRequest {}
 export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by UpdateChannel in the Amazon Chime SDK Messaging Namespace
- *
  * <p>Update a channel's attributes.</p>
  *          <p>
  *             <b>Restriction</b>: You can't change a channel's privacy. </p>
@@ -101,6 +98,8 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by UpdateChannel in the Amazon Chime SDK Messaging Namespace
  */
 export class UpdateChannelCommand extends $Command
   .classBuilder<

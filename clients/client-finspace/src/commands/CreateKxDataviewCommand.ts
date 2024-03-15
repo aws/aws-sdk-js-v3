@@ -27,7 +27,6 @@ export interface CreateKxDataviewCommandInput extends CreateKxDataviewRequest {}
 export interface CreateKxDataviewCommandOutput extends CreateKxDataviewResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  * Creates a snapshot of kdb database with tiered storage capabilities and a pre-warmed cache, ready for mounting on kdb clusters.  Dataviews are only available for clusters running on a scaling group. They are not supported on dedicated clusters. </p>
  * @example
@@ -118,6 +117,7 @@ export interface CreateKxDataviewCommandOutput extends CreateKxDataviewResponse,
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class CreateKxDataviewCommand extends $Command
   .classBuilder<

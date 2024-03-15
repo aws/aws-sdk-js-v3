@@ -27,7 +27,6 @@ export interface StopAutoMLJobCommandInput extends StopAutoMLJobRequest {}
 export interface StopAutoMLJobCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>A method for forcing a running job to shut down.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,6 +55,7 @@ export interface StopAutoMLJobCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class StopAutoMLJobCommand extends $Command
   .classBuilder<

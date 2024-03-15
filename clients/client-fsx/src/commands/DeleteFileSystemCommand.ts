@@ -27,7 +27,6 @@ export interface DeleteFileSystemCommandInput extends DeleteFileSystemRequest {}
 export interface DeleteFileSystemCommandOutput extends DeleteFileSystemResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a file system. After deletion, the file system no longer exists, and its data
  *             is gone. Any existing automatic backups and snapshots are also deleted.</p>
  *          <p>To delete an Amazon FSx for NetApp ONTAP file system, first delete all the
@@ -168,6 +167,7 @@ export interface DeleteFileSystemCommandOutput extends DeleteFileSystemResponse,
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  * @example To delete a file system
  * ```javascript
  * // This operation deletes an Amazon FSx file system.

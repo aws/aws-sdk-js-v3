@@ -31,7 +31,6 @@ export interface DescribeControlPanelCommandInput extends DescribeControlPanelRe
 export interface DescribeControlPanelCommandOutput extends DescribeControlPanelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Displays details about a control panel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface DescribeControlPanelCommandOutput extends DescribeControlPanelR
  * @throws {@link Route53RecoveryControlConfigServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
+ * @public
  */
 export class DescribeControlPanelCommand extends $Command
   .classBuilder<

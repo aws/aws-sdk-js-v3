@@ -27,7 +27,6 @@ export interface ResolveComponentCandidatesCommandInput extends ResolveComponent
 export interface ResolveComponentCandidatesCommandOutput extends ResolveComponentCandidatesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of components that meet the component, version, and platform requirements
  *       of a deployment. Greengrass core devices call this operation when they receive a deployment to
  *       identify the components to install.</p>
@@ -113,6 +112,7 @@ export interface ResolveComponentCandidatesCommandOutput extends ResolveComponen
  * @throws {@link GreengrassV2ServiceException}
  * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ * @public
  */
 export class ResolveComponentCandidatesCommand extends $Command
   .classBuilder<

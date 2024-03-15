@@ -31,7 +31,6 @@ export interface DescribeComponentCommandInput extends DescribeComponentRequest 
 export interface DescribeComponentCommandOutput extends DescribeComponentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a component and lists the resources that are grouped together in a
  *          component.</p>
  * @example
@@ -86,6 +85,7 @@ export interface DescribeComponentCommandOutput extends DescribeComponentRespons
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ * @public
  */
 export class DescribeComponentCommand extends $Command
   .classBuilder<

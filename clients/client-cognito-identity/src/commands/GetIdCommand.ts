@@ -27,7 +27,6 @@ export interface GetIdCommandInput extends GetIdInput {}
 export interface GetIdCommandOutput extends GetIdResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Generates (or retrieves) a Cognito ID. Supplying multiple logins will create an
  *          implicit linked account.</p>
  *          <p>This is a public API. You do not need any credentials to call this API.</p>
@@ -88,6 +87,7 @@ export interface GetIdCommandOutput extends GetIdResponse, __MetadataBearer {}
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ * @public
  */
 export class GetIdCommand extends $Command
   .classBuilder<

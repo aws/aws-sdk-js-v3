@@ -27,7 +27,6 @@ export interface ListResourceEvaluationsCommandInput extends ListResourceEvaluat
 export interface ListResourceEvaluationsCommandOutput extends ListResourceEvaluationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of proactive resource evaluations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface ListResourceEvaluationsCommandOutput extends ListResourceEvalua
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class ListResourceEvaluationsCommand extends $Command
   .classBuilder<

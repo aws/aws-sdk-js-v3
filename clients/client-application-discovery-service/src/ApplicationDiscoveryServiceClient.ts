@@ -382,7 +382,6 @@ export interface ApplicationDiscoveryServiceClientResolvedConfig
   extends ApplicationDiscoveryServiceClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>Amazon Web Services Application Discovery Service</fullname>
  *          <p>Amazon Web Services Application Discovery Service (Application Discovery Service) helps you plan application migration projects. It automatically
  *       identifies servers, virtual machines (VMs), and network dependencies in your on-premises data
@@ -489,6 +488,7 @@ export interface ApplicationDiscoveryServiceClientResolvedConfig
  *             <p>All data is handled according to the <a href="https://aws.amazon.com/privacy/">Amazon Web Services Privacy Policy</a>. You can operate Application Discovery Service offline to
  *         inspect collected data before it is shared with the service.</p>
  *          </important>
+ * @public
  */
 export class ApplicationDiscoveryServiceClient extends __Client<
   __HttpHandlerOptions,

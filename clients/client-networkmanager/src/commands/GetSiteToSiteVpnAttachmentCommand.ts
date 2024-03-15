@@ -27,7 +27,6 @@ export interface GetSiteToSiteVpnAttachmentCommandInput extends GetSiteToSiteVpn
 export interface GetSiteToSiteVpnAttachmentCommandOutput extends GetSiteToSiteVpnAttachmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a site-to-site VPN attachment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface GetSiteToSiteVpnAttachmentCommandOutput extends GetSiteToSiteVp
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class GetSiteToSiteVpnAttachmentCommand extends $Command
   .classBuilder<

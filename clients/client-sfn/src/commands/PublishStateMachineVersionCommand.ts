@@ -31,7 +31,6 @@ export interface PublishStateMachineVersionCommandInput extends PublishStateMach
 export interface PublishStateMachineVersionCommandOutput extends PublishStateMachineVersionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html">version</a> from the
  *       current revision of a state machine. Use versions to create immutable snapshots of your state
  *       machine. You can start executions from versions either directly or with an alias. To create an
@@ -108,6 +107,7 @@ export interface PublishStateMachineVersionCommandOutput extends PublishStateMac
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * @public
  */
 export class PublishStateMachineVersionCommand extends $Command
   .classBuilder<

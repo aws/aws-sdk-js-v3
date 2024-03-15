@@ -27,7 +27,6 @@ export interface AssociateRoleToGroupCommandInput extends AssociateRoleToGroupRe
 export interface AssociateRoleToGroupCommandOutput extends AssociateRoleToGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * Associates a role with a group. Your Greengrass core will use the role to access AWS cloud services. The role's permissions should allow Greengrass core Lambda functions to perform actions against the cloud.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +61,7 @@ export interface AssociateRoleToGroupCommandOutput extends AssociateRoleToGroupR
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class AssociateRoleToGroupCommand extends $Command
   .classBuilder<

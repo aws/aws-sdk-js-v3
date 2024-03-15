@@ -27,7 +27,6 @@ export interface DeleteAppMonitorCommandInput extends DeleteAppMonitorRequest {}
 export interface DeleteAppMonitorCommandOutput extends DeleteAppMonitorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing app monitor. This immediately stops the collection of data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface DeleteAppMonitorCommandOutput extends DeleteAppMonitorResponse,
  * @throws {@link RUMServiceException}
  * <p>Base exception class for all service exceptions from RUM service.</p>
  *
+ * @public
  */
 export class DeleteAppMonitorCommand extends $Command
   .classBuilder<

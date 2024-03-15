@@ -27,7 +27,6 @@ export interface StartDBInstanceCommandInput extends StartDBInstanceMessage {}
 export interface StartDBInstanceCommandOutput extends StartDBInstanceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an Amazon RDS DB instance that was stopped using the Amazon Web Services console, the stop-db-instance CLI command, or the <code>StopDBInstance</code> operation.</p>
  *          <p>For more information, see
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StartInstance.html">
@@ -327,6 +326,7 @@ export interface StartDBInstanceCommandOutput extends StartDBInstanceResult, __M
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To start a DB instance
  * ```javascript
  * // The following example starts the specified DB instance.

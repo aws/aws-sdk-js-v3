@@ -27,7 +27,6 @@ export interface ListUsageTotalsCommandInput extends ListUsageTotalsRequest {}
 export interface ListUsageTotalsCommandOutput extends ListUsageTotalsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the Amazon Inspector usage totals over the last 30 days.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface ListUsageTotalsCommandOutput extends ListUsageTotalsResponse, _
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class ListUsageTotalsCommand extends $Command
   .classBuilder<

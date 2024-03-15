@@ -6,8 +6,8 @@ import { StreamingBlobTypes } from "@smithy/types";
 import { MediaStoreDataServiceException as __BaseException } from "./MediaStoreDataServiceException";
 
 /**
- * @public
  * <p>The specified container was not found for the specified account.</p>
+ * @public
  */
 export class ContainerNotFoundException extends __BaseException {
   readonly name: "ContainerNotFoundException" = "ContainerNotFoundException";
@@ -32,9 +32,9 @@ export class ContainerNotFoundException extends __BaseException {
  */
 export interface DeleteObjectRequest {
   /**
-   * @public
    * <p>The path (including the file name) where the object is stored in the container.
    *          Format: <folder name>/<folder name>/<file name></p>
+   * @public
    */
   Path: string | undefined;
 }
@@ -45,8 +45,8 @@ export interface DeleteObjectRequest {
 export interface DeleteObjectResponse {}
 
 /**
- * @public
  * <p>The service is temporarily unavailable.</p>
+ * @public
  */
 export class InternalServerError extends __BaseException {
   readonly name: "InternalServerError" = "InternalServerError";
@@ -67,8 +67,8 @@ export class InternalServerError extends __BaseException {
 }
 
 /**
- * @public
  * <p>Could not perform an operation on an object that does not exist.</p>
+ * @public
  */
 export class ObjectNotFoundException extends __BaseException {
   readonly name: "ObjectNotFoundException" = "ObjectNotFoundException";
@@ -93,9 +93,9 @@ export class ObjectNotFoundException extends __BaseException {
  */
 export interface DescribeObjectRequest {
   /**
-   * @public
    * <p>The path (including the file name) where the object is stored in the container.
    *          Format: <folder name>/<folder name>/<file name></p>
+   * @public
    */
   Path: string | undefined;
 }
@@ -105,34 +105,34 @@ export interface DescribeObjectRequest {
  */
 export interface DescribeObjectResponse {
   /**
-   * @public
    * <p>The ETag that represents a unique instance of the object.</p>
+   * @public
    */
   ETag?: string;
 
   /**
-   * @public
    * <p>The content type of the object.</p>
+   * @public
    */
   ContentType?: string;
 
   /**
-   * @public
    * <p>The length of the object in bytes.</p>
+   * @public
    */
   ContentLength?: number;
 
   /**
-   * @public
    * <p>An optional <code>CacheControl</code> header that allows the caller to control the
    *          object's cache behavior. Headers can be passed in as specified in the HTTP at <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9">https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a>.</p>
    *          <p>Headers with a custom user-defined value are also accepted.</p>
+   * @public
    */
   CacheControl?: string;
 
   /**
-   * @public
    * <p>The date and time that the object was last modified.</p>
+   * @public
    */
   LastModified?: Date;
 }
@@ -142,7 +142,6 @@ export interface DescribeObjectResponse {
  */
 export interface GetObjectRequest {
   /**
-   * @public
    * <p>The path (including the file name) where the object is stored in the container.
    *          Format: <folder name>/<folder name>/<file name></p>
    *          <p>For example, to upload the file <code>mlaw.avi</code> to the folder path
@@ -161,13 +160,14 @@ export interface GetObjectRequest {
    *          <p>The file name is the name that is assigned to the file that you upload. The file can
    *          have the same name inside and outside of AWS Elemental MediaStore, or it can have the same
    *          name. The file name can include or omit an extension. </p>
+   * @public
    */
   Path: string | undefined;
 
   /**
-   * @public
    * <p>The range bytes of an object to retrieve. For more information about the
    *           <code>Range</code> header, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35</a>. AWS Elemental MediaStore ignores this header for partially uploaded objects that have streaming upload availability.</p>
+   * @public
    */
   Range?: string;
 }
@@ -177,60 +177,60 @@ export interface GetObjectRequest {
  */
 export interface GetObjectResponse {
   /**
-   * @public
    * <p>The bytes of the object. </p>
+   * @public
    */
   Body?: StreamingBlobTypes;
 
   /**
-   * @public
    * <p>An optional <code>CacheControl</code> header that allows the caller to control the
    *          object's cache behavior. Headers can be passed in as specified in the HTTP spec at <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9">https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a>.</p>
    *          <p>Headers with a custom user-defined value are also accepted.</p>
+   * @public
    */
   CacheControl?: string;
 
   /**
-   * @public
    * <p>The range of bytes to retrieve.</p>
+   * @public
    */
   ContentRange?: string;
 
   /**
-   * @public
    * <p>The length of the object in bytes.</p>
+   * @public
    */
   ContentLength?: number;
 
   /**
-   * @public
    * <p>The content type of the object.</p>
+   * @public
    */
   ContentType?: string;
 
   /**
-   * @public
    * <p>The ETag that represents a unique instance of the object.</p>
+   * @public
    */
   ETag?: string;
 
   /**
-   * @public
    * <p>The date and time that the object was last modified.</p>
+   * @public
    */
   LastModified?: Date;
 
   /**
-   * @public
    * <p>The HTML status code of the request. Status codes ranging from 200 to 299 indicate
    *          success. All other status codes indicate the type of error that occurred.</p>
+   * @public
    */
   StatusCode: number | undefined;
 }
 
 /**
- * @public
  * <p>The requested content range is not valid.</p>
+ * @public
  */
 export class RequestedRangeNotSatisfiableException extends __BaseException {
   readonly name: "RequestedRangeNotSatisfiableException" = "RequestedRangeNotSatisfiableException";
@@ -265,43 +265,43 @@ export const ItemType = {
 export type ItemType = (typeof ItemType)[keyof typeof ItemType];
 
 /**
- * @public
  * <p>A metadata entry for a folder or object.</p>
+ * @public
  */
 export interface Item {
   /**
-   * @public
    * <p>The name of the item.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The item type (folder or object).</p>
+   * @public
    */
   Type?: ItemType;
 
   /**
-   * @public
    * <p>The ETag that represents a unique instance of the item.</p>
+   * @public
    */
   ETag?: string;
 
   /**
-   * @public
    * <p>The date and time that the item was last modified.</p>
+   * @public
    */
   LastModified?: Date;
 
   /**
-   * @public
    * <p>The content type of the item.</p>
+   * @public
    */
   ContentType?: string;
 
   /**
-   * @public
    * <p>The length of the item in bytes.</p>
+   * @public
    */
   ContentLength?: number;
 }
@@ -311,14 +311,13 @@ export interface Item {
  */
 export interface ListItemsRequest {
   /**
-   * @public
    * <p>The path in the container from which to retrieve items. Format: <folder
    *          name>/<folder name>/<file name></p>
+   * @public
    */
   Path?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return per API request. For example, you submit a
    *             <code>ListItems</code> request with <code>MaxResults</code> set at 500. Although 2,000
    *          items match your request, the service returns no more than the first 500 items. (The
@@ -327,17 +326,18 @@ export interface ListItemsRequest {
    *          value.</p>
    *          <p>If <code>MaxResults</code> is not included in the request, the service defaults to
    *          pagination with a maximum of 1,000 results per page.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token that identifies which batch of results that you want to see. For example,
    *          you submit a <code>ListItems</code> request with <code>MaxResults</code> set at 500. The
    *          service returns the first batch of results (up to 500) and a <code>NextToken</code> value.
    *          To see the next batch of results, you can submit the <code>ListItems</code> request a
    *          second time and specify the <code>NextToken</code> value.</p>
    *          <p>Tokens expire after 15 minutes.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -347,18 +347,18 @@ export interface ListItemsRequest {
  */
 export interface ListItemsResponse {
   /**
-   * @public
    * <p>The metadata entries for the folders and objects at the requested path.</p>
+   * @public
    */
   Items?: Item[];
 
   /**
-   * @public
    * <p>The token that can be used in a request to view the next set of results. For example,
    *          you submit a <code>ListItems</code> request that matches 2,000 items with
    *             <code>MaxResults</code> set at 500. The service returns the first batch of results (up
    *          to 500) and a <code>NextToken</code> value that can be used to fetch the next batch of
    *          results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -395,13 +395,12 @@ export type UploadAvailability = (typeof UploadAvailability)[keyof typeof Upload
  */
 export interface PutObjectRequest {
   /**
-   * @public
    * <p>The bytes to be stored. </p>
+   * @public
    */
   Body: StreamingBlobTypes | undefined;
 
   /**
-   * @public
    * <p>The path (including the file name) where the object is stored in the container.
    *          Format: <folder name>/<folder name>/<file name></p>
    *          <p>For example, to upload the file <code>mlaw.avi</code> to the folder path
@@ -420,37 +419,38 @@ export interface PutObjectRequest {
    *          <p>The file name is the name that is assigned to the file that you upload. The file can
    *          have the same name inside and outside of AWS Elemental MediaStore, or it can have the same
    *          name. The file name can include or omit an extension. </p>
+   * @public
    */
   Path: string | undefined;
 
   /**
-   * @public
    * <p>The content type of the object.</p>
+   * @public
    */
   ContentType?: string;
 
   /**
-   * @public
    * <p>An optional <code>CacheControl</code> header that allows the caller to control the
    *          object's cache behavior. Headers can be passed in as specified in the HTTP at <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9">https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a>.</p>
    *          <p>Headers with a custom user-defined value are also accepted.</p>
+   * @public
    */
   CacheControl?: string;
 
   /**
-   * @public
    * <p>Indicates the storage class of a <code>Put</code> request. Defaults to
    *          high-performance temporal storage class, and objects are persisted into durable storage
    *          shortly after being received.</p>
+   * @public
    */
   StorageClass?: StorageClass;
 
   /**
-   * @public
    * <p>Indicates the availability of an object while it is still uploading. If the value is set to <code>streaming</code>, the object is available for
    *             downloading after some initial buffering but before the object is uploaded completely. If the value is set to <code>standard</code>, the object is
    *             available for downloading only when it is uploaded completely. The default value for this header is <code>standard</code>.</p>
    *         <p>To use this header, you must also set the HTTP <code>Transfer-Encoding</code> header to <code>chunked</code>.</p>
+   * @public
    */
   UploadAvailability?: UploadAvailability;
 }
@@ -460,21 +460,21 @@ export interface PutObjectRequest {
  */
 export interface PutObjectResponse {
   /**
-   * @public
    * <p>The SHA256 digest of the object that is persisted.</p>
+   * @public
    */
   ContentSHA256?: string;
 
   /**
-   * @public
    * <p>Unique identifier of the object in the container.</p>
+   * @public
    */
   ETag?: string;
 
   /**
-   * @public
    * <p>The storage class where the object was persisted. The class should be
    *          “Temporal”.</p>
+   * @public
    */
   StorageClass?: StorageClass;
 }

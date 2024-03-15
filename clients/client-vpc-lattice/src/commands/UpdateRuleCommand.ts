@@ -27,7 +27,6 @@ export interface UpdateRuleCommandInput extends UpdateRuleRequest {}
 export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a rule for the listener. You can't modify a default listener rule. To modify a
  *    default listener rule, use <code>UpdateListener</code>.</p>
  * @example
@@ -155,6 +154,7 @@ export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataB
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class UpdateRuleCommand extends $Command
   .classBuilder<

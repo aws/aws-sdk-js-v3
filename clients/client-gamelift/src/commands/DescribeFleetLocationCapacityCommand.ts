@@ -32,7 +32,6 @@ export interface DescribeFleetLocationCapacityCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the resource capacity settings for a fleet location. The data returned
  *             includes the current capacity (number of EC2 instances) and some scaling settings for
  *             the requested fleet location. Use this operation to retrieve capacity information for a
@@ -109,6 +108,7 @@ export interface DescribeFleetLocationCapacityCommandOutput
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DescribeFleetLocationCapacityCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListResourceDataSyncCommandInput extends ListResourceDataSyncRe
 export interface ListResourceDataSyncCommandOutput extends ListResourceDataSyncResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists your resource data sync configurations. Includes information about the last time a
  *    sync attempted to start, the last sync status, and the last time a sync successfully
  *    completed.</p>
@@ -113,6 +112,7 @@ export interface ListResourceDataSyncCommandOutput extends ListResourceDataSyncR
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class ListResourceDataSyncCommand extends $Command
   .classBuilder<

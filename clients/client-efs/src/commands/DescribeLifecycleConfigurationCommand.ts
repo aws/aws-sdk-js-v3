@@ -32,7 +32,6 @@ export interface DescribeLifecycleConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the current <code>LifecycleConfiguration</code> object for the specified Amazon
  *       EFS file system. Lifecycle management uses the <code>LifecycleConfiguration</code> object
  *       to identify when to move files between storage classes. For a file system without a
@@ -83,6 +82,7 @@ export interface DescribeLifecycleConfigurationCommandOutput
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * @public
  * @example To describe the lifecycle configuration for a file system
  * ```javascript
  * // This operation describes a file system's LifecycleConfiguration. EFS lifecycle management uses the LifecycleConfiguration object to identify which files to move to the EFS Infrequent Access (IA) storage class.

@@ -27,7 +27,6 @@ export interface GetDelegatedAdminAccountCommandInput extends GetDelegatedAdminA
 export interface GetDelegatedAdminAccountCommandOutput extends GetDelegatedAdminAccountResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the Amazon Inspector delegated administrator for your
  *          organization.</p>
  * @example
@@ -73,6 +72,7 @@ export interface GetDelegatedAdminAccountCommandOutput extends GetDelegatedAdmin
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class GetDelegatedAdminAccountCommand extends $Command
   .classBuilder<

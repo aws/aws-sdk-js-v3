@@ -32,7 +32,6 @@ export interface SearchResourcesCommandInput extends SearchResourcesRequest {}
 export interface SearchResourcesCommandOutput extends SearchResourcesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Searches metadata and the content of folders, documents, document versions, and comments.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -228,6 +227,7 @@ export interface SearchResourcesCommandOutput extends SearchResourcesResponse, _
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class SearchResourcesCommand extends $Command
   .classBuilder<

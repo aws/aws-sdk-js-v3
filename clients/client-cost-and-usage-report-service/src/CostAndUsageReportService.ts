@@ -159,7 +159,6 @@ export interface CostAndUsageReportService {
 }
 
 /**
- * @public
  * <p>You can use the Amazon Web Services Cost and Usage Report API to programmatically create, query, and delete
  *       Amazon Web Services Cost and Usage Report definitions.</p>
  *          <p>Amazon Web Services Cost and Usage Report track the monthly Amazon Web Services costs and usage
@@ -177,6 +176,7 @@ export interface CostAndUsageReportService {
  *                <p>cur.us-east-1.amazonaws.com</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class CostAndUsageReportService extends CostAndUsageReportServiceClient implements CostAndUsageReportService {}
 createAggregatedClient(commands, CostAndUsageReportService);

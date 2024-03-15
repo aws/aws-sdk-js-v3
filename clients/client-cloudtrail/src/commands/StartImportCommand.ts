@@ -27,7 +27,6 @@ export interface StartImportCommandInput extends StartImportRequest {}
 export interface StartImportCommandOutput extends StartImportResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Starts an import of logged trail events from a source S3 bucket to a destination event
  *          data store. By default, CloudTrail only imports events contained in the S3 bucket's
  *                <code>CloudTrail</code> prefix and the prefixes inside the <code>CloudTrail</code> prefix, and does not check prefixes for other Amazon Web Services
@@ -139,6 +138,7 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class StartImportCommand extends $Command
   .classBuilder<

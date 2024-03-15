@@ -27,7 +27,6 @@ export interface PutMailboxPermissionsCommandInput extends PutMailboxPermissions
 export interface PutMailboxPermissionsCommandOutput extends PutMailboxPermissionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets permissions for a user, group, or resource. This replaces any pre-existing
  *          permissions.</p>
  * @example
@@ -78,6 +77,7 @@ export interface PutMailboxPermissionsCommandOutput extends PutMailboxPermission
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class PutMailboxPermissionsCommand extends $Command
   .classBuilder<

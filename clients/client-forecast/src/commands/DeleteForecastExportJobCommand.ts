@@ -27,7 +27,6 @@ export interface DeleteForecastExportJobCommandInput extends DeleteForecastExpor
 export interface DeleteForecastExportJobCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a forecast export job created using the <a>CreateForecastExportJob</a>
  *       operation. You can delete only export jobs that have a status of <code>ACTIVE</code> or
  *         <code>CREATE_FAILED</code>. To get the status, use the <a>DescribeForecastExportJob</a> operation.</p>
@@ -66,6 +65,7 @@ export interface DeleteForecastExportJobCommandOutput extends __MetadataBearer {
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class DeleteForecastExportJobCommand extends $Command
   .classBuilder<

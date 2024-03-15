@@ -34,7 +34,6 @@ export interface PutSnapshotBlockCommandInput extends Omit<PutSnapshotBlockReque
 export interface PutSnapshotBlockCommandOutput extends PutSnapshotBlockResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Writes a block of data to a snapshot. If the specified block contains
  *             data, the existing data is overwritten. The target snapshot must be in the
  *                 <code>pending</code> state.</p>
@@ -97,6 +96,7 @@ export interface PutSnapshotBlockCommandOutput extends PutSnapshotBlockResponse,
  * @throws {@link EBSServiceException}
  * <p>Base exception class for all service exceptions from EBS service.</p>
  *
+ * @public
  */
 export class PutSnapshotBlockCommand extends $Command
   .classBuilder<

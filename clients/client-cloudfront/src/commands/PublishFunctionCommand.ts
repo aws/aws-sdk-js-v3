@@ -27,7 +27,6 @@ export interface PublishFunctionCommandInput extends PublishFunctionRequest {}
 export interface PublishFunctionCommandOutput extends PublishFunctionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Publishes a CloudFront function by copying the function code from the
  * 				<code>DEVELOPMENT</code> stage to <code>LIVE</code>. This automatically updates all
  * 			cache behaviors that are using this function to use the newly published copy in the
@@ -102,6 +101,7 @@ export interface PublishFunctionCommandOutput extends PublishFunctionResult, __M
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class PublishFunctionCommand extends $Command
   .classBuilder<

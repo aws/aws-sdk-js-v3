@@ -36,7 +36,6 @@ export interface CreateUserAccessLoggingSettingsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a user access logging settings resource that can be associated with a web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface CreateUserAccessLoggingSettingsCommandOutput
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * @public
  */
 export class CreateUserAccessLoggingSettingsCommand extends $Command
   .classBuilder<

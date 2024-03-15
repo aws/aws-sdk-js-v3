@@ -42,7 +42,6 @@ export interface ListChannelsModeratedByAppInstanceUserCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>A list of the channels moderated by an <code>AppInstanceUser</code>.</p>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
@@ -108,6 +107,7 @@ export interface ListChannelsModeratedByAppInstanceUserCommandOutput
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class ListChannelsModeratedByAppInstanceUserCommand extends $Command
   .classBuilder<

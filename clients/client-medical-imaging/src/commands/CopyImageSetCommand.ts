@@ -27,7 +27,6 @@ export interface CopyImageSetCommandInput extends CopyImageSetRequest {}
 export interface CopyImageSetCommandOutput extends CopyImageSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Copy an image set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -104,6 +103,7 @@ export interface CopyImageSetCommandOutput extends CopyImageSetResponse, __Metad
  * @throws {@link MedicalImagingServiceException}
  * <p>Base exception class for all service exceptions from MedicalImaging service.</p>
  *
+ * @public
  */
 export class CopyImageSetCommand extends $Command
   .classBuilder<

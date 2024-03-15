@@ -27,7 +27,6 @@ export interface DescribeEventSourcesConfigCommandInput extends DescribeEventSou
 export interface DescribeEventSourcesConfigCommandOutput extends DescribeEventSourcesConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the integration status of services that are integrated with DevOps Guru as Consumer
  * 			via EventBridge. The one service that can be integrated with DevOps Guru is Amazon CodeGuru
  * 			Profiler, which can produce proactive recommendations which can be stored and viewed in
@@ -76,6 +75,7 @@ export interface DescribeEventSourcesConfigCommandOutput extends DescribeEventSo
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ * @public
  */
 export class DescribeEventSourcesConfigCommand extends $Command
   .classBuilder<

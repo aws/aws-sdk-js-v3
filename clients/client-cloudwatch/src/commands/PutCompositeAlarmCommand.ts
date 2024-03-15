@@ -27,7 +27,6 @@ export interface PutCompositeAlarmCommandInput extends PutCompositeAlarmInput {}
 export interface PutCompositeAlarmCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates a <i>composite alarm</i>. When you create a composite
  * 			alarm, you specify a rule expression for the alarm that takes into account the alarm
  * 			states of other alarms that you have created. The composite alarm goes into ALARM state
@@ -115,6 +114,7 @@ export interface PutCompositeAlarmCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * @public
  */
 export class PutCompositeAlarmCommand extends $Command
   .classBuilder<

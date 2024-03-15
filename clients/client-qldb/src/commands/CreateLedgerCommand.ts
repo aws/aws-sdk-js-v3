@@ -27,7 +27,6 @@ export interface CreateLedgerCommandInput extends CreateLedgerRequest {}
 export interface CreateLedgerCommandOutput extends CreateLedgerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new ledger in your Amazon Web Services account in the current Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface CreateLedgerCommandOutput extends CreateLedgerResponse, __Metad
  * @throws {@link QLDBServiceException}
  * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
+ * @public
  */
 export class CreateLedgerCommand extends $Command
   .classBuilder<

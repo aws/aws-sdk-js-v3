@@ -31,7 +31,6 @@ export interface GetServiceCommandInput extends GetServiceRequest {}
 export interface GetServiceCommandOutput extends GetServiceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets an Amazon Web Services Migration Hub Refactor Spaces service. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -109,6 +108,7 @@ export interface GetServiceCommandOutput extends GetServiceResponse, __MetadataB
  * @throws {@link MigrationHubRefactorSpacesServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
+ * @public
  */
 export class GetServiceCommand extends $Command
   .classBuilder<

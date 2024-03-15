@@ -27,7 +27,6 @@ export interface DeleteListCommandInput extends DeleteListRequest {}
 export interface DeleteListCommandOutput extends DeleteListResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Deletes the list, provided it is not used in a rule.
  *         </p>
@@ -71,6 +70,7 @@ export interface DeleteListCommandOutput extends DeleteListResult, __MetadataBea
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class DeleteListCommand extends $Command
   .classBuilder<

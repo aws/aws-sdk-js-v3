@@ -27,9 +27,6 @@ export interface ListPolicyPrincipalsCommandInput extends ListPolicyPrincipalsRe
 export interface ListPolicyPrincipalsCommandOutput extends ListPolicyPrincipalsResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated
- *
  * <p>Lists the principals associated with the specified policy.</p>
  *          <p>
  *             <b>Note:</b> This action is deprecated and works as
@@ -85,6 +82,8 @@ export interface ListPolicyPrincipalsCommandOutput extends ListPolicyPrincipalsR
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
+ * @deprecated
  */
 export class ListPolicyPrincipalsCommand extends $Command
   .classBuilder<

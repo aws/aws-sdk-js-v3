@@ -27,7 +27,6 @@ export interface GetInAppMessagesCommandInput extends GetInAppMessagesRequest {}
 export interface GetInAppMessagesCommandOutput extends GetInAppMessagesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the in-app messages targeted for the provided endpoint ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -183,6 +182,7 @@ export interface GetInAppMessagesCommandOutput extends GetInAppMessagesResponse,
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class GetInAppMessagesCommand extends $Command
   .classBuilder<

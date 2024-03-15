@@ -27,7 +27,6 @@ export interface SendMessagesCommandInput extends SendMessagesRequest {}
 export interface SendMessagesCommandOutput extends SendMessagesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates and sends a direct message.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -304,6 +303,7 @@ export interface SendMessagesCommandOutput extends SendMessagesResponse, __Metad
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class SendMessagesCommand extends $Command
   .classBuilder<

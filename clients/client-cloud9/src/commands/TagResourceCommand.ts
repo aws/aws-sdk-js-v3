@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds tags to an Cloud9 development environment.</p>
  *          <important>
  *             <p>Tags that you add to an Cloud9 environment by using this method will NOT be
@@ -75,6 +74,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link Cloud9ServiceException}
  * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

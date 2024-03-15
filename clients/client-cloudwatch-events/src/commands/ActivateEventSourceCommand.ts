@@ -27,7 +27,6 @@ export interface ActivateEventSourceCommandInput extends ActivateEventSourceRequ
 export interface ActivateEventSourceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Activates a partner event source that has been deactivated. Once activated, your matching
  *       event bus will start receiving events from the event source.</p>
  * @example
@@ -69,6 +68,7 @@ export interface ActivateEventSourceCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ * @public
  */
 export class ActivateEventSourceCommand extends $Command
   .classBuilder<

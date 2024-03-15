@@ -27,7 +27,6 @@ export interface ListItemsCommandInput extends ListItemsRequest {}
 export interface ListItemsCommandOutput extends ListItemsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a list of metadata entries about folders and objects in the specified
  *          folder.</p>
  * @example
@@ -74,6 +73,7 @@ export interface ListItemsCommandOutput extends ListItemsResponse, __MetadataBea
  * @throws {@link MediaStoreDataServiceException}
  * <p>Base exception class for all service exceptions from MediaStoreData service.</p>
  *
+ * @public
  */
 export class ListItemsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteDataSourceCommandInput extends DeleteDataSourceRequest {}
 export interface DeleteDataSourceCommandOutput extends DeleteDataSourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the data source permanently. This operation breaks
  * 			all the datasets that reference the deleted data source.</p>
  * @example
@@ -78,6 +77,7 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceResponse,
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DeleteDataSourceCommand extends $Command
   .classBuilder<

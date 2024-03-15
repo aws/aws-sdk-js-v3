@@ -27,7 +27,6 @@ export interface DescribeWorkspaceSnapshotsCommandInput extends DescribeWorkspac
 export interface DescribeWorkspaceSnapshotsCommandOutput extends DescribeWorkspaceSnapshotsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the snapshots for the specified WorkSpace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface DescribeWorkspaceSnapshotsCommandOutput extends DescribeWorkspa
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class DescribeWorkspaceSnapshotsCommand extends $Command
   .classBuilder<

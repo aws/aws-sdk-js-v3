@@ -27,7 +27,6 @@ export interface UpdateAssetCommandInput extends UpdateAssetRequest {}
 export interface UpdateAssetCommandOutput extends UpdateAssetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation updates an asset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -154,6 +153,7 @@ export interface UpdateAssetCommandOutput extends UpdateAssetResponse, __Metadat
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ * @public
  */
 export class UpdateAssetCommand extends $Command
   .classBuilder<

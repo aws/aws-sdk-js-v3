@@ -27,7 +27,6 @@ export interface UpdateByteMatchSetCommandInput extends UpdateByteMatchSetReques
 export interface UpdateByteMatchSetCommandOutput extends UpdateByteMatchSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -214,6 +213,7 @@ export interface UpdateByteMatchSetCommandOutput extends UpdateByteMatchSetRespo
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
+ * @public
  * @example To update a byte match set
  * ```javascript
  * // The following example deletes a ByteMatchTuple object (filters) in an byte match set with the ID exampleIDs3t-46da-4fdb-b8d5-abc321j569j5.

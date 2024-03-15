@@ -27,7 +27,6 @@ export interface GetPipelineExecutionCommandInput extends GetPipelineExecutionIn
 export interface GetPipelineExecutionCommandOutput extends GetPipelineExecutionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about an execution of a pipeline, including details about
  *             artifacts, the pipeline execution ID, and the name, version, and status of the
  *             pipeline.</p>
@@ -95,6 +94,7 @@ export interface GetPipelineExecutionCommandOutput extends GetPipelineExecutionO
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * @public
  */
 export class GetPipelineExecutionCommand extends $Command
   .classBuilder<

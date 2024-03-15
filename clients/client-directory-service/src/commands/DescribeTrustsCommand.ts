@@ -27,7 +27,6 @@ export interface DescribeTrustsCommandInput extends DescribeTrustsRequest {}
 export interface DescribeTrustsCommandOutput extends DescribeTrustsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Obtains information about the trust relationships for this account.</p>
  *          <p>If no input parameters are provided, such as DirectoryId or TrustIds, this request
  *       describes all the trust relationships belonging to the account.</p>
@@ -95,6 +94,7 @@ export interface DescribeTrustsCommandOutput extends DescribeTrustsResult, __Met
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class DescribeTrustsCommand extends $Command
   .classBuilder<

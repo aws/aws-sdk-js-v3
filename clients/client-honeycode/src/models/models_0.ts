@@ -4,11 +4,11 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { HoneycodeServiceException as __BaseException } from "./HoneycodeServiceException";
 
 /**
- * @public
  * <p>
  *             You do not have sufficient access to perform this action. Check that the workbook is owned by you and your
  *             IAM policy allows access to the resource in the request.
  *         </p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -27,8 +27,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The automation execution did not end successfully.</p>
+ * @public
  */
 export class AutomationExecutionException extends __BaseException {
   readonly name: "AutomationExecutionException" = "AutomationExecutionException";
@@ -47,8 +47,8 @@ export class AutomationExecutionException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The automation execution timed out.</p>
+ * @public
  */
 export class AutomationExecutionTimeoutException extends __BaseException {
   readonly name: "AutomationExecutionTimeoutException" = "AutomationExecutionTimeoutException";
@@ -67,7 +67,6 @@ export class AutomationExecutionTimeoutException extends __BaseException {
 }
 
 /**
- * @public
  * <p>
  *             CellInput object contains the data needed to create or update cells in a table.
  *         </p>
@@ -77,51 +76,52 @@ export class AutomationExecutionTimeoutException extends __BaseException {
  *                 thrown if both fact and facts field are present.
  *             </p>
  *          </note>
+ * @public
  */
 export interface CellInput {
   /**
-   * @public
    * <p>
    *             Fact represents the data that is entered into a cell. This data can be free text or a formula. Formulas need
    *             to start with the equals (=) sign.
    *         </p>
+   * @public
    */
   fact?: string;
 
   /**
-   * @public
    * <p>
    *             A list representing the values that are entered into a ROWSET cell. Facts list can have either only values
    *             or rowIDs, and rowIDs should from the same table.
    *         </p>
+   * @public
    */
   facts?: string[];
 }
 
 /**
- * @public
  * <p>
  *             Data needed to create a single row in a table as part of the BatchCreateTableRows request.
  *         </p>
+ * @public
  */
 export interface CreateRowData {
   /**
-   * @public
    * <p>
    *             An external identifier that represents the single row that is being created as part of the
    *             BatchCreateTableRows request. This can be any string that you can use to identify the row in the request.
    *             The BatchCreateTableRows API puts the batch item id in the results to allow you to link data in the
    *             request to data in the results.
    *         </p>
+   * @public
    */
   batchItemId: string | undefined;
 
   /**
-   * @public
    * <p>
    *             A map representing the cells to create in the new row. The key is the column id of the
    *             cell and the value is the CellInput object that represents the data to set in that cell.
    *         </p>
+   * @public
    */
   cellsToCreate: Record<string, CellInput> | undefined;
 }
@@ -131,25 +131,24 @@ export interface CreateRowData {
  */
 export interface BatchCreateTableRowsRequest {
   /**
-   * @public
    * <p>The ID of the workbook where the new rows are being added.</p>
    *          <p>
    *             If a workbook with the specified ID could not be found, this API throws ResourceNotFoundException.
    *         </p>
+   * @public
    */
   workbookId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the table where the new rows are being added.</p>
    *          <p>
    *             If a table with the specified ID could not be found, this API throws ResourceNotFoundException.
    *         </p>
+   * @public
    */
   tableId: string | undefined;
 
   /**
-   * @public
    * <p>
    *             The list of rows to create at the end of the table. Each item in this list needs to have a batch item id
    *             to uniquely identify the element in the request and the cells to create for that row.
@@ -159,11 +158,11 @@ export interface BatchCreateTableRowsRequest {
    *             Note that if one of the column ids in any of the rows in the request does not exist in the table, then the
    *             request fails and no updates are made to the table.
    *         </p>
+   * @public
    */
   rowsToCreate: CreateRowData[] | undefined;
 
   /**
-   * @public
    * <p>
    *             The request token for performing the batch create operation.
    *             Request tokens help to identify duplicate requests. If a call times out or fails due to a transient error
@@ -175,33 +174,34 @@ export interface BatchCreateTableRowsRequest {
    *             Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests
    *             spanning hours or days.
    *         </p>
+   * @public
    */
   clientRequestToken?: string;
 }
 
 /**
- * @public
  * <p>
  *             A single item in a batch that failed to perform the intended action because of an error preventing it from
  *             succeeding.
  *         </p>
+ * @public
  */
 export interface FailedBatchItem {
   /**
-   * @public
    * <p>
    *             The id of the batch item that failed. This is the batch item id for the BatchCreateTableRows and
    *             BatchUpsertTableRows operations and the row id for the BatchUpdateTableRows and BatchDeleteTableRows
    *             operations.
    *         </p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>
    *             The error message that indicates why the batch item failed.
    *         </p>
+   * @public
    */
   errorMessage: string | undefined;
 }
@@ -211,31 +211,31 @@ export interface FailedBatchItem {
  */
 export interface BatchCreateTableRowsResult {
   /**
-   * @public
    * <p>The updated workbook cursor after adding the new rows at the end of the table.</p>
+   * @public
    */
   workbookCursor: number | undefined;
 
   /**
-   * @public
    * <p>The map of batch item id to the row id that was created for that item.</p>
+   * @public
    */
   createdRows: Record<string, string> | undefined;
 
   /**
-   * @public
    * <p>
    *             The list of batch items in the request that could not be added to the table. Each element in this list
    *             contains one item from the request that could not be added to the table along with the reason why
    *             that item could not be added.
    *         </p>
+   * @public
    */
   failedBatchItems?: FailedBatchItem[];
 }
 
 /**
- * @public
  * <p>There were unexpected errors from the server.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -254,8 +254,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request timed out.</p>
+ * @public
  */
 export class RequestTimeoutException extends __BaseException {
   readonly name: "RequestTimeoutException" = "RequestTimeoutException";
@@ -274,8 +274,8 @@ export class RequestTimeoutException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A Workbook, Table, App, Screen or Screen Automation was not found with the given ID.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -294,10 +294,10 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>
  *             The request caused service quota to be breached.
  *         </p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
@@ -316,8 +316,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Remote service is unreachable.</p>
+ * @public
  */
 export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
@@ -336,8 +336,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Tps(transactions per second) rate reached.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -356,10 +356,10 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>
  *             Request is invalid. The message in the response contains details on why the request is invalid.
  *         </p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -382,25 +382,24 @@ export class ValidationException extends __BaseException {
  */
 export interface BatchDeleteTableRowsRequest {
   /**
-   * @public
    * <p>The ID of the workbook where the rows are being deleted.</p>
    *          <p>
    *             If a workbook with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
+   * @public
    */
   workbookId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the table where the rows are being deleted.</p>
    *          <p>
    *             If a table with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
+   * @public
    */
   tableId: string | undefined;
 
   /**
-   * @public
    * <p>
    *             The list of row ids to delete from the table. You need to specify at least one row id in this list.
    *         </p>
@@ -408,11 +407,11 @@ export interface BatchDeleteTableRowsRequest {
    *             Note that if one of the row ids provided in the request does not exist in the table, then the request fails
    *             and no rows are deleted from the table.
    *         </p>
+   * @public
    */
   rowIds: string[] | undefined;
 
   /**
-   * @public
    * <p>
    *             The request token for performing the delete action.
    *             Request tokens help to identify duplicate requests. If a call times out or fails due to a transient error
@@ -424,6 +423,7 @@ export interface BatchDeleteTableRowsRequest {
    *             Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests
    *             spanning hours or days.
    *         </p>
+   * @public
    */
   clientRequestToken?: string;
 }
@@ -433,43 +433,43 @@ export interface BatchDeleteTableRowsRequest {
  */
 export interface BatchDeleteTableRowsResult {
   /**
-   * @public
    * <p>The updated workbook cursor after deleting the rows from the table.</p>
+   * @public
    */
   workbookCursor: number | undefined;
 
   /**
-   * @public
    * <p>
    *             The list of row ids in the request that could not be deleted from the table. Each element in this list
    *             contains one row id from the request that could not be deleted along with the reason why that item could not
    *             be deleted.
    *         </p>
+   * @public
    */
   failedBatchItems?: FailedBatchItem[];
 }
 
 /**
- * @public
  * <p>
  *             Data needed to create a single row in a table as part of the BatchCreateTableRows request.
  *         </p>
+ * @public
  */
 export interface UpdateRowData {
   /**
-   * @public
    * <p>
    *             The id of the row that needs to be updated.
    *         </p>
+   * @public
    */
   rowId: string | undefined;
 
   /**
-   * @public
    * <p>
    *             A map representing the cells to update in the given row. The key is the column id of the
    *             cell and the value is the CellInput object that represents the data to set in that cell.
    *         </p>
+   * @public
    */
   cellsToUpdate: Record<string, CellInput> | undefined;
 }
@@ -479,25 +479,24 @@ export interface UpdateRowData {
  */
 export interface BatchUpdateTableRowsRequest {
   /**
-   * @public
    * <p>The ID of the workbook where the rows are being updated.</p>
    *          <p>
    *             If a workbook with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
+   * @public
    */
   workbookId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the table where the rows are being updated.</p>
    *          <p>
    *             If a table with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
+   * @public
    */
   tableId: string | undefined;
 
   /**
-   * @public
    * <p>
    *             The list of rows to update in the table. Each item in this list needs to contain the row id to update
    *             along with the map of column id to cell values for each column in that row that needs to be updated.
@@ -508,11 +507,11 @@ export interface BatchUpdateTableRowsRequest {
    *             Note that if one of the row or column ids in the request does not exist in the table, then the request fails
    *             and no updates are made to the table.
    *         </p>
+   * @public
    */
   rowsToUpdate: UpdateRowData[] | undefined;
 
   /**
-   * @public
    * <p>
    *             The request token for performing the update action.
    *             Request tokens help to identify duplicate requests. If a call times out or fails due to a transient error
@@ -524,6 +523,7 @@ export interface BatchUpdateTableRowsRequest {
    *             Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests
    *             spanning hours or days.
    *         </p>
+   * @public
    */
   clientRequestToken?: string;
 }
@@ -533,32 +533,31 @@ export interface BatchUpdateTableRowsRequest {
  */
 export interface BatchUpdateTableRowsResult {
   /**
-   * @public
    * <p>The updated workbook cursor after adding the new rows at the end of the table.</p>
+   * @public
    */
   workbookCursor: number | undefined;
 
   /**
-   * @public
    * <p>
    *             The list of batch items in the request that could not be updated in the table. Each element in this list
    *             contains one item from the request that could not be updated in the table along with the reason why
    *             that item could not be updated.
    *         </p>
+   * @public
    */
   failedBatchItems?: FailedBatchItem[];
 }
 
 /**
- * @public
  * <p>
  *             An object that represents a filter formula along with the id of the context row under which the filter
  *             function needs to evaluate.
  *         </p>
+ * @public
  */
 export interface Filter {
   /**
-   * @public
    * <p>
    *             A formula representing a filter function that returns zero or more matching rows from a table. Valid
    *             formulas in this field return a list of rows from a table. The most common ways of writing a formula to
@@ -566,40 +565,40 @@ export interface Filter {
    *             more rows is also acceptable. For example, you can use a formula that points to a cell that contains a
    *             filter function.
    *         </p>
+   * @public
    */
   formula: string | undefined;
 
   /**
-   * @public
    * <p>
    *             The optional contextRowId attribute can be used to specify the row id of the context row if the filter
    *             formula contains unqualified references to table columns and needs a context row to evaluate them
    *             successfully.
    *         </p>
+   * @public
    */
   contextRowId?: string;
 }
 
 /**
- * @public
  * <p>
  *             Data needed to upsert rows in a table as part of a single item in the BatchUpsertTableRows request.
  *         </p>
+ * @public
  */
 export interface UpsertRowData {
   /**
-   * @public
    * <p>
    *             An external identifier that represents a single item in the request that is being upserted as part of the
    *             BatchUpsertTableRows request. This can be any string that you can use to identify the item in the request.
    *             The BatchUpsertTableRows API puts the batch item id in the results to allow you to link data in the
    *             request to data in the results.
    *         </p>
+   * @public
    */
   batchItemId: string | undefined;
 
   /**
-   * @public
    * <p>
    *             The filter formula to use to find existing matching rows to update. The formula needs to return zero or more
    *             rows. If the formula returns 0 rows, then a new row will be appended in the target table. If the formula
@@ -611,15 +610,16 @@ export interface UpsertRowData {
    *             for any one item in the input list, then the entire BatchUpsertTableRows request fails and no updates are
    *             made to the table.
    *         </p>
+   * @public
    */
   filter: Filter | undefined;
 
   /**
-   * @public
    * <p>
    *             A map representing the cells to update for the matching rows or an appended row. The key is the column id
    *             of the cell and the value is the CellInput object that represents the data to set in that cell.
    *         </p>
+   * @public
    */
   cellsToUpdate: Record<string, CellInput> | undefined;
 }
@@ -629,25 +629,24 @@ export interface UpsertRowData {
  */
 export interface BatchUpsertTableRowsRequest {
   /**
-   * @public
    * <p>The ID of the workbook where the rows are being upserted.</p>
    *          <p>
    *             If a workbook with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
+   * @public
    */
   workbookId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the table where the rows are being upserted.</p>
    *          <p>
    *             If a table with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
+   * @public
    */
   tableId: string | undefined;
 
   /**
-   * @public
    * <p>
    *             The list of rows to upsert in the table. Each item in this list needs to have a batch item id to uniquely
    *             identify the element in the request, a filter expression to find the rows to update for that element
@@ -659,11 +658,11 @@ export interface BatchUpsertTableRowsRequest {
    *             column ids in any of the rows does not exist in the table, then the request fails
    *             and no updates are made to the table.
    *         </p>
+   * @public
    */
   rowsToUpsert: UpsertRowData[] | undefined;
 
   /**
-   * @public
    * <p>
    *             The request token for performing the update action.
    *             Request tokens help to identify duplicate requests. If a call times out or fails due to a transient error
@@ -675,6 +674,7 @@ export interface BatchUpsertTableRowsRequest {
    *             Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests
    *             spanning hours or days.
    *         </p>
+   * @public
    */
   clientRequestToken?: string;
 }
@@ -694,27 +694,27 @@ export const UpsertAction = {
 export type UpsertAction = (typeof UpsertAction)[keyof typeof UpsertAction];
 
 /**
- * @public
  * <p>
  *             An object that represents the result of a single upsert row request.
  *         </p>
+ * @public
  */
 export interface UpsertRowsResult {
   /**
-   * @public
    * <p>
    *             The list of row ids that were changed as part of an upsert row operation. If the upsert resulted in an
    *             update, this list could potentially contain multiple rows that matched the filter and hence got updated.
    *             If the upsert resulted in an append, this list would only have the single row that was appended.
    *         </p>
+   * @public
    */
   rowIds: string[] | undefined;
 
   /**
-   * @public
    * <p>
    *             The result of the upsert action.
    *         </p>
+   * @public
    */
   upsertAction: UpsertAction | undefined;
 }
@@ -724,28 +724,28 @@ export interface UpsertRowsResult {
  */
 export interface BatchUpsertTableRowsResult {
   /**
-   * @public
    * <p>
    *             A map with the batch item id as the key and the result of the upsert operation as the value. The
    *             result of the upsert operation specifies whether existing rows were updated or a new row was appended, along
    *             with the list of row ids that were affected.
    *         </p>
+   * @public
    */
   rows: Record<string, UpsertRowsResult> | undefined;
 
   /**
-   * @public
    * <p>The updated workbook cursor after updating or appending rows in the table.</p>
+   * @public
    */
   workbookCursor: number | undefined;
 
   /**
-   * @public
    * <p>
    *             The list of batch items in the request that could not be updated or appended in the table. Each element in
    *             this list contains one item from the request that could not be updated in the table along with the reason
    *             why that item could not be updated or appended.
    *         </p>
+   * @public
    */
   failedBatchItems?: FailedBatchItem[];
 }
@@ -775,27 +775,26 @@ export const Format = {
 export type Format = (typeof Format)[keyof typeof Format];
 
 /**
- * @public
  * <p>An object that represents a single cell in a table.</p>
+ * @public
  */
 export interface Cell {
   /**
-   * @public
    * <p>
    *             The formula contained in the cell. This field is empty if a cell does not have a formula.
    *         </p>
+   * @public
    */
   formula?: string;
 
   /**
-   * @public
    * <p>The format of the cell. If this field is empty, then the format is either not specified in the
    *         workbook or the format is set to AUTO.</p>
+   * @public
    */
   format?: Format;
 
   /**
-   * @public
    * <p>
    *             The raw value of the data contained in the cell. The raw value depends on the format of the data in the
    *             cell. However the attribute in the API return value is always a string containing the raw value.
@@ -848,11 +847,11 @@ export interface Cell {
    *             contain the raw and formatted values as mentioned above, based on the auto-detected formats. If there is no
    *             auto-detected format, the raw and formatted values will be the same as the data in the cell.
    *         </p>
+   * @public
    */
   rawValue?: string;
 
   /**
-   * @public
    * <p>
    *             The formatted value of the cell. This is the value that you see displayed in the cell in the UI.
    *         </p>
@@ -862,61 +861,62 @@ export interface Cell {
    *             representation of the formatted date being shown in the cell in the UI. See details in the rawValue field
    *             below for how cells of different formats will have different raw and formatted values.
    *         </p>
+   * @public
    */
   formattedValue?: string;
 
   /**
-   * @public
    * <p>
    *             A list of formatted values of the cell. This field is only returned when the cell is ROWSET format
    *             (aka multi-select or multi-record picklist). Values in the list are always represented as strings.
    *             The formattedValue field will be empty if this field is returned.
    *         </p>
+   * @public
    */
   formattedValues?: string[];
 }
 
 /**
- * @public
  * <p>Metadata for column in the table.</p>
+ * @public
  */
 export interface ColumnMetadata {
   /**
-   * @public
    * <p>The name of the column.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The format of the column.</p>
+   * @public
    */
   format: Format | undefined;
 }
 
 /**
- * @public
  * <p>The data in a particular data cell defined on the screen.</p>
+ * @public
  */
 export interface DataItem {
   /**
-   * @public
    * <p>
    *             The overrideFormat is optional and is specified only if a particular row of data has a different format for
    *             the data than the default format defined on the screen or the table.
    *         </p>
+   * @public
    */
   overrideFormat?: Format;
 
   /**
-   * @public
    * <p>The raw value of the data. e.g. jsmith@example.com</p>
+   * @public
    */
   rawValue?: string;
 
   /**
-   * @public
    * <p>The formatted value of the data. e.g. John Smith.</p>
+   * @public
    */
   formattedValue?: string;
 }
@@ -941,33 +941,33 @@ export type ImportDataCharacterEncoding =
   (typeof ImportDataCharacterEncoding)[keyof typeof ImportDataCharacterEncoding];
 
 /**
- * @public
  * <p>
  *             An object that contains the options relating to parsing delimited text as part of an import request.
  *         </p>
+ * @public
  */
 export interface DelimitedTextImportOptions {
   /**
-   * @public
    * <p>The delimiter to use for separating columns in a single row of the input.</p>
+   * @public
    */
   delimiter: string | undefined;
 
   /**
-   * @public
    * <p>Indicates whether the input file has a header row at the top containing the column names.</p>
+   * @public
    */
   hasHeaderRow?: boolean;
 
   /**
-   * @public
    * <p>A parameter to indicate whether empty rows should be ignored or be included in the import.</p>
+   * @public
    */
   ignoreEmptyRows?: boolean;
 
   /**
-   * @public
    * <p>The encoding of the data in the input file.</p>
+   * @public
    */
   dataCharacterEncoding?: ImportDataCharacterEncoding;
 }
@@ -977,29 +977,29 @@ export interface DelimitedTextImportOptions {
  */
 export interface DescribeTableDataImportJobRequest {
   /**
-   * @public
    * <p>The ID of the workbook into which data was imported.</p>
    *          <p>
    *             If a workbook with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
+   * @public
    */
   workbookId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the table into which data was imported.</p>
    *          <p>
    *             If a table with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
+   * @public
    */
   tableId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the job that was returned by the StartTableDataImportJob request.</p>
    *          <p>
    *             If a job with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
+   * @public
    */
   jobId: string | undefined;
 }
@@ -1031,119 +1031,119 @@ export const ErrorCode = {
 export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
 
 /**
- * @public
  * <p>
  *             An object that contains the configuration parameters for the data source of an import request.
  *         </p>
+ * @public
  */
 export interface ImportDataSourceConfig {
   /**
-   * @public
    * <p>
    *             The URL from which source data will be downloaded for the import request.
    *         </p>
+   * @public
    */
   dataSourceUrl?: string;
 }
 
 /**
- * @public
  * <p>An object that has details about the source of the data that was submitted for import.</p>
+ * @public
  */
 export interface ImportDataSource {
   /**
-   * @public
    * <p>The configuration parameters for the data source of the import</p>
+   * @public
    */
   dataSourceConfig: ImportDataSourceConfig | undefined;
 }
 
 /**
- * @public
  * <p>An object that contains the properties for importing data to a specific column in a table.</p>
+ * @public
  */
 export interface SourceDataColumnProperties {
   /**
-   * @public
    * <p>The index of the column in the input file.</p>
+   * @public
    */
   columnIndex?: number;
 }
 
 /**
- * @public
  * <p>An object that contains the options relating to the destination of the import request.</p>
+ * @public
  */
 export interface DestinationOptions {
   /**
-   * @public
    * <p>A map of the column id to the import properties for each column.</p>
+   * @public
    */
   columnMap?: Record<string, SourceDataColumnProperties>;
 }
 
 /**
- * @public
  * <p>An object that contains the options specified by the sumitter of the import request.</p>
+ * @public
  */
 export interface ImportOptions {
   /**
-   * @public
    * <p>Options relating to the destination of the import request.</p>
+   * @public
    */
   destinationOptions?: DestinationOptions;
 
   /**
-   * @public
    * <p>Options relating to parsing delimited text. Required if dataFormat is DELIMITED_TEXT.</p>
+   * @public
    */
   delimitedTextOptions?: DelimitedTextImportOptions;
 }
 
 /**
- * @public
  * <p>An object that contains the attributes of the submitter of the import job.</p>
+ * @public
  */
 export interface ImportJobSubmitter {
   /**
-   * @public
    * <p>The email id of the submitter of the import job, if available.</p>
+   * @public
    */
   email?: string;
 
   /**
-   * @public
    * <p>The AWS user ARN of the submitter of the import job, if available.</p>
+   * @public
    */
   userArn?: string;
 }
 
 /**
- * @public
  * <p>The metadata associated with the table data import job that was submitted.</p>
+ * @public
  */
 export interface TableDataImportJobMetadata {
   /**
-   * @public
    * <p>Details about the submitter of the import request.</p>
+   * @public
    */
   submitter: ImportJobSubmitter | undefined;
 
   /**
-   * @public
    * <p>The timestamp when the job was submitted for import.</p>
+   * @public
    */
   submitTime: Date | undefined;
 
   /**
-   * @public
    * <p>The options that was specified at the time of submitting the import request.</p>
+   * @public
    */
   importOptions: ImportOptions | undefined;
 
   /**
-   * @public
    * <p>The source of the data that was submitted for import.</p>
+   * @public
    */
   dataSource: ImportDataSource | undefined;
 }
@@ -1169,46 +1169,46 @@ export type TableDataImportJobStatus = (typeof TableDataImportJobStatus)[keyof t
  */
 export interface DescribeTableDataImportJobResult {
   /**
-   * @public
    * <p>
    *             The current status of the import job.
    *         </p>
+   * @public
    */
   jobStatus: TableDataImportJobStatus | undefined;
 
   /**
-   * @public
    * <p>
    *             A message providing more details about the current status of the import job.
    *         </p>
+   * @public
    */
   message: string | undefined;
 
   /**
-   * @public
    * <p>
    *             The metadata about the job that was submitted for import.
    *         </p>
+   * @public
    */
   jobMetadata: TableDataImportJobMetadata | undefined;
 
   /**
-   * @public
    * <p>
    *             If job status is failed, error code to understand reason for the failure.
    *         </p>
+   * @public
    */
   errorCode?: ErrorCode;
 }
 
 /**
- * @public
  * <p>The input variables to the app to be used by the InvokeScreenAutomation action request.</p>
+ * @public
  */
 export interface VariableValue {
   /**
-   * @public
    * <p>Raw value of the variable.</p>
+   * @public
    */
   rawValue: string | undefined;
 }
@@ -1218,36 +1218,35 @@ export interface VariableValue {
  */
 export interface GetScreenDataRequest {
   /**
-   * @public
    * <p>The ID of the workbook that contains the screen.</p>
+   * @public
    */
   workbookId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the app that contains the screen.</p>
+   * @public
    */
   appId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the screen.</p>
+   * @public
    */
   screenId: string | undefined;
 
   /**
-   * @public
    * <p>
    *             Variables are optional and are needed only if the screen requires them to render correctly. Variables are
    *             specified as a map where the key is the name of the variable as defined on the screen. The value is an
    *             object which currently has only one property, rawValue, which holds the value of the variable to be passed
    *             to the screen.
    *         </p>
+   * @public
    */
   variables?: Record<string, VariableValue>;
 
   /**
-   * @public
    * <p>
    *             The number of results to be returned on a single page.
    *             Specify a number between 1 and 100. The maximum value is 100.
@@ -1255,11 +1254,11 @@ export interface GetScreenDataRequest {
    *          <p>
    *             This parameter is optional. If you don't specify this parameter, the default page size is 100.
    *         </p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>
    *             This parameter is optional. If a nextToken is not specified, the API returns the first page of data.
    *         </p>
@@ -1267,37 +1266,37 @@ export interface GetScreenDataRequest {
    *             Pagination tokens expire after 1 hour. If you use a token that was returned more than an hour back, the API
    *             will throw ValidationException.
    *         </p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>A single row in the ResultSet.</p>
+ * @public
  */
 export interface ResultRow {
   /**
-   * @public
    * <p>The ID for a particular row.</p>
+   * @public
    */
   rowId?: string;
 
   /**
-   * @public
    * <p>List of all the data cells in a row.</p>
+   * @public
    */
   dataItems: DataItem[] | undefined;
 }
 
 /**
- * @public
  * <p>
  *             ResultSet contains the results of the request for a single block or list defined on the screen.
  *         </p>
+ * @public
  */
 export interface ResultSet {
   /**
-   * @public
    * <p>
    *             List of headers for all the data cells in the block. The header identifies the name and default format of
    *             the data cell. Data cells appear in the same order in all rows as defined in the header. The names and
@@ -1311,15 +1310,16 @@ export interface ResultSet {
    *             person as the third item. If a particular task does not have a due date, that row will still have a blank
    *             value in the second element and the assigned person will still be in the third element.
    *         </p>
+   * @public
    */
   headers: ColumnMetadata[] | undefined;
 
   /**
-   * @public
    * <p>
    *             List of rows returned by the request. Each row has a row Id and a list of data cells in that row. The data
    *             cells will be present in the same order as they are defined in the header.
    *         </p>
+   * @public
    */
   rows: ResultRow[] | undefined;
 }
@@ -1329,26 +1329,26 @@ export interface ResultSet {
  */
 export interface GetScreenDataResult {
   /**
-   * @public
    * <p>A map of all the rows on the screen keyed by block name.</p>
+   * @public
    */
   results: Record<string, ResultSet> | undefined;
 
   /**
-   * @public
    * <p>
    *             Indicates the cursor of the workbook at which the data returned by this workbook is read. Workbook cursor
    *             keeps increasing with every update and the increments are not sequential.
    *         </p>
+   * @public
    */
   workbookCursor: number | undefined;
 
   /**
-   * @public
    * <p>
    *             Provides the pagination token to load the next page if there are more results matching the request. If a
    *             pagination token is not present in the response, it means that all data matching the query has been loaded.
    *         </p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1371,49 +1371,48 @@ export type ImportSourceDataFormat = (typeof ImportSourceDataFormat)[keyof typeo
  */
 export interface InvokeScreenAutomationRequest {
   /**
-   * @public
    * <p>The ID of the workbook that contains the screen automation.</p>
+   * @public
    */
   workbookId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the app that contains the screen automation.</p>
+   * @public
    */
   appId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the screen that contains the screen automation.</p>
+   * @public
    */
   screenId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the automation action to be performed.</p>
+   * @public
    */
   screenAutomationId: string | undefined;
 
   /**
-   * @public
    * <p>
    *             Variables are specified as a map where the key is the name of the variable as defined on the screen. The value is an
    *             object which currently has only one property, rawValue, which holds the value of the variable to be passed
    *             to the screen. Any variables defined in a screen are required to be passed in the call.
    *         </p>
+   * @public
    */
   variables?: Record<string, VariableValue>;
 
   /**
-   * @public
    * <p>
    *             The row ID for the automation if the automation is defined inside a block with source or list.
    *         </p>
+   * @public
    */
   rowId?: string;
 
   /**
-   * @public
    * <p>
    *             The request token for performing the automation action.
    *             Request tokens help to identify duplicate requests. If a call times out or fails due to a transient error
@@ -1425,6 +1424,7 @@ export interface InvokeScreenAutomationRequest {
    *             Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests
    *             spanning hours or days.
    *         </p>
+   * @public
    */
   clientRequestToken?: string;
 }
@@ -1434,8 +1434,8 @@ export interface InvokeScreenAutomationRequest {
  */
 export interface InvokeScreenAutomationResult {
   /**
-   * @public
    * <p>The updated workbook cursor after performing the automation action.</p>
+   * @public
    */
   workbookCursor: number | undefined;
 }
@@ -1445,25 +1445,24 @@ export interface InvokeScreenAutomationResult {
  */
 export interface ListTableColumnsRequest {
   /**
-   * @public
    * <p>The ID of the workbook that contains the table whose columns are being retrieved.</p>
    *          <p>
    *             If a workbook with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
+   * @public
    */
   workbookId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the table whose columns are being retrieved.</p>
    *          <p>
    *             If a table with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
+   * @public
    */
   tableId: string | undefined;
 
   /**
-   * @public
    * <p>
    *             This parameter is optional. If a nextToken is not specified, the API returns the first page of data.
    *         </p>
@@ -1471,33 +1470,34 @@ export interface ListTableColumnsRequest {
    *             Pagination tokens expire after 1 hour. If you use a token that was returned more than an hour back, the API
    *             will throw ValidationException.
    *         </p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>An object that contains attributes about a single column in a table</p>
+ * @public
  */
 export interface TableColumn {
   /**
-   * @public
    * <p>The id of the column in the table.</p>
+   * @public
    */
   tableColumnId?: string;
 
   /**
-   * @public
    * <p>The name of the column in the table.</p>
+   * @public
    */
   tableColumnName?: string;
 
   /**
-   * @public
    * <p>
    *             The column level format that is applied in the table. An empty value in this field means that the
    *             column format is the default value 'AUTO'.
    *         </p>
+   * @public
    */
   format?: Format;
 }
@@ -1507,29 +1507,29 @@ export interface TableColumn {
  */
 export interface ListTableColumnsResult {
   /**
-   * @public
    * <p>
    *             The list of columns in the table.
    *         </p>
+   * @public
    */
   tableColumns: TableColumn[] | undefined;
 
   /**
-   * @public
    * <p>
    *             Provides the pagination token to load the next page if there are more results matching the request. If a
    *             pagination token is not present in the response, it means that all data matching the request has been
    *             loaded.
    *         </p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>
    *             Indicates the cursor of the workbook at which the data returned by this request is read. Workbook cursor
    *             keeps increasing with every update and the increments are not sequential.
    *         </p>
+   * @public
    */
   workbookCursor?: number;
 }
@@ -1539,41 +1539,40 @@ export interface ListTableColumnsResult {
  */
 export interface ListTableRowsRequest {
   /**
-   * @public
    * <p>The ID of the workbook that contains the table whose rows are being retrieved.</p>
    *          <p>
    *             If a workbook with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
+   * @public
    */
   workbookId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the table whose rows are being retrieved.</p>
    *          <p>
    *             If a table with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
+   * @public
    */
   tableId: string | undefined;
 
   /**
-   * @public
    * <p>
    *             This parameter is optional. If one or more row ids are specified in this list, then only the specified
    *             row ids are returned in the result. If no row ids are specified here, then all the rows in the table are
    *             returned.
    *         </p>
+   * @public
    */
   rowIds?: string[];
 
   /**
-   * @public
    * <p>The maximum number of rows to return in each page of the results.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>
    *             This parameter is optional. If a nextToken is not specified, the API returns the first page of data.
    *         </p>
@@ -1581,25 +1580,26 @@ export interface ListTableRowsRequest {
    *             Pagination tokens expire after 1 hour. If you use a token that was returned more than an hour back, the API
    *             will throw ValidationException.
    *         </p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>An object that contains attributes about a single row in a table</p>
+ * @public
  */
 export interface TableRow {
   /**
-   * @public
    * <p>The id of the row in the table.</p>
+   * @public
    */
   rowId: string | undefined;
 
   /**
-   * @public
    * <p>A list of cells in the table row. The cells appear in the same order as the columns of the table.
    *         </p>
+   * @public
    */
   cells: Cell[] | undefined;
 }
@@ -1609,46 +1609,46 @@ export interface TableRow {
  */
 export interface ListTableRowsResult {
   /**
-   * @public
    * <p>
    *             The list of columns in the table whose row data is returned in the result.
    *         </p>
+   * @public
    */
   columnIds: string[] | undefined;
 
   /**
-   * @public
    * <p>
    *             The list of rows in the table. Note that this result is paginated, so this list contains a maximum of 100
    *             rows.
    *         </p>
+   * @public
    */
   rows: TableRow[] | undefined;
 
   /**
-   * @public
    * <p>
    *             The list of row ids included in the request that were not found in the table.
    *         </p>
+   * @public
    */
   rowIdsNotFound?: string[];
 
   /**
-   * @public
    * <p>
    *             Provides the pagination token to load the next page if there are more results matching the request. If a
    *             pagination token is not present in the response, it means that all data matching the request has been
    *             loaded.
    *         </p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>
    *             Indicates the cursor of the workbook at which the data returned by this request is read. Workbook cursor
    *             keeps increasing with every update and the increments are not sequential.
    *         </p>
+   * @public
    */
   workbookCursor: number | undefined;
 }
@@ -1658,22 +1658,21 @@ export interface ListTableRowsResult {
  */
 export interface ListTablesRequest {
   /**
-   * @public
    * <p>The ID of the workbook whose tables are being retrieved.</p>
    *          <p>
    *             If a workbook with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
+   * @public
    */
   workbookId: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of tables to return in each page of the results.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>
    *             This parameter is optional. If a nextToken is not specified, the API returns the first page of data.
    *         </p>
@@ -1681,24 +1680,25 @@ export interface ListTablesRequest {
    *             Pagination tokens expire after 1 hour. If you use a token that was returned more than an hour back, the API
    *             will throw ValidationException.
    *         </p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>An object representing the properties of a table in a workbook.</p>
+ * @public
  */
 export interface Table {
   /**
-   * @public
    * <p>The id of the table.</p>
+   * @public
    */
   tableId?: string;
 
   /**
-   * @public
    * <p>The name of the table.</p>
+   * @public
    */
   tableName?: string;
 }
@@ -1708,29 +1708,29 @@ export interface Table {
  */
 export interface ListTablesResult {
   /**
-   * @public
    * <p>
    *             The list of tables in the workbook.
    *         </p>
+   * @public
    */
   tables: Table[] | undefined;
 
   /**
-   * @public
    * <p>
    *             Provides the pagination token to load the next page if there are more results matching the request. If a
    *             pagination token is not present in the response, it means that all data matching the request has been
    *             loaded.
    *         </p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>
    *             Indicates the cursor of the workbook at which the data returned by this request is read. Workbook cursor
    *             keeps increasing with every update and the increments are not sequential.
    *         </p>
+   * @public
    */
   workbookCursor?: number;
 }
@@ -1740,8 +1740,8 @@ export interface ListTablesResult {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The resource's Amazon Resource Name (ARN).</p>
+   * @public
    */
   resourceArn: string | undefined;
 }
@@ -1751,8 +1751,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResult {
   /**
-   * @public
    * <p>The resource's tags.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1762,38 +1762,37 @@ export interface ListTagsForResourceResult {
  */
 export interface QueryTableRowsRequest {
   /**
-   * @public
    * <p>The ID of the workbook whose table rows are being queried.</p>
    *          <p>
    *             If a workbook with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
+   * @public
    */
   workbookId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the table whose rows are being queried.</p>
    *          <p>
    *             If a table with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
+   * @public
    */
   tableId: string | undefined;
 
   /**
-   * @public
    * <p>An object that represents a filter formula along with the id of the context row under which the filter
    *             function needs to evaluate.</p>
+   * @public
    */
   filterFormula: Filter | undefined;
 
   /**
-   * @public
    * <p>The maximum number of rows to return in each page of the results.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>
    *             This parameter is optional. If a nextToken is not specified, the API returns the first page of data.
    *         </p>
@@ -1801,6 +1800,7 @@ export interface QueryTableRowsRequest {
    *             Pagination tokens expire after 1 hour. If you use a token that was returned more than an hour back, the API
    *             will throw ValidationException.
    *         </p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1810,37 +1810,37 @@ export interface QueryTableRowsRequest {
  */
 export interface QueryTableRowsResult {
   /**
-   * @public
    * <p>
    *             The list of columns in the table whose row data is returned in the result.
    *         </p>
+   * @public
    */
   columnIds: string[] | undefined;
 
   /**
-   * @public
    * <p>
    *             The list of rows in the table that match the query filter.
    *         </p>
+   * @public
    */
   rows: TableRow[] | undefined;
 
   /**
-   * @public
    * <p>
    *             Provides the pagination token to load the next page if there are more results matching the request. If a
    *             pagination token is not present in the response, it means that all data matching the request has been
    *             loaded.
    *         </p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>
    *             Indicates the cursor of the workbook at which the data returned by this request is read. Workbook cursor
    *             keeps increasing with every update and the increments are not sequential.
    *         </p>
+   * @public
    */
   workbookCursor: number | undefined;
 }
@@ -1850,50 +1850,49 @@ export interface QueryTableRowsResult {
  */
 export interface StartTableDataImportJobRequest {
   /**
-   * @public
    * <p>The ID of the workbook where the rows are being imported.</p>
    *          <p>
    *             If a workbook with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
+   * @public
    */
   workbookId: string | undefined;
 
   /**
-   * @public
    * <p>
    *             The source of the data that is being imported. The size of source must be no larger than 100 MB.
    *             Source must have no more than 100,000 cells and no more than 1,000 rows.
    *         </p>
+   * @public
    */
   dataSource: ImportDataSource | undefined;
 
   /**
-   * @public
    * <p>
    *             The format of the data that is being imported. Currently the only option supported is "DELIMITED_TEXT".
    *         </p>
+   * @public
    */
   dataFormat: ImportSourceDataFormat | undefined;
 
   /**
-   * @public
    * <p>The ID of the table where the rows are being imported.</p>
    *          <p>
    *             If a table with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
+   * @public
    */
   destinationTableId: string | undefined;
 
   /**
-   * @public
    * <p>
    *             The options for customizing this import request.
    *         </p>
+   * @public
    */
   importOptions: ImportOptions | undefined;
 
   /**
-   * @public
    * <p>
    *             The request token for performing the update action.
    *             Request tokens help to identify duplicate requests. If a call times out or fails due to a transient error
@@ -1905,6 +1904,7 @@ export interface StartTableDataImportJobRequest {
    *             Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests
    *             spanning hours or days.
    *         </p>
+   * @public
    */
   clientRequestToken: string | undefined;
 }
@@ -1914,19 +1914,19 @@ export interface StartTableDataImportJobRequest {
  */
 export interface StartTableDataImportJobResult {
   /**
-   * @public
    * <p>
    *             The id that is assigned to this import job. Future requests to find out the status of this import job
    *             need to send this id in the appropriate parameter in the request.
    *         </p>
+   * @public
    */
   jobId: string | undefined;
 
   /**
-   * @public
    * <p>
    *             The status of the import job immediately after submitting the request.
    *         </p>
+   * @public
    */
   jobStatus: TableDataImportJobStatus | undefined;
 }
@@ -1936,14 +1936,14 @@ export interface StartTableDataImportJobResult {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>The resource's Amazon Resource Name (ARN).</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>A list of tags to apply to the resource.</p>
+   * @public
    */
   tags: Record<string, string> | undefined;
 }
@@ -1958,14 +1958,14 @@ export interface TagResourceResult {}
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>The resource's Amazon Resource Name (ARN).</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>A list of tag keys to remove from the resource.</p>
+   * @public
    */
   tagKeys: string[] | undefined;
 }

@@ -30,7 +30,6 @@ export interface UpdateQueueOutboundCallerConfigCommandInput extends UpdateQueue
 export interface UpdateQueueOutboundCallerConfigCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Updates the outbound caller ID name, number, and outbound whisper flow for a specified
  *    queue.</p>
@@ -101,6 +100,7 @@ export interface UpdateQueueOutboundCallerConfigCommandOutput extends __Metadata
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UpdateQueueOutboundCallerConfigCommand extends $Command
   .classBuilder<

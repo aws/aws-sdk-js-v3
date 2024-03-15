@@ -27,7 +27,6 @@ export interface UpdateChannelCommandInput extends UpdateChannelRequest {}
 export interface UpdateChannelCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Used to update the settings of a channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface UpdateChannelCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
+ * @public
  */
 export class UpdateChannelCommand extends $Command
   .classBuilder<

@@ -2201,7 +2201,6 @@ export interface GameLift {
 }
 
 /**
- * @public
  * <p>Amazon GameLift provides solutions for hosting session-based multiplayer game servers in the
  *             cloud, including tools for deploying, operating, and scaling game servers. Built on
  *             Amazon Web Services global computing infrastructure, GameLift helps you deliver high-performance,
@@ -2260,6 +2259,7 @@ export interface GameLift {
  *                </p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class GameLift extends GameLiftClient implements GameLift {}
 createAggregatedClient(commands, GameLift);

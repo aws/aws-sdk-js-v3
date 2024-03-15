@@ -36,7 +36,6 @@ export interface UpdateCustomDomainAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an Amazon Redshift Serverless certificate associated with a custom domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface UpdateCustomDomainAssociationCommandOutput
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * @public
  */
 export class UpdateCustomDomainAssociationCommand extends $Command
   .classBuilder<

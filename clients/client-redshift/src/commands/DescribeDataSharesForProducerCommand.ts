@@ -32,7 +32,6 @@ export interface DescribeDataSharesForProducerCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of datashares when the account identifier being called is a producer account identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface DescribeDataSharesForProducerCommandOutput
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DescribeDataSharesForProducerCommand extends $Command
   .classBuilder<

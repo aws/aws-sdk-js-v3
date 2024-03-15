@@ -31,7 +31,6 @@ export interface GetEntitlementsCommandInput extends GetEntitlementsRequest {}
 export interface GetEntitlementsCommandOutput extends GetEntitlementsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>GetEntitlements retrieves entitlement values for a given product. The results can be
  *       filtered based on customer identifier or product dimensions.</p>
  * @example
@@ -91,6 +90,7 @@ export interface GetEntitlementsCommandOutput extends GetEntitlementsResult, __M
  * @throws {@link MarketplaceEntitlementServiceServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceEntitlementService service.</p>
  *
+ * @public
  */
 export class GetEntitlementsCommand extends $Command
   .classBuilder<

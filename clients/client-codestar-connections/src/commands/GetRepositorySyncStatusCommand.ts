@@ -31,7 +31,6 @@ export interface GetRepositorySyncStatusCommandInput extends GetRepositorySyncSt
 export interface GetRepositorySyncStatusCommandOutput extends GetRepositorySyncStatusOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns details about the sync status for a repository. A repository sync uses Git sync
  *       to push and pull changes from your remote repository.</p>
  * @example
@@ -88,6 +87,7 @@ export interface GetRepositorySyncStatusCommandOutput extends GetRepositorySyncS
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ * @public
  */
 export class GetRepositorySyncStatusCommand extends $Command
   .classBuilder<

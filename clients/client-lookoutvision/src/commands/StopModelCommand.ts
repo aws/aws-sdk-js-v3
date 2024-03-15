@@ -27,7 +27,6 @@ export interface StopModelCommandInput extends StopModelRequest {}
 export interface StopModelCommandOutput extends StopModelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops the hosting of a running model. The operation might take a while to complete. To
  *          check the current status, call <a>DescribeModel</a>. </p>
  *          <p>After the model hosting stops, the <code>Status</code> of the model is <code>TRAINED</code>.</p>
@@ -80,6 +79,7 @@ export interface StopModelCommandOutput extends StopModelResponse, __MetadataBea
  * @throws {@link LookoutVisionServiceException}
  * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
+ * @public
  */
 export class StopModelCommand extends $Command
   .classBuilder<

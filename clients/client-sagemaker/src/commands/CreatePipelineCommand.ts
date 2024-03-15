@@ -27,7 +27,6 @@ export interface CreatePipelineCommandInput extends CreatePipelineRequest {}
 export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a pipeline using a JSON pipeline definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreatePipelineCommand extends $Command
   .classBuilder<

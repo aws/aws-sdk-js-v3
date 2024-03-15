@@ -28,7 +28,6 @@ export interface DescribeClusterVersionsCommandInput extends DescribeClusterVers
 export interface DescribeClusterVersionsCommandOutput extends ClusterVersionsMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns descriptions of the available Amazon Redshift cluster versions. You can call this
  *             operation even before creating any clusters to learn more about the Amazon Redshift versions.
  *
@@ -71,6 +70,7 @@ export interface DescribeClusterVersionsCommandOutput extends ClusterVersionsMes
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DescribeClusterVersionsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListVpcEndpointsForDomainCommandInput extends ListVpcEndpointsF
 export interface ListVpcEndpointsForDomainCommandOutput extends ListVpcEndpointsForDomainResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves all Amazon OpenSearch Service-managed VPC endpoints associated with a particular
  *    domain.</p>
  * @example
@@ -77,6 +76,7 @@ export interface ListVpcEndpointsForDomainCommandOutput extends ListVpcEndpoints
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class ListVpcEndpointsForDomainCommand extends $Command
   .classBuilder<

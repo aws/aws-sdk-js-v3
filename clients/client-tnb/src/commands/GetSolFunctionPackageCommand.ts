@@ -31,7 +31,6 @@ export interface GetSolFunctionPackageCommandInput extends GetSolFunctionPackage
 export interface GetSolFunctionPackageCommandOutput extends GetSolFunctionPackageOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the details of an individual function package, such as the operational state and whether the package is in use.</p>
  *          <p>A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network..</p>
  * @example
@@ -98,6 +97,7 @@ export interface GetSolFunctionPackageCommandOutput extends GetSolFunctionPackag
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ * @public
  */
 export class GetSolFunctionPackageCommand extends $Command
   .classBuilder<

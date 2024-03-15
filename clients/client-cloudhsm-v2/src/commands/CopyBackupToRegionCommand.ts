@@ -27,7 +27,6 @@ export interface CopyBackupToRegionCommandInput extends CopyBackupToRegionReques
 export interface CopyBackupToRegionCommandOutput extends CopyBackupToRegionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Copy an AWS CloudHSM cluster backup to a different region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface CopyBackupToRegionCommandOutput extends CopyBackupToRegionRespo
  * @throws {@link CloudHSMV2ServiceException}
  * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
+ * @public
  */
 export class CopyBackupToRegionCommand extends $Command
   .classBuilder<

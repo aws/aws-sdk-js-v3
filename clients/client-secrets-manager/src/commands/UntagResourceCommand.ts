@@ -27,7 +27,6 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes specific tags from a secret.</p>
  *          <p>This operation is idempotent. If a requested tag is not attached to the secret, no error
  *       is returned and the secret metadata is unchanged.</p>
@@ -98,6 +97,7 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
+ * @public
  * @example To remove tags from a secret
  * ```javascript
  * // The following example shows how to remove two tags from a secret's metadata. For each, both the tag and the associated value are removed. There is no output from this API. To see the result, use the DescribeSecret operation.

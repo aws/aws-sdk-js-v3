@@ -27,7 +27,6 @@ export interface DeleteHsmCommandInput extends DeleteHsmRequest {}
 export interface DeleteHsmCommandOutput extends DeleteHsmResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified HSM. To specify an HSM, you can use its identifier (ID), the IP
  *       address of the HSM's elastic network interface (ENI), or the ID of the HSM's ENI. You need to
  *       specify only one of these values. To find these values, use <a>DescribeClusters</a>.</p>
@@ -78,6 +77,7 @@ export interface DeleteHsmCommandOutput extends DeleteHsmResponse, __MetadataBea
  * @throws {@link CloudHSMV2ServiceException}
  * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
+ * @public
  */
 export class DeleteHsmCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteDataLakeCommandInput extends DeleteDataLakeRequest {}
 export interface DeleteDataLakeCommandOutput extends DeleteDataLakeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>When you disable Amazon Security Lake from your account, Security Lake is disabled in all Amazon Web Services Regions and it stops collecting data from your sources. Also, this API
  *          automatically takes steps to remove the account from Security Lake. However, Security Lake retains
  *          all of your existing settings and the resources that it created in your Amazon Web Services
@@ -87,6 +86,7 @@ export interface DeleteDataLakeCommandOutput extends DeleteDataLakeResponse, __M
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ * @public
  */
 export class DeleteDataLakeCommand extends $Command
   .classBuilder<

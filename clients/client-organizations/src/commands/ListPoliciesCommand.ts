@@ -27,7 +27,6 @@ export interface ListPoliciesCommandInput extends ListPoliciesRequest {}
 export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the list of all policies in an organization of a specified type.</p>
  *          <note>
  *             <p>Always check the <code>NextToken</code> response parameter
@@ -204,6 +203,7 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  * @example To retrieve a list policies in the organization
  * ```javascript
  * // The following example shows how to get a list of service control policies (SCPs):/n/n

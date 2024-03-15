@@ -27,7 +27,6 @@ export interface CreateParticipantCommandInput extends CreateParticipantRequest 
 export interface CreateParticipantCommandOutput extends CreateParticipantResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a new participant into an on-going chat contact. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-customize-flow.html">Customize chat
  *     flow experiences by integrating custom participants</a>.</p>
  * @example
@@ -81,6 +80,7 @@ export interface CreateParticipantCommandOutput extends CreateParticipantRespons
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class CreateParticipantCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CopyDBParameterGroupCommandInput extends CopyDBParameterGroupMe
 export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Copies the specified DB parameter group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupR
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class CopyDBParameterGroupCommand extends $Command
   .classBuilder<

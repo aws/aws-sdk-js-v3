@@ -27,7 +27,6 @@ export interface GetAccessKeyInfoCommandInput extends GetAccessKeyInfoRequest {}
 export interface GetAccessKeyInfoCommandOutput extends GetAccessKeyInfoResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the account identifier for the specified access key ID.</p>
  *          <p>Access keys consist of two parts: an access key ID (for example,
  *             <code>AKIAIOSFODNN7EXAMPLE</code>) and a secret access key (for example,
@@ -71,6 +70,7 @@ export interface GetAccessKeyInfoCommandOutput extends GetAccessKeyInfoResponse,
  * @throws {@link STSServiceException}
  * <p>Base exception class for all service exceptions from STS service.</p>
  *
+ * @public
  */
 export class GetAccessKeyInfoCommand extends $Command
   .classBuilder<

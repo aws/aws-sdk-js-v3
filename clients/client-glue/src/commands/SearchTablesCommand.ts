@@ -27,7 +27,6 @@ export interface SearchTablesCommandInput extends SearchTablesRequest {}
 export interface SearchTablesCommandOutput extends SearchTablesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Searches a set of tables based on properties in the table metadata as well as on the parent database. You can search against text or filter conditions. </p>
  *          <p>You can only get tables that you have access to based on the security policies defined in Lake Formation. You need at least a read-only access to the table for it to be returned. If you do not have access to all the columns in the table, these columns will not be searched against when returning the list of tables back to you. If you have access to the columns but not the data in the columns, those columns and the associated metadata for those columns will be included in the search. </p>
  * @example
@@ -180,6 +179,7 @@ export interface SearchTablesCommandOutput extends SearchTablesResponse, __Metad
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class SearchTablesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteVpcLinkCommandInput extends DeleteVpcLinkRequest {}
 export interface DeleteVpcLinkCommandOutput extends DeleteVpcLinkResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a VPC link.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +58,7 @@ export interface DeleteVpcLinkCommandOutput extends DeleteVpcLinkResponse, __Met
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ * @public
  */
 export class DeleteVpcLinkCommand extends $Command
   .classBuilder<

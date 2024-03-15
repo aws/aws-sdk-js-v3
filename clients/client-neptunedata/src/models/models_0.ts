@@ -6,27 +6,27 @@ import { DocumentType as __DocumentType } from "@smithy/types";
 import { NeptunedataServiceException as __BaseException } from "./NeptunedataServiceException";
 
 /**
- * @public
  * <p>Raised in case of an authentication or authorization failure.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>A detailed message describing the problem.</p>
+   * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the request in question.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The HTTP status code returned with the exception.</p>
+   * @public
    */
   code: string | undefined;
   /**
@@ -60,27 +60,27 @@ export const Action = {
 export type Action = (typeof Action)[keyof typeof Action];
 
 /**
- * @public
  * <p>Raised when a request is submitted that cannot be processed.</p>
+ * @public
  */
 export class BadRequestException extends __BaseException {
   readonly name: "BadRequestException" = "BadRequestException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>A detailed message describing the problem.</p>
+   * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the bad request.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The HTTP status code returned with the exception.</p>
+   * @public
    */
   code: string | undefined;
   /**
@@ -104,8 +104,8 @@ export class BadRequestException extends __BaseException {
  */
 export interface CancelGremlinQueryInput {
   /**
-   * @public
    * <p>The unique identifier that identifies the query to be canceled.</p>
+   * @public
    */
   queryId: string | undefined;
 }
@@ -115,35 +115,35 @@ export interface CancelGremlinQueryInput {
  */
 export interface CancelGremlinQueryOutput {
   /**
-   * @public
    * <p>The status of the cancelation</p>
+   * @public
    */
   status?: string;
 }
 
 /**
- * @public
  * <p>Raised when a request timed out in the client.</p>
+ * @public
  */
 export class ClientTimeoutException extends __BaseException {
   readonly name: "ClientTimeoutException" = "ClientTimeoutException";
   readonly $fault: "client" = "client";
   $retryable = {};
   /**
-   * @public
    * <p>A detailed message describing the problem.</p>
+   * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the request in question.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The HTTP status code returned with the exception.</p>
+   * @public
    */
   code: string | undefined;
   /**
@@ -163,29 +163,29 @@ export class ClientTimeoutException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Raised when a request attempts to modify data that is concurrently being
  *       modified by another process.</p>
+ * @public
  */
 export class ConcurrentModificationException extends __BaseException {
   readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
   readonly $fault: "server" = "server";
   $retryable = {};
   /**
-   * @public
    * <p>A detailed message describing the problem.</p>
+   * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the request in question.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The HTTP status code returned with the exception.</p>
+   * @public
    */
   code: string | undefined;
   /**
@@ -205,28 +205,28 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Raised when a value in a request field did not satisfy required constraints.</p>
+ * @public
  */
 export class ConstraintViolationException extends __BaseException {
   readonly name: "ConstraintViolationException" = "ConstraintViolationException";
   readonly $fault: "client" = "client";
   $retryable = {};
   /**
-   * @public
    * <p>A detailed message describing the problem.</p>
+   * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the request in question.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The HTTP status code returned with the exception.</p>
+   * @public
    */
   code: string | undefined;
   /**
@@ -246,28 +246,28 @@ export class ConstraintViolationException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Raised when a request fails.</p>
+ * @public
  */
 export class FailureByQueryException extends __BaseException {
   readonly name: "FailureByQueryException" = "FailureByQueryException";
   readonly $fault: "server" = "server";
   $retryable = {};
   /**
-   * @public
    * <p>A detailed message describing the problem.</p>
+   * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the request in question.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The HTTP status code returned with the exception.</p>
+   * @public
    */
   code: string | undefined;
   /**
@@ -287,27 +287,27 @@ export class FailureByQueryException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Raised when an argument in a request is not supported.</p>
+ * @public
  */
 export class IllegalArgumentException extends __BaseException {
   readonly name: "IllegalArgumentException" = "IllegalArgumentException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>A detailed message describing the problem.</p>
+   * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the request in question.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The HTTP status code returned with the exception.</p>
+   * @public
    */
   code: string | undefined;
   /**
@@ -327,27 +327,27 @@ export class IllegalArgumentException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Raised when an argument in a request has an invalid value.</p>
+ * @public
  */
 export class InvalidArgumentException extends __BaseException {
   readonly name: "InvalidArgumentException" = "InvalidArgumentException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>A detailed message describing the problem.</p>
+   * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the request in question.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The HTTP status code returned with the exception.</p>
+   * @public
    */
   code: string | undefined;
   /**
@@ -367,27 +367,27 @@ export class InvalidArgumentException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Raised when a parameter value is not valid.</p>
+ * @public
  */
 export class InvalidParameterException extends __BaseException {
   readonly name: "InvalidParameterException" = "InvalidParameterException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>A detailed message describing the problem.</p>
+   * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the request that includes an invalid parameter.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The HTTP status code returned with the exception.</p>
+   * @public
    */
   code: string | undefined;
   /**
@@ -407,27 +407,27 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Raised when a required parameter is missing.</p>
+ * @public
  */
 export class MissingParameterException extends __BaseException {
   readonly name: "MissingParameterException" = "MissingParameterException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>A detailed message describing the problem.</p>
+   * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the request in which the parameter is missing.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The HTTP status code returned with the exception.</p>
+   * @public
    */
   code: string | undefined;
   /**
@@ -447,27 +447,27 @@ export class MissingParameterException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Raised when a parsing issue is encountered.</p>
+ * @public
  */
 export class ParsingException extends __BaseException {
   readonly name: "ParsingException" = "ParsingException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>A detailed message describing the problem.</p>
+   * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the request in question.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The HTTP status code returned with the exception.</p>
+   * @public
    */
   code: string | undefined;
   /**
@@ -487,27 +487,27 @@ export class ParsingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Raised when a precondition for processing a request is not satisfied.</p>
+ * @public
  */
 export class PreconditionsFailedException extends __BaseException {
   readonly name: "PreconditionsFailedException" = "PreconditionsFailedException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>A detailed message describing the problem.</p>
+   * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the request in question.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The HTTP status code returned with the exception.</p>
+   * @public
    */
   code: string | undefined;
   /**
@@ -527,28 +527,28 @@ export class PreconditionsFailedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Raised when the an operation exceeds the time limit allowed for it.</p>
+ * @public
  */
 export class TimeLimitExceededException extends __BaseException {
   readonly name: "TimeLimitExceededException" = "TimeLimitExceededException";
   readonly $fault: "server" = "server";
   $retryable = {};
   /**
-   * @public
    * <p>A detailed message describing the problem.</p>
+   * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the request that could not be processed for this reason.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The HTTP status code returned with the exception.</p>
+   * @public
    */
   code: string | undefined;
   /**
@@ -568,28 +568,28 @@ export class TimeLimitExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Raised when the number of requests being processed exceeds the limit.</p>
+ * @public
  */
 export class TooManyRequestsException extends __BaseException {
   readonly name: "TooManyRequestsException" = "TooManyRequestsException";
   readonly $fault: "client" = "client";
   $retryable = {};
   /**
-   * @public
    * <p>A detailed message describing the problem.</p>
+   * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the request that could not be processed for this reason.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The HTTP status code returned with the exception.</p>
+   * @public
    */
   code: string | undefined;
   /**
@@ -609,27 +609,27 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+ * @public
  */
 export class UnsupportedOperationException extends __BaseException {
   readonly name: "UnsupportedOperationException" = "UnsupportedOperationException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>A detailed message describing the problem.</p>
+   * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the request in question.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The HTTP status code returned with the exception.</p>
+   * @public
    */
   code: string | undefined;
   /**
@@ -649,28 +649,28 @@ export class UnsupportedOperationException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Raised when a specified bulk-load job ID cannot be found.</p>
+ * @public
  */
 export class BulkLoadIdNotFoundException extends __BaseException {
   readonly name: "BulkLoadIdNotFoundException" = "BulkLoadIdNotFoundException";
   readonly $fault: "client" = "client";
   $retryable = {};
   /**
-   * @public
    * <p>A detailed message describing the problem.</p>
+   * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * @public
    * <p>The bulk-load job ID that could not be found.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The HTTP status code returned with the exception.</p>
+   * @public
    */
   code: string | undefined;
   /**
@@ -694,8 +694,8 @@ export class BulkLoadIdNotFoundException extends __BaseException {
  */
 export interface CancelLoaderJobInput {
   /**
-   * @public
    * <p>The ID of the load job to be deleted.</p>
+   * @public
    */
   loadId: string | undefined;
 }
@@ -705,34 +705,34 @@ export interface CancelLoaderJobInput {
  */
 export interface CancelLoaderJobOutput {
   /**
-   * @public
    * <p>The cancellation status.</p>
+   * @public
    */
   status?: string;
 }
 
 /**
- * @public
  * <p>Raised when the processing of the request failed unexpectedly.</p>
+ * @public
  */
 export class InternalFailureException extends __BaseException {
   readonly name: "InternalFailureException" = "InternalFailureException";
   readonly $fault: "server" = "server";
   /**
-   * @public
    * <p>A detailed message describing the problem.</p>
+   * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the request in question.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The HTTP status code returned with the exception.</p>
+   * @public
    */
   code: string | undefined;
   /**
@@ -752,27 +752,27 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Raised when access is denied to a specified load URL.</p>
+ * @public
  */
 export class LoadUrlAccessDeniedException extends __BaseException {
   readonly name: "LoadUrlAccessDeniedException" = "LoadUrlAccessDeniedException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>A detailed message describing the problem.</p>
+   * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the request in question.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The HTTP status code returned with the exception.</p>
+   * @public
    */
   code: string | undefined;
   /**
@@ -796,24 +796,24 @@ export class LoadUrlAccessDeniedException extends __BaseException {
  */
 export interface CancelMLDataProcessingJobInput {
   /**
-   * @public
    * <p>The unique identifier of the data-processing job.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of an IAM role that provides Neptune access to SageMaker
    *     and Amazon S3 resources. This must be listed in your DB cluster
    *     parameter group or an error will occur.</p>
+   * @public
    */
   neptuneIamRoleArn?: string;
 
   /**
-   * @public
    * <p>If set to <code>TRUE</code>, this flag specifies that all
    *       Neptune ML S3 artifacts should be deleted when the job is stopped.
    *       The default is <code>FALSE</code>.</p>
+   * @public
    */
   clean?: boolean;
 }
@@ -823,34 +823,34 @@ export interface CancelMLDataProcessingJobInput {
  */
 export interface CancelMLDataProcessingJobOutput {
   /**
-   * @public
    * <p>The status of the cancellation request.</p>
+   * @public
    */
   status?: string;
 }
 
 /**
- * @public
  * <p>Raised when a specified machine-learning resource could not be found.</p>
+ * @public
  */
 export class MLResourceNotFoundException extends __BaseException {
   readonly name: "MLResourceNotFoundException" = "MLResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>A detailed message describing the problem.</p>
+   * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the request in question.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The HTTP status code returned with the exception.</p>
+   * @public
    */
   code: string | undefined;
   /**
@@ -874,24 +874,24 @@ export class MLResourceNotFoundException extends __BaseException {
  */
 export interface CancelMLModelTrainingJobInput {
   /**
-   * @public
    * <p>The unique identifier of the model-training job to be canceled.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of an IAM role that provides Neptune access to SageMaker
    *       and Amazon S3 resources. This must be listed in your DB cluster
    *       parameter group or an error will occur.</p>
+   * @public
    */
   neptuneIamRoleArn?: string;
 
   /**
-   * @public
    * <p>If set to <code>TRUE</code>, this flag specifies that all
    *     Amazon S3 artifacts should be deleted when the job is stopped.
    *     The default is <code>FALSE</code>.</p>
+   * @public
    */
   clean?: boolean;
 }
@@ -901,8 +901,8 @@ export interface CancelMLModelTrainingJobInput {
  */
 export interface CancelMLModelTrainingJobOutput {
   /**
-   * @public
    * <p>The status of the cancellation.</p>
+   * @public
    */
   status?: string;
 }
@@ -912,23 +912,23 @@ export interface CancelMLModelTrainingJobOutput {
  */
 export interface CancelMLModelTransformJobInput {
   /**
-   * @public
    * <p>The unique ID of the model transform job to be canceled.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of an IAM role that provides Neptune access to SageMaker
    *       and Amazon S3 resources. This must be listed in your DB cluster
    *       parameter group or an error will occur.</p>
+   * @public
    */
   neptuneIamRoleArn?: string;
 
   /**
-   * @public
    * <p>If this flag is set to <code>TRUE</code>, all Neptune ML S3 artifacts
    *       should be deleted when the job is stopped. The default is <code>FALSE</code>.</p>
+   * @public
    */
   clean?: boolean;
 }
@@ -938,8 +938,8 @@ export interface CancelMLModelTransformJobInput {
  */
 export interface CancelMLModelTransformJobOutput {
   /**
-   * @public
    * <p>the status of the cancelation.</p>
+   * @public
    */
   status?: string;
 }
@@ -949,15 +949,15 @@ export interface CancelMLModelTransformJobOutput {
  */
 export interface CancelOpenCypherQueryInput {
   /**
-   * @public
    * <p>The unique ID of the openCypher query to cancel.</p>
+   * @public
    */
   queryId: string | undefined;
 
   /**
-   * @public
    * <p>If set to <code>TRUE</code>, causes the cancelation of the
    *       openCypher query to happen silently.</p>
+   * @public
    */
   silent?: boolean;
 }
@@ -967,40 +967,40 @@ export interface CancelOpenCypherQueryInput {
  */
 export interface CancelOpenCypherQueryOutput {
   /**
-   * @public
    * <p>The cancellation status of the openCypher query.</p>
+   * @public
    */
   status?: string;
 
   /**
-   * @public
    * <p>The cancelation payload for the openCypher query.</p>
+   * @public
    */
   payload?: boolean;
 }
 
 /**
- * @public
  * <p>Raised when invalid numerical data is encountered when servicing a request.</p>
+ * @public
  */
 export class InvalidNumericDataException extends __BaseException {
   readonly name: "InvalidNumericDataException" = "InvalidNumericDataException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>A detailed message describing the problem.</p>
+   * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the request in question.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The HTTP status code returned with the exception.</p>
+   * @public
    */
   code: string | undefined;
   /**
@@ -1024,45 +1024,44 @@ export class InvalidNumericDataException extends __BaseException {
  */
 export interface CreateMLEndpointInput {
   /**
-   * @public
    * <p>A unique identifier for the new inference endpoint. The default
    *       is an autogenerated timestamped name.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The job Id of the completed model-training job that has created the
    *       model that the inference endpoint will point to. You must supply either
    *       the <code>mlModelTrainingJobId</code> or the <code>mlModelTransformJobId</code>.</p>
+   * @public
    */
   mlModelTrainingJobId?: string;
 
   /**
-   * @public
    * <p>The job Id of the completed model-transform job. You must supply
    *       either the <code>mlModelTrainingJobId</code> or the <code>mlModelTransformJobId</code>.</p>
+   * @public
    */
   mlModelTransformJobId?: string;
 
   /**
-   * @public
    * <p>If set to <code>true</code>, <code>update</code> indicates that this
    *       is an update request. The default is <code>false</code>. You must supply
    *       either the <code>mlModelTrainingJobId</code> or the <code>mlModelTransformJobId</code>.</p>
+   * @public
    */
   update?: boolean;
 
   /**
-   * @public
    * <p>The ARN of an IAM role providing Neptune access to SageMaker and
    *       Amazon S3 resources. This must be listed in your DB cluster parameter
    *       group or an error will be thrown.</p>
+   * @public
    */
   neptuneIamRoleArn?: string;
 
   /**
-   * @public
    * <p>Model type for training. By default the Neptune ML model is
    *       automatically based on the <code>modelType</code> used in data processing,
    *       but you can specify a different model type here. The default is
@@ -1070,30 +1069,31 @@ export interface CreateMLEndpointInput {
    *       knowledge graphs. The only valid value for heterogeneous graphs is
    *       <code>rgcn</code>. Valid values for knowledge graphs are: <code>kge</code>,
    *       <code>transe</code>, <code>distmult</code>, and <code>rotate</code>.</p>
+   * @public
    */
   modelName?: string;
 
   /**
-   * @public
    * <p>The type of Neptune ML instance to use for online servicing.
    *     The default is <code>ml.m5.xlarge</code>. Choosing the ML instance
    *     for an inference endpoint depends on the task type, the graph size,
    *     and your budget.</p>
+   * @public
    */
   instanceType?: string;
 
   /**
-   * @public
    * <p>The minimum number of Amazon EC2 instances to deploy to an endpoint
    *       for prediction. The default is 1</p>
+   * @public
    */
   instanceCount?: number;
 
   /**
-   * @public
    * <p>The Amazon Key Management Service (Amazon KMS) key that SageMaker uses
    *       to encrypt data on the storage volume attached to the ML compute instances
    *       that run the training job. The default is None.</p>
+   * @public
    */
   volumeEncryptionKMSKey?: string;
 }
@@ -1103,20 +1103,20 @@ export interface CreateMLEndpointInput {
  */
 export interface CreateMLEndpointOutput {
   /**
-   * @public
    * <p>The unique ID of the new inference endpoint.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The ARN for the new inference endpoint.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>The endpoint creation time, in milliseconds.</p>
+   * @public
    */
   creationTimeInMillis?: number;
 }
@@ -1126,24 +1126,24 @@ export interface CreateMLEndpointOutput {
  */
 export interface DeleteMLEndpointInput {
   /**
-   * @public
    * <p>The unique identifier of the inference endpoint.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of an IAM role providing Neptune access to SageMaker and
    *       Amazon S3 resources. This must be listed in your DB cluster parameter
    *       group or an error will be thrown.</p>
+   * @public
    */
   neptuneIamRoleArn?: string;
 
   /**
-   * @public
    * <p>If this flag is set to <code>TRUE</code>, all Neptune ML S3 artifacts
    *       should be deleted when the job is stopped. The default is
    *       <code>FALSE</code>.</p>
+   * @public
    */
   clean?: boolean;
 }
@@ -1153,26 +1153,26 @@ export interface DeleteMLEndpointInput {
  */
 export interface DeleteMLEndpointOutput {
   /**
-   * @public
    * <p>The status of the cancellation.</p>
+   * @public
    */
   status?: string;
 }
 
 /**
- * @public
  * <p>The payload for DeleteStatistics.</p>
+ * @public
  */
 export interface DeleteStatisticsValueMap {
   /**
-   * @public
    * <p>The current status of the statistics.</p>
+   * @public
    */
   active?: boolean;
 
   /**
-   * @public
    * <p>The ID of the statistics generation run that is currently occurring.</p>
+   * @public
    */
   statisticsId?: string;
 }
@@ -1182,47 +1182,47 @@ export interface DeleteStatisticsValueMap {
  */
 export interface DeletePropertygraphStatisticsOutput {
   /**
-   * @public
    * <p>The HTTP response code: 200 if the delete was successful, or
    *       204 if there were no statistics to delete.</p>
+   * @public
    */
   statusCode?: number;
 
   /**
-   * @public
    * <p>The cancel status.</p>
+   * @public
    */
   status?: string;
 
   /**
-   * @public
    * <p>The deletion payload.</p>
+   * @public
    */
   payload?: DeleteStatisticsValueMap;
 }
 
 /**
- * @public
  * <p>Raised when a request attempts to write to a read-only resource.</p>
+ * @public
  */
 export class ReadOnlyViolationException extends __BaseException {
   readonly name: "ReadOnlyViolationException" = "ReadOnlyViolationException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>A detailed message describing the problem.</p>
+   * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the request in which the parameter is missing.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The HTTP status code returned with the exception.</p>
+   * @public
    */
   code: string | undefined;
   /**
@@ -1242,27 +1242,27 @@ export class ReadOnlyViolationException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Raised when statistics needed to satisfy a request are not available.</p>
+ * @public
  */
 export class StatisticsNotAvailableException extends __BaseException {
   readonly name: "StatisticsNotAvailableException" = "StatisticsNotAvailableException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>A detailed message describing the problem.</p>
+   * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the request in question.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The HTTP status code returned with the exception.</p>
+   * @public
    */
   code: string | undefined;
   /**
@@ -1286,21 +1286,21 @@ export class StatisticsNotAvailableException extends __BaseException {
  */
 export interface DeleteSparqlStatisticsOutput {
   /**
-   * @public
    * <p>The HTTP response code: 200 if the delete was successful, or
    *       204 if there were no statistics to delete.</p>
+   * @public
    */
   statusCode?: number;
 
   /**
-   * @public
    * <p>The cancel status.</p>
+   * @public
    */
   status?: string;
 
   /**
-   * @public
    * <p>The deletion payload.</p>
+   * @public
    */
   payload?: DeleteStatisticsValueMap;
 }
@@ -1310,7 +1310,6 @@ export interface DeleteSparqlStatisticsOutput {
  */
 export interface ExecuteFastResetInput {
   /**
-   * @public
    * <p>The fast reset action. One of the following values:</p>
    *          <ul>
    *             <li>
@@ -1331,26 +1330,27 @@ export interface ExecuteFastResetInput {
    *                <p/>
    *             </li>
    *          </ul>
+   * @public
    */
   action: Action | undefined;
 
   /**
-   * @public
    * <p>The fast-reset token to initiate the reset.</p>
+   * @public
    */
   token?: string;
 }
 
 /**
- * @public
  * <p>A structure containing the fast reset token used to initiate
  *       a fast reset.</p>
+ * @public
  */
 export interface FastResetToken {
   /**
-   * @public
    * <p>A UUID generated by the database in the <code>initiateDatabaseReset</code> action,
    *       and then consumed by the <code>performDatabaseReset</code> to reset the database.</p>
+   * @public
    */
   token?: string;
 }
@@ -1360,44 +1360,44 @@ export interface FastResetToken {
  */
 export interface ExecuteFastResetOutput {
   /**
-   * @public
    * <p>The <code>status</code> is only returned for the <code>performDatabaseReset</code>
    *       action, and indicates whether or not the fast reset rquest is accepted.</p>
+   * @public
    */
   status: string | undefined;
 
   /**
-   * @public
    * <p>The <code>payload</code> is only returned by the <code>initiateDatabaseReset</code>
    *       action, and contains the unique token to use with the <code>performDatabaseReset</code>
    *       action to make the reset occur.</p>
+   * @public
    */
   payload?: FastResetToken;
 }
 
 /**
- * @public
  * <p>Raised when the HTTP method used by a request is not supported by the endpoint
  *       being used.</p>
+ * @public
  */
 export class MethodNotAllowedException extends __BaseException {
   readonly name: "MethodNotAllowedException" = "MethodNotAllowedException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>A detailed message describing the problem.</p>
+   * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the request in question.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The HTTP status code returned with the exception.</p>
+   * @public
    */
   code: string | undefined;
   /**
@@ -1417,27 +1417,27 @@ export class MethodNotAllowedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Raised when the server shuts down while processing a request.</p>
+ * @public
  */
 export class ServerShutdownException extends __BaseException {
   readonly name: "ServerShutdownException" = "ServerShutdownException";
   readonly $fault: "server" = "server";
   /**
-   * @public
    * <p>A detailed message describing the problem.</p>
+   * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the request in question.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The HTTP status code returned with the exception.</p>
+   * @public
    */
   code: string | undefined;
   /**
@@ -1457,27 +1457,27 @@ export class ServerShutdownException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Raised when a user cancelled a request.</p>
+ * @public
  */
 export class CancelledByUserException extends __BaseException {
   readonly name: "CancelledByUserException" = "CancelledByUserException";
   readonly $fault: "server" = "server";
   /**
-   * @public
    * <p>A detailed message describing the problem.</p>
+   * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the request in question.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The HTTP status code returned with the exception.</p>
+   * @public
    */
   code: string | undefined;
   /**
@@ -1501,8 +1501,8 @@ export class CancelledByUserException extends __BaseException {
  */
 export interface ExecuteGremlinExplainQueryInput {
   /**
-   * @public
    * <p>The Gremlin explain query string.</p>
+   * @public
    */
   gremlinQuery: string | undefined;
 }
@@ -1512,37 +1512,37 @@ export interface ExecuteGremlinExplainQueryInput {
  */
 export interface ExecuteGremlinExplainQueryOutput {
   /**
-   * @public
    * <p>A text blob containing the Gremlin explain result, as described
    *       in <a href="https://docs.aws.amazon.com/neptune/latest/userguide/gremlin-traversal-tuning.html">Tuning
    *       Gremlin queries</a>.</p>
+   * @public
    */
   output?: Uint8Array;
 }
 
 /**
- * @public
  * <p>Raised when a query is submitted that is syntactically incorrect or does not
  *       pass additional validation.</p>
+ * @public
  */
 export class MalformedQueryException extends __BaseException {
   readonly name: "MalformedQueryException" = "MalformedQueryException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>A detailed message describing the problem.</p>
+   * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the malformed query request.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The HTTP status code returned with the exception.</p>
+   * @public
    */
   code: string | undefined;
   /**
@@ -1562,29 +1562,29 @@ export class MalformedQueryException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Raised when a request fails because of insufficient memory resources. The
  *       request can be retried.</p>
+ * @public
  */
 export class MemoryLimitExceededException extends __BaseException {
   readonly name: "MemoryLimitExceededException" = "MemoryLimitExceededException";
   readonly $fault: "server" = "server";
   $retryable = {};
   /**
-   * @public
    * <p>A detailed message describing the problem.</p>
+   * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the request that failed.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The HTTP status code returned with the exception.</p>
+   * @public
    */
   code: string | undefined;
   /**
@@ -1604,29 +1604,29 @@ export class MemoryLimitExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Raised when the number of active queries exceeds what the server can process.
  *       The query in question can be retried when the system is less busy.</p>
+ * @public
  */
 export class QueryLimitExceededException extends __BaseException {
   readonly name: "QueryLimitExceededException" = "QueryLimitExceededException";
   readonly $fault: "server" = "server";
   $retryable = {};
   /**
-   * @public
    * <p>A detailed message describing the problem.</p>
+   * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the request which exceeded the limit.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The HTTP status code returned with the exception.</p>
+   * @public
    */
   code: string | undefined;
   /**
@@ -1646,27 +1646,27 @@ export class QueryLimitExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Raised when the size of a query exceeds the system limit.</p>
+ * @public
  */
 export class QueryLimitException extends __BaseException {
   readonly name: "QueryLimitException" = "QueryLimitException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>A detailed message describing the problem.</p>
+   * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the request that exceeded the limit.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The HTTP status code returned with the exception.</p>
+   * @public
    */
   code: string | undefined;
   /**
@@ -1686,27 +1686,27 @@ export class QueryLimitException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Raised when the body of a query is too large.</p>
+ * @public
  */
 export class QueryTooLargeException extends __BaseException {
   readonly name: "QueryTooLargeException" = "QueryTooLargeException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>A detailed message describing the problem.</p>
+   * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the request that is too large.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The HTTP status code returned with the exception.</p>
+   * @public
    */
   code: string | undefined;
   /**
@@ -1730,39 +1730,39 @@ export class QueryTooLargeException extends __BaseException {
  */
 export interface ExecuteGremlinProfileQueryInput {
   /**
-   * @public
    * <p>The Gremlin query string to profile.</p>
+   * @public
    */
   gremlinQuery: string | undefined;
 
   /**
-   * @public
    * <p>If this flag is set to <code>TRUE</code>, the query results are
    *       gathered and displayed as part of the profile report.
    *       If <code>FALSE</code>, only the result count is displayed.</p>
+   * @public
    */
   results?: boolean;
 
   /**
-   * @public
    * <p>If non-zero, causes the results string to be truncated at that
    *       number of characters. If set to zero, the string contains all the results.</p>
+   * @public
    */
   chop?: number;
 
   /**
-   * @public
    * <p>If non-null, the gathered results are returned in a serialized response
    *       message in the format specified by this parameter. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/gremlin-profile-api.html">Gremlin profile
    *       API in Neptune</a> for more information.</p>
+   * @public
    */
   serializer?: string;
 
   /**
-   * @public
    * <p>If this flag is set to <code>TRUE</code>, the results include a
    *       detailed report of all index operations that took place during query
    *       execution and serialization.</p>
+   * @public
    */
   indexOps?: boolean;
 }
@@ -1772,10 +1772,10 @@ export interface ExecuteGremlinProfileQueryInput {
  */
 export interface ExecuteGremlinProfileQueryOutput {
   /**
-   * @public
    * <p>A text blob containing the Gremlin Profile result. See
    *       <a href="https://docs.aws.amazon.com/neptune/latest/userguide/gremlin-profile-api.html">Gremlin
    *       profile API in Neptune</a> for details.</p>
+   * @public
    */
   output?: Uint8Array;
 }
@@ -1785,46 +1785,46 @@ export interface ExecuteGremlinProfileQueryOutput {
  */
 export interface ExecuteGremlinQueryInput {
   /**
-   * @public
    * <p>Using this API, you can run Gremlin queries in string format
    *       much as you can using the HTTP endpoint. The interface is
    *       compatible with whatever Gremlin version your DB cluster is using
    *       (see the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-gremlin-client.html#best-practices-gremlin-java-latest">Tinkerpop
    *       client section</a> to determine which Gremlin releases your
    *       engine version supports).</p>
+   * @public
    */
   gremlinQuery: string | undefined;
 
   /**
-   * @public
    * <p>If non-null, the query results are returned in a serialized response
    *     message in the format specified by this parameter. See the <a href="https://tinkerpop.apache.org/docs/current/reference/#_graphson">GraphSON</a>
    *     section in the TinkerPop documentation for a list of the formats that
    *     are currently supported.</p>
+   * @public
    */
   serializer?: string;
 }
 
 /**
- * @public
  * <p>Contains status components of a Gremlin query.</p>
+ * @public
  */
 export interface GremlinQueryStatusAttributes {
   /**
-   * @public
    * <p>The status message.</p>
+   * @public
    */
   message?: string;
 
   /**
-   * @public
    * <p>The HTTP response code returned fro the Gremlin query request..</p>
+   * @public
    */
   code?: number;
 
   /**
-   * @public
    * <p>Attributes of the Gremlin query status.</p>
+   * @public
    */
   attributes?: __DocumentType;
 }
@@ -1834,26 +1834,26 @@ export interface GremlinQueryStatusAttributes {
  */
 export interface ExecuteGremlinQueryOutput {
   /**
-   * @public
    * <p>The unique identifier of the Gremlin query.</p>
+   * @public
    */
   requestId?: string;
 
   /**
-   * @public
    * <p>The status of the Gremlin query.</p>
+   * @public
    */
   status?: GremlinQueryStatusAttributes;
 
   /**
-   * @public
    * <p>The Gremlin query output from the server.</p>
+   * @public
    */
   result?: __DocumentType;
 
   /**
-   * @public
    * <p>Metadata about the Gremlin query.</p>
+   * @public
    */
   meta?: __DocumentType;
 }
@@ -1878,21 +1878,21 @@ export type OpenCypherExplainMode = (typeof OpenCypherExplainMode)[keyof typeof 
  */
 export interface ExecuteOpenCypherExplainQueryInput {
   /**
-   * @public
    * <p>The openCypher query string.</p>
+   * @public
    */
   openCypherQuery: string | undefined;
 
   /**
-   * @public
    * <p>The openCypher query parameters.</p>
+   * @public
    */
   parameters?: string;
 
   /**
-   * @public
    * <p>The openCypher <code>explain</code> mode. Can be one of:
    *       <code>static</code>, <code>dynamic</code>, or <code>details</code>.</p>
+   * @public
    */
   explainMode: OpenCypherExplainMode | undefined;
 }
@@ -1902,8 +1902,8 @@ export interface ExecuteOpenCypherExplainQueryInput {
  */
 export interface ExecuteOpenCypherExplainQueryOutput {
   /**
-   * @public
    * <p>A text blob containing the openCypher <code>explain</code> results.</p>
+   * @public
    */
   results: Uint8Array | undefined;
 }
@@ -1913,16 +1913,16 @@ export interface ExecuteOpenCypherExplainQueryOutput {
  */
 export interface ExecuteOpenCypherQueryInput {
   /**
-   * @public
    * <p>The openCypher query string to be executed.</p>
+   * @public
    */
   openCypherQuery: string | undefined;
 
   /**
-   * @public
    * <p>The openCypher query parameters for query execution.
    *       See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/opencypher-parameterized-queries.html">Examples
    *       of openCypher parameterized queries</a> for more information.</p>
+   * @public
    */
   parameters?: string;
 }
@@ -1932,20 +1932,20 @@ export interface ExecuteOpenCypherQueryInput {
  */
 export interface ExecuteOpenCypherQueryOutput {
   /**
-   * @public
    * <p>The openCypherquery results.</p>
+   * @public
    */
   results: __DocumentType | undefined;
 }
 
 /**
- * @public
  * <p>Structure for expressing the query language version.</p>
+ * @public
  */
 export interface QueryLanguageVersion {
   /**
-   * @public
    * <p>The version of the query language.</p>
+   * @public
    */
   version: string | undefined;
 }
@@ -1955,100 +1955,100 @@ export interface QueryLanguageVersion {
  */
 export interface GetEngineStatusOutput {
   /**
-   * @public
    * <p>Set to <code>healthy</code> if the instance is not experiencing problems.
    *       If the instance is recovering from a crash or from being rebooted and there
    *       are active transactions running from the latest server shutdown, status is set
    *       to <code>recovery</code>.</p>
+   * @public
    */
   status?: string;
 
   /**
-   * @public
    * <p>Set to the UTC time at which the current server process started.</p>
+   * @public
    */
   startTime?: string;
 
   /**
-   * @public
    * <p>Set to the Neptune engine version running on your DB cluster.
    *     If this engine version has been manually patched since it was released,
    *     the version number is prefixed by <code>Patch-</code>.</p>
+   * @public
    */
   dbEngineVersion?: string;
 
   /**
-   * @public
    * <p>Set to <code>reader</code> if the instance is a read-replica,
    *       or to <code>writer</code> if the instance is the primary instance.</p>
+   * @public
    */
   role?: string;
 
   /**
-   * @public
    * <p>Set to <code>enabled</code> if the DFE engine is fully enabled,
    *       or to <code>viaQueryHint</code> (the default) if the DFE engine is
    *       only used with queries that have the <code>useDFE</code> query hint
    *       set to <code>true</code>.</p>
+   * @public
    */
   dfeQueryEngine?: string;
 
   /**
-   * @public
    * <p>Contains information about the Gremlin query language available
    *       on your cluster. Specifically, it contains a version field that specifies
    *       the current TinkerPop version being used by the engine.</p>
+   * @public
    */
   gremlin?: QueryLanguageVersion;
 
   /**
-   * @public
    * <p>Contains information about the SPARQL query language available
    *       on your cluster. Specifically, it contains a version field that
    *       specifies the current SPARQL version being used by the engine.</p>
+   * @public
    */
   sparql?: QueryLanguageVersion;
 
   /**
-   * @public
    * <p>Contains information about the openCypher query language available
    *       on your cluster. Specifically, it contains a version field that
    *       specifies the current operCypher version being used by the engine.</p>
+   * @public
    */
   opencypher?: QueryLanguageVersion;
 
   /**
-   * @public
    * <p>Contains Lab Mode settings being used by the engine.</p>
+   * @public
    */
   labMode?: Record<string, string>;
 
   /**
-   * @public
    * <p>If there are transactions being rolled back, this field is set
    *       to the number of such transactions.  If there are none, the field
    *       doesn't appear at all.</p>
+   * @public
    */
   rollingBackTrxCount?: number;
 
   /**
-   * @public
    * <p>Set to the start time of the earliest transaction being rolled back.
    *       If no transactions are being rolled back, the field doesn't appear at all.</p>
+   * @public
    */
   rollingBackTrxEarliestStartTime?: string;
 
   /**
-   * @public
    * <p>Contains status information about the features enabled on your DB cluster.</p>
+   * @public
    */
   features?: Record<string, __DocumentType>;
 
   /**
-   * @public
    * <p>Contains information about the current settings on your DB cluster.
    *       For example, contains the current cluster query timeout setting
    *       (<code>clusterQueryTimeoutInMs</code>).</p>
+   * @public
    */
   settings?: Record<string, string>;
 }
@@ -2058,40 +2058,40 @@ export interface GetEngineStatusOutput {
  */
 export interface GetGremlinQueryStatusInput {
   /**
-   * @public
    * <p>The unique identifier that identifies the Gremlin query.</p>
+   * @public
    */
   queryId: string | undefined;
 }
 
 /**
- * @public
  * <p>Structure to capture query statistics such as how many queries
  *       are running, accepted or waiting and their details.</p>
+ * @public
  */
 export interface QueryEvalStats {
   /**
-   * @public
    * <p>Indicates how long the query waited, in milliseconds.</p>
+   * @public
    */
   waited?: number;
 
   /**
-   * @public
    * <p>The number of milliseconds the query has been running so far.</p>
+   * @public
    */
   elapsed?: number;
 
   /**
-   * @public
    * <p>Set to <code>TRUE</code> if the query was cancelled, or FALSE
    *       otherwise.</p>
+   * @public
    */
   cancelled?: boolean;
 
   /**
-   * @public
    * <p>The number of subqueries in this query.</p>
+   * @public
    */
   subqueries?: __DocumentType;
 }
@@ -2101,20 +2101,20 @@ export interface QueryEvalStats {
  */
 export interface GetGremlinQueryStatusOutput {
   /**
-   * @public
    * <p>The ID of the query for which status is being returned.</p>
+   * @public
    */
   queryId?: string;
 
   /**
-   * @public
    * <p>The Gremlin query string.</p>
+   * @public
    */
   queryString?: string;
 
   /**
-   * @public
    * <p>The evaluation status of the Gremlin query.</p>
+   * @public
    */
   queryEvalStats?: QueryEvalStats;
 }
@@ -2124,42 +2124,42 @@ export interface GetGremlinQueryStatusOutput {
  */
 export interface GetLoaderJobStatusInput {
   /**
-   * @public
    * <p>The load ID of the load job to get the status of.</p>
+   * @public
    */
   loadId: string | undefined;
 
   /**
-   * @public
    * <p>Flag indicating whether or not to include details beyond the
    *        overall status (<code>TRUE</code> or <code>FALSE</code>; the default
    *        is <code>FALSE</code>).</p>
+   * @public
    */
   details?: boolean;
 
   /**
-   * @public
    * <p>Flag indicating whether or not to include a list of errors
    *       encountered (<code>TRUE</code> or <code>FALSE</code>; the default
    *        is <code>FALSE</code>).</p>
    *          <p>The list of errors is paged. The <code>page</code> and <code>errorsPerPage</code>
    *       parameters allow you to page through all the errors.</p>
+   * @public
    */
   errors?: boolean;
 
   /**
-   * @public
    * <p>The error page number (a positive integer; the default is <code>1</code>).
    *       Only valid when the <code>errors</code> parameter is set to
    *       <code>TRUE</code>.</p>
+   * @public
    */
   page?: number;
 
   /**
-   * @public
    * <p>The number of errors returned in each page (a positive integer; the
    *       default is <code>10</code>). Only valid when the <code>errors</code>
    *       parameter set to <code>TRUE</code>.</p>
+   * @public
    */
   errorsPerPage?: number;
 }
@@ -2169,15 +2169,15 @@ export interface GetLoaderJobStatusInput {
  */
 export interface GetLoaderJobStatusOutput {
   /**
-   * @public
    * <p>The HTTP response code for the request.</p>
+   * @public
    */
   status: string | undefined;
 
   /**
-   * @public
    * <p>Status information about the load job, in a layout
    *       that could look like this:</p>
+   * @public
    */
   payload: __DocumentType | undefined;
 }
@@ -2187,58 +2187,58 @@ export interface GetLoaderJobStatusOutput {
  */
 export interface GetMLDataProcessingJobInput {
   /**
-   * @public
    * <p>The unique identifier of the data-processing job to be retrieved.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of an IAM role that provides Neptune access to SageMaker
    *       and Amazon S3 resources. This must be listed in your DB cluster
    *       parameter group or an error will occur.</p>
+   * @public
    */
   neptuneIamRoleArn?: string;
 }
 
 /**
- * @public
  * <p>Defines a Neptune ML resource.</p>
+ * @public
  */
 export interface MlResourceDefinition {
   /**
-   * @public
    * <p>The resource name.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The resource ARN.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>The resource status.</p>
+   * @public
    */
   status?: string;
 
   /**
-   * @public
    * <p>The output location.</p>
+   * @public
    */
   outputLocation?: string;
 
   /**
-   * @public
    * <p>The failure reason, in case of a failure.</p>
+   * @public
    */
   failureReason?: string;
 
   /**
-   * @public
    * <p>The CloudWatch log URL for the resource.</p>
+   * @public
    */
   cloudwatchLogUrl?: string;
 }
@@ -2248,20 +2248,20 @@ export interface MlResourceDefinition {
  */
 export interface GetMLDataProcessingJobOutput {
   /**
-   * @public
    * <p>Status of the data processing job.</p>
+   * @public
    */
   status?: string;
 
   /**
-   * @public
    * <p>The unique identifier of this data-processing job.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>Definition of the data processing job.</p>
+   * @public
    */
   processingJob?: MlResourceDefinition;
 }
@@ -2271,34 +2271,34 @@ export interface GetMLDataProcessingJobOutput {
  */
 export interface GetMLEndpointInput {
   /**
-   * @public
    * <p>The unique identifier of the inference endpoint.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of an IAM role that provides Neptune access to SageMaker
    *     and Amazon S3 resources. This must be listed in your DB cluster parameter
    *     group or an error will occur.</p>
+   * @public
    */
   neptuneIamRoleArn?: string;
 }
 
 /**
- * @public
  * <p>Contains a Neptune ML configuration.</p>
+ * @public
  */
 export interface MlConfigDefinition {
   /**
-   * @public
    * <p>The configuration name.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The ARN for the configuration.</p>
+   * @public
    */
   arn?: string;
 }
@@ -2308,26 +2308,26 @@ export interface MlConfigDefinition {
  */
 export interface GetMLEndpointOutput {
   /**
-   * @public
    * <p>The status of the inference endpoint.</p>
+   * @public
    */
   status?: string;
 
   /**
-   * @public
    * <p>The unique identifier of the inference endpoint.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The endpoint definition.</p>
+   * @public
    */
   endpoint?: MlResourceDefinition;
 
   /**
-   * @public
    * <p>The endpoint configuration</p>
+   * @public
    */
   endpointConfig?: MlConfigDefinition;
 }
@@ -2337,16 +2337,16 @@ export interface GetMLEndpointOutput {
  */
 export interface GetMLModelTrainingJobInput {
   /**
-   * @public
    * <p>The unique identifier of the model-training job to retrieve.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of an IAM role that provides Neptune access to SageMaker
    *       and Amazon S3 resources. This must be listed in your DB cluster
    *       parameter group or an error will occur.</p>
+   * @public
    */
   neptuneIamRoleArn?: string;
 }
@@ -2356,38 +2356,38 @@ export interface GetMLModelTrainingJobInput {
  */
 export interface GetMLModelTrainingJobOutput {
   /**
-   * @public
    * <p>The status of the model training job.</p>
+   * @public
    */
   status?: string;
 
   /**
-   * @public
    * <p>The unique identifier of this model-training job.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The data processing job.</p>
+   * @public
    */
   processingJob?: MlResourceDefinition;
 
   /**
-   * @public
    * <p>The HPO job.</p>
+   * @public
    */
   hpoJob?: MlResourceDefinition;
 
   /**
-   * @public
    * <p>The model transform job.</p>
+   * @public
    */
   modelTransformJob?: MlResourceDefinition;
 
   /**
-   * @public
    * <p>A list of the configurations of the ML models being used.</p>
+   * @public
    */
   mlModels?: MlConfigDefinition[];
 }
@@ -2397,16 +2397,16 @@ export interface GetMLModelTrainingJobOutput {
  */
 export interface GetMLModelTransformJobInput {
   /**
-   * @public
    * <p>The unique identifier of the model-transform job to be reetrieved.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of an IAM role that provides Neptune access to SageMaker
    *       and Amazon S3 resources. This must be listed in your DB cluster
    *       parameter group or an error will occur.</p>
+   * @public
    */
   neptuneIamRoleArn?: string;
 }
@@ -2416,32 +2416,32 @@ export interface GetMLModelTransformJobInput {
  */
 export interface GetMLModelTransformJobOutput {
   /**
-   * @public
    * <p>The status of the model-transform job.</p>
+   * @public
    */
   status?: string;
 
   /**
-   * @public
    * <p>The unique identifier of the model-transform job to be retrieved.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The base data processing job.</p>
+   * @public
    */
   baseProcessingJob?: MlResourceDefinition;
 
   /**
-   * @public
    * <p>The remote model transform job.</p>
+   * @public
    */
   remoteModelTransformJob?: MlResourceDefinition;
 
   /**
-   * @public
    * <p>A list of the configuration information for the models being used.</p>
+   * @public
    */
   models?: MlConfigDefinition[];
 }
@@ -2451,9 +2451,9 @@ export interface GetMLModelTransformJobOutput {
  */
 export interface GetOpenCypherQueryStatusInput {
   /**
-   * @public
    * <p>The unique ID of the openCypher query for which to retrieve
    *       the query status.</p>
+   * @public
    */
   queryId: string | undefined;
 }
@@ -2463,91 +2463,90 @@ export interface GetOpenCypherQueryStatusInput {
  */
 export interface GetOpenCypherQueryStatusOutput {
   /**
-   * @public
    * <p>The unique ID of the query for which status is being returned.</p>
+   * @public
    */
   queryId?: string;
 
   /**
-   * @public
    * <p>The openCypher query string.</p>
+   * @public
    */
   queryString?: string;
 
   /**
-   * @public
    * <p>The openCypher query evaluation status.</p>
+   * @public
    */
   queryEvalStats?: QueryEvalStats;
 }
 
 /**
- * @public
  * <p>Information about the characteristic sets generated in the statistics.</p>
+ * @public
  */
 export interface StatisticsSummary {
   /**
-   * @public
    * <p>The total number of signatures across all characteristic sets.</p>
+   * @public
    */
   signatureCount?: number;
 
   /**
-   * @public
    * <p>The total number of characteristic-set instances.</p>
+   * @public
    */
   instanceCount?: number;
 
   /**
-   * @public
    * <p>The total number of unique predicates.</p>
+   * @public
    */
   predicateCount?: number;
 }
 
 /**
- * @public
  * <p>Contains statistics information. The DFE engine uses information
  *       about the data in your Neptune graph to make effective trade-offs when
  *       planning query execution. This information takes the form of statistics
  *       that include so-called characteristic sets and predicate statistics
  *       that can guide query planning. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/neptune-dfe-statistics.html">Managing
  *       statistics for the Neptune DFE to use</a>.</p>
+ * @public
  */
 export interface Statistics {
   /**
-   * @public
    * <p>Indicates whether or not automatic statistics generation is enabled.</p>
+   * @public
    */
   autoCompute?: boolean;
 
   /**
-   * @public
    * <p>Indicates whether or not DFE statistics generation is enabled at all.</p>
+   * @public
    */
   active?: boolean;
 
   /**
-   * @public
    * <p>Reports the ID of the current statistics generation run.
    *       A value of -1 indicates that no statistics have been generated.</p>
+   * @public
    */
   statisticsId?: string;
 
   /**
-   * @public
    * <p>The UTC time at which DFE statistics have most recently been generated.</p>
+   * @public
    */
   date?: Date;
 
   /**
-   * @public
    * <p>A note about problems in the case where statistics are invalid.</p>
+   * @public
    */
   note?: string;
 
   /**
-   * @public
    * <p>A StatisticsSummary structure that contains:</p>
    *          <ul>
    *             <li>
@@ -2565,6 +2564,7 @@ export interface Statistics {
    *                   <code>predicateCount</code> - The total number of unique predicates.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   signatureInfo?: StatisticsSummary;
 }
@@ -2574,42 +2574,42 @@ export interface Statistics {
  */
 export interface GetPropertygraphStatisticsOutput {
   /**
-   * @public
    * <p>The HTTP return code of the request. If the request succeeded,
    *       the code is 200. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/neptune-dfe-statistics.html#neptune-dfe-statistics-errors">Common
    *       error codes for DFE statistics request</a> for a list of common errors.</p>
+   * @public
    */
   status: string | undefined;
 
   /**
-   * @public
    * <p>Statistics for property-graph data.</p>
+   * @public
    */
   payload: Statistics | undefined;
 }
 
 /**
- * @public
  * <p>Raised when a request attempts to access an stream that has expired.</p>
+ * @public
  */
 export class ExpiredStreamException extends __BaseException {
   readonly name: "ExpiredStreamException" = "ExpiredStreamException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>A detailed message describing the problem.</p>
+   * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the request in question.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The HTTP status code returned with the exception.</p>
+   * @public
    */
   code: string | undefined;
   /**
@@ -2662,7 +2662,6 @@ export type IteratorType = (typeof IteratorType)[keyof typeof IteratorType];
  */
 export interface GetPropertygraphStreamInput {
   /**
-   * @public
    * <p>Specifies the maximum number of records to return. There
    *       is also a size limit of 10 MB on the response that can't be modified
    *       and that takes precedence over the number of records specified in
@@ -2670,11 +2669,11 @@ export interface GetPropertygraphStreamInput {
    *       threshold-breaching record if the 10 MB limit was reached.</p>
    *          <p>The range for <code>limit</code> is 1 to 100,000, with a
    *       default of 10.</p>
+   * @public
    */
   limit?: number;
 
   /**
-   * @public
    * <p>Can be one of:</p>
    *          <ul>
    *             <li>
@@ -2704,46 +2703,46 @@ export interface GetPropertygraphStreamInput {
    *           which is the latest unexpired (not yet deleted) record in the change-log stream.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   iteratorType?: IteratorType;
 
   /**
-   * @public
    * <p>The commit number of the starting record to read from the
    *       change-log stream. This parameter is required when <code>iteratorType</code>
    *       is<code>AT_SEQUENCE_NUMBER</code> or <code>AFTER_SEQUENCE_NUMBER</code>, and
    *       ignored when <code>iteratorType</code> is <code>TRIM_HORIZON</code> or
    *       <code>LATEST</code>.</p>
+   * @public
    */
   commitNum?: number;
 
   /**
-   * @public
    * <p>The operation sequence number within the specified commit to
    *       start reading from in the change-log stream data. The default is <code>1</code>.</p>
+   * @public
    */
   opNum?: number;
 
   /**
-   * @public
    * <p>If set to TRUE, Neptune compresses the response using gzip encoding.</p>
+   * @public
    */
   encoding?: Encoding;
 }
 
 /**
- * @public
  * <p>A Gremlin or openCypher change record.</p>
+ * @public
  */
 export interface PropertygraphData {
   /**
-   * @public
    * <p>The ID of the Gremlin or openCypher element.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The type of this Gremlin or openCypher element. Must be one of:</p>
    *          <ul>
    *             <li>
@@ -2776,72 +2775,73 @@ export interface PropertygraphData {
    *           Edge properties for Gremlin, or relationship properties for openCypher.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   type: string | undefined;
 
   /**
-   * @public
    * <p>The property name. For element labels, this is <code>label</code>.</p>
+   * @public
    */
   key: string | undefined;
 
   /**
-   * @public
    * <p>This is a JSON object that contains a value field for the value itself,
    *       and a datatype field for the JSON data type of that value:</p>
+   * @public
    */
   value: __DocumentType | undefined;
 
   /**
-   * @public
    * <p>If this is an edge (type = <code>e</code>), the ID of the
    *       corresponding <code>from</code> vertex or source node.</p>
+   * @public
    */
   from?: string;
 
   /**
-   * @public
    * <p>If this is an edge (type = <code>e</code>), the ID of the
    *       corresponding <code>to</code> vertex or target node.</p>
+   * @public
    */
   to?: string;
 }
 
 /**
- * @public
  * <p>Structure of a property graph record.</p>
+ * @public
  */
 export interface PropertygraphRecord {
   /**
-   * @public
    * <p>The time at which the commit for the transaction was requested,
    *       in milliseconds from the Unix epoch.</p>
+   * @public
    */
   commitTimestampInMillis: number | undefined;
 
   /**
-   * @public
    * <p>The sequence identifier of the stream change record.</p>
+   * @public
    */
   eventId: Record<string, string> | undefined;
 
   /**
-   * @public
    * <p>The serialized Gremlin or openCypher change record.</p>
+   * @public
    */
   data: PropertygraphData | undefined;
 
   /**
-   * @public
    * <p>The operation that created the change.</p>
+   * @public
    */
   op: string | undefined;
 
   /**
-   * @public
    * <p>Only present if this operation is the last one in its transaction.
    *       If present, it is set to true. It is useful for ensuring that an
    *       entire transaction is consumed.</p>
+   * @public
    */
   isLastOp?: boolean;
 }
@@ -2851,63 +2851,63 @@ export interface PropertygraphRecord {
  */
 export interface GetPropertygraphStreamOutput {
   /**
-   * @public
    * <p>Sequence identifier of the last change in the stream response.</p>
    *          <p>An event ID is composed of two fields: a <code>commitNum</code>, which
    *       identifies a transaction that changed the graph, and an <code>opNum</code>,
    *       which identifies a specific operation within that transaction:</p>
+   * @public
    */
   lastEventId: Record<string, string> | undefined;
 
   /**
-   * @public
    * <p>The time at which the commit for the transaction was requested,
    *       in milliseconds from the Unix epoch.</p>
+   * @public
    */
   lastTrxTimestampInMillis: number | undefined;
 
   /**
-   * @public
    * <p>Serialization format for the change records being returned.
    *       Currently, the only supported value is <code>PG_JSON</code>.</p>
+   * @public
    */
   format: string | undefined;
 
   /**
-   * @public
    * <p>An array of serialized change-log stream records included in the response.</p>
+   * @public
    */
   records: PropertygraphRecord[] | undefined;
 
   /**
-   * @public
    * <p>The total number of records in the response.</p>
+   * @public
    */
   totalRecords: number | undefined;
 }
 
 /**
- * @public
  * <p>Raised when stream records requested by a query cannot be found.</p>
+ * @public
  */
 export class StreamRecordsNotFoundException extends __BaseException {
   readonly name: "StreamRecordsNotFoundException" = "StreamRecordsNotFoundException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>A detailed message describing the problem.</p>
+   * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the request in question.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The HTTP status code returned with the exception.</p>
+   * @public
    */
   code: string | undefined;
   /**
@@ -2927,29 +2927,29 @@ export class StreamRecordsNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Raised when the rate of requests exceeds the maximum throughput. Requests can
  *       be retried after encountering this exception.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "server" = "server";
   $retryable = {};
   /**
-   * @public
    * <p>A detailed message describing the problem.</p>
+   * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the request that could not be processed for this reason.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The HTTP status code returned with the exception.</p>
+   * @public
    */
   code: string | undefined;
   /**
@@ -2987,172 +2987,172 @@ export type GraphSummaryType = (typeof GraphSummaryType)[keyof typeof GraphSumma
  */
 export interface GetPropertygraphSummaryInput {
   /**
-   * @public
    * <p>Mode can take one of two values: <code>BASIC</code> (the default),
    *       and <code>DETAILED</code>.</p>
+   * @public
    */
   mode?: GraphSummaryType;
 }
 
 /**
- * @public
  * <p>An edge structure.</p>
+ * @public
  */
 export interface EdgeStructure {
   /**
-   * @public
    * <p>The number of edges that have this specific structure.</p>
+   * @public
    */
   count?: number;
 
   /**
-   * @public
    * <p>A list of edge properties present in this specific structure.</p>
+   * @public
    */
   edgeProperties?: string[];
 }
 
 /**
- * @public
  * <p>A node structure.</p>
+ * @public
  */
 export interface NodeStructure {
   /**
-   * @public
    * <p>Number of nodes that have this specific structure.</p>
+   * @public
    */
   count?: number;
 
   /**
-   * @public
    * <p>A list of the node properties present in this specific structure.</p>
+   * @public
    */
   nodeProperties?: string[];
 
   /**
-   * @public
    * <p>A list of distinct outgoing edge labels present in this specific structure.</p>
+   * @public
    */
   distinctOutgoingEdgeLabels?: string[];
 }
 
 /**
- * @public
  * <p>The graph summary API returns a read-only list of node and edge
  *       labels and property keys, along with counts of nodes, edges, and
  *       properties. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/neptune-graph-summary.html#neptune-graph-summary-pg-response">Graph
  *       summary response for a property graph (PG)</a>.</p>
+ * @public
  */
 export interface PropertygraphSummary {
   /**
-   * @public
    * <p>The number of nodes in the graph.</p>
+   * @public
    */
   numNodes?: number;
 
   /**
-   * @public
    * <p>The number of edges in the graph.</p>
+   * @public
    */
   numEdges?: number;
 
   /**
-   * @public
    * <p>The number of distinct node labels in the graph.</p>
+   * @public
    */
   numNodeLabels?: number;
 
   /**
-   * @public
    * <p>The number of distinct edge labels in the graph.</p>
+   * @public
    */
   numEdgeLabels?: number;
 
   /**
-   * @public
    * <p>A list of the distinct node labels in the graph.</p>
+   * @public
    */
   nodeLabels?: string[];
 
   /**
-   * @public
    * <p>A list of the distinct edge labels in the graph.</p>
+   * @public
    */
   edgeLabels?: string[];
 
   /**
-   * @public
    * <p>A list of the distinct node properties in the graph, along
    *       with the count of nodes where each property is used.</p>
+   * @public
    */
   numNodeProperties?: number;
 
   /**
-   * @public
    * <p>The number of distinct edge properties in the graph.</p>
+   * @public
    */
   numEdgeProperties?: number;
 
   /**
-   * @public
    * <p>The number of distinct node properties in the graph.</p>
+   * @public
    */
   nodeProperties?: Record<string, number>[];
 
   /**
-   * @public
    * <p>A list of the distinct edge properties in the graph, along
    *       with the count of edges where each property is used.</p>
+   * @public
    */
   edgeProperties?: Record<string, number>[];
 
   /**
-   * @public
    * <p>The total number of usages of all node properties.</p>
+   * @public
    */
   totalNodePropertyValues?: number;
 
   /**
-   * @public
    * <p>The total number of usages of all edge properties.</p>
+   * @public
    */
   totalEdgePropertyValues?: number;
 
   /**
-   * @public
    * <p>This field is only present when the requested mode is
    *       <code>DETAILED</code>. It contains a list of node structures.</p>
+   * @public
    */
   nodeStructures?: NodeStructure[];
 
   /**
-   * @public
    * <p>This field is only present when the requested mode is
    *       <code>DETAILED</code>. It contains a list of edge structures.</p>
+   * @public
    */
   edgeStructures?: EdgeStructure[];
 }
 
 /**
- * @public
  * <p>Payload for the property graph summary response.</p>
+ * @public
  */
 export interface PropertygraphSummaryValueMap {
   /**
-   * @public
    * <p>The version of this graph summary response.</p>
+   * @public
    */
   version?: string;
 
   /**
-   * @public
    * <p>The timestamp, in ISO 8601 format, of the time at which Neptune last computed statistics.</p>
+   * @public
    */
   lastStatisticsComputationTime?: Date;
 
   /**
-   * @public
    * <p>The graph summary.</p>
+   * @public
    */
   graphSummary?: PropertygraphSummary;
 }
@@ -3162,15 +3162,15 @@ export interface PropertygraphSummaryValueMap {
  */
 export interface GetPropertygraphSummaryOutput {
   /**
-   * @public
    * <p>The HTTP return code of the request. If the request succeeded,
    *       the code is 200.</p>
+   * @public
    */
   statusCode?: number;
 
   /**
-   * @public
    * <p>Payload containing the property graph summary response.</p>
+   * @public
    */
   payload?: PropertygraphSummaryValueMap;
 }
@@ -3180,103 +3180,103 @@ export interface GetPropertygraphSummaryOutput {
  */
 export interface GetRDFGraphSummaryInput {
   /**
-   * @public
    * <p>Mode can take one of two values: <code>BASIC</code> (the default),
    *       and <code>DETAILED</code>.</p>
+   * @public
    */
   mode?: GraphSummaryType;
 }
 
 /**
- * @public
  * <p>A subject structure.</p>
+ * @public
  */
 export interface SubjectStructure {
   /**
-   * @public
    * <p>Number of occurrences of this specific structure.</p>
+   * @public
    */
   count?: number;
 
   /**
-   * @public
    * <p>A list of predicates present in this specific structure.</p>
+   * @public
    */
   predicates?: string[];
 }
 
 /**
- * @public
  * <p>The RDF graph summary API returns a read-only list of classes and
  *       predicate keys, along with counts of quads, subjects, and predicates.</p>
+ * @public
  */
 export interface RDFGraphSummary {
   /**
-   * @public
    * <p>The number of distinct subjects in the graph.</p>
+   * @public
    */
   numDistinctSubjects?: number;
 
   /**
-   * @public
    * <p>The number of distinct predicates in the graph.</p>
+   * @public
    */
   numDistinctPredicates?: number;
 
   /**
-   * @public
    * <p>The number of quads in the graph.</p>
+   * @public
    */
   numQuads?: number;
 
   /**
-   * @public
    * <p>The number of classes in the graph.</p>
+   * @public
    */
   numClasses?: number;
 
   /**
-   * @public
    * <p>A list of the classes in the graph.</p>
+   * @public
    */
   classes?: string[];
 
   /**
-   * @public
    * <p>"A list of predicates in the graph, along with the predicate counts.</p>
+   * @public
    */
   predicates?: Record<string, number>[];
 
   /**
-   * @public
    * <p>This field is only present when the request mode is
    *       <code>DETAILED</code>. It contains a list of subject structures.</p>
+   * @public
    */
   subjectStructures?: SubjectStructure[];
 }
 
 /**
- * @public
  * <p>Payload for an RDF graph summary response.</p>
+ * @public
  */
 export interface RDFGraphSummaryValueMap {
   /**
-   * @public
    * <p>The version of this graph summary response.</p>
+   * @public
    */
   version?: string;
 
   /**
-   * @public
    * <p>The timestamp, in ISO 8601 format, of the time at which Neptune
    *       last computed statistics.</p>
+   * @public
    */
   lastStatisticsComputationTime?: Date;
 
   /**
-   * @public
    * <p>The graph summary of an RDF graph. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/neptune-graph-summary.html#neptune-graph-summary-rdf-response">Graph
    *       summary response for an RDF graph</a>.</p>
+   * @public
    */
   graphSummary?: RDFGraphSummary;
 }
@@ -3286,15 +3286,15 @@ export interface RDFGraphSummaryValueMap {
  */
 export interface GetRDFGraphSummaryOutput {
   /**
-   * @public
    * <p>The HTTP return code of the request. If the request succeeded,
    *       the code is 200.</p>
+   * @public
    */
   statusCode?: number;
 
   /**
-   * @public
    * <p>Payload for an RDF graph summary response</p>
+   * @public
    */
   payload?: RDFGraphSummaryValueMap;
 }
@@ -3304,7 +3304,6 @@ export interface GetRDFGraphSummaryOutput {
  */
 export interface GetSparqlStatisticsOutput {
   /**
-   * @public
    * <p>The HTTP return code of the request. If the request succeeded,
    *       the code is 200. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/neptune-dfe-statistics.html#neptune-dfe-statistics-errors">Common
    *       error codes for DFE statistics request</a> for a list of common errors.</p>
@@ -3312,12 +3311,13 @@ export interface GetSparqlStatisticsOutput {
    *       authentication enabled, the IAM user or role making the request must
    *       have a policy attached that allows the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getstatisticsstatus">neptune-db:GetStatisticsStatus</a>
    *       IAM action in that cluster.</p>
+   * @public
    */
   status: string | undefined;
 
   /**
-   * @public
    * <p>Statistics for RDF data.</p>
+   * @public
    */
   payload: Statistics | undefined;
 }
@@ -3327,7 +3327,6 @@ export interface GetSparqlStatisticsOutput {
  */
 export interface GetSparqlStreamInput {
   /**
-   * @public
    * <p>Specifies the maximum number of records to return. There
    *       is also a size limit of 10 MB on the response that can't be modified
    *       and that takes precedence over the number of records specified in
@@ -3335,11 +3334,11 @@ export interface GetSparqlStreamInput {
    *       threshold-breaching record if the 10 MB limit was reached.</p>
    *          <p>The range for <code>limit</code> is 1 to 100,000, with a
    *       default of 10.</p>
+   * @public
    */
   limit?: number;
 
   /**
-   * @public
    * <p>Can be one of:</p>
    *          <ul>
    *             <li>
@@ -3369,86 +3368,87 @@ export interface GetSparqlStreamInput {
    *           which is the latest unexpired (not yet deleted) record in the change-log stream.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   iteratorType?: IteratorType;
 
   /**
-   * @public
    * <p>The commit number of the starting record to read from the
    *       change-log stream. This parameter is required when <code>iteratorType</code>
    *       is<code>AT_SEQUENCE_NUMBER</code> or <code>AFTER_SEQUENCE_NUMBER</code>, and
    *       ignored when <code>iteratorType</code> is <code>TRIM_HORIZON</code> or
    *       <code>LATEST</code>.</p>
+   * @public
    */
   commitNum?: number;
 
   /**
-   * @public
    * <p>The operation sequence number within the specified commit to
    *       start reading from in the change-log stream data. The default is <code>1</code>.</p>
+   * @public
    */
   opNum?: number;
 
   /**
-   * @public
    * <p>If set to TRUE, Neptune compresses the response using gzip encoding.</p>
+   * @public
    */
   encoding?: Encoding;
 }
 
 /**
- * @public
  * <p>Neptune logs are converted to SPARQL quads in the graph using the
  *       Resource Description Framework (RDF) <a href="https://www.w3.org/TR/n-quads/">N-QUADS</a> language defined
  *       in the W3C RDF 1.1 N-Quads specification</p>
+ * @public
  */
 export interface SparqlData {
   /**
-   * @public
    * <p>Holds an <a href="https://www.w3.org/TR/n-quads/">N-QUADS</a>
    *       statement expressing the changed quad.</p>
+   * @public
    */
   stmt: string | undefined;
 }
 
 /**
- * @public
  * <p>A serialized SPARQL stream record capturing a change-log entry
  *       for the RDF graph.</p>
+ * @public
  */
 export interface SparqlRecord {
   /**
-   * @public
    * <p>The time at which the commit for the transaction was requested,
    *       in milliseconds from the Unix epoch.</p>
+   * @public
    */
   commitTimestampInMillis: number | undefined;
 
   /**
-   * @public
    * <p>The sequence identifier of the stream change record.</p>
+   * @public
    */
   eventId: Record<string, string> | undefined;
 
   /**
-   * @public
    * <p>The serialized SPARQL change record. The serialization formats
    *       of each record are described in more detail in <a href="https://docs.aws.amazon.com/neptune/latest/userguide/streams-change-formats.html">Serialization
    *       Formats in Neptune Streams</a>.</p>
+   * @public
    */
   data: SparqlData | undefined;
 
   /**
-   * @public
    * <p>The operation that created the change.</p>
+   * @public
    */
   op: string | undefined;
 
   /**
-   * @public
    * <p>Only present if this operation is the last one in its transaction.
    *       If present, it is set to true. It is useful for ensuring that an
    *       entire transaction is consumed.</p>
+   * @public
    */
   isLastOp?: boolean;
 }
@@ -3458,37 +3458,37 @@ export interface SparqlRecord {
  */
 export interface GetSparqlStreamOutput {
   /**
-   * @public
    * <p>Sequence identifier of the last change in the stream response.</p>
    *          <p>An event ID is composed of two fields: a <code>commitNum</code>, which
    *       identifies a transaction that changed the graph, and an <code>opNum</code>,
    *       which identifies a specific operation within that transaction:</p>
+   * @public
    */
   lastEventId: Record<string, string> | undefined;
 
   /**
-   * @public
    * <p>The time at which the commit for the transaction was requested,
    *       in milliseconds from the Unix epoch.</p>
+   * @public
    */
   lastTrxTimestampInMillis: number | undefined;
 
   /**
-   * @public
    * <p>Serialization format for the change records being returned.
    *       Currently, the only supported value is <code>NQUADS</code>.</p>
+   * @public
    */
   format: string | undefined;
 
   /**
-   * @public
    * <p>An array of serialized change-log stream records included in the response.</p>
+   * @public
    */
   records: SparqlRecord[] | undefined;
 
   /**
-   * @public
    * <p>The total number of records in the response.</p>
+   * @public
    */
   totalRecords: number | undefined;
 }
@@ -3498,34 +3498,34 @@ export interface GetSparqlStreamOutput {
  */
 export interface ListGremlinQueriesInput {
   /**
-   * @public
    * <p>If set to <code>TRUE</code>, the list returned includes waiting
    *       queries. The default is <code>FALSE</code>;</p>
+   * @public
    */
   includeWaiting?: boolean;
 }
 
 /**
- * @public
  * <p>Captures the status of a Gremlin query (see the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/gremlin-api-status.html">Gremlin query
  *       status API</a> page).</p>
+ * @public
  */
 export interface GremlinQueryStatus {
   /**
-   * @public
    * <p>The ID of the Gremlin query.</p>
+   * @public
    */
   queryId?: string;
 
   /**
-   * @public
    * <p>The query string of the Gremlin query.</p>
+   * @public
    */
   queryString?: string;
 
   /**
-   * @public
    * <p>The query statistics of the Gremlin query.</p>
+   * @public
    */
   queryEvalStats?: QueryEvalStats;
 }
@@ -3535,21 +3535,21 @@ export interface GremlinQueryStatus {
  */
 export interface ListGremlinQueriesOutput {
   /**
-   * @public
    * <p>The number of queries that have been accepted but not yet
    *       completed, including queries in the queue.</p>
+   * @public
    */
   acceptedQueryCount?: number;
 
   /**
-   * @public
    * <p>The number of Gremlin queries currently running.</p>
+   * @public
    */
   runningQueryCount?: number;
 
   /**
-   * @public
    * <p>A list of the current queries.</p>
+   * @public
    */
   queries?: GremlinQueryStatus[];
 }
@@ -3559,30 +3559,30 @@ export interface ListGremlinQueriesOutput {
  */
 export interface ListLoaderJobsInput {
   /**
-   * @public
    * <p>The number of load IDs to list. Must be a positive integer
    *       greater than zero and not more than <code>100</code> (which is the default).</p>
+   * @public
    */
   limit?: number;
 
   /**
-   * @public
    * <p>An optional parameter that can be used to exclude the load
    *       IDs of queued load requests when requesting a list of load IDs by
    *       setting the parameter to <code>FALSE</code>. The default value
    *       is <code>TRUE</code>.</p>
+   * @public
    */
   includeQueuedLoads?: boolean;
 }
 
 /**
- * @public
  * <p>Contains a list of load IDs.</p>
+ * @public
  */
 export interface LoaderIdResult {
   /**
-   * @public
    * <p>A list of load IDs.</p>
+   * @public
    */
   loadIds?: string[];
 }
@@ -3592,14 +3592,14 @@ export interface LoaderIdResult {
  */
 export interface ListLoaderJobsOutput {
   /**
-   * @public
    * <p>Returns the status of the job list request.</p>
+   * @public
    */
   status: string | undefined;
 
   /**
-   * @public
    * <p>The requested list of job IDs.</p>
+   * @public
    */
   payload: LoaderIdResult | undefined;
 }
@@ -3609,16 +3609,16 @@ export interface ListLoaderJobsOutput {
  */
 export interface ListMLDataProcessingJobsInput {
   /**
-   * @public
    * <p>The maximum number of items to return (from 1 to 1024; the default is 10).</p>
+   * @public
    */
   maxItems?: number;
 
   /**
-   * @public
    * <p>The ARN of an IAM role that provides Neptune access to SageMaker
    *       and Amazon S3 resources. This must be listed in your DB cluster
    *       parameter group or an error will occur.</p>
+   * @public
    */
   neptuneIamRoleArn?: string;
 }
@@ -3628,8 +3628,8 @@ export interface ListMLDataProcessingJobsInput {
  */
 export interface ListMLDataProcessingJobsOutput {
   /**
-   * @public
    * <p>A page listing data processing job IDs.</p>
+   * @public
    */
   ids?: string[];
 }
@@ -3639,17 +3639,17 @@ export interface ListMLDataProcessingJobsOutput {
  */
 export interface ListMLEndpointsInput {
   /**
-   * @public
    * <p>The maximum number of items to return (from 1 to 1024; the default
    *       is 10.</p>
+   * @public
    */
   maxItems?: number;
 
   /**
-   * @public
    * <p>The ARN of an IAM role that provides Neptune access to SageMaker
    *       and Amazon S3 resources. This must be listed in your DB cluster
    *       parameter group or an error will occur.</p>
+   * @public
    */
   neptuneIamRoleArn?: string;
 }
@@ -3659,8 +3659,8 @@ export interface ListMLEndpointsInput {
  */
 export interface ListMLEndpointsOutput {
   /**
-   * @public
    * <p>A page from the list of inference endpoint IDs.</p>
+   * @public
    */
   ids?: string[];
 }
@@ -3670,17 +3670,17 @@ export interface ListMLEndpointsOutput {
  */
 export interface ListMLModelTrainingJobsInput {
   /**
-   * @public
    * <p>The maximum number of items to return (from 1 to 1024; the default
    *     is 10).</p>
+   * @public
    */
   maxItems?: number;
 
   /**
-   * @public
    * <p>The ARN of an IAM role that provides Neptune access to SageMaker
    *       and Amazon S3 resources. This must be listed in your DB cluster
    *       parameter group or an error will occur.</p>
+   * @public
    */
   neptuneIamRoleArn?: string;
 }
@@ -3690,8 +3690,8 @@ export interface ListMLModelTrainingJobsInput {
  */
 export interface ListMLModelTrainingJobsOutput {
   /**
-   * @public
    * <p>A page of the list of model training job IDs.</p>
+   * @public
    */
   ids?: string[];
 }
@@ -3701,17 +3701,17 @@ export interface ListMLModelTrainingJobsOutput {
  */
 export interface ListMLModelTransformJobsInput {
   /**
-   * @public
    * <p>The maximum number of items to return (from 1 to 1024; the
    *       default is 10).</p>
+   * @public
    */
   maxItems?: number;
 
   /**
-   * @public
    * <p>The ARN of an IAM role that provides Neptune access to SageMaker
    *       and Amazon S3 resources. This must be listed in your DB cluster
    *       parameter group or an error will occur.</p>
+   * @public
    */
   neptuneIamRoleArn?: string;
 }
@@ -3721,8 +3721,8 @@ export interface ListMLModelTransformJobsInput {
  */
 export interface ListMLModelTransformJobsOutput {
   /**
-   * @public
    * <p>A page from the list of model transform IDs.</p>
+   * @public
    */
   ids?: string[];
 }
@@ -3732,10 +3732,10 @@ export interface ListMLModelTransformJobsOutput {
  */
 export interface ListOpenCypherQueriesInput {
   /**
-   * @public
    * <p> When set to <code>TRUE</code> and other parameters are not
    *       present, causes status information to be returned for waiting
    *       queries as well as for running queries.</p>
+   * @public
    */
   includeWaiting?: boolean;
 }
@@ -3745,21 +3745,21 @@ export interface ListOpenCypherQueriesInput {
  */
 export interface ListOpenCypherQueriesOutput {
   /**
-   * @public
    * <p>The number of queries that have been accepted but not yet completed,
    *       including queries in the queue.</p>
+   * @public
    */
   acceptedQueryCount?: number;
 
   /**
-   * @public
    * <p>The number of currently running openCypher queries.</p>
+   * @public
    */
   runningQueryCount?: number;
 
   /**
-   * @public
    * <p>A list of current openCypher queries.</p>
+   * @public
    */
   queries?: GremlinQueryStatus[];
 }
@@ -3785,22 +3785,22 @@ export type StatisticsAutoGenerationMode =
  */
 export interface ManagePropertygraphStatisticsInput {
   /**
-   * @public
    * <p>The statistics generation mode. One of: <code>DISABLE_AUTOCOMPUTE</code>,
    *       <code>ENABLE_AUTOCOMPUTE</code>, or <code>REFRESH</code>, the last of
    *       which manually triggers DFE statistics generation.</p>
+   * @public
    */
   mode?: StatisticsAutoGenerationMode;
 }
 
 /**
- * @public
  * <p>Statistics for <code>REFRESH</code> mode.</p>
+ * @public
  */
 export interface RefreshStatisticsIdMap {
   /**
-   * @public
    * <p>The ID of the statistics generation run that is currently occurring.</p>
+   * @public
    */
   statisticsId?: string;
 }
@@ -3810,15 +3810,15 @@ export interface RefreshStatisticsIdMap {
  */
 export interface ManagePropertygraphStatisticsOutput {
   /**
-   * @public
    * <p>The HTTP return code of the request. If the request succeeded,
    *       the code is 200.</p>
+   * @public
    */
   status: string | undefined;
 
   /**
-   * @public
    * <p>This is only returned for refresh mode.</p>
+   * @public
    */
   payload?: RefreshStatisticsIdMap;
 }
@@ -3828,10 +3828,10 @@ export interface ManagePropertygraphStatisticsOutput {
  */
 export interface ManageSparqlStatisticsInput {
   /**
-   * @public
    * <p>The statistics generation mode. One of: <code>DISABLE_AUTOCOMPUTE</code>,
    *       <code>ENABLE_AUTOCOMPUTE</code>, or <code>REFRESH</code>, the last of
    *       which manually triggers DFE statistics generation.</p>
+   * @public
    */
   mode?: StatisticsAutoGenerationMode;
 }
@@ -3841,42 +3841,42 @@ export interface ManageSparqlStatisticsInput {
  */
 export interface ManageSparqlStatisticsOutput {
   /**
-   * @public
    * <p>The HTTP return code of the request. If the request succeeded,
    *       the code is 200.</p>
+   * @public
    */
   status: string | undefined;
 
   /**
-   * @public
    * <p>This is only returned for refresh mode.</p>
+   * @public
    */
   payload?: RefreshStatisticsIdMap;
 }
 
 /**
- * @public
  * <p>Raised when there is a problem accessing Amazon S3.</p>
+ * @public
  */
 export class S3Exception extends __BaseException {
   readonly name: "S3Exception" = "S3Exception";
   readonly $fault: "client" = "client";
   $retryable = {};
   /**
-   * @public
    * <p>A detailed message describing the problem.</p>
+   * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the request in question.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The HTTP status code returned with the exception.</p>
+   * @public
    */
   code: string | undefined;
   /**
@@ -3984,7 +3984,6 @@ export type S3BucketRegion = (typeof S3BucketRegion)[keyof typeof S3BucketRegion
  */
 export interface StartLoaderJobInput {
   /**
-   * @public
    * <p>The <code>source</code> parameter accepts an S3 URI that identifies a single
    *       file, multiple files, a folder, or multiple folders. Neptune loads every data file
    *       in any folder that is specified.</p>
@@ -4011,11 +4010,11 @@ export interface StartLoaderJobInput {
    *       API call.  It identifies all the objects in the specified S3 bucket whose names begin with
    *       that prefix.  That can be a single file or folder, or multiple files and/or folders.</p>
    *          <p>The specified folder or folders can contain multiple vertex files and multiple edge files.</p>
+   * @public
    */
   source: string | undefined;
 
   /**
-   * @public
    * <p>The format of the data. For more information about data formats for the Neptune
    *       <code>Loader</code> command, see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format.html">Load Data Formats</a>.</p>
    *          <p class="title">
@@ -4064,26 +4063,26 @@ export interface StartLoaderJobInput {
    *         <a href="https://www.w3.org/TR/turtle/">Turtle RDF data format</a>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   format: Format | undefined;
 
   /**
-   * @public
    * <p>The Amazon region of the S3 bucket. This must match the Amazon Region of the DB cluster.</p>
+   * @public
    */
   s3BucketRegion: S3BucketRegion | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) for an IAM role to be assumed by
    *       the Neptune DB instance for access to the S3 bucket. The IAM role ARN provided
    *       here should be attached to the DB cluster (see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-IAM-add-role-cluster.html">Adding
    *       the IAM Role to an Amazon Neptune Cluster</a>.</p>
+   * @public
    */
   iamRoleArn: string | undefined;
 
   /**
-   * @public
    * <p>The load job mode.</p>
    *          <p>
    *             <i>Allowed values</i>: <code>RESUME</code>, <code>NEW</code>,
@@ -4124,11 +4123,11 @@ export interface StartLoaderJobInput {
    *       mode.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   mode?: Mode;
 
   /**
-   * @public
    * <p>
    *             <b>
    *                <code>failOnError</code>
@@ -4142,11 +4141,11 @@ export interface StartLoaderJobInput {
    *       the data in the location specified, skipping any entries with errors.</p>
    *          <p>When this parameter is set to <code>"TRUE"</code>, the loader stops
    *       as soon as it encounters an error.  Data loaded up to that point persists.</p>
+   * @public
    */
   failOnError?: boolean;
 
   /**
-   * @public
    * <p>The optional <code>parallelism</code> parameter can be set
    *       to reduce the number of threads used by the bulk load process.</p>
    *          <p>
@@ -4184,11 +4183,11 @@ export interface StartLoaderJobInput {
    *       between threads when loading openCypher data. When this happens, Neptune returns the
    *       <code>LOAD_DATA_DEADLOCK</code> error. You can generally fix the issue by setting
    *       <code>parallelism</code> to a lower setting and retrying the load command.</p>
+   * @public
    */
   parallelism?: Parallelism;
 
   /**
-   * @public
    * <p>
    *             <b>
    *                <code>parserConfiguration</code>
@@ -4230,11 +4229,11 @@ export interface StartLoaderJobInput {
    *       them accordingly.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   parserConfiguration?: Record<string, string>;
 
   /**
-   * @public
    * <p>
    *             <code>updateSingleCardinalityProperties</code>
    *       is an optional parameter that controls how the bulk loader treats a new
@@ -4253,11 +4252,11 @@ export interface StartLoaderJobInput {
    *       source file(s) being loaded, the final value at the end of the bulk load could be
    *       any one of those new values. The loader only guarantees that the existing value
    *       has been replaced by one of the new ones.</p>
+   * @public
    */
   updateSingleCardinalityProperties?: boolean;
 
   /**
-   * @public
    * <p>This is an optional flag parameter
    *       that indicates whether the load request can be queued up or not. </p>
    *          <p>You don't have to wait for one load job to complete before issuing the next one,
@@ -4270,11 +4269,11 @@ export interface StartLoaderJobInput {
    *             <i>Allowed values</i>: <code>"TRUE"</code>, <code>"FALSE"</code>.</p>
    *          <p>
    *             <i>Default value</i>: <code>"FALSE"</code>.</p>
+   * @public
    */
   queueRequest?: boolean;
 
   /**
-   * @public
    * <p>This is an optional parameter that can make a queued load request
    *       contingent on the successful completion of one or more previous jobs
    *       in the queue.</p>
@@ -4302,11 +4301,11 @@ export interface StartLoaderJobInput {
    *       status will be set to <code>LOAD_FAILED_BECAUSE_DEPENDENCY_NOT_SATISFIED</code>.</p>
    *          <p>You can set up multiple levels of dependency in this way, so that the failure of one job
    *       will cause all requests that are directly or indirectly dependent on it to be cancelled.</p>
+   * @public
    */
   dependencies?: string[];
 
   /**
-   * @public
    * <p>This parameter is required only when loading openCypher data that contains relationship
    *       IDs. It must be included and set to <code>True</code> when openCypher relationship IDs
    *       are explicitly provided in the load data (recommended).</p>
@@ -4321,6 +4320,7 @@ export interface StartLoaderJobInput {
    *       relationships that have already been loaded. If relationship IDs have not been
    *       explicitly assigned, the loader cannot resume a failed load if any relationship file
    *       has had to be corrected, and must instead reload all the relationships.</p>
+   * @public
    */
   userProvidedEdgeIds?: boolean;
 }
@@ -4330,15 +4330,15 @@ export interface StartLoaderJobInput {
  */
 export interface StartLoaderJobOutput {
   /**
-   * @public
    * <p>The HTTP return code indicating the status of the load job.</p>
+   * @public
    */
   status: string | undefined;
 
   /**
-   * @public
    * <p>Contains a <code>loadId</code> name-value pair that provides an identifier
    *       for the load operation.</p>
+   * @public
    */
   payload: Record<string, string> | undefined;
 }
@@ -4348,112 +4348,112 @@ export interface StartLoaderJobOutput {
  */
 export interface StartMLDataProcessingJobInput {
   /**
-   * @public
    * <p>A unique identifier for the new job. The default is an autogenerated UUID.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The job ID of a completed data processing job run on an earlier version of the data.</p>
+   * @public
    */
   previousDataProcessingJobId?: string;
 
   /**
-   * @public
    * <p>The URI of the Amazon S3 location where you want SageMaker to download
    *       the data needed to run the data processing job.</p>
+   * @public
    */
   inputDataS3Location: string | undefined;
 
   /**
-   * @public
    * <p>The URI of the Amazon S3 location where you want SageMaker to save the
    *     results of a data processing job.</p>
+   * @public
    */
   processedDataS3Location: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of an IAM role for SageMaker execution.
    *     This must be listed in your DB cluster parameter group or an error will occur.</p>
+   * @public
    */
   sagemakerIamRoleArn?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of an IAM role that SageMaker can assume
    *       to perform tasks on your behalf. This must be listed in your DB cluster
    *       parameter group or an error will occur.</p>
+   * @public
    */
   neptuneIamRoleArn?: string;
 
   /**
-   * @public
    * <p>The type of ML instance used during data processing. Its memory
    *       should be large enough to hold the processed dataset. The default is
    *       the smallest ml.r5 type whose memory is ten times larger than the size
    *       of the exported graph data on disk.</p>
+   * @public
    */
   processingInstanceType?: string;
 
   /**
-   * @public
    * <p>The disk volume size of the processing instance. Both input data
    *       and processed data are stored on disk, so the volume size must be large
    *       enough to hold both data sets. The default is 0. If not specified or 0,
    *       Neptune ML chooses the volume size automatically based on the data size.</p>
+   * @public
    */
   processingInstanceVolumeSizeInGB?: number;
 
   /**
-   * @public
    * <p>Timeout in seconds for the data processing job. The default is 86,400 (1 day).</p>
+   * @public
    */
   processingTimeOutInSeconds?: number;
 
   /**
-   * @public
    * <p>One of the two model types that Neptune ML currently supports:
    *       heterogeneous graph models (<code>heterogeneous</code>), and knowledge
    *       graph (<code>kge</code>). The default is none. If not specified,
    *       Neptune ML chooses the model type automatically based on the data.</p>
+   * @public
    */
   modelType?: string;
 
   /**
-   * @public
    * <p>A data specification file that describes how to load the exported
    *       graph data for training. The file is automatically generated by the
    *       Neptune export toolkit. The default is
    *       <code>training-data-configuration.json</code>.</p>
+   * @public
    */
   configFileName?: string;
 
   /**
-   * @public
    * <p>The IDs of the subnets in the Neptune VPC. The default is None.</p>
+   * @public
    */
   subnets?: string[];
 
   /**
-   * @public
    * <p>The VPC security group IDs. The default is None.</p>
+   * @public
    */
   securityGroupIds?: string[];
 
   /**
-   * @public
    * <p>The Amazon Key Management Service (Amazon KMS) key that SageMaker uses to
    *       encrypt data on the storage volume attached to the ML compute instances
    *       that run the training job. The default is None.</p>
+   * @public
    */
   volumeEncryptionKMSKey?: string;
 
   /**
-   * @public
    * <p>The Amazon Key Management Service (Amazon KMS) key that SageMaker uses
    *       to encrypt the output of the processing job. The default is none.</p>
+   * @public
    */
   s3OutputEncryptionKMSKey?: string;
 }
@@ -4463,55 +4463,55 @@ export interface StartMLDataProcessingJobInput {
  */
 export interface StartMLDataProcessingJobOutput {
   /**
-   * @public
    * <p>The unique ID of the new data processing job.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The ARN of the data processing job.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>The time it took to create the new processing job, in milliseconds.</p>
+   * @public
    */
   creationTimeInMillis?: number;
 }
 
 /**
- * @public
  * <p>Contains custom model training parameters. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-custom-models.html">Custom
  *       models in Neptune ML</a>.</p>
+ * @public
  */
 export interface CustomModelTrainingParameters {
   /**
-   * @public
    * <p>The path to the Amazon S3 location where the Python module
    *       implementing your model is located. This must point to a valid
    *       existing Amazon S3 location that contains, at a minimum, a training
    *       script, a transform script, and a <code>model-hpo-configuration.json</code>
    *       file.</p>
+   * @public
    */
   sourceS3DirectoryPath: string | undefined;
 
   /**
-   * @public
    * <p>The name of the entry point in your module of a script that performs
    *       model training and takes hyperparameters as command-line arguments,
    *       including fixed hyperparameters. The default is <code>training.py</code>.</p>
+   * @public
    */
   trainingEntryPointScript?: string;
 
   /**
-   * @public
    * <p>The name of the entry point in your module of a script that should
    *       be run after the best model from the hyperparameter search has been
    *       identified, to compute the model artifacts necessary for model deployment.
    *       It should be able to run with no command-line arguments.The default is
    *       <code>transform.py</code>.</p>
+   * @public
    */
   transformEntryPointScript?: string;
 }
@@ -4521,134 +4521,134 @@ export interface CustomModelTrainingParameters {
  */
 export interface StartMLModelTrainingJobInput {
   /**
-   * @public
    * <p>A unique identifier for the new job. The default is An autogenerated UUID.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The job ID of a completed model-training job that you want to update
    *       incrementally based on updated data.</p>
+   * @public
    */
   previousModelTrainingJobId?: string;
 
   /**
-   * @public
    * <p>The job ID of the completed data-processing job that has created
    *       the data that the training will work with.</p>
+   * @public
    */
   dataProcessingJobId: string | undefined;
 
   /**
-   * @public
    * <p>The location in Amazon S3 where the model artifacts are to be stored.</p>
+   * @public
    */
   trainModelS3Location: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of an IAM role for SageMaker execution.This must be listed
    *       in your DB cluster parameter group or an error will occur.</p>
+   * @public
    */
   sagemakerIamRoleArn?: string;
 
   /**
-   * @public
    * <p>The ARN of an IAM role that provides Neptune access to SageMaker
    *       and Amazon S3 resources. This must be listed in your DB cluster
    *       parameter group or an error will occur.</p>
+   * @public
    */
   neptuneIamRoleArn?: string;
 
   /**
-   * @public
    * <p>The type of ML instance used in preparing and managing training
    *       of ML models. This is a CPU instance chosen based on memory requirements
    *       for processing the training data and model.</p>
+   * @public
    */
   baseProcessingInstanceType?: string;
 
   /**
-   * @public
    * <p>The type of ML instance used for model training. All Neptune ML
    *       models support CPU, GPU, and multiGPU training. The default is
    *       <code>ml.p3.2xlarge</code>. Choosing the right instance type for
    *       training depends on the task type, graph size, and your budget.</p>
+   * @public
    */
   trainingInstanceType?: string;
 
   /**
-   * @public
    * <p>The disk volume size of the training instance. Both input data
    *       and the output model are stored on disk, so the volume size must be
    *       large enough to hold both data sets. The default is 0. If not specified
    *       or 0, Neptune ML selects a disk volume size based on the recommendation
    *       generated in the data processing step.</p>
+   * @public
    */
   trainingInstanceVolumeSizeInGB?: number;
 
   /**
-   * @public
    * <p>Timeout in seconds for the training job. The default is 86,400 (1 day).</p>
+   * @public
    */
   trainingTimeOutInSeconds?: number;
 
   /**
-   * @public
    * <p>Maximum total number of training jobs to start for the hyperparameter
    *     tuning job. The default is 2. Neptune ML automatically tunes the hyperparameters
    *     of the machine learning model.  To obtain a model that performs well, use at
    *     least 10 jobs (in other words, set <code>maxHPONumberOfTrainingJobs</code> to 10).
    *     In general, the more tuning runs, the better the results.</p>
+   * @public
    */
   maxHPONumberOfTrainingJobs?: number;
 
   /**
-   * @public
    * <p>Maximum number of parallel training jobs to start for the hyperparameter
    *       tuning job. The default is 2. The number of parallel jobs you can run is
    *       limited by the available resources on your training instance.</p>
+   * @public
    */
   maxHPOParallelTrainingJobs?: number;
 
   /**
-   * @public
    * <p>The IDs of the subnets in the Neptune VPC. The default is None.</p>
+   * @public
    */
   subnets?: string[];
 
   /**
-   * @public
    * <p>The VPC security group IDs. The default is None.</p>
+   * @public
    */
   securityGroupIds?: string[];
 
   /**
-   * @public
    * <p>The Amazon Key Management Service (KMS) key that SageMaker uses to
    *       encrypt data on the storage volume attached to the ML compute instances
    *       that run the training job. The default is None.</p>
+   * @public
    */
   volumeEncryptionKMSKey?: string;
 
   /**
-   * @public
    * <p>The Amazon Key Management Service (KMS) key that SageMaker uses
    *       to encrypt the output of the processing job. The default is none.</p>
+   * @public
    */
   s3OutputEncryptionKMSKey?: string;
 
   /**
-   * @public
    * <p>Optimizes the cost of training machine-learning models by using
    *       Amazon Elastic Compute Cloud spot instances. The default is <code>False</code>.</p>
+   * @public
    */
   enableManagedSpotTraining?: boolean;
 
   /**
-   * @public
    * <p>The configuration for custom model training. This is a JSON object.</p>
+   * @public
    */
   customModelTrainingParameters?: CustomModelTrainingParameters;
 }
@@ -4658,47 +4658,47 @@ export interface StartMLModelTrainingJobInput {
  */
 export interface StartMLModelTrainingJobOutput {
   /**
-   * @public
    * <p>The unique ID of the new model training job.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The ARN of the new model training job.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>The model training job creation time, in milliseconds.</p>
+   * @public
    */
   creationTimeInMillis?: number;
 }
 
 /**
- * @public
  * <p>Contains custom model transform parameters. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-model-transform.html">Use
  *       a trained model to generate new model artifacts</a>.</p>
+ * @public
  */
 export interface CustomModelTransformParameters {
   /**
-   * @public
    * <p>The path to the Amazon S3 location where the Python module
    *       implementing your model is located. This must point to a valid
    *       existing Amazon S3 location that contains, at a minimum, a training
    *       script, a transform script, and a <code>model-hpo-configuration.json</code>
    *       file.</p>
+   * @public
    */
   sourceS3DirectoryPath: string | undefined;
 
   /**
-   * @public
    * <p>The name of the entry point in your module of a script that should
    *       be run after the best model from the hyperparameter search has been
    *       identified, to compute the model artifacts necessary for model deployment.
    *       It should be able to run with no command-line arguments. The default
    *       is <code>transform.py</code>.</p>
+   * @public
    */
   transformEntryPointScript?: string;
 }
@@ -4708,106 +4708,106 @@ export interface CustomModelTransformParameters {
  */
 export interface StartMLModelTransformJobInput {
   /**
-   * @public
    * <p>A unique identifier for the new job. The default is an autogenerated UUID.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The job ID of a completed data-processing job. You must include either
    *       <code>dataProcessingJobId</code> and a <code>mlModelTrainingJobId</code>,
    *       or a <code>trainingJobName</code>.</p>
+   * @public
    */
   dataProcessingJobId?: string;
 
   /**
-   * @public
    * <p>The job ID of a completed model-training job. You must include either
    *       <code>dataProcessingJobId</code> and a <code>mlModelTrainingJobId</code>,
    *       or a <code>trainingJobName</code>.</p>
+   * @public
    */
   mlModelTrainingJobId?: string;
 
   /**
-   * @public
    * <p>The name of a completed SageMaker training job. You must include either
    *       <code>dataProcessingJobId</code> and a <code>mlModelTrainingJobId</code>,
    *       or a <code>trainingJobName</code>.</p>
+   * @public
    */
   trainingJobName?: string;
 
   /**
-   * @public
    * <p>The location in Amazon S3 where the model artifacts are to be stored.</p>
+   * @public
    */
   modelTransformOutputS3Location: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of an IAM role for SageMaker execution. This must be listed
    *     in your DB cluster parameter group or an error will occur.</p>
+   * @public
    */
   sagemakerIamRoleArn?: string;
 
   /**
-   * @public
    * <p>The ARN of an IAM role that provides Neptune access to SageMaker
    *       and Amazon S3 resources. This must be listed in your DB cluster
    *       parameter group or an error will occur.</p>
+   * @public
    */
   neptuneIamRoleArn?: string;
 
   /**
-   * @public
    * <p>Configuration information for a model transform using a custom model.
    *     The <code>customModelTransformParameters</code> object contains the following
    *     fields, which must have values compatible with the saved model parameters from
    *     the training job:</p>
+   * @public
    */
   customModelTransformParameters?: CustomModelTransformParameters;
 
   /**
-   * @public
    * <p>The type of ML instance used in preparing and managing training of ML models.
    *     This is an ML compute instance chosen based on memory requirements for processing
    *     the training data and model.</p>
+   * @public
    */
   baseProcessingInstanceType?: string;
 
   /**
-   * @public
    * <p>The disk volume size of the training instance in gigabytes. The default is 0.
    *       Both input data and the output model are stored on disk, so the volume size must
    *       be large enough to hold both data sets. If not specified or 0, Neptune ML selects
    *       a disk volume size based on the recommendation generated in the data processing step.</p>
+   * @public
    */
   baseProcessingInstanceVolumeSizeInGB?: number;
 
   /**
-   * @public
    * <p>The IDs of the subnets in the Neptune VPC. The default is None.</p>
+   * @public
    */
   subnets?: string[];
 
   /**
-   * @public
    * <p>The VPC security group IDs. The default is None.</p>
+   * @public
    */
   securityGroupIds?: string[];
 
   /**
-   * @public
    * <p>The Amazon Key Management Service (KMS) key that SageMaker uses to encrypt data
    *     on the storage volume attached to the ML compute instances that run the training job.
    *     The default is None.</p>
+   * @public
    */
   volumeEncryptionKMSKey?: string;
 
   /**
-   * @public
    * <p>The Amazon Key Management Service (KMS) key that SageMaker uses to
    *       encrypt the output of the processing job. The default is none.</p>
+   * @public
    */
   s3OutputEncryptionKMSKey?: string;
 }
@@ -4817,20 +4817,20 @@ export interface StartMLModelTransformJobInput {
  */
 export interface StartMLModelTransformJobOutput {
   /**
-   * @public
    * <p>The unique ID of the new model transform job.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The ARN of the model transform job.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>The creation time of the model transform job, in milliseconds.</p>
+   * @public
    */
   creationTimeInMillis?: number;
 }

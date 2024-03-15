@@ -32,7 +32,6 @@ export interface DeleteRepositoryPermissionsPolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *         Deletes the resource policy that is set on a repository. After a resource policy is deleted, the
  *         permissions allowed and denied by the deleted policy are removed. The effect of deleting a resource policy might not be immediate.
@@ -104,6 +103,7 @@ export interface DeleteRepositoryPermissionsPolicyCommandOutput
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * @public
  */
 export class DeleteRepositoryPermissionsPolicyCommand extends $Command
   .classBuilder<

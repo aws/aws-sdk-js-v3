@@ -27,7 +27,6 @@ export interface UntagContactCommandInput extends UntagContactRequest {}
 export interface UntagContactCommandOutput extends UntagContactResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified tags from the contact resource. For more information about this API is
  *    used, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/granular-billing.html">Set
  *     up granular billing for a detailed view of your Amazon Connect usage</a>.</p>
@@ -74,6 +73,7 @@ export interface UntagContactCommandOutput extends UntagContactResponse, __Metad
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UntagContactCommand extends $Command
   .classBuilder<

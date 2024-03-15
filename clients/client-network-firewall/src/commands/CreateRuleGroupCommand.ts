@@ -27,7 +27,6 @@ export interface CreateRuleGroupCommandInput extends CreateRuleGroupRequest {}
 export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates the specified stateless or stateful rule group, which includes the rules for
  *          network traffic inspection, a capacity setting, and tags. </p>
  *          <p>You provide your rule group specification in your request using either
@@ -268,6 +267,7 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ * @public
  */
 export class CreateRuleGroupCommand extends $Command
   .classBuilder<

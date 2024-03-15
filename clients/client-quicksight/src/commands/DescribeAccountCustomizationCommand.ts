@@ -32,7 +32,6 @@ export interface DescribeAccountCustomizationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the customizations associated with the provided Amazon Web Services account and Amazon
  *             Amazon QuickSight namespace in an Amazon Web Services Region. The Amazon QuickSight console evaluates which
  *             customizations to apply by running this API operation with the <code>Resolved</code> flag
@@ -147,6 +146,7 @@ export interface DescribeAccountCustomizationCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DescribeAccountCustomizationCommand extends $Command
   .classBuilder<

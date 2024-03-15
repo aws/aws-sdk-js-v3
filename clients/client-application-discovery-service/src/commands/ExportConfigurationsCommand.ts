@@ -31,9 +31,6 @@ export interface ExportConfigurationsCommandInput {}
 export interface ExportConfigurationsCommandOutput extends ExportConfigurationsResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated
- *
  * <p>Deprecated. Use <code>StartExportTask</code> instead.</p>
  *          <p>Exports all discovered configuration data to an Amazon S3 bucket or an application that
  *       enables you to view and evaluate the data. Data includes tags and tag associations, processes,
@@ -84,6 +81,8 @@ export interface ExportConfigurationsCommandOutput extends ExportConfigurationsR
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ * @public
+ * @deprecated
  */
 export class ExportConfigurationsCommand extends $Command
   .classBuilder<

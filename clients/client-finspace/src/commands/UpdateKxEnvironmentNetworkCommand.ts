@@ -27,7 +27,6 @@ export interface UpdateKxEnvironmentNetworkCommandInput extends UpdateKxEnvironm
 export interface UpdateKxEnvironmentNetworkCommandOutput extends UpdateKxEnvironmentNetworkResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates environment network to connect to your internal network by using a transit gateway. This API supports request to create a transit gateway attachment from FinSpace VPC to your transit gateway ID and create a custom Route-53 outbound resolvers.</p>
  *          <p>Once you send a request to update a network, you cannot change it again. Network update might require termination of any clusters that are running in the existing network.</p>
  * @example
@@ -143,6 +142,7 @@ export interface UpdateKxEnvironmentNetworkCommandOutput extends UpdateKxEnviron
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class UpdateKxEnvironmentNetworkCommand extends $Command
   .classBuilder<

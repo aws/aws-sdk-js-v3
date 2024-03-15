@@ -27,7 +27,6 @@ export interface PauseServiceCommandInput extends PauseServiceRequest {}
 export interface PauseServiceCommandOutput extends PauseServiceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Pause an active App Runner service. App Runner reduces compute capacity for the service to zero and loses state (for example, ephemeral storage is
  *       removed).</p>
  *          <p>This is an asynchronous operation. On a successful call, you can use the returned <code>OperationId</code> and the <a>ListOperations</a>
@@ -163,6 +162,7 @@ export interface PauseServiceCommandOutput extends PauseServiceResponse, __Metad
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ * @public
  */
 export class PauseServiceCommand extends $Command
   .classBuilder<

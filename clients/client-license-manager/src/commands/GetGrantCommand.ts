@@ -27,7 +27,6 @@ export interface GetGrantCommandInput extends GetGrantRequest {}
 export interface GetGrantCommandOutput extends GetGrantResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets detailed information about the specified grant.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface GetGrantCommandOutput extends GetGrantResponse, __MetadataBeare
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * @public
  */
 export class GetGrantCommand extends $Command
   .classBuilder<

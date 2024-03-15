@@ -27,7 +27,6 @@ export interface StartSessionCommandInput extends StartSessionRequest {}
 export interface StartSessionCommandOutput extends StartSessionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Initiates a connection to a target (for example, a managed node) for a Session Manager session.
  *    Returns a URL and token that can be used to open a WebSocket connection for sending input and
  *    receiving outputs.</p>
@@ -86,6 +85,7 @@ export interface StartSessionCommandOutput extends StartSessionResponse, __Metad
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class StartSessionCommand extends $Command
   .classBuilder<

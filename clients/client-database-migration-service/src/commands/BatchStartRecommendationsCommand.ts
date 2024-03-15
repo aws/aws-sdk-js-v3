@@ -31,7 +31,6 @@ export interface BatchStartRecommendationsCommandInput extends BatchStartRecomme
 export interface BatchStartRecommendationsCommandOutput extends BatchStartRecommendationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts the analysis of up to 20 source databases to recommend target engines for each
  *             source database. This is a batch version of <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartRecommendations.html">StartRecommendations</a>.</p>
  *          <p>The result of analysis of each source database is reported individually in the
@@ -88,6 +87,7 @@ export interface BatchStartRecommendationsCommandOutput extends BatchStartRecomm
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class BatchStartRecommendationsCommand extends $Command
   .classBuilder<

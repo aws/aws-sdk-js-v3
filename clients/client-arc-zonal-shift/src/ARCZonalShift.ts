@@ -257,7 +257,6 @@ export interface ARCZonalShift {
 }
 
 /**
- * @public
  * <p>Welcome to the Zonal Shift API Reference Guide for Amazon Route 53 Application Recovery Controller (Route 53 ARC).</p>
  *          <p>You can start a zonal shift to move traffic for a load balancer resource away from an Availability Zone to
  * 			help your application recover quickly from an impairment in an Availability Zone. For example,
@@ -285,6 +284,7 @@ export interface ARCZonalShift {
  *          <p>For more information about using zonal shift and zonal autoshift, see the
  * 			<a href="https://docs.aws.amazon.com/r53recovery/latest/dg/what-is-route53-recovery.html">Amazon Route 53 Application Recovery Controller
  * 				Developer Guide</a>.</p>
+ * @public
  */
 export class ARCZonalShift extends ARCZonalShiftClient implements ARCZonalShift {}
 createAggregatedClient(commands, ARCZonalShift);

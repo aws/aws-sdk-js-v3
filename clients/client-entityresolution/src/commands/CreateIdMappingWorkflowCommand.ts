@@ -27,7 +27,6 @@ export interface CreateIdMappingWorkflowCommandInput extends CreateIdMappingWork
 export interface CreateIdMappingWorkflowCommandOutput extends CreateIdMappingWorkflowOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an <code>IdMappingWorkflow</code> object which stores the configuration of the
  *          data processing job to be run. Each <code>IdMappingWorkflow</code> must have a unique
  *          workflow name. To modify an existing workflow, use the <code>UpdateIdMappingWorkflow</code>
@@ -142,6 +141,7 @@ export interface CreateIdMappingWorkflowCommandOutput extends CreateIdMappingWor
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ * @public
  */
 export class CreateIdMappingWorkflowCommand extends $Command
   .classBuilder<

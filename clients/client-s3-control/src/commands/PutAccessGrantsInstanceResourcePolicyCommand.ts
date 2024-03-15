@@ -38,7 +38,6 @@ export interface PutAccessGrantsInstanceResourcePolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the resource policy of the S3 Access Grants instance. </p>
  *          <dl>
  *             <dt>Permissions</dt>
@@ -76,6 +75,7 @@ export interface PutAccessGrantsInstanceResourcePolicyCommandOutput
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class PutAccessGrantsInstanceResourcePolicyCommand extends $Command
   .classBuilder<

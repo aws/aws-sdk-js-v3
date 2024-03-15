@@ -37,7 +37,6 @@ export interface ModifyVerifiedAccessTrustProviderCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the configuration of the specified Amazon Web Services Verified Access trust provider.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -116,6 +115,7 @@ export interface ModifyVerifiedAccessTrustProviderCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyVerifiedAccessTrustProviderCommand extends $Command
   .classBuilder<

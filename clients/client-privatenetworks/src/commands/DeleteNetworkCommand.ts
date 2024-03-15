@@ -27,7 +27,6 @@ export interface DeleteNetworkCommandInput extends DeleteNetworkRequest {}
 export interface DeleteNetworkCommandOutput extends DeleteNetworkResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified network. You must delete network sites before you delete the
  *             network. For more information, see <a href="https://docs.aws.amazon.com/private-networks/latest/APIReference/API_DeleteNetworkSite.html">DeleteNetworkSite</a> in the <i>API Reference for Amazon Web Services Private
  *                 5G</i>.</p>
@@ -77,6 +76,7 @@ export interface DeleteNetworkCommandOutput extends DeleteNetworkResponse, __Met
  * @throws {@link PrivateNetworksServiceException}
  * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
+ * @public
  */
 export class DeleteNetworkCommand extends $Command
   .classBuilder<

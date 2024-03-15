@@ -27,7 +27,6 @@ export interface ModifyEventSubscriptionCommandInput extends ModifyEventSubscrip
 export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscriptionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies an existing RDS event notification subscription. You can't modify the source identifiers using this call. To change
  *         source identifiers for a subscription, use the <code>AddSourceIdentifierToSubscription</code> and <code>RemoveSourceIdentifierFromSubscription</code> calls.</p>
  *          <p>You can see a list of the event categories for a given source type (<code>SourceType</code>)
@@ -98,6 +97,7 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To modify an event subscription
  * ```javascript
  * // The following example turns off the specified event subscription, so that it no longer publishes notifications to the specified Amazon Simple Notification Service topic.

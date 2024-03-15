@@ -27,7 +27,6 @@ export interface DeleteDomainCommandInput extends DeleteDomainRequest {}
 export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specific domain and all of its customer data, such as customer profile
  *          attributes and their related objects.</p>
  * @example
@@ -71,6 +70,7 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * @public
  */
 export class DeleteDomainCommand extends $Command
   .classBuilder<

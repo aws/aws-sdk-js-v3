@@ -28,7 +28,6 @@ export interface CreateTableCommandInput extends CreateTableRequest {}
 export interface CreateTableCommandOutput extends CreateTableResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a new table to an existing database in your account. In an Amazon Web Services account, table names must be at least unique within each Region if they are in the same
  *          database. You might have identical table names in the same Region if the tables are in
  *          separate databases. While creating the table, you must specify the table name, database
@@ -152,6 +151,7 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  * @throws {@link TimestreamWriteServiceException}
  * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
+ * @public
  */
 export class CreateTableCommand extends $Command
   .classBuilder<

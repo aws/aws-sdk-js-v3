@@ -27,7 +27,6 @@ export interface CreateVpcCommandInput extends CreateVpcRequest {}
 export interface CreateVpcCommandOutput extends CreateVpcResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a VPC with the specified CIDR blocks. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html">IP addressing for your VPCs and subnets</a> in the
  *         <i>Amazon VPC User Guide</i>.</p>
  *          <p>You can optionally request an IPv6 CIDR block for the VPC. You can request an
@@ -123,6 +122,7 @@ export interface CreateVpcCommandOutput extends CreateVpcResult, __MetadataBeare
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To create a VPC
  * ```javascript
  * // This example creates a VPC with the specified CIDR block.

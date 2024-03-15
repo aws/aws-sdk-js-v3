@@ -27,7 +27,6 @@ export interface CreateUserProfileCommandInput extends CreateUserProfileRequest 
 export interface CreateUserProfileCommandOutput extends CreateUserProfileResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new user profile.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy
@@ -65,6 +64,7 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileResult,
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class CreateUserProfileCommand extends $Command
   .classBuilder<

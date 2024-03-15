@@ -27,7 +27,6 @@ export interface CreateReportPlanCommandInput extends CreateReportPlanInput {}
 export interface CreateReportPlanCommandOutput extends CreateReportPlanOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a report plan. A report plan is a document that contains information about the
  *          contents of the report and where Backup will deliver it.</p>
  *          <p>If you call <code>CreateReportPlan</code> with a plan that already exists, you receive
@@ -105,6 +104,7 @@ export interface CreateReportPlanCommandOutput extends CreateReportPlanOutput, _
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class CreateReportPlanCommand extends $Command
   .classBuilder<

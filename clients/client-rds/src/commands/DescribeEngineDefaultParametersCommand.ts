@@ -32,7 +32,6 @@ export interface DescribeEngineDefaultParametersCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the default engine and system parameter information for the specified database engine.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface DescribeEngineDefaultParametersCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To describe the default engine and system parameter information for the database engine
  * ```javascript
  * // The following example retrieves details for the default engine and system parameter information for MySQL 5.7 DB instances.

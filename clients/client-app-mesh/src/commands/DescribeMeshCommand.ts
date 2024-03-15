@@ -27,7 +27,6 @@ export interface DescribeMeshCommandInput extends DescribeMeshInput {}
 export interface DescribeMeshCommandOutput extends DescribeMeshOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes an existing service mesh.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface DescribeMeshCommandOutput extends DescribeMeshOutput, __Metadat
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ * @public
  */
 export class DescribeMeshCommand extends $Command
   .classBuilder<

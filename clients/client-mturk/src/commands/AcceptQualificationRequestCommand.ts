@@ -27,7 +27,6 @@ export interface AcceptQualificationRequestCommandInput extends AcceptQualificat
 export interface AcceptQualificationRequestCommandOutput extends AcceptQualificationRequestResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The <code>AcceptQualificationRequest</code> operation approves a Worker's request for a Qualification.
  *         </p>
@@ -69,6 +68,7 @@ export interface AcceptQualificationRequestCommandOutput extends AcceptQualifica
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * @public
  */
 export class AcceptQualificationRequestCommand extends $Command
   .classBuilder<

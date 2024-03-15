@@ -27,7 +27,6 @@ export interface ListJobsCommandInput extends ListJobsRequest {}
 export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of Batch jobs.</p>
  *          <p>You must specify only one of the following items:</p>
  *          <ul>
@@ -116,6 +115,7 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ * @public
  * @example To list running jobs
  * ```javascript
  * // This example lists the running jobs in the HighPriority job queue.

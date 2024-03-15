@@ -27,7 +27,6 @@ export interface GetResourcePoliciesCommandInput extends GetResourcePoliciesRequ
 export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the resource policies for the specified resources that you own and have
  *             shared.</p>
  * @example
@@ -86,6 +85,7 @@ export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesRes
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * @public
  */
 export class GetResourcePoliciesCommand extends $Command
   .classBuilder<

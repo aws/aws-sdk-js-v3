@@ -31,7 +31,6 @@ export interface PutSlotTypeCommandInput extends PutSlotTypeRequest {}
 export interface PutSlotTypeCommandOutput extends PutSlotTypeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a custom slot type or replaces an existing custom slot
  *       type.</p>
  *          <p>To create a custom slot type, specify a name for the slot type and
@@ -136,6 +135,7 @@ export interface PutSlotTypeCommandOutput extends PutSlotTypeResponse, __Metadat
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * @public
  * @example To Create a Slot Type
  * ```javascript
  * // This example shows how to create a slot type that describes pizza sauces.

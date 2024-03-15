@@ -35,7 +35,6 @@ export interface DeregisterTaskFromMaintenanceWindowCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a task from a maintenance window.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DeregisterTaskFromMaintenanceWindowCommandOutput
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DeregisterTaskFromMaintenanceWindowCommand extends $Command
   .classBuilder<

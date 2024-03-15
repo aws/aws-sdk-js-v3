@@ -27,7 +27,6 @@ export interface DescribeCanariesLastRunCommandInput extends DescribeCanariesLas
 export interface DescribeCanariesLastRunCommandOutput extends DescribeCanariesLastRunResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use this operation to see information from the most recent run of each canary that you have created.</p>
  *          <p>This operation supports resource-level authorization using an IAM policy and
  *          the <code>Names</code> parameter. If you specify the <code>Names</code> parameter, the operation is successful only if you have authorization to view
@@ -92,6 +91,7 @@ export interface DescribeCanariesLastRunCommandOutput extends DescribeCanariesLa
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ * @public
  */
 export class DescribeCanariesLastRunCommand extends $Command
   .classBuilder<

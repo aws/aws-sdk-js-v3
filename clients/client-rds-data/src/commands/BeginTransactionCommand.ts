@@ -27,7 +27,6 @@ export interface BeginTransactionCommandInput extends BeginTransactionRequest {}
 export interface BeginTransactionCommandOutput extends BeginTransactionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a SQL transaction.</p>
  *          <note>
  *             <p>A transaction can run for a maximum of 24 hours. A transaction is terminated and rolled back automatically after 24
@@ -117,6 +116,7 @@ export interface BeginTransactionCommandOutput extends BeginTransactionResponse,
  * @throws {@link RDSDataServiceException}
  * <p>Base exception class for all service exceptions from RDSData service.</p>
  *
+ * @public
  */
 export class BeginTransactionCommand extends $Command
   .classBuilder<

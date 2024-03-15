@@ -27,7 +27,6 @@ export interface UpdateAuthorizerCommandInput extends UpdateAuthorizerRequest {}
 export interface UpdateAuthorizerCommandOutput extends UpdateAuthorizerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an authorizer.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateAuthorizer</a> action.</p>
  * @example
@@ -85,6 +84,7 @@ export interface UpdateAuthorizerCommandOutput extends UpdateAuthorizerResponse,
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class UpdateAuthorizerCommand extends $Command
   .classBuilder<

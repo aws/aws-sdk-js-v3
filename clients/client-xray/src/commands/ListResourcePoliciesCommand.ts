@@ -27,7 +27,6 @@ export interface ListResourcePoliciesCommandInput extends ListResourcePoliciesRe
 export interface ListResourcePoliciesCommandOutput extends ListResourcePoliciesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the list of resource policies in the target Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface ListResourcePoliciesCommandOutput extends ListResourcePoliciesR
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ * @public
  */
 export class ListResourcePoliciesCommand extends $Command
   .classBuilder<

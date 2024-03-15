@@ -27,7 +27,6 @@ export interface CreateDevicePoolCommandInput extends CreateDevicePoolRequest {}
 export interface CreateDevicePoolCommandOutput extends CreateDevicePoolResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a device pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface CreateDevicePoolCommandOutput extends CreateDevicePoolResult, _
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To create a new device pool
  * ```javascript
  * // The following example creates a new device pool named MyDevicePool inside an existing project.

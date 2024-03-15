@@ -1747,8 +1747,8 @@ export interface Macie2 {
 }
 
 /**
- * @public
  * <p>Amazon Macie</p>
+ * @public
  */
 export class Macie2 extends Macie2Client implements Macie2 {}
 createAggregatedClient(commands, Macie2);

@@ -27,7 +27,6 @@ export interface ListFleetsCommandInput extends ListFleetsInput {}
 export interface ListFleetsCommandOutput extends ListFleetsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of compute fleet names with each compute fleet name representing a single compute fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +63,7 @@ export interface ListFleetsCommandOutput extends ListFleetsOutput, __MetadataBea
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * @public
  */
 export class ListFleetsCommand extends $Command
   .classBuilder<

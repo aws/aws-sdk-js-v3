@@ -27,7 +27,6 @@ export interface CreateUserGroupCommandInput extends CreateUserGroupMessage {}
 export interface CreateUserGroupCommandOutput extends UserGroup, __MetadataBearer {}
 
 /**
- * @public
  * <p>For Redis engine version 6.0 onwards: Creates a Redis user group. For more
  *             information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>
  *          </p>
@@ -114,6 +113,7 @@ export interface CreateUserGroupCommandOutput extends UserGroup, __MetadataBeare
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  */
 export class CreateUserGroupCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateSpaceCommandInput extends CreateSpaceInput {}
 export interface CreateSpaceCommandOutput extends CreateSpaceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an AWS re:Post Private private re:Post.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface CreateSpaceCommandOutput extends CreateSpaceOutput, __MetadataB
  * @throws {@link RepostspaceServiceException}
  * <p>Base exception class for all service exceptions from Repostspace service.</p>
  *
+ * @public
  */
 export class CreateSpaceCommand extends $Command
   .classBuilder<

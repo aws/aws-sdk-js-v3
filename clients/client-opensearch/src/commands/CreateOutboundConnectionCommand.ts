@@ -27,7 +27,6 @@ export interface CreateOutboundConnectionCommandInput extends CreateOutboundConn
 export interface CreateOutboundConnectionCommandOutput extends CreateOutboundConnectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new cross-cluster search connection from a source Amazon OpenSearch Service domain
  *    to a destination domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search
  *     for Amazon OpenSearch Service</a>.</p>
@@ -116,6 +115,7 @@ export interface CreateOutboundConnectionCommandOutput extends CreateOutboundCon
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class CreateOutboundConnectionCommand extends $Command
   .classBuilder<

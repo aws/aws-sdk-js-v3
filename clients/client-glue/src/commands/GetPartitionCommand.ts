@@ -27,7 +27,6 @@ export interface GetPartitionCommandInput extends GetPartitionRequest {}
 export interface GetPartitionCommandOutput extends GetPartitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about a specified partition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -150,6 +149,7 @@ export interface GetPartitionCommandOutput extends GetPartitionResponse, __Metad
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetPartitionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetCostEstimationCommandInput extends GetCostEstimationRequest 
 export interface GetCostEstimationCommandOutput extends GetCostEstimationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an estimate of the monthly cost for DevOps Guru to analyze your Amazon Web Services resources.
  * 			For more information,
  * 			see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/cost-estimate.html">Estimate your
@@ -108,6 +107,7 @@ export interface GetCostEstimationCommandOutput extends GetCostEstimationRespons
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ * @public
  */
 export class GetCostEstimationCommand extends $Command
   .classBuilder<

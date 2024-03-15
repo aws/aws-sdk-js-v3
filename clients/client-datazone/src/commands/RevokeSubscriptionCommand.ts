@@ -31,7 +31,6 @@ export interface RevokeSubscriptionCommandInput extends RevokeSubscriptionInput 
 export interface RevokeSubscriptionCommandOutput extends RevokeSubscriptionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Revokes a specified subscription in Amazon DataZone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -118,6 +117,7 @@ export interface RevokeSubscriptionCommandOutput extends RevokeSubscriptionOutpu
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class RevokeSubscriptionCommand extends $Command
   .classBuilder<

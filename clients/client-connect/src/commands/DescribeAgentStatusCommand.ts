@@ -27,7 +27,6 @@ export interface DescribeAgentStatusCommandInput extends DescribeAgentStatusRequ
 export interface DescribeAgentStatusCommandOutput extends DescribeAgentStatusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Describes an agent status.</p>
  * @example
@@ -85,6 +84,7 @@ export interface DescribeAgentStatusCommandOutput extends DescribeAgentStatusRes
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DescribeAgentStatusCommand extends $Command
   .classBuilder<

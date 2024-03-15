@@ -1432,9 +1432,9 @@ export interface Personalize {
 }
 
 /**
- * @public
  * <p>Amazon Personalize is a machine learning service that makes it easy to add individualized
  *       recommendations to customers.</p>
+ * @public
  */
 export class Personalize extends PersonalizeClient implements Personalize {}
 createAggregatedClient(commands, Personalize);

@@ -27,7 +27,6 @@ export interface DescribeLoadBalancersCommandInput extends DescribeLoadBalancers
 export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This API operation is superseded by <a>DescribeTrafficSources</a>,
  *                 which can describe multiple traffic sources types. We recommend using
@@ -100,6 +99,7 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancer
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To describe the load balancers for an Auto Scaling group
  * ```javascript
  * // This example describes the load balancers attached to the specified Auto Scaling group.

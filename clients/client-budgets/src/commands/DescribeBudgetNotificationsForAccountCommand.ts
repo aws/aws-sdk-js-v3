@@ -36,7 +36,6 @@ export interface DescribeBudgetNotificationsForAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  * 			Lists the budget names and notifications that are associated with an account.
  * 		</p>
@@ -104,6 +103,7 @@ export interface DescribeBudgetNotificationsForAccountCommandOutput
  * @throws {@link BudgetsServiceException}
  * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
+ * @public
  */
 export class DescribeBudgetNotificationsForAccountCommand extends $Command
   .classBuilder<

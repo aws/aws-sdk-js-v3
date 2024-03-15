@@ -27,7 +27,6 @@ export interface DeleteIpamCommandInput extends DeleteIpamRequest {}
 export interface DeleteIpamCommandOutput extends DeleteIpamResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete an IPAM. Deleting an IPAM removes all monitored data associated with the IPAM including the historical data for CIDRs.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/delete-ipam.html">Delete an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.
  *       </p>
@@ -85,6 +84,7 @@ export interface DeleteIpamCommandOutput extends DeleteIpamResult, __MetadataBea
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DeleteIpamCommand extends $Command
   .classBuilder<

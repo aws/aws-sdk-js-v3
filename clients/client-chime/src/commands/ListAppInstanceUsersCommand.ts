@@ -32,9 +32,6 @@ export interface ListAppInstanceUsersCommandInput extends ListAppInstanceUsersRe
 export interface ListAppInstanceUsersCommandOutput extends ListAppInstanceUsersResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by ListAppInstanceUsers in the Amazon Chime SDK Identity Namespace
- *
  * <p>List all <code>AppInstanceUsers</code>
  *             created under a single <code>AppInstance</code>.
  *         </p>
@@ -99,6 +96,8 @@ export interface ListAppInstanceUsersCommandOutput extends ListAppInstanceUsersR
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by ListAppInstanceUsers in the Amazon Chime SDK Identity Namespace
  */
 export class ListAppInstanceUsersCommand extends $Command
   .classBuilder<

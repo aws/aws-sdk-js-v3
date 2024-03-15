@@ -423,7 +423,6 @@ export type NetworkFirewallClientResolvedConfigType = __SmithyResolvedConfigurat
 export interface NetworkFirewallClientResolvedConfig extends NetworkFirewallClientResolvedConfigType {}
 
 /**
- * @public
  * <p>This is the API Reference for Network Firewall. This guide is for developers who need
  *          detailed information about the Network Firewall API actions, data types, and errors. </p>
  *          <ul>
@@ -502,6 +501,7 @@ export interface NetworkFirewallClientResolvedConfig extends NetworkFirewallClie
  *                endpoints.</p>
  *             </li>
  *          </ol>
+ * @public
  */
 export class NetworkFirewallClient extends __Client<
   __HttpHandlerOptions,

@@ -27,7 +27,6 @@ export interface GetResourcePoliciesCommandInput extends GetResourcePoliciesRequ
 export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an array of the <code>Policy</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesRes
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class GetResourcePoliciesCommand extends $Command
   .classBuilder<

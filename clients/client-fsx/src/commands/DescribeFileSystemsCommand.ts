@@ -31,7 +31,6 @@ export interface DescribeFileSystemsCommandInput extends DescribeFileSystemsRequ
 export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the description of specific Amazon FSx file systems, if a
  *                 <code>FileSystemIds</code> value is provided for that file system. Otherwise, it
  *             returns descriptions of all file systems owned by your Amazon Web Services account in the
@@ -658,6 +657,7 @@ export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsRes
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  * @example To describe an Amazon FSx file system
  * ```javascript
  * // This operation describes all of the Amazon FSx file systems in an account.

@@ -27,7 +27,6 @@ export interface UpdateTagOptionCommandInput extends UpdateTagOptionInput {}
 export interface UpdateTagOptionCommandOutput extends UpdateTagOptionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified TagOption.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface UpdateTagOptionCommandOutput extends UpdateTagOptionOutput, __M
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class UpdateTagOptionCommand extends $Command
   .classBuilder<

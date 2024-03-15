@@ -31,7 +31,6 @@ export interface CreateVoiceConnectorCommandInput extends CreateVoiceConnectorRe
 export interface CreateVoiceConnectorCommandOutput extends CreateVoiceConnectorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon Chime SDK Voice Connector. For more information about
  *           Voice Connectors,
  *          see <a href="https://docs.aws.amazon.com/chime-sdk/latest/ag/voice-connector-groups.html">Managing Amazon Chime SDK Voice Connector groups</a> in the <i>Amazon Chime SDK
@@ -103,6 +102,7 @@ export interface CreateVoiceConnectorCommandOutput extends CreateVoiceConnectorR
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class CreateVoiceConnectorCommand extends $Command
   .classBuilder<

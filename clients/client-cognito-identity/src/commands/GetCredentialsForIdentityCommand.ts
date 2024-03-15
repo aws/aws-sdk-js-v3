@@ -27,7 +27,6 @@ export interface GetCredentialsForIdentityCommandInput extends GetCredentialsFor
 export interface GetCredentialsForIdentityCommandOutput extends GetCredentialsForIdentityResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns credentials for the provided identity ID. Any provided logins will be
  *          validated against supported login providers. If the token is for
  *          cognito-identity.amazonaws.com, it will be passed through to AWS Security Token Service
@@ -97,6 +96,7 @@ export interface GetCredentialsForIdentityCommandOutput extends GetCredentialsFo
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ * @public
  */
 export class GetCredentialsForIdentityCommand extends $Command
   .classBuilder<

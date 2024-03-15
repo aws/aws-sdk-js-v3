@@ -27,7 +27,6 @@ export interface GetResourcePermissionCommandInput extends GetResourcePermission
 export interface GetResourcePermissionCommandOutput extends GetResourcePermissionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets permissions associated with the target database.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface GetResourcePermissionCommandOutput extends GetResourcePermissio
  * @throws {@link SsmSapServiceException}
  * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
+ * @public
  */
 export class GetResourcePermissionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CopyDBClusterParameterGroupCommandInput extends CopyDBClusterPa
 export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterParameterGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Copies the specified DB cluster parameter group.</p>
  *          <note>
  *             <p>You can't copy a default DB cluster parameter group. Instead, create a new custom DB cluster parameter group, which copies
@@ -84,6 +83,7 @@ export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterP
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To copy a DB cluster parameter group
  * ```javascript
  * // This example copies a DB cluster parameter group.

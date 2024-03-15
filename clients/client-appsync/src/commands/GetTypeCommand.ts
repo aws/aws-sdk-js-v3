@@ -27,7 +27,6 @@ export interface GetTypeCommandInput extends GetTypeRequest {}
 export interface GetTypeCommandOutput extends GetTypeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a <code>Type</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface GetTypeCommandOutput extends GetTypeResponse, __MetadataBearer 
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class GetTypeCommand extends $Command
   .classBuilder<

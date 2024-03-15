@@ -36,7 +36,6 @@ export interface CreateCustomRoutingEndpointGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Create an endpoint group for the specified listener for a custom routing accelerator.
  * 	    An endpoint group is a collection of endpoints in one Amazon Web Services
  * 		Region. </p>
@@ -118,6 +117,7 @@ export interface CreateCustomRoutingEndpointGroupCommandOutput
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class CreateCustomRoutingEndpointGroupCommand extends $Command
   .classBuilder<

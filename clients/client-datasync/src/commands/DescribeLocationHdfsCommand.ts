@@ -27,7 +27,6 @@ export interface DescribeLocationHdfsCommandInput extends DescribeLocationHdfsRe
 export interface DescribeLocationHdfsCommandOutput extends DescribeLocationHdfsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides details about how an DataSync transfer location for a Hadoop
  *       Distributed File System (HDFS) is configured.</p>
  * @example
@@ -84,6 +83,7 @@ export interface DescribeLocationHdfsCommandOutput extends DescribeLocationHdfsR
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class DescribeLocationHdfsCommand extends $Command
   .classBuilder<

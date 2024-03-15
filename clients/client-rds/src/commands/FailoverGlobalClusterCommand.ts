@@ -27,7 +27,6 @@ export interface FailoverGlobalClusterCommandInput extends FailoverGlobalCluster
 export interface FailoverGlobalClusterCommandOutput extends FailoverGlobalClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Promotes the specified secondary DB cluster to be the primary DB cluster in the global database cluster to fail over or switch over a global database. Switchover operations were previously called "managed planned failovers."</p>
  *          <note>
  *             <p>Although this operation can be used either to fail over or to switch over a global database cluster, its intended use is for global database failover.
@@ -133,6 +132,7 @@ export interface FailoverGlobalClusterCommandOutput extends FailoverGlobalCluste
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  */
 export class FailoverGlobalClusterCommand extends $Command
   .classBuilder<

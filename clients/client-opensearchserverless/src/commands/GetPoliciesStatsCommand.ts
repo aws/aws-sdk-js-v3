@@ -31,7 +31,6 @@ export interface GetPoliciesStatsCommandInput extends GetPoliciesStatsRequest {}
 export interface GetPoliciesStatsCommandOutput extends GetPoliciesStatsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns statistical information about your OpenSearch Serverless access policies, security
  *             configurations, and security policies.</p>
  * @example
@@ -74,6 +73,7 @@ export interface GetPoliciesStatsCommandOutput extends GetPoliciesStatsResponse,
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ * @public
  */
 export class GetPoliciesStatsCommand extends $Command
   .classBuilder<

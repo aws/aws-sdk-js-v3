@@ -27,7 +27,6 @@ export interface DeleteTimelineEventCommandInput extends DeleteTimelineEventInpu
 export interface DeleteTimelineEventCommandOutput extends DeleteTimelineEventOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a timeline event from an incident.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DeleteTimelineEventCommandOutput extends DeleteTimelineEventOut
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ * @public
  */
 export class DeleteTimelineEventCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface DescribeProjectCommandInput extends DescribeProjectRequest {}
 export interface DescribeProjectCommandOutput extends DescribeProjectResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a project and its resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResult, __M
  * @throws {@link CodeStarServiceException}
  * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
+ * @public
  */
 export class DescribeProjectCommand extends $Command
   .classBuilder<

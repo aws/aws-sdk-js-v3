@@ -27,7 +27,6 @@ export interface ListAppsListsCommandInput extends ListAppsListsRequest {}
 export interface ListAppsListsCommandOutput extends ListAppsListsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an array of <code>AppsListDataSummary</code> objects.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface ListAppsListsCommandOutput extends ListAppsListsResponse, __Met
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * @public
  */
 export class ListAppsListsCommand extends $Command
   .classBuilder<

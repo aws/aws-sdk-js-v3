@@ -27,7 +27,6 @@ export interface ListBotsCommandInput extends ListBotsRequest {}
 export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of available bots.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBeare
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class ListBotsCommand extends $Command
   .classBuilder<

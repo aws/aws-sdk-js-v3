@@ -31,7 +31,6 @@ export interface PublishVersionCommandInput extends PublishVersionRequest {}
 export interface PublishVersionCommandOutput extends FunctionConfiguration, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">version</a> from the
  *       current code and configuration of a function. Use versions to create a snapshot of your function code and
  *       configuration that doesn't change.</p>
@@ -190,6 +189,7 @@ export interface PublishVersionCommandOutput extends FunctionConfiguration, __Me
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class PublishVersionCommand extends $Command
   .classBuilder<

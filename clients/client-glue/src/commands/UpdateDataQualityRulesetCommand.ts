@@ -27,7 +27,6 @@ export interface UpdateDataQualityRulesetCommandInput extends UpdateDataQualityR
 export interface UpdateDataQualityRulesetCommandOutput extends UpdateDataQualityRulesetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified data quality ruleset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface UpdateDataQualityRulesetCommandOutput extends UpdateDataQuality
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class UpdateDataQualityRulesetCommand extends $Command
   .classBuilder<

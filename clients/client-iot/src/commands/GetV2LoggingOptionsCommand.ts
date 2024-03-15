@@ -27,7 +27,6 @@ export interface GetV2LoggingOptionsCommandInput extends GetV2LoggingOptionsRequ
 export interface GetV2LoggingOptionsCommandOutput extends GetV2LoggingOptionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the fine grained logging options.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetV2LoggingOptions</a> action.</p>
  * @example
@@ -65,6 +64,7 @@ export interface GetV2LoggingOptionsCommandOutput extends GetV2LoggingOptionsRes
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class GetV2LoggingOptionsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteTemplateCommandInput extends DeleteTemplateRequest {}
 export interface DeleteTemplateCommandOutput extends DeleteTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an email template.</p>
  *          <p>You can execute this operation no more than once per second.</p>
  * @example
@@ -54,6 +53,7 @@ export interface DeleteTemplateCommandOutput extends DeleteTemplateResponse, __M
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  */
 export class DeleteTemplateCommand extends $Command
   .classBuilder<

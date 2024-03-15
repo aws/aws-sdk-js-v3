@@ -27,7 +27,6 @@ export interface UpdateEnabledControlCommandInput extends UpdateEnabledControlIn
 export interface UpdateEnabledControlCommandOutput extends UpdateEnabledControlOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Updates the configuration of an already enabled control.</p>
  *          <p>If the enabled control shows an <code>EnablementStatus</code> of SUCCEEDED, supply parameters that are different from the currently configured parameters. Otherwise, Amazon Web Services Control Tower will not accept the request.</p>
@@ -89,6 +88,7 @@ export interface UpdateEnabledControlCommandOutput extends UpdateEnabledControlO
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ * @public
  */
 export class UpdateEnabledControlCommand extends $Command
   .classBuilder<

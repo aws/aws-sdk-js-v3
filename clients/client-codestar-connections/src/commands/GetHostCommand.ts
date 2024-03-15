@@ -31,7 +31,6 @@ export interface GetHostCommandInput extends GetHostInput {}
 export interface GetHostCommandOutput extends GetHostOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the host ARN and details such as status, provider type, endpoint, and, if
  *       applicable, the VPC configuration.</p>
  * @example
@@ -79,6 +78,7 @@ export interface GetHostCommandOutput extends GetHostOutput, __MetadataBearer {}
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ * @public
  */
 export class GetHostCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface ReloadTablesCommandInput extends ReloadTablesMessage {}
 export interface ReloadTablesCommandOutput extends ReloadTablesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Reloads the target database table with the source data. </p>
  *          <p>You can only use this operation with a task in the <code>RUNNING</code> state, otherwise the service
  *            will throw an <code>InvalidResourceStateFault</code> exception.</p>
@@ -74,6 +73,7 @@ export interface ReloadTablesCommandOutput extends ReloadTablesResponse, __Metad
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class ReloadTablesCommand extends $Command
   .classBuilder<

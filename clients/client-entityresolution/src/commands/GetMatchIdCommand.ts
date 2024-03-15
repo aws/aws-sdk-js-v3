@@ -27,7 +27,6 @@ export interface GetMatchIdCommandInput extends GetMatchIdInput {}
 export interface GetMatchIdCommandOutput extends GetMatchIdOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the corresponding Match ID of a customer record if the record has been
  *          processed.</p>
  * @example
@@ -83,6 +82,7 @@ export interface GetMatchIdCommandOutput extends GetMatchIdOutput, __MetadataBea
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ * @public
  */
 export class GetMatchIdCommand extends $Command
   .classBuilder<

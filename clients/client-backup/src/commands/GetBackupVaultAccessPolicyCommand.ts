@@ -27,7 +27,6 @@ export interface GetBackupVaultAccessPolicyCommandInput extends GetBackupVaultAc
 export interface GetBackupVaultAccessPolicyCommandOutput extends GetBackupVaultAccessPolicyOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the access policy document that is associated with the named backup
  *          vault.</p>
  * @example
@@ -71,6 +70,7 @@ export interface GetBackupVaultAccessPolicyCommandOutput extends GetBackupVaultA
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class GetBackupVaultAccessPolicyCommand extends $Command
   .classBuilder<

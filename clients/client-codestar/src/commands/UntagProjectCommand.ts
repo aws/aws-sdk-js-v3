@@ -27,7 +27,6 @@ export interface UntagProjectCommandInput extends UntagProjectRequest {}
 export interface UntagProjectCommandOutput extends UntagProjectResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes tags from a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface UntagProjectCommandOutput extends UntagProjectResult, __Metadat
  * @throws {@link CodeStarServiceException}
  * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
+ * @public
  */
 export class UntagProjectCommand extends $Command
   .classBuilder<

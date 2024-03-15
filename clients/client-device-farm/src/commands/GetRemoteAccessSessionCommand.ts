@@ -27,7 +27,6 @@ export interface GetRemoteAccessSessionCommandInput extends GetRemoteAccessSessi
 export interface GetRemoteAccessSessionCommandOutput extends GetRemoteAccessSessionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a link to a currently running remote access session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -151,6 +150,7 @@ export interface GetRemoteAccessSessionCommandOutput extends GetRemoteAccessSess
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To get a remote access session
  * ```javascript
  * // The following example gets a specific remote access session.

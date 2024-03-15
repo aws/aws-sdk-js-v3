@@ -31,7 +31,6 @@ export interface DescribeUserPoolCommandInput extends DescribeUserPoolRequest {}
 export interface DescribeUserPoolCommandOutput extends DescribeUserPoolResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the configuration information and metadata of the specified user pool.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
@@ -234,6 +233,7 @@ export interface DescribeUserPoolCommandOutput extends DescribeUserPoolResponse,
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class DescribeUserPoolCommand extends $Command
   .classBuilder<

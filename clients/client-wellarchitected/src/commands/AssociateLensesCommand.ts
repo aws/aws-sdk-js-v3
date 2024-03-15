@@ -27,7 +27,6 @@ export interface AssociateLensesCommandInput extends AssociateLensesInput {}
 export interface AssociateLensesCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Associate a lens to a workload.</p>
  *          <p>Up to 10 lenses can be associated with a workload in a single API operation. A
  *         maximum of 20 lenses can be associated with a workload.</p>
@@ -84,6 +83,7 @@ export interface AssociateLensesCommandOutput extends __MetadataBearer {}
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * @public
  */
 export class AssociateLensesCommand extends $Command
   .classBuilder<

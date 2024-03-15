@@ -32,7 +32,6 @@ export interface ClassifyDocumentCommandInput extends ClassifyDocumentRequest {}
 export interface ClassifyDocumentCommandOutput extends ClassifyDocumentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a classification request to analyze a single document in real-time. <code>ClassifyDocument</code>
  *       supports the following model types:</p>
  *          <ul>
@@ -147,6 +146,7 @@ export interface ClassifyDocumentCommandOutput extends ClassifyDocumentResponse,
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class ClassifyDocumentCommand extends $Command
   .classBuilder<

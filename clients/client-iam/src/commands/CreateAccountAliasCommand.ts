@@ -27,7 +27,6 @@ export interface CreateAccountAliasCommandInput extends CreateAccountAliasReques
 export interface CreateAccountAliasCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an alias for your Amazon Web Services account. For information about using an Amazon Web Services account
  *             alias, see <a href="https://docs.aws.amazon.com/signin/latest/userguide/CreateAccountAlias.html">Creating, deleting, and
  *                 listing an Amazon Web Services account alias</a> in the <i>Amazon Web Services Sign-In User
@@ -72,6 +71,7 @@ export interface CreateAccountAliasCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To create an account alias
  * ```javascript
  * // The following command associates the alias examplecorp to your AWS account.

@@ -27,7 +27,6 @@ export interface GetSubscriptionAttributesCommandInput extends GetSubscriptionAt
 export interface GetSubscriptionAttributesCommandOutput extends GetSubscriptionAttributesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns all of the properties of a subscription.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface GetSubscriptionAttributesCommandOutput extends GetSubscriptionA
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * @public
  */
 export class GetSubscriptionAttributesCommand extends $Command
   .classBuilder<

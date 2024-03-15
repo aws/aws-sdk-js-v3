@@ -27,7 +27,6 @@ export interface ListMonitoringAlertHistoryCommandInput extends ListMonitoringAl
 export interface ListMonitoringAlertHistoryCommandOutput extends ListMonitoringAlertHistoryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of past alerts in a model monitoring schedule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface ListMonitoringAlertHistoryCommandOutput extends ListMonitoringA
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListMonitoringAlertHistoryCommand extends $Command
   .classBuilder<

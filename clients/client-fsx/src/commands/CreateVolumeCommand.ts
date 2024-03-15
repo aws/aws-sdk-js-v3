@@ -27,7 +27,6 @@ export interface CreateVolumeCommandInput extends CreateVolumeRequest {}
 export interface CreateVolumeCommandOutput extends CreateVolumeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an FSx for ONTAP or Amazon FSx for OpenZFS storage volume.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -722,6 +721,7 @@ export interface CreateVolumeCommandOutput extends CreateVolumeResponse, __Metad
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  */
 export class CreateVolumeCommand extends $Command
   .classBuilder<

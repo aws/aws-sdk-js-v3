@@ -31,7 +31,6 @@ export interface DescribeDirectoriesCommandInput extends DescribeDirectoriesRequ
 export interface DescribeDirectoriesCommandOutput extends DescribeDirectoriesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Obtains information about the directories that belong to this account.</p>
  *          <p>You can retrieve information about specific directories by passing the directory
  *       identifiers in the <code>DirectoryIds</code> parameter. Otherwise, all directories that belong
@@ -187,6 +186,7 @@ export interface DescribeDirectoriesCommandOutput extends DescribeDirectoriesRes
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class DescribeDirectoriesCommand extends $Command
   .classBuilder<

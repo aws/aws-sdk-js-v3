@@ -27,7 +27,6 @@ export interface ListInstancesCommandInput extends ListInstancesRequest {}
 export interface ListInstancesCommandOutput extends ListInstancesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists summary information about the instances that you registered by using a specified
  *    service.</p>
  * @example
@@ -74,6 +73,7 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
+ * @public
  * @example Example: List service instances
  * ```javascript
  * // Example: List service instances

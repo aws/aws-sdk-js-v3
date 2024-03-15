@@ -27,7 +27,6 @@ export interface ListSyncResourcesCommandInput extends ListSyncResourcesRequest 
 export interface ListSyncResourcesCommandOutput extends ListSyncResourcesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the sync resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface ListSyncResourcesCommandOutput extends ListSyncResourcesRespons
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ * @public
  */
 export class ListSyncResourcesCommand extends $Command
   .classBuilder<

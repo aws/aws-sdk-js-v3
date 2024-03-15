@@ -31,7 +31,6 @@ export interface ListPackagesForDomainCommandInput extends ListPackagesForDomain
 export interface ListPackagesForDomainCommandOutput extends ListPackagesForDomainResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all packages associated with the Amazon ES domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface ListPackagesForDomainCommandOutput extends ListPackagesForDomai
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * @public
  */
 export class ListPackagesForDomainCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListMonitorsCommandInput extends ListMonitorsInput {}
 export interface ListMonitorsCommandOutput extends ListMonitorsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all of your monitors for Amazon CloudWatch Internet Monitor and their statuses, along with the Amazon Resource Name (ARN) and name of each monitor.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface ListMonitorsCommandOutput extends ListMonitorsOutput, __Metadat
  * @throws {@link InternetMonitorServiceException}
  * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
+ * @public
  */
 export class ListMonitorsCommand extends $Command
   .classBuilder<

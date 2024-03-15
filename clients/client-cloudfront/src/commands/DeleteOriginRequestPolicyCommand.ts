@@ -27,7 +27,6 @@ export interface DeleteOriginRequestPolicyCommandInput extends DeleteOriginReque
 export interface DeleteOriginRequestPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an origin request policy.</p>
  *          <p>You cannot delete an origin request policy if it's attached to any cache behaviors.
  * 			First update your distributions to remove the origin request policy from all cache
@@ -80,6 +79,7 @@ export interface DeleteOriginRequestPolicyCommandOutput extends __MetadataBearer
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class DeleteOriginRequestPolicyCommand extends $Command
   .classBuilder<

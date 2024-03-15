@@ -18,106 +18,106 @@ export const AddressType = {
 export type AddressType = (typeof AddressType)[keyof typeof AddressType];
 
 /**
- * @public
  * <p>The address that you want the Snow device(s) associated with a specific job to be
  *       shipped to. Addresses are validated at the time of creation. The address you provide must be
  *       located within the serviceable area of your region. Although no individual elements of the
  *         <code>Address</code> are required, if the address is invalid or unsupported, then an
  *       exception is thrown.</p>
+ * @public
  */
 export interface Address {
   /**
-   * @public
    * <p>The unique ID for an address.</p>
+   * @public
    */
   AddressId?: string;
 
   /**
-   * @public
    * <p>The name of a person to receive a Snow device at an address.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The name of the company to receive a Snow device at an address.</p>
+   * @public
    */
   Company?: string;
 
   /**
-   * @public
    * <p>The first line in a street address that a Snow device is to be delivered
    *       to.</p>
+   * @public
    */
   Street1?: string;
 
   /**
-   * @public
    * <p>The second line in a street address that a Snow device is to be delivered
    *       to.</p>
+   * @public
    */
   Street2?: string;
 
   /**
-   * @public
    * <p>The third line in a street address that a Snow device is to be delivered
    *       to.</p>
+   * @public
    */
   Street3?: string;
 
   /**
-   * @public
    * <p>The city in an address that a Snow device is to be delivered to.</p>
+   * @public
    */
   City?: string;
 
   /**
-   * @public
    * <p>The state or province in an address that a Snow device is to be delivered to.</p>
+   * @public
    */
   StateOrProvince?: string;
 
   /**
-   * @public
    * <p>This field is no longer used and the value is ignored.</p>
+   * @public
    */
   PrefectureOrDistrict?: string;
 
   /**
-   * @public
    * <p>This field is no longer used and the value is ignored.</p>
+   * @public
    */
   Landmark?: string;
 
   /**
-   * @public
    * <p>The country in an address that a Snow device is to be delivered to.</p>
+   * @public
    */
   Country?: string;
 
   /**
-   * @public
    * <p>The postal code in an address that a Snow device is to be delivered to.</p>
+   * @public
    */
   PostalCode?: string;
 
   /**
-   * @public
    * <p>The phone number associated with an address that a Snow device is to be delivered
    *       to.</p>
+   * @public
    */
   PhoneNumber?: string;
 
   /**
-   * @public
    * <p>If the address you are creating is a primary address, then set this option to
    *       true. This field is not supported in most regions.</p>
+   * @public
    */
   IsRestricted?: boolean;
 
   /**
-   * @public
    * <p>Differentiates between delivery address and pickup address in the customer account. Provided at job creation.</p>
+   * @public
    */
   Type?: AddressType;
 }
@@ -127,9 +127,9 @@ export interface Address {
  */
 export interface CancelClusterRequest {
   /**
-   * @public
    * <p>The 39-character ID for the cluster that you want to cancel, for example
    *         <code>CID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+   * @public
    */
   ClusterId: string | undefined;
 }
@@ -140,9 +140,9 @@ export interface CancelClusterRequest {
 export interface CancelClusterResult {}
 
 /**
- * @public
  * <p>The action can't be performed because the job's current state doesn't allow that action
  *       to be performed.</p>
+ * @public
  */
 export class InvalidJobStateException extends __BaseException {
   readonly name: "InvalidJobStateException" = "InvalidJobStateException";
@@ -163,17 +163,17 @@ export class InvalidJobStateException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified resource can't be found. Check the information you provided in your last
  *       request, and try again.</p>
+ * @public
  */
 export class InvalidResourceException extends __BaseException {
   readonly name: "InvalidResourceException" = "InvalidResourceException";
   readonly $fault: "client" = "client";
   Message?: string;
   /**
-   * @public
    * <p>The provided resource value is invalid.</p>
+   * @public
    */
   ResourceType?: string;
   /**
@@ -192,9 +192,9 @@ export class InvalidResourceException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The provided Key Management Service key lacks the permissions to perform the specified
  *         <a>CreateJob</a> or <a>UpdateJob</a> action.</p>
+ * @public
  */
 export class KMSRequestFailedException extends __BaseException {
   readonly name: "KMSRequestFailedException" = "KMSRequestFailedException";
@@ -219,9 +219,9 @@ export class KMSRequestFailedException extends __BaseException {
  */
 export interface CancelJobRequest {
   /**
-   * @public
    * <p>The 39-character job ID for the job that you want to cancel, for example
    *         <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+   * @public
    */
   JobId: string | undefined;
 }
@@ -236,8 +236,8 @@ export interface CancelJobResult {}
  */
 export interface CreateAddressRequest {
   /**
-   * @public
    * <p>The address that you want the Snow device shipped to.</p>
+   * @public
    */
   Address: Address | undefined;
 }
@@ -247,18 +247,18 @@ export interface CreateAddressRequest {
  */
 export interface CreateAddressResult {
   /**
-   * @public
    * <p>The automatically generated ID for a specific address. You'll use this ID when you
    *       create a job to specify which address you want the Snow device for that job shipped
    *       to.</p>
+   * @public
    */
   AddressId?: string;
 }
 
 /**
- * @public
  * <p>The address provided was invalid. Check the address with your region's carrier, and try
  *       again.</p>
+ * @public
  */
 export class InvalidAddressException extends __BaseException {
   readonly name: "InvalidAddressException" = "InvalidAddressException";
@@ -279,10 +279,10 @@ export class InvalidAddressException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The address is either outside the serviceable area for your region, or an error
  *       occurred. Check the address with your region's carrier and try again. If the issue persists,
  *       contact Amazon Web Services Support.</p>
+ * @public
  */
 export class UnsupportedAddressException extends __BaseException {
   readonly name: "UnsupportedAddressException" = "UnsupportedAddressException";
@@ -343,7 +343,6 @@ export const JobState = {
 export type JobState = (typeof JobState)[keyof typeof JobState];
 
 /**
- * @public
  * <p>The Amazon Simple Notification Service (Amazon SNS) notification settings associated
  *       with a specific job. The <code>Notification</code> object is returned as a part of the
  *       response syntax of the <code>DescribeJob</code> action in the <code>JobMetadata</code> data
@@ -352,51 +351,52 @@ export type JobState = (typeof JobState)[keyof typeof JobState];
  *       notify based on a specific set of job states using the <code>JobStatesToNotify</code> array of
  *       strings, or you can specify that you want to have Amazon SNS notifications sent out for all
  *       job states with <code>NotifyAll</code> set to true.</p>
+ * @public
  */
 export interface Notification {
   /**
-   * @public
    * <p>The new SNS <code>TopicArn</code> that you want to associate with this job. You can
    *       create Amazon Resource Names (ARNs) for topics by using the <a href="https://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html">CreateTopic</a> Amazon SNS API
    *       action.</p>
    *          <p>You can subscribe email addresses to an Amazon SNS topic through the Amazon Web Services Management Console, or by using the <a href="https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html">Subscribe</a> Amazon Simple Notification
    *       Service (Amazon SNS) API action.</p>
+   * @public
    */
   SnsTopicARN?: string;
 
   /**
-   * @public
    * <p>The list of job states that will trigger a notification for this job.</p>
+   * @public
    */
   JobStatesToNotify?: JobState[];
 
   /**
-   * @public
    * <p>Any change in job state will trigger a notification for this job.</p>
+   * @public
    */
   NotifyAll?: boolean;
 
   /**
-   * @public
    * <p>Used to send SNS notifications for the person picking up the device (identified during job creation).</p>
+   * @public
    */
   DevicePickupSnsTopicARN?: string;
 }
 
 /**
- * @public
  * <p>An object representing the metadata and configuration settings of EKS Anywhere on the Snow Family device.</p>
+ * @public
  */
 export interface EKSOnDeviceServiceConfiguration {
   /**
-   * @public
    * <p>The Kubernetes version for EKS Anywhere on the Snow Family device.</p>
+   * @public
    */
   KubernetesVersion?: string;
 
   /**
-   * @public
    * <p>The optional version of EKS Anywhere on the Snow Family device.</p>
+   * @public
    */
   EKSAnywhereVersion?: string;
 }
@@ -415,104 +415,104 @@ export const StorageUnit = {
 export type StorageUnit = (typeof StorageUnit)[keyof typeof StorageUnit];
 
 /**
- * @public
  * <p>An object that represents the metadata and configuration settings for the NFS (Network
  *       File System) service on an Amazon Web Services Snow Family device.</p>
+ * @public
  */
 export interface NFSOnDeviceServiceConfiguration {
   /**
-   * @public
    * <p>The maximum NFS storage for one Snow Family device.</p>
+   * @public
    */
   StorageLimit?: number;
 
   /**
-   * @public
    * <p>The scale unit of the NFS storage on the device.</p>
    *          <p>Valid values: TB.</p>
+   * @public
    */
   StorageUnit?: StorageUnit;
 }
 
 /**
- * @public
  * <p>Amazon S3 compatible storage on Snow family devices configuration items.</p>
+ * @public
  */
 export interface S3OnDeviceServiceConfiguration {
   /**
-   * @public
    * <p>If the specified storage limit value matches storage limit of one of the defined configurations, that configuration will be used.
    *       If the specified storage limit value does not match any defined configuration, the request will fail. If more than one configuration has
    *       the same storage limit as specified, the other input need to be provided.</p>
+   * @public
    */
   StorageLimit?: number;
 
   /**
-   * @public
    * <p>Storage unit. Currently the only supported unit is TB.</p>
+   * @public
    */
   StorageUnit?: StorageUnit;
 
   /**
-   * @public
    * <p>Applicable when creating a cluster. Specifies how many nodes are needed for Amazon S3 compatible storage on Snow family devices. If specified, the other input can be omitted.</p>
+   * @public
    */
   ServiceSize?: number;
 
   /**
-   * @public
    * <p>>Fault tolerance level of the cluster. This indicates the number of nodes that can go down without degrading the performance of the cluster. This additional input helps when the specified <code>StorageLimit</code> matches more than one Amazon S3 compatible storage on Snow family devices service configuration.</p>
+   * @public
    */
   FaultTolerance?: number;
 }
 
 /**
- * @public
  * <p>An object that represents the metadata and configuration settings for the Storage Gateway
  *       service Tape Gateway type on an Amazon Web Services Snow Family device.</p>
+ * @public
  */
 export interface TGWOnDeviceServiceConfiguration {
   /**
-   * @public
    * <p>The maximum number of virtual tapes to store on one Snow Family device. Due to physical
    *       resource limitations, this value must be set to 80 for Snowball Edge.</p>
+   * @public
    */
   StorageLimit?: number;
 
   /**
-   * @public
    * <p>The scale unit of the virtual tapes on the device.</p>
+   * @public
    */
   StorageUnit?: StorageUnit;
 }
 
 /**
- * @public
  * <p>An object that represents the metadata and configuration settings for services on an Amazon Web Services
  *       Snow Family device.</p>
+ * @public
  */
 export interface OnDeviceServiceConfiguration {
   /**
-   * @public
    * <p>Represents the NFS (Network File System) service on a Snow Family device.</p>
+   * @public
    */
   NFSOnDeviceService?: NFSOnDeviceServiceConfiguration;
 
   /**
-   * @public
    * <p>Represents the Storage Gateway service Tape Gateway type on a Snow Family device.</p>
+   * @public
    */
   TGWOnDeviceService?: TGWOnDeviceServiceConfiguration;
 
   /**
-   * @public
    * <p>The configuration of EKS Anywhere on the Snow Family device.</p>
+   * @public
    */
   EKSOnDeviceService?: EKSOnDeviceServiceConfiguration;
 
   /**
-   * @public
    * <p>Configuration for Amazon S3 compatible storage on Snow family devices.</p>
+   * @public
    */
   S3OnDeviceService?: S3OnDeviceServiceConfiguration;
 }
@@ -533,75 +533,75 @@ export const RemoteManagement = {
 export type RemoteManagement = (typeof RemoteManagement)[keyof typeof RemoteManagement];
 
 /**
- * @public
  * <p>A JSON-formatted object that contains the IDs for an Amazon Machine Image (AMI),
  *       including the Amazon EC2-compatible AMI ID and the Snow device AMI ID. Each AMI has these two IDs to
  *       simplify identifying the AMI in both the Amazon Web Services Cloud and on the device.</p>
+ * @public
  */
 export interface Ec2AmiResource {
   /**
-   * @public
    * <p>The ID of the AMI in Amazon EC2.</p>
+   * @public
    */
   AmiId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the AMI on the Snow device.</p>
+   * @public
    */
   SnowballAmiId?: string;
 }
 
 /**
- * @public
  * <p>The container for the <a>EventTriggerDefinition$EventResourceARN</a>.</p>
+ * @public
  */
 export interface EventTriggerDefinition {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) for any local Amazon S3 resource that is an Lambda function's event trigger associated with this job.</p>
+   * @public
    */
   EventResourceARN?: string;
 }
 
 /**
- * @public
  * <p>Identifies </p>
+ * @public
  */
 export interface LambdaResource {
   /**
-   * @public
    * <p>An Amazon Resource Name (ARN) that represents an Lambda function to be
    *       triggered by PUT object actions on the associated local Amazon S3 resource.</p>
+   * @public
    */
   LambdaArn?: string;
 
   /**
-   * @public
    * <p>The array of ARNs for <a>S3Resource</a> objects to trigger the <a>LambdaResource</a> objects associated with this job.</p>
+   * @public
    */
   EventTriggers?: EventTriggerDefinition[];
 }
 
 /**
- * @public
  * <p>Contains a key range. For export jobs, a <code>S3Resource</code> object can have an
  *       optional <code>KeyRange</code> value. The length of the range is defined at job creation, and
  *       has either an inclusive <code>BeginMarker</code>, an inclusive <code>EndMarker</code>, or
  *       both. Ranges are UTF-8 binary sorted.</p>
+ * @public
  */
 export interface KeyRange {
   /**
-   * @public
    * <p>The key that starts an optional key range for an export job. Ranges are inclusive and
    *       UTF-8 binary sorted.</p>
+   * @public
    */
   BeginMarker?: string;
 
   /**
-   * @public
    * <p>The key that ends an optional key range for an export job. Ranges are inclusive and
    *       UTF-8 binary sorted.</p>
+   * @public
    */
   EndMarker?: string;
 }
@@ -636,82 +636,82 @@ export const TransferOption = {
 export type TransferOption = (typeof TransferOption)[keyof typeof TransferOption];
 
 /**
- * @public
  * <p>An object that represents the service or services on the Snow Family device that your
  *       transferred data will be exported from or imported into. Amazon Web Services Snow Family supports Amazon S3 and
  *       NFS (Network File System).</p>
+ * @public
  */
 export interface TargetOnDeviceService {
   /**
-   * @public
    * <p>Specifies the name of the service on the Snow Family device that your transferred data
    *       will be exported from or imported into.</p>
+   * @public
    */
   ServiceName?: DeviceServiceName;
 
   /**
-   * @public
    * <p>Specifies whether the data is being imported or exported. You can import or export the
    *       data, or use it locally on the device.</p>
+   * @public
    */
   TransferOption?: TransferOption;
 }
 
 /**
- * @public
  * <p>Each <code>S3Resource</code> object represents an Amazon S3 bucket that your
  *       transferred data will be exported from or imported into. For export jobs, this object can have
  *       an optional <code>KeyRange</code> value. The length of the range is defined at job creation,
  *       and has either an inclusive <code>BeginMarker</code>, an inclusive <code>EndMarker</code>, or
  *       both. Ranges are UTF-8 binary sorted.</p>
+ * @public
  */
 export interface S3Resource {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of an Amazon S3 bucket.</p>
+   * @public
    */
   BucketArn?: string;
 
   /**
-   * @public
    * <p>For export jobs, you can provide an optional <code>KeyRange</code> within a specific
    *       Amazon S3 bucket. The length of the range is defined at job creation, and has either an
    *       inclusive <code>BeginMarker</code>, an inclusive <code>EndMarker</code>, or both. Ranges are
    *       UTF-8 binary sorted.</p>
+   * @public
    */
   KeyRange?: KeyRange;
 
   /**
-   * @public
    * <p>Specifies the service or services on the Snow Family device that your transferred data
    *       will be exported from or imported into. Amazon Web Services Snow Family supports Amazon S3 and NFS (Network File
    *       System).</p>
+   * @public
    */
   TargetOnDeviceServices?: TargetOnDeviceService[];
 }
 
 /**
- * @public
  * <p>Contains an array of Amazon Web Services resource objects. Each object represents an
  *       Amazon S3 bucket, an Lambda function, or an Amazon Machine Image (AMI) based
  *       on Amazon EC2 that is associated with a particular job.</p>
+ * @public
  */
 export interface JobResource {
   /**
-   * @public
    * <p>An array of <code>S3Resource</code> objects.</p>
+   * @public
    */
   S3Resources?: S3Resource[];
 
   /**
-   * @public
    * <p>The Python-language Lambda functions for this job.</p>
+   * @public
    */
   LambdaResources?: LambdaResource[];
 
   /**
-   * @public
    * <p>The Amazon Machine Images (AMIs) associated with this job.</p>
+   * @public
    */
   Ec2AmiResources?: Ec2AmiResource[];
 }
@@ -778,26 +778,26 @@ export const SnowballType = {
 export type SnowballType = (typeof SnowballType)[keyof typeof SnowballType];
 
 /**
- * @public
  * <p>The tax documents required in Amazon Web Services Region in India.</p>
+ * @public
  */
 export interface INDTaxDocuments {
   /**
-   * @public
    * <p>The Goods and Services Tax (GST) documents required in Amazon Web Services Region in
    *       India.</p>
+   * @public
    */
   GSTIN?: string;
 }
 
 /**
- * @public
  * <p>The tax documents required in your Amazon Web Services Region.</p>
+ * @public
  */
 export interface TaxDocuments {
   /**
-   * @public
    * <p>The tax documents required in Amazon Web Services Region in India.</p>
+   * @public
    */
   IND?: INDTaxDocuments;
 }
@@ -807,7 +807,6 @@ export interface TaxDocuments {
  */
 export interface CreateClusterRequest {
   /**
-   * @public
    * <p>The type of job for this cluster. Currently, the only job type supported for clusters
    *       is <code>LOCAL_USE</code>.</p>
    *          <p>For more information, see
@@ -815,54 +814,54 @@ export interface CreateClusterRequest {
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i> or
    *       "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html" (Snow
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
+   * @public
    */
   JobType: JobType | undefined;
 
   /**
-   * @public
    * <p>The resources associated with the cluster job. These resources include Amazon S3
    *       buckets and optional Lambda functions written in the Python language.
    *     </p>
+   * @public
    */
   Resources?: JobResource;
 
   /**
-   * @public
    * <p>Specifies the service or services on the Snow Family device that your transferred data
    *       will be exported from or imported into. Amazon Web Services Snow Family device clusters support Amazon S3 and NFS
    *       (Network File System).</p>
+   * @public
    */
   OnDeviceServiceConfiguration?: OnDeviceServiceConfiguration;
 
   /**
-   * @public
    * <p>An optional description of this specific cluster, for example <code>Environmental Data
    *         Cluster-01</code>.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The ID for the address that you want the cluster shipped to.</p>
+   * @public
    */
   AddressId: string | undefined;
 
   /**
-   * @public
    * <p>The <code>KmsKeyARN</code> value that you want to associate with this cluster.
    *         <code>KmsKeyARN</code> values are created by using the <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a> API action in Key Management Service (KMS). </p>
+   * @public
    */
   KmsKeyARN?: string;
 
   /**
-   * @public
    * <p>The <code>RoleARN</code> that you want to associate with this cluster.
    *         <code>RoleArn</code> values are created by using the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a> API action in Identity and Access Management (IAM).</p>
+   * @public
    */
   RoleARN?: string;
 
   /**
-   * @public
    * <p>The type of Snow Family devices to use for this cluster. </p>
    *          <note>
    *             <p>For cluster jobs, Amazon Web Services Snow Family currently supports only the
@@ -873,11 +872,11 @@ export interface CreateClusterRequest {
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i> or
    *       "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html" (Snow
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
+   * @public
    */
   SnowballType: SnowballType | undefined;
 
   /**
-   * @public
    * <p>The shipping speed for each node in this cluster. This speed doesn't dictate how soon
    *       you'll get each Snowball Edge device, rather it represents how quickly each device moves to
    *       its destination while in transit. Regional shipping speeds are as follows: </p>
@@ -918,59 +917,59 @@ export interface CreateClusterRequest {
    *                <p>In the US, you have access to one-day shipping and two-day shipping.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ShippingOption: ShippingOption | undefined;
 
   /**
-   * @public
    * <p>The Amazon Simple Notification Service (Amazon SNS) notification settings for this
    *       cluster.</p>
+   * @public
    */
   Notification?: Notification;
 
   /**
-   * @public
    * <p>The forwarding address ID for a cluster. This field is not supported in most
    *       regions.</p>
+   * @public
    */
   ForwardingAddressId?: string;
 
   /**
-   * @public
    * <p>The tax documents required in your Amazon Web Services Region.</p>
+   * @public
    */
   TaxDocuments?: TaxDocuments;
 
   /**
-   * @public
    * <p>Allows you to securely operate and manage Snow devices in a cluster remotely from outside
    *       of your internal network. When set to <code>INSTALLED_AUTOSTART</code>, remote management will
    *       automatically be available when the device arrives at your location. Otherwise, you need to
    *       use the Snowball Client to manage the device.</p>
+   * @public
    */
   RemoteManagement?: RemoteManagement;
 
   /**
-   * @public
    * <p>If provided, each job will be automatically created and associated with the new cluster. If not provided, will be treated as 0.</p>
+   * @public
    */
   InitialClusterSize?: number;
 
   /**
-   * @public
    * <p>Force to create cluster when user attempts to overprovision or underprovision a cluster. A cluster is overprovisioned or underprovisioned if the initial size of the cluster is more (overprovisioned) or less (underprovisioned) than what
    *       needed to meet capacity requirement specified with <code>OnDeviceServiceConfiguration</code>.</p>
+   * @public
    */
   ForceCreateJobs?: boolean;
 
   /**
-   * @public
    * <p>Lists long-term pricing id that will be used to associate with jobs automatically created for the new cluster.</p>
+   * @public
    */
   LongTermPricingIds?: string[];
 
   /**
-   * @public
    * <p>If your job is being created in one of the US regions, you have the option of
    *       specifying what size Snow device you'd like for this job. In all other regions, Snowballs come
    *       with 80 TB in storage capacity.</p>
@@ -979,61 +978,62 @@ export interface CreateClusterRequest {
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i> or
    *       "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html" (Snow
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
+   * @public
    */
   SnowballCapacityPreference?: SnowballCapacity;
 }
 
 /**
- * @public
  * <p>Each <code>JobListEntry</code> object contains a job's state, a job's ID, and a value
  *       that indicates whether the job is a job part, in the case of an export job.</p>
+ * @public
  */
 export interface JobListEntry {
   /**
-   * @public
    * <p>The automatically generated ID for a job, for example
    *         <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+   * @public
    */
   JobId?: string;
 
   /**
-   * @public
    * <p>The current state of this job.</p>
+   * @public
    */
   JobState?: JobState;
 
   /**
-   * @public
    * <p>A value that indicates that this job is a main job. A main job represents a successful
    *       request to create an export job. Main jobs aren't associated with any Snowballs. Instead, each
    *       main job will have at least one job part, and each job part is associated with a Snowball. It
    *       might take some time before the job parts associated with a particular main job are listed,
    *       because they are created after the main job is created.</p>
+   * @public
    */
   IsMaster?: boolean;
 
   /**
-   * @public
    * <p>The type of job.</p>
+   * @public
    */
   JobType?: JobType;
 
   /**
-   * @public
    * <p>The type of device used with this job.</p>
+   * @public
    */
   SnowballType?: SnowballType;
 
   /**
-   * @public
    * <p>The creation date for this job.</p>
+   * @public
    */
   CreationDate?: Date;
 
   /**
-   * @public
    * <p>The optional description of this specific job, for example <code>Important Photos
    *         2016-08-11</code>.</p>
+   * @public
    */
   Description?: string;
 }
@@ -1043,22 +1043,22 @@ export interface JobListEntry {
  */
 export interface CreateClusterResult {
   /**
-   * @public
    * <p>The automatically generated ID for a cluster.</p>
+   * @public
    */
   ClusterId?: string;
 
   /**
-   * @public
    * <p>List of jobs created for this cluster. For syntax, see <a href="http://amazonaws.com/snowball/latest/api-reference/API_ListJobs.html#API_ListJobs_ResponseSyntax">ListJobsResult$JobListEntries</a> in this guide.</p>
+   * @public
    */
   JobListEntries?: JobListEntry[];
 }
 
 /**
- * @public
  * <p>Your user lacks the necessary Amazon EC2 permissions to perform the attempted
  *       action.</p>
+ * @public
  */
 export class Ec2RequestFailedException extends __BaseException {
   readonly name: "Ec2RequestFailedException" = "Ec2RequestFailedException";
@@ -1079,8 +1079,8 @@ export class Ec2RequestFailedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Job or cluster creation failed. One or more inputs were invalid. Confirm that the <a>CreateClusterRequest$SnowballType</a> value supports your <a>CreateJobRequest$JobType</a>, and try again.</p>
+ * @public
  */
 export class InvalidInputCombinationException extends __BaseException {
   readonly name: "InvalidInputCombinationException" = "InvalidInputCombinationException";
@@ -1101,10 +1101,10 @@ export class InvalidInputCombinationException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Job creation failed. Currently, clusters support five nodes. If you have fewer than
  *       five nodes for your cluster and you have more nodes to create for this cluster, try again and
  *       create jobs until your cluster has exactly five nodes.</p>
+ * @public
  */
 export class ClusterLimitExceededException extends __BaseException {
   readonly name: "ClusterLimitExceededException" = "ClusterLimitExceededException";
@@ -1125,38 +1125,38 @@ export class ClusterLimitExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Configures the wireless connection on an Snowcone device.</p>
+ * @public
  */
 export interface WirelessConnection {
   /**
-   * @public
    * <p>Enables the Wi-Fi adapter on an Snowcone device.</p>
+   * @public
    */
   IsWifiEnabled?: boolean;
 }
 
 /**
- * @public
  * <p>Specifies the device configuration for an Snowcone job.</p>
+ * @public
  */
 export interface SnowconeDeviceConfiguration {
   /**
-   * @public
    * <p>Configures the wireless connection for the Snowcone device.</p>
+   * @public
    */
   WirelessConnection?: WirelessConnection;
 }
 
 /**
- * @public
  * <p>The container for <code>SnowconeDeviceConfiguration</code>. </p>
+ * @public
  */
 export interface DeviceConfiguration {
   /**
-   * @public
    * <p>Returns information about the device configuration for an Snowcone
    *       job.</p>
+   * @public
    */
   SnowconeDeviceConfiguration?: SnowconeDeviceConfiguration;
 }
@@ -1179,49 +1179,49 @@ export const ImpactLevel = {
 export type ImpactLevel = (typeof ImpactLevel)[keyof typeof ImpactLevel];
 
 /**
- * @public
  * <p>Information identifying the person picking up the device.</p>
+ * @public
  */
 export interface PickupDetails {
   /**
-   * @public
    * <p>The name of the person picking up the device.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The phone number of the person picking up the device.</p>
+   * @public
    */
   PhoneNumber?: string;
 
   /**
-   * @public
    * <p>The email address of the person picking up the device.</p>
+   * @public
    */
   Email?: string;
 
   /**
-   * @public
    * <p>The number on the credential identifying the person picking up the device.</p>
+   * @public
    */
   IdentificationNumber?: string;
 
   /**
-   * @public
    * <p>Expiration date of the credential identifying the person picking up the device.</p>
+   * @public
    */
   IdentificationExpirationDate?: Date;
 
   /**
-   * @public
    * <p>Organization that issued the credential identifying the person picking up the device.</p>
+   * @public
    */
   IdentificationIssuingOrg?: string;
 
   /**
-   * @public
    * <p>The unique ID for a device that will be picked up.</p>
+   * @public
    */
   DevicePickupId?: string;
 }
@@ -1231,14 +1231,13 @@ export interface PickupDetails {
  */
 export interface CreateJobRequest {
   /**
-   * @public
    * <p>Defines the type of job that you're creating.
    *       </p>
+   * @public
    */
   JobType?: JobType;
 
   /**
-   * @public
    * <p>Defines the Amazon S3 buckets associated with this job.</p>
    *          <p>With <code>IMPORT</code> jobs, you specify the bucket or buckets that your transferred
    *       data will be imported into.</p>
@@ -1247,48 +1246,48 @@ export interface CreateJobRequest {
    *       you choose to export a range, you define the length of the range by providing either an
    *       inclusive <code>BeginMarker</code> value, an inclusive <code>EndMarker</code> value, or both.
    *       Ranges are UTF-8 binary sorted.</p>
+   * @public
    */
   Resources?: JobResource;
 
   /**
-   * @public
    * <p>Specifies the service or services on the Snow Family device that your transferred data
    *       will be exported from or imported into. Amazon Web Services Snow Family supports Amazon S3 and NFS (Network File
    *       System) and the Amazon Web Services Storage Gateway service Tape Gateway type.</p>
+   * @public
    */
   OnDeviceServiceConfiguration?: OnDeviceServiceConfiguration;
 
   /**
-   * @public
    * <p>Defines an optional description of this specific job, for example <code>Important
    *         Photos 2016-08-11</code>.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The ID for the address that you want the Snow device shipped to.</p>
+   * @public
    */
   AddressId?: string;
 
   /**
-   * @public
    * <p>The <code>KmsKeyARN</code> that you want to associate with this job.
    *         <code>KmsKeyARN</code>s are created using the <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a>
    *       Key Management Service (KMS) API action.</p>
+   * @public
    */
   KmsKeyARN?: string;
 
   /**
-   * @public
    * <p>The <code>RoleARN</code> that you want to associate with this job.
    *       <code>RoleArn</code>s are created using the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
    *       Identity and Access Management (IAM) API action.</p>
+   * @public
    */
   RoleARN?: string;
 
   /**
-   * @public
    * <p>If your job is being created in one of the US regions, you have the option of
    *       specifying what size Snow device you'd like for this job. In all other regions, Snowballs come
    *       with 80 TB in storage capacity.</p>
@@ -1297,11 +1296,11 @@ export interface CreateJobRequest {
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i> or
    *       "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html" (Snow
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
+   * @public
    */
   SnowballCapacityPreference?: SnowballCapacity;
 
   /**
-   * @public
    * <p>The shipping speed for this job. This speed doesn't dictate how soon you'll get the
    *       Snow device, rather it represents how quickly the Snow device moves to its destination while
    *       in transit. Regional shipping speeds are as follows:</p>
@@ -1323,26 +1322,26 @@ export interface CreateJobRequest {
    *                <p>In the US, you have access to one-day shipping and two-day shipping.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ShippingOption?: ShippingOption;
 
   /**
-   * @public
    * <p>Defines the Amazon Simple Notification Service (Amazon SNS) notification settings for
    *       this job.</p>
+   * @public
    */
   Notification?: Notification;
 
   /**
-   * @public
    * <p>The ID of a cluster. If you're creating a job for a node in a cluster, you need to
    *       provide only this <code>clusterId</code> value. The other job attributes are inherited from
    *       the cluster.</p>
+   * @public
    */
   ClusterId?: string;
 
   /**
-   * @public
    * <p>The type of Snow Family devices to use for this job.
    *       </p>
    *          <note>
@@ -1358,57 +1357,58 @@ export interface CreateJobRequest {
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i> or
    *       "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html" (Snow
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
+   * @public
    */
   SnowballType?: SnowballType;
 
   /**
-   * @public
    * <p>The forwarding address ID for a job. This field is not supported in most
    *       Regions.</p>
+   * @public
    */
   ForwardingAddressId?: string;
 
   /**
-   * @public
    * <p>The tax documents required in your Amazon Web Services Region.</p>
+   * @public
    */
   TaxDocuments?: TaxDocuments;
 
   /**
-   * @public
    * <p>Defines the device configuration for an Snowcone job.</p>
    *          <p>For more information, see
    *       "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html" (Snow
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i> or
    *       "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html" (Snow
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
+   * @public
    */
   DeviceConfiguration?: DeviceConfiguration;
 
   /**
-   * @public
    * <p>Allows you to securely operate and manage Snowcone devices remotely from outside of your
    *       internal network. When set to <code>INSTALLED_AUTOSTART</code>, remote management will
    *       automatically be available when the device arrives at your location. Otherwise, you need to
    *       use the Snowball Edge client to manage the device. When set to <code>NOT_INSTALLED</code>, remote management will not be available on the device. </p>
+   * @public
    */
   RemoteManagement?: RemoteManagement;
 
   /**
-   * @public
    * <p>The ID of the long-term pricing type for the device.</p>
+   * @public
    */
   LongTermPricingId?: string;
 
   /**
-   * @public
    * <p>The highest impact level of data that will be stored or processed on the device, provided at job creation.</p>
+   * @public
    */
   ImpactLevel?: ImpactLevel;
 
   /**
-   * @public
    * <p>Information identifying the person picking up the device.</p>
+   * @public
    */
   PickupDetails?: PickupDetails;
 }
@@ -1418,9 +1418,9 @@ export interface CreateJobRequest {
  */
 export interface CreateJobResult {
   /**
-   * @public
    * <p>The automatically generated ID for a job, for example
    *         <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+   * @public
    */
   JobId?: string;
 }
@@ -1445,22 +1445,22 @@ export type LongTermPricingType = (typeof LongTermPricingType)[keyof typeof Long
  */
 export interface CreateLongTermPricingRequest {
   /**
-   * @public
    * <p>The type of long-term pricing option you want for the device, either 1-year or 3-year
    *       long-term pricing.</p>
+   * @public
    */
   LongTermPricingType: LongTermPricingType | undefined;
 
   /**
-   * @public
    * <p>Specifies whether the current long-term pricing type for the device should be
    *       renewed.</p>
+   * @public
    */
   IsLongTermPricingAutoRenew?: boolean;
 
   /**
-   * @public
    * <p>The type of Snow Family devices to use for the long-term pricing job.</p>
+   * @public
    */
   SnowballType: SnowballType | undefined;
 }
@@ -1470,23 +1470,23 @@ export interface CreateLongTermPricingRequest {
  */
 export interface CreateLongTermPricingResult {
   /**
-   * @public
    * <p>The ID of the long-term pricing type for the device.</p>
+   * @public
    */
   LongTermPricingId?: string;
 }
 
 /**
- * @public
  * <p>You get this exception when you call <code>CreateReturnShippingLabel</code> more than once
  *       when other requests are not completed.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>You get this resource when you call <code>CreateReturnShippingLabel</code> more than once when other requests are not completed. .</p>
+   * @public
    */
   ConflictResource?: string;
 
@@ -1511,17 +1511,17 @@ export class ConflictException extends __BaseException {
  */
 export interface CreateReturnShippingLabelRequest {
   /**
-   * @public
    * <p>The ID for a job that you want to create the return shipping label for; for example,
    *         <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+   * @public
    */
   JobId: string | undefined;
 
   /**
-   * @public
    * <p>The shipping speed for a particular job. This speed doesn't dictate how soon the device
    *       is returned to Amazon Web Services. This speed represents how quickly it moves to its
    *       destination while in transit. Regional shipping speeds are as follows:</p>
+   * @public
    */
   ShippingOption?: ShippingOption;
 }
@@ -1547,17 +1547,17 @@ export type ShippingLabelStatus = (typeof ShippingLabelStatus)[keyof typeof Ship
  */
 export interface CreateReturnShippingLabelResult {
   /**
-   * @public
    * <p>The status information of the task on a Snow device that is being returned to Amazon Web Services.</p>
+   * @public
    */
   Status?: ShippingLabelStatus;
 }
 
 /**
- * @public
  * <p>You get this exception if you call <code>CreateReturnShippingLabel</code> and a valid
  *       return shipping label already exists. In this case, use
  *         <code>DescribeReturnShippingLabel</code> to get the URL.</p>
+ * @public
  */
 export class ReturnShippingLabelAlreadyExistsException extends __BaseException {
   readonly name: "ReturnShippingLabelAlreadyExistsException" = "ReturnShippingLabelAlreadyExistsException";
@@ -1582,8 +1582,8 @@ export class ReturnShippingLabelAlreadyExistsException extends __BaseException {
  */
 export interface DescribeAddressRequest {
   /**
-   * @public
    * <p>The automatically generated ID for a specific address.</p>
+   * @public
    */
   AddressId: string | undefined;
 }
@@ -1593,9 +1593,9 @@ export interface DescribeAddressRequest {
  */
 export interface DescribeAddressResult {
   /**
-   * @public
    * <p>The address that you want the Snow device(s) associated with a specific job to be
    *       shipped to.</p>
+   * @public
    */
   Address?: Address;
 }
@@ -1605,16 +1605,16 @@ export interface DescribeAddressResult {
  */
 export interface DescribeAddressesRequest {
   /**
-   * @public
    * <p>The number of <code>ADDRESS</code> objects to return.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>HTTP requests are stateless. To identify what object comes "next" in the list of
    *         <code>ADDRESS</code> objects, you have the option of specifying a value for
    *         <code>NextToken</code> as the starting point for your list of returned addresses.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1624,25 +1624,25 @@ export interface DescribeAddressesRequest {
  */
 export interface DescribeAddressesResult {
   /**
-   * @public
    * <p>The Snow device shipping addresses that were created for this account.</p>
+   * @public
    */
   Addresses?: Address[];
 
   /**
-   * @public
    * <p>HTTP requests are stateless. If you use the automatically generated
    *         <code>NextToken</code> value in your next <code>DescribeAddresses</code> call, your list of
    *       returned addresses will start from this point in the array.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>The <code>NextToken</code> string was altered unexpectedly, and the operation has
  *       stopped. Run the operation without changing the <code>NextToken</code> string, and try
  *       again.</p>
+ * @public
  */
 export class InvalidNextTokenException extends __BaseException {
   readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
@@ -1667,8 +1667,8 @@ export class InvalidNextTokenException extends __BaseException {
  */
 export interface DescribeClusterRequest {
   /**
-   * @public
    * <p>The automatically generated ID for a cluster.</p>
+   * @public
    */
   ClusterId: string | undefined;
 }
@@ -1691,80 +1691,79 @@ export const ClusterState = {
 export type ClusterState = (typeof ClusterState)[keyof typeof ClusterState];
 
 /**
- * @public
  * <p>Contains metadata about a specific cluster.</p>
+ * @public
  */
 export interface ClusterMetadata {
   /**
-   * @public
    * <p>The automatically generated ID for a cluster.</p>
+   * @public
    */
   ClusterId?: string;
 
   /**
-   * @public
    * <p>The optional description of the cluster.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The <code>KmsKeyARN</code> Amazon Resource Name (ARN) associated with this cluster.
    *       This ARN was created using the <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a> API action in Key Management Service (KMS.</p>
+   * @public
    */
   KmsKeyARN?: string;
 
   /**
-   * @public
    * <p>The role ARN associated with this cluster. This ARN was created using the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
    *       API action in Identity and Access Management (IAM).</p>
+   * @public
    */
   RoleARN?: string;
 
   /**
-   * @public
    * <p>The current status of the cluster.</p>
+   * @public
    */
   ClusterState?: ClusterState;
 
   /**
-   * @public
    * <p>The type of job for this cluster. Currently, the only job type supported for clusters
    *       is <code>LOCAL_USE</code>.</p>
+   * @public
    */
   JobType?: JobType;
 
   /**
-   * @public
    * <p>The type of Snowcone device to use for this cluster.
    *       </p>
    *          <note>
    *             <p>For cluster jobs, Amazon Web Services Snow Family currently supports only the
    *           <code>EDGE</code> device type.</p>
    *          </note>
+   * @public
    */
   SnowballType?: SnowballType;
 
   /**
-   * @public
    * <p>The creation date for this cluster.</p>
+   * @public
    */
   CreationDate?: Date;
 
   /**
-   * @public
    * <p>The arrays of <a>JobResource</a> objects that can include updated <a>S3Resource</a> objects or <a>LambdaResource</a> objects.</p>
+   * @public
    */
   Resources?: JobResource;
 
   /**
-   * @public
    * <p>The automatically generated ID for a specific address.</p>
+   * @public
    */
   AddressId?: string;
 
   /**
-   * @public
    * <p>The shipping speed for each node in this cluster. This speed doesn't dictate how soon
    *       you'll get each device, rather it represents how quickly each device moves to its destination
    *       while in transit. Regional shipping speeds are as follows:</p>
@@ -1786,33 +1785,34 @@ export interface ClusterMetadata {
    *                <p>In the US, you have access to one-day shipping and two-day shipping.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ShippingOption?: ShippingOption;
 
   /**
-   * @public
    * <p>The Amazon Simple Notification Service (Amazon SNS) notification settings for this
    *       cluster.</p>
+   * @public
    */
   Notification?: Notification;
 
   /**
-   * @public
    * <p>The ID of the address that you want a cluster shipped to, after it will be
    *       shipped to its primary address. This field is not supported in most regions.</p>
+   * @public
    */
   ForwardingAddressId?: string;
 
   /**
-   * @public
    * <p>The tax documents required in your Amazon Web Services Region.</p>
+   * @public
    */
   TaxDocuments?: TaxDocuments;
 
   /**
-   * @public
    * <p>Represents metadata and configuration settings for services on an Amazon Web Services Snow Family
    *       device.</p>
+   * @public
    */
   OnDeviceServiceConfiguration?: OnDeviceServiceConfiguration;
 }
@@ -1822,9 +1822,9 @@ export interface ClusterMetadata {
  */
 export interface DescribeClusterResult {
   /**
-   * @public
    * <p>Information about a specific cluster, including shipping information, cluster status,
    *       and other important metadata.</p>
+   * @public
    */
   ClusterMetadata?: ClusterMetadata;
 }
@@ -1834,50 +1834,49 @@ export interface DescribeClusterResult {
  */
 export interface DescribeJobRequest {
   /**
-   * @public
    * <p>The automatically generated ID for a job, for example
    *         <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+   * @public
    */
   JobId: string | undefined;
 }
 
 /**
- * @public
  * <p>Defines the real-time status of a Snow device's data transfer while the device is at
  *         Amazon Web Services. This data is only available while a job has a <code>JobState</code>
  *       value of <code>InProgress</code>, for both import and export jobs.</p>
+ * @public
  */
 export interface DataTransfer {
   /**
-   * @public
    * <p>The number of bytes transferred between a Snow device and Amazon S3.</p>
+   * @public
    */
   BytesTransferred?: number;
 
   /**
-   * @public
    * <p>The number of objects transferred between a Snow device and Amazon S3.</p>
+   * @public
    */
   ObjectsTransferred?: number;
 
   /**
-   * @public
    * <p>The total bytes of data for a transfer between a Snow device and Amazon S3. This value
    *       is set to 0 (zero) until all the keys that will be transferred have been listed.</p>
+   * @public
    */
   TotalBytes?: number;
 
   /**
-   * @public
    * <p>The total number of objects for a transfer between a Snow device and Amazon S3. This
    *       value is set to 0 (zero) until all the keys that will be transferred have been
    *       listed.</p>
+   * @public
    */
   TotalObjects?: number;
 }
 
 /**
- * @public
  * <p>Contains job logs. Whenever a Snow device is used to import data into or export data
  *       out of Amazon S3, you'll have the option of downloading a PDF job report. Job logs are
  *       returned as a part of the response syntax of the <code>DescribeJob</code> action in the
@@ -1893,58 +1892,58 @@ export interface DataTransfer {
  *       two associated logs: a success log and a failure log. The logs are saved in comma-separated
  *       value (CSV) format, and the name of each log includes the ID of the job or job part that the
  *       log describes.</p>
+ * @public
  */
 export interface JobLogs {
   /**
-   * @public
    * <p>A link to an Amazon S3 presigned URL where the job completion report is
    *       located.</p>
+   * @public
    */
   JobCompletionReportURI?: string;
 
   /**
-   * @public
    * <p>A link to an Amazon S3 presigned URL where the job success log is located.</p>
+   * @public
    */
   JobSuccessLogURI?: string;
 
   /**
-   * @public
    * <p>A link to an Amazon S3 presigned URL where the job failure log is located.</p>
+   * @public
    */
   JobFailureLogURI?: string;
 }
 
 /**
- * @public
  * <p>The <code>Status</code> and <code>TrackingNumber</code> information for an inbound or
  *       outbound shipment.</p>
+ * @public
  */
 export interface Shipment {
   /**
-   * @public
    * <p>Status information for a shipment.</p>
+   * @public
    */
   Status?: string;
 
   /**
-   * @public
    * <p>The tracking number for this job. Using this tracking number with your region's
    *       carrier's website, you can track a Snow device as the carrier transports it.</p>
    *          <p>For India, the carrier is Amazon Logistics. For all other regions, UPS is the
    *       carrier.</p>
+   * @public
    */
   TrackingNumber?: string;
 }
 
 /**
- * @public
  * <p>A job's shipping information, including inbound and outbound tracking numbers and
  *       shipping speed options.</p>
+ * @public
  */
 export interface ShippingDetails {
   /**
-   * @public
    * <p>The shipping speed for a particular job. This speed doesn't dictate how soon you'll get
    *       the Snow device from the job's creation date. This speed represents how quickly it moves to
    *       its destination while in transit. Regional shipping speeds are as follows:</p>
@@ -1967,105 +1966,105 @@ export interface ShippingDetails {
    *           two-day shipping.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ShippingOption?: ShippingOption;
 
   /**
-   * @public
    * <p>The <code>Status</code> and <code>TrackingNumber</code> values for a Snow device being
    *       returned to Amazon Web Services for a particular job.</p>
+   * @public
    */
   InboundShipment?: Shipment;
 
   /**
-   * @public
    * <p>The <code>Status</code> and <code>TrackingNumber</code> values for a Snow device being
    *       delivered to the address that you specified for a particular job.</p>
+   * @public
    */
   OutboundShipment?: Shipment;
 }
 
 /**
- * @public
  * <p>Contains information about a specific job including shipping information, job status,
  *       and other important metadata. This information is returned as a part of the response syntax of
  *       the <code>DescribeJob</code> action.</p>
+ * @public
  */
 export interface JobMetadata {
   /**
-   * @public
    * <p>The automatically generated ID for a job, for example
    *         <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+   * @public
    */
   JobId?: string;
 
   /**
-   * @public
    * <p>The current status of the jobs.</p>
+   * @public
    */
   JobState?: JobState;
 
   /**
-   * @public
    * <p>The type of job.</p>
+   * @public
    */
   JobType?: JobType;
 
   /**
-   * @public
    * <p>The type of device used with this job.</p>
+   * @public
    */
   SnowballType?: SnowballType;
 
   /**
-   * @public
    * <p>The creation date for this job.</p>
+   * @public
    */
   CreationDate?: Date;
 
   /**
-   * @public
    * <p>An array of <code>S3Resource</code> objects. Each <code>S3Resource</code> object
    *       represents an Amazon S3 bucket that your transferred data will be exported from or imported
    *       into.</p>
+   * @public
    */
   Resources?: JobResource;
 
   /**
-   * @public
    * <p>The description of the job, provided at job creation.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) for the Key Management Service (KMS) key
    *       associated with this job. This ARN was created using the <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a> API action in KMS.</p>
+   * @public
    */
   KmsKeyARN?: string;
 
   /**
-   * @public
    * <p>The role ARN associated with this job. This ARN was created using the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
    *       API action in Identity and Access Management.</p>
+   * @public
    */
   RoleARN?: string;
 
   /**
-   * @public
    * <p>The ID for the address that you want the Snow device shipped to.</p>
+   * @public
    */
   AddressId?: string;
 
   /**
-   * @public
    * <p>A job's shipping information, including inbound and outbound tracking numbers and
    *       shipping speed options.</p>
+   * @public
    */
   ShippingDetails?: ShippingDetails;
 
   /**
-   * @public
    * <p>The Snow device capacity preference for this job, specified at job creation. In US
    *       regions, you can choose between 50 TB and 80 TB Snowballs. All other regions use 80 TB
    *       capacity Snowballs.</p>
@@ -2074,99 +2073,100 @@ export interface JobMetadata {
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i> or
    *       "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html" (Snow
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
+   * @public
    */
   SnowballCapacityPreference?: SnowballCapacity;
 
   /**
-   * @public
    * <p>The Amazon Simple Notification Service (Amazon SNS) notification settings associated
    *       with a specific job. The <code>Notification</code> object is returned as a part of the
    *       response syntax of the <code>DescribeJob</code> action in the <code>JobMetadata</code> data
    *       type.</p>
+   * @public
    */
   Notification?: Notification;
 
   /**
-   * @public
    * <p>A value that defines the real-time status of a Snow device's data transfer while the
    *       device is at Amazon Web Services. This data is only available while a job has a
    *         <code>JobState</code> value of <code>InProgress</code>, for both import and export
    *       jobs.</p>
+   * @public
    */
   DataTransferProgress?: DataTransfer;
 
   /**
-   * @public
    * <p>Links to Amazon S3 presigned URLs for the job report and logs. For import jobs, the PDF
    *       job report becomes available at the end of the import process. For export jobs, your job
    *       report typically becomes available while the Snow device for your job part is being delivered
    *       to you.</p>
+   * @public
    */
   JobLogInfo?: JobLogs;
 
   /**
-   * @public
    * <p>The 39-character ID for the cluster, for example
    *         <code>CID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+   * @public
    */
   ClusterId?: string;
 
   /**
-   * @public
    * <p>The ID of the address that you want a job shipped to, after it will be
    *       shipped to its primary address. This field is not supported in most regions.</p>
+   * @public
    */
   ForwardingAddressId?: string;
 
   /**
-   * @public
    * <p>The metadata associated with the tax documents required in your Amazon Web Services Region.</p>
+   * @public
    */
   TaxDocuments?: TaxDocuments;
 
   /**
-   * @public
    * <p>The container for <code>SnowconeDeviceConfiguration</code>. </p>
+   * @public
    */
   DeviceConfiguration?: DeviceConfiguration;
 
   /**
-   * @public
    * <p>Allows you to securely operate and manage Snowcone devices remotely from outside of your
    *       internal network. When set to <code>INSTALLED_AUTOSTART</code>, remote management will
    *       automatically be available when the device arrives at your location. Otherwise, you need to
    *       use the Snowball Client to manage the device.</p>
+   * @public
    */
   RemoteManagement?: RemoteManagement;
 
   /**
-   * @public
    * <p>The ID of the long-term pricing type for the device.</p>
+   * @public
    */
   LongTermPricingId?: string;
 
   /**
-   * @public
    * <p>Represents metadata and configuration settings for services on an Amazon Web Services Snow Family
    *       device.</p>
+   * @public
    */
   OnDeviceServiceConfiguration?: OnDeviceServiceConfiguration;
 
   /**
-   * @public
    * <p>The highest impact level of data that will be stored or processed on the device, provided at job creation.</p>
+   * @public
    */
   ImpactLevel?: ImpactLevel;
 
   /**
-   * @public
    * <p>Information identifying the person picking up the device.</p>
+   * @public
    */
   PickupDetails?: PickupDetails;
 
   /**
-   * @public
    * <p>Unique ID associated with a device.</p>
+   * @public
    */
   SnowballId?: string;
 }
@@ -2176,16 +2176,16 @@ export interface JobMetadata {
  */
 export interface DescribeJobResult {
   /**
-   * @public
    * <p>Information about a specific job, including shipping information, job status, and other
    *       important metadata.</p>
+   * @public
    */
   JobMetadata?: JobMetadata;
 
   /**
-   * @public
    * <p>Information about a specific job part (in the case of an export job), including
    *       shipping information, job status, and other important metadata.</p>
+   * @public
    */
   SubJobMetadata?: JobMetadata[];
 }
@@ -2195,9 +2195,9 @@ export interface DescribeJobResult {
  */
 export interface DescribeReturnShippingLabelRequest {
   /**
-   * @public
    * <p>The automatically generated ID for a job, for example
    *         <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+   * @public
    */
   JobId: string | undefined;
 }
@@ -2207,20 +2207,20 @@ export interface DescribeReturnShippingLabelRequest {
  */
 export interface DescribeReturnShippingLabelResult {
   /**
-   * @public
    * <p>The status information of the task on a Snow device that is being returned to Amazon Web Services.</p>
+   * @public
    */
   Status?: ShippingLabelStatus;
 
   /**
-   * @public
    * <p>The expiration date of the current return shipping label.</p>
+   * @public
    */
   ExpirationDate?: Date;
 
   /**
-   * @public
    * <p>The pre-signed Amazon S3 URI used to download the return shipping label.</p>
+   * @public
    */
   ReturnShippingLabelURI?: string;
 }
@@ -2230,9 +2230,9 @@ export interface DescribeReturnShippingLabelResult {
  */
 export interface GetJobManifestRequest {
   /**
-   * @public
    * <p>The ID for a job that you want to get the manifest file for, for example
    *         <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+   * @public
    */
   JobId: string | undefined;
 }
@@ -2242,9 +2242,9 @@ export interface GetJobManifestRequest {
  */
 export interface GetJobManifestResult {
   /**
-   * @public
    * <p>The Amazon S3 presigned URL for the manifest file associated with the specified
    *         <code>JobId</code> value.</p>
+   * @public
    */
   ManifestURI?: string;
 }
@@ -2254,9 +2254,9 @@ export interface GetJobManifestResult {
  */
 export interface GetJobUnlockCodeRequest {
   /**
-   * @public
    * <p>The ID for the job that you want to get the <code>UnlockCode</code> value for, for
    *       example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+   * @public
    */
   JobId: string | undefined;
 }
@@ -2266,9 +2266,9 @@ export interface GetJobUnlockCodeRequest {
  */
 export interface GetJobUnlockCodeResult {
   /**
-   * @public
    * <p>The <code>UnlockCode</code> value for the specified job. The <code>UnlockCode</code>
    *       value can be accessed for up to 360 days after the job has been created.</p>
+   * @public
    */
   UnlockCode?: string;
 }
@@ -2283,15 +2283,15 @@ export interface GetSnowballUsageRequest {}
  */
 export interface GetSnowballUsageResult {
   /**
-   * @public
    * <p>The service limit for number of Snow devices this account can have at once. The default
    *       service limit is 1 (one).</p>
+   * @public
    */
   SnowballLimit?: number;
 
   /**
-   * @public
    * <p>The number of Snow devices that this account is currently using.</p>
+   * @public
    */
   SnowballsInUse?: number;
 }
@@ -2301,9 +2301,9 @@ export interface GetSnowballUsageResult {
  */
 export interface GetSoftwareUpdatesRequest {
   /**
-   * @public
    * <p>The ID for a job that you want to get the software update file for, for example
    *         <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+   * @public
    */
   JobId: string | undefined;
 }
@@ -2313,11 +2313,11 @@ export interface GetSoftwareUpdatesRequest {
  */
 export interface GetSoftwareUpdatesResult {
   /**
-   * @public
    * <p>The Amazon S3 presigned URL for the update file associated with the specified
    *         <code>JobId</code> value. The software update will be available for 2 days after this
    *       request is made. To access an update after the 2 days have passed, you'll have to make another
    *       call to <code>GetSoftwareUpdates</code>.</p>
+   * @public
    */
   UpdatesURI?: string;
 }
@@ -2327,23 +2327,23 @@ export interface GetSoftwareUpdatesResult {
  */
 export interface ListClusterJobsRequest {
   /**
-   * @public
    * <p>The 39-character ID for the cluster that you want to list, for example
    *         <code>CID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+   * @public
    */
   ClusterId: string | undefined;
 
   /**
-   * @public
    * <p>The number of <code>JobListEntry</code> objects to return.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>HTTP requests are stateless. To identify what object comes "next" in the list of
    *         <code>JobListEntry</code> objects, you have the option of specifying <code>NextToken</code>
    *       as the starting point for your returned list.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -2353,17 +2353,17 @@ export interface ListClusterJobsRequest {
  */
 export interface ListClusterJobsResult {
   /**
-   * @public
    * <p>Each <code>JobListEntry</code> object contains a job's state, a job's ID, and a value
    *       that indicates whether the job is a job part, in the case of export jobs. </p>
+   * @public
    */
   JobListEntries?: JobListEntry[];
 
   /**
-   * @public
    * <p>HTTP requests are stateless. If you use the automatically generated
    *         <code>NextToken</code> value in your next <code>ListClusterJobsResult</code> call, your list
    *       of returned jobs will start from this point in the array.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -2373,49 +2373,49 @@ export interface ListClusterJobsResult {
  */
 export interface ListClustersRequest {
   /**
-   * @public
    * <p>The number of <code>ClusterListEntry</code> objects to return.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>HTTP requests are stateless. To identify what object comes "next" in the list of
    *         <code>ClusterListEntry</code> objects, you have the option of specifying
    *         <code>NextToken</code> as the starting point for your returned list.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>Contains a cluster's state, a cluster's ID, and other important information.</p>
+ * @public
  */
 export interface ClusterListEntry {
   /**
-   * @public
    * <p>The 39-character ID for the cluster that you want to list, for example
    *         <code>CID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+   * @public
    */
   ClusterId?: string;
 
   /**
-   * @public
    * <p>The current state of this cluster. For information about the state of a specific node,
    *       see <a>JobListEntry$JobState</a>.</p>
+   * @public
    */
   ClusterState?: ClusterState;
 
   /**
-   * @public
    * <p>The creation date for this cluster.</p>
+   * @public
    */
   CreationDate?: Date;
 
   /**
-   * @public
    * <p>Defines an optional description of the cluster, for example <code>Environmental Data
    *         Cluster-01</code>.</p>
+   * @public
    */
   Description?: string;
 }
@@ -2425,17 +2425,17 @@ export interface ClusterListEntry {
  */
 export interface ListClustersResult {
   /**
-   * @public
    * <p>Each <code>ClusterListEntry</code> object contains a cluster's state, a cluster's ID,
    *       and other important status information.</p>
+   * @public
    */
   ClusterListEntries?: ClusterListEntry[];
 
   /**
-   * @public
    * <p>HTTP requests are stateless. If you use the automatically generated
    *         <code>NextToken</code> value in your next <code>ClusterListEntry</code> call, your list of
    *       returned clusters will start from this point in the array.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -2445,38 +2445,38 @@ export interface ListClustersResult {
  */
 export interface ListCompatibleImagesRequest {
   /**
-   * @public
    * <p>The maximum number of results for the list of compatible images. Currently, a Snowball
    *       Edge device can store 10 AMIs.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>HTTP requests are stateless. To identify what object comes "next" in the list of
    *       compatible images, you can specify a value for <code>NextToken</code> as the starting point
    *       for your list of returned images.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>A JSON-formatted object that describes a compatible Amazon Machine Image (AMI),
  *       including the ID and name for a Snow device AMI. This AMI is compatible with the device's
  *       physical hardware requirements, and it should be able to be run in an SBE1 instance on the
  *       device.</p>
+ * @public
  */
 export interface CompatibleImage {
   /**
-   * @public
    * <p>The unique identifier for an individual Snow device AMI.</p>
+   * @public
    */
   AmiId?: string;
 
   /**
-   * @public
    * <p>The optional name of a compatible image.</p>
+   * @public
    */
   Name?: string;
 }
@@ -2486,16 +2486,16 @@ export interface CompatibleImage {
  */
 export interface ListCompatibleImagesResult {
   /**
-   * @public
    * <p>A JSON-formatted object that describes a compatible AMI, including the ID and name for
    *       a Snow device AMI.</p>
+   * @public
    */
   CompatibleImages?: CompatibleImage[];
 
   /**
-   * @public
    * <p>Because HTTP requests are stateless, this is the starting point for your next list of
    *       returned images.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -2505,16 +2505,16 @@ export interface ListCompatibleImagesResult {
  */
 export interface ListJobsRequest {
   /**
-   * @public
    * <p>The number of <code>JobListEntry</code> objects to return.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>HTTP requests are stateless. To identify what object comes "next" in the list of
    *         <code>JobListEntry</code> objects, you have the option of specifying <code>NextToken</code>
    *       as the starting point for your returned list.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -2524,17 +2524,17 @@ export interface ListJobsRequest {
  */
 export interface ListJobsResult {
   /**
-   * @public
    * <p>Each <code>JobListEntry</code> object contains a job's state, a job's ID, and a value
    *       that indicates whether the job is a job part, in the case of export jobs. </p>
+   * @public
    */
   JobListEntries?: JobListEntry[];
 
   /**
-   * @public
    * <p>HTTP requests are stateless. If you use this automatically generated
    *         <code>NextToken</code> value in your next <code>ListJobs</code> call, your returned
    *         <code>JobListEntry</code> objects will start from this point in the array.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -2544,83 +2544,83 @@ export interface ListJobsResult {
  */
 export interface ListLongTermPricingRequest {
   /**
-   * @public
    * <p>The maximum number of <code>ListLongTermPricing</code> objects to return.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>Because HTTP requests are stateless, this is the starting point for your next list of
    *         <code>ListLongTermPricing</code> to return.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>Each <code>LongTermPricingListEntry</code> object contains information about a long-term
  *       pricing type.</p>
+ * @public
  */
 export interface LongTermPricingListEntry {
   /**
-   * @public
    * <p>The ID of the long-term pricing type for the device.</p>
+   * @public
    */
   LongTermPricingId?: string;
 
   /**
-   * @public
    * <p>The end date the long-term pricing contract.</p>
+   * @public
    */
   LongTermPricingEndDate?: Date;
 
   /**
-   * @public
    * <p>The start date of the long-term pricing contract.</p>
+   * @public
    */
   LongTermPricingStartDate?: Date;
 
   /**
-   * @public
    * <p>The type of long-term pricing that was selected for the device.</p>
+   * @public
    */
   LongTermPricingType?: LongTermPricingType;
 
   /**
-   * @public
    * <p>The current active jobs on the device the long-term pricing type.</p>
+   * @public
    */
   CurrentActiveJob?: string;
 
   /**
-   * @public
    * <p>A new device that replaces a device that is ordered with long-term pricing.</p>
+   * @public
    */
   ReplacementJob?: string;
 
   /**
-   * @public
    * <p>If set to <code>true</code>, specifies that the current long-term pricing type for the
    *       device should be automatically renewed before the long-term pricing contract expires.</p>
+   * @public
    */
   IsLongTermPricingAutoRenew?: boolean;
 
   /**
-   * @public
    * <p>The status of the long-term pricing type.</p>
+   * @public
    */
   LongTermPricingStatus?: string;
 
   /**
-   * @public
    * <p>The type of Snow Family devices associated with this long-term pricing job.</p>
+   * @public
    */
   SnowballType?: SnowballType;
 
   /**
-   * @public
    * <p>The IDs of the jobs that are associated with a long-term pricing type.</p>
+   * @public
    */
   JobIds?: string[];
 }
@@ -2630,16 +2630,16 @@ export interface LongTermPricingListEntry {
  */
 export interface ListLongTermPricingResult {
   /**
-   * @public
    * <p>Each <code>LongTermPricingEntry</code> object contains a status, ID, and other information
    *       about the <code>LongTermPricing</code> type. </p>
+   * @public
    */
   LongTermPricingEntries?: LongTermPricingListEntry[];
 
   /**
-   * @public
    * <p>Because HTTP requests are stateless, this is the starting point for your next list of
    *       returned <code>ListLongTermPricing</code> list.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -2649,14 +2649,14 @@ export interface ListLongTermPricingResult {
  */
 export interface ListPickupLocationsRequest {
   /**
-   * @public
    * <p>The maximum number of locations to list per page.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>HTTP requests are stateless. To identify what object comes "next" in the list of <code>ListPickupLocationsRequest</code> objects, you have the option of specifying <code>NextToken</code> as the starting point for your returned list.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -2666,14 +2666,14 @@ export interface ListPickupLocationsRequest {
  */
 export interface ListPickupLocationsResult {
   /**
-   * @public
    * <p>Information about the address of pickup locations.</p>
+   * @public
    */
   Addresses?: Address[];
 
   /**
-   * @public
    * <p>HTTP requests are stateless. To identify what object comes "next" in the list of <code>ListPickupLocationsResult</code> objects, you have the option of specifying <code>NextToken</code> as the starting point for your returned list.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -2693,31 +2693,31 @@ export const ServiceName = {
 export type ServiceName = (typeof ServiceName)[keyof typeof ServiceName];
 
 /**
- * @public
  * <p>The version of the requested service.</p>
+ * @public
  */
 export interface ServiceVersion {
   /**
-   * @public
    * <p>The version number of the requested service.</p>
+   * @public
    */
   Version?: string;
 }
 
 /**
- * @public
  * <p>The name and version of the service dependant on the requested service.</p>
+ * @public
  */
 export interface DependentService {
   /**
-   * @public
    * <p>The name of the dependent service.</p>
+   * @public
    */
   ServiceName?: ServiceName;
 
   /**
-   * @public
    * <p>The version of the dependent service.</p>
+   * @public
    */
   ServiceVersion?: ServiceVersion;
 }
@@ -2727,27 +2727,27 @@ export interface DependentService {
  */
 export interface ListServiceVersionsRequest {
   /**
-   * @public
    * <p>The name of the service for which you're requesting supported versions.</p>
+   * @public
    */
   ServiceName: ServiceName | undefined;
 
   /**
-   * @public
    * <p>A list of names and versions of dependant services of the requested service.</p>
+   * @public
    */
   DependentServices?: DependentService[];
 
   /**
-   * @public
    * <p>The maximum number of <code>ListServiceVersions</code> objects to return.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>Because HTTP requests are stateless, this is the starting point for the next list of returned
    *       <code>ListServiceVersionsRequest</code> versions.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -2757,27 +2757,27 @@ export interface ListServiceVersionsRequest {
  */
 export interface ListServiceVersionsResult {
   /**
-   * @public
    * <p>A list of supported versions.</p>
+   * @public
    */
   ServiceVersions: ServiceVersion[] | undefined;
 
   /**
-   * @public
    * <p>The name of the service for which the system provided supported versions.</p>
+   * @public
    */
   ServiceName: ServiceName | undefined;
 
   /**
-   * @public
    * <p>A list of names and versions of dependant services of the service for which the system provided supported versions.</p>
+   * @public
    */
   DependentServices?: DependentService[];
 
   /**
-   * @public
    * <p>Because HTTP requests are stateless, this is the starting point of the next list of returned
    *       <code>ListServiceVersionsResult</code> results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -2787,63 +2787,63 @@ export interface ListServiceVersionsResult {
  */
 export interface UpdateClusterRequest {
   /**
-   * @public
    * <p>The cluster ID of the cluster that you want to update, for example
    *         <code>CID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+   * @public
    */
   ClusterId: string | undefined;
 
   /**
-   * @public
    * <p>The new role Amazon Resource Name (ARN) that you want to associate with this cluster.
    *       To create a role ARN, use the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a> API action in Identity and Access Management (IAM).</p>
+   * @public
    */
   RoleARN?: string;
 
   /**
-   * @public
    * <p>The updated description of this cluster.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The updated arrays of <a>JobResource</a> objects that can include updated
    *         <a>S3Resource</a> objects or <a>LambdaResource</a> objects.</p>
+   * @public
    */
   Resources?: JobResource;
 
   /**
-   * @public
    * <p>Specifies the service or services on the Snow Family device that your transferred data
    *       will be exported from or imported into. Amazon Web Services Snow Family device clusters support Amazon S3 and NFS
    *       (Network File System).</p>
+   * @public
    */
   OnDeviceServiceConfiguration?: OnDeviceServiceConfiguration;
 
   /**
-   * @public
    * <p>The ID of the updated <a>Address</a> object.</p>
+   * @public
    */
   AddressId?: string;
 
   /**
-   * @public
    * <p>The updated shipping option value of this cluster's <a>ShippingDetails</a>
    *       object.</p>
+   * @public
    */
   ShippingOption?: ShippingOption;
 
   /**
-   * @public
    * <p>The new or updated <a>Notification</a> object.</p>
+   * @public
    */
   Notification?: Notification;
 
   /**
-   * @public
    * <p>The updated ID for the forwarding address for a cluster. This field is not
    *       supported in most regions.</p>
+   * @public
    */
   ForwardingAddressId?: string;
 }
@@ -2858,61 +2858,60 @@ export interface UpdateClusterResult {}
  */
 export interface UpdateJobRequest {
   /**
-   * @public
    * <p>The job ID of the job that you want to update, for example
    *         <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+   * @public
    */
   JobId: string | undefined;
 
   /**
-   * @public
    * <p>The new role Amazon Resource Name (ARN) that you want to associate with this job. To
    *       create a role ARN, use the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>Identity and Access Management
    *       (IAM) API action.</p>
+   * @public
    */
   RoleARN?: string;
 
   /**
-   * @public
    * <p>The new or updated <a>Notification</a> object.</p>
+   * @public
    */
   Notification?: Notification;
 
   /**
-   * @public
    * <p>The updated <code>JobResource</code> object, or the updated <a>JobResource</a> object. </p>
+   * @public
    */
   Resources?: JobResource;
 
   /**
-   * @public
    * <p>Specifies the service or services on the Snow Family device that your transferred data
    *       will be exported from or imported into. Amazon Web Services Snow Family supports Amazon S3 and NFS (Network File
    *       System) and the Amazon Web Services Storage Gateway service Tape Gateway type.</p>
+   * @public
    */
   OnDeviceServiceConfiguration?: OnDeviceServiceConfiguration;
 
   /**
-   * @public
    * <p>The ID of the updated <a>Address</a> object.</p>
+   * @public
    */
   AddressId?: string;
 
   /**
-   * @public
    * <p>The updated shipping option value of this job's <a>ShippingDetails</a>
    *       object.</p>
+   * @public
    */
   ShippingOption?: ShippingOption;
 
   /**
-   * @public
    * <p>The updated description of this job's <a>JobMetadata</a> object.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The updated <code>SnowballCapacityPreference</code> of this job's <a>JobMetadata</a> object. The 50 TB Snowballs are only available in the US
    *       regions.</p>
    *          <p>For more information, see
@@ -2920,19 +2919,20 @@ export interface UpdateJobRequest {
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i> or
    *       "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html" (Snow
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
+   * @public
    */
   SnowballCapacityPreference?: SnowballCapacity;
 
   /**
-   * @public
    * <p>The updated ID for the forwarding address for a job. This field is not
    *       supported in most regions.</p>
+   * @public
    */
   ForwardingAddressId?: string;
 
   /**
-   * @public
    * <p>Information identifying the person picking up the device.</p>
+   * @public
    */
   PickupDetails?: PickupDetails;
 }
@@ -2961,17 +2961,17 @@ export type ShipmentState = (typeof ShipmentState)[keyof typeof ShipmentState];
  */
 export interface UpdateJobShipmentStateRequest {
   /**
-   * @public
    * <p>The job ID of the job whose shipment date you want to update, for example
    *         <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+   * @public
    */
   JobId: string | undefined;
 
   /**
-   * @public
    * <p>The state of a device when it is being shipped. </p>
    *          <p>Set to <code>RECEIVED</code> when the device arrives at your location.</p>
    *          <p>Set to <code>RETURNED</code> when you have returned the device to Amazon Web Services.</p>
+   * @public
    */
   ShipmentState: ShipmentState | undefined;
 }
@@ -2986,22 +2986,22 @@ export interface UpdateJobShipmentStateResult {}
  */
 export interface UpdateLongTermPricingRequest {
   /**
-   * @public
    * <p>The ID of the long-term pricing type for the device.</p>
+   * @public
    */
   LongTermPricingId: string | undefined;
 
   /**
-   * @public
    * <p>Specifies that a device that is ordered with long-term pricing should be replaced with a
    *       new device.</p>
+   * @public
    */
   ReplacementJob?: string;
 
   /**
-   * @public
    * <p>If set to <code>true</code>, specifies that the current long-term pricing type for the
    *       device should be automatically renewed before the long-term pricing contract expires.</p>
+   * @public
    */
   IsLongTermPricingAutoRenew?: boolean;
 }

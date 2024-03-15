@@ -27,7 +27,6 @@ export interface DescribeStacksCommandInput extends DescribeStacksRequest {}
 export interface DescribeStacksCommandOutput extends DescribeStacksResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Requests a description of one or more stacks.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
@@ -108,6 +107,7 @@ export interface DescribeStacksCommandOutput extends DescribeStacksResult, __Met
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class DescribeStacksCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface UpdateStorageSystemCommandInput extends UpdateStorageSystemRequ
 export interface UpdateStorageSystemCommandOutput extends UpdateStorageSystemResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies some configurations of an on-premises storage system resource that you're using
  *       with DataSync Discovery.</p>
  * @example
@@ -78,6 +77,7 @@ export interface UpdateStorageSystemCommandOutput extends UpdateStorageSystemRes
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class UpdateStorageSystemCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface ListAutomaticTapeCreationPoliciesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the automatic tape creation policies for a gateway. If there are no automatic tape
  *          creation policies for the gateway, it returns an empty list.</p>
  *          <p>This operation is only supported for tape gateways.</p>
@@ -83,6 +82,7 @@ export interface ListAutomaticTapeCreationPoliciesCommandOutput
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  */
 export class ListAutomaticTapeCreationPoliciesCommand extends $Command
   .classBuilder<

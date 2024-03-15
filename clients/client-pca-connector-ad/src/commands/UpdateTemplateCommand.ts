@@ -27,7 +27,6 @@ export interface UpdateTemplateCommandInput extends UpdateTemplateRequest {}
 export interface UpdateTemplateCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Update template configuration to define the information included in certificates.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -316,6 +315,7 @@ export interface UpdateTemplateCommandOutput extends __MetadataBearer {}
  * @throws {@link PcaConnectorAdServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ * @public
  */
 export class UpdateTemplateCommand extends $Command
   .classBuilder<

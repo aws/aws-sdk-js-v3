@@ -31,7 +31,6 @@ export interface UpdateComponentCommandInput extends UpdateComponentRequest {}
 export interface UpdateComponentCommandOutput extends UpdateComponentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the custom component name and/or the list of resources that make up the
  *          component.</p>
  * @example
@@ -75,6 +74,7 @@ export interface UpdateComponentCommandOutput extends UpdateComponentResponse, _
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ * @public
  */
 export class UpdateComponentCommand extends $Command
   .classBuilder<

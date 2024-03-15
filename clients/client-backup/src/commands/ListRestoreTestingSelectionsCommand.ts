@@ -32,7 +32,6 @@ export interface ListRestoreTestingSelectionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of restore testing selections. Can be filtered
  *          by <code>MaxResults</code> and <code>RestoreTestingPlanName</code>.</p>
  * @example
@@ -83,6 +82,7 @@ export interface ListRestoreTestingSelectionsCommandOutput
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class ListRestoreTestingSelectionsCommand extends $Command
   .classBuilder<

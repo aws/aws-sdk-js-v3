@@ -27,7 +27,6 @@ export interface CreateObjectCommandInput extends CreateObjectRequest {}
 export interface CreateObjectCommandOutput extends CreateObjectResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an object in a <a>Directory</a>. Additionally attaches the object to
  *       a parent, if a parent reference and <code>LinkName</code> is specified. An object is simply a
  *       collection of <a>Facet</a> attributes. You can also use this API call to create a
@@ -120,6 +119,7 @@ export interface CreateObjectCommandOutput extends CreateObjectResponse, __Metad
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class CreateObjectCommand extends $Command
   .classBuilder<

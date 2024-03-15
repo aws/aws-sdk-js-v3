@@ -27,7 +27,6 @@ export interface PutWorkflowRunPropertiesCommandInput extends PutWorkflowRunProp
 export interface PutWorkflowRunPropertiesCommandOutput extends PutWorkflowRunPropertiesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Puts the specified workflow run properties for the given workflow run. If a property already exists for the specified run, then it overrides the value otherwise adds the property to existing properties.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface PutWorkflowRunPropertiesCommandOutput extends PutWorkflowRunPro
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class PutWorkflowRunPropertiesCommand extends $Command
   .classBuilder<

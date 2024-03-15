@@ -27,7 +27,6 @@ export interface CreateAnalyzerCommandInput extends CreateAnalyzerRequest {}
 export interface CreateAnalyzerCommandOutput extends CreateAnalyzerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an analyzer for your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface CreateAnalyzerCommandOutput extends CreateAnalyzerResponse, __M
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ * @public
  */
 export class CreateAnalyzerCommand extends $Command
   .classBuilder<

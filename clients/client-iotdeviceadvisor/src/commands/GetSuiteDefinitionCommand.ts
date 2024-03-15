@@ -27,7 +27,6 @@ export interface GetSuiteDefinitionCommandInput extends GetSuiteDefinitionReques
 export interface GetSuiteDefinitionCommandOutput extends GetSuiteDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a Device Advisor test suite.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetSuiteDefinition</a> action.</p>
  * @example
@@ -89,6 +88,7 @@ export interface GetSuiteDefinitionCommandOutput extends GetSuiteDefinitionRespo
  * @throws {@link IotDeviceAdvisorServiceException}
  * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
+ * @public
  */
 export class GetSuiteDefinitionCommand extends $Command
   .classBuilder<

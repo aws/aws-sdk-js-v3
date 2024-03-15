@@ -30,7 +30,6 @@ export interface SetSecurityTokenServicePreferencesCommandInput extends SetSecur
 export interface SetSecurityTokenServicePreferencesCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the specified version of the global endpoint token as the token version used for
  *             the Amazon Web Services account.</p>
  *          <p>By default, Security Token Service (STS) is available as a global service, and all STS requests
@@ -78,6 +77,7 @@ export interface SetSecurityTokenServicePreferencesCommandOutput extends __Metad
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To delete an access key for an IAM user
  * ```javascript
  * // The following command sets the STS global endpoint token to version 2. Version 2 tokens are valid in all Regions.

@@ -27,7 +27,6 @@ export interface DescribePermissionSetCommandInput extends DescribePermissionSet
 export interface DescribePermissionSetCommandOutput extends DescribePermissionSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the details of the permission set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface DescribePermissionSetCommandOutput extends DescribePermissionSe
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class DescribePermissionSetCommand extends $Command
   .classBuilder<

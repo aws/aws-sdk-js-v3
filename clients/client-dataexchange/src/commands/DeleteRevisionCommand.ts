@@ -27,7 +27,6 @@ export interface DeleteRevisionCommandInput extends DeleteRevisionRequest {}
 export interface DeleteRevisionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation deletes a revision.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface DeleteRevisionCommandOutput extends __MetadataBearer {}
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ * @public
  */
 export class DeleteRevisionCommand extends $Command
   .classBuilder<

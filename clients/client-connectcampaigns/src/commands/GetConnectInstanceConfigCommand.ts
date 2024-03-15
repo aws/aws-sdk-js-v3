@@ -27,7 +27,6 @@ export interface GetConnectInstanceConfigCommandInput extends GetConnectInstance
 export interface GetConnectInstanceConfigCommandOutput extends GetConnectInstanceConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * Get the specific Connect instance config.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface GetConnectInstanceConfigCommandOutput extends GetConnectInstanc
  * @throws {@link ConnectCampaignsServiceException}
  * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
+ * @public
  */
 export class GetConnectInstanceConfigCommand extends $Command
   .classBuilder<

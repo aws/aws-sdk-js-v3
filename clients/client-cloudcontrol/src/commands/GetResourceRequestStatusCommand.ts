@@ -31,7 +31,6 @@ export interface GetResourceRequestStatusCommandInput extends GetResourceRequest
 export interface GetResourceRequestStatusCommandOutput extends GetResourceRequestStatusOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the current status of a resource operation request. For more information, see
  *         <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-track">Tracking the progress of resource operation requests</a> in the
  *         <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
@@ -75,6 +74,7 @@ export interface GetResourceRequestStatusCommandOutput extends GetResourceReques
  * @throws {@link CloudControlServiceException}
  * <p>Base exception class for all service exceptions from CloudControl service.</p>
  *
+ * @public
  */
 export class GetResourceRequestStatusCommand extends $Command
   .classBuilder<

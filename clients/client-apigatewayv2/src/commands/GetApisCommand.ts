@@ -27,7 +27,6 @@ export interface GetApisCommandInput extends GetApisRequest {}
 export interface GetApisCommandOutput extends GetApisResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a collection of Api resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface GetApisCommandOutput extends GetApisResponse, __MetadataBearer 
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ * @public
  */
 export class GetApisCommand extends $Command
   .classBuilder<

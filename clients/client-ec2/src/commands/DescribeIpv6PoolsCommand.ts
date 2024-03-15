@@ -27,7 +27,6 @@ export interface DescribeIpv6PoolsCommandInput extends DescribeIpv6PoolsRequest 
 export interface DescribeIpv6PoolsCommandOutput extends DescribeIpv6PoolsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes your IPv6 address pools.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface DescribeIpv6PoolsCommandOutput extends DescribeIpv6PoolsResult,
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeIpv6PoolsCommand extends $Command
   .classBuilder<

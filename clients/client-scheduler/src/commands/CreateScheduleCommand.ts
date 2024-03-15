@@ -27,7 +27,6 @@ export interface CreateScheduleCommandInput extends CreateScheduleInput {}
 export interface CreateScheduleCommandOutput extends CreateScheduleOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates the specified schedule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -163,6 +162,7 @@ export interface CreateScheduleCommandOutput extends CreateScheduleOutput, __Met
  * @throws {@link SchedulerServiceException}
  * <p>Base exception class for all service exceptions from Scheduler service.</p>
  *
+ * @public
  */
 export class CreateScheduleCommand extends $Command
   .classBuilder<

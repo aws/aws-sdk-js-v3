@@ -27,7 +27,6 @@ export interface CreateDBProxyCommandInput extends CreateDBProxyRequest {}
 export interface CreateDBProxyCommandOutput extends CreateDBProxyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new DB proxy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -120,6 +119,7 @@ export interface CreateDBProxyCommandOutput extends CreateDBProxyResponse, __Met
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  */
 export class CreateDBProxyCommand extends $Command
   .classBuilder<

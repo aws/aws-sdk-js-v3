@@ -27,7 +27,6 @@ export interface DeleteVpcCommandInput extends DeleteVpcRequest {}
 export interface DeleteVpcCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified VPC. You must detach or delete all gateways and resources that are associated with the VPC before you can delete it. For example, you must terminate all instances running in the VPC, delete all security groups associated with the VPC (except the default one), delete all route tables associated with the VPC (except the default one), and so on. When you delete the VPC, it deletes the VPC's default security group, network ACL, and route table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -54,6 +53,7 @@ export interface DeleteVpcCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To delete a VPC
  * ```javascript
  * // This example deletes the specified VPC.

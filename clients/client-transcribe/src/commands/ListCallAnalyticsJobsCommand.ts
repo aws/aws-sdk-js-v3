@@ -27,7 +27,6 @@ export interface ListCallAnalyticsJobsCommandInput extends ListCallAnalyticsJobs
 export interface ListCallAnalyticsJobsCommandOutput extends ListCallAnalyticsJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a list of Call Analytics jobs that match the specified criteria. If no
  *             criteria are specified, all Call Analytics jobs are returned.</p>
  *          <p>To get detailed information about a specific Call Analytics job, use the  operation.</p>
@@ -86,6 +85,7 @@ export interface ListCallAnalyticsJobsCommandOutput extends ListCallAnalyticsJob
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * @public
  */
 export class ListCallAnalyticsJobsCommand extends $Command
   .classBuilder<

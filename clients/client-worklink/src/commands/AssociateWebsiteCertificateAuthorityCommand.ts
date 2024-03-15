@@ -35,9 +35,6 @@ export interface AssociateWebsiteCertificateAuthorityCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
- *
  * <p>Imports the root certificate of a certificate authority (CA) used to obtain TLS
  *             certificates used by associated websites within the company network.</p>
  * @example
@@ -86,6 +83,8 @@ export interface AssociateWebsiteCertificateAuthorityCommandOutput
  * @throws {@link WorkLinkServiceException}
  * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
+ * @public
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  */
 export class AssociateWebsiteCertificateAuthorityCommand extends $Command
   .classBuilder<

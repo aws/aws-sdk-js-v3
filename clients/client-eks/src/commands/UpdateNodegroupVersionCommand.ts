@@ -27,7 +27,6 @@ export interface UpdateNodegroupVersionCommandInput extends UpdateNodegroupVersi
 export interface UpdateNodegroupVersionCommandOutput extends UpdateNodegroupVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the Kubernetes version or AMI version of an Amazon EKS managed node
  *             group.</p>
  *          <p>You can update a node group using a launch template only if the node group was
@@ -128,6 +127,7 @@ export interface UpdateNodegroupVersionCommandOutput extends UpdateNodegroupVers
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class UpdateNodegroupVersionCommand extends $Command
   .classBuilder<

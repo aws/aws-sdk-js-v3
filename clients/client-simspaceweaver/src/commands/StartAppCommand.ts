@@ -27,7 +27,6 @@ export interface StartAppCommandInput extends StartAppInput {}
 export interface StartAppCommandOutput extends StartAppOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a custom app with the configuration specified in the simulation schema.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface StartAppCommandOutput extends StartAppOutput, __MetadataBearer 
  * @throws {@link SimSpaceWeaverServiceException}
  * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
+ * @public
  */
 export class StartAppCommand extends $Command
   .classBuilder<

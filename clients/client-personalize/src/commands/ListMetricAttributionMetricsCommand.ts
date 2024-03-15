@@ -32,7 +32,6 @@ export interface ListMetricAttributionMetricsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the metrics for the metric attribution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface ListMetricAttributionMetricsCommandOutput
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class ListMetricAttributionMetricsCommand extends $Command
   .classBuilder<

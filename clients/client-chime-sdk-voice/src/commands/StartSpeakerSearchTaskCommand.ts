@@ -27,7 +27,6 @@ export interface StartSpeakerSearchTaskCommandInput extends StartSpeakerSearchTa
 export interface StartSpeakerSearchTaskCommandOutput extends StartSpeakerSearchTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a speaker search task.</p>
  *          <important>
  *             <p>Before starting any speaker search tasks, you must provide all notices and obtain all consents from the speaker as required under applicable privacy and biometrics laws, and as required under the
@@ -120,6 +119,7 @@ export interface StartSpeakerSearchTaskCommandOutput extends StartSpeakerSearchT
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class StartSpeakerSearchTaskCommand extends $Command
   .classBuilder<

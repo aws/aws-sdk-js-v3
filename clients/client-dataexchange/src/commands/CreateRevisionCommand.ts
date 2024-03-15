@@ -27,7 +27,6 @@ export interface CreateRevisionCommandInput extends CreateRevisionRequest {}
 export interface CreateRevisionCommandOutput extends CreateRevisionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation creates a revision for a data set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface CreateRevisionCommandOutput extends CreateRevisionResponse, __M
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ * @public
  */
 export class CreateRevisionCommand extends $Command
   .classBuilder<

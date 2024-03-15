@@ -31,7 +31,6 @@ export interface DescribeConnectionsCommandInput extends DescribeConnectionsMess
 export interface DescribeConnectionsCommandOutput extends DescribeConnectionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the status of the connections that have been made between the replication
  *          instance and an endpoint. Connections are created when you test an endpoint.</p>
  * @example
@@ -82,6 +81,7 @@ export interface DescribeConnectionsCommandOutput extends DescribeConnectionsRes
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Describe connections
  * ```javascript
  * // Describes the status of the connections that have been made between the replication instance and an endpoint. Connections are created when you test an endpoint.

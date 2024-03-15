@@ -31,7 +31,6 @@ export interface ListConfigurationHistoryCommandInput extends ListConfigurationH
 export interface ListConfigurationHistoryCommandOutput extends ListConfigurationHistoryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Lists the INFO, WARN, and ERROR events for periodic configuration updates performed by
  *          Application Insights. Examples of events represented are: </p>
  *          <ul>
@@ -99,6 +98,7 @@ export interface ListConfigurationHistoryCommandOutput extends ListConfiguration
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ * @public
  */
 export class ListConfigurationHistoryCommand extends $Command
   .classBuilder<

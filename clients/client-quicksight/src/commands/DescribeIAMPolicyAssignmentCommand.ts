@@ -32,7 +32,6 @@ export interface DescribeIAMPolicyAssignmentCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes an existing IAM policy assignment, as specified by the
  * 			assignment name.</p>
  * @example
@@ -97,6 +96,7 @@ export interface DescribeIAMPolicyAssignmentCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DescribeIAMPolicyAssignmentCommand extends $Command
   .classBuilder<

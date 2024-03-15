@@ -27,7 +27,6 @@ export interface UpdateAccountSettingsCommandInput extends UpdateAccountSettings
 export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSettingsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update Proton settings that are used for multiple services in the Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class UpdateAccountSettingsCommand extends $Command
   .classBuilder<

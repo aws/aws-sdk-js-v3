@@ -27,7 +27,6 @@ export interface DisassociateSourceServersCommandInput extends DisassociateSourc
 export interface DisassociateSourceServersCommandOutput extends DisassociateSourceServersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociate source servers from application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface DisassociateSourceServersCommandOutput extends DisassociateSour
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * @public
  */
 export class DisassociateSourceServersCommand extends $Command
   .classBuilder<

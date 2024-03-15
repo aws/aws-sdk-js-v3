@@ -31,7 +31,6 @@ export interface ListComponentOutputsCommandInput extends ListComponentOutputsIn
 export interface ListComponentOutputsCommandOutput extends ListComponentOutputsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get a list of component Infrastructure as Code (IaC) outputs.</p>
  *          <p>For more information about components, see
  *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
@@ -85,6 +84,7 @@ export interface ListComponentOutputsCommandOutput extends ListComponentOutputsO
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class ListComponentOutputsCommand extends $Command
   .classBuilder<

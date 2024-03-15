@@ -27,7 +27,6 @@ export interface PutLoggingConfigurationCommandInput extends PutLoggingConfigura
 export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables the specified <a>LoggingConfiguration</a>, to start logging from a
  *          web ACL, according to the configuration provided. </p>
  *          <note>
@@ -327,6 +326,7 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class PutLoggingConfigurationCommand extends $Command
   .classBuilder<

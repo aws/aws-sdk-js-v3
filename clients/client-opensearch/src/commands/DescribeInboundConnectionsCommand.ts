@@ -27,7 +27,6 @@ export interface DescribeInboundConnectionsCommandInput extends DescribeInboundC
 export interface DescribeInboundConnectionsCommandOutput extends DescribeInboundConnectionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the inbound cross-cluster search connections for a destination (remote) Amazon
  *    OpenSearch Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search
  *     for Amazon OpenSearch Service</a>.</p>
@@ -96,6 +95,7 @@ export interface DescribeInboundConnectionsCommandOutput extends DescribeInbound
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class DescribeInboundConnectionsCommand extends $Command
   .classBuilder<

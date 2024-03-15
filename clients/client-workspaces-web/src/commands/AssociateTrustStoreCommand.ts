@@ -27,7 +27,6 @@ export interface AssociateTrustStoreCommandInput extends AssociateTrustStoreRequ
 export interface AssociateTrustStoreCommandOutput extends AssociateTrustStoreResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a trust store with a web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface AssociateTrustStoreCommandOutput extends AssociateTrustStoreRes
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * @public
  */
 export class AssociateTrustStoreCommand extends $Command
   .classBuilder<

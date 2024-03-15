@@ -27,7 +27,6 @@ export interface GetSiteAddressCommandInput extends GetSiteAddressInput {}
 export interface GetSiteAddressCommandOutput extends GetSiteAddressOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p> Gets the site address of the specified site. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface GetSiteAddressCommandOutput extends GetSiteAddressOutput, __Met
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ * @public
  */
 export class GetSiteAddressCommand extends $Command
   .classBuilder<

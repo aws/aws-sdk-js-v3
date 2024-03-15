@@ -27,7 +27,6 @@ export interface ListFHIRDatastoresCommandInput extends ListFHIRDatastoresReques
 export interface ListFHIRDatastoresCommandOutput extends ListFHIRDatastoresResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all FHIR data stores that are in the user’s account, regardless of data store status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface ListFHIRDatastoresCommandOutput extends ListFHIRDatastoresRespo
  * @throws {@link HealthLakeServiceException}
  * <p>Base exception class for all service exceptions from HealthLake service.</p>
  *
+ * @public
  */
 export class ListFHIRDatastoresCommand extends $Command
   .classBuilder<

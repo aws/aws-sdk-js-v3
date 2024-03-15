@@ -89,25 +89,25 @@ export const AppReplicationStatus = {
 export type AppReplicationStatus = (typeof AppReplicationStatus)[keyof typeof AppReplicationStatus];
 
 /**
- * @public
  * <p>Details about the latest launch of an application.</p>
+ * @public
  */
 export interface LaunchDetails {
   /**
-   * @public
    * <p>The latest time that this application was launched successfully.</p>
+   * @public
    */
   latestLaunchTime?: Date;
 
   /**
-   * @public
    * <p>The name of the latest stack launched for this application.</p>
+   * @public
    */
   stackName?: string;
 
   /**
-   * @public
    * <p>The ID of the latest stack launched for this application.</p>
+   * @public
    */
   stackId?: string;
 }
@@ -131,121 +131,121 @@ export const AppStatus = {
 export type AppStatus = (typeof AppStatus)[keyof typeof AppStatus];
 
 /**
- * @public
  * <p>Information about the application.</p>
+ * @public
  */
 export interface AppSummary {
   /**
-   * @public
    * <p>The unique ID of the application.</p>
+   * @public
    */
   appId?: string;
 
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   importedAppId?: string;
 
   /**
-   * @public
    * <p>The name of the application.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The description of the application.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>Status of the application.</p>
+   * @public
    */
   status?: AppStatus;
 
   /**
-   * @public
    * <p>A message related to the status of the application</p>
+   * @public
    */
   statusMessage?: string;
 
   /**
-   * @public
    * <p>Status of the replication configuration.</p>
+   * @public
    */
   replicationConfigurationStatus?: AppReplicationConfigurationStatus;
 
   /**
-   * @public
    * <p>The replication status of the application.</p>
+   * @public
    */
   replicationStatus?: AppReplicationStatus;
 
   /**
-   * @public
    * <p>A message related to the replication status of the application.</p>
+   * @public
    */
   replicationStatusMessage?: string;
 
   /**
-   * @public
    * <p>The timestamp of the application's most recent successful replication.</p>
+   * @public
    */
   latestReplicationTime?: Date;
 
   /**
-   * @public
    * <p>Status of the launch configuration.</p>
+   * @public
    */
   launchConfigurationStatus?: AppLaunchConfigurationStatus;
 
   /**
-   * @public
    * <p>The launch status of the application.</p>
+   * @public
    */
   launchStatus?: AppLaunchStatus;
 
   /**
-   * @public
    * <p>A message related to the launch status of the application.</p>
+   * @public
    */
   launchStatusMessage?: string;
 
   /**
-   * @public
    * <p>Details about the latest launch of the application.</p>
+   * @public
    */
   launchDetails?: LaunchDetails;
 
   /**
-   * @public
    * <p>The creation time of the application.</p>
+   * @public
    */
   creationTime?: Date;
 
   /**
-   * @public
    * <p>The last modified time of the application.</p>
+   * @public
    */
   lastModified?: Date;
 
   /**
-   * @public
    * <p>The name of the service role in the customer's account used by Server Migration Service.</p>
+   * @public
    */
   roleName?: string;
 
   /**
-   * @public
    * <p>The number of server groups present in the application.</p>
+   * @public
    */
   totalServerGroups?: number;
 
   /**
-   * @public
    * <p>The number of servers present in the application.</p>
+   * @public
    */
   totalServers?: number;
 }
@@ -278,127 +278,127 @@ export const ScriptType = {
 export type ScriptType = (typeof ScriptType)[keyof typeof ScriptType];
 
 /**
- * @public
  * <p>Location of an Amazon S3 object.</p>
+ * @public
  */
 export interface S3Location {
   /**
-   * @public
    * <p>The Amazon S3 bucket name.</p>
+   * @public
    */
   bucket?: string;
 
   /**
-   * @public
    * <p>The Amazon S3 bucket key.</p>
+   * @public
    */
   key?: string;
 }
 
 /**
- * @public
  * <p>Contains the location of a validation script.</p>
+ * @public
  */
 export interface Source {
   /**
-   * @public
    * <p>Location of an Amazon S3 object.</p>
+   * @public
    */
   s3Location?: S3Location;
 }
 
 /**
- * @public
  * <p>Contains validation parameters.</p>
+ * @public
  */
 export interface SSMValidationParameters {
   /**
-   * @public
    * <p>The location of the validation script.</p>
+   * @public
    */
   source?: Source;
 
   /**
-   * @public
    * <p>The ID of the instance. The instance must have the following tag: UserForSMSApplicationValidation=true.</p>
+   * @public
    */
   instanceId?: string;
 
   /**
-   * @public
    * <p>The type of validation script.</p>
+   * @public
    */
   scriptType?: ScriptType;
 
   /**
-   * @public
    * <p>The command to run the validation script.</p>
+   * @public
    */
   command?: string;
 
   /**
-   * @public
    * <p>The timeout interval, in seconds.</p>
+   * @public
    */
   executionTimeoutSeconds?: number;
 
   /**
-   * @public
    * <p>The name of the S3 bucket for output.</p>
+   * @public
    */
   outputS3BucketName?: string;
 }
 
 /**
- * @public
  * <p>Configuration for validating an application.</p>
+ * @public
  */
 export interface AppValidationConfiguration {
   /**
-   * @public
    * <p>The ID of the validation.</p>
+   * @public
    */
   validationId?: string;
 
   /**
-   * @public
    * <p>The name of the configuration.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The validation strategy.</p>
+   * @public
    */
   appValidationStrategy?: AppValidationStrategy;
 
   /**
-   * @public
    * <p>The validation parameters.</p>
+   * @public
    */
   ssmValidationParameters?: SSMValidationParameters;
 }
 
 /**
- * @public
  * <p>Contains the location of validation output.</p>
+ * @public
  */
 export interface SSMOutput {
   /**
-   * @public
    * <p>Location of an Amazon S3 object.</p>
+   * @public
    */
   s3Location?: S3Location;
 }
 
 /**
- * @public
  * <p>Output from validating an application.</p>
+ * @public
  */
 export interface AppValidationOutput {
   /**
-   * @public
    * <p>Output from using SSM to validate the application.</p>
+   * @public
    */
   ssmOutput?: SSMOutput;
 }
@@ -432,133 +432,133 @@ export const VmManagerType = {
 export type VmManagerType = (typeof VmManagerType)[keyof typeof VmManagerType];
 
 /**
- * @public
  * <p>Represents a VM server location.</p>
+ * @public
  */
 export interface VmServerAddress {
   /**
-   * @public
    * <p>The ID of the VM manager.</p>
+   * @public
    */
   vmManagerId?: string;
 
   /**
-   * @public
    * <p>The ID of the VM.</p>
+   * @public
    */
   vmId?: string;
 }
 
 /**
- * @public
  * <p>Represents a VM server.</p>
+ * @public
  */
 export interface VmServer {
   /**
-   * @public
    * <p>The VM server location.</p>
+   * @public
    */
   vmServerAddress?: VmServerAddress;
 
   /**
-   * @public
    * <p>The name of the VM.</p>
+   * @public
    */
   vmName?: string;
 
   /**
-   * @public
    * <p>The name of the VM manager.</p>
+   * @public
    */
   vmManagerName?: string;
 
   /**
-   * @public
    * <p>The type of VM management product.</p>
+   * @public
    */
   vmManagerType?: VmManagerType;
 
   /**
-   * @public
    * <p>The VM folder path in the vCenter Server virtual machine inventory tree.</p>
+   * @public
    */
   vmPath?: string;
 }
 
 /**
- * @public
  * <p>Represents a server.</p>
+ * @public
  */
 export interface Server {
   /**
-   * @public
    * <p>The ID of the server.</p>
+   * @public
    */
   serverId?: string;
 
   /**
-   * @public
    * <p>The type of server.</p>
+   * @public
    */
   serverType?: ServerType;
 
   /**
-   * @public
    * <p>Information about the VM server.</p>
+   * @public
    */
   vmServer?: VmServer;
 
   /**
-   * @public
    * <p>The ID of the replication job.</p>
+   * @public
    */
   replicationJobId?: string;
 
   /**
-   * @public
    * <p>Indicates whether the replication job is deleted or failed.</p>
+   * @public
    */
   replicationJobTerminated?: boolean;
 }
 
 /**
- * @public
  * <p>Logical grouping of servers.</p>
+ * @public
  */
 export interface ServerGroup {
   /**
-   * @public
    * <p>The ID of a server group.</p>
+   * @public
    */
   serverGroupId?: string;
 
   /**
-   * @public
    * <p>The name of a server group.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The servers that belong to a server group.</p>
+   * @public
    */
   serverList?: Server[];
 }
 
 /**
- * @public
  * <p>Key/value pair that can be assigned to an application.</p>
+ * @public
  */
 export interface Tag {
   /**
-   * @public
    * <p>The tag key.</p>
+   * @public
    */
   key?: string;
 
   /**
-   * @public
    * <p>The tag value.</p>
+   * @public
    */
   value?: string;
 }
@@ -568,39 +568,39 @@ export interface Tag {
  */
 export interface CreateAppRequest {
   /**
-   * @public
    * <p>The name of the new application.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The description of the new application</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The name of the service role in the customer's account to be used by Server Migration Service.</p>
+   * @public
    */
   roleName?: string;
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of
    *             application creation.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>The server groups to include in the application.</p>
+   * @public
    */
   serverGroups?: ServerGroup[];
 
   /**
-   * @public
    * <p>The tags to be associated with the application.</p>
+   * @public
    */
   tags?: Tag[];
 }
@@ -610,27 +610,27 @@ export interface CreateAppRequest {
  */
 export interface CreateAppResponse {
   /**
-   * @public
    * <p>A summary description of the application.</p>
+   * @public
    */
   appSummary?: AppSummary;
 
   /**
-   * @public
    * <p>The server groups included in the application.</p>
+   * @public
    */
   serverGroups?: ServerGroup[];
 
   /**
-   * @public
    * <p>The tags associated with the application.</p>
+   * @public
    */
   tags?: Tag[];
 }
 
 /**
- * @public
  * <p>An internal error occurred.</p>
+ * @public
  */
 export class InternalError extends __BaseException {
   readonly name: "InternalError" = "InternalError";
@@ -649,8 +649,8 @@ export class InternalError extends __BaseException {
 }
 
 /**
- * @public
  * <p>A specified parameter is not valid.</p>
+ * @public
  */
 export class InvalidParameterException extends __BaseException {
   readonly name: "InvalidParameterException" = "InvalidParameterException";
@@ -669,8 +669,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A required parameter is missing.</p>
+ * @public
  */
 export class MissingRequiredParameterException extends __BaseException {
   readonly name: "MissingRequiredParameterException" = "MissingRequiredParameterException";
@@ -689,8 +689,8 @@ export class MissingRequiredParameterException extends __BaseException {
 }
 
 /**
- * @public
  * <p>This operation is not allowed.</p>
+ * @public
  */
 export class OperationNotPermittedException extends __BaseException {
   readonly name: "OperationNotPermittedException" = "OperationNotPermittedException";
@@ -709,9 +709,9 @@ export class OperationNotPermittedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>You lack permissions needed to perform this operation. Check your IAM policies,
  *             and ensure that you are using the correct access keys.</p>
+ * @public
  */
 export class UnauthorizedOperationException extends __BaseException {
   readonly name: "UnauthorizedOperationException" = "UnauthorizedOperationException";
@@ -748,63 +748,62 @@ export type LicenseType = (typeof LicenseType)[keyof typeof LicenseType];
  */
 export interface CreateReplicationJobRequest {
   /**
-   * @public
    * <p>The ID of the server.</p>
+   * @public
    */
   serverId: string | undefined;
 
   /**
-   * @public
    * <p>The seed replication time.</p>
+   * @public
    */
   seedReplicationTime: Date | undefined;
 
   /**
-   * @public
    * <p>The time between consecutive replication runs, in hours.</p>
+   * @public
    */
   frequency?: number;
 
   /**
-   * @public
    * <p>Indicates whether to run the replication job one time.</p>
+   * @public
    */
   runOnce?: boolean;
 
   /**
-   * @public
    * <p>The license type to be used for the AMI created by a successful replication
    *             run.</p>
+   * @public
    */
   licenseType?: LicenseType;
 
   /**
-   * @public
    * <p>The name of the IAM role to be used by the Server Migration Service.</p>
+   * @public
    */
   roleName?: string;
 
   /**
-   * @public
    * <p>The description of the replication job.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The maximum number of SMS-created AMIs to retain. The oldest is deleted after the
    *             maximum number is reached and a new AMI is created.</p>
+   * @public
    */
   numberOfRecentAmisToKeep?: number;
 
   /**
-   * @public
    * <p>Indicates whether the replication job produces encrypted AMIs.</p>
+   * @public
    */
   encrypted?: boolean;
 
   /**
-   * @public
    * <p>The ID of the KMS key for replication jobs that produce encrypted AMIs.
    *             This value can be any of the following:</p>
    *          <ul>
@@ -823,6 +822,7 @@ export interface CreateReplicationJobRequest {
    *          </ul>
    *          <p> If encrypted is <i>true</i> but a KMS key ID is not specified, the
    *             customer's default KMS key for Amazon EBS is used. </p>
+   * @public
    */
   kmsKeyId?: string;
 }
@@ -832,15 +832,15 @@ export interface CreateReplicationJobRequest {
  */
 export interface CreateReplicationJobResponse {
   /**
-   * @public
    * <p>The unique identifier of the replication job.</p>
+   * @public
    */
   replicationJobId?: string;
 }
 
 /**
- * @public
  * <p>There are no connectors available.</p>
+ * @public
  */
 export class NoConnectorsAvailableException extends __BaseException {
   readonly name: "NoConnectorsAvailableException" = "NoConnectorsAvailableException";
@@ -859,8 +859,8 @@ export class NoConnectorsAvailableException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified replication job already exists.</p>
+ * @public
  */
 export class ReplicationJobAlreadyExistsException extends __BaseException {
   readonly name: "ReplicationJobAlreadyExistsException" = "ReplicationJobAlreadyExistsException";
@@ -879,8 +879,8 @@ export class ReplicationJobAlreadyExistsException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified server cannot be replicated.</p>
+ * @public
  */
 export class ServerCannotBeReplicatedException extends __BaseException {
   readonly name: "ServerCannotBeReplicatedException" = "ServerCannotBeReplicatedException";
@@ -899,8 +899,8 @@ export class ServerCannotBeReplicatedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The service is temporarily unavailable.</p>
+ * @public
  */
 export class TemporarilyUnavailableException extends __BaseException {
   readonly name: "TemporarilyUnavailableException" = "TemporarilyUnavailableException";
@@ -923,22 +923,22 @@ export class TemporarilyUnavailableException extends __BaseException {
  */
 export interface DeleteAppRequest {
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   appId?: string;
 
   /**
-   * @public
    * <p>Indicates whether to stop all replication jobs corresponding to the servers
    *             in the application while deleting the application.</p>
+   * @public
    */
   forceStopAppReplication?: boolean;
 
   /**
-   * @public
    * <p>Indicates whether to terminate the stack corresponding to the
    *             application while deleting the application.</p>
+   * @public
    */
   forceTerminateApp?: boolean;
 }
@@ -953,8 +953,8 @@ export interface DeleteAppResponse {}
  */
 export interface DeleteAppLaunchConfigurationRequest {
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   appId?: string;
 }
@@ -969,8 +969,8 @@ export interface DeleteAppLaunchConfigurationResponse {}
  */
 export interface DeleteAppReplicationConfigurationRequest {
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   appId?: string;
 }
@@ -985,8 +985,8 @@ export interface DeleteAppReplicationConfigurationResponse {}
  */
 export interface DeleteAppValidationConfigurationRequest {
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   appId: string | undefined;
 }
@@ -1001,8 +1001,8 @@ export interface DeleteAppValidationConfigurationResponse {}
  */
 export interface DeleteReplicationJobRequest {
   /**
-   * @public
    * <p>The ID of the replication job.</p>
+   * @public
    */
   replicationJobId: string | undefined;
 }
@@ -1013,8 +1013,8 @@ export interface DeleteReplicationJobRequest {
 export interface DeleteReplicationJobResponse {}
 
 /**
- * @public
  * <p>The specified replication job does not exist.</p>
+ * @public
  */
 export class ReplicationJobNotFoundException extends __BaseException {
   readonly name: "ReplicationJobNotFoundException" = "ReplicationJobNotFoundException";
@@ -1047,8 +1047,8 @@ export interface DeleteServerCatalogResponse {}
  */
 export interface DisassociateConnectorRequest {
   /**
-   * @public
    * <p>The ID of the connector.</p>
+   * @public
    */
   connectorId: string | undefined;
 }
@@ -1077,14 +1077,14 @@ export type OutputFormat = (typeof OutputFormat)[keyof typeof OutputFormat];
  */
 export interface GenerateChangeSetRequest {
   /**
-   * @public
    * <p>The ID of the application associated with the change set.</p>
+   * @public
    */
   appId?: string;
 
   /**
-   * @public
    * <p>The format for the change set.</p>
+   * @public
    */
   changesetFormat?: OutputFormat;
 }
@@ -1094,8 +1094,8 @@ export interface GenerateChangeSetRequest {
  */
 export interface GenerateChangeSetResponse {
   /**
-   * @public
    * <p>The location of the Amazon S3 object.</p>
+   * @public
    */
   s3Location?: S3Location;
 }
@@ -1105,14 +1105,14 @@ export interface GenerateChangeSetResponse {
  */
 export interface GenerateTemplateRequest {
   /**
-   * @public
    * <p>The ID of the application associated with the CloudFormation template.</p>
+   * @public
    */
   appId?: string;
 
   /**
-   * @public
    * <p>The format for generating the CloudFormation template.</p>
+   * @public
    */
   templateFormat?: OutputFormat;
 }
@@ -1122,8 +1122,8 @@ export interface GenerateTemplateRequest {
  */
 export interface GenerateTemplateResponse {
   /**
-   * @public
    * <p>The location of the Amazon S3 object.</p>
+   * @public
    */
   s3Location?: S3Location;
 }
@@ -1133,8 +1133,8 @@ export interface GenerateTemplateResponse {
  */
 export interface GetAppRequest {
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   appId?: string;
 }
@@ -1144,20 +1144,20 @@ export interface GetAppRequest {
  */
 export interface GetAppResponse {
   /**
-   * @public
    * <p>Information about the application.</p>
+   * @public
    */
   appSummary?: AppSummary;
 
   /**
-   * @public
    * <p>The server groups that belong to the application.</p>
+   * @public
    */
   serverGroups?: ServerGroup[];
 
   /**
-   * @public
    * <p>The tags associated with the application.</p>
+   * @public
    */
   tags?: Tag[];
 }
@@ -1167,124 +1167,124 @@ export interface GetAppResponse {
  */
 export interface GetAppLaunchConfigurationRequest {
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   appId?: string;
 }
 
 /**
- * @public
  * <p>A script that runs on first launch of an Amazon EC2 instance. Used for configuring the
  *             server during launch.</p>
+ * @public
  */
 export interface UserData {
   /**
-   * @public
    * <p>Amazon S3 location of the user-data script.</p>
+   * @public
    */
   s3Location?: S3Location;
 }
 
 /**
- * @public
  * <p>Launch configuration for a server.</p>
+ * @public
  */
 export interface ServerLaunchConfiguration {
   /**
-   * @public
    * <p>The ID of the server with which the launch configuration is associated.</p>
+   * @public
    */
   server?: Server;
 
   /**
-   * @public
    * <p>The logical ID of the server in the CloudFormation template.</p>
+   * @public
    */
   logicalId?: string;
 
   /**
-   * @public
    * <p>The ID of the VPC into which the server should be launched.</p>
+   * @public
    */
   vpc?: string;
 
   /**
-   * @public
    * <p>The ID of the subnet the server should be launched into.</p>
+   * @public
    */
   subnet?: string;
 
   /**
-   * @public
    * <p>The ID of the security group that applies to the launched server.</p>
+   * @public
    */
   securityGroup?: string;
 
   /**
-   * @public
    * <p>The name of the Amazon EC2 SSH key to be used for connecting to the launched server.</p>
+   * @public
    */
   ec2KeyName?: string;
 
   /**
-   * @public
    * <p>Location of the user-data script to be executed when launching the server.</p>
+   * @public
    */
   userData?: UserData;
 
   /**
-   * @public
    * <p>The instance type to use when launching the server.</p>
+   * @public
    */
   instanceType?: string;
 
   /**
-   * @public
    * <p>Indicates whether a publicly accessible IP address is created when launching the server.</p>
+   * @public
    */
   associatePublicIpAddress?: boolean;
 
   /**
-   * @public
    * <p>The name of the IAM instance profile.</p>
+   * @public
    */
   iamInstanceProfileName?: string;
 
   /**
-   * @public
    * <p>Location of an Amazon S3 object.</p>
+   * @public
    */
   configureScript?: S3Location;
 
   /**
-   * @public
    * <p>The type of configuration script.</p>
+   * @public
    */
   configureScriptType?: ScriptType;
 }
 
 /**
- * @public
  * <p>Launch configuration for a server group.</p>
+ * @public
  */
 export interface ServerGroupLaunchConfiguration {
   /**
-   * @public
    * <p>The ID of the server group with which the launch configuration is
    *             associated.</p>
+   * @public
    */
   serverGroupId?: string;
 
   /**
-   * @public
    * <p>The launch order of servers in the server group.</p>
+   * @public
    */
   launchOrder?: number;
 
   /**
-   * @public
    * <p>The launch configuration for servers in the server group.</p>
+   * @public
    */
   serverLaunchConfigurations?: ServerLaunchConfiguration[];
 }
@@ -1294,27 +1294,27 @@ export interface ServerGroupLaunchConfiguration {
  */
 export interface GetAppLaunchConfigurationResponse {
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   appId?: string;
 
   /**
-   * @public
    * <p>The name of the service role in the customer's account that CloudFormation uses to launch the
    *             application.</p>
+   * @public
    */
   roleName?: string;
 
   /**
-   * @public
    * <p>Indicates whether the application is configured to launch automatically after replication is complete.</p>
+   * @public
    */
   autoLaunch?: boolean;
 
   /**
-   * @public
    * <p>The launch configurations for server groups in this application.</p>
+   * @public
    */
   serverGroupLaunchConfigurations?: ServerGroupLaunchConfiguration[];
 }
@@ -1324,55 +1324,54 @@ export interface GetAppLaunchConfigurationResponse {
  */
 export interface GetAppReplicationConfigurationRequest {
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   appId?: string;
 }
 
 /**
- * @public
  * <p>The replication parameters for replicating a server.</p>
+ * @public
  */
 export interface ServerReplicationParameters {
   /**
-   * @public
    * <p>The seed time for creating a replication job for the server.</p>
+   * @public
    */
   seedTime?: Date;
 
   /**
-   * @public
    * <p>The frequency of creating replication jobs for the server.</p>
+   * @public
    */
   frequency?: number;
 
   /**
-   * @public
    * <p>Indicates whether to run the replication job one time.</p>
+   * @public
    */
   runOnce?: boolean;
 
   /**
-   * @public
    * <p>The license type for creating a replication job for the server.</p>
+   * @public
    */
   licenseType?: LicenseType;
 
   /**
-   * @public
    * <p>The number of recent AMIs to keep when creating a replication job for this server.</p>
+   * @public
    */
   numberOfRecentAmisToKeep?: number;
 
   /**
-   * @public
    * <p>Indicates whether the replication job produces encrypted AMIs.</p>
+   * @public
    */
   encrypted?: boolean;
 
   /**
-   * @public
    * <p>The ID of the KMS key for replication jobs that produce encrypted AMIs.
    *             This value can be any of the following:</p>
    *          <ul>
@@ -1391,44 +1390,45 @@ export interface ServerReplicationParameters {
    *          </ul>
    *          <p>If encrypted is enabled but a KMS key ID is not specified, the
    *             customer's default KMS key for Amazon EBS is used.</p>
+   * @public
    */
   kmsKeyId?: string;
 }
 
 /**
- * @public
  * <p>Replication configuration of a server.</p>
+ * @public
  */
 export interface ServerReplicationConfiguration {
   /**
-   * @public
    * <p>The ID of the server with which this replication configuration is
    *             associated.</p>
+   * @public
    */
   server?: Server;
 
   /**
-   * @public
    * <p>The parameters for replicating the server.</p>
+   * @public
    */
   serverReplicationParameters?: ServerReplicationParameters;
 }
 
 /**
- * @public
  * <p>Replication configuration for a server group.</p>
+ * @public
  */
 export interface ServerGroupReplicationConfiguration {
   /**
-   * @public
    * <p>The ID of the server group with which this replication configuration is
    *             associated.</p>
+   * @public
    */
   serverGroupId?: string;
 
   /**
-   * @public
    * <p>The replication configuration for servers in the server group.</p>
+   * @public
    */
   serverReplicationConfigurations?: ServerReplicationConfiguration[];
 }
@@ -1438,8 +1438,8 @@ export interface ServerGroupReplicationConfiguration {
  */
 export interface GetAppReplicationConfigurationResponse {
   /**
-   * @public
    * <p>The replication configurations associated with server groups in this application.</p>
+   * @public
    */
   serverGroupReplicationConfigurations?: ServerGroupReplicationConfiguration[];
 }
@@ -1449,8 +1449,8 @@ export interface GetAppReplicationConfigurationResponse {
  */
 export interface GetAppValidationConfigurationRequest {
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   appId: string | undefined;
 }
@@ -1469,73 +1469,73 @@ export const ServerValidationStrategy = {
 export type ServerValidationStrategy = (typeof ServerValidationStrategy)[keyof typeof ServerValidationStrategy];
 
 /**
- * @public
  * <p>Contains validation parameters.</p>
+ * @public
  */
 export interface UserDataValidationParameters {
   /**
-   * @public
    * <p>The location of the validation script.</p>
+   * @public
    */
   source?: Source;
 
   /**
-   * @public
    * <p>The type of validation script.</p>
+   * @public
    */
   scriptType?: ScriptType;
 }
 
 /**
- * @public
  * <p>Configuration for validating an instance.</p>
+ * @public
  */
 export interface ServerValidationConfiguration {
   /**
-   * @public
    * <p>Represents a server.</p>
+   * @public
    */
   server?: Server;
 
   /**
-   * @public
    * <p>The ID of the validation.</p>
+   * @public
    */
   validationId?: string;
 
   /**
-   * @public
    * <p>The name of the configuration.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The validation strategy.</p>
+   * @public
    */
   serverValidationStrategy?: ServerValidationStrategy;
 
   /**
-   * @public
    * <p>The validation parameters.</p>
+   * @public
    */
   userDataValidationParameters?: UserDataValidationParameters;
 }
 
 /**
- * @public
  * <p>Configuration for validating an instance.</p>
+ * @public
  */
 export interface ServerGroupValidationConfiguration {
   /**
-   * @public
    * <p>The ID of the server group.</p>
+   * @public
    */
   serverGroupId?: string;
 
   /**
-   * @public
    * <p>The validation configuration.</p>
+   * @public
    */
   serverValidationConfigurations?: ServerValidationConfiguration[];
 }
@@ -1545,14 +1545,14 @@ export interface ServerGroupValidationConfiguration {
  */
 export interface GetAppValidationConfigurationResponse {
   /**
-   * @public
    * <p>The configuration for application validation.</p>
+   * @public
    */
   appValidationConfigurations?: AppValidationConfiguration[];
 
   /**
-   * @public
    * <p>The configuration for instance validation.</p>
+   * @public
    */
   serverGroupValidationConfigurations?: ServerGroupValidationConfiguration[];
 }
@@ -1562,20 +1562,20 @@ export interface GetAppValidationConfigurationResponse {
  */
 export interface GetAppValidationOutputRequest {
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   appId: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains output from validating an instance.</p>
+ * @public
  */
 export interface ServerValidationOutput {
   /**
-   * @public
    * <p>Represents a server.</p>
+   * @public
    */
   server?: Server;
 }
@@ -1598,49 +1598,49 @@ export const ValidationStatus = {
 export type ValidationStatus = (typeof ValidationStatus)[keyof typeof ValidationStatus];
 
 /**
- * @public
  * <p>Contains validation output.</p>
+ * @public
  */
 export interface ValidationOutput {
   /**
-   * @public
    * <p>The ID of the validation.</p>
+   * @public
    */
   validationId?: string;
 
   /**
-   * @public
    * <p>The name of the validation.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The status of the validation.</p>
+   * @public
    */
   status?: ValidationStatus;
 
   /**
-   * @public
    * <p>The status message.</p>
+   * @public
    */
   statusMessage?: string;
 
   /**
-   * @public
    * <p>The latest time that the validation was performed.</p>
+   * @public
    */
   latestValidationTime?: Date;
 
   /**
-   * @public
    * <p>The output from validating an application.</p>
+   * @public
    */
   appValidationOutput?: AppValidationOutput;
 
   /**
-   * @public
    * <p>The output from validation an instance.</p>
+   * @public
    */
   serverValidationOutput?: ServerValidationOutput;
 }
@@ -1650,8 +1650,8 @@ export interface ValidationOutput {
  */
 export interface GetAppValidationOutputResponse {
   /**
-   * @public
    * <p>The validation output.</p>
+   * @public
    */
   validationOutputList?: ValidationOutput[];
 }
@@ -1661,16 +1661,16 @@ export interface GetAppValidationOutputResponse {
  */
 export interface GetConnectorsRequest {
   /**
-   * @public
    * <p>The token for the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return in a single call. The default value is 50.
    *             To retrieve the remaining results, make another call with the returned
    *                 <code>NextToken</code> value.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -1707,67 +1707,67 @@ export const ConnectorStatus = {
 export type ConnectorStatus = (typeof ConnectorStatus)[keyof typeof ConnectorStatus];
 
 /**
- * @public
  * <p>Represents a connector.</p>
+ * @public
  */
 export interface Connector {
   /**
-   * @public
    * <p>The ID of the connector.</p>
+   * @public
    */
   connectorId?: string;
 
   /**
-   * @public
    * <p>The connector version.</p>
+   * @public
    */
   version?: string;
 
   /**
-   * @public
    * <p>The status of the connector.</p>
+   * @public
    */
   status?: ConnectorStatus;
 
   /**
-   * @public
    * <p>The capabilities of the connector.</p>
+   * @public
    */
   capabilityList?: ConnectorCapability[];
 
   /**
-   * @public
    * <p>The name of the VM manager.</p>
+   * @public
    */
   vmManagerName?: string;
 
   /**
-   * @public
    * <p>The VM management product.</p>
+   * @public
    */
   vmManagerType?: VmManagerType;
 
   /**
-   * @public
    * <p>The ID of the VM manager.</p>
+   * @public
    */
   vmManagerId?: string;
 
   /**
-   * @public
    * <p>The IP address of the connector.</p>
+   * @public
    */
   ipAddress?: string;
 
   /**
-   * @public
    * <p>The MAC address of the connector.</p>
+   * @public
    */
   macAddress?: string;
 
   /**
-   * @public
    * <p>The time the connector was associated.</p>
+   * @public
    */
   associatedOn?: Date;
 }
@@ -1777,15 +1777,15 @@ export interface Connector {
  */
 export interface GetConnectorsResponse {
   /**
-   * @public
    * <p>Information about the registered connectors.</p>
+   * @public
    */
   connectorList?: Connector[];
 
   /**
-   * @public
    * <p>The token required to retrieve the next set of results. This value is null when
    *             there are no more results to return.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1795,40 +1795,40 @@ export interface GetConnectorsResponse {
  */
 export interface GetReplicationJobsRequest {
   /**
-   * @public
    * <p>The ID of the replication job.</p>
+   * @public
    */
   replicationJobId?: string;
 
   /**
-   * @public
    * <p>The token for the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return in a single call. The default value is 50.
    *             To retrieve the remaining results, make another call with the returned
    *                 <code>NextToken</code> value.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Details of the current stage of a replication run.</p>
+ * @public
  */
 export interface ReplicationRunStageDetails {
   /**
-   * @public
    * <p>The current stage of a replication run.</p>
+   * @public
    */
   stage?: string;
 
   /**
-   * @public
    * <p>The progress of the current stage of a replication run.</p>
+   * @public
    */
   stageProgress?: string;
 }
@@ -1867,73 +1867,72 @@ export const ReplicationRunType = {
 export type ReplicationRunType = (typeof ReplicationRunType)[keyof typeof ReplicationRunType];
 
 /**
- * @public
  * <p>Represents a replication run.</p>
+ * @public
  */
 export interface ReplicationRun {
   /**
-   * @public
    * <p>The ID of the replication run.</p>
+   * @public
    */
   replicationRunId?: string;
 
   /**
-   * @public
    * <p>The state of the replication run.</p>
+   * @public
    */
   state?: ReplicationRunState;
 
   /**
-   * @public
    * <p>The type of replication run.</p>
+   * @public
    */
   type?: ReplicationRunType;
 
   /**
-   * @public
    * <p>Details about the current stage of the replication run.</p>
+   * @public
    */
   stageDetails?: ReplicationRunStageDetails;
 
   /**
-   * @public
    * <p>The description of the current status of the replication job.</p>
+   * @public
    */
   statusMessage?: string;
 
   /**
-   * @public
    * <p>The ID of the Amazon Machine Image (AMI) from the replication
    *             run.</p>
+   * @public
    */
   amiId?: string;
 
   /**
-   * @public
    * <p>The start time of the next replication run.</p>
+   * @public
    */
   scheduledStartTime?: Date;
 
   /**
-   * @public
    * <p>The completion time of the last replication run.</p>
+   * @public
    */
   completedTime?: Date;
 
   /**
-   * @public
    * <p>The description of the replication run.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>Indicates whether the replication run should produce an encrypted AMI.</p>
+   * @public
    */
   encrypted?: boolean;
 
   /**
-   * @public
    * <p>The ID of the KMS key for replication jobs that produce encrypted AMIs.
    *             This value can be any of the following:</p>
    *          <ul>
@@ -1952,6 +1951,7 @@ export interface ReplicationRun {
    *          </ul>
    *          <p> If encrypted is <i>true</i> but a KMS key ID is not specified, the
    *             customer's default KMS key for Amazon EBS is used. </p>
+   * @public
    */
   kmsKeyId?: string;
 }
@@ -1977,110 +1977,109 @@ export const ReplicationJobState = {
 export type ReplicationJobState = (typeof ReplicationJobState)[keyof typeof ReplicationJobState];
 
 /**
- * @public
  * <p>Represents a replication job.</p>
+ * @public
  */
 export interface ReplicationJob {
   /**
-   * @public
    * <p>The ID of the replication job.</p>
+   * @public
    */
   replicationJobId?: string;
 
   /**
-   * @public
    * <p>The ID of the server.</p>
+   * @public
    */
   serverId?: string;
 
   /**
-   * @public
    * <p>The type of server.</p>
+   * @public
    */
   serverType?: ServerType;
 
   /**
-   * @public
    * <p>Information about the VM server.</p>
+   * @public
    */
   vmServer?: VmServer;
 
   /**
-   * @public
    * <p>The seed replication time.</p>
+   * @public
    */
   seedReplicationTime?: Date;
 
   /**
-   * @public
    * <p>The time between consecutive replication runs, in hours.</p>
+   * @public
    */
   frequency?: number;
 
   /**
-   * @public
    * <p>Indicates whether to run the replication job one time.</p>
+   * @public
    */
   runOnce?: boolean;
 
   /**
-   * @public
    * <p>The start time of the next replication run.</p>
+   * @public
    */
   nextReplicationRunStartTime?: Date;
 
   /**
-   * @public
    * <p>The license type to be used for the AMI created by a successful replication
    *             run.</p>
+   * @public
    */
   licenseType?: LicenseType;
 
   /**
-   * @public
    * <p>The name of the IAM role to be used by Server Migration Service.</p>
+   * @public
    */
   roleName?: string;
 
   /**
-   * @public
    * <p>The ID of the latest Amazon Machine Image (AMI).</p>
+   * @public
    */
   latestAmiId?: string;
 
   /**
-   * @public
    * <p>The state of the replication job.</p>
+   * @public
    */
   state?: ReplicationJobState;
 
   /**
-   * @public
    * <p>The description of the current status of the replication job.</p>
+   * @public
    */
   statusMessage?: string;
 
   /**
-   * @public
    * <p>The description of the replication job.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The number of recent AMIs to keep in the customer's account for a replication job. By
    *             default, the value is set to zero, meaning that all AMIs are kept.</p>
+   * @public
    */
   numberOfRecentAmisToKeep?: number;
 
   /**
-   * @public
    * <p>Indicates whether the replication job should produce encrypted AMIs.</p>
+   * @public
    */
   encrypted?: boolean;
 
   /**
-   * @public
    * <p>The ID of the KMS key for replication jobs that produce encrypted AMIs.
    *             This value can be any of the following: </p>
    *          <ul>
@@ -2099,12 +2098,13 @@ export interface ReplicationJob {
    *          </ul>
    *          <p>If encrypted is enabled but a KMS key ID is not specified, the
    *             customer's default KMS key for Amazon EBS is used.</p>
+   * @public
    */
   kmsKeyId?: string;
 
   /**
-   * @public
    * <p>Information about the replication runs.</p>
+   * @public
    */
   replicationRunList?: ReplicationRun[];
 }
@@ -2114,15 +2114,15 @@ export interface ReplicationJob {
  */
 export interface GetReplicationJobsResponse {
   /**
-   * @public
    * <p>Information about the replication jobs.</p>
+   * @public
    */
   replicationJobList?: ReplicationJob[];
 
   /**
-   * @public
    * <p>The token required to retrieve the next set of results. This value is null when
    *             there are no more results to return.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2132,22 +2132,22 @@ export interface GetReplicationJobsResponse {
  */
 export interface GetReplicationRunsRequest {
   /**
-   * @public
    * <p>The ID of the replication job.</p>
+   * @public
    */
   replicationJobId: string | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return in a single call. The default value is 50.
    *             To retrieve the remaining results, make another call with the returned
    *                 <code>NextToken</code> value.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -2157,21 +2157,21 @@ export interface GetReplicationRunsRequest {
  */
 export interface GetReplicationRunsResponse {
   /**
-   * @public
    * <p>Information about the replication job.</p>
+   * @public
    */
   replicationJob?: ReplicationJob;
 
   /**
-   * @public
    * <p>Information about the replication runs.</p>
+   * @public
    */
   replicationRunList?: ReplicationRun[];
 
   /**
-   * @public
    * <p>The token required to retrieve the next set of results. This value is null when
    *             there are no more results to return.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2181,22 +2181,22 @@ export interface GetReplicationRunsResponse {
  */
 export interface GetServersRequest {
   /**
-   * @public
    * <p>The token for the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return in a single call. The default value is 50.
    *             To retrieve the remaining results, make another call with the returned
    *                 <code>NextToken</code> value.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The server addresses.</p>
+   * @public
    */
   vmServerAddressList?: VmServerAddress[];
 }
@@ -2223,27 +2223,27 @@ export type ServerCatalogStatus = (typeof ServerCatalogStatus)[keyof typeof Serv
  */
 export interface GetServersResponse {
   /**
-   * @public
    * <p>The time when the server was last modified.</p>
+   * @public
    */
   lastModifiedOn?: Date;
 
   /**
-   * @public
    * <p>The status of the server catalog.</p>
+   * @public
    */
   serverCatalogStatus?: ServerCatalogStatus;
 
   /**
-   * @public
    * <p>Information about the servers.</p>
+   * @public
    */
   serverList?: Server[];
 
   /**
-   * @public
    * <p>The token required to retrieve the next set of results. This value is null when
    *             there are no more results to return.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2253,10 +2253,10 @@ export interface GetServersResponse {
  */
 export interface ImportAppCatalogRequest {
   /**
-   * @public
    * <p>The name of the service role. If you omit this parameter, we create a service-linked role
    *             for Migration Hub in your account. Otherwise, the role that you provide must have the <a href="https://docs.aws.amazon.com/migrationhub/latest/ug/new-customer-setup.html#sms-managed">policy
    *                 and trust policy</a> described in the <i>Migration Hub User Guide</i>.</p>
+   * @public
    */
   roleName?: string;
 }
@@ -2281,8 +2281,8 @@ export interface ImportServerCatalogResponse {}
  */
 export interface LaunchAppRequest {
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   appId?: string;
 }
@@ -2297,22 +2297,22 @@ export interface LaunchAppResponse {}
  */
 export interface ListAppsRequest {
   /**
-   * @public
    * <p>The unique application IDs.</p>
+   * @public
    */
   appIds?: string[];
 
   /**
-   * @public
    * <p>The token for the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return in a single call. The default value is 100. To
    *             retrieve the remaining results, make another call with the returned
    *                 <code>NextToken</code> value. </p>
+   * @public
    */
   maxResults?: number;
 }
@@ -2322,39 +2322,39 @@ export interface ListAppsRequest {
  */
 export interface ListAppsResponse {
   /**
-   * @public
    * <p>The application summaries.</p>
+   * @public
    */
   apps?: AppSummary[];
 
   /**
-   * @public
    * <p>The token required to retrieve the next set of results. This value is null when there
    *             are no more results to return.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>Contains the status of validating an application.</p>
+ * @public
  */
 export interface NotificationContext {
   /**
-   * @public
    * <p>The ID of the validation.</p>
+   * @public
    */
   validationId?: string;
 
   /**
-   * @public
    * <p>The status of the validation.</p>
+   * @public
    */
   status?: ValidationStatus;
 
   /**
-   * @public
    * <p>The status message.</p>
+   * @public
    */
   statusMessage?: string;
 }
@@ -2364,14 +2364,14 @@ export interface NotificationContext {
  */
 export interface NotifyAppValidationOutputRequest {
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   appId: string | undefined;
 
   /**
-   * @public
    * <p>The notification information.</p>
+   * @public
    */
   notificationContext?: NotificationContext;
 }
@@ -2386,27 +2386,27 @@ export interface NotifyAppValidationOutputResponse {}
  */
 export interface PutAppLaunchConfigurationRequest {
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   appId?: string;
 
   /**
-   * @public
    * <p>The name of service role in the customer's account that CloudFormation uses to launch the
    *             application.</p>
+   * @public
    */
   roleName?: string;
 
   /**
-   * @public
    * <p>Indicates whether the application is configured to launch automatically after replication is complete.</p>
+   * @public
    */
   autoLaunch?: boolean;
 
   /**
-   * @public
    * <p>Information about the launch configurations for server groups in the application.</p>
+   * @public
    */
   serverGroupLaunchConfigurations?: ServerGroupLaunchConfiguration[];
 }
@@ -2421,14 +2421,14 @@ export interface PutAppLaunchConfigurationResponse {}
  */
 export interface PutAppReplicationConfigurationRequest {
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   appId?: string;
 
   /**
-   * @public
    * <p>Information about the replication configurations for server groups in the application.</p>
+   * @public
    */
   serverGroupReplicationConfigurations?: ServerGroupReplicationConfiguration[];
 }
@@ -2443,20 +2443,20 @@ export interface PutAppReplicationConfigurationResponse {}
  */
 export interface PutAppValidationConfigurationRequest {
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   appId: string | undefined;
 
   /**
-   * @public
    * <p>The configuration for application validation.</p>
+   * @public
    */
   appValidationConfigurations?: AppValidationConfiguration[];
 
   /**
-   * @public
    * <p>The configuration for instance validation.</p>
+   * @public
    */
   serverGroupValidationConfigurations?: ServerGroupValidationConfiguration[];
 }
@@ -2471,8 +2471,8 @@ export interface PutAppValidationConfigurationResponse {}
  */
 export interface StartAppReplicationRequest {
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   appId?: string;
 }
@@ -2487,14 +2487,14 @@ export interface StartAppReplicationResponse {}
  */
 export interface StartOnDemandAppReplicationRequest {
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   appId: string | undefined;
 
   /**
-   * @public
    * <p>The description of the replication run.</p>
+   * @public
    */
   description?: string;
 }
@@ -2505,9 +2505,9 @@ export interface StartOnDemandAppReplicationRequest {
 export interface StartOnDemandAppReplicationResponse {}
 
 /**
- * @public
  * <p>The user has the required permissions, so the request would have succeeded,
  *             but a dry run was performed.</p>
+ * @public
  */
 export class DryRunOperationException extends __BaseException {
   readonly name: "DryRunOperationException" = "DryRunOperationException";
@@ -2526,9 +2526,9 @@ export class DryRunOperationException extends __BaseException {
 }
 
 /**
- * @public
  * <p>You have exceeded the number of on-demand replication runs you can request in a
  *             24-hour period.</p>
+ * @public
  */
 export class ReplicationRunLimitExceededException extends __BaseException {
   readonly name: "ReplicationRunLimitExceededException" = "ReplicationRunLimitExceededException";
@@ -2551,14 +2551,14 @@ export class ReplicationRunLimitExceededException extends __BaseException {
  */
 export interface StartOnDemandReplicationRunRequest {
   /**
-   * @public
    * <p>The ID of the replication job.</p>
+   * @public
    */
   replicationJobId: string | undefined;
 
   /**
-   * @public
    * <p>The description of the replication run.</p>
+   * @public
    */
   description?: string;
 }
@@ -2568,8 +2568,8 @@ export interface StartOnDemandReplicationRunRequest {
  */
 export interface StartOnDemandReplicationRunResponse {
   /**
-   * @public
    * <p>The ID of the replication run.</p>
+   * @public
    */
   replicationRunId?: string;
 }
@@ -2579,8 +2579,8 @@ export interface StartOnDemandReplicationRunResponse {
  */
 export interface StopAppReplicationRequest {
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   appId?: string;
 }
@@ -2595,8 +2595,8 @@ export interface StopAppReplicationResponse {}
  */
 export interface TerminateAppRequest {
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   appId?: string;
 }
@@ -2611,38 +2611,38 @@ export interface TerminateAppResponse {}
  */
 export interface UpdateAppRequest {
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   appId?: string;
 
   /**
-   * @public
    * <p>The new name of the application.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The new description of the application.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The name of the service role in the customer's account used by Server Migration Service.</p>
+   * @public
    */
   roleName?: string;
 
   /**
-   * @public
    * <p>The server groups in the application to update.</p>
+   * @public
    */
   serverGroups?: ServerGroup[];
 
   /**
-   * @public
    * <p>The tags to associate with the application.</p>
+   * @public
    */
   tags?: Tag[];
 }
@@ -2652,20 +2652,20 @@ export interface UpdateAppRequest {
  */
 export interface UpdateAppResponse {
   /**
-   * @public
    * <p>A summary description of the application.</p>
+   * @public
    */
   appSummary?: AppSummary;
 
   /**
-   * @public
    * <p>The updated server groups in the application.</p>
+   * @public
    */
   serverGroups?: ServerGroup[];
 
   /**
-   * @public
    * <p>The tags associated with the application.</p>
+   * @public
    */
   tags?: Tag[];
 }
@@ -2675,58 +2675,57 @@ export interface UpdateAppResponse {
  */
 export interface UpdateReplicationJobRequest {
   /**
-   * @public
    * <p>The ID of the replication job.</p>
+   * @public
    */
   replicationJobId: string | undefined;
 
   /**
-   * @public
    * <p>The time between consecutive replication runs, in hours.</p>
+   * @public
    */
   frequency?: number;
 
   /**
-   * @public
    * <p>The start time of the next replication run.</p>
+   * @public
    */
   nextReplicationRunStartTime?: Date;
 
   /**
-   * @public
    * <p>The license type to be used for the AMI created by a successful replication
    *             run.</p>
+   * @public
    */
   licenseType?: LicenseType;
 
   /**
-   * @public
    * <p>The name of the IAM role to be used by Server Migration Service.</p>
+   * @public
    */
   roleName?: string;
 
   /**
-   * @public
    * <p>The description of the replication job.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The maximum number of SMS-created AMIs to retain. The oldest is deleted after the
    *             maximum number is reached and a new AMI is created.</p>
+   * @public
    */
   numberOfRecentAmisToKeep?: number;
 
   /**
-   * @public
    * <p>When true, the replication job produces encrypted AMIs. For more information,
    *                 <code>KmsKeyId</code>.</p>
+   * @public
    */
   encrypted?: boolean;
 
   /**
-   * @public
    * <p>The ID of the KMS key for replication jobs that produce encrypted AMIs.
    *             This value can be any of the following:</p>
    *          <ul>
@@ -2745,6 +2744,7 @@ export interface UpdateReplicationJobRequest {
    *          </ul>
    *          <p>If encrypted is enabled but a KMS key ID is not specified, the
    *             customer's default KMS key for Amazon EBS is used.</p>
+   * @public
    */
   kmsKeyId?: string;
 }

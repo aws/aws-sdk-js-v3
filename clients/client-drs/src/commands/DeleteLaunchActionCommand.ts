@@ -27,7 +27,6 @@ export interface DeleteLaunchActionCommandInput extends DeleteLaunchActionReques
 export interface DeleteLaunchActionCommandOutput extends DeleteLaunchActionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a resource launch action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface DeleteLaunchActionCommandOutput extends DeleteLaunchActionRespo
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * @public
  */
 export class DeleteLaunchActionCommand extends $Command
   .classBuilder<

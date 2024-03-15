@@ -27,7 +27,6 @@ export interface DeleteBackupPlanCommandInput extends DeleteBackupPlanInput {}
 export interface DeleteBackupPlanCommandOutput extends DeleteBackupPlanOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a backup plan. A backup plan can only be deleted after all associated selections
  *          of resources have been deleted. Deleting a backup plan deletes the current version of a
  *          backup plan. Previous versions, if any, will still exist.</p>
@@ -77,6 +76,7 @@ export interface DeleteBackupPlanCommandOutput extends DeleteBackupPlanOutput, _
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class DeleteBackupPlanCommand extends $Command
   .classBuilder<

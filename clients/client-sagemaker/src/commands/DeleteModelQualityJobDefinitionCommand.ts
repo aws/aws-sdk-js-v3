@@ -30,7 +30,6 @@ export interface DeleteModelQualityJobDefinitionCommandInput extends DeleteModel
 export interface DeleteModelQualityJobDefinitionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the secified model quality monitoring job definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +58,7 @@ export interface DeleteModelQualityJobDefinitionCommandOutput extends __Metadata
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteModelQualityJobDefinitionCommand extends $Command
   .classBuilder<

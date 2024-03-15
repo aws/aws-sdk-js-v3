@@ -31,7 +31,6 @@ export interface DeleteIntentCommandInput extends DeleteIntentRequest {}
 export interface DeleteIntentCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes all versions of the intent, including the
  *         <code>$LATEST</code> version. To delete a specific version of the
  *       intent, use the <a>DeleteIntentVersion</a> operation.</p>
@@ -110,6 +109,7 @@ export interface DeleteIntentCommandOutput extends __MetadataBearer {}
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * @public
  */
 export class DeleteIntentCommand extends $Command
   .classBuilder<

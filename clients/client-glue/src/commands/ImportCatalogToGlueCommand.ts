@@ -27,7 +27,6 @@ export interface ImportCatalogToGlueCommandInput extends ImportCatalogToGlueRequ
 export interface ImportCatalogToGlueCommandOutput extends ImportCatalogToGlueResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Imports an existing Amazon Athena Data Catalog to Glue.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +58,7 @@ export interface ImportCatalogToGlueCommandOutput extends ImportCatalogToGlueRes
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class ImportCatalogToGlueCommand extends $Command
   .classBuilder<

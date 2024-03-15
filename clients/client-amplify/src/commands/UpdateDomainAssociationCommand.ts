@@ -27,7 +27,6 @@ export interface UpdateDomainAssociationCommandInput extends UpdateDomainAssocia
 export interface UpdateDomainAssociationCommandOutput extends UpdateDomainAssociationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new domain association for an Amplify app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -113,6 +112,7 @@ export interface UpdateDomainAssociationCommandOutput extends UpdateDomainAssoci
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ * @public
  */
 export class UpdateDomainAssociationCommand extends $Command
   .classBuilder<

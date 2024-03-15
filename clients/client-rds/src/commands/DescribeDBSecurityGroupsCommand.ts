@@ -27,7 +27,6 @@ export interface DescribeDBSecurityGroupsCommandInput extends DescribeDBSecurity
 export interface DescribeDBSecurityGroupsCommandOutput extends DBSecurityGroupMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of <code>DBSecurityGroup</code> descriptions. If a <code>DBSecurityGroupName</code> is specified,
  *             the list will contain only the descriptions of the specified DB security group.</p>
  *          <note>
@@ -100,6 +99,7 @@ export interface DescribeDBSecurityGroupsCommandOutput extends DBSecurityGroupMe
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To list DB security group settings
  * ```javascript
  * // This example lists settings for the specified security group.

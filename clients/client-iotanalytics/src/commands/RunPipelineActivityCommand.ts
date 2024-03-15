@@ -27,7 +27,6 @@ export interface RunPipelineActivityCommandInput extends RunPipelineActivityRequ
 export interface RunPipelineActivityCommandOutput extends RunPipelineActivityResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Simulates the results of running a pipeline activity on a message payload.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -135,6 +134,7 @@ export interface RunPipelineActivityCommandOutput extends RunPipelineActivityRes
  * @throws {@link IoTAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
+ * @public
  */
 export class RunPipelineActivityCommand extends $Command
   .classBuilder<

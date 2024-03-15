@@ -31,7 +31,6 @@ export interface DescribeTagsCommandInput extends DescribeTagsInput {}
 export interface DescribeTagsCommandOutput extends DescribeTagsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the tags associated with the specified load balancers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DescribeTagsCommandOutput extends DescribeTagsOutput, __Metadat
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * @public
  * @example To describe the tags for a load balancer
  * ```javascript
  * // This example describes the tags for the specified load balancer.

@@ -25,7 +25,6 @@ export interface EmptyInputAndEmptyOutputCommandInput extends EmptyInputAndEmpty
 export interface EmptyInputAndEmptyOutputCommandOutput extends EmptyInputAndEmptyOutputOutput, __MetadataBearer {}
 
 /**
- * @public
  * The example tests how requests and responses are serialized when there's
  * no request or response payload because the operation has an empty input
  * and empty output structure that reuses the same shape. While this should
@@ -52,6 +51,7 @@ export interface EmptyInputAndEmptyOutputCommandOutput extends EmptyInputAndEmpt
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ * @public
  */
 export class EmptyInputAndEmptyOutputCommand extends $Command
   .classBuilder<

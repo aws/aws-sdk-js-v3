@@ -29,7 +29,6 @@ export interface DeleteLocalGatewayRouteTableCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Deletes a local gateway route table.
  *       </p>
@@ -78,6 +77,7 @@ export interface DeleteLocalGatewayRouteTableCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DeleteLocalGatewayRouteTableCommand extends $Command
   .classBuilder<

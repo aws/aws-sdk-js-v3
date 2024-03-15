@@ -28,7 +28,6 @@ export interface DeleteJobTaggingCommandInput extends DeleteJobTaggingRequest {}
 export interface DeleteJobTaggingCommandOutput extends DeleteJobTaggingResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the entire tag set from the specified S3 Batch Operations job.</p>
  *          <dl>
  *             <dt>Permissions</dt>
@@ -92,6 +91,7 @@ export interface DeleteJobTaggingCommandOutput extends DeleteJobTaggingResult, _
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class DeleteJobTaggingCommand extends $Command
   .classBuilder<

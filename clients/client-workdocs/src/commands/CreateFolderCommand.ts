@@ -32,7 +32,6 @@ export interface CreateFolderCommandInput extends CreateFolderRequest {}
 export interface CreateFolderCommandOutput extends CreateFolderResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a folder with the specified name and parent folder.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -108,6 +107,7 @@ export interface CreateFolderCommandOutput extends CreateFolderResponse, __Metad
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class CreateFolderCommand extends $Command
   .classBuilder<

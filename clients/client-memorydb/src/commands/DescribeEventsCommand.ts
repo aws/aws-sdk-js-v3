@@ -27,7 +27,6 @@ export interface DescribeEventsCommandInput extends DescribeEventsRequest {}
 export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns events related to clusters, security groups, and parameter groups. You can obtain events specific to a particular cluster, security group, or parameter group by providing the name as a parameter.
  *
  *          By default, only the events occurring within the last hour are returned; however, you can retrieve up to 14 days' worth of events if necessary.</p>
@@ -80,6 +79,7 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * @public
  */
 export class DescribeEventsCommand extends $Command
   .classBuilder<

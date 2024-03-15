@@ -27,7 +27,6 @@ export interface GetCertificateCommandInput extends GetCertificateRequest {}
 export interface GetCertificateCommandOutput extends GetCertificateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves an Amazon-issued certificate and its certificate chain. The chain consists of
  *       the certificate of the issuing CA and the intermediate certificates of any other subordinate
  *       CAs. All of the certificates are base64 encoded. You can use <a href="https://wiki.openssl.org/index.php/Command_Line_Utilities">OpenSSL</a> to decode
@@ -70,6 +69,7 @@ export interface GetCertificateCommandOutput extends GetCertificateResponse, __M
  * @throws {@link ACMServiceException}
  * <p>Base exception class for all service exceptions from ACM service.</p>
  *
+ * @public
  */
 export class GetCertificateCommand extends $Command
   .classBuilder<

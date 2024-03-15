@@ -27,7 +27,6 @@ export interface DescribeInsightCommandInput extends DescribeInsightRequest {}
 export interface DescribeInsightCommandOutput extends DescribeInsightResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns details about an insight that you specify using its ID. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -132,6 +131,7 @@ export interface DescribeInsightCommandOutput extends DescribeInsightResponse, _
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ * @public
  */
 export class DescribeInsightCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteInferenceExperimentCommandInput extends DeleteInferenceEx
 export interface DeleteInferenceExperimentCommandOutput extends DeleteInferenceExperimentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an inference experiment.</p>
  *          <note>
  *             <p>
@@ -68,6 +67,7 @@ export interface DeleteInferenceExperimentCommandOutput extends DeleteInferenceE
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteInferenceExperimentCommand extends $Command
   .classBuilder<

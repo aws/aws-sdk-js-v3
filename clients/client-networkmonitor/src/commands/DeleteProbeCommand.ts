@@ -27,7 +27,6 @@ export interface DeleteProbeCommandInput extends DeleteProbeInput {}
 export interface DeleteProbeCommandOutput extends DeleteProbeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified monitor. Once a probe is deleted you'll no longer incur any billing fees for that probe.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface DeleteProbeCommandOutput extends DeleteProbeOutput, __MetadataB
  * @throws {@link NetworkMonitorServiceException}
  * <p>Base exception class for all service exceptions from NetworkMonitor service.</p>
  *
+ * @public
  */
 export class DeleteProbeCommand extends $Command
   .classBuilder<

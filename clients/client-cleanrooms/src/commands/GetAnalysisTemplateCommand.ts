@@ -31,7 +31,6 @@ export interface GetAnalysisTemplateCommandInput extends GetAnalysisTemplateInpu
 export interface GetAnalysisTemplateCommandOutput extends GetAnalysisTemplateOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves an analysis template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface GetAnalysisTemplateCommandOutput extends GetAnalysisTemplateOut
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class GetAnalysisTemplateCommand extends $Command
   .classBuilder<

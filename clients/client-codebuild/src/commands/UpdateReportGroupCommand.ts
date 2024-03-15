@@ -27,7 +27,6 @@ export interface UpdateReportGroupCommandInput extends UpdateReportGroupInput {}
 export interface UpdateReportGroupCommandOutput extends UpdateReportGroupOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Updates a report group.
  *     </p>
@@ -104,6 +103,7 @@ export interface UpdateReportGroupCommandOutput extends UpdateReportGroupOutput,
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * @public
  */
 export class UpdateReportGroupCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface ListAnalyzableServersCommandInput extends ListAnalyzableServers
 export interface ListAnalyzableServersCommandOutput extends ListAnalyzableServersResponse, __MetadataBearer {}
 
 /**
- * @public
  * Retrieves a list of all the servers fetched from customer vCenter using Strategy Recommendation Collector.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface ListAnalyzableServersCommandOutput extends ListAnalyzableServer
  * @throws {@link MigrationHubStrategyServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ * @public
  */
 export class ListAnalyzableServersCommand extends $Command
   .classBuilder<

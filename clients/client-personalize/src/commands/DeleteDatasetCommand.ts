@@ -27,7 +27,6 @@ export interface DeleteDatasetCommandInput extends DeleteDatasetRequest {}
 export interface DeleteDatasetCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a dataset. You can't delete a dataset if an associated
  *         <code>DatasetImportJob</code> or <code>SolutionVersion</code> is in the
  *       CREATE PENDING or IN PROGRESS state. For more information on datasets, see
@@ -65,6 +64,7 @@ export interface DeleteDatasetCommandOutput extends __MetadataBearer {}
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class DeleteDatasetCommand extends $Command
   .classBuilder<

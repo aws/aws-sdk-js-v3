@@ -27,7 +27,6 @@ export interface CancelStepsCommandInput extends CancelStepsInput {}
 export interface CancelStepsCommandOutput extends CancelStepsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels a pending step or steps in a running cluster. Available only in Amazon EMR versions 4.8.0 and later, excluding version 5.0.0. A maximum of 256 steps are allowed in
  *          each CancelSteps request. CancelSteps is idempotent but asynchronous; it does not guarantee
  *          that a step will be canceled, even if the request is successfully submitted. When you use
@@ -76,6 +75,7 @@ export interface CancelStepsCommandOutput extends CancelStepsOutput, __MetadataB
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class CancelStepsCommand extends $Command
   .classBuilder<

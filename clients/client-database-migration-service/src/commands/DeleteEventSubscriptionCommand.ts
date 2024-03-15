@@ -31,7 +31,6 @@ export interface DeleteEventSubscriptionCommandInput extends DeleteEventSubscrip
 export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscriptionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Deletes an DMS event subscription. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscri
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class DeleteEventSubscriptionCommand extends $Command
   .classBuilder<

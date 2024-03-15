@@ -27,7 +27,6 @@ export interface DescribeFlowCommandInput extends DescribeFlowRequest {}
 export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Provides a description of the specified flow. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -370,6 +369,7 @@ export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __Metad
  * @throws {@link AppflowServiceException}
  * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ * @public
  */
 export class DescribeFlowCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeauthorizeConnectionCommandInput extends DeauthorizeConnection
 export interface DeauthorizeConnectionCommandOutput extends DeauthorizeConnectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes all authorization parameters from the connection. This lets you remove the secret
  *       from the connection so you can reuse it without having to create a new connection.</p>
  * @example
@@ -69,6 +68,7 @@ export interface DeauthorizeConnectionCommandOutput extends DeauthorizeConnectio
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * @public
  */
 export class DeauthorizeConnectionCommand extends $Command
   .classBuilder<

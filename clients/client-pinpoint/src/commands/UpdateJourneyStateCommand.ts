@@ -27,7 +27,6 @@ export interface UpdateJourneyStateCommandInput extends UpdateJourneyStateReques
 export interface UpdateJourneyStateCommandOutput extends UpdateJourneyStateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels (stops) an active journey.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -465,6 +464,7 @@ export interface UpdateJourneyStateCommandOutput extends UpdateJourneyStateRespo
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class UpdateJourneyStateCommand extends $Command
   .classBuilder<

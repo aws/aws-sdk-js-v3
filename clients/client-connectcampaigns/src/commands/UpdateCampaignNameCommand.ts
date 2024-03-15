@@ -27,7 +27,6 @@ export interface UpdateCampaignNameCommandInput extends UpdateCampaignNameReques
 export interface UpdateCampaignNameCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * Updates the name of a campaign. This API is idempotent.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface UpdateCampaignNameCommandOutput extends __MetadataBearer {}
  * @throws {@link ConnectCampaignsServiceException}
  * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
+ * @public
  */
 export class UpdateCampaignNameCommand extends $Command
   .classBuilder<

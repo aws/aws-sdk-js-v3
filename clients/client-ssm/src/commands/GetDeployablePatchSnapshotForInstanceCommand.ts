@@ -37,7 +37,6 @@ export interface GetDeployablePatchSnapshotForInstanceCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the current snapshot for the patch baseline the managed node uses. This API is
  *    primarily used by the <code>AWS-RunPatchBaseline</code> Systems Manager document (SSM document).</p>
  *          <note>
@@ -141,6 +140,7 @@ export interface GetDeployablePatchSnapshotForInstanceCommandOutput
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class GetDeployablePatchSnapshotForInstanceCommand extends $Command
   .classBuilder<

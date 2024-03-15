@@ -27,7 +27,6 @@ export interface GetSitesCommandInput extends GetSitesRequest {}
 export interface GetSitesCommandOutput extends GetSitesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about one or more of your sites in a global network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface GetSitesCommandOutput extends GetSitesResponse, __MetadataBeare
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class GetSitesCommand extends $Command
   .classBuilder<

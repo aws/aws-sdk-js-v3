@@ -27,7 +27,6 @@ export interface ExecutePolicyCommandInput extends ExecutePolicyType {}
 export interface ExecutePolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Executes the specified policy. This can be useful for testing the design of your
  *             scaling policy.</p>
  * @example
@@ -66,6 +65,7 @@ export interface ExecutePolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To execute a scaling policy
  * ```javascript
  * // This example executes the specified policy.

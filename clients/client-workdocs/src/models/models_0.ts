@@ -8,27 +8,27 @@ import { WorkDocsServiceException as __BaseException } from "./WorkDocsServiceEx
  */
 export interface AbortDocumentVersionUploadRequest {
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 
   /**
-   * @public
    * <p>The ID of the document.</p>
+   * @public
    */
   DocumentId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the version.</p>
+   * @public
    */
   VersionId: string | undefined;
 }
 
 /**
- * @public
  * <p>The resource hierarchy is changing.</p>
+ * @public
  */
 export class ConcurrentModificationException extends __BaseException {
   readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
@@ -49,16 +49,16 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The resource does not exist.</p>
+ * @public
  */
 export class EntityNotExistsException extends __BaseException {
   readonly name: "EntityNotExistsException" = "EntityNotExistsException";
   readonly $fault: "client" = "client";
   Message?: string;
   /**
-   * @public
    * <p>The IDs of the non-existent resources.</p>
+   * @public
    */
   EntityIds?: string[];
   /**
@@ -77,10 +77,10 @@ export class EntityNotExistsException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The Directory Service cannot reach an on-premises instance. Or a dependency
  *             under the control of the organization is failing, such as a connected Active
  *             Directory.</p>
+ * @public
  */
 export class FailedDependencyException extends __BaseException {
   readonly name: "FailedDependencyException" = "FailedDependencyException";
@@ -101,8 +101,8 @@ export class FailedDependencyException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified document version is not in the INITIALIZED state.</p>
+ * @public
  */
 export class ProhibitedStateException extends __BaseException {
   readonly name: "ProhibitedStateException" = "ProhibitedStateException";
@@ -123,8 +123,8 @@ export class ProhibitedStateException extends __BaseException {
 }
 
 /**
- * @public
  * <p>One or more of the dependencies is unavailable.</p>
+ * @public
  */
 export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
@@ -145,8 +145,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The operation is not permitted.</p>
+ * @public
  */
 export class UnauthorizedOperationException extends __BaseException {
   readonly name: "UnauthorizedOperationException" = "UnauthorizedOperationException";
@@ -169,8 +169,8 @@ export class UnauthorizedOperationException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The caller does not have access to perform the action on the resource.</p>
+ * @public
  */
 export class UnauthorizedResourceAccessException extends __BaseException {
   readonly name: "UnauthorizedResourceAccessException" = "UnauthorizedResourceAccessException";
@@ -195,14 +195,14 @@ export class UnauthorizedResourceAccessException extends __BaseException {
  */
 export interface ActivateUserRequest {
   /**
-   * @public
    * <p>The ID of the user.</p>
+   * @public
    */
   UserId: string | undefined;
 
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 }
@@ -260,37 +260,37 @@ export const StorageType = {
 export type StorageType = (typeof StorageType)[keyof typeof StorageType];
 
 /**
- * @public
  * <p>Describes the storage for a user.</p>
+ * @public
  */
 export interface StorageRuleType {
   /**
-   * @public
    * <p>The amount of storage allocated, in bytes.</p>
+   * @public
    */
   StorageAllocatedInBytes?: number;
 
   /**
-   * @public
    * <p>The type of storage.</p>
+   * @public
    */
   StorageType?: StorageType;
 }
 
 /**
- * @public
  * <p>Describes the storage for a user.</p>
+ * @public
  */
 export interface UserStorageMetadata {
   /**
-   * @public
    * <p>The amount of storage used, in bytes.</p>
+   * @public
    */
   StorageUtilizedInBytes?: number;
 
   /**
-   * @public
    * <p>The storage for a user.</p>
+   * @public
    */
   StorageRule?: StorageRuleType;
 }
@@ -313,97 +313,97 @@ export const UserType = {
 export type UserType = (typeof UserType)[keyof typeof UserType];
 
 /**
- * @public
  * <p>Describes a user.</p>
+ * @public
  */
 export interface User {
   /**
-   * @public
    * <p>The ID of the user.</p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The login name of the user.</p>
+   * @public
    */
   Username?: string;
 
   /**
-   * @public
    * <p>The email address of the user.</p>
+   * @public
    */
   EmailAddress?: string;
 
   /**
-   * @public
    * <p>The given name of the user.</p>
+   * @public
    */
   GivenName?: string;
 
   /**
-   * @public
    * <p>The surname of the user.</p>
+   * @public
    */
   Surname?: string;
 
   /**
-   * @public
    * <p>The ID of the organization.</p>
+   * @public
    */
   OrganizationId?: string;
 
   /**
-   * @public
    * <p>The ID of the root folder.</p>
+   * @public
    */
   RootFolderId?: string;
 
   /**
-   * @public
    * <p>The ID of the recycle bin folder.</p>
+   * @public
    */
   RecycleBinFolderId?: string;
 
   /**
-   * @public
    * <p>The status of the user.</p>
+   * @public
    */
   Status?: UserStatusType;
 
   /**
-   * @public
    * <p>The type of user.</p>
+   * @public
    */
   Type?: UserType;
 
   /**
-   * @public
    * <p>The time when the user was created.</p>
+   * @public
    */
   CreatedTimestamp?: Date;
 
   /**
-   * @public
    * <p>The time when the user was modified.</p>
+   * @public
    */
   ModifiedTimestamp?: Date;
 
   /**
-   * @public
    * <p>The time zone ID of the user.</p>
+   * @public
    */
   TimeZoneId?: string;
 
   /**
-   * @public
    * <p>The locale of the user.</p>
+   * @public
    */
   Locale?: LocaleType;
 
   /**
-   * @public
    * <p>The storage for the user.</p>
+   * @public
    */
   Storage?: UserStorageMetadata;
 }
@@ -413,8 +413,8 @@ export interface User {
  */
 export interface ActivateUserResponse {
   /**
-   * @public
    * <p>The user information.</p>
+   * @public
    */
   User?: User;
 }
@@ -435,79 +435,79 @@ export const CommentStatusType = {
 export type CommentStatusType = (typeof CommentStatusType)[keyof typeof CommentStatusType];
 
 /**
- * @public
  * <p>Describes the metadata of a comment.</p>
+ * @public
  */
 export interface CommentMetadata {
   /**
-   * @public
    * <p>The ID of the comment.</p>
+   * @public
    */
   CommentId?: string;
 
   /**
-   * @public
    * <p>The user who made the comment.</p>
+   * @public
    */
   Contributor?: User;
 
   /**
-   * @public
    * <p>The timestamp that the comment was created.</p>
+   * @public
    */
   CreatedTimestamp?: Date;
 
   /**
-   * @public
    * <p>The status of the comment.</p>
+   * @public
    */
   CommentStatus?: CommentStatusType;
 
   /**
-   * @public
    * <p>The ID of the user being replied to.</p>
+   * @public
    */
   RecipientId?: string;
 
   /**
-   * @public
    * <p>The ID of the user who made the comment.</p>
+   * @public
    */
   ContributorId?: string;
 }
 
 /**
- * @public
  * <p>Describes the metadata of the user.</p>
+ * @public
  */
 export interface UserMetadata {
   /**
-   * @public
    * <p>The ID of the user.</p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The name of the user.</p>
+   * @public
    */
   Username?: string;
 
   /**
-   * @public
    * <p>The given name of the user before a rename operation.</p>
+   * @public
    */
   GivenName?: string;
 
   /**
-   * @public
    * <p>The surname of the user.</p>
+   * @public
    */
   Surname?: string;
 
   /**
-   * @public
    * <p>The email address of the user.</p>
+   * @public
    */
   EmailAddress?: string;
 }
@@ -527,86 +527,86 @@ export const ResourceType = {
 export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
- * @public
  * <p>Describes the metadata of a resource.</p>
+ * @public
  */
 export interface ResourceMetadata {
   /**
-   * @public
    * <p>The type of resource.</p>
+   * @public
    */
   Type?: ResourceType;
 
   /**
-   * @public
    * <p>The name of the resource.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The original name of the resource before a rename operation.</p>
+   * @public
    */
   OriginalName?: string;
 
   /**
-   * @public
    * <p>The ID of the resource.</p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The version ID of the resource. This is an optional field and is filled for action
    *             on document version.</p>
+   * @public
    */
   VersionId?: string;
 
   /**
-   * @public
    * <p>The owner of the resource.</p>
+   * @public
    */
   Owner?: UserMetadata;
 
   /**
-   * @public
    * <p>The parent ID of the resource before a rename operation.</p>
+   * @public
    */
   ParentId?: string;
 }
 
 /**
- * @public
  * <p>Describes the metadata of a user group.</p>
+ * @public
  */
 export interface GroupMetadata {
   /**
-   * @public
    * <p>The ID of the user group.</p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The name of the group.</p>
+   * @public
    */
   Name?: string;
 }
 
 /**
- * @public
  * <p>Describes the users or user groups.</p>
+ * @public
  */
 export interface Participants {
   /**
-   * @public
    * <p>The list of users.</p>
+   * @public
    */
   Users?: UserMetadata[];
 
   /**
-   * @public
    * <p>The list of user groups.</p>
+   * @public
    */
   Groups?: GroupMetadata[];
 }
@@ -657,68 +657,68 @@ export const ActivityType = {
 export type ActivityType = (typeof ActivityType)[keyof typeof ActivityType];
 
 /**
- * @public
  * <p>Describes the activity information.</p>
+ * @public
  */
 export interface Activity {
   /**
-   * @public
    * <p>The activity type.</p>
+   * @public
    */
   Type?: ActivityType;
 
   /**
-   * @public
    * <p>The timestamp when the action was performed.</p>
+   * @public
    */
   TimeStamp?: Date;
 
   /**
-   * @public
    * <p>Indicates whether an activity is indirect or direct. An indirect activity results
    *             from a direct activity performed on a parent resource. For example, sharing a parent
    *             folder (the direct activity) shares all of the subfolders and documents within the
    *             parent folder (the indirect activity).</p>
+   * @public
    */
   IsIndirectActivity?: boolean;
 
   /**
-   * @public
    * <p>The ID of the organization.</p>
+   * @public
    */
   OrganizationId?: string;
 
   /**
-   * @public
    * <p>The user who performed the action.</p>
+   * @public
    */
   Initiator?: UserMetadata;
 
   /**
-   * @public
    * <p>The list of users or groups impacted by this action. This is an optional field and
    *             is filled for the following sharing activities: DOCUMENT_SHARED, DOCUMENT_SHARED,
    *             DOCUMENT_UNSHARED, FOLDER_SHARED, FOLDER_UNSHARED.</p>
+   * @public
    */
   Participants?: Participants;
 
   /**
-   * @public
    * <p>The metadata of the resource involved in the user action.</p>
+   * @public
    */
   ResourceMetadata?: ResourceMetadata;
 
   /**
-   * @public
    * <p>The original parent of the resource. This is an optional field and is filled for
    *             move activities.</p>
+   * @public
    */
   OriginalParent?: ResourceMetadata;
 
   /**
-   * @public
    * <p>Metadata of the commenting activity. This is an optional field and is filled for
    *             commenting activities.</p>
+   * @public
    */
   CommentMetadata?: CommentMetadata;
 }
@@ -738,20 +738,20 @@ export type AdditionalResponseFieldType =
   (typeof AdditionalResponseFieldType)[keyof typeof AdditionalResponseFieldType];
 
 /**
- * @public
  * <p>Set of options which defines notification preferences of given action.</p>
+ * @public
  */
 export interface NotificationOptions {
   /**
-   * @public
    * <p>Boolean value to indicate an email notification should be sent to the
    *             recipients.</p>
+   * @public
    */
   SendEmail?: boolean;
 
   /**
-   * @public
    * <p>Text value to be included in the email body.</p>
+   * @public
    */
   EmailMessage?: string;
 }
@@ -790,25 +790,25 @@ export const PrincipalType = {
 export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
 
 /**
- * @public
  * <p>Describes the recipient type and ID, if available.</p>
+ * @public
  */
 export interface SharePrincipal {
   /**
-   * @public
    * <p>The ID of the recipient.</p>
+   * @public
    */
   Id: string | undefined;
 
   /**
-   * @public
    * <p>The type of the recipient.</p>
+   * @public
    */
   Type: PrincipalType | undefined;
 
   /**
-   * @public
    * <p>The role of the recipient.</p>
+   * @public
    */
   Role: RoleType | undefined;
 }
@@ -818,26 +818,26 @@ export interface SharePrincipal {
  */
 export interface AddResourcePermissionsRequest {
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 
   /**
-   * @public
    * <p>The ID of the resource.</p>
+   * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * @public
    * <p>The users, groups, or organization being granted permission.</p>
+   * @public
    */
   Principals: SharePrincipal[] | undefined;
 
   /**
-   * @public
    * <p>The notification options.</p>
+   * @public
    */
   NotificationOptions?: NotificationOptions;
 }
@@ -857,43 +857,43 @@ export const ShareStatusType = {
 export type ShareStatusType = (typeof ShareStatusType)[keyof typeof ShareStatusType];
 
 /**
- * @public
  * <p>Describes the share results of a resource.</p>
+ * @public
  */
 export interface ShareResult {
   /**
-   * @public
    * <p>The ID of the principal.</p>
+   * @public
    */
   PrincipalId?: string;
 
   /**
-   * @public
    * <p>The ID of the invited user.</p>
+   * @public
    */
   InviteePrincipalId?: string;
 
   /**
-   * @public
    * <p>The role.</p>
+   * @public
    */
   Role?: RoleType;
 
   /**
-   * @public
    * <p>The status.</p>
+   * @public
    */
   Status?: ShareStatusType;
 
   /**
-   * @public
    * <p>The ID of the resource that was shared.</p>
+   * @public
    */
   ShareId?: string;
 
   /**
-   * @public
    * <p>The status message.</p>
+   * @public
    */
   StatusMessage?: string;
 }
@@ -903,8 +903,8 @@ export interface ShareResult {
  */
 export interface AddResourcePermissionsResponse {
   /**
-   * @public
    * <p>The share results.</p>
+   * @public
    */
   ShareResults?: ShareResult[];
 }
@@ -928,116 +928,116 @@ export type CommentVisibilityType = (typeof CommentVisibilityType)[keyof typeof 
  */
 export interface CreateCommentRequest {
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 
   /**
-   * @public
    * <p>The ID of the document.</p>
+   * @public
    */
   DocumentId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the document version.</p>
+   * @public
    */
   VersionId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the parent comment.</p>
+   * @public
    */
   ParentId?: string;
 
   /**
-   * @public
    * <p>The ID of the root comment in the thread.</p>
+   * @public
    */
   ThreadId?: string;
 
   /**
-   * @public
    * <p>The text of the comment.</p>
+   * @public
    */
   Text: string | undefined;
 
   /**
-   * @public
    * <p>The visibility of the comment. Options are either PRIVATE, where the comment is
    *             visible only to the comment author and document owner and co-owners, or PUBLIC, where
    *             the comment is visible to document owners, co-owners, and contributors.</p>
+   * @public
    */
   Visibility?: CommentVisibilityType;
 
   /**
-   * @public
    * <p>Set this parameter to TRUE to send an email out to the document collaborators after
    *             the comment is created.</p>
+   * @public
    */
   NotifyCollaborators?: boolean;
 }
 
 /**
- * @public
  * <p>Describes a comment.</p>
+ * @public
  */
 export interface Comment {
   /**
-   * @public
    * <p>The ID of the comment.</p>
+   * @public
    */
   CommentId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the parent comment.</p>
+   * @public
    */
   ParentId?: string;
 
   /**
-   * @public
    * <p>The ID of the root comment in the thread.</p>
+   * @public
    */
   ThreadId?: string;
 
   /**
-   * @public
    * <p>The text of the comment.</p>
+   * @public
    */
   Text?: string;
 
   /**
-   * @public
    * <p>The details of the user who made the comment.</p>
+   * @public
    */
   Contributor?: User;
 
   /**
-   * @public
    * <p>The time that the comment was created.</p>
+   * @public
    */
   CreatedTimestamp?: Date;
 
   /**
-   * @public
    * <p>The status of the comment.</p>
+   * @public
    */
   Status?: CommentStatusType;
 
   /**
-   * @public
    * <p>The visibility of the comment. Options are either PRIVATE, where the comment is
    *             visible only to the comment author and document owner and co-owners, or PUBLIC, where
    *             the comment is visible to document owners, co-owners, and contributors.</p>
+   * @public
    */
   Visibility?: CommentVisibilityType;
 
   /**
-   * @public
    * <p>If the comment is a reply to another user's comment, this field contains the user
    *             ID of the user being replied to.</p>
+   * @public
    */
   RecipientId?: string;
 }
@@ -1047,16 +1047,16 @@ export interface Comment {
  */
 export interface CreateCommentResponse {
   /**
-   * @public
    * <p>The comment that has been created.</p>
+   * @public
    */
   Comment?: Comment;
 }
 
 /**
- * @public
  * <p>This exception is thrown when the document is locked for comments and user tries to
  *             create or delete a comment on that document.</p>
+ * @public
  */
 export class DocumentLockedForCommentsException extends __BaseException {
   readonly name: "DocumentLockedForCommentsException" = "DocumentLockedForCommentsException";
@@ -1077,8 +1077,8 @@ export class DocumentLockedForCommentsException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The requested operation is not allowed on the specified comment object.</p>
+ * @public
  */
 export class InvalidCommentOperationException extends __BaseException {
   readonly name: "InvalidCommentOperationException" = "InvalidCommentOperationException";
@@ -1103,27 +1103,27 @@ export class InvalidCommentOperationException extends __BaseException {
  */
 export interface CreateCustomMetadataRequest {
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 
   /**
-   * @public
    * <p>The ID of the resource.</p>
+   * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the version, if the custom metadata is being added to a document
    *             version.</p>
+   * @public
    */
   VersionId?: string;
 
   /**
-   * @public
    * <p>Custom metadata in the form of name-value pairs.</p>
+   * @public
    */
   CustomMetadata: Record<string, string> | undefined;
 }
@@ -1134,9 +1134,9 @@ export interface CreateCustomMetadataRequest {
 export interface CreateCustomMetadataResponse {}
 
 /**
- * @public
  * <p>The limit has been reached on the number of custom properties for the specified
  *             resource.</p>
+ * @public
  */
 export class CustomMetadataLimitExceededException extends __BaseException {
   readonly name: "CustomMetadataLimitExceededException" = "CustomMetadataLimitExceededException";
@@ -1157,8 +1157,8 @@ export class CustomMetadataLimitExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Another operation is in progress on the resource that conflicts with the current operation.</p>
+ * @public
  */
 export class ConflictingOperationException extends __BaseException {
   readonly name: "ConflictingOperationException" = "ConflictingOperationException";
@@ -1183,20 +1183,20 @@ export class ConflictingOperationException extends __BaseException {
  */
 export interface CreateFolderRequest {
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 
   /**
-   * @public
    * <p>The name of the new folder.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The ID of the parent folder.</p>
+   * @public
    */
   ParentFolderId: string | undefined;
 }
@@ -1218,74 +1218,74 @@ export const ResourceStateType = {
 export type ResourceStateType = (typeof ResourceStateType)[keyof typeof ResourceStateType];
 
 /**
- * @public
  * <p>Describes a folder.</p>
+ * @public
  */
 export interface FolderMetadata {
   /**
-   * @public
    * <p>The ID of the folder.</p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The name of the folder.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The ID of the creator.</p>
+   * @public
    */
   CreatorId?: string;
 
   /**
-   * @public
    * <p>The ID of the parent folder.</p>
+   * @public
    */
   ParentFolderId?: string;
 
   /**
-   * @public
    * <p>The time when the folder was created.</p>
+   * @public
    */
   CreatedTimestamp?: Date;
 
   /**
-   * @public
    * <p>The time when the folder was updated.</p>
+   * @public
    */
   ModifiedTimestamp?: Date;
 
   /**
-   * @public
    * <p>The resource state of the folder.</p>
+   * @public
    */
   ResourceState?: ResourceStateType;
 
   /**
-   * @public
    * <p>The unique identifier created from the subfolders and documents of the
    *             folder.</p>
+   * @public
    */
   Signature?: string;
 
   /**
-   * @public
    * <p>List of labels on the folder.</p>
+   * @public
    */
   Labels?: string[];
 
   /**
-   * @public
    * <p>The size of the folder metadata.</p>
+   * @public
    */
   Size?: number;
 
   /**
-   * @public
    * <p>The size of the latest version of the folder metadata.</p>
+   * @public
    */
   LatestVersionSize?: number;
 }
@@ -1295,15 +1295,15 @@ export interface FolderMetadata {
  */
 export interface CreateFolderResponse {
   /**
-   * @public
    * <p>The metadata of the folder.</p>
+   * @public
    */
   Metadata?: FolderMetadata;
 }
 
 /**
- * @public
  * <p>The resource already exists.</p>
+ * @public
  */
 export class EntityAlreadyExistsException extends __BaseException {
   readonly name: "EntityAlreadyExistsException" = "EntityAlreadyExistsException";
@@ -1324,8 +1324,8 @@ export class EntityAlreadyExistsException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The maximum of 100,000 files and folders under the parent folder has been exceeded.</p>
+ * @public
  */
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
@@ -1350,20 +1350,20 @@ export class LimitExceededException extends __BaseException {
  */
 export interface CreateLabelsRequest {
   /**
-   * @public
    * <p>The ID of the resource.</p>
+   * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * @public
    * <p>List of labels to add to the resource.</p>
+   * @public
    */
   Labels: string[] | undefined;
 
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 }
@@ -1374,9 +1374,9 @@ export interface CreateLabelsRequest {
 export interface CreateLabelsResponse {}
 
 /**
- * @public
  * <p>The limit has been reached on the number of labels for the specified
  *             resource.</p>
+ * @public
  */
 export class TooManyLabelsException extends __BaseException {
   readonly name: "TooManyLabelsException" = "TooManyLabelsException";
@@ -1428,52 +1428,52 @@ export type SubscriptionType = (typeof SubscriptionType)[keyof typeof Subscripti
  */
 export interface CreateNotificationSubscriptionRequest {
   /**
-   * @public
    * <p>The ID of the organization.</p>
+   * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * @public
    * <p>The endpoint to receive the notifications. If the protocol is HTTPS, the endpoint
    *             is a URL that begins with <code>https</code>.</p>
+   * @public
    */
   Endpoint: string | undefined;
 
   /**
-   * @public
    * <p>The protocol to use. The supported value is https, which delivers JSON-encoded
    *             messages using HTTPS POST.</p>
+   * @public
    */
   Protocol: SubscriptionProtocolType | undefined;
 
   /**
-   * @public
    * <p>The notification type.</p>
+   * @public
    */
   SubscriptionType: SubscriptionType | undefined;
 }
 
 /**
- * @public
  * <p>Describes a subscription.</p>
+ * @public
  */
 export interface Subscription {
   /**
-   * @public
    * <p>The ID of the subscription.</p>
+   * @public
    */
   SubscriptionId?: string;
 
   /**
-   * @public
    * <p>The endpoint of the subscription.</p>
+   * @public
    */
   EndPoint?: string;
 
   /**
-   * @public
    * <p>The protocol of the subscription.</p>
+   * @public
    */
   Protocol?: SubscriptionProtocolType;
 }
@@ -1483,15 +1483,15 @@ export interface Subscription {
  */
 export interface CreateNotificationSubscriptionResponse {
   /**
-   * @public
    * <p>The subscription.</p>
+   * @public
    */
   Subscription?: Subscription;
 }
 
 /**
- * @public
  * <p>The pagination marker or limit fields are not valid.</p>
+ * @public
  */
 export class InvalidArgumentException extends __BaseException {
   readonly name: "InvalidArgumentException" = "InvalidArgumentException";
@@ -1512,9 +1512,9 @@ export class InvalidArgumentException extends __BaseException {
 }
 
 /**
- * @public
  * <p>You've reached the limit on the number of subscriptions for the WorkDocs
  *             instance.</p>
+ * @public
  */
 export class TooManySubscriptionsException extends __BaseException {
   readonly name: "TooManySubscriptionsException" = "TooManySubscriptionsException";
@@ -1539,56 +1539,56 @@ export class TooManySubscriptionsException extends __BaseException {
  */
 export interface CreateUserRequest {
   /**
-   * @public
    * <p>The ID of the organization.</p>
+   * @public
    */
   OrganizationId?: string;
 
   /**
-   * @public
    * <p>The login name of the user.</p>
+   * @public
    */
   Username: string | undefined;
 
   /**
-   * @public
    * <p>The email address of the user.</p>
+   * @public
    */
   EmailAddress?: string;
 
   /**
-   * @public
    * <p>The given name of the user.</p>
+   * @public
    */
   GivenName: string | undefined;
 
   /**
-   * @public
    * <p>The surname of the user.</p>
+   * @public
    */
   Surname: string | undefined;
 
   /**
-   * @public
    * <p>The password of the user.</p>
+   * @public
    */
   Password: string | undefined;
 
   /**
-   * @public
    * <p>The time zone ID of the user.</p>
+   * @public
    */
   TimeZoneId?: string;
 
   /**
-   * @public
    * <p>The amount of storage for the user.</p>
+   * @public
    */
   StorageRule?: StorageRuleType;
 
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 }
@@ -1598,8 +1598,8 @@ export interface CreateUserRequest {
  */
 export interface CreateUserResponse {
   /**
-   * @public
    * <p>The user information.</p>
+   * @public
    */
   User?: User;
 }
@@ -1609,14 +1609,14 @@ export interface CreateUserResponse {
  */
 export interface DeactivateUserRequest {
   /**
-   * @public
    * <p>The ID of the user.</p>
+   * @public
    */
   UserId: string | undefined;
 
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 }
@@ -1626,26 +1626,26 @@ export interface DeactivateUserRequest {
  */
 export interface DeleteCommentRequest {
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 
   /**
-   * @public
    * <p>The ID of the document.</p>
+   * @public
    */
   DocumentId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the document version.</p>
+   * @public
    */
   VersionId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the comment.</p>
+   * @public
    */
   CommentId: string | undefined;
 }
@@ -1655,34 +1655,34 @@ export interface DeleteCommentRequest {
  */
 export interface DeleteCustomMetadataRequest {
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 
   /**
-   * @public
    * <p>The ID of the resource, either a document or folder.</p>
+   * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the version, if the custom metadata is being deleted from a document
    *             version.</p>
+   * @public
    */
   VersionId?: string;
 
   /**
-   * @public
    * <p>List of properties to remove.</p>
+   * @public
    */
   Keys?: string[];
 
   /**
-   * @public
    * <p>Flag to indicate removal of all custom metadata properties from the specified
    *             resource.</p>
+   * @public
    */
   DeleteAll?: boolean;
 }
@@ -1697,14 +1697,14 @@ export interface DeleteCustomMetadataResponse {}
  */
 export interface DeleteDocumentRequest {
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 
   /**
-   * @public
    * <p>The ID of the document.</p>
+   * @public
    */
   DocumentId: string | undefined;
 }
@@ -1714,33 +1714,33 @@ export interface DeleteDocumentRequest {
  */
 export interface DeleteDocumentVersionRequest {
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 
   /**
-   * @public
    * <p>The ID of the document associated with the version being deleted.</p>
+   * @public
    */
   DocumentId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the version being deleted.</p>
+   * @public
    */
   VersionId: string | undefined;
 
   /**
-   * @public
    * <p>Deletes all versions of a document prior to the current version.</p>
+   * @public
    */
   DeletePriorVersions: boolean | undefined;
 }
 
 /**
- * @public
  * <p>The operation is invalid.</p>
+ * @public
  */
 export class InvalidOperationException extends __BaseException {
   readonly name: "InvalidOperationException" = "InvalidOperationException";
@@ -1765,14 +1765,14 @@ export class InvalidOperationException extends __BaseException {
  */
 export interface DeleteFolderRequest {
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 
   /**
-   * @public
    * <p>The ID of the folder.</p>
+   * @public
    */
   FolderId: string | undefined;
 }
@@ -1782,14 +1782,14 @@ export interface DeleteFolderRequest {
  */
 export interface DeleteFolderContentsRequest {
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 
   /**
-   * @public
    * <p>The ID of the folder.</p>
+   * @public
    */
   FolderId: string | undefined;
 }
@@ -1799,26 +1799,26 @@ export interface DeleteFolderContentsRequest {
  */
 export interface DeleteLabelsRequest {
   /**
-   * @public
    * <p>The ID of the resource.</p>
+   * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 
   /**
-   * @public
    * <p>List of labels to delete from the resource.</p>
+   * @public
    */
   Labels?: string[];
 
   /**
-   * @public
    * <p>Flag to request removal of all labels from the specified resource.</p>
+   * @public
    */
   DeleteAll?: boolean;
 }
@@ -1833,14 +1833,14 @@ export interface DeleteLabelsResponse {}
  */
 export interface DeleteNotificationSubscriptionRequest {
   /**
-   * @public
    * <p>The ID of the subscription.</p>
+   * @public
    */
   SubscriptionId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the organization.</p>
+   * @public
    */
   OrganizationId: string | undefined;
 }
@@ -1850,15 +1850,15 @@ export interface DeleteNotificationSubscriptionRequest {
  */
 export interface DeleteUserRequest {
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Do not set this field when using
    *             administrative API actions, as in accessing the API using Amazon Web Services credentials.</p>
+   * @public
    */
   AuthenticationToken?: string;
 
   /**
-   * @public
    * <p>The ID of the user.</p>
+   * @public
    */
   UserId: string | undefined;
 }
@@ -1868,71 +1868,71 @@ export interface DeleteUserRequest {
  */
 export interface DescribeActivitiesRequest {
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 
   /**
-   * @public
    * <p>The timestamp that determines the starting time of the activities. The response
    *             includes the activities performed after the specified timestamp.</p>
+   * @public
    */
   StartTime?: Date;
 
   /**
-   * @public
    * <p>The timestamp that determines the end time of the activities. The response includes
    *             the activities performed before the specified timestamp.</p>
+   * @public
    */
   EndTime?: Date;
 
   /**
-   * @public
    * <p>The ID of the organization. This is a mandatory parameter when using administrative
    *             API (SigV4) requests.</p>
+   * @public
    */
   OrganizationId?: string;
 
   /**
-   * @public
    * <p>Specifies which activity types to include in the response. If this field is left
    *             empty, all activity types are returned.</p>
+   * @public
    */
   ActivityTypes?: string;
 
   /**
-   * @public
    * <p>The document or folder ID for which to describe activity types.</p>
+   * @public
    */
   ResourceId?: string;
 
   /**
-   * @public
    * <p>The ID of the user who performed the action. The response includes activities
    *             pertaining to this user. This is an optional parameter and is only applicable for
    *             administrative API (SigV4) requests.</p>
+   * @public
    */
   UserId?: string;
 
   /**
-   * @public
    * <p>Includes indirect activities. An indirect activity results from a direct activity
    *             performed on a parent resource. For example, sharing a parent folder (the direct
    *             activity) shares all of the subfolders and documents within the parent folder (the
    *             indirect activity).</p>
+   * @public
    */
   IncludeIndirectActivities?: boolean;
 
   /**
-   * @public
    * <p>The maximum number of items to return.</p>
+   * @public
    */
   Limit?: number;
 
   /**
-   * @public
    * <p>The marker for the next set of results.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -1942,14 +1942,14 @@ export interface DescribeActivitiesRequest {
  */
 export interface DescribeActivitiesResponse {
   /**
-   * @public
    * <p>The list of activities for the specified user and time period.</p>
+   * @public
    */
   UserActivities?: Activity[];
 
   /**
-   * @public
    * <p>The marker for the next set of results.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -1959,33 +1959,33 @@ export interface DescribeActivitiesResponse {
  */
 export interface DescribeCommentsRequest {
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 
   /**
-   * @public
    * <p>The ID of the document.</p>
+   * @public
    */
   DocumentId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the document version.</p>
+   * @public
    */
   VersionId: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of items to return.</p>
+   * @public
    */
   Limit?: number;
 
   /**
-   * @public
    * <p>The marker for the next set of results. This marker was received from a previous
    *             call.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -1995,15 +1995,15 @@ export interface DescribeCommentsRequest {
  */
 export interface DescribeCommentsResponse {
   /**
-   * @public
    * <p>The list of comments for the specified document version.</p>
+   * @public
    */
   Comments?: Comment[];
 
   /**
-   * @public
    * <p>The marker for the next set of results. This marker was received from a previous
    *             call.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -2013,41 +2013,41 @@ export interface DescribeCommentsResponse {
  */
 export interface DescribeDocumentVersionsRequest {
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 
   /**
-   * @public
    * <p>The ID of the document.</p>
+   * @public
    */
   DocumentId: string | undefined;
 
   /**
-   * @public
    * <p>The marker for the next set of results. (You received this marker from a previous
    *             call.)</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>The maximum number of versions to return with this call.</p>
+   * @public
    */
   Limit?: number;
 
   /**
-   * @public
    * <p>A comma-separated list of values. Specify "INITIALIZED" to include incomplete
    *             versions.</p>
+   * @public
    */
   Include?: string;
 
   /**
-   * @public
    * <p>Specify "SOURCE" to include initialized versions and a URL for the source
    *             document.</p>
+   * @public
    */
   Fields?: string;
 }
@@ -2096,85 +2096,85 @@ export const DocumentThumbnailType = {
 export type DocumentThumbnailType = (typeof DocumentThumbnailType)[keyof typeof DocumentThumbnailType];
 
 /**
- * @public
  * <p>Describes a version of a document.</p>
+ * @public
  */
 export interface DocumentVersionMetadata {
   /**
-   * @public
    * <p>The ID of the version.</p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The name of the version.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The content type of the document.</p>
+   * @public
    */
   ContentType?: string;
 
   /**
-   * @public
    * <p>The size of the document, in bytes.</p>
+   * @public
    */
   Size?: number;
 
   /**
-   * @public
    * <p>The signature of the document.</p>
+   * @public
    */
   Signature?: string;
 
   /**
-   * @public
    * <p>The status of the document.</p>
+   * @public
    */
   Status?: DocumentStatusType;
 
   /**
-   * @public
    * <p>The timestamp when the document was first uploaded.</p>
+   * @public
    */
   CreatedTimestamp?: Date;
 
   /**
-   * @public
    * <p>The timestamp when the document was last uploaded.</p>
+   * @public
    */
   ModifiedTimestamp?: Date;
 
   /**
-   * @public
    * <p>The timestamp when the content of the document was originally created.</p>
+   * @public
    */
   ContentCreatedTimestamp?: Date;
 
   /**
-   * @public
    * <p>The timestamp when the content of the document was modified.</p>
+   * @public
    */
   ContentModifiedTimestamp?: Date;
 
   /**
-   * @public
    * <p>The ID of the creator.</p>
+   * @public
    */
   CreatorId?: string;
 
   /**
-   * @public
    * <p>The thumbnail of the document.</p>
+   * @public
    */
   Thumbnail?: Partial<Record<DocumentThumbnailType, string>>;
 
   /**
-   * @public
    * <p>The source of the document.</p>
+   * @public
    */
   Source?: Partial<Record<DocumentSourceType, string>>;
 }
@@ -2184,22 +2184,22 @@ export interface DocumentVersionMetadata {
  */
 export interface DescribeDocumentVersionsResponse {
   /**
-   * @public
    * <p>The document versions.</p>
+   * @public
    */
   DocumentVersions?: DocumentVersionMetadata[];
 
   /**
-   * @public
    * <p>The marker to use when requesting the next set of results. If there are no
    *             additional results, the string is empty.</p>
+   * @public
    */
   Marker?: string;
 }
 
 /**
- * @public
  * <p>The password is invalid.</p>
+ * @public
  */
 export class InvalidPasswordException extends __BaseException {
   readonly name: "InvalidPasswordException" = "InvalidPasswordException";
@@ -2267,106 +2267,106 @@ export type FolderContentType = (typeof FolderContentType)[keyof typeof FolderCo
  */
 export interface DescribeFolderContentsRequest {
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 
   /**
-   * @public
    * <p>The ID of the folder.</p>
+   * @public
    */
   FolderId: string | undefined;
 
   /**
-   * @public
    * <p>The sorting criteria.</p>
+   * @public
    */
   Sort?: ResourceSortType;
 
   /**
-   * @public
    * <p>The order for the contents of the folder.</p>
+   * @public
    */
   Order?: OrderType;
 
   /**
-   * @public
    * <p>The maximum number of items to return with this call.</p>
+   * @public
    */
   Limit?: number;
 
   /**
-   * @public
    * <p>The marker for the next set of results. This marker was received from a previous
    *             call.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>The type of items.</p>
+   * @public
    */
   Type?: FolderContentType;
 
   /**
-   * @public
    * <p>The contents to include. Specify "INITIALIZED" to include initialized
    *             documents.</p>
+   * @public
    */
   Include?: string;
 }
 
 /**
- * @public
  * <p>Describes the document.</p>
+ * @public
  */
 export interface DocumentMetadata {
   /**
-   * @public
    * <p>The ID of the document.</p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The ID of the creator.</p>
+   * @public
    */
   CreatorId?: string;
 
   /**
-   * @public
    * <p>The ID of the parent folder.</p>
+   * @public
    */
   ParentFolderId?: string;
 
   /**
-   * @public
    * <p>The time when the document was created.</p>
+   * @public
    */
   CreatedTimestamp?: Date;
 
   /**
-   * @public
    * <p>The time when the document was updated.</p>
+   * @public
    */
   ModifiedTimestamp?: Date;
 
   /**
-   * @public
    * <p>The latest version of the document.</p>
+   * @public
    */
   LatestVersionMetadata?: DocumentVersionMetadata;
 
   /**
-   * @public
    * <p>The resource state.</p>
+   * @public
    */
   ResourceState?: ResourceStateType;
 
   /**
-   * @public
    * <p>List of labels on the document.</p>
+   * @public
    */
   Labels?: string[];
 }
@@ -2376,21 +2376,21 @@ export interface DocumentMetadata {
  */
 export interface DescribeFolderContentsResponse {
   /**
-   * @public
    * <p>The subfolders in the specified folder.</p>
+   * @public
    */
   Folders?: FolderMetadata[];
 
   /**
-   * @public
    * <p>The documents in the specified folder.</p>
+   * @public
    */
   Documents?: DocumentMetadata[];
 
   /**
-   * @public
    * <p>The marker to use when requesting the next set of results. If there are no
    *             additional results, the string is empty.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -2400,33 +2400,33 @@ export interface DescribeFolderContentsResponse {
  */
 export interface DescribeGroupsRequest {
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 
   /**
-   * @public
    * <p>A query to describe groups by group name.</p>
+   * @public
    */
   SearchQuery: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the organization.</p>
+   * @public
    */
   OrganizationId?: string;
 
   /**
-   * @public
    * <p>The marker for the next set of results. (You received this marker from a previous
    *             call.)</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>The maximum number of items to return with this call.</p>
+   * @public
    */
   Limit?: number;
 }
@@ -2436,15 +2436,15 @@ export interface DescribeGroupsRequest {
  */
 export interface DescribeGroupsResponse {
   /**
-   * @public
    * <p>The list of groups.</p>
+   * @public
    */
   Groups?: GroupMetadata[];
 
   /**
-   * @public
    * <p>The marker to use when requesting the next set of results. If there are no additional
    *             results, the string is empty.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -2454,21 +2454,21 @@ export interface DescribeGroupsResponse {
  */
 export interface DescribeNotificationSubscriptionsRequest {
   /**
-   * @public
    * <p>The ID of the organization.</p>
+   * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * @public
    * <p>The marker for the next set of results. (You received this marker from a previous
    *             call.)</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>The maximum number of items to return with this call.</p>
+   * @public
    */
   Limit?: number;
 }
@@ -2478,15 +2478,15 @@ export interface DescribeNotificationSubscriptionsRequest {
  */
 export interface DescribeNotificationSubscriptionsResponse {
   /**
-   * @public
    * <p>The subscriptions.</p>
+   * @public
    */
   Subscriptions?: Subscription[];
 
   /**
-   * @public
    * <p>The marker to use when requesting the next set of results. If there are no
    *             additional results, the string is empty.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -2496,33 +2496,33 @@ export interface DescribeNotificationSubscriptionsResponse {
  */
 export interface DescribeResourcePermissionsRequest {
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 
   /**
-   * @public
    * <p>The ID of the resource.</p>
+   * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the principal to filter permissions by.</p>
+   * @public
    */
   PrincipalId?: string;
 
   /**
-   * @public
    * <p>The maximum number of items to return with this call.</p>
+   * @public
    */
   Limit?: number;
 
   /**
-   * @public
    * <p>The marker for the next set of results. (You received this marker from a previous
    *             call)</p>
+   * @public
    */
   Marker?: string;
 }
@@ -2542,43 +2542,43 @@ export const RolePermissionType = {
 export type RolePermissionType = (typeof RolePermissionType)[keyof typeof RolePermissionType];
 
 /**
- * @public
  * <p>Describes the permissions.</p>
+ * @public
  */
 export interface PermissionInfo {
   /**
-   * @public
    * <p>The role of the user.</p>
+   * @public
    */
   Role?: RoleType;
 
   /**
-   * @public
    * <p>The type of permissions.</p>
+   * @public
    */
   Type?: RolePermissionType;
 }
 
 /**
- * @public
  * <p>Describes a resource.</p>
+ * @public
  */
 export interface Principal {
   /**
-   * @public
    * <p>The ID of the resource.</p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The type of resource.</p>
+   * @public
    */
   Type?: PrincipalType;
 
   /**
-   * @public
    * <p>The permission information for the resource.</p>
+   * @public
    */
   Roles?: PermissionInfo[];
 }
@@ -2588,15 +2588,15 @@ export interface Principal {
  */
 export interface DescribeResourcePermissionsResponse {
   /**
-   * @public
    * <p>The principals.</p>
+   * @public
    */
   Principals?: Principal[];
 
   /**
-   * @public
    * <p>The marker to use when requesting the next set of results. If there are no
    *             additional results, the string is empty.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -2606,21 +2606,21 @@ export interface DescribeResourcePermissionsResponse {
  */
 export interface DescribeRootFoldersRequest {
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token.</p>
+   * @public
    */
   AuthenticationToken: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of items to return.</p>
+   * @public
    */
   Limit?: number;
 
   /**
-   * @public
    * <p>The marker for the next set of results. (You received this marker from a previous
    *             call.)</p>
+   * @public
    */
   Marker?: string;
 }
@@ -2630,14 +2630,14 @@ export interface DescribeRootFoldersRequest {
  */
 export interface DescribeRootFoldersResponse {
   /**
-   * @public
    * <p>The user's special folders.</p>
+   * @public
    */
   Folders?: FolderMetadata[];
 
   /**
-   * @public
    * <p>The marker for the next set of results.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -2678,25 +2678,24 @@ export type UserSortType = (typeof UserSortType)[keyof typeof UserSortType];
  */
 export interface DescribeUsersRequest {
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 
   /**
-   * @public
    * <p>The ID of the organization.</p>
+   * @public
    */
   OrganizationId?: string;
 
   /**
-   * @public
    * <p>The IDs of the users.</p>
+   * @public
    */
   UserIds?: string;
 
   /**
-   * @public
    * <p>A query to filter users by user name. Remember the following about the <code>Userids</code> and <code>Query</code> parameters:</p>
    *          <ul>
    *             <li>
@@ -2715,44 +2714,45 @@ export interface DescribeUsersRequest {
    *                 returns Mateo Jackson.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Query?: string;
 
   /**
-   * @public
    * <p>The state of the users. Specify "ALL" to include inactive users.</p>
+   * @public
    */
   Include?: UserFilterType;
 
   /**
-   * @public
    * <p>The order for the results.</p>
+   * @public
    */
   Order?: OrderType;
 
   /**
-   * @public
    * <p>The sorting criteria.</p>
+   * @public
    */
   Sort?: UserSortType;
 
   /**
-   * @public
    * <p>The marker for the next set of results. (You received this marker from a previous
    *             call.)</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>The maximum number of items to return.</p>
+   * @public
    */
   Limit?: number;
 
   /**
-   * @public
    * <p>A comma-separated list of values. Specify "STORAGE_METADATA" to include the user
    *             storage quota and utilization information.</p>
+   * @public
    */
   Fields?: string;
 }
@@ -2762,30 +2762,30 @@ export interface DescribeUsersRequest {
  */
 export interface DescribeUsersResponse {
   /**
-   * @public
    * <p>The users.</p>
+   * @public
    */
   Users?: User[];
 
   /**
-   * @public
    * @deprecated
    *
    * <p>The total number of users included in the results.</p>
+   * @public
    */
   TotalNumberOfUsers?: number;
 
   /**
-   * @public
    * <p>The marker to use when requesting the next set of results. If there are no
    *             additional results, the string is empty.</p>
+   * @public
    */
   Marker?: string;
 }
 
 /**
- * @public
  * <p>The response is too large to return. The request must include a filter to reduce the size of the response.</p>
+ * @public
  */
 export class RequestedEntityTooLargeException extends __BaseException {
   readonly name: "RequestedEntityTooLargeException" = "RequestedEntityTooLargeException";
@@ -2810,8 +2810,8 @@ export class RequestedEntityTooLargeException extends __BaseException {
  */
 export interface GetCurrentUserRequest {
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token.</p>
+   * @public
    */
   AuthenticationToken: string | undefined;
 }
@@ -2821,8 +2821,8 @@ export interface GetCurrentUserRequest {
  */
 export interface GetCurrentUserResponse {
   /**
-   * @public
    * <p>Metadata of the user.</p>
+   * @public
    */
   User?: User;
 }
@@ -2832,20 +2832,20 @@ export interface GetCurrentUserResponse {
  */
 export interface GetDocumentRequest {
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 
   /**
-   * @public
    * <p>The ID of the document.</p>
+   * @public
    */
   DocumentId: string | undefined;
 
   /**
-   * @public
    * <p>Set this to <code>TRUE</code> to include custom metadata in the response.</p>
+   * @public
    */
   IncludeCustomMetadata?: boolean;
 }
@@ -2855,14 +2855,14 @@ export interface GetDocumentRequest {
  */
 export interface GetDocumentResponse {
   /**
-   * @public
    * <p>The metadata details of the document.</p>
+   * @public
    */
   Metadata?: DocumentMetadata;
 
   /**
-   * @public
    * <p>The custom metadata on the document.</p>
+   * @public
    */
   CustomMetadata?: Record<string, string>;
 }
@@ -2872,63 +2872,63 @@ export interface GetDocumentResponse {
  */
 export interface GetDocumentPathRequest {
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 
   /**
-   * @public
    * <p>The ID of the document.</p>
+   * @public
    */
   DocumentId: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of levels in the hierarchy to return.</p>
+   * @public
    */
   Limit?: number;
 
   /**
-   * @public
    * <p>A comma-separated list of values. Specify <code>NAME</code> to include the names of
    *             the parent folders.</p>
+   * @public
    */
   Fields?: string;
 
   /**
-   * @public
    * <p>This value is not supported.</p>
+   * @public
    */
   Marker?: string;
 }
 
 /**
- * @public
  * <p>Describes the resource path.</p>
+ * @public
  */
 export interface ResourcePathComponent {
   /**
-   * @public
    * <p>The ID of the resource path.</p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The name of the resource path.</p>
+   * @public
    */
   Name?: string;
 }
 
 /**
- * @public
  * <p>Describes the path information of a resource.</p>
+ * @public
  */
 export interface ResourcePath {
   /**
-   * @public
    * <p>The components of the resource path.</p>
+   * @public
    */
   Components?: ResourcePathComponent[];
 }
@@ -2938,8 +2938,8 @@ export interface ResourcePath {
  */
 export interface GetDocumentPathResponse {
   /**
-   * @public
    * <p>The path information.</p>
+   * @public
    */
   Path?: ResourcePath;
 }
@@ -2949,33 +2949,33 @@ export interface GetDocumentPathResponse {
  */
 export interface GetDocumentVersionRequest {
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 
   /**
-   * @public
    * <p>The ID of the document.</p>
+   * @public
    */
   DocumentId: string | undefined;
 
   /**
-   * @public
    * <p>The version ID of the document.</p>
+   * @public
    */
   VersionId: string | undefined;
 
   /**
-   * @public
    * <p>A comma-separated list of values. Specify "SOURCE" to include a URL for the source
    *             document.</p>
+   * @public
    */
   Fields?: string;
 
   /**
-   * @public
    * <p>Set this to TRUE to include custom metadata in the response.</p>
+   * @public
    */
   IncludeCustomMetadata?: boolean;
 }
@@ -2985,14 +2985,14 @@ export interface GetDocumentVersionRequest {
  */
 export interface GetDocumentVersionResponse {
   /**
-   * @public
    * <p>The version metadata.</p>
+   * @public
    */
   Metadata?: DocumentVersionMetadata;
 
   /**
-   * @public
    * <p>The custom metadata on the document version.</p>
+   * @public
    */
   CustomMetadata?: Record<string, string>;
 }
@@ -3002,20 +3002,20 @@ export interface GetDocumentVersionResponse {
  */
 export interface GetFolderRequest {
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 
   /**
-   * @public
    * <p>The ID of the folder.</p>
+   * @public
    */
   FolderId: string | undefined;
 
   /**
-   * @public
    * <p>Set to TRUE to include custom metadata in the response.</p>
+   * @public
    */
   IncludeCustomMetadata?: boolean;
 }
@@ -3025,14 +3025,14 @@ export interface GetFolderRequest {
  */
 export interface GetFolderResponse {
   /**
-   * @public
    * <p>The metadata of the folder.</p>
+   * @public
    */
   Metadata?: FolderMetadata;
 
   /**
-   * @public
    * <p>The custom metadata on the folder.</p>
+   * @public
    */
   CustomMetadata?: Record<string, string>;
 }
@@ -3042,33 +3042,33 @@ export interface GetFolderResponse {
  */
 export interface GetFolderPathRequest {
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 
   /**
-   * @public
    * <p>The ID of the folder.</p>
+   * @public
    */
   FolderId: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of levels in the hierarchy to return.</p>
+   * @public
    */
   Limit?: number;
 
   /**
-   * @public
    * <p>A comma-separated list of values. Specify "NAME" to include the names of the parent
    *             folders.</p>
+   * @public
    */
   Fields?: string;
 
   /**
-   * @public
    * <p>This value is not supported.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -3078,8 +3078,8 @@ export interface GetFolderPathRequest {
  */
 export interface GetFolderPathResponse {
   /**
-   * @public
    * <p>The path information.</p>
+   * @public
    */
   Path?: ResourcePath;
 }
@@ -3102,33 +3102,33 @@ export type ResourceCollectionType = (typeof ResourceCollectionType)[keyof typeo
  */
 export interface GetResourcesRequest {
   /**
-   * @public
    * <p>The Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 
   /**
-   * @public
    * <p>The user ID for the resource collection. This is a required field for accessing the
    *             API operation using IAM credentials.</p>
+   * @public
    */
   UserId?: string;
 
   /**
-   * @public
    * <p>The collection type.</p>
+   * @public
    */
   CollectionType?: ResourceCollectionType;
 
   /**
-   * @public
    * <p>The maximum number of resources to return.</p>
+   * @public
    */
   Limit?: number;
 
   /**
-   * @public
    * <p>The marker for the next set of results. This marker was received from a previous call.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -3138,28 +3138,28 @@ export interface GetResourcesRequest {
  */
 export interface GetResourcesResponse {
   /**
-   * @public
    * <p>The folders in the specified folder.</p>
+   * @public
    */
   Folders?: FolderMetadata[];
 
   /**
-   * @public
    * <p>The documents in the specified collection.</p>
+   * @public
    */
   Documents?: DocumentMetadata[];
 
   /**
-   * @public
    * <p>The marker to use when requesting the next set of results. If there are no additional results, the string is empty.</p>
+   * @public
    */
   Marker?: string;
 }
 
 /**
- * @public
  * <p>This exception is thrown when a valid checkout ID is not presented on document
  *             version upload calls for a document that has been checked out from Web client.</p>
+ * @public
  */
 export class DraftUploadOutOfSyncException extends __BaseException {
   readonly name: "DraftUploadOutOfSyncException" = "DraftUploadOutOfSyncException";
@@ -3184,68 +3184,68 @@ export class DraftUploadOutOfSyncException extends __BaseException {
  */
 export interface InitiateDocumentVersionUploadRequest {
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 
   /**
-   * @public
    * <p>The ID of the document.</p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The name of the document.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The timestamp when the content of the document was originally created.</p>
+   * @public
    */
   ContentCreatedTimestamp?: Date;
 
   /**
-   * @public
    * <p>The timestamp when the content of the document was modified.</p>
+   * @public
    */
   ContentModifiedTimestamp?: Date;
 
   /**
-   * @public
    * <p>The content type of the document.</p>
+   * @public
    */
   ContentType?: string;
 
   /**
-   * @public
    * <p>The size of the document, in bytes.</p>
+   * @public
    */
   DocumentSizeInBytes?: number;
 
   /**
-   * @public
    * <p>The ID of the parent folder.</p>
+   * @public
    */
   ParentFolderId?: string;
 }
 
 /**
- * @public
  * <p>Describes the upload.</p>
+ * @public
  */
 export interface UploadMetadata {
   /**
-   * @public
    * <p>The URL of the upload.</p>
+   * @public
    */
   UploadUrl?: string;
 
   /**
-   * @public
    * <p>The signed headers.</p>
+   * @public
    */
   SignedHeaders?: Record<string, string>;
 }
@@ -3255,21 +3255,21 @@ export interface UploadMetadata {
  */
 export interface InitiateDocumentVersionUploadResponse {
   /**
-   * @public
    * <p>The document metadata.</p>
+   * @public
    */
   Metadata?: DocumentMetadata;
 
   /**
-   * @public
    * <p>The upload metadata.</p>
+   * @public
    */
   UploadMetadata?: UploadMetadata;
 }
 
 /**
- * @public
  * <p>The resource is already checked out.</p>
+ * @public
  */
 export class ResourceAlreadyCheckedOutException extends __BaseException {
   readonly name: "ResourceAlreadyCheckedOutException" = "ResourceAlreadyCheckedOutException";
@@ -3290,8 +3290,8 @@ export class ResourceAlreadyCheckedOutException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The storage limit has been exceeded.</p>
+ * @public
  */
 export class StorageLimitExceededException extends __BaseException {
   readonly name: "StorageLimitExceededException" = "StorageLimitExceededException";
@@ -3312,8 +3312,8 @@ export class StorageLimitExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The storage limit will be exceeded.</p>
+ * @public
  */
 export class StorageLimitWillExceedException extends __BaseException {
   readonly name: "StorageLimitWillExceedException" = "StorageLimitWillExceedException";
@@ -3338,14 +3338,14 @@ export class StorageLimitWillExceedException extends __BaseException {
  */
 export interface RemoveAllResourcePermissionsRequest {
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 
   /**
-   * @public
    * <p>The ID of the resource.</p>
+   * @public
    */
   ResourceId: string | undefined;
 }
@@ -3355,26 +3355,26 @@ export interface RemoveAllResourcePermissionsRequest {
  */
 export interface RemoveResourcePermissionRequest {
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 
   /**
-   * @public
    * <p>The ID of the resource.</p>
+   * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * @public
    * <p>The principal ID of the resource.</p>
+   * @public
    */
   PrincipalId: string | undefined;
 
   /**
-   * @public
    * <p>The principal type of the resource.</p>
+   * @public
    */
   PrincipalType?: PrincipalType;
 }
@@ -3384,14 +3384,14 @@ export interface RemoveResourcePermissionRequest {
  */
 export interface RestoreDocumentVersionsRequest {
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 
   /**
-   * @public
    * <p>The ID of the document.</p>
+   * @public
    */
   DocumentId: string | undefined;
 }
@@ -3418,19 +3418,19 @@ export const ContentCategoryType = {
 export type ContentCategoryType = (typeof ContentCategoryType)[keyof typeof ContentCategoryType];
 
 /**
- * @public
  * <p>Filters results based on timestamp range (in epochs).</p>
+ * @public
  */
 export interface DateRangeType {
   /**
-   * @public
    * <p>Timestamp range start value (in epochs)</p>
+   * @public
    */
   StartValue?: Date;
 
   /**
-   * @public
    * <p>Timestamp range end value (in epochs).</p>
+   * @public
    */
   EndValue?: Date;
 }
@@ -3452,19 +3452,19 @@ export const PrincipalRoleType = {
 export type PrincipalRoleType = (typeof PrincipalRoleType)[keyof typeof PrincipalRoleType];
 
 /**
- * @public
  * <p>Filter based on UserIds or GroupIds.</p>
+ * @public
  */
 export interface SearchPrincipalType {
   /**
-   * @public
    * <p>UserIds or GroupIds.</p>
+   * @public
    */
   Id: string | undefined;
 
   /**
-   * @public
    * <p>The Role of a User or Group.</p>
+   * @public
    */
   Roles?: PrincipalRoleType[];
 }
@@ -3500,19 +3500,19 @@ export const SearchCollectionType = {
 export type SearchCollectionType = (typeof SearchCollectionType)[keyof typeof SearchCollectionType];
 
 /**
- * @public
  * <p>Filter based on size (in bytes).</p>
+ * @public
  */
 export interface LongRangeType {
   /**
-   * @public
    * <p>The size start range (in bytes).</p>
+   * @public
    */
   StartValue?: number;
 
   /**
-   * @public
    * <p>The size end range (in bytes).</p>
+   * @public
    */
   EndValue?: number;
 }
@@ -3561,67 +3561,67 @@ export const LanguageCodeType = {
 export type LanguageCodeType = (typeof LanguageCodeType)[keyof typeof LanguageCodeType];
 
 /**
- * @public
  * <p>Filters results based on entity metadata.</p>
+ * @public
  */
 export interface Filters {
   /**
-   * @public
    * <p>Filters by the locale of the content or comment.</p>
+   * @public
    */
   TextLocales?: LanguageCodeType[];
 
   /**
-   * @public
    * <p>Filters by content category.</p>
+   * @public
    */
   ContentCategories?: ContentCategoryType[];
 
   /**
-   * @public
    * <p>Filters based on entity type.</p>
+   * @public
    */
   ResourceTypes?: SearchResourceType[];
 
   /**
-   * @public
    * <p>Filter by labels using exact match.</p>
+   * @public
    */
   Labels?: string[];
 
   /**
-   * @public
    * <p>Filter based on UserIds or GroupIds.</p>
+   * @public
    */
   Principals?: SearchPrincipalType[];
 
   /**
-   * @public
    * <p>Filter based on resource’s path.</p>
+   * @public
    */
   AncestorIds?: string[];
 
   /**
-   * @public
    * <p>Filter based on file groupings.</p>
+   * @public
    */
   SearchCollectionTypes?: SearchCollectionType[];
 
   /**
-   * @public
    * <p>Filter based on size (in bytes).</p>
+   * @public
    */
   SizeRange?: LongRangeType;
 
   /**
-   * @public
    * <p>Filter based on resource’s creation timestamp.</p>
+   * @public
    */
   CreatedRange?: DateRangeType;
 
   /**
-   * @public
    * <p>Filter based on resource’s modified timestamp.</p>
+   * @public
    */
   ModifiedRange?: DateRangeType;
 }
@@ -3658,19 +3658,19 @@ export const SortOrder = {
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
- * @public
  * <p>The result of the sort operation.</p>
+ * @public
  */
 export interface SearchSortResult {
   /**
-   * @public
    * <p>Sort search results based on this field name.</p>
+   * @public
    */
   Field?: OrderByFieldType;
 
   /**
-   * @public
    * <p>Sort direction.</p>
+   * @public
    */
   Order?: SortOrder;
 }
@@ -3694,57 +3694,57 @@ export type SearchQueryScopeType = (typeof SearchQueryScopeType)[keyof typeof Se
  */
 export interface SearchResourcesRequest {
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 
   /**
-   * @public
    * <p>The String to search for. Searches across different text fields based on request parameters. Use double quotes around the query string for exact phrase matches.</p>
+   * @public
    */
   QueryText?: string;
 
   /**
-   * @public
    * <p>Filter based on the text field type. A Folder has only a name and no content. A Comment has only content and no name. A Document or Document Version has a name and content</p>
+   * @public
    */
   QueryScopes?: SearchQueryScopeType[];
 
   /**
-   * @public
    * <p>Filters based on the resource owner OrgId. This is a mandatory parameter when using Admin SigV4 credentials.</p>
+   * @public
    */
   OrganizationId?: string;
 
   /**
-   * @public
    * <p>A list of attributes to include in the response. Used to request fields that are not normally
    *             returned in a standard response.</p>
+   * @public
    */
   AdditionalResponseFields?: AdditionalResponseFieldType[];
 
   /**
-   * @public
    * <p>Filters results based on entity metadata.</p>
+   * @public
    */
   Filters?: Filters;
 
   /**
-   * @public
    * <p>Order by results in one or more categories.</p>
+   * @public
    */
   OrderBy?: SearchSortResult[];
 
   /**
-   * @public
    * <p>Max results count per page.</p>
+   * @public
    */
   Limit?: number;
 
   /**
-   * @public
    * <p>The marker for the next set of results.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -3766,43 +3766,43 @@ export const ResponseItemType = {
 export type ResponseItemType = (typeof ResponseItemType)[keyof typeof ResponseItemType];
 
 /**
- * @public
  * <p>List of Documents, Folders, Comments, and Document Versions matching the query.</p>
+ * @public
  */
 export interface ResponseItem {
   /**
-   * @public
    * <p>The type of item being returned.</p>
+   * @public
    */
   ResourceType?: ResponseItemType;
 
   /**
-   * @public
    * <p>The webUrl of the item being returned.</p>
+   * @public
    */
   WebUrl?: string;
 
   /**
-   * @public
    * <p>The document that matches the query.</p>
+   * @public
    */
   DocumentMetadata?: DocumentMetadata;
 
   /**
-   * @public
    * <p>The folder that matches the query.</p>
+   * @public
    */
   FolderMetadata?: FolderMetadata;
 
   /**
-   * @public
    * <p>The comment that matches the query.</p>
+   * @public
    */
   CommentMetadata?: CommentMetadata;
 
   /**
-   * @public
    * <p>The document version that matches the metadata.</p>
+   * @public
    */
   DocumentVersionMetadata?: DocumentVersionMetadata;
 }
@@ -3812,14 +3812,14 @@ export interface ResponseItem {
  */
 export interface SearchResourcesResponse {
   /**
-   * @public
    * <p>List of Documents, Folders, Comments, and Document Versions matching the query.</p>
+   * @public
    */
   Items?: ResponseItem[];
 
   /**
-   * @public
    * <p>The marker to use when requesting the next set of results. If there are no additional results, the string is empty.</p>
+   * @public
    */
   Marker?: string;
 }
@@ -3829,33 +3829,33 @@ export interface SearchResourcesResponse {
  */
 export interface UpdateDocumentRequest {
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 
   /**
-   * @public
    * <p>The ID of the document.</p>
+   * @public
    */
   DocumentId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the document.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The ID of the parent folder.</p>
+   * @public
    */
   ParentFolderId?: string;
 
   /**
-   * @public
    * <p>The resource state of the document. Only ACTIVE and RECYCLED are
    *             supported.</p>
+   * @public
    */
   ResourceState?: ResourceStateType;
 }
@@ -3878,26 +3878,26 @@ export type DocumentVersionStatus = (typeof DocumentVersionStatus)[keyof typeof 
  */
 export interface UpdateDocumentVersionRequest {
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 
   /**
-   * @public
    * <p>The ID of the document.</p>
+   * @public
    */
   DocumentId: string | undefined;
 
   /**
-   * @public
    * <p>The version ID of the document.</p>
+   * @public
    */
   VersionId: string | undefined;
 
   /**
-   * @public
    * <p>The status of the version.</p>
+   * @public
    */
   VersionStatus?: DocumentVersionStatus;
 }
@@ -3907,40 +3907,40 @@ export interface UpdateDocumentVersionRequest {
  */
 export interface UpdateFolderRequest {
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 
   /**
-   * @public
    * <p>The ID of the folder.</p>
+   * @public
    */
   FolderId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the folder.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The ID of the parent folder.</p>
+   * @public
    */
   ParentFolderId?: string;
 
   /**
-   * @public
    * <p>The resource state of the folder. Only ACTIVE and RECYCLED are accepted values from
    *             the API.</p>
+   * @public
    */
   ResourceState?: ResourceStateType;
 }
 
 /**
- * @public
  * <p>The last user in the organization is being deactivated.</p>
+ * @public
  */
 export class DeactivatingLastSystemUserException extends __BaseException {
   readonly name: "DeactivatingLastSystemUserException" = "DeactivatingLastSystemUserException";
@@ -3963,8 +3963,8 @@ export class DeactivatingLastSystemUserException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The user is undergoing transfer of ownership.</p>
+ * @public
  */
 export class IllegalUserStateException extends __BaseException {
   readonly name: "IllegalUserStateException" = "IllegalUserStateException";
@@ -4003,56 +4003,56 @@ export type BooleanEnumType = (typeof BooleanEnumType)[keyof typeof BooleanEnumT
  */
 export interface UpdateUserRequest {
   /**
-   * @public
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * @public
    */
   AuthenticationToken?: string;
 
   /**
-   * @public
    * <p>The ID of the user.</p>
+   * @public
    */
   UserId: string | undefined;
 
   /**
-   * @public
    * <p>The given name of the user.</p>
+   * @public
    */
   GivenName?: string;
 
   /**
-   * @public
    * <p>The surname of the user.</p>
+   * @public
    */
   Surname?: string;
 
   /**
-   * @public
    * <p>The type of the user.</p>
+   * @public
    */
   Type?: UserType;
 
   /**
-   * @public
    * <p>The amount of storage for the user.</p>
+   * @public
    */
   StorageRule?: StorageRuleType;
 
   /**
-   * @public
    * <p>The time zone ID of the user.</p>
+   * @public
    */
   TimeZoneId?: string;
 
   /**
-   * @public
    * <p>The locale of the user.</p>
+   * @public
    */
   Locale?: LocaleType;
 
   /**
-   * @public
    * <p>Boolean value to determine whether the user is granted Power user privileges.</p>
+   * @public
    */
   GrantPoweruserPrivileges?: BooleanEnumType;
 }
@@ -4062,8 +4062,8 @@ export interface UpdateUserRequest {
  */
 export interface UpdateUserResponse {
   /**
-   * @public
    * <p>The user information.</p>
+   * @public
    */
   User?: User;
 }

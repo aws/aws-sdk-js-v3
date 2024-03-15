@@ -31,7 +31,6 @@ export interface GetPartnershipCommandInput extends GetPartnershipRequest {}
 export interface GetPartnershipCommandOutput extends GetPartnershipResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the details for a partnership, based on the partner and profile IDs specified. A partnership represents the connection between you and your trading partner. It ties
  *    together a profile and one or more trading capabilities.</p>
  * @example
@@ -86,6 +85,7 @@ export interface GetPartnershipCommandOutput extends GetPartnershipResponse, __M
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
+ * @public
  * @example Sample GetPartnership call
  * ```javascript
  * //

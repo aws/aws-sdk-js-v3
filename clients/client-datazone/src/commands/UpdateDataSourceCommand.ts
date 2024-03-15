@@ -32,7 +32,6 @@ export interface UpdateDataSourceCommandInput extends UpdateDataSourceInput {}
 export interface UpdateDataSourceCommandOutput extends UpdateDataSourceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified data source in Amazon DataZone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -230,6 +229,7 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceOutput, _
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class UpdateDataSourceCommand extends $Command
   .classBuilder<

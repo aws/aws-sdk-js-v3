@@ -27,7 +27,6 @@ export interface DeleteNatGatewayCommandInput extends DeleteNatGatewayRequest {}
 export interface DeleteNatGatewayCommandOutput extends DeleteNatGatewayResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified NAT gateway. Deleting a public NAT gateway disassociates its Elastic IP address,
  *           but does not release the address from your account. Deleting a NAT gateway does not delete any NAT gateway
  *           routes in your route tables.</p>
@@ -58,6 +57,7 @@ export interface DeleteNatGatewayCommandOutput extends DeleteNatGatewayResult, _
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To delete a NAT gateway
  * ```javascript
  * // This example deletes the specified NAT gateway.

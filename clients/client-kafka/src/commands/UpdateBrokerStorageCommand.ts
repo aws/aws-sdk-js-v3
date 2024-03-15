@@ -27,7 +27,6 @@ export interface UpdateBrokerStorageCommandInput extends UpdateBrokerStorageRequ
 export interface UpdateBrokerStorageCommandOutput extends UpdateBrokerStorageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the EBS storage associated with MSK brokers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface UpdateBrokerStorageCommandOutput extends UpdateBrokerStorageRes
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ * @public
  */
 export class UpdateBrokerStorageCommand extends $Command
   .classBuilder<

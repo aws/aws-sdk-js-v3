@@ -27,7 +27,6 @@ export interface DeleteVolumeCommandInput extends DeleteVolumeInput {}
 export interface DeleteVolumeCommandOutput extends DeleteVolumeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified storage volume that you previously created using the <a>CreateCachediSCSIVolume</a> or <a>CreateStorediSCSIVolume</a> API.
  *          This operation is only supported in the cached volume and stored volume types. For stored
  *          volume gateways, the local disk that was configured as the storage volume is not deleted.
@@ -73,6 +72,7 @@ export interface DeleteVolumeCommandOutput extends DeleteVolumeOutput, __Metadat
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To delete a gateway volume
  * ```javascript
  * // Deletes the specified gateway volume that you previously created using the CreateCachediSCSIVolume or CreateStorediSCSIVolume API.

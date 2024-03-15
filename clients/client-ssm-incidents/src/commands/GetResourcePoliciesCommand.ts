@@ -27,7 +27,6 @@ export interface GetResourcePoliciesCommandInput extends GetResourcePoliciesInpu
 export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the resource policies attached to the specified response plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesOut
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ * @public
  */
 export class GetResourcePoliciesCommand extends $Command
   .classBuilder<

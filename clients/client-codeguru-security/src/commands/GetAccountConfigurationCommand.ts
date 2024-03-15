@@ -27,7 +27,6 @@ export interface GetAccountConfigurationCommandInput extends GetAccountConfigura
 export interface GetAccountConfigurationCommandOutput extends GetAccountConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use to get account level configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface GetAccountConfigurationCommandOutput extends GetAccountConfigur
  * @throws {@link CodeGuruSecurityServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruSecurity service.</p>
  *
+ * @public
  */
 export class GetAccountConfigurationCommand extends $Command
   .classBuilder<

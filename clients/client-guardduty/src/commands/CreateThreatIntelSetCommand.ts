@@ -27,7 +27,6 @@ export interface CreateThreatIntelSetCommandInput extends CreateThreatIntelSetRe
 export interface CreateThreatIntelSetCommandOutput extends CreateThreatIntelSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new ThreatIntelSet. ThreatIntelSets consist of known malicious IP addresses.
  *       GuardDuty generates findings based on ThreatIntelSets. Only users of the administrator
  *       account can use this operation.</p>
@@ -71,6 +70,7 @@ export interface CreateThreatIntelSetCommandOutput extends CreateThreatIntelSetR
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class CreateThreatIntelSetCommand extends $Command
   .classBuilder<

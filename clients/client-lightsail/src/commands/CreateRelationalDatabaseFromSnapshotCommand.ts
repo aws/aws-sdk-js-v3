@@ -35,7 +35,6 @@ export interface CreateRelationalDatabaseFromSnapshotCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new database from an existing database snapshot in Amazon Lightsail.</p>
  *          <p>You can create a new database from a snapshot in if something goes wrong with your
  *       original database, or to change it to a different plan, such as a high availability or
@@ -130,6 +129,7 @@ export interface CreateRelationalDatabaseFromSnapshotCommandOutput
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class CreateRelationalDatabaseFromSnapshotCommand extends $Command
   .classBuilder<

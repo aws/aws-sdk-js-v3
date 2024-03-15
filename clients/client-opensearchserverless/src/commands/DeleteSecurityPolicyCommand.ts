@@ -31,7 +31,6 @@ export interface DeleteSecurityPolicyCommandInput extends DeleteSecurityPolicyRe
 export interface DeleteSecurityPolicyCommandOutput extends DeleteSecurityPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an OpenSearch Serverless security policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DeleteSecurityPolicyCommandOutput extends DeleteSecurityPolicyR
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ * @public
  */
 export class DeleteSecurityPolicyCommand extends $Command
   .classBuilder<

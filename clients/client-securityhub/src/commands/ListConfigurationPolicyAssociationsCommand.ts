@@ -35,7 +35,6 @@ export interface ListConfigurationPolicyAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Provides information about the associations for your configuration policies and self-managed behavior. Only the
  *             Security Hub delegated administrator can invoke this operation from the home Region.
@@ -100,6 +99,7 @@ export interface ListConfigurationPolicyAssociationsCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To list configuration associations
  * ```javascript
  * // This operation lists all of the associations between targets and configuration policies or self-managed behavior. Targets can include accounts, organizational units, or the root.

@@ -27,7 +27,6 @@ export interface StartDomainMaintenanceCommandInput extends StartDomainMaintenan
 export interface StartDomainMaintenanceCommandOutput extends StartDomainMaintenanceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts the node maintenance process on the data node. These processes can include a node reboot, an Opensearch or Elasticsearch process restart,
  *    or a Dashboard or Kibana restart.</p>
  * @example
@@ -73,6 +72,7 @@ export interface StartDomainMaintenanceCommandOutput extends StartDomainMaintena
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class StartDomainMaintenanceCommand extends $Command
   .classBuilder<

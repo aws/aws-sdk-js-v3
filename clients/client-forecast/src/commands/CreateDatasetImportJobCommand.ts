@@ -31,7 +31,6 @@ export interface CreateDatasetImportJobCommandInput extends CreateDatasetImportJ
 export interface CreateDatasetImportJobCommandOutput extends CreateDatasetImportJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Imports your training data to an Amazon Forecast dataset. You provide the location of your
  *       training data in an Amazon Simple Storage Service (Amazon S3) bucket and the Amazon Resource Name (ARN) of the dataset
  *       that you want to import the data to.</p>
@@ -112,6 +111,7 @@ export interface CreateDatasetImportJobCommandOutput extends CreateDatasetImport
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class CreateDatasetImportJobCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface RevokePermissionsCommandInput extends RevokePermissionsRequest 
 export interface RevokePermissionsCommandOutput extends RevokePermissionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Revokes permissions to the principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -126,6 +125,7 @@ export interface RevokePermissionsCommandOutput extends RevokePermissionsRespons
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class RevokePermissionsCommand extends $Command
   .classBuilder<

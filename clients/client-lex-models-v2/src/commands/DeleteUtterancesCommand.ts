@@ -27,7 +27,6 @@ export interface DeleteUtterancesCommandInput extends DeleteUtterancesRequest {}
 export interface DeleteUtterancesCommandOutput extends DeleteUtterancesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes stored utterances.</p>
  *          <p>Amazon Lex stores the utterances that users send to your bot. Utterances
  *          are stored for 15 days for use with the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListAggregatedUtterances.html">ListAggregatedUtterances</a> operation, and
@@ -78,6 +77,7 @@ export interface DeleteUtterancesCommandOutput extends DeleteUtterancesResponse,
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class DeleteUtterancesCommand extends $Command
   .classBuilder<

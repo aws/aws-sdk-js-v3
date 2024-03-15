@@ -27,7 +27,6 @@ export interface DeleteLicenseCommandInput extends DeleteLicenseRequest {}
 export interface DeleteLicenseCommandOutput extends DeleteLicenseResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified license.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface DeleteLicenseCommandOutput extends DeleteLicenseResponse, __Met
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * @public
  */
 export class DeleteLicenseCommand extends $Command
   .classBuilder<

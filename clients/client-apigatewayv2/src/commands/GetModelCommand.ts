@@ -27,7 +27,6 @@ export interface GetModelCommandInput extends GetModelRequest {}
 export interface GetModelCommandOutput extends GetModelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a Model.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface GetModelCommandOutput extends GetModelResponse, __MetadataBeare
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ * @public
  */
 export class GetModelCommand extends $Command
   .classBuilder<

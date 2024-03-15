@@ -31,7 +31,6 @@ export interface DeleteLoadBalancerCommandInput extends DeleteLoadBalancerInput 
 export interface DeleteLoadBalancerCommandOutput extends DeleteLoadBalancerOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified Application Load Balancer, Network Load Balancer, or Gateway Load
  *       Balancer. Deleting a load balancer also deletes its listeners.</p>
  *          <p>You can't delete a load balancer if deletion protection is enabled. If the load balancer
@@ -72,6 +71,7 @@ export interface DeleteLoadBalancerCommandOutput extends DeleteLoadBalancerOutpu
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  * @example To delete a load balancer
  * ```javascript
  * // This example deletes the specified load balancer.

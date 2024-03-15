@@ -31,7 +31,6 @@ export interface DeleteApplicationAuthenticationMethodCommandInput
 export interface DeleteApplicationAuthenticationMethodCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an authentication method from an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface DeleteApplicationAuthenticationMethodCommandOutput extends __Me
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class DeleteApplicationAuthenticationMethodCommand extends $Command
   .classBuilder<

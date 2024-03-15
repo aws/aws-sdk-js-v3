@@ -32,7 +32,6 @@ export interface DescribeCrossAccountAccessRoleCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the IAM role that enables Amazon Inspector to access your AWS
  *          account.</p>
  * @example
@@ -64,6 +63,7 @@ export interface DescribeCrossAccountAccessRoleCommandOutput
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * @public
  * @example Describte cross account access role
  * ```javascript
  * // Describes the IAM role that enables Amazon Inspector to access your AWS account.

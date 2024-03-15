@@ -291,7 +291,6 @@ export type TranscribeStreamingClientResolvedConfigType = __SmithyResolvedConfig
 export interface TranscribeStreamingClientResolvedConfig extends TranscribeStreamingClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Amazon Transcribe streaming offers three main types of real-time transcription:
  *       <b>Standard</b>, <b>Medical</b>, and
  *       <b>Call Analytics</b>.</p>
@@ -315,6 +314,7 @@ export interface TranscribeStreamingClientResolvedConfig extends TranscribeStrea
  *           option. Refer to  for details.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class TranscribeStreamingClient extends __Client<
   __HttpHandlerOptions,

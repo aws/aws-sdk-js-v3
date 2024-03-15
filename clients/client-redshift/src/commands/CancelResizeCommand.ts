@@ -27,7 +27,6 @@ export interface CancelResizeCommandInput extends CancelResizeMessage {}
 export interface CancelResizeCommandOutput extends ResizeProgressMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels a resize operation for a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface CancelResizeCommandOutput extends ResizeProgressMessage, __Meta
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class CancelResizeCommand extends $Command
   .classBuilder<

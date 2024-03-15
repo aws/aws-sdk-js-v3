@@ -32,7 +32,6 @@ export interface CreateSiteToSiteVpnAttachmentCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon Web Services site-to-site VPN attachment on an edge location of a core network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -119,6 +118,7 @@ export interface CreateSiteToSiteVpnAttachmentCommandOutput
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class CreateSiteToSiteVpnAttachmentCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateRulesetCommandInput extends UpdateRulesetRequest {}
 export interface UpdateRulesetCommandOutput extends UpdateRulesetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates specified ruleset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface UpdateRulesetCommandOutput extends UpdateRulesetResponse, __Met
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * @public
  */
 export class UpdateRulesetCommand extends $Command
   .classBuilder<

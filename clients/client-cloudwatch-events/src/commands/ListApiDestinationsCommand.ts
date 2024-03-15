@@ -27,7 +27,6 @@ export interface ListApiDestinationsCommandInput extends ListApiDestinationsRequ
 export interface ListApiDestinationsCommandOutput extends ListApiDestinationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of API destination in the account in the current Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface ListApiDestinationsCommandOutput extends ListApiDestinationsRes
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ * @public
  */
 export class ListApiDestinationsCommand extends $Command
   .classBuilder<

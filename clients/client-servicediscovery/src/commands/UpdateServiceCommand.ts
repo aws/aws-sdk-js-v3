@@ -27,7 +27,6 @@ export interface UpdateServiceCommandInput extends UpdateServiceRequest {}
 export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Submits a request to perform the following operations:</p>
  *          <ul>
  *             <li>
@@ -108,6 +107,7 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
+ * @public
  * @example UpdateService Example
  * ```javascript
  * // This example submits a request to replace the DnsConfig and HealthCheckConfig settings of a specified service.

@@ -27,7 +27,6 @@ export interface CancelAuditTaskCommandInput extends CancelAuditTaskRequest {}
 export interface CancelAuditTaskCommandOutput extends CancelAuditTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels an audit that is in progress. The audit can be either scheduled or on demand. If the audit isn't in progress, an "InvalidRequestException" occurs.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CancelAuditTask</a> action.</p>
  * @example
@@ -66,6 +65,7 @@ export interface CancelAuditTaskCommandOutput extends CancelAuditTaskResponse, _
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class CancelAuditTaskCommand extends $Command
   .classBuilder<

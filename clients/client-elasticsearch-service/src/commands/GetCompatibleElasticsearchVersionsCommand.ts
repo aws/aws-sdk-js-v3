@@ -39,7 +39,6 @@ export interface GetCompatibleElasticsearchVersionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *         Returns a list of upgrade compatible Elastisearch versions.
  *         You can optionally pass a
@@ -96,6 +95,7 @@ export interface GetCompatibleElasticsearchVersionsCommandOutput
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * @public
  */
 export class GetCompatibleElasticsearchVersionsCommand extends $Command
   .classBuilder<

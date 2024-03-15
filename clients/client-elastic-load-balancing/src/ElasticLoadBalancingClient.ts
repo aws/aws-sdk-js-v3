@@ -405,7 +405,6 @@ export type ElasticLoadBalancingClientResolvedConfigType = __SmithyResolvedConfi
 export interface ElasticLoadBalancingClientResolvedConfig extends ElasticLoadBalancingClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>Elastic Load Balancing</fullname>
  *
  *         <p>A load balancer can distribute incoming traffic across your EC2 instances.
@@ -427,6 +426,7 @@ export interface ElasticLoadBalancingClientResolvedConfig extends ElasticLoadBal
  *         <p>All Elastic Load Balancing operations are <i>idempotent</i>, which means
  *             that they complete at most one time. If you repeat an operation, it succeeds with a 200 OK
  *             response code.</p>
+ * @public
  */
 export class ElasticLoadBalancingClient extends __Client<
   __HttpHandlerOptions,

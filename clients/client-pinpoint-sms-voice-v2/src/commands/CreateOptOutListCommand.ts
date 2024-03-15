@@ -31,7 +31,6 @@ export interface CreateOptOutListCommandInput extends CreateOptOutListRequest {}
 export interface CreateOptOutListCommandOutput extends CreateOptOutListResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new opt-out list.</p>
  *          <p>If the opt-out list name already exists, an error is returned.</p>
  *          <p>An opt-out list is a list of phone numbers that are opted out, meaning you can't send
@@ -106,6 +105,7 @@ export interface CreateOptOutListCommandOutput extends CreateOptOutListResult, _
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class CreateOptOutListCommand extends $Command
   .classBuilder<

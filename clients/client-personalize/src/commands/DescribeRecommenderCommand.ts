@@ -27,7 +27,6 @@ export interface DescribeRecommenderCommandInput extends DescribeRecommenderRequ
 export interface DescribeRecommenderCommandOutput extends DescribeRecommenderResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the given recommender, including its status.</p>
  *          <p>A recommender can be in one of the following states:</p>
  *          <ul>
@@ -124,6 +123,7 @@ export interface DescribeRecommenderCommandOutput extends DescribeRecommenderRes
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class DescribeRecommenderCommand extends $Command
   .classBuilder<

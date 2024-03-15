@@ -31,7 +31,6 @@ export interface DescribeMatchmakingCommandInput extends DescribeMatchmakingInpu
 export interface DescribeMatchmakingCommandOutput extends DescribeMatchmakingOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves one or more matchmaking tickets. Use this operation to retrieve ticket
  *             information, including--after a successful match is made--connection information for the
  *             resulting new game session. </p>
@@ -138,6 +137,7 @@ export interface DescribeMatchmakingCommandOutput extends DescribeMatchmakingOut
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DescribeMatchmakingCommand extends $Command
   .classBuilder<

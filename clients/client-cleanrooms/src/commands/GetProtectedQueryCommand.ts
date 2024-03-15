@@ -31,7 +31,6 @@ export interface GetProtectedQueryCommandInput extends GetProtectedQueryInput {}
 export interface GetProtectedQueryCommandOutput extends GetProtectedQueryOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns query processing metadata.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -127,6 +126,7 @@ export interface GetProtectedQueryCommandOutput extends GetProtectedQueryOutput,
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class GetProtectedQueryCommand extends $Command
   .classBuilder<

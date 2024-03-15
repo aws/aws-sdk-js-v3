@@ -31,7 +31,6 @@ export interface BatchMeterUsageCommandInput extends BatchMeterUsageRequest {}
 export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             <code>BatchMeterUsage</code> is called from a SaaS application listed on AWS
  *             Marketplace to post metering records for a set of customers.</p>
@@ -181,6 +180,7 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  * @throws {@link MarketplaceMeteringServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceMetering service.</p>
  *
+ * @public
  */
 export class BatchMeterUsageCommand extends $Command
   .classBuilder<

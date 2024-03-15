@@ -27,7 +27,6 @@ export interface DeletePartnershipCommandInput extends DeletePartnershipRequest 
 export interface DeletePartnershipCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified partnership. A partnership represents the connection between you and your trading partner. It ties
  *    together a profile and one or more trading capabilities.</p>
  * @example
@@ -72,6 +71,7 @@ export interface DeletePartnershipCommandOutput extends __MetadataBearer {}
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
+ * @public
  * @example Sample DeletePartnership call
  * ```javascript
  * //

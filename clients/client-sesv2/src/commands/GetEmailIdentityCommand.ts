@@ -27,7 +27,6 @@ export interface GetEmailIdentityCommandInput extends GetEmailIdentityRequest {}
 export interface GetEmailIdentityCommandOutput extends GetEmailIdentityResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides information about a specific identity, including the identity's verification
  *             status, sending authorization policies, its DKIM authentication status, and its custom
  *             Mail-From settings.</p>
@@ -105,6 +104,7 @@ export interface GetEmailIdentityCommandOutput extends GetEmailIdentityResponse,
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class GetEmailIdentityCommand extends $Command
   .classBuilder<

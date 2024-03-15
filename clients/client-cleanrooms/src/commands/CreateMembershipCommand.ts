@@ -27,7 +27,6 @@ export interface CreateMembershipCommandInput extends CreateMembershipInput {}
 export interface CreateMembershipCommandOutput extends CreateMembershipOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a membership for a specific collaboration identifier and joins the
  *          collaboration.</p>
  * @example
@@ -126,6 +125,7 @@ export interface CreateMembershipCommandOutput extends CreateMembershipOutput, _
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class CreateMembershipCommand extends $Command
   .classBuilder<

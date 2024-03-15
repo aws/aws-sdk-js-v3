@@ -27,7 +27,6 @@ export interface ListInputDevicesCommandInput extends ListInputDevicesRequest {}
 export interface ListInputDevicesCommandOutput extends ListInputDevicesResponse, __MetadataBearer {}
 
 /**
- * @public
  * List input devices
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -139,6 +138,7 @@ export interface ListInputDevicesCommandOutput extends ListInputDevicesResponse,
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class ListInputDevicesCommand extends $Command
   .classBuilder<

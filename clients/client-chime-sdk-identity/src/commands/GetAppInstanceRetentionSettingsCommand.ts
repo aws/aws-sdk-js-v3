@@ -32,7 +32,6 @@ export interface GetAppInstanceRetentionSettingsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the retention settings for an <code>AppInstance</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface GetAppInstanceRetentionSettingsCommandOutput
  * @throws {@link ChimeSDKIdentityServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
+ * @public
  */
 export class GetAppInstanceRetentionSettingsCommand extends $Command
   .classBuilder<

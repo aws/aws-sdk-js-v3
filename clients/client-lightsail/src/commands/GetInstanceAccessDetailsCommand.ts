@@ -27,7 +27,6 @@ export interface GetInstanceAccessDetailsCommandInput extends GetInstanceAccessD
 export interface GetInstanceAccessDetailsCommandOutput extends GetInstanceAccessDetailsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns temporary SSH keys you can use to connect to a specific virtual private server, or
  *         <i>instance</i>.</p>
  *          <p>The <code>get instance access details</code> operation supports tag-based access control
@@ -117,6 +116,7 @@ export interface GetInstanceAccessDetailsCommandOutput extends GetInstanceAccess
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetInstanceAccessDetailsCommand extends $Command
   .classBuilder<

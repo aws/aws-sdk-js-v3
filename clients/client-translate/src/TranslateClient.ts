@@ -318,8 +318,8 @@ export type TranslateClientResolvedConfigType = __SmithyResolvedConfiguration<__
 export interface TranslateClientResolvedConfig extends TranslateClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Provides translation of the input content from the source language to the target language.</p>
+ * @public
  */
 export class TranslateClient extends __Client<
   __HttpHandlerOptions,

@@ -34,7 +34,6 @@ export interface HeadObjectCommandInput extends HeadObjectRequest {}
 export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>The <code>HEAD</code> operation retrieves metadata from an object without returning the
  *          object itself. This operation is useful if you're interested only in an object's metadata.</p>
  *          <p>A <code>HEAD</code> request has the same options as a <code>GET</code> operation on an
@@ -249,6 +248,7 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example To retrieve metadata of an object without returning the object itself
  * ```javascript
  * // The following example retrieves an object metadata.

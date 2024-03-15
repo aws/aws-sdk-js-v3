@@ -27,7 +27,6 @@ export interface ListSchemasCommandInput extends ListSchemasInput {}
 export interface ListSchemasCommandOutput extends ListSchemasOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the schemas for relations within a collaboration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface ListSchemasCommandOutput extends ListSchemasOutput, __MetadataB
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class ListSchemasCommand extends $Command
   .classBuilder<

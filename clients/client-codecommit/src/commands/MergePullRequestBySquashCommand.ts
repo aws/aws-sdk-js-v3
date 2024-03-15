@@ -27,7 +27,6 @@ export interface MergePullRequestBySquashCommandInput extends MergePullRequestBy
 export interface MergePullRequestBySquashCommandOutput extends MergePullRequestBySquashOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Attempts to merge the source commit of a pull request into the specified destination
  *             branch for that pull request at the specified commit using the squash merge strategy. If the merge is successful, it closes the pull request.</p>
  * @example
@@ -252,6 +251,7 @@ export interface MergePullRequestBySquashCommandOutput extends MergePullRequestB
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class MergePullRequestBySquashCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetPackageCommandInput extends GetPackageRequest {}
 export interface GetPackageCommandOutput extends GetPackageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the specified software package.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetPackage</a> action.</p>
  * @example
@@ -74,6 +73,7 @@ export interface GetPackageCommandOutput extends GetPackageResponse, __MetadataB
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class GetPackageCommand extends $Command
   .classBuilder<

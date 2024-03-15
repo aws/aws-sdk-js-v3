@@ -27,7 +27,6 @@ export interface CreateAwsLogSourceCommandInput extends CreateAwsLogSourceReques
 export interface CreateAwsLogSourceCommandOutput extends CreateAwsLogSourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a natively supported Amazon Web Service as an Amazon Security Lake source. Enables
  *          source types for member accounts in required Amazon Web Services Regions, based on the
  *          parameters you specify. You can choose any source type in any Region for either accounts
@@ -99,6 +98,7 @@ export interface CreateAwsLogSourceCommandOutput extends CreateAwsLogSourceRespo
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ * @public
  */
 export class CreateAwsLogSourceCommand extends $Command
   .classBuilder<

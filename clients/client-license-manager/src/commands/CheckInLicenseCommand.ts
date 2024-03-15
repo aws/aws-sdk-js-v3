@@ -27,7 +27,6 @@ export interface CheckInLicenseCommandInput extends CheckInLicenseRequest {}
 export interface CheckInLicenseCommandOutput extends CheckInLicenseResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Checks in the specified license. Check in a license when it is no longer in use.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface CheckInLicenseCommandOutput extends CheckInLicenseResponse, __M
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * @public
  */
 export class CheckInLicenseCommand extends $Command
   .classBuilder<

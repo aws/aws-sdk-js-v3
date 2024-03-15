@@ -27,7 +27,6 @@ export interface UpdateGatewayInformationCommandInput extends UpdateGatewayInfor
 export interface UpdateGatewayInformationCommandOutput extends UpdateGatewayInformationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a gateway's metadata, which includes the gateway's name and time zone.
  *          To specify which gateway to update, use the Amazon Resource Name (ARN) of the gateway in
  *          your request.</p>
@@ -75,6 +74,7 @@ export interface UpdateGatewayInformationCommandOutput extends UpdateGatewayInfo
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To update a gateway's metadata
  * ```javascript
  * // Updates a gateway's metadata, which includes the gateway's name and time zone.

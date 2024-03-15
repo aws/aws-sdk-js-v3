@@ -32,7 +32,6 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Restores a cluster to an arbitrary point in time. Users can restore to any point in
  *             time before <code>LatestRestorableTime</code> for up to
  *                 <code>BackupRetentionPeriod</code> days. The target cluster is created from the
@@ -194,6 +193,7 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class RestoreDBClusterToPointInTimeCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetCodegenJobCommandInput extends GetCodegenJobRequest {}
 export interface GetCodegenJobCommandOutput extends GetCodegenJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an existing code generation job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -189,6 +188,7 @@ export interface GetCodegenJobCommandOutput extends GetCodegenJobResponse, __Met
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ * @public
  */
 export class GetCodegenJobCommand extends $Command
   .classBuilder<

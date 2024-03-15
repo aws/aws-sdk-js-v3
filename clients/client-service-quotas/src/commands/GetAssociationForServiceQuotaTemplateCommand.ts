@@ -36,7 +36,6 @@ export interface GetAssociationForServiceQuotaTemplateCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the status of the association for the quota request template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface GetAssociationForServiceQuotaTemplateCommandOutput
  * @throws {@link ServiceQuotasServiceException}
  * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
+ * @public
  */
 export class GetAssociationForServiceQuotaTemplateCommand extends $Command
   .classBuilder<

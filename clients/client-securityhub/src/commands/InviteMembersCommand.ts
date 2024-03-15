@@ -27,7 +27,6 @@ export interface InviteMembersCommandInput extends InviteMembersRequest {}
 export interface InviteMembersCommandOutput extends InviteMembersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Invites other Amazon Web Services accounts to become member accounts for the Security Hub administrator account that
  *          the invitation is sent from.</p>
  *          <p>This operation is only used to invite accounts that do not belong to an organization.
@@ -85,6 +84,7 @@ export interface InviteMembersCommandOutput extends InviteMembersResponse, __Met
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To invite accounts to become members
  * ```javascript
  * // The following example invites the specified AWS accounts to become member accounts associated with the calling Security Hub administrator account. You only use this operation to invite accounts that don't belong to an AWS Organizations organization.

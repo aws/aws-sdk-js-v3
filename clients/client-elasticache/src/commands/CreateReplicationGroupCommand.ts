@@ -27,7 +27,6 @@ export interface CreateReplicationGroupCommandInput extends CreateReplicationGro
 export interface CreateReplicationGroupCommandOutput extends CreateReplicationGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Redis (cluster mode disabled) or a Redis (cluster mode enabled) replication
  *             group.</p>
  *          <p>This API can be used to create a standalone regional replication group or a secondary
@@ -353,6 +352,7 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  * @example CreateCacheReplicationGroup
  * ```javascript
  * // Creates a Redis replication group with 3 nodes.

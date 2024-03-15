@@ -27,7 +27,6 @@ export interface DeleteGraphCommandInput extends DeleteGraphInput {}
 export interface DeleteGraphCommandOutput extends DeleteGraphOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified graph. Graphs cannot be deleted if delete-protection is enabled.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface DeleteGraphCommandOutput extends DeleteGraphOutput, __MetadataB
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ * @public
  */
 export class DeleteGraphCommand extends $Command
   .classBuilder<

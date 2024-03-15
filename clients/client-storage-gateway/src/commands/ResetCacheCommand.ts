@@ -27,7 +27,6 @@ export interface ResetCacheCommandInput extends ResetCacheInput {}
 export interface ResetCacheCommandOutput extends ResetCacheOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Resets all cache disks that have encountered an error and makes the disks available for
  *          reconfiguration as cache storage. If your cache disk encounters an error, the gateway
  *          prevents read and write operations on virtual tapes in the gateway. For example, an error
@@ -74,6 +73,7 @@ export interface ResetCacheCommandOutput extends ResetCacheOutput, __MetadataBea
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To reset cache disks in error status
  * ```javascript
  * // Resets all cache disks that have encountered a error and makes the disks available for reconfiguration as cache storage.

@@ -71,61 +71,61 @@ export const ApplicationType = {
 export type ApplicationType = (typeof ApplicationType)[keyof typeof ApplicationType];
 
 /**
- * @public
  * <p>An SAP application registered with AWS Systems Manager for SAP.</p>
+ * @public
  */
 export interface Application {
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The type of the application.</p>
+   * @public
    */
   Type?: ApplicationType;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the application.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Application Registry.</p>
+   * @public
    */
   AppRegistryArn?: string;
 
   /**
-   * @public
    * <p>The status of the application.</p>
+   * @public
    */
   Status?: ApplicationStatus;
 
   /**
-   * @public
    * <p>The latest discovery result for the application.</p>
+   * @public
    */
   DiscoveryStatus?: ApplicationDiscoveryStatus;
 
   /**
-   * @public
    * <p>The components of the application.</p>
+   * @public
    */
   Components?: string[];
 
   /**
-   * @public
    * <p>The time at which the application was last updated.</p>
+   * @public
    */
   LastUpdated?: Date;
 
   /**
-   * @public
    * <p>The status message.</p>
+   * @public
    */
   StatusMessage?: string;
 }
@@ -144,117 +144,117 @@ export const CredentialType = {
 export type CredentialType = (typeof CredentialType)[keyof typeof CredentialType];
 
 /**
- * @public
  * <p>The credentials of your SAP application.</p>
+ * @public
  */
 export interface ApplicationCredential {
   /**
-   * @public
    * <p>The name of the SAP HANA database.</p>
+   * @public
    */
   DatabaseName: string | undefined;
 
   /**
-   * @public
    * <p>The type of the application credentials. </p>
+   * @public
    */
   CredentialType: CredentialType | undefined;
 
   /**
-   * @public
    * <p>The secret ID created in AWS Secrets Manager to store the credentials of the SAP
    *          application. </p>
+   * @public
    */
   SecretId: string | undefined;
 }
 
 /**
- * @public
  * <p>The summary of the SAP application registered with AWS Systems Manager for SAP.
  *       </p>
+ * @public
  */
 export interface ApplicationSummary {
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The status of the latest discovery.</p>
+   * @public
    */
   DiscoveryStatus?: ApplicationDiscoveryStatus;
 
   /**
-   * @public
    * <p>The type of the application.</p>
+   * @public
    */
   Type?: ApplicationType;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the application.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>The tags on the application.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
 
 /**
- * @public
  * <p>Provides information of the IP address.</p>
+ * @public
  */
 export interface IpAddressMember {
   /**
-   * @public
    * <p>The IP address.</p>
+   * @public
    */
   IpAddress?: string;
 
   /**
-   * @public
    * <p>The primary IP address.</p>
+   * @public
    */
   Primary?: boolean;
 
   /**
-   * @public
    * <p>The type of allocation for the IP address.</p>
+   * @public
    */
   AllocationType?: AllocationType;
 }
 
 /**
- * @public
  * <p>Describes the properties of the associated host.</p>
+ * @public
  */
 export interface AssociatedHost {
   /**
-   * @public
    * <p>The name of the host.</p>
+   * @public
    */
   Hostname?: string;
 
   /**
-   * @public
    * <p>The ID of the Amazon EC2 instance.</p>
+   * @public
    */
   Ec2InstanceId?: string;
 
   /**
-   * @public
    * <p>The IP addresses of the associated host.</p>
+   * @public
    */
   IpAddresses?: IpAddressMember[];
 
   /**
-   * @public
    * <p>The version of the operating system.</p>
+   * @public
    */
   OsVersion?: string;
 }
@@ -273,20 +273,20 @@ export const BackintMode = {
 export type BackintMode = (typeof BackintMode)[keyof typeof BackintMode];
 
 /**
- * @public
  * <p>Configuration parameters for AWS Backint Agent for SAP HANA. You can backup your SAP
  *          HANA database with AWS Backup or Amazon S3.</p>
+ * @public
  */
 export interface BackintConfig {
   /**
-   * @public
    * <p>AWS service for your database backup.</p>
+   * @public
    */
   BackintMode: BackintMode | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   EnsureNoBackupInProcess: boolean | undefined;
 }
@@ -343,25 +343,25 @@ export const DatabaseConnectionMethod = {
 export type DatabaseConnectionMethod = (typeof DatabaseConnectionMethod)[keyof typeof DatabaseConnectionMethod];
 
 /**
- * @public
  * <p>The connection specifications for the database.</p>
+ * @public
  */
 export interface DatabaseConnection {
   /**
-   * @public
    * <p>The method of connection.</p>
+   * @public
    */
   DatabaseConnectionMethod?: DatabaseConnectionMethod;
 
   /**
-   * @public
    * <p>The Amazon Resource Name of the connected SAP HANA database.</p>
+   * @public
    */
   DatabaseArn?: string;
 
   /**
-   * @public
    * <p>The IP address for connection.</p>
+   * @public
    */
   ConnectionIp?: string;
 }
@@ -383,43 +383,43 @@ export const HostRole = {
 export type HostRole = (typeof HostRole)[keyof typeof HostRole];
 
 /**
- * @public
  * <p>Describes the properties of the Dedicated Host. </p>
+ * @public
  */
 export interface Host {
   /**
-   * @public
    * <p>The name of the Dedicated Host.</p>
+   * @public
    */
   HostName?: string;
 
   /**
-   * @public
    * <p>The IP address of the Dedicated Host. </p>
+   * @public
    */
   HostIp?: string;
 
   /**
-   * @public
    * <p>The ID of Amazon EC2 instance.</p>
+   * @public
    */
   EC2InstanceId?: string;
 
   /**
-   * @public
    * <p>The instance ID of the instance on the Dedicated Host.</p>
+   * @public
    */
   InstanceId?: string;
 
   /**
-   * @public
    * <p>The role of the Dedicated Host.</p>
+   * @public
    */
   HostRole?: HostRole;
 
   /**
-   * @public
    * <p>The version of the operating system.</p>
+   * @public
    */
   OsVersion?: string;
 }
@@ -459,37 +459,37 @@ export const ReplicationMode = {
 export type ReplicationMode = (typeof ReplicationMode)[keyof typeof ReplicationMode];
 
 /**
- * @public
  * <p>Details of the SAP HANA system replication for the instance.</p>
+ * @public
  */
 export interface Resilience {
   /**
-   * @public
    * <p>The tier of the component.</p>
+   * @public
    */
   HsrTier?: string;
 
   /**
-   * @public
    * <p>The replication mode of the component.</p>
+   * @public
    */
   HsrReplicationMode?: ReplicationMode;
 
   /**
-   * @public
    * <p>The operation mode of the component.</p>
+   * @public
    */
   HsrOperationMode?: OperationMode;
 
   /**
-   * @public
    * <p>The cluster status of the component.</p>
+   * @public
    */
   ClusterStatus?: ClusterStatus;
 
   /**
-   * @public
    * <p>Indicates if or not enqueue replication is enabled for the ASCS component.</p>
+   * @public
    */
   EnqueueReplication?: boolean;
 }
@@ -514,58 +514,57 @@ export const ComponentStatus = {
 export type ComponentStatus = (typeof ComponentStatus)[keyof typeof ComponentStatus];
 
 /**
- * @public
  * <p>The SAP component of your application.</p>
+ * @public
  */
 export interface Component {
   /**
-   * @public
    * <p>The ID of the component.</p>
+   * @public
    */
   ComponentId?: string;
 
   /**
-   * @public
    * <p>The SAP System Identifier of the application component.</p>
+   * @public
    */
   Sid?: string;
 
   /**
-   * @public
    * <p>The SAP system number of the application component.</p>
+   * @public
    */
   SystemNumber?: string;
 
   /**
-   * @public
    * <p>The parent component of a highly available environment. For example, in a highly
    *          available SAP on AWS workload, the parent component consists of the entire setup,
    *          including the child components.</p>
+   * @public
    */
   ParentComponent?: string;
 
   /**
-   * @public
    * <p>The child components of a highly available environment. For example, in a highly
    *          available SAP on AWS workload, the child component consists of the primary and secondar
    *          instances.</p>
+   * @public
    */
   ChildComponents?: string[];
 
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   ApplicationId?: string;
 
   /**
-   * @public
    * <p>The type of the component.</p>
+   * @public
    */
   ComponentType?: ComponentType;
 
   /**
-   * @public
    * <p>The status of the component.</p>
    *          <ul>
    *             <li>
@@ -595,125 +594,126 @@ export interface Component {
    *                based on the discovered information. Verify your SAP application.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Status?: ComponentStatus;
 
   /**
-   * @public
    * <p>The hostname of the component.</p>
+   * @public
    */
   SapHostname?: string;
 
   /**
-   * @public
    * <p>The SAP feature of the component.</p>
+   * @public
    */
   SapFeature?: string;
 
   /**
-   * @public
    * <p>The kernel version of the component.</p>
+   * @public
    */
   SapKernelVersion?: string;
 
   /**
-   * @public
    * <p>The SAP HANA version of the component.</p>
+   * @public
    */
   HdbVersion?: string;
 
   /**
-   * @public
    * <p>Details of the SAP HANA system replication for the component.</p>
+   * @public
    */
   Resilience?: Resilience;
 
   /**
-   * @public
    * <p>The associated host of the component.</p>
+   * @public
    */
   AssociatedHost?: AssociatedHost;
 
   /**
-   * @public
    * <p>The SAP HANA databases of the component.</p>
+   * @public
    */
   Databases?: string[];
 
   /**
-   * @public
    * @deprecated
    *
    * <p>The hosts of the component.</p>
+   * @public
    */
   Hosts?: Host[];
 
   /**
-   * @public
    * @deprecated
    *
    * <p>The primary host of the component.</p>
+   * @public
    */
   PrimaryHost?: string;
 
   /**
-   * @public
    * <p>The connection specifications for the database of the component.</p>
+   * @public
    */
   DatabaseConnection?: DatabaseConnection;
 
   /**
-   * @public
    * <p>The time at which the component was last updated.</p>
+   * @public
    */
   LastUpdated?: Date;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the component.</p>
+   * @public
    */
   Arn?: string;
 }
 
 /**
- * @public
  * <p>The summary of the component.</p>
+ * @public
  */
 export interface ComponentSummary {
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   ApplicationId?: string;
 
   /**
-   * @public
    * <p>The ID of the component.</p>
+   * @public
    */
   ComponentId?: string;
 
   /**
-   * @public
    * <p>The type of the component.</p>
+   * @public
    */
   ComponentType?: ComponentType;
 
   /**
-   * @public
    * <p>The tags of the component.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the component summary.</p>
+   * @public
    */
   Arn?: string;
 }
 
 /**
- * @public
  * <p>A conflict has occurred.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -766,116 +766,116 @@ export const DatabaseStatus = {
 export type DatabaseStatus = (typeof DatabaseStatus)[keyof typeof DatabaseStatus];
 
 /**
- * @public
  * <p>The SAP HANA database of the application registered with AWS Systems Manager for
  *          SAP.</p>
+ * @public
  */
 export interface Database {
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   ApplicationId?: string;
 
   /**
-   * @public
    * <p>The ID of the component.</p>
+   * @public
    */
   ComponentId?: string;
 
   /**
-   * @public
    * <p>The credentials of the database.</p>
+   * @public
    */
   Credentials?: ApplicationCredential[];
 
   /**
-   * @public
    * <p>The ID of the SAP HANA database.</p>
+   * @public
    */
   DatabaseId?: string;
 
   /**
-   * @public
    * <p>The name of the database.</p>
+   * @public
    */
   DatabaseName?: string;
 
   /**
-   * @public
    * <p>The type of the database.</p>
+   * @public
    */
   DatabaseType?: DatabaseType;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the database.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>The status of the database.</p>
+   * @public
    */
   Status?: DatabaseStatus;
 
   /**
-   * @public
    * <p>The primary host of the database.</p>
+   * @public
    */
   PrimaryHost?: string;
 
   /**
-   * @public
    * <p>The SQL port of the database.</p>
+   * @public
    */
   SQLPort?: number;
 
   /**
-   * @public
    * <p>The time at which the database was last updated.</p>
+   * @public
    */
   LastUpdated?: Date;
 }
 
 /**
- * @public
  * <p>The summary of the database.</p>
+ * @public
  */
 export interface DatabaseSummary {
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   ApplicationId?: string;
 
   /**
-   * @public
    * <p>The ID of the component.</p>
+   * @public
    */
   ComponentId?: string;
 
   /**
-   * @public
    * <p>The ID of the database.</p>
+   * @public
    */
   DatabaseId?: string;
 
   /**
-   * @public
    * <p>The type of the database.</p>
+   * @public
    */
   DatabaseType?: DatabaseType;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the database.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>The tags of the database.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -898,20 +898,20 @@ export type PermissionActionType = (typeof PermissionActionType)[keyof typeof Pe
  */
 export interface DeleteResourcePermissionInput {
   /**
-   * @public
    * <p>Delete or restore the permissions on the target database.</p>
+   * @public
    */
   ActionType?: PermissionActionType;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the source resource.</p>
+   * @public
    */
   SourceResourceArn?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 }
@@ -921,15 +921,15 @@ export interface DeleteResourcePermissionInput {
  */
 export interface DeleteResourcePermissionOutput {
   /**
-   * @public
    * <p>The policy that removes permissions on the target database.</p>
+   * @public
    */
   Policy?: string;
 }
 
 /**
- * @public
  * <p>An internal error has occurred.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -950,8 +950,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The resource is not available.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -972,8 +972,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -998,8 +998,8 @@ export class ValidationException extends __BaseException {
  */
 export interface DeregisterApplicationInput {
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   ApplicationId: string | undefined;
 }
@@ -1010,8 +1010,8 @@ export interface DeregisterApplicationInput {
 export interface DeregisterApplicationOutput {}
 
 /**
- * @public
  * <p>The request is not authorized.</p>
+ * @public
  */
 export class UnauthorizedException extends __BaseException {
   readonly name: "UnauthorizedException" = "UnauthorizedException";
@@ -1047,27 +1047,27 @@ export const FilterOperator = {
 export type FilterOperator = (typeof FilterOperator)[keyof typeof FilterOperator];
 
 /**
- * @public
  * <p>A specific result obtained by specifying the name, value, and operator. </p>
+ * @public
  */
 export interface Filter {
   /**
-   * @public
    * <p>The name of the filter. Filter names are case-sensitive. </p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>The filter values. Filter values are case-sensitive. If you specify multiple values for
    *          a filter, the values are joined with an OR, and the request returns all results that match
    *          any of the specified values</p>
+   * @public
    */
   Value: string | undefined;
 
   /**
-   * @public
    * <p>The operator for the filter. </p>
+   * @public
    */
   Operator: FilterOperator | undefined;
 }
@@ -1077,20 +1077,20 @@ export interface Filter {
  */
 export interface GetApplicationInput {
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   ApplicationId?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the application. </p>
+   * @public
    */
   ApplicationArn?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the application registry.</p>
+   * @public
    */
   AppRegistryArn?: string;
 }
@@ -1100,15 +1100,15 @@ export interface GetApplicationInput {
  */
 export interface GetApplicationOutput {
   /**
-   * @public
    * <p>Returns all of the metadata of an application registered with AWS Systems Manager for
    *          SAP.</p>
+   * @public
    */
   Application?: Application;
 
   /**
-   * @public
    * <p>The tags of a registered application.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -1118,14 +1118,14 @@ export interface GetApplicationOutput {
  */
 export interface GetComponentInput {
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   ApplicationId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the component.</p>
+   * @public
    */
   ComponentId: string | undefined;
 }
@@ -1135,14 +1135,14 @@ export interface GetComponentInput {
  */
 export interface GetComponentOutput {
   /**
-   * @public
    * <p>The component of an application registered with AWS Systems Manager for SAP.</p>
+   * @public
    */
   Component?: Component;
 
   /**
-   * @public
    * <p>The tags of a component.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -1152,26 +1152,26 @@ export interface GetComponentOutput {
  */
 export interface GetDatabaseInput {
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   ApplicationId?: string;
 
   /**
-   * @public
    * <p>The ID of the component.</p>
+   * @public
    */
   ComponentId?: string;
 
   /**
-   * @public
    * <p>The ID of the database.</p>
+   * @public
    */
   DatabaseId?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the database.</p>
+   * @public
    */
   DatabaseArn?: string;
 }
@@ -1181,15 +1181,15 @@ export interface GetDatabaseInput {
  */
 export interface GetDatabaseOutput {
   /**
-   * @public
    * <p>The SAP HANA database of an application registered with AWS Systems Manager for
    *          SAP.</p>
+   * @public
    */
   Database?: Database;
 
   /**
-   * @public
    * <p>The tags of a database.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -1199,8 +1199,8 @@ export interface GetDatabaseOutput {
  */
 export interface GetOperationInput {
   /**
-   * @public
    * <p>The ID of the operation.</p>
+   * @public
    */
   OperationId: string | undefined;
 }
@@ -1221,73 +1221,73 @@ export const OperationStatus = {
 export type OperationStatus = (typeof OperationStatus)[keyof typeof OperationStatus];
 
 /**
- * @public
  * <p>The operations performed by AWS Systems Manager for SAP.</p>
+ * @public
  */
 export interface Operation {
   /**
-   * @public
    * <p>The ID of the operation.</p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The type of the operation.</p>
+   * @public
    */
   Type?: string;
 
   /**
-   * @public
    * <p>The status of the operation.</p>
+   * @public
    */
   Status?: OperationStatus;
 
   /**
-   * @public
    * <p>The status message of the operation.</p>
+   * @public
    */
   StatusMessage?: string;
 
   /**
-   * @public
    * <p>The properties of the operation.</p>
+   * @public
    */
   Properties?: Record<string, string>;
 
   /**
-   * @public
    * <p>The resource type of the operation.</p>
+   * @public
    */
   ResourceType?: string;
 
   /**
-   * @public
    * <p>The resource ID of the operation.</p>
+   * @public
    */
   ResourceId?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the operation.</p>
+   * @public
    */
   ResourceArn?: string;
 
   /**
-   * @public
    * <p>The start time of the operation.</p>
+   * @public
    */
   StartTime?: Date;
 
   /**
-   * @public
    * <p>The end time of the operation.</p>
+   * @public
    */
   EndTime?: Date;
 
   /**
-   * @public
    * <p>The time at which the operation was last updated.</p>
+   * @public
    */
   LastUpdatedTime?: Date;
 }
@@ -1297,8 +1297,8 @@ export interface Operation {
  */
 export interface GetOperationOutput {
   /**
-   * @public
    * <p>Returns the details of an operation.</p>
+   * @public
    */
   Operation?: Operation;
 }
@@ -1308,14 +1308,14 @@ export interface GetOperationOutput {
  */
 export interface GetResourcePermissionInput {
   /**
-   * @public
    * <p/>
+   * @public
    */
   ActionType?: PermissionActionType;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 }
@@ -1325,8 +1325,8 @@ export interface GetResourcePermissionInput {
  */
 export interface GetResourcePermissionOutput {
   /**
-   * @public
    * <p/>
+   * @public
    */
   Policy?: string;
 }
@@ -1336,21 +1336,21 @@ export interface GetResourcePermissionOutput {
  */
 export interface ListApplicationsInput {
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call. To retrieve the remaining
    *          results, make another call with the returned nextToken value. </p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The filter of name, value, and operator.</p>
+   * @public
    */
   Filters?: Filter[];
 }
@@ -1360,15 +1360,15 @@ export interface ListApplicationsInput {
  */
 export interface ListApplicationsOutput {
   /**
-   * @public
    * <p>The applications registered with AWS Systems Manager for SAP.</p>
+   * @public
    */
   Applications?: ApplicationSummary[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is null when there are
    *          no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1378,23 +1378,23 @@ export interface ListApplicationsOutput {
  */
 export interface ListComponentsInput {
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   ApplicationId?: string;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call. To retrieve the remaining
    *          results, make another call with the returned nextToken value.</p>
    *          <p>If you do not specify a value for MaxResults, the request returns 50 items per page by
    *          default.</p>
+   * @public
    */
   MaxResults?: number;
 }
@@ -1404,15 +1404,15 @@ export interface ListComponentsInput {
  */
 export interface ListComponentsOutput {
   /**
-   * @public
    * <p>List of components registered with AWS System Manager for SAP.</p>
+   * @public
    */
   Components?: ComponentSummary[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is null when there are
    *          no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1422,28 +1422,28 @@ export interface ListComponentsOutput {
  */
 export interface ListDatabasesInput {
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   ApplicationId?: string;
 
   /**
-   * @public
    * <p>The ID of the component.</p>
+   * @public
    */
   ComponentId?: string;
 
   /**
-   * @public
    * <p>The token for the next page of results. </p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call. To retrieve the remaining
    *          results, make another call with the returned nextToken value. If you do not specify a value
    *          for MaxResults, the request returns 50 items per page by default.</p>
+   * @public
    */
   MaxResults?: number;
 }
@@ -1453,15 +1453,15 @@ export interface ListDatabasesInput {
  */
 export interface ListDatabasesOutput {
   /**
-   * @public
    * <p>The SAP HANA databases of an application.</p>
+   * @public
    */
   Databases?: DatabaseSummary[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is null when there are
    *          no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1471,28 +1471,28 @@ export interface ListDatabasesOutput {
  */
 export interface ListOperationsInput {
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   ApplicationId: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of results to return with a single call. To retrieve the remaining
    *          results, make another call with the returned nextToken value. If you do not specify a value
    *          for MaxResults, the request returns 50 items per page by default.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results. </p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The filters of an operation.</p>
+   * @public
    */
   Filters?: Filter[];
 }
@@ -1502,15 +1502,15 @@ export interface ListOperationsInput {
  */
 export interface ListOperationsOutput {
   /**
-   * @public
    * <p>List of operations performed by AWS Systems Manager for SAP.</p>
+   * @public
    */
   Operations?: Operation[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is null when there are
    *          no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1520,8 +1520,8 @@ export interface ListOperationsOutput {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
    */
   resourceArn: string | undefined;
 }
@@ -1531,8 +1531,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p/>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1542,20 +1542,20 @@ export interface ListTagsForResourceResponse {
  */
 export interface PutResourcePermissionInput {
   /**
-   * @public
    * <p/>
+   * @public
    */
   ActionType: PermissionActionType | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   SourceResourceArn: string | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   ResourceArn: string | undefined;
 }
@@ -1565,8 +1565,8 @@ export interface PutResourcePermissionInput {
  */
 export interface PutResourcePermissionOutput {
   /**
-   * @public
    * <p/>
+   * @public
    */
   Policy?: string;
 }
@@ -1576,50 +1576,50 @@ export interface PutResourcePermissionOutput {
  */
 export interface RegisterApplicationInput {
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   ApplicationId: string | undefined;
 
   /**
-   * @public
    * <p>The type of the application.</p>
+   * @public
    */
   ApplicationType: ApplicationType | undefined;
 
   /**
-   * @public
    * <p>The Amazon EC2 instances on which your SAP application is running.</p>
+   * @public
    */
   Instances: string[] | undefined;
 
   /**
-   * @public
    * <p>The SAP instance number of the application.</p>
+   * @public
    */
   SapInstanceNumber?: string;
 
   /**
-   * @public
    * <p>The System ID of the application.</p>
+   * @public
    */
   Sid?: string;
 
   /**
-   * @public
    * <p>The tags to be attached to the SAP application.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The credentials of the SAP application.</p>
+   * @public
    */
   Credentials?: ApplicationCredential[];
 
   /**
-   * @public
    * <p>The Amazon Resource Name of the SAP HANA database.</p>
+   * @public
    */
   DatabaseArn?: string;
 }
@@ -1629,14 +1629,14 @@ export interface RegisterApplicationInput {
  */
 export interface RegisterApplicationOutput {
   /**
-   * @public
    * <p>The application registered with AWS Systems Manager for SAP.</p>
+   * @public
    */
   Application?: Application;
 
   /**
-   * @public
    * <p>The ID of the operation.</p>
+   * @public
    */
   OperationId?: string;
 }
@@ -1646,8 +1646,8 @@ export interface RegisterApplicationOutput {
  */
 export interface StartApplicationRefreshInput {
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   ApplicationId: string | undefined;
 }
@@ -1657,8 +1657,8 @@ export interface StartApplicationRefreshInput {
  */
 export interface StartApplicationRefreshOutput {
   /**
-   * @public
    * <p>The ID of the operation.</p>
+   * @public
    */
   OperationId?: string;
 }
@@ -1668,14 +1668,14 @@ export interface StartApplicationRefreshOutput {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The tags on a resource.</p>
+   * @public
    */
   tags: Record<string, string> | undefined;
 }
@@ -1690,15 +1690,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>Adds/updates or removes credentials for applications registered with AWS Systems
    *          Manager for SAP.</p>
+   * @public
    */
   tagKeys: string[] | undefined;
 }
@@ -1713,33 +1713,33 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateApplicationSettingsInput {
   /**
-   * @public
    * <p>The ID of the application.</p>
+   * @public
    */
   ApplicationId: string | undefined;
 
   /**
-   * @public
    * <p>The credentials to be added or updated.</p>
+   * @public
    */
   CredentialsToAddOrUpdate?: ApplicationCredential[];
 
   /**
-   * @public
    * <p>The credentials to be removed.</p>
+   * @public
    */
   CredentialsToRemove?: ApplicationCredential[];
 
   /**
-   * @public
    * <p>Installation of AWS Backint Agent for SAP HANA.</p>
+   * @public
    */
   Backint?: BackintConfig;
 
   /**
-   * @public
    * <p>The Amazon Resource Name of the SAP HANA database that replaces the current SAP HANA
    *          connection with the SAP_ABAP application.</p>
+   * @public
    */
   DatabaseArn?: string;
 }
@@ -1749,14 +1749,14 @@ export interface UpdateApplicationSettingsInput {
  */
 export interface UpdateApplicationSettingsOutput {
   /**
-   * @public
    * <p>The update message.</p>
+   * @public
    */
   Message?: string;
 
   /**
-   * @public
    * <p>The IDs of the operations.</p>
+   * @public
    */
   OperationIds?: string[];
 }

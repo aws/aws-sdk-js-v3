@@ -27,7 +27,6 @@ export interface UpdateFlowCommandInput extends UpdateFlowRequest {}
 export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataBearer {}
 
 /**
- * @public
  * Updates flow
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -359,6 +358,7 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ * @public
  */
 export class UpdateFlowCommand extends $Command
   .classBuilder<

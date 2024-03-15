@@ -32,7 +32,6 @@ export interface DescribeMediaStorageConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the most current information about the channel. Specify the <code>ChannelName</code>
  *             or <code>ChannelARN</code> in the input.</p>
  * @example
@@ -78,6 +77,7 @@ export interface DescribeMediaStorageConfigurationCommandOutput
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ * @public
  */
 export class DescribeMediaStorageConfigurationCommand extends $Command
   .classBuilder<

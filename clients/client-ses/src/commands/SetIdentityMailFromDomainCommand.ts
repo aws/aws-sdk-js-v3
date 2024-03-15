@@ -27,7 +27,6 @@ export interface SetIdentityMailFromDomainCommandInput extends SetIdentityMailFr
 export interface SetIdentityMailFromDomainCommandOutput extends SetIdentityMailFromDomainResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables or disables the custom MAIL FROM domain setup for a verified identity (an
  *             email address or a domain).</p>
  *          <important>
@@ -63,6 +62,7 @@ export interface SetIdentityMailFromDomainCommandOutput extends SetIdentityMailF
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example SetIdentityMailFromDomain
  * ```javascript
  * // The following example configures Amazon SES to use a custom MAIL FROM domain for an identity:

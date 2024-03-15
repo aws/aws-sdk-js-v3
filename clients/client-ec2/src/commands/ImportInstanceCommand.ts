@@ -32,7 +32,6 @@ export interface ImportInstanceCommandInput extends ImportInstanceRequest {}
 export interface ImportInstanceCommandOutput extends ImportInstanceResult, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>We recommend that you use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportImage.html">
  *                   <code>ImportImage</code>
@@ -167,6 +166,7 @@ export interface ImportInstanceCommandOutput extends ImportInstanceResult, __Met
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ImportInstanceCommand extends $Command
   .classBuilder<

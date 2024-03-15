@@ -27,7 +27,6 @@ export interface UpdateVoiceConnectorGroupCommandInput extends UpdateVoiceConnec
 export interface UpdateVoiceConnectorGroupCommandOutput extends UpdateVoiceConnectorGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the settings for the specified Amazon Chime SDK Voice Connector group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface UpdateVoiceConnectorGroupCommandOutput extends UpdateVoiceConne
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class UpdateVoiceConnectorGroupCommand extends $Command
   .classBuilder<

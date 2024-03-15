@@ -27,7 +27,6 @@ export interface ListAttributesCommandInput extends ListAttributesRequest {}
 export interface ListAttributesCommandOutput extends ListAttributesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the attributes for Amazon ECS resources within a specified target type and cluster.
  * 			When you specify a target type and cluster, <code>ListAttributes</code> returns a list
  * 			of attribute objects, one for each attribute on each resource. You can filter the list
@@ -81,6 +80,7 @@ export interface ListAttributesCommandOutput extends ListAttributesResponse, __M
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  */
 export class ListAttributesCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface DeleteConfigurationSetEventDestinationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a configuration set event destination. Configuration set event destinations
  *             are associated with configuration sets, which enable you to publish email sending
  *             events. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity.html">Amazon SES
@@ -73,6 +72,7 @@ export interface DeleteConfigurationSetEventDestinationCommandOutput
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  */
 export class DeleteConfigurationSetEventDestinationCommand extends $Command
   .classBuilder<

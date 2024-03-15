@@ -31,7 +31,6 @@ export interface ModifyVpnConnectionCommandInput extends ModifyVpnConnectionRequ
 export interface ModifyVpnConnectionCommandOutput extends ModifyVpnConnectionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the customer gateway or the target gateway of an Amazon Web Services Site-to-Site VPN connection. To
  *             modify the target gateway, the following migration options are available:</p>
  *          <ul>
@@ -203,6 +202,7 @@ export interface ModifyVpnConnectionCommandOutput extends ModifyVpnConnectionRes
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyVpnConnectionCommand extends $Command
   .classBuilder<

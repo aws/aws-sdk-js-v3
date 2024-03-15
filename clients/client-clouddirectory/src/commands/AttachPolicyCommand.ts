@@ -27,7 +27,6 @@ export interface AttachPolicyCommandInput extends AttachPolicyRequest {}
 export interface AttachPolicyCommandOutput extends AttachPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches a policy object to a regular object. An object can have a limited number of attached
  *       policies.</p>
  * @example
@@ -88,6 +87,7 @@ export interface AttachPolicyCommandOutput extends AttachPolicyResponse, __Metad
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class AttachPolicyCommand extends $Command
   .classBuilder<

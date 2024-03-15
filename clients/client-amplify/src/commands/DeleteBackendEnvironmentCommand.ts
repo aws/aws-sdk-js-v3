@@ -27,7 +27,6 @@ export interface DeleteBackendEnvironmentCommandInput extends DeleteBackendEnvir
 export interface DeleteBackendEnvironmentCommandOutput extends DeleteBackendEnvironmentResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a backend environment for an Amplify app. </p>
  *          <p>This API is available only to Amplify Gen 1 applications where the
  *             backend was created using Amplify Studio or the Amplify
@@ -84,6 +83,7 @@ export interface DeleteBackendEnvironmentCommandOutput extends DeleteBackendEnvi
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ * @public
  */
 export class DeleteBackendEnvironmentCommand extends $Command
   .classBuilder<

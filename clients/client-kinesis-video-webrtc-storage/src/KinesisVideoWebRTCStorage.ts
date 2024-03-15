@@ -36,9 +36,9 @@ export interface KinesisVideoWebRTCStorage {
 }
 
 /**
- * @public
  * <p>
  *     </p>
+ * @public
  */
 export class KinesisVideoWebRTCStorage extends KinesisVideoWebRTCStorageClient implements KinesisVideoWebRTCStorage {}
 createAggregatedClient(commands, KinesisVideoWebRTCStorage);

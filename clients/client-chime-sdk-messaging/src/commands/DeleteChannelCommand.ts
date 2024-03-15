@@ -31,7 +31,6 @@ export interface DeleteChannelCommandInput extends DeleteChannelRequest {}
 export interface DeleteChannelCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Immediately makes a channel and its memberships inaccessible and marks them for
  *          deletion. This is an irreversible process.</p>
  *          <note>
@@ -86,6 +85,7 @@ export interface DeleteChannelCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class DeleteChannelCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListIncidentRecordsCommandInput extends ListIncidentRecordsInpu
 export interface ListIncidentRecordsCommandOutput extends ListIncidentRecordsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all incident records in your account. Use this command to retrieve the Amazon
  *       Resource Name (ARN) of the incident record you want to update. </p>
  * @example
@@ -104,6 +103,7 @@ export interface ListIncidentRecordsCommandOutput extends ListIncidentRecordsOut
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ * @public
  */
 export class ListIncidentRecordsCommand extends $Command
   .classBuilder<

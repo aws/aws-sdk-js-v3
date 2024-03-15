@@ -31,7 +31,6 @@ export interface ListJobsByStatusCommandInput extends ListJobsByStatusRequest {}
 export interface ListJobsByStatusCommandOutput extends ListJobsByStatusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The ListJobsByStatus operation gets a list of jobs that have a specified status. The response
  *             body contains one element for each job that satisfies the search criteria.</p>
  * @example
@@ -327,6 +326,7 @@ export interface ListJobsByStatusCommandOutput extends ListJobsByStatusResponse,
  * @throws {@link ElasticTranscoderServiceException}
  * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
+ * @public
  */
 export class ListJobsByStatusCommand extends $Command
   .classBuilder<

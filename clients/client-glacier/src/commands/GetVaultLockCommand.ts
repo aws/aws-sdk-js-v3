@@ -27,7 +27,6 @@ export interface GetVaultLockCommandInput extends GetVaultLockInput {}
 export interface GetVaultLockCommandOutput extends GetVaultLockOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation retrieves the following attributes from the <code>lock-policy</code>
  *          subresource set on the specified vault: </p>
  *          <ul>
@@ -99,6 +98,7 @@ export interface GetVaultLockCommandOutput extends GetVaultLockOutput, __Metadat
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * @public
  * @example To retrieve vault lock-policy related attributes that are set on a vault
  * ```javascript
  * // The example retrieves the attributes from the lock-policy subresource set on the vault named examplevault.

@@ -27,7 +27,6 @@ export interface DetachInstancesCommandInput extends DetachInstancesQuery {}
 export interface DetachInstancesCommandOutput extends DetachInstancesAnswer, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes one or more instances from the specified Auto Scaling group.</p>
  *          <p>After the instances are detached, you can manage them independent of the Auto Scaling
  *             group.</p>
@@ -87,6 +86,7 @@ export interface DetachInstancesCommandOutput extends DetachInstancesAnswer, __M
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To detach an instance from an Auto Scaling group
  * ```javascript
  * // This example detaches the specified instance from the specified Auto Scaling group.

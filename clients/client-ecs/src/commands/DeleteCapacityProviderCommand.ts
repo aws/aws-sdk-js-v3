@@ -27,7 +27,6 @@ export interface DeleteCapacityProviderCommandInput extends DeleteCapacityProvid
 export interface DeleteCapacityProviderCommandOutput extends DeleteCapacityProviderResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified capacity provider.</p>
  *          <note>
  *             <p>The <code>FARGATE</code> and <code>FARGATE_SPOT</code> capacity providers are
@@ -105,6 +104,7 @@ export interface DeleteCapacityProviderCommandOutput extends DeleteCapacityProvi
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  */
 export class DeleteCapacityProviderCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateDBSnapshotCommandInput extends CreateDBSnapshotMessage {}
 export interface CreateDBSnapshotCommandOutput extends CreateDBSnapshotResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a snapshot of a DB instance. The source DB instance must be in the <code>available</code> or
  *                 <code>storage-optimization</code> state.</p>
  * @example
@@ -125,6 +124,7 @@ export interface CreateDBSnapshotCommandOutput extends CreateDBSnapshotResult, _
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To create a DB snapshot
  * ```javascript
  * // The following example creates a DB snapshot.

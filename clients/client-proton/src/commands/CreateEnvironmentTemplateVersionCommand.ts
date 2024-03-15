@@ -37,7 +37,6 @@ export interface CreateEnvironmentTemplateVersionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a new major or minor version of an environment template. A major version of an environment template is a version that
  *         <i>isn't</i> backwards compatible. A minor version of an environment template is a version that's backwards compatible within its major
  *       version.</p>
@@ -116,6 +115,7 @@ export interface CreateEnvironmentTemplateVersionCommandOutput
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class CreateEnvironmentTemplateVersionCommand extends $Command
   .classBuilder<

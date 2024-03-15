@@ -27,7 +27,6 @@ export interface ProvisionByoipCidrCommandInput extends ProvisionByoipCidrReques
 export interface ProvisionByoipCidrCommandOutput extends ProvisionByoipCidrResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provisions an IPv4 or IPv6 address range for use with your Amazon Web Services resources through bring your own IP
  *          addresses (BYOIP) and creates a corresponding address pool. After the address range is
  *          provisioned, it is ready to be advertised using <a>AdvertiseByoipCidr</a>.</p>
@@ -100,6 +99,7 @@ export interface ProvisionByoipCidrCommandOutput extends ProvisionByoipCidrResul
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ProvisionByoipCidrCommand extends $Command
   .classBuilder<

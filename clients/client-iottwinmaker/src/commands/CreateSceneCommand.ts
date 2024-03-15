@@ -27,7 +27,6 @@ export interface CreateSceneCommandInput extends CreateSceneRequest {}
 export interface CreateSceneCommandOutput extends CreateSceneResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a scene.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface CreateSceneCommandOutput extends CreateSceneResponse, __Metadat
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ * @public
  */
 export class CreateSceneCommand extends $Command
   .classBuilder<

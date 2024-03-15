@@ -27,7 +27,6 @@ export interface DetachVolumeCommandInput extends DetachVolumeInput {}
 export interface DetachVolumeCommandOutput extends DetachVolumeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disconnects a volume from an iSCSI connection and then detaches the volume from the
  *          specified gateway. Detaching and attaching a volume enables you to recover your data from
  *          one gateway to a different gateway without creating a snapshot. It also makes it easier to
@@ -68,6 +67,7 @@ export interface DetachVolumeCommandOutput extends DetachVolumeOutput, __Metadat
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  */
 export class DetachVolumeCommand extends $Command
   .classBuilder<

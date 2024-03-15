@@ -32,7 +32,6 @@ export interface DescribeDBInstanceAutomatedBackupsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Displays backups for both current and deleted
  *             instances. For example, use this operation to
  *             find details about automated backups for previously deleted instances. Current instances
@@ -123,6 +122,7 @@ export interface DescribeDBInstanceAutomatedBackupsCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To describe the automated backups for a DB instance
  * ```javascript
  * // The following example displays details about the automated backups for the specified DB instance. The details include replicated automated backups in other AWS Regions.

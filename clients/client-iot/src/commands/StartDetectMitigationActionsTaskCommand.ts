@@ -32,7 +32,6 @@ export interface StartDetectMitigationActionsTaskCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Starts a Device Defender ML Detect mitigation actions task.
  *     </p>
@@ -97,6 +96,7 @@ export interface StartDetectMitigationActionsTaskCommandOutput
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class StartDetectMitigationActionsTaskCommand extends $Command
   .classBuilder<

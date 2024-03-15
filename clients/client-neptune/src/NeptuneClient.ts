@@ -618,7 +618,6 @@ export type NeptuneClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
 export interface NeptuneClientResolvedConfig extends NeptuneClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>Amazon Neptune</fullname>
  *          <p>Amazon Neptune is a fast, reliable, fully-managed graph database service that makes it
  *       easy to build and run applications that work with highly connected datasets. The core of
@@ -636,6 +635,7 @@ export interface NeptuneClientResolvedConfig extends NeptuneClientResolvedConfig
  *       parameter descriptions indicate whether a command is applied immediately, on the next instance
  *       reboot, or during the maintenance window. The reference structure is as follows, and we list
  *       following some related topics from the user guide.</p>
+ * @public
  */
 export class NeptuneClient extends __Client<
   __HttpHandlerOptions,

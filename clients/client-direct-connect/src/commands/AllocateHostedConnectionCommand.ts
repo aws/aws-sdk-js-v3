@@ -27,7 +27,6 @@ export interface AllocateHostedConnectionCommandInput extends AllocateHostedConn
 export interface AllocateHostedConnectionCommandOutput extends Connection, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a hosted connection on the specified interconnect or a link aggregation group (LAG) of interconnects.</p>
  *          <p>Allocates a VLAN number and a specified amount of capacity (bandwidth) for use by a hosted connection on the specified interconnect or LAG of interconnects.
  *       Amazon Web Services polices the hosted connection for the specified capacity and the Direct Connect Partner must also police the hosted connection for the specified capacity.</p>
@@ -115,6 +114,7 @@ export interface AllocateHostedConnectionCommandOutput extends Connection, __Met
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class AllocateHostedConnectionCommand extends $Command
   .classBuilder<

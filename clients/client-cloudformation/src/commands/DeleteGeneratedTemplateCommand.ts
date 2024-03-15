@@ -27,7 +27,6 @@ export interface DeleteGeneratedTemplateCommandInput extends DeleteGeneratedTemp
 export interface DeleteGeneratedTemplateCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deleted a generated template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,6 +60,7 @@ export interface DeleteGeneratedTemplateCommandOutput extends __MetadataBearer {
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  * @example To delete a generated template
  * ```javascript
  * // This example deletes a generated template

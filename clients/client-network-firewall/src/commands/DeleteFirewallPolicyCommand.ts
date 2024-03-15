@@ -27,7 +27,6 @@ export interface DeleteFirewallPolicyCommandInput extends DeleteFirewallPolicyRe
 export interface DeleteFirewallPolicyCommandOutput extends DeleteFirewallPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified <a>FirewallPolicy</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -109,6 +108,7 @@ export interface DeleteFirewallPolicyCommandOutput extends DeleteFirewallPolicyR
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ * @public
  */
 export class DeleteFirewallPolicyCommand extends $Command
   .classBuilder<

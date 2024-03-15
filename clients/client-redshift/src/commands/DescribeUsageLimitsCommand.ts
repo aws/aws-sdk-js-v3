@@ -27,7 +27,6 @@ export interface DescribeUsageLimitsCommandInput extends DescribeUsageLimitsMess
 export interface DescribeUsageLimitsCommandOutput extends UsageLimitList, __MetadataBearer {}
 
 /**
- * @public
  * <p>Shows usage limits on a cluster.
  *             Results are filtered based on the combination of input usage limit identifier, cluster identifier, and feature type parameters:</p>
  *          <ul>
@@ -108,6 +107,7 @@ export interface DescribeUsageLimitsCommandOutput extends UsageLimitList, __Meta
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DescribeUsageLimitsCommand extends $Command
   .classBuilder<

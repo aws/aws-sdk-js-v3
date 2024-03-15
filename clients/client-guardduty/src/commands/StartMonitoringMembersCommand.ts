@@ -27,7 +27,6 @@ export interface StartMonitoringMembersCommandInput extends StartMonitoringMembe
 export interface StartMonitoringMembersCommandOutput extends StartMonitoringMembersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Turns on GuardDuty monitoring of the specified member accounts. Use this operation to
  *       restart monitoring of accounts that you stopped monitoring with the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_StopMonitoringMembers.html">StopMonitoringMembers</a> operation.</p>
  * @example
@@ -70,6 +69,7 @@ export interface StartMonitoringMembersCommandOutput extends StartMonitoringMemb
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class StartMonitoringMembersCommand extends $Command
   .classBuilder<

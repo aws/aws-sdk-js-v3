@@ -31,7 +31,6 @@ export interface ShareDirectoryCommandInput extends ShareDirectoryRequest {}
 export interface ShareDirectoryCommandOutput extends ShareDirectoryResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Shares a specified directory (<code>DirectoryId</code>) in your Amazon Web Services account (directory
  *       owner) with another Amazon Web Services account (directory consumer). With this operation you can use your
  *       directory from any Amazon Web Services account and from any Amazon VPC within an Amazon Web Services Region.</p>
@@ -108,6 +107,7 @@ export interface ShareDirectoryCommandOutput extends ShareDirectoryResult, __Met
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class ShareDirectoryCommand extends $Command
   .classBuilder<

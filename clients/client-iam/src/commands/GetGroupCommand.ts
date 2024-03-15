@@ -27,7 +27,6 @@ export interface GetGroupCommandInput extends GetGroupRequest {}
 export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns a list of IAM users that are in the specified IAM group. You can paginate
  *             the results using the <code>MaxItems</code> and <code>Marker</code> parameters.</p>
  * @example
@@ -94,6 +93,7 @@ export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBeare
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class GetGroupCommand extends $Command
   .classBuilder<

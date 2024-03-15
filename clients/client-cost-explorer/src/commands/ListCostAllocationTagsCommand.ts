@@ -27,7 +27,6 @@ export interface ListCostAllocationTagsCommandInput extends ListCostAllocationTa
 export interface ListCostAllocationTagsCommandOutput extends ListCostAllocationTagsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get a list of cost allocation tags. All inputs in the API are optional and serve as
  *       filters. By default, all cost allocation tags are returned. </p>
  * @example
@@ -77,6 +76,7 @@ export interface ListCostAllocationTagsCommandOutput extends ListCostAllocationT
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * @public
  */
 export class ListCostAllocationTagsCommand extends $Command
   .classBuilder<

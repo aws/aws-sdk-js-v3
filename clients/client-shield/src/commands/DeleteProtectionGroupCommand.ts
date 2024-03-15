@@ -27,7 +27,6 @@ export interface DeleteProtectionGroupCommandInput extends DeleteProtectionGroup
 export interface DeleteProtectionGroupCommandOutput extends DeleteProtectionGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified protection group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +62,7 @@ export interface DeleteProtectionGroupCommandOutput extends DeleteProtectionGrou
  * @throws {@link ShieldServiceException}
  * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ * @public
  */
 export class DeleteProtectionGroupCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateReviewTemplateCommandInput extends CreateReviewTemplateIn
 export interface CreateReviewTemplateCommandOutput extends CreateReviewTemplateOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a review template.</p>
  *          <note>
  *             <p>
@@ -96,6 +95,7 @@ export interface CreateReviewTemplateCommandOutput extends CreateReviewTemplateO
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * @public
  */
 export class CreateReviewTemplateCommand extends $Command
   .classBuilder<

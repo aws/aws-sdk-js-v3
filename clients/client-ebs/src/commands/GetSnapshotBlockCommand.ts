@@ -33,7 +33,6 @@ export interface GetSnapshotBlockCommandOutput extends Omit<GetSnapshotBlockResp
 }
 
 /**
- * @public
  * <p>Returns the data in a block in an Amazon Elastic Block Store snapshot.</p>
  *          <note>
  *             <p>You should always retry requests that receive server (<code>5xx</code>)
@@ -91,6 +90,7 @@ export interface GetSnapshotBlockCommandOutput extends Omit<GetSnapshotBlockResp
  * @throws {@link EBSServiceException}
  * <p>Base exception class for all service exceptions from EBS service.</p>
  *
+ * @public
  */
 export class GetSnapshotBlockCommand extends $Command
   .classBuilder<

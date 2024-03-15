@@ -34,7 +34,6 @@ export interface ImportDocumentationPartsCommandInput extends ImportDocumentatio
 export interface ImportDocumentationPartsCommandOutput extends DocumentationPartIds, __MetadataBearer {}
 
 /**
- * @public
  * <p>Imports documentation parts</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface ImportDocumentationPartsCommandOutput extends DocumentationPart
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class ImportDocumentationPartsCommand extends $Command
   .classBuilder<

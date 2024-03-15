@@ -27,7 +27,6 @@ export interface GetLensVersionDifferenceCommandInput extends GetLensVersionDiff
 export interface GetLensVersionDifferenceCommandOutput extends GetLensVersionDifferenceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get lens version differences.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface GetLensVersionDifferenceCommandOutput extends GetLensVersionDif
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * @public
  */
 export class GetLensVersionDifferenceCommand extends $Command
   .classBuilder<

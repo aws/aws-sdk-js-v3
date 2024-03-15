@@ -31,7 +31,6 @@ export interface DescribeDeviceEc2InstancesCommandInput extends DescribeDeviceEc
 export interface DescribeDeviceEc2InstancesCommandOutput extends DescribeDeviceEc2Output, __MetadataBearer {}
 
 /**
- * @public
  * <p>Checks the current state of the Amazon EC2 instances. The output is similar to
  *         <code>describeDevice</code>, but the results are sourced from the device cache in the
  *       Amazon Web Services Cloud and include a subset of the available fields. </p>
@@ -119,6 +118,7 @@ export interface DescribeDeviceEc2InstancesCommandOutput extends DescribeDeviceE
  * @throws {@link SnowDeviceManagementServiceException}
  * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
+ * @public
  */
 export class DescribeDeviceEc2InstancesCommand extends $Command
   .classBuilder<

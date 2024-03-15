@@ -28,7 +28,6 @@ export interface ListRegionalBucketsCommandInput extends ListRegionalBucketsRequ
 export interface ListRegionalBucketsCommandOutput extends ListRegionalBucketsResult, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -75,6 +74,7 @@ export interface ListRegionalBucketsCommandOutput extends ListRegionalBucketsRes
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class ListRegionalBucketsCommand extends $Command
   .classBuilder<

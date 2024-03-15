@@ -27,7 +27,6 @@ export interface DeregisterDevicesCommandInput extends DeregisterDevicesRequest 
 export interface DeregisterDevicesCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deregisters the specified devices. After you deregister a device, you will need to re-register the devices.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,6 +55,7 @@ export interface DeregisterDevicesCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeregisterDevicesCommand extends $Command
   .classBuilder<

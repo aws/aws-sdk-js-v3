@@ -27,7 +27,6 @@ export interface ListThingsCommandInput extends ListThingsRequest {}
 export interface ListThingsCommandOutput extends ListThingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists your things. Use the <b>attributeName</b> and <b>attributeValue</b> parameters to filter your things. For example,
  * 			calling <code>ListThings</code> with attributeName=Color and attributeValue=Red
  * 			retrieves all things in the registry that contain an attribute <b>Color</b> with the value <b>Red</b>. For more
@@ -94,6 +93,7 @@ export interface ListThingsCommandOutput extends ListThingsResponse, __MetadataB
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListThingsCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface ListFunctionEventInvokeConfigsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of configurations for asynchronous invocation for a function.</p>
  *          <p>To configure options for asynchronous invocation, use <a>PutFunctionEventInvokeConfig</a>.</p>
  * @example
@@ -91,6 +90,7 @@ export interface ListFunctionEventInvokeConfigsCommandOutput
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class ListFunctionEventInvokeConfigsCommand extends $Command
   .classBuilder<

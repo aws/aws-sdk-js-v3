@@ -32,7 +32,6 @@ export interface ApplyPendingMaintenanceActionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Applies a pending maintenance action to a resource (for example,
  *             to an Amazon DocumentDB instance).</p>
  * @example
@@ -85,6 +84,7 @@ export interface ApplyPendingMaintenanceActionCommandOutput
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class ApplyPendingMaintenanceActionCommand extends $Command
   .classBuilder<

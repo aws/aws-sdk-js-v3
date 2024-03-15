@@ -27,7 +27,6 @@ export interface UpdateVirtualGatewayCommandInput extends UpdateVirtualGatewayIn
 export interface UpdateVirtualGatewayCommandOutput extends UpdateVirtualGatewayOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing virtual gateway in a specified service mesh.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -342,6 +341,7 @@ export interface UpdateVirtualGatewayCommandOutput extends UpdateVirtualGatewayO
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ * @public
  */
 export class UpdateVirtualGatewayCommand extends $Command
   .classBuilder<

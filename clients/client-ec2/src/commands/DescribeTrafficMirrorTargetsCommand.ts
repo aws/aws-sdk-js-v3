@@ -29,7 +29,6 @@ export interface DescribeTrafficMirrorTargetsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Information about one or more Traffic Mirror targets.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface DescribeTrafficMirrorTargetsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeTrafficMirrorTargetsCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface AssignPrivateNatGatewayAddressCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Assigns one or more private IPv4 addresses to a private NAT gateway. For more information, see
  *             <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-working-with">Work with NAT gateways</a> in the <i>Amazon VPC User Guide</i>.</p>
  * @example
@@ -78,6 +77,7 @@ export interface AssignPrivateNatGatewayAddressCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class AssignPrivateNatGatewayAddressCommand extends $Command
   .classBuilder<

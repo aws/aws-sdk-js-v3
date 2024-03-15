@@ -31,7 +31,6 @@ export interface StopVoiceToneAnalysisTaskCommandInput extends StopVoiceToneAnal
 export interface StopVoiceToneAnalysisTaskCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a voice tone analysis task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface StopVoiceToneAnalysisTaskCommandOutput extends __MetadataBearer
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ * @public
  */
 export class StopVoiceToneAnalysisTaskCommand extends $Command
   .classBuilder<

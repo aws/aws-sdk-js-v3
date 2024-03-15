@@ -27,7 +27,6 @@ export interface ListFindingAggregatorsCommandInput extends ListFindingAggregato
 export interface ListFindingAggregatorsCommandOutput extends ListFindingAggregatorsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>If finding aggregation is enabled, then <code>ListFindingAggregators</code> returns the ARN of the finding aggregator. You can run this operation from any Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface ListFindingAggregatorsCommandOutput extends ListFindingAggregat
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To update the enablement status of a standard control
  * ```javascript
  * // The following example disables the specified control in the specified security standard.

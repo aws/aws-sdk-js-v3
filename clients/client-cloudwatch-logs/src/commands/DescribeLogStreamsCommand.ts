@@ -27,7 +27,6 @@ export interface DescribeLogStreamsCommandInput extends DescribeLogStreamsReques
 export interface DescribeLogStreamsCommandOutput extends DescribeLogStreamsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the log streams for the specified log group.
  *       You can list all the log streams or filter the results by prefix.
  *       You can also control how the results are ordered.</p>
@@ -91,6 +90,7 @@ export interface DescribeLogStreamsCommandOutput extends DescribeLogStreamsRespo
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class DescribeLogStreamsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteReservationCommandInput extends DeleteReservationRequest 
 export interface DeleteReservationCommandOutput extends DeleteReservationResponse, __MetadataBearer {}
 
 /**
- * @public
  * Delete an expired reservation.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -111,6 +110,7 @@ export interface DeleteReservationCommandOutput extends DeleteReservationRespons
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class DeleteReservationCommand extends $Command
   .classBuilder<

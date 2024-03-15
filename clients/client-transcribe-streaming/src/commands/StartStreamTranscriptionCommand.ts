@@ -38,7 +38,6 @@ export interface StartStreamTranscriptionCommandInput extends StartStreamTranscr
 export interface StartStreamTranscriptionCommandOutput extends StartStreamTranscriptionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to
  *       Amazon Transcribe and the transcription results are streamed to your application.</p>
  *          <p>The following parameters are required:</p>
@@ -232,6 +231,7 @@ export interface StartStreamTranscriptionCommandOutput extends StartStreamTransc
  * @throws {@link TranscribeStreamingServiceException}
  * <p>Base exception class for all service exceptions from TranscribeStreaming service.</p>
  *
+ * @public
  */
 export class StartStreamTranscriptionCommand extends $Command
   .classBuilder<

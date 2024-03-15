@@ -27,7 +27,6 @@ export interface DescribeStacksCommandInput extends DescribeStacksRequest {}
 export interface DescribeStacksCommandOutput extends DescribeStacksResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list that describes one or more specified stacks, if the stack names are provided. Otherwise, all stacks in the account are described.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -111,6 +110,7 @@ export interface DescribeStacksCommandOutput extends DescribeStacksResult, __Met
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class DescribeStacksCommand extends $Command
   .classBuilder<

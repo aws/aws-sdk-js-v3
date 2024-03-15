@@ -35,7 +35,6 @@ export interface GetFieldLevelEncryptionProfileConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Get the field-level encryption profile configuration information.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface GetFieldLevelEncryptionProfileConfigCommandOutput
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class GetFieldLevelEncryptionProfileConfigCommand extends $Command
   .classBuilder<

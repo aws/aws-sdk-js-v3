@@ -715,8 +715,8 @@ export type RestJsonProtocolClientResolvedConfigType = __SmithyResolvedConfigura
 export interface RestJsonProtocolClientResolvedConfig extends RestJsonProtocolClientResolvedConfigType {}
 
 /**
- * @public
  * A REST JSON service that sends JSON requests and responses.
+ * @public
  */
 export class RestJsonProtocolClient extends __Client<
   __HttpHandlerOptions,

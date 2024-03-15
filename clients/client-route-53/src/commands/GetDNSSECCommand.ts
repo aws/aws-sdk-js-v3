@@ -28,7 +28,6 @@ export interface GetDNSSECCommandInput extends GetDNSSECRequest {}
 export interface GetDNSSECCommandOutput extends GetDNSSECResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about DNSSEC for a specific hosted zone, including the key-signing
  * 			keys (KSKs) in the hosted zone.</p>
  * @example
@@ -89,6 +88,7 @@ export interface GetDNSSECCommandOutput extends GetDNSSECResponse, __MetadataBea
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class GetDNSSECCommand extends $Command
   .classBuilder<

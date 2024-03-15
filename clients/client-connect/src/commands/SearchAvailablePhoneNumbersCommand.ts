@@ -32,7 +32,6 @@ export interface SearchAvailablePhoneNumbersCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Searches for available phone numbers that you can claim to your Amazon Connect instance
  *    or traffic distribution group. If the provided <code>TargetArn</code> is a traffic distribution group, you can call this API in both
  *     Amazon Web Services Regions associated with the traffic distribution group.</p>
@@ -87,6 +86,7 @@ export interface SearchAvailablePhoneNumbersCommandOutput
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class SearchAvailablePhoneNumbersCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeRuleCommandInput extends DescribeRuleRequest {}
 export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified rule.</p>
  *          <p>DescribeRule does not list the targets of a rule. To see the targets associated with a
  *       rule, use <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListTargetsByRule.html">ListTargetsByRule</a>.</p>
@@ -73,6 +72,7 @@ export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __Metad
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ * @public
  */
 export class DescribeRuleCommand extends $Command
   .classBuilder<

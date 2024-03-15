@@ -27,7 +27,6 @@ export interface CreateGeneratedTemplateCommandInput extends CreateGeneratedTemp
 export interface CreateGeneratedTemplateCommandOutput extends CreateGeneratedTemplateOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a template from existing resources that are not already managed with CloudFormation. You can check the status of
  *    the template generation using the <code>DescribeGeneratedTemplate</code> API action.</p>
  * @example
@@ -83,6 +82,7 @@ export interface CreateGeneratedTemplateCommandOutput extends CreateGeneratedTem
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  * @example To create a generated template
  * ```javascript
  * // This example creates a generated template with a resources file.

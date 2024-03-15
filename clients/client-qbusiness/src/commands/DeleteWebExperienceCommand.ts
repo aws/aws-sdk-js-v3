@@ -27,7 +27,6 @@ export interface DeleteWebExperienceCommandInput extends DeleteWebExperienceRequ
 export interface DeleteWebExperienceCommandOutput extends DeleteWebExperienceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Amazon Q web experience.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface DeleteWebExperienceCommandOutput extends DeleteWebExperienceRes
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ * @public
  */
 export class DeleteWebExperienceCommand extends $Command
   .classBuilder<

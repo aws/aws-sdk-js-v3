@@ -36,7 +36,6 @@ export interface DisassociateOriginationIdentityCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified origination identity from an existing pool.</p>
  *          <p>If the origination identity isn't associated with the specified pool, an error is
  *             returned.</p>
@@ -97,6 +96,7 @@ export interface DisassociateOriginationIdentityCommandOutput
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class DisassociateOriginationIdentityCommand extends $Command
   .classBuilder<

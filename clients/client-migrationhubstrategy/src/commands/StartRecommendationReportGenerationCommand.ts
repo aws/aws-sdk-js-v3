@@ -39,7 +39,6 @@ export interface StartRecommendationReportGenerationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p> Starts generating a recommendation report. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface StartRecommendationReportGenerationCommandOutput
  * @throws {@link MigrationHubStrategyServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ * @public
  */
 export class StartRecommendationReportGenerationCommand extends $Command
   .classBuilder<

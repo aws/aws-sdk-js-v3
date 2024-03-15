@@ -31,7 +31,6 @@ export interface ListWorkspacesCommandInput extends ListWorkspacesRequest {}
 export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of Amazon Managed Grafana workspaces in the account, with some information
  *             about each workspace. For more complete information about one workspace, use <a href="https://docs.aws.amazon.com/AAMG/latest/APIReference/API_DescribeWorkspace.html">DescribeWorkspace</a>.</p>
  * @example
@@ -96,6 +95,7 @@ export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __M
  * @throws {@link GrafanaServiceException}
  * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
+ * @public
  */
 export class ListWorkspacesCommand extends $Command
   .classBuilder<

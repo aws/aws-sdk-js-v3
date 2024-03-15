@@ -27,7 +27,6 @@ export interface ModifySubnetAttributeCommandInput extends ModifySubnetAttribute
 export interface ModifySubnetAttributeCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies a subnet attribute. You can only modify one attribute at a time.</p>
  *          <p>Use this action to modify subnets on Amazon Web Services Outposts.</p>
  *          <ul>
@@ -100,6 +99,7 @@ export interface ModifySubnetAttributeCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To change a subnet's public IP addressing behavior
  * ```javascript
  * // This example modifies the specified subnet so that all instances launched into this subnet are assigned a public IP address.

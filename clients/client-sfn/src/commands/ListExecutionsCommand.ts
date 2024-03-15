@@ -27,7 +27,6 @@ export interface ListExecutionsCommandInput extends ListExecutionsInput {}
 export interface ListExecutionsCommandOutput extends ListExecutionsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all executions of a state machine or a Map Run. You can list all executions related to a state machine by specifying a state machine Amazon Resource Name (ARN), or those related to a Map Run by specifying a Map Run ARN. Using this API action, you can also list all <a href="https://docs.aws.amazon.com/step-functions/latest/dg/redrive-executions.html">redriven</a> executions.</p>
  *          <p>You can also provide a state machine <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html">alias</a> ARN or <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html">version</a> ARN to list the executions associated with a specific alias or version.</p>
  *          <p>Results are
@@ -103,6 +102,7 @@ export interface ListExecutionsCommandOutput extends ListExecutionsOutput, __Met
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * @public
  */
 export class ListExecutionsCommand extends $Command
   .classBuilder<

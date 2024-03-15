@@ -27,7 +27,6 @@ export interface ListLiveSourcesCommandInput extends ListLiveSourcesRequest {}
 export interface ListLiveSourcesCommandOutput extends ListLiveSourcesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the live sources contained in a source location. A source represents a piece of content.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface ListLiveSourcesCommandOutput extends ListLiveSourcesResponse, _
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ * @public
  */
 export class ListLiveSourcesCommand extends $Command
   .classBuilder<

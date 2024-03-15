@@ -730,9 +730,9 @@ export interface Route53Domains {
 }
 
 /**
- * @public
  * <p>Amazon Route 53 API actions let you register domain names and perform related
  * 			operations.</p>
+ * @public
  */
 export class Route53Domains extends Route53DomainsClient implements Route53Domains {}
 createAggregatedClient(commands, Route53Domains);

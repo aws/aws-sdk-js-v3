@@ -34,7 +34,6 @@ export interface PutMultiRegionAccessPointPolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -89,6 +88,7 @@ export interface PutMultiRegionAccessPointPolicyCommandOutput
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class PutMultiRegionAccessPointPolicyCommand extends $Command
   .classBuilder<

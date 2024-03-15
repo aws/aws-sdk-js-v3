@@ -37,9 +37,6 @@ export interface DescribeChannelMembershipForAppInstanceUserCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by DescribeChannelMembershipForAppInstanceUser in the Amazon Chime SDK Messaging Namespace
- *
  * <p> Returns the details of a channel based on the membership of the specified
  *             <code>AppInstanceUser</code>.</p>
  *          <note>
@@ -113,6 +110,8 @@ export interface DescribeChannelMembershipForAppInstanceUserCommandOutput
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by DescribeChannelMembershipForAppInstanceUser in the Amazon Chime SDK Messaging Namespace
  */
 export class DescribeChannelMembershipForAppInstanceUserCommand extends $Command
   .classBuilder<

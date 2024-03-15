@@ -28,7 +28,6 @@ export interface RevokeEndpointAccessCommandInput extends RevokeEndpointAccessMe
 export interface RevokeEndpointAccessCommandOutput extends EndpointAuthorization, __MetadataBearer {}
 
 /**
- * @public
  * <p>Revokes access to a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface RevokeEndpointAccessCommandOutput extends EndpointAuthorization
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class RevokeEndpointAccessCommand extends $Command
   .classBuilder<

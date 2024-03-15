@@ -27,7 +27,6 @@ export interface ListLandingZonesCommandInput extends ListLandingZonesInput {}
 export interface ListLandingZonesCommandOutput extends ListLandingZonesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the landing zone ARN for the landing zone deployed in your managed account. This API also
  *          creates an ARN for existing accounts that do not yet have a landing zone ARN. </p>
  *          <p>Returns one landing zone ARN.</p>
@@ -75,6 +74,7 @@ export interface ListLandingZonesCommandOutput extends ListLandingZonesOutput, _
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ * @public
  */
 export class ListLandingZonesCommand extends $Command
   .classBuilder<

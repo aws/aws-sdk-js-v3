@@ -27,7 +27,6 @@ export interface ChangeTagsForResourceCommandInput extends ChangeTagsForResource
 export interface ChangeTagsForResourceCommandOutput extends ChangeTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds, edits, or deletes tags for a health check or a hosted zone.</p>
  *          <p>For information about using tags for cost allocation, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation
  * 				Tags</a> in the <i>Billing and Cost Management User Guide</i>.</p>
@@ -84,6 +83,7 @@ export interface ChangeTagsForResourceCommandOutput extends ChangeTagsForResourc
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  * @example To add or remove tags from a hosted zone or health check
  * ```javascript
  * // The following example adds two tags and removes one tag from the hosted zone with ID Z3M3LMPEXAMPLE.

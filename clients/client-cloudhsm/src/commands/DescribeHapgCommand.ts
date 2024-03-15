@@ -27,9 +27,6 @@ export interface DescribeHapgCommandInput extends DescribeHapgRequest {}
 export interface DescribeHapgCommandOutput extends DescribeHapgResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This API is deprecated.
- *
  * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
  *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
  *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
@@ -92,6 +89,8 @@ export interface DescribeHapgCommandOutput extends DescribeHapgResponse, __Metad
  * @throws {@link CloudHSMServiceException}
  * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
+ * @public
+ * @deprecated This API is deprecated.
  */
 export class DescribeHapgCommand extends $Command
   .classBuilder<

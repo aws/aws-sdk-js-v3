@@ -31,7 +31,6 @@ export interface ListTasksCommandInput extends ListTasksInput {}
 export interface ListTasksCommandOutput extends ListTasksOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of tasks that can be filtered by state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface ListTasksCommandOutput extends ListTasksOutput, __MetadataBeare
  * @throws {@link SnowDeviceManagementServiceException}
  * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
+ * @public
  */
 export class ListTasksCommand extends $Command
   .classBuilder<

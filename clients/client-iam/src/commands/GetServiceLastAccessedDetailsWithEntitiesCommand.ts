@@ -36,7 +36,6 @@ export interface GetServiceLastAccessedDetailsWithEntitiesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>After you generate a group or policy report using the
  *                 <code>GenerateServiceLastAccessedDetails</code> operation, you can use the
  *                 <code>JobId</code> parameter in
@@ -120,6 +119,7 @@ export interface GetServiceLastAccessedDetailsWithEntitiesCommandOutput
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To get sntity details from a previously-generated report
  * ```javascript
  * // The following operation returns details about the entities that attempted to access the IAM service.

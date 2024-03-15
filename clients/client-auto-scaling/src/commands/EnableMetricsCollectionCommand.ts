@@ -27,7 +27,6 @@ export interface EnableMetricsCollectionCommandInput extends EnableMetricsCollec
 export interface EnableMetricsCollectionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables group metrics collection for the specified Auto Scaling group.</p>
  *          <p>You can use these metrics to track changes in an Auto Scaling group and to set alarms on
  *             threshold values. You can view group metrics using the Amazon EC2 Auto Scaling console or the CloudWatch
@@ -66,6 +65,7 @@ export interface EnableMetricsCollectionCommandOutput extends __MetadataBearer {
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To enable metrics collection for an Auto Scaling group
  * ```javascript
  * // This example enables data collection for the specified Auto Scaling group.

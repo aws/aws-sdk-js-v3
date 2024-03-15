@@ -27,7 +27,6 @@ export interface UpdateAgentKnowledgeBaseCommandInput extends UpdateAgentKnowled
 export interface UpdateAgentKnowledgeBaseCommandOutput extends UpdateAgentKnowledgeBaseResponse, __MetadataBearer {}
 
 /**
- * @public
  * Updates an existing Knowledge Base associated to an Amazon Bedrock Agent
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface UpdateAgentKnowledgeBaseCommandOutput extends UpdateAgentKnowle
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ * @public
  */
 export class UpdateAgentKnowledgeBaseCommand extends $Command
   .classBuilder<

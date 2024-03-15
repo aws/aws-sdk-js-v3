@@ -27,7 +27,6 @@ export interface DisassociateVpcCidrBlockCommandInput extends DisassociateVpcCid
 export interface DisassociateVpcCidrBlockCommandOutput extends DisassociateVpcCidrBlockResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates a CIDR block from a VPC. To disassociate the CIDR block, you must
  *             specify its association ID. You can get the association ID by using
  *                 <a>DescribeVpcs</a>. You must detach or delete all gateways and resources that
@@ -78,6 +77,7 @@ export interface DisassociateVpcCidrBlockCommandOutput extends DisassociateVpcCi
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DisassociateVpcCidrBlockCommand extends $Command
   .classBuilder<

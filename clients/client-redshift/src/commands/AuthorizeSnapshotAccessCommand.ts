@@ -27,7 +27,6 @@ export interface AuthorizeSnapshotAccessCommandInput extends AuthorizeSnapshotAc
 export interface AuthorizeSnapshotAccessCommandOutput extends AuthorizeSnapshotAccessResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Authorizes the specified Amazon Web Services account to restore the specified
  *             snapshot.</p>
  *          <p>
@@ -136,6 +135,7 @@ export interface AuthorizeSnapshotAccessCommandOutput extends AuthorizeSnapshotA
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class AuthorizeSnapshotAccessCommand extends $Command
   .classBuilder<

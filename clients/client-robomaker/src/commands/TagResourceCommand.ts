@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds or edits tags for a AWS RoboMaker resource.</p>
  *          <p>Each tag consists of a tag key and a tag value. Tag keys and tag values are both
  *          required, but tag values can be empty strings. </p>
@@ -73,6 +72,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

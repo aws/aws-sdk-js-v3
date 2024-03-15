@@ -27,7 +27,6 @@ export interface DeleteConfigRuleCommandInput extends DeleteConfigRuleRequest {}
 export interface DeleteConfigRuleCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified Config rule and all of its evaluation
  * 			results.</p>
  *          <p>Config sets the state of a rule to <code>DELETING</code>
@@ -90,6 +89,7 @@ export interface DeleteConfigRuleCommandOutput extends __MetadataBearer {}
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class DeleteConfigRuleCommand extends $Command
   .classBuilder<

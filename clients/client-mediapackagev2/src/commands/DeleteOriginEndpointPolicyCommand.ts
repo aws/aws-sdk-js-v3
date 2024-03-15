@@ -27,7 +27,6 @@ export interface DeleteOriginEndpointPolicyCommandInput extends DeleteOriginEndp
 export interface DeleteOriginEndpointPolicyCommandOutput extends DeleteOriginEndpointPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete an origin endpoint policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface DeleteOriginEndpointPolicyCommandOutput extends DeleteOriginEnd
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
+ * @public
  */
 export class DeleteOriginEndpointPolicyCommand extends $Command
   .classBuilder<

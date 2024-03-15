@@ -27,7 +27,6 @@ export interface DeleteEntityTypeCommandInput extends DeleteEntityTypeRequest {}
 export interface DeleteEntityTypeCommandOutput extends DeleteEntityTypeResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an entity type.</p>
  *          <p>You cannot delete an entity type that is included in an event type.</p>
  *          <p>When you delete an entity type, Amazon Fraud Detector permanently deletes that entity type and the data is no longer stored in Amazon Fraud Detector.</p>
@@ -70,6 +69,7 @@ export interface DeleteEntityTypeCommandOutput extends DeleteEntityTypeResult, _
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class DeleteEntityTypeCommand extends $Command
   .classBuilder<

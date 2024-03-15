@@ -27,7 +27,6 @@ export interface DeleteTemplateCommandInput extends DeleteTemplateRequest {}
 export interface DeleteTemplateCommandOutput extends DeleteTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface DeleteTemplateCommandOutput extends DeleteTemplateResponse, __M
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DeleteTemplateCommand extends $Command
   .classBuilder<

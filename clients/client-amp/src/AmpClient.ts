@@ -372,7 +372,6 @@ export type AmpClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
 export interface AmpClientResolvedConfig extends AmpClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Amazon Managed Service for Prometheus is a serverless, Prometheus-compatible monitoring service for
  *             container metrics that makes it easier to securely monitor container environments at
  *             scale. With Amazon Managed Service for Prometheus, you can use the same open-source Prometheus data
@@ -391,6 +390,7 @@ export interface AmpClientResolvedConfig extends AmpClientResolvedConfigType {}
  *                     workspace.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class AmpClient extends __Client<
   __HttpHandlerOptions,

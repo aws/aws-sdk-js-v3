@@ -342,8 +342,8 @@ export type ConnectCampaignsClientResolvedConfigType = __SmithyResolvedConfigura
 export interface ConnectCampaignsClientResolvedConfig extends ConnectCampaignsClientResolvedConfigType {}
 
 /**
- * @public
  * Provide APIs to create and manage Amazon Connect Campaigns.
+ * @public
  */
 export class ConnectCampaignsClient extends __Client<
   __HttpHandlerOptions,

@@ -27,7 +27,6 @@ export interface ListRestoreJobSummariesCommandInput extends ListRestoreJobSumma
 export interface ListRestoreJobSummariesCommandOutput extends ListRestoreJobSummariesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This request obtains a summary of restore jobs created
  *          or running within the the most recent 30 days. You can
  *          include parameters AccountID, State, ResourceType,
@@ -86,6 +85,7 @@ export interface ListRestoreJobSummariesCommandOutput extends ListRestoreJobSumm
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class ListRestoreJobSummariesCommand extends $Command
   .classBuilder<

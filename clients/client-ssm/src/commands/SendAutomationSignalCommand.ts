@@ -27,7 +27,6 @@ export interface SendAutomationSignalCommandInput extends SendAutomationSignalRe
 export interface SendAutomationSignalCommandOutput extends SendAutomationSignalResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sends a signal to an Automation execution to change the current behavior or status of the
  *    execution. </p>
  * @example
@@ -74,6 +73,7 @@ export interface SendAutomationSignalCommandOutput extends SendAutomationSignalR
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class SendAutomationSignalCommand extends $Command
   .classBuilder<

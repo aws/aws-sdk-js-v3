@@ -27,7 +27,6 @@ export interface DescribeChangeSetCommandInput extends DescribeChangeSetInput {}
 export interface DescribeChangeSetCommandOutput extends DescribeChangeSetOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the inputs for the change set and a list of changes that CloudFormation will make if you execute the change set.
  *    For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html">Updating Stacks Using Change
  *    Sets</a> in the <i>CloudFormation User Guide</i>.</p>
@@ -139,6 +138,7 @@ export interface DescribeChangeSetCommandOutput extends DescribeChangeSetOutput,
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class DescribeChangeSetCommand extends $Command
   .classBuilder<

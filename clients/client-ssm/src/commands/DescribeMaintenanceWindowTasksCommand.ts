@@ -36,7 +36,6 @@ export interface DescribeMaintenanceWindowTasksCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the tasks in a maintenance window.</p>
  *          <note>
  *             <p>For maintenance window tasks without a specified target, you can't supply values for
@@ -132,6 +131,7 @@ export interface DescribeMaintenanceWindowTasksCommandOutput
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DescribeMaintenanceWindowTasksCommand extends $Command
   .classBuilder<

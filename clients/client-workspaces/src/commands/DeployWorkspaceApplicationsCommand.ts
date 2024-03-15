@@ -27,7 +27,6 @@ export interface DeployWorkspaceApplicationsCommandInput extends DeployWorkspace
 export interface DeployWorkspaceApplicationsCommandOutput extends DeployWorkspaceApplicationsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deploys associated applications to the specified WorkSpace</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface DeployWorkspaceApplicationsCommandOutput extends DeployWorkspac
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class DeployWorkspaceApplicationsCommand extends $Command
   .classBuilder<

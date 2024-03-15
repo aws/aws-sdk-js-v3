@@ -27,7 +27,6 @@ export interface ListTrainingJobsCommandInput extends ListTrainingJobsRequest {}
 export interface ListTrainingJobsCommandOutput extends ListTrainingJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists training jobs.</p>
  *          <note>
  *             <p>When <code>StatusEquals</code> and <code>MaxResults</code> are set at the same
@@ -101,6 +100,7 @@ export interface ListTrainingJobsCommandOutput extends ListTrainingJobsResponse,
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListTrainingJobsCommand extends $Command
   .classBuilder<

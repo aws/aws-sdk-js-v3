@@ -27,7 +27,6 @@ export interface GetSessionCommandInput extends GetSessionRequest {}
 export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetSessionCommand extends $Command
   .classBuilder<

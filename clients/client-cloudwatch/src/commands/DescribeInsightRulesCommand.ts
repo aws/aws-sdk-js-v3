@@ -27,7 +27,6 @@ export interface DescribeInsightRulesCommandInput extends DescribeInsightRulesIn
 export interface DescribeInsightRulesCommandOutput extends DescribeInsightRulesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all the Contributor Insights rules in your account.</p>
  *          <p>For more information about Contributor Insights, see
  * 		<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html">Using Contributor Insights to Analyze High-Cardinality Data</a>.</p>
@@ -70,6 +69,7 @@ export interface DescribeInsightRulesCommandOutput extends DescribeInsightRulesO
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * @public
  */
 export class DescribeInsightRulesCommand extends $Command
   .classBuilder<

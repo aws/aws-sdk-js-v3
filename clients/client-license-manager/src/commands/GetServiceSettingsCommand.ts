@@ -27,7 +27,6 @@ export interface GetServiceSettingsCommandInput extends GetServiceSettingsReques
 export interface GetServiceSettingsCommandOutput extends GetServiceSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the License Manager settings for the current Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface GetServiceSettingsCommandOutput extends GetServiceSettingsRespo
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * @public
  */
 export class GetServiceSettingsCommand extends $Command
   .classBuilder<

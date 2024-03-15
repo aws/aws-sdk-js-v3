@@ -32,7 +32,6 @@ export interface UpdateDashboardPublishedVersionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the published version of a dashboard.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface UpdateDashboardPublishedVersionCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class UpdateDashboardPublishedVersionCommand extends $Command
   .classBuilder<

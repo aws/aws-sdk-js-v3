@@ -27,7 +27,6 @@ export interface ListCampaignsCommandInput extends ListCampaignsRequest {}
 export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of campaigns that use the given solution.
  *       When a solution is not specified, all the campaigns associated with the account are listed.
  *       The response provides the properties for each campaign, including the Amazon Resource Name (ARN).
@@ -76,6 +75,7 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class ListCampaignsCommand extends $Command
   .classBuilder<

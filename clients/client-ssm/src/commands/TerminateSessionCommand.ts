@@ -27,7 +27,6 @@ export interface TerminateSessionCommandInput extends TerminateSessionRequest {}
 export interface TerminateSessionCommandOutput extends TerminateSessionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Permanently ends a session and closes the data connection between the Session Manager client and
  *    SSM Agent on the managed node. A terminated session can't be resumed.</p>
  * @example
@@ -59,6 +58,7 @@ export interface TerminateSessionCommandOutput extends TerminateSessionResponse,
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class TerminateSessionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListCoverageCommandInput extends ListCoverageRequest {}
 export interface ListCoverageCommandOutput extends ListCoverageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists coverage details for your GuardDuty account. If you're a GuardDuty administrator, you can
  *       retrieve all resources associated with the active member accounts in your organization.</p>
  *          <p>Make sure the accounts have Runtime Monitoring enabled and GuardDuty agent running on
@@ -130,6 +129,7 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class ListCoverageCommand extends $Command
   .classBuilder<

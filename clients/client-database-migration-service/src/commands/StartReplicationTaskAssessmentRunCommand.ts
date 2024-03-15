@@ -39,7 +39,6 @@ export interface StartReplicationTaskAssessmentRunCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a new premigration assessment run for one or more individual assessments
  *          of a migration task.</p>
  *          <p>The assessments that you can specify depend on the source and target database engine and
@@ -139,6 +138,7 @@ export interface StartReplicationTaskAssessmentRunCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class StartReplicationTaskAssessmentRunCommand extends $Command
   .classBuilder<

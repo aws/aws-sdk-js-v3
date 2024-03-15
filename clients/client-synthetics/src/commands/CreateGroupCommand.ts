@@ -27,7 +27,6 @@ export interface CreateGroupCommandInput extends CreateGroupRequest {}
 export interface CreateGroupCommandOutput extends CreateGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a group which you can use to associate canaries with each other, including cross-Region
  *          canaries. Using groups can help you with
  *          managing and automating your canaries, and you can also view aggregated run results and statistics
@@ -91,6 +90,7 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ * @public
  */
 export class CreateGroupCommand extends $Command
   .classBuilder<

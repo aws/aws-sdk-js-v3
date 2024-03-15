@@ -27,7 +27,6 @@ export interface CreateBranchCommandInput extends CreateBranchInput {}
 export interface CreateBranchCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a branch in a repository and points the branch to a commit.</p>
  *          <note>
  *             <p>Calling the create branch operation does not set a repository's default branch. To do this, call the update default branch operation.</p>
@@ -107,6 +106,7 @@ export interface CreateBranchCommandOutput extends __MetadataBearer {}
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class CreateBranchCommand extends $Command
   .classBuilder<

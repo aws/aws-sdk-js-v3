@@ -39,7 +39,6 @@ export interface DeleteApplicationVpcConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a VPC configuration from a Managed Service for Apache Flink application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface DeleteApplicationVpcConfigurationCommandOutput
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ * @public
  */
 export class DeleteApplicationVpcConfigurationCommand extends $Command
   .classBuilder<

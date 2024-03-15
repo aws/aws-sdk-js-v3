@@ -27,7 +27,6 @@ export interface GetAccessControlEffectCommandInput extends GetAccessControlEffe
 export interface GetAccessControlEffectCommandOutput extends GetAccessControlEffectResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the effects of an organization's access control rules as they apply to a
  *          specified IPv4 address, access protocol action, and  user ID or impersonation role ID. You must provide either the user ID or impersonation role ID. Impersonation role ID can only be used with Action EWS.</p>
  * @example
@@ -81,6 +80,7 @@ export interface GetAccessControlEffectCommandOutput extends GetAccessControlEff
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class GetAccessControlEffectCommand extends $Command
   .classBuilder<

@@ -27,9 +27,6 @@ export interface TagLogGroupCommandInput extends TagLogGroupRequest {}
 export interface TagLogGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Please use the generic tagging API TagResource
- *
  * <important>
  *             <p>The TagLogGroup operation is on the path to deprecation. We recommend that you use
  *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagResource.html">TagResource</a> instead.</p>
@@ -77,6 +74,8 @@ export interface TagLogGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
+ * @deprecated Please use the generic tagging API TagResource
  */
 export class TagLogGroupCommand extends $Command
   .classBuilder<

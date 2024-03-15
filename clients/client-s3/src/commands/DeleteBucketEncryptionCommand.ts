@@ -27,7 +27,6 @@ export interface DeleteBucketEncryptionCommandInput extends DeleteBucketEncrypti
 export interface DeleteBucketEncryptionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -79,6 +78,7 @@ export interface DeleteBucketEncryptionCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  */
 export class DeleteBucketEncryptionCommand extends $Command
   .classBuilder<

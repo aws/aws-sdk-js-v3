@@ -27,7 +27,6 @@ export interface AddUploadBufferCommandInput extends AddUploadBufferInput {}
 export interface AddUploadBufferCommandOutput extends AddUploadBufferOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Configures one or more gateway local disks as upload buffer for a specified gateway.
  *          This operation is supported for the stored volume, cached volume, and tape gateway
  *          types.</p>
@@ -71,6 +70,7 @@ export interface AddUploadBufferCommandOutput extends AddUploadBufferOutput, __M
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To add upload buffer on local disk
  * ```javascript
  * // Configures one or more gateway local disks as upload buffer for a specified gateway.

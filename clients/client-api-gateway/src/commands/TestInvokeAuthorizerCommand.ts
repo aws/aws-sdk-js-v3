@@ -27,7 +27,6 @@ export interface TestInvokeAuthorizerCommandInput extends TestInvokeAuthorizerRe
 export interface TestInvokeAuthorizerCommandOutput extends TestInvokeAuthorizerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Simulate the execution of an Authorizer in your RestApi with headers, parameters, and an incoming request body.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface TestInvokeAuthorizerCommandOutput extends TestInvokeAuthorizerR
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class TestInvokeAuthorizerCommand extends $Command
   .classBuilder<

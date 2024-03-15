@@ -27,7 +27,6 @@ export interface DeleteDeploymentCommandInput extends DeleteDeploymentInput {}
 export interface DeleteDeploymentCommandOutput extends DeleteDeploymentOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a deployment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface DeleteDeploymentCommandOutput extends DeleteDeploymentOutput, _
  * @throws {@link LaunchWizardServiceException}
  * <p>Base exception class for all service exceptions from LaunchWizard service.</p>
  *
+ * @public
  */
 export class DeleteDeploymentCommand extends $Command
   .classBuilder<

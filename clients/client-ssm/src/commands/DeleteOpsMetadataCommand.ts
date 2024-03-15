@@ -27,7 +27,6 @@ export interface DeleteOpsMetadataCommandInput extends DeleteOpsMetadataRequest 
 export interface DeleteOpsMetadataCommandOutput extends DeleteOpsMetadataResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete OpsMetadata related to an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +61,7 @@ export interface DeleteOpsMetadataCommandOutput extends DeleteOpsMetadataResult,
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DeleteOpsMetadataCommand extends $Command
   .classBuilder<

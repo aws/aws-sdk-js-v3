@@ -35,7 +35,6 @@ export interface GetMediaCapturePipelineCommandInput extends GetMediaCapturePipe
 export interface GetMediaCapturePipelineCommandOutput extends GetMediaCapturePipelineResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets an existing media pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -151,6 +150,7 @@ export interface GetMediaCapturePipelineCommandOutput extends GetMediaCapturePip
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ * @public
  */
 export class GetMediaCapturePipelineCommand extends $Command
   .classBuilder<

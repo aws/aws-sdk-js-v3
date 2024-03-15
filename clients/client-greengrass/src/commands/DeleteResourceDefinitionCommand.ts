@@ -27,7 +27,6 @@ export interface DeleteResourceDefinitionCommandInput extends DeleteResourceDefi
 export interface DeleteResourceDefinitionCommandOutput extends DeleteResourceDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * Deletes a resource definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,6 +55,7 @@ export interface DeleteResourceDefinitionCommandOutput extends DeleteResourceDef
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class DeleteResourceDefinitionCommand extends $Command
   .classBuilder<

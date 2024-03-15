@@ -27,7 +27,6 @@ export interface ListPlatformVersionsCommandInput extends ListPlatformVersionsRe
 export interface ListPlatformVersionsCommandOutput extends ListPlatformVersionsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the platform versions available for your account in an AWS Region. Provides
  *       summary information about each platform version. Compare to <a>DescribePlatformVersion</a>, which provides full details about a single platform
  *       version.</p>
@@ -96,6 +95,7 @@ export interface ListPlatformVersionsCommandOutput extends ListPlatformVersionsR
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  */
 export class ListPlatformVersionsCommand extends $Command
   .classBuilder<

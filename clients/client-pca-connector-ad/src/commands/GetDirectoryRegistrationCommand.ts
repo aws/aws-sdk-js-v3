@@ -27,7 +27,6 @@ export interface GetDirectoryRegistrationCommandInput extends GetDirectoryRegist
 export interface GetDirectoryRegistrationCommandOutput extends GetDirectoryRegistrationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>A structure that contains information about your directory registration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface GetDirectoryRegistrationCommandOutput extends GetDirectoryRegis
  * @throws {@link PcaConnectorAdServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ * @public
  */
 export class GetDirectoryRegistrationCommand extends $Command
   .classBuilder<

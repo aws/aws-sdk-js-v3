@@ -27,7 +27,6 @@ export interface StopAccessLoggingCommandInput extends StopAccessLoggingInput {}
 export interface StopAccessLoggingCommandOutput extends StopAccessLoggingOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops access logging on the specified container. When you stop access logging on a container, MediaStore stops sending access logs to Amazon CloudWatch Logs. These access logs are not saved and are not retrievable.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +62,7 @@ export interface StopAccessLoggingCommandOutput extends StopAccessLoggingOutput,
  * @throws {@link MediaStoreServiceException}
  * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ * @public
  */
 export class StopAccessLoggingCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface DescribeServiceActionExecutionParametersCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Finds the default parameters for a specific self-service action on a specific provisioned product and returns a map of the results to the user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface DescribeServiceActionExecutionParametersCommandOutput
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class DescribeServiceActionExecutionParametersCommand extends $Command
   .classBuilder<

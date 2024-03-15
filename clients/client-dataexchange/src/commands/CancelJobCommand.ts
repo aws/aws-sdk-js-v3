@@ -27,7 +27,6 @@ export interface CancelJobCommandInput extends CancelJobRequest {}
 export interface CancelJobCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation cancels a job. Jobs can be cancelled only when they are in the WAITING state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface CancelJobCommandOutput extends __MetadataBearer {}
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ * @public
  */
 export class CancelJobCommand extends $Command
   .classBuilder<

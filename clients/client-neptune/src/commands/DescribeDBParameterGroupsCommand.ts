@@ -27,7 +27,6 @@ export interface DescribeDBParameterGroupsCommandInput extends DescribeDBParamet
 export interface DescribeDBParameterGroupsCommandOutput extends DBParameterGroupsMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of <code>DBParameterGroup</code> descriptions. If a
  *       <code>DBParameterGroupName</code> is specified, the list will contain only the description of
  *       the specified DB parameter group.</p>
@@ -80,6 +79,7 @@ export interface DescribeDBParameterGroupsCommandOutput extends DBParameterGroup
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class DescribeDBParameterGroupsCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface UpdateSubscriptionsToEventBridgeCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Migrates 10 active and enabled Amazon SNS subscriptions at a time and converts them to corresponding Amazon EventBridge rules.
  *          By default, this operation migrates subscriptions only when all your replication instance versions are 3.4.5 or higher.
  *          If any replication instances are from versions earlier than 3.4.5, the operation raises an error and tells you
@@ -79,6 +78,7 @@ export interface UpdateSubscriptionsToEventBridgeCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class UpdateSubscriptionsToEventBridgeCommand extends $Command
   .classBuilder<

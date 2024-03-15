@@ -27,7 +27,6 @@ export interface PutInventoryCommandInput extends PutInventoryRequest {}
 export interface PutInventoryCommandOutput extends PutInventoryResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Bulk update custom inventory items on one or more managed nodes. The request adds an
  *    inventory item, if it doesn't already exist, or updates an inventory item, if it does
  *    exist.</p>
@@ -131,6 +130,7 @@ export interface PutInventoryCommandOutput extends PutInventoryResult, __Metadat
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class PutInventoryCommand extends $Command
   .classBuilder<

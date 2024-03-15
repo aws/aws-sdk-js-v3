@@ -36,7 +36,6 @@ export interface StartConfigurationPolicyDisassociationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Disassociates a target account, organizational unit, or the root from a specified configuration. When you
  *             disassociate a configuration from its target, the target inherits the configuration of the closest parent. If there’s no
@@ -93,6 +92,7 @@ export interface StartConfigurationPolicyDisassociationCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To disassociate a configuration from a target
  * ```javascript
  * // This operation disassociates a configuration policy or self-managed behavior from the target account, organizational unit, or the root.

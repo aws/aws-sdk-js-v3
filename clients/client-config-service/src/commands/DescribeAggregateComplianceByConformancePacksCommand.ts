@@ -36,7 +36,6 @@ export interface DescribeAggregateComplianceByConformancePacksCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the conformance packs and their associated compliance status with the count of compliant and noncompliant Config rules within each
  * 			conformance pack. Also returns the total rule count which includes compliant rules, noncompliant rules, and rules that cannot be evaluated due to insufficient data.</p>
  *          <note>
@@ -105,6 +104,7 @@ export interface DescribeAggregateComplianceByConformancePacksCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class DescribeAggregateComplianceByConformancePacksCommand extends $Command
   .classBuilder<

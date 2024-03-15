@@ -35,7 +35,6 @@ export interface DescribeDetectMitigationActionsTaskCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Gets information about a Device Defender ML Detect mitigation action.
  *     </p>
@@ -132,6 +131,7 @@ export interface DescribeDetectMitigationActionsTaskCommandOutput
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DescribeDetectMitigationActionsTaskCommand extends $Command
   .classBuilder<

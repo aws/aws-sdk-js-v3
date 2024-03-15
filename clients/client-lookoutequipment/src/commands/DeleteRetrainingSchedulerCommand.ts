@@ -27,7 +27,6 @@ export interface DeleteRetrainingSchedulerCommandInput extends DeleteRetrainingS
 export interface DeleteRetrainingSchedulerCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a retraining scheduler from a model. The retraining scheduler must be in the
  *             <code>STOPPED</code> status. </p>
  * @example
@@ -77,6 +76,7 @@ export interface DeleteRetrainingSchedulerCommandOutput extends __MetadataBearer
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  * @example Deletes a retraining scheduler
  * ```javascript
  * //

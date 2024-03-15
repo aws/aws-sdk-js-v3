@@ -27,7 +27,6 @@ export interface ListDomainNamesCommandInput extends ListDomainNamesRequest {}
 export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the names of all Amazon OpenSearch Service domains owned by the current user in the
  *    active Region.</p>
  * @example
@@ -67,6 +66,7 @@ export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, _
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class ListDomainNamesCommand extends $Command
   .classBuilder<

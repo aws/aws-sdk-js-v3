@@ -32,7 +32,6 @@ export interface GetFirewallRuleGroupAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a firewall rule group association, which enables DNS filtering for a VPC with one rule group. A VPC can have more than one firewall rule group association, and a rule group can be associated with more than one VPC.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface GetFirewallRuleGroupAssociationCommandOutput
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class GetFirewallRuleGroupAssociationCommand extends $Command
   .classBuilder<

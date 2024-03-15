@@ -27,7 +27,6 @@ export interface AddTagsCommandInput extends AddTagsInput {}
 export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds or overwrites one or more tags for the specified SageMaker resource. You can add
  *             tags to notebook instances, training jobs, hyperparameter tuning jobs, batch transform
  *             jobs, models, labeling jobs, work teams, endpoint configurations, and
@@ -91,6 +90,7 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class AddTagsCommand extends $Command
   .classBuilder<

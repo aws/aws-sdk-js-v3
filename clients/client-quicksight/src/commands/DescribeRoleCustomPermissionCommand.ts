@@ -32,7 +32,6 @@ export interface DescribeRoleCustomPermissionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes all custom permissions that are  mapped to a role.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface DescribeRoleCustomPermissionCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DescribeRoleCustomPermissionCommand extends $Command
   .classBuilder<

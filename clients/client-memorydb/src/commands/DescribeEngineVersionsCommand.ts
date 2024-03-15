@@ -27,7 +27,6 @@ export interface DescribeEngineVersionsCommandInput extends DescribeEngineVersio
 export interface DescribeEngineVersionsCommandOutput extends DescribeEngineVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the available Redis engine versions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface DescribeEngineVersionsCommandOutput extends DescribeEngineVersi
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * @public
  */
 export class DescribeEngineVersionsCommand extends $Command
   .classBuilder<

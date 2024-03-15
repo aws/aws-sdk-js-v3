@@ -32,7 +32,6 @@ export interface CancelMulticastGroupSessionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels an existing multicast group session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface CancelMulticastGroupSessionCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class CancelMulticastGroupSessionCommand extends $Command
   .classBuilder<

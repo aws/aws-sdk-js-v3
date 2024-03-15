@@ -27,7 +27,6 @@ export interface DeleteChannelPolicyCommandInput extends DeleteChannelPolicyRequ
 export interface DeleteChannelPolicyCommandOutput extends DeleteChannelPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete a channel policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface DeleteChannelPolicyCommandOutput extends DeleteChannelPolicyRes
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
+ * @public
  */
 export class DeleteChannelPolicyCommand extends $Command
   .classBuilder<

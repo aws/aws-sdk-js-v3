@@ -32,7 +32,6 @@ export interface CreateDBClusterParameterGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new DB cluster parameter group.</p>
  *          <p>Parameters in a DB cluster parameter group apply to all of the instances in a DB
  *       cluster.</p>
@@ -103,6 +102,7 @@ export interface CreateDBClusterParameterGroupCommandOutput
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class CreateDBClusterParameterGroupCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateDefaultMailDomainCommandInput extends UpdateDefaultMailDo
 export interface UpdateDefaultMailDomainCommandOutput extends UpdateDefaultMailDomainResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the default mail domain for an organization. The default mail domain is used by the WorkMail AWS Console to suggest an email address when enabling a mail user. You can only have one default domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface UpdateDefaultMailDomainCommandOutput extends UpdateDefaultMailD
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class UpdateDefaultMailDomainCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeFindingsCommandInput extends DescribeFindingsRequest {}
 export interface DescribeFindingsCommandOutput extends DescribeFindingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the findings that are specified by the ARNs of the findings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -147,6 +146,7 @@ export interface DescribeFindingsCommandOutput extends DescribeFindingsResponse,
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * @public
  * @example Describe findings
  * ```javascript
  * // Describes the findings that are specified by the ARNs of the findings.

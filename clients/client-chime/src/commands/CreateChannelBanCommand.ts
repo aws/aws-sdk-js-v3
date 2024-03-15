@@ -31,9 +31,6 @@ export interface CreateChannelBanCommandInput extends CreateChannelBanRequest {}
 export interface CreateChannelBanCommandOutput extends CreateChannelBanResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by CreateChannelBan in the Amazon Chime SDK Messaging Namespace
- *
  * <p>Permanently bans a member from a channel. Moderators can't add banned members to a
  *          channel. To undo a ban, you first have to <code>DeleteChannelBan</code>, and then
  *             <code>CreateChannelMembership</code>. Bans are cleaned up when you delete users or
@@ -109,6 +106,8 @@ export interface CreateChannelBanCommandOutput extends CreateChannelBanResponse,
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by CreateChannelBan in the Amazon Chime SDK Messaging Namespace
  */
 export class CreateChannelBanCommand extends $Command
   .classBuilder<

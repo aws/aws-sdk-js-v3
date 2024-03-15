@@ -27,7 +27,6 @@ export interface DeleteTriggerCommandInput extends DeleteTriggerRequest {}
 export interface DeleteTriggerCommandOutput extends DeleteTriggerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specified trigger. If the trigger is not found, no
  *       exception is thrown.</p>
  * @example
@@ -68,6 +67,7 @@ export interface DeleteTriggerCommandOutput extends DeleteTriggerResponse, __Met
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class DeleteTriggerCommand extends $Command
   .classBuilder<

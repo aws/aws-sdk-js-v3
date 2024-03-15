@@ -32,7 +32,6 @@ export interface CreateNotificationSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Configure Amazon WorkDocs to use Amazon SNS notifications. The endpoint receives a
  *             confirmation message, and must confirm the subscription.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/workdocs/latest/developerguide/manage-notifications.html">Setting up notifications for an IAM user or role</a> in the <i>Amazon WorkDocs Developer
@@ -83,6 +82,7 @@ export interface CreateNotificationSubscriptionCommandOutput
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class CreateNotificationSubscriptionCommand extends $Command
   .classBuilder<

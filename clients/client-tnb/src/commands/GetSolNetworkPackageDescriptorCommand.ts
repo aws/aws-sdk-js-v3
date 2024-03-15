@@ -40,7 +40,6 @@ export interface GetSolNetworkPackageDescriptorCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the content of the network service descriptor.</p>
  *          <p>A network service descriptor is a .yaml file in a network package that uses the TOSCA standard to describe the network functions you want to deploy and the Amazon Web Services infrastructure you want to deploy the network functions on.</p>
  * @example
@@ -85,6 +84,7 @@ export interface GetSolNetworkPackageDescriptorCommandOutput
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ * @public
  */
 export class GetSolNetworkPackageDescriptorCommand extends $Command
   .classBuilder<

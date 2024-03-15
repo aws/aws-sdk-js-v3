@@ -27,7 +27,6 @@ export interface DeleteEventSubscriptionCommandInput extends DeleteEventSubscrip
 export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscriptionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Amazon DocumentDB event notification subscription.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscri
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class DeleteEventSubscriptionCommand extends $Command
   .classBuilder<

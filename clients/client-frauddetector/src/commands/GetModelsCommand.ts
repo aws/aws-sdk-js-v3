@@ -27,7 +27,6 @@ export interface GetModelsCommandInput extends GetModelsRequest {}
 export interface GetModelsCommandOutput extends GetModelsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets one or more models. Gets all models for the Amazon Web Services account if no model type and no model id provided. Gets all models for the Amazon Web Services account and model type, if the model type is specified but model id is not provided. Gets a specific model if (model type, model id) tuple is specified. </p>
  *          <p>This is a paginated API. If you
  *          provide a null <code>maxResults</code>, this action retrieves a maximum of 10 records
@@ -90,6 +89,7 @@ export interface GetModelsCommandOutput extends GetModelsResult, __MetadataBeare
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class GetModelsCommand extends $Command
   .classBuilder<

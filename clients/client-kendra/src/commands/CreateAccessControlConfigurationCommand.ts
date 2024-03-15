@@ -32,7 +32,6 @@ export interface CreateAccessControlConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an access configuration for your documents. This includes user and group
  *             access information for your documents. This is useful for user context filtering, where
  *             search results are filtered based on the user or their group access to documents.</p>
@@ -131,6 +130,7 @@ export interface CreateAccessControlConfigurationCommandOutput
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class CreateAccessControlConfigurationCommand extends $Command
   .classBuilder<

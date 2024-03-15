@@ -27,7 +27,6 @@ export interface DecreaseReplicaCountCommandInput extends DecreaseReplicaCountMe
 export interface DecreaseReplicaCountCommandOutput extends DecreaseReplicaCountResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Dynamically decreases the number of replicas in a Redis (cluster mode disabled)
  *             replication group or the number of replica nodes in one or more node groups (shards) of
  *             a Redis (cluster mode enabled) replication group. This operation is performed with no
@@ -234,6 +233,7 @@ export interface DecreaseReplicaCountCommandOutput extends DecreaseReplicaCountR
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  */
 export class DecreaseReplicaCountCommand extends $Command
   .classBuilder<

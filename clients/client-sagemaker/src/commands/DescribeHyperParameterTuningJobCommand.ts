@@ -32,7 +32,6 @@ export interface DescribeHyperParameterTuningJobCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a description of a hyperparameter tuning job, depending on the fields
  *             selected. These fields can include the name, Amazon Resource Name (ARN), job status of
  *             your tuning job and more.</p>
@@ -492,6 +491,7 @@ export interface DescribeHyperParameterTuningJobCommandOutput
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeHyperParameterTuningJobCommand extends $Command
   .classBuilder<

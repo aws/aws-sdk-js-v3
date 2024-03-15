@@ -35,7 +35,6 @@ export interface ModifyVerifiedAccessEndpointPolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the specified Amazon Web Services Verified Access endpoint policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface ModifyVerifiedAccessEndpointPolicyCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyVerifiedAccessEndpointPolicyCommand extends $Command
   .classBuilder<

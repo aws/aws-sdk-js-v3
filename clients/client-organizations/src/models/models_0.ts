@@ -8,10 +8,10 @@ import { OrganizationsServiceException as __BaseException } from "./Organization
  */
 export interface AcceptHandshakeRequest {
   /**
-   * @public
    * <p>The unique identifier (ID) of the handshake that you want to accept.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for  handshake ID string requires "h-"
    *     followed by from 8 to 32 lowercase letters or digits.</p>
+   * @public
    */
   HandshakeId: string | undefined;
 }
@@ -48,21 +48,21 @@ export const HandshakePartyType = {
 export type HandshakePartyType = (typeof HandshakePartyType)[keyof typeof HandshakePartyType];
 
 /**
- * @public
  * <p>Identifies a participant in a handshake.</p>
+ * @public
  */
 export interface HandshakeParty {
   /**
-   * @public
    * <p>The unique identifier (ID) for the party.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for  handshake ID string requires "h-"
    *     followed by from 8 to 32 lowercase letters or digits.</p>
+   * @public
    */
   Id: string | undefined;
 
   /**
-   * @public
    * <p>The type of party.</p>
+   * @public
    */
   Type: HandshakePartyType | undefined;
 }
@@ -106,11 +106,11 @@ export const HandshakeState = {
 export type HandshakeState = (typeof HandshakeState)[keyof typeof HandshakeState];
 
 /**
- * @public
  * <p>You don't have permissions to perform the requested operation. The user or role that
  *             is making the request must have at least one IAM permissions policy attached that
  *             grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access Management</a> in the
  *                 <i>IAM User Guide</i>.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -145,11 +145,11 @@ export type AccessDeniedForDependencyExceptionReason =
   (typeof AccessDeniedForDependencyExceptionReason)[keyof typeof AccessDeniedForDependencyExceptionReason];
 
 /**
- * @public
  * <p>The operation that you attempted requires you to have the
  *                 <code>iam:CreateServiceLinkedRole</code> for
  *                 <code>organizations.amazonaws.com</code> permission so that Organizations can create the
  *             required service-linked role. You don't have that permission.</p>
+ * @public
  */
 export class AccessDeniedForDependencyException extends __BaseException {
   readonly name: "AccessDeniedForDependencyException" = "AccessDeniedForDependencyException";
@@ -172,9 +172,9 @@ export class AccessDeniedForDependencyException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Your account isn't a member of an organization. To make this request, you must use the
  *             credentials of an account that belongs to an organization.</p>
+ * @public
  */
 export class AWSOrganizationsNotInUseException extends __BaseException {
   readonly name: "AWSOrganizationsNotInUseException" = "AWSOrganizationsNotInUseException";
@@ -195,9 +195,9 @@ export class AWSOrganizationsNotInUseException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The target of the operation is currently being modified by a different request. Try
  *             again later.</p>
+ * @public
  */
 export class ConcurrentModificationException extends __BaseException {
   readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
@@ -218,9 +218,9 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified handshake is already in the requested state. For example, you can't
  *             accept a handshake that was already accepted.</p>
+ * @public
  */
 export class HandshakeAlreadyInStateException extends __BaseException {
   readonly name: "HandshakeAlreadyInStateException" = "HandshakeAlreadyInStateException";
@@ -264,7 +264,6 @@ export type HandshakeConstraintViolationExceptionReason =
   (typeof HandshakeConstraintViolationExceptionReason)[keyof typeof HandshakeConstraintViolationExceptionReason];
 
 /**
- * @public
  * <p>The requested operation would violate the constraint identified in the reason
  *             code.</p>
  *          <note>
@@ -323,6 +322,7 @@ export type HandshakeConstraintViolationExceptionReason =
  *                     it.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class HandshakeConstraintViolationException extends __BaseException {
   readonly name: "HandshakeConstraintViolationException" = "HandshakeConstraintViolationException";
@@ -345,8 +345,8 @@ export class HandshakeConstraintViolationException extends __BaseException {
 }
 
 /**
- * @public
  * <p>We can't find a handshake with the <code>HandshakeId</code> that you specified.</p>
+ * @public
  */
 export class HandshakeNotFoundException extends __BaseException {
   readonly name: "HandshakeNotFoundException" = "HandshakeNotFoundException";
@@ -367,10 +367,10 @@ export class HandshakeNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>You can't perform the operation on the handshake in its current state. For example,
  *             you can't cancel a handshake that was already accepted or accept a handshake that was
  *             already declined.</p>
+ * @public
  */
 export class InvalidHandshakeTransitionException extends __BaseException {
   readonly name: "InvalidHandshakeTransitionException" = "InvalidHandshakeTransitionException";
@@ -432,7 +432,6 @@ export type InvalidInputExceptionReason =
   (typeof InvalidInputExceptionReason)[keyof typeof InvalidInputExceptionReason];
 
 /**
- * @public
  * <p>The requested operation failed because you provided invalid values for one or more of
  *             the request parameters. This exception includes a reason that contains additional
  *             information about the violated limit:</p>
@@ -535,6 +534,7 @@ export type InvalidInputExceptionReason =
  *                     recognized.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class InvalidInputException extends __BaseException {
   readonly name: "InvalidInputException" = "InvalidInputException";
@@ -557,9 +557,9 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Organizations can't complete your request because of an internal service error. Try again
  *             later.</p>
+ * @public
  */
 export class ServiceException extends __BaseException {
   readonly name: "ServiceException" = "ServiceException";
@@ -580,11 +580,11 @@ export class ServiceException extends __BaseException {
 }
 
 /**
- * @public
  * <p>You have sent too many requests in too short a period of time. The quota helps protect
  *             against denial-of-service attacks. Try again later.</p>
  *          <p>For information about quotas that affect Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html">Quotas for Organizations</a> in the
  *                 <i>Organizations User Guide</i>.</p>
+ * @public
  */
 export class TooManyRequestsException extends __BaseException {
   readonly name: "TooManyRequestsException" = "TooManyRequestsException";
@@ -636,66 +636,66 @@ export const AccountStatus = {
 export type AccountStatus = (typeof AccountStatus)[keyof typeof AccountStatus];
 
 /**
- * @public
  * <p>Contains information about an Amazon Web Services account that is a member of an
  *             organization.</p>
+ * @public
  */
 export interface Account {
   /**
-   * @public
    * <p>The unique identifier (ID) of the account.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an account ID string requires exactly 12
    *     digits.</p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the account.</p>
    *          <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies">ARN
    *     Formats Supported by Organizations</a> in the <i>Amazon Web Services Service Authorization Reference</i>.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>The email address associated with the Amazon Web Services account.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter is a string of characters that represents a
    *             standard internet email address.</p>
+   * @public
    */
   Email?: string;
 
   /**
-   * @public
    * <p>The friendly name of the account.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
    *     that is used to validate this parameter is a string of any of the characters in the ASCII
    *     character range.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The status of the account in the organization.</p>
+   * @public
    */
   Status?: AccountStatus;
 
   /**
-   * @public
    * <p>The method by which the account joined the organization.</p>
+   * @public
    */
   JoinedMethod?: AccountJoinedMethod;
 
   /**
-   * @public
    * <p>The date the account became a part of the organization.</p>
+   * @public
    */
   JoinedTimestamp?: Date;
 }
 
 /**
- * @public
  * <p>You attempted to close an account that is already closed.</p>
+ * @public
  */
 export class AccountAlreadyClosedException extends __BaseException {
   readonly name: "AccountAlreadyClosedException" = "AccountAlreadyClosedException";
@@ -716,9 +716,9 @@ export class AccountAlreadyClosedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified account is already a delegated administrator for this Amazon Web Services
  *             service.</p>
+ * @public
  */
 export class AccountAlreadyRegisteredException extends __BaseException {
   readonly name: "AccountAlreadyRegisteredException" = "AccountAlreadyRegisteredException";
@@ -739,10 +739,10 @@ export class AccountAlreadyRegisteredException extends __BaseException {
 }
 
 /**
- * @public
  * <p> We can't find an Amazon Web Services account with the <code>AccountId</code> that you specified, or
  *             the account whose credentials you used to make this request isn't a member of an
  *             organization.</p>
+ * @public
  */
 export class AccountNotFoundException extends __BaseException {
   readonly name: "AccountNotFoundException" = "AccountNotFoundException";
@@ -763,8 +763,8 @@ export class AccountNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified account is not a delegated administrator for this Amazon Web Services service. </p>
+ * @public
  */
 export class AccountNotRegisteredException extends __BaseException {
   readonly name: "AccountNotRegisteredException" = "AccountNotRegisteredException";
@@ -785,11 +785,11 @@ export class AccountNotRegisteredException extends __BaseException {
 }
 
 /**
- * @public
  * <p>You can't invite an existing account to your organization until you verify that you
  *             own the email address associated with the management account. For more information, see
  *                 <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_create.html#about-email-verification">Email address
  *                 verification</a> in the <i>Organizations User Guide</i>.</p>
+ * @public
  */
 export class AccountOwnerNotVerifiedException extends __BaseException {
   readonly name: "AccountOwnerNotVerifiedException" = "AccountOwnerNotVerifiedException";
@@ -810,9 +810,9 @@ export class AccountOwnerNotVerifiedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>This account is already a member of an organization. An account can belong to only one
  *             organization at a time.</p>
+ * @public
  */
 export class AlreadyInOrganizationException extends __BaseException {
   readonly name: "AlreadyInOrganizationException" = "AlreadyInOrganizationException";
@@ -837,17 +837,16 @@ export class AlreadyInOrganizationException extends __BaseException {
  */
 export interface AttachPolicyRequest {
   /**
-   * @public
    * <p>The unique identifier (ID) of the policy that you want to attach to the target. You
    *             can get the ID for the policy by calling the <a>ListPolicies</a>
    *             operation.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a policy ID string requires "p-" followed
    *     by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).</p>
+   * @public
    */
   PolicyId: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier (ID) of the root, OU, or account that you want to attach the
    *             policy to. You can get the ID by calling the <a>ListRoots</a>, <a>ListOrganizationalUnitsForParent</a>, or <a>ListAccounts</a>
    *             operations.</p>
@@ -870,6 +869,7 @@ export interface AttachPolicyRequest {
    *           "-" dash and from 8 to 32 additional lowercase letters or digits.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   TargetId: string | undefined;
 }
@@ -922,7 +922,6 @@ export type ConstraintViolationExceptionReason =
   (typeof ConstraintViolationExceptionReason)[keyof typeof ConstraintViolationExceptionReason];
 
 /**
- * @public
  * <p>Performing this operation violates a minimum or maximum value limit. For example,
  *             attempting to remove the last service control policy (SCP) from an OU or root, inviting
  *             or creating too many accounts to the organization, or attaching too many policies to an
@@ -1119,6 +1118,7 @@ export type ConstraintViolationExceptionReason =
  *                     indicates that a wait period is required, try again in a few days.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class ConstraintViolationException extends __BaseException {
   readonly name: "ConstraintViolationException" = "ConstraintViolationException";
@@ -1141,8 +1141,8 @@ export class ConstraintViolationException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The selected policy is already attached to the specified target.</p>
+ * @public
  */
 export class DuplicatePolicyAttachmentException extends __BaseException {
   readonly name: "DuplicatePolicyAttachmentException" = "DuplicatePolicyAttachmentException";
@@ -1163,9 +1163,9 @@ export class DuplicatePolicyAttachmentException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Changes to the effective policy are in progress, and its contents can't be returned.
  *             Try the operation again later. </p>
+ * @public
  */
 export class PolicyChangesInProgressException extends __BaseException {
   readonly name: "PolicyChangesInProgressException" = "PolicyChangesInProgressException";
@@ -1186,8 +1186,8 @@ export class PolicyChangesInProgressException extends __BaseException {
 }
 
 /**
- * @public
  * <p>We can't find a policy with the <code>PolicyId</code> that you specified.</p>
+ * @public
  */
 export class PolicyNotFoundException extends __BaseException {
   readonly name: "PolicyNotFoundException" = "PolicyNotFoundException";
@@ -1208,11 +1208,11 @@ export class PolicyNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified policy type isn't currently enabled in this root. You can't attach
  *             policies of the specified type to entities in a root until you enable that type in the
  *             root. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">Enabling all features
  *                 in your organization</a> in the <i>Organizations User Guide</i>.</p>
+ * @public
  */
 export class PolicyTypeNotEnabledException extends __BaseException {
   readonly name: "PolicyTypeNotEnabledException" = "PolicyTypeNotEnabledException";
@@ -1233,9 +1233,9 @@ export class PolicyTypeNotEnabledException extends __BaseException {
 }
 
 /**
- * @public
  * <p>We can't find a root, OU, account, or policy with the <code>TargetId</code> that you
  *             specified.</p>
+ * @public
  */
 export class TargetNotFoundException extends __BaseException {
   readonly name: "TargetNotFoundException" = "TargetNotFoundException";
@@ -1256,8 +1256,8 @@ export class TargetNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>This action isn't available in the current Amazon Web Services Region.</p>
+ * @public
  */
 export class UnsupportedAPIEndpointException extends __BaseException {
   readonly name: "UnsupportedAPIEndpointException" = "UnsupportedAPIEndpointException";
@@ -1282,11 +1282,11 @@ export class UnsupportedAPIEndpointException extends __BaseException {
  */
 export interface CancelHandshakeRequest {
   /**
-   * @public
    * <p>The unique identifier (ID) of the handshake that you want to cancel. You can get the
    *             ID from the <a>ListHandshakesForOrganization</a> operation.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for  handshake ID string requires "h-"
    *     followed by from 8 to 32 lowercase letters or digits.</p>
+   * @public
    */
   HandshakeId: string | undefined;
 }
@@ -1296,17 +1296,17 @@ export interface CancelHandshakeRequest {
  */
 export interface CloseAccountRequest {
   /**
-   * @public
    * <p>Retrieves the Amazon Web Services account Id for the current <code>CloseAccount</code> API request.
    *         </p>
+   * @public
    */
   AccountId: string | undefined;
 }
 
 /**
- * @public
  * <p>The request failed because it conflicts with the current state of the specified
  *             resource.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -1341,7 +1341,6 @@ export const IAMUserAccessToBilling = {
 export type IAMUserAccessToBilling = (typeof IAMUserAccessToBilling)[keyof typeof IAMUserAccessToBilling];
 
 /**
- * @public
  * <p>A custom key-value pair associated with a resource within your organization.</p>
  *          <p>You can attach tags to any of the following organization resources.</p>
  *          <ul>
@@ -1358,18 +1357,19 @@ export type IAMUserAccessToBilling = (typeof IAMUserAccessToBilling)[keyof typeo
  *                <p>Policy</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export interface Tag {
   /**
-   * @public
    * <p>The key identifier, or name, of the tag.</p>
+   * @public
    */
   Key: string | undefined;
 
   /**
-   * @public
    * <p>The string value that's associated with the key of the tag. You can set the value of a
    *             tag to an empty string, but you can't set the value of a tag to null.</p>
+   * @public
    */
   Value: string | undefined;
 }
@@ -1379,7 +1379,6 @@ export interface Tag {
  */
 export interface CreateAccountRequest {
   /**
-   * @public
    * <p>The email address of the owner to assign to the new member account. This email address
    *             must not already be associated with another Amazon Web Services account. You must use a valid email
    *             address to complete account creation.</p>
@@ -1415,17 +1414,17 @@ export interface CreateAccountRequest {
    *          </ul>
    *          <p>You can't access the root user of the account or remove an account that was created
    *             with an invalid email address.</p>
+   * @public
    */
   Email: string | undefined;
 
   /**
-   * @public
    * <p>The friendly name of the member account.</p>
+   * @public
    */
   AccountName: string | undefined;
 
   /**
-   * @public
    * <p>The name of an IAM role that Organizations automatically preconfigures in the new member
    *             account. This role trusts the management account, allowing users in the management
    *             account to assume the role, as permitted by the management account administrator. The
@@ -1451,11 +1450,11 @@ export interface CreateAccountRequest {
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> that
    *     is used to validate this parameter. The pattern can include uppercase
    *     letters, lowercase letters, digits with no spaces, and any of the following characters: =,.@-</p>
+   * @public
    */
   RoleName?: string;
 
   /**
-   * @public
    * <p>If set to <code>ALLOW</code>, the new account enables IAM users to access account
    *             billing information <i>if</i> they have the required permissions. If set
    *             to <code>DENY</code>, only the root user of the new account can access account billing
@@ -1465,11 +1464,11 @@ export interface CreateAccountRequest {
    *          <p>If you don't specify this parameter, the value defaults to <code>ALLOW</code>, and
    *             IAM users and roles with the required permissions can access billing information for
    *             the new account.</p>
+   * @public
    */
   IamUserAccessToBilling?: IAMUserAccessToBilling;
 
   /**
-   * @public
    * <p>A list of tags that you want to attach to the newly created account. For each tag in
    *             the list, you must specify both a tag key and a value. You can set the value to an empty
    *             string, but you can't set it to <code>null</code>. For more information about tagging,
@@ -1480,6 +1479,7 @@ export interface CreateAccountRequest {
    *                 tags for an account, then the entire request fails and the account is not
    *                 created.</p>
    *          </note>
+   * @public
    */
   Tags?: Tag[];
 }
@@ -1527,63 +1527,62 @@ export const CreateAccountState = {
 export type CreateAccountState = (typeof CreateAccountState)[keyof typeof CreateAccountState];
 
 /**
- * @public
  * <p>Contains the status about a <a>CreateAccount</a> or <a>CreateGovCloudAccount</a> request to create an Amazon Web Services account or an Amazon Web Services
  *             GovCloud (US) account in an organization.</p>
+ * @public
  */
 export interface CreateAccountStatus {
   /**
-   * @public
    * <p>The unique identifier (ID) that references this request. You get this value from the
    *             response of the initial <a>CreateAccount</a> request to create the
    *             account.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a create account request ID string
    *     requires "car-" followed by from 8 to 32 lowercase letters or digits.</p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The account name given to the account when it was created.</p>
+   * @public
    */
   AccountName?: string;
 
   /**
-   * @public
    * <p>The status of the asynchronous request to create an Amazon Web Services account.</p>
+   * @public
    */
   State?: CreateAccountState;
 
   /**
-   * @public
    * <p>The date and time that the request was made for the account creation.</p>
+   * @public
    */
   RequestedTimestamp?: Date;
 
   /**
-   * @public
    * <p>The date and time that the account was created and the request completed.</p>
+   * @public
    */
   CompletedTimestamp?: Date;
 
   /**
-   * @public
    * <p>If the account was created successfully, the unique identifier (ID) of the new
    *             account.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an account ID string requires exactly 12
    *     digits.</p>
+   * @public
    */
   AccountId?: string;
 
   /**
-   * @public
    * <p>If the account was created successfully, the unique identifier (ID) of the new account
    *             in the Amazon Web Services GovCloud (US) Region.</p>
+   * @public
    */
   GovCloudAccountId?: string;
 
   /**
-   * @public
    * <p>If the request failed, a description of the reason for the failure.</p>
    *          <ul>
    *             <li>
@@ -1649,6 +1648,7 @@ export interface CreateAccountStatus {
    *                     an unknown issue with business license validation.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   FailureReason?: CreateAccountFailureReason;
 }
@@ -1658,7 +1658,6 @@ export interface CreateAccountStatus {
  */
 export interface CreateAccountResponse {
   /**
-   * @public
    * <p>A structure that contains details about the request to create an account. This
    *             response structure might not be fully populated when you first receive it because
    *             account creation is an asynchronous process. You can pass the returned
@@ -1666,15 +1665,16 @@ export interface CreateAccountResponse {
    *             request at later times. You can also check the CloudTrail log for the
    *                 <code>CreateAccountResult</code> event. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_security_incident-response.html">Logging and monitoring in Organizations</a> in the
    *                 <i>Organizations User Guide</i>.</p>
+   * @public
    */
   CreateAccountStatus?: CreateAccountStatus;
 }
 
 /**
- * @public
  * <p>Organizations couldn't perform the operation because your organization hasn't finished
  *             initializing. This can take up to an hour. Try again later. If after one hour you
  *             continue to receive this error, contact <a href="https://console.aws.amazon.com/support/home#/">Amazon Web Services Support</a>.</p>
+ * @public
  */
 export class FinalizingOrganizationException extends __BaseException {
   readonly name: "FinalizingOrganizationException" = "FinalizingOrganizationException";
@@ -1699,7 +1699,6 @@ export class FinalizingOrganizationException extends __BaseException {
  */
 export interface CreateGovCloudAccountRequest {
   /**
-   * @public
    * <p>Specifies the email address of the owner to assign to the new member account in the
    *             commercial Region. This email address must not already be associated with another
    *             Amazon Web Services account. You must use a valid email address to complete account creation.</p>
@@ -1738,19 +1737,19 @@ export interface CreateGovCloudAccountRequest {
    *                 <code>CreateGovCloudAccount</code>, the request for the email address for the Amazon Web Services
    *             GovCloud (US) account originates from the commercial Region, not from the Amazon Web Services GovCloud
    *             (US) Region.</p>
+   * @public
    */
   Email: string | undefined;
 
   /**
-   * @public
    * <p>The friendly name of the member account. </p>
    *          <p>The account name can consist of only the characters [a-z],[A-Z],[0-9], hyphen (-), or
    *             dot (.) You can't separate characters with a dash (–).</p>
+   * @public
    */
   AccountName: string | undefined;
 
   /**
-   * @public
    * <p>(Optional)</p>
    *          <p>The name of an IAM role that Organizations automatically preconfigures in the new member
    *             accounts in both the Amazon Web Services GovCloud (US) Region and in the commercial Region. This role
@@ -1778,11 +1777,11 @@ export interface CreateGovCloudAccountRequest {
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> that
    *     is used to validate this parameter. The pattern can include uppercase
    *     letters, lowercase letters, digits with no spaces, and any of the following characters: =,.@-</p>
+   * @public
    */
   RoleName?: string;
 
   /**
-   * @public
    * <p>If set to <code>ALLOW</code>, the new linked account in the commercial Region enables
    *             IAM users to access account billing information <i>if</i> they have the
    *             required permissions. If set to <code>DENY</code>, only the root user of the new account
@@ -1792,11 +1791,11 @@ export interface CreateGovCloudAccountRequest {
    *          <p>If you don't specify this parameter, the value defaults to <code>ALLOW</code>, and
    *             IAM users and roles with the required permissions can access billing information for
    *             the new account.</p>
+   * @public
    */
   IamUserAccessToBilling?: IAMUserAccessToBilling;
 
   /**
-   * @public
    * <p>A list of tags that you want to attach to the newly created account. These tags are
    *             attached to the commercial account associated with the GovCloud account, and not to the
    *             GovCloud account itself. To add tags to the actual GovCloud account, call the <a>TagResource</a> operation in the GovCloud region after the new GovCloud
@@ -1810,6 +1809,7 @@ export interface CreateGovCloudAccountRequest {
    *                 tags for an account, then the entire request fails and the account is not
    *                 created.</p>
    *          </note>
+   * @public
    */
   Tags?: Tag[];
 }
@@ -1819,9 +1819,9 @@ export interface CreateGovCloudAccountRequest {
  */
 export interface CreateGovCloudAccountResponse {
   /**
-   * @public
    * <p>Contains the status about a <a>CreateAccount</a> or <a>CreateGovCloudAccount</a> request to create an Amazon Web Services account or an Amazon Web Services
    *             GovCloud (US) account in an organization.</p>
+   * @public
    */
   CreateAccountStatus?: CreateAccountStatus;
 }
@@ -1845,7 +1845,6 @@ export type OrganizationFeatureSet = (typeof OrganizationFeatureSet)[keyof typeo
  */
 export interface CreateOrganizationRequest {
   /**
-   * @public
    * <p>Specifies the feature set supported by the new organization. Each feature set supports
    *             different levels of functionality.</p>
    *          <ul>
@@ -1867,6 +1866,7 @@ export interface CreateOrganizationRequest {
    *                         features</a> in the <i>Organizations User Guide</i>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   FeatureSet?: OrganizationFeatureSet;
 }
@@ -1903,90 +1903,90 @@ export const PolicyType = {
 export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];
 
 /**
- * @public
  * <p>Contains information about a policy type and its status in the associated root.</p>
+ * @public
  */
 export interface PolicyTypeSummary {
   /**
-   * @public
    * <p>The name of the policy type.</p>
+   * @public
    */
   Type?: PolicyType;
 
   /**
-   * @public
    * <p>The status of the policy type as it relates to the associated root. To attach a policy
    *             of the specified type to a root or to an OU or account in that root, it must be
    *             available in the organization and enabled for that root.</p>
+   * @public
    */
   Status?: PolicyTypeStatus;
 }
 
 /**
- * @public
  * <p>Contains details about an organization. An organization is a collection of accounts
  *             that are centrally managed together using consolidated billing, organized hierarchically
  *             with organizational units (OUs), and controlled with policies .</p>
+ * @public
  */
 export interface Organization {
   /**
-   * @public
    * <p>The unique identifier (ID) of an organization.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an organization ID string requires "o-"
    *     followed by from 10 to 32 lowercase letters or digits.</p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of an organization.</p>
    *          <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies">ARN
    *     Formats Supported by Organizations</a> in the <i>Amazon Web Services Service Authorization Reference</i>.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>Specifies the functionality that currently is available to the organization. If set to
    *             "ALL", then all features are enabled and policies can be applied to accounts in the
    *             organization. If set to "CONSOLIDATED_BILLING", then only consolidated billing
    *             functionality is available. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">Enabling all features
    *                 in your organization</a> in the <i>Organizations User Guide</i>.</p>
+   * @public
    */
   FeatureSet?: OrganizationFeatureSet;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the account that is designated as the management
    *             account for the organization.</p>
    *          <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies">ARN
    *     Formats Supported by Organizations</a> in the <i>Amazon Web Services Service Authorization Reference</i>.</p>
+   * @public
    */
   MasterAccountArn?: string;
 
   /**
-   * @public
    * <p>The unique identifier (ID) of the management account of an organization.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an account ID string requires exactly 12
    *     digits.</p>
+   * @public
    */
   MasterAccountId?: string;
 
   /**
-   * @public
    * <p>The email address that is associated with the Amazon Web Services account that is designated as the
    *             management account for the organization.</p>
+   * @public
    */
   MasterAccountEmail?: string;
 
   /**
-   * @public
    * <important>
    *             <p>Do not use. This field is deprecated and doesn't provide complete information
    *                 about the policies in your organization.</p>
    *          </important>
    *          <p>To determine the policies that are enabled and available for use in your organization,
    *             use the <a>ListRoots</a> operation instead.</p>
+   * @public
    */
   AvailablePolicyTypes?: PolicyTypeSummary[];
 }
@@ -1996,8 +1996,8 @@ export interface Organization {
  */
 export interface CreateOrganizationResponse {
   /**
-   * @public
    * <p>A structure that contains details about the newly created organization.</p>
+   * @public
    */
   Organization?: Organization;
 }
@@ -2007,7 +2007,6 @@ export interface CreateOrganizationResponse {
  */
 export interface CreateOrganizationalUnitRequest {
   /**
-   * @public
    * <p>The unique identifier (ID) of the parent root or OU that you want to create the new OU
    *             in.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a parent ID string requires one of the
@@ -2025,17 +2024,17 @@ export interface CreateOrganizationalUnitRequest {
    *           "-" dash and from 8 to 32 additional lowercase letters or digits.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ParentId: string | undefined;
 
   /**
-   * @public
    * <p>The friendly name to assign to the new OU.</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>A list of tags that you want to attach to the newly created OU. For each tag in the
    *             list, you must specify both a tag key and a value. You can set the value to an empty
    *             string, but you can't set it to <code>null</code>. For more information about tagging,
@@ -2045,41 +2044,42 @@ export interface CreateOrganizationalUnitRequest {
    *             <p>If any one of the tags is not valid or if you exceed the allowed number of tags
    *                 for an OU, then the entire request fails and the OU is not created.</p>
    *          </note>
+   * @public
    */
   Tags?: Tag[];
 }
 
 /**
- * @public
  * <p>Contains details about an organizational unit (OU). An OU is a container of Amazon Web Services
  *             accounts within a root of an organization. Policies that are attached to an OU apply to
  *             all accounts contained in that OU and in any child OUs.</p>
+ * @public
  */
 export interface OrganizationalUnit {
   /**
-   * @public
    * <p>The unique identifier (ID) associated with this OU. The ID is unique to the organization only.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an organizational unit ID string requires
    *     "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the
    *     OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters
    *     or digits.</p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of this OU.</p>
    *          <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies">ARN
    *     Formats Supported by Organizations</a> in the <i>Amazon Web Services Service Authorization Reference</i>.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>The friendly name of this OU.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
    *     that is used to validate this parameter is a string of any of the characters in the ASCII
    *     character range.</p>
+   * @public
    */
   Name?: string;
 }
@@ -2089,15 +2089,15 @@ export interface OrganizationalUnit {
  */
 export interface CreateOrganizationalUnitResponse {
   /**
-   * @public
    * <p>A structure that contains details about the newly created OU.</p>
+   * @public
    */
   OrganizationalUnit?: OrganizationalUnit;
 }
 
 /**
- * @public
  * <p>An OU with the same name already exists.</p>
+ * @public
  */
 export class DuplicateOrganizationalUnitException extends __BaseException {
   readonly name: "DuplicateOrganizationalUnitException" = "DuplicateOrganizationalUnitException";
@@ -2118,8 +2118,8 @@ export class DuplicateOrganizationalUnitException extends __BaseException {
 }
 
 /**
- * @public
  * <p>We can't find a root or OU with the <code>ParentId</code> that you specified.</p>
+ * @public
  */
 export class ParentNotFoundException extends __BaseException {
   readonly name: "ParentNotFoundException" = "ParentNotFoundException";
@@ -2144,32 +2144,31 @@ export class ParentNotFoundException extends __BaseException {
  */
 export interface CreatePolicyRequest {
   /**
-   * @public
    * <p>The policy text content to add to the new policy. The text that you supply must adhere
    *             to the rules of the policy type you specify in the <code>Type</code> parameter. </p>
    *          <p>The maximum size of a policy document depends on the policy's type. For more
    *             information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#min-max-values">Maximum and minimum values</a> in the
    *             <i>Organizations User Guide</i>.</p>
+   * @public
    */
   Content: string | undefined;
 
   /**
-   * @public
    * <p>An optional description to assign to the policy.</p>
+   * @public
    */
   Description: string | undefined;
 
   /**
-   * @public
    * <p>The friendly name to assign to the policy.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
    *     that is used to validate this parameter is a string of any of the characters in the ASCII
    *     character range.</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>The type of policy to create. You can specify one of the following values:</p>
    *          <ul>
    *             <li>
@@ -2193,11 +2192,11 @@ export interface CreatePolicyRequest {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   Type: PolicyType | undefined;
 
   /**
-   * @public
    * <p>A list of tags that you want to attach to the newly created policy. For each tag in
    *             the list, you must specify both a tag key and a value. You can set the value to an empty
    *             string, but you can't set it to <code>null</code>. For more information about tagging,
@@ -2207,78 +2206,79 @@ export interface CreatePolicyRequest {
    *             <p>If any one of the tags is not valid or if you exceed the allowed number of tags
    *                 for a policy, then the entire request fails and the policy is not created.</p>
    *          </note>
+   * @public
    */
   Tags?: Tag[];
 }
 
 /**
- * @public
  * <p>Contains information about a policy, but does not include the content. To see the
  *             content of a policy, see <a>DescribePolicy</a>.</p>
+ * @public
  */
 export interface PolicySummary {
   /**
-   * @public
    * <p>The unique identifier (ID) of the policy.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a policy ID string requires "p-" followed
    *     by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).</p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the policy.</p>
    *          <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies">ARN
    *     Formats Supported by Organizations</a> in the <i>Amazon Web Services Service Authorization Reference</i>.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>The friendly name of the policy.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
    *     that is used to validate this parameter is a string of any of the characters in the ASCII
    *     character range.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The description of the policy.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The type of policy.</p>
+   * @public
    */
   Type?: PolicyType;
 
   /**
-   * @public
    * <p>A boolean value that indicates whether the specified policy is an Amazon Web Services managed
    *             policy. If true, then you can attach the policy to roots, OUs, or accounts, but you
    *             cannot edit it.</p>
+   * @public
    */
   AwsManaged?: boolean;
 }
 
 /**
- * @public
  * <p>Contains rules to be applied to the affected accounts. Policies can be attached
  *             directly to accounts, or to roots and OUs to affect all accounts in those
  *             hierarchies.</p>
+ * @public
  */
 export interface Policy {
   /**
-   * @public
    * <p>A structure that contains additional details about the policy.</p>
+   * @public
    */
   PolicySummary?: PolicySummary;
 
   /**
-   * @public
    * <p>The text content of the policy.</p>
+   * @public
    */
   Content?: string;
 }
@@ -2288,15 +2288,15 @@ export interface Policy {
  */
 export interface CreatePolicyResponse {
   /**
-   * @public
    * <p>A structure that contains details about the newly created policy.</p>
+   * @public
    */
   Policy?: Policy;
 }
 
 /**
- * @public
  * <p>A policy with the same name already exists.</p>
+ * @public
  */
 export class DuplicatePolicyException extends __BaseException {
   readonly name: "DuplicatePolicyException" = "DuplicatePolicyException";
@@ -2317,11 +2317,11 @@ export class DuplicatePolicyException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The provided policy document doesn't meet the requirements of the specified policy
  *             type. For example, the syntax might be incorrect. For details about service control
  *             policy syntax, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_syntax.html">SCP syntax</a> in the
  *                 <i>Organizations User Guide</i>.</p>
+ * @public
  */
 export class MalformedPolicyDocumentException extends __BaseException {
   readonly name: "MalformedPolicyDocumentException" = "MalformedPolicyDocumentException";
@@ -2342,11 +2342,11 @@ export class MalformedPolicyDocumentException extends __BaseException {
 }
 
 /**
- * @public
  * <p>You can't use the specified policy type with the feature set currently enabled for
  *             this organization. For example, you can enable SCPs only after you enable all features
  *             in the organization. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html#enable_policies_on_root">Managing
  *                 Organizations policies</a>in the <i>Organizations User Guide</i>.</p>
+ * @public
  */
 export class PolicyTypeNotAvailableForOrganizationException extends __BaseException {
   readonly name: "PolicyTypeNotAvailableForOrganizationException" = "PolicyTypeNotAvailableForOrganizationException";
@@ -2371,19 +2371,19 @@ export class PolicyTypeNotAvailableForOrganizationException extends __BaseExcept
  */
 export interface DeclineHandshakeRequest {
   /**
-   * @public
    * <p>The unique identifier (ID) of the handshake that you want to decline. You can get the
    *             ID from the <a>ListHandshakesForAccount</a> operation.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for  handshake ID string requires "h-"
    *     followed by from 8 to 32 lowercase letters or digits.</p>
+   * @public
    */
   HandshakeId: string | undefined;
 }
 
 /**
- * @public
  * <p>The organization isn't empty. To delete an organization, you must first remove all
  *             accounts except the management account.</p>
+ * @public
  */
 export class OrganizationNotEmptyException extends __BaseException {
   readonly name: "OrganizationNotEmptyException" = "OrganizationNotEmptyException";
@@ -2408,21 +2408,21 @@ export class OrganizationNotEmptyException extends __BaseException {
  */
 export interface DeleteOrganizationalUnitRequest {
   /**
-   * @public
    * <p>The unique identifier (ID) of the organizational unit that you want to delete. You can
    *             get the ID from the <a>ListOrganizationalUnitsForParent</a> operation.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an organizational unit ID string requires
    *     "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the
    *     OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters
    *     or digits.</p>
+   * @public
    */
   OrganizationalUnitId: string | undefined;
 }
 
 /**
- * @public
  * <p>The specified OU is not empty. Move all accounts to another root or to other OUs,
  *             remove all child OUs, and try the operation again.</p>
+ * @public
  */
 export class OrganizationalUnitNotEmptyException extends __BaseException {
   readonly name: "OrganizationalUnitNotEmptyException" = "OrganizationalUnitNotEmptyException";
@@ -2443,9 +2443,9 @@ export class OrganizationalUnitNotEmptyException extends __BaseException {
 }
 
 /**
- * @public
  * <p>We can't find an OU with the <code>OrganizationalUnitId</code> that you
  *             specified.</p>
+ * @public
  */
 export class OrganizationalUnitNotFoundException extends __BaseException {
   readonly name: "OrganizationalUnitNotFoundException" = "OrganizationalUnitNotFoundException";
@@ -2470,20 +2470,20 @@ export class OrganizationalUnitNotFoundException extends __BaseException {
  */
 export interface DeletePolicyRequest {
   /**
-   * @public
    * <p>The unique identifier (ID) of the policy that you want to delete. You can get the ID
    *             from the <a>ListPolicies</a> or <a>ListPoliciesForTarget</a>
    *             operations.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a policy ID string requires "p-" followed
    *     by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).</p>
+   * @public
    */
   PolicyId: string | undefined;
 }
 
 /**
- * @public
  * <p>The policy is attached to one or more entities. You must detach it from all roots,
  *             OUs, and accounts before performing this operation.</p>
+ * @public
  */
 export class PolicyInUseException extends __BaseException {
   readonly name: "PolicyInUseException" = "PolicyInUseException";
@@ -2504,8 +2504,8 @@ export class PolicyInUseException extends __BaseException {
 }
 
 /**
- * @public
  * <p>We can't find a resource policy request with the parameter that you specified.</p>
+ * @public
  */
 export class ResourcePolicyNotFoundException extends __BaseException {
   readonly name: "ResourcePolicyNotFoundException" = "ResourcePolicyNotFoundException";
@@ -2530,20 +2530,20 @@ export class ResourcePolicyNotFoundException extends __BaseException {
  */
 export interface DeregisterDelegatedAdministratorRequest {
   /**
-   * @public
    * <p>The account ID number of the member account in the organization that you want to
    *             deregister as a delegated administrator.</p>
+   * @public
    */
   AccountId: string | undefined;
 
   /**
-   * @public
    * <p>The service principal name of an Amazon Web Services service for which the account is a delegated
    *             administrator.</p>
    *          <p>Delegated administrator privileges are revoked for only the specified Amazon Web Services service
    *             from the member account. If the specified service is the only service for which the
    *             member account is a delegated administrator, the operation also revokes Organizations read action
    *             permissions.</p>
+   * @public
    */
   ServicePrincipal: string | undefined;
 }
@@ -2553,11 +2553,11 @@ export interface DeregisterDelegatedAdministratorRequest {
  */
 export interface DescribeAccountRequest {
   /**
-   * @public
    * <p>The unique identifier (ID) of the Amazon Web Services account that you want information about. You
    *             can get the ID from the <a>ListAccounts</a> or <a>ListAccountsForParent</a> operations.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an account ID string requires exactly 12
    *     digits.</p>
+   * @public
    */
   AccountId: string | undefined;
 }
@@ -2567,16 +2567,16 @@ export interface DescribeAccountRequest {
  */
 export interface DescribeAccountResponse {
   /**
-   * @public
    * <p>A structure that contains information about the requested account.</p>
+   * @public
    */
   Account?: Account;
 }
 
 /**
- * @public
  * <p>We can't find an create account request with the <code>CreateAccountRequestId</code>
  *             that you specified.</p>
+ * @public
  */
 export class CreateAccountStatusNotFoundException extends __BaseException {
   readonly name: "CreateAccountStatusNotFoundException" = "CreateAccountStatusNotFoundException";
@@ -2601,12 +2601,12 @@ export class CreateAccountStatusNotFoundException extends __BaseException {
  */
 export interface DescribeCreateAccountStatusRequest {
   /**
-   * @public
    * <p>Specifies the <code>Id</code> value that uniquely identifies the
    *                 <code>CreateAccount</code> request. You can get the value from the
    *                 <code>CreateAccountStatus.Id</code> response in an earlier <a>CreateAccount</a> request, or from the <a>ListCreateAccountStatus</a> operation.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a create account request ID string
    *     requires "car-" followed by from 8 to 32 lowercase letters or digits.</p>
+   * @public
    */
   CreateAccountRequestId: string | undefined;
 }
@@ -2616,8 +2616,8 @@ export interface DescribeCreateAccountStatusRequest {
  */
 export interface DescribeCreateAccountStatusResponse {
   /**
-   * @public
    * <p>A structure that contains the current status of an account creation request.</p>
+   * @public
    */
   CreateAccountStatus?: CreateAccountStatus;
 }
@@ -2642,7 +2642,6 @@ export type EffectivePolicyType = (typeof EffectivePolicyType)[keyof typeof Effe
  */
 export interface DescribeEffectivePolicyRequest {
   /**
-   * @public
    * <p>The type of policy that you want information about. You can specify one of the
    *             following values:</p>
    *          <ul>
@@ -2662,46 +2661,47 @@ export interface DescribeEffectivePolicyRequest {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   PolicyType: EffectivePolicyType | undefined;
 
   /**
-   * @public
    * <p>When you're signed in as the management account, specify the ID of the account that
    *             you want details about. Specifying an organization root or organizational unit (OU) as
    *             the target is not supported.</p>
+   * @public
    */
   TargetId?: string;
 }
 
 /**
- * @public
  * <p>Contains rules to be applied to the affected accounts. The effective policy is the
  *             aggregation of any policies the account inherits, plus any policy directly attached to
  *             the account.</p>
+ * @public
  */
 export interface EffectivePolicy {
   /**
-   * @public
    * <p>The text content of the policy.</p>
+   * @public
    */
   PolicyContent?: string;
 
   /**
-   * @public
    * <p>The time of the last update to this policy.</p>
+   * @public
    */
   LastUpdatedTimestamp?: Date;
 
   /**
-   * @public
    * <p>The account ID of the policy target. </p>
+   * @public
    */
   TargetId?: string;
 
   /**
-   * @public
    * <p>The policy type.</p>
+   * @public
    */
   PolicyType?: EffectivePolicyType;
 }
@@ -2711,18 +2711,18 @@ export interface EffectivePolicy {
  */
 export interface DescribeEffectivePolicyResponse {
   /**
-   * @public
    * <p>The contents of the effective policy.</p>
+   * @public
    */
   EffectivePolicy?: EffectivePolicy;
 }
 
 /**
- * @public
  * <p>If you ran this action on the management account, this policy type is not enabled. If
  *             you ran the action on a member account, the account doesn't have an effective policy of
  *             this type. Contact the administrator of your organization about attaching a policy of
  *             this type to the account. </p>
+ * @public
  */
 export class EffectivePolicyNotFoundException extends __BaseException {
   readonly name: "EffectivePolicyNotFoundException" = "EffectivePolicyNotFoundException";
@@ -2747,12 +2747,12 @@ export class EffectivePolicyNotFoundException extends __BaseException {
  */
 export interface DescribeHandshakeRequest {
   /**
-   * @public
    * <p>The unique identifier (ID) of the handshake that you want information about. You can
    *             get the ID from the original call to <a>InviteAccountToOrganization</a>, or
    *             from a call to <a>ListHandshakesForAccount</a> or <a>ListHandshakesForOrganization</a>.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for  handshake ID string requires "h-"
    *     followed by from 8 to 32 lowercase letters or digits.</p>
+   * @public
    */
   HandshakeId: string | undefined;
 }
@@ -2762,7 +2762,6 @@ export interface DescribeHandshakeRequest {
  */
 export interface DescribeOrganizationResponse {
   /**
-   * @public
    * <p>A structure that contains information about the organization.</p>
    *          <important>
    *             <p>The <code>AvailablePolicyTypes</code> part of the response is deprecated, and you
@@ -2772,6 +2771,7 @@ export interface DescribeOrganizationResponse {
    *                   <a>ListRoots</a>
    *                </code> operation.</p>
    *          </important>
+   * @public
    */
   Organization?: Organization;
 }
@@ -2781,7 +2781,6 @@ export interface DescribeOrganizationResponse {
  */
 export interface DescribeOrganizationalUnitRequest {
   /**
-   * @public
    * <p>The unique identifier (ID) of the organizational unit that you want details about. You
    *             can get the ID from the <a>ListOrganizationalUnitsForParent</a>
    *             operation.</p>
@@ -2789,6 +2788,7 @@ export interface DescribeOrganizationalUnitRequest {
    *     "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the
    *     OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters
    *     or digits.</p>
+   * @public
    */
   OrganizationalUnitId: string | undefined;
 }
@@ -2798,8 +2798,8 @@ export interface DescribeOrganizationalUnitRequest {
  */
 export interface DescribeOrganizationalUnitResponse {
   /**
-   * @public
    * <p>A structure that contains details about the specified OU.</p>
+   * @public
    */
   OrganizationalUnit?: OrganizationalUnit;
 }
@@ -2809,12 +2809,12 @@ export interface DescribeOrganizationalUnitResponse {
  */
 export interface DescribePolicyRequest {
   /**
-   * @public
    * <p>The unique identifier (ID) of the policy that you want details about. You can get the
    *             ID from the <a>ListPolicies</a> or <a>ListPoliciesForTarget</a>
    *             operations.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a policy ID string requires "p-" followed
    *     by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).</p>
+   * @public
    */
   PolicyId: string | undefined;
 }
@@ -2824,44 +2824,44 @@ export interface DescribePolicyRequest {
  */
 export interface DescribePolicyResponse {
   /**
-   * @public
    * <p>A structure that contains details about the specified policy.</p>
+   * @public
    */
   Policy?: Policy;
 }
 
 /**
- * @public
  * <p>A structure that contains resource policy ID and Amazon Resource Name (ARN).</p>
+ * @public
  */
 export interface ResourcePolicySummary {
   /**
-   * @public
    * <p>The unique identifier (ID) of the resource policy.</p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resource policy.</p>
+   * @public
    */
   Arn?: string;
 }
 
 /**
- * @public
  * <p>A structure that contains details about a resource policy.</p>
+ * @public
  */
 export interface ResourcePolicy {
   /**
-   * @public
    * <p>A structure that contains resource policy ID and Amazon Resource Name (ARN).</p>
+   * @public
    */
   ResourcePolicySummary?: ResourcePolicySummary;
 
   /**
-   * @public
    * <p>The policy text of the resource policy.</p>
+   * @public
    */
   Content?: string;
 }
@@ -2871,8 +2871,8 @@ export interface ResourcePolicy {
  */
 export interface DescribeResourcePolicyResponse {
   /**
-   * @public
    * <p>A structure that contains details about the resource policy.</p>
+   * @public
    */
   ResourcePolicy?: ResourcePolicy;
 }
@@ -2882,17 +2882,16 @@ export interface DescribeResourcePolicyResponse {
  */
 export interface DetachPolicyRequest {
   /**
-   * @public
    * <p>The unique identifier (ID) of the policy you want to detach. You can get the ID from
    *             the <a>ListPolicies</a> or <a>ListPoliciesForTarget</a>
    *             operations.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a policy ID string requires "p-" followed
    *     by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).</p>
+   * @public
    */
   PolicyId: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier (ID) of the root, OU, or account that you want to detach the
    *             policy from. You can get the ID from the <a>ListRoots</a>, <a>ListOrganizationalUnitsForParent</a>, or <a>ListAccounts</a>
    *             operations.</p>
@@ -2915,13 +2914,14 @@ export interface DetachPolicyRequest {
    *           "-" dash and from 8 to 32 additional lowercase letters or digits.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   TargetId: string | undefined;
 }
 
 /**
- * @public
  * <p>The policy isn't attached to the specified target in the specified root.</p>
+ * @public
  */
 export class PolicyNotAttachedException extends __BaseException {
   readonly name: "PolicyNotAttachedException" = "PolicyNotAttachedException";
@@ -2946,11 +2946,11 @@ export class PolicyNotAttachedException extends __BaseException {
  */
 export interface DisableAWSServiceAccessRequest {
   /**
-   * @public
    * <p>The service principal name of the Amazon Web Services service for which you want to disable
    *             integration with your organization. This is typically in the form of a URL, such as
    *                     <code>
    *                <i>service-abbreviation</i>.amazonaws.com</code>.</p>
+   * @public
    */
   ServicePrincipal: string | undefined;
 }
@@ -2960,16 +2960,15 @@ export interface DisableAWSServiceAccessRequest {
  */
 export interface DisablePolicyTypeRequest {
   /**
-   * @public
    * <p>The unique identifier (ID) of the root in which you want to disable a policy type. You
    *             can get the ID from the <a>ListRoots</a> operation.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a root ID string requires "r-" followed by
    *     from 4 to 32 lowercase letters or digits.</p>
+   * @public
    */
   RootId: string | undefined;
 
   /**
-   * @public
    * <p>The policy type that you want to disable in this root. You can specify one of the
    *             following values:</p>
    *          <ul>
@@ -2994,45 +2993,45 @@ export interface DisablePolicyTypeRequest {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   PolicyType: PolicyType | undefined;
 }
 
 /**
- * @public
  * <p>Contains details about a root. A root is a top-level parent node in the hierarchy of
  *             an organization that can contain organizational units (OUs) and accounts.
  *             The root contains every Amazon Web Services account in the
  *             organization.</p>
+ * @public
  */
 export interface Root {
   /**
-   * @public
    * <p>The unique identifier (ID) for the root. The ID is unique to the organization only.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a root ID string requires "r-" followed by
    *     from 4 to 32 lowercase letters or digits.</p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the root.</p>
    *          <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies">ARN
    *     Formats Supported by Organizations</a> in the <i>Amazon Web Services Service Authorization Reference</i>.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>The friendly name of the root.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
    *     that is used to validate this parameter is a string of any of the characters in the ASCII
    *     character range.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The types of policies that are currently enabled for the root and therefore can be
    *             attached to the root or to its OUs or accounts.</p>
    *          <note>
@@ -3040,6 +3039,7 @@ export interface Root {
    *                 separately enable and disable them at the root level by using <a>EnablePolicyType</a> and <a>DisablePolicyType</a>. Use <a>DescribeOrganization</a> to see the availability of the policy types in
    *                 that organization.</p>
    *          </note>
+   * @public
    */
   PolicyTypes?: PolicyTypeSummary[];
 }
@@ -3049,15 +3049,15 @@ export interface Root {
  */
 export interface DisablePolicyTypeResponse {
   /**
-   * @public
    * <p>A structure that shows the root with the updated list of enabled policy types.</p>
+   * @public
    */
   Root?: Root;
 }
 
 /**
- * @public
  * <p>We can't find a root with the <code>RootId</code> that you specified.</p>
+ * @public
  */
 export class RootNotFoundException extends __BaseException {
   readonly name: "RootNotFoundException" = "RootNotFoundException";
@@ -3087,11 +3087,11 @@ export interface EnableAllFeaturesRequest {}
  */
 export interface EnableAWSServiceAccessRequest {
   /**
-   * @public
    * <p>The service principal name of the Amazon Web Services service for which you want to enable
    *             integration with your organization. This is typically in the form of a URL, such as
    *                     <code>
    *                <i>service-abbreviation</i>.amazonaws.com</code>.</p>
+   * @public
    */
   ServicePrincipal: string | undefined;
 }
@@ -3101,16 +3101,15 @@ export interface EnableAWSServiceAccessRequest {
  */
 export interface EnablePolicyTypeRequest {
   /**
-   * @public
    * <p>The unique identifier (ID) of the root in which you want to enable a policy type. You
    *             can get the ID from the <a>ListRoots</a> operation.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a root ID string requires "r-" followed by
    *     from 4 to 32 lowercase letters or digits.</p>
+   * @public
    */
   RootId: string | undefined;
 
   /**
-   * @public
    * <p>The policy type that you want to enable. You can specify one of the following
    *             values:</p>
    *          <ul>
@@ -3135,6 +3134,7 @@ export interface EnablePolicyTypeRequest {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   PolicyType: PolicyType | undefined;
 }
@@ -3144,15 +3144,15 @@ export interface EnablePolicyTypeRequest {
  */
 export interface EnablePolicyTypeResponse {
   /**
-   * @public
    * <p>A structure that shows the root with the updated list of enabled policy types.</p>
+   * @public
    */
   Root?: Root;
 }
 
 /**
- * @public
  * <p>The specified policy type is already enabled in the specified root.</p>
+ * @public
  */
 export class PolicyTypeAlreadyEnabledException extends __BaseException {
   readonly name: "PolicyTypeAlreadyEnabledException" = "PolicyTypeAlreadyEnabledException";
@@ -3173,12 +3173,12 @@ export class PolicyTypeAlreadyEnabledException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A handshake with the same action and target already exists. For example, if you
  *             invited an account to join your organization, the invited account might already have a
  *             pending invitation from this organization. If you intend to resend an invitation to an
  *             account, ensure that existing handshakes that might be considered duplicates are
  *             canceled or declined.</p>
+ * @public
  */
 export class DuplicateHandshakeException extends __BaseException {
   readonly name: "DuplicateHandshakeException" = "DuplicateHandshakeException";
@@ -3203,7 +3203,6 @@ export class DuplicateHandshakeException extends __BaseException {
  */
 export interface InviteAccountToOrganizationRequest {
   /**
-   * @public
    * <p>The identifier (ID) of the Amazon Web Services account that you want to invite to join your
    *             organization. This is a JSON object that contains the following elements:</p>
    *          <p>
@@ -3223,18 +3222,18 @@ export interface InviteAccountToOrganizationRequest {
    *          <p>
    *             <code>--target Id=diego@example.com,Type=EMAIL</code>
    *          </p>
+   * @public
    */
   Target: HandshakeParty | undefined;
 
   /**
-   * @public
    * <p>Additional information that you want to include in the generated email to the
    *             recipient account owner.</p>
+   * @public
    */
   Notes?: string;
 
   /**
-   * @public
    * <p>A list of tags that you want to attach to the account when it becomes a member of the
    *             organization. For each tag in the list, you must specify both a tag key and a value. You
    *             can set the value to an empty string, but you can't set it to <code>null</code>. For
@@ -3255,15 +3254,16 @@ export interface InviteAccountToOrganizationRequest {
    *             <p>If any one of the tags is not valid or if you exceed the allowed number of tags
    *                 for an account, then the entire request fails and invitations are not sent.</p>
    *          </note>
+   * @public
    */
   Tags?: Tag[];
 }
 
 /**
- * @public
  * <p>You can't remove a management account from an organization. If you want the management
  *             account to become a member account in another organization, you must first delete the
  *             current organization of the management account.</p>
+ * @public
  */
 export class MasterCannotLeaveOrganizationException extends __BaseException {
   readonly name: "MasterCannotLeaveOrganizationException" = "MasterCannotLeaveOrganizationException";
@@ -3288,17 +3288,16 @@ export class MasterCannotLeaveOrganizationException extends __BaseException {
  */
 export interface ListAccountsRequest {
   /**
-   * @public
    * <p>The parameter for receiving additional results if you receive a
    *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
    *     indicates that more output is available. Set this parameter to the value of the previous
    *     call's <code>NextToken</code> response to indicate where the output should continue
    *     from.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The total number of results that you want included on each page of the
    *     response. If you do not include this parameter, it defaults to a value that is specific to the
    *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
@@ -3307,6 +3306,7 @@ export interface ListAccountsRequest {
    *     of the results. Note that Organizations might return fewer results than the maximum even when there are
    *     more results available. You should check <code>NextToken</code> after every operation to ensure
    *     that you receive all of the results.</p>
+   * @public
    */
   MaxResults?: number;
 }
@@ -3316,17 +3316,17 @@ export interface ListAccountsRequest {
  */
 export interface ListAccountsResponse {
   /**
-   * @public
    * <p>A list of objects in the organization.</p>
+   * @public
    */
   Accounts?: Account[];
 
   /**
-   * @public
    * <p>If present, indicates that more output is available than is
    *     included in the current response. Use this value in the <code>NextToken</code> request parameter
    *     in a subsequent call to the operation to get the next part of the output. You should repeat this
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -3336,24 +3336,23 @@ export interface ListAccountsResponse {
  */
 export interface ListAccountsForParentRequest {
   /**
-   * @public
    * <p>The unique identifier (ID) for the parent root or organization unit (OU) whose
    *             accounts you want to list.</p>
+   * @public
    */
   ParentId: string | undefined;
 
   /**
-   * @public
    * <p>The parameter for receiving additional results if you receive a
    *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
    *     indicates that more output is available. Set this parameter to the value of the previous
    *     call's <code>NextToken</code> response to indicate where the output should continue
    *     from.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The total number of results that you want included on each page of the
    *     response. If you do not include this parameter, it defaults to a value that is specific to the
    *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
@@ -3362,6 +3361,7 @@ export interface ListAccountsForParentRequest {
    *     of the results. Note that Organizations might return fewer results than the maximum even when there are
    *     more results available. You should check <code>NextToken</code> after every operation to ensure
    *     that you receive all of the results.</p>
+   * @public
    */
   MaxResults?: number;
 }
@@ -3371,17 +3371,17 @@ export interface ListAccountsForParentRequest {
  */
 export interface ListAccountsForParentResponse {
   /**
-   * @public
    * <p>A list of the accounts in the specified root or OU.</p>
+   * @public
    */
   Accounts?: Account[];
 
   /**
-   * @public
    * <p>If present, indicates that more output is available than is
    *     included in the current response. Use this value in the <code>NextToken</code> request parameter
    *     in a subsequent call to the operation to get the next part of the output. You should repeat this
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -3391,17 +3391,16 @@ export interface ListAccountsForParentResponse {
  */
 export interface ListAWSServiceAccessForOrganizationRequest {
   /**
-   * @public
    * <p>The parameter for receiving additional results if you receive a
    *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
    *     indicates that more output is available. Set this parameter to the value of the previous
    *     call's <code>NextToken</code> response to indicate where the output should continue
    *     from.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The total number of results that you want included on each page of the
    *     response. If you do not include this parameter, it defaults to a value that is specific to the
    *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
@@ -3410,27 +3409,28 @@ export interface ListAWSServiceAccessForOrganizationRequest {
    *     of the results. Note that Organizations might return fewer results than the maximum even when there are
    *     more results available. You should check <code>NextToken</code> after every operation to ensure
    *     that you receive all of the results.</p>
+   * @public
    */
   MaxResults?: number;
 }
 
 /**
- * @public
  * <p>A structure that contains details of a service principal that represents an Amazon Web Services
  *             service that is enabled to integrate with Organizations.</p>
+ * @public
  */
 export interface EnabledServicePrincipal {
   /**
-   * @public
    * <p>The name of the service principal. This is typically in the form of a URL, such as:
    *                     <code>
    *                <i>servicename</i>.amazonaws.com</code>.</p>
+   * @public
    */
   ServicePrincipal?: string;
 
   /**
-   * @public
    * <p>The date that the service principal was enabled for integration with Organizations.</p>
+   * @public
    */
   DateEnabled?: Date;
 }
@@ -3440,19 +3440,19 @@ export interface EnabledServicePrincipal {
  */
 export interface ListAWSServiceAccessForOrganizationResponse {
   /**
-   * @public
    * <p>A list of the service principals for the services that are enabled to integrate with
    *             your organization. Each principal is a structure that includes the name and the date
    *             that it was enabled for integration with Organizations.</p>
+   * @public
    */
   EnabledServicePrincipals?: EnabledServicePrincipal[];
 
   /**
-   * @public
    * <p>If present, indicates that more output is available than is
    *     included in the current response. Use this value in the <code>NextToken</code> request parameter
    *     in a subsequent call to the operation to get the next part of the output. You should repeat this
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -3476,7 +3476,6 @@ export type ChildType = (typeof ChildType)[keyof typeof ChildType];
  */
 export interface ListChildrenRequest {
   /**
-   * @public
    * <p>The unique identifier (ID) for the parent root or OU whose children you want to
    *             list.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a parent ID string requires one of the
@@ -3494,27 +3493,27 @@ export interface ListChildrenRequest {
    *           "-" dash and from 8 to 32 additional lowercase letters or digits.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ParentId: string | undefined;
 
   /**
-   * @public
    * <p>Filters the output to include only the specified child type.</p>
+   * @public
    */
   ChildType: ChildType | undefined;
 
   /**
-   * @public
    * <p>The parameter for receiving additional results if you receive a
    *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
    *     indicates that more output is available. Set this parameter to the value of the previous
    *     call's <code>NextToken</code> response to indicate where the output should continue
    *     from.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The total number of results that you want included on each page of the
    *     response. If you do not include this parameter, it defaults to a value that is specific to the
    *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
@@ -3523,17 +3522,17 @@ export interface ListChildrenRequest {
    *     of the results. Note that Organizations might return fewer results than the maximum even when there are
    *     more results available. You should check <code>NextToken</code> after every operation to ensure
    *     that you receive all of the results.</p>
+   * @public
    */
   MaxResults?: number;
 }
 
 /**
- * @public
  * <p>Contains a list of child entities, either OUs or accounts.</p>
+ * @public
  */
 export interface Child {
   /**
-   * @public
    * <p>The unique identifier (ID) of this child entity.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a child ID string requires one of the
    *     following:</p>
@@ -3550,12 +3549,13 @@ export interface Child {
    *           lowercase letters or digits.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The type of this child entity.</p>
+   * @public
    */
   Type?: ChildType;
 }
@@ -3565,17 +3565,17 @@ export interface Child {
  */
 export interface ListChildrenResponse {
   /**
-   * @public
    * <p>The list of children of the specified parent container.</p>
+   * @public
    */
   Children?: Child[];
 
   /**
-   * @public
    * <p>If present, indicates that more output is available than is
    *     included in the current response. Use this value in the <code>NextToken</code> request parameter
    *     in a subsequent call to the operation to get the next part of the output. You should repeat this
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -3585,24 +3585,23 @@ export interface ListChildrenResponse {
  */
 export interface ListCreateAccountStatusRequest {
   /**
-   * @public
    * <p>A list of one or more states that you want included in the response. If this parameter
    *             isn't present, all requests are included in the response.</p>
+   * @public
    */
   States?: CreateAccountState[];
 
   /**
-   * @public
    * <p>The parameter for receiving additional results if you receive a
    *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
    *     indicates that more output is available. Set this parameter to the value of the previous
    *     call's <code>NextToken</code> response to indicate where the output should continue
    *     from.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The total number of results that you want included on each page of the
    *     response. If you do not include this parameter, it defaults to a value that is specific to the
    *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
@@ -3611,6 +3610,7 @@ export interface ListCreateAccountStatusRequest {
    *     of the results. Note that Organizations might return fewer results than the maximum even when there are
    *     more results available. You should check <code>NextToken</code> after every operation to ensure
    *     that you receive all of the results.</p>
+   * @public
    */
   MaxResults?: number;
 }
@@ -3620,19 +3620,19 @@ export interface ListCreateAccountStatusRequest {
  */
 export interface ListCreateAccountStatusResponse {
   /**
-   * @public
    * <p>A list of objects with details about the requests. Certain elements, such as the
    *             accountId number, are present in the output only after the account has been successfully
    *             created.</p>
+   * @public
    */
   CreateAccountStatuses?: CreateAccountStatus[];
 
   /**
-   * @public
    * <p>If present, indicates that more output is available than is
    *     included in the current response. Use this value in the <code>NextToken</code> request parameter
    *     in a subsequent call to the operation to get the next part of the output. You should repeat this
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -3642,26 +3642,25 @@ export interface ListCreateAccountStatusResponse {
  */
 export interface ListDelegatedAdministratorsRequest {
   /**
-   * @public
    * <p>Specifies a service principal name. If specified, then the operation lists the
    *             delegated administrators only for the specified service.</p>
    *          <p>If you don't specify a service principal, the operation lists all delegated
    *             administrators for all services in your organization.</p>
+   * @public
    */
   ServicePrincipal?: string;
 
   /**
-   * @public
    * <p>The parameter for receiving additional results if you receive a
    *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
    *     indicates that more output is available. Set this parameter to the value of the previous
    *     call's <code>NextToken</code> response to indicate where the output should continue
    *     from.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The total number of results that you want included on each page of the
    *     response. If you do not include this parameter, it defaults to a value that is specific to the
    *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
@@ -3670,63 +3669,64 @@ export interface ListDelegatedAdministratorsRequest {
    *     of the results. Note that Organizations might return fewer results than the maximum even when there are
    *     more results available. You should check <code>NextToken</code> after every operation to ensure
    *     that you receive all of the results.</p>
+   * @public
    */
   MaxResults?: number;
 }
 
 /**
- * @public
  * <p>Contains information about the delegated administrator.</p>
+ * @public
  */
 export interface DelegatedAdministrator {
   /**
-   * @public
    * <p>The unique identifier (ID) of the delegated administrator's account.</p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the delegated administrator's account.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>The email address that is associated with the delegated administrator's Amazon Web Services
    *             account.</p>
+   * @public
    */
   Email?: string;
 
   /**
-   * @public
    * <p>The friendly name of the delegated administrator's account.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The status of the delegated administrator's account in the organization.</p>
+   * @public
    */
   Status?: AccountStatus;
 
   /**
-   * @public
    * <p>The method by which the delegated administrator's account joined the
    *             organization.</p>
+   * @public
    */
   JoinedMethod?: AccountJoinedMethod;
 
   /**
-   * @public
    * <p>The date when the delegated administrator's account became a part of the
    *             organization.</p>
+   * @public
    */
   JoinedTimestamp?: Date;
 
   /**
-   * @public
    * <p>The date when the account was made a delegated administrator.</p>
+   * @public
    */
   DelegationEnabledDate?: Date;
 }
@@ -3736,17 +3736,17 @@ export interface DelegatedAdministrator {
  */
 export interface ListDelegatedAdministratorsResponse {
   /**
-   * @public
    * <p>The list of delegated administrators in your organization.</p>
+   * @public
    */
   DelegatedAdministrators?: DelegatedAdministrator[];
 
   /**
-   * @public
    * <p>If present, indicates that more output is available than is
    *     included in the current response. Use this value in the <code>NextToken</code> request parameter
    *     in a subsequent call to the operation to get the next part of the output. You should repeat this
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -3756,23 +3756,22 @@ export interface ListDelegatedAdministratorsResponse {
  */
 export interface ListDelegatedServicesForAccountRequest {
   /**
-   * @public
    * <p>The account ID number of a delegated administrator account in the organization.</p>
+   * @public
    */
   AccountId: string | undefined;
 
   /**
-   * @public
    * <p>The parameter for receiving additional results if you receive a
    *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
    *     indicates that more output is available. Set this parameter to the value of the previous
    *     call's <code>NextToken</code> response to indicate where the output should continue
    *     from.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The total number of results that you want included on each page of the
    *     response. If you do not include this parameter, it defaults to a value that is specific to the
    *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
@@ -3781,28 +3780,29 @@ export interface ListDelegatedServicesForAccountRequest {
    *     of the results. Note that Organizations might return fewer results than the maximum even when there are
    *     more results available. You should check <code>NextToken</code> after every operation to ensure
    *     that you receive all of the results.</p>
+   * @public
    */
   MaxResults?: number;
 }
 
 /**
- * @public
  * <p>Contains information about the Amazon Web Services service for which the account is a delegated
  *             administrator.</p>
+ * @public
  */
 export interface DelegatedService {
   /**
-   * @public
    * <p>The name of an Amazon Web Services service that can request an operation for the specified service.
    *             This is typically in the form of a URL, such as:
    *                 <code>
    *                <i>servicename</i>.amazonaws.com</code>.</p>
+   * @public
    */
   ServicePrincipal?: string;
 
   /**
-   * @public
    * <p>The date that the account became a delegated administrator for this service. </p>
+   * @public
    */
   DelegationEnabledDate?: Date;
 }
@@ -3812,43 +3812,43 @@ export interface DelegatedService {
  */
 export interface ListDelegatedServicesForAccountResponse {
   /**
-   * @public
    * <p>The services for which the account is a delegated administrator.</p>
+   * @public
    */
   DelegatedServices?: DelegatedService[];
 
   /**
-   * @public
    * <p>If present, indicates that more output is available than is
    *     included in the current response. Use this value in the <code>NextToken</code> request parameter
    *     in a subsequent call to the operation to get the next part of the output. You should repeat this
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>Specifies the criteria that are used to select the handshakes for the
  *             operation.</p>
+ * @public
  */
 export interface HandshakeFilter {
   /**
-   * @public
    * <p>Specifies the type of handshake action.</p>
    *          <p>If you specify <code>ActionType</code>, you cannot also specify
    *                 <code>ParentHandshakeId</code>.</p>
+   * @public
    */
   ActionType?: ActionType;
 
   /**
-   * @public
    * <p>Specifies the parent handshake. Only used for handshake types that are a child of
    *             another type.</p>
    *          <p>If you specify <code>ParentHandshakeId</code>, you cannot also specify
    *                 <code>ActionType</code>.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for  handshake ID string requires "h-"
    *     followed by from 8 to 32 lowercase letters or digits.</p>
+   * @public
    */
   ParentHandshakeId?: string;
 }
@@ -3858,7 +3858,6 @@ export interface HandshakeFilter {
  */
 export interface ListHandshakesForAccountRequest {
   /**
-   * @public
    * <p>Filters the handshakes that you want included in the response. The default is all
    *             types. Use the <code>ActionType</code> element to limit the output to only a specified
    *             type, such as <code>INVITE</code>, <code>ENABLE_ALL_FEATURES</code>, or
@@ -3866,21 +3865,21 @@ export interface ListHandshakesForAccountRequest {
    *                 <code>ENABLE_ALL_FEATURES</code> handshake that generates a separate child handshake
    *             for each member account, you can specify <code>ParentHandshakeId</code> to see only the
    *             handshakes that were generated by that parent request.</p>
+   * @public
    */
   Filter?: HandshakeFilter;
 
   /**
-   * @public
    * <p>The parameter for receiving additional results if you receive a
    *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
    *     indicates that more output is available. Set this parameter to the value of the previous
    *     call's <code>NextToken</code> response to indicate where the output should continue
    *     from.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The total number of results that you want included on each page of the
    *     response. If you do not include this parameter, it defaults to a value that is specific to the
    *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
@@ -3889,6 +3888,7 @@ export interface ListHandshakesForAccountRequest {
    *     of the results. Note that Organizations might return fewer results than the maximum even when there are
    *     more results available. You should check <code>NextToken</code> after every operation to ensure
    *     that you receive all of the results.</p>
+   * @public
    */
   MaxResults?: number;
 }
@@ -3898,7 +3898,6 @@ export interface ListHandshakesForAccountRequest {
  */
 export interface ListHandshakesForOrganizationRequest {
   /**
-   * @public
    * <p>A filter of the handshakes that you want included in the response. The default is all
    *             types. Use the <code>ActionType</code> element to limit the output to only a specified
    *             type, such as <code>INVITE</code>, <code>ENABLE-ALL-FEATURES</code>, or
@@ -3906,21 +3905,21 @@ export interface ListHandshakesForOrganizationRequest {
    *                 <code>ENABLE-ALL-FEATURES</code> handshake that generates a separate child handshake
    *             for each member account, you can specify the <code>ParentHandshakeId</code> to see only
    *             the handshakes that were generated by that parent request.</p>
+   * @public
    */
   Filter?: HandshakeFilter;
 
   /**
-   * @public
    * <p>The parameter for receiving additional results if you receive a
    *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
    *     indicates that more output is available. Set this parameter to the value of the previous
    *     call's <code>NextToken</code> response to indicate where the output should continue
    *     from.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The total number of results that you want included on each page of the
    *     response. If you do not include this parameter, it defaults to a value that is specific to the
    *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
@@ -3929,6 +3928,7 @@ export interface ListHandshakesForOrganizationRequest {
    *     of the results. Note that Organizations might return fewer results than the maximum even when there are
    *     more results available. You should check <code>NextToken</code> after every operation to ensure
    *     that you receive all of the results.</p>
+   * @public
    */
   MaxResults?: number;
 }
@@ -3938,7 +3938,6 @@ export interface ListHandshakesForOrganizationRequest {
  */
 export interface ListOrganizationalUnitsForParentRequest {
   /**
-   * @public
    * <p>The unique identifier (ID) of the root or OU whose child OUs you want to list.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a parent ID string requires one of the
    *     following:</p>
@@ -3955,21 +3954,21 @@ export interface ListOrganizationalUnitsForParentRequest {
    *           "-" dash and from 8 to 32 additional lowercase letters or digits.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ParentId: string | undefined;
 
   /**
-   * @public
    * <p>The parameter for receiving additional results if you receive a
    *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
    *     indicates that more output is available. Set this parameter to the value of the previous
    *     call's <code>NextToken</code> response to indicate where the output should continue
    *     from.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The total number of results that you want included on each page of the
    *     response. If you do not include this parameter, it defaults to a value that is specific to the
    *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
@@ -3978,6 +3977,7 @@ export interface ListOrganizationalUnitsForParentRequest {
    *     of the results. Note that Organizations might return fewer results than the maximum even when there are
    *     more results available. You should check <code>NextToken</code> after every operation to ensure
    *     that you receive all of the results.</p>
+   * @public
    */
   MaxResults?: number;
 }
@@ -3987,25 +3987,25 @@ export interface ListOrganizationalUnitsForParentRequest {
  */
 export interface ListOrganizationalUnitsForParentResponse {
   /**
-   * @public
    * <p>A list of the OUs in the specified root or parent OU.</p>
+   * @public
    */
   OrganizationalUnits?: OrganizationalUnit[];
 
   /**
-   * @public
    * <p>If present, indicates that more output is available than is
    *     included in the current response. Use this value in the <code>NextToken</code> request parameter
    *     in a subsequent call to the operation to get the next part of the output. You should repeat this
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>We can't find an organizational unit (OU) or Amazon Web Services account with the
  *                 <code>ChildId</code> that you specified.</p>
+ * @public
  */
 export class ChildNotFoundException extends __BaseException {
   readonly name: "ChildNotFoundException" = "ChildNotFoundException";
@@ -4030,7 +4030,6 @@ export class ChildNotFoundException extends __BaseException {
  */
 export interface ListParentsRequest {
   /**
-   * @public
    * <p>The unique identifier (ID) of the OU or account whose parent containers you want to
    *             list. Don't specify a root.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a child ID string requires one of the
@@ -4048,21 +4047,21 @@ export interface ListParentsRequest {
    *           lowercase letters or digits.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ChildId: string | undefined;
 
   /**
-   * @public
    * <p>The parameter for receiving additional results if you receive a
    *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
    *     indicates that more output is available. Set this parameter to the value of the previous
    *     call's <code>NextToken</code> response to indicate where the output should continue
    *     from.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The total number of results that you want included on each page of the
    *     response. If you do not include this parameter, it defaults to a value that is specific to the
    *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
@@ -4071,6 +4070,7 @@ export interface ListParentsRequest {
    *     of the results. Note that Organizations might return fewer results than the maximum even when there are
    *     more results available. You should check <code>NextToken</code> after every operation to ensure
    *     that you receive all of the results.</p>
+   * @public
    */
   MaxResults?: number;
 }
@@ -4090,13 +4090,12 @@ export const ParentType = {
 export type ParentType = (typeof ParentType)[keyof typeof ParentType];
 
 /**
- * @public
  * <p>Contains information about either a root or an organizational unit (OU) that can
  *             contain OUs or accounts in an organization.</p>
+ * @public
  */
 export interface Parent {
   /**
-   * @public
    * <p>The unique identifier (ID) of the parent entity.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a parent ID string requires one of the
    *     following:</p>
@@ -4113,12 +4112,13 @@ export interface Parent {
    *           "-" dash and from 8 to 32 additional lowercase letters or digits.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The type of the parent entity.</p>
+   * @public
    */
   Type?: ParentType;
 }
@@ -4128,17 +4128,17 @@ export interface Parent {
  */
 export interface ListParentsResponse {
   /**
-   * @public
    * <p>A list of parents for the specified child account or OU.</p>
+   * @public
    */
   Parents?: Parent[];
 
   /**
-   * @public
    * <p>If present, indicates that more output is available than is
    *     included in the current response. Use this value in the <code>NextToken</code> request parameter
    *     in a subsequent call to the operation to get the next part of the output. You should repeat this
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -4148,7 +4148,6 @@ export interface ListParentsResponse {
  */
 export interface ListPoliciesRequest {
   /**
-   * @public
    * <p>Specifies the type of policy that you want to include in the response. You must
    *             specify one of the following values:</p>
    *          <ul>
@@ -4173,21 +4172,21 @@ export interface ListPoliciesRequest {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filter: PolicyType | undefined;
 
   /**
-   * @public
    * <p>The parameter for receiving additional results if you receive a
    *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
    *     indicates that more output is available. Set this parameter to the value of the previous
    *     call's <code>NextToken</code> response to indicate where the output should continue
    *     from.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The total number of results that you want included on each page of the
    *     response. If you do not include this parameter, it defaults to a value that is specific to the
    *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
@@ -4196,6 +4195,7 @@ export interface ListPoliciesRequest {
    *     of the results. Note that Organizations might return fewer results than the maximum even when there are
    *     more results available. You should check <code>NextToken</code> after every operation to ensure
    *     that you receive all of the results.</p>
+   * @public
    */
   MaxResults?: number;
 }
@@ -4205,18 +4205,18 @@ export interface ListPoliciesRequest {
  */
 export interface ListPoliciesResponse {
   /**
-   * @public
    * <p>A list of policies that match the filter criteria in the request. The output list
    *             doesn't include the policy contents. To see the content for a policy, see <a>DescribePolicy</a>.</p>
+   * @public
    */
   Policies?: PolicySummary[];
 
   /**
-   * @public
    * <p>If present, indicates that more output is available than is
    *     included in the current response. Use this value in the <code>NextToken</code> request parameter
    *     in a subsequent call to the operation to get the next part of the output. You should repeat this
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -4226,7 +4226,6 @@ export interface ListPoliciesResponse {
  */
 export interface ListPoliciesForTargetRequest {
   /**
-   * @public
    * <p>The unique identifier (ID) of the root, organizational unit, or account whose policies
    *             you want to list.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a target ID string requires one of the
@@ -4248,11 +4247,11 @@ export interface ListPoliciesForTargetRequest {
    *           "-" dash and from 8 to 32 additional lowercase letters or digits.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   TargetId: string | undefined;
 
   /**
-   * @public
    * <p>The type of policy that you want to include in the returned list. You must specify one
    *             of the following values:</p>
    *          <ul>
@@ -4277,21 +4276,21 @@ export interface ListPoliciesForTargetRequest {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   Filter: PolicyType | undefined;
 
   /**
-   * @public
    * <p>The parameter for receiving additional results if you receive a
    *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
    *     indicates that more output is available. Set this parameter to the value of the previous
    *     call's <code>NextToken</code> response to indicate where the output should continue
    *     from.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The total number of results that you want included on each page of the
    *     response. If you do not include this parameter, it defaults to a value that is specific to the
    *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
@@ -4300,6 +4299,7 @@ export interface ListPoliciesForTargetRequest {
    *     of the results. Note that Organizations might return fewer results than the maximum even when there are
    *     more results available. You should check <code>NextToken</code> after every operation to ensure
    *     that you receive all of the results.</p>
+   * @public
    */
   MaxResults?: number;
 }
@@ -4309,17 +4309,17 @@ export interface ListPoliciesForTargetRequest {
  */
 export interface ListPoliciesForTargetResponse {
   /**
-   * @public
    * <p>The list of policies that match the criteria in the request.</p>
+   * @public
    */
   Policies?: PolicySummary[];
 
   /**
-   * @public
    * <p>If present, indicates that more output is available than is
    *     included in the current response. Use this value in the <code>NextToken</code> request parameter
    *     in a subsequent call to the operation to get the next part of the output. You should repeat this
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -4329,17 +4329,16 @@ export interface ListPoliciesForTargetResponse {
  */
 export interface ListRootsRequest {
   /**
-   * @public
    * <p>The parameter for receiving additional results if you receive a
    *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
    *     indicates that more output is available. Set this parameter to the value of the previous
    *     call's <code>NextToken</code> response to indicate where the output should continue
    *     from.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The total number of results that you want included on each page of the
    *     response. If you do not include this parameter, it defaults to a value that is specific to the
    *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
@@ -4348,6 +4347,7 @@ export interface ListRootsRequest {
    *     of the results. Note that Organizations might return fewer results than the maximum even when there are
    *     more results available. You should check <code>NextToken</code> after every operation to ensure
    *     that you receive all of the results.</p>
+   * @public
    */
   MaxResults?: number;
 }
@@ -4357,17 +4357,17 @@ export interface ListRootsRequest {
  */
 export interface ListRootsResponse {
   /**
-   * @public
    * <p>A list of roots that are defined in an organization.</p>
+   * @public
    */
   Roots?: Root[];
 
   /**
-   * @public
    * <p>If present, indicates that more output is available than is
    *     included in the current response. Use this value in the <code>NextToken</code> request parameter
    *     in a subsequent call to the operation to get the next part of the output. You should repeat this
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -4377,7 +4377,6 @@ export interface ListRootsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The ID of the resource with the tags to list.</p>
    *          <p>You can specify any of the following taggable resources.</p>
    *          <ul>
@@ -4403,16 +4402,17 @@ export interface ListTagsForResourceRequest {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * @public
    * <p>The parameter for receiving additional results if you receive a
    *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
    *     indicates that more output is available. Set this parameter to the value of the previous
    *     call's <code>NextToken</code> response to indicate where the output should continue
    *     from.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -4422,17 +4422,17 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>The tags that are assigned to the resource.</p>
+   * @public
    */
   Tags?: Tag[];
 
   /**
-   * @public
    * <p>If present, indicates that more output is available than is
    *     included in the current response. Use this value in the <code>NextToken</code> request parameter
    *     in a subsequent call to the operation to get the next part of the output. You should repeat this
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -4442,25 +4442,24 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListTargetsForPolicyRequest {
   /**
-   * @public
    * <p>The unique identifier (ID) of the policy whose attachments you want to know.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a policy ID string requires "p-" followed
    *     by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).</p>
+   * @public
    */
   PolicyId: string | undefined;
 
   /**
-   * @public
    * <p>The parameter for receiving additional results if you receive a
    *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
    *     indicates that more output is available. Set this parameter to the value of the previous
    *     call's <code>NextToken</code> response to indicate where the output should continue
    *     from.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The total number of results that you want included on each page of the
    *     response. If you do not include this parameter, it defaults to a value that is specific to the
    *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
@@ -4469,6 +4468,7 @@ export interface ListTargetsForPolicyRequest {
    *     of the results. Note that Organizations might return fewer results than the maximum even when there are
    *     more results available. You should check <code>NextToken</code> after every operation to ensure
    *     that you receive all of the results.</p>
+   * @public
    */
   MaxResults?: number;
 }
@@ -4489,12 +4489,11 @@ export const TargetType = {
 export type TargetType = (typeof TargetType)[keyof typeof TargetType];
 
 /**
- * @public
  * <p>Contains information about a root, OU, or account that a policy is attached to.</p>
+ * @public
  */
 export interface PolicyTargetSummary {
   /**
-   * @public
    * <p>The unique identifier (ID) of the policy target.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a target ID string requires one of the
    *     following:</p>
@@ -4515,29 +4514,30 @@ export interface PolicyTargetSummary {
    *           "-" dash and from 8 to 32 additional lowercase letters or digits.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   TargetId?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the policy target.</p>
    *          <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies">ARN
    *     Formats Supported by Organizations</a> in the <i>Amazon Web Services Service Authorization Reference</i>.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>The friendly name of the policy target.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
    *     that is used to validate this parameter is a string of any of the characters in the ASCII
    *     character range.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The type of the policy target.</p>
+   * @public
    */
   Type?: TargetType;
 }
@@ -4547,26 +4547,26 @@ export interface PolicyTargetSummary {
  */
 export interface ListTargetsForPolicyResponse {
   /**
-   * @public
    * <p>A list of structures, each of which contains details about one of the entities to
    *             which the specified policy is attached.</p>
+   * @public
    */
   Targets?: PolicyTargetSummary[];
 
   /**
-   * @public
    * <p>If present, indicates that more output is available than is
    *     included in the current response. Use this value in the <code>NextToken</code> request parameter
    *     in a subsequent call to the operation to get the next part of the output. You should repeat this
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>We can't find the destination container (a root or OU) with the <code>ParentId</code>
  *             that you specified.</p>
+ * @public
  */
 export class DestinationParentNotFoundException extends __BaseException {
   readonly name: "DestinationParentNotFoundException" = "DestinationParentNotFoundException";
@@ -4587,8 +4587,8 @@ export class DestinationParentNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>That account is already present in the specified destination.</p>
+ * @public
  */
 export class DuplicateAccountException extends __BaseException {
   readonly name: "DuplicateAccountException" = "DuplicateAccountException";
@@ -4613,15 +4613,14 @@ export class DuplicateAccountException extends __BaseException {
  */
 export interface MoveAccountRequest {
   /**
-   * @public
    * <p>The unique identifier (ID) of the account that you want to move.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an account ID string requires exactly 12
    *     digits.</p>
+   * @public
    */
   AccountId: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier (ID) of the root or organizational unit that you want to move
    *             the account from.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a parent ID string requires one of the
@@ -4639,11 +4638,11 @@ export interface MoveAccountRequest {
    *           "-" dash and from 8 to 32 additional lowercase letters or digits.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   SourceParentId: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier (ID) of the root or organizational unit that you want to move
    *             the account to.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a parent ID string requires one of the
@@ -4661,14 +4660,15 @@ export interface MoveAccountRequest {
    *           "-" dash and from 8 to 32 additional lowercase letters or digits.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   DestinationParentId: string | undefined;
 }
 
 /**
- * @public
  * <p>We can't find a source root or OU with the <code>ParentId</code> that you
  *             specified.</p>
+ * @public
  */
 export class SourceParentNotFoundException extends __BaseException {
   readonly name: "SourceParentNotFoundException" = "SourceParentNotFoundException";
@@ -4693,16 +4693,15 @@ export class SourceParentNotFoundException extends __BaseException {
  */
 export interface PutResourcePolicyRequest {
   /**
-   * @public
    * <p>If provided, the new content for the resource policy. The text must be correctly
    *             formatted JSON that complies with the syntax for the resource policy's type. For more
    *             information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_syntax.html">SCP syntax</a> in the
    *             <i>Organizations User Guide</i>.</p>
+   * @public
    */
   Content: string | undefined;
 
   /**
-   * @public
    * <p>A list of tags that you want to attach to the newly created resource policy. For each
    *             tag in the list, you must specify both a tag key and a value. You can set the value to
    *             an empty string, but you can't set it to <code>null</code>. For more information about
@@ -4714,6 +4713,7 @@ export interface PutResourcePolicyRequest {
    *                 allowed number of tags for the resource policy, then the entire request fails and
    *                 the resource policy is not created. </p>
    *          </note>
+   * @public
    */
   Tags?: Tag[];
 }
@@ -4723,8 +4723,8 @@ export interface PutResourcePolicyRequest {
  */
 export interface PutResourcePolicyResponse {
   /**
-   * @public
    * <p>A structure that contains details about the resource policy.</p>
+   * @public
    */
   ResourcePolicy?: ResourcePolicy;
 }
@@ -4734,16 +4734,16 @@ export interface PutResourcePolicyResponse {
  */
 export interface RegisterDelegatedAdministratorRequest {
   /**
-   * @public
    * <p>The account ID number of the member account in the organization to register as a
    *             delegated administrator.</p>
+   * @public
    */
   AccountId: string | undefined;
 
   /**
-   * @public
    * <p>The service principal of the Amazon Web Services service for which you want to make the member
    *             account a delegated administrator.</p>
+   * @public
    */
   ServicePrincipal: string | undefined;
 }
@@ -4753,11 +4753,11 @@ export interface RegisterDelegatedAdministratorRequest {
  */
 export interface RemoveAccountFromOrganizationRequest {
   /**
-   * @public
    * <p>The unique identifier (ID) of the member account that you want to remove from the
    *             organization.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an account ID string requires exactly 12
    *     digits.</p>
+   * @public
    */
   AccountId: string | undefined;
 }
@@ -4767,7 +4767,6 @@ export interface RemoveAccountFromOrganizationRequest {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>The ID of the resource to add a tag to.</p>
    *          <p>You can specify any of the following taggable resources.</p>
    *          <ul>
@@ -4793,11 +4792,11 @@ export interface TagResourceRequest {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * @public
    * <p>A list of tags to add to the specified resource.</p>
    *          <p>For each tag in the list, you must specify both a tag key and a value. The value can
    *             be an empty string, but you can't set it to <code>null</code>.</p>
@@ -4805,6 +4804,7 @@ export interface TagResourceRequest {
    *             <p>If any one of the tags is not valid or if you exceed the maximum allowed number of
    *                 tags for a resource, then the entire request fails.</p>
    *          </note>
+   * @public
    */
   Tags: Tag[] | undefined;
 }
@@ -4814,7 +4814,6 @@ export interface TagResourceRequest {
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>The ID of the resource to remove a tag from.</p>
    *          <p>You can specify any of the following taggable resources.</p>
    *          <ul>
@@ -4840,12 +4839,13 @@ export interface UntagResourceRequest {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * @public
    * <p>The list of keys for tags to remove from the specified resource.</p>
+   * @public
    */
   TagKeys: string[] | undefined;
 }
@@ -4855,22 +4855,22 @@ export interface UntagResourceRequest {
  */
 export interface UpdateOrganizationalUnitRequest {
   /**
-   * @public
    * <p>The unique identifier (ID) of the OU that you want to rename. You can get the ID from
    *             the <a>ListOrganizationalUnitsForParent</a> operation.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an organizational unit ID string requires
    *     "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the
    *     OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters
    *     or digits.</p>
+   * @public
    */
   OrganizationalUnitId: string | undefined;
 
   /**
-   * @public
    * <p>The new name that you want to assign to the OU.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
    *     that is used to validate this parameter is a string of any of the characters in the ASCII
    *     character range.</p>
+   * @public
    */
   Name?: string;
 }
@@ -4880,9 +4880,9 @@ export interface UpdateOrganizationalUnitRequest {
  */
 export interface UpdateOrganizationalUnitResponse {
   /**
-   * @public
    * <p>A structure that contains the details about the specified OU, including its new
    *             name.</p>
+   * @public
    */
   OrganizationalUnit?: OrganizationalUnit;
 }
@@ -4892,36 +4892,36 @@ export interface UpdateOrganizationalUnitResponse {
  */
 export interface UpdatePolicyRequest {
   /**
-   * @public
    * <p>The unique identifier (ID) of the policy that you want to update.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a policy ID string requires "p-" followed
    *     by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).</p>
+   * @public
    */
   PolicyId: string | undefined;
 
   /**
-   * @public
    * <p>If provided, the new name for the policy.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
    *     that is used to validate this parameter is a string of any of the characters in the ASCII
    *     character range.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>If provided, the new description for the policy.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>If provided, the new content for the policy. The text must be correctly formatted JSON
    *             that complies with the syntax for the policy's type. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_syntax.html">SCP
    *                 syntax</a> in the <i>Organizations User Guide</i>.</p>
    *          <p>The maximum size of a policy document depends on the policy's type. For more
    *             information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#min-max-values">Maximum and minimum values</a> in the
    *             <i>Organizations User Guide</i>.</p>
+   * @public
    */
   Content?: string;
 }
@@ -4931,27 +4931,26 @@ export interface UpdatePolicyRequest {
  */
 export interface UpdatePolicyResponse {
   /**
-   * @public
    * <p>A structure that contains details about the updated policy, showing the requested
    *             changes.</p>
+   * @public
    */
   Policy?: Policy;
 }
 
 /**
- * @public
  * <p>Contains additional data that is needed to process a handshake.</p>
+ * @public
  */
 export interface HandshakeResource {
   /**
-   * @public
    * <p>The information that is passed to the other party in the handshake. The format of the
    *             value string must match the requirements of the specified type.</p>
+   * @public
    */
   Value?: string;
 
   /**
-   * @public
    * <p>The type of information being passed, specifying how the value is to be interpreted by
    *             the other party:</p>
    *          <ul>
@@ -4984,19 +4983,19 @@ export interface HandshakeResource {
    *                     intended for the recipient to read.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Type?: HandshakeResourceType;
 
   /**
-   * @public
    * <p>When needed, contains an additional array of <code>HandshakeResource</code>
    *             objects.</p>
+   * @public
    */
   Resources?: HandshakeResource[];
 }
 
 /**
- * @public
  * <p>Contains information that must be exchanged to securely establish a relationship
  *             between two accounts (an <i>originator</i> and a
  *                 <i>recipient</i>). For example, when a management account (the
@@ -5006,33 +5005,33 @@ export interface HandshakeResource {
  *             <b>Note:</b> Handshakes that are <code>CANCELED</code>,
  *                 <code>ACCEPTED</code>, <code>DECLINED</code>, or <code>EXPIRED</code> show up in
  *             lists for only 30 days after entering that state After that they are deleted.</p>
+ * @public
  */
 export interface Handshake {
   /**
-   * @public
    * <p>The unique identifier (ID) of a handshake. The originating account creates the ID when
    *             it initiates the handshake.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for  handshake ID string requires "h-"
    *     followed by from 8 to 32 lowercase letters or digits.</p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of a handshake.</p>
    *          <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies">ARN
    *     Formats Supported by Organizations</a> in the <i>Amazon Web Services Service Authorization Reference</i>.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>Information about the two accounts that are participating in the handshake.</p>
+   * @public
    */
   Parties?: HandshakeParty[];
 
   /**
-   * @public
    * <p>The current state of the handshake. Use the state to trace the flow of the handshake
    *             through the process from its creation to its acceptance. The meaning of each of the
    *             valid values is as follows:</p>
@@ -5072,25 +5071,25 @@ export interface Handshake {
    *                     before the expiration time (15 days).</p>
    *             </li>
    *          </ul>
+   * @public
    */
   State?: HandshakeState;
 
   /**
-   * @public
    * <p>The date and time that the handshake request was made.</p>
+   * @public
    */
   RequestedTimestamp?: Date;
 
   /**
-   * @public
    * <p>The date and time that the handshake expires. If the recipient of the handshake
    *             request fails to respond before the specified date and time, the handshake becomes
    *             inactive and is no longer valid.</p>
+   * @public
    */
   ExpirationTimestamp?: Date;
 
   /**
-   * @public
    * <p>The type of handshake, indicating what action occurs when the recipient accepts the
    *             handshake. The following handshake types are supported:</p>
    *          <ul>
@@ -5118,12 +5117,13 @@ export interface Handshake {
    *                     enable all features.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Action?: ActionType;
 
   /**
-   * @public
    * <p>Additional information that is needed to process the handshake.</p>
+   * @public
    */
   Resources?: HandshakeResource[];
 }
@@ -5133,8 +5133,8 @@ export interface Handshake {
  */
 export interface AcceptHandshakeResponse {
   /**
-   * @public
    * <p>A structure that contains details about the accepted handshake.</p>
+   * @public
    */
   Handshake?: Handshake;
 }
@@ -5144,8 +5144,8 @@ export interface AcceptHandshakeResponse {
  */
 export interface CancelHandshakeResponse {
   /**
-   * @public
    * <p>A structure that contains details about the handshake that you canceled.</p>
+   * @public
    */
   Handshake?: Handshake;
 }
@@ -5155,9 +5155,9 @@ export interface CancelHandshakeResponse {
  */
 export interface DeclineHandshakeResponse {
   /**
-   * @public
    * <p>A structure that contains details about the declined handshake. The state is updated
    *             to show the value <code>DECLINED</code>.</p>
+   * @public
    */
   Handshake?: Handshake;
 }
@@ -5167,8 +5167,8 @@ export interface DeclineHandshakeResponse {
  */
 export interface DescribeHandshakeResponse {
   /**
-   * @public
    * <p>A structure that contains information about the specified handshake.</p>
+   * @public
    */
   Handshake?: Handshake;
 }
@@ -5178,9 +5178,9 @@ export interface DescribeHandshakeResponse {
  */
 export interface EnableAllFeaturesResponse {
   /**
-   * @public
    * <p>A structure that contains details about the handshake created to support this request
    *             to enable all features in the organization.</p>
+   * @public
    */
   Handshake?: Handshake;
 }
@@ -5190,9 +5190,9 @@ export interface EnableAllFeaturesResponse {
  */
 export interface InviteAccountToOrganizationResponse {
   /**
-   * @public
    * <p>A structure that contains details about the handshake that is created to support this
    *             invitation request.</p>
+   * @public
    */
   Handshake?: Handshake;
 }
@@ -5202,18 +5202,18 @@ export interface InviteAccountToOrganizationResponse {
  */
 export interface ListHandshakesForAccountResponse {
   /**
-   * @public
    * <p>A list of <a>Handshake</a> objects with details about each of the
    *             handshakes that is associated with the specified account.</p>
+   * @public
    */
   Handshakes?: Handshake[];
 
   /**
-   * @public
    * <p>If present, indicates that more output is available than is
    *     included in the current response. Use this value in the <code>NextToken</code> request parameter
    *     in a subsequent call to the operation to get the next part of the output. You should repeat this
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -5223,18 +5223,18 @@ export interface ListHandshakesForAccountResponse {
  */
 export interface ListHandshakesForOrganizationResponse {
   /**
-   * @public
    * <p>A list of <a>Handshake</a> objects with details about each of the
    *             handshakes that are associated with an organization.</p>
+   * @public
    */
   Handshakes?: Handshake[];
 
   /**
-   * @public
    * <p>If present, indicates that more output is available than is
    *     included in the current response. Use this value in the <code>NextToken</code> request parameter
    *     in a subsequent call to the operation to get the next part of the output. You should repeat this
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
+   * @public
    */
   NextToken?: string;
 }

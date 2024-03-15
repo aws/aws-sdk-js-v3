@@ -27,7 +27,6 @@ export interface DeleteApplicationCommandInput extends DeleteApplicationRequest 
 export interface DeleteApplicationCommandOutput extends DeleteApplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the association with the application. The connected service resource still
  *             exists.</p>
  * @example
@@ -77,6 +76,7 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class DeleteApplicationCommand extends $Command
   .classBuilder<

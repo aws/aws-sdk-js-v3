@@ -27,7 +27,6 @@ export interface ListChecksCommandInput extends ListChecksRequest {}
 export interface ListChecksCommandOutput extends ListChecksResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List a filterable set of Checks</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface ListChecksCommandOutput extends ListChecksResponse, __MetadataB
  * @throws {@link TrustedAdvisorServiceException}
  * <p>Base exception class for all service exceptions from TrustedAdvisor service.</p>
  *
+ * @public
  */
 export class ListChecksCommand extends $Command
   .classBuilder<

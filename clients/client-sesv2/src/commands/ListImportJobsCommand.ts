@@ -27,7 +27,6 @@ export interface ListImportJobsCommandInput extends ListImportJobsRequest {}
 export interface ListImportJobsCommandOutput extends ListImportJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all of the import jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface ListImportJobsCommandOutput extends ListImportJobsResponse, __M
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class ListImportJobsCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface UpdateAnalysisCommandInput extends UpdateAnalysisRequest {}
 export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an analysis in Amazon QuickSight</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -4692,6 +4691,7 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class UpdateAnalysisCommand extends $Command
   .classBuilder<

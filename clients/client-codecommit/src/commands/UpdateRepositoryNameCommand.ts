@@ -27,7 +27,6 @@ export interface UpdateRepositoryNameCommandInput extends UpdateRepositoryNameIn
 export interface UpdateRepositoryNameCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Renames a repository. The repository name must be unique across the calling Amazon Web Services account.
  *             Repository names are limited to 100 alphanumeric, dash, and underscore
  *             characters, and cannot include certain characters. The suffix .git is prohibited. For
@@ -75,6 +74,7 @@ export interface UpdateRepositoryNameCommandOutput extends __MetadataBearer {}
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class UpdateRepositoryNameCommand extends $Command
   .classBuilder<

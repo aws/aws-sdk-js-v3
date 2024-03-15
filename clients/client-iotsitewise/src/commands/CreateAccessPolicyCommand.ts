@@ -27,7 +27,6 @@ export interface CreateAccessPolicyCommandInput extends CreateAccessPolicyReques
 export interface CreateAccessPolicyCommandOutput extends CreateAccessPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an access policy that grants the specified identity (IAM Identity Center user, IAM Identity Center group, or
  *       IAM user) access to the specified IoT SiteWise Monitor portal or project resource.</p>
  * @example
@@ -105,6 +104,7 @@ export interface CreateAccessPolicyCommandOutput extends CreateAccessPolicyRespo
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class CreateAccessPolicyCommand extends $Command
   .classBuilder<

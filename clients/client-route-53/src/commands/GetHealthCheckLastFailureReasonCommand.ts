@@ -32,7 +32,6 @@ export interface GetHealthCheckLastFailureReasonCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the reason that a specified health check failed most recently.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface GetHealthCheckLastFailureReasonCommandOutput
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class GetHealthCheckLastFailureReasonCommand extends $Command
   .classBuilder<

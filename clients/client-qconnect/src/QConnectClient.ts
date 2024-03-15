@@ -414,7 +414,6 @@ export type QConnectClientResolvedConfigType = __SmithyResolvedConfiguration<__H
 export interface QConnectClientResolvedConfig extends QConnectClientResolvedConfigType {}
 
 /**
- * @public
  * <note>
  *             <p>
  *                <b>Powered by Amazon Bedrock</b>: Amazon Web Services implements <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/abuse-detection.html">automated abuse
@@ -435,6 +434,7 @@ export interface QConnectClientResolvedConfig extends QConnectClientResolvedConf
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-q-connect.html">Use Amazon Q in Connect for generative AI
  *         powered agent assistance in real-time</a> in the <i>Amazon Connect
  *         Administrator Guide</i>.</p>
+ * @public
  */
 export class QConnectClient extends __Client<
   __HttpHandlerOptions,

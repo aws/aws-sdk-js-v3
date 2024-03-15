@@ -27,7 +27,6 @@ export interface AddTagsToResourceCommandInput extends AddTagsToResourceRequest 
 export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds or overwrites one or more tags for the specified directory. Each directory can
  *       have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be
  *       unique to each resource.</p>
@@ -76,6 +75,7 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResult,
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class AddTagsToResourceCommand extends $Command
   .classBuilder<

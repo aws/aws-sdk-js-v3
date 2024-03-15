@@ -31,7 +31,6 @@ export interface ListPresetsCommandInput extends ListPresetsRequest {}
 export interface ListPresetsCommandOutput extends ListPresetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The ListPresets operation gets a list of the default presets included with Elastic Transcoder and the presets that
  *             you've added in an AWS region.</p>
  * @example
@@ -137,6 +136,7 @@ export interface ListPresetsCommandOutput extends ListPresetsResponse, __Metadat
  * @throws {@link ElasticTranscoderServiceException}
  * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
+ * @public
  */
 export class ListPresetsCommand extends $Command
   .classBuilder<

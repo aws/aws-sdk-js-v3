@@ -31,7 +31,6 @@ export interface CreateSecurityPolicyCommandInput extends CreateSecurityPolicyRe
 export interface CreateSecurityPolicyCommandOutput extends CreateSecurityPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a security policy to be used by one or more OpenSearch Serverless collections. Security
  *             policies provide access to a collection and its OpenSearch Dashboards endpoint from
  *             public networks or specific VPC endpoints. They also allow you to secure a collection
@@ -91,6 +90,7 @@ export interface CreateSecurityPolicyCommandOutput extends CreateSecurityPolicyR
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ * @public
  */
 export class CreateSecurityPolicyCommand extends $Command
   .classBuilder<

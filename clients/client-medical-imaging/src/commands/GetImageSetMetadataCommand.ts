@@ -35,7 +35,6 @@ export interface GetImageSetMetadataCommandOutput
 }
 
 /**
- * @public
  * <p>Get metadata attributes for an image set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface GetImageSetMetadataCommandOutput
  * @throws {@link MedicalImagingServiceException}
  * <p>Base exception class for all service exceptions from MedicalImaging service.</p>
  *
+ * @public
  */
 export class GetImageSetMetadataCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetSegmentCommandInput extends GetSegmentRequest {}
 export interface GetSegmentCommandOutput extends GetSegmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the configuration, dimension, and other settings for a specific segment that's associated with an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -229,6 +228,7 @@ export interface GetSegmentCommandOutput extends GetSegmentResponse, __MetadataB
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class GetSegmentCommand extends $Command
   .classBuilder<

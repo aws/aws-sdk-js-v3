@@ -27,7 +27,6 @@ export interface UpdateDataCatalogCommandInput extends UpdateDataCatalogInput {}
 export interface UpdateDataCatalogCommandOutput extends UpdateDataCatalogOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the data catalog that has the specified name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface UpdateDataCatalogCommandOutput extends UpdateDataCatalogOutput,
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class UpdateDataCatalogCommand extends $Command
   .classBuilder<

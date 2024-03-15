@@ -32,7 +32,6 @@ export interface GetSecurityControlDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Retrieves the definition of a security control. The definition includes the control title, description, Region availability, parameter definitions, and other details.
  *         </p>
@@ -145,6 +144,7 @@ export interface GetSecurityControlDefinitionCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To get the definition of a security control.
  * ```javascript
  * // The following example retrieves definition details for the specified security control.

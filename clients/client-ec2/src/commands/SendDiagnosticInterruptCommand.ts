@@ -27,7 +27,6 @@ export interface SendDiagnosticInterruptCommandInput extends SendDiagnosticInter
 export interface SendDiagnosticInterruptCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Sends a diagnostic interrupt to the specified Amazon EC2 instance to trigger a
  *                 <i>kernel panic</i> (on Linux instances), or a <i>blue
  *                 screen</i>/<i>stop error</i> (on Windows instances). For
@@ -68,6 +67,7 @@ export interface SendDiagnosticInterruptCommandOutput extends __MetadataBearer {
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class SendDiagnosticInterruptCommand extends $Command
   .classBuilder<

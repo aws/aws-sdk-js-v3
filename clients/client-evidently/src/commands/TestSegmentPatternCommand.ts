@@ -27,7 +27,6 @@ export interface TestSegmentPatternCommandInput extends TestSegmentPatternReques
 export interface TestSegmentPatternCommandOutput extends TestSegmentPatternResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use this operation to test a rules pattern that you plan to use to create an audience segment.
  *       For more information about segments, see <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateSegment.html">CreateSegment</a>.</p>
  * @example
@@ -66,6 +65,7 @@ export interface TestSegmentPatternCommandOutput extends TestSegmentPatternRespo
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ * @public
  */
 export class TestSegmentPatternCommand extends $Command
   .classBuilder<

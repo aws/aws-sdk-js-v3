@@ -1142,8 +1142,8 @@ export interface Kafka {
 }
 
 /**
- * @public
  * <p>The operations for managing an Amazon MSK cluster.</p>
+ * @public
  */
 export class Kafka extends KafkaClient implements Kafka {}
 createAggregatedClient(commands, Kafka);

@@ -32,7 +32,6 @@ export interface ListOrganizationPortfolioAccessCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the organization nodes that have access to the specified portfolio. This API can
  *          only be called by the management account in the organization or by a delegated
  *          admin.</p>
@@ -82,6 +81,7 @@ export interface ListOrganizationPortfolioAccessCommandOutput
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class ListOrganizationPortfolioAccessCommand extends $Command
   .classBuilder<

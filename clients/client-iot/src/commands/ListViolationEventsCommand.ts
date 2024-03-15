@@ -27,7 +27,6 @@ export interface ListViolationEventsCommandInput extends ListViolationEventsRequ
 export interface ListViolationEventsCommandOutput extends ListViolationEventsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the Device Defender security profile violations discovered during the given time period.
  *       You can use filters to limit the results to those alerts issued for a particular security profile,
  *       behavior, or thing (device).</p>
@@ -143,6 +142,7 @@ export interface ListViolationEventsCommandOutput extends ListViolationEventsRes
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListViolationEventsCommand extends $Command
   .classBuilder<

@@ -559,7 +559,6 @@ export interface CodeStarConnections {
 }
 
 /**
- * @public
  * <fullname>AWS CodeStar Connections</fullname>
  *          <p>This Amazon Web Services CodeStar Connections API Reference provides descriptions and usage examples of
  *       the operations and data types for the Amazon Web Services CodeStar Connections API. You can use the
@@ -640,6 +639,7 @@ export interface CodeStarConnections {
  *          </ul>
  *          <p>For information about how to use Amazon Web Services CodeStar Connections, see the <a href="https://docs.aws.amazon.com/dtconsole/latest/userguide/welcome-connections.html">Developer Tools User
  *         Guide</a>.</p>
+ * @public
  */
 export class CodeStarConnections extends CodeStarConnectionsClient implements CodeStarConnections {}
 createAggregatedClient(commands, CodeStarConnections);

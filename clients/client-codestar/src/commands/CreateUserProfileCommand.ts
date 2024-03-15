@@ -32,7 +32,6 @@ export interface CreateUserProfileCommandInput extends CreateUserProfileRequest 
 export interface CreateUserProfileCommandOutput extends CreateUserProfileResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a profile for a user that includes user preferences, such as the display name
  *       and email address assocciated with the user, in AWS CodeStar. The user profile is not
  *       project-specific. Information in the user profile is displayed wherever the user's information
@@ -78,6 +77,7 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileResult,
  * @throws {@link CodeStarServiceException}
  * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
+ * @public
  */
 export class CreateUserProfileCommand extends $Command
   .classBuilder<

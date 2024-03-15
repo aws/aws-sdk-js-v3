@@ -27,7 +27,6 @@ export interface StopEventsDetectionJobCommandInput extends StopEventsDetectionJ
 export interface StopEventsDetectionJobCommandOutput extends StopEventsDetectionJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops an events detection job in progress.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface StopEventsDetectionJobCommandOutput extends StopEventsDetection
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class StopEventsDetectionJobCommand extends $Command
   .classBuilder<

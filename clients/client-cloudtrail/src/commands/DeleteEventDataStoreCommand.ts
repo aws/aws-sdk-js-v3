@@ -27,7 +27,6 @@ export interface DeleteEventDataStoreCommandInput extends DeleteEventDataStoreRe
 export interface DeleteEventDataStoreCommandOutput extends DeleteEventDataStoreResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables the event data store specified by <code>EventDataStore</code>, which accepts an
  *          event data store ARN. After you run <code>DeleteEventDataStore</code>, the event data store
  *          enters a <code>PENDING_DELETION</code> state, and is automatically deleted after a wait
@@ -120,6 +119,7 @@ export interface DeleteEventDataStoreCommandOutput extends DeleteEventDataStoreR
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class DeleteEventDataStoreCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateVPCEConfigurationCommandInput extends CreateVPCEConfigura
 export interface CreateVPCEConfigurationCommandOutput extends CreateVPCEConfigurationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a configuration record in Device Farm for your Amazon Virtual Private Cloud
  *             (VPC) endpoint.</p>
  * @example
@@ -74,6 +73,7 @@ export interface CreateVPCEConfigurationCommandOutput extends CreateVPCEConfigur
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  */
 export class CreateVPCEConfigurationCommand extends $Command
   .classBuilder<

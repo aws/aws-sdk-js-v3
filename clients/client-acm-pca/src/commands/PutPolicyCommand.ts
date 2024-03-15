@@ -27,7 +27,6 @@ export interface PutPolicyCommandInput extends PutPolicyRequest {}
 export interface PutPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches a resource-based policy to a private CA. </p>
  *          <p>A policy can also be applied by sharing a private CA through Amazon Web Services Resource Access
  * 			Manager (RAM). For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/pca-ram.html">Attach a Policy for Cross-Account
@@ -111,6 +110,7 @@ export interface PutPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ * @public
  */
 export class PutPolicyCommand extends $Command
   .classBuilder<

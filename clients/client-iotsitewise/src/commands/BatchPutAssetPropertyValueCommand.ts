@@ -27,7 +27,6 @@ export interface BatchPutAssetPropertyValueCommandInput extends BatchPutAssetPro
 export interface BatchPutAssetPropertyValueCommandOutput extends BatchPutAssetPropertyValueResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sends a list of asset property values to IoT SiteWise. Each value is a timestamp-quality-value
  *       (TQV) data point. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ingest-api.html">Ingesting data using the API</a> in the
  *         <i>IoT SiteWise User Guide</i>.</p>
@@ -146,6 +145,7 @@ export interface BatchPutAssetPropertyValueCommandOutput extends BatchPutAssetPr
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class BatchPutAssetPropertyValueCommand extends $Command
   .classBuilder<

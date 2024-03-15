@@ -27,7 +27,6 @@ export interface ListFieldsCommandInput extends ListFieldsRequest {}
 export interface ListFieldsCommandOutput extends ListFieldsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all fields in a Cases domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface ListFieldsCommandOutput extends ListFieldsResponse, __MetadataB
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ * @public
  */
 export class ListFieldsCommand extends $Command
   .classBuilder<

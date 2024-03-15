@@ -27,7 +27,6 @@ export interface UnlabelParameterVersionCommandInput extends UnlabelParameterVer
 export interface UnlabelParameterVersionCommandOutput extends UnlabelParameterVersionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Remove a label or labels from a parameter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface UnlabelParameterVersionCommandOutput extends UnlabelParameterVe
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class UnlabelParameterVersionCommand extends $Command
   .classBuilder<

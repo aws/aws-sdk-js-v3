@@ -36,7 +36,6 @@ export interface DetachLoadBalancerFromSubnetsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified subnets from the set of configured subnets for the load balancer.</p>
  *         <p>After a subnet is removed, all EC2 instances registered with the load balancer
  *             in the removed subnet go into the <code>OutOfService</code> state. Then,
@@ -78,6 +77,7 @@ export interface DetachLoadBalancerFromSubnetsCommandOutput
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * @public
  * @example To detach a load balancer from a subnet
  * ```javascript
  * // This example detaches the specified load balancer from the specified subnet.

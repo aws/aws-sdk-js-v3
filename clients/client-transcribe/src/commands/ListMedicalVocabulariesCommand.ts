@@ -27,7 +27,6 @@ export interface ListMedicalVocabulariesCommandInput extends ListMedicalVocabula
 export interface ListMedicalVocabulariesCommandOutput extends ListMedicalVocabulariesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a list of custom medical vocabularies that match the specified criteria. If
  *             no criteria are specified, all custom medical vocabularies are returned.</p>
  *          <p>To get detailed information about a specific custom medical vocabulary, use the  operation.</p>
@@ -83,6 +82,7 @@ export interface ListMedicalVocabulariesCommandOutput extends ListMedicalVocabul
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * @public
  */
 export class ListMedicalVocabulariesCommand extends $Command
   .classBuilder<

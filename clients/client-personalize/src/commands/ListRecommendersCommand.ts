@@ -27,7 +27,6 @@ export interface ListRecommendersCommandInput extends ListRecommendersRequest {}
 export interface ListRecommendersCommandOutput extends ListRecommendersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of recommenders in a given Domain dataset group.
  *       When a Domain dataset group is not specified, all the recommenders associated with the account are listed.
  *       The response provides the properties for each recommender, including the Amazon Resource Name (ARN).
@@ -91,6 +90,7 @@ export interface ListRecommendersCommandOutput extends ListRecommendersResponse,
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class ListRecommendersCommand extends $Command
   .classBuilder<

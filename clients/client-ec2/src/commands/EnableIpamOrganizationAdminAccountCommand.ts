@@ -35,7 +35,6 @@ export interface EnableIpamOrganizationAdminAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Enable an Organizations member account as the IPAM admin account. You cannot select the Organizations management account as the IPAM admin account. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/enable-integ-ipam.html">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>.
  *       </p>
  * @example
@@ -65,6 +64,7 @@ export interface EnableIpamOrganizationAdminAccountCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class EnableIpamOrganizationAdminAccountCommand extends $Command
   .classBuilder<

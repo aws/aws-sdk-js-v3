@@ -27,7 +27,6 @@ export interface BatchResetAlarmCommandInput extends BatchResetAlarmRequest {}
 export interface BatchResetAlarmCommandOutput extends BatchResetAlarmResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Resets one or more alarms. The alarms return to the <code>NORMAL</code> state after you
  *       reset them.</p>
  * @example
@@ -81,6 +80,7 @@ export interface BatchResetAlarmCommandOutput extends BatchResetAlarmResponse, _
  * @throws {@link IoTEventsDataServiceException}
  * <p>Base exception class for all service exceptions from IoTEventsData service.</p>
  *
+ * @public
  */
 export class BatchResetAlarmCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteVPCEConfigurationCommandInput extends DeleteVPCEConfigura
 export interface DeleteVPCEConfigurationCommandOutput extends DeleteVPCEConfigurationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a configuration for your Amazon Virtual Private Cloud (VPC) endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface DeleteVPCEConfigurationCommandOutput extends DeleteVPCEConfigur
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  */
 export class DeleteVPCEConfigurationCommand extends $Command
   .classBuilder<

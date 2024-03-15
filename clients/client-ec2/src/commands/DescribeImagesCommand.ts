@@ -27,7 +27,6 @@ export interface DescribeImagesCommandInput extends DescribeImagesRequest {}
 export interface DescribeImagesCommandOutput extends DescribeImagesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified images (AMIs, AKIs, and ARIs) available to you or all of the images available to you.</p>
  *          <p>The images available to you include public images, private images that you own, and private images owned by other
  *        Amazon Web Services accounts for which you have explicit launch permissions.</p>
@@ -152,6 +151,7 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To describe an AMI
  * ```javascript
  * // This example describes the specified AMI.

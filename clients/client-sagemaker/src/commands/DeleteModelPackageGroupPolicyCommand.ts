@@ -30,7 +30,6 @@ export interface DeleteModelPackageGroupPolicyCommandInput extends DeleteModelPa
 export interface DeleteModelPackageGroupPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a model group resource policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,6 +55,7 @@ export interface DeleteModelPackageGroupPolicyCommandOutput extends __MetadataBe
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteModelPackageGroupPolicyCommand extends $Command
   .classBuilder<

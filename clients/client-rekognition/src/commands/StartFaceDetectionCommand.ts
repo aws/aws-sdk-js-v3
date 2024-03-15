@@ -27,7 +27,6 @@ export interface StartFaceDetectionCommandInput extends StartFaceDetectionReques
 export interface StartFaceDetectionCommandOutput extends StartFaceDetectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts asynchronous detection of faces in a stored video.</p>
  *          <p>Amazon Rekognition Video can detect faces in a video stored in an Amazon S3 bucket.
  *        Use <a>Video</a> to specify the bucket name and the filename of the video.
@@ -114,6 +113,7 @@ export interface StartFaceDetectionCommandOutput extends StartFaceDetectionRespo
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  */
 export class StartFaceDetectionCommand extends $Command
   .classBuilder<

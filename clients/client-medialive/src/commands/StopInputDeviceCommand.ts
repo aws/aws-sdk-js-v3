@@ -27,7 +27,6 @@ export interface StopInputDeviceCommandInput extends StopInputDeviceRequest {}
 export interface StopInputDeviceCommandOutput extends StopInputDeviceResponse, __MetadataBearer {}
 
 /**
- * @public
  * Stop an input device that is attached to a MediaConnect flow. (There is no need to stop a device that is attached to a MediaLive input; MediaLive automatically stops the device when the channel stops.)
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface StopInputDeviceCommandOutput extends StopInputDeviceResponse, _
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class StopInputDeviceCommand extends $Command
   .classBuilder<

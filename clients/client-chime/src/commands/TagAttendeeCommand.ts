@@ -27,9 +27,6 @@ export interface TagAttendeeCommandInput extends TagAttendeeRequest {}
 export interface TagAttendeeCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Attendee Tags are not supported in the Amazon Chime SDK Meetings Namespace. Update your application to remove calls to this API.
- *
  * <p>Applies the specified tags to the specified Amazon Chime attendee.</p>
  *          <important>
  *             <p>TagAttendee is not supported in the Amazon Chime SDK Meetings Namespace. Update your application to remove calls to this API.</p>
@@ -89,6 +86,8 @@ export interface TagAttendeeCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Attendee Tags are not supported in the Amazon Chime SDK Meetings Namespace. Update your application to remove calls to this API.
  */
 export class TagAttendeeCommand extends $Command
   .classBuilder<

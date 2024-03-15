@@ -32,7 +32,6 @@ export interface DeleteChatControlsConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes chat controls configured for an existing Amazon Q application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface DeleteChatControlsConfigurationCommandOutput
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ * @public
  */
 export class DeleteChatControlsConfigurationCommand extends $Command
   .classBuilder<

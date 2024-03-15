@@ -27,7 +27,6 @@ export interface CreateExportCommandInput extends CreateExportRequest {}
 export interface CreateExportCommandOutput extends CreateExportResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a data export and specifies the data query, the delivery preference, and any
  *       optional resource tags.</p>
  *          <p>A <code>DataQuery</code> consists of both a <code>QueryStatement</code> and
@@ -120,6 +119,7 @@ export interface CreateExportCommandOutput extends CreateExportResponse, __Metad
  * @throws {@link BCMDataExportsServiceException}
  * <p>Base exception class for all service exceptions from BCMDataExports service.</p>
  *
+ * @public
  */
 export class CreateExportCommand extends $Command
   .classBuilder<

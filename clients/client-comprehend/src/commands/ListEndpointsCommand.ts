@@ -27,7 +27,6 @@ export interface ListEndpointsCommandInput extends ListEndpointsRequest {}
 export interface ListEndpointsCommandOutput extends ListEndpointsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of all existing endpoints that you've created.
  *       For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
  * @example
@@ -88,6 +87,7 @@ export interface ListEndpointsCommandOutput extends ListEndpointsResponse, __Met
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class ListEndpointsCommand extends $Command
   .classBuilder<

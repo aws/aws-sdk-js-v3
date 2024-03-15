@@ -32,7 +32,6 @@ export interface ListWirelessDeviceImportTasksCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>List wireless devices that have been added to an import task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface ListWirelessDeviceImportTasksCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class ListWirelessDeviceImportTasksCommand extends $Command
   .classBuilder<

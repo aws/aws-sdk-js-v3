@@ -6,10 +6,10 @@ import { StreamingBlobTypes } from "@smithy/types";
 import { CodeartifactServiceException as __BaseException } from "./CodeartifactServiceException";
 
 /**
- * @public
  * <p>
  *         The operation did not succeed because of an unauthorized access attempt.
  *       </p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -72,33 +72,33 @@ export const HashAlgorithm = {
 export type HashAlgorithm = (typeof HashAlgorithm)[keyof typeof HashAlgorithm];
 
 /**
- * @public
  * <p>
  *         Contains details about a package version asset.
  *        </p>
+ * @public
  */
 export interface AssetSummary {
   /**
-   * @public
    * <p>
    *          The name of the asset.
    *        </p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>
    *       The size of the asset.
    *     </p>
+   * @public
    */
   size?: number;
 
   /**
-   * @public
    * <p>
    *       The hashes of the asset.
    *     </p>
+   * @public
    */
   hashes?: Partial<Record<HashAlgorithm, string>>;
 }
@@ -108,30 +108,29 @@ export interface AssetSummary {
  */
 export interface AssociateExternalConnectionRequest {
   /**
-   * @public
    * <p>The name of the domain that contains the repository.</p>
+   * @public
    */
   domain: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
+   * @public
    */
   domainOwner?: string;
 
   /**
-   * @public
    * <p>
    *       The name of the repository to which the external connection is added.
    *     </p>
+   * @public
    */
   repository: string | undefined;
 
   /**
-   * @public
    * <p>
    *       The name of the external connection to add to the repository. The following values are supported:
    *     </p>
@@ -176,6 +175,7 @@ export interface AssociateExternalConnectionRequest {
    *                   <code>public:maven-clojars</code> - for the Clojars repository. </p>
    *             </li>
    *          </ul>
+   * @public
    */
   externalConnection: string | undefined;
 }
@@ -212,20 +212,19 @@ export const ExternalConnectionStatus = {
 export type ExternalConnectionStatus = (typeof ExternalConnectionStatus)[keyof typeof ExternalConnectionStatus];
 
 /**
- * @public
  * <p>
  *         Contains information about the external connection of a repository.
  *       </p>
+ * @public
  */
 export interface RepositoryExternalConnectionInfo {
   /**
-   * @public
    * <p> The name of the external connection associated with a repository. </p>
+   * @public
    */
   externalConnectionName?: string;
 
   /**
-   * @public
    * <p>
    *         The package format associated with a repository's external connection. The valid package formats are:
    *       </p>
@@ -251,106 +250,107 @@ export interface RepositoryExternalConnectionInfo {
    *         </p>
    *             </li>
    *          </ul>
+   * @public
    */
   packageFormat?: PackageFormat;
 
   /**
-   * @public
    * <p>
    *         The status of the external connection of a repository. There is one valid value, <code>Available</code>.
    *       </p>
+   * @public
    */
   status?: ExternalConnectionStatus;
 }
 
 /**
- * @public
  * <p>
  *         Information about an upstream repository.
  *       </p>
+ * @public
  */
 export interface UpstreamRepositoryInfo {
   /**
-   * @public
    * <p> The name of an upstream repository. </p>
+   * @public
    */
   repositoryName?: string;
 }
 
 /**
- * @public
  * <p> The details of a repository stored in CodeArtifact. A CodeArtifact repository contains a set of
  *       package versions, each of which maps to a set of assets. Repositories are polyglot—a single
  *       repository can contain packages of any supported type. Each repository exposes endpoints for
  *       fetching and publishing packages using tools like the <code>npm</code> CLI, the Maven CLI
  *         (<code>mvn</code>), and <code>pip</code>. You can create up to 100 repositories per Amazon Web Services
  *       account. </p>
+ * @public
  */
 export interface RepositoryDescription {
   /**
-   * @public
    * <p>
    *         The name of the repository.
    *        </p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p> The 12-digit account number of the Amazon Web Services account that manages the repository. </p>
+   * @public
    */
   administratorAccount?: string;
 
   /**
-   * @public
    * <p>
    *         The name of the domain that contains the repository.
    *        </p>
+   * @public
    */
   domainName?: string;
 
   /**
-   * @public
    * <p>
    *         The 12-digit account number of the Amazon Web Services account that owns the domain that contains the repository. It does not include
    *         dashes or spaces.
    *       </p>
+   * @public
    */
   domainOwner?: string;
 
   /**
-   * @public
    * <p> The Amazon Resource Name (ARN) of the repository. </p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>
    *       A text description of the repository.
    *     </p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p> A list of upstream repositories to associate with the repository. The order of the upstream repositories
    *         in the list determines their priority order when CodeArtifact looks for a requested package version. For more
    *         information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html">Working with upstream repositories</a>. </p>
+   * @public
    */
   upstreams?: UpstreamRepositoryInfo[];
 
   /**
-   * @public
    * <p>
    *       An array of external connections associated with the repository.
    *     </p>
+   * @public
    */
   externalConnections?: RepositoryExternalConnectionInfo[];
 
   /**
-   * @public
    * <p>A timestamp that represents the date and time the repository was created.</p>
+   * @public
    */
   createdTime?: Date;
 }
@@ -360,10 +360,10 @@ export interface RepositoryDescription {
  */
 export interface AssociateExternalConnectionResult {
   /**
-   * @public
    * <p>
    *         Information about the connected repository after processing the request.
    *        </p>
+   * @public
    */
   repository?: RepositoryDescription;
 }
@@ -386,27 +386,27 @@ export const ResourceType = {
 export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
- * @public
  * <p>
  *         The operation did not succeed because prerequisites are not met.
  *       </p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>
    *       The ID of the resource.
    *     </p>
+   * @public
    */
   resourceId?: string;
 
   /**
-   * @public
    * <p>
    *       The type of Amazon Web Services resource.
    *     </p>
+   * @public
    */
   resourceType?: ResourceType;
 
@@ -426,8 +426,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * @public
  * <p> The operation did not succeed because of an error that occurred inside CodeArtifact. </p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -446,27 +446,27 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>
  *       The operation did not succeed because the resource requested is not found in the service.
  *     </p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>
    *       The ID of the resource.
    *     </p>
+   * @public
    */
   resourceId?: string;
 
   /**
-   * @public
    * <p>
    *       The type of Amazon Web Services resource.
    *     </p>
+   * @public
    */
   resourceType?: ResourceType;
 
@@ -486,27 +486,27 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>
  *         The operation did not succeed because it would have exceeded a service limit for your account.
  *       </p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>
    *       The ID of the resource.
    *     </p>
+   * @public
    */
   resourceId?: string;
 
   /**
-   * @public
    * <p>
    *       The type of Amazon Web Services resource.
    *     </p>
+   * @public
    */
   resourceType?: ResourceType;
 
@@ -526,19 +526,19 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>
  *       The operation did not succeed because too many requests are sent to the service.
  *     </p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>
    *       The time period, in seconds, to wait before retrying the request.
    *     </p>
+   * @public
    */
   retryAfterSeconds?: number;
 
@@ -574,19 +574,19 @@ export const ValidationExceptionReason = {
 export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
- * @public
  * <p>
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>
    *
    *     </p>
+   * @public
    */
   reason?: ValidationExceptionReason;
 
@@ -609,48 +609,47 @@ export class ValidationException extends __BaseException {
  */
 export interface CopyPackageVersionsRequest {
   /**
-   * @public
    * <p>
    *         The name of the domain that contains the source and destination repositories.
    *       </p>
+   * @public
    */
   domain: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
+   * @public
    */
   domainOwner?: string;
 
   /**
-   * @public
    * <p>
    *          The name of the repository that contains the package versions to be copied.
    *        </p>
+   * @public
    */
   sourceRepository: string | undefined;
 
   /**
-   * @public
    * <p>
    *       The name of the repository into which package versions are copied.
    *     </p>
+   * @public
    */
   destinationRepository: string | undefined;
 
   /**
-   * @public
    * <p>
    *       The format of the package versions to be copied.
    *     </p>
+   * @public
    */
   format: PackageFormat | undefined;
 
   /**
-   * @public
    * <p>The namespace of the package versions to be copied. The package version component that specifies its
    *       namespace depends on its type. For example:</p>
    *          <ul>
@@ -674,19 +673,19 @@ export interface CopyPackageVersionsRequest {
    *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
+   * @public
    */
   namespace?: string;
 
   /**
-   * @public
    * <p>
    *       The name of the package that contains the versions to be copied.
    *     </p>
+   * @public
    */
   package: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The versions of the package to be copied.
    *       </p>
@@ -695,11 +694,11 @@ export interface CopyPackageVersionsRequest {
    *         You must specify <code>versions</code> or <code>versionRevisions</code>. You cannot specify both.
    *       </p>
    *          </note>
+   * @public
    */
   versions?: string[];
 
   /**
-   * @public
    * <p>
    *        A list of key-value pairs. The keys are package versions and the values are package version revisions. A <code>CopyPackageVersion</code> operation
    *       succeeds if the specified versions in the source repository match the specified package version revision.
@@ -709,26 +708,27 @@ export interface CopyPackageVersionsRequest {
    *         You must specify <code>versions</code> or <code>versionRevisions</code>. You cannot specify both.
    *       </p>
    *          </note>
+   * @public
    */
   versionRevisions?: Record<string, string>;
 
   /**
-   * @public
    * <p>
    *        Set to true to overwrite a package version that already exists in the destination repository.
    *        If set to false and the package version already exists in the destination repository,
    *        the package version is returned in the <code>failedVersions</code> field of the response with
    *        an <code>ALREADY_EXISTS</code> error code.
    *      </p>
+   * @public
    */
   allowOverwrite?: boolean;
 
   /**
-   * @public
    * <p> Set to true to copy packages from repositories that are upstream from the source
    *       repository to the destination repository. The default setting is false. For more information,
    *       see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html">Working with
    *         upstream repositories</a>. </p>
+   * @public
    */
   includeFromUpstream?: boolean;
 }
@@ -752,14 +752,13 @@ export const PackageVersionErrorCode = {
 export type PackageVersionErrorCode = (typeof PackageVersionErrorCode)[keyof typeof PackageVersionErrorCode];
 
 /**
- * @public
  * <p>l
  *        An error associated with package.
  *    </p>
+ * @public
  */
 export interface PackageVersionError {
   /**
-   * @public
    * <p> The error code associated with the error. Valid error codes are: </p>
    *          <ul>
    *             <li>
@@ -793,14 +792,15 @@ export interface PackageVersionError {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   errorCode?: PackageVersionErrorCode;
 
   /**
-   * @public
    * <p>
    *          The error message associated with the error.
    *      </p>
+   * @public
    */
   errorMessage?: string;
 }
@@ -824,25 +824,25 @@ export const PackageVersionStatus = {
 export type PackageVersionStatus = (typeof PackageVersionStatus)[keyof typeof PackageVersionStatus];
 
 /**
- * @public
  * <p>
  *       Contains the revision and status of a package version.
  *     </p>
+ * @public
  */
 export interface SuccessfulPackageVersionInfo {
   /**
-   * @public
    * <p>
    *       The revision of a package version.
    *     </p>
+   * @public
    */
   revision?: string;
 
   /**
-   * @public
    * <p>
    *       The status of a package version.
    *     </p>
+   * @public
    */
   status?: PackageVersionStatus;
 }
@@ -852,15 +852,14 @@ export interface SuccessfulPackageVersionInfo {
  */
 export interface CopyPackageVersionsResult {
   /**
-   * @public
    * <p>
    *       A list of the package versions that were successfully copied to your repository.
    *     </p>
+   * @public
    */
   successfulVersions?: Record<string, SuccessfulPackageVersionInfo>;
 
   /**
-   * @public
    * <p>
    *       A map of package versions that failed to copy and their error codes. The possible error codes are in
    *       the <code>PackageVersionError</code> data type. They are:
@@ -897,24 +896,25 @@ export interface CopyPackageVersionsResult {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   failedVersions?: Record<string, PackageVersionError>;
 }
 
 /**
- * @public
  * <p>A tag is a key-value pair that can be used to manage, search for, or filter resources in CodeArtifact.</p>
+ * @public
  */
 export interface Tag {
   /**
-   * @public
    * <p>The tag key.</p>
+   * @public
    */
   key: string | undefined;
 
   /**
-   * @public
    * <p>The tag value.</p>
+   * @public
    */
   value: string | undefined;
 }
@@ -924,15 +924,14 @@ export interface Tag {
  */
 export interface CreateDomainRequest {
   /**
-   * @public
    * <p> The name of the domain to create. All domain names in an Amazon Web Services Region that are in the
    *       same Amazon Web Services account must be unique. The domain name is used as the prefix in DNS hostnames. Do
    *       not use sensitive information in a domain name because it is publicly discoverable. </p>
+   * @public
    */
   domain: string | undefined;
 
   /**
-   * @public
    * <p> The encryption key for the domain. This is used to encrypt content stored in a domain.
    *       An encryption key can be a key ID, a key Amazon Resource Name (ARN), a key alias, or a key
    *       alias ARN. To specify an <code>encryptionKey</code>, your IAM role must have
@@ -945,12 +944,13 @@ export interface CreateDomainRequest {
    *         domain. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using symmetric and asymmetric
    *           keys</a> in the <i>Key Management Service Developer Guide</i>. </p>
    *          </important>
+   * @public
    */
   encryptionKey?: string;
 
   /**
-   * @public
    * <p>One or more tag key-value pairs for the domain.</p>
+   * @public
    */
   tags?: Tag[];
 }
@@ -970,74 +970,74 @@ export const DomainStatus = {
 export type DomainStatus = (typeof DomainStatus)[keyof typeof DomainStatus];
 
 /**
- * @public
  * <p>
  *        Information about a domain. A domain is a container for repositories. When you create a domain, it is empty until you
  *        add one or more repositories.
  *       </p>
+ * @public
  */
 export interface DomainDescription {
   /**
-   * @public
    * <p>
    *          The name of the domain.
    *        </p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p> The Amazon Web Services account ID that owns the domain. </p>
+   * @public
    */
   owner?: string;
 
   /**
-   * @public
    * <p> The Amazon Resource Name (ARN) of the domain. </p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>
    *         The current status of a domain.
    *       </p>
+   * @public
    */
   status?: DomainStatus;
 
   /**
-   * @public
    * <p>
    *       A timestamp that represents the date and time the domain was created.
    *     </p>
+   * @public
    */
   createdTime?: Date;
 
   /**
-   * @public
    * <p> The ARN of an Key Management Service (KMS) key associated with a domain. </p>
+   * @public
    */
   encryptionKey?: string;
 
   /**
-   * @public
    * <p>
    *       The number of repositories in the domain.
    *     </p>
+   * @public
    */
   repositoryCount?: number;
 
   /**
-   * @public
    * <p>
    *       The total size of all assets in the domain.
    *     </p>
+   * @public
    */
   assetSizeBytes?: number;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket that is used to store package assets in the domain.</p>
+   * @public
    */
   s3BucketArn?: string;
 }
@@ -1047,26 +1047,26 @@ export interface DomainDescription {
  */
 export interface CreateDomainResult {
   /**
-   * @public
    * <p>
    *         Contains information about the created domain after processing the request.
    *       </p>
+   * @public
    */
   domain?: DomainDescription;
 }
 
 /**
- * @public
  * <p>
  *        Information about an upstream repository. A list of <code>UpstreamRepository</code> objects is an input parameter to
  *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_CreateRepository.html">CreateRepository</a>
  *        and <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdateRepository.html">UpdateRepository</a>.
  *      </p>
+ * @public
  */
 export interface UpstreamRepository {
   /**
-   * @public
    * <p> The name of an upstream repository. </p>
+   * @public
    */
   repositoryName: string | undefined;
 }
@@ -1076,47 +1076,47 @@ export interface UpstreamRepository {
  */
 export interface CreateRepositoryRequest {
   /**
-   * @public
    * <p>
    *         The name of the domain that contains the created repository.
    *       </p>
+   * @public
    */
   domain: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
+   * @public
    */
   domainOwner?: string;
 
   /**
-   * @public
    * <p> The name of the repository to create. </p>
+   * @public
    */
   repository: string | undefined;
 
   /**
-   * @public
    * <p>
    *       A description of the created repository.
    *     </p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p> A list of upstream repositories to associate with the repository. The order of the upstream repositories
    *         in the list determines their priority order when CodeArtifact looks for a requested package version. For more
    *         information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html">Working with upstream repositories</a>. </p>
+   * @public
    */
   upstreams?: UpstreamRepository[];
 
   /**
-   * @public
    * <p>One or more tag key-value pairs for the repository.</p>
+   * @public
    */
   tags?: Tag[];
 }
@@ -1126,10 +1126,10 @@ export interface CreateRepositoryRequest {
  */
 export interface CreateRepositoryResult {
   /**
-   * @public
    * <p>
    *         Information about the created repository after processing the request.
    *       </p>
+   * @public
    */
   repository?: RepositoryDescription;
 }
@@ -1139,19 +1139,19 @@ export interface CreateRepositoryResult {
  */
 export interface DeleteDomainRequest {
   /**
-   * @public
    * <p>
    *          The name of the domain to delete.
    *        </p>
+   * @public
    */
   domain: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
+   * @public
    */
   domainOwner?: string;
 }
@@ -1161,10 +1161,10 @@ export interface DeleteDomainRequest {
  */
 export interface DeleteDomainResult {
   /**
-   * @public
    * <p>
    *         Contains information about the deleted domain after processing the request.
    *        </p>
+   * @public
    */
   domain?: DomainDescription;
 }
@@ -1174,60 +1174,60 @@ export interface DeleteDomainResult {
  */
 export interface DeleteDomainPermissionsPolicyRequest {
   /**
-   * @public
    * <p>
    *         The name of the domain associated with the resource policy to be deleted.
    *       </p>
+   * @public
    */
   domain: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
+   * @public
    */
   domainOwner?: string;
 
   /**
-   * @public
    * <p>
    *         The current revision of the resource policy to be deleted. This revision is used for optimistic locking, which
    *         prevents others from overwriting your changes to the domain's resource policy.
    *       </p>
+   * @public
    */
   policyRevision?: string;
 }
 
 /**
- * @public
  * <p>
  *         An CodeArtifact resource policy that contains a resource ARN, document details, and a revision.
  *       </p>
+ * @public
  */
 export interface ResourcePolicy {
   /**
-   * @public
    * <p>
    *         The ARN of the resource associated with the resource policy
    *       </p>
+   * @public
    */
   resourceArn?: string;
 
   /**
-   * @public
    * <p>
    *         The current revision of the resource policy.
    *       </p>
+   * @public
    */
   revision?: string;
 
   /**
-   * @public
    * <p>
    *       The resource policy formatted in JSON.
    *     </p>
+   * @public
    */
   document?: string;
 }
@@ -1237,10 +1237,10 @@ export interface ResourcePolicy {
  */
 export interface DeleteDomainPermissionsPolicyResult {
   /**
-   * @public
    * <p>
    *         Information about the deleted resource policy after processing the request.
    *       </p>
+   * @public
    */
   policy?: ResourcePolicy;
 }
@@ -1250,34 +1250,33 @@ export interface DeleteDomainPermissionsPolicyResult {
  */
 export interface DeletePackageRequest {
   /**
-   * @public
    * <p>The name of the domain that contains the package to delete.</p>
+   * @public
    */
   domain: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
+   * @public
    */
   domainOwner?: string;
 
   /**
-   * @public
    * <p>The name of the repository that contains the package to delete.</p>
+   * @public
    */
   repository: string | undefined;
 
   /**
-   * @public
    * <p>The format of the requested package to delete.</p>
+   * @public
    */
   format: PackageFormat | undefined;
 
   /**
-   * @public
    * <p>The namespace of the package to delete. The package component that specifies its namespace depends on its type. For example:</p>
    *          <ul>
    *             <li>
@@ -1297,66 +1296,66 @@ export interface DeletePackageRequest {
    *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
+   * @public
    */
   namespace?: string;
 
   /**
-   * @public
    * <p>The name of the package to delete.</p>
+   * @public
    */
   package: string | undefined;
 }
 
 /**
- * @public
  * <p>Details about the origin restrictions set on the package.
  *       The package origin restrictions determine how new versions of a package
  *       can be added to a specific repository.</p>
+ * @public
  */
 export interface PackageOriginRestrictions {
   /**
-   * @public
    * <p>The package origin configuration that determines if new versions of the package can be published directly to the repository.</p>
+   * @public
    */
   publish: AllowPublish | undefined;
 
   /**
-   * @public
    * <p>The package origin configuration that determines if new versions of the package can be added to the repository from an external connection or upstream source.</p>
+   * @public
    */
   upstream: AllowUpstream | undefined;
 }
 
 /**
- * @public
  * <p>Details about the package origin configuration of a package.</p>
+ * @public
  */
 export interface PackageOriginConfiguration {
   /**
-   * @public
    * <p>A <code>PackageOriginRestrictions</code> object that contains information
    *     about the upstream and publish package origin configuration for the package.</p>
+   * @public
    */
   restrictions?: PackageOriginRestrictions;
 }
 
 /**
- * @public
  * <p>
  *       Details about a package, including its format, namespace, and name.
  *     </p>
+ * @public
  */
 export interface PackageSummary {
   /**
-   * @public
    * <p>
    *       The format of the package.
    *     </p>
+   * @public
    */
   format?: PackageFormat;
 
   /**
-   * @public
    * <p>The namespace of the package. The package component that specifies its
    *       namespace depends on its type. For example:</p>
    *          <ul>
@@ -1380,22 +1379,23 @@ export interface PackageSummary {
    *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
+   * @public
    */
   namespace?: string;
 
   /**
-   * @public
    * <p>
    *       The name of the package.
    *     </p>
+   * @public
    */
   package?: string;
 
   /**
-   * @public
    * <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginConfiguration.html">PackageOriginConfiguration</a>
    *       object that contains a <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a> object
    *       that contains information about the upstream and publish package origin restrictions.</p>
+   * @public
    */
   originConfiguration?: PackageOriginConfiguration;
 }
@@ -1405,10 +1405,10 @@ export interface PackageSummary {
  */
 export interface DeletePackageResult {
   /**
-   * @public
    * <p>
    *       Details about a package, including its format, namespace, and name.
    *     </p>
+   * @public
    */
   deletedPackage?: PackageSummary;
 }
@@ -1418,40 +1418,39 @@ export interface DeletePackageResult {
  */
 export interface DeletePackageVersionsRequest {
   /**
-   * @public
    * <p>
    *         The name of the domain that contains the package to delete.
    *       </p>
+   * @public
    */
   domain: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
+   * @public
    */
   domainOwner?: string;
 
   /**
-   * @public
    * <p>
    *         The name of the repository that contains the package versions to delete.
    *       </p>
+   * @public
    */
   repository: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The format of the package versions to delete.
    *       </p>
+   * @public
    */
   format: PackageFormat | undefined;
 
   /**
-   * @public
    * <p>The namespace of the package versions to be deleted. The package version component that specifies its
    *         namespace depends on its type. For example:</p>
    *          <ul>
@@ -1475,30 +1474,31 @@ export interface DeletePackageVersionsRequest {
    *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
+   * @public
    */
   namespace?: string;
 
   /**
-   * @public
    * <p>
    *         The name of the package with the versions to delete.
    *       </p>
+   * @public
    */
   package: string | undefined;
 
   /**
-   * @public
    * <p>
    *         An array of strings that specify the versions of the package to delete.
    *       </p>
+   * @public
    */
   versions: string[] | undefined;
 
   /**
-   * @public
    * <p>
    *         The expected status of the package version to delete.
    *       </p>
+   * @public
    */
   expectedStatus?: PackageVersionStatus;
 }
@@ -1508,16 +1508,15 @@ export interface DeletePackageVersionsRequest {
  */
 export interface DeletePackageVersionsResult {
   /**
-   * @public
    * <p>
    *        A list of the package versions that were successfully deleted. The
    *        status of every successful version will be <code>Deleted</code>.
    *      </p>
+   * @public
    */
   successfulVersions?: Record<string, SuccessfulPackageVersionInfo>;
 
   /**
-   * @public
    * <p>
    *        A <code>PackageVersionError</code> object that contains a map of errors codes for the
    *        deleted package that failed. The possible error codes are:
@@ -1554,6 +1553,7 @@ export interface DeletePackageVersionsResult {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   failedVersions?: Record<string, PackageVersionError>;
 }
@@ -1563,25 +1563,25 @@ export interface DeletePackageVersionsResult {
  */
 export interface DeleteRepositoryRequest {
   /**
-   * @public
    * <p>
    *          The name of the domain that contains the repository to delete.
    *        </p>
+   * @public
    */
   domain: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
+   * @public
    */
   domainOwner?: string;
 
   /**
-   * @public
    * <p> The name of the repository to delete. </p>
+   * @public
    */
   repository: string | undefined;
 }
@@ -1591,10 +1591,10 @@ export interface DeleteRepositoryRequest {
  */
 export interface DeleteRepositoryResult {
   /**
-   * @public
    * <p>
    *         Information about the deleted repository after processing the request.
    *        </p>
+   * @public
    */
   repository?: RepositoryDescription;
 }
@@ -1604,36 +1604,36 @@ export interface DeleteRepositoryResult {
  */
 export interface DeleteRepositoryPermissionsPolicyRequest {
   /**
-   * @public
    * <p>
    *         The name of the domain that contains the repository associated with the resource policy to be deleted.
    *       </p>
+   * @public
    */
   domain: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
+   * @public
    */
   domainOwner?: string;
 
   /**
-   * @public
    * <p>
    *       The name of the repository that is associated with the resource policy to be deleted
    *     </p>
+   * @public
    */
   repository: string | undefined;
 
   /**
-   * @public
    * <p>
    *       The revision of the repository's resource policy to be deleted. This revision is used for optimistic locking, which
    *       prevents others from accidentally overwriting your changes to the repository's resource policy.
    *     </p>
+   * @public
    */
   policyRevision?: string;
 }
@@ -1643,10 +1643,10 @@ export interface DeleteRepositoryPermissionsPolicyRequest {
  */
 export interface DeleteRepositoryPermissionsPolicyResult {
   /**
-   * @public
    * <p>
    *       Information about the deleted policy after processing the request.
    *     </p>
+   * @public
    */
   policy?: ResourcePolicy;
 }
@@ -1656,19 +1656,19 @@ export interface DeleteRepositoryPermissionsPolicyResult {
  */
 export interface DescribeDomainRequest {
   /**
-   * @public
    * <p>
    *          A string that specifies the name of the requested domain.
    *      </p>
+   * @public
    */
   domain: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
+   * @public
    */
   domainOwner?: string;
 }
@@ -1678,11 +1678,11 @@ export interface DescribeDomainRequest {
  */
 export interface DescribeDomainResult {
   /**
-   * @public
    * <p>
    *        Information about a domain. A domain is a container for repositories. When you create a domain, it is empty until you
    *        add one or more repositories.
    *       </p>
+   * @public
    */
   domain?: DomainDescription;
 }
@@ -1692,34 +1692,33 @@ export interface DescribeDomainResult {
  */
 export interface DescribePackageRequest {
   /**
-   * @public
    * <p>The name of the domain that contains the repository that contains the package.</p>
+   * @public
    */
   domain: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
+   * @public
    */
   domainOwner?: string;
 
   /**
-   * @public
    * <p>The name of the repository that contains the requested package. </p>
+   * @public
    */
   repository: string | undefined;
 
   /**
-   * @public
    * <p>A format that specifies the type of the requested package.</p>
+   * @public
    */
   format: PackageFormat | undefined;
 
   /**
-   * @public
    * <p>The namespace of the requested package. The package component that specifies its
    *       namespace depends on its type. For example:</p>
    *          <ul>
@@ -1743,29 +1742,29 @@ export interface DescribePackageRequest {
    *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
+   * @public
    */
   namespace?: string;
 
   /**
-   * @public
    * <p>The name of the requested package.</p>
+   * @public
    */
   package: string | undefined;
 }
 
 /**
- * @public
  * <p>Details about a package.</p>
+ * @public
  */
 export interface PackageDescription {
   /**
-   * @public
    * <p>A format that specifies the type of the package.</p>
+   * @public
    */
   format?: PackageFormat;
 
   /**
-   * @public
    * <p>The namespace of the package. The package component that specifies its
    *       namespace depends on its type. For example:</p>
    *          <ul>
@@ -1789,18 +1788,19 @@ export interface PackageDescription {
    *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
+   * @public
    */
   namespace?: string;
 
   /**
-   * @public
    * <p>The name of the package.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The package origin configuration for the package.</p>
+   * @public
    */
   originConfiguration?: PackageOriginConfiguration;
 }
@@ -1810,9 +1810,9 @@ export interface PackageDescription {
  */
 export interface DescribePackageResult {
   /**
-   * @public
    * <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDescription.html">PackageDescription</a>
    *       object that contains information about the requested package.</p>
+   * @public
    */
   package: PackageDescription | undefined;
 }
@@ -1822,38 +1822,37 @@ export interface DescribePackageResult {
  */
 export interface DescribePackageVersionRequest {
   /**
-   * @public
    * <p>
    *       The name of the domain that contains the repository that contains the package version.
    *     </p>
+   * @public
    */
   domain: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
+   * @public
    */
   domainOwner?: string;
 
   /**
-   * @public
    * <p> The name of the repository that contains the package version. </p>
+   * @public
    */
   repository: string | undefined;
 
   /**
-   * @public
    * <p>
    *       A format that specifies the type of the requested package version.
    *     </p>
+   * @public
    */
   format: PackageFormat | undefined;
 
   /**
-   * @public
    * <p>The namespace of the requested package version. The package version component that specifies its
    *       namespace depends on its type. For example:</p>
    *          <ul>
@@ -1877,64 +1876,65 @@ export interface DescribePackageVersionRequest {
    *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
+   * @public
    */
   namespace?: string;
 
   /**
-   * @public
    * <p> The name of the requested package version. </p>
+   * @public
    */
   package: string | undefined;
 
   /**
-   * @public
    * <p>
    *       A string that contains the package version (for example, <code>3.5.2</code>).
    *     </p>
+   * @public
    */
   packageVersion: string | undefined;
 }
 
 /**
- * @public
  * <p>
  *         Details of the license data.
  *       </p>
+ * @public
  */
 export interface LicenseInfo {
   /**
-   * @public
    * <p>
    *         Name of the license.
    *       </p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>
    *         The URL for license data.
    *       </p>
+   * @public
    */
   url?: string;
 }
 
 /**
- * @public
  * <p>Information about how a package originally entered the CodeArtifact domain. For packages published directly to CodeArtifact, the entry point is the repository it was published to.
  *       For packages ingested from an external repository, the entry point is the external connection that it was ingested from. An external
  *     connection is a CodeArtifact repository that is connected to an external repository such as the npm registry or NuGet gallery.</p>
+ * @public
  */
 export interface DomainEntryPoint {
   /**
-   * @public
    * <p>The name of the repository that a package was originally published to.</p>
+   * @public
    */
   repositoryName?: string;
 
   /**
-   * @public
    * <p>The name of the external connection that a package was ingested from.</p>
+   * @public
    */
   externalConnectionName?: string;
 }
@@ -1955,42 +1955,41 @@ export const PackageVersionOriginType = {
 export type PackageVersionOriginType = (typeof PackageVersionOriginType)[keyof typeof PackageVersionOriginType];
 
 /**
- * @public
  * <p>Information about how a package version was added to a repository.</p>
+ * @public
  */
 export interface PackageVersionOrigin {
   /**
-   * @public
    * <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DomainEntryPoint.html">DomainEntryPoint</a> object that contains
    *     information about from which repository or external connection the package version was added to the domain.</p>
+   * @public
    */
   domainEntryPoint?: DomainEntryPoint;
 
   /**
-   * @public
    * <p>Describes how the package version was originally added to the domain. An <code>INTERNAL</code> origin type means the package version was published
    *     directly to a repository in the domain. An <code>EXTERNAL</code> origin type means the package version was ingested from an external connection.</p>
+   * @public
    */
   originType?: PackageVersionOriginType;
 }
 
 /**
- * @public
  * <p>
  *       Details about a package version.
  *     </p>
+ * @public
  */
 export interface PackageVersionDescription {
   /**
-   * @public
    * <p>
    *       The format of the package version.
    *     </p>
+   * @public
    */
   format?: PackageFormat;
 
   /**
-   * @public
    * <p>The namespace of the package version. The package version component that specifies its
    *       namespace depends on its type. For example:</p>
    *          <ul>
@@ -2014,97 +2013,98 @@ export interface PackageVersionDescription {
    *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
+   * @public
    */
   namespace?: string;
 
   /**
-   * @public
    * <p>
    *       The name of the requested package.
    *     </p>
+   * @public
    */
   packageName?: string;
 
   /**
-   * @public
    * <p>
    *       The name of the package that is displayed. The <code>displayName</code> varies depending
    *       on the package version's format. For example, if an npm package is named <code>ui</code>,
    *       is in the namespace <code>vue</code>, and has the format <code>npm</code>, then
    *       the <code>displayName</code> is <code>@vue/ui</code>.
    *     </p>
+   * @public
    */
   displayName?: string;
 
   /**
-   * @public
    * <p>
    *       The version of the package.
    *     </p>
+   * @public
    */
   version?: string;
 
   /**
-   * @public
    * <p>
    *       A summary of the package version. The summary is extracted from the package. The information in and
    *       detail level of the summary depends on the package version's format.
    *     </p>
+   * @public
    */
   summary?: string;
 
   /**
-   * @public
    * <p>
    *       The homepage associated with the package.
    *     </p>
+   * @public
    */
   homePage?: string;
 
   /**
-   * @public
    * <p>
    *       The repository for the source code in the package version, or the source code used to build it.
    *     </p>
+   * @public
    */
   sourceCodeRepository?: string;
 
   /**
-   * @public
    * <p>
    *       A timestamp that contains the date and time the package version was published.
    *     </p>
+   * @public
    */
   publishedTime?: Date;
 
   /**
-   * @public
    * <p>
    *       Information about licenses associated with the package version.
    *     </p>
+   * @public
    */
   licenses?: LicenseInfo[];
 
   /**
-   * @public
    * <p>
    *       The revision of the package version.
    *     </p>
+   * @public
    */
   revision?: string;
 
   /**
-   * @public
    * <p>
    *       A string that contains the status of the package version.
    *     </p>
+   * @public
    */
   status?: PackageVersionStatus;
 
   /**
-   * @public
    * <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionOrigin.html">PackageVersionOrigin</a> object that contains
    *     information about how the package version was added to the repository.</p>
+   * @public
    */
   origin?: PackageVersionOrigin;
 }
@@ -2114,11 +2114,11 @@ export interface PackageVersionDescription {
  */
 export interface DescribePackageVersionResult {
   /**
-   * @public
    * <p>
    *       A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html">PackageVersionDescription</a>
    *       object that contains information about the requested package version.
    *     </p>
+   * @public
    */
   packageVersion: PackageVersionDescription | undefined;
 }
@@ -2128,27 +2128,27 @@ export interface DescribePackageVersionResult {
  */
 export interface DescribeRepositoryRequest {
   /**
-   * @public
    * <p>
    *          The name of the domain that contains the repository to describe.
    *        </p>
+   * @public
    */
   domain: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
+   * @public
    */
   domainOwner?: string;
 
   /**
-   * @public
    * <p>
    *         A string that specifies the name of the requested repository.
    *        </p>
+   * @public
    */
   repository: string | undefined;
 }
@@ -2158,10 +2158,10 @@ export interface DescribeRepositoryRequest {
  */
 export interface DescribeRepositoryResult {
   /**
-   * @public
    * <p>
    *          A <code>RepositoryDescription</code> object that contains the requested repository information.
    *        </p>
+   * @public
    */
   repository?: RepositoryDescription;
 }
@@ -2171,30 +2171,30 @@ export interface DescribeRepositoryResult {
  */
 export interface DisassociateExternalConnectionRequest {
   /**
-   * @public
    * <p>The name of the domain that contains the repository from which to remove the external
    *       repository. </p>
+   * @public
    */
   domain: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
+   * @public
    */
   domainOwner?: string;
 
   /**
-   * @public
    * <p>The name of the repository from which the external connection will be removed. </p>
+   * @public
    */
   repository: string | undefined;
 
   /**
-   * @public
    * <p>The name of the external connection to be removed from the repository. </p>
+   * @public
    */
   externalConnection: string | undefined;
 }
@@ -2204,10 +2204,10 @@ export interface DisassociateExternalConnectionRequest {
  */
 export interface DisassociateExternalConnectionResult {
   /**
-   * @public
    * <p>
    *       The repository associated with the removed external connection.
    *     </p>
+   * @public
    */
   repository?: RepositoryDescription;
 }
@@ -2217,40 +2217,39 @@ export interface DisassociateExternalConnectionResult {
  */
 export interface DisposePackageVersionsRequest {
   /**
-   * @public
    * <p>
    *       The name of the domain that contains the repository you want to dispose.
    *     </p>
+   * @public
    */
   domain: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
+   * @public
    */
   domainOwner?: string;
 
   /**
-   * @public
    * <p>
    *       The name of the repository that contains the package versions you want to dispose.
    *     </p>
+   * @public
    */
   repository: string | undefined;
 
   /**
-   * @public
    * <p>
    *       A format that specifies the type of package versions you want to dispose.
    *     </p>
+   * @public
    */
   format: PackageFormat | undefined;
 
   /**
-   * @public
    * <p>The namespace of the package versions to be disposed. The package version component that specifies its
    *       namespace depends on its type. For example:</p>
    *          <ul>
@@ -2274,38 +2273,39 @@ export interface DisposePackageVersionsRequest {
    *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
+   * @public
    */
   namespace?: string;
 
   /**
-   * @public
    * <p>
    *       The name of the package with the versions you want to dispose.
    *     </p>
+   * @public
    */
   package: string | undefined;
 
   /**
-   * @public
    * <p>
    *       The versions of the package you want to dispose.
    *     </p>
+   * @public
    */
   versions: string[] | undefined;
 
   /**
-   * @public
    * <p>
    *       The revisions of the package versions you want to dispose.
    *     </p>
+   * @public
    */
   versionRevisions?: Record<string, string>;
 
   /**
-   * @public
    * <p>
    *       The expected status of the package version to dispose.
    *     </p>
+   * @public
    */
   expectedStatus?: PackageVersionStatus;
 }
@@ -2315,15 +2315,14 @@ export interface DisposePackageVersionsRequest {
  */
 export interface DisposePackageVersionsResult {
   /**
-   * @public
    * <p>
    *       A list of the package versions that were successfully disposed.
    *     </p>
+   * @public
    */
   successfulVersions?: Record<string, SuccessfulPackageVersionInfo>;
 
   /**
-   * @public
    * <p>
    *       A <code>PackageVersionError</code> object that contains a map of errors codes for the
    *       disposed package versions that failed. The possible error codes are:
@@ -2360,6 +2359,7 @@ export interface DisposePackageVersionsResult {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   failedVersions?: Record<string, PackageVersionError>;
 }
@@ -2369,28 +2369,28 @@ export interface DisposePackageVersionsResult {
  */
 export interface GetAuthorizationTokenRequest {
   /**
-   * @public
    * <p>
    *         The name of the domain that is in scope for the generated authorization token.
    *        </p>
+   * @public
    */
   domain: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
+   * @public
    */
   domainOwner?: string;
 
   /**
-   * @public
    * <p>The time, in seconds, that the generated authorization token is valid. Valid values are
    *     <code>0</code> and any number between <code>900</code> (15 minutes) and <code>43200</code> (12 hours).
    *     A value of <code>0</code> will set the expiration of the authorization token to the same expiration of
    *     the user's role's temporary credentials.</p>
+   * @public
    */
   durationSeconds?: number;
 }
@@ -2400,18 +2400,18 @@ export interface GetAuthorizationTokenRequest {
  */
 export interface GetAuthorizationTokenResult {
   /**
-   * @public
    * <p>
    *         The returned authentication token.
    *        </p>
+   * @public
    */
   authorizationToken?: string;
 
   /**
-   * @public
    * <p>
    *       A timestamp that specifies the date and time the authorization token expires.
    *     </p>
+   * @public
    */
   expiration?: Date;
 }
@@ -2421,19 +2421,19 @@ export interface GetAuthorizationTokenResult {
  */
 export interface GetDomainPermissionsPolicyRequest {
   /**
-   * @public
    * <p>
    *         The name of the domain to which the resource policy is attached.
    *       </p>
+   * @public
    */
   domain: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
+   * @public
    */
   domainOwner?: string;
 }
@@ -2443,10 +2443,10 @@ export interface GetDomainPermissionsPolicyRequest {
  */
 export interface GetDomainPermissionsPolicyResult {
   /**
-   * @public
    * <p>
    *         The returned resource policy.
    *       </p>
+   * @public
    */
   policy?: ResourcePolicy;
 }
@@ -2456,40 +2456,39 @@ export interface GetDomainPermissionsPolicyResult {
  */
 export interface GetPackageVersionAssetRequest {
   /**
-   * @public
    * <p>
    *       The name of the domain that contains the repository that contains the package version with the requested asset.
    *     </p>
+   * @public
    */
   domain: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
+   * @public
    */
   domainOwner?: string;
 
   /**
-   * @public
    * <p>
    *       The repository that contains the package version with the requested asset.
    *     </p>
+   * @public
    */
   repository: string | undefined;
 
   /**
-   * @public
    * <p>
    *       A format that specifies the type of the package version with the requested asset file.
    *     </p>
+   * @public
    */
   format: PackageFormat | undefined;
 
   /**
-   * @public
    * <p>The namespace of the package version with the requested asset file. The package version component that specifies its
    *       namespace depends on its type. For example:</p>
    *          <ul>
@@ -2513,38 +2512,39 @@ export interface GetPackageVersionAssetRequest {
    *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
+   * @public
    */
   namespace?: string;
 
   /**
-   * @public
    * <p>
    *       The name of the package that contains the requested asset.
    *     </p>
+   * @public
    */
   package: string | undefined;
 
   /**
-   * @public
    * <p>
    *       A string that contains the package version (for example, <code>3.5.2</code>).
    *     </p>
+   * @public
    */
   packageVersion: string | undefined;
 
   /**
-   * @public
    * <p>
    *       The name of the requested asset.
    *     </p>
+   * @public
    */
   asset: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The name of the package version revision that contains the requested asset.
    *     </p>
+   * @public
    */
   packageVersionRevision?: string;
 }
@@ -2554,32 +2554,32 @@ export interface GetPackageVersionAssetRequest {
  */
 export interface GetPackageVersionAssetResult {
   /**
-   * @public
    * <p> The binary file, or asset, that is downloaded.</p>
+   * @public
    */
   asset?: StreamingBlobTypes;
 
   /**
-   * @public
    * <p>
    *       The name of the asset that is downloaded.
    *     </p>
+   * @public
    */
   assetName?: string;
 
   /**
-   * @public
    * <p>
    *       A string that contains the package version (for example, <code>3.5.2</code>).
    *     </p>
+   * @public
    */
   packageVersion?: string;
 
   /**
-   * @public
    * <p>
    *       The name of the package version revision that contains the downloaded asset.
    *     </p>
+   * @public
    */
   packageVersionRevision?: string;
 }
@@ -2589,40 +2589,39 @@ export interface GetPackageVersionAssetResult {
  */
 export interface GetPackageVersionReadmeRequest {
   /**
-   * @public
    * <p>
    *       The name of the domain that contains the repository that contains the package version with the requested readme file.
    *     </p>
+   * @public
    */
   domain: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
+   * @public
    */
   domainOwner?: string;
 
   /**
-   * @public
    * <p>
    *       The repository that contains the package with the requested readme file.
    *     </p>
+   * @public
    */
   repository: string | undefined;
 
   /**
-   * @public
    * <p>
    *       A format that specifies the type of the package version with the requested readme file.
    *     </p>
+   * @public
    */
   format: PackageFormat | undefined;
 
   /**
-   * @public
    * <p>The namespace of the package version with the requested readme file. The package version component that specifies its
    *       namespace depends on its type. For example:</p>
    *          <ul>
@@ -2634,22 +2633,23 @@ export interface GetPackageVersionReadmeRequest {
    *           versions of those formats do not have a namespace. </p>
    *             </li>
    *          </ul>
+   * @public
    */
   namespace?: string;
 
   /**
-   * @public
    * <p>
    *       The name of the package version that contains the requested readme file.
    *     </p>
+   * @public
    */
   package: string | undefined;
 
   /**
-   * @public
    * <p>
    *       A string that contains the package version (for example, <code>3.5.2</code>).
    *     </p>
+   * @public
    */
   packageVersion: string | undefined;
 }
@@ -2659,15 +2659,14 @@ export interface GetPackageVersionReadmeRequest {
  */
 export interface GetPackageVersionReadmeResult {
   /**
-   * @public
    * <p>
    *       The format of the package with the requested readme file.
    *     </p>
+   * @public
    */
   format?: PackageFormat;
 
   /**
-   * @public
    * <p>The namespace of the package version with the requested readme file. The package version component that specifies its
    *       namespace depends on its type. For example:</p>
    *          <ul>
@@ -2688,38 +2687,39 @@ export interface GetPackageVersionReadmeResult {
    *         </p>
    *             </li>
    *          </ul>
+   * @public
    */
   namespace?: string;
 
   /**
-   * @public
    * <p>
    *       The name of the package that contains the returned readme file.
    *     </p>
+   * @public
    */
   package?: string;
 
   /**
-   * @public
    * <p>
    *       The version of the package with the requested readme file.
    *     </p>
+   * @public
    */
   version?: string;
 
   /**
-   * @public
    * <p>
    *       The current revision associated with the package version.
    *     </p>
+   * @public
    */
   versionRevision?: string;
 
   /**
-   * @public
    * <p>
    *       The text of the returned readme file.
    *     </p>
+   * @public
    */
   readme?: string;
 }
@@ -2729,36 +2729,36 @@ export interface GetPackageVersionReadmeResult {
  */
 export interface GetRepositoryEndpointRequest {
   /**
-   * @public
    * <p>
    *          The name of the domain that contains the repository.
    *      </p>
+   * @public
    */
   domain: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The 12-digit account number of the Amazon Web Services account that owns the domain that contains the repository. It does not include
    *         dashes or spaces.
    *       </p>
+   * @public
    */
   domainOwner?: string;
 
   /**
-   * @public
    * <p>
    *          The name of the repository.
    *      </p>
+   * @public
    */
   repository: string | undefined;
 
   /**
-   * @public
    * <p>
    *       Returns which endpoint of a repository to return. A repository has one endpoint for each
    *       package format.
    *     </p>
+   * @public
    */
   format: PackageFormat | undefined;
 }
@@ -2768,10 +2768,10 @@ export interface GetRepositoryEndpointRequest {
  */
 export interface GetRepositoryEndpointResult {
   /**
-   * @public
    * <p>
    *          A string that specifies the URL of the returned endpoint.
    *      </p>
+   * @public
    */
   repositoryEndpoint?: string;
 }
@@ -2781,27 +2781,27 @@ export interface GetRepositoryEndpointResult {
  */
 export interface GetRepositoryPermissionsPolicyRequest {
   /**
-   * @public
    * <p>
    *         The name of the domain containing the repository whose associated resource policy is to be retrieved.
    *       </p>
+   * @public
    */
   domain: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
+   * @public
    */
   domainOwner?: string;
 
   /**
-   * @public
    * <p>
    *         The name of the repository whose associated resource policy is to be retrieved.
    *       </p>
+   * @public
    */
   repository: string | undefined;
 }
@@ -2811,10 +2811,10 @@ export interface GetRepositoryPermissionsPolicyRequest {
  */
 export interface GetRepositoryPermissionsPolicyResult {
   /**
-   * @public
    * <p>
    *         The returned resource policy.
    *       </p>
+   * @public
    */
   policy?: ResourcePolicy;
 }
@@ -2824,75 +2824,75 @@ export interface GetRepositoryPermissionsPolicyResult {
  */
 export interface ListDomainsRequest {
   /**
-   * @public
    * <p>
    *         The maximum number of results to return per page.
    *        </p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>
    *         The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
    *        </p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p> Information about a domain, including its name, Amazon Resource Name (ARN), and status.
  *       The <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListDomains.html">ListDomains</a> operation returns a list of <code>DomainSummary</code>
  *       objects. </p>
+ * @public
  */
 export interface DomainSummary {
   /**
-   * @public
    * <p>
    *       The name of the domain.
    *     </p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>
    *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
+   * @public
    */
   owner?: string;
 
   /**
-   * @public
    * <p>
    *       The ARN of the domain.
    *     </p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>
    *       A string that contains the status of the domain.
    *     </p>
+   * @public
    */
   status?: DomainStatus;
 
   /**
-   * @public
    * <p>
    *       A timestamp that contains the date and time the domain was created.
    *     </p>
+   * @public
    */
   createdTime?: Date;
 
   /**
-   * @public
    * <p>
    *       The key used to encrypt the domain.
    *     </p>
+   * @public
    */
   encryptionKey?: string;
 }
@@ -2902,18 +2902,18 @@ export interface DomainSummary {
  */
 export interface ListDomainsResult {
   /**
-   * @public
    * <p>
    *       The returned list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DomainSummary.html">DomainSummary</a> objects.
    *      </p>
+   * @public
    */
   domains?: DomainSummary[];
 
   /**
-   * @public
    * <p>
    *         The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
    *        </p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2923,38 +2923,37 @@ export interface ListDomainsResult {
  */
 export interface ListPackagesRequest {
   /**
-   * @public
    * <p>
    *         The name of the domain that contains the repository that contains the requested packages.
    *       </p>
+   * @public
    */
   domain: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
+   * @public
    */
   domainOwner?: string;
 
   /**
-   * @public
    * <p>
    *          The name of the repository that contains the requested packages.
    *        </p>
+   * @public
    */
   repository: string | undefined;
 
   /**
-   * @public
    * <p>The format used to filter requested packages. Only packages from the provided format will be returned.</p>
+   * @public
    */
   format?: PackageFormat;
 
   /**
-   * @public
    * <p>The namespace prefix used to filter requested packages. Only packages with a namespace that starts with the provided string value are returned. Note that although this option is called <code>--namespace</code> and not <code>--namespace-prefix</code>, it has prefix-matching behavior.</p>
    *          <p>Each package format uses namespace as follows:</p>
    *          <ul>
@@ -2978,46 +2977,47 @@ export interface ListPackagesRequest {
    *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
+   * @public
    */
   namespace?: string;
 
   /**
-   * @public
    * <p>
    *       A prefix used to filter requested packages. Only packages with names that start with
    *       <code>packagePrefix</code> are returned.
    *     </p>
+   * @public
    */
   packagePrefix?: string;
 
   /**
-   * @public
    * <p>
    *         The maximum number of results to return per page.
    *        </p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>
    *         The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
    *        </p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The value of the <code>Publish</code> package origin control restriction used to filter requested packages.
    *       Only packages with the provided restriction are returned.
    *       For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a>.</p>
+   * @public
    */
   publish?: AllowPublish;
 
   /**
-   * @public
    * <p>The value of the <code>Upstream</code> package origin control restriction used to filter requested packages.
    *       Only packages with the provided restriction are returned. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a>.</p>
+   * @public
    */
   upstream?: AllowUpstream;
 }
@@ -3027,19 +3027,19 @@ export interface ListPackagesRequest {
  */
 export interface ListPackagesResult {
   /**
-   * @public
    * <p>
    *         The list of returned <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageSummary.html">PackageSummary</a>
    *         objects.
    *        </p>
+   * @public
    */
   packages?: PackageSummary[];
 
   /**
-   * @public
    * <p>
    *         If there are additional results, this is the token for the next set of results.
    *        </p>
+   * @public
    */
   nextToken?: string;
 }
@@ -3049,40 +3049,39 @@ export interface ListPackagesResult {
  */
 export interface ListPackageVersionAssetsRequest {
   /**
-   * @public
    * <p>
    *          The name of the domain that contains the repository associated with the package version assets.
    *        </p>
+   * @public
    */
   domain: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
+   * @public
    */
   domainOwner?: string;
 
   /**
-   * @public
    * <p>
    *       The name of the repository that contains the package that contains the requested package version assets.
    *     </p>
+   * @public
    */
   repository: string | undefined;
 
   /**
-   * @public
    * <p>
    *       The format of the package that contains the requested package version assets.
    *     </p>
+   * @public
    */
   format: PackageFormat | undefined;
 
   /**
-   * @public
    * <p>The namespace of the package version that contains the requested package version assets. The package version component that specifies its
    *       namespace depends on its type. For example:</p>
    *          <ul>
@@ -3106,38 +3105,39 @@ export interface ListPackageVersionAssetsRequest {
    *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
+   * @public
    */
   namespace?: string;
 
   /**
-   * @public
    * <p>
    *          The name of the package that contains the requested package version assets.
    *        </p>
+   * @public
    */
   package: string | undefined;
 
   /**
-   * @public
    * <p>
    *       A string that contains the package version (for example, <code>3.5.2</code>).
    *     </p>
+   * @public
    */
   packageVersion: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The maximum number of results to return per page.
    *        </p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>
    *         The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
    *        </p>
+   * @public
    */
   nextToken?: string;
 }
@@ -3147,15 +3147,14 @@ export interface ListPackageVersionAssetsRequest {
  */
 export interface ListPackageVersionAssetsResult {
   /**
-   * @public
    * <p>
    *       The format of the package that contains the requested package version assets.
    *     </p>
+   * @public
    */
   format?: PackageFormat;
 
   /**
-   * @public
    * <p>The namespace of the package version that contains the requested package version assets. The package version component that specifies its
    *        namespace depends on its type. For example:</p>
    *          <ul>
@@ -3176,46 +3175,47 @@ export interface ListPackageVersionAssetsResult {
    *          </p>
    *             </li>
    *          </ul>
+   * @public
    */
   namespace?: string;
 
   /**
-   * @public
    * <p>
    *       The name of the package that contains the requested package version assets.
    *     </p>
+   * @public
    */
   package?: string;
 
   /**
-   * @public
    * <p>
    *       The version of the package associated with the requested assets.
    *     </p>
+   * @public
    */
   version?: string;
 
   /**
-   * @public
    * <p>
    *       The current revision associated with the package version.
    *     </p>
+   * @public
    */
   versionRevision?: string;
 
   /**
-   * @public
    * <p>
    *         If there are additional results, this is the token for the next set of results.
    *        </p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>
    *       The returned list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html">AssetSummary</a> objects.
    *     </p>
+   * @public
    */
   assets?: AssetSummary[];
 }
@@ -3225,40 +3225,39 @@ export interface ListPackageVersionAssetsResult {
  */
 export interface ListPackageVersionDependenciesRequest {
   /**
-   * @public
    * <p>
    *       The name of the domain that contains the repository that contains the requested package version dependencies.
    *     </p>
+   * @public
    */
   domain: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
+   * @public
    */
   domainOwner?: string;
 
   /**
-   * @public
    * <p>
    *       The name of the repository that contains the requested package version.
    *     </p>
+   * @public
    */
   repository: string | undefined;
 
   /**
-   * @public
    * <p>
    *       The format of the package with the requested dependencies.
    *     </p>
+   * @public
    */
   format: PackageFormat | undefined;
 
   /**
-   * @public
    * <p>The namespace of the package version with the requested dependencies. The package version component that specifies its
    *       namespace depends on its type. For example:</p>
    *          <ul>
@@ -3282,43 +3281,43 @@ export interface ListPackageVersionDependenciesRequest {
    *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
+   * @public
    */
   namespace?: string;
 
   /**
-   * @public
    * <p>
    *       The name of the package versions' package.
    *     </p>
+   * @public
    */
   package: string | undefined;
 
   /**
-   * @public
    * <p>
    *       A string that contains the package version (for example, <code>3.5.2</code>).
    *     </p>
+   * @public
    */
   packageVersion: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
    *        </p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>
  *         Details about a package dependency.
  *       </p>
+ * @public
  */
 export interface PackageDependency {
   /**
-   * @public
    * <p>The namespace of the package that this package depends on. The package component that specifies its
    *        namespace depends on its type. For example:</p>
    *          <ul>
@@ -3339,19 +3338,19 @@ export interface PackageDependency {
    *          </p>
    *             </li>
    *          </ul>
+   * @public
    */
   namespace?: string;
 
   /**
-   * @public
    * <p>
    *         The name of the package that this package depends on.
    *        </p>
+   * @public
    */
   package?: string;
 
   /**
-   * @public
    * <p> The type of a package dependency. The possible values depend on the package type.</p>
    *          <ul>
    *             <li>
@@ -3372,16 +3371,17 @@ export interface PackageDependency {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   dependencyType?: string;
 
   /**
-   * @public
    * <p>
    *         The required version, or version range, of the package that this package depends on. The version format
    *         is specific to the package type. For example, the following are possible valid required versions: <code>1.2.3</code>,
    *         <code>^2.3.4</code>, or <code>4.x</code>.
    *       </p>
+   * @public
    */
   versionRequirement?: string;
 }
@@ -3391,15 +3391,14 @@ export interface PackageDependency {
  */
 export interface ListPackageVersionDependenciesResult {
   /**
-   * @public
    * <p>
    *       A format that specifies the type of the package that contains the returned dependencies.
    *     </p>
+   * @public
    */
   format?: PackageFormat;
 
   /**
-   * @public
    * <p>The namespace of the package version that contains the returned dependencies. The package version component that specifies its
    *       namespace depends on its type. For example:</p>
    *          <ul>
@@ -3420,46 +3419,47 @@ export interface ListPackageVersionDependenciesResult {
    *         </p>
    *             </li>
    *          </ul>
+   * @public
    */
   namespace?: string;
 
   /**
-   * @public
    * <p>
    *       The name of the package that contains the returned package versions dependencies.
    *     </p>
+   * @public
    */
   package?: string;
 
   /**
-   * @public
    * <p>
    *       The version of the package that is specified in the request.
    *     </p>
+   * @public
    */
   version?: string;
 
   /**
-   * @public
    * <p>
    *       The current revision associated with the package version.
    *     </p>
+   * @public
    */
   versionRevision?: string;
 
   /**
-   * @public
    * <p>
    *         The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
    *        </p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>
    *       The returned list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDependency.html">PackageDependency</a> objects.
    *     </p>
+   * @public
    */
   dependencies?: PackageDependency[];
 }
@@ -3482,40 +3482,39 @@ export type PackageVersionSortType = (typeof PackageVersionSortType)[keyof typeo
  */
 export interface ListPackageVersionsRequest {
   /**
-   * @public
    * <p>
    *          The name of the domain that contains the repository that contains the requested package versions.
    *        </p>
+   * @public
    */
   domain: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
+   * @public
    */
   domainOwner?: string;
 
   /**
-   * @public
    * <p>
    *          The name of the repository that contains the requested package versions.
    *        </p>
+   * @public
    */
   repository: string | undefined;
 
   /**
-   * @public
    * <p>
    *       The format of the package versions you want to list.
    *     </p>
+   * @public
    */
   format: PackageFormat | undefined;
 
   /**
-   * @public
    * <p>The namespace of the package that contains the requested package versions. The package component that specifies its
    *       namespace depends on its type. For example:</p>
    *          <ul>
@@ -3539,94 +3538,95 @@ export interface ListPackageVersionsRequest {
    *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
+   * @public
    */
   namespace?: string;
 
   /**
-   * @public
    * <p>
    *       The name of the package for which you want to request package versions.
    *     </p>
+   * @public
    */
   package: string | undefined;
 
   /**
-   * @public
    * <p>
    *       A string that filters the requested package versions by status.
    *     </p>
+   * @public
    */
   status?: PackageVersionStatus;
 
   /**
-   * @public
    * <p>
    *       How to sort the requested list of package versions.
    *     </p>
+   * @public
    */
   sortBy?: PackageVersionSortType;
 
   /**
-   * @public
    * <p>
    *         The maximum number of results to return per page.
    *        </p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>
    *         The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
    *        </p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The <code>originType</code> used to filter package versions.
    *       Only package versions with the provided <code>originType</code> will be returned.</p>
+   * @public
    */
   originType?: PackageVersionOriginType;
 }
 
 /**
- * @public
  * <p>
  *        Details about a package version, including its status, version, and revision. The
  *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">ListPackageVersions</a>
  *        operation returns a list of <code>PackageVersionSummary</code> objects.
  *      </p>
+ * @public
  */
 export interface PackageVersionSummary {
   /**
-   * @public
    * <p>
    *         Information about a package version.
    *        </p>
+   * @public
    */
   version: string | undefined;
 
   /**
-   * @public
    * <p>
    *       The revision associated with a package version.
    *     </p>
+   * @public
    */
   revision?: string;
 
   /**
-   * @public
    * <p>
    *       A string that contains the status of the package version. It can be one of the following:
    *     </p>
+   * @public
    */
   status: PackageVersionStatus | undefined;
 
   /**
-   * @public
    * <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionOrigin.html">PackageVersionOrigin</a> object that contains information
    *     about how the package version was added to the repository.</p>
+   * @public
    */
   origin?: PackageVersionOrigin;
 }
@@ -3636,7 +3636,6 @@ export interface PackageVersionSummary {
  */
 export interface ListPackageVersionsResult {
   /**
-   * @public
    * <p>
    *       The default package version to display. This depends on the package format:
    *     </p>
@@ -3653,19 +3652,19 @@ export interface ListPackageVersionsResult {
    *         </p>
    *             </li>
    *          </ul>
+   * @public
    */
   defaultDisplayVersion?: string;
 
   /**
-   * @public
    * <p>
    *       A format of the package.
    *     </p>
+   * @public
    */
   format?: PackageFormat;
 
   /**
-   * @public
    * <p>The namespace of the package that contains the requested package versions. The package component that specifies its
    *       namespace depends on its type. For example:</p>
    *          <ul>
@@ -3686,32 +3685,33 @@ export interface ListPackageVersionsResult {
    *         </p>
    *             </li>
    *          </ul>
+   * @public
    */
   namespace?: string;
 
   /**
-   * @public
    * <p>
    *          The name of the package.
    *        </p>
+   * @public
    */
   package?: string;
 
   /**
-   * @public
    * <p>
    *         The returned list of
    *         <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionSummary.html">PackageVersionSummary</a>
    *         objects.
    *        </p>
+   * @public
    */
   versions?: PackageVersionSummary[];
 
   /**
-   * @public
    * <p>
    *         If there are additional results, this is the token for the next set of results.
    *        </p>
+   * @public
    */
   nextToken?: string;
 }
@@ -3721,86 +3721,86 @@ export interface ListPackageVersionsResult {
  */
 export interface ListRepositoriesRequest {
   /**
-   * @public
    * <p> A prefix used to filter returned repositories. Only repositories with names that start
    *       with <code>repositoryPrefix</code> are returned.</p>
+   * @public
    */
   repositoryPrefix?: string;
 
   /**
-   * @public
    * <p>
    *         The maximum number of results to return per page.
    *        </p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>
    *         The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
    *        </p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p> Details about a repository, including its Amazon Resource Name (ARN), description, and
  *       domain information. The <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListRepositories.html">ListRepositories</a> operation returns a list of
  *         <code>RepositorySummary</code> objects. </p>
+ * @public
  */
 export interface RepositorySummary {
   /**
-   * @public
    * <p>
    *          The name of the repository.
    *       </p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>
    *          The Amazon Web Services account ID that manages the repository.
    *       </p>
+   * @public
    */
   administratorAccount?: string;
 
   /**
-   * @public
    * <p>
    *          The name of the domain that contains the repository.
    *       </p>
+   * @public
    */
   domainName?: string;
 
   /**
-   * @public
    * <p>
    *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
+   * @public
    */
   domainOwner?: string;
 
   /**
-   * @public
    * <p> The ARN of the repository. </p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>
    *       The description of the repository.
    *     </p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>A timestamp that represents the date and time the repository was created.</p>
+   * @public
    */
   createdTime?: Date;
 }
@@ -3810,19 +3810,19 @@ export interface RepositorySummary {
  */
 export interface ListRepositoriesResult {
   /**
-   * @public
    * <p>
    *         The returned list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_RepositorySummary.html">RepositorySummary</a>
    *         objects.
    *        </p>
+   * @public
    */
   repositories?: RepositorySummary[];
 
   /**
-   * @public
    * <p>
    *         If there are additional results, this is the token for the next set of results.
    *        </p>
+   * @public
    */
   nextToken?: string;
 }
@@ -3832,52 +3832,52 @@ export interface ListRepositoriesResult {
  */
 export interface ListRepositoriesInDomainRequest {
   /**
-   * @public
    * <p>
    *          The name of the domain that contains the returned list of repositories.
    *        </p>
+   * @public
    */
   domain: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
+   * @public
    */
   domainOwner?: string;
 
   /**
-   * @public
    * <p>
    *          Filter the list of repositories to only include those that are managed by the Amazon Web Services account ID.
    *        </p>
+   * @public
    */
   administratorAccount?: string;
 
   /**
-   * @public
    * <p>
    *       A prefix used to filter returned repositories. Only repositories with names that start with
    *       <code>repositoryPrefix</code> are returned.
    *     </p>
+   * @public
    */
   repositoryPrefix?: string;
 
   /**
-   * @public
    * <p>
    *         The maximum number of results to return per page.
    *        </p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>
    *         The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
    *        </p>
+   * @public
    */
   nextToken?: string;
 }
@@ -3887,18 +3887,18 @@ export interface ListRepositoriesInDomainRequest {
  */
 export interface ListRepositoriesInDomainResult {
   /**
-   * @public
    * <p>
    *        The returned list of repositories.
    *      </p>
+   * @public
    */
   repositories?: RepositorySummary[];
 
   /**
-   * @public
    * <p>
    *         If there are additional results, this is the token for the next set of results.
    *        </p>
+   * @public
    */
   nextToken?: string;
 }
@@ -3908,8 +3908,8 @@ export interface ListRepositoriesInDomainResult {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resource to get tags for.</p>
+   * @public
    */
   resourceArn: string | undefined;
 }
@@ -3919,8 +3919,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResult {
   /**
-   * @public
    * <p>A list of tag key and value pairs associated with the specified resource.</p>
+   * @public
    */
   tags?: Tag[];
 }
@@ -3930,80 +3930,80 @@ export interface ListTagsForResourceResult {
  */
 export interface PublishPackageVersionRequest {
   /**
-   * @public
    * <p>The name of the domain that contains the repository that contains the package version to publish.</p>
+   * @public
    */
   domain: string | undefined;
 
   /**
-   * @public
    * <p>The 12-digit account number of the AWS account that owns the domain. It does not include dashes or spaces.</p>
+   * @public
    */
   domainOwner?: string;
 
   /**
-   * @public
    * <p>The name of the repository that the package version will be published to.</p>
+   * @public
    */
   repository: string | undefined;
 
   /**
-   * @public
    * <p>A format that specifies the type of the package version with the requested asset file.</p>
    *          <p>The only supported value is <code>generic</code>.</p>
+   * @public
    */
   format: PackageFormat | undefined;
 
   /**
-   * @public
    * <p>The namespace of the package version to publish.</p>
+   * @public
    */
   namespace?: string;
 
   /**
-   * @public
    * <p>The name of the package version to publish.</p>
+   * @public
    */
   package: string | undefined;
 
   /**
-   * @public
    * <p>The package version to publish (for example, <code>3.5.2</code>).</p>
+   * @public
    */
   packageVersion: string | undefined;
 
   /**
-   * @public
    * <p>The content of the asset to publish.</p>
+   * @public
    */
   assetContent: StreamingBlobTypes | undefined;
 
   /**
-   * @public
    * <p>The name of the asset to publish. Asset names can include Unicode letters and numbers, and
    *       the following special characters: <code>~ ! @ ^ & ( ) - ` _ + [ ] \{ \} ; , .
    *       `</code>
    *          </p>
+   * @public
    */
   assetName: string | undefined;
 
   /**
-   * @public
    * <p>The SHA256 hash of the <code>assetContent</code> to publish. This value must be calculated
    *       by the caller and provided with the request (see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-generic.html#publishing-generic-packages">Publishing a generic package</a> in the <i>CodeArtifact User
    *         Guide</i>).</p>
    *          <p>This value is used as an integrity check to verify that the <code>assetContent</code> has
    *       not changed after it was originally sent.</p>
+   * @public
    */
   assetSHA256: string | undefined;
 
   /**
-   * @public
    * <p>Specifies whether the package version should remain in the <code>unfinished</code>
    *       state. If omitted, the package version status will be set to <code>Published</code> (see
    *         <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/packages-overview.html#package-version-status">Package version status</a> in the <i>CodeArtifact User Guide</i>).</p>
    *          <p>Valid values: <code>unfinished</code>
    *          </p>
+   * @public
    */
   unfinished?: boolean;
 }
@@ -4013,44 +4013,44 @@ export interface PublishPackageVersionRequest {
  */
 export interface PublishPackageVersionResult {
   /**
-   * @public
    * <p>The format of the package version.</p>
+   * @public
    */
   format?: PackageFormat;
 
   /**
-   * @public
    * <p>The namespace of the package version.</p>
+   * @public
    */
   namespace?: string;
 
   /**
-   * @public
    * <p>The name of the package.</p>
+   * @public
    */
   package?: string;
 
   /**
-   * @public
    * <p>The version of the package.</p>
+   * @public
    */
   version?: string;
 
   /**
-   * @public
    * <p>The revision of the package version.</p>
+   * @public
    */
   versionRevision?: string;
 
   /**
-   * @public
    * <p>A string that contains the status of the package version. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/packages-overview.html#package-version-status.html#package-version-status">Package version status</a> in the <i>CodeArtifact User Guide</i>.</p>
+   * @public
    */
   status?: PackageVersionStatus;
 
   /**
-   * @public
    * <p>An <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html">AssetSummary</a> for the published asset.</p>
+   * @public
    */
   asset?: AssetSummary;
 }
@@ -4060,35 +4060,35 @@ export interface PublishPackageVersionResult {
  */
 export interface PutDomainPermissionsPolicyRequest {
   /**
-   * @public
    * <p>
    *         The name of the domain on which to set the resource policy.
    *       </p>
+   * @public
    */
   domain: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
+   * @public
    */
   domainOwner?: string;
 
   /**
-   * @public
    * <p>
    *         The current revision of the resource policy to be set. This revision is used for optimistic locking, which
    *         prevents others from overwriting your changes to the domain's resource policy.
    *       </p>
+   * @public
    */
   policyRevision?: string;
 
   /**
-   * @public
    * <p> A valid displayable JSON Aspen policy string to be set as the access control resource
    *       policy on the provided domain. </p>
+   * @public
    */
   policyDocument: string | undefined;
 }
@@ -4098,8 +4098,8 @@ export interface PutDomainPermissionsPolicyRequest {
  */
 export interface PutDomainPermissionsPolicyResult {
   /**
-   * @public
    * <p> The resource policy that was set after processing the request. </p>
+   * @public
    */
   policy?: ResourcePolicy;
 }
@@ -4109,34 +4109,33 @@ export interface PutDomainPermissionsPolicyResult {
  */
 export interface PutPackageOriginConfigurationRequest {
   /**
-   * @public
    * <p>The name of the domain that contains the repository that contains the package.</p>
+   * @public
    */
   domain: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
+   * @public
    */
   domainOwner?: string;
 
   /**
-   * @public
    * <p>The name of the repository that contains the package.</p>
+   * @public
    */
   repository: string | undefined;
 
   /**
-   * @public
    * <p>A format that specifies the type of the package to be updated.</p>
+   * @public
    */
   format: PackageFormat | undefined;
 
   /**
-   * @public
    * <p>The namespace of the package to be updated. The package component that specifies its
    *       namespace depends on its type. For example:</p>
    *          <ul>
@@ -4160,22 +4159,23 @@ export interface PutPackageOriginConfigurationRequest {
    *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
+   * @public
    */
   namespace?: string;
 
   /**
-   * @public
    * <p>The name of the package to be updated.</p>
+   * @public
    */
   package: string | undefined;
 
   /**
-   * @public
    * <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a>
    *       object that contains information about the <code>upstream</code> and <code>publish</code> package origin restrictions.
    *       The <code>upstream</code> restriction determines if new package versions can be ingested or retained from external connections or upstream repositories.
    *     The <code>publish</code> restriction determines if new package versions can be published directly to the repository.</p>
    *          <p>You must include both the desired <code>upstream</code> and <code>publish</code> restrictions.</p>
+   * @public
    */
   restrictions: PackageOriginRestrictions | undefined;
 }
@@ -4185,11 +4185,11 @@ export interface PutPackageOriginConfigurationRequest {
  */
 export interface PutPackageOriginConfigurationResult {
   /**
-   * @public
    * <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginConfiguration.html">PackageOriginConfiguration</a>
    *       object that describes the origin configuration set for the package. It contains a
    *       <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a>
    *       object that describes how new versions of the package can be introduced to the repository.</p>
+   * @public
    */
   originConfiguration?: PackageOriginConfiguration;
 }
@@ -4199,42 +4199,42 @@ export interface PutPackageOriginConfigurationResult {
  */
 export interface PutRepositoryPermissionsPolicyRequest {
   /**
-   * @public
    * <p>
    *         The name of the domain containing the repository to set the resource policy on.
    *       </p>
+   * @public
    */
   domain: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
+   * @public
    */
   domainOwner?: string;
 
   /**
-   * @public
    * <p> The name of the repository to set the resource policy on. </p>
+   * @public
    */
   repository: string | undefined;
 
   /**
-   * @public
    * <p>
    *         Sets the revision of the resource policy that specifies permissions to access the repository.
    *         This revision is used for optimistic locking, which prevents others from overwriting your
    *         changes to the repository's resource policy.
    *       </p>
+   * @public
    */
   policyRevision?: string;
 
   /**
-   * @public
    * <p> A valid displayable JSON Aspen policy string to be set as the access control resource
    *       policy on the provided repository. </p>
+   * @public
    */
   policyDocument: string | undefined;
 }
@@ -4244,8 +4244,8 @@ export interface PutRepositoryPermissionsPolicyRequest {
  */
 export interface PutRepositoryPermissionsPolicyResult {
   /**
-   * @public
    * <p> The resource policy that was set after processing the request. </p>
+   * @public
    */
   policy?: ResourcePolicy;
 }
@@ -4255,14 +4255,14 @@ export interface PutRepositoryPermissionsPolicyResult {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resource that you want to add or update tags for.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The tags you want to modify or add to the resource.</p>
+   * @public
    */
   tags: Tag[] | undefined;
 }
@@ -4277,14 +4277,14 @@ export interface TagResourceResult {}
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resource that you want to remove tags from.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The tag key for each tag that you want to remove from the resource.</p>
+   * @public
    */
   tagKeys: string[] | undefined;
 }
@@ -4299,40 +4299,39 @@ export interface UntagResourceResult {}
  */
 export interface UpdatePackageVersionsStatusRequest {
   /**
-   * @public
    * <p>
    *       The name of the domain that contains the repository that contains the package versions with a status to be updated.
    *     </p>
+   * @public
    */
   domain: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
+   * @public
    */
   domainOwner?: string;
 
   /**
-   * @public
    * <p>
    *       The repository that contains the package versions with the status you want to update.
    *     </p>
+   * @public
    */
   repository: string | undefined;
 
   /**
-   * @public
    * <p>
    *       A format that specifies the type of the package with the statuses to update.
    *     </p>
+   * @public
    */
   format: PackageFormat | undefined;
 
   /**
-   * @public
    * <p>The namespace of the package version to be updated. The package version component that specifies its
    *       namespace depends on its type. For example:</p>
    *          <ul>
@@ -4356,47 +4355,48 @@ export interface UpdatePackageVersionsStatusRequest {
    *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
+   * @public
    */
   namespace?: string;
 
   /**
-   * @public
    * <p>
    *       The name of the package with the version statuses to update.
    *     </p>
+   * @public
    */
   package: string | undefined;
 
   /**
-   * @public
    * <p>
    *       An array of strings that specify the versions of the package with the statuses to update.
    *     </p>
+   * @public
    */
   versions: string[] | undefined;
 
   /**
-   * @public
    * <p> A map of package versions and package version revisions. The map <code>key</code> is the
    *       package version (for example, <code>3.5.2</code>), and the map <code>value</code> is the
    *       package version revision. </p>
+   * @public
    */
   versionRevisions?: Record<string, string>;
 
   /**
-   * @public
    * <p> The package version’s expected status before it is updated. If
    *         <code>expectedStatus</code> is provided, the package version's status is updated only if its
    *       status at the time <code>UpdatePackageVersionsStatus</code> is called matches
    *         <code>expectedStatus</code>. </p>
+   * @public
    */
   expectedStatus?: PackageVersionStatus;
 
   /**
-   * @public
    * <p>
    *       The status you want to change the package version status to.
    *     </p>
+   * @public
    */
   targetStatus: PackageVersionStatus | undefined;
 }
@@ -4406,18 +4406,18 @@ export interface UpdatePackageVersionsStatusRequest {
  */
 export interface UpdatePackageVersionsStatusResult {
   /**
-   * @public
    * <p>
    *       A list of <code>PackageVersionError</code> objects, one for each package version with
    *       a status that failed to update.
    *     </p>
+   * @public
    */
   successfulVersions?: Record<string, SuccessfulPackageVersionInfo>;
 
   /**
-   * @public
    * <p> A list of <code>SuccessfulPackageVersionInfo</code> objects, one for each package version
    *       with a status that successfully updated. </p>
+   * @public
    */
   failedVersions?: Record<string, PackageVersionError>;
 }
@@ -4427,43 +4427,43 @@ export interface UpdatePackageVersionsStatusResult {
  */
 export interface UpdateRepositoryRequest {
   /**
-   * @public
    * <p>
    *          The name of the domain associated with the repository to update.
    *        </p>
+   * @public
    */
   domain: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
    *         dashes or spaces.
    *       </p>
+   * @public
    */
   domainOwner?: string;
 
   /**
-   * @public
    * <p>
    *          The name of the repository to update.
    *        </p>
+   * @public
    */
   repository: string | undefined;
 
   /**
-   * @public
    * <p>
    *          An updated repository description.
    *        </p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p> A list of upstream repositories to associate with the repository. The order of the upstream repositories
    *         in the list determines their priority order when CodeArtifact looks for a requested package version. For more
    *         information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html">Working with upstream repositories</a>. </p>
+   * @public
    */
   upstreams?: UpstreamRepository[];
 }
@@ -4473,10 +4473,10 @@ export interface UpdateRepositoryRequest {
  */
 export interface UpdateRepositoryResult {
   /**
-   * @public
    * <p>
    *          The updated repository.
    *        </p>
+   * @public
    */
   repository?: RepositoryDescription;
 }

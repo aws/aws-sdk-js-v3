@@ -27,7 +27,6 @@ export interface ListProfilesCommandInput extends ListProfilesRequest {}
 export interface ListProfilesCommandOutput extends ListProfilesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the profiles for your system. If you want to limit the results to a
  *       certain number, supply a value for the <code>MaxResults</code> parameter. If you ran the
  *       command previously and received a value for <code>NextToken</code>, you can supply that value
@@ -84,6 +83,7 @@ export interface ListProfilesCommandOutput extends ListProfilesResponse, __Metad
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class ListProfilesCommand extends $Command
   .classBuilder<

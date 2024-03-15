@@ -27,7 +27,6 @@ export interface DeleteInAppTemplateCommandInput extends DeleteInAppTemplateRequ
 export interface DeleteInAppTemplateCommandOutput extends DeleteInAppTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a message template for messages sent using the in-app message channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface DeleteInAppTemplateCommandOutput extends DeleteInAppTemplateRes
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class DeleteInAppTemplateCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteLoginProfileCommandInput extends DeleteLoginProfileReques
 export interface DeleteLoginProfileCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the password for the specified IAM user, For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_admin-change-user.html">Managing
  *                 passwords for IAM users</a>.</p>
  *          <p>You can use the CLI, the Amazon Web Services API, or the <b>Users</b>
@@ -83,6 +82,7 @@ export interface DeleteLoginProfileCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To delete a password for an IAM user
  * ```javascript
  * // The following command deletes the password for the IAM user named Bob.

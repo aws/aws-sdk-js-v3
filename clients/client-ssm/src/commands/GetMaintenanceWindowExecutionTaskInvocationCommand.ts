@@ -37,7 +37,6 @@ export interface GetMaintenanceWindowExecutionTaskInvocationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about a specific task running on a specific target.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface GetMaintenanceWindowExecutionTaskInvocationCommandOutput
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class GetMaintenanceWindowExecutionTaskInvocationCommand extends $Command
   .classBuilder<

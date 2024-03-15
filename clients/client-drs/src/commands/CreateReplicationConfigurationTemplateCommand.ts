@@ -38,7 +38,6 @@ export interface CreateReplicationConfigurationTemplateCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new ReplicationConfigurationTemplate.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -142,6 +141,7 @@ export interface CreateReplicationConfigurationTemplateCommandOutput
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * @public
  */
 export class CreateReplicationConfigurationTemplateCommand extends $Command
   .classBuilder<

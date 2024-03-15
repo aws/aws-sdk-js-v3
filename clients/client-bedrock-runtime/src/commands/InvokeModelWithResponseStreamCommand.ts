@@ -44,7 +44,6 @@ export interface InvokeModelWithResponseStreamCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Invoke the specified Bedrock model to run inference using the input provided.
  *       Return the response in a stream.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html">Run inference</a> in the Bedrock User Guide.</p>
@@ -130,6 +129,7 @@ export interface InvokeModelWithResponseStreamCommandOutput
  * @throws {@link BedrockRuntimeServiceException}
  * <p>Base exception class for all service exceptions from BedrockRuntime service.</p>
  *
+ * @public
  */
 export class InvokeModelWithResponseStreamCommand extends $Command
   .classBuilder<

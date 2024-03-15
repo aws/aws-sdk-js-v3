@@ -27,7 +27,6 @@ export interface DiscoverInstancesRevisionCommandInput extends DiscoverInstances
 export interface DiscoverInstancesRevisionCommandOutput extends DiscoverInstancesRevisionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Discovers the increasing revision associated with an instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface DiscoverInstancesRevisionCommandOutput extends DiscoverInstance
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
+ * @public
  */
 export class DiscoverInstancesRevisionCommand extends $Command
   .classBuilder<

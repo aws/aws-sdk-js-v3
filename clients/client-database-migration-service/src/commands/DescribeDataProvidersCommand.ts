@@ -31,7 +31,6 @@ export interface DescribeDataProvidersCommandInput extends DescribeDataProviders
 export interface DescribeDataProvidersCommandOutput extends DescribeDataProvidersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a paginated list of data providers for your account in the current region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -146,6 +145,7 @@ export interface DescribeDataProvidersCommandOutput extends DescribeDataProvider
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Describe Data Providers
  * ```javascript
  * //

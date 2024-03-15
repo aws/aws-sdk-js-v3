@@ -31,7 +31,6 @@ export interface CheckAccessNotGrantedCommandInput extends CheckAccessNotGranted
 export interface CheckAccessNotGrantedCommandOutput extends CheckAccessNotGrantedResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Checks whether the specified access isn't allowed by a policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface CheckAccessNotGrantedCommandOutput extends CheckAccessNotGrante
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ * @public
  */
 export class CheckAccessNotGrantedCommand extends $Command
   .classBuilder<

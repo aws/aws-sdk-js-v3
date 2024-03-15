@@ -27,7 +27,6 @@ export interface CancelInputDeviceTransferCommandInput extends CancelInputDevice
 export interface CancelInputDeviceTransferCommandOutput extends CancelInputDeviceTransferResponse, __MetadataBearer {}
 
 /**
- * @public
  * Cancel an input device transfer that you have requested.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface CancelInputDeviceTransferCommandOutput extends CancelInputDevic
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class CancelInputDeviceTransferCommand extends $Command
   .classBuilder<

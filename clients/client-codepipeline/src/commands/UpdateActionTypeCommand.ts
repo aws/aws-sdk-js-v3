@@ -27,7 +27,6 @@ export interface UpdateActionTypeCommandInput extends UpdateActionTypeInput {}
 export interface UpdateActionTypeCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an action type that was created with any supported integration model, where
  *             the action type is to be used by customers of the action type provider. Use a JSON file
  *             with the action definition and <code>UpdateActionType</code> to provide the full
@@ -120,6 +119,7 @@ export interface UpdateActionTypeCommandOutput extends __MetadataBearer {}
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * @public
  */
 export class UpdateActionTypeCommand extends $Command
   .classBuilder<

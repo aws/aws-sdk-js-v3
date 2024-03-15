@@ -27,7 +27,6 @@ export interface DeleteCacheParameterGroupCommandInput extends DeleteCacheParame
 export interface DeleteCacheParameterGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified cache parameter group. You cannot delete a cache parameter group
  *             if it is associated with any cache clusters. You cannot delete the default cache
  *             parameter groups in your account.</p>
@@ -69,6 +68,7 @@ export interface DeleteCacheParameterGroupCommandOutput extends __MetadataBearer
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  * @example DeleteCacheParameterGroup
  * ```javascript
  * // Deletes the Amazon ElastiCache parameter group custom-mem1-4.

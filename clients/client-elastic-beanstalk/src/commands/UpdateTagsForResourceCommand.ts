@@ -27,7 +27,6 @@ export interface UpdateTagsForResourceCommandInput extends UpdateTagsForResource
 export interface UpdateTagsForResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Update the list of tags applied to an AWS Elastic Beanstalk resource. Two lists can be passed: <code>TagsToAdd</code>
  *       for tags to add or update, and <code>TagsToRemove</code>.</p>
  *          <p>Elastic Beanstalk supports tagging of all of its resources. For details about resource tagging, see
@@ -101,6 +100,7 @@ export interface UpdateTagsForResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  */
 export class UpdateTagsForResourceCommand extends $Command
   .classBuilder<

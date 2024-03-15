@@ -27,7 +27,6 @@ export interface UpdateProtectionGroupCommandInput extends UpdateProtectionGroup
 export interface UpdateProtectionGroupCommandOutput extends UpdateProtectionGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing protection group. A protection group is a grouping of protected resources so they can be handled as a collective. This resource grouping improves the accuracy of detection and reduces false positives. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface UpdateProtectionGroupCommandOutput extends UpdateProtectionGrou
  * @throws {@link ShieldServiceException}
  * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ * @public
  */
 export class UpdateProtectionGroupCommand extends $Command
   .classBuilder<

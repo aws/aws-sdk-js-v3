@@ -314,7 +314,6 @@ export interface ServerlessApplicationRepositoryClientResolvedConfig
   extends ServerlessApplicationRepositoryClientResolvedConfigType {}
 
 /**
- * @public
  * <p>The AWS Serverless Application Repository makes it easy for developers and enterprises to quickly find
  *  and deploy serverless applications in the AWS Cloud. For more information about serverless applications,
  *  see Serverless Computing and Applications on the AWS website.</p><p>The AWS Serverless Application Repository is deeply integrated with the AWS Lambda console, so that developers of
@@ -335,6 +334,7 @@ export interface ServerlessApplicationRepositoryClientResolvedConfig
  *  developers, and publish new versions of applications. </p>
  *  </li>
  *  </ul>
+ * @public
  */
 export class ServerlessApplicationRepositoryClient extends __Client<
   __HttpHandlerOptions,

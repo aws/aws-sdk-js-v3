@@ -31,7 +31,6 @@ export interface ModifyClusterIamRolesCommandInput extends ModifyClusterIamRoles
 export interface ModifyClusterIamRolesCommandOutput extends ModifyClusterIamRolesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the list of Identity and Access Management (IAM) roles that can be
  *             used by the cluster to access other Amazon Web Services services.</p>
  *          <p>The maximum number of IAM roles that you can associate is subject to a quota.
@@ -265,6 +264,7 @@ export interface ModifyClusterIamRolesCommandOutput extends ModifyClusterIamRole
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class ModifyClusterIamRolesCommand extends $Command
   .classBuilder<

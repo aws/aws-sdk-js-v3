@@ -31,7 +31,6 @@ export interface CreateCustomKeyStoreCommandInput extends CreateCustomKeyStoreRe
 export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> backed by a key store that you own and manage. When you use a
  *       KMS key in a custom key store for a cryptographic operation, the cryptographic operation is
  *       actually performed in your key store using your keys. KMS supports <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-cloudhsm.html">CloudHSM key stores</a>
@@ -286,6 +285,7 @@ export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreR
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To create an AWS CloudHSM key store
  * ```javascript
  * // This example creates a custom key store that is associated with an AWS CloudHSM cluster.

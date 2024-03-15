@@ -36,7 +36,6 @@ export interface AssociateSoftwareTokenCommandInput extends AssociateSoftwareTok
 export interface AssociateSoftwareTokenCommandOutput extends AssociateSoftwareTokenResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Begins setup of time-based one-time password (TOTP) multi-factor authentication (MFA)
  *             for a user, with a unique private key that Amazon Cognito generates and returns in the API
  *             response. You can authorize an <code>AssociateSoftwareToken</code> request with either
@@ -114,6 +113,7 @@ export interface AssociateSoftwareTokenCommandOutput extends AssociateSoftwareTo
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class AssociateSoftwareTokenCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Using tag keys, deletes the tags (key/value pairs) associated with the specified
  *  resource ARN.</p>
  * @example
@@ -67,6 +66,7 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link IoT1ClickDevicesServiceServiceException}
  * <p>Base exception class for all service exceptions from IoT1ClickDevicesService service.</p>
  *
+ * @public
  */
 export class UntagResourceCommand extends $Command
   .classBuilder<

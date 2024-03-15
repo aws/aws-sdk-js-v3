@@ -27,7 +27,6 @@ export interface DisableGatewayCommandInput extends DisableGatewayInput {}
 export interface DisableGatewayCommandOutput extends DisableGatewayOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables a tape gateway when the gateway is no longer functioning. For example, if your
  *          gateway VM is damaged, you can disable the gateway so you can recover virtual tapes.</p>
  *          <p>Use this operation for a tape gateway that is not reachable or not functioning. This
@@ -69,6 +68,7 @@ export interface DisableGatewayCommandOutput extends DisableGatewayOutput, __Met
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To disable a gateway when it is no longer functioning
  * ```javascript
  * // Disables a gateway when the gateway is no longer functioning. Use this operation for a gateway-VTL that is not reachable or not functioning.

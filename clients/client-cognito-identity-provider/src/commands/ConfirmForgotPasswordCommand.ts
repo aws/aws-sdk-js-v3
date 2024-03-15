@@ -35,7 +35,6 @@ export interface ConfirmForgotPasswordCommandInput extends ConfirmForgotPassword
 export interface ConfirmForgotPasswordCommandOutput extends ConfirmForgotPasswordResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows a user to enter a confirmation code to reset a forgotten password.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
@@ -138,6 +137,7 @@ export interface ConfirmForgotPasswordCommandOutput extends ConfirmForgotPasswor
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class ConfirmForgotPasswordCommand extends $Command
   .classBuilder<

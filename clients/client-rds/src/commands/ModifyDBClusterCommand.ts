@@ -27,7 +27,6 @@ export interface ModifyDBClusterCommandInput extends ModifyDBClusterMessage {}
 export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the settings of an Amazon Aurora DB cluster or a Multi-AZ DB cluster.
  *            You can change one or more settings by specifying these parameters and the new values in the
  *            request.</p>
@@ -364,6 +363,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To modify a DB cluster
  * ```javascript
  * // The following example changes the master user password for the DB cluster named cluster-2 and sets the backup retention period to 14 days. The ApplyImmediately parameter causes the changes to be made immediately, instead of waiting until the next maintenance window.

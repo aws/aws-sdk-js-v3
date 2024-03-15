@@ -27,7 +27,6 @@ export interface CreateRegexPatternSetCommandInput extends CreateRegexPatternSet
 export interface CreateRegexPatternSetCommandOutput extends CreateRegexPatternSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -104,6 +103,7 @@ export interface CreateRegexPatternSetCommandOutput extends CreateRegexPatternSe
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
+ * @public
  */
 export class CreateRegexPatternSetCommand extends $Command
   .classBuilder<

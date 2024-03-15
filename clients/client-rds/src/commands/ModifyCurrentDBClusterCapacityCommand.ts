@@ -30,7 +30,6 @@ export interface ModifyCurrentDBClusterCapacityCommandInput extends ModifyCurren
 export interface ModifyCurrentDBClusterCapacityCommandOutput extends DBClusterCapacityInfo, __MetadataBearer {}
 
 /**
- * @public
  * <p>Set the capacity of an Aurora Serverless v1 DB cluster to a specific value.</p>
  *          <p>Aurora Serverless v1 scales seamlessly based on the workload on the DB cluster. In some cases, the capacity might not scale
  *         fast enough to meet a sudden change in workload, such as a large number of new transactions. Call <code>ModifyCurrentDBClusterCapacity</code>
@@ -95,6 +94,7 @@ export interface ModifyCurrentDBClusterCapacityCommandOutput extends DBClusterCa
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To scale the capacity of an Aurora Serverless DB cluster
  * ```javascript
  * // The following example scales the capacity of an Aurora Serverless DB cluster to 8.

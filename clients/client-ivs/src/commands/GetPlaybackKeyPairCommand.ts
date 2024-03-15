@@ -27,7 +27,6 @@ export interface GetPlaybackKeyPairCommandInput extends GetPlaybackKeyPairReques
 export interface GetPlaybackKeyPairCommandOutput extends GetPlaybackKeyPairResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a specified playback authorization key pair and returns the <code>arn</code> and
  *         <code>fingerprint</code>. The <code>privateKey</code> held by the caller can be used to
  *       generate viewer authorization tokens, to grant viewers access to private channels. For more
@@ -75,6 +74,7 @@ export interface GetPlaybackKeyPairCommandOutput extends GetPlaybackKeyPairRespo
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ * @public
  */
 export class GetPlaybackKeyPairCommand extends $Command
   .classBuilder<

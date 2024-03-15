@@ -36,7 +36,6 @@ export interface BatchAssociateClientDeviceWithCoreDeviceCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a list of client devices with a core device. Use this API operation to specify
  *       which client devices can discover a core device through cloud discovery. With cloud discovery,
  *       client devices connect to IoT Greengrass to retrieve associated core devices' connectivity information
@@ -103,6 +102,7 @@ export interface BatchAssociateClientDeviceWithCoreDeviceCommandOutput
  * @throws {@link GreengrassV2ServiceException}
  * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ * @public
  */
 export class BatchAssociateClientDeviceWithCoreDeviceCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetContactListCommandInput extends GetContactListRequest {}
 export interface GetContactListCommandOutput extends GetContactListResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns contact list metadata. It does not return any information about the contacts
  *             present in the list.</p>
  * @example
@@ -82,6 +81,7 @@ export interface GetContactListCommandOutput extends GetContactListResponse, __M
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class GetContactListCommand extends $Command
   .classBuilder<

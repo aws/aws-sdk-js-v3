@@ -27,7 +27,6 @@ export interface SubmitContainerStateChangeCommandInput extends SubmitContainerS
 export interface SubmitContainerStateChangeCommandOutput extends SubmitContainerStateChangeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This action is only used by the Amazon ECS agent, and it is not intended for use outside of the agent.</p>
  *          </note>
@@ -85,6 +84,7 @@ export interface SubmitContainerStateChangeCommandOutput extends SubmitContainer
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  */
 export class SubmitContainerStateChangeCommand extends $Command
   .classBuilder<

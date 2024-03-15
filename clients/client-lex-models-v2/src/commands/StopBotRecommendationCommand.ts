@@ -27,7 +27,6 @@ export interface StopBotRecommendationCommandInput extends StopBotRecommendation
 export interface StopBotRecommendationCommandOutput extends StopBotRecommendationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stop an already running Bot Recommendation request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface StopBotRecommendationCommandOutput extends StopBotRecommendatio
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class StopBotRecommendationCommand extends $Command
   .classBuilder<

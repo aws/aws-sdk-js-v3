@@ -27,7 +27,6 @@ export interface DisableFastSnapshotRestoresCommandInput extends DisableFastSnap
 export interface DisableFastSnapshotRestoresCommandOutput extends DisableFastSnapshotRestoresResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables fast snapshot restores for the specified snapshots in the specified Availability Zones.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface DisableFastSnapshotRestoresCommandOutput extends DisableFastSna
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DisableFastSnapshotRestoresCommand extends $Command
   .classBuilder<

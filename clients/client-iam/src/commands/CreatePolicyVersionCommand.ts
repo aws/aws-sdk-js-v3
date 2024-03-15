@@ -27,7 +27,6 @@ export interface CreatePolicyVersionCommandInput extends CreatePolicyVersionRequ
 export interface CreatePolicyVersionCommandOutput extends CreatePolicyVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new version of the specified managed policy. To update a managed policy, you
  *             create a new policy version. A managed policy can have up to five versions. If the
  *             policy has five versions, you must delete an existing version using <a>DeletePolicyVersion</a> before you create a new version.</p>
@@ -89,6 +88,7 @@ export interface CreatePolicyVersionCommandOutput extends CreatePolicyVersionRes
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class CreatePolicyVersionCommand extends $Command
   .classBuilder<

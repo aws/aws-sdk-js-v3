@@ -27,7 +27,6 @@ export interface ListIPSetsCommandInput extends ListIPSetsRequest {}
 export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves an array of <a>IPSetSummary</a> objects for the IP sets that you
  *          manage.</p>
  * @example
@@ -95,6 +94,7 @@ export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataB
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class ListIPSetsCommand extends $Command
   .classBuilder<

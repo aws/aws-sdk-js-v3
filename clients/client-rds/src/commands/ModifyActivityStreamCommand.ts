@@ -27,7 +27,6 @@ export interface ModifyActivityStreamCommandInput extends ModifyActivityStreamRe
 export interface ModifyActivityStreamCommandOutput extends ModifyActivityStreamResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes the audit policy state of a database activity stream to either locked (default) or unlocked. A locked policy is read-only,
  *             whereas an unlocked policy is read/write. If your activity stream is started and locked, you can unlock it, customize your audit policy,
  *             and then lock your activity stream. Restarting the activity stream isn't required. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/DBActivityStreams.Modifying.html"> Modifying a database activity stream</a> in the
@@ -75,6 +74,7 @@ export interface ModifyActivityStreamCommandOutput extends ModifyActivityStreamR
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  */
 export class ModifyActivityStreamCommand extends $Command
   .classBuilder<

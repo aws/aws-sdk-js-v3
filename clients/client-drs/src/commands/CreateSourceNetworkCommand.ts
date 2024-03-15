@@ -31,7 +31,6 @@ export interface CreateSourceNetworkCommandInput extends CreateSourceNetworkRequ
 export interface CreateSourceNetworkCommandOutput extends CreateSourceNetworkResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a new Source Network resource for a provided VPC ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface CreateSourceNetworkCommandOutput extends CreateSourceNetworkRes
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * @public
  */
 export class CreateSourceNetworkCommand extends $Command
   .classBuilder<

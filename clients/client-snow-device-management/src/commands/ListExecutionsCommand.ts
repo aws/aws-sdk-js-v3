@@ -31,7 +31,6 @@ export interface ListExecutionsCommandInput extends ListExecutionsInput {}
 export interface ListExecutionsCommandOutput extends ListExecutionsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the status of tasks for one or more target devices.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface ListExecutionsCommandOutput extends ListExecutionsOutput, __Met
  * @throws {@link SnowDeviceManagementServiceException}
  * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
+ * @public
  */
 export class ListExecutionsCommand extends $Command
   .classBuilder<

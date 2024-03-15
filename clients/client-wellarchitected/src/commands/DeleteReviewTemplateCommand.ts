@@ -27,7 +27,6 @@ export interface DeleteReviewTemplateCommandInput extends DeleteReviewTemplateIn
 export interface DeleteReviewTemplateCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete a review template.</p>
  *          <p>Only the owner of a review template can delete it.</p>
  *          <p>After the review template is deleted, Amazon Web Services accounts, users,
@@ -76,6 +75,7 @@ export interface DeleteReviewTemplateCommandOutput extends __MetadataBearer {}
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * @public
  */
 export class DeleteReviewTemplateCommand extends $Command
   .classBuilder<

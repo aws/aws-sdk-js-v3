@@ -31,7 +31,6 @@ export interface DeleteSecurityConfigCommandInput extends DeleteSecurityConfigRe
 export interface DeleteSecurityConfigCommandOutput extends DeleteSecurityConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a security configuration for OpenSearch Serverless. For more information, see
  *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html">SAML
  *                 authentication for Amazon OpenSearch Serverless</a>.</p>
@@ -75,6 +74,7 @@ export interface DeleteSecurityConfigCommandOutput extends DeleteSecurityConfigR
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ * @public
  */
 export class DeleteSecurityConfigCommand extends $Command
   .classBuilder<

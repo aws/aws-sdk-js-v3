@@ -27,7 +27,6 @@ export interface ListProjectAssetsCommandInput extends ListProjectAssetsRequest 
 export interface ListProjectAssetsCommandOutput extends ListProjectAssetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a paginated list of assets associated with an IoT SiteWise Monitor project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface ListProjectAssetsCommandOutput extends ListProjectAssetsRespons
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class ListProjectAssetsCommand extends $Command
   .classBuilder<

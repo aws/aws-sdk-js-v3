@@ -27,7 +27,6 @@ export interface ReleaseHostsCommandInput extends ReleaseHostsRequest {}
 export interface ReleaseHostsCommandOutput extends ReleaseHostsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>When you no longer want to use an On-Demand Dedicated Host it can be released.
  *             On-Demand billing is stopped and the host goes into <code>released</code> state. The
  *             host ID of Dedicated Hosts that have been released can no longer be specified in another
@@ -76,6 +75,7 @@ export interface ReleaseHostsCommandOutput extends ReleaseHostsResult, __Metadat
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ReleaseHostsCommand extends $Command
   .classBuilder<

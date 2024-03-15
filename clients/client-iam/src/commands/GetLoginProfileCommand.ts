@@ -27,7 +27,6 @@ export interface GetLoginProfileCommandInput extends GetLoginProfileRequest {}
 export interface GetLoginProfileCommandOutput extends GetLoginProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the user name for the specified IAM user. A login profile is created when
  *             you create a password for the user to access the Amazon Web Services Management Console. If the user does not exist
  *             or does not have a password, the operation returns a 404 (<code>NoSuchEntity</code>)
@@ -76,6 +75,7 @@ export interface GetLoginProfileCommandOutput extends GetLoginProfileResponse, _
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To get password information for an IAM user
  * ```javascript
  * // The following command gets information about the password for the IAM user named Anika.

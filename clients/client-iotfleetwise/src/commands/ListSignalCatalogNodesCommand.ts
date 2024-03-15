@@ -27,7 +27,6 @@ export interface ListSignalCatalogNodesCommandInput extends ListSignalCatalogNod
 export interface ListSignalCatalogNodesCommandOutput extends ListSignalCatalogNodesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Lists of information about the signals (nodes) specified in a signal catalog. </p>
  *          <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
@@ -148,6 +147,7 @@ export interface ListSignalCatalogNodesCommandOutput extends ListSignalCatalogNo
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class ListSignalCatalogNodesCommand extends $Command
   .classBuilder<

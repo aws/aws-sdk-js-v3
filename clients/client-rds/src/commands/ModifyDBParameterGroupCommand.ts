@@ -27,7 +27,6 @@ export interface ModifyDBParameterGroupCommandInput extends ModifyDBParameterGro
 export interface ModifyDBParameterGroupCommandOutput extends DBParameterGroupNameMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the parameters of a DB parameter group. To modify more than one parameter,
  *         submit a list of the following: <code>ParameterName</code>, <code>ParameterValue</code>, and
  *         <code>ApplyMethod</code>. A maximum of 20 parameters can be modified in a single request.</p>
@@ -95,6 +94,7 @@ export interface ModifyDBParameterGroupCommandOutput extends DBParameterGroupNam
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To modify a DB parameter group
  * ```javascript
  * // The following example changes the value of the clr enabled parameter in a DB parameter group. The value of the ApplyMethod parameter causes the DB parameter group to be modified immediately, instead of waiting until the next maintenance window.

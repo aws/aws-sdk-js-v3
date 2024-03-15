@@ -27,7 +27,6 @@ export interface BatchPutContactCommandInput extends BatchPutContactRequest {}
 export interface BatchPutContactCommandOutput extends BatchPutContactResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>Only the Amazon Connect outbound campaigns service principal is allowed to assume a
  *     role in your account and call this API.</p>
@@ -114,6 +113,7 @@ export interface BatchPutContactCommandOutput extends BatchPutContactResponse, _
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class BatchPutContactCommand extends $Command
   .classBuilder<

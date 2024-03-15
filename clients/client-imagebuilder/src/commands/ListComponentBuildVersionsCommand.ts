@@ -27,7 +27,6 @@ export interface ListComponentBuildVersionsCommandInput extends ListComponentBui
 export interface ListComponentBuildVersionsCommandOutput extends ListComponentBuildVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the list of component build versions for the specified semantic
  * 			version.</p>
  *          <note>
@@ -117,6 +116,7 @@ export interface ListComponentBuildVersionsCommandOutput extends ListComponentBu
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class ListComponentBuildVersionsCommand extends $Command
   .classBuilder<

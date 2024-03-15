@@ -27,7 +27,6 @@ export interface CreateStreamCommandInput extends CreateStreamRequest {}
 export interface CreateStreamCommandOutput extends CreateStreamResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a stream for delivering one or more large files in chunks over MQTT. A stream transports data
  *             bytes in chunks or blocks packaged as MQTT messages from a source like S3. You can have one or more files
  *             associated with a stream.</p>
@@ -103,6 +102,7 @@ export interface CreateStreamCommandOutput extends CreateStreamResponse, __Metad
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class CreateStreamCommand extends $Command
   .classBuilder<

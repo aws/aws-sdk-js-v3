@@ -27,7 +27,6 @@ export interface UpdateStreamProcessorCommandInput extends UpdateStreamProcessor
 export interface UpdateStreamProcessorCommandOutput extends UpdateStreamProcessorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Allows you to update a stream processor. You can change some settings and regions of interest and delete certain parameters.
  *         </p>
@@ -108,6 +107,7 @@ export interface UpdateStreamProcessorCommandOutput extends UpdateStreamProcesso
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  */
 export class UpdateStreamProcessorCommand extends $Command
   .classBuilder<

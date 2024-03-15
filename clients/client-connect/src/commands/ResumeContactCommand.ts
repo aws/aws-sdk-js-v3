@@ -27,7 +27,6 @@ export interface ResumeContactCommandInput extends ResumeContactRequest {}
 export interface ResumeContactCommandOutput extends ResumeContactResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows resuming a task contact in a paused state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface ResumeContactCommandOutput extends ResumeContactResponse, __Met
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class ResumeContactCommand extends $Command
   .classBuilder<

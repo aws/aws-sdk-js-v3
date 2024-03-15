@@ -27,7 +27,6 @@ export interface CancelInstanceRefreshCommandInput extends CancelInstanceRefresh
 export interface CancelInstanceRefreshCommandOutput extends CancelInstanceRefreshAnswer, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels an instance refresh or rollback that is in progress. If an instance refresh or
  *             rollback is not in progress, an <code>ActiveInstanceRefreshNotFound</code> error
  *             occurs.</p>
@@ -76,6 +75,7 @@ export interface CancelInstanceRefreshCommandOutput extends CancelInstanceRefres
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To cancel an instance refresh
  * ```javascript
  * // This example cancels an instance refresh operation in progress.

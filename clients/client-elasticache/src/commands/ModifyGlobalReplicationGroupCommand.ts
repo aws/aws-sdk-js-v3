@@ -29,7 +29,6 @@ export interface ModifyGlobalReplicationGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the settings for a Global datastore.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface ModifyGlobalReplicationGroupCommandOutput
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  */
 export class ModifyGlobalReplicationGroupCommand extends $Command
   .classBuilder<

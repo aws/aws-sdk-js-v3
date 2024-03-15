@@ -27,7 +27,6 @@ export interface ModifyIdentityIdFormatCommandInput extends ModifyIdentityIdForm
 export interface ModifyIdentityIdFormatCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the ID format of a resource for a specified IAM user, IAM role, or the root
  *        user for an account; or all IAM users, IAM roles, and the root user for an account. You can
  *        specify that resources should receive longer IDs (17-character IDs) when they are created. </p>
@@ -76,6 +75,7 @@ export interface ModifyIdentityIdFormatCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyIdentityIdFormatCommand extends $Command
   .classBuilder<

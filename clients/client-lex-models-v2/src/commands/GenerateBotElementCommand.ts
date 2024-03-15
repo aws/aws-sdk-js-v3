@@ -27,7 +27,6 @@ export interface GenerateBotElementCommandInput extends GenerateBotElementReques
 export interface GenerateBotElementCommandOutput extends GenerateBotElementResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Generates sample utterances for an intent.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface GenerateBotElementCommandOutput extends GenerateBotElementRespo
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class GenerateBotElementCommand extends $Command
   .classBuilder<

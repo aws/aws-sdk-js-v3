@@ -27,7 +27,6 @@ export interface DeleteLinkCommandInput extends DeleteLinkInput {}
 export interface DeleteLinkCommandOutput extends DeleteLinkOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a link between a monitoring account sink and a source account. You must run this operation
  *             in the source account.</p>
  * @example
@@ -66,6 +65,7 @@ export interface DeleteLinkCommandOutput extends DeleteLinkOutput, __MetadataBea
  * @throws {@link OAMServiceException}
  * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ * @public
  */
 export class DeleteLinkCommand extends $Command
   .classBuilder<

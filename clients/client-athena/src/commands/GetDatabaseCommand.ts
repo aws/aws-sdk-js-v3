@@ -27,7 +27,6 @@ export interface GetDatabaseCommandInput extends GetDatabaseInput {}
 export interface GetDatabaseCommandOutput extends GetDatabaseOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a database object for the specified database and data catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface GetDatabaseCommandOutput extends GetDatabaseOutput, __MetadataB
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class GetDatabaseCommand extends $Command
   .classBuilder<

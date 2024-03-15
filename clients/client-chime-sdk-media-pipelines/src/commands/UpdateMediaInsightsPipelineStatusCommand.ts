@@ -34,7 +34,6 @@ export interface UpdateMediaInsightsPipelineStatusCommandInput extends UpdateMed
 export interface UpdateMediaInsightsPipelineStatusCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the status of a media insights pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface UpdateMediaInsightsPipelineStatusCommandOutput extends __Metada
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ * @public
  */
 export class UpdateMediaInsightsPipelineStatusCommand extends $Command
   .classBuilder<

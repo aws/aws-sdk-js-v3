@@ -29,7 +29,6 @@ export interface AssociateDelegateToResourceCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a member (user or group) to the resource's set of delegates.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface AssociateDelegateToResourceCommandOutput
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class AssociateDelegateToResourceCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateGroupQueryCommandInput extends UpdateGroupQueryInput {}
 export interface UpdateGroupQueryCommandOutput extends UpdateGroupQueryOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the resource query of a group. For more information about resource queries,
  *             see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag">Create a tag-based group in Resource Groups</a>.</p>
  *          <p>
@@ -97,6 +96,7 @@ export interface UpdateGroupQueryCommandOutput extends UpdateGroupQueryOutput, _
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ * @public
  */
 export class UpdateGroupQueryCommand extends $Command
   .classBuilder<

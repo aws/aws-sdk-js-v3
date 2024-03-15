@@ -27,7 +27,6 @@ export interface UpdateWorkGroupCommandInput extends UpdateWorkGroupInput {}
 export interface UpdateWorkGroupCommandOutput extends UpdateWorkGroupOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the workgroup with the specified name. The workgroup's name cannot be changed.
  *             Only <code>ConfigurationUpdates</code> can be specified.</p>
  * @example
@@ -102,6 +101,7 @@ export interface UpdateWorkGroupCommandOutput extends UpdateWorkGroupOutput, __M
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class UpdateWorkGroupCommand extends $Command
   .classBuilder<

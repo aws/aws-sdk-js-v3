@@ -27,7 +27,6 @@ export interface ListJobExecutionsForJobCommandInput extends ListJobExecutionsFo
 export interface ListJobExecutionsForJobCommandOutput extends ListJobExecutionsForJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the job executions for a job.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListJobExecutionsForJob</a> action.</p>
  * @example
@@ -84,6 +83,7 @@ export interface ListJobExecutionsForJobCommandOutput extends ListJobExecutionsF
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListJobExecutionsForJobCommand extends $Command
   .classBuilder<

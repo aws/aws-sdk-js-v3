@@ -27,7 +27,6 @@ export interface UpdateGlobalNetworkCommandInput extends UpdateGlobalNetworkRequ
 export interface UpdateGlobalNetworkCommandOutput extends UpdateGlobalNetworkResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing global network. To remove information for any of the parameters,
  *             specify an empty string.</p>
  * @example
@@ -88,6 +87,7 @@ export interface UpdateGlobalNetworkCommandOutput extends UpdateGlobalNetworkRes
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class UpdateGlobalNetworkCommand extends $Command
   .classBuilder<

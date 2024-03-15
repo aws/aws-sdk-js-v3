@@ -32,7 +32,6 @@ export interface ApplyPendingMaintenanceActionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Applies a pending maintenance action to a resource (for example, to a DB instance).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface ApplyPendingMaintenanceActionCommandOutput
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class ApplyPendingMaintenanceActionCommand extends $Command
   .classBuilder<

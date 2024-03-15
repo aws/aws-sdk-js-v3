@@ -35,7 +35,6 @@ export interface StartTargetedSentimentDetectionJobCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an asynchronous targeted sentiment detection job for a collection of documents. Use the
  *       <code>DescribeTargetedSentimentDetectionJob</code> operation to track the status of a
  *       job.</p>
@@ -122,6 +121,7 @@ export interface StartTargetedSentimentDetectionJobCommandOutput
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class StartTargetedSentimentDetectionJobCommand extends $Command
   .classBuilder<

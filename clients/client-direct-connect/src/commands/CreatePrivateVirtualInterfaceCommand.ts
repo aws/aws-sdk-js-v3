@@ -30,7 +30,6 @@ export interface CreatePrivateVirtualInterfaceCommandInput extends CreatePrivate
 export interface CreatePrivateVirtualInterfaceCommandOutput extends VirtualInterface, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a private virtual interface. A virtual interface is the VLAN that transports Direct Connect traffic.
  *       A private virtual interface can be connected to either a Direct Connect gateway or a Virtual Private Gateway (VGW).
  *       Connecting the private virtual interface to a Direct Connect gateway enables the possibility for connecting to multiple
@@ -146,6 +145,7 @@ export interface CreatePrivateVirtualInterfaceCommandOutput extends VirtualInter
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class CreatePrivateVirtualInterfaceCommand extends $Command
   .classBuilder<

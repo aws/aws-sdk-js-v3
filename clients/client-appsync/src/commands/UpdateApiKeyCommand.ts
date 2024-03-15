@@ -27,7 +27,6 @@ export interface UpdateApiKeyCommandInput extends UpdateApiKeyRequest {}
 export interface UpdateApiKeyCommandOutput extends UpdateApiKeyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an API key. You can update the key as long as it's not deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface UpdateApiKeyCommandOutput extends UpdateApiKeyResponse, __Metad
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class UpdateApiKeyCommand extends $Command
   .classBuilder<

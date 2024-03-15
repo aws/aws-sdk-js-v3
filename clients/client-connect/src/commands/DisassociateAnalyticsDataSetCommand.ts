@@ -30,7 +30,6 @@ export interface DisassociateAnalyticsDataSetCommandInput extends DisassociateAn
 export interface DisassociateAnalyticsDataSetCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Removes the dataset ID associated with a given Amazon Connect instance.</p>
  * @example
@@ -74,6 +73,7 @@ export interface DisassociateAnalyticsDataSetCommandOutput extends __MetadataBea
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DisassociateAnalyticsDataSetCommand extends $Command
   .classBuilder<

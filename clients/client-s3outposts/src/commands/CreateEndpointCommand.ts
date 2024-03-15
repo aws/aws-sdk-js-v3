@@ -27,7 +27,6 @@ export interface CreateEndpointCommandInput extends CreateEndpointRequest {}
 export interface CreateEndpointCommandOutput extends CreateEndpointResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an endpoint and associates it with the specified Outpost.</p>
  *          <note>
  *             <p>It can take up to 5 minutes for this action to finish.</p>
@@ -97,6 +96,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResult, __Met
  * @throws {@link S3OutpostsServiceException}
  * <p>Base exception class for all service exceptions from S3Outposts service.</p>
  *
+ * @public
  */
 export class CreateEndpointCommand extends $Command
   .classBuilder<

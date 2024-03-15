@@ -33,7 +33,6 @@ export interface ListVPCAssociationAuthorizationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of the VPCs that were created by other accounts and that can be associated
  * 			with a specified hosted zone because you've submitted one or more
  * 				<code>CreateVPCAssociationAuthorization</code> requests. </p>
@@ -84,6 +83,7 @@ export interface ListVPCAssociationAuthorizationsCommandOutput
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class ListVPCAssociationAuthorizationsCommand extends $Command
   .classBuilder<

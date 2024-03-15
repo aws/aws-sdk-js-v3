@@ -33,9 +33,9 @@ export interface EKSAuth {
 }
 
 /**
- * @public
  * <p>The Amazon EKS Auth API and the <code>AssumeRoleForPodIdentity</code> action are only
  *             used by the EKS Pod Identity Agent.</p>
+ * @public
  */
 export class EKSAuth extends EKSAuthClient implements EKSAuth {}
 createAggregatedClient(commands, EKSAuth);

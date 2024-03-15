@@ -27,7 +27,6 @@ export interface GetLFTagCommandInput extends GetLFTagRequest {}
 export interface GetLFTagCommandOutput extends GetLFTagResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an LF-tag definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface GetLFTagCommandOutput extends GetLFTagResponse, __MetadataBeare
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class GetLFTagCommand extends $Command
   .classBuilder<

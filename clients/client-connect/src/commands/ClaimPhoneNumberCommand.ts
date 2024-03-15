@@ -27,7 +27,6 @@ export interface ClaimPhoneNumberCommandInput extends ClaimPhoneNumberRequest {}
 export interface ClaimPhoneNumberCommandOutput extends ClaimPhoneNumberResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Claims an available phone number to your Amazon Connect instance or traffic distribution
  *    group. You can call this API only in the same Amazon Web Services Region where the Amazon Connect instance or traffic distribution group was created.</p>
  *          <p>For more information about how to use this operation, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/claim-phone-number.html">Claim a phone number in your
@@ -104,6 +103,7 @@ export interface ClaimPhoneNumberCommandOutput extends ClaimPhoneNumberResponse,
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class ClaimPhoneNumberCommand extends $Command
   .classBuilder<

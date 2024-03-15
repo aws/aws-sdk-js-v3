@@ -27,7 +27,6 @@ export interface UpdateRouteCommandInput extends UpdateRouteInput {}
 export interface UpdateRouteCommandOutput extends UpdateRouteOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing route for a specified service mesh and virtual router.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -508,6 +507,7 @@ export interface UpdateRouteCommandOutput extends UpdateRouteOutput, __MetadataB
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ * @public
  */
 export class UpdateRouteCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetApplicationCommandInput extends GetApplicationInput {}
 export interface GetApplicationCommandOutput extends GetApplicationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface GetApplicationCommandOutput extends GetApplicationOutput, __Met
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
  */
 export class GetApplicationCommand extends $Command
   .classBuilder<

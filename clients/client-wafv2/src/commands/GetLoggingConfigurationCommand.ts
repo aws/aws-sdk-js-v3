@@ -27,7 +27,6 @@ export interface GetLoggingConfigurationCommandInput extends GetLoggingConfigura
 export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the <a>LoggingConfiguration</a> for the specified web ACL.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -174,6 +173,7 @@ export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigur
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class GetLoggingConfigurationCommand extends $Command
   .classBuilder<

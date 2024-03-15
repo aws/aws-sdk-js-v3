@@ -27,7 +27,6 @@ export interface UpdateInsightCommandInput extends UpdateInsightRequest {}
 export interface UpdateInsightCommandOutput extends UpdateInsightResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the Security Hub insight identified by the specified insight ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -340,6 +339,7 @@ export interface UpdateInsightCommandOutput extends UpdateInsightResponse, __Met
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To update an insight
  * ```javascript
  * // The following example updates the specified Security Hub insight.

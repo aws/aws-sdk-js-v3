@@ -27,7 +27,6 @@ export interface DeleteGraphCommandInput extends DeleteGraphRequest {}
 export interface DeleteGraphCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables the specified behavior graph and queues it to be deleted. This operation
  *          removes the behavior graph from each member account's list of behavior graphs.</p>
  *          <p>
@@ -70,6 +69,7 @@ export interface DeleteGraphCommandOutput extends __MetadataBearer {}
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ * @public
  */
 export class DeleteGraphCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface CreateReplicationTaskCommandInput extends CreateReplicationTask
 export interface CreateReplicationTaskCommandOutput extends CreateReplicationTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a replication task using the specified parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -128,6 +127,7 @@ export interface CreateReplicationTaskCommandOutput extends CreateReplicationTas
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Create replication task
  * ```javascript
  * // Creates a replication task using the specified parameters.

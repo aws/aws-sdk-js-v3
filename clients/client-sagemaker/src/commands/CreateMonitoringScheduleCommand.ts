@@ -27,7 +27,6 @@ export interface CreateMonitoringScheduleCommandInput extends CreateMonitoringSc
 export interface CreateMonitoringScheduleCommandOutput extends CreateMonitoringScheduleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a schedule that regularly starts Amazon SageMaker Processing Jobs to
  *          monitor the data captured for an Amazon SageMaker Endpoint.</p>
  * @example
@@ -178,6 +177,7 @@ export interface CreateMonitoringScheduleCommandOutput extends CreateMonitoringS
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateMonitoringScheduleCommand extends $Command
   .classBuilder<

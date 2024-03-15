@@ -36,7 +36,6 @@ export interface AddApplicationVpcConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a Virtual Private Cloud (VPC) configuration to the application. Applications can use VPCs to store
  *         and access resources securely.</p>
  *          <p>Note the following about VPC configurations for Managed Service for Apache Flink applications:</p>
@@ -113,6 +112,7 @@ export interface AddApplicationVpcConfigurationCommandOutput
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ * @public
  */
 export class AddApplicationVpcConfigurationCommand extends $Command
   .classBuilder<

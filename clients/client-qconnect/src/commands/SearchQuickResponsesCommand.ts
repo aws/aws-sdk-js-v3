@@ -32,7 +32,6 @@ export interface SearchQuickResponsesCommandInput extends SearchQuickResponsesRe
 export interface SearchQuickResponsesCommandOutput extends SearchQuickResponsesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Searches existing Amazon Q quick responses in an Amazon Q knowledge base.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -150,6 +149,7 @@ export interface SearchQuickResponsesCommandOutput extends SearchQuickResponsesR
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ * @public
  */
 export class SearchQuickResponsesCommand extends $Command
   .classBuilder<

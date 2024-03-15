@@ -27,7 +27,6 @@ export interface GetServersCommandInput extends GetServersRequest {}
 export interface GetServersCommandOutput extends GetServersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the servers in your server catalog.</p>
  *          <p>Before you can describe your servers, you must import them using <a>ImportServerCatalog</a>.</p>
  * @example
@@ -96,6 +95,7 @@ export interface GetServersCommandOutput extends GetServersResponse, __MetadataB
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ * @public
  */
 export class GetServersCommand extends $Command
   .classBuilder<

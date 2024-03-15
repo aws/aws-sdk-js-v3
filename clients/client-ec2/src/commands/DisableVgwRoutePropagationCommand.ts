@@ -27,7 +27,6 @@ export interface DisableVgwRoutePropagationCommandInput extends DisableVgwRouteP
 export interface DisableVgwRoutePropagationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables a virtual private gateway (VGW) from propagating routes to a specified route
  *             table of a VPC.</p>
  * @example
@@ -56,6 +55,7 @@ export interface DisableVgwRoutePropagationCommandOutput extends __MetadataBeare
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To disable route propagation
  * ```javascript
  * // This example disables the specified virtual private gateway from propagating static routes to the specified route table.

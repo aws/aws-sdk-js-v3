@@ -27,7 +27,6 @@ export interface DisassociateAddressCommandInput extends DisassociateAddressRequ
 export interface DisassociateAddressCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates an Elastic IP address from the instance or network interface it's associated with.</p>
  *          <p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.</p>
  * @example
@@ -56,6 +55,7 @@ export interface DisassociateAddressCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To disassociate an Elastic IP address
  * ```javascript
  * // This example disassociates an Elastic IP address from an instance.

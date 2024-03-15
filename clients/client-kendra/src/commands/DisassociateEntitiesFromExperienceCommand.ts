@@ -35,7 +35,6 @@ export interface DisassociateEntitiesFromExperienceCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Prevents users or groups in your IAM Identity Center identity source
  *             from accessing your Amazon Kendra experience. You can create an Amazon Kendra experience
  *             such as a search application. For more information on creating a search
@@ -99,6 +98,7 @@ export interface DisassociateEntitiesFromExperienceCommandOutput
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class DisassociateEntitiesFromExperienceCommand extends $Command
   .classBuilder<

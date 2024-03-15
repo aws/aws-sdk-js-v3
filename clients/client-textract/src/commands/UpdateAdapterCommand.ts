@@ -27,7 +27,6 @@ export interface UpdateAdapterCommandInput extends UpdateAdapterRequest {}
 export interface UpdateAdapterCommandOutput extends UpdateAdapterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update the configuration for an adapter. FeatureTypes configurations cannot be updated.
  *          At least one new parameter must be specified as an argument.</p>
  * @example
@@ -96,6 +95,7 @@ export interface UpdateAdapterCommandOutput extends UpdateAdapterResponse, __Met
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ * @public
  */
 export class UpdateAdapterCommand extends $Command
   .classBuilder<

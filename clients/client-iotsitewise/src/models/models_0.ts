@@ -4,8 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { IoTSiteWiseServiceException as __BaseException } from "./IoTSiteWiseServiceException";
 
 /**
- * @public
  * <p>Access is denied.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -24,38 +24,37 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Contains information for a group identity in an access policy.</p>
+ * @public
  */
 export interface GroupIdentity {
   /**
-   * @public
    * <p>The IAM Identity Center ID of the group.</p>
+   * @public
    */
   id: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains information about an Identity and Access Management role. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM roles</a> in the
  *         <i>IAM User Guide</i>.</p>
+ * @public
  */
 export interface IAMRoleIdentity {
   /**
-   * @public
    * <p>The ARN of the IAM role. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM ARNs</a> in the
    *         <i>IAM User Guide</i>.</p>
+   * @public
    */
   arn: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains information about an Identity and Access Management user.</p>
+ * @public
  */
 export interface IAMUserIdentity {
   /**
-   * @public
    * <p>The ARN of the IAM user. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM ARNs</a> in the
    *         <i>IAM User Guide</i>.</p>
    *          <note>
@@ -63,52 +62,53 @@ export interface IAMUserIdentity {
    *         empty <code>arn</code>. You can delete the access policy for the IAM user that no longer
    *         exists.</p>
    *          </note>
+   * @public
    */
   arn: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains information for a user identity in an access policy.</p>
+ * @public
  */
 export interface UserIdentity {
   /**
-   * @public
    * <p>The IAM Identity Center ID of the user.</p>
+   * @public
    */
   id: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains an identity that can access an IoT SiteWise Monitor resource.</p>
  *          <note>
  *             <p>Currently, you can't use Amazon Web Services API operations to retrieve IAM Identity Center identity IDs. You can find the
  *         IAM Identity Center identity IDs in the URL of user and group pages in the <a href="https://console.aws.amazon.com/singlesignon">IAM Identity Center console</a>.</p>
  *          </note>
+ * @public
  */
 export interface Identity {
   /**
-   * @public
    * <p>An IAM Identity Center user identity.</p>
+   * @public
    */
   user?: UserIdentity;
 
   /**
-   * @public
    * <p>An IAM Identity Center group identity.</p>
+   * @public
    */
   group?: GroupIdentity;
 
   /**
-   * @public
    * <p>An IAM user identity.</p>
+   * @public
    */
   iamUser?: IAMUserIdentity;
 
   /**
-   * @public
    * <p>An IAM role identity.</p>
+   * @public
    */
   iamRole?: IAMRoleIdentity;
 }
@@ -128,159 +128,159 @@ export const Permission = {
 export type Permission = (typeof Permission)[keyof typeof Permission];
 
 /**
- * @public
  * <p>Identifies an IoT SiteWise Monitor portal.</p>
+ * @public
  */
 export interface PortalResource {
   /**
-   * @public
    * <p>The ID of the portal.</p>
+   * @public
    */
   id: string | undefined;
 }
 
 /**
- * @public
  * <p>Identifies a specific IoT SiteWise Monitor project.</p>
+ * @public
  */
 export interface ProjectResource {
   /**
-   * @public
    * <p>The ID of the project.</p>
+   * @public
    */
   id: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains an IoT SiteWise Monitor resource ID for a portal or project.</p>
+ * @public
  */
 export interface Resource {
   /**
-   * @public
    * <p>A portal resource.</p>
+   * @public
    */
   portal?: PortalResource;
 
   /**
-   * @public
    * <p>A project resource.</p>
+   * @public
    */
   project?: ProjectResource;
 }
 
 /**
- * @public
  * <p>Contains an access policy that defines an identity's access to an IoT SiteWise Monitor
  *       resource.</p>
+ * @public
  */
 export interface AccessPolicySummary {
   /**
-   * @public
    * <p>The ID of the access policy.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The identity (an IAM Identity Center user, an IAM Identity Center group, or an IAM user).</p>
+   * @public
    */
   identity: Identity | undefined;
 
   /**
-   * @public
    * <p>The IoT SiteWise Monitor resource (a portal or project).</p>
+   * @public
    */
   resource: Resource | undefined;
 
   /**
-   * @public
    * <p>The permissions for the access policy. Note that a project <code>ADMINISTRATOR</code> is
    *       also known as a project owner.</p>
+   * @public
    */
   permission: Permission | undefined;
 
   /**
-   * @public
    * <p>The date the access policy was created, in Unix epoch time.</p>
+   * @public
    */
   creationDate?: Date;
 
   /**
-   * @public
    * <p>The date the access policy was last updated, in Unix epoch time.</p>
+   * @public
    */
   lastUpdateDate?: Date;
 }
 
 /**
- * @public
  * <p>Contains a definition for an action.</p>
+ * @public
  */
 export interface ActionDefinition {
   /**
-   * @public
    * <p>The ID of the action definition.</p>
+   * @public
    */
   actionDefinitionId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the action definition.</p>
+   * @public
    */
   actionName: string | undefined;
 
   /**
-   * @public
    * <p>The type of the action definition.</p>
+   * @public
    */
   actionType: string | undefined;
 }
 
 /**
- * @public
  * <p>The JSON payload of the action.</p>
+ * @public
  */
 export interface ActionPayload {
   /**
-   * @public
    * <p>The payload of the action in a JSON string.</p>
+   * @public
    */
   stringValue: string | undefined;
 }
 
 /**
- * @public
  * <p>The resource the action will be taken on.</p>
+ * @public
  */
 export interface TargetResource {
   /**
-   * @public
    * <p>The ID of the asset, in UUID format.</p>
+   * @public
    */
   assetId: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains the summary of the actions.</p>
+ * @public
  */
 export interface ActionSummary {
   /**
-   * @public
    * <p>The ID of the action.</p>
+   * @public
    */
   actionId?: string;
 
   /**
-   * @public
    * <p>The ID of the action definition.</p>
+   * @public
    */
   actionDefinitionId?: string;
 
   /**
-   * @public
    * <p>The resource the action will be taken on.</p>
+   * @public
    */
   targetResource?: TargetResource;
 }
@@ -301,68 +301,68 @@ export const Quality = {
 export type Quality = (typeof Quality)[keyof typeof Quality];
 
 /**
- * @public
  * <p>Contains the (pre-calculated) aggregate values for an asset property.</p>
+ * @public
  */
 export interface Aggregates {
   /**
-   * @public
    * <p>The average (mean) value of the time series over a time interval window.</p>
+   * @public
    */
   average?: number;
 
   /**
-   * @public
    * <p>The count of data points in the time series over a time interval window.</p>
+   * @public
    */
   count?: number;
 
   /**
-   * @public
    * <p>The maximum value of the time series over a time interval window.</p>
+   * @public
    */
   maximum?: number;
 
   /**
-   * @public
    * <p>The minimum value of the time series over a time interval window.</p>
+   * @public
    */
   minimum?: number;
 
   /**
-   * @public
    * <p>The sum of the time series over a time interval window.</p>
+   * @public
    */
   sum?: number;
 
   /**
-   * @public
    * <p>The standard deviation of the time series over a time interval window.</p>
+   * @public
    */
   standardDeviation?: number;
 }
 
 /**
- * @public
  * <p>Contains aggregated asset property values (for example, average, minimum, and
  *       maximum).</p>
+ * @public
  */
 export interface AggregatedValue {
   /**
-   * @public
    * <p>The date the aggregating computations occurred, in Unix epoch time.</p>
+   * @public
    */
   timestamp: Date | undefined;
 
   /**
-   * @public
    * <p>The quality of the aggregated data.</p>
+   * @public
    */
   quality?: Quality;
 
   /**
-   * @public
    * <p>The value of the aggregates.</p>
+   * @public
    */
   value: Aggregates | undefined;
 }
@@ -386,24 +386,24 @@ export const AggregateType = {
 export type AggregateType = (typeof AggregateType)[keyof typeof AggregateType];
 
 /**
- * @public
  * <p>Contains the configuration information of an alarm created in an IoT SiteWise Monitor portal.
  *   You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
  *   For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/appguide/monitor-alarms.html">Monitoring with alarms</a> in the <i>IoT SiteWise Application Guide</i>.</p>
+ * @public
  */
 export interface Alarms {
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the IAM role that allows the alarm to perform actions and access Amazon Web Services
    *       resources and services, such as IoT Events.</p>
+   * @public
    */
   alarmRoleArn: string | undefined;
 
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the Lambda function that manages alarm notifications. For more
    *       information, see <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/lambda-support.html">Managing alarm
    *         notifications</a> in the <i>IoT Events Developer Guide</i>.</p>
+   * @public
    */
   notificationLambdaArn?: string;
 }
@@ -440,197 +440,196 @@ export const PropertyNotificationState = {
 export type PropertyNotificationState = (typeof PropertyNotificationState)[keyof typeof PropertyNotificationState];
 
 /**
- * @public
  * <p>Contains asset property value notification information. When the notification state is enabled, IoT SiteWise publishes property value
  *       updates to a unique MQTT topic. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/interact-with-other-services.html">Interacting with other services</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ * @public
  */
 export interface PropertyNotification {
   /**
-   * @public
    * <p>The MQTT topic to which IoT SiteWise publishes property value update notifications.</p>
+   * @public
    */
   topic: string | undefined;
 
   /**
-   * @public
    * <p>The current notification state.</p>
+   * @public
    */
   state: PropertyNotificationState | undefined;
 }
 
 /**
- * @public
  * <p>Represents one level between a property and the root of the asset.</p>
+ * @public
  */
 export interface AssetPropertyPathSegment {
   /**
-   * @public
    * <p>The ID of the path segment.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The name of the path segment.</p>
+   * @public
    */
   name?: string;
 }
 
 /**
- * @public
  * <p>Contains asset property information.</p>
+ * @public
  */
 export interface AssetProperty {
   /**
-   * @public
    * <p>The ID of the asset property.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The name of the property.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The alias that identifies the property, such as an OPC-UA server data stream path
    *         (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
    *         <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   alias?: string;
 
   /**
-   * @public
    * <p>The asset property's notification topic and state. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html">UpdateAssetProperty</a>.</p>
+   * @public
    */
   notification?: PropertyNotification;
 
   /**
-   * @public
    * <p>The data type of the asset property.</p>
+   * @public
    */
   dataType: PropertyDataType | undefined;
 
   /**
-   * @public
    * <p>The data type of the structure for this property. This parameter exists on properties that
    *       have the <code>STRUCT</code> data type.</p>
+   * @public
    */
   dataTypeSpec?: string;
 
   /**
-   * @public
    * <p>The unit (such as <code>Newtons</code> or <code>RPM</code>) of the asset property.</p>
+   * @public
    */
   unit?: string;
 
   /**
-   * @public
    * <p>The structured path to the property from the root of the asset.</p>
+   * @public
    */
   path?: AssetPropertyPathSegment[];
 
   /**
-   * @public
    * <p>The external ID of the asset property. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   externalId?: string;
 }
 
 /**
- * @public
  * <p>Contains information about a composite model in an asset. This object contains the asset's
  *       properties that you define in the composite model.</p>
+ * @public
  */
 export interface AssetCompositeModel {
   /**
-   * @public
    * <p>The name of the composite model.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description of the composite model.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The type of the composite model. For alarm composite models, this type is
    *         <code>AWS/ALARM</code>.</p>
+   * @public
    */
   type: string | undefined;
 
   /**
-   * @public
    * <p>The asset properties that this composite model defines.</p>
+   * @public
    */
   properties: AssetProperty[] | undefined;
 
   /**
-   * @public
    * <p>
    *       The ID of the asset composite model.
    *     </p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The external ID of the asset composite model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   externalId?: string;
 }
 
 /**
- * @public
  * <p>Represents one level between a composite model and the root of the asset.</p>
+ * @public
  */
 export interface AssetCompositeModelPathSegment {
   /**
-   * @public
    * <p>The ID of the path segment.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The name of the path segment.</p>
+   * @public
    */
   name?: string;
 }
 
 /**
- * @public
  * <p>Contains a summary of the composite model for a specific asset.</p>
+ * @public
  */
 export interface AssetCompositeModelSummary {
   /**
-   * @public
    * <p>The ID of the composite model that this summary describes.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>An external ID to assign to the asset model.</p>
    *          <p>If the composite model is a derived composite model, or one nested inside a component model, you can only set the external ID using
    *       <code>UpdateAssetModelCompositeModel</code> and specifying the derived ID of the model or property from the created model it's a part of.</p>
+   * @public
    */
   externalId?: string;
 
   /**
-   * @public
    * <p>The name of the composite model that this summary describes.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The type of asset model.</p>
    *          <ul>
    *             <li>
@@ -644,18 +643,19 @@ export interface AssetCompositeModelSummary {
    *    models of other asset models. You can't create assets directly from this type of asset model. </p>
    *             </li>
    *          </ul>
+   * @public
    */
   type: string | undefined;
 
   /**
-   * @public
    * <p>A description of the composite model that this summary describes.</p>
+   * @public
    */
   description: string | undefined;
 
   /**
-   * @public
    * <p>The path that includes all the components of the asset model for the asset.</p>
+   * @public
    */
   path: AssetCompositeModelPathSegment[] | undefined;
 }
@@ -674,105 +674,105 @@ export const AssetErrorCode = {
 export type AssetErrorCode = (typeof AssetErrorCode)[keyof typeof AssetErrorCode];
 
 /**
- * @public
  * <p>Contains error details for the requested associate project asset action.</p>
+ * @public
  */
 export interface AssetErrorDetails {
   /**
-   * @public
    * <p>The ID of the asset, in UUID format.</p>
+   * @public
    */
   assetId: string | undefined;
 
   /**
-   * @public
    * <p>The error code.</p>
+   * @public
    */
   code: AssetErrorCode | undefined;
 
   /**
-   * @public
    * <p>The error message.</p>
+   * @public
    */
   message: string | undefined;
 }
 
 /**
- * @public
  * <p>Describes an asset hierarchy that contains a hierarchy's name and ID.</p>
+ * @public
  */
 export interface AssetHierarchy {
   /**
-   * @public
    * <p>The ID of the hierarchy. This ID is a <code>hierarchyId</code>.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The hierarchy name provided in the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModel.html">CreateAssetModel</a> or <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetModel.html">UpdateAssetModel</a>
    *       API operation.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The external ID of the hierarchy, if it has one. When you update an asset hierarchy,
    *       you may assign an external ID if it doesn't already have one. You can't change the external ID
    *       of an asset hierarchy that already has one. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   externalId?: string;
 }
 
 /**
- * @public
  * <p>Contains information about a parent asset and a child asset that are related through an
  *       asset hierarchy.</p>
+ * @public
  */
 export interface AssetHierarchyInfo {
   /**
-   * @public
    * <p>The ID of the parent asset in this asset relationship.</p>
+   * @public
    */
   parentAssetId?: string;
 
   /**
-   * @public
    * <p>The ID of the child asset in this asset relationship.</p>
+   * @public
    */
   childAssetId?: string;
 }
 
 /**
- * @public
  * <p>Represents one level between a property and the root of the asset model.</p>
+ * @public
  */
 export interface AssetModelPropertyPathSegment {
   /**
-   * @public
    * <p>The ID of the path segment.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The name of the path segment.</p>
+   * @public
    */
   name?: string;
 }
 
 /**
- * @public
  * <p>Contains an asset attribute property. For more information, see
  *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#attributes">Attributes</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ * @public
  */
 export interface Attribute {
   /**
-   * @public
    * <p>The default value of the asset model property attribute. All assets that you create from
    *       the asset model contain this attribute value. You can update an attribute's value after you
    *       create an asset. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-attribute-values.html">Updating attribute values</a> in the
    *         <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   defaultValue?: string;
 }
@@ -792,42 +792,42 @@ export const ForwardingConfigState = {
 export type ForwardingConfigState = (typeof ForwardingConfigState)[keyof typeof ForwardingConfigState];
 
 /**
- * @public
  * <p>The forwarding configuration for a given property.</p>
+ * @public
  */
 export interface ForwardingConfig {
   /**
-   * @public
    * <p>The forwarding state for the given property. </p>
+   * @public
    */
   state: ForwardingConfigState | undefined;
 }
 
 /**
- * @public
  * <p>The processing configuration for the given measurement property.
  *       You can configure measurements to be kept at the edge or forwarded to the Amazon Web Services Cloud.
  *       By default, measurements are forwarded to the cloud.</p>
+ * @public
  */
 export interface MeasurementProcessingConfig {
   /**
-   * @public
    * <p>The forwarding configuration for the given measurement property. </p>
+   * @public
    */
   forwardingConfig: ForwardingConfig | undefined;
 }
 
 /**
- * @public
  * <p>Contains an asset measurement property. For more information, see
  *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#measurements">Measurements</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ * @public
  */
 export interface Measurement {
   /**
-   * @public
    * <p>The processing configuration for the given measurement property.
    *       You can configure measurements to be kept at the edge or forwarded to the Amazon Web Services Cloud.
    *       By default, measurements are forwarded to the cloud.</p>
+   * @public
    */
   processingConfig?: MeasurementProcessingConfig;
 }
@@ -847,34 +847,33 @@ export const ComputeLocation = {
 export type ComputeLocation = (typeof ComputeLocation)[keyof typeof ComputeLocation];
 
 /**
- * @public
  * <p>The processing configuration for the given metric property.
  *       You can configure metrics to be computed at the edge or in the Amazon Web Services Cloud.
  *       By default, metrics are forwarded to the cloud.</p>
+ * @public
  */
 export interface MetricProcessingConfig {
   /**
-   * @public
    * <p>The compute location for the given metric property. </p>
+   * @public
    */
   computeLocation: ComputeLocation | undefined;
 }
 
 /**
- * @public
  * <p>Identifies a property value used in an expression.</p>
+ * @public
  */
 export interface VariableValue {
   /**
-   * @public
    * <p>The ID of the property to use as the variable. You can use the property <code>name</code>
    *       if it's from the same asset model. If the property has an external ID, you can specify
    *       <code>externalId:</code> followed by the external ID. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   propertyId?: string;
 
   /**
-   * @public
    * <p>The ID of the hierarchy to query for the property ID. You can use the hierarchy's name
    *       instead of the hierarchy's ID.  If the hierarchy has an external ID, you can specify
    *       <code>externalId:</code> followed by the external ID. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
@@ -882,36 +881,36 @@ export interface VariableValue {
    *       using the same model and therefore the same <code>propertyId</code>. For example, you might
    *       have separately grouped assets that come from the same asset model. For more information, see
    *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html">Asset hierarchies</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   hierarchyId?: string;
 
   /**
-   * @public
    * <p>The path of the property.</p>
+   * @public
    */
   propertyPath?: AssetModelPropertyPathSegment[];
 }
 
 /**
- * @public
  * <p>Contains expression variable information.</p>
+ * @public
  */
 export interface ExpressionVariable {
   /**
-   * @public
    * <p>The friendly name of the variable to be used in the expression.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The variable that identifies an asset property from which to use values.</p>
+   * @public
    */
   value: VariableValue | undefined;
 }
 
 /**
- * @public
  * <p>Contains a tumbling window, which is a repeating fixed-sized, non-overlapping, and
  *       contiguous time window. You can use this window in metrics to aggregate data from properties
  *       and other assets.</p>
@@ -922,10 +921,10 @@ export interface ExpressionVariable {
  *          <p>The <code>interval</code> and <code>offset</code> parameters support the <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601 format</a>. For example,
  *         <code>PT5S</code> represents 5 seconds, <code>PT5M</code> represents 5 minutes, and
  *         <code>PT5H</code> represents 5 hours.</p>
+ * @public
  */
 export interface TumblingWindow {
   /**
-   * @public
    * <p>The time interval for the tumbling window. The interval time must be between 1 minute and
    *       1 week.</p>
    *          <p>IoT SiteWise computes the <code>1w</code> interval the end of Sunday at midnight each week (UTC),
@@ -934,11 +933,11 @@ export interface TumblingWindow {
    *          <p>When IoT SiteWise aggregates data points for metric computations, the start of each interval is
    *       exclusive and the end of each interval is inclusive. IoT SiteWise places the computed data point at
    *       the end of the interval.</p>
+   * @public
    */
   interval: string | undefined;
 
   /**
-   * @public
    * <p>The offset for the tumbling window. The <code>offset</code> parameter accepts the
    *       following:</p>
    *          <ul>
@@ -998,25 +997,25 @@ export interface TumblingWindow {
    *                </ul>
    *             </li>
    *          </ul>
+   * @public
    */
   offset?: string;
 }
 
 /**
- * @public
  * <p>Contains a time interval window used for data aggregate computations (for example,
  *       average, sum, count, and so on).</p>
+ * @public
  */
 export interface MetricWindow {
   /**
-   * @public
    * <p>The tumbling time interval window.</p>
+   * @public
    */
   tumbling?: TumblingWindow;
 }
 
 /**
- * @public
  * <p>Contains an asset metric property. With metrics, you can calculate aggregate functions,
  *       such as an average, maximum, or minimum, as specified through an expression. A metric maps
  *       several values to a single value (such as a sum).</p>
@@ -1026,137 +1025,137 @@ export interface MetricWindow {
  *       tree. Additionally, a metric can only have a data type of <code>DOUBLE</code> and consume
  *       properties with data types of <code>INTEGER</code> or <code>DOUBLE</code>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#metrics">Metrics</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ * @public
  */
 export interface Metric {
   /**
-   * @public
    * <p>The mathematical expression that defines the metric aggregation function. You can specify
    *       up to 10 variables per expression. You can specify up to 10 functions
    *       per expression. </p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   expression: string | undefined;
 
   /**
-   * @public
    * <p>The list of variables used in the expression.</p>
+   * @public
    */
   variables: ExpressionVariable[] | undefined;
 
   /**
-   * @public
    * <p>The window (time interval) over which IoT SiteWise computes the metric's aggregation expression.
    *       IoT SiteWise computes one data point per <code>window</code>.</p>
+   * @public
    */
   window: MetricWindow | undefined;
 
   /**
-   * @public
    * <p>The processing configuration for the given metric property.
    *       You can configure metrics to be computed at the edge or in the Amazon Web Services Cloud.
    *       By default, metrics are forwarded to the cloud.</p>
+   * @public
    */
   processingConfig?: MetricProcessingConfig;
 }
 
 /**
- * @public
  * <p>The processing configuration for the given transform property.
  *       You can configure transforms to be kept at the edge or forwarded to the Amazon Web Services Cloud.
  *       You can also configure transforms to be computed at the edge or in the cloud.</p>
+ * @public
  */
 export interface TransformProcessingConfig {
   /**
-   * @public
    * <p>The compute location for the given transform property. </p>
+   * @public
    */
   computeLocation: ComputeLocation | undefined;
 
   /**
-   * @public
    * <p>The forwarding configuration for a given property.</p>
+   * @public
    */
   forwardingConfig?: ForwardingConfig;
 }
 
 /**
- * @public
  * <p>Contains an asset transform property. A transform is a one-to-one mapping of a property's
  *       data points from one form to another. For example, you can use a transform to convert a
  *       Celsius data stream to Fahrenheit by applying the transformation expression to each data point
  *       of the Celsius stream. A transform can only have a data type of <code>DOUBLE</code> and
  *       consume properties with data types of <code>INTEGER</code> or <code>DOUBLE</code>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#transforms">Transforms</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ * @public
  */
 export interface Transform {
   /**
-   * @public
    * <p>The mathematical expression that defines the transformation function. You can specify up
    *       to 10 variables per expression. You can specify up to 10 functions per
    *       expression. </p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   expression: string | undefined;
 
   /**
-   * @public
    * <p>The list of variables used in the expression.</p>
+   * @public
    */
   variables: ExpressionVariable[] | undefined;
 
   /**
-   * @public
    * <p>The processing configuration for the given transform property.
    *       You can configure transforms to be kept at the edge or forwarded to the Amazon Web Services Cloud.
    *       You can also configure transforms to be computed at the edge or in the cloud.</p>
+   * @public
    */
   processingConfig?: TransformProcessingConfig;
 }
 
 /**
- * @public
  * <p>Contains a property type, which can be one of <code>attribute</code>,
  *         <code>measurement</code>, <code>metric</code>, or <code>transform</code>.</p>
+ * @public
  */
 export interface PropertyType {
   /**
-   * @public
    * <p>Specifies an asset attribute property. An attribute generally contains static information,
    *       such as the serial number of an <a href="https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications">IIoT</a> wind turbine.</p>
+   * @public
    */
   attribute?: Attribute;
 
   /**
-   * @public
    * <p>Specifies an asset measurement property. A measurement represents a device's raw sensor
    *       data stream, such as timestamped temperature values or timestamped power values.</p>
+   * @public
    */
   measurement?: Measurement;
 
   /**
-   * @public
    * <p>Specifies an asset transform property. A transform contains a mathematical expression that
    *       maps a property's data points from one form to another, such as a unit conversion from Celsius
    *       to Fahrenheit.</p>
+   * @public
    */
   transform?: Transform;
 
   /**
-   * @public
    * <p>Specifies an asset metric property. A metric contains a mathematical expression that uses
    *       aggregate functions to process all input data points over a time interval and output a single
    *       data point, such as to calculate the average hourly temperature.</p>
+   * @public
    */
   metric?: Metric;
 }
 
 /**
- * @public
  * <p>Contains information about an asset model property.</p>
+ * @public
  */
 export interface AssetModelProperty {
   /**
-   * @public
    * <p>The ID of the asset model property.</p>
    *          <ul>
    *             <li>
@@ -1172,252 +1171,252 @@ export interface AssetModelProperty {
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The name of the asset model property.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The data type of the asset model property.</p>
+   * @public
    */
   dataType: PropertyDataType | undefined;
 
   /**
-   * @public
    * <p>The data type of the structure for this property. This parameter exists on properties that
    *       have the <code>STRUCT</code> data type.</p>
+   * @public
    */
   dataTypeSpec?: string;
 
   /**
-   * @public
    * <p>The unit of the asset model property, such as <code>Newtons</code> or
    *       <code>RPM</code>.</p>
+   * @public
    */
   unit?: string;
 
   /**
-   * @public
    * <p>The property type (see <code>PropertyType</code>).</p>
+   * @public
    */
   type: PropertyType | undefined;
 
   /**
-   * @public
    * <p>The structured path to the property from the root of the asset model.</p>
+   * @public
    */
   path?: AssetModelPropertyPathSegment[];
 
   /**
-   * @public
    * <p>The external ID (if any) provided in the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModel.html">CreateAssetModel</a> or <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetModel.html">UpdateAssetModel</a>
    *       operation. You can assign an external ID by specifying
    *       this value as part of a call to <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetModel.html">UpdateAssetModel</a>. However, you can't change the external ID if one is already assigned. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   externalId?: string;
 }
 
 /**
- * @public
  * <p>Contains information about a composite model in an asset model. This object contains the
  *       asset property definitions that you define in the composite model.</p>
+ * @public
  */
 export interface AssetModelCompositeModel {
   /**
-   * @public
    * <p>The name of the composite model.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description of the composite model.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The type of the composite model. For alarm composite models, this type is
    *         <code>AWS/ALARM</code>.</p>
+   * @public
    */
   type: string | undefined;
 
   /**
-   * @public
    * <p>The asset property definitions for this composite model.</p>
+   * @public
    */
   properties?: AssetModelProperty[];
 
   /**
-   * @public
    * <p>
    *       The ID of the asset model composite model.
    *     </p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The external ID of the asset model composite model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   externalId?: string;
 }
 
 /**
- * @public
  * <p>Contains an asset model property definition. This property definition is applied to all
  *       assets created from the asset model.</p>
+ * @public
  */
 export interface AssetModelPropertyDefinition {
   /**
-   * @public
    * <p>The name of the property definition.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The data type of the property definition.</p>
    *          <p>If you specify <code>STRUCT</code>, you must also specify <code>dataTypeSpec</code> to
    *       identify the type of the structure for this property.</p>
+   * @public
    */
   dataType: PropertyDataType | undefined;
 
   /**
-   * @public
    * <p>The data type of the structure for this property. This parameter is required on properties
    *       that have the <code>STRUCT</code> data type.</p>
    *          <p>The options for this parameter depend on the type of the composite model in which you
    *       define this property. Use <code>AWS/ALARM_STATE</code> for alarm state in alarm composite
    *       models.</p>
+   * @public
    */
   dataTypeSpec?: string;
 
   /**
-   * @public
    * <p>The unit of the property definition, such as <code>Newtons</code> or
    *       <code>RPM</code>.</p>
+   * @public
    */
   unit?: string;
 
   /**
-   * @public
    * <p>The property definition type (see <code>PropertyType</code>). You can only specify one
    *       type in a property definition.</p>
+   * @public
    */
   type: PropertyType | undefined;
 
   /**
-   * @public
    * <p>The ID to assign to the asset model property, if desired. IoT SiteWise automatically generates a unique ID for you, so this parameter is never required.
    *     However, if you prefer to supply your own ID instead, you can specify it here in UUID format.
    *     If you specify your own ID, it must be globally unique.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>An external ID to assign to the property definition. The external ID must be unique among
    *       property definitions within this asset model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   externalId?: string;
 }
 
 /**
- * @public
  * <p>Contains a composite model definition in an asset model. This composite model definition
  *       is applied to all assets created from the asset model.</p>
+ * @public
  */
 export interface AssetModelCompositeModelDefinition {
   /**
-   * @public
    * <p>The name of the composite model.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description of the composite model.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The type of the composite model. For alarm composite models, this type is
    *         <code>AWS/ALARM</code>.</p>
+   * @public
    */
   type: string | undefined;
 
   /**
-   * @public
    * <p>The asset property definitions for this composite model.</p>
+   * @public
    */
   properties?: AssetModelPropertyDefinition[];
 
   /**
-   * @public
    * <p>The ID to assign to the composite model, if desired. IoT SiteWise automatically generates a unique ID for you, so this parameter is never required.
    *     However, if you prefer to supply your own ID instead, you can specify it here in UUID format.
    *     If you specify your own ID, it must be globally unique.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>An external ID to assign to the composite model. The external ID must be unique among
    *       composite models within this asset model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   externalId?: string;
 }
 
 /**
- * @public
  * <p>Represents one level between a composite model and the root of the asset model.</p>
+ * @public
  */
 export interface AssetModelCompositeModelPathSegment {
   /**
-   * @public
    * <p>The ID of the path segment.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The name of the path segment.</p>
+   * @public
    */
   name?: string;
 }
 
 /**
- * @public
  * <p>Contains a summary of the composite model.</p>
+ * @public
  */
 export interface AssetModelCompositeModelSummary {
   /**
-   * @public
    * <p>The ID of the the composite model that this summary describes..</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The external ID of a composite model on this asset model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   externalId?: string;
 
   /**
-   * @public
    * <p>The name of the the composite model that this summary describes..</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The type of asset model.</p>
    *          <ul>
    *             <li>
@@ -1431,30 +1430,30 @@ export interface AssetModelCompositeModelSummary {
    *    models of other asset models. You can't create assets directly from this type of asset model. </p>
    *             </li>
    *          </ul>
+   * @public
    */
   type: string | undefined;
 
   /**
-   * @public
    * <p>The description of the the composite model that this summary describes..</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The path that includes all the pieces that make up the composite model.</p>
+   * @public
    */
   path?: AssetModelCompositeModelPathSegment[];
 }
 
 /**
- * @public
  * <p>Describes an asset hierarchy that contains a hierarchy's name, ID, and child asset model
  *       ID that specifies the type of asset that can be in this hierarchy.</p>
+ * @public
  */
 export interface AssetModelHierarchy {
   /**
-   * @public
    * <p>The ID of the asset model hierarchy. This ID is a <code>hierarchyId</code>.</p>
    *          <ul>
    *             <li>
@@ -1470,132 +1469,133 @@ export interface AssetModelHierarchy {
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The name of the asset model hierarchy that you specify by using the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModel.html">CreateAssetModel</a> or
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetModel.html">UpdateAssetModel</a> API operation.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the asset model, in UUID format. All assets in this hierarchy must be instances of the
    *       <code>childAssetModelId</code> asset model. IoT SiteWise will always return the actual
    *       asset model ID for this value. However, when you are specifying this value as part of a call to
    *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetModel.html">UpdateAssetModel</a>, you may provide either the asset model ID or else <code>externalId:</code>
    *       followed by the asset model's external ID. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.
    *     </p>
+   * @public
    */
   childAssetModelId: string | undefined;
 
   /**
-   * @public
    * <p>The external ID (if any) provided in the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModel.html">CreateAssetModel</a> or <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetModel.html">UpdateAssetModel</a>
    *       operation. You can assign an external ID by specifying
    *       this value as part of a call to <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetModel.html">UpdateAssetModel</a>. However, you can't change the external ID if one is already assigned. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   externalId?: string;
 }
 
 /**
- * @public
  * <p>Contains an asset model hierarchy used in asset model creation. An asset model hierarchy
  *       determines the kind (or type) of asset that can belong to a hierarchy.</p>
+ * @public
  */
 export interface AssetModelHierarchyDefinition {
   /**
-   * @public
    * <p>The name of the asset model hierarchy definition (as specified in the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModel.html">CreateAssetModel</a> or
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetModel.html">UpdateAssetModel</a> API operation).</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The ID of an asset model for this hierarchy. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   childAssetModelId: string | undefined;
 
   /**
-   * @public
    * <p>The ID to assign to the asset model hierarchy, if desired. IoT SiteWise automatically generates a unique ID for you, so this parameter is never required.
    *     However, if you prefer to supply your own ID instead, you can specify it here in UUID format.
    *     If you specify your own ID, it must be globally unique.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>An external ID to assign to the asset model hierarchy. The external ID must be unique among
    *       asset model hierarchies within this asset model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   externalId?: string;
 }
 
 /**
- * @public
  * <p>Contains a summary of a property associated with a model.</p>
+ * @public
  */
 export interface AssetModelPropertySummary {
   /**
-   * @public
    * <p>The ID of the property.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The name of the property.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The data type of the property.</p>
+   * @public
    */
   dataType: PropertyDataType | undefined;
 
   /**
-   * @public
    * <p>The data type of the structure for this property. This parameter exists on properties that
    *       have the <code>STRUCT</code> data type.</p>
+   * @public
    */
   dataTypeSpec?: string;
 
   /**
-   * @public
    * <p>The unit (such as <code>Newtons</code> or <code>RPM</code>) of the property.</p>
+   * @public
    */
   unit?: string;
 
   /**
-   * @public
    * <p>Contains a property type, which can be one of <code>attribute</code>,
    *         <code>measurement</code>, <code>metric</code>, or <code>transform</code>.</p>
+   * @public
    */
   type: PropertyType | undefined;
 
   /**
-   * @public
    * <p>
    *       The ID of the composite model that contains the asset model property.
    *     </p>
+   * @public
    */
   assetModelCompositeModelId?: string;
 
   /**
-   * @public
    * <p>The structured path to the property from the root of the asset model.</p>
+   * @public
    */
   path?: AssetModelPropertyPathSegment[];
 
   /**
-   * @public
    * <p>The external ID of the property. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   externalId?: string;
 }
@@ -1647,62 +1647,62 @@ export const DetailedErrorCode = {
 export type DetailedErrorCode = (typeof DetailedErrorCode)[keyof typeof DetailedErrorCode];
 
 /**
- * @public
  * <p>Contains detailed error information. </p>
+ * @public
  */
 export interface DetailedError {
   /**
-   * @public
    * <p>The error code. </p>
+   * @public
    */
   code: DetailedErrorCode | undefined;
 
   /**
-   * @public
    * <p>The error message. </p>
+   * @public
    */
   message: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains the details of an IoT SiteWise error.</p>
+ * @public
  */
 export interface ErrorDetails {
   /**
-   * @public
    * <p>The error code.</p>
+   * @public
    */
   code: ErrorCode | undefined;
 
   /**
-   * @public
    * <p>The error message.</p>
+   * @public
    */
   message: string | undefined;
 
   /**
-   * @public
    * <p> A list of detailed errors. </p>
+   * @public
    */
   details?: DetailedError[];
 }
 
 /**
- * @public
  * <p>Contains current status information for an asset model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-and-model-states.html">Asset and model
  *         states</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ * @public
  */
 export interface AssetModelStatus {
   /**
-   * @public
    * <p>The current state of the asset model.</p>
+   * @public
    */
   state: AssetModelState | undefined;
 
   /**
-   * @public
    * <p>Contains associated error information, if any.</p>
+   * @public
    */
   error?: ErrorDetails;
 }
@@ -1722,57 +1722,56 @@ export const AssetModelType = {
 export type AssetModelType = (typeof AssetModelType)[keyof typeof AssetModelType];
 
 /**
- * @public
  * <p>Contains a summary of an asset model.</p>
+ * @public
  */
 export interface AssetModelSummary {
   /**
-   * @public
    * <p>The ID of the asset model (used with IoT SiteWise API operations).</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the asset model, which has the following format.</p>
    *          <p>
    *             <code>arn:$\{Partition\}:iotsitewise:$\{Region\}:$\{Account\}:asset-model/$\{AssetModelId\}</code>
    *          </p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the asset model.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The asset model description.</p>
+   * @public
    */
   description: string | undefined;
 
   /**
-   * @public
    * <p>The date the asset model was created, in Unix epoch time.</p>
+   * @public
    */
   creationDate: Date | undefined;
 
   /**
-   * @public
    * <p>The date the asset model was last updated, in Unix epoch time.</p>
+   * @public
    */
   lastUpdateDate: Date | undefined;
 
   /**
-   * @public
    * <p>The current status of the asset model.</p>
+   * @public
    */
   status: AssetModelStatus | undefined;
 
   /**
-   * @public
    * <p>The type of asset model.</p>
    *          <ul>
    *             <li>
@@ -1786,141 +1785,142 @@ export interface AssetModelSummary {
    *    models of other asset models. You can't create assets directly from this type of asset model. </p>
    *             </li>
    *          </ul>
+   * @public
    */
   assetModelType?: AssetModelType;
 
   /**
-   * @public
    * <p>The external ID of the asset model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   externalId?: string;
 }
 
 /**
- * @public
  * <p>Contains a summary of a property associated with an asset.</p>
+ * @public
  */
 export interface AssetPropertySummary {
   /**
-   * @public
    * <p>The ID of the property.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The alias that identifies the property, such as an OPC-UA server data stream path
    *         (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
    *         <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   alias?: string;
 
   /**
-   * @public
    * <p>
    *       The unit of measure (such as Newtons or RPM) of the asset property.
    *     </p>
+   * @public
    */
   unit?: string;
 
   /**
-   * @public
    * <p>Contains asset property value notification information. When the notification state is enabled, IoT SiteWise publishes property value
    *       updates to a unique MQTT topic. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/interact-with-other-services.html">Interacting with other services</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   notification?: PropertyNotification;
 
   /**
-   * @public
    * <p>
    *       The ID of the composite model that contains the asset property.
    *     </p>
+   * @public
    */
   assetCompositeModelId?: string;
 
   /**
-   * @public
    * <p>The structured path to the property from the root of the asset.</p>
+   * @public
    */
   path?: AssetPropertyPathSegment[];
 
   /**
-   * @public
    * <p>The external ID of the property. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   externalId?: string;
 }
 
 /**
- * @public
  * <p>Contains a timestamp with optional nanosecond granularity.</p>
+ * @public
  */
 export interface TimeInNanos {
   /**
-   * @public
    * <p>The timestamp date, in seconds, in the Unix epoch format. Fractional nanosecond data is
    *       provided by <code>offsetInNanos</code>.</p>
+   * @public
    */
   timeInSeconds: number | undefined;
 
   /**
-   * @public
    * <p>The nanosecond offset from <code>timeInSeconds</code>.</p>
+   * @public
    */
   offsetInNanos?: number;
 }
 
 /**
- * @public
  * <p>Contains an asset property value (of a single type only).</p>
+ * @public
  */
 export interface Variant {
   /**
-   * @public
    * <p>Asset property data of type string (sequence of characters).</p>
+   * @public
    */
   stringValue?: string;
 
   /**
-   * @public
    * <p>Asset property data of type integer (number that's greater than or equal to zero).</p>
+   * @public
    */
   integerValue?: number;
 
   /**
-   * @public
    * <p>Asset property data of type double (floating point number).</p>
+   * @public
    */
   doubleValue?: number;
 
   /**
-   * @public
    * <p>Asset property data of type Boolean (true or false).</p>
+   * @public
    */
   booleanValue?: boolean;
 }
 
 /**
- * @public
  * <p>Contains asset property value information.</p>
+ * @public
  */
 export interface AssetPropertyValue {
   /**
-   * @public
    * <p>The value of the asset property (see <code>Variant</code>).</p>
+   * @public
    */
   value: Variant | undefined;
 
   /**
-   * @public
    * <p>The timestamp of the asset property value.</p>
+   * @public
    */
   timestamp: TimeInNanos | undefined;
 
   /**
-   * @public
    * <p>The quality of the asset property value.</p>
+   * @public
    */
   quality?: Quality;
 }
@@ -1939,20 +1939,19 @@ export const AssetRelationshipType = {
 export type AssetRelationshipType = (typeof AssetRelationshipType)[keyof typeof AssetRelationshipType];
 
 /**
- * @public
  * <p>Contains information about assets that are related to one another.</p>
+ * @public
  */
 export interface AssetRelationshipSummary {
   /**
-   * @public
    * <p>The assets that are related through an asset hierarchy.</p>
    *          <p>This object is present if the <code>relationshipType</code> is
    *       <code>HIERARCHY</code>.</p>
+   * @public
    */
   hierarchyInfo?: AssetHierarchyInfo;
 
   /**
-   * @public
    * <p>The relationship type of the assets in this relationship. This value is one of the
    *       following:</p>
    *          <ul>
@@ -1963,6 +1962,7 @@ export interface AssetRelationshipSummary {
    *             <code>hierarchyInfo</code> object.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   relationshipType: AssetRelationshipType | undefined;
 }
@@ -1985,90 +1985,90 @@ export const AssetState = {
 export type AssetState = (typeof AssetState)[keyof typeof AssetState];
 
 /**
- * @public
  * <p>Contains information about the current status of an asset. For more information, see
  *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-and-model-states.html">Asset and model
  *         states</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ * @public
  */
 export interface AssetStatus {
   /**
-   * @public
    * <p>The current status of the asset.</p>
+   * @public
    */
   state: AssetState | undefined;
 
   /**
-   * @public
    * <p>Contains associated error information, if any.</p>
+   * @public
    */
   error?: ErrorDetails;
 }
 
 /**
- * @public
  * <p>Contains a summary of an asset.</p>
+ * @public
  */
 export interface AssetSummary {
   /**
-   * @public
    * <p>The ID of the asset, in UUID format.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the asset, which has the following format.</p>
    *          <p>
    *             <code>arn:$\{Partition\}:iotsitewise:$\{Region\}:$\{Account\}:asset/$\{AssetId\}</code>
    *          </p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the asset.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the asset model used to create this asset.</p>
+   * @public
    */
   assetModelId: string | undefined;
 
   /**
-   * @public
    * <p>The date the asset was created, in Unix epoch time.</p>
+   * @public
    */
   creationDate: Date | undefined;
 
   /**
-   * @public
    * <p>The date the asset was last updated, in Unix epoch time.</p>
+   * @public
    */
   lastUpdateDate: Date | undefined;
 
   /**
-   * @public
    * <p>The current status of the asset.</p>
+   * @public
    */
   status: AssetStatus | undefined;
 
   /**
-   * @public
    * <p>A list of asset hierarchies that each contain a <code>hierarchyId</code>. A hierarchy specifies allowed parent/child asset relationships.</p>
+   * @public
    */
   hierarchies: AssetHierarchy[] | undefined;
 
   /**
-   * @public
    * <p>A description for the asset.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The external ID of the asset. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   externalId?: string;
 }
@@ -2078,52 +2078,52 @@ export interface AssetSummary {
  */
 export interface AssociateAssetsRequest {
   /**
-   * @public
    * <p>The ID of the parent asset. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   assetId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of a hierarchy in the parent asset's model. (This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.) Hierarchies allow different groupings
    *       of assets to be formed that all come from the same asset model. For more information, see
    *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html">Asset hierarchies</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   hierarchyId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the child asset to be associated. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   childAssetId: string | undefined;
 
   /**
-   * @public
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+   * @public
    */
   clientToken?: string;
 }
 
 /**
- * @public
  * <p>Your request has conflicting operations. This can occur if you're trying to perform more
  *       than one operation on the same resource at the same time.</p>
+ * @public
  */
 export class ConflictingOperationException extends __BaseException {
   readonly name: "ConflictingOperationException" = "ConflictingOperationException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The ID of the resource that conflicts with this operation.</p>
+   * @public
    */
   resourceId: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the resource that conflicts with this operation.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
@@ -2143,8 +2143,8 @@ export class ConflictingOperationException extends __BaseException {
 }
 
 /**
- * @public
  * <p>IoT SiteWise can't process your request right now. Try again later.</p>
+ * @public
  */
 export class InternalFailureException extends __BaseException {
   readonly name: "InternalFailureException" = "InternalFailureException";
@@ -2163,9 +2163,9 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters. Check your request and try again.</p>
+ * @public
  */
 export class InvalidRequestException extends __BaseException {
   readonly name: "InvalidRequestException" = "InvalidRequestException";
@@ -2184,11 +2184,11 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * @public
  * <p>You've reached the limit for a resource. For example, this can occur if you're trying to
  *       associate more than the allowed number of child assets or attempting to create more than the
  *       allowed number of properties for an asset model.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ * @public
  */
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
@@ -2207,21 +2207,21 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The resource already exists.</p>
+ * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
   readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The ID of the resource that already exists.</p>
+   * @public
    */
   resourceId: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the resource that already exists.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
@@ -2241,8 +2241,8 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The requested resource can't be found.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -2261,11 +2261,11 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Your request exceeded a rate limit. For example, you might have exceeded the number of
  *       IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -2284,70 +2284,70 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Contains a summary of an associated asset.</p>
+ * @public
  */
 export interface AssociatedAssetsSummary {
   /**
-   * @public
    * <p>The ID of the asset, in UUID format.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the asset, which has the following format.</p>
    *          <p>
    *             <code>arn:$\{Partition\}:iotsitewise:$\{Region\}:$\{Account\}:asset/$\{AssetId\}</code>
    *          </p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the asset.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the asset model used to create the asset.</p>
+   * @public
    */
   assetModelId: string | undefined;
 
   /**
-   * @public
    * <p>The date the asset was created, in Unix epoch time.</p>
+   * @public
    */
   creationDate: Date | undefined;
 
   /**
-   * @public
    * <p>The date the asset was last updated, in Unix epoch time.</p>
+   * @public
    */
   lastUpdateDate: Date | undefined;
 
   /**
-   * @public
    * <p>The current status of the asset.</p>
+   * @public
    */
   status: AssetStatus | undefined;
 
   /**
-   * @public
    * <p>A list of asset hierarchies that each contain a <code>hierarchyId</code>. A hierarchy specifies allowed parent/child asset relationships.</p>
+   * @public
    */
   hierarchies: AssetHierarchy[] | undefined;
 
   /**
-   * @public
    * <p>A description for the asset.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The external ID of the asset. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   externalId?: string;
 }
@@ -2357,28 +2357,28 @@ export interface AssociatedAssetsSummary {
  */
 export interface AssociateTimeSeriesToAssetPropertyRequest {
   /**
-   * @public
    * <p>The alias that identifies the time series.</p>
+   * @public
    */
   alias: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the asset in which the asset property was created. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   assetId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the asset property. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   propertyId: string | undefined;
 
   /**
-   * @public
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -2402,20 +2402,20 @@ export type AuthMode = (typeof AuthMode)[keyof typeof AuthMode];
  */
 export interface BatchAssociateProjectAssetsRequest {
   /**
-   * @public
    * <p>The ID of the project to which to associate the assets.</p>
+   * @public
    */
   projectId: string | undefined;
 
   /**
-   * @public
    * <p>The IDs of the assets to be associated to the project.</p>
+   * @public
    */
   assetIds: string[] | undefined;
 
   /**
-   * @public
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -2425,8 +2425,8 @@ export interface BatchAssociateProjectAssetsRequest {
  */
 export interface BatchAssociateProjectAssetsResponse {
   /**
-   * @public
    * <p>A list of associated error information, if any.</p>
+   * @public
    */
   errors?: AssetErrorDetails[];
 }
@@ -2436,20 +2436,20 @@ export interface BatchAssociateProjectAssetsResponse {
  */
 export interface BatchDisassociateProjectAssetsRequest {
   /**
-   * @public
    * <p>The ID of the project from which to disassociate the assets.</p>
+   * @public
    */
   projectId: string | undefined;
 
   /**
-   * @public
    * <p>The IDs of the assets to be disassociated from the project.</p>
+   * @public
    */
   assetIds: string[] | undefined;
 
   /**
-   * @public
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -2459,8 +2459,8 @@ export interface BatchDisassociateProjectAssetsRequest {
  */
 export interface BatchDisassociateProjectAssetsResponse {
   /**
-   * @public
    * <p>A list of associated error information, if any.</p>
+   * @public
    */
   errors?: AssetErrorDetails[];
 }
@@ -2480,7 +2480,6 @@ export const TimeOrdering = {
 export type TimeOrdering = (typeof TimeOrdering)[keyof typeof TimeOrdering];
 
 /**
- * @public
  * <p>Contains information for an asset property aggregate entry that is associated with the
  *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyAggregates.html">BatchGetAssetPropertyAggregates</a> API.</p>
  *          <p>To identify an asset property, you must specify one of the following:</p>
@@ -2493,70 +2492,71 @@ export type TimeOrdering = (typeof TimeOrdering)[keyof typeof TimeOrdering];
  *           <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html">UpdateAssetProperty</a>.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export interface BatchGetAssetPropertyAggregatesEntry {
   /**
-   * @public
    * <p>The ID of the entry.</p>
+   * @public
    */
   entryId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the asset in which the asset property was created.</p>
+   * @public
    */
   assetId?: string;
 
   /**
-   * @public
    * <p>The ID of the asset property, in UUID format.</p>
+   * @public
    */
   propertyId?: string;
 
   /**
-   * @public
    * <p>The alias that identifies the property, such as an OPC-UA server data stream path
    *         (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
    *         <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   propertyAlias?: string;
 
   /**
-   * @public
    * <p>The data aggregating function.</p>
+   * @public
    */
   aggregateTypes: AggregateType[] | undefined;
 
   /**
-   * @public
    * <p>The time interval over which to aggregate data.</p>
+   * @public
    */
   resolution: string | undefined;
 
   /**
-   * @public
    * <p>The exclusive start of the range from which to query historical data, expressed in seconds in Unix epoch time.</p>
+   * @public
    */
   startDate: Date | undefined;
 
   /**
-   * @public
    * <p>The inclusive end of the range from which to query historical data, expressed in seconds in Unix epoch time.</p>
+   * @public
    */
   endDate: Date | undefined;
 
   /**
-   * @public
    * <p>The quality by which to filter asset data.</p>
+   * @public
    */
   qualities?: Quality[];
 
   /**
-   * @public
    * <p>The chronological sorting order of the requested information.</p>
    *          <p>Default: <code>ASCENDING</code>
    *          </p>
+   * @public
    */
   timeOrdering?: TimeOrdering;
 }
@@ -2566,20 +2566,19 @@ export interface BatchGetAssetPropertyAggregatesEntry {
  */
 export interface BatchGetAssetPropertyAggregatesRequest {
   /**
-   * @public
    * <p>The list of asset property aggregate entries for the batch get request. You can specify up
    *       to 16 entries per request.</p>
+   * @public
    */
   entries: BatchGetAssetPropertyAggregatesEntry[] | undefined;
 
   /**
-   * @public
    * <p>The token to be used for the next set of paginated results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return for each paginated request. A result set is returned in the two cases, whichever occurs
    *       first.</p>
    *          <ul>
@@ -2591,6 +2590,7 @@ export interface BatchGetAssetPropertyAggregatesRequest {
    *           <code>maxResults</code>. The maximum value of <code>maxResults</code> is 4000.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   maxResults?: number;
 }
@@ -2612,26 +2612,26 @@ export type BatchGetAssetPropertyAggregatesErrorCode =
   (typeof BatchGetAssetPropertyAggregatesErrorCode)[keyof typeof BatchGetAssetPropertyAggregatesErrorCode];
 
 /**
- * @public
  * <p>Contains error information for an asset property aggregate entry that is associated with
  *       the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyAggregates.html">BatchGetAssetPropertyAggregates</a> API.</p>
+ * @public
  */
 export interface BatchGetAssetPropertyAggregatesErrorEntry {
   /**
-   * @public
    * <p>The error code.</p>
+   * @public
    */
   errorCode: BatchGetAssetPropertyAggregatesErrorCode | undefined;
 
   /**
-   * @public
    * <p>The associated error message.</p>
+   * @public
    */
   errorMessage: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the entry.</p>
+   * @public
    */
   entryId: string | undefined;
 }
@@ -2651,63 +2651,63 @@ export const BatchEntryCompletionStatus = {
 export type BatchEntryCompletionStatus = (typeof BatchEntryCompletionStatus)[keyof typeof BatchEntryCompletionStatus];
 
 /**
- * @public
  * <p>Contains the error code and the timestamp for an asset property aggregate entry that is
  *       associated with the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyAggregates.html">BatchGetAssetPropertyAggregates</a> API.</p>
+ * @public
  */
 export interface BatchGetAssetPropertyAggregatesErrorInfo {
   /**
-   * @public
    * <p>The error code.</p>
+   * @public
    */
   errorCode: BatchGetAssetPropertyAggregatesErrorCode | undefined;
 
   /**
-   * @public
    * <p>The date the error occurred, in Unix epoch time.</p>
+   * @public
    */
   errorTimestamp: Date | undefined;
 }
 
 /**
- * @public
  * <p>Contains information for an entry that has been processed by the previous <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyAggregates.html">BatchGetAssetPropertyAggregates</a> request.</p>
+ * @public
  */
 export interface BatchGetAssetPropertyAggregatesSkippedEntry {
   /**
-   * @public
    * <p>The ID of the entry.</p>
+   * @public
    */
   entryId: string | undefined;
 
   /**
-   * @public
    * <p>The completion status of each entry that is associated with the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyAggregates.html">BatchGetAssetPropertyAggregates</a> API.</p>
+   * @public
    */
   completionStatus: BatchEntryCompletionStatus | undefined;
 
   /**
-   * @public
    * <p>The error information, such as the error code and the timestamp.</p>
+   * @public
    */
   errorInfo?: BatchGetAssetPropertyAggregatesErrorInfo;
 }
 
 /**
- * @public
  * <p>Contains success information for an entry that is associated with the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyAggregates.html">BatchGetAssetPropertyAggregates</a> API.</p>
+ * @public
  */
 export interface BatchGetAssetPropertyAggregatesSuccessEntry {
   /**
-   * @public
    * <p>The ID of the entry.</p>
+   * @public
    */
   entryId: string | undefined;
 
   /**
-   * @public
    * <p>The requested aggregated asset property values (for example, average, minimum, and
    *       maximum).</p>
+   * @public
    */
   aggregatedValues: AggregatedValue[] | undefined;
 }
@@ -2717,37 +2717,37 @@ export interface BatchGetAssetPropertyAggregatesSuccessEntry {
  */
 export interface BatchGetAssetPropertyAggregatesResponse {
   /**
-   * @public
    * <p>A list of the errors (if any) associated with the batch request. Each error entry
    *       contains the <code>entryId</code> of the entry that failed.</p>
+   * @public
    */
   errorEntries: BatchGetAssetPropertyAggregatesErrorEntry[] | undefined;
 
   /**
-   * @public
    * <p>A list of entries that were processed successfully by this batch request. Each success entry
    *       contains the <code>entryId</code> of the entry that succeeded and the latest query result.</p>
+   * @public
    */
   successEntries: BatchGetAssetPropertyAggregatesSuccessEntry[] | undefined;
 
   /**
-   * @public
    * <p>A list of entries that were not processed by this batch request.
    *       because these entries had been completely processed by previous paginated requests.
    *       Each skipped entry contains the <code>entryId</code> of the entry that skipped.</p>
+   * @public
    */
   skippedEntries: BatchGetAssetPropertyAggregatesSkippedEntry[] | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>The requested service is unavailable.</p>
+ * @public
  */
 export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
@@ -2766,7 +2766,6 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Contains information for an asset property value entry that is associated with the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValue.html">BatchGetAssetPropertyValue</a> API.</p>
  *          <p>To identify an asset property, you must specify one of the following:</p>
  *          <ul>
@@ -2778,32 +2777,33 @@ export class ServiceUnavailableException extends __BaseException {
  *           <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html">UpdateAssetProperty</a>.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export interface BatchGetAssetPropertyValueEntry {
   /**
-   * @public
    * <p>The ID of the entry.</p>
+   * @public
    */
   entryId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the asset in which the asset property was created.</p>
+   * @public
    */
   assetId?: string;
 
   /**
-   * @public
    * <p>The ID of the asset property, in UUID format.</p>
+   * @public
    */
   propertyId?: string;
 
   /**
-   * @public
    * <p>The alias that identifies the property, such as an OPC-UA server data stream path
    *         (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
    *         <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   propertyAlias?: string;
 }
@@ -2813,15 +2813,15 @@ export interface BatchGetAssetPropertyValueEntry {
  */
 export interface BatchGetAssetPropertyValueRequest {
   /**
-   * @public
    * <p>The list of asset property value entries for the batch get request. You can specify up to
    *       128 entries per request.</p>
+   * @public
    */
   entries: BatchGetAssetPropertyValueEntry[] | undefined;
 
   /**
-   * @public
    * <p>The token to be used for the next set of paginated results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2843,86 +2843,86 @@ export type BatchGetAssetPropertyValueErrorCode =
   (typeof BatchGetAssetPropertyValueErrorCode)[keyof typeof BatchGetAssetPropertyValueErrorCode];
 
 /**
- * @public
  * <p>Contains error information for an asset property value entry that is associated with the
  *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValue.html">BatchGetAssetPropertyValue</a> API.</p>
+ * @public
  */
 export interface BatchGetAssetPropertyValueErrorEntry {
   /**
-   * @public
    * <p>The error code.</p>
+   * @public
    */
   errorCode: BatchGetAssetPropertyValueErrorCode | undefined;
 
   /**
-   * @public
    * <p>The associated error message.</p>
+   * @public
    */
   errorMessage: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the entry.</p>
+   * @public
    */
   entryId: string | undefined;
 }
 
 /**
- * @public
  * <p>The error information, such as the error code and the timestamp.</p>
+ * @public
  */
 export interface BatchGetAssetPropertyValueErrorInfo {
   /**
-   * @public
    * <p>The error code.</p>
+   * @public
    */
   errorCode: BatchGetAssetPropertyValueErrorCode | undefined;
 
   /**
-   * @public
    * <p>The date the error occurred, in Unix epoch time.</p>
+   * @public
    */
   errorTimestamp: Date | undefined;
 }
 
 /**
- * @public
  * <p>Contains information for an entry that has been processed by the previous <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValue.html">BatchGetAssetPropertyValue</a> request.</p>
+ * @public
  */
 export interface BatchGetAssetPropertyValueSkippedEntry {
   /**
-   * @public
    * <p>The ID of the entry.</p>
+   * @public
    */
   entryId: string | undefined;
 
   /**
-   * @public
    * <p>The completion status of each entry that is associated with the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValue.html">BatchGetAssetPropertyValue</a> request.</p>
+   * @public
    */
   completionStatus: BatchEntryCompletionStatus | undefined;
 
   /**
-   * @public
    * <p>The error information, such as the error code and the timestamp.</p>
+   * @public
    */
   errorInfo?: BatchGetAssetPropertyValueErrorInfo;
 }
 
 /**
- * @public
  * <p>Contains success information for an entry that is associated with the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValue.html">BatchGetAssetPropertyValue</a> API.</p>
+ * @public
  */
 export interface BatchGetAssetPropertyValueSuccessEntry {
   /**
-   * @public
    * <p>The ID of the entry.</p>
+   * @public
    */
   entryId: string | undefined;
 
   /**
-   * @public
    * <p>Contains asset property value information.</p>
+   * @public
    */
   assetPropertyValue?: AssetPropertyValue;
 }
@@ -2932,36 +2932,35 @@ export interface BatchGetAssetPropertyValueSuccessEntry {
  */
 export interface BatchGetAssetPropertyValueResponse {
   /**
-   * @public
    * <p>A list of the errors (if any) associated with the batch request. Each error entry
    *       contains the <code>entryId</code> of the entry that failed.</p>
+   * @public
    */
   errorEntries: BatchGetAssetPropertyValueErrorEntry[] | undefined;
 
   /**
-   * @public
    * <p>A list of entries that were processed successfully by this batch request. Each success entry
    *       contains the <code>entryId</code> of the entry that succeeded and the latest query result.</p>
+   * @public
    */
   successEntries: BatchGetAssetPropertyValueSuccessEntry[] | undefined;
 
   /**
-   * @public
    * <p>A list of entries that were not processed by this batch request.
    *       because these entries had been completely processed by previous paginated requests.
    *       Each skipped entry contains the <code>entryId</code> of the entry that skipped.</p>
+   * @public
    */
   skippedEntries: BatchGetAssetPropertyValueSkippedEntry[] | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>Contains information for an asset property historical value entry that is associated with
  *       the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValue.html">BatchGetAssetPropertyValueHistory</a> API.</p>
  *          <p>To identify an asset property, you must specify one of the following:</p>
@@ -2974,58 +2973,59 @@ export interface BatchGetAssetPropertyValueResponse {
  *           <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html">UpdateAssetProperty</a>.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export interface BatchGetAssetPropertyValueHistoryEntry {
   /**
-   * @public
    * <p>The ID of the entry.</p>
+   * @public
    */
   entryId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the asset in which the asset property was created.</p>
+   * @public
    */
   assetId?: string;
 
   /**
-   * @public
    * <p>The ID of the asset property, in UUID format.</p>
+   * @public
    */
   propertyId?: string;
 
   /**
-   * @public
    * <p>The alias that identifies the property, such as an OPC-UA server data stream path
    *         (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
    *         <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   propertyAlias?: string;
 
   /**
-   * @public
    * <p>The exclusive start of the range from which to query historical data, expressed in seconds in Unix epoch time.</p>
+   * @public
    */
   startDate?: Date;
 
   /**
-   * @public
    * <p>The inclusive end of the range from which to query historical data, expressed in seconds in Unix epoch time.</p>
+   * @public
    */
   endDate?: Date;
 
   /**
-   * @public
    * <p>The quality by which to filter asset data.</p>
+   * @public
    */
   qualities?: Quality[];
 
   /**
-   * @public
    * <p>The chronological sorting order of the requested information.</p>
    *          <p>Default: <code>ASCENDING</code>
    *          </p>
+   * @public
    */
   timeOrdering?: TimeOrdering;
 }
@@ -3035,20 +3035,19 @@ export interface BatchGetAssetPropertyValueHistoryEntry {
  */
 export interface BatchGetAssetPropertyValueHistoryRequest {
   /**
-   * @public
    * <p>The list of asset property historical value entries for the batch get request. You can
    *       specify up to 16 entries per request.</p>
+   * @public
    */
   entries: BatchGetAssetPropertyValueHistoryEntry[] | undefined;
 
   /**
-   * @public
    * <p>The token to be used for the next set of paginated results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return for each paginated request. A result set is returned in the two cases, whichever occurs
    *       first.</p>
    *          <ul>
@@ -3060,6 +3059,7 @@ export interface BatchGetAssetPropertyValueHistoryRequest {
    *             <code>maxResults</code>. The maximum value of <code>maxResults</code> is 20000.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   maxResults?: number;
 }
@@ -3081,86 +3081,86 @@ export type BatchGetAssetPropertyValueHistoryErrorCode =
   (typeof BatchGetAssetPropertyValueHistoryErrorCode)[keyof typeof BatchGetAssetPropertyValueHistoryErrorCode];
 
 /**
- * @public
  * <p>A list of the errors (if any) associated with the batch request. Each error entry
  *       contains the <code>entryId</code> of the entry that failed.</p>
+ * @public
  */
 export interface BatchGetAssetPropertyValueHistoryErrorEntry {
   /**
-   * @public
    * <p>The error code.</p>
+   * @public
    */
   errorCode: BatchGetAssetPropertyValueHistoryErrorCode | undefined;
 
   /**
-   * @public
    * <p>The associated error message.</p>
+   * @public
    */
   errorMessage: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the entry.</p>
+   * @public
    */
   entryId: string | undefined;
 }
 
 /**
- * @public
  * <p>The error information, such as the error code and the timestamp.</p>
+ * @public
  */
 export interface BatchGetAssetPropertyValueHistoryErrorInfo {
   /**
-   * @public
    * <p>The error code.</p>
+   * @public
    */
   errorCode: BatchGetAssetPropertyValueHistoryErrorCode | undefined;
 
   /**
-   * @public
    * <p>The date the error occurred, in Unix epoch time.</p>
+   * @public
    */
   errorTimestamp: Date | undefined;
 }
 
 /**
- * @public
  * <p>Contains information for an entry that has been processed by the previous <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValue.html">BatchGetAssetPropertyValueHistory</a> request.</p>
+ * @public
  */
 export interface BatchGetAssetPropertyValueHistorySkippedEntry {
   /**
-   * @public
    * <p>The ID of the entry.</p>
+   * @public
    */
   entryId: string | undefined;
 
   /**
-   * @public
    * <p>The completion status of each entry that is associated with the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValueHistory.html">BatchGetAssetPropertyValueHistory</a> API.</p>
+   * @public
    */
   completionStatus: BatchEntryCompletionStatus | undefined;
 
   /**
-   * @public
    * <p>The error information, such as the error code and the timestamp.</p>
+   * @public
    */
   errorInfo?: BatchGetAssetPropertyValueHistoryErrorInfo;
 }
 
 /**
- * @public
  * <p>Contains success information for an entry that is associated with the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValue.html">BatchGetAssetPropertyValueHistory</a> API.</p>
+ * @public
  */
 export interface BatchGetAssetPropertyValueHistorySuccessEntry {
   /**
-   * @public
    * <p>The ID of the entry.</p>
+   * @public
    */
   entryId: string | undefined;
 
   /**
-   * @public
    * <p>The requested historical values for the specified asset property.</p>
+   * @public
    */
   assetPropertyValueHistory: AssetPropertyValue[] | undefined;
 }
@@ -3170,73 +3170,73 @@ export interface BatchGetAssetPropertyValueHistorySuccessEntry {
  */
 export interface BatchGetAssetPropertyValueHistoryResponse {
   /**
-   * @public
    * <p>A list of the errors (if any) associated with the batch request. Each error entry
    *       contains the <code>entryId</code> of the entry that failed.</p>
+   * @public
    */
   errorEntries: BatchGetAssetPropertyValueHistoryErrorEntry[] | undefined;
 
   /**
-   * @public
    * <p>A list of entries that were processed successfully by this batch request. Each success entry
    *       contains the <code>entryId</code> of the entry that succeeded and the latest query result.</p>
+   * @public
    */
   successEntries: BatchGetAssetPropertyValueHistorySuccessEntry[] | undefined;
 
   /**
-   * @public
    * <p>A list of entries that were not processed by this batch request.
    *       because these entries had been completely processed by previous paginated requests.
    *       Each skipped entry contains the <code>entryId</code> of the entry that skipped.</p>
+   * @public
    */
   skippedEntries: BatchGetAssetPropertyValueHistorySkippedEntry[] | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>Contains a list of value updates for an asset property in the list of asset entries
  *       consumed by the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchPutAssetPropertyValue.html">BatchPutAssetPropertyValue</a> API
  *       operation.</p>
+ * @public
  */
 export interface PutAssetPropertyValueEntry {
   /**
-   * @public
    * <p>The user specified ID for the entry. You can use this ID to identify which entries
    *       failed.</p>
+   * @public
    */
   entryId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the asset to update.</p>
+   * @public
    */
   assetId?: string;
 
   /**
-   * @public
    * <p>The ID of the asset property for this entry.</p>
+   * @public
    */
   propertyId?: string;
 
   /**
-   * @public
    * <p>The alias that identifies the property, such as an OPC-UA server data stream path
    *         (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
    *         <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   propertyAlias?: string;
 
   /**
-   * @public
    * <p>The list of property values to upload. You can specify up to 10
    *         <code>propertyValues</code> array elements. </p>
+   * @public
    */
   propertyValues: AssetPropertyValue[] | undefined;
 }
@@ -3246,9 +3246,9 @@ export interface PutAssetPropertyValueEntry {
  */
 export interface BatchPutAssetPropertyValueRequest {
   /**
-   * @public
    * <p>The list of asset property value entries for the batch put request. You can specify up to
    *       10 entries per request.</p>
+   * @public
    */
   entries: PutAssetPropertyValueEntry[] | undefined;
 }
@@ -3276,44 +3276,44 @@ export type BatchPutAssetPropertyValueErrorCode =
   (typeof BatchPutAssetPropertyValueErrorCode)[keyof typeof BatchPutAssetPropertyValueErrorCode];
 
 /**
- * @public
  * <p>Contains error information from updating a batch of asset property values.</p>
+ * @public
  */
 export interface BatchPutAssetPropertyError {
   /**
-   * @public
    * <p>The error code.</p>
+   * @public
    */
   errorCode: BatchPutAssetPropertyValueErrorCode | undefined;
 
   /**
-   * @public
    * <p>The associated error message.</p>
+   * @public
    */
   errorMessage: string | undefined;
 
   /**
-   * @public
    * <p>A list of timestamps for each  error, if any.</p>
+   * @public
    */
   timestamps: TimeInNanos[] | undefined;
 }
 
 /**
- * @public
  * <p>Contains error information for asset property value entries that are associated with the
  *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchPutAssetPropertyValue.html">BatchPutAssetPropertyValue</a> API.</p>
+ * @public
  */
 export interface BatchPutAssetPropertyErrorEntry {
   /**
-   * @public
    * <p>The ID of the failed entry.</p>
+   * @public
    */
   entryId: string | undefined;
 
   /**
-   * @public
    * <p>The list of update property value errors.</p>
+   * @public
    */
   errors: BatchPutAssetPropertyError[] | undefined;
 }
@@ -3323,9 +3323,9 @@ export interface BatchPutAssetPropertyErrorEntry {
  */
 export interface BatchPutAssetPropertyValueResponse {
   /**
-   * @public
    * <p>A list of the errors (if any) associated with the batch put request. Each error entry
    *       contains the <code>entryId</code> of the entry that failed.</p>
+   * @public
    */
   errorEntries: BatchPutAssetPropertyErrorEntry[] | undefined;
 }
@@ -3335,34 +3335,34 @@ export interface BatchPutAssetPropertyValueResponse {
  */
 export interface CreateAccessPolicyRequest {
   /**
-   * @public
    * <p>The identity for this access policy. Choose an IAM Identity Center user, an IAM Identity Center group, or an IAM user.</p>
+   * @public
    */
   accessPolicyIdentity: Identity | undefined;
 
   /**
-   * @public
    * <p>The IoT SiteWise Monitor resource for this access policy. Choose either a portal or a project.</p>
+   * @public
    */
   accessPolicyResource: Resource | undefined;
 
   /**
-   * @public
    * <p>The permission level for this access policy. Note that a project <code>ADMINISTRATOR</code> is also known as a project owner.</p>
+   * @public
    */
   accessPolicyPermission: Permission | undefined;
 
   /**
-   * @public
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>A list of key-value pairs that contain metadata for the access policy. For more
    *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your
    *         IoT SiteWise resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -3372,17 +3372,17 @@ export interface CreateAccessPolicyRequest {
  */
 export interface CreateAccessPolicyResponse {
   /**
-   * @public
    * <p>The ID of the access policy.</p>
+   * @public
    */
   accessPolicyId: string | undefined;
 
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the access policy, which has the following format.</p>
    *          <p>
    *             <code>arn:$\{Partition\}:iotsitewise:$\{Region\}:$\{Account\}:access-policy/$\{AccessPolicyId\}</code>
    *          </p>
+   * @public
    */
   accessPolicyArn: string | undefined;
 }
@@ -3392,49 +3392,49 @@ export interface CreateAccessPolicyResponse {
  */
 export interface CreateAssetRequest {
   /**
-   * @public
    * <p>A friendly name for the asset.</p>
+   * @public
    */
   assetName: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the asset model from which to create the asset. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   assetModelId: string | undefined;
 
   /**
-   * @public
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>A list of key-value pairs that contain metadata for the asset. For more information, see
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your IoT SiteWise
    *         resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>A description for the asset.</p>
+   * @public
    */
   assetDescription?: string;
 
   /**
-   * @public
    * <p>The ID to assign to the asset, if desired. IoT SiteWise automatically generates a unique ID for you, so this parameter is never required.
    *     However, if you prefer to supply your own ID instead, you can specify it here in UUID format.
    *     If you specify your own ID, it must be globally unique.</p>
+   * @public
    */
   assetId?: string;
 
   /**
-   * @public
    * <p>An external ID to assign to the asset. The external ID must be unique within your Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   assetExternalId?: string;
 }
@@ -3444,25 +3444,25 @@ export interface CreateAssetRequest {
  */
 export interface CreateAssetResponse {
   /**
-   * @public
    * <p>The ID of the asset, in UUID format. This ID uniquely identifies the asset within IoT SiteWise and can be used with other
    *       IoT SiteWise API operations.</p>
+   * @public
    */
   assetId: string | undefined;
 
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the asset, which has the following format.</p>
    *          <p>
    *             <code>arn:$\{Partition\}:iotsitewise:$\{Region\}:$\{Account\}:asset/$\{AssetId\}</code>
    *          </p>
+   * @public
    */
   assetArn: string | undefined;
 
   /**
-   * @public
    * <p>The status of the asset, which contains a state (<code>CREATING</code> after successfully
    *       calling this operation) and any error message.</p>
+   * @public
    */
   assetStatus: AssetStatus | undefined;
 }
@@ -3472,38 +3472,37 @@ export interface CreateAssetResponse {
  */
 export interface CreateAssetModelRequest {
   /**
-   * @public
    * <p>A unique, friendly name for the asset model.</p>
+   * @public
    */
   assetModelName: string | undefined;
 
   /**
-   * @public
    * <p>A description for the asset model.</p>
+   * @public
    */
   assetModelDescription?: string;
 
   /**
-   * @public
    * <p>The property definitions of the asset model. For more information, see
    *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html">Asset properties</a> in the <i>IoT SiteWise User Guide</i>.</p>
    *          <p>You can specify up to 200 properties per asset model. For more
    *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   assetModelProperties?: AssetModelPropertyDefinition[];
 
   /**
-   * @public
    * <p>The hierarchy definitions of the asset model. Each hierarchy specifies an asset model
    *       whose assets can be children of any other assets created from this asset model. For more
    *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html">Asset hierarchies</a> in the <i>IoT SiteWise User Guide</i>.</p>
    *          <p>You can specify up to 10 hierarchies per asset model. For more
    *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   assetModelHierarchies?: AssetModelHierarchyDefinition[];
 
   /**
-   * @public
    * <p>The composite models that are part of this asset model. It groups properties
    *   (such as attributes, measurements, transforms, and metrics) and child composite models that
    *       model parts of your industrial equipment. Each composite model has a type that defines the
@@ -3512,39 +3511,39 @@ export interface CreateAssetModelRequest {
    *             <p>When creating custom composite models, you need to use <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModelCompositeModel.html">CreateAssetModelCompositeModel</a>. For more information,
    *       see <LINK>.</p>
    *          </note>
+   * @public
    */
   assetModelCompositeModels?: AssetModelCompositeModelDefinition[];
 
   /**
-   * @public
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>A list of key-value pairs that contain metadata for the asset model. For more information,
    *       see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your IoT SiteWise
    *         resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The ID to assign to the asset model, if desired. IoT SiteWise automatically generates a unique ID for you, so this parameter is never required.
    *     However, if you prefer to supply your own ID instead, you can specify it here in UUID format.
    *     If you specify your own ID, it must be globally unique.</p>
+   * @public
    */
   assetModelId?: string;
 
   /**
-   * @public
    * <p>An external ID to assign to the asset model. The external ID must be unique within your Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   assetModelExternalId?: string;
 
   /**
-   * @public
    * <p>The type of asset model.</p>
    *          <ul>
    *             <li>
@@ -3558,6 +3557,7 @@ export interface CreateAssetModelRequest {
    *    models of other asset models. You can't create assets directly from this type of asset model. </p>
    *             </li>
    *          </ul>
+   * @public
    */
   assetModelType?: AssetModelType;
 }
@@ -3567,24 +3567,24 @@ export interface CreateAssetModelRequest {
  */
 export interface CreateAssetModelResponse {
   /**
-   * @public
    * <p>The ID of the asset model, in UUID format. You can use this ID when you call other IoT SiteWise API operations.</p>
+   * @public
    */
   assetModelId: string | undefined;
 
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the asset model, which has the following format.</p>
    *          <p>
    *             <code>arn:$\{Partition\}:iotsitewise:$\{Region\}:$\{Account\}:asset-model/$\{AssetModelId\}</code>
    *          </p>
+   * @public
    */
   assetModelArn: string | undefined;
 
   /**
-   * @public
    * <p>The status of the asset model, which contains a state (<code>CREATING</code> after
    *       successfully calling this operation) and any error message.</p>
+   * @public
    */
   assetModelStatus: AssetModelStatus | undefined;
 }
@@ -3594,67 +3594,67 @@ export interface CreateAssetModelResponse {
  */
 export interface CreateAssetModelCompositeModelRequest {
   /**
-   * @public
    * <p>The ID of the asset model this composite model is a part of.</p>
+   * @public
    */
   assetModelId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the parent composite model in this asset model relationship.</p>
+   * @public
    */
   parentAssetModelCompositeModelId?: string;
 
   /**
-   * @public
    * <p>An external ID to assign to the composite model.</p>
    *          <p>If the composite model is a derived composite model, or one nested inside a component model, you can only set the external ID using
    *       <code>UpdateAssetModelCompositeModel</code> and specifying the derived ID of the model or property from the created model it's a part of.</p>
+   * @public
    */
   assetModelCompositeModelExternalId?: string;
 
   /**
-   * @public
    * <p>The ID of the composite model.  IoT SiteWise automatically generates a unique ID for you, so this parameter is never required. However,
    *       if you prefer to supply your own ID instead, you can specify it here in UUID format. If you specify your own ID, it must be globally unique.</p>
+   * @public
    */
   assetModelCompositeModelId?: string;
 
   /**
-   * @public
    * <p>A description for the composite model.</p>
+   * @public
    */
   assetModelCompositeModelDescription?: string;
 
   /**
-   * @public
    * <p>A unique, friendly name for the composite model.</p>
+   * @public
    */
   assetModelCompositeModelName: string | undefined;
 
   /**
-   * @public
    * <p>The composite model type. Valid values are <code>AWS/ALARM</code>, <code>CUSTOM</code>, or <code> AWS/L4E_ANOMALY</code>.</p>
+   * @public
    */
   assetModelCompositeModelType: string | undefined;
 
   /**
-   * @public
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>The ID of a composite model on this asset.</p>
+   * @public
    */
   composedAssetModelId?: string;
 
   /**
-   * @public
    * <p>The property definitions of the composite model. For more information, see <LINK>.</p>
    *          <p>You can specify up to 200 properties per composite model. For more
    *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   assetModelCompositeModelProperties?: AssetModelPropertyDefinition[];
 }
@@ -3664,69 +3664,69 @@ export interface CreateAssetModelCompositeModelRequest {
  */
 export interface CreateAssetModelCompositeModelResponse {
   /**
-   * @public
    * <p>The ID of the composed asset model. You can use this ID when you call other IoT SiteWise APIs.</p>
+   * @public
    */
   assetModelCompositeModelId: string | undefined;
 
   /**
-   * @public
    * <p>The path to the composite model listing the parent composite models.</p>
+   * @public
    */
   assetModelCompositeModelPath: AssetModelCompositeModelPathSegment[] | undefined;
 
   /**
-   * @public
    * <p>Contains current status information for an asset model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-and-model-states.html">Asset and model
    *         states</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   assetModelStatus: AssetModelStatus | undefined;
 }
 
 /**
- * @public
  * <p>The Amazon S3 destination where errors associated with the job creation request are saved.</p>
+ * @public
  */
 export interface ErrorReportLocation {
   /**
-   * @public
    * <p>The name of the Amazon S3 bucket to which errors associated with the bulk import job are
    *       sent.</p>
+   * @public
    */
   bucket: string | undefined;
 
   /**
-   * @public
    * <p>Amazon S3 uses the prefix as a folder name to organize data in the bucket. Each Amazon S3 object has
    *       a key that is its unique identifier in the bucket. Each object in a bucket has exactly one
    *       key. The prefix must end with a forward slash (/). For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html">Organizing objects
    *         using prefixes</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+   * @public
    */
   prefix: string | undefined;
 }
 
 /**
- * @public
  * <p>The file in Amazon S3 where your data is saved. </p>
+ * @public
  */
 export interface File {
   /**
-   * @public
    * <p>The name of the Amazon S3 bucket from which data is imported.</p>
+   * @public
    */
   bucket: string | undefined;
 
   /**
-   * @public
    * <p>The key of the Amazon S3 object that contains your data. Each object has a key that is a unique
    *       identifier. Each object has exactly one key.</p>
+   * @public
    */
   key: string | undefined;
 
   /**
-   * @public
    * <p>The version ID to identify a specific version of the Amazon S3 object that contains your
    *       data.</p>
+   * @public
    */
   versionId?: string;
 }
@@ -3752,49 +3752,49 @@ export const ColumnName = {
 export type ColumnName = (typeof ColumnName)[keyof typeof ColumnName];
 
 /**
- * @public
  * <p>A .CSV file.</p>
+ * @public
  */
 export interface Csv {
   /**
-   * @public
    * <p>The column names specified in the .csv file.</p>
+   * @public
    */
   columnNames: ColumnName[] | undefined;
 }
 
 /**
- * @public
  * <p>A parquet file.</p>
+ * @public
  */
 export interface Parquet {}
 
 /**
- * @public
  * <p>The file format of the data in S3.</p>
+ * @public
  */
 export interface FileFormat {
   /**
-   * @public
    * <p>The file is in .CSV format.</p>
+   * @public
    */
   csv?: Csv;
 
   /**
-   * @public
    * <p>The file is in parquet format.</p>
+   * @public
    */
   parquet?: Parquet;
 }
 
 /**
- * @public
  * <p>Contains the configuration information of a job, such as the file format used to save data in Amazon S3.</p>
+ * @public
  */
 export interface JobConfiguration {
   /**
-   * @public
    * <p>The file format of the data in S3.</p>
+   * @public
    */
   fileFormat: FileFormat | undefined;
 }
@@ -3804,45 +3804,45 @@ export interface JobConfiguration {
  */
 export interface CreateBulkImportJobRequest {
   /**
-   * @public
    * <p>The unique name that helps identify the job request.</p>
+   * @public
    */
   jobName: string | undefined;
 
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the IAM role that allows IoT SiteWise to read Amazon S3 data.</p>
+   * @public
    */
   jobRoleArn: string | undefined;
 
   /**
-   * @public
    * <p>The files in the specified Amazon S3 bucket that contain your data.</p>
+   * @public
    */
   files: File[] | undefined;
 
   /**
-   * @public
    * <p>The Amazon S3 destination where errors associated with the job creation request are saved.</p>
+   * @public
    */
   errorReportLocation: ErrorReportLocation | undefined;
 
   /**
-   * @public
    * <p>Contains the configuration information of a job, such as the file format used to save data in Amazon S3.</p>
+   * @public
    */
   jobConfiguration: JobConfiguration | undefined;
 
   /**
-   * @public
    * <p>If set to true, ingest new data into IoT SiteWise storage. Measurements with notifications, metrics and transforms are
    *    computed. If set to false, historical data is ingested into IoT SiteWise as is.</p>
+   * @public
    */
   adaptiveIngestion?: boolean;
 
   /**
-   * @public
    * <p>If set to true, your data files is deleted from S3, after ingestion into IoT SiteWise storage.</p>
+   * @public
    */
   deleteFilesAfterImport?: boolean;
 }
@@ -3870,19 +3870,18 @@ export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
  */
 export interface CreateBulkImportJobResponse {
   /**
-   * @public
    * <p>The ID of the job.</p>
+   * @public
    */
   jobId: string | undefined;
 
   /**
-   * @public
    * <p>The unique name that helps identify the job request.</p>
+   * @public
    */
   jobName: string | undefined;
 
   /**
-   * @public
    * <p>The status of the bulk import job can be one of following values:</p>
    *          <ul>
    *             <li>
@@ -3912,6 +3911,7 @@ export interface CreateBulkImportJobResponse {
    *         You can use logs saved in the specified error report location in Amazon S3 to troubleshoot issues.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   jobStatus: JobStatus | undefined;
 }
@@ -3921,41 +3921,41 @@ export interface CreateBulkImportJobResponse {
  */
 export interface CreateDashboardRequest {
   /**
-   * @public
    * <p>The ID of the project in which to create the dashboard.</p>
+   * @public
    */
   projectId: string | undefined;
 
   /**
-   * @public
    * <p>A friendly name for the dashboard.</p>
+   * @public
    */
   dashboardName: string | undefined;
 
   /**
-   * @public
    * <p>A description for the dashboard.</p>
+   * @public
    */
   dashboardDescription?: string;
 
   /**
-   * @public
    * <p>The dashboard definition specified in a JSON literal. For detailed information, see
    *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-dashboards-using-aws-cli.html">Creating dashboards (CLI)</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   dashboardDefinition: string | undefined;
 
   /**
-   * @public
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>A list of key-value pairs that contain metadata for the dashboard. For more information,
    *       see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your IoT SiteWise
    *         resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -3965,68 +3965,68 @@ export interface CreateDashboardRequest {
  */
 export interface CreateDashboardResponse {
   /**
-   * @public
    * <p>The ID of the dashboard.</p>
+   * @public
    */
   dashboardId: string | undefined;
 
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the dashboard, which has the following format.</p>
    *          <p>
    *             <code>arn:$\{Partition\}:iotsitewise:$\{Region\}:$\{Account\}:dashboard/$\{DashboardId\}</code>
    *          </p>
+   * @public
    */
   dashboardArn: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains details for a gateway that runs on IoT Greengrass. To create a gateway that runs on IoT Greengrass,
  *       you must add the IoT SiteWise connector to a Greengrass group and deploy it. Your Greengrass
  *       group must also have permissions to upload data to IoT SiteWise. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gateway-connector.html">Ingesting data using a
  *         gateway</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ * @public
  */
 export interface Greengrass {
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the Greengrass group. For more information about how to find a group's
    *       ARN, see <a href="https://docs.aws.amazon.com/greengrass/latest/apireference/listgroups-get.html">ListGroups</a> and <a href="https://docs.aws.amazon.com/greengrass/latest/apireference/getgroup-get.html">GetGroup</a> in the
    *         <i>IoT Greengrass API Reference</i>.</p>
+   * @public
    */
   groupArn: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains details for a gateway that runs on IoT Greengrass V2. To create a gateway that runs on IoT Greengrass
  *       V2, you must deploy the IoT SiteWise Edge component to your gateway device. Your <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/device-service-role.html">Greengrass
  *         device role</a> must use the <code>AWSIoTSiteWiseEdgeAccess</code> policy. For more
  *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/sw-gateways.html">Using IoT SiteWise at the edge</a> in the
  *         <i>IoT SiteWise User Guide</i>.</p>
+ * @public
  */
 export interface GreengrassV2 {
   /**
-   * @public
    * <p>The name of the IoT thing for your IoT Greengrass V2 core device.</p>
+   * @public
    */
   coreDeviceThingName: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains a gateway's platform information.</p>
+ * @public
  */
 export interface GatewayPlatform {
   /**
-   * @public
    * <p>A gateway that runs on IoT Greengrass.</p>
+   * @public
    */
   greengrass?: Greengrass;
 
   /**
-   * @public
    * <p>A gateway that runs on IoT Greengrass V2.</p>
+   * @public
    */
   greengrassV2?: GreengrassV2;
 }
@@ -4036,22 +4036,22 @@ export interface GatewayPlatform {
  */
 export interface CreateGatewayRequest {
   /**
-   * @public
    * <p>A unique, friendly name for the gateway.</p>
+   * @public
    */
   gatewayName: string | undefined;
 
   /**
-   * @public
    * <p>The gateway's platform. You can only specify one platform in a gateway.</p>
+   * @public
    */
   gatewayPlatform: GatewayPlatform | undefined;
 
   /**
-   * @public
    * <p>A list of key-value pairs that contain metadata for the gateway. For more information, see
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your IoT SiteWise
    *         resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -4061,17 +4061,17 @@ export interface CreateGatewayRequest {
  */
 export interface CreateGatewayResponse {
   /**
-   * @public
    * <p>The ID of the gateway device. You can use this ID when you call other IoT SiteWise API operations.</p>
+   * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the gateway, which has the following format.</p>
    *          <p>
    *             <code>arn:$\{Partition\}:iotsitewise:$\{Region\}:$\{Account\}:gateway/$\{GatewayId\}</code>
    *          </p>
+   * @public
    */
   gatewayArn: string | undefined;
 }
@@ -4090,20 +4090,20 @@ export const ImageFileType = {
 export type ImageFileType = (typeof ImageFileType)[keyof typeof ImageFileType];
 
 /**
- * @public
  * <p>Contains an image file.</p>
+ * @public
  */
 export interface ImageFile {
   /**
-   * @public
    * <p>The image file contents, represented as a base64-encoded string. The file size must be
    *       less than 1 MB.</p>
+   * @public
    */
   data: Uint8Array | undefined;
 
   /**
-   * @public
    * <p>The file type of the image.</p>
+   * @public
    */
   type: ImageFileType | undefined;
 }
@@ -4113,54 +4113,53 @@ export interface ImageFile {
  */
 export interface CreatePortalRequest {
   /**
-   * @public
    * <p>A friendly name for the portal.</p>
+   * @public
    */
   portalName: string | undefined;
 
   /**
-   * @public
    * <p>A description for the portal.</p>
+   * @public
    */
   portalDescription?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services administrator's contact email address.</p>
+   * @public
    */
   portalContactEmail: string | undefined;
 
   /**
-   * @public
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>A logo image to display in the portal. Upload a square, high-resolution image. The
    *       image is displayed on a dark background.</p>
+   * @public
    */
   portalLogoImageFile?: ImageFile;
 
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of a service role that allows the portal's users to access your IoT SiteWise
    *       resources on your behalf. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-service-role.html">Using service roles for IoT SiteWise Monitor</a> in the
    *         <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   roleArn: string | undefined;
 
   /**
-   * @public
    * <p>A list of key-value pairs that contain metadata for the portal. For more information, see
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your IoT SiteWise
    *         resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The service to use to authenticate users to the portal. Choose from the following
    *       options:</p>
    *          <ul>
@@ -4181,25 +4180,26 @@ export interface CreatePortalRequest {
    *          <p>You can't change this value after you create a portal.</p>
    *          <p>Default: <code>SSO</code>
    *          </p>
+   * @public
    */
   portalAuthMode?: AuthMode;
 
   /**
-   * @public
    * <p>The email address that sends alarm notifications.</p>
    *          <important>
    *             <p>If you use the <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/lambda-support.html">IoT Events managed Lambda
    *           function</a> to manage your emails, you must <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html">verify the sender email
    *           address in Amazon SES</a>.</p>
    *          </important>
+   * @public
    */
   notificationSenderEmail?: string;
 
   /**
-   * @public
    * <p>Contains the configuration information of an alarm created in an IoT SiteWise Monitor portal.
    *   You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
    *   For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/appguide/monitor-alarms.html">Monitoring with alarms</a> in the <i>IoT SiteWise Application Guide</i>.</p>
+   * @public
    */
   alarms?: Alarms;
 }
@@ -4220,19 +4220,19 @@ export const MonitorErrorCode = {
 export type MonitorErrorCode = (typeof MonitorErrorCode)[keyof typeof MonitorErrorCode];
 
 /**
- * @public
  * <p>Contains IoT SiteWise Monitor error details.</p>
+ * @public
  */
 export interface MonitorErrorDetails {
   /**
-   * @public
    * <p>The error code.</p>
+   * @public
    */
   code?: MonitorErrorCode;
 
   /**
-   * @public
    * <p>The error message.</p>
+   * @public
    */
   message?: string;
 }
@@ -4255,19 +4255,19 @@ export const PortalState = {
 export type PortalState = (typeof PortalState)[keyof typeof PortalState];
 
 /**
- * @public
  * <p>Contains information about the current status of a portal.</p>
+ * @public
  */
 export interface PortalStatus {
   /**
-   * @public
    * <p>The current state of the portal.</p>
+   * @public
    */
   state: PortalState | undefined;
 
   /**
-   * @public
    * <p>Contains associated error information, if any.</p>
+   * @public
    */
   error?: MonitorErrorDetails;
 }
@@ -4277,38 +4277,38 @@ export interface PortalStatus {
  */
 export interface CreatePortalResponse {
   /**
-   * @public
    * <p>The ID of the created portal.</p>
+   * @public
    */
   portalId: string | undefined;
 
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the portal, which has the following format.</p>
    *          <p>
    *             <code>arn:$\{Partition\}:iotsitewise:$\{Region\}:$\{Account\}:portal/$\{PortalId\}</code>
    *          </p>
+   * @public
    */
   portalArn: string | undefined;
 
   /**
-   * @public
    * <p>The URL for the IoT SiteWise Monitor portal. You can use this URL to access portals that
    *       use IAM Identity Center for authentication. For portals that use IAM for authentication, you must use the
    *       IoT SiteWise console to get a URL that you can use to access the portal.</p>
+   * @public
    */
   portalStartUrl: string | undefined;
 
   /**
-   * @public
    * <p>The status of the portal, which contains a state (<code>CREATING</code> after successfully
    *       calling this operation) and any error message.</p>
+   * @public
    */
   portalStatus: PortalStatus | undefined;
 
   /**
-   * @public
    * <p>The associated IAM Identity Center application ID, if the portal uses IAM Identity Center.</p>
+   * @public
    */
   ssoApplicationId: string | undefined;
 }
@@ -4318,34 +4318,34 @@ export interface CreatePortalResponse {
  */
 export interface CreateProjectRequest {
   /**
-   * @public
    * <p>The ID of the portal in which to create the project.</p>
+   * @public
    */
   portalId: string | undefined;
 
   /**
-   * @public
    * <p>A friendly name for the project.</p>
+   * @public
    */
   projectName: string | undefined;
 
   /**
-   * @public
    * <p>A description for the project.</p>
+   * @public
    */
   projectDescription?: string;
 
   /**
-   * @public
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>A list of key-value pairs that contain metadata for the project. For more information, see
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your IoT SiteWise
    *         resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -4355,17 +4355,17 @@ export interface CreateProjectRequest {
  */
 export interface CreateProjectResponse {
   /**
-   * @public
    * <p>The ID of the project.</p>
+   * @public
    */
   projectId: string | undefined;
 
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the project, which has the following format.</p>
    *          <p>
    *             <code>arn:$\{Partition\}:iotsitewise:$\{Region\}:$\{Account\}:project/$\{ProjectId\}</code>
    *          </p>
+   * @public
    */
   projectArn: string | undefined;
 }
@@ -4375,14 +4375,14 @@ export interface CreateProjectResponse {
  */
 export interface DeleteAccessPolicyRequest {
   /**
-   * @public
    * <p>The ID of the access policy to be deleted.</p>
+   * @public
    */
   accessPolicyId: string | undefined;
 
   /**
-   * @public
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -4397,15 +4397,15 @@ export interface DeleteAccessPolicyResponse {}
  */
 export interface DeleteAssetRequest {
   /**
-   * @public
    * <p>The ID of the asset to delete. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   assetId: string | undefined;
 
   /**
-   * @public
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -4415,9 +4415,9 @@ export interface DeleteAssetRequest {
  */
 export interface DeleteAssetResponse {
   /**
-   * @public
    * <p>The status of the asset, which contains a state (<code>DELETING</code> after successfully
    *       calling this operation) and any error message.</p>
+   * @public
    */
   assetStatus: AssetStatus | undefined;
 }
@@ -4427,15 +4427,15 @@ export interface DeleteAssetResponse {
  */
 export interface DeleteAssetModelRequest {
   /**
-   * @public
    * <p>The ID of the asset model to delete. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   assetModelId: string | undefined;
 
   /**
-   * @public
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -4445,9 +4445,9 @@ export interface DeleteAssetModelRequest {
  */
 export interface DeleteAssetModelResponse {
   /**
-   * @public
    * <p>The status of the asset model, which contains a state (<code>DELETING</code> after
    *       successfully calling this operation) and any error message.</p>
+   * @public
    */
   assetModelStatus: AssetModelStatus | undefined;
 }
@@ -4457,20 +4457,20 @@ export interface DeleteAssetModelResponse {
  */
 export interface DeleteAssetModelCompositeModelRequest {
   /**
-   * @public
    * <p>The ID of the asset model, in UUID format.</p>
+   * @public
    */
   assetModelId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of a composite model on this asset model.</p>
+   * @public
    */
   assetModelCompositeModelId: string | undefined;
 
   /**
-   * @public
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -4480,9 +4480,9 @@ export interface DeleteAssetModelCompositeModelRequest {
  */
 export interface DeleteAssetModelCompositeModelResponse {
   /**
-   * @public
    * <p>Contains current status information for an asset model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-and-model-states.html">Asset and model
    *         states</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   assetModelStatus: AssetModelStatus | undefined;
 }
@@ -4492,14 +4492,14 @@ export interface DeleteAssetModelCompositeModelResponse {
  */
 export interface DeleteDashboardRequest {
   /**
-   * @public
    * <p>The ID of the dashboard to delete.</p>
+   * @public
    */
   dashboardId: string | undefined;
 
   /**
-   * @public
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -4514,8 +4514,8 @@ export interface DeleteDashboardResponse {}
  */
 export interface DeleteGatewayRequest {
   /**
-   * @public
    * <p>The ID of the gateway to delete.</p>
+   * @public
    */
   gatewayId: string | undefined;
 }
@@ -4525,14 +4525,14 @@ export interface DeleteGatewayRequest {
  */
 export interface DeletePortalRequest {
   /**
-   * @public
    * <p>The ID of the portal to delete.</p>
+   * @public
    */
   portalId: string | undefined;
 
   /**
-   * @public
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -4542,9 +4542,9 @@ export interface DeletePortalRequest {
  */
 export interface DeletePortalResponse {
   /**
-   * @public
    * <p>The status of the portal, which contains a state (<code>DELETING</code> after successfully
    *       calling this operation) and any error message.</p>
+   * @public
    */
   portalStatus: PortalStatus | undefined;
 }
@@ -4554,14 +4554,14 @@ export interface DeletePortalResponse {
  */
 export interface DeleteProjectRequest {
   /**
-   * @public
    * <p>The ID of the project.</p>
+   * @public
    */
   projectId: string | undefined;
 
   /**
-   * @public
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -4576,28 +4576,28 @@ export interface DeleteProjectResponse {}
  */
 export interface DeleteTimeSeriesRequest {
   /**
-   * @public
    * <p>The alias that identifies the time series.</p>
+   * @public
    */
   alias?: string;
 
   /**
-   * @public
    * <p>The ID of the asset in which the asset property was created. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   assetId?: string;
 
   /**
-   * @public
    * <p>The ID of the asset property. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   propertyId?: string;
 
   /**
-   * @public
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -4607,8 +4607,8 @@ export interface DeleteTimeSeriesRequest {
  */
 export interface DescribeAccessPolicyRequest {
   /**
-   * @public
    * <p>The ID of the access policy.</p>
+   * @public
    */
   accessPolicyId: string | undefined;
 }
@@ -4618,50 +4618,50 @@ export interface DescribeAccessPolicyRequest {
  */
 export interface DescribeAccessPolicyResponse {
   /**
-   * @public
    * <p>The ID of the access policy.</p>
+   * @public
    */
   accessPolicyId: string | undefined;
 
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the access policy, which has the following format.</p>
    *          <p>
    *             <code>arn:$\{Partition\}:iotsitewise:$\{Region\}:$\{Account\}:access-policy/$\{AccessPolicyId\}</code>
    *          </p>
+   * @public
    */
   accessPolicyArn: string | undefined;
 
   /**
-   * @public
    * <p>The identity (IAM Identity Center user, IAM Identity Center group, or IAM user) to which this access policy
    *       applies.</p>
+   * @public
    */
   accessPolicyIdentity: Identity | undefined;
 
   /**
-   * @public
    * <p>The IoT SiteWise Monitor resource (portal or project) to which this access policy provides
    *       access.</p>
+   * @public
    */
   accessPolicyResource: Resource | undefined;
 
   /**
-   * @public
    * <p>The access policy permission. Note that a project <code>ADMINISTRATOR</code> is also known
    *       as a project owner.</p>
+   * @public
    */
   accessPolicyPermission: Permission | undefined;
 
   /**
-   * @public
    * <p>The date the access policy was created, in Unix epoch time.</p>
+   * @public
    */
   accessPolicyCreationDate: Date | undefined;
 
   /**
-   * @public
    * <p>The date the access policy was last updated, in Unix epoch time.</p>
+   * @public
    */
   accessPolicyLastUpdateDate: Date | undefined;
 }
@@ -4671,8 +4671,8 @@ export interface DescribeAccessPolicyResponse {
  */
 export interface DescribeActionRequest {
   /**
-   * @public
    * <p>The ID of the action.</p>
+   * @public
    */
   actionId: string | undefined;
 }
@@ -4682,32 +4682,32 @@ export interface DescribeActionRequest {
  */
 export interface DescribeActionResponse {
   /**
-   * @public
    * <p>The ID of the action.</p>
+   * @public
    */
   actionId: string | undefined;
 
   /**
-   * @public
    * <p>The resource the action will be taken on.</p>
+   * @public
    */
   targetResource: TargetResource | undefined;
 
   /**
-   * @public
    * <p>The ID of the action definition.</p>
+   * @public
    */
   actionDefinitionId: string | undefined;
 
   /**
-   * @public
    * <p>The JSON payload of the action.</p>
+   * @public
    */
   actionPayload: ActionPayload | undefined;
 
   /**
-   * @public
    * <p>The time the action was executed.</p>
+   * @public
    */
   executionTime: Date | undefined;
 }
@@ -4717,17 +4717,17 @@ export interface DescribeActionResponse {
  */
 export interface DescribeAssetRequest {
   /**
-   * @public
    * <p>The ID of the asset. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   assetId: string | undefined;
 
   /**
-   * @public
    * <p>
    *       Whether or not to exclude asset properties from the response.
    *     </p>
+   * @public
    */
   excludeProperties?: boolean;
 }
@@ -4737,85 +4737,85 @@ export interface DescribeAssetRequest {
  */
 export interface DescribeAssetResponse {
   /**
-   * @public
    * <p>The ID of the asset, in UUID format.</p>
+   * @public
    */
   assetId: string | undefined;
 
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the asset, which has the following format.</p>
    *          <p>
    *             <code>arn:$\{Partition\}:iotsitewise:$\{Region\}:$\{Account\}:asset/$\{AssetId\}</code>
    *          </p>
+   * @public
    */
   assetArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the asset.</p>
+   * @public
    */
   assetName: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the asset model that was used to create the asset.</p>
+   * @public
    */
   assetModelId: string | undefined;
 
   /**
-   * @public
    * <p>The list of asset properties for the asset.</p>
    *          <p>This object doesn't include properties that you define in composite models. You can find
    *       composite model properties in the <code>assetCompositeModels</code> object.</p>
+   * @public
    */
   assetProperties: AssetProperty[] | undefined;
 
   /**
-   * @public
    * <p>A list of asset hierarchies that each contain a <code>hierarchyId</code>. A hierarchy specifies allowed parent/child asset relationships.</p>
+   * @public
    */
   assetHierarchies: AssetHierarchy[] | undefined;
 
   /**
-   * @public
    * <p>The composite models for the asset.</p>
+   * @public
    */
   assetCompositeModels?: AssetCompositeModel[];
 
   /**
-   * @public
    * <p>The date the asset was created, in Unix epoch time.</p>
+   * @public
    */
   assetCreationDate: Date | undefined;
 
   /**
-   * @public
    * <p>The date the asset was last updated, in Unix epoch time.</p>
+   * @public
    */
   assetLastUpdateDate: Date | undefined;
 
   /**
-   * @public
    * <p>The current status of the asset, which contains a state and any error message.</p>
+   * @public
    */
   assetStatus: AssetStatus | undefined;
 
   /**
-   * @public
    * <p>A description for the asset.</p>
+   * @public
    */
   assetDescription?: string;
 
   /**
-   * @public
    * <p>The list of the immediate child custom composite model summaries for the asset.</p>
+   * @public
    */
   assetCompositeModelSummaries?: AssetCompositeModelSummary[];
 
   /**
-   * @public
    * <p>The external ID of the asset, if any.</p>
+   * @public
    */
   assetExternalId?: string;
 }
@@ -4825,16 +4825,16 @@ export interface DescribeAssetResponse {
  */
 export interface DescribeAssetCompositeModelRequest {
   /**
-   * @public
    * <p>The ID of the asset. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   assetId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of a composite model on this asset. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   assetCompositeModelId: string | undefined;
 }
@@ -4844,65 +4844,65 @@ export interface DescribeAssetCompositeModelRequest {
  */
 export interface DescribeAssetCompositeModelResponse {
   /**
-   * @public
    * <p>The ID of the asset, in UUID format. This ID uniquely identifies the asset within IoT SiteWise and can be used with other
    *       IoT SiteWise APIs.</p>
+   * @public
    */
   assetId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of a composite model on this asset.</p>
+   * @public
    */
   assetCompositeModelId: string | undefined;
 
   /**
-   * @public
    * <p>An external ID to assign to the asset model.</p>
    *          <p>If the composite model is a component-based composite model, or one nested inside a component model, you can only set the external ID using
    *       <code>UpdateAssetModelCompositeModel</code> and specifying the derived ID of the model or property from the created model it's a part of.</p>
+   * @public
    */
   assetCompositeModelExternalId?: string;
 
   /**
-   * @public
    * <p>The path to the composite model listing the parent composite models.</p>
+   * @public
    */
   assetCompositeModelPath: AssetCompositeModelPathSegment[] | undefined;
 
   /**
-   * @public
    * <p>The unique, friendly name for the composite model.</p>
+   * @public
    */
   assetCompositeModelName: string | undefined;
 
   /**
-   * @public
    * <p>A description for the composite model.</p>
+   * @public
    */
   assetCompositeModelDescription: string | undefined;
 
   /**
-   * @public
    * <p>The composite model type. Valid values are <code>AWS/ALARM</code>, <code>CUSTOM</code>, or <code> AWS/L4E_ANOMALY</code>.</p>
+   * @public
    */
   assetCompositeModelType: string | undefined;
 
   /**
-   * @public
    * <p>The property definitions of the composite model that was used to create the asset.</p>
+   * @public
    */
   assetCompositeModelProperties: AssetProperty[] | undefined;
 
   /**
-   * @public
    * <p>The list of composite model summaries.</p>
+   * @public
    */
   assetCompositeModelSummaries: AssetCompositeModelSummary[] | undefined;
 
   /**
-   * @public
    * <p>The available actions for a composite model on this asset.</p>
+   * @public
    */
   actionDefinitions?: ActionDefinition[];
 }
@@ -4912,17 +4912,17 @@ export interface DescribeAssetCompositeModelResponse {
  */
 export interface DescribeAssetModelRequest {
   /**
-   * @public
    * <p>The ID of the asset model. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   assetModelId: string | undefined;
 
   /**
-   * @public
    * <p>
    *       Whether or not to exclude asset model properties from the response.
    *     </p>
+   * @public
    */
   excludeProperties?: boolean;
 }
@@ -4932,75 +4932,74 @@ export interface DescribeAssetModelRequest {
  */
 export interface DescribeAssetModelResponse {
   /**
-   * @public
    * <p>The ID of the asset model, in UUID format.</p>
+   * @public
    */
   assetModelId: string | undefined;
 
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the asset model, which has the following format.</p>
    *          <p>
    *             <code>arn:$\{Partition\}:iotsitewise:$\{Region\}:$\{Account\}:asset-model/$\{AssetModelId\}</code>
    *          </p>
+   * @public
    */
   assetModelArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the asset model.</p>
+   * @public
    */
   assetModelName: string | undefined;
 
   /**
-   * @public
    * <p>The asset model's description.</p>
+   * @public
    */
   assetModelDescription: string | undefined;
 
   /**
-   * @public
    * <p>The list of asset properties for the asset model.</p>
    *          <p>This object doesn't include properties that you define in composite models. You can find
    *       composite model properties in the <code>assetModelCompositeModels</code> object.</p>
+   * @public
    */
   assetModelProperties: AssetModelProperty[] | undefined;
 
   /**
-   * @public
    * <p>A list of asset model hierarchies that each contain a <code>childAssetModelId</code> and a
    *         <code>hierarchyId</code> (named <code>id</code>). A hierarchy specifies allowed parent/child
    *       asset relationships for an asset model.</p>
+   * @public
    */
   assetModelHierarchies: AssetModelHierarchy[] | undefined;
 
   /**
-   * @public
    * <p>The list of built-in composite models for the asset model, such as those with those of type <code>AWS/ALARMS</code>.</p>
+   * @public
    */
   assetModelCompositeModels?: AssetModelCompositeModel[];
 
   /**
-   * @public
    * <p>The date the asset model was created, in Unix epoch time.</p>
+   * @public
    */
   assetModelCreationDate: Date | undefined;
 
   /**
-   * @public
    * <p>The date the asset model was last updated, in Unix epoch time.</p>
+   * @public
    */
   assetModelLastUpdateDate: Date | undefined;
 
   /**
-   * @public
    * <p>The current status of the asset model, which contains a state and any error
    *       message.</p>
+   * @public
    */
   assetModelStatus: AssetModelStatus | undefined;
 
   /**
-   * @public
    * <p>The type of asset model.</p>
    *          <ul>
    *             <li>
@@ -5014,18 +5013,19 @@ export interface DescribeAssetModelResponse {
    *    models of other asset models. You can't create assets directly from this type of asset model. </p>
    *             </li>
    *          </ul>
+   * @public
    */
   assetModelType?: AssetModelType;
 
   /**
-   * @public
    * <p>The list of the immediate child custom composite model summaries for the asset model.</p>
+   * @public
    */
   assetModelCompositeModelSummaries?: AssetModelCompositeModelSummary[];
 
   /**
-   * @public
    * <p>The external ID of the asset model, if any.</p>
+   * @public
    */
   assetModelExternalId?: string;
 }
@@ -5035,42 +5035,42 @@ export interface DescribeAssetModelResponse {
  */
 export interface DescribeAssetModelCompositeModelRequest {
   /**
-   * @public
    * <p>The ID of the asset model. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   assetModelId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of a composite model on this asset model. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   assetModelCompositeModelId: string | undefined;
 }
 
 /**
- * @public
  * <p>Represents a composite model that composed an asset model of type <code>COMPONENT_MODEL</code>.</p>
+ * @public
  */
 export interface CompositionRelationshipItem {
   /**
-   * @public
    * <p>The ID of the component.</p>
+   * @public
    */
   id?: string;
 }
 
 /**
- * @public
  * <p>Metadata for the composition relationship established by using <code>composedAssetModelId</code> in <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModelCompositeModel.html">
  *                <code>CreateAssetModelCompositeModel</code>
  *             </a>.</p>
+ * @public
  */
 export interface CompositionDetails {
   /**
-   * @public
    * <p>An array detailing the composition relationship for this composite model.</p>
+   * @public
    */
   compositionRelationship?: CompositionRelationshipItem[];
 }
@@ -5080,71 +5080,71 @@ export interface CompositionDetails {
  */
 export interface DescribeAssetModelCompositeModelResponse {
   /**
-   * @public
    * <p>The ID of the asset model, in UUID format.</p>
+   * @public
    */
   assetModelId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of a composite model on this asset model.</p>
+   * @public
    */
   assetModelCompositeModelId: string | undefined;
 
   /**
-   * @public
    * <p>The external ID of a composite model on this asset model.</p>
+   * @public
    */
   assetModelCompositeModelExternalId?: string;
 
   /**
-   * @public
    * <p>The path to the composite model listing the parent composite models.</p>
+   * @public
    */
   assetModelCompositeModelPath: AssetModelCompositeModelPathSegment[] | undefined;
 
   /**
-   * @public
    * <p>The unique, friendly name for the composite model.</p>
+   * @public
    */
   assetModelCompositeModelName: string | undefined;
 
   /**
-   * @public
    * <p>The description for the composite model.</p>
+   * @public
    */
   assetModelCompositeModelDescription: string | undefined;
 
   /**
-   * @public
    * <p>The composite model type. Valid values are <code>AWS/ALARM</code>, <code>CUSTOM</code>, or <code> AWS/L4E_ANOMALY</code>.</p>
+   * @public
    */
   assetModelCompositeModelType: string | undefined;
 
   /**
-   * @public
    * <p>The property definitions of the composite model.</p>
+   * @public
    */
   assetModelCompositeModelProperties: AssetModelProperty[] | undefined;
 
   /**
-   * @public
    * <p>Metadata for the composition relationship established by using <code>composedAssetModelId</code> in <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModelCompositeModel.html">
    *                <code>CreateAssetModelCompositeModel</code>
    *             </a>.
    *       For instance, an array detailing the path of the composition relationship for this composite model.</p>
+   * @public
    */
   compositionDetails?: CompositionDetails;
 
   /**
-   * @public
    * <p>The list of composite model summaries for the composite model.</p>
+   * @public
    */
   assetModelCompositeModelSummaries: AssetModelCompositeModelSummary[] | undefined;
 
   /**
-   * @public
    * <p>The available actions for a composite model on this asset model.</p>
+   * @public
    */
   actionDefinitions?: ActionDefinition[];
 }
@@ -5154,117 +5154,117 @@ export interface DescribeAssetModelCompositeModelResponse {
  */
 export interface DescribeAssetPropertyRequest {
   /**
-   * @public
    * <p>The ID of the asset. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   assetId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the asset property. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   propertyId: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains asset property information.</p>
+ * @public
  */
 export interface Property {
   /**
-   * @public
    * <p>The ID of the asset property.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The name of the property.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The alias that identifies the property, such as an OPC-UA server data stream path
    *         (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
    *         <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   alias?: string;
 
   /**
-   * @public
    * <p>The asset property's notification topic and state. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html">UpdateAssetProperty</a>.</p>
+   * @public
    */
   notification?: PropertyNotification;
 
   /**
-   * @public
    * <p>The property data type.</p>
+   * @public
    */
   dataType: PropertyDataType | undefined;
 
   /**
-   * @public
    * <p>The unit (such as <code>Newtons</code> or <code>RPM</code>) of the asset property.</p>
+   * @public
    */
   unit?: string;
 
   /**
-   * @public
    * <p>The property type (see <code>PropertyType</code>). A property contains one type.</p>
+   * @public
    */
   type?: PropertyType;
 
   /**
-   * @public
    * <p>The structured path to the property from the root of the asset.</p>
+   * @public
    */
   path?: AssetPropertyPathSegment[];
 
   /**
-   * @public
    * <p>The external ID of the asset property. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   externalId?: string;
 }
 
 /**
- * @public
  * <p>Contains information about a composite model property on an asset.</p>
+ * @public
  */
 export interface CompositeModelProperty {
   /**
-   * @public
    * <p>The name of the property.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The type of the composite model that defines this property.</p>
+   * @public
    */
   type: string | undefined;
 
   /**
-   * @public
    * <p>Contains asset property information.</p>
+   * @public
    */
   assetProperty: Property | undefined;
 
   /**
-   * @public
    * <p>
    *       The ID of the composite model that contains the property.
    *     </p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The external ID of the composite model that contains the property. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   externalId?: string;
 }
@@ -5274,42 +5274,42 @@ export interface CompositeModelProperty {
  */
 export interface DescribeAssetPropertyResponse {
   /**
-   * @public
    * <p>The ID of the asset, in UUID format.</p>
+   * @public
    */
   assetId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the asset.</p>
+   * @public
    */
   assetName: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the asset model, in UUID format.</p>
+   * @public
    */
   assetModelId: string | undefined;
 
   /**
-   * @public
    * <p>The asset property's definition, alias, and notification state.</p>
    *          <p>This response includes this object for normal asset properties. If you describe an asset
    *       property in a composite model, this response includes the asset property information in
    *         <code>compositeModel</code>.</p>
+   * @public
    */
   assetProperty?: Property;
 
   /**
-   * @public
    * <p>The composite model that declares this asset property, if this asset property exists
    *       in a composite model.</p>
+   * @public
    */
   compositeModel?: CompositeModelProperty;
 
   /**
-   * @public
    * <p>The external ID of the asset. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   assetExternalId?: string;
 }
@@ -5319,8 +5319,8 @@ export interface DescribeAssetPropertyResponse {
  */
 export interface DescribeBulkImportJobRequest {
   /**
-   * @public
    * <p>The ID of the job.</p>
+   * @public
    */
   jobId: string | undefined;
 }
@@ -5330,19 +5330,18 @@ export interface DescribeBulkImportJobRequest {
  */
 export interface DescribeBulkImportJobResponse {
   /**
-   * @public
    * <p>The ID of the job.</p>
+   * @public
    */
   jobId: string | undefined;
 
   /**
-   * @public
    * <p>The unique name that helps identify the job request.</p>
+   * @public
    */
   jobName: string | undefined;
 
   /**
-   * @public
    * <p>The status of the bulk import job can be one of following values:</p>
    *          <ul>
    *             <li>
@@ -5372,55 +5371,56 @@ export interface DescribeBulkImportJobResponse {
    *         You can use logs saved in the specified error report location in Amazon S3 to troubleshoot issues.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   jobStatus: JobStatus | undefined;
 
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the IAM role that allows IoT SiteWise to read Amazon S3 data.</p>
+   * @public
    */
   jobRoleArn: string | undefined;
 
   /**
-   * @public
    * <p>The files in the specified Amazon S3 bucket that contain your data.</p>
+   * @public
    */
   files: File[] | undefined;
 
   /**
-   * @public
    * <p>The Amazon S3 destination where errors associated with the job creation request are saved.</p>
+   * @public
    */
   errorReportLocation: ErrorReportLocation | undefined;
 
   /**
-   * @public
    * <p>Contains the configuration information of a job, such as the file format used to save data in Amazon S3.</p>
+   * @public
    */
   jobConfiguration: JobConfiguration | undefined;
 
   /**
-   * @public
    * <p>The date the job was created, in Unix epoch TIME.</p>
+   * @public
    */
   jobCreationDate: Date | undefined;
 
   /**
-   * @public
    * <p>The date the job was last updated, in Unix epoch time.</p>
+   * @public
    */
   jobLastUpdateDate: Date | undefined;
 
   /**
-   * @public
    * <p>If set to true, ingest new data into IoT SiteWise storage. Measurements with notifications, metrics and transforms are
    *    computed. If set to false, historical data is ingested into IoT SiteWise as is.</p>
+   * @public
    */
   adaptiveIngestion?: boolean;
 
   /**
-   * @public
    * <p>If set to true, your data files is deleted from S3, after ingestion into IoT SiteWise storage.</p>
+   * @public
    */
   deleteFilesAfterImport?: boolean;
 }
@@ -5430,8 +5430,8 @@ export interface DescribeBulkImportJobResponse {
  */
 export interface DescribeDashboardRequest {
   /**
-   * @public
    * <p>The ID of the dashboard.</p>
+   * @public
    */
   dashboardId: string | undefined;
 }
@@ -5441,54 +5441,54 @@ export interface DescribeDashboardRequest {
  */
 export interface DescribeDashboardResponse {
   /**
-   * @public
    * <p>The ID of the dashboard.</p>
+   * @public
    */
   dashboardId: string | undefined;
 
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the dashboard, which has the following format.</p>
    *          <p>
    *             <code>arn:$\{Partition\}:iotsitewise:$\{Region\}:$\{Account\}:dashboard/$\{DashboardId\}</code>
    *          </p>
+   * @public
    */
   dashboardArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the dashboard.</p>
+   * @public
    */
   dashboardName: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the project that the dashboard is in.</p>
+   * @public
    */
   projectId: string | undefined;
 
   /**
-   * @public
    * <p>The dashboard's description.</p>
+   * @public
    */
   dashboardDescription?: string;
 
   /**
-   * @public
    * <p>The dashboard's definition JSON literal. For detailed information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-dashboards-using-aws-cli.html">Creating
    *         dashboards (CLI)</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   dashboardDefinition: string | undefined;
 
   /**
-   * @public
    * <p>The date the dashboard was created, in Unix epoch time.</p>
+   * @public
    */
   dashboardCreationDate: Date | undefined;
 
   /**
-   * @public
    * <p>The date the dashboard was last updated, in Unix epoch time.</p>
+   * @public
    */
   dashboardLastUpdateDate: Date | undefined;
 }
@@ -5499,19 +5499,19 @@ export interface DescribeDashboardResponse {
 export interface DescribeDefaultEncryptionConfigurationRequest {}
 
 /**
- * @public
  * <p>Contains the details of an IoT SiteWise configuration error.</p>
+ * @public
  */
 export interface ConfigurationErrorDetails {
   /**
-   * @public
    * <p>The error code.</p>
+   * @public
    */
   code: ErrorCode | undefined;
 
   /**
-   * @public
    * <p>The error message.</p>
+   * @public
    */
   message: string | undefined;
 }
@@ -5532,19 +5532,19 @@ export const ConfigurationState = {
 export type ConfigurationState = (typeof ConfigurationState)[keyof typeof ConfigurationState];
 
 /**
- * @public
  * <p>Contains current status information for the configuration.</p>
+ * @public
  */
 export interface ConfigurationStatus {
   /**
-   * @public
    * <p>The current state of the configuration.</p>
+   * @public
    */
   state: ConfigurationState | undefined;
 
   /**
-   * @public
    * <p>Contains associated error information, if any.</p>
+   * @public
    */
   error?: ConfigurationErrorDetails;
 }
@@ -5568,23 +5568,23 @@ export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType
  */
 export interface DescribeDefaultEncryptionConfigurationResponse {
   /**
-   * @public
    * <p>The type of encryption used for the encryption configuration.</p>
+   * @public
    */
   encryptionType: EncryptionType | undefined;
 
   /**
-   * @public
    * <p>The key ARN of the customer managed key used for KMS encryption if you use
    *         <code>KMS_BASED_ENCRYPTION</code>.</p>
+   * @public
    */
   kmsKeyArn?: string;
 
   /**
-   * @public
    * <p>The status of the account configuration. This contains the
    *       <code>ConfigurationState</code>. If there's an error, it also contains the
    *         <code>ErrorDetails</code>.</p>
+   * @public
    */
   configurationStatus: ConfigurationStatus | undefined;
 }
@@ -5594,8 +5594,8 @@ export interface DescribeDefaultEncryptionConfigurationResponse {
  */
 export interface DescribeGatewayRequest {
   /**
-   * @public
    * <p>The ID of the gateway device.</p>
+   * @public
    */
   gatewayId: string | undefined;
 }
@@ -5617,22 +5617,21 @@ export const CapabilitySyncStatus = {
 export type CapabilitySyncStatus = (typeof CapabilitySyncStatus)[keyof typeof CapabilitySyncStatus];
 
 /**
- * @public
  * <p>Contains a summary of a gateway capability configuration.</p>
+ * @public
  */
 export interface GatewayCapabilitySummary {
   /**
-   * @public
    * <p>The namespace of the capability configuration.
    *       For example, if you configure OPC-UA
    *       sources from the IoT SiteWise console, your OPC-UA capability configuration has the namespace
    *         <code>iotsitewise:opcuacollector:version</code>, where <code>version</code> is a number such as
    *         <code>1</code>.</p>
+   * @public
    */
   capabilityNamespace: string | undefined;
 
   /**
-   * @public
    * <p>The synchronization status of the capability configuration. The sync status can be one of the following:</p>
    *          <ul>
    *             <li>
@@ -5648,6 +5647,7 @@ export interface GatewayCapabilitySummary {
    *                   <code>SYNC_FAILED</code> – The gateway rejected the capability configuration.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   capabilitySyncStatus: CapabilitySyncStatus | undefined;
 }
@@ -5657,49 +5657,49 @@ export interface GatewayCapabilitySummary {
  */
 export interface DescribeGatewayResponse {
   /**
-   * @public
    * <p>The ID of the gateway device.</p>
+   * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the gateway.</p>
+   * @public
    */
   gatewayName: string | undefined;
 
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the gateway, which has the following format.</p>
    *          <p>
    *             <code>arn:$\{Partition\}:iotsitewise:$\{Region\}:$\{Account\}:gateway/$\{GatewayId\}</code>
    *          </p>
+   * @public
    */
   gatewayArn: string | undefined;
 
   /**
-   * @public
    * <p>The gateway's platform.</p>
+   * @public
    */
   gatewayPlatform?: GatewayPlatform;
 
   /**
-   * @public
    * <p>A list of gateway capability summaries that each contain a namespace and status. Each
    *       gateway capability defines data sources for the gateway. To retrieve a capability
    *       configuration's definition, use <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGatewayCapabilityConfiguration.html">DescribeGatewayCapabilityConfiguration</a>.</p>
+   * @public
    */
   gatewayCapabilitySummaries: GatewayCapabilitySummary[] | undefined;
 
   /**
-   * @public
    * <p>The date the gateway was created, in Unix epoch time.</p>
+   * @public
    */
   creationDate: Date | undefined;
 
   /**
-   * @public
    * <p>The date the gateway was last updated, in Unix epoch time.</p>
+   * @public
    */
   lastUpdateDate: Date | undefined;
 }
@@ -5709,18 +5709,18 @@ export interface DescribeGatewayResponse {
  */
 export interface DescribeGatewayCapabilityConfigurationRequest {
   /**
-   * @public
    * <p>The ID of the gateway that defines the capability configuration.</p>
+   * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * @public
    * <p>The namespace of the capability configuration.
    *       For example, if you configure OPC-UA
    *       sources from the IoT SiteWise console, your OPC-UA capability configuration has the namespace
    *         <code>iotsitewise:opcuacollector:version</code>, where <code>version</code> is a number such as
    *         <code>1</code>.</p>
+   * @public
    */
   capabilityNamespace: string | undefined;
 }
@@ -5730,26 +5730,25 @@ export interface DescribeGatewayCapabilityConfigurationRequest {
  */
 export interface DescribeGatewayCapabilityConfigurationResponse {
   /**
-   * @public
    * <p>The ID of the gateway that defines the capability configuration.</p>
+   * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * @public
    * <p>The namespace of the gateway capability.</p>
+   * @public
    */
   capabilityNamespace: string | undefined;
 
   /**
-   * @public
    * <p>The JSON document that defines the gateway capability's configuration. For more
    *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#configure-source-cli">Configuring data sources (CLI)</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   capabilityConfiguration: string | undefined;
 
   /**
-   * @public
    * <p>The synchronization status of the capability configuration. The sync status can be one of the following:</p>
    *          <ul>
    *             <li>
@@ -5765,6 +5764,7 @@ export interface DescribeGatewayCapabilityConfigurationResponse {
    *                   <code>SYNC_FAILED</code> – The gateway rejected the capability configuration.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   capabilitySyncStatus: CapabilitySyncStatus | undefined;
 }
@@ -5790,13 +5790,13 @@ export const LoggingLevel = {
 export type LoggingLevel = (typeof LoggingLevel)[keyof typeof LoggingLevel];
 
 /**
- * @public
  * <p>Contains logging options.</p>
+ * @public
  */
 export interface LoggingOptions {
   /**
-   * @public
    * <p>The IoT SiteWise logging verbosity level.</p>
+   * @public
    */
   level: LoggingLevel | undefined;
 }
@@ -5806,8 +5806,8 @@ export interface LoggingOptions {
  */
 export interface DescribeLoggingOptionsResponse {
   /**
-   * @public
    * <p>The current logging options.</p>
+   * @public
    */
   loggingOptions: LoggingOptions | undefined;
 }
@@ -5817,27 +5817,27 @@ export interface DescribeLoggingOptionsResponse {
  */
 export interface DescribePortalRequest {
   /**
-   * @public
    * <p>The ID of the portal.</p>
+   * @public
    */
   portalId: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains an image that is uploaded to IoT SiteWise and available at a URL.</p>
+ * @public
  */
 export interface ImageLocation {
   /**
-   * @public
    * <p>The ID of the image.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The URL where the image is available. The URL is valid for 15 minutes so that you can view
    *       and download the image</p>
+   * @public
    */
   url: string | undefined;
 }
@@ -5847,100 +5847,100 @@ export interface ImageLocation {
  */
 export interface DescribePortalResponse {
   /**
-   * @public
    * <p>The ID of the portal.</p>
+   * @public
    */
   portalId: string | undefined;
 
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the portal, which has the following format.</p>
    *          <p>
    *             <code>arn:$\{Partition\}:iotsitewise:$\{Region\}:$\{Account\}:portal/$\{PortalId\}</code>
    *          </p>
+   * @public
    */
   portalArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the portal.</p>
+   * @public
    */
   portalName: string | undefined;
 
   /**
-   * @public
    * <p>The portal's description.</p>
+   * @public
    */
   portalDescription?: string;
 
   /**
-   * @public
    * <p>The IAM Identity Center application generated client ID (used with IAM Identity Center API operations). IoT SiteWise includes
    *         <code>portalClientId</code> for only portals that use IAM Identity Center to authenticate users.</p>
+   * @public
    */
   portalClientId: string | undefined;
 
   /**
-   * @public
    * <p>The URL for the IoT SiteWise Monitor portal. You can use this URL to access portals that
    *       use IAM Identity Center for authentication. For portals that use IAM for authentication, you must use the
    *       IoT SiteWise console to get a URL that you can use to access the portal.</p>
+   * @public
    */
   portalStartUrl: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Web Services administrator's contact email address.</p>
+   * @public
    */
   portalContactEmail: string | undefined;
 
   /**
-   * @public
    * <p>The current status of the portal, which contains a state and any error message.</p>
+   * @public
    */
   portalStatus: PortalStatus | undefined;
 
   /**
-   * @public
    * <p>The date the portal was created, in Unix epoch time.</p>
+   * @public
    */
   portalCreationDate: Date | undefined;
 
   /**
-   * @public
    * <p>The date the portal was last updated, in Unix epoch time.</p>
+   * @public
    */
   portalLastUpdateDate: Date | undefined;
 
   /**
-   * @public
    * <p>The portal's logo image, which is available at a URL.</p>
+   * @public
    */
   portalLogoImageLocation?: ImageLocation;
 
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the service role that allows the portal's users to access your IoT SiteWise
    *       resources on your behalf. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-service-role.html">Using service roles for IoT SiteWise Monitor</a> in the
    *         <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   roleArn?: string;
 
   /**
-   * @public
    * <p>The service to use to authenticate users to the portal.</p>
+   * @public
    */
   portalAuthMode?: AuthMode;
 
   /**
-   * @public
    * <p>The email address that sends alarm notifications.</p>
+   * @public
    */
   notificationSenderEmail?: string;
 
   /**
-   * @public
    * <p>Contains the configuration information of an alarm created in an IoT SiteWise Monitor portal.</p>
+   * @public
    */
   alarms?: Alarms;
 }
@@ -5950,8 +5950,8 @@ export interface DescribePortalResponse {
  */
 export interface DescribeProjectRequest {
   /**
-   * @public
    * <p>The ID of the project.</p>
+   * @public
    */
   projectId: string | undefined;
 }
@@ -5961,47 +5961,47 @@ export interface DescribeProjectRequest {
  */
 export interface DescribeProjectResponse {
   /**
-   * @public
    * <p>The ID of the project.</p>
+   * @public
    */
   projectId: string | undefined;
 
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the project, which has the following format.</p>
    *          <p>
    *             <code>arn:$\{Partition\}:iotsitewise:$\{Region\}:$\{Account\}:project/$\{ProjectId\}</code>
    *          </p>
+   * @public
    */
   projectArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the project.</p>
+   * @public
    */
   projectName: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the portal that the project is in.</p>
+   * @public
    */
   portalId: string | undefined;
 
   /**
-   * @public
    * <p>The project's description.</p>
+   * @public
    */
   projectDescription?: string;
 
   /**
-   * @public
    * <p>The date the project was created, in Unix epoch time.</p>
+   * @public
    */
   projectCreationDate: Date | undefined;
 
   /**
-   * @public
    * <p>The date the project was last updated, in Unix epoch time.</p>
+   * @public
    */
   projectLastUpdateDate: Date | undefined;
 }
@@ -6027,59 +6027,59 @@ export type DisassociatedDataStorageState =
   (typeof DisassociatedDataStorageState)[keyof typeof DisassociatedDataStorageState];
 
 /**
- * @public
  * <p>Contains information about a customer managed Amazon S3 bucket.</p>
+ * @public
  */
 export interface CustomerManagedS3Storage {
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the Amazon S3 object. For more information about how to find the ARN for an
    *       Amazon S3 object, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-arn-format.html">Amazon S3 resources</a> in the
    *         <i>Amazon Simple Storage Service User Guide</i>.</p>
+   * @public
    */
   s3ResourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the Identity and Access Management role that allows IoT SiteWise to send data to Amazon S3.</p>
+   * @public
    */
   roleArn: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains information about the storage destination.</p>
+ * @public
  */
 export interface MultiLayerStorage {
   /**
-   * @public
    * <p>Contains information about a customer managed Amazon S3 bucket.</p>
+   * @public
    */
   customerManagedS3Storage: CustomerManagedS3Storage | undefined;
 }
 
 /**
- * @public
  * <p>The number of days your data is kept in the hot tier. By default, your data is kept indefinitely in the hot tier.</p>
+ * @public
  */
 export interface RetentionPeriod {
   /**
-   * @public
    * <p>The number of days that your data is kept.</p>
    *          <note>
    *             <p>If you specified a value for this parameter, the <code>unlimited</code> parameter must
    *         be <code>false</code>.</p>
    *          </note>
+   * @public
    */
   numberOfDays?: number;
 
   /**
-   * @public
    * <p>If true, your data is kept indefinitely.</p>
    *          <note>
    *             <p>If configured to <code>true</code>, you must not specify a value for the
    *           <code>numberOfDays</code> parameter.</p>
    *          </note>
+   * @public
    */
   unlimited?: boolean;
 }
@@ -6113,19 +6113,19 @@ export const WarmTierState = {
 export type WarmTierState = (typeof WarmTierState)[keyof typeof WarmTierState];
 
 /**
- * @public
  * <p>Set this period to specify how long your data is stored in the warm tier before it is deleted. You can set this only if cold tier is enabled.</p>
+ * @public
  */
 export interface WarmTierRetentionPeriod {
   /**
-   * @public
    * <p>The number of days the data is stored in the warm tier.</p>
+   * @public
    */
   numberOfDays?: number;
 
   /**
-   * @public
    * <p>If set to true, the data is stored indefinitely in the warm tier.</p>
+   * @public
    */
   unlimited?: boolean;
 }
@@ -6135,7 +6135,6 @@ export interface WarmTierRetentionPeriod {
  */
 export interface DescribeStorageConfigurationResponse {
   /**
-   * @public
    * <p>The storage tier that you specified for your data.
    *       The <code>storageType</code> parameter can be one of the following values:</p>
    *          <ul>
@@ -6150,17 +6149,17 @@ export interface DescribeStorageConfigurationResponse {
    *           The cold tier is a customer-managed Amazon S3 bucket.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   storageType: StorageType | undefined;
 
   /**
-   * @public
    * <p>Contains information about the storage destination.</p>
+   * @public
    */
   multiLayerStorage?: MultiLayerStorage;
 
   /**
-   * @public
    * <p>Contains the storage configuration for time series (data streams) that aren't associated with asset properties.
    *       The <code>disassociatedDataStorage</code> can be one of the following values:</p>
    *          <ul>
@@ -6178,36 +6177,37 @@ export interface DescribeStorageConfigurationResponse {
    *          </ul>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/data-streams.html">Data streams</a>
    *     in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   disassociatedDataStorage?: DisassociatedDataStorageState;
 
   /**
-   * @public
    * <p>The number of days your data is kept in the hot tier. By default, your data is kept indefinitely in the hot tier.</p>
+   * @public
    */
   retentionPeriod?: RetentionPeriod;
 
   /**
-   * @public
    * <p>Contains current status information for the configuration.</p>
+   * @public
    */
   configurationStatus: ConfigurationStatus | undefined;
 
   /**
-   * @public
    * <p>The date the storage configuration was last updated, in Unix epoch time.</p>
+   * @public
    */
   lastUpdateDate?: Date;
 
   /**
-   * @public
    * <p>A service managed storage tier optimized for analytical queries. It stores periodically uploaded, buffered and historical data ingested with the CreaeBulkImportJob API.</p>
+   * @public
    */
   warmTier?: WarmTierState;
 
   /**
-   * @public
    * <p>Set this period to specify how long your data is stored in the warm tier before it is deleted. You can set this only if cold tier is enabled.</p>
+   * @public
    */
   warmTierRetentionPeriod?: WarmTierRetentionPeriod;
 }
@@ -6217,22 +6217,22 @@ export interface DescribeStorageConfigurationResponse {
  */
 export interface DescribeTimeSeriesRequest {
   /**
-   * @public
    * <p>The alias that identifies the time series.</p>
+   * @public
    */
   alias?: string;
 
   /**
-   * @public
    * <p>The ID of the asset in which the asset property was created. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   assetId?: string;
 
   /**
-   * @public
    * <p>The ID of the asset property. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   propertyId?: string;
 }
@@ -6242,64 +6242,64 @@ export interface DescribeTimeSeriesRequest {
  */
 export interface DescribeTimeSeriesResponse {
   /**
-   * @public
    * <p>The ID of the asset in which the asset property was created.</p>
+   * @public
    */
   assetId?: string;
 
   /**
-   * @public
    * <p>The ID of the asset property, in UUID format.</p>
+   * @public
    */
   propertyId?: string;
 
   /**
-   * @public
    * <p>The alias that identifies the time series.</p>
+   * @public
    */
   alias?: string;
 
   /**
-   * @public
    * <p>The ID of the time series.</p>
+   * @public
    */
   timeSeriesId: string | undefined;
 
   /**
-   * @public
    * <p>The data type of the time series.</p>
    *          <p>If you specify <code>STRUCT</code>, you must also specify <code>dataTypeSpec</code> to identify the type of the structure for this time series.</p>
+   * @public
    */
   dataType: PropertyDataType | undefined;
 
   /**
-   * @public
    * <p>The data type of the structure for this time series. This parameter is required for time series
    *       that have the <code>STRUCT</code> data type.</p>
    *          <p>The options for this parameter depend on the type of the composite model
    *       in which you created the asset property that is associated with your time series.
    *       Use <code>AWS/ALARM_STATE</code> for alarm state in alarm composite models.</p>
+   * @public
    */
   dataTypeSpec?: string;
 
   /**
-   * @public
    * <p>The date that the time series was created, in Unix epoch time.</p>
+   * @public
    */
   timeSeriesCreationDate: Date | undefined;
 
   /**
-   * @public
    * <p>The date that the time series was last updated, in Unix epoch time.</p>
+   * @public
    */
   timeSeriesLastUpdateDate: Date | undefined;
 
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the time series, which has the following format.</p>
    *          <p>
    *             <code>arn:$\{Partition\}:iotsitewise:$\{Region\}:$\{Account\}:time-series/$\{TimeSeriesId\}</code>
    *          </p>
+   * @public
    */
   timeSeriesArn: string | undefined;
 }
@@ -6309,32 +6309,32 @@ export interface DescribeTimeSeriesResponse {
  */
 export interface DisassociateAssetsRequest {
   /**
-   * @public
    * <p>The ID of the parent asset from which to disassociate the child asset. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   assetId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of a hierarchy in the parent asset's model. (This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.) Hierarchies allow different groupings
    *       of assets to be formed that all come from the same asset model. You can use the hierarchy ID
    *       to identify the correct asset to disassociate. For more information, see
    *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html">Asset hierarchies</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   hierarchyId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the child asset to disassociate. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   childAssetId: string | undefined;
 
   /**
-   * @public
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -6344,28 +6344,28 @@ export interface DisassociateAssetsRequest {
  */
 export interface DisassociateTimeSeriesFromAssetPropertyRequest {
   /**
-   * @public
    * <p>The alias that identifies the time series.</p>
+   * @public
    */
   alias: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the asset in which the asset property was created. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   assetId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the asset property. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   propertyId: string | undefined;
 
   /**
-   * @public
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -6375,26 +6375,26 @@ export interface DisassociateTimeSeriesFromAssetPropertyRequest {
  */
 export interface ExecuteActionRequest {
   /**
-   * @public
    * <p>The resource the action will be taken on.</p>
+   * @public
    */
   targetResource: TargetResource | undefined;
 
   /**
-   * @public
    * <p>The ID of the action definition.</p>
+   * @public
    */
   actionDefinitionId: string | undefined;
 
   /**
-   * @public
    * <p>The JSON payload of the action.</p>
+   * @public
    */
   actionPayload: ActionPayload | undefined;
 
   /**
-   * @public
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -6404,8 +6404,8 @@ export interface ExecuteActionRequest {
  */
 export interface ExecuteActionResponse {
   /**
-   * @public
    * <p>The ID of the action.</p>
+   * @public
    */
   actionId: string | undefined;
 }
@@ -6415,20 +6415,20 @@ export interface ExecuteActionResponse {
  */
 export interface ExecuteQueryRequest {
   /**
-   * @public
    * <p>The IoT SiteWise query statement.</p>
+   * @public
    */
   queryStatement: string | undefined;
 
   /**
-   * @public
    * <p>The string that specifies the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return at one time. The default is 25.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -6451,38 +6451,38 @@ export const ScalarType = {
 export type ScalarType = (typeof ScalarType)[keyof typeof ScalarType];
 
 /**
- * @public
  * <p>The data type of the column.</p>
+ * @public
  */
 export interface ColumnType {
   /**
-   * @public
    * <p>The allowed data types that the column has as it's value.</p>
+   * @public
    */
   scalarType?: ScalarType;
 }
 
 /**
- * @public
  * <p>A description of the column in the query results.</p>
+ * @public
  */
 export interface ColumnInfo {
   /**
-   * @public
    * <p>The name of the column description.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The type of the column description.</p>
+   * @public
    */
   type?: ColumnType;
 }
 
 /**
- * @public
  * <p>The query timed out.</p>
+ * @public
  */
 export class QueryTimeoutException extends __BaseException {
   readonly name: "QueryTimeoutException" = "QueryTimeoutException";
@@ -6501,8 +6501,8 @@ export class QueryTimeoutException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The validation failed for this query.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -6525,72 +6525,71 @@ export class ValidationException extends __BaseException {
  */
 export interface GetAssetPropertyAggregatesRequest {
   /**
-   * @public
    * <p>The ID of the asset, in UUID format.</p>
+   * @public
    */
   assetId?: string;
 
   /**
-   * @public
    * <p>The ID of the asset property, in UUID format.</p>
+   * @public
    */
   propertyId?: string;
 
   /**
-   * @public
    * <p>The alias that identifies the property, such as an OPC-UA server data stream path
    *         (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
    *         <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   propertyAlias?: string;
 
   /**
-   * @public
    * <p>The data aggregating function.</p>
+   * @public
    */
   aggregateTypes: AggregateType[] | undefined;
 
   /**
-   * @public
    * <p>The time interval over which to aggregate data.</p>
+   * @public
    */
   resolution: string | undefined;
 
   /**
-   * @public
    * <p>The quality by which to filter asset data.</p>
+   * @public
    */
   qualities?: Quality[];
 
   /**
-   * @public
    * <p>The exclusive start of the range from which to query historical data, expressed in seconds in Unix epoch time.</p>
+   * @public
    */
   startDate: Date | undefined;
 
   /**
-   * @public
    * <p>The inclusive end of the range from which to query historical data, expressed in seconds in Unix epoch time.</p>
+   * @public
    */
   endDate: Date | undefined;
 
   /**
-   * @public
    * <p>The chronological sorting order of the requested information.</p>
    *          <p>Default: <code>ASCENDING</code>
    *          </p>
+   * @public
    */
   timeOrdering?: TimeOrdering;
 
   /**
-   * @public
    * <p>The token to be used for the next set of paginated results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return for each paginated request. A result set is returned in the two cases, whichever occurs
    *       first.</p>
    *          <ul>
@@ -6602,6 +6601,7 @@ export interface GetAssetPropertyAggregatesRequest {
    *           <code>maxResults</code>. The maximum value of <code>maxResults</code> is 2500.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   maxResults?: number;
 }
@@ -6611,14 +6611,14 @@ export interface GetAssetPropertyAggregatesRequest {
  */
 export interface GetAssetPropertyAggregatesResponse {
   /**
-   * @public
    * <p>The requested aggregated values.</p>
+   * @public
    */
   aggregatedValues: AggregatedValue[] | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -6628,23 +6628,23 @@ export interface GetAssetPropertyAggregatesResponse {
  */
 export interface GetAssetPropertyValueRequest {
   /**
-   * @public
    * <p>The ID of the asset, in UUID format.</p>
+   * @public
    */
   assetId?: string;
 
   /**
-   * @public
    * <p>The ID of the asset property, in UUID format.</p>
+   * @public
    */
   propertyId?: string;
 
   /**
-   * @public
    * <p>The alias that identifies the property, such as an OPC-UA server data stream path
    *         (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
    *         <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   propertyAlias?: string;
 }
@@ -6654,8 +6654,8 @@ export interface GetAssetPropertyValueRequest {
  */
 export interface GetAssetPropertyValueResponse {
   /**
-   * @public
    * <p>The current asset property value.</p>
+   * @public
    */
   propertyValue?: AssetPropertyValue;
 }
@@ -6665,60 +6665,59 @@ export interface GetAssetPropertyValueResponse {
  */
 export interface GetAssetPropertyValueHistoryRequest {
   /**
-   * @public
    * <p>The ID of the asset, in UUID format.</p>
+   * @public
    */
   assetId?: string;
 
   /**
-   * @public
    * <p>The ID of the asset property, in UUID format.</p>
+   * @public
    */
   propertyId?: string;
 
   /**
-   * @public
    * <p>The alias that identifies the property, such as an OPC-UA server data stream path
    *         (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
    *         <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   propertyAlias?: string;
 
   /**
-   * @public
    * <p>The exclusive start of the range from which to query historical data, expressed in seconds in Unix epoch time.</p>
+   * @public
    */
   startDate?: Date;
 
   /**
-   * @public
    * <p>The inclusive end of the range from which to query historical data, expressed in seconds in Unix epoch time.</p>
+   * @public
    */
   endDate?: Date;
 
   /**
-   * @public
    * <p>The quality by which to filter asset data.</p>
+   * @public
    */
   qualities?: Quality[];
 
   /**
-   * @public
    * <p>The chronological sorting order of the requested information.</p>
    *          <p>Default: <code>ASCENDING</code>
    *          </p>
+   * @public
    */
   timeOrdering?: TimeOrdering;
 
   /**
-   * @public
    * <p>The token to be used for the next set of paginated results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return for each paginated request. A result set is returned in the two cases, whichever occurs
    *       first.</p>
    *          <ul>
@@ -6730,6 +6729,7 @@ export interface GetAssetPropertyValueHistoryRequest {
    *           <code>maxResults</code>. The maximum value of <code>maxResults</code> is 20000.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   maxResults?: number;
 }
@@ -6739,14 +6739,14 @@ export interface GetAssetPropertyValueHistoryRequest {
  */
 export interface GetAssetPropertyValueHistoryResponse {
   /**
-   * @public
    * <p>The asset property's value history.</p>
+   * @public
    */
   assetPropertyValueHistory: AssetPropertyValue[] | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -6756,80 +6756,79 @@ export interface GetAssetPropertyValueHistoryResponse {
  */
 export interface GetInterpolatedAssetPropertyValuesRequest {
   /**
-   * @public
    * <p>The ID of the asset, in UUID format.</p>
+   * @public
    */
   assetId?: string;
 
   /**
-   * @public
    * <p>The ID of the asset property, in UUID format.</p>
+   * @public
    */
   propertyId?: string;
 
   /**
-   * @public
    * <p>The alias that identifies the property, such as an OPC-UA server data stream path
    *         (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
    *         <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   propertyAlias?: string;
 
   /**
-   * @public
    * <p>The exclusive start of the range from which to interpolate data, expressed in seconds in
    *       Unix epoch time.</p>
+   * @public
    */
   startTimeInSeconds: number | undefined;
 
   /**
-   * @public
    * <p>The nanosecond offset converted from <code>startTimeInSeconds</code>.</p>
+   * @public
    */
   startTimeOffsetInNanos?: number;
 
   /**
-   * @public
    * <p>The inclusive end of the range from which to interpolate data, expressed in seconds in
    *       Unix epoch time.</p>
+   * @public
    */
   endTimeInSeconds: number | undefined;
 
   /**
-   * @public
    * <p>The nanosecond offset converted from <code>endTimeInSeconds</code>.</p>
+   * @public
    */
   endTimeOffsetInNanos?: number;
 
   /**
-   * @public
    * <p>The quality of the asset property value. You can use this parameter as a filter to choose
    *       only the asset property values that have a specific quality.</p>
+   * @public
    */
   quality: Quality | undefined;
 
   /**
-   * @public
    * <p>The time interval in seconds over which to interpolate data. Each interval starts when the
    *       previous one ends.</p>
+   * @public
    */
   intervalInSeconds: number | undefined;
 
   /**
-   * @public
    * <p>The token to be used for the next set of paginated results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return for each paginated request. If not specified, the default value is 10.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The interpolation type.</p>
    *          <p>Valid values: <code>LINEAR_INTERPOLATION | LOCF_INTERPOLATION</code>
    *          </p>
@@ -6857,11 +6856,11 @@ export interface GetInterpolatedAssetPropertyValuesRequest {
    *           same interpolated value for the rest of the days.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   type: string | undefined;
 
   /**
-   * @public
    * <p>The query interval for the window, in seconds. IoT SiteWise computes each interpolated value by
    *       using data points from the timestamp of each interval, minus the window to the timestamp of
    *       each interval plus the window. If not specified, the window ranges between the start time
@@ -6886,24 +6885,25 @@ export interface GetInterpolatedAssetPropertyValuesRequest {
    *       plus 2 hours) on July 2, 2021 to compute the first interpolated value. Next, IoT SiteWise uses the
    *       data points from 7 AM (9 AM minus 2 hours) to 11 AM (9 AM plus 2 hours) on July 3, 2021 to
    *       compute the second interpolated value, and so on. </p>
+   * @public
    */
   intervalWindowInSeconds?: number;
 }
 
 /**
- * @public
  * <p>Contains information about an interpolated asset property value.</p>
+ * @public
  */
 export interface InterpolatedAssetPropertyValue {
   /**
-   * @public
    * <p>Contains a timestamp with optional nanosecond granularity.</p>
+   * @public
    */
   timestamp: TimeInNanos | undefined;
 
   /**
-   * @public
    * <p>Contains an asset property value (of a single type only).</p>
+   * @public
    */
   value: Variant | undefined;
 }
@@ -6913,14 +6913,14 @@ export interface InterpolatedAssetPropertyValue {
  */
 export interface GetInterpolatedAssetPropertyValuesResponse {
   /**
-   * @public
    * <p>The requested interpolated values.</p>
+   * @public
    */
   interpolatedAssetPropertyValues: InterpolatedAssetPropertyValue[] | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -6959,51 +6959,51 @@ export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
  */
 export interface ListAccessPoliciesRequest {
   /**
-   * @public
    * <p>The type of identity (IAM Identity Center user, IAM Identity Center group, or IAM user). This parameter is required
    *       if you specify <code>identityId</code>.</p>
+   * @public
    */
   identityType?: IdentityType;
 
   /**
-   * @public
    * <p>The ID of the identity. This parameter is required if you specify <code>USER</code> or
    *         <code>GROUP</code> for <code>identityType</code>.</p>
+   * @public
    */
   identityId?: string;
 
   /**
-   * @public
    * <p>The type of resource (portal or project). This parameter is required if you specify
    *         <code>resourceId</code>.</p>
+   * @public
    */
   resourceType?: ResourceType;
 
   /**
-   * @public
    * <p>The ID of the resource. This parameter is required if you specify
    *         <code>resourceType</code>.</p>
+   * @public
    */
   resourceId?: string;
 
   /**
-   * @public
    * <p>The ARN of the IAM user. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM ARNs</a> in the
    *         <i>IAM User Guide</i>. This parameter is required if you specify
    *         <code>IAM</code> for <code>identityType</code>.</p>
+   * @public
    */
   iamArn?: string;
 
   /**
-   * @public
    * <p>The token to be used for the next set of paginated results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return for each paginated request.</p>
    *          <p>Default: 50</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -7013,14 +7013,14 @@ export interface ListAccessPoliciesRequest {
  */
 export interface ListAccessPoliciesResponse {
   /**
-   * @public
    * <p>A list that summarizes each access policy.</p>
+   * @public
    */
   accessPolicySummaries: AccessPolicySummary[] | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -7043,26 +7043,26 @@ export type TargetResourceType = (typeof TargetResourceType)[keyof typeof Target
  */
 export interface ListActionsRequest {
   /**
-   * @public
    * <p>The type of resource.</p>
+   * @public
    */
   targetResourceType: TargetResourceType | undefined;
 
   /**
-   * @public
    * <p>The ID of the target resource.</p>
+   * @public
    */
   targetResourceId: string | undefined;
 
   /**
-   * @public
    * <p>The token to be used for the next set of paginated results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return for each paginated request.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -7072,14 +7072,14 @@ export interface ListActionsRequest {
  */
 export interface ListActionsResponse {
   /**
-   * @public
    * <p>A list that summarizes the actions associated with the specified asset.</p>
+   * @public
    */
   actionSummaries: ActionSummary[] | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
    */
   nextToken: string | undefined;
 }
@@ -7089,22 +7089,22 @@ export interface ListActionsResponse {
  */
 export interface ListAssetModelCompositeModelsRequest {
   /**
-   * @public
    * <p>The ID of the asset model. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   assetModelId: string | undefined;
 
   /**
-   * @public
    * <p>The token to be used for the next set of paginated results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return for each paginated request.</p>
    *          <p>Default: 50</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -7114,14 +7114,14 @@ export interface ListAssetModelCompositeModelsRequest {
  */
 export interface ListAssetModelCompositeModelsResponse {
   /**
-   * @public
    * <p>A list that summarizes each composite model.</p>
+   * @public
    */
   assetModelCompositeModelSummaries: AssetModelCompositeModelSummary[] | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -7146,26 +7146,25 @@ export type ListAssetModelPropertiesFilter =
  */
 export interface ListAssetModelPropertiesRequest {
   /**
-   * @public
    * <p>The ID of the asset model. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   assetModelId: string | undefined;
 
   /**
-   * @public
    * <p>The token to be used for the next set of paginated results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return for each paginated request. If not specified, the default value is 50.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p> Filters the requested list of asset model properties. You can choose one of the following
    *       options:</p>
    *          <ul>
@@ -7182,6 +7181,7 @@ export interface ListAssetModelPropertiesRequest {
    *          </ul>
    *          <p>Default: <code>BASE</code>
    *          </p>
+   * @public
    */
   filter?: ListAssetModelPropertiesFilter;
 }
@@ -7191,14 +7191,14 @@ export interface ListAssetModelPropertiesRequest {
  */
 export interface ListAssetModelPropertiesResponse {
   /**
-   * @public
    * <p>A list that summarizes the properties associated with the specified asset model.</p>
+   * @public
    */
   assetModelPropertySummaries: AssetModelPropertySummary[] | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -7208,20 +7208,19 @@ export interface ListAssetModelPropertiesResponse {
  */
 export interface ListAssetModelsRequest {
   /**
-   * @public
    * <p>The token to be used for the next set of paginated results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return for each paginated request.</p>
    *          <p>Default: 50</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The type of asset model.</p>
    *          <ul>
    *             <li>
@@ -7235,6 +7234,7 @@ export interface ListAssetModelsRequest {
    *    models of other asset models. You can't create assets directly from this type of asset model. </p>
    *             </li>
    *          </ul>
+   * @public
    */
   assetModelTypes?: AssetModelType[];
 }
@@ -7244,14 +7244,14 @@ export interface ListAssetModelsRequest {
  */
 export interface ListAssetModelsResponse {
   /**
-   * @public
    * <p>A list that summarizes each asset model.</p>
+   * @public
    */
   assetModelSummaries: AssetModelSummary[] | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -7275,26 +7275,25 @@ export type ListAssetPropertiesFilter = (typeof ListAssetPropertiesFilter)[keyof
  */
 export interface ListAssetPropertiesRequest {
   /**
-   * @public
    * <p>The ID of the asset. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   assetId: string | undefined;
 
   /**
-   * @public
    * <p>The token to be used for the next set of paginated results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return for each paginated request. If not specified, the default value is 50.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p> Filters the requested list of asset properties. You can choose one of the following
    *       options:</p>
    *          <ul>
@@ -7311,6 +7310,7 @@ export interface ListAssetPropertiesRequest {
    *          </ul>
    *          <p>Default: <code>BASE</code>
    *          </p>
+   * @public
    */
   filter?: ListAssetPropertiesFilter;
 }
@@ -7320,14 +7320,14 @@ export interface ListAssetPropertiesRequest {
  */
 export interface ListAssetPropertiesResponse {
   /**
-   * @public
    * <p>A list that summarizes the properties associated with the specified asset.</p>
+   * @public
    */
   assetPropertySummaries: AssetPropertySummary[] | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -7350,14 +7350,13 @@ export type TraversalType = (typeof TraversalType)[keyof typeof TraversalType];
  */
 export interface ListAssetRelationshipsRequest {
   /**
-   * @public
    * <p>The ID of the asset. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   assetId: string | undefined;
 
   /**
-   * @public
    * <p>The type of traversal to use to identify asset relationships. Choose the following
    *       option:</p>
    *          <ul>
@@ -7368,18 +7367,19 @@ export interface ListAssetRelationshipsRequest {
    *           of <code>assetRelationshipSummaries</code>, and the root asset is the last result.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   traversalType: TraversalType | undefined;
 
   /**
-   * @public
    * <p>The token to be used for the next set of paginated results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return for each paginated request.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -7389,14 +7389,14 @@ export interface ListAssetRelationshipsRequest {
  */
 export interface ListAssetRelationshipsResponse {
   /**
-   * @public
    * <p>A list that summarizes each asset relationship.</p>
+   * @public
    */
   assetRelationshipSummaries: AssetRelationshipSummary[] | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -7420,28 +7420,27 @@ export type ListAssetsFilter = (typeof ListAssetsFilter)[keyof typeof ListAssets
  */
 export interface ListAssetsRequest {
   /**
-   * @public
    * <p>The token to be used for the next set of paginated results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return for each paginated request.</p>
    *          <p>Default: 50</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The ID of the asset model by which to filter the list of assets. This parameter is
    *       required if you choose <code>ALL</code> for <code>filter</code>. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   assetModelId?: string;
 
   /**
-   * @public
    * <p>The filter for the requested list of assets. Choose one of the following options:</p>
    *          <ul>
    *             <li>
@@ -7458,6 +7457,7 @@ export interface ListAssetsRequest {
    *          </ul>
    *          <p>Default: <code>ALL</code>
    *          </p>
+   * @public
    */
   filter?: ListAssetsFilter;
 }
@@ -7467,14 +7467,14 @@ export interface ListAssetsRequest {
  */
 export interface ListAssetsResponse {
   /**
-   * @public
    * <p>A list that summarizes each asset.</p>
+   * @public
    */
   assetSummaries: AssetSummary[] | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -7498,25 +7498,24 @@ export type TraversalDirection = (typeof TraversalDirection)[keyof typeof Traver
  */
 export interface ListAssociatedAssetsRequest {
   /**
-   * @public
    * <p>The ID of the asset to query. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   assetId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the hierarchy by which child assets are associated to the asset. (This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.) To find a
    *       hierarchy ID, use the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAsset.html">DescribeAsset</a> or <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModel.html">DescribeAssetModel</a> operations. This
    *       parameter is required if you choose <code>CHILD</code> for
    *       <code>traversalDirection</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html">Asset hierarchies</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   hierarchyId?: string;
 
   /**
-   * @public
    * <p>The direction to list associated assets. Choose one of the following options:</p>
    *          <ul>
    *             <li>
@@ -7532,19 +7531,20 @@ export interface ListAssociatedAssetsRequest {
    *          </ul>
    *          <p>Default: <code>CHILD</code>
    *          </p>
+   * @public
    */
   traversalDirection?: TraversalDirection;
 
   /**
-   * @public
    * <p>The token to be used for the next set of paginated results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return for each paginated request.</p>
    *          <p>Default: 50</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -7554,14 +7554,14 @@ export interface ListAssociatedAssetsRequest {
  */
 export interface ListAssociatedAssetsResponse {
   /**
-   * @public
    * <p>A list that summarizes the associated assets.</p>
+   * @public
    */
   assetSummaries: AssociatedAssetsSummary[] | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -7590,43 +7590,42 @@ export type ListBulkImportJobsFilter = (typeof ListBulkImportJobsFilter)[keyof t
  */
 export interface ListBulkImportJobsRequest {
   /**
-   * @public
    * <p>The token to be used for the next set of paginated results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return for each paginated request.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>You can use a filter to select the bulk import jobs that you want to retrieve.</p>
+   * @public
    */
   filter?: ListBulkImportJobsFilter;
 }
 
 /**
- * @public
  * <p>Contains the job summary information.</p>
+ * @public
  */
 export interface JobSummary {
   /**
-   * @public
    * <p>The ID of the job.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The unique name that helps identify the job request.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The status of the bulk import job can be one of following values:</p>
    *          <ul>
    *             <li>
@@ -7656,6 +7655,7 @@ export interface JobSummary {
    *         You can use logs saved in the specified error report location in Amazon S3 to troubleshoot issues.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   status: JobStatus | undefined;
 }
@@ -7665,14 +7665,14 @@ export interface JobSummary {
  */
 export interface ListBulkImportJobsResponse {
   /**
-   * @public
    * <p>One or more job summaries to list.</p>
+   * @public
    */
   jobSummaries: JobSummary[] | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -7682,46 +7682,46 @@ export interface ListBulkImportJobsResponse {
  */
 export interface ListCompositionRelationshipsRequest {
   /**
-   * @public
    * <p>The ID of the asset model. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   assetModelId: string | undefined;
 
   /**
-   * @public
    * <p>The token to be used for the next set of paginated results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return for each paginated request.</p>
    *          <p>Default: 50</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Contains a summary of the components of the composite model.</p>
+ * @public
  */
 export interface CompositionRelationshipSummary {
   /**
-   * @public
    * <p>The ID of the asset model, in UUID format.</p>
+   * @public
    */
   assetModelId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of a composite model on this asset model.</p>
+   * @public
    */
   assetModelCompositeModelId: string | undefined;
 
   /**
-   * @public
    * <p>The composite model type. Valid values are <code>AWS/ALARM</code>, <code>CUSTOM</code>, or <code> AWS/L4E_ANOMALY</code>.</p>
+   * @public
    */
   assetModelCompositeModelType: string | undefined;
 }
@@ -7731,14 +7731,14 @@ export interface CompositionRelationshipSummary {
  */
 export interface ListCompositionRelationshipsResponse {
   /**
-   * @public
    * <p>A list that summarizes each composition relationship.</p>
+   * @public
    */
   compositionRelationshipSummaries: CompositionRelationshipSummary[] | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -7748,57 +7748,57 @@ export interface ListCompositionRelationshipsResponse {
  */
 export interface ListDashboardsRequest {
   /**
-   * @public
    * <p>The ID of the project.</p>
+   * @public
    */
   projectId: string | undefined;
 
   /**
-   * @public
    * <p>The token to be used for the next set of paginated results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return for each paginated request.</p>
    *          <p>Default: 50</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Contains a dashboard summary.</p>
+ * @public
  */
 export interface DashboardSummary {
   /**
-   * @public
    * <p>The ID of the dashboard.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The name of the dashboard</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The dashboard's description.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The date the dashboard was created, in Unix epoch time.</p>
+   * @public
    */
   creationDate?: Date;
 
   /**
-   * @public
    * <p>The date the dashboard was last updated, in Unix epoch time.</p>
+   * @public
    */
   lastUpdateDate?: Date;
 }
@@ -7808,14 +7808,14 @@ export interface DashboardSummary {
  */
 export interface ListDashboardsResponse {
   /**
-   * @public
    * <p>A list that summarizes each dashboard in the project.</p>
+   * @public
    */
   dashboardSummaries: DashboardSummary[] | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -7825,59 +7825,59 @@ export interface ListDashboardsResponse {
  */
 export interface ListGatewaysRequest {
   /**
-   * @public
    * <p>The token to be used for the next set of paginated results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return for each paginated request.</p>
    *          <p>Default: 50</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Contains a summary of a gateway.</p>
+ * @public
  */
 export interface GatewaySummary {
   /**
-   * @public
    * <p>The ID of the gateway device.</p>
+   * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the asset.</p>
+   * @public
    */
   gatewayName: string | undefined;
 
   /**
-   * @public
    * <p>Contains a gateway's platform information.</p>
+   * @public
    */
   gatewayPlatform?: GatewayPlatform;
 
   /**
-   * @public
    * <p>A list of gateway capability summaries that each contain a namespace and status. Each
    *       gateway capability defines data sources for the gateway. To retrieve a capability
    *       configuration's definition, use <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGatewayCapabilityConfiguration.html">DescribeGatewayCapabilityConfiguration</a>.</p>
+   * @public
    */
   gatewayCapabilitySummaries?: GatewayCapabilitySummary[];
 
   /**
-   * @public
    * <p>The date the gateway was created, in Unix epoch time.</p>
+   * @public
    */
   creationDate: Date | undefined;
 
   /**
-   * @public
    * <p>The date the gateway was last updated, in Unix epoch time.</p>
+   * @public
    */
   lastUpdateDate: Date | undefined;
 }
@@ -7887,14 +7887,14 @@ export interface GatewaySummary {
  */
 export interface ListGatewaysResponse {
   /**
-   * @public
    * <p>A list that summarizes each gateway.</p>
+   * @public
    */
   gatewaySummaries: GatewaySummary[] | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -7904,73 +7904,73 @@ export interface ListGatewaysResponse {
  */
 export interface ListPortalsRequest {
   /**
-   * @public
    * <p>The token to be used for the next set of paginated results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return for each paginated request.</p>
    *          <p>Default: 50</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Contains a portal summary.</p>
+ * @public
  */
 export interface PortalSummary {
   /**
-   * @public
    * <p>The ID of the portal.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The name of the portal.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The portal's description.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The URL for the IoT SiteWise Monitor portal. You can use this URL to access portals that
    *       use IAM Identity Center for authentication. For portals that use IAM for authentication, you must use the
    *       IoT SiteWise console to get a URL that you can use to access the portal.</p>
+   * @public
    */
   startUrl: string | undefined;
 
   /**
-   * @public
    * <p>The date the portal was created, in Unix epoch time.</p>
+   * @public
    */
   creationDate?: Date;
 
   /**
-   * @public
    * <p>The date the portal was last updated, in Unix epoch time.</p>
+   * @public
    */
   lastUpdateDate?: Date;
 
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the service role that allows the portal's users to access your IoT SiteWise
    *       resources on your behalf. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-service-role.html">Using service roles for IoT SiteWise Monitor</a> in the
    *         <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   roleArn?: string;
 
   /**
-   * @public
    * <p>Contains information about the current status of a portal.</p>
+   * @public
    */
   status: PortalStatus | undefined;
 }
@@ -7980,14 +7980,14 @@ export interface PortalSummary {
  */
 export interface ListPortalsResponse {
   /**
-   * @public
    * <p>A list that summarizes each portal.</p>
+   * @public
    */
   portalSummaries?: PortalSummary[];
 
   /**
-   * @public
    * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -7997,21 +7997,21 @@ export interface ListPortalsResponse {
  */
 export interface ListProjectAssetsRequest {
   /**
-   * @public
    * <p>The ID of the project.</p>
+   * @public
    */
   projectId: string | undefined;
 
   /**
-   * @public
    * <p>The token to be used for the next set of paginated results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return for each paginated request.</p>
    *          <p>Default: 50</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -8021,14 +8021,14 @@ export interface ListProjectAssetsRequest {
  */
 export interface ListProjectAssetsResponse {
   /**
-   * @public
    * <p>A list that contains the IDs of each asset associated with the project.</p>
+   * @public
    */
   assetIds: string[] | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -8038,57 +8038,57 @@ export interface ListProjectAssetsResponse {
  */
 export interface ListProjectsRequest {
   /**
-   * @public
    * <p>The ID of the portal.</p>
+   * @public
    */
   portalId: string | undefined;
 
   /**
-   * @public
    * <p>The token to be used for the next set of paginated results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return for each paginated request.</p>
    *          <p>Default: 50</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Contains project summary information.</p>
+ * @public
  */
 export interface ProjectSummary {
   /**
-   * @public
    * <p>The ID of the project.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The name of the project.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The project's description.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The date the project was created, in Unix epoch time.</p>
+   * @public
    */
   creationDate?: Date;
 
   /**
-   * @public
    * <p>The date the project was last updated, in Unix epoch time.</p>
+   * @public
    */
   lastUpdateDate?: Date;
 }
@@ -8098,14 +8098,14 @@ export interface ProjectSummary {
  */
 export interface ListProjectsResponse {
   /**
-   * @public
    * <p>A list that summarizes each project in the portal.</p>
+   * @public
    */
   projectSummaries: ProjectSummary[] | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -8115,8 +8115,8 @@ export interface ListProjectsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the resource.</p>
+   * @public
    */
   resourceArn: string | undefined;
 }
@@ -8126,17 +8126,17 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>The list of key-value pairs that contain metadata for the resource. For more information,
    *       see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your IoT SiteWise
    *         resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
 
 /**
- * @public
  * <p>You are not authorized.</p>
+ * @public
  */
 export class UnauthorizedException extends __BaseException {
   readonly name: "UnauthorizedException" = "UnauthorizedException";
@@ -8173,32 +8173,31 @@ export type ListTimeSeriesType = (typeof ListTimeSeriesType)[keyof typeof ListTi
  */
 export interface ListTimeSeriesRequest {
   /**
-   * @public
    * <p>The token to be used for the next set of paginated results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return for each paginated request.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The ID of the asset in which the asset property was created. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
    */
   assetId?: string;
 
   /**
-   * @public
    * <p>The alias prefix of the time series.</p>
+   * @public
    */
   aliasPrefix?: string;
 
   /**
-   * @public
    * <p>The type of the time series. The time series type can be one of the following
    *       values:</p>
    *          <ul>
@@ -8213,74 +8212,75 @@ export interface ListTimeSeriesRequest {
    *           property.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   timeSeriesType?: ListTimeSeriesType;
 }
 
 /**
- * @public
  * <p>Contains a summary of a time series (data stream).</p>
+ * @public
  */
 export interface TimeSeriesSummary {
   /**
-   * @public
    * <p>The ID of the asset in which the asset property was created.</p>
+   * @public
    */
   assetId?: string;
 
   /**
-   * @public
    * <p>The ID of the asset property, in UUID format.</p>
+   * @public
    */
   propertyId?: string;
 
   /**
-   * @public
    * <p>The alias that identifies the time series.</p>
+   * @public
    */
   alias?: string;
 
   /**
-   * @public
    * <p>The ID of the time series.</p>
+   * @public
    */
   timeSeriesId: string | undefined;
 
   /**
-   * @public
    * <p>The data type of the time series.</p>
    *          <p>If you specify <code>STRUCT</code>, you must also specify <code>dataTypeSpec</code> to identify the type of the structure for this time series.</p>
+   * @public
    */
   dataType: PropertyDataType | undefined;
 
   /**
-   * @public
    * <p>The data type of the structure for this time series. This parameter is required for time series
    *       that have the <code>STRUCT</code> data type.</p>
    *          <p>The options for this parameter depend on the type of the composite model
    *       in which you created the asset property that is associated with your time series.
    *       Use <code>AWS/ALARM_STATE</code> for alarm state in alarm composite models.</p>
+   * @public
    */
   dataTypeSpec?: string;
 
   /**
-   * @public
    * <p>The date that the time series was created, in Unix epoch time.</p>
+   * @public
    */
   timeSeriesCreationDate: Date | undefined;
 
   /**
-   * @public
    * <p>The date that the time series was last updated, in Unix epoch time.</p>
+   * @public
    */
   timeSeriesLastUpdateDate: Date | undefined;
 
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the time series, which has the following format.</p>
    *          <p>
    *             <code>arn:$\{Partition\}:iotsitewise:$\{Region\}:$\{Account\}:time-series/$\{TimeSeriesId\}</code>
    *          </p>
+   * @public
    */
   timeSeriesArn: string | undefined;
 }
@@ -8290,14 +8290,14 @@ export interface TimeSeriesSummary {
  */
 export interface ListTimeSeriesResponse {
   /**
-   * @public
    * <p>One or more time series summaries to list.</p>
+   * @public
    */
   TimeSeriesSummaries: TimeSeriesSummary[] | undefined;
 
   /**
-   * @public
    * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
    */
   nextToken?: string;
 }

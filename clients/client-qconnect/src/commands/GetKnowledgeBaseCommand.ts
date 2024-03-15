@@ -27,7 +27,6 @@ export interface GetKnowledgeBaseCommandInput extends GetKnowledgeBaseRequest {}
 export interface GetKnowledgeBaseCommandOutput extends GetKnowledgeBaseResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the knowledge base.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface GetKnowledgeBaseCommandOutput extends GetKnowledgeBaseResponse,
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ * @public
  */
 export class GetKnowledgeBaseCommand extends $Command
   .classBuilder<

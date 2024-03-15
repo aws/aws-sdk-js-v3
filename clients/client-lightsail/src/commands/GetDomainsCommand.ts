@@ -27,7 +27,6 @@ export interface GetDomainsCommandInput extends GetDomainsRequest {}
 export interface GetDomainsCommandOutput extends GetDomainsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all domains in the user's account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -126,6 +125,7 @@ export interface GetDomainsCommandOutput extends GetDomainsResult, __MetadataBea
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetDomainsCommand extends $Command
   .classBuilder<

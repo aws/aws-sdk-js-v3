@@ -31,7 +31,6 @@ export interface DeleteEarthObservationJobCommandInput extends DeleteEarthObserv
 export interface DeleteEarthObservationJobCommandOutput extends DeleteEarthObservationJobOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use this operation to delete an Earth Observation job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface DeleteEarthObservationJobCommandOutput extends DeleteEarthObser
  * @throws {@link SageMakerGeospatialServiceException}
  * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
+ * @public
  */
 export class DeleteEarthObservationJobCommand extends $Command
   .classBuilder<

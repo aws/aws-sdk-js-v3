@@ -27,7 +27,6 @@ export interface ListCoverageStatisticsCommandInput extends ListCoverageStatisti
 export interface ListCoverageStatisticsCommandOutput extends ListCoverageStatisticsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists Amazon Inspector coverage statistics for your environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -136,6 +135,7 @@ export interface ListCoverageStatisticsCommandOutput extends ListCoverageStatist
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class ListCoverageStatisticsCommand extends $Command
   .classBuilder<

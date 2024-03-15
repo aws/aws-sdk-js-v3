@@ -27,7 +27,6 @@ export interface AssociateResourceShareCommandInput extends AssociateResourceSha
 export interface AssociateResourceShareCommandOutput extends AssociateResourceShareResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds the specified list of principals and list of resources to a resource share. Principals that
  *             already have access to this resource share immediately receive access to the added resources.
  *             Newly added principals immediately receive access to the resources shared in this resource share. </p>
@@ -121,6 +120,7 @@ export interface AssociateResourceShareCommandOutput extends AssociateResourceSh
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * @public
  */
 export class AssociateResourceShareCommand extends $Command
   .classBuilder<

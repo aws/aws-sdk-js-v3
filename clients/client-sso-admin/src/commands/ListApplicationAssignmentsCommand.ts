@@ -27,7 +27,6 @@ export interface ListApplicationAssignmentsCommandInput extends ListApplicationA
 export interface ListApplicationAssignmentsCommandOutput extends ListApplicationAssignmentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists Amazon Web Services account users that are assigned to an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface ListApplicationAssignmentsCommandOutput extends ListApplication
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class ListApplicationAssignmentsCommand extends $Command
   .classBuilder<

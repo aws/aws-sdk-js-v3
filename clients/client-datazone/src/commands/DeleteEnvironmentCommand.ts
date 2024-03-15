@@ -27,7 +27,6 @@ export interface DeleteEnvironmentCommandInput extends DeleteEnvironmentInput {}
 export interface DeleteEnvironmentCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an environment in Amazon DataZone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface DeleteEnvironmentCommandOutput extends __MetadataBearer {}
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class DeleteEnvironmentCommand extends $Command
   .classBuilder<

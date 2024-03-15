@@ -36,7 +36,6 @@ export interface GetSagemakerServicecatalogPortfolioStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the status of Service Catalog in SageMaker. Service Catalog is used to create
  *             SageMaker projects.</p>
  * @example
@@ -63,6 +62,7 @@ export interface GetSagemakerServicecatalogPortfolioStatusCommandOutput
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class GetSagemakerServicecatalogPortfolioStatusCommand extends $Command
   .classBuilder<

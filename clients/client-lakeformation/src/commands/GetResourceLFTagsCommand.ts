@@ -27,7 +27,6 @@ export interface GetResourceLFTagsCommandInput extends GetResourceLFTagsRequest 
 export interface GetResourceLFTagsCommandOutput extends GetResourceLFTagsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the LF-tags applied to a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -160,6 +159,7 @@ export interface GetResourceLFTagsCommandOutput extends GetResourceLFTagsRespons
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class GetResourceLFTagsCommand extends $Command
   .classBuilder<

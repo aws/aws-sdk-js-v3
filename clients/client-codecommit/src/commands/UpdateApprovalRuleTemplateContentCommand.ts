@@ -32,7 +32,6 @@ export interface UpdateApprovalRuleTemplateContentCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the content of an approval rule template. You can change the number of
  *             required approvals, the membership of the approval rule, and whether an approval pool is
  *             defined.</p>
@@ -94,6 +93,7 @@ export interface UpdateApprovalRuleTemplateContentCommandOutput
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class UpdateApprovalRuleTemplateContentCommand extends $Command
   .classBuilder<

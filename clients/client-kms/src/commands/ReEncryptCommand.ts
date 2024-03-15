@@ -27,7 +27,6 @@ export interface ReEncryptCommandInput extends ReEncryptRequest {}
 export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Decrypts ciphertext and then reencrypts it entirely within KMS. You can use this
  *       operation to change the KMS key under which data is encrypted, such as when you <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#rotate-keys-manually">manually
  *         rotate</a> a KMS key or change the KMS key that protects a ciphertext. You can also use
@@ -250,6 +249,7 @@ export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBea
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To reencrypt data
  * ```javascript
  * // The following example reencrypts data with the specified KMS key.

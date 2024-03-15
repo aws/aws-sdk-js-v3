@@ -28,7 +28,6 @@ export interface SendMessageBatchCommandInput extends SendMessageBatchRequest {}
 export interface SendMessageBatchCommandOutput extends SendMessageBatchResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>You can use <code>SendMessageBatch</code> to send up to 10 messages to the specified
  *             queue by assigning either identical or different values to each message (or by not
  *             assigning values at all). This is a batch version of <code>
@@ -214,6 +213,7 @@ export interface SendMessageBatchCommandOutput extends SendMessageBatchResult, _
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ * @public
  */
 export class SendMessageBatchCommand extends $Command
   .classBuilder<

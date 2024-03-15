@@ -27,7 +27,6 @@ export interface DeleteItemCommandInput extends DeleteItemInput {}
 export interface DeleteItemCommandOutput extends DeleteItemOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a single item in a table by primary key. You can perform a conditional delete
  *             operation that deletes the item if it exists, or if it has an expected attribute
  *             value.</p>
@@ -240,6 +239,7 @@ export interface DeleteItemCommandOutput extends DeleteItemOutput, __MetadataBea
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  * @example To delete an item
  * ```javascript
  * // This example deletes an item from the Music table.

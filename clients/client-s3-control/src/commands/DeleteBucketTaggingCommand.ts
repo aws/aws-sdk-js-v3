@@ -28,7 +28,6 @@ export interface DeleteBucketTaggingCommandInput extends DeleteBucketTaggingRequ
 export interface DeleteBucketTaggingCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This action deletes an Amazon S3 on Outposts bucket's tags. To delete an S3 bucket tags,
  *             see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html">DeleteBucketTagging</a> in the <i>Amazon S3 API Reference</i>. </p>
@@ -77,6 +76,7 @@ export interface DeleteBucketTaggingCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class DeleteBucketTaggingCommand extends $Command
   .classBuilder<

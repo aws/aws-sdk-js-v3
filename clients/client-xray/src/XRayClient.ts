@@ -366,9 +366,9 @@ export type XRayClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpH
 export interface XRayClientResolvedConfig extends XRayClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Amazon Web Services X-Ray provides APIs for managing debug traces and retrieving service maps
  *       and other data created by processing those traces.</p>
+ * @public
  */
 export class XRayClient extends __Client<
   __HttpHandlerOptions,

@@ -27,7 +27,6 @@ export interface DeleteClusterSnapshotCommandInput extends DeleteClusterSnapshot
 export interface DeleteClusterSnapshotCommandOutput extends DeleteClusterSnapshotOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete an elastic cluster snapshot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface DeleteClusterSnapshotCommandOutput extends DeleteClusterSnapsho
  * @throws {@link DocDBElasticServiceException}
  * <p>Base exception class for all service exceptions from DocDBElastic service.</p>
  *
+ * @public
  */
 export class DeleteClusterSnapshotCommand extends $Command
   .classBuilder<

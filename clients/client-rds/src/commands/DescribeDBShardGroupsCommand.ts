@@ -27,7 +27,6 @@ export interface DescribeDBShardGroupsCommandInput extends DescribeDBShardGroups
 export interface DescribeDBShardGroupsCommandOutput extends DescribeDBShardGroupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes existing Aurora Limitless Database DB shard groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface DescribeDBShardGroupsCommandOutput extends DescribeDBShardGroup
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  */
 export class DescribeDBShardGroupsCommand extends $Command
   .classBuilder<

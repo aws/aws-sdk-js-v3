@@ -27,7 +27,6 @@ export interface ListIdentityResolutionJobsCommandInput extends ListIdentityReso
 export interface ListIdentityResolutionJobsCommandOutput extends ListIdentityResolutionJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all of the Identity Resolution Jobs in your domain. The response sorts the list by
  *             <code>JobStartTime</code>.</p>
  * @example
@@ -94,6 +93,7 @@ export interface ListIdentityResolutionJobsCommandOutput extends ListIdentityRes
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * @public
  */
 export class ListIdentityResolutionJobsCommand extends $Command
   .classBuilder<

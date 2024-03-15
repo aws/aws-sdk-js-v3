@@ -27,7 +27,6 @@ export interface DeleteMapCommandInput extends DeleteMapRequest {}
 export interface DeleteMapCommandOutput extends DeleteMapResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a map resource from your Amazon Web Services account.</p>
  *          <note>
  *             <p>This operation deletes the resource permanently. If the map is being used in an application,
@@ -73,6 +72,7 @@ export interface DeleteMapCommandOutput extends DeleteMapResponse, __MetadataBea
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class DeleteMapCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteRuleCommandInput extends DeleteRuleRequest {}
 export interface DeleteRuleCommandOutput extends DeleteRuleResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the rule. You cannot delete a rule if it is used by an <code>ACTIVE</code> or <code>INACTIVE</code> detector version.</p>
  *          <p>When you delete a rule, Amazon Fraud Detector permanently deletes that rule and the data is no longer stored in Amazon Fraud Detector.</p>
  * @example
@@ -73,6 +72,7 @@ export interface DeleteRuleCommandOutput extends DeleteRuleResult, __MetadataBea
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class DeleteRuleCommand extends $Command
   .classBuilder<

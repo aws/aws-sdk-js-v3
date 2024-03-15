@@ -27,7 +27,6 @@ export interface ListUsersCommandInput extends ListUsersRequest {}
 export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the IAM users that have the specified path prefix. If no path prefix is
  *             specified, the operation returns all users in the Amazon Web Services account. If there are none, the
  *             operation returns an empty list.</p>
@@ -99,6 +98,7 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To list IAM users
  * ```javascript
  * // The following command lists the IAM users in the current account.

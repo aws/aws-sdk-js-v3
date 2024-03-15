@@ -27,9 +27,6 @@ export interface UpdateFlowTemplateCommandInput extends UpdateFlowTemplateReques
 export interface UpdateFlowTemplateCommandOutput extends UpdateFlowTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated since: 2022-08-30
- *
  * <p>Updates the specified workflow. All deployed systems and system instances that use the workflow will see the changes in the flow when it is redeployed. If you don't want this
  *          behavior, copy the workflow (creating a new workflow with a different ID), and update the copy. The workflow can contain only entities in the specified namespace. </p>
  * @example
@@ -80,6 +77,8 @@ export interface UpdateFlowTemplateCommandOutput extends UpdateFlowTemplateRespo
  * @throws {@link IoTThingsGraphServiceException}
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ * @public
+ * @deprecated since: 2022-08-30
  */
 export class UpdateFlowTemplateCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface CreateAccessKeyCommandInput extends CreateAccessKeyRequest {}
 export interface CreateAccessKeyCommandOutput extends CreateAccessKeyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Creates a new Amazon Web Services secret access key and corresponding Amazon Web Services access key ID for the
  *             specified user. The default status for new keys is <code>Active</code>.</p>
  *          <p>If you do not specify a user name, IAM determines the user name implicitly based on
@@ -90,6 +89,7 @@ export interface CreateAccessKeyCommandOutput extends CreateAccessKeyResponse, _
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To create an access key for an IAM user
  * ```javascript
  * // The following command creates an access key (access key ID and secret access key) for the IAM user named Bob.

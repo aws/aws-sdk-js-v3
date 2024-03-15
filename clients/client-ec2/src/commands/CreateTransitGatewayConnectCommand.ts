@@ -27,7 +27,6 @@ export interface CreateTransitGatewayConnectCommandInput extends CreateTransitGa
 export interface CreateTransitGatewayConnectCommandOutput extends CreateTransitGatewayConnectResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Connect attachment from a specified transit gateway attachment. A Connect attachment is a GRE-based tunnel attachment that you can use to establish a connection between a transit gateway and an appliance.</p>
  *          <p>A Connect attachment uses an existing VPC or Amazon Web Services Direct Connect attachment as the underlying transport mechanism.</p>
  * @example
@@ -86,6 +85,7 @@ export interface CreateTransitGatewayConnectCommandOutput extends CreateTransitG
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateTransitGatewayConnectCommand extends $Command
   .classBuilder<

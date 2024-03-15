@@ -32,7 +32,6 @@ export interface StartProtectedQueryCommandInput extends StartProtectedQueryInpu
 export interface StartProtectedQueryCommandOutput extends StartProtectedQueryOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a protected query that is started by Clean Rooms.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -147,6 +146,7 @@ export interface StartProtectedQueryCommandOutput extends StartProtectedQueryOut
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class StartProtectedQueryCommand extends $Command
   .classBuilder<

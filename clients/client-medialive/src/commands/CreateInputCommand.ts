@@ -27,7 +27,6 @@ export interface CreateInputCommandInput extends CreateInputRequest {}
 export interface CreateInputCommandOutput extends CreateInputResponse, __MetadataBearer {}
 
 /**
- * @public
  * Create an input
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -161,6 +160,7 @@ export interface CreateInputCommandOutput extends CreateInputResponse, __Metadat
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class CreateInputCommand extends $Command
   .classBuilder<

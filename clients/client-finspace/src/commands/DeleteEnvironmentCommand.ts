@@ -27,9 +27,6 @@ export interface DeleteEnvironmentCommandInput extends DeleteEnvironmentRequest 
 export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This method will be discontinued.
- *
  * <p>Delete an FinSpace environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +68,8 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentRespons
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
+ * @deprecated This method will be discontinued.
  */
 export class DeleteEnvironmentCommand extends $Command
   .classBuilder<

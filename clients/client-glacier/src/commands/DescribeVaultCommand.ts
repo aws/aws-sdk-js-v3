@@ -27,7 +27,6 @@ export interface DescribeVaultCommandInput extends DescribeVaultInput {}
 export interface DescribeVaultCommandOutput extends DescribeVaultOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation returns information about a vault, including the vault's Amazon
  *          Resource Name (ARN), the date the vault was created, the number of archives it contains,
  *          and the total size of all the archives in the vault. The number of archives and their total
@@ -91,6 +90,7 @@ export interface DescribeVaultCommandOutput extends DescribeVaultOutput, __Metad
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * @public
  * @example To retrieve information about a vault
  * ```javascript
  * // The example retrieves data about a vault named my-vault.

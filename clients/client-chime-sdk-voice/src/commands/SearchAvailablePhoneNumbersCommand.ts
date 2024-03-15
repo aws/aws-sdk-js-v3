@@ -36,7 +36,6 @@ export interface SearchAvailablePhoneNumbersCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Searches the provisioned phone numbers in an organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface SearchAvailablePhoneNumbersCommandOutput
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class SearchAvailablePhoneNumbersCommand extends $Command
   .classBuilder<

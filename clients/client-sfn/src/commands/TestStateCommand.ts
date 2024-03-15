@@ -32,7 +32,6 @@ export interface TestStateCommandInput extends TestStateInput {}
 export interface TestStateCommandOutput extends TestStateOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Accepts the definition of a single state and executes it. You can test a state without creating a state machine or updating an existing state machine. Using this API, you can test the following:</p>
  *          <ul>
  *             <li>
@@ -151,6 +150,7 @@ export interface TestStateCommandOutput extends TestStateOutput, __MetadataBeare
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * @public
  */
 export class TestStateCommand extends $Command
   .classBuilder<

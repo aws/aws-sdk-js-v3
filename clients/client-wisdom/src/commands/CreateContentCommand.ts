@@ -31,7 +31,6 @@ export interface CreateContentCommandInput extends CreateContentRequest {}
 export interface CreateContentCommandOutput extends CreateContentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates Wisdom content. Before to calling this API, use <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a> to
  *       upload an asset.</p>
  * @example
@@ -109,6 +108,7 @@ export interface CreateContentCommandOutput extends CreateContentResponse, __Met
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ * @public
  */
 export class CreateContentCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateClusterVersionCommandInput extends UpdateClusterVersionRe
 export interface UpdateClusterVersionCommandOutput extends UpdateClusterVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an Amazon EKS cluster to the specified Kubernetes version. Your cluster
  *             continues to function during the update. The response output includes an update ID that
  *             you can use to track the status of your cluster update with the <a>DescribeUpdate</a> API operation.</p>
@@ -110,6 +109,7 @@ export interface UpdateClusterVersionCommandOutput extends UpdateClusterVersionR
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class UpdateClusterVersionCommand extends $Command
   .classBuilder<

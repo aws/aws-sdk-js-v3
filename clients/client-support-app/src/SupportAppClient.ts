@@ -297,7 +297,6 @@ export type SupportAppClientResolvedConfigType = __SmithyResolvedConfiguration<_
 export interface SupportAppClientResolvedConfig extends SupportAppClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>Amazon Web Services Support App in Slack</fullname>
  *          <p>You can use the Amazon Web Services Support App in Slack API to manage your support cases in Slack for your
  *       Amazon Web Services account. After you configure your Slack workspace and channel with the Amazon Web Services Support App, you can
@@ -352,6 +351,7 @@ export interface SupportAppClientResolvedConfig extends SupportAppClientResolved
  *                </li>
  *             </ul>
  *          </note>
+ * @public
  */
 export class SupportAppClient extends __Client<
   __HttpHandlerOptions,

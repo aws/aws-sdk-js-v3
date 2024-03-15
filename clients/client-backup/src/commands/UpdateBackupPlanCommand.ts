@@ -31,7 +31,6 @@ export interface UpdateBackupPlanCommandInput extends UpdateBackupPlanInput {}
 export interface UpdateBackupPlanCommandOutput extends UpdateBackupPlanOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing backup plan identified by its <code>backupPlanId</code> with the
  *          input document in JSON format. The new version is uniquely identified by a
  *             <code>VersionId</code>.</p>
@@ -125,6 +124,7 @@ export interface UpdateBackupPlanCommandOutput extends UpdateBackupPlanOutput, _
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class UpdateBackupPlanCommand extends $Command
   .classBuilder<

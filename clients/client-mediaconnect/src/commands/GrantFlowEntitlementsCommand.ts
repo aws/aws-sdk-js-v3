@@ -27,7 +27,6 @@ export interface GrantFlowEntitlementsCommandInput extends GrantFlowEntitlements
 export interface GrantFlowEntitlementsCommandOutput extends GrantFlowEntitlementsResponse, __MetadataBearer {}
 
 /**
- * @public
  * Grants entitlements to an existing flow.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -121,6 +120,7 @@ export interface GrantFlowEntitlementsCommandOutput extends GrantFlowEntitlement
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ * @public
  */
 export class GrantFlowEntitlementsCommand extends $Command
   .classBuilder<

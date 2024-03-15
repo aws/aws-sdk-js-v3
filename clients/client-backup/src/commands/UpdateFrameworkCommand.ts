@@ -27,7 +27,6 @@ export interface UpdateFrameworkCommandInput extends UpdateFrameworkInput {}
 export interface UpdateFrameworkCommandOutput extends UpdateFrameworkOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing framework identified by its <code>FrameworkName</code> with the
  *          input document in JSON format.</p>
  * @example
@@ -106,6 +105,7 @@ export interface UpdateFrameworkCommandOutput extends UpdateFrameworkOutput, __M
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class UpdateFrameworkCommand extends $Command
   .classBuilder<

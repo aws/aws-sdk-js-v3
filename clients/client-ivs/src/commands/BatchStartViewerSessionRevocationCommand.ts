@@ -35,7 +35,6 @@ export interface BatchStartViewerSessionRevocationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Performs <a>StartViewerSessionRevocation</a> on multiple channel ARN and viewer
  *       ID pairs simultaneously.</p>
  * @example
@@ -89,6 +88,7 @@ export interface BatchStartViewerSessionRevocationCommandOutput
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ * @public
  */
 export class BatchStartViewerSessionRevocationCommand extends $Command
   .classBuilder<

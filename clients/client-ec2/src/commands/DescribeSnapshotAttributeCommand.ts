@@ -27,7 +27,6 @@ export interface DescribeSnapshotAttributeCommandInput extends DescribeSnapshotA
 export interface DescribeSnapshotAttributeCommandOutput extends DescribeSnapshotAttributeResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified attribute of the specified snapshot. You can specify only one
  *       attribute at a time.</p>
  *          <p>For more information about EBS snapshots, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-snapshots.html">Amazon EBS snapshots</a> in the <i>Amazon EBS User Guide</i>.</p>
@@ -71,6 +70,7 @@ export interface DescribeSnapshotAttributeCommandOutput extends DescribeSnapshot
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To describe snapshot attributes
  * ```javascript
  * // This example describes the ``createVolumePermission`` attribute on a snapshot with the snapshot ID of ``snap-066877671789bd71b``.

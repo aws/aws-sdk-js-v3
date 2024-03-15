@@ -27,7 +27,6 @@ export interface CreateUpdatedImageCommandInput extends CreateUpdatedImageReques
 export interface CreateUpdatedImageCommandOutput extends CreateUpdatedImageResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new image with the latest Windows operating system updates, driver updates, and AppStream 2.0 agent software.</p>
  *          <p>For more information, see the "Update an Image by Using
  *             Managed AppStream 2.0 Image Updates" section in <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/administer-images.html">Administer Your AppStream 2.0 Images</a>, in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
@@ -143,6 +142,7 @@ export interface CreateUpdatedImageCommandOutput extends CreateUpdatedImageResul
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class CreateUpdatedImageCommand extends $Command
   .classBuilder<

@@ -35,7 +35,6 @@ export interface ListUsersInGroupCommandInput extends ListUsersInGroupRequest {}
 export interface ListUsersInGroupCommandOutput extends ListUsersInGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the users in the specified group.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
@@ -125,6 +124,7 @@ export interface ListUsersInGroupCommandOutput extends ListUsersInGroupResponse,
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class ListUsersInGroupCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface AcceptAdministratorInvitationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Accepts the invitation to be a member account and be monitored by the Security Hub administrator
  *          account that the invitation was sent from.</p>
  *          <p>This operation is only used by member accounts that are not added through
@@ -81,6 +80,7 @@ export interface AcceptAdministratorInvitationCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To accept an invitation be a member account
  * ```javascript
  * // The following example demonstrates how an account can accept an invitation from the Security Hub administrator account to be a member account. This operation is applicable only to member accounts that are not added through AWS Organizations.

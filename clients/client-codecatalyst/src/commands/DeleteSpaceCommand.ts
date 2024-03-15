@@ -27,7 +27,6 @@ export interface DeleteSpaceCommandInput extends DeleteSpaceRequest {}
 export interface DeleteSpaceCommandOutput extends DeleteSpaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a space.</p>
  *          <important>
  *             <p>Deleting a space cannot be undone. Additionally, since space names must be unique across Amazon CodeCatalyst, you cannot reuse names of deleted spaces.</p>
@@ -79,6 +78,7 @@ export interface DeleteSpaceCommandOutput extends DeleteSpaceResponse, __Metadat
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ * @public
  */
 export class DeleteSpaceCommand extends $Command
   .classBuilder<

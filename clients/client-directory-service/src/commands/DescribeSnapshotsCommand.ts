@@ -27,7 +27,6 @@ export interface DescribeSnapshotsCommandInput extends DescribeSnapshotsRequest 
 export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Obtains information about the directory snapshots that belong to this account.</p>
  *          <p>This operation supports pagination with the use of the <i>NextToken</i> request and
  *          response parameters. If more results are available, the <i>DescribeSnapshots.NextToken</i>
@@ -91,6 +90,7 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult,
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class DescribeSnapshotsCommand extends $Command
   .classBuilder<

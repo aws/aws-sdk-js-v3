@@ -27,7 +27,6 @@ export interface ListMailboxPermissionsCommandInput extends ListMailboxPermissio
 export interface ListMailboxPermissionsCommandOutput extends ListMailboxPermissionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the mailbox permissions associated with a user, group, or resource
  *          mailbox.</p>
  * @example
@@ -83,6 +82,7 @@ export interface ListMailboxPermissionsCommandOutput extends ListMailboxPermissi
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class ListMailboxPermissionsCommand extends $Command
   .classBuilder<

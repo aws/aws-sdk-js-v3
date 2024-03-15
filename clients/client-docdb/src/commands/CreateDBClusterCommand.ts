@@ -27,7 +27,6 @@ export interface CreateDBClusterCommandInput extends CreateDBClusterMessage {}
 export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new Amazon DocumentDB cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -202,6 +201,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class CreateDBClusterCommand extends $Command
   .classBuilder<

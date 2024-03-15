@@ -27,7 +27,6 @@ export interface ListModelCardVersionsCommandInput extends ListModelCardVersions
 export interface ListModelCardVersionsCommandOutput extends ListModelCardVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List existing versions of an Amazon SageMaker Model Card.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface ListModelCardVersionsCommandOutput extends ListModelCardVersion
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListModelCardVersionsCommand extends $Command
   .classBuilder<

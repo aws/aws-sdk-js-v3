@@ -27,7 +27,6 @@ export interface UpdateKxVolumeCommandInput extends UpdateKxVolumeRequest {}
 export interface UpdateKxVolumeCommandOutput extends UpdateKxVolumeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  * Updates the throughput or capacity of a volume. During the update process, the filesystem
  * might be unavailable for a few minutes. You can retry any operations after the update is complete.
@@ -110,6 +109,7 @@ export interface UpdateKxVolumeCommandOutput extends UpdateKxVolumeResponse, __M
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class UpdateKxVolumeCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteVirtualServiceCommandInput extends DeleteVirtualServiceIn
 export interface DeleteVirtualServiceCommandOutput extends DeleteVirtualServiceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing virtual service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -107,6 +106,7 @@ export interface DeleteVirtualServiceCommandOutput extends DeleteVirtualServiceO
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ * @public
  */
 export class DeleteVirtualServiceCommand extends $Command
   .classBuilder<

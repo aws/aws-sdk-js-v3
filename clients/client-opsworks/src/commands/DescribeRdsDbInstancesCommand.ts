@@ -27,7 +27,6 @@ export interface DescribeRdsDbInstancesCommandInput extends DescribeRdsDbInstanc
 export interface DescribeRdsDbInstancesCommandOutput extends DescribeRdsDbInstancesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes Amazon RDS instances.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy, or
@@ -82,6 +81,7 @@ export interface DescribeRdsDbInstancesCommandOutput extends DescribeRdsDbInstan
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class DescribeRdsDbInstancesCommand extends $Command
   .classBuilder<

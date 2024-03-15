@@ -28,7 +28,6 @@ export interface DescribeDatabaseCommandInput extends DescribeDatabaseRequest {}
 export interface DescribeDatabaseCommandOutput extends DescribeDatabaseResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the database, including the database name, time that the
  *          database was created, and the total number of tables found within the database. <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service
  *             quotas apply</a>. See <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.describe-db.html">code sample</a>
@@ -88,6 +87,7 @@ export interface DescribeDatabaseCommandOutput extends DescribeDatabaseResponse,
  * @throws {@link TimestreamWriteServiceException}
  * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
+ * @public
  */
 export class DescribeDatabaseCommand extends $Command
   .classBuilder<

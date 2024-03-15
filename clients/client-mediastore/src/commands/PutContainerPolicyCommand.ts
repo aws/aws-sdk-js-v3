@@ -27,7 +27,6 @@ export interface PutContainerPolicyCommandInput extends PutContainerPolicyInput 
 export interface PutContainerPolicyCommandOutput extends PutContainerPolicyOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an access policy for the specified container to restrict the users and
  *          clients that can access it. For information about the data that is included in an access
  *          policy, see the <a href="https://aws.amazon.com/documentation/iam/">AWS Identity and
@@ -70,6 +69,7 @@ export interface PutContainerPolicyCommandOutput extends PutContainerPolicyOutpu
  * @throws {@link MediaStoreServiceException}
  * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ * @public
  */
 export class PutContainerPolicyCommand extends $Command
   .classBuilder<

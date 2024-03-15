@@ -27,7 +27,6 @@ export interface DeleteDomainCommandInput extends DeleteDomainRequest {}
 export interface DeleteDomainCommandOutput extends DeleteDomainResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Deletes a domain. You cannot delete a domain that contains repositories. If you want to delete a domain
  *          with repositories, first delete its repositories.
@@ -92,6 +91,7 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResult, __Metadat
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * @public
  */
 export class DeleteDomainCommand extends $Command
   .classBuilder<

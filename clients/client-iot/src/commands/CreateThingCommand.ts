@@ -27,7 +27,6 @@ export interface CreateThingCommandInput extends CreateThingRequest {}
 export interface CreateThingCommandOutput extends CreateThingResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a thing record in the registry. If this call is made multiple times using
  * 			the same thing name and configuration, the call will succeed. If this call is made with
  * 			the same thing name but different configuration a
@@ -94,6 +93,7 @@ export interface CreateThingCommandOutput extends CreateThingResponse, __Metadat
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class CreateThingCommand extends $Command
   .classBuilder<

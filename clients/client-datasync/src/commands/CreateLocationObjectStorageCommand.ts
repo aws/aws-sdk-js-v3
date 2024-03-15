@@ -33,7 +33,6 @@ export interface CreateLocationObjectStorageCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a transfer <i>location</i> for an object storage system. DataSync can use this location as a source or destination for transferring
  *       data.</p>
  *          <p>Before you begin, make sure that you understand the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html#create-object-location-prerequisites">prerequisites</a>
@@ -87,6 +86,7 @@ export interface CreateLocationObjectStorageCommandOutput
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class CreateLocationObjectStorageCommand extends $Command
   .classBuilder<

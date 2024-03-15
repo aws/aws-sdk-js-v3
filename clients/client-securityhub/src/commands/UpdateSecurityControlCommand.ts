@@ -27,7 +27,6 @@ export interface UpdateSecurityControlCommandInput extends UpdateSecurityControl
 export interface UpdateSecurityControlCommandOutput extends UpdateSecurityControlResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Updates the properties of a security control.
  *         </p>
@@ -103,6 +102,7 @@ export interface UpdateSecurityControlCommandOutput extends UpdateSecurityContro
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To update security control properties
  * ```javascript
  * // The following example updates the specified security control. Specifically, this example updates control parameters.

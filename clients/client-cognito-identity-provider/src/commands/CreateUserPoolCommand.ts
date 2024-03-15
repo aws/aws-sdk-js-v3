@@ -31,7 +31,6 @@ export interface CreateUserPoolCommandInput extends CreateUserPoolRequest {}
 export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  *             require you to register an origination phone number before you can send SMS messages
@@ -391,6 +390,7 @@ export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __M
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  * @example Example user pool with email and username sign-in
  * ```javascript
  * // The following example creates a user pool with all configurable properties set to an example value. The resulting user pool allows sign-in with username or email address, has optional MFA, and has a Lambda function assigned to each possible trigger.

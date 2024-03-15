@@ -27,7 +27,6 @@ export interface BatchUpdateAutomationRulesCommandInput extends BatchUpdateAutom
 export interface BatchUpdateAutomationRulesCommandOutput extends BatchUpdateAutomationRulesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Updates one or more automation rules based on rule Amazon Resource Names (ARNs)
  *          and input parameters.
@@ -271,6 +270,7 @@ export interface BatchUpdateAutomationRulesCommandOutput extends BatchUpdateAuto
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To update one ore more automation rules
  * ```javascript
  * // The following example updates the specified automation rules.

@@ -27,7 +27,6 @@ export interface PutFeedbackCommandInput extends PutFeedbackRequest {}
 export interface PutFeedbackCommandOutput extends PutFeedbackResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Add feedback for an anomalous metric.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface PutFeedbackCommandOutput extends PutFeedbackResponse, __Metadat
  * @throws {@link LookoutMetricsServiceException}
  * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
+ * @public
  */
 export class PutFeedbackCommand extends $Command
   .classBuilder<

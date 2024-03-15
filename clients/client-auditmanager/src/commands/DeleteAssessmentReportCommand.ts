@@ -27,7 +27,6 @@ export interface DeleteAssessmentReportCommandInput extends DeleteAssessmentRepo
 export interface DeleteAssessmentReportCommandOutput extends DeleteAssessmentReportResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an assessment report in Audit Manager. </p>
  *          <p>When you run the <code>DeleteAssessmentReport</code> operation, Audit Manager
  *          attempts to delete the following data:</p>
@@ -89,6 +88,7 @@ export interface DeleteAssessmentReportCommandOutput extends DeleteAssessmentRep
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class DeleteAssessmentReportCommand extends $Command
   .classBuilder<

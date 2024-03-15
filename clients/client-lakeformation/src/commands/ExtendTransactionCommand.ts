@@ -27,7 +27,6 @@ export interface ExtendTransactionCommandInput extends ExtendTransactionRequest 
 export interface ExtendTransactionCommandOutput extends ExtendTransactionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Indicates to the service that the specified transaction is still active and should not be treated as idle and aborted.</p>
  *          <p>Write transactions that remain idle for a long period are automatically aborted unless explicitly extended.</p>
  * @example
@@ -75,6 +74,7 @@ export interface ExtendTransactionCommandOutput extends ExtendTransactionRespons
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class ExtendTransactionCommand extends $Command
   .classBuilder<

@@ -27,9 +27,6 @@ export interface DissociateEntityFromThingCommandInput extends DissociateEntityF
 export interface DissociateEntityFromThingCommandOutput extends DissociateEntityFromThingResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated since: 2022-08-30
- *
  * <p>Dissociates a device entity from a concrete thing. The action takes only the type of the entity that you need to dissociate because only
  *          one entity of a particular type can be associated with a thing.</p>
  * @example
@@ -69,6 +66,8 @@ export interface DissociateEntityFromThingCommandOutput extends DissociateEntity
  * @throws {@link IoTThingsGraphServiceException}
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ * @public
+ * @deprecated since: 2022-08-30
  */
 export class DissociateEntityFromThingCommand extends $Command
   .classBuilder<

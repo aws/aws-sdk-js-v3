@@ -27,7 +27,6 @@ export interface DeleteDedicatedIpPoolCommandInput extends DeleteDedicatedIpPool
 export interface DeleteDedicatedIpPoolCommandOutput extends DeleteDedicatedIpPoolResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete a dedicated IP pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface DeleteDedicatedIpPoolCommandOutput extends DeleteDedicatedIpPoo
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * @public
  */
 export class DeleteDedicatedIpPoolCommand extends $Command
   .classBuilder<

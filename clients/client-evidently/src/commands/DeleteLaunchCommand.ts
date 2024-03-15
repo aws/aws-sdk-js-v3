@@ -27,7 +27,6 @@ export interface DeleteLaunchCommandInput extends DeleteLaunchRequest {}
 export interface DeleteLaunchCommandOutput extends DeleteLaunchResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Evidently launch. The feature used for the launch is not deleted.</p>
  *          <p>To stop a launch without deleting it, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_StopLaunch.html">StopLaunch</a>. </p>
  * @example
@@ -70,6 +69,7 @@ export interface DeleteLaunchCommandOutput extends DeleteLaunchResponse, __Metad
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ * @public
  */
 export class DeleteLaunchCommand extends $Command
   .classBuilder<

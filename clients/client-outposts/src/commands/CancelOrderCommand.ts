@@ -27,7 +27,6 @@ export interface CancelOrderCommandInput extends CancelOrderInput {}
 export interface CancelOrderCommandOutput extends CancelOrderOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels the specified order for an Outpost.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface CancelOrderCommandOutput extends CancelOrderOutput, __MetadataB
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ * @public
  */
 export class CancelOrderCommand extends $Command
   .classBuilder<

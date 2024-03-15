@@ -28,7 +28,6 @@ export interface PutJobTaggingCommandInput extends PutJobTaggingRequest {}
 export interface PutJobTaggingCommandOutput extends PutJobTaggingResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the supplied tag-set on an S3 Batch Operations job.</p>
  *          <p>A tag is a key-value pair. You can associate S3 Batch Operations tags with any job by sending
  *          a PUT request against the tagging subresource that is associated with the job. To modify
@@ -141,6 +140,7 @@ export interface PutJobTaggingCommandOutput extends PutJobTaggingResult, __Metad
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class PutJobTaggingCommand extends $Command
   .classBuilder<

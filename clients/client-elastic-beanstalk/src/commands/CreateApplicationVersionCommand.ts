@@ -27,7 +27,6 @@ export interface CreateApplicationVersionCommandInput extends CreateApplicationV
 export interface CreateApplicationVersionCommandOutput extends ApplicationVersionDescriptionMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an application version for the specified application. You can create an
  *       application version from a source bundle in Amazon S3, a commit in AWS CodeCommit, or the
  *       output of an AWS CodeBuild build as follows:</p>
@@ -143,6 +142,7 @@ export interface CreateApplicationVersionCommandOutput extends ApplicationVersio
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  * @example To create a new application
  * ```javascript
  * // The following operation creates a new version (v1) of an application named my-app:

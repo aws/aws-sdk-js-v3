@@ -27,7 +27,6 @@ export interface DescribeManagedRuleGroupCommandInput extends DescribeManagedRul
 export interface DescribeManagedRuleGroupCommandOutput extends DescribeManagedRuleGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides high-level information for a managed rule group, including descriptions of the rules. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -173,6 +172,7 @@ export interface DescribeManagedRuleGroupCommandOutput extends DescribeManagedRu
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class DescribeManagedRuleGroupCommand extends $Command
   .classBuilder<

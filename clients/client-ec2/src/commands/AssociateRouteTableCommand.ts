@@ -27,7 +27,6 @@ export interface AssociateRouteTableCommandInput extends AssociateRouteTableRequ
 export interface AssociateRouteTableCommandOutput extends AssociateRouteTableResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a subnet in your VPC or an internet gateway or virtual private gateway
  *             attached to your VPC with a route table in your VPC. This association causes traffic
  *             from the subnet or gateway to be routed according to the routes in the route table. The
@@ -68,6 +67,7 @@ export interface AssociateRouteTableCommandOutput extends AssociateRouteTableRes
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To associate a route table with a subnet
  * ```javascript
  * // This example associates the specified route table with the specified subnet.

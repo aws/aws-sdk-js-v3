@@ -27,7 +27,6 @@ export interface UpdateDomainConfigurationCommandInput extends UpdateDomainConfi
 export interface UpdateDomainConfigurationCommandOutput extends UpdateDomainConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates values stored in the domain configuration. Domain configurations for default
  *          endpoints can't be updated.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateDomainConfiguration</a> action.</p>
@@ -91,6 +90,7 @@ export interface UpdateDomainConfigurationCommandOutput extends UpdateDomainConf
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class UpdateDomainConfigurationCommand extends $Command
   .classBuilder<

@@ -33,7 +33,6 @@ export interface CreateCustomRoutingListenerCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a listener to process inbound connections from clients to a custom routing accelerator.
  * 			Connections arrive to assigned static IP addresses on the port range that you specify. </p>
  * @example
@@ -92,6 +91,7 @@ export interface CreateCustomRoutingListenerCommandOutput
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class CreateCustomRoutingListenerCommand extends $Command
   .classBuilder<

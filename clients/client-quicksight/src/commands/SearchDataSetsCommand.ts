@@ -27,7 +27,6 @@ export interface SearchDataSetsCommandInput extends SearchDataSetsRequest {}
 export interface SearchDataSetsCommandOutput extends SearchDataSetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use the <code>SearchDataSets</code> operation to search for datasets that belong to an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface SearchDataSetsCommandOutput extends SearchDataSetsResponse, __M
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class SearchDataSetsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeAlarmsForMetricCommandInput extends DescribeAlarmsForMe
 export interface DescribeAlarmsForMetricCommandOutput extends DescribeAlarmsForMetricOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the alarms for the specified metric. To
  * 			filter the results, specify a statistic, period, or unit.</p>
  *          <p>This operation retrieves only standard alarms that are based on
@@ -137,6 +136,7 @@ export interface DescribeAlarmsForMetricCommandOutput extends DescribeAlarmsForM
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * @public
  */
 export class DescribeAlarmsForMetricCommand extends $Command
   .classBuilder<

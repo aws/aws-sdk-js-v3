@@ -35,7 +35,6 @@ export interface DescribeQuerySuggestionsBlockListCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a block list used for query suggestions for
  *             an index.</p>
  *          <p>This is used to check the current settings that are applied to a
@@ -104,6 +103,7 @@ export interface DescribeQuerySuggestionsBlockListCommandOutput
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class DescribeQuerySuggestionsBlockListCommand extends $Command
   .classBuilder<

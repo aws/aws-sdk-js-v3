@@ -27,7 +27,6 @@ export interface BatchGetFrameMetricDataCommandInput extends BatchGetFrameMetric
 export interface BatchGetFrameMetricDataCommandOutput extends BatchGetFrameMetricDataResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Returns the time series of values for a requested list
  *          of frame metrics from a time period.</p>
@@ -110,6 +109,7 @@ export interface BatchGetFrameMetricDataCommandOutput extends BatchGetFrameMetri
  * @throws {@link CodeGuruProfilerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
+ * @public
  */
 export class BatchGetFrameMetricDataCommand extends $Command
   .classBuilder<

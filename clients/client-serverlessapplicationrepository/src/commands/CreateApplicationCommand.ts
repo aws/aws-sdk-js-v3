@@ -31,7 +31,6 @@ export interface CreateApplicationCommandInput extends CreateApplicationRequest 
 export interface CreateApplicationCommandOutput extends CreateApplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an application, optionally including an AWS SAM file to create the first application version in the same call.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -136,6 +135,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * @throws {@link ServerlessApplicationRepositoryServiceException}
  * <p>Base exception class for all service exceptions from ServerlessApplicationRepository service.</p>
  *
+ * @public
  */
 export class CreateApplicationCommand extends $Command
   .classBuilder<

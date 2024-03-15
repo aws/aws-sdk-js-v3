@@ -27,7 +27,6 @@ export interface UpdatePullThroughCacheRuleCommandInput extends UpdatePullThroug
 export interface UpdatePullThroughCacheRuleCommandOutput extends UpdatePullThroughCacheRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing pull through cache rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface UpdatePullThroughCacheRuleCommandOutput extends UpdatePullThrou
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * @public
  */
 export class UpdatePullThroughCacheRuleCommand extends $Command
   .classBuilder<

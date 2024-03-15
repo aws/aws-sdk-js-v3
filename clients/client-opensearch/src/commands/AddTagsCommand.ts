@@ -27,7 +27,6 @@ export interface AddTagsCommandInput extends AddTagsRequest {}
 export interface AddTagsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches tags to an existing Amazon OpenSearch Service domain. Tags are a set of
  *    case-sensitive key-value pairs. A domain can have up to 10 tags. For more information, see
  *     <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html">Tagging Amazon OpenSearch Service domains</a>.</p>
@@ -73,6 +72,7 @@ export interface AddTagsCommandOutput extends __MetadataBearer {}
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class AddTagsCommand extends $Command
   .classBuilder<

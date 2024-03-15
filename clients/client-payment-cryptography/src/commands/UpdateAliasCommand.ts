@@ -31,7 +31,6 @@ export interface UpdateAliasCommandInput extends UpdateAliasInput {}
 export interface UpdateAliasCommandOutput extends UpdateAliasOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates an existing Amazon Web Services Payment Cryptography alias with a different key. Each alias is associated with only one Amazon Web Services Payment Cryptography key at a time, although a key can have multiple aliases. The alias and the Amazon Web Services Payment Cryptography key must be in the same Amazon Web Services account and Amazon Web Services Region</p>
  *          <p>
  *             <b>Cross-account use:</b> This operation can't be used across different Amazon Web Services accounts.</p>
@@ -111,6 +110,7 @@ export interface UpdateAliasCommandOutput extends UpdateAliasOutput, __MetadataB
  * @throws {@link PaymentCryptographyServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptography service.</p>
  *
+ * @public
  */
 export class UpdateAliasCommand extends $Command
   .classBuilder<

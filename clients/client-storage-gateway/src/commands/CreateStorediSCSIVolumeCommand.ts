@@ -27,7 +27,6 @@ export interface CreateStorediSCSIVolumeCommandInput extends CreateStorediSCSIVo
 export interface CreateStorediSCSIVolumeCommandOutput extends CreateStorediSCSIVolumeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a volume on a specified gateway. This operation is only supported in the stored
  *          volume gateway type.</p>
  *          <p>The size of the volume to create is inferred from the disk size. You can choose to
@@ -87,6 +86,7 @@ export interface CreateStorediSCSIVolumeCommandOutput extends CreateStorediSCSIV
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To create a stored iSCSI volume
  * ```javascript
  * // Creates a stored volume on a specified stored gateway.

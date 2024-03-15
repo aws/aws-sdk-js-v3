@@ -27,7 +27,6 @@ export interface AssociateApplicationsCommandInput extends AssociateApplications
 export interface AssociateApplicationsCommandOutput extends AssociateApplicationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associate applications to wave.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface AssociateApplicationsCommandOutput extends AssociateApplication
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * @public
  */
 export class AssociateApplicationsCommand extends $Command
   .classBuilder<

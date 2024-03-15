@@ -27,7 +27,6 @@ export interface GetOutcomesCommandInput extends GetOutcomesRequest {}
 export interface GetOutcomesCommandOutput extends GetOutcomesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets one or more outcomes. This is a paginated
  *          API. If you provide a null <code>maxResults</code>, this actions retrieves a maximum of
  *          100 records per page. If you provide a <code>maxResults</code>, the value must be
@@ -86,6 +85,7 @@ export interface GetOutcomesCommandOutput extends GetOutcomesResult, __MetadataB
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class GetOutcomesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteFlywheelCommandInput extends DeleteFlywheelRequest {}
 export interface DeleteFlywheelCommandOutput extends DeleteFlywheelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a flywheel. When you delete the flywheel, Amazon Comprehend
  *       does not delete the data lake or the model associated with the flywheel.</p>
  *          <p>For more information about flywheels, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
@@ -76,6 +75,7 @@ export interface DeleteFlywheelCommandOutput extends DeleteFlywheelResponse, __M
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class DeleteFlywheelCommand extends $Command
   .classBuilder<

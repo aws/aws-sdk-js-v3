@@ -27,7 +27,6 @@ export interface ListTypesCommandInput extends ListTypesRequest {}
 export interface ListTypesCommandOutput extends ListTypesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the types for a given API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface ListTypesCommandOutput extends ListTypesResponse, __MetadataBea
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class ListTypesCommand extends $Command
   .classBuilder<

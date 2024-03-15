@@ -32,7 +32,6 @@ export interface BatchDisassociateUserStackCommandInput extends BatchDisassociat
 export interface BatchDisassociateUserStackCommandOutput extends BatchDisassociateUserStackResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates the specified users from the specified stacks.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface BatchDisassociateUserStackCommandOutput extends BatchDisassocia
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class BatchDisassociateUserStackCommand extends $Command
   .classBuilder<

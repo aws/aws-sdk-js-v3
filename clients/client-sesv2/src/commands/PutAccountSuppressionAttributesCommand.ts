@@ -32,7 +32,6 @@ export interface PutAccountSuppressionAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Change the settings for the account-level suppression list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface PutAccountSuppressionAttributesCommandOutput
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class PutAccountSuppressionAttributesCommand extends $Command
   .classBuilder<

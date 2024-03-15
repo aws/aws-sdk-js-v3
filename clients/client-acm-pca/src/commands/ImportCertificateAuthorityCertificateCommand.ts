@@ -31,7 +31,6 @@ export interface ImportCertificateAuthorityCertificateCommandInput
 export interface ImportCertificateAuthorityCertificateCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Imports a signed private CA certificate into Amazon Web Services Private CA. This action is used when you
  * 			are using a chain of trust whose root is located outside Amazon Web Services Private CA. Before you can call
  * 			this action, the following preparations must in place:</p>
@@ -216,6 +215,7 @@ export interface ImportCertificateAuthorityCertificateCommandOutput extends __Me
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ * @public
  */
 export class ImportCertificateAuthorityCertificateCommand extends $Command
   .classBuilder<

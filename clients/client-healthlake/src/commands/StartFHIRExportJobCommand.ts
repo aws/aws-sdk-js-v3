@@ -27,7 +27,6 @@ export interface StartFHIRExportJobCommandInput extends StartFHIRExportJobReques
 export interface StartFHIRExportJobCommandOutput extends StartFHIRExportJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Begins a FHIR export job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface StartFHIRExportJobCommandOutput extends StartFHIRExportJobRespo
  * @throws {@link HealthLakeServiceException}
  * <p>Base exception class for all service exceptions from HealthLake service.</p>
  *
+ * @public
  */
 export class StartFHIRExportJobCommand extends $Command
   .classBuilder<

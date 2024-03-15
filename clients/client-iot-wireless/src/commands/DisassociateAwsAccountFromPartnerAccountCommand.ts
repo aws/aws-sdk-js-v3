@@ -36,7 +36,6 @@ export interface DisassociateAwsAccountFromPartnerAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates your AWS account from a partner account. If
  *                 <code>PartnerAccountId</code> and <code>PartnerType</code> are <code>null</code>,
  *             disassociates your AWS account from all partner accounts.</p>
@@ -77,6 +76,7 @@ export interface DisassociateAwsAccountFromPartnerAccountCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class DisassociateAwsAccountFromPartnerAccountCommand extends $Command
   .classBuilder<

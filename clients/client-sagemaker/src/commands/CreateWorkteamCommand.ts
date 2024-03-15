@@ -27,7 +27,6 @@ export interface CreateWorkteamCommandInput extends CreateWorkteamRequest {}
 export interface CreateWorkteamCommandOutput extends CreateWorkteamResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new work team for labeling your data. A work team is defined by one or more
  *             Amazon Cognito user pools. You must first create the user pools before you can create a work
  *             team.</p>
@@ -90,6 +89,7 @@ export interface CreateWorkteamCommandOutput extends CreateWorkteamResponse, __M
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateWorkteamCommand extends $Command
   .classBuilder<

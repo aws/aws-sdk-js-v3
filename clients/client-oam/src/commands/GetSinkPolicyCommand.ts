@@ -27,7 +27,6 @@ export interface GetSinkPolicyCommandInput extends GetSinkPolicyInput {}
 export interface GetSinkPolicyCommandOutput extends GetSinkPolicyOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the current sink policy attached to this sink. The sink policy specifies what
  *             accounts can attach to this sink as source accounts, and what types of data they can share.</p>
  * @example
@@ -70,6 +69,7 @@ export interface GetSinkPolicyCommandOutput extends GetSinkPolicyOutput, __Metad
  * @throws {@link OAMServiceException}
  * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ * @public
  */
 export class GetSinkPolicyCommand extends $Command
   .classBuilder<

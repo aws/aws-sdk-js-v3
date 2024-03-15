@@ -27,7 +27,6 @@ export interface ModifyInstanceAttributeCommandInput extends ModifyInstanceAttri
 export interface ModifyInstanceAttributeCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the specified attribute of the specified instance. You can specify only one
  *             attribute at a time.</p>
  *          <p>
@@ -113,6 +112,7 @@ export interface ModifyInstanceAttributeCommandOutput extends __MetadataBearer {
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To modify the instance type
  * ```javascript
  * // This example modifies the instance type of the specified stopped instance.

@@ -27,7 +27,6 @@ export interface GetFirewallRuleGroupCommandInput extends GetFirewallRuleGroupRe
 export interface GetFirewallRuleGroupCommandOutput extends GetFirewallRuleGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the specified firewall rule group. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface GetFirewallRuleGroupCommandOutput extends GetFirewallRuleGroupR
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class GetFirewallRuleGroupCommand extends $Command
   .classBuilder<

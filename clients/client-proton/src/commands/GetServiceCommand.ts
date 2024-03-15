@@ -27,7 +27,6 @@ export interface GetServiceCommandInput extends GetServiceInput {}
 export interface GetServiceCommandOutput extends GetServiceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get detailed data for a service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface GetServiceCommandOutput extends GetServiceOutput, __MetadataBea
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class GetServiceCommand extends $Command
   .classBuilder<

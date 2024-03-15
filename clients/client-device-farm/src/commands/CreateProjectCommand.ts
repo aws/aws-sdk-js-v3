@@ -27,7 +27,6 @@ export interface CreateProjectCommandInput extends CreateProjectRequest {}
 export interface CreateProjectCommandOutput extends CreateProjectResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface CreateProjectCommandOutput extends CreateProjectResult, __Metad
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To create a new project
  * ```javascript
  * // The following example creates a new project named MyProject.

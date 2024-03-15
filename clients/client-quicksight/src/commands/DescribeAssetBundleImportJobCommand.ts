@@ -36,7 +36,6 @@ export interface DescribeAssetBundleImportJobCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes an existing import job.</p>
  *          <p>Poll job descriptions after starting a job to know when it has succeeded or failed. Job descriptions are available for 14 days after job starts.</p>
  * @example
@@ -451,6 +450,7 @@ export interface DescribeAssetBundleImportJobCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DescribeAssetBundleImportJobCommand extends $Command
   .classBuilder<

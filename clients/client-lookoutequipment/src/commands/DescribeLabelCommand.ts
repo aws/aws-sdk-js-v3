@@ -27,7 +27,6 @@ export interface DescribeLabelCommandInput extends DescribeLabelRequest {}
 export interface DescribeLabelCommandOutput extends DescribeLabelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns the name of the label. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface DescribeLabelCommandOutput extends DescribeLabelResponse, __Met
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  */
 export class DescribeLabelCommand extends $Command
   .classBuilder<

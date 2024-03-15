@@ -27,7 +27,6 @@ export interface GetSmsChannelCommandInput extends GetSmsChannelRequest {}
 export interface GetSmsChannelCommandOutput extends GetSmsChannelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the status and settings of the SMS channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface GetSmsChannelCommandOutput extends GetSmsChannelResponse, __Met
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class GetSmsChannelCommand extends $Command
   .classBuilder<

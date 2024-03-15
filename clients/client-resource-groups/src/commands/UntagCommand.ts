@@ -27,7 +27,6 @@ export interface UntagCommandInput extends UntagInput {}
 export interface UntagCommandOutput extends UntagOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes tags from a specified resource group.</p>
  *          <p>
  *             <b>Minimum permissions</b>
@@ -91,6 +90,7 @@ export interface UntagCommandOutput extends UntagOutput, __MetadataBearer {}
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ * @public
  */
 export class UntagCommand extends $Command
   .classBuilder<

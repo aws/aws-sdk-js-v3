@@ -36,7 +36,6 @@ export interface GetRecoveryPointRestoreMetadataCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a set of metadata key-value pairs that were used to create the backup.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface GetRecoveryPointRestoreMetadataCommandOutput
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class GetRecoveryPointRestoreMetadataCommand extends $Command
   .classBuilder<

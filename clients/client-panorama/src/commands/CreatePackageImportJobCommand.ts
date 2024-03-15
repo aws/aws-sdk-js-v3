@@ -27,7 +27,6 @@ export interface CreatePackageImportJobCommandInput extends CreatePackageImportJ
 export interface CreatePackageImportJobCommandOutput extends CreatePackageImportJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Imports a node package.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface CreatePackageImportJobCommandOutput extends CreatePackageImport
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ * @public
  */
 export class CreatePackageImportJobCommand extends $Command
   .classBuilder<

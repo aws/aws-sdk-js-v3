@@ -31,7 +31,6 @@ export interface ListListenersCommandInput extends ListListenersRequest {}
 export interface ListListenersCommandOutput extends ListListenersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List the listeners for an accelerator. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface ListListenersCommandOutput extends ListListenersResponse, __Met
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class ListListenersCommand extends $Command
   .classBuilder<

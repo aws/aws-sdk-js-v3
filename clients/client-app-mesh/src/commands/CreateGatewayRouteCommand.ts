@@ -27,7 +27,6 @@ export interface CreateGatewayRouteCommandInput extends CreateGatewayRouteInput 
 export interface CreateGatewayRouteCommandOutput extends CreateGatewayRouteOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a gateway route.</p>
  *          <p>A gateway route is attached to a virtual gateway and routes traffic to an existing
  *          virtual service. If a route matches a request, it can distribute traffic to a target
@@ -434,6 +433,7 @@ export interface CreateGatewayRouteCommandOutput extends CreateGatewayRouteOutpu
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ * @public
  */
 export class CreateGatewayRouteCommand extends $Command
   .classBuilder<

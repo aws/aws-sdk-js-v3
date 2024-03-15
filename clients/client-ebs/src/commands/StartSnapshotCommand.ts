@@ -32,7 +32,6 @@ export interface StartSnapshotCommandInput extends StartSnapshotRequest {}
 export interface StartSnapshotCommandOutput extends StartSnapshotResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new Amazon EBS snapshot. The new snapshot enters the <code>pending</code> state
  *             after the request completes. </p>
  *          <p>After creating the snapshot, use <a href="https://docs.aws.amazon.com/ebs/latest/APIReference/API_PutSnapshotBlock.html"> PutSnapshotBlock</a> to
@@ -124,6 +123,7 @@ export interface StartSnapshotCommandOutput extends StartSnapshotResponse, __Met
  * @throws {@link EBSServiceException}
  * <p>Base exception class for all service exceptions from EBS service.</p>
  *
+ * @public
  */
 export class StartSnapshotCommand extends $Command
   .classBuilder<

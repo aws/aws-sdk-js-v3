@@ -32,7 +32,6 @@ export interface UpdatePublicSharingSettingsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Use the <code>UpdatePublicSharingSettings</code> operation to turn on or turn off the
  *             public sharing settings of an Amazon QuickSight dashboard.</p>
  *          <p>To use this operation, turn on session capacity pricing for your Amazon QuickSight
@@ -99,6 +98,7 @@ export interface UpdatePublicSharingSettingsCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class UpdatePublicSharingSettingsCommand extends $Command
   .classBuilder<

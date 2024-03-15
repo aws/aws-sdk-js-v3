@@ -32,9 +32,6 @@ export interface PutVoiceConnectorProxyCommandInput extends PutVoiceConnectorPro
 export interface PutVoiceConnectorProxyCommandOutput extends PutVoiceConnectorProxyResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by PutVoiceConnectorProxy in the Amazon Chime SDK Voice Namespace
- *
  * <p>Puts the specified proxy configuration to the specified Amazon Chime Voice Connector.</p>
  *          <important>
  *             <p>
@@ -106,6 +103,8 @@ export interface PutVoiceConnectorProxyCommandOutput extends PutVoiceConnectorPr
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by PutVoiceConnectorProxy in the Amazon Chime SDK Voice Namespace
  */
 export class PutVoiceConnectorProxyCommand extends $Command
   .classBuilder<

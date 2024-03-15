@@ -31,7 +31,6 @@ export interface CreatePlacementCommandInput extends CreatePlacementRequest {}
 export interface CreatePlacementCommandOutput extends CreatePlacementResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an empty placement.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface CreatePlacementCommandOutput extends CreatePlacementResponse, _
  * @throws {@link IoT1ClickProjectsServiceException}
  * <p>Base exception class for all service exceptions from IoT1ClickProjects service.</p>
  *
+ * @public
  */
 export class CreatePlacementCommand extends $Command
   .classBuilder<

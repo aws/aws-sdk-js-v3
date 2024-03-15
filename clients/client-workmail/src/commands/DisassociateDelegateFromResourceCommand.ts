@@ -32,7 +32,6 @@ export interface DisassociateDelegateFromResourceCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a member from the resource's set of delegates.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface DisassociateDelegateFromResourceCommandOutput
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class DisassociateDelegateFromResourceCommand extends $Command
   .classBuilder<

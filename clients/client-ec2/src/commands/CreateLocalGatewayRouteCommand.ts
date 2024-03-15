@@ -27,7 +27,6 @@ export interface CreateLocalGatewayRouteCommandInput extends CreateLocalGatewayR
 export interface CreateLocalGatewayRouteCommandOutput extends CreateLocalGatewayRouteResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a static route for the specified local gateway route table. You must specify one of the
  *          following targets: </p>
  *          <ul>
@@ -85,6 +84,7 @@ export interface CreateLocalGatewayRouteCommandOutput extends CreateLocalGateway
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateLocalGatewayRouteCommand extends $Command
   .classBuilder<

@@ -28,7 +28,6 @@ export interface PutStorageLensConfigurationCommandInput extends PutStorageLensC
 export interface PutStorageLensConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -160,6 +159,7 @@ export interface PutStorageLensConfigurationCommandOutput extends __MetadataBear
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class PutStorageLensConfigurationCommand extends $Command
   .classBuilder<

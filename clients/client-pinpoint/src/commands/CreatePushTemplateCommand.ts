@@ -27,7 +27,6 @@ export interface CreatePushTemplateCommandInput extends CreatePushTemplateReques
 export interface CreatePushTemplateCommandOutput extends CreatePushTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a message template for messages that are sent through a push notification channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -131,6 +130,7 @@ export interface CreatePushTemplateCommandOutput extends CreatePushTemplateRespo
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class CreatePushTemplateCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateLocationNfsCommandInput extends CreateLocationNfsRequest 
 export interface CreateLocationNfsCommandOutput extends CreateLocationNfsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a transfer <i>location</i> for a Network File System (NFS) file
  *       server. DataSync can use this location as a source or destination for
  *       transferring data.</p>
@@ -87,6 +86,7 @@ export interface CreateLocationNfsCommandOutput extends CreateLocationNfsRespons
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class CreateLocationNfsCommand extends $Command
   .classBuilder<

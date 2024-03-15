@@ -36,7 +36,6 @@ export interface ImportHypervisorConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Connect to a hypervisor by importing its configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface ImportHypervisorConfigurationCommandOutput
  * @throws {@link BackupGatewayServiceException}
  * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
+ * @public
  */
 export class ImportHypervisorConfigurationCommand extends $Command
   .classBuilder<

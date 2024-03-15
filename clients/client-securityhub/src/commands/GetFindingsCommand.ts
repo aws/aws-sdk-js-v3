@@ -27,7 +27,6 @@ export interface GetFindingsCommandInput extends GetFindingsRequest {}
 export interface GetFindingsCommandOutput extends GetFindingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of findings that match the specified criteria.</p>
  *          <p>If finding aggregation is enabled, then when you call <code>GetFindings</code> from the aggregation Region, the results include all of the matching findings from both the aggregation Region and the linked Regions.</p>
  * @example
@@ -4527,6 +4526,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To get a list of findings
  * ```javascript
  * // The following example returns a filtered and sorted list of Security Hub findings.

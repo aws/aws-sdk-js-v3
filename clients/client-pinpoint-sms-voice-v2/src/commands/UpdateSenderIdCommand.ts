@@ -31,7 +31,6 @@ export interface UpdateSenderIdCommandInput extends UpdateSenderIdRequest {}
 export interface UpdateSenderIdCommandOutput extends UpdateSenderIdResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the configuration of an existing sender ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface UpdateSenderIdCommandOutput extends UpdateSenderIdResult, __Met
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class UpdateSenderIdCommand extends $Command
   .classBuilder<

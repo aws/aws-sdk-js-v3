@@ -27,7 +27,6 @@ export interface GetConfiguredAudienceModelCommandInput extends GetConfiguredAud
 export interface GetConfiguredAudienceModelCommandOutput extends GetConfiguredAudienceModelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a specified configured audience model.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface GetConfiguredAudienceModelCommandOutput extends GetConfiguredAu
  * @throws {@link CleanRoomsMLServiceException}
  * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
+ * @public
  */
 export class GetConfiguredAudienceModelCommand extends $Command
   .classBuilder<

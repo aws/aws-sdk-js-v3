@@ -27,7 +27,6 @@ export interface DescribeStreamCommandInput extends DescribeStreamInput {}
 export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a stream, including the current status of the stream, its Amazon Resource Name (ARN), the composition of its shards, and its corresponding DynamoDB table.</p>
  *          <note>
  *             <p>You can call <code>DescribeStream</code> at a maximum rate of 10 times per second.</p>
@@ -97,6 +96,7 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
  * @throws {@link DynamoDBStreamsServiceException}
  * <p>Base exception class for all service exceptions from DynamoDBStreams service.</p>
  *
+ * @public
  * @example To describe a stream with a given stream ARN
  * ```javascript
  * // The following example describes a stream with a given stream ARN.

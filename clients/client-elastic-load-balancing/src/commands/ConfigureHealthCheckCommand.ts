@@ -31,7 +31,6 @@ export interface ConfigureHealthCheckCommandInput extends ConfigureHealthCheckIn
 export interface ConfigureHealthCheckCommandOutput extends ConfigureHealthCheckOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Specifies the health check settings to use when evaluating the health state of your EC2 instances.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-healthchecks.html">Configure Health Checks for Your Load Balancer</a>
  *             in the <i>Classic Load Balancers Guide</i>.</p>
@@ -77,6 +76,7 @@ export interface ConfigureHealthCheckCommandOutput extends ConfigureHealthCheckO
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * @public
  * @example To specify the health check settings for your backend EC2 instances
  * ```javascript
  * // This example specifies the health check settings used to evaluate the health of your backend EC2 instances.

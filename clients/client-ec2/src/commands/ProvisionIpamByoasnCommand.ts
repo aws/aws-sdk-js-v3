@@ -27,7 +27,6 @@ export interface ProvisionIpamByoasnCommandInput extends ProvisionIpamByoasnRequ
 export interface ProvisionIpamByoasnCommandOutput extends ProvisionIpamByoasnResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provisions your Autonomous System Number (ASN) for use in your Amazon Web Services account. This action requires authorization context for Amazon to bring the ASN to an Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html">Tutorial: Bring your ASN to IPAM</a> in the <i>Amazon VPC IPAM guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface ProvisionIpamByoasnCommandOutput extends ProvisionIpamByoasnRes
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ProvisionIpamByoasnCommand extends $Command
   .classBuilder<

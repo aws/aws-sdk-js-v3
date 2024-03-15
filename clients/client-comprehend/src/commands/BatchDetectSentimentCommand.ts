@@ -32,7 +32,6 @@ export interface BatchDetectSentimentCommandInput extends BatchDetectSentimentRe
 export interface BatchDetectSentimentCommandOutput extends BatchDetectSentimentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Inspects a batch of documents and returns an inference of the prevailing sentiment,
  *         <code>POSITIVE</code>, <code>NEUTRAL</code>, <code>MIXED</code>, or <code>NEGATIVE</code>,
  *       in each one.</p>
@@ -101,6 +100,7 @@ export interface BatchDetectSentimentCommandOutput extends BatchDetectSentimentR
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class BatchDetectSentimentCommand extends $Command
   .classBuilder<

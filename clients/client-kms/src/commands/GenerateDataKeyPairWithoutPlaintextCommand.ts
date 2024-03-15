@@ -35,7 +35,6 @@ export interface GenerateDataKeyPairWithoutPlaintextCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a unique asymmetric data key pair for use outside of KMS. This operation returns
  *       a plaintext public key and a copy of the private key that is encrypted under the symmetric
  *       encryption KMS key you specify. Unlike <a>GenerateDataKeyPair</a>, this operation
@@ -210,6 +209,7 @@ export interface GenerateDataKeyPairWithoutPlaintextCommandOutput
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To generate an asymmetric data key pair without a plaintext key
  * ```javascript
  * // This example returns an asymmetric elliptic curve (ECC) data key pair. The private key is encrypted under the symmetric encryption KMS key that you specify. This operation doesn't return a plaintext (unencrypted) private key.

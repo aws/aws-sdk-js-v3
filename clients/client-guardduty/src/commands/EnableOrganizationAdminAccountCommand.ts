@@ -32,7 +32,6 @@ export interface EnableOrganizationAdminAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Designates an Amazon Web Services account within the organization as your GuardDuty delegated
  *       administrator. Only the organization's management account can run this
  *     API operation.</p>
@@ -66,6 +65,7 @@ export interface EnableOrganizationAdminAccountCommandOutput
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class EnableOrganizationAdminAccountCommand extends $Command
   .classBuilder<

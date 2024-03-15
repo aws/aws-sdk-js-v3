@@ -27,7 +27,6 @@ export interface ListCalculationExecutionsCommandInput extends ListCalculationEx
 export interface ListCalculationExecutionsCommandOutput extends ListCalculationExecutionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the calculations that have been submitted to a session in descending order.
  *             Newer calculations are listed first; older calculations are listed later.</p>
  * @example
@@ -82,6 +81,7 @@ export interface ListCalculationExecutionsCommandOutput extends ListCalculationE
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class ListCalculationExecutionsCommand extends $Command
   .classBuilder<

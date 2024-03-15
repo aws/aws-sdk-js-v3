@@ -27,7 +27,6 @@ export interface ListDirectoriesCommandInput extends ListDirectoriesRequest {}
 export interface ListDirectoriesCommandOutput extends ListDirectoriesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists directories created within an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface ListDirectoriesCommandOutput extends ListDirectoriesResponse, _
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class ListDirectoriesCommand extends $Command
   .classBuilder<

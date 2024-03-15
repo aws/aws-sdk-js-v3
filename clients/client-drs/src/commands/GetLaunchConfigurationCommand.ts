@@ -27,7 +27,6 @@ export interface GetLaunchConfigurationCommandInput extends GetLaunchConfigurati
 export interface GetLaunchConfigurationCommandOutput extends LaunchConfiguration, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a LaunchConfiguration, filtered by Source Server IDs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface GetLaunchConfigurationCommandOutput extends LaunchConfiguration
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * @public
  */
 export class GetLaunchConfigurationCommand extends $Command
   .classBuilder<

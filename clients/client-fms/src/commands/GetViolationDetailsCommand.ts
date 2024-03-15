@@ -27,7 +27,6 @@ export interface GetViolationDetailsCommandInput extends GetViolationDetailsRequ
 export interface GetViolationDetailsCommandOutput extends GetViolationDetailsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves violations for a resource based on the specified Firewall Manager policy and Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -511,6 +510,7 @@ export interface GetViolationDetailsCommandOutput extends GetViolationDetailsRes
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * @public
  */
 export class GetViolationDetailsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetArtifactUrlCommandInput extends GetArtifactUrlRequest {}
 export interface GetArtifactUrlCommandOutput extends GetArtifactUrlResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the artifact info that corresponds to an artifact id. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface GetArtifactUrlCommandOutput extends GetArtifactUrlResult, __Met
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ * @public
  */
 export class GetArtifactUrlCommand extends $Command
   .classBuilder<

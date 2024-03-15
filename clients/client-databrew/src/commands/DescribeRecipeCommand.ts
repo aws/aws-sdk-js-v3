@@ -27,7 +27,6 @@ export interface DescribeRecipeCommandInput extends DescribeRecipeRequest {}
 export interface DescribeRecipeCommandOutput extends DescribeRecipeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the definition of a specific DataBrew recipe corresponding to a particular
  *             version.</p>
  * @example
@@ -93,6 +92,7 @@ export interface DescribeRecipeCommandOutput extends DescribeRecipeResponse, __M
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * @public
  */
 export class DescribeRecipeCommand extends $Command
   .classBuilder<

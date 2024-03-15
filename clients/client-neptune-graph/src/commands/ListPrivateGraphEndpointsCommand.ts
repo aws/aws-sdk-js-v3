@@ -27,7 +27,6 @@ export interface ListPrivateGraphEndpointsCommandInput extends ListPrivateGraphE
 export interface ListPrivateGraphEndpointsCommandOutput extends ListPrivateGraphEndpointsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists private endpoints for a specified Neptune Analytics graph.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface ListPrivateGraphEndpointsCommandOutput extends ListPrivateGraph
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ * @public
  */
 export class ListPrivateGraphEndpointsCommand extends $Command
   .classBuilder<

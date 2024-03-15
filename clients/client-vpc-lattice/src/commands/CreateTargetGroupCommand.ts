@@ -27,7 +27,6 @@ export interface CreateTargetGroupCommandInput extends CreateTargetGroupRequest 
 export interface CreateTargetGroupCommandOutput extends CreateTargetGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a target group. A target group is a collection of targets, or compute resources,
  *    that run your application or service. A target group can only be used by a single service.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/target-groups.html">Target groups</a> in the
@@ -134,6 +133,7 @@ export interface CreateTargetGroupCommandOutput extends CreateTargetGroupRespons
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class CreateTargetGroupCommand extends $Command
   .classBuilder<

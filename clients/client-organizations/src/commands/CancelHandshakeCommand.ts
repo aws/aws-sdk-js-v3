@@ -31,7 +31,6 @@ export interface CancelHandshakeCommandInput extends CancelHandshakeRequest {}
 export interface CancelHandshakeCommandOutput extends CancelHandshakeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels a handshake. Canceling a handshake sets the handshake state to
  *                 <code>CANCELED</code>.</p>
  *          <p>This operation can be called only from the account that originated the handshake. The recipient of the handshake can't cancel it, but can use <a>DeclineHandshake</a> instead. After a handshake is canceled, the recipient
@@ -226,6 +225,7 @@ export interface CancelHandshakeCommandOutput extends CancelHandshakeResponse, _
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  * @example To cancel a handshake sent to a member account
  * ```javascript
  * // Bill previously sent an invitation to Susan's account to join his organization. He changes his mind and decides to cancel the invitation before Susan accepts it. The following example shows Bill's cancellation:

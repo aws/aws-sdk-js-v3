@@ -32,7 +32,6 @@ export interface UpdateBrowserSettingsCommandInput extends UpdateBrowserSettings
 export interface UpdateBrowserSettingsCommandOutput extends UpdateBrowserSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates browser settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface UpdateBrowserSettingsCommandOutput extends UpdateBrowserSetting
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * @public
  */
 export class UpdateBrowserSettingsCommand extends $Command
   .classBuilder<

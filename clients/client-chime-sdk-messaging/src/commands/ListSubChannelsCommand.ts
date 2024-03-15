@@ -36,7 +36,6 @@ export interface ListSubChannelsCommandInput extends ListSubChannelsRequest {}
 export interface ListSubChannelsCommandOutput extends ListSubChannelsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the SubChannels in an elastic channel when given a channel ID. Available only to the app instance admins and channel moderators of elastic channels.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface ListSubChannelsCommandOutput extends ListSubChannelsResponse, _
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class ListSubChannelsCommand extends $Command
   .classBuilder<

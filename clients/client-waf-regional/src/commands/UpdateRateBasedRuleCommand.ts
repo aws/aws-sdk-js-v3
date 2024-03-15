@@ -27,7 +27,6 @@ export interface UpdateRateBasedRuleCommandInput extends UpdateRateBasedRuleRequ
 export interface UpdateRateBasedRuleCommandOutput extends UpdateRateBasedRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -230,6 +229,7 @@ export interface UpdateRateBasedRuleCommandOutput extends UpdateRateBasedRuleRes
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
+ * @public
  */
 export class UpdateRateBasedRuleCommand extends $Command
   .classBuilder<

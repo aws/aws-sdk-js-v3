@@ -27,7 +27,6 @@ export interface StartReportJobCommandInput extends StartReportJobInput {}
 export interface StartReportJobCommandOutput extends StartReportJobOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an on-demand report job for the specified report plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface StartReportJobCommandOutput extends StartReportJobOutput, __Met
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class StartReportJobCommand extends $Command
   .classBuilder<

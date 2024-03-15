@@ -27,7 +27,6 @@ export interface DeleteCustomLogSourceCommandInput extends DeleteCustomLogSource
 export interface DeleteCustomLogSourceCommandOutput extends DeleteCustomLogSourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a custom log source from Amazon Security Lake, to stop sending data from the custom
  *          source to Security Lake.</p>
  * @example
@@ -80,6 +79,7 @@ export interface DeleteCustomLogSourceCommandOutput extends DeleteCustomLogSourc
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ * @public
  */
 export class DeleteCustomLogSourceCommand extends $Command
   .classBuilder<

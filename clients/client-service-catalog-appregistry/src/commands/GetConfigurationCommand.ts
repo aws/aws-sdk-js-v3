@@ -31,7 +31,6 @@ export interface GetConfigurationCommandInput {}
 export interface GetConfigurationCommandOutput extends GetConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Retrieves a <code>TagKey</code> configuration
  *       from an account.
@@ -67,6 +66,7 @@ export interface GetConfigurationCommandOutput extends GetConfigurationResponse,
  * @throws {@link ServiceCatalogAppRegistryServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
+ * @public
  */
 export class GetConfigurationCommand extends $Command
   .classBuilder<

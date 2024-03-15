@@ -27,7 +27,6 @@ export interface PutMetricStreamCommandInput extends PutMetricStreamInput {}
 export interface PutMetricStreamCommandOutput extends PutMetricStreamOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates a metric stream. Metric streams can automatically stream CloudWatch
  * 			metrics to Amazon Web Services destinations, including Amazon S3, and to many third-party
  * 			solutions.</p>
@@ -142,6 +141,7 @@ export interface PutMetricStreamCommandOutput extends PutMetricStreamOutput, __M
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * @public
  */
 export class PutMetricStreamCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface BatchEvaluateGeofencesCommandInput extends BatchEvaluateGeofenc
 export interface BatchEvaluateGeofencesCommandOutput extends BatchEvaluateGeofencesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Evaluates device positions against the geofence geometries from a given geofence
  *             collection.</p>
  *          <p>This operation always returns an empty response because geofences are asynchronously
@@ -127,6 +126,7 @@ export interface BatchEvaluateGeofencesCommandOutput extends BatchEvaluateGeofen
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class BatchEvaluateGeofencesCommand extends $Command
   .classBuilder<

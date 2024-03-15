@@ -27,7 +27,6 @@ export interface DeletePushTemplateCommandInput extends DeletePushTemplateReques
 export interface DeletePushTemplateCommandOutput extends DeletePushTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a message template for messages that were sent through a push notification channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface DeletePushTemplateCommandOutput extends DeletePushTemplateRespo
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class DeletePushTemplateCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface ListAccountAssociationsCommandInput extends ListAccountAssociat
 export interface ListAccountAssociationsCommandOutput extends ListAccountAssociationsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p> This is a paginated call to list linked accounts that are linked to the payer account for
  *       the specified time period. If no information is provided, the current billing period is used.
  *       The response will optionally include the billing group that's associated with the linked
@@ -97,6 +96,7 @@ export interface ListAccountAssociationsCommandOutput extends ListAccountAssocia
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ * @public
  */
 export class ListAccountAssociationsCommand extends $Command
   .classBuilder<

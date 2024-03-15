@@ -31,7 +31,6 @@ export interface GetActivityTaskCommandInput extends GetActivityTaskInput {}
 export interface GetActivityTaskCommandOutput extends GetActivityTaskOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Used by workers to retrieve a task (with the specified activity ARN) which has been
  *       scheduled for execution by a running state machine. This initiates a long poll, where the
  *       service holds the HTTP connection open and responds as soon as a task becomes available (i.e.
@@ -86,6 +85,7 @@ export interface GetActivityTaskCommandOutput extends GetActivityTaskOutput, __M
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * @public
  */
 export class GetActivityTaskCommand extends $Command
   .classBuilder<

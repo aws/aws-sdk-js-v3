@@ -29,7 +29,6 @@ export interface GetCalculationExecutionCodeCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the unencrypted code that was executed for the calculation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface GetCalculationExecutionCodeCommandOutput
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class GetCalculationExecutionCodeCommand extends $Command
   .classBuilder<

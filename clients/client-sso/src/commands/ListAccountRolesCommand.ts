@@ -31,7 +31,6 @@ export interface ListAccountRolesCommandInput extends ListAccountRolesRequest {}
 export interface ListAccountRolesCommandOutput extends ListAccountRolesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all roles that are assigned to the user for a given AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface ListAccountRolesCommandOutput extends ListAccountRolesResponse,
  * @throws {@link SSOServiceException}
  * <p>Base exception class for all service exceptions from SSO service.</p>
  *
+ * @public
  */
 export class ListAccountRolesCommand extends $Command
   .classBuilder<

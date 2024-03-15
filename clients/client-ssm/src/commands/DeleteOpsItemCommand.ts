@@ -27,7 +27,6 @@ export interface DeleteOpsItemCommandInput extends DeleteOpsItemRequest {}
 export interface DeleteOpsItemCommandOutput extends DeleteOpsItemResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete an OpsItem. You must have permission in Identity and Access Management (IAM) to
  *    delete an OpsItem. </p>
  *          <important>
@@ -87,6 +86,7 @@ export interface DeleteOpsItemCommandOutput extends DeleteOpsItemResponse, __Met
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DeleteOpsItemCommand extends $Command
   .classBuilder<

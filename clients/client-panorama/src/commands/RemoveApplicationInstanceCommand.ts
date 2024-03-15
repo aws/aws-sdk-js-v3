@@ -27,7 +27,6 @@ export interface RemoveApplicationInstanceCommandInput extends RemoveApplication
 export interface RemoveApplicationInstanceCommandOutput extends RemoveApplicationInstanceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes an application instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface RemoveApplicationInstanceCommandOutput extends RemoveApplicatio
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ * @public
  */
 export class RemoveApplicationInstanceCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeTaskDefinitionCommandInput extends DescribeTaskDefiniti
 export interface DescribeTaskDefinitionCommandOutput extends DescribeTaskDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a task definition. You can specify a <code>family</code> and
  * 				<code>revision</code> to find information about a specific task definition, or you
  * 			can simply specify the family to find the latest <code>ACTIVE</code> revision in that
@@ -345,6 +344,7 @@ export interface DescribeTaskDefinitionCommandOutput extends DescribeTaskDefinit
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  * @example To describe a task definition
  * ```javascript
  * // This example provides a description of the specified task definition.

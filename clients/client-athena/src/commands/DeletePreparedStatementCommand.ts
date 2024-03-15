@@ -27,7 +27,6 @@ export interface DeletePreparedStatementCommandInput extends DeletePreparedState
 export interface DeletePreparedStatementCommandOutput extends DeletePreparedStatementOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the prepared statement with the specified name from the specified
  *             workgroup.</p>
  * @example
@@ -66,6 +65,7 @@ export interface DeletePreparedStatementCommandOutput extends DeletePreparedStat
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class DeletePreparedStatementCommand extends $Command
   .classBuilder<

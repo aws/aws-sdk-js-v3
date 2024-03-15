@@ -27,7 +27,6 @@ export interface DeleteOptionGroupCommandInput extends DeleteOptionGroupMessage 
 export interface DeleteOptionGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing option group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +58,7 @@ export interface DeleteOptionGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To delete an option group
  * ```javascript
  * // The following example deletes the specified option group.

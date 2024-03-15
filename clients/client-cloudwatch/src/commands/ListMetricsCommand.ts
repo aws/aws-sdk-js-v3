@@ -27,7 +27,6 @@ export interface ListMetricsCommandInput extends ListMetricsInput {}
 export interface ListMetricsCommandOutput extends ListMetricsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>List the specified metrics. You can use the returned metrics with <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a> or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a> to get statistical data.</p>
  *          <p>Up to 500 results are returned for any one call. To retrieve additional results,
  * 			use the returned token with subsequent calls.</p>
@@ -99,6 +98,7 @@ export interface ListMetricsCommandOutput extends ListMetricsOutput, __MetadataB
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * @public
  */
 export class ListMetricsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface AssociateIpGroupsCommandInput extends AssociateIpGroupsRequest 
 export interface AssociateIpGroupsCommandOutput extends AssociateIpGroupsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates the specified IP access control group with the specified directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface AssociateIpGroupsCommandOutput extends AssociateIpGroupsResult,
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class AssociateIpGroupsCommand extends $Command
   .classBuilder<

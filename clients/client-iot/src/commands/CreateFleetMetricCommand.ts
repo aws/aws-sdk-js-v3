@@ -27,7 +27,6 @@ export interface CreateFleetMetricCommandInput extends CreateFleetMetricRequest 
 export interface CreateFleetMetricCommandOutput extends CreateFleetMetricResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a fleet metric.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateFleetMetric</a> action.</p>
  * @example
@@ -109,6 +108,7 @@ export interface CreateFleetMetricCommandOutput extends CreateFleetMetricRespons
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class CreateFleetMetricCommand extends $Command
   .classBuilder<

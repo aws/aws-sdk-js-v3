@@ -27,7 +27,6 @@ export interface DescribeModelCommandInput extends DescribeModelInput {}
 export interface DescribeModelCommandOutput extends DescribeModelOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a model that you created using the <code>CreateModel</code>
  *             API.</p>
  * @example
@@ -143,6 +142,7 @@ export interface DescribeModelCommandOutput extends DescribeModelOutput, __Metad
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeModelCommand extends $Command
   .classBuilder<

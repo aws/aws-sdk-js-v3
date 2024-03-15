@@ -27,7 +27,6 @@ export interface GetHealthEventCommandInput extends GetHealthEventInput {}
 export interface GetHealthEventCommandOutput extends GetHealthEventOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information the Amazon CloudWatch Internet Monitor has created and stored about a health event for a specified monitor. This information includes the impacted locations,
  * 			and all the information related to the event, by location.</p>
  *          <p>The information returned includes the impact on performance, availability, and round-trip time, information about the network providers (ASNs),
@@ -132,6 +131,7 @@ export interface GetHealthEventCommandOutput extends GetHealthEventOutput, __Met
  * @throws {@link InternetMonitorServiceException}
  * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
+ * @public
  */
 export class GetHealthEventCommand extends $Command
   .classBuilder<

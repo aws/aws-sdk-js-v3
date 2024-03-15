@@ -839,9 +839,9 @@ export interface BedrockAgent {
 }
 
 /**
- * @public
  * An example service, deployed with the Octane Service creator,
  * which will echo the string
+ * @public
  */
 export class BedrockAgent extends BedrockAgentClient implements BedrockAgent {}
 createAggregatedClient(commands, BedrockAgent);

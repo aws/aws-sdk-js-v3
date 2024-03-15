@@ -28,7 +28,6 @@ export interface PutBucketLoggingCommandInput extends PutBucketLoggingRequest {}
 export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -168,6 +167,7 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example Set logging configuration for a bucket
  * ```javascript
  * // The following example sets logging policy on a bucket. For the Log Delivery group to deliver logs to the destination bucket, it needs permission for the READ_ACP action which the policy grants.

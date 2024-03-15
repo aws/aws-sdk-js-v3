@@ -27,7 +27,6 @@ export interface DeregisterJobDefinitionCommandInput extends DeregisterJobDefini
 export interface DeregisterJobDefinitionCommandOutput extends DeregisterJobDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deregisters an Batch job definition. Job definitions are permanently deleted after 180
  *       days.</p>
  * @example
@@ -62,6 +61,7 @@ export interface DeregisterJobDefinitionCommandOutput extends DeregisterJobDefin
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ * @public
  * @example To deregister a job definition
  * ```javascript
  * // This example deregisters a job definition called sleep10.

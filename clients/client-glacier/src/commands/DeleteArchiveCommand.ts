@@ -27,7 +27,6 @@ export interface DeleteArchiveCommandInput extends DeleteArchiveInput {}
 export interface DeleteArchiveCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation deletes an archive from a vault. Subsequent requests to initiate a
  *          retrieval of this archive will fail. Archive retrievals that are in progress for this
  *          archive ID may or may not succeed according to the following scenarios:</p>
@@ -94,6 +93,7 @@ export interface DeleteArchiveCommandOutput extends __MetadataBearer {}
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * @public
  * @example To delete an archive
  * ```javascript
  * // The example deletes the archive specified by the archive ID.

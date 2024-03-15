@@ -27,7 +27,6 @@ export interface ListLayersCommandInput extends ListLayersRequest {}
 export interface ListLayersCommandOutput extends ListLayersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-layers.html">Lambda
  *         layers</a> and shows information about the latest version of each. Specify a
  *         <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime
@@ -91,6 +90,7 @@ export interface ListLayersCommandOutput extends ListLayersResponse, __MetadataB
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class ListLayersCommand extends $Command
   .classBuilder<

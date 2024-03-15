@@ -31,7 +31,6 @@ export interface CreateListenerCommandInput extends CreateListenerRequest {}
 export interface CreateListenerCommandOutput extends CreateListenerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a listener to process inbound connections from clients to an accelerator. Connections arrive to assigned static
  * 			IP addresses on a port, port range, or list of port ranges that you specify. </p>
  * @example
@@ -94,6 +93,7 @@ export interface CreateListenerCommandOutput extends CreateListenerResponse, __M
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class CreateListenerCommand extends $Command
   .classBuilder<

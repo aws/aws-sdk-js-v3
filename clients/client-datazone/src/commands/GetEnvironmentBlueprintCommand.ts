@@ -31,7 +31,6 @@ export interface GetEnvironmentBlueprintCommandInput extends GetEnvironmentBluep
 export interface GetEnvironmentBlueprintCommandOutput extends GetEnvironmentBlueprintOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets an Amazon DataZone blueprint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -105,6 +104,7 @@ export interface GetEnvironmentBlueprintCommandOutput extends GetEnvironmentBlue
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class GetEnvironmentBlueprintCommand extends $Command
   .classBuilder<

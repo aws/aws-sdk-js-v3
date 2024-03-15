@@ -27,7 +27,6 @@ export interface CreateServicePrincipalNameCommandInput extends CreateServicePri
 export interface CreateServicePrincipalNameCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a service principal name (SPN) for the service account in Active Directory. Kerberos
  *          authentication uses SPNs to associate a service instance with a service sign-in
  *          account.</p>
@@ -83,6 +82,7 @@ export interface CreateServicePrincipalNameCommandOutput extends __MetadataBeare
  * @throws {@link PcaConnectorAdServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ * @public
  */
 export class CreateServicePrincipalNameCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateRescoreExecutionPlanCommandInput extends CreateRescoreExe
 export interface CreateRescoreExecutionPlanCommandOutput extends CreateRescoreExecutionPlanResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a rescore execution plan. A rescore execution
  *             plan is an Amazon Kendra Intelligent Ranking resource
  *             used for provisioning the <code>Rescore</code> API. You set
@@ -108,6 +107,7 @@ export interface CreateRescoreExecutionPlanCommandOutput extends CreateRescoreEx
  * @throws {@link KendraRankingServiceException}
  * <p>Base exception class for all service exceptions from KendraRanking service.</p>
  *
+ * @public
  */
 export class CreateRescoreExecutionPlanCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetInstancesCommandInput extends GetInstancesRequest {}
 export interface GetInstancesCommandOutput extends GetInstancesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about all Amazon Lightsail virtual private servers, or
  *         <i>instances</i>.</p>
  * @example
@@ -206,6 +205,7 @@ export interface GetInstancesCommandOutput extends GetInstancesResult, __Metadat
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetInstancesCommand extends $Command
   .classBuilder<

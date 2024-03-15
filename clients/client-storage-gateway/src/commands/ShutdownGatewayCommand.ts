@@ -27,7 +27,6 @@ export interface ShutdownGatewayCommandInput extends ShutdownGatewayInput {}
 export interface ShutdownGatewayCommandOutput extends ShutdownGatewayOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Shuts down a Tape Gateway or Volume Gateway. To specify which gateway to shut down, use
  *          the Amazon Resource Name (ARN) of the gateway in the body of your request.</p>
  *          <note>
@@ -85,6 +84,7 @@ export interface ShutdownGatewayCommandOutput extends ShutdownGatewayOutput, __M
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To shut down a gateway service
  * ```javascript
  * // This operation shuts down the gateway service component running in the storage gateway's virtual machine (VM) and not the VM.

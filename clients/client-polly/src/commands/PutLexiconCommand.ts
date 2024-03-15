@@ -27,7 +27,6 @@ export interface PutLexiconCommandInput extends PutLexiconInput {}
 export interface PutLexiconCommandOutput extends PutLexiconOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stores a pronunciation lexicon in an Amazon Web Services Region. If
  *       a lexicon with the same name already exists in the region, it is
  *       overwritten by the new lexicon. Lexicon operations have eventual
@@ -86,6 +85,7 @@ export interface PutLexiconCommandOutput extends PutLexiconOutput, __MetadataBea
  * @throws {@link PollyServiceException}
  * <p>Base exception class for all service exceptions from Polly service.</p>
  *
+ * @public
  * @example To save a lexicon
  * ```javascript
  * // Stores a pronunciation lexicon in an AWS Region.

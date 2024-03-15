@@ -27,7 +27,6 @@ export interface GetPackageVersionHistoryCommandInput extends GetPackageVersionH
 export interface GetPackageVersionHistoryCommandOutput extends GetPackageVersionHistoryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of Amazon OpenSearch Service package versions, along with their creation time, commit message, and plugin properties (if the
  *    package is a zip plugin package). For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages for Amazon
  *     OpenSearch Service</a>.</p>
@@ -89,6 +88,7 @@ export interface GetPackageVersionHistoryCommandOutput extends GetPackageVersion
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class GetPackageVersionHistoryCommand extends $Command
   .classBuilder<

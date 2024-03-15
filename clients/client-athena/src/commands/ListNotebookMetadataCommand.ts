@@ -27,7 +27,6 @@ export interface ListNotebookMetadataCommandInput extends ListNotebookMetadataIn
 export interface ListNotebookMetadataCommandOutput extends ListNotebookMetadataOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Displays the notebook files for the specified workgroup in paginated format.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface ListNotebookMetadataCommandOutput extends ListNotebookMetadataO
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class ListNotebookMetadataCommand extends $Command
   .classBuilder<

@@ -27,9 +27,6 @@ export interface GetConferencePreferenceCommandInput extends GetConferencePrefer
 export interface GetConferencePreferenceCommandOutput extends GetConferencePreferenceResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Retrieves the existing conference preferences.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -60,6 +57,8 @@ export interface GetConferencePreferenceCommandOutput extends GetConferencePrefe
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class GetConferencePreferenceCommand extends $Command
   .classBuilder<

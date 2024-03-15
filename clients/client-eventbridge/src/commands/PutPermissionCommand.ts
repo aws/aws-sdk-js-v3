@@ -27,7 +27,6 @@ export interface PutPermissionCommandInput extends PutPermissionRequest {}
 export interface PutPermissionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Running <code>PutPermission</code> permits the specified Amazon Web Services account or Amazon Web Services organization
  *       to put events to the specified <i>event bus</i>. Amazon EventBridge (CloudWatch
  *       Events) rules in your account are triggered by these events arriving to an event bus in your
@@ -93,6 +92,7 @@ export interface PutPermissionCommandOutput extends __MetadataBearer {}
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * @public
  */
 export class PutPermissionCommand extends $Command
   .classBuilder<

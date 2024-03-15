@@ -27,7 +27,6 @@ export interface CreateBackendAPICommandInput extends CreateBackendAPIRequest {}
 export interface CreateBackendAPICommandOutput extends CreateBackendAPIResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new backend API resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -110,6 +109,7 @@ export interface CreateBackendAPICommandOutput extends CreateBackendAPIResponse,
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ * @public
  */
 export class CreateBackendAPICommand extends $Command
   .classBuilder<

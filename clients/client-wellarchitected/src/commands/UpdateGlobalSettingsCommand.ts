@@ -27,7 +27,6 @@ export interface UpdateGlobalSettingsCommandInput extends UpdateGlobalSettingsIn
 export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates whether the Amazon Web Services account is opted into organization sharing and discovery integration features.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * @public
  */
 export class UpdateGlobalSettingsCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface CreateTemplateCommandInput extends CreateTemplateRequest {}
 export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a migration workflow template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  * @throws {@link MigrationHubOrchestratorServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
+ * @public
  */
 export class CreateTemplateCommand extends $Command
   .classBuilder<

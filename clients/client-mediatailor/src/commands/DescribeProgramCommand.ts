@@ -27,7 +27,6 @@ export interface DescribeProgramCommandInput extends DescribeProgramRequest {}
 export interface DescribeProgramCommandOutput extends DescribeProgramResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a program within a channel. For information about programs, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-programs.html">Working with programs</a> in the <i>MediaTailor User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface DescribeProgramCommandOutput extends DescribeProgramResponse, _
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ * @public
  */
 export class DescribeProgramCommand extends $Command
   .classBuilder<

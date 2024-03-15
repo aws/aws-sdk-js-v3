@@ -27,7 +27,6 @@ export interface GetServiceEndpointCommandInput extends GetServiceEndpointReques
 export interface GetServiceEndpointCommandOutput extends GetServiceEndpointResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the account-specific endpoint for Configuration and Update Server (CUPS) protocol
  *             or LoRaWAN Network Server (LNS) connections.</p>
  * @example
@@ -70,6 +69,7 @@ export interface GetServiceEndpointCommandOutput extends GetServiceEndpointRespo
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class GetServiceEndpointCommand extends $Command
   .classBuilder<

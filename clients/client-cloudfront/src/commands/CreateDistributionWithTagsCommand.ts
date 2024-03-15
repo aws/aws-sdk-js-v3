@@ -32,7 +32,6 @@ export interface CreateDistributionWithTagsCommandInput extends CreateDistributi
 export interface CreateDistributionWithTagsCommandOutput extends CreateDistributionWithTagsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a new distribution with tags. This API operation requires the following IAM
  * 			permissions:</p>
  *          <ul>
@@ -941,6 +940,7 @@ export interface CreateDistributionWithTagsCommandOutput extends CreateDistribut
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class CreateDistributionWithTagsCommand extends $Command
   .classBuilder<

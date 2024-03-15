@@ -27,7 +27,6 @@ export interface DescribeSnapshotsCommandInput extends DescribeSnapshotsMessage 
 export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsListMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about cluster or replication group snapshots. By default,
  *                 <code>DescribeSnapshots</code> lists all of your snapshots; it can optionally
  *             describe a single snapshot, or just the snapshots associated with a particular cache
@@ -133,6 +132,7 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsListMes
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  * @example DescribeSnapshots
  * ```javascript
  * // Returns information about the snapshot mysnapshot. By default.

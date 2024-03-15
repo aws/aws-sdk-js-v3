@@ -27,7 +27,6 @@ export interface ListPermissionsCommandInput extends ListPermissionsRequest {}
 export interface ListPermissionsCommandOutput extends ListPermissionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List all permissions on a private CA, if any, granted to the Certificate Manager (ACM) service
  * 			principal (acm.amazonaws.com). </p>
  *          <p>These permissions allow ACM to issue and renew ACM certificates that reside in the
@@ -114,6 +113,7 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ * @public
  */
 export class ListPermissionsCommand extends $Command
   .classBuilder<

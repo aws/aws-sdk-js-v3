@@ -27,7 +27,6 @@ export interface DescribeStreamCommandInput extends DescribeStreamInput {}
 export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified Kinesis data stream.</p>
  *          <note>
  *             <p>This API has been revised. It's highly recommended that you use the <a>DescribeStreamSummary</a> API to get a summarized description of the
@@ -132,6 +131,7 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * @public
  */
 export class DescribeStreamCommand extends $Command
   .classBuilder<

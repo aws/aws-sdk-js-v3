@@ -27,7 +27,6 @@ export interface DescribeEngagementCommandInput extends DescribeEngagementReques
 export interface DescribeEngagementCommandOutput extends DescribeEngagementResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Incident Manager uses engagements to engage contacts and escalation plans during an incident.
  *          Use this command to describe the engagement that occurred during an incident.</p>
  * @example
@@ -84,6 +83,7 @@ export interface DescribeEngagementCommandOutput extends DescribeEngagementResul
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ * @public
  */
 export class DescribeEngagementCommand extends $Command
   .classBuilder<

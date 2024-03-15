@@ -31,7 +31,6 @@ export interface CreateResourceServerCommandInput extends CreateResourceServerRe
 export interface CreateResourceServerCommandOutput extends CreateResourceServerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new OAuth2.0 resource server and defines custom scopes within it.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
@@ -119,6 +118,7 @@ export interface CreateResourceServerCommandOutput extends CreateResourceServerR
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class CreateResourceServerCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteVolumeCommandInput extends DeleteVolumeRequest {}
 export interface DeleteVolumeCommandOutput extends DeleteVolumeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS
  *             volume.</p>
  * @example
@@ -100,6 +99,7 @@ export interface DeleteVolumeCommandOutput extends DeleteVolumeResponse, __Metad
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  */
 export class DeleteVolumeCommand extends $Command
   .classBuilder<

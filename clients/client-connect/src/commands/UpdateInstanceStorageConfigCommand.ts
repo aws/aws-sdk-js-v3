@@ -30,7 +30,6 @@ export interface UpdateInstanceStorageConfigCommandInput extends UpdateInstanceS
 export interface UpdateInstanceStorageConfigCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Updates an existing configuration for a resource type. This API is idempotent.</p>
  * @example
@@ -100,6 +99,7 @@ export interface UpdateInstanceStorageConfigCommandOutput extends __MetadataBear
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UpdateInstanceStorageConfigCommand extends $Command
   .classBuilder<

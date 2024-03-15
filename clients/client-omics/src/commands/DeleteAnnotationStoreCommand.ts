@@ -27,7 +27,6 @@ export interface DeleteAnnotationStoreCommandInput extends DeleteAnnotationStore
 export interface DeleteAnnotationStoreCommandOutput extends DeleteAnnotationStoreResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an annotation store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DeleteAnnotationStoreCommandOutput extends DeleteAnnotationStor
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class DeleteAnnotationStoreCommand extends $Command
   .classBuilder<

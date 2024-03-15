@@ -27,7 +27,6 @@ export interface AllocateHostsCommandInput extends AllocateHostsRequest {}
 export interface AllocateHostsCommandOutput extends AllocateHostsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Allocates a Dedicated Host to your account. At a minimum, specify the supported
  *             instance type or instance family, the Availability Zone in which to allocate the host,
  *             and the number of hosts to allocate.</p>
@@ -81,6 +80,7 @@ export interface AllocateHostsCommandOutput extends AllocateHostsResult, __Metad
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class AllocateHostsCommand extends $Command
   .classBuilder<

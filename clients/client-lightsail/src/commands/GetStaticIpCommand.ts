@@ -27,7 +27,6 @@ export interface GetStaticIpCommandInput extends GetStaticIpRequest {}
 export interface GetStaticIpCommandOutput extends GetStaticIpResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about an Amazon Lightsail static IP.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface GetStaticIpCommandOutput extends GetStaticIpResult, __MetadataB
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetStaticIpCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateFleetAttributesCommandInput extends UpdateFleetAttributes
 export interface UpdateFleetAttributesCommandOutput extends UpdateFleetAttributesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a fleet's mutable attributes, including game session protection and resource
  *             creation limits.</p>
  *          <p>To update fleet attributes, specify the fleet ID and the property values that you want
@@ -109,6 +108,7 @@ export interface UpdateFleetAttributesCommandOutput extends UpdateFleetAttribute
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class UpdateFleetAttributesCommand extends $Command
   .classBuilder<

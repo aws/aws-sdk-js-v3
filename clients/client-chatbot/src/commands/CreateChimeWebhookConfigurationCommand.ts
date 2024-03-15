@@ -32,7 +32,6 @@ export interface CreateChimeWebhookConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * Creates Chime Webhook Configuration
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface CreateChimeWebhookConfigurationCommandOutput
  * @throws {@link ChatbotServiceException}
  * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
+ * @public
  */
 export class CreateChimeWebhookConfigurationCommand extends $Command
   .classBuilder<

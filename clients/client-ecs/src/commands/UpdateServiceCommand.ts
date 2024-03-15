@@ -27,7 +27,6 @@ export interface UpdateServiceCommandInput extends UpdateServiceRequest {}
 export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the parameters of a service.</p>
  *          <p>For services using the rolling update (<code>ECS</code>) you can update the desired
  * 			count, deployment configuration, network configuration, load balancers, service
@@ -628,6 +627,7 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  * @example To change the task definition used in a service
  * ```javascript
  * // This example updates the my-http-service service to use the amazon-ecs-sample task definition.

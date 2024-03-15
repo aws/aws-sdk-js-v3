@@ -27,9 +27,6 @@ export interface CreateVoiceConnectorCommandInput extends CreateVoiceConnectorRe
 export interface CreateVoiceConnectorCommandOutput extends CreateVoiceConnectorResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by CreateVoiceConnector in the Amazon Chime SDK Voice Namespace
- *
  * <p>Creates an Amazon Chime Voice Connector under the administrator's AWS account. You can choose to create an Amazon Chime Voice Connector in a specific AWS Region.</p>
  *          <p>Enabling <a>CreateVoiceConnectorRequest$RequireEncryption</a>
  * configures your Amazon Chime Voice Connector to use TLS transport for SIP signaling and Secure RTP (SRTP) for media. Inbound calls use TLS transport, and unencrypted outbound calls are blocked.
@@ -102,6 +99,8 @@ export interface CreateVoiceConnectorCommandOutput extends CreateVoiceConnectorR
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by CreateVoiceConnector in the Amazon Chime SDK Voice Namespace
  */
 export class CreateVoiceConnectorCommand extends $Command
   .classBuilder<

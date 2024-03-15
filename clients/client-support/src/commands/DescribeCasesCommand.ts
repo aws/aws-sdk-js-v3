@@ -27,7 +27,6 @@ export interface DescribeCasesCommandInput extends DescribeCasesRequest {}
 export interface DescribeCasesCommandOutput extends DescribeCasesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of cases that you specify by passing one or more case IDs. You can use
  *             the <code>afterTime</code> and <code>beforeTime</code> parameters to filter the cases by
  *             date. You can set values for the <code>includeResolvedCases</code> and
@@ -135,6 +134,7 @@ export interface DescribeCasesCommandOutput extends DescribeCasesResponse, __Met
  * @throws {@link SupportServiceException}
  * <p>Base exception class for all service exceptions from Support service.</p>
  *
+ * @public
  */
 export class DescribeCasesCommand extends $Command
   .classBuilder<

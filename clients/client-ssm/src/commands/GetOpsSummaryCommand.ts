@@ -28,7 +28,6 @@ export interface GetOpsSummaryCommandInput extends GetOpsSummaryRequest {}
 export interface GetOpsSummaryCommandOutput extends GetOpsSummaryResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>View a summary of operations metadata (OpsData) based on specified filters and aggregators.
  *    OpsData can include information about Amazon Web Services Systems Manager OpsCenter operational workitems (OpsItems) as
  *    well as information about any Amazon Web Services resource or service configured to report OpsData to Amazon Web Services Systems Manager
@@ -141,6 +140,7 @@ export interface GetOpsSummaryCommandOutput extends GetOpsSummaryResult, __Metad
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class GetOpsSummaryCommand extends $Command
   .classBuilder<

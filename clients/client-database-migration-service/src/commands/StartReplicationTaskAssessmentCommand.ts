@@ -36,7 +36,6 @@ export interface StartReplicationTaskAssessmentCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p> Starts the replication task assessment for unsupported data types in the source
  *          database. </p>
  *          <p>You can only use this operation for a task if the following conditions are true:</p>
@@ -116,6 +115,7 @@ export interface StartReplicationTaskAssessmentCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class StartReplicationTaskAssessmentCommand extends $Command
   .classBuilder<

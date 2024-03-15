@@ -32,7 +32,6 @@ export interface EnableOrganizationAdminAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Designates the Security Hub administrator account for an organization. Can only be called by
  *          the organization management account.</p>
  * @example
@@ -76,6 +75,7 @@ export interface EnableOrganizationAdminAccountCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To designate a Security Hub administrator
  * ```javascript
  * // The following example designates the specified account as the Security Hub administrator account. The requesting account must be the organization management account.

@@ -27,7 +27,6 @@ export interface GetKeyPolicyCommandInput extends GetKeyPolicyRequest {}
 export interface GetKeyPolicyCommandOutput extends GetKeyPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a key policy attached to the specified KMS key.</p>
  *          <p>
  *             <b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p>
@@ -102,6 +101,7 @@ export interface GetKeyPolicyCommandOutput extends GetKeyPolicyResponse, __Metad
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To retrieve a key policy
  * ```javascript
  * // The following example retrieves the key policy for the specified KMS key.

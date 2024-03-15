@@ -25,7 +25,6 @@ export interface HttpPrefixHeadersCommandInput extends HttpPrefixHeadersInput {}
 export interface HttpPrefixHeadersCommandOutput extends HttpPrefixHeadersOutput, __MetadataBearer {}
 
 /**
- * @public
  * This examples adds headers to the input of a request and response by prefix.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +58,7 @@ export interface HttpPrefixHeadersCommandOutput extends HttpPrefixHeadersOutput,
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ * @public
  */
 export class HttpPrefixHeadersCommand extends $Command
   .classBuilder<

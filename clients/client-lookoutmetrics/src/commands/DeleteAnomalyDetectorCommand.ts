@@ -27,7 +27,6 @@ export interface DeleteAnomalyDetectorCommandInput extends DeleteAnomalyDetector
 export interface DeleteAnomalyDetectorCommandOutput extends DeleteAnomalyDetectorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a detector. Deleting an anomaly detector will delete all of its corresponding resources including any
  *       configured datasets and alerts.</p>
  * @example
@@ -73,6 +72,7 @@ export interface DeleteAnomalyDetectorCommandOutput extends DeleteAnomalyDetecto
  * @throws {@link LookoutMetricsServiceException}
  * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
+ * @public
  */
 export class DeleteAnomalyDetectorCommand extends $Command
   .classBuilder<

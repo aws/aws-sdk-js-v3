@@ -31,7 +31,6 @@ export interface RequestUploadCredentialsCommandInput extends RequestUploadCrede
 export interface RequestUploadCredentialsCommandOutput extends RequestUploadCredentialsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a fresh set of credentials for use when uploading a new set of game build
  *             files to Amazon GameLift's Amazon S3. This is done as part of the build creation process; see
  *                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateBuild.html">GameSession</a>.</p>
@@ -97,6 +96,7 @@ export interface RequestUploadCredentialsCommandOutput extends RequestUploadCred
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class RequestUploadCredentialsCommand extends $Command
   .classBuilder<

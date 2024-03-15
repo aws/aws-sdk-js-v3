@@ -32,7 +32,6 @@ export interface BatchUpdatePhoneNumberCommandInput extends BatchUpdatePhoneNumb
 export interface BatchUpdatePhoneNumberCommandOutput extends BatchUpdatePhoneNumberResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates one or more phone numbers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface BatchUpdatePhoneNumberCommandOutput extends BatchUpdatePhoneNum
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class BatchUpdatePhoneNumberCommand extends $Command
   .classBuilder<

@@ -1112,7 +1112,6 @@ export interface ElasticBeanstalk {
 }
 
 /**
- * @public
  * <fullname>AWS Elastic Beanstalk</fullname>
  *          <p>AWS Elastic Beanstalk makes it easy for you to create, deploy, and manage scalable,
  *       fault-tolerant applications running on the Amazon Web Services cloud.</p>
@@ -1126,6 +1125,7 @@ export interface ElasticBeanstalk {
  *          <p>For a list of region-specific endpoints that AWS Elastic Beanstalk supports, go to
  *         <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region">Regions and Endpoints</a> in the <i>Amazon Web Services
  *       Glossary</i>.</p>
+ * @public
  */
 export class ElasticBeanstalk extends ElasticBeanstalkClient implements ElasticBeanstalk {}
 createAggregatedClient(commands, ElasticBeanstalk);

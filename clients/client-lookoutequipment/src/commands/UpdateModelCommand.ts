@@ -27,7 +27,6 @@ export interface UpdateModelCommandInput extends UpdateModelRequest {}
 export interface UpdateModelCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a model in the account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface UpdateModelCommandOutput extends __MetadataBearer {}
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  * @example Updates a model
  * ```javascript
  * //

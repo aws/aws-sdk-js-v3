@@ -33,7 +33,6 @@ export interface StartConversationCommandInput extends StartConversationRequest 
 export interface StartConversationCommandOutput extends StartConversationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an HTTP/2 bidirectional event stream that enables you to send
  *          audio, text, or DTMF input in real time. After your application starts
  *          a conversation, users send input to Amazon Lex V2 as a stream of events. Amazon Lex V2
@@ -463,6 +462,7 @@ export interface StartConversationCommandOutput extends StartConversationRespons
  * @throws {@link LexRuntimeV2ServiceException}
  * <p>Base exception class for all service exceptions from LexRuntimeV2 service.</p>
  *
+ * @public
  */
 export class StartConversationCommand extends $Command
   .classBuilder<

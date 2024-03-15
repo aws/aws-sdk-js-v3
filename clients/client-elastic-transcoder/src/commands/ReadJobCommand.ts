@@ -31,7 +31,6 @@ export interface ReadJobCommandInput extends ReadJobRequest {}
 export interface ReadJobCommandOutput extends ReadJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The ReadJob operation returns detailed information about a job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -321,6 +320,7 @@ export interface ReadJobCommandOutput extends ReadJobResponse, __MetadataBearer 
  * @throws {@link ElasticTranscoderServiceException}
  * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
+ * @public
  */
 export class ReadJobCommand extends $Command
   .classBuilder<

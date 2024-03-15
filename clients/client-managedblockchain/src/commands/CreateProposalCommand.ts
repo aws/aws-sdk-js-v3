@@ -31,7 +31,6 @@ export interface CreateProposalCommandInput extends CreateProposalInput {}
 export interface CreateProposalCommandOutput extends CreateProposalOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a proposal for a change to the network that other members of the network can vote on, for example, a proposal to add a new member to the network. Any member can create a proposal.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
@@ -102,6 +101,7 @@ export interface CreateProposalCommandOutput extends CreateProposalOutput, __Met
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ * @public
  */
 export class CreateProposalCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteSamplingRuleCommandInput extends DeleteSamplingRuleReques
 export interface DeleteSamplingRuleCommandOutput extends DeleteSamplingRuleResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a sampling rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface DeleteSamplingRuleCommandOutput extends DeleteSamplingRuleResul
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ * @public
  */
 export class DeleteSamplingRuleCommand extends $Command
   .classBuilder<

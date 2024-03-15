@@ -27,7 +27,6 @@ export interface StartImportLabelsTaskRunCommandInput extends StartImportLabelsT
 export interface StartImportLabelsTaskRunCommandOutput extends StartImportLabelsTaskRunResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables you to provide additional labels (examples of truth) to be used to teach the
  *       machine learning transform and improve its quality. This API operation is generally used as
  *       part of the active learning workflow that starts with the
@@ -93,6 +92,7 @@ export interface StartImportLabelsTaskRunCommandOutput extends StartImportLabels
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class StartImportLabelsTaskRunCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetTerminologyCommandInput extends GetTerminologyRequest {}
 export interface GetTerminologyCommandOutput extends GetTerminologyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a custom terminology.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface GetTerminologyCommandOutput extends GetTerminologyResponse, __M
  * @throws {@link TranslateServiceException}
  * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ * @public
  */
 export class GetTerminologyCommand extends $Command
   .classBuilder<

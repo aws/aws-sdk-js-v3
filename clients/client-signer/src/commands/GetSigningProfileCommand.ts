@@ -27,7 +27,6 @@ export interface GetSigningProfileCommandInput extends GetSigningProfileRequest 
 export interface GetSigningProfileCommandOutput extends GetSigningProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information on a specific signing profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface GetSigningProfileCommandOutput extends GetSigningProfileRespons
  * @throws {@link SignerServiceException}
  * <p>Base exception class for all service exceptions from Signer service.</p>
  *
+ * @public
  */
 export class GetSigningProfileCommand extends $Command
   .classBuilder<

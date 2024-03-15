@@ -27,7 +27,6 @@ export interface GetSettingsCommandInput extends GetSettingsRequest {}
 export interface GetSettingsCommandOutput extends GetSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Gets the settings for a specified Amazon Web Services account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface GetSettingsCommandOutput extends GetSettingsResponse, __Metadat
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class GetSettingsCommand extends $Command
   .classBuilder<

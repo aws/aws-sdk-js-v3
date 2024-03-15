@@ -40,7 +40,6 @@ export interface UpdateApplicationMaintenanceConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the maintenance configuration of the Managed Service for Apache Flink application. </p>
  *          <p>You can invoke this operation on an application that is in one of the two following
  *       states: <code>READY</code> or <code>RUNNING</code>. If you invoke it when the application is
@@ -108,6 +107,7 @@ export interface UpdateApplicationMaintenanceConfigurationCommandOutput
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ * @public
  */
 export class UpdateApplicationMaintenanceConfigurationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateIndexCommandInput extends CreateIndexRequest {}
 export interface CreateIndexCommandOutput extends CreateIndexResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon Q index.</p>
  *          <p>To determine if index creation has completed, check the <code>Status</code> field
  *             returned from a call to <code>DescribeIndex</code>. The <code>Status</code> field is set
@@ -103,6 +102,7 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ * @public
  */
 export class CreateIndexCommand extends $Command
   .classBuilder<

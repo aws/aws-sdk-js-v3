@@ -30,7 +30,6 @@ export interface AssociateEnvironmentOperationsRoleCommandInput extends Associat
 export interface AssociateEnvironmentOperationsRoleCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Add or change the operations role used by an environment. After this call is made, Elastic Beanstalk
  *       uses the associated operations role for permissions to downstream services during subsequent
  *       calls acting on this environment. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-operationsrole.html">Operations roles</a> in the
@@ -64,6 +63,7 @@ export interface AssociateEnvironmentOperationsRoleCommandOutput extends __Metad
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  */
 export class AssociateEnvironmentOperationsRoleCommand extends $Command
   .classBuilder<

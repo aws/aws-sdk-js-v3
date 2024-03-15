@@ -31,7 +31,6 @@ export interface ReplicateInstanceCommandInput extends ReplicateInstanceRequest 
 export interface ReplicateInstanceCommandOutput extends ReplicateInstanceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Replicates an Amazon Connect instance in the specified Amazon Web Services Region and
  *    copies configuration information for Amazon Connect resources across Amazon Web Services Regions. </p>
  *          <p>For more information about replicating an Amazon Connect instance, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-replica-connect-instance.html">Create
@@ -91,6 +90,7 @@ export interface ReplicateInstanceCommandOutput extends ReplicateInstanceRespons
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class ReplicateInstanceCommand extends $Command
   .classBuilder<

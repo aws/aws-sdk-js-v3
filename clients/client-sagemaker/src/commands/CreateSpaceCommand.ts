@@ -27,7 +27,6 @@ export interface CreateSpaceCommandInput extends CreateSpaceRequest {}
 export interface CreateSpaceCommandOutput extends CreateSpaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a space used for real time collaboration in a domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -150,6 +149,7 @@ export interface CreateSpaceCommandOutput extends CreateSpaceResponse, __Metadat
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateSpaceCommand extends $Command
   .classBuilder<

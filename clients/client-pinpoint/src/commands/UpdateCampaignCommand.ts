@@ -27,7 +27,6 @@ export interface UpdateCampaignCommandInput extends UpdateCampaignRequest {}
 export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the configuration and other settings for a campaign.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -824,6 +823,7 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class UpdateCampaignCommand extends $Command
   .classBuilder<

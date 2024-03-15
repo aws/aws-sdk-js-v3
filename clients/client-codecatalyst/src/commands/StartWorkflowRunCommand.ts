@@ -27,7 +27,6 @@ export interface StartWorkflowRunCommandInput extends StartWorkflowRunRequest {}
 export interface StartWorkflowRunCommandOutput extends StartWorkflowRunResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Begins a run of a specified workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface StartWorkflowRunCommandOutput extends StartWorkflowRunResponse,
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ * @public
  */
 export class StartWorkflowRunCommand extends $Command
   .classBuilder<

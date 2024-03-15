@@ -27,7 +27,6 @@ export interface StopQueryCommandInput extends StopQueryInput {}
 export interface StopQueryCommandOutput extends StopQueryOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stop a query that is progress for a specific monitor.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface StopQueryCommandOutput extends StopQueryOutput, __MetadataBeare
  * @throws {@link InternetMonitorServiceException}
  * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
+ * @public
  */
 export class StopQueryCommand extends $Command
   .classBuilder<

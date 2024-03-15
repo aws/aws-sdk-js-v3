@@ -27,7 +27,6 @@ export interface StartPolicyGenerationCommandInput extends StartPolicyGeneration
 export interface StartPolicyGenerationCommandOutput extends StartPolicyGenerationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts the policy generation request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface StartPolicyGenerationCommandOutput extends StartPolicyGeneratio
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ * @public
  */
 export class StartPolicyGenerationCommand extends $Command
   .classBuilder<

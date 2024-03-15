@@ -27,7 +27,6 @@ export interface CreateBulkImportJobCommandInput extends CreateBulkImportJobRequ
 export interface CreateBulkImportJobCommandOutput extends CreateBulkImportJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Defines a job to ingest data to IoT SiteWise from Amazon S3. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/CreateBulkImportJob.html">Create a
  *         bulk import job (CLI)</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
  *          <important>
@@ -117,6 +116,7 @@ export interface CreateBulkImportJobCommandOutput extends CreateBulkImportJobRes
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class CreateBulkImportJobCommand extends $Command
   .classBuilder<

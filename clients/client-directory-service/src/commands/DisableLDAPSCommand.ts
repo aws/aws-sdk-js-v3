@@ -27,7 +27,6 @@ export interface DisableLDAPSCommandInput extends DisableLDAPSRequest {}
 export interface DisableLDAPSCommandOutput extends DisableLDAPSResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deactivates LDAP secure calls for the specified directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface DisableLDAPSCommandOutput extends DisableLDAPSResult, __Metadat
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class DisableLDAPSCommand extends $Command
   .classBuilder<

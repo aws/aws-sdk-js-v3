@@ -27,7 +27,6 @@ export interface StartLaunchCommandInput extends StartLaunchRequest {}
 export interface StartLaunchCommandOutput extends StartLaunchResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an existing launch. To create a launch,
  *        use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateLaunch.html">CreateLaunch</a>.</p>
  * @example
@@ -132,6 +131,7 @@ export interface StartLaunchCommandOutput extends StartLaunchResponse, __Metadat
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ * @public
  */
 export class StartLaunchCommand extends $Command
   .classBuilder<

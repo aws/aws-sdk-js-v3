@@ -27,7 +27,6 @@ export interface RebootInstancesCommandInput extends RebootInstancesRequest {}
 export interface RebootInstancesCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Requests a reboot of the specified instances. This operation is asynchronous; it only
  *             queues a request to reboot the specified instances. The operation succeeds if the
  *             instances are valid and belong to you. Requests to reboot terminated instances are
@@ -63,6 +62,7 @@ export interface RebootInstancesCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To reboot an EC2 instance
  * ```javascript
  * // This example reboots the specified EC2 instance.

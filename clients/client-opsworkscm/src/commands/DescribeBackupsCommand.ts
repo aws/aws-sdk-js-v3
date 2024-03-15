@@ -27,7 +27,6 @@ export interface DescribeBackupsCommandInput extends DescribeBackupsRequest {}
 export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Describes backups. The results are ordered by time, with newest backups first.
  *       If you do not specify a BackupId or ServerName, the command returns all backups.
@@ -112,6 +111,7 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * @throws {@link OpsWorksCMServiceException}
  * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
+ * @public
  */
 export class DescribeBackupsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface StartDICOMImportJobCommandInput extends StartDICOMImportJobRequ
 export interface StartDICOMImportJobCommandOutput extends StartDICOMImportJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Start importing bulk data into an <code>ACTIVE</code> data store. The import job imports DICOM P10 files
  *            found in the S3 prefix specified by the <code>inputS3Uri</code> parameter. The import job stores
  *            processing results in the file specified by the <code>outputS3Uri</code> parameter.</p>
@@ -86,6 +85,7 @@ export interface StartDICOMImportJobCommandOutput extends StartDICOMImportJobRes
  * @throws {@link MedicalImagingServiceException}
  * <p>Base exception class for all service exceptions from MedicalImaging service.</p>
  *
+ * @public
  */
 export class StartDICOMImportJobCommand extends $Command
   .classBuilder<

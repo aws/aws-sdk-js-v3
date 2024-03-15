@@ -27,7 +27,6 @@ export interface ListTagsCommandInput extends ListTagsInput {}
 export interface ListTagsCommandOutput extends ListTagsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the tags for the specified SageMaker resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +62,7 @@ export interface ListTagsCommandOutput extends ListTagsOutput, __MetadataBearer 
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListTagsCommand extends $Command
   .classBuilder<

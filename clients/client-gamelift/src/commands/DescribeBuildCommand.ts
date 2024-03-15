@@ -27,7 +27,6 @@ export interface DescribeBuildCommandInput extends DescribeBuildInput {}
 export interface DescribeBuildCommandOutput extends DescribeBuildOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves properties for a custom game build. To request a build resource, specify a
  *             build ID. If successful, an object containing the build properties is returned.</p>
  *          <p>
@@ -90,6 +89,7 @@ export interface DescribeBuildCommandOutput extends DescribeBuildOutput, __Metad
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DescribeBuildCommand extends $Command
   .classBuilder<

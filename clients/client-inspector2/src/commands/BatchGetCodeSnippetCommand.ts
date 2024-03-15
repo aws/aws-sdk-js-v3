@@ -27,7 +27,6 @@ export interface BatchGetCodeSnippetCommandInput extends BatchGetCodeSnippetRequ
 export interface BatchGetCodeSnippetCommandOutput extends BatchGetCodeSnippetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves code snippets from findings that Amazon Inspector detected code vulnerabilities in.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface BatchGetCodeSnippetCommandOutput extends BatchGetCodeSnippetRes
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class BatchGetCodeSnippetCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteTapeCommandInput extends DeleteTapeInput {}
 export interface DeleteTapeCommandOutput extends DeleteTapeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified virtual tape. This operation is only supported in the tape gateway
  *          type.</p>
  * @example
@@ -66,6 +65,7 @@ export interface DeleteTapeCommandOutput extends DeleteTapeOutput, __MetadataBea
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To delete a virtual tape
  * ```javascript
  * // This example deletes the specified virtual tape.

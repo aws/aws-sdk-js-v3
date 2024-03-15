@@ -36,7 +36,6 @@ export interface AssociateDeviceWithPlacementCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a physical device with a placement.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface AssociateDeviceWithPlacementCommandOutput
  * @throws {@link IoT1ClickProjectsServiceException}
  * <p>Base exception class for all service exceptions from IoT1ClickProjects service.</p>
  *
+ * @public
  */
 export class AssociateDeviceWithPlacementCommand extends $Command
   .classBuilder<

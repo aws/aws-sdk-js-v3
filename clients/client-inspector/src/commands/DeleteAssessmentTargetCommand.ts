@@ -27,7 +27,6 @@ export interface DeleteAssessmentTargetCommandInput extends DeleteAssessmentTarg
 export interface DeleteAssessmentTargetCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the assessment target that is specified by the ARN of the assessment
  *          target.</p>
  * @example
@@ -75,6 +74,7 @@ export interface DeleteAssessmentTargetCommandOutput extends __MetadataBearer {}
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * @public
  * @example Delete assessment target
  * ```javascript
  * // Deletes the assessment target that is specified by the ARN of the assessment target.

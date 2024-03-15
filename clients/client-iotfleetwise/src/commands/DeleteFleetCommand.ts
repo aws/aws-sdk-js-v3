@@ -27,7 +27,6 @@ export interface DeleteFleetCommandInput extends DeleteFleetRequest {}
 export interface DeleteFleetCommandOutput extends DeleteFleetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Deletes a fleet. Before you delete a fleet, all vehicles must be
  *             dissociated from the fleet. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/delete-fleet-cli.html">Delete a fleet (AWS
  *                 CLI)</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
@@ -74,6 +73,7 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResponse, __Metadat
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class DeleteFleetCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetCisScanResultDetailsCommandInput extends GetCisScanResultDet
 export interface GetCisScanResultDetailsCommandOutput extends GetCisScanResultDetailsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves CIS scan result details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -122,6 +121,7 @@ export interface GetCisScanResultDetailsCommandOutput extends GetCisScanResultDe
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class GetCisScanResultDetailsCommand extends $Command
   .classBuilder<

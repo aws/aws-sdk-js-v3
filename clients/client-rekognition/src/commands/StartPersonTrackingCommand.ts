@@ -27,7 +27,6 @@ export interface StartPersonTrackingCommandInput extends StartPersonTrackingRequ
 export interface StartPersonTrackingCommandOutput extends StartPersonTrackingResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts the asynchronous tracking of a person's path in a stored video.</p>
  *          <p>Amazon Rekognition Video can track the path of people in a video stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name
  *        and the filename of the video. <code>StartPersonTracking</code>
@@ -110,6 +109,7 @@ export interface StartPersonTrackingCommandOutput extends StartPersonTrackingRes
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  */
 export class StartPersonTrackingCommand extends $Command
   .classBuilder<

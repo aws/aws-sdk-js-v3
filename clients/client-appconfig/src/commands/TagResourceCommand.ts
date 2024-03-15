@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Assigns metadata to an AppConfig resource. Tags help organize and categorize
  *          your AppConfig resources. Each tag consists of a key and an optional value, both
  *          of which you define. You can specify a maximum of 50 tags for a resource.</p>
@@ -67,6 +66,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  * @example To tag an application
  * ```javascript
  * // The following tag-resource example tags an application resource.

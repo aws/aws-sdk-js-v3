@@ -27,7 +27,6 @@ export interface ListSentimentDetectionJobsCommandInput extends ListSentimentDet
 export interface ListSentimentDetectionJobsCommandOutput extends ListSentimentDetectionJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of sentiment detection jobs that you have submitted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -112,6 +111,7 @@ export interface ListSentimentDetectionJobsCommandOutput extends ListSentimentDe
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class ListSentimentDetectionJobsCommand extends $Command
   .classBuilder<

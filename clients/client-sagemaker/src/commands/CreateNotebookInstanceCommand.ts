@@ -27,7 +27,6 @@ export interface CreateNotebookInstanceCommandInput extends CreateNotebookInstan
 export interface CreateNotebookInstanceCommandOutput extends CreateNotebookInstanceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an SageMaker notebook instance. A notebook instance is a machine learning (ML)
  *          compute instance running on a Jupyter notebook. </p>
  *          <p>In a <code>CreateNotebookInstance</code> request, specify the type of ML compute
@@ -121,6 +120,7 @@ export interface CreateNotebookInstanceCommandOutput extends CreateNotebookInsta
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateNotebookInstanceCommand extends $Command
   .classBuilder<

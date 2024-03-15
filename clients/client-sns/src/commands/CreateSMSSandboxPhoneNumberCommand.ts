@@ -31,7 +31,6 @@ export interface CreateSMSSandboxPhoneNumberCommandInput extends CreateSMSSandbo
 export interface CreateSMSSandboxPhoneNumberCommandOutput extends CreateSMSSandboxPhoneNumberResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a destination phone number to an Amazon Web Services account in the SMS sandbox and sends a
  *             one-time password (OTP) to that phone number.</p>
  *          <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the
@@ -88,6 +87,7 @@ export interface CreateSMSSandboxPhoneNumberCommandOutput extends CreateSMSSandb
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * @public
  */
 export class CreateSMSSandboxPhoneNumberCommand extends $Command
   .classBuilder<

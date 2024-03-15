@@ -27,7 +27,6 @@ export interface DescribeExportImageTasksCommandInput extends DescribeExportImag
 export interface DescribeExportImageTasksCommandOutput extends DescribeExportImageTasksResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified export image tasks or all of your export image tasks.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface DescribeExportImageTasksCommandOutput extends DescribeExportIma
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeExportImageTasksCommand extends $Command
   .classBuilder<

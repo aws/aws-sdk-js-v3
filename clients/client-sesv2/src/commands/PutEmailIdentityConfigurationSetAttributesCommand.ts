@@ -36,7 +36,6 @@ export interface PutEmailIdentityConfigurationSetAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Used to associate a configuration set with an email identity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface PutEmailIdentityConfigurationSetAttributesCommandOutput
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class PutEmailIdentityConfigurationSetAttributesCommand extends $Command
   .classBuilder<

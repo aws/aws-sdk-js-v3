@@ -27,7 +27,6 @@ export interface DeleteSnapshotCommandInput extends DeleteSnapshotRequest {}
 export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Amazon FSx for OpenZFS snapshot. After deletion, the snapshot no longer
  *             exists, and its data is gone. Deleting a snapshot doesn't affect snapshots stored in a
  *             file system backup. </p>
@@ -70,6 +69,7 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResponse, __M
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  */
 export class DeleteSnapshotCommand extends $Command
   .classBuilder<

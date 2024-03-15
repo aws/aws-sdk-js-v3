@@ -35,7 +35,6 @@ export interface DisassociateResolverQueryLogConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates a VPC from a query logging configuration.</p>
  *          <note>
  *             <p>Before you can delete a query logging configuration, you must first disassociate all VPCs
@@ -104,6 +103,7 @@ export interface DisassociateResolverQueryLogConfigCommandOutput
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class DisassociateResolverQueryLogConfigCommand extends $Command
   .classBuilder<

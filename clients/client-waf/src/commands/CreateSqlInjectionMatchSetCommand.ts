@@ -27,7 +27,6 @@ export interface CreateSqlInjectionMatchSetCommandInput extends CreateSqlInjecti
 export interface CreateSqlInjectionMatchSetCommandOutput extends CreateSqlInjectionMatchSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -155,6 +154,7 @@ export interface CreateSqlInjectionMatchSetCommandOutput extends CreateSqlInject
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
+ * @public
  * @example To create a SQL injection match set
  * ```javascript
  * // The following example creates a SQL injection match set named MySQLInjectionMatchSet.

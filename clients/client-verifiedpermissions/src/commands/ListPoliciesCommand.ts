@@ -36,7 +36,6 @@ export interface ListPoliciesCommandInput extends ListPoliciesInput {}
 export interface ListPoliciesCommandOutput extends ListPoliciesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a paginated list of all policies stored in the specified policy store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -213,6 +212,7 @@ export interface ListPoliciesCommandOutput extends ListPoliciesOutput, __Metadat
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ * @public
  */
 export class ListPoliciesCommand extends $Command
   .classBuilder<

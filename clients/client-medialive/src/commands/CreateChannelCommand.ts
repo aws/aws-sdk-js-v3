@@ -27,7 +27,6 @@ export interface CreateChannelCommandInput extends CreateChannelRequest {}
 export interface CreateChannelCommandOutput extends CreateChannelResponse, __MetadataBearer {}
 
 /**
- * @public
  * Creates a new channel
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -2116,6 +2115,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class CreateChannelCommand extends $Command
   .classBuilder<

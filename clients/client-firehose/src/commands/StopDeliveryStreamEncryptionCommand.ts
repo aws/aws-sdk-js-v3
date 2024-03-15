@@ -32,7 +32,6 @@ export interface StopDeliveryStreamEncryptionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables server-side encryption (SSE) for the delivery stream. </p>
  *          <p>This operation is asynchronous. It returns immediately. When you invoke it, Firehose first sets the encryption status of the stream to <code>DISABLING</code>, and then
  *          to <code>DISABLED</code>. You can continue to read and write data to your stream while its
@@ -88,6 +87,7 @@ export interface StopDeliveryStreamEncryptionCommandOutput
  * @throws {@link FirehoseServiceException}
  * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
+ * @public
  */
 export class StopDeliveryStreamEncryptionCommand extends $Command
   .classBuilder<

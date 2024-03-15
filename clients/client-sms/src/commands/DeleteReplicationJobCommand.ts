@@ -27,7 +27,6 @@ export interface DeleteReplicationJobCommandInput extends DeleteReplicationJobRe
 export interface DeleteReplicationJobCommandOutput extends DeleteReplicationJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified replication job.</p>
  *          <p>After you delete a replication job, there are no further replication runs. Amazon Web Services
  *             deletes the contents of the Amazon S3 bucket used to store Server Migration Service artifacts. The AMIs created
@@ -72,6 +71,7 @@ export interface DeleteReplicationJobCommandOutput extends DeleteReplicationJobR
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ * @public
  */
 export class DeleteReplicationJobCommand extends $Command
   .classBuilder<

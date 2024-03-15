@@ -32,7 +32,6 @@ export interface ListWorkersWithQualificationTypeCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The <code>ListWorkersWithQualificationType</code> operation returns all of the Workers
  *             that have been associated with a given Qualification type.
@@ -86,6 +85,7 @@ export interface ListWorkersWithQualificationTypeCommandOutput
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * @public
  */
 export class ListWorkersWithQualificationTypeCommand extends $Command
   .classBuilder<

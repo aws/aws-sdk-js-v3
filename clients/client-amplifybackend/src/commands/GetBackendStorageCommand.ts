@@ -27,7 +27,6 @@ export interface GetBackendStorageCommandInput extends GetBackendStorageRequest 
 export interface GetBackendStorageCommandOutput extends GetBackendStorageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets details for a backend storage resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface GetBackendStorageCommandOutput extends GetBackendStorageRespons
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ * @public
  */
 export class GetBackendStorageCommand extends $Command
   .classBuilder<

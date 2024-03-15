@@ -27,7 +27,6 @@ export interface ListComponentsCommandInput extends ListComponentsInput {}
 export interface ListComponentsCommandOutput extends ListComponentsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>List components with summary data. You can filter the result list by environment, service, or a single service instance.</p>
  *          <p>For more information about components, see
  *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
@@ -91,6 +90,7 @@ export interface ListComponentsCommandOutput extends ListComponentsOutput, __Met
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class ListComponentsCommand extends $Command
   .classBuilder<

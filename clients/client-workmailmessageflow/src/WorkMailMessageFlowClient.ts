@@ -261,12 +261,12 @@ export type WorkMailMessageFlowClientResolvedConfigType = __SmithyResolvedConfig
 export interface WorkMailMessageFlowClientResolvedConfig extends WorkMailMessageFlowClientResolvedConfigType {}
 
 /**
- * @public
  * <p>The WorkMail Message Flow API provides access to email messages as they are
  *       being
  *       sent and received by
  *       a
  *       WorkMail organization.</p>
+ * @public
  */
 export class WorkMailMessageFlowClient extends __Client<
   __HttpHandlerOptions,

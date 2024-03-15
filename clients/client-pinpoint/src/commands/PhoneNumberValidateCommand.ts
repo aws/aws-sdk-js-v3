@@ -27,7 +27,6 @@ export interface PhoneNumberValidateCommandInput extends PhoneNumberValidateRequ
 export interface PhoneNumberValidateCommandOutput extends PhoneNumberValidateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about a phone number.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface PhoneNumberValidateCommandOutput extends PhoneNumberValidateRes
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class PhoneNumberValidateCommand extends $Command
   .classBuilder<

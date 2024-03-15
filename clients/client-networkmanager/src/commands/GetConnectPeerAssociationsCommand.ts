@@ -27,7 +27,6 @@ export interface GetConnectPeerAssociationsCommandInput extends GetConnectPeerAs
 export interface GetConnectPeerAssociationsCommandOutput extends GetConnectPeerAssociationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a core network Connect peer associations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface GetConnectPeerAssociationsCommandOutput extends GetConnectPeerA
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class GetConnectPeerAssociationsCommand extends $Command
   .classBuilder<

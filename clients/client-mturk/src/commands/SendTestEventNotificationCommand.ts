@@ -27,7 +27,6 @@ export interface SendTestEventNotificationCommandInput extends SendTestEventNoti
 export interface SendTestEventNotificationCommandOutput extends SendTestEventNotificationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The <code>SendTestEventNotification</code> operation causes Amazon Mechanical Turk to send
  *             a notification message as if a HIT event occurred, according to the provided
@@ -73,6 +72,7 @@ export interface SendTestEventNotificationCommandOutput extends SendTestEventNot
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * @public
  */
 export class SendTestEventNotificationCommand extends $Command
   .classBuilder<

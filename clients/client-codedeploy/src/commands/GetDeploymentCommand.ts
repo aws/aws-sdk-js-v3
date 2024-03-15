@@ -27,7 +27,6 @@ export interface GetDeploymentCommandInput extends GetDeploymentInput {}
 export interface GetDeploymentCommandOutput extends GetDeploymentOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a deployment.</p>
  *          <note>
  *             <p> The <code>content</code> property of the <code>appSpecContent</code> object in
@@ -244,6 +243,7 @@ export interface GetDeploymentCommandOutput extends GetDeploymentOutput, __Metad
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
  */
 export class GetDeploymentCommand extends $Command
   .classBuilder<

@@ -35,7 +35,6 @@ export interface ListInferenceRecommendationsJobStepsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the subtasks for an Inference Recommender job.</p>
  *          <p>The supported subtasks are benchmarks, which evaluate the performance of your model on different instance types.</p>
  * @example
@@ -118,6 +117,7 @@ export interface ListInferenceRecommendationsJobStepsCommandOutput
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListInferenceRecommendationsJobStepsCommand extends $Command
   .classBuilder<

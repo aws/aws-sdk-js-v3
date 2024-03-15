@@ -32,7 +32,6 @@ export interface UpdatePublishingDestinationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates information about the publishing destination specified by the
  *         <code>destinationId</code>.</p>
  * @example
@@ -70,6 +69,7 @@ export interface UpdatePublishingDestinationCommandOutput
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class UpdatePublishingDestinationCommand extends $Command
   .classBuilder<

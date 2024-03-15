@@ -27,7 +27,6 @@ export interface ListOperationsCommandInput extends ListOperationsRequest {}
 export interface ListOperationsCommandOutput extends ListOperationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about all of the operations that return an operation ID and that
  * 			have ever been performed on domains that were registered by the current account. </p>
  *          <p>This command runs only in the us-east-1 Region.</p>
@@ -85,6 +84,7 @@ export interface ListOperationsCommandOutput extends ListOperationsResponse, __M
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * @public
  */
 export class ListOperationsCommand extends $Command
   .classBuilder<

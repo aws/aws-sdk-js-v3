@@ -27,7 +27,6 @@ export interface GetApplicationCommandInput extends GetApplicationRequest {}
 export interface GetApplicationCommandOutput extends Application, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface GetApplicationCommandOutput extends Application, __MetadataBear
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  * @example To list details of an application
  * ```javascript
  * // The following get-application example lists the details of the specified application.

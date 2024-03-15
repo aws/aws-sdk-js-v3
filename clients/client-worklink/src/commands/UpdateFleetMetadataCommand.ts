@@ -27,9 +27,6 @@ export interface UpdateFleetMetadataCommandInput extends UpdateFleetMetadataRequ
 export interface UpdateFleetMetadataCommandOutput extends UpdateFleetMetadataResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
- *
  * <p>Updates fleet metadata, such as DisplayName.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +69,8 @@ export interface UpdateFleetMetadataCommandOutput extends UpdateFleetMetadataRes
  * @throws {@link WorkLinkServiceException}
  * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
+ * @public
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  */
 export class UpdateFleetMetadataCommand extends $Command
   .classBuilder<

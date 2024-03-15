@@ -27,7 +27,6 @@ export interface ListWorldTemplatesCommandInput extends ListWorldTemplatesReques
 export interface ListWorldTemplatesCommandOutput extends ListWorldTemplatesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists world templates.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface ListWorldTemplatesCommandOutput extends ListWorldTemplatesRespo
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ * @public
  */
 export class ListWorldTemplatesCommand extends $Command
   .classBuilder<

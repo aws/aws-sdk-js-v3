@@ -27,7 +27,6 @@ export interface ListTablesCommandInput extends ListTablesInput {}
 export interface ListTablesCommandOutput extends ListTablesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an array of table names associated with the current account and endpoint. The
  *             output from <code>ListTables</code> is paginated, with each page returning a maximum of
  *             100 table names.</p>
@@ -66,6 +65,7 @@ export interface ListTablesCommandOutput extends ListTablesOutput, __MetadataBea
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  * @example To list tables
  * ```javascript
  * // This example lists all of the tables associated with the current AWS account and endpoint.

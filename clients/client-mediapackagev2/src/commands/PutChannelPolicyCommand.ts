@@ -27,7 +27,6 @@ export interface PutChannelPolicyCommandInput extends PutChannelPolicyRequest {}
 export interface PutChannelPolicyCommandOutput extends PutChannelPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches an IAM policy to the specified channel. With policies, you can specify who has access to AWS resources and what actions they can perform on those resources. You can attach only one policy with each request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface PutChannelPolicyCommandOutput extends PutChannelPolicyResponse,
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
+ * @public
  */
 export class PutChannelPolicyCommand extends $Command
   .classBuilder<

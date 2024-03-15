@@ -27,7 +27,6 @@ export interface UpdatePipelineCommandInput extends UpdatePipelineInput {}
 export interface UpdatePipelineCommandOutput extends UpdatePipelineOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a specified pipeline with edits or changes to its structure. Use a JSON
  *             file with the pipeline structure and <code>UpdatePipeline</code> to provide the full
  *             structure of the pipeline. Updating the pipeline increases the version number of the
@@ -337,6 +336,7 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineOutput, __Met
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * @public
  */
 export class UpdatePipelineCommand extends $Command
   .classBuilder<

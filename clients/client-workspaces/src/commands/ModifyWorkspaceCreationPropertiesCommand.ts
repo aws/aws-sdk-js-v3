@@ -32,7 +32,6 @@ export interface ModifyWorkspaceCreationPropertiesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Modify the default properties used to create WorkSpaces.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface ModifyWorkspaceCreationPropertiesCommandOutput
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class ModifyWorkspaceCreationPropertiesCommand extends $Command
   .classBuilder<

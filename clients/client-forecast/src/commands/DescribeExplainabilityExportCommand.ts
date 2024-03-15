@@ -32,7 +32,6 @@ export interface DescribeExplainabilityExportCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes an Explainability export created using the <a>CreateExplainabilityExport</a> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface DescribeExplainabilityExportCommandOutput
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class DescribeExplainabilityExportCommand extends $Command
   .classBuilder<

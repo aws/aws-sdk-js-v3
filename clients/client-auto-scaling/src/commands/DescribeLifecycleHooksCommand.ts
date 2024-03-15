@@ -27,7 +27,6 @@ export interface DescribeLifecycleHooksCommandInput extends DescribeLifecycleHoo
 export interface DescribeLifecycleHooksCommandOutput extends DescribeLifecycleHooksAnswer, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the lifecycle hooks for the specified Auto Scaling group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DescribeLifecycleHooksCommandOutput extends DescribeLifecycleHo
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To describe your lifecycle hooks
  * ```javascript
  * // This example describes the lifecycle hooks for the specified Auto Scaling group.

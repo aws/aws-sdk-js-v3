@@ -36,7 +36,6 @@ export interface CreateConfigurationSetEventDestinationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a configuration set event destination.</p>
  *          <note>
  *             <p>When you create or update an event destination, you must provide one, and only
@@ -118,6 +117,7 @@ export interface CreateConfigurationSetEventDestinationCommandOutput
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  */
 export class CreateConfigurationSetEventDestinationCommand extends $Command
   .classBuilder<

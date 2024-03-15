@@ -32,7 +32,6 @@ export interface UpdateAgentActionGroupCommandInput extends UpdateAgentActionGro
 export interface UpdateAgentActionGroupCommandOutput extends UpdateAgentActionGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * Updates an existing Action Group for Amazon Bedrock Agent
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -118,6 +117,7 @@ export interface UpdateAgentActionGroupCommandOutput extends UpdateAgentActionGr
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ * @public
  */
 export class UpdateAgentActionGroupCommand extends $Command
   .classBuilder<

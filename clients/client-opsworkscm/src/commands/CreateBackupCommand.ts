@@ -27,7 +27,6 @@ export interface CreateBackupCommandInput extends CreateBackupRequest {}
 export interface CreateBackupCommandOutput extends CreateBackupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Creates an application-level backup of a server. While the
  *       server is in the <code>BACKING_UP</code> state, the server cannot be
@@ -124,6 +123,7 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  * @throws {@link OpsWorksCMServiceException}
  * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
+ * @public
  */
 export class CreateBackupCommand extends $Command
   .classBuilder<

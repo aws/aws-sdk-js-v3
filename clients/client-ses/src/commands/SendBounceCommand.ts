@@ -27,7 +27,6 @@ export interface SendBounceCommandInput extends SendBounceRequest {}
 export interface SendBounceCommandOutput extends SendBounceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Generates and sends a bounce message to the sender of an email you received through
  *             Amazon SES. You can only use this operation on an email up to 24 hours after you receive
  *             it.</p>
@@ -102,6 +101,7 @@ export interface SendBounceCommandOutput extends SendBounceResponse, __MetadataB
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  */
 export class SendBounceCommand extends $Command
   .classBuilder<

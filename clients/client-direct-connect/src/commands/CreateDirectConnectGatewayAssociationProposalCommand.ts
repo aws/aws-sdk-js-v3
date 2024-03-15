@@ -36,7 +36,6 @@ export interface CreateDirectConnectGatewayAssociationProposalCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a proposal to associate the specified virtual private gateway or transit gateway with the specified Direct Connect gateway.</p>
  *          <p>You can associate a Direct Connect gateway and virtual private gateway or transit gateway that is owned by any Amazon Web Services account. </p>
  * @example
@@ -104,6 +103,7 @@ export interface CreateDirectConnectGatewayAssociationProposalCommandOutput
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class CreateDirectConnectGatewayAssociationProposalCommand extends $Command
   .classBuilder<

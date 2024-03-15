@@ -27,7 +27,6 @@ export interface DeprecateDomainCommandInput extends DeprecateDomainInput {}
 export interface DeprecateDomainCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deprecates the specified domain. After a domain has been deprecated it cannot be used
  *       to create new workflow executions or register new types. However, you can still use visibility
  *       actions on this domain. Deprecating a domain also deprecates all activity and workflow types
@@ -93,6 +92,7 @@ export interface DeprecateDomainCommandOutput extends __MetadataBearer {}
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ * @public
  */
 export class DeprecateDomainCommand extends $Command
   .classBuilder<

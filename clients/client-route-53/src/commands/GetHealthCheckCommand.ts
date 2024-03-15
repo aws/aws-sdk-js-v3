@@ -27,7 +27,6 @@ export interface GetHealthCheckCommandInput extends GetHealthCheckRequest {}
 export interface GetHealthCheckCommandOutput extends GetHealthCheckResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a specified health check.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -115,6 +114,7 @@ export interface GetHealthCheckCommandOutput extends GetHealthCheckResponse, __M
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class GetHealthCheckCommand extends $Command
   .classBuilder<

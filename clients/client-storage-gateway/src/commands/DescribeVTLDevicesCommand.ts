@@ -27,7 +27,6 @@ export interface DescribeVTLDevicesCommandInput extends DescribeVTLDevicesInput 
 export interface DescribeVTLDevicesCommandOutput extends DescribeVTLDevicesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a description of virtual tape library (VTL) devices for the specified tape
  *          gateway. In the response, Storage Gateway returns VTL device information.</p>
  *          <p>This operation is only supported in the tape gateway type.</p>
@@ -85,6 +84,7 @@ export interface DescribeVTLDevicesCommandOutput extends DescribeVTLDevicesOutpu
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To describe virtual tape library (VTL) devices of a single gateway
  * ```javascript
  * // Returns a description of virtual tape library (VTL) devices for the specified gateway.

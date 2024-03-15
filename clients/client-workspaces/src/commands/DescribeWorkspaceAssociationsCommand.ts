@@ -32,7 +32,6 @@ export interface DescribeWorkspaceAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the associations betweens applications and the specified WorkSpace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface DescribeWorkspaceAssociationsCommandOutput
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class DescribeWorkspaceAssociationsCommand extends $Command
   .classBuilder<

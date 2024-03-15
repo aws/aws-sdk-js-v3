@@ -31,7 +31,6 @@ export interface RemoveEndpointsCommandInput extends RemoveEndpointsRequest {}
 export interface RemoveEndpointsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Remove endpoints from an endpoint group. </p>
  *          <p>The <code>RemoveEndpoints</code> API operation is the recommended option for removing endpoints. The alternative is to remove
  * 			endpoints by updating an endpoint group by using the
@@ -94,6 +93,7 @@ export interface RemoveEndpointsCommandOutput extends __MetadataBearer {}
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class RemoveEndpointsCommand extends $Command
   .classBuilder<

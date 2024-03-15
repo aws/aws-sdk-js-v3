@@ -29,7 +29,6 @@ export interface AssociateThirdPartyFirewallCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the Firewall Manager policy administrator as a tenant administrator of a third-party firewall service. A tenant is an instance of the third-party firewall service that's associated with your Amazon Web Services customer account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface AssociateThirdPartyFirewallCommandOutput
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * @public
  */
 export class AssociateThirdPartyFirewallCommand extends $Command
   .classBuilder<

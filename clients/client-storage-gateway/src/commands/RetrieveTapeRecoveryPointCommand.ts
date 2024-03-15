@@ -27,7 +27,6 @@ export interface RetrieveTapeRecoveryPointCommandInput extends RetrieveTapeRecov
 export interface RetrieveTapeRecoveryPointCommandOutput extends RetrieveTapeRecoveryPointOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the recovery point for the specified virtual tape. This operation is only
  *          supported in the tape gateway type.</p>
  *          <p>A recovery point is a point in time view of a virtual tape at which all the data on the
@@ -73,6 +72,7 @@ export interface RetrieveTapeRecoveryPointCommandOutput extends RetrieveTapeReco
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To retrieve the recovery point of a virtual tape
  * ```javascript
  * // Retrieves the recovery point for the specified virtual tape.

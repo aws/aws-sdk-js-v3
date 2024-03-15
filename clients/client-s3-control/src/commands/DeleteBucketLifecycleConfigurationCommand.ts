@@ -31,7 +31,6 @@ export interface DeleteBucketLifecycleConfigurationCommandInput extends DeleteBu
 export interface DeleteBucketLifecycleConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This action deletes an Amazon S3 on Outposts bucket's lifecycle configuration. To delete
  *             an S3 bucket's lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html">DeleteBucketLifecycle</a> in the <i>Amazon S3 API Reference</i>. </p>
@@ -86,6 +85,7 @@ export interface DeleteBucketLifecycleConfigurationCommandOutput extends __Metad
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class DeleteBucketLifecycleConfigurationCommand extends $Command
   .classBuilder<

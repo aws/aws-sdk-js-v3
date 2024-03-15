@@ -36,7 +36,6 @@ export interface DescribeEntitiesDetectionV2JobCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the properties associated with a medical entities detection job. Use this operation
  *       to get the status of a detection job.</p>
  * @example
@@ -102,6 +101,7 @@ export interface DescribeEntitiesDetectionV2JobCommandOutput
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ * @public
  */
 export class DescribeEntitiesDetectionV2JobCommand extends $Command
   .classBuilder<

@@ -28,7 +28,6 @@ export interface CreateDBClusterCommandInput extends CreateDBClusterMessage {}
 export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new Amazon Aurora DB cluster or Multi-AZ DB cluster.</p>
  *          <p>If you create an Aurora DB cluster, the request creates an empty cluster. You must
  *             explicitly create the writer instance for your DB cluster using the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html">CreateDBInstance</a> operation. If you create a Multi-AZ DB cluster, the
@@ -407,6 +406,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To create a MySQL 5.7-compatible DB cluster
  * ```javascript
  * // The following example creates a MySQL 5.7-compatible Aurora DB cluster.

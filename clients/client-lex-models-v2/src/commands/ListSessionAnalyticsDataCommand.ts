@@ -27,7 +27,6 @@ export interface ListSessionAnalyticsDataCommandInput extends ListSessionAnalyti
 export interface ListSessionAnalyticsDataCommandOutput extends ListSessionAnalyticsDataResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of metadata for individual user sessions with your bot. The <code>startDateTime</code> and <code>endDateTime</code> fields are required. These fields define a time range for which you want to retrieve results. Of the optional fields, you can organize the results in the following ways:</p>
  *          <ul>
  *             <li>
@@ -122,6 +121,7 @@ export interface ListSessionAnalyticsDataCommandOutput extends ListSessionAnalyt
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class ListSessionAnalyticsDataCommand extends $Command
   .classBuilder<

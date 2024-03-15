@@ -27,7 +27,6 @@ export interface DeleteInputSecurityGroupCommandInput extends DeleteInputSecurit
 export interface DeleteInputSecurityGroupCommandOutput extends DeleteInputSecurityGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * Deletes an Input Security Group
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DeleteInputSecurityGroupCommandOutput extends DeleteInputSecuri
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class DeleteInputSecurityGroupCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface DescribeImageReplicationStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the replication status for a specified image.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface DescribeImageReplicationStatusCommandOutput
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * @public
  */
 export class DescribeImageReplicationStatusCommand extends $Command
   .classBuilder<

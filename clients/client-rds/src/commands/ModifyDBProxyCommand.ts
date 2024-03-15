@@ -27,7 +27,6 @@ export interface ModifyDBProxyCommandInput extends ModifyDBProxyRequest {}
 export interface ModifyDBProxyCommandOutput extends ModifyDBProxyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes the settings for an existing DB proxy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -111,6 +110,7 @@ export interface ModifyDBProxyCommandOutput extends ModifyDBProxyResponse, __Met
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  */
 export class ModifyDBProxyCommand extends $Command
   .classBuilder<

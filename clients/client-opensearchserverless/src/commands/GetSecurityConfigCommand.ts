@@ -31,7 +31,6 @@ export interface GetSecurityConfigCommandInput extends GetSecurityConfigRequest 
 export interface GetSecurityConfigCommandOutput extends GetSecurityConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about an OpenSearch Serverless security configuration. For more information, see
  *                 <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-saml.html">SAML
  *                 authentication for Amazon OpenSearch Serverless</a>.</p>
@@ -84,6 +83,7 @@ export interface GetSecurityConfigCommandOutput extends GetSecurityConfigRespons
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ * @public
  */
 export class GetSecurityConfigCommand extends $Command
   .classBuilder<

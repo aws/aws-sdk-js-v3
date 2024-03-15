@@ -4,8 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { CleanRoomsMLServiceException as __BaseException } from "./CleanRoomsMLServiceException";
 
 /**
- * @public
  * <p>You do not have sufficient access to perform this action.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -24,25 +24,25 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Provides information about an Amazon S3 bucket and path.</p>
+ * @public
  */
 export interface S3ConfigMap {
   /**
-   * @public
    * <p>The Amazon S3 location URI.</p>
+   * @public
    */
   s3Uri: string | undefined;
 }
 
 /**
- * @public
  * <p>Defines the Amazon S3 bucket where the configured audience is stored.</p>
+ * @public
  */
 export interface AudienceDestination {
   /**
-   * @public
    * <p>The Amazon S3 bucket and path for the configured audience.</p>
+   * @public
    */
   s3Destination: S3ConfigMap | undefined;
 }
@@ -52,20 +52,20 @@ export interface AudienceDestination {
  */
 export interface ListAudienceExportJobsRequest {
   /**
-   * @public
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum size of the results that is returned per call.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the audience generation job that you are interested in.</p>
+   * @public
    */
   audienceGenerationJobArn?: string;
 }
@@ -85,21 +85,21 @@ export const AudienceSizeType = {
 export type AudienceSizeType = (typeof AudienceSizeType)[keyof typeof AudienceSizeType];
 
 /**
- * @public
  * <p>The size of the generated audience. Must match one of the sizes in the configured audience model.</p>
+ * @public
  */
 export interface AudienceSize {
   /**
-   * @public
    * <p>Whether the audience size is defined in absolute terms or as a percentage. You can use the <code>ABSOLUTE</code>
    *             <a>AudienceSize</a> to configure out audience sizes using the count of identifiers in the output. You can use the <code>Percentage</code>
    *             <a>AudienceSize</a> to configure sizes in the range 1-100 percent.</p>
+   * @public
    */
   type: AudienceSizeType | undefined;
 
   /**
-   * @public
    * <p>Specify an audience size value.</p>
+   * @public
    */
   value: number | undefined;
 }
@@ -121,79 +121,79 @@ export const AudienceExportJobStatus = {
 export type AudienceExportJobStatus = (typeof AudienceExportJobStatus)[keyof typeof AudienceExportJobStatus];
 
 /**
- * @public
  * <p>Details about the status of a resource.</p>
+ * @public
  */
 export interface StatusDetails {
   /**
-   * @public
    * <p>The status code that was returned. The status code is intended for programmatic error handling. Clean Rooms ML will not change the status code for existing error conditions.</p>
+   * @public
    */
   statusCode?: string;
 
   /**
-   * @public
    * <p>The error message that was returned. The message is intended for human consumption and can change at any time. Use the <code>statusCode</code> for programmatic error handling.</p>
+   * @public
    */
   message?: string;
 }
 
 /**
- * @public
  * <p>Provides information about the audience export job.</p>
+ * @public
  */
 export interface AudienceExportJobSummary {
   /**
-   * @public
    * <p>The time at which the audience export job was created.</p>
+   * @public
    */
   createTime: Date | undefined;
 
   /**
-   * @public
    * <p>The most recent time at which the audience export job was updated.</p>
+   * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The name of the audience export job.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the audience generation job that was exported.</p>
+   * @public
    */
   audienceGenerationJobArn: string | undefined;
 
   /**
-   * @public
    * <p>The size of the generated audience. Must match one of the sizes in the configured audience model.</p>
+   * @public
    */
   audienceSize: AudienceSize | undefined;
 
   /**
-   * @public
    * <p>The description of the audience export job.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The status of the audience export job.</p>
+   * @public
    */
   status: AudienceExportJobStatus | undefined;
 
   /**
-   * @public
    * <p>Details about the status of a resource.</p>
+   * @public
    */
   statusDetails?: StatusDetails;
 
   /**
-   * @public
    * <p>The Amazon S3 bucket where the audience export is stored.</p>
+   * @public
    */
   outputLocation?: string;
 }
@@ -203,21 +203,21 @@ export interface AudienceExportJobSummary {
  */
 export interface ListAudienceExportJobsResponse {
   /**
-   * @public
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The audience export jobs that match the request.</p>
+   * @public
    */
   audienceExportJobs: AudienceExportJobSummary[] | undefined;
 }
 
 /**
- * @public
  * <p>The request parameters for this request are incorrect.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -236,8 +236,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A resource with that name already exists in this region.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -256,8 +256,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The resource you are requesting does not exist.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -276,8 +276,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>You have exceeded your service quota.</p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
@@ -300,26 +300,26 @@ export class ServiceQuotaExceededException extends __BaseException {
  */
 export interface StartAudienceExportJobRequest {
   /**
-   * @public
    * <p>The name of the audience export job.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the audience generation job that you want to export.</p>
+   * @public
    */
   audienceGenerationJobArn: string | undefined;
 
   /**
-   * @public
    * <p>The size of the generated audience. Must match one of the sizes in the configured audience model.</p>
+   * @public
    */
   audienceSize: AudienceSize | undefined;
 
   /**
-   * @public
    * <p>The description of the audience export job.</p>
+   * @public
    */
   description?: string;
 }
@@ -329,8 +329,8 @@ export interface StartAudienceExportJobRequest {
  */
 export interface DeleteAudienceGenerationJobRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the audience generation job that you want to delete.</p>
+   * @public
    */
   audienceGenerationJobArn: string | undefined;
 }
@@ -340,56 +340,56 @@ export interface DeleteAudienceGenerationJobRequest {
  */
 export interface GetAudienceGenerationJobRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the audience generation job that you are interested in.</p>
+   * @public
    */
   audienceGenerationJobArn: string | undefined;
 }
 
 /**
- * @public
  * <p>The relevance score of a generated audience.</p>
+ * @public
  */
 export interface RelevanceMetric {
   /**
-   * @public
    * <p>The size of the generated audience. Must match one of the sizes in the configured audience model.</p>
+   * @public
    */
   audienceSize: AudienceSize | undefined;
 
   /**
-   * @public
    * <p>The relevance score of the generated audience.</p>
+   * @public
    */
   score?: number;
 }
 
 /**
- * @public
  * <p>Metrics that describe the quality of the generated audience.</p>
+ * @public
  */
 export interface AudienceQualityMetrics {
   /**
-   * @public
    * <p>The relevance scores of the generated audience.</p>
+   * @public
    */
   relevanceMetrics: RelevanceMetric[] | undefined;
 }
 
 /**
- * @public
  * <p>Defines the Amazon S3 bucket where the training data for the configured audience is stored.</p>
+ * @public
  */
 export interface AudienceGenerationJobDataSource {
   /**
-   * @public
    * <p>The Amazon S3 bucket where the training data for the configured audience is stored.</p>
+   * @public
    */
   dataSource: S3ConfigMap | undefined;
 
   /**
-   * @public
    * <p>The ARN of the IAM role that can read the Amazon S3 bucket where the training data is stored.</p>
+   * @public
    */
   roleArn: string | undefined;
 }
@@ -419,86 +419,86 @@ export type AudienceGenerationJobStatus =
  */
 export interface GetAudienceGenerationJobResponse {
   /**
-   * @public
    * <p>The time at which the audience generation job was created.</p>
+   * @public
    */
   createTime: Date | undefined;
 
   /**
-   * @public
    * <p>The most recent time at which the audience generation job was updated.</p>
+   * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the audience generation job.</p>
+   * @public
    */
   audienceGenerationJobArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the audience generation job.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description of the audience generation job.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The status of the audience generation job.</p>
+   * @public
    */
   status: AudienceGenerationJobStatus | undefined;
 
   /**
-   * @public
    * <p>Details about the status of the audience generation job.</p>
+   * @public
    */
   statusDetails?: StatusDetails;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the configured audience model used for this audience generation job.</p>
+   * @public
    */
   configuredAudienceModelArn: string | undefined;
 
   /**
-   * @public
    * <p>The seed audience that was used for this audience generation job. This field will be null if the account calling the API is the account that started this audience generation job. </p>
+   * @public
    */
   seedAudience?: AudienceGenerationJobDataSource;
 
   /**
-   * @public
    * <p>Configure whether the seed users are included in the output audience. By default, Clean Rooms ML removes seed users from the output audience. If you specify <code>TRUE</code>, the seed users will appear first in the output. Clean Rooms ML does not explicitly reveal whether a user was in the seed, but the recipient of the audience will know that the first <code>minimumSeedSize</code> count of users are from the seed.</p>
+   * @public
    */
   includeSeedInOutput?: boolean;
 
   /**
-   * @public
    * <p>The identifier of the collaboration that this audience generation job is associated with.</p>
+   * @public
    */
   collaborationId?: string;
 
   /**
-   * @public
    * <p>The relevance scores for different audience sizes. </p>
+   * @public
    */
   metrics?: AudienceQualityMetrics;
 
   /**
-   * @public
    * <p>The AWS account that started this audience generation job.</p>
+   * @public
    */
   startedBy?: string;
 
   /**
-   * @public
    * <p>The tags that are associated to this audience generation job.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -508,86 +508,86 @@ export interface GetAudienceGenerationJobResponse {
  */
 export interface ListAudienceGenerationJobsRequest {
   /**
-   * @public
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum size of the results that is returned per call.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the configured audience model that was used for the audience generation jobs that you are interested in.</p>
+   * @public
    */
   configuredAudienceModelArn?: string;
 
   /**
-   * @public
    * <p>The identifier of the collaboration that contains the audience generation jobs that you are interested in.</p>
+   * @public
    */
   collaborationId?: string;
 }
 
 /**
- * @public
  * <p>Provides information about the configured audience generation job.</p>
+ * @public
  */
 export interface AudienceGenerationJobSummary {
   /**
-   * @public
    * <p>The time at which the audience generation job was created.</p>
+   * @public
    */
   createTime: Date | undefined;
 
   /**
-   * @public
    * <p>The most recent time at which the audience generation job was updated.</p>
+   * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the audience generation job.</p>
+   * @public
    */
   audienceGenerationJobArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the audience generation job.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description of the audience generation job.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The status of the audience generation job.</p>
+   * @public
    */
   status: AudienceGenerationJobStatus | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the configured audience model that was used for this audience generation job.</p>
+   * @public
    */
   configuredAudienceModelArn: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the collaboration that contains this audience generation job.</p>
+   * @public
    */
   collaborationId?: string;
 
   /**
-   * @public
    * <p>The AWS Account that submitted the job.</p>
+   * @public
    */
   startedBy?: string;
 }
@@ -597,14 +597,14 @@ export interface AudienceGenerationJobSummary {
  */
 export interface ListAudienceGenerationJobsResponse {
   /**
-   * @public
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The audience generation jobs that match the request.</p>
+   * @public
    */
   audienceGenerationJobs: AudienceGenerationJobSummary[] | undefined;
 }
@@ -614,43 +614,42 @@ export interface ListAudienceGenerationJobsResponse {
  */
 export interface StartAudienceGenerationJobRequest {
   /**
-   * @public
    * <p>The name of the audience generation job.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the configured audience model that is used for this audience generation job.</p>
+   * @public
    */
   configuredAudienceModelArn: string | undefined;
 
   /**
-   * @public
    * <p>The seed audience that is used to generate the audience.</p>
+   * @public
    */
   seedAudience: AudienceGenerationJobDataSource | undefined;
 
   /**
-   * @public
    * <p>Whether the seed audience is included in the audience generation output.</p>
+   * @public
    */
   includeSeedInOutput?: boolean;
 
   /**
-   * @public
    * <p>The identifier of the collaboration that contains the audience generation job.</p>
+   * @public
    */
   collaborationId?: string;
 
   /**
-   * @public
    * <p>The description of the audience generation job.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
    *          <p>The following basic restrictions apply to tags:</p>
    *          <ul>
@@ -676,6 +675,7 @@ export interface StartAudienceGenerationJobRequest {
    *                <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -685,8 +685,8 @@ export interface StartAudienceGenerationJobRequest {
  */
 export interface StartAudienceGenerationJobResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the audience generation job.</p>
+   * @public
    */
   audienceGenerationJobArn: string | undefined;
 }
@@ -696,37 +696,36 @@ export interface StartAudienceGenerationJobResponse {
  */
 export interface CreateAudienceModelRequest {
   /**
-   * @public
    * <p>The start date and time of the training window.</p>
+   * @public
    */
   trainingDataStartTime?: Date;
 
   /**
-   * @public
    * <p>The end date and time of the training window.</p>
+   * @public
    */
   trainingDataEndTime?: Date;
 
   /**
-   * @public
    * <p>The name of the audience model resource.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the training dataset for this audience model.</p>
+   * @public
    */
   trainingDatasetArn: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the KMS key. This key is used to encrypt and decrypt customer-owned data in the trained ML model and the associated data.</p>
+   * @public
    */
   kmsKeyArn?: string;
 
   /**
-   * @public
    * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
    *          <p>The following basic restrictions apply to tags:</p>
    *          <ul>
@@ -752,12 +751,13 @@ export interface CreateAudienceModelRequest {
    *                <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The description of the audience model.</p>
+   * @public
    */
   description?: string;
 }
@@ -767,8 +767,8 @@ export interface CreateAudienceModelRequest {
  */
 export interface CreateAudienceModelResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the audience model.</p>
+   * @public
    */
   audienceModelArn: string | undefined;
 }
@@ -778,8 +778,8 @@ export interface CreateAudienceModelResponse {
  */
 export interface DeleteAudienceModelRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the audience model that you want to delete.</p>
+   * @public
    */
   audienceModelArn: string | undefined;
 }
@@ -789,8 +789,8 @@ export interface DeleteAudienceModelRequest {
  */
 export interface GetAudienceModelRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the audience model that you are interested in.</p>
+   * @public
    */
   audienceModelArn: string | undefined;
 }
@@ -812,25 +812,25 @@ export const AudienceModelMetricType = {
 export type AudienceModelMetricType = (typeof AudienceModelMetricType)[keyof typeof AudienceModelMetricType];
 
 /**
- * @public
  * <p>The audience model metrics.</p>
+ * @public
  */
 export interface AudienceModelMetric {
   /**
-   * @public
    * <p>The audience model metric.</p>
+   * @public
    */
   type: AudienceModelMetricType | undefined;
 
   /**
-   * @public
    * <p>The number of users that were used to generate these model metrics.</p>
+   * @public
    */
   forTopKItemPredictions: number | undefined;
 
   /**
-   * @public
    * <p>The value of the audience model metric</p>
+   * @public
    */
   value: number | undefined;
 }
@@ -859,80 +859,80 @@ export type AudienceModelStatus = (typeof AudienceModelStatus)[keyof typeof Audi
  */
 export interface GetAudienceModelResponse {
   /**
-   * @public
    * <p>The time at which the audience model was created.</p>
+   * @public
    */
   createTime: Date | undefined;
 
   /**
-   * @public
    * <p>The most recent time at which the audience model was updated.</p>
+   * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The start date specified for the training window.</p>
+   * @public
    */
   trainingDataStartTime?: Date;
 
   /**
-   * @public
    * <p>The end date specified for the training window.</p>
+   * @public
    */
   trainingDataEndTime?: Date;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the audience model.</p>
+   * @public
    */
   audienceModelArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the audience model.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the training dataset that was used for this audience model.</p>
+   * @public
    */
   trainingDatasetArn: string | undefined;
 
   /**
-   * @public
    * <p>The status of the audience model.</p>
+   * @public
    */
   status: AudienceModelStatus | undefined;
 
   /**
-   * @public
    * <p>Details about the status of the audience model.</p>
+   * @public
    */
   statusDetails?: StatusDetails;
 
   /**
-   * @public
    * <p>Accuracy metrics for the model.</p>
+   * @public
    */
   metrics?: AudienceModelMetric[];
 
   /**
-   * @public
    * <p>The KMS key ARN used for the audience model.</p>
+   * @public
    */
   kmsKeyArn?: string;
 
   /**
-   * @public
    * <p>The tags that are assigned to the audience model.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The description of the audience model.</p>
+   * @public
    */
   description?: string;
 }
@@ -942,62 +942,62 @@ export interface GetAudienceModelResponse {
  */
 export interface ListAudienceModelsRequest {
   /**
-   * @public
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum size of the results that is returned per call.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Information about the audience model.</p>
+ * @public
  */
 export interface AudienceModelSummary {
   /**
-   * @public
    * <p>The time at which the audience model was created.</p>
+   * @public
    */
   createTime: Date | undefined;
 
   /**
-   * @public
    * <p>The most recent time at which the audience model was updated.</p>
+   * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the audience model.</p>
+   * @public
    */
   audienceModelArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the audience model.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the training dataset that was used for the audience model.</p>
+   * @public
    */
   trainingDatasetArn: string | undefined;
 
   /**
-   * @public
    * <p>The status of the audience model.</p>
+   * @public
    */
   status: AudienceModelStatus | undefined;
 
   /**
-   * @public
    * <p>The description of the audience model.</p>
+   * @public
    */
   description?: string;
 }
@@ -1007,34 +1007,34 @@ export interface AudienceModelSummary {
  */
 export interface ListAudienceModelsResponse {
   /**
-   * @public
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The audience models that match the request.</p>
+   * @public
    */
   audienceModels: AudienceModelSummary[] | undefined;
 }
 
 /**
- * @public
  * <p>Configure the list of audience output sizes that can be created. A request to <a>StartAudienceGenerationJob</a> that uses this configured audience model must have an <code>audienceSize</code> selected from this list. You can use the <code>ABSOLUTE</code>
  *             <a>AudienceSize</a> to configure out audience sizes using the count of identifiers in the output. You can use the <code>Percentage</code>
  *             <a>AudienceSize</a> to configure sizes in the range 1-100 percent.</p>
+ * @public
  */
 export interface AudienceSizeConfig {
   /**
-   * @public
    * <p>Whether the audience output sizes are defined as an absolute number or a percentage.</p>
+   * @public
    */
   audienceSizeType: AudienceSizeType | undefined;
 
   /**
-   * @public
    * <p>An array of the different audience output sizes.</p>
+   * @public
    */
   audienceSizeBins: number[] | undefined;
 }
@@ -1054,19 +1054,19 @@ export const TagOnCreatePolicy = {
 export type TagOnCreatePolicy = (typeof TagOnCreatePolicy)[keyof typeof TagOnCreatePolicy];
 
 /**
- * @public
  * <p>Configuration information necessary for the configure audience model output.</p>
+ * @public
  */
 export interface ConfiguredAudienceModelOutputConfig {
   /**
-   * @public
    * <p>Defines the Amazon S3 bucket where the configured audience is stored.</p>
+   * @public
    */
   destination: AudienceDestination | undefined;
 
   /**
-   * @public
    * <p>The ARN of the IAM role that can write the Amazon S3 bucket.</p>
+   * @public
    */
   roleArn: string | undefined;
 }
@@ -1090,51 +1090,50 @@ export type SharedAudienceMetrics = (typeof SharedAudienceMetrics)[keyof typeof 
  */
 export interface CreateConfiguredAudienceModelRequest {
   /**
-   * @public
    * <p>The name of the configured audience model.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the audience model to use for the configured audience model.</p>
+   * @public
    */
   audienceModelArn: string | undefined;
 
   /**
-   * @public
    * <p>Configure the Amazon S3 location and IAM Role for audiences created using this configured audience model. Each audience will have a unique location. The IAM Role must have <code>s3:PutObject</code> permission on the destination Amazon S3 location. If the destination is protected with Amazon S3 KMS-SSE, then the Role must also have the required KMS permissions.</p>
+   * @public
    */
   outputConfig: ConfiguredAudienceModelOutputConfig | undefined;
 
   /**
-   * @public
    * <p>The description of the configured audience model.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>Whether audience metrics are shared.</p>
+   * @public
    */
   sharedAudienceMetrics: SharedAudienceMetrics[] | undefined;
 
   /**
-   * @public
    * <p>The minimum number of users from the seed audience that must match with users in the training data of the audience model.</p>
+   * @public
    */
   minMatchingSeedSize?: number;
 
   /**
-   * @public
    * <p>Configure the list of output sizes of audiences that can be created using this configured audience model. A request to <a>StartAudienceGenerationJob</a> that uses this configured audience model must have an <code>audienceSize</code> selected from this list. You can use the <code>ABSOLUTE</code>
    *             <a>AudienceSize</a> to configure out audience sizes using the count of identifiers in the output. You can use the <code>Percentage</code>
    *             <a>AudienceSize</a> to configure sizes in the range 1-100 percent.</p>
+   * @public
    */
   audienceSizeConfig?: AudienceSizeConfig;
 
   /**
-   * @public
    * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
    *          <p>The following basic restrictions apply to tags:</p>
    *          <ul>
@@ -1160,13 +1159,14 @@ export interface CreateConfiguredAudienceModelRequest {
    *                <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>Configure how the service tags audience generation jobs created using this configured audience model. If you specify <code>NONE</code>, the tags from the <a>StartAudienceGenerationJob</a> request determine the tags of the audience generation job. If you specify <code>FROM_PARENT_RESOURCE</code>, the audience generation job inherits the tags from the configured audience model, by default. Tags in the <a>StartAudienceGenerationJob</a> will override the default.</p>
    *          <p>When the client is in a different account than the configured audience model, the tags from the client are never applied to a resource in the caller's account.</p>
+   * @public
    */
   childResourceTagOnCreatePolicy?: TagOnCreatePolicy;
 }
@@ -1176,8 +1176,8 @@ export interface CreateConfiguredAudienceModelRequest {
  */
 export interface CreateConfiguredAudienceModelResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the configured audience model.</p>
+   * @public
    */
   configuredAudienceModelArn: string | undefined;
 }
@@ -1187,8 +1187,8 @@ export interface CreateConfiguredAudienceModelResponse {
  */
 export interface DeleteConfiguredAudienceModelRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the configured audience model that you want to delete.</p>
+   * @public
    */
   configuredAudienceModelArn: string | undefined;
 }
@@ -1198,8 +1198,8 @@ export interface DeleteConfiguredAudienceModelRequest {
  */
 export interface GetConfiguredAudienceModelRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the configured audience model that you are interested in.</p>
+   * @public
    */
   configuredAudienceModelArn: string | undefined;
 }
@@ -1223,82 +1223,82 @@ export type ConfiguredAudienceModelStatus =
  */
 export interface GetConfiguredAudienceModelResponse {
   /**
-   * @public
    * <p>The time at which the configured audience model was created.</p>
+   * @public
    */
   createTime: Date | undefined;
 
   /**
-   * @public
    * <p>The most recent time at which the configured audience model was updated.</p>
+   * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the configured audience model.</p>
+   * @public
    */
   configuredAudienceModelArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the configured audience model.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the audience model used for this configured audience model.</p>
+   * @public
    */
   audienceModelArn: string | undefined;
 
   /**
-   * @public
    * <p>The output configuration of the configured audience model</p>
+   * @public
    */
   outputConfig: ConfiguredAudienceModelOutputConfig | undefined;
 
   /**
-   * @public
    * <p>The description of the configured audience model.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The status of the configured audience model.</p>
+   * @public
    */
   status: ConfiguredAudienceModelStatus | undefined;
 
   /**
-   * @public
    * <p>Whether audience metrics are shared.</p>
+   * @public
    */
   sharedAudienceMetrics: SharedAudienceMetrics[] | undefined;
 
   /**
-   * @public
    * <p>The minimum number of users from the seed audience that must match with users in the training data of the audience model.</p>
+   * @public
    */
   minMatchingSeedSize?: number;
 
   /**
-   * @public
    * <p>The list of output sizes of audiences that can be created using this configured audience model. A request to <a>StartAudienceGenerationJob</a> that uses this configured audience model must have an <code>audienceSize</code> selected from this list. You can use the <code>ABSOLUTE</code>
    *             <a>AudienceSize</a> to configure out audience sizes using the count of identifiers in the output. You can use the <code>Percentage</code>
    *             <a>AudienceSize</a> to configure sizes in the range 1-100 percent.</p>
+   * @public
    */
   audienceSizeConfig?: AudienceSizeConfig;
 
   /**
-   * @public
    * <p>The tags that are associated to this configured audience model.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>Provides the <code>childResourceTagOnCreatePolicy</code> that was used for this configured audience model.</p>
+   * @public
    */
   childResourceTagOnCreatePolicy?: TagOnCreatePolicy;
 }
@@ -1308,68 +1308,68 @@ export interface GetConfiguredAudienceModelResponse {
  */
 export interface ListConfiguredAudienceModelsRequest {
   /**
-   * @public
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum size of the results that is returned per call.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Information about the configured audience model.</p>
+ * @public
  */
 export interface ConfiguredAudienceModelSummary {
   /**
-   * @public
    * <p>The time at which the configured audience model was created.</p>
+   * @public
    */
   createTime: Date | undefined;
 
   /**
-   * @public
    * <p>The most recent time at which the configured audience model was updated.</p>
+   * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The name of the configured audience model.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the audience model that was used to create the configured audience model.</p>
+   * @public
    */
   audienceModelArn: string | undefined;
 
   /**
-   * @public
    * <p>The output configuration of the configured audience model.</p>
+   * @public
    */
   outputConfig: ConfiguredAudienceModelOutputConfig | undefined;
 
   /**
-   * @public
    * <p>The description of the configured audience model.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the configured audience model that you are interested in.</p>
+   * @public
    */
   configuredAudienceModelArn: string | undefined;
 
   /**
-   * @public
    * <p>The status of the configured audience model.</p>
+   * @public
    */
   status: ConfiguredAudienceModelStatus | undefined;
 }
@@ -1379,14 +1379,14 @@ export interface ConfiguredAudienceModelSummary {
  */
 export interface ListConfiguredAudienceModelsResponse {
   /**
-   * @public
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The configured audience models.</p>
+   * @public
    */
   configuredAudienceModels: ConfiguredAudienceModelSummary[] | undefined;
 }
@@ -1396,44 +1396,44 @@ export interface ListConfiguredAudienceModelsResponse {
  */
 export interface UpdateConfiguredAudienceModelRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the configured audience model that you want to update.</p>
+   * @public
    */
   configuredAudienceModelArn: string | undefined;
 
   /**
-   * @public
    * <p>The new output configuration.</p>
+   * @public
    */
   outputConfig?: ConfiguredAudienceModelOutputConfig;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the new audience model that you want to use.</p>
+   * @public
    */
   audienceModelArn?: string;
 
   /**
-   * @public
    * <p>The new value for whether to share audience metrics.</p>
+   * @public
    */
   sharedAudienceMetrics?: SharedAudienceMetrics[];
 
   /**
-   * @public
    * <p>The minimum number of users from the seed audience that must match with users in the training data of the audience model.</p>
+   * @public
    */
   minMatchingSeedSize?: number;
 
   /**
-   * @public
    * <p>The new audience size configuration.</p>
+   * @public
    */
   audienceSizeConfig?: AudienceSizeConfig;
 
   /**
-   * @public
    * <p>The new description of the configured audience model.</p>
+   * @public
    */
   description?: string;
 }
@@ -1443,8 +1443,8 @@ export interface UpdateConfiguredAudienceModelRequest {
  */
 export interface UpdateConfiguredAudienceModelResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the configured audience model that was updated.</p>
+   * @public
    */
   configuredAudienceModelArn: string | undefined;
 }
@@ -1454,8 +1454,8 @@ export interface UpdateConfiguredAudienceModelResponse {
  */
 export interface DeleteConfiguredAudienceModelPolicyRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the configured audience model policy that you want to delete.</p>
+   * @public
    */
   configuredAudienceModelArn: string | undefined;
 }
@@ -1465,8 +1465,8 @@ export interface DeleteConfiguredAudienceModelPolicyRequest {
  */
 export interface GetConfiguredAudienceModelPolicyRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the configured audience model that you are interested in.</p>
+   * @public
    */
   configuredAudienceModelArn: string | undefined;
 }
@@ -1476,20 +1476,20 @@ export interface GetConfiguredAudienceModelPolicyRequest {
  */
 export interface GetConfiguredAudienceModelPolicyResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the configured audience model.</p>
+   * @public
    */
   configuredAudienceModelArn: string | undefined;
 
   /**
-   * @public
    * <p>The configured audience model policy. This is a JSON IAM resource policy.</p>
+   * @public
    */
   configuredAudienceModelPolicy: string | undefined;
 
   /**
-   * @public
    * <p>A cryptographic hash of the contents of the policy used to prevent unexpected concurrent modification of the policy.</p>
+   * @public
    */
   policyHash: string | undefined;
 }
@@ -1513,26 +1513,26 @@ export type PolicyExistenceCondition = (typeof PolicyExistenceCondition)[keyof t
  */
 export interface PutConfiguredAudienceModelPolicyRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the configured audience model that the resource policy will govern.</p>
+   * @public
    */
   configuredAudienceModelArn: string | undefined;
 
   /**
-   * @public
    * <p>The IAM resource policy.</p>
+   * @public
    */
   configuredAudienceModelPolicy: string | undefined;
 
   /**
-   * @public
    * <p>A cryptographic hash of the contents of the policy used to prevent unexpected concurrent modification of the policy.</p>
+   * @public
    */
   previousPolicyHash?: string;
 
   /**
-   * @public
    * <p>Use this to prevent unexpected concurrent modification of the policy.</p>
+   * @public
    */
   policyExistenceCondition?: PolicyExistenceCondition;
 }
@@ -1542,14 +1542,14 @@ export interface PutConfiguredAudienceModelPolicyRequest {
  */
 export interface PutConfiguredAudienceModelPolicyResponse {
   /**
-   * @public
    * <p>The IAM resource policy.</p>
+   * @public
    */
   configuredAudienceModelPolicy: string | undefined;
 
   /**
-   * @public
    * <p>A cryptographic hash of the contents of the policy used to prevent unexpected concurrent modification of the policy.</p>
+   * @public
    */
   policyHash: string | undefined;
 }
@@ -1559,8 +1559,8 @@ export interface PutConfiguredAudienceModelPolicyResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resource that you are interested in.</p>
+   * @public
    */
   resourceArn: string | undefined;
 }
@@ -1570,8 +1570,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>The tags that are associated with the resource.</p>
+   * @public
    */
   tags: Record<string, string> | undefined;
 }
@@ -1581,13 +1581,12 @@ export interface ListTagsForResourceResponse {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resource that you want to assign tags.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
    *          <p>The following basic restrictions apply to tags:</p>
    *          <ul>
@@ -1613,6 +1612,7 @@ export interface TagResourceRequest {
    *                <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   tags: Record<string, string> | undefined;
 }
@@ -1623,37 +1623,37 @@ export interface TagResourceRequest {
 export interface TagResourceResponse {}
 
 /**
- * @public
  * <p>Defines the Glue data source that contains the training data.</p>
+ * @public
  */
 export interface GlueDataSource {
   /**
-   * @public
    * <p>The Glue table that contains the training data.</p>
+   * @public
    */
   tableName: string | undefined;
 
   /**
-   * @public
    * <p>The Glue database that contains the training data.</p>
+   * @public
    */
   databaseName: string | undefined;
 
   /**
-   * @public
    * <p>The Glue catalog that contains the training data.</p>
+   * @public
    */
   catalogId?: string;
 }
 
 /**
- * @public
  * <p>Defines information about the Glue data source that contains the training data.</p>
+ * @public
  */
 export interface DataSource {
   /**
-   * @public
    * <p>A GlueDataSource object that defines the catalog ID, database name, and table name for the training data.</p>
+   * @public
    */
   glueDataSource: GlueDataSource | undefined;
 }
@@ -1676,37 +1676,37 @@ export const ColumnType = {
 export type ColumnType = (typeof ColumnType)[keyof typeof ColumnType];
 
 /**
- * @public
  * <p>Metadata for a column.</p>
+ * @public
  */
 export interface ColumnSchema {
   /**
-   * @public
    * <p>The name of a column.</p>
+   * @public
    */
   columnName: string | undefined;
 
   /**
-   * @public
    * <p>The data type of column.</p>
+   * @public
    */
   columnTypes: ColumnType[] | undefined;
 }
 
 /**
- * @public
  * <p>Defines the Glue data source and schema mapping information.</p>
+ * @public
  */
 export interface DatasetInputConfig {
   /**
-   * @public
    * <p>The schema information for the training data.</p>
+   * @public
    */
   schema: ColumnSchema[] | undefined;
 
   /**
-   * @public
    * <p>A DataSource object that specifies the Glue data source for the training data.</p>
+   * @public
    */
   dataSource: DataSource | undefined;
 }
@@ -1725,19 +1725,19 @@ export const DatasetType = {
 export type DatasetType = (typeof DatasetType)[keyof typeof DatasetType];
 
 /**
- * @public
  * <p>Defines where the training dataset is located, what type of data it contains, and how to access the data.</p>
+ * @public
  */
 export interface Dataset {
   /**
-   * @public
    * <p>What type of information is found in the dataset.</p>
+   * @public
    */
   type: DatasetType | undefined;
 
   /**
-   * @public
    * <p>A DatasetInputConfig object that defines the data source and schema mapping.</p>
+   * @public
    */
   inputConfig: DatasetInputConfig | undefined;
 }
@@ -1747,26 +1747,25 @@ export interface Dataset {
  */
 export interface CreateTrainingDatasetRequest {
   /**
-   * @public
    * <p>The name of the training dataset. This name must be unique in your account and region.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the IAM role that Clean Rooms ML can assume to read the data referred to in the <code>dataSource</code> field of each dataset.</p>
    *          <p>Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your account, you get an <code>AccessDeniedException</code> error.</p>
+   * @public
    */
   roleArn: string | undefined;
 
   /**
-   * @public
    * <p>An array of information that lists the Dataset objects, which specifies the dataset type and details on its location and schema. You must provide a role that has read access to these tables.</p>
+   * @public
    */
   trainingData: Dataset[] | undefined;
 
   /**
-   * @public
    * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
    *          <p>The following basic restrictions apply to tags:</p>
    *          <ul>
@@ -1792,12 +1791,13 @@ export interface CreateTrainingDatasetRequest {
    *                <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The description of the training dataset.</p>
+   * @public
    */
   description?: string;
 }
@@ -1807,8 +1807,8 @@ export interface CreateTrainingDatasetRequest {
  */
 export interface CreateTrainingDatasetResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the training dataset resource.</p>
+   * @public
    */
   trainingDatasetArn: string | undefined;
 }
@@ -1818,8 +1818,8 @@ export interface CreateTrainingDatasetResponse {
  */
 export interface DeleteTrainingDatasetRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the training dataset that you want to delete.</p>
+   * @public
    */
   trainingDatasetArn: string | undefined;
 }
@@ -1829,8 +1829,8 @@ export interface DeleteTrainingDatasetRequest {
  */
 export interface GetTrainingDatasetRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the training dataset that you are interested in.</p>
+   * @public
    */
   trainingDatasetArn: string | undefined;
 }
@@ -1853,56 +1853,56 @@ export type TrainingDatasetStatus = (typeof TrainingDatasetStatus)[keyof typeof 
  */
 export interface GetTrainingDatasetResponse {
   /**
-   * @public
    * <p>The time at which the training dataset was created.</p>
+   * @public
    */
   createTime: Date | undefined;
 
   /**
-   * @public
    * <p>The most recent time at which the training dataset was updated.</p>
+   * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the training dataset.</p>
+   * @public
    */
   trainingDatasetArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the training dataset.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Metadata about the requested training data. </p>
+   * @public
    */
   trainingData: Dataset[] | undefined;
 
   /**
-   * @public
    * <p>The status of the training dataset.</p>
+   * @public
    */
   status: TrainingDatasetStatus | undefined;
 
   /**
-   * @public
    * <p>The IAM role used to read the training data.</p>
+   * @public
    */
   roleArn: string | undefined;
 
   /**
-   * @public
    * <p>The tags that are assigned to this training dataset.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The description of the training dataset.</p>
+   * @public
    */
   description?: string;
 }
@@ -1912,56 +1912,56 @@ export interface GetTrainingDatasetResponse {
  */
 export interface ListTrainingDatasetsRequest {
   /**
-   * @public
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum size of the results that is returned per call.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Provides information about the training dataset.</p>
+ * @public
  */
 export interface TrainingDatasetSummary {
   /**
-   * @public
    * <p>The time at which the training dataset was created.</p>
+   * @public
    */
   createTime: Date | undefined;
 
   /**
-   * @public
    * <p>The most recent time at which the training dataset was updated.</p>
+   * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the training dataset.</p>
+   * @public
    */
   trainingDatasetArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the training dataset.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The status of the training dataset.</p>
+   * @public
    */
   status: TrainingDatasetStatus | undefined;
 
   /**
-   * @public
    * <p>The description of the training dataset.</p>
+   * @public
    */
   description?: string;
 }
@@ -1971,14 +1971,14 @@ export interface TrainingDatasetSummary {
  */
 export interface ListTrainingDatasetsResponse {
   /**
-   * @public
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The training datasets that match the request.</p>
+   * @public
    */
   trainingDatasets: TrainingDatasetSummary[] | undefined;
 }
@@ -1988,14 +1988,14 @@ export interface ListTrainingDatasetsResponse {
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resource that you want to remove tags from.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The key values of tags that you want to remove.</p>
+   * @public
    */
   tagKeys: string[] | undefined;
 }

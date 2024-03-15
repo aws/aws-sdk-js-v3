@@ -27,7 +27,6 @@ export interface DescribeStackResourceDriftsCommandInput extends DescribeStackRe
 export interface DescribeStackResourceDriftsCommandOutput extends DescribeStackResourceDriftsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns drift information for the resources that have been checked for drift in the specified stack. This
  *    includes actual and expected configuration values for resources where CloudFormation detects configuration drift.</p>
  *          <p>For a given stack, there will be one <code>StackResourceDrift</code> for each stack resource that has been
@@ -96,6 +95,7 @@ export interface DescribeStackResourceDriftsCommandOutput extends DescribeStackR
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class DescribeStackResourceDriftsCommand extends $Command
   .classBuilder<

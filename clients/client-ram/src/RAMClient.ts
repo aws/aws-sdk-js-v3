@@ -420,7 +420,6 @@ export type RAMClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
 export interface RAMClientResolvedConfig extends RAMClientResolvedConfigType {}
 
 /**
- * @public
  * <p>This is the <i>Resource Access Manager API Reference</i>. This documentation provides
  *             descriptions and syntax for each of the actions and data types in RAM. RAM is a
  *             service that helps you securely share your Amazon Web Services resources to other Amazon Web Services accounts. If
@@ -441,6 +440,7 @@ export interface RAMClientResolvedConfig extends RAMClientResolvedConfigType {}
  *                </p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class RAMClient extends __Client<
   __HttpHandlerOptions,

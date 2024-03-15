@@ -32,7 +32,6 @@ export interface DescribeCommentsCommandInput extends DescribeCommentsRequest {}
 export interface DescribeCommentsCommandOutput extends DescribeCommentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List all the comments for the specified document version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -119,6 +118,7 @@ export interface DescribeCommentsCommandOutput extends DescribeCommentsResponse,
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class DescribeCommentsCommand extends $Command
   .classBuilder<

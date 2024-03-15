@@ -32,7 +32,6 @@ export interface DescribeFleetLocationAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information on a fleet's remote locations, including life-cycle status and
  *             any suspended fleet activity. </p>
  *          <p>This operation can be used in the following ways: </p>
@@ -121,6 +120,7 @@ export interface DescribeFleetLocationAttributesCommandOutput
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DescribeFleetLocationAttributesCommand extends $Command
   .classBuilder<

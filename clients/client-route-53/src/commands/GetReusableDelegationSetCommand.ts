@@ -28,7 +28,6 @@ export interface GetReusableDelegationSetCommandInput extends GetReusableDelegat
 export interface GetReusableDelegationSetCommandOutput extends GetReusableDelegationSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about a specified reusable delegation set, including the four
  * 			name servers that are assigned to the delegation set.</p>
  * @example
@@ -72,6 +71,7 @@ export interface GetReusableDelegationSetCommandOutput extends GetReusableDelega
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class GetReusableDelegationSetCommand extends $Command
   .classBuilder<

@@ -4,8 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { CloudFrontKeyValueStoreServiceException as __BaseException } from "./CloudFrontKeyValueStoreServiceException";
 
 /**
- * @public
  * <p>Access denied.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -26,8 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Resource is not in expected state.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -52,51 +52,51 @@ export class ConflictException extends __BaseException {
  */
 export interface DeleteKeyRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Key Value Store.</p>
+   * @public
    */
   KvsARN: string | undefined;
 
   /**
-   * @public
    * <p>The key to delete.</p>
+   * @public
    */
   Key: string | undefined;
 
   /**
-   * @public
    * <p>The current version (ETag) of the Key Value Store that you are deleting keys from, which you can get using DescribeKeyValueStore.</p>
+   * @public
    */
   IfMatch: string | undefined;
 }
 
 /**
- * @public
  * <p>Metadata information about a Key Value Store.</p>
+ * @public
  */
 export interface DeleteKeyResponse {
   /**
-   * @public
    * <p>Number of key value pairs in the Key Value Store after the successful delete.</p>
+   * @public
    */
   ItemCount: number | undefined;
 
   /**
-   * @public
    * <p>Total size of the Key Value Store after the successful delete, in bytes.</p>
+   * @public
    */
   TotalSizeInBytes: number | undefined;
 
   /**
-   * @public
    * <p>The current version identifier of the Key Value Store after the successful delete.</p>
+   * @public
    */
   ETag: string | undefined;
 }
 
 /**
- * @public
  * <p>Internal server error.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -117,8 +117,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Resource was not found.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -139,8 +139,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Limit exceeded.</p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
@@ -161,8 +161,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Validation failed.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -187,62 +187,62 @@ export class ValidationException extends __BaseException {
  */
 export interface DescribeKeyValueStoreRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Key Value Store.</p>
+   * @public
    */
   KvsARN: string | undefined;
 }
 
 /**
- * @public
  * <p>Metadata information about a Key Value Store.</p>
+ * @public
  */
 export interface DescribeKeyValueStoreResponse {
   /**
-   * @public
    * <p>Number of key value pairs in the Key Value Store.</p>
+   * @public
    */
   ItemCount: number | undefined;
 
   /**
-   * @public
    * <p>Total size of the Key Value Store in bytes.</p>
+   * @public
    */
   TotalSizeInBytes: number | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Key Value Store.</p>
+   * @public
    */
   KvsARN: string | undefined;
 
   /**
-   * @public
    * <p>Date and time when the Key Value Store was created.</p>
+   * @public
    */
   Created: Date | undefined;
 
   /**
-   * @public
    * <p>The version identifier for the current version of the Key Value Store.</p>
+   * @public
    */
   ETag: string | undefined;
 
   /**
-   * @public
    * <p>Date and time when the key value pairs in the Key Value Store was last modified.</p>
+   * @public
    */
   LastModified?: Date;
 
   /**
-   * @public
    * <p>The current status of the Key Value Store.</p>
+   * @public
    */
   Status?: string;
 
   /**
-   * @public
    * <p>The reason for Key Value Store creation failure.</p>
+   * @public
    */
   FailureReason?: string;
 }
@@ -252,44 +252,44 @@ export interface DescribeKeyValueStoreResponse {
  */
 export interface GetKeyRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Key Value Store.</p>
+   * @public
    */
   KvsARN: string | undefined;
 
   /**
-   * @public
    * <p>The key to get.</p>
+   * @public
    */
   Key: string | undefined;
 }
 
 /**
- * @public
  * <p>A key value pair.</p>
+ * @public
  */
 export interface GetKeyResponse {
   /**
-   * @public
    * <p>The key of the key value pair.</p>
+   * @public
    */
   Key: string | undefined;
 
   /**
-   * @public
    * <p>The value of the key value pair.</p>
+   * @public
    */
   Value: string | undefined;
 
   /**
-   * @public
    * <p>Number of key value pairs in the Key Value Store.</p>
+   * @public
    */
   ItemCount: number | undefined;
 
   /**
-   * @public
    * <p>Total size of the Key Value Store in bytes.</p>
+   * @public
    */
   TotalSizeInBytes: number | undefined;
 }
@@ -299,38 +299,38 @@ export interface GetKeyResponse {
  */
 export interface ListKeysRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Key Value Store.</p>
+   * @public
    */
   KvsARN: string | undefined;
 
   /**
-   * @public
    * <p>If nextToken is returned in the response, there are more results available. Make the next call using the returned token to retrieve the next page.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Maximum number of results that are returned per call. The default is 10 and maximum allowed page is 50.</p>
+   * @public
    */
   MaxResults?: number;
 }
 
 /**
- * @public
  * <p>A key value pair.</p>
+ * @public
  */
 export interface ListKeysResponseListItem {
   /**
-   * @public
    * <p>The key of the key value pair.</p>
+   * @public
    */
   Key: string | undefined;
 
   /**
-   * @public
    * <p>The value of the key value pair.</p>
+   * @public
    */
   Value: string | undefined;
 }
@@ -340,98 +340,98 @@ export interface ListKeysResponseListItem {
  */
 export interface ListKeysResponse {
   /**
-   * @public
    * <p>If nextToken is returned in the response, there are more results available. Make the next call using the returned token to retrieve the next page.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Key value pairs</p>
+   * @public
    */
   Items?: ListKeysResponseListItem[];
 }
 
 /**
- * @public
  * <p>A key value pair.</p>
+ * @public
  */
 export interface PutKeyRequest {
   /**
-   * @public
    * <p>The key to put.</p>
+   * @public
    */
   Key: string | undefined;
 
   /**
-   * @public
    * <p>The value to put.</p>
+   * @public
    */
   Value: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Key Value Store.</p>
+   * @public
    */
   KvsARN: string | undefined;
 
   /**
-   * @public
    * <p>The current version (ETag) of the Key Value Store that you are putting keys into, which you can get using DescribeKeyValueStore.</p>
+   * @public
    */
   IfMatch: string | undefined;
 }
 
 /**
- * @public
  * <p>Metadata information about a Key Value Store.</p>
+ * @public
  */
 export interface PutKeyResponse {
   /**
-   * @public
    * <p>Number of key value pairs in the Key Value Store after the successful put.</p>
+   * @public
    */
   ItemCount: number | undefined;
 
   /**
-   * @public
    * <p>Total size of the Key Value Store after the successful put, in bytes.</p>
+   * @public
    */
   TotalSizeInBytes: number | undefined;
 
   /**
-   * @public
    * <p>The current version identifier of the Key Value Store after the successful put.</p>
+   * @public
    */
   ETag: string | undefined;
 }
 
 /**
- * @public
  * <p>List item for keys to delete.</p>
+ * @public
  */
 export interface DeleteKeyRequestListItem {
   /**
-   * @public
    * <p>The key of the key value pair to be deleted.</p>
+   * @public
    */
   Key: string | undefined;
 }
 
 /**
- * @public
  * <p>List item for key value pair to put.</p>
+ * @public
  */
 export interface PutKeyRequestListItem {
   /**
-   * @public
    * <p>The key of the key value pair list item to put.</p>
+   * @public
    */
   Key: string | undefined;
 
   /**
-   * @public
    * <p>The value for the key value pair to put.</p>
+   * @public
    */
   Value: string | undefined;
 }
@@ -441,50 +441,50 @@ export interface PutKeyRequestListItem {
  */
 export interface UpdateKeysRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Key Value Store.</p>
+   * @public
    */
   KvsARN: string | undefined;
 
   /**
-   * @public
    * <p>The current version (ETag) of the Key Value Store that you are updating keys of, which you can get using DescribeKeyValueStore.</p>
+   * @public
    */
   IfMatch: string | undefined;
 
   /**
-   * @public
    * <p>List of key value pairs to put.</p>
+   * @public
    */
   Puts?: PutKeyRequestListItem[];
 
   /**
-   * @public
    * <p>List of keys to delete.</p>
+   * @public
    */
   Deletes?: DeleteKeyRequestListItem[];
 }
 
 /**
- * @public
  * <p>Metadata information about a Key Value Store.</p>
+ * @public
  */
 export interface UpdateKeysResponse {
   /**
-   * @public
    * <p>Number of key value pairs in the Key Value Store after the successful update.</p>
+   * @public
    */
   ItemCount: number | undefined;
 
   /**
-   * @public
    * <p>Total size of the Key Value Store after the successful update, in bytes.</p>
+   * @public
    */
   TotalSizeInBytes: number | undefined;
 
   /**
-   * @public
    * <p>The current version identifier of the Key Value Store after the successful update.</p>
+   * @public
    */
   ETag: string | undefined;
 }

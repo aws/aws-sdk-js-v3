@@ -32,7 +32,6 @@ export interface CreatePackageVersionCommandInput extends CreatePackageVersionRe
 export interface CreatePackageVersionCommandOutput extends CreatePackageVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new version for an existing IoT software package.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreatePackageVersion</a> and <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetIndexingConfiguration</a> actions.</p>
  * @example
@@ -94,6 +93,7 @@ export interface CreatePackageVersionCommandOutput extends CreatePackageVersionR
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class CreatePackageVersionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface PublishAppVersionCommandInput extends PublishAppVersionRequest 
 export interface PublishAppVersionCommandOutput extends PublishAppVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Publishes a new version of a specific Resilience Hub application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface PublishAppVersionCommandOutput extends PublishAppVersionRespons
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class PublishAppVersionCommand extends $Command
   .classBuilder<

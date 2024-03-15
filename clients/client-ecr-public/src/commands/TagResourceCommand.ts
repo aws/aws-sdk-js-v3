@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates the specified tags to a resource with the specified <code>resourceArn</code>.
  *          If existing tags on a resource aren't specified in the request parameters, they aren't
  *          changed. When a resource is deleted, the tags associated with that resource are also
@@ -83,6 +82,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link ECRPUBLICServiceException}
  * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

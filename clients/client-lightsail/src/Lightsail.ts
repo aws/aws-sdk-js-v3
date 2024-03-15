@@ -3356,7 +3356,6 @@ export interface Lightsail {
 }
 
 /**
- * @public
  * <p>Amazon Lightsail is the easiest way to get started with Amazon Web Services (Amazon Web Services) for developers who need to build websites or web applications. It includes
  *       everything you need to launch your project quickly - instances (virtual private servers),
  *       container services, storage buckets, managed databases, SSD-based block storage, static IP
@@ -3371,6 +3370,7 @@ export interface Lightsail {
  *         Amazon Web Services Regions, endpoints, and service quotas of the Lightsail service, see
  *         <a href="https://docs.aws.amazon.com/general/latest/gr/lightsail.html">Amazon Lightsail Endpoints
  *         and Quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+ * @public
  */
 export class Lightsail extends LightsailClient implements Lightsail {}
 createAggregatedClient(commands, Lightsail);

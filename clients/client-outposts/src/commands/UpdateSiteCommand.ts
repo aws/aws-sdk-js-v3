@@ -27,7 +27,6 @@ export interface UpdateSiteCommandInput extends UpdateSiteInput {}
 export interface UpdateSiteCommandOutput extends UpdateSiteOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified site.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface UpdateSiteCommandOutput extends UpdateSiteOutput, __MetadataBea
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ * @public
  */
 export class UpdateSiteCommand extends $Command
   .classBuilder<

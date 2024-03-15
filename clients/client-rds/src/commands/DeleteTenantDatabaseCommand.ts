@@ -28,7 +28,6 @@ export interface DeleteTenantDatabaseCommandInput extends DeleteTenantDatabaseMe
 export interface DeleteTenantDatabaseCommandOutput extends DeleteTenantDatabaseResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a tenant database from your DB instance. This command only applies to RDS for
  *             Oracle container database (CDB) instances.</p>
  *          <p>You can't delete a tenant database when it is the only tenant in the DB
@@ -94,6 +93,7 @@ export interface DeleteTenantDatabaseCommandOutput extends DeleteTenantDatabaseR
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  */
 export class DeleteTenantDatabaseCommand extends $Command
   .classBuilder<

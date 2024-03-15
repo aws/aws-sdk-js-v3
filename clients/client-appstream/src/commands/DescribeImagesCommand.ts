@@ -27,7 +27,6 @@ export interface DescribeImagesCommandInput extends DescribeImagesRequest {}
 export interface DescribeImagesCommandOutput extends DescribeImagesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list that describes one or more specified images, if the image names or image ARNs are provided. Otherwise, all images in the account are described.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -129,6 +128,7 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class DescribeImagesCommand extends $Command
   .classBuilder<

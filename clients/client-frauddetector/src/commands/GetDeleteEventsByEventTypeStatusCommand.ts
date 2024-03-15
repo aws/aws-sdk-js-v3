@@ -32,7 +32,6 @@ export interface GetDeleteEventsByEventTypeStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the status of a <code>DeleteEventsByEventType</code> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface GetDeleteEventsByEventTypeStatusCommandOutput
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class GetDeleteEventsByEventTypeStatusCommand extends $Command
   .classBuilder<

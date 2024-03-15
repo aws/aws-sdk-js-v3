@@ -32,7 +32,6 @@ export interface PutDataCatalogEncryptionSettingsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the security configuration for a specified catalog. After the configuration has been
  *       set, the specified encryption is applied to every catalog write thereafter.</p>
  * @example
@@ -79,6 +78,7 @@ export interface PutDataCatalogEncryptionSettingsCommandOutput
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class PutDataCatalogEncryptionSettingsCommand extends $Command
   .classBuilder<

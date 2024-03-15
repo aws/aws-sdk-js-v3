@@ -27,7 +27,6 @@ export interface GetInsightSelectorsCommandInput extends GetInsightSelectorsRequ
 export interface GetInsightSelectorsCommandOutput extends GetInsightSelectorsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the settings for the Insights event selectors that you configured for your
  *          trail or event data store. <code>GetInsightSelectors</code> shows if CloudTrail Insights event logging
  *          is enabled on the trail or event data store, and if it is, which Insights types are enabled. If you run
@@ -135,6 +134,7 @@ export interface GetInsightSelectorsCommandOutput extends GetInsightSelectorsRes
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class GetInsightSelectorsCommand extends $Command
   .classBuilder<

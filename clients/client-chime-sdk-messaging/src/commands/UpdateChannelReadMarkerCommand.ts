@@ -31,7 +31,6 @@ export interface UpdateChannelReadMarkerCommandInput extends UpdateChannelReadMa
 export interface UpdateChannelReadMarkerCommandOutput extends UpdateChannelReadMarkerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The details of the time when a user last read messages in a channel.</p>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
@@ -87,6 +86,7 @@ export interface UpdateChannelReadMarkerCommandOutput extends UpdateChannelReadM
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class UpdateChannelReadMarkerCommand extends $Command
   .classBuilder<

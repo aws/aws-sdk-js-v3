@@ -27,7 +27,6 @@ export interface DescribeMitigationActionCommandInput extends DescribeMitigation
 export interface DescribeMitigationActionCommandOutput extends DescribeMitigationActionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a mitigation action.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeMitigationAction</a> action.</p>
  * @example
@@ -98,6 +97,7 @@ export interface DescribeMitigationActionCommandOutput extends DescribeMitigatio
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DescribeMitigationActionCommand extends $Command
   .classBuilder<

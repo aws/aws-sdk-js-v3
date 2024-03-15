@@ -27,7 +27,6 @@ export interface UpdateListenerCommandInput extends UpdateListenerRequest {}
 export interface UpdateListenerCommandOutput extends UpdateListenerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified listener for the specified service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -108,6 +107,7 @@ export interface UpdateListenerCommandOutput extends UpdateListenerResponse, __M
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class UpdateListenerCommand extends $Command
   .classBuilder<

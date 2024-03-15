@@ -27,7 +27,6 @@ export interface DeleteCanaryCommandInput extends DeleteCanaryRequest {}
 export interface DeleteCanaryCommandOutput extends DeleteCanaryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Permanently deletes the specified canary.</p>
  *          <p>If you specify <code>DeleteLambda</code> to <code>true</code>, CloudWatch Synthetics also deletes
  *          the Lambda functions and layers that are used by the canary.</p>
@@ -97,6 +96,7 @@ export interface DeleteCanaryCommandOutput extends DeleteCanaryResponse, __Metad
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ * @public
  */
 export class DeleteCanaryCommand extends $Command
   .classBuilder<

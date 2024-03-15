@@ -27,7 +27,6 @@ export interface UpdateConnectClientAddInCommandInput extends UpdateConnectClien
 export interface UpdateConnectClientAddInCommandOutput extends UpdateConnectClientAddInResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a Amazon Connect client add-in. Use this action to update the name and
  *          endpoint URL of a Amazon Connect client add-in.</p>
  * @example
@@ -66,6 +65,7 @@ export interface UpdateConnectClientAddInCommandOutput extends UpdateConnectClie
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class UpdateConnectClientAddInCommand extends $Command
   .classBuilder<

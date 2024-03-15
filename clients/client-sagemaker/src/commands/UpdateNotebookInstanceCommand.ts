@@ -27,7 +27,6 @@ export interface UpdateNotebookInstanceCommandInput extends UpdateNotebookInstan
 export interface UpdateNotebookInstanceCommandOutput extends UpdateNotebookInstanceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a notebook instance. NotebookInstance updates include upgrading or
  *             downgrading the ML compute instance used for your notebook instance to accommodate
  *             changes in your workload requirements.</p>
@@ -78,6 +77,7 @@ export interface UpdateNotebookInstanceCommandOutput extends UpdateNotebookInsta
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class UpdateNotebookInstanceCommand extends $Command
   .classBuilder<

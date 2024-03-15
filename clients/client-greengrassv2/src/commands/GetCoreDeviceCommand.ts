@@ -27,7 +27,6 @@ export interface GetCoreDeviceCommandInput extends GetCoreDeviceRequest {}
 export interface GetCoreDeviceCommandOutput extends GetCoreDeviceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves metadata for a Greengrass core device.</p>
  *          <note>
  *             <p>IoT Greengrass relies on individual devices to send status updates to the Amazon Web Services Cloud. If the
@@ -107,6 +106,7 @@ export interface GetCoreDeviceCommandOutput extends GetCoreDeviceResponse, __Met
  * @throws {@link GreengrassV2ServiceException}
  * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ * @public
  */
 export class GetCoreDeviceCommand extends $Command
   .classBuilder<

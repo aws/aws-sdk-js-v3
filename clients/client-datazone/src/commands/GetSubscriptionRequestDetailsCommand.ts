@@ -36,7 +36,6 @@ export interface GetSubscriptionRequestDetailsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the details of the specified subscription request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -124,6 +123,7 @@ export interface GetSubscriptionRequestDetailsCommandOutput
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class GetSubscriptionRequestDetailsCommand extends $Command
   .classBuilder<

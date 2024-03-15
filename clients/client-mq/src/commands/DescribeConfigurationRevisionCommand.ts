@@ -32,7 +32,6 @@ export interface DescribeConfigurationRevisionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the specified configuration revision for the specified configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface DescribeConfigurationRevisionCommandOutput
  * @throws {@link MqServiceException}
  * <p>Base exception class for all service exceptions from Mq service.</p>
  *
+ * @public
  */
 export class DescribeConfigurationRevisionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface EnableFederationCommandInput extends EnableFederationRequest {}
 export interface EnableFederationCommandOutput extends EnableFederationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Enables Lake query federation on the specified event data store. Federating an event data store lets you view the metadata associated with the event data store in the Glue
  *          <a href="https://docs.aws.amazon.com/glue/latest/dg/components-overview.html#data-catalog-intro">Data Catalog</a> and run
@@ -130,6 +129,7 @@ export interface EnableFederationCommandOutput extends EnableFederationResponse,
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class EnableFederationCommand extends $Command
   .classBuilder<

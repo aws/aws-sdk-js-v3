@@ -27,7 +27,6 @@ export interface DescribeBrokerEngineTypesCommandInput extends DescribeBrokerEng
 export interface DescribeBrokerEngineTypesCommandOutput extends DescribeBrokerEngineTypesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describe available engine types and versions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface DescribeBrokerEngineTypesCommandOutput extends DescribeBrokerEn
  * @throws {@link MqServiceException}
  * <p>Base exception class for all service exceptions from Mq service.</p>
  *
+ * @public
  */
 export class DescribeBrokerEngineTypesCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface GetAccessorCommandInput extends GetAccessorInput {}
 export interface GetAccessorCommandOutput extends GetAccessorOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns detailed information about an accessor. An accessor object is a container that has the
  *          information required for token based access to your Ethereum nodes.</p>
  * @example
@@ -89,6 +88,7 @@ export interface GetAccessorCommandOutput extends GetAccessorOutput, __MetadataB
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ * @public
  */
 export class GetAccessorCommand extends $Command
   .classBuilder<

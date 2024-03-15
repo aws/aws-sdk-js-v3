@@ -27,7 +27,6 @@ export interface UpdateGeofenceCollectionCommandInput extends UpdateGeofenceColl
 export interface UpdateGeofenceCollectionCommandOutput extends UpdateGeofenceCollectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified properties of a given geofence collection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface UpdateGeofenceCollectionCommandOutput extends UpdateGeofenceCol
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class UpdateGeofenceCollectionCommand extends $Command
   .classBuilder<

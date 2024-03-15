@@ -27,7 +27,6 @@ export interface RemoveRoleFromDBClusterCommandInput extends RemoveRoleFromDBClu
 export interface RemoveRoleFromDBClusterCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the asssociation of an Amazon Web Services Identity and Access Management (IAM) role from a
  *             DB cluster.</p>
  *          <p>For more information on Amazon Aurora DB clusters, see
@@ -73,6 +72,7 @@ export interface RemoveRoleFromDBClusterCommandOutput extends __MetadataBearer {
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To disassociate an Identity and Access Management (IAM) role from a DB cluster
  * ```javascript
  * // The following example removes a role from a DB cluster.

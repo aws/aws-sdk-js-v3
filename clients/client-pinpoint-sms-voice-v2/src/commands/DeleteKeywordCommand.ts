@@ -31,7 +31,6 @@ export interface DeleteKeywordCommandInput extends DeleteKeywordRequest {}
 export interface DeleteKeywordCommandOutput extends DeleteKeywordResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing keyword from an origination phone number or pool.</p>
  *          <p>A keyword is a word that you can search for on a particular phone number or pool. It
  *             is also a specific word or phrase that an end user can send to your number to elicit a
@@ -94,6 +93,7 @@ export interface DeleteKeywordCommandOutput extends DeleteKeywordResult, __Metad
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class DeleteKeywordCommand extends $Command
   .classBuilder<

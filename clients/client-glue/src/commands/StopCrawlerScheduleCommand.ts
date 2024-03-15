@@ -27,7 +27,6 @@ export interface StopCrawlerScheduleCommandInput extends StopCrawlerScheduleRequ
 export interface StopCrawlerScheduleCommandOutput extends StopCrawlerScheduleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the schedule state of the specified crawler to
  *       <code>NOT_SCHEDULED</code>, but does not stop the crawler if it is
  *       already running.</p>
@@ -67,6 +66,7 @@ export interface StopCrawlerScheduleCommandOutput extends StopCrawlerScheduleRes
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class StopCrawlerScheduleCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface CreatePullRequestApprovalRuleCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an approval rule for a pull request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -120,6 +119,7 @@ export interface CreatePullRequestApprovalRuleCommandOutput
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class CreatePullRequestApprovalRuleCommand extends $Command
   .classBuilder<

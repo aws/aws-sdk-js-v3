@@ -27,7 +27,6 @@ export interface DeleteProjectCommandInput extends DeleteProjectRequest {}
 export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a Amazon Rekognition project. To delete a project you must first delete all models or
  *          adapters associated with the project. To delete a model or adapter, see <a>DeleteProjectVersion</a>.</p>
  *          <p>
@@ -86,6 +85,7 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __Met
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example To delete an Amazon Rekognition Custom Labels project
  * ```javascript
  * // Deletes an Amazon Rekognition Custom Labels projects.

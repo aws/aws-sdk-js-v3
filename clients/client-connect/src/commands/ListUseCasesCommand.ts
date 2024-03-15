@@ -27,7 +27,6 @@ export interface ListUseCasesCommandInput extends ListUseCasesRequest {}
 export interface ListUseCasesCommandOutput extends ListUseCasesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the use cases for the integration association. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface ListUseCasesCommandOutput extends ListUseCasesResponse, __Metad
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class ListUseCasesCommand extends $Command
   .classBuilder<

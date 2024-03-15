@@ -27,7 +27,6 @@ export interface CancelExportJobCommandInput extends CancelExportJobRequest {}
 export interface CancelExportJobCommandOutput extends CancelExportJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels an export job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +61,7 @@ export interface CancelExportJobCommandOutput extends CancelExportJobResponse, _
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  * @example Cancel export job
  * ```javascript
  * // Cancels the export job with ID ef28cf62-9d8e-4b60-9283-b09816c99a99

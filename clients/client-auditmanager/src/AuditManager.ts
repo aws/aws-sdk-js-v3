@@ -1345,7 +1345,6 @@ export interface AuditManager {
 }
 
 /**
- * @public
  * <p>Welcome to the Audit Manager API reference. This guide is for developers who
  *          need detailed information about the Audit Manager API operations, data types, and
  *          errors. </p>
@@ -1382,6 +1381,7 @@ export interface AuditManager {
  *          </ul>
  *          <p>If you're new to Audit Manager, we recommend that you review the <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/what-is.html">
  *             Audit Manager User Guide</a>.</p>
+ * @public
  */
 export class AuditManager extends AuditManagerClient implements AuditManager {}
 createAggregatedClient(commands, AuditManager);

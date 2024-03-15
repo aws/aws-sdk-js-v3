@@ -27,7 +27,6 @@ export interface ListJobsCommandInput extends ListJobsInput {}
 export interface ListJobsCommandOutput extends ListJobsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation lists jobs for a vault, including jobs that are in-progress and jobs
  *          that have recently finished. The List Job operation returns a list of these jobs sorted by job initiation
  *          time.</p>
@@ -191,6 +190,7 @@ export interface ListJobsCommandOutput extends ListJobsOutput, __MetadataBearer 
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * @public
  * @example To list jobs for a vault
  * ```javascript
  * // The example lists jobs for the vault named my-vault.

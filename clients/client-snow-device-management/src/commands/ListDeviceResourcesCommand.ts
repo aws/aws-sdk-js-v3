@@ -31,7 +31,6 @@ export interface ListDeviceResourcesCommandInput extends ListDeviceResourcesInpu
 export interface ListDeviceResourcesCommandOutput extends ListDeviceResourcesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the Amazon Web Services resources available for a device. Currently, Amazon EC2 instances are the only supported resource type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface ListDeviceResourcesCommandOutput extends ListDeviceResourcesOut
  * @throws {@link SnowDeviceManagementServiceException}
  * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
+ * @public
  */
 export class ListDeviceResourcesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteBGPPeerCommandInput extends DeleteBGPPeerRequest {}
 export interface DeleteBGPPeerCommandOutput extends DeleteBGPPeerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified BGP peer on the specified virtual interface with the specified customer address and ASN.</p>
  *          <p>You cannot delete the last BGP peer from a virtual interface.</p>
  * @example
@@ -114,6 +113,7 @@ export interface DeleteBGPPeerCommandOutput extends DeleteBGPPeerResponse, __Met
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class DeleteBGPPeerCommand extends $Command
   .classBuilder<

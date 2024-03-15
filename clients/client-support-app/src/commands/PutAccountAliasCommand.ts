@@ -27,7 +27,6 @@ export interface PutAccountAliasCommandInput extends PutAccountAliasRequest {}
 export interface PutAccountAliasCommandOutput extends PutAccountAliasResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates an individual alias for each Amazon Web Services account ID. The alias appears in the
  *       Amazon Web Services Support App page of the Amazon Web Services Support Center. The alias also appears in Slack messages from the
  *       Amazon Web Services Support App.</p>
@@ -64,6 +63,7 @@ export interface PutAccountAliasCommandOutput extends PutAccountAliasResult, __M
  * @throws {@link SupportAppServiceException}
  * <p>Base exception class for all service exceptions from SupportApp service.</p>
  *
+ * @public
  */
 export class PutAccountAliasCommand extends $Command
   .classBuilder<

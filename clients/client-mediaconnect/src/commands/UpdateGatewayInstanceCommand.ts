@@ -27,7 +27,6 @@ export interface UpdateGatewayInstanceCommandInput extends UpdateGatewayInstance
 export interface UpdateGatewayInstanceCommandOutput extends UpdateGatewayInstanceResponse, __MetadataBearer {}
 
 /**
- * @public
  * Updates the configuration of an existing Gateway Instance.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface UpdateGatewayInstanceCommandOutput extends UpdateGatewayInstanc
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ * @public
  */
 export class UpdateGatewayInstanceCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetReferenceImportJobCommandInput extends GetReferenceImportJob
 export interface GetReferenceImportJobCommandOutput extends GetReferenceImportJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a reference import job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface GetReferenceImportJobCommandOutput extends GetReferenceImportJo
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class GetReferenceImportJobCommand extends $Command
   .classBuilder<

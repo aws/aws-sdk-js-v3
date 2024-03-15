@@ -27,7 +27,6 @@ export interface CreatePipelineCommandInput extends CreatePipelineInput {}
 export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new, empty pipeline. Use <a>PutPipelineDefinition</a> to populate the pipeline.</p>
  *
  *         <examples>
@@ -99,6 +98,7 @@ export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __Met
  * @throws {@link DataPipelineServiceException}
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ * @public
  */
 export class CreatePipelineCommand extends $Command
   .classBuilder<

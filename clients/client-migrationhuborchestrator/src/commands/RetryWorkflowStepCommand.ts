@@ -31,7 +31,6 @@ export interface RetryWorkflowStepCommandInput extends RetryWorkflowStepRequest 
 export interface RetryWorkflowStepCommandOutput extends RetryWorkflowStepResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retry a failed step in a migration workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface RetryWorkflowStepCommandOutput extends RetryWorkflowStepRespons
  * @throws {@link MigrationHubOrchestratorServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
+ * @public
  */
 export class RetryWorkflowStepCommand extends $Command
   .classBuilder<

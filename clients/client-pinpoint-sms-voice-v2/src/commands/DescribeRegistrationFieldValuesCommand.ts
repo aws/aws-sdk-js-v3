@@ -36,7 +36,6 @@ export interface DescribeRegistrationFieldValuesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the specified registration field values.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface DescribeRegistrationFieldValuesCommandOutput
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class DescribeRegistrationFieldValuesCommand extends $Command
   .classBuilder<

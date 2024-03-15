@@ -27,7 +27,6 @@ export interface BatchEnableStandardsCommandInput extends BatchEnableStandardsRe
 export interface BatchEnableStandardsCommandOutput extends BatchEnableStandardsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables the standards specified by the provided <code>StandardsArn</code>. To obtain the
  *          ARN for a standard, use the <code>DescribeStandards</code>
  *          operation.</p>
@@ -95,6 +94,7 @@ export interface BatchEnableStandardsCommandOutput extends BatchEnableStandardsR
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To enable security standards
  * ```javascript
  * // The following example enables the security standard specified by the StandardArn. You can use this operation to enable one or more Security Hub standards.

@@ -27,7 +27,6 @@ export interface UpdateCrawlerScheduleCommandInput extends UpdateCrawlerSchedule
 export interface UpdateCrawlerScheduleCommandOutput extends UpdateCrawlerScheduleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the schedule of a crawler using a <code>cron</code> expression. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface UpdateCrawlerScheduleCommandOutput extends UpdateCrawlerSchedul
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class UpdateCrawlerScheduleCommand extends $Command
   .classBuilder<

@@ -35,7 +35,6 @@ export interface DescribeTransitGatewayPolicyTablesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes one or more transit gateway route policy tables.  </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface DescribeTransitGatewayPolicyTablesCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeTransitGatewayPolicyTablesCommand extends $Command
   .classBuilder<

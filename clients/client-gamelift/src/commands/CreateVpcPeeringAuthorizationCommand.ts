@@ -32,7 +32,6 @@ export interface CreateVpcPeeringAuthorizationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Requests authorization to create or delete a peer connection between the VPC for your
  *             Amazon GameLift fleet and a virtual private cloud (VPC) in your Amazon Web Services account. VPC peering enables the game servers on
  *             your fleet to communicate directly with other Amazon Web Services resources. After you've received
@@ -107,6 +106,7 @@ export interface CreateVpcPeeringAuthorizationCommandOutput
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class CreateVpcPeeringAuthorizationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListSimulationApplicationsCommandInput extends ListSimulationAp
 export interface ListSimulationApplicationsCommandOutput extends ListSimulationApplicationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of simulation applications. You can optionally provide filters to
  *          retrieve specific simulation applications. </p>
  * @example
@@ -92,6 +91,7 @@ export interface ListSimulationApplicationsCommandOutput extends ListSimulationA
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ * @public
  */
 export class ListSimulationApplicationsCommand extends $Command
   .classBuilder<

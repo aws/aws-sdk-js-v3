@@ -27,7 +27,6 @@ export interface ListModelVersionsCommandInput extends ListModelVersionsRequest 
 export interface ListModelVersionsCommandOutput extends ListModelVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Generates a list of all model versions for a given model, including the model version,
  *          model version ARN, and status. To list a subset of versions, use the
  *             <code>MaxModelVersion</code> and <code>MinModelVersion</code> fields.</p>
@@ -96,6 +95,7 @@ export interface ListModelVersionsCommandOutput extends ListModelVersionsRespons
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  */
 export class ListModelVersionsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateRouteCalculatorCommandInput extends UpdateRouteCalculator
 export interface UpdateRouteCalculatorCommandOutput extends UpdateRouteCalculatorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified properties for a given route calculator resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface UpdateRouteCalculatorCommandOutput extends UpdateRouteCalculato
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class UpdateRouteCalculatorCommand extends $Command
   .classBuilder<

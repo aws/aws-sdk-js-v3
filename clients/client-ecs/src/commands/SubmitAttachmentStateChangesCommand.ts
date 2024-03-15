@@ -32,7 +32,6 @@ export interface SubmitAttachmentStateChangesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This action is only used by the Amazon ECS agent, and it is not intended for use outside of the agent.</p>
  *          </note>
@@ -84,6 +83,7 @@ export interface SubmitAttachmentStateChangesCommandOutput
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  */
 export class SubmitAttachmentStateChangesCommand extends $Command
   .classBuilder<

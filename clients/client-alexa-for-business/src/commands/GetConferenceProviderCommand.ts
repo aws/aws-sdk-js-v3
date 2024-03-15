@@ -27,9 +27,6 @@ export interface GetConferenceProviderCommandInput extends GetConferenceProvider
 export interface GetConferenceProviderCommandOutput extends GetConferenceProviderResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Gets details about a specific conference provider.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +74,8 @@ export interface GetConferenceProviderCommandOutput extends GetConferenceProvide
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class GetConferenceProviderCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteProtectionCommandInput extends DeleteProtectionRequest {}
 export interface DeleteProtectionCommandOutput extends DeleteProtectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Shield Advanced <a>Protection</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +62,7 @@ export interface DeleteProtectionCommandOutput extends DeleteProtectionResponse,
  * @throws {@link ShieldServiceException}
  * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ * @public
  */
 export class DeleteProtectionCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface DisableOrganizationAdminAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the existing GuardDuty delegated
  *     administrator of the organization. Only the organization's management account can run this
  *       API operation.</p>
@@ -66,6 +65,7 @@ export interface DisableOrganizationAdminAccountCommandOutput
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class DisableOrganizationAdminAccountCommand extends $Command
   .classBuilder<

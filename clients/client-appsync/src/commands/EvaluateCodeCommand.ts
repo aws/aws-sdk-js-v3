@@ -27,7 +27,6 @@ export interface EvaluateCodeCommandInput extends EvaluateCodeRequest {}
 export interface EvaluateCodeCommandOutput extends EvaluateCodeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Evaluates the given code and returns the response. The code definition requirements depend on the specified
  *          runtime. For <code>APPSYNC_JS</code> runtimes, the code defines the request and response functions. The request
  *          function takes the incoming request after a GraphQL operation is parsed and converts it into a request
@@ -92,6 +91,7 @@ export interface EvaluateCodeCommandOutput extends EvaluateCodeResponse, __Metad
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class EvaluateCodeCommand extends $Command
   .classBuilder<

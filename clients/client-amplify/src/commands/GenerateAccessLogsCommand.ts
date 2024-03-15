@@ -27,7 +27,6 @@ export interface GenerateAccessLogsCommandInput extends GenerateAccessLogsReques
 export interface GenerateAccessLogsCommandOutput extends GenerateAccessLogsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the website access logs for a specific time range using a presigned URL.
  *         </p>
  * @example
@@ -71,6 +70,7 @@ export interface GenerateAccessLogsCommandOutput extends GenerateAccessLogsResul
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ * @public
  */
 export class GenerateAccessLogsCommand extends $Command
   .classBuilder<

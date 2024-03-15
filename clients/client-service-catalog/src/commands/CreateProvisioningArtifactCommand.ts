@@ -27,7 +27,6 @@ export interface CreateProvisioningArtifactCommandInput extends CreateProvisioni
 export interface CreateProvisioningArtifactCommandOutput extends CreateProvisioningArtifactOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a provisioning artifact (also known as a version) for the specified product.</p>
  *          <p>You cannot create a provisioning artifact for a product that was shared with you.</p>
  *          <p>The user or role that performs this operation must have the <code>cloudformation:GetTemplate</code>
@@ -93,6 +92,7 @@ export interface CreateProvisioningArtifactCommandOutput extends CreateProvision
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class CreateProvisioningArtifactCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListUserGroupsCommandInput extends ListUserGroupsRequest {}
 export interface ListUserGroupsCommandOutput extends ListUserGroupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the Amazon QuickSight groups that an Amazon QuickSight user is a member of.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface ListUserGroupsCommandOutput extends ListUserGroupsResponse, __M
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class ListUserGroupsCommand extends $Command
   .classBuilder<

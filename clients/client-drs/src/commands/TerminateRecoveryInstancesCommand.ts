@@ -31,7 +31,6 @@ export interface TerminateRecoveryInstancesCommandInput extends TerminateRecover
 export interface TerminateRecoveryInstancesCommandOutput extends TerminateRecoveryInstancesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Initiates a Job for terminating the EC2 resources associated with the specified Recovery Instances, and then will delete the Recovery Instances from the Elastic Disaster Recovery service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -130,6 +129,7 @@ export interface TerminateRecoveryInstancesCommandOutput extends TerminateRecove
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * @public
  */
 export class TerminateRecoveryInstancesCommand extends $Command
   .classBuilder<

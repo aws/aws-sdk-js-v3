@@ -36,7 +36,6 @@ export interface BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an association between an approval rule template and one or more specified repositories. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -109,6 +108,7 @@ export interface BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class BatchAssociateApprovalRuleTemplateWithRepositoriesCommand extends $Command
   .classBuilder<

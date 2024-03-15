@@ -27,7 +27,6 @@ export interface GetPortalCommandInput extends GetPortalRequest {}
 export interface GetPortalCommandOutput extends GetPortalResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface GetPortalCommandOutput extends GetPortalResponse, __MetadataBea
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * @public
  */
 export class GetPortalCommand extends $Command
   .classBuilder<

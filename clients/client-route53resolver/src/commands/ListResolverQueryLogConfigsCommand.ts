@@ -29,7 +29,6 @@ export interface ListResolverQueryLogConfigsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists information about the specified query logging configurations. Each configuration defines where you want Resolver to save
  * 			DNS query logs and specifies the VPCs that you want to log queries for.</p>
  * @example
@@ -103,6 +102,7 @@ export interface ListResolverQueryLogConfigsCommandOutput
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class ListResolverQueryLogConfigsCommand extends $Command
   .classBuilder<

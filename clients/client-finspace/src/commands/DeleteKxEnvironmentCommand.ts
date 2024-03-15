@@ -27,7 +27,6 @@ export interface DeleteKxEnvironmentCommandInput extends DeleteKxEnvironmentRequ
 export interface DeleteKxEnvironmentCommandOutput extends DeleteKxEnvironmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the kdb environment. This action is irreversible. Deleting a kdb environment will remove all the associated data and any services running in it. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface DeleteKxEnvironmentCommandOutput extends DeleteKxEnvironmentRes
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class DeleteKxEnvironmentCommand extends $Command
   .classBuilder<

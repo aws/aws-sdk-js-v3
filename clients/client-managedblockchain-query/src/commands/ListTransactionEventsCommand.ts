@@ -31,7 +31,6 @@ export interface ListTransactionEventsCommandInput extends ListTransactionEvents
 export interface ListTransactionEventsCommandOutput extends ListTransactionEventsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>An array of <code>TransactionEvent</code> objects. Each object contains details
  *          about the transaction event.</p>
  *          <note>
@@ -101,6 +100,7 @@ export interface ListTransactionEventsCommandOutput extends ListTransactionEvent
  * @throws {@link ManagedBlockchainQueryServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchainQuery service.</p>
  *
+ * @public
  */
 export class ListTransactionEventsCommand extends $Command
   .classBuilder<

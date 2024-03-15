@@ -27,9 +27,6 @@ export interface ApproveSkillCommandInput extends ApproveSkillRequest {}
 export interface ApproveSkillCommandOutput extends ApproveSkillResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Associates a skill with the organization under the customer's AWS account. If a skill
  *          is private, the user implicitly accepts access to this skill during enablement.</p>
  * @example
@@ -65,6 +62,8 @@ export interface ApproveSkillCommandOutput extends ApproveSkillResponse, __Metad
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class ApproveSkillCommand extends $Command
   .classBuilder<

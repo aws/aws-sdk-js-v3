@@ -27,7 +27,6 @@ export interface UpdateStandardsControlCommandInput extends UpdateStandardsContr
 export interface UpdateStandardsControlCommandOutput extends UpdateStandardsControlResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Used to control whether an individual security standard control is enabled or
  *          disabled.</p>
  * @example
@@ -72,6 +71,7 @@ export interface UpdateStandardsControlCommandOutput extends UpdateStandardsCont
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To update the enablement status of a standard control
  * ```javascript
  * // The following example disables the specified control in the specified security standard.

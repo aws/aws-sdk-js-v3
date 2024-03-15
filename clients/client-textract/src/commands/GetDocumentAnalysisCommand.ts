@@ -27,7 +27,6 @@ export interface GetDocumentAnalysisCommandInput extends GetDocumentAnalysisRequ
 export interface GetDocumentAnalysisCommandOutput extends GetDocumentAnalysisResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the results for an Amazon Textract asynchronous operation that analyzes text in a
  *          document.</p>
  *          <p>You start asynchronous text analysis by calling <a>StartDocumentAnalysis</a>,
@@ -212,6 +211,7 @@ export interface GetDocumentAnalysisCommandOutput extends GetDocumentAnalysisRes
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ * @public
  */
 export class GetDocumentAnalysisCommand extends $Command
   .classBuilder<

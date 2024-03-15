@@ -27,7 +27,6 @@ export interface DeleteVehicleCommandInput extends DeleteVehicleRequest {}
 export interface DeleteVehicleCommandOutput extends DeleteVehicleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Deletes a vehicle and removes it from any campaigns.</p>
  *          <note>
  *             <p>If the vehicle is successfully deleted, Amazon Web Services IoT FleetWise sends back an HTTP 200 response
@@ -72,6 +71,7 @@ export interface DeleteVehicleCommandOutput extends DeleteVehicleResponse, __Met
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class DeleteVehicleCommand extends $Command
   .classBuilder<

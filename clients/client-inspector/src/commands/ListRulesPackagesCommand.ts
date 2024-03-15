@@ -27,7 +27,6 @@ export interface ListRulesPackagesCommandInput extends ListRulesPackagesRequest 
 export interface ListRulesPackagesCommandOutput extends ListRulesPackagesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all available Amazon Inspector rules packages.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface ListRulesPackagesCommandOutput extends ListRulesPackagesRespons
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * @public
  * @example List rules packages
  * ```javascript
  * // Lists all available Amazon Inspector rules packages.

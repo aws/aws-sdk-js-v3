@@ -31,7 +31,6 @@ export interface UpdateUserPoolDomainCommandInput extends UpdateUserPoolDomainRe
 export interface UpdateUserPoolDomainCommandOutput extends UpdateUserPoolDomainResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the Secure Sockets Layer (SSL) certificate for the custom domain for your user
  *             pool.</p>
  *          <p>You can use this operation to provide the Amazon Resource Name (ARN) of a new
@@ -119,6 +118,7 @@ export interface UpdateUserPoolDomainCommandOutput extends UpdateUserPoolDomainR
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class UpdateUserPoolDomainCommand extends $Command
   .classBuilder<

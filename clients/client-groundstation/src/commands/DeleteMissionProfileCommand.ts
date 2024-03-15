@@ -27,7 +27,6 @@ export interface DeleteMissionProfileCommandInput extends DeleteMissionProfileRe
 export interface DeleteMissionProfileCommandOutput extends MissionProfileIdResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a mission profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +63,7 @@ export interface DeleteMissionProfileCommandOutput extends MissionProfileIdRespo
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ * @public
  */
 export class DeleteMissionProfileCommand extends $Command
   .classBuilder<

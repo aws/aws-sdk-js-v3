@@ -27,7 +27,6 @@ export interface DescribeEndpointCommandInput extends DescribeEndpointInput {}
 export interface DescribeEndpointCommandOutput extends DescribeEndpointOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the description of an endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -320,6 +319,7 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointOutput, _
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeEndpointCommand extends $Command
   .classBuilder<

@@ -30,7 +30,6 @@ export interface DeleteReusableDelegationSetCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a reusable delegation set.</p>
  *          <important>
  *             <p>You can delete a reusable delegation set only if it isn't associated with any
@@ -76,6 +75,7 @@ export interface DeleteReusableDelegationSetCommandOutput
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class DeleteReusableDelegationSetCommand extends $Command
   .classBuilder<

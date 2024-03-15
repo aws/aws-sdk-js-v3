@@ -27,7 +27,6 @@ export interface DescribeMapCommandInput extends DescribeMapRequest {}
 export interface DescribeMapCommandOutput extends DescribeMapResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the map resource details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface DescribeMapCommandOutput extends DescribeMapResponse, __Metadat
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class DescribeMapCommand extends $Command
   .classBuilder<

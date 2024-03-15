@@ -27,7 +27,6 @@ export interface DeleteNamespaceCommandInput extends DeleteNamespaceRequest {}
 export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a namespace and the users and groups that are associated with the namespace.
  *         This is an asynchronous process. Assets including dashboards, analyses, datasets and data sources are not
  *         deleted. To delete these assets, you use the API operations for the relevant asset. </p>
@@ -83,6 +82,7 @@ export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, _
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DeleteNamespaceCommand extends $Command
   .classBuilder<

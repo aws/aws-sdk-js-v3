@@ -27,7 +27,6 @@ export interface DescribePatchGroupStateCommandInput extends DescribePatchGroupS
 export interface DescribePatchGroupStateCommandOutput extends DescribePatchGroupStateResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns high-level aggregated patch compliance state information for a patch group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface DescribePatchGroupStateCommandOutput extends DescribePatchGroup
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DescribePatchGroupStateCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateMaintenanceStartTimeCommandInput extends UpdateMaintenanc
 export interface UpdateMaintenanceStartTimeCommandOutput extends UpdateMaintenanceStartTimeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a gateway's weekly maintenance start time information, including day and
  *          time of the week. The maintenance time is the time in your gateway's time zone.</p>
  * @example
@@ -68,6 +67,7 @@ export interface UpdateMaintenanceStartTimeCommandOutput extends UpdateMaintenan
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To update a gateway's maintenance start time
  * ```javascript
  * // Updates a gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is in your gateway's time zone.

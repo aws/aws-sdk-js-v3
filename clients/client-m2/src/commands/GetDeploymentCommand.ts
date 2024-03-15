@@ -27,7 +27,6 @@ export interface GetDeploymentCommandInput extends GetDeploymentRequest {}
 export interface GetDeploymentCommandOutput extends GetDeploymentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets details of a specific deployment with a given deployment identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface GetDeploymentCommandOutput extends GetDeploymentResponse, __Met
  * @throws {@link M2ServiceException}
  * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ * @public
  */
 export class GetDeploymentCommand extends $Command
   .classBuilder<

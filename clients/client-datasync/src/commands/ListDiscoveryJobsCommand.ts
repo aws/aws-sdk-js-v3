@@ -27,7 +27,6 @@ export interface ListDiscoveryJobsCommandInput extends ListDiscoveryJobsRequest 
 export interface ListDiscoveryJobsCommandOutput extends ListDiscoveryJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a list of the existing discovery jobs in the Amazon Web Services Region and
  *         Amazon Web Services account where you're using DataSync Discovery.</p>
  * @example
@@ -71,6 +70,7 @@ export interface ListDiscoveryJobsCommandOutput extends ListDiscoveryJobsRespons
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class ListDiscoveryJobsCommand extends $Command
   .classBuilder<

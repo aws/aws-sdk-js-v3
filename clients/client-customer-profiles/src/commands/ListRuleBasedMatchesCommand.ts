@@ -27,7 +27,6 @@ export interface ListRuleBasedMatchesCommandInput extends ListRuleBasedMatchesRe
 export interface ListRuleBasedMatchesCommandOutput extends ListRuleBasedMatchesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a set of <code>MatchIds</code> that belong to the given domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface ListRuleBasedMatchesCommandOutput extends ListRuleBasedMatchesR
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * @public
  */
 export class ListRuleBasedMatchesCommand extends $Command
   .classBuilder<

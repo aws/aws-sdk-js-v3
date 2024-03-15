@@ -31,7 +31,6 @@ export interface DescribeSharedDirectoriesCommandInput extends DescribeSharedDir
 export interface DescribeSharedDirectoriesCommandOutput extends DescribeSharedDirectoriesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the shared directories in your account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface DescribeSharedDirectoriesCommandOutput extends DescribeSharedDi
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class DescribeSharedDirectoriesCommand extends $Command
   .classBuilder<

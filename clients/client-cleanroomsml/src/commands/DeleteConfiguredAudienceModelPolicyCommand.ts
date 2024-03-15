@@ -30,7 +30,6 @@ export interface DeleteConfiguredAudienceModelPolicyCommandInput extends DeleteC
 export interface DeleteConfiguredAudienceModelPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified configured audience model policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface DeleteConfiguredAudienceModelPolicyCommandOutput extends __Meta
  * @throws {@link CleanRoomsMLServiceException}
  * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
+ * @public
  */
 export class DeleteConfiguredAudienceModelPolicyCommand extends $Command
   .classBuilder<

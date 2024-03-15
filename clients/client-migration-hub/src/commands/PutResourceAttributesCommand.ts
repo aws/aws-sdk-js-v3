@@ -27,7 +27,6 @@ export interface PutResourceAttributesCommandInput extends PutResourceAttributes
 export interface PutResourceAttributesCommandOutput extends PutResourceAttributesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides identifying details of the resource being migrated so that it can be associated
  *          in the Application Discovery Service repository. This association occurs asynchronously
  *          after <code>PutResourceAttributes</code> returns.</p>
@@ -120,6 +119,7 @@ export interface PutResourceAttributesCommandOutput extends PutResourceAttribute
  * @throws {@link MigrationHubServiceException}
  * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
+ * @public
  */
 export class PutResourceAttributesCommand extends $Command
   .classBuilder<

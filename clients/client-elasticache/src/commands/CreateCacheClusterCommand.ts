@@ -27,7 +27,6 @@ export interface CreateCacheClusterCommandInput extends CreateCacheClusterMessag
 export interface CreateCacheClusterCommandOutput extends CreateCacheClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a cluster. All nodes in the cluster run the same protocol-compliant cache
  *             engine software, either Memcached or Redis.</p>
  *          <p>This operation is not supported for Redis (cluster mode enabled) clusters.</p>
@@ -278,6 +277,7 @@ export interface CreateCacheClusterCommandOutput extends CreateCacheClusterResul
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  * @example CreateCacheCluster
  * ```javascript
  * // Creates a Memcached cluster with 2 nodes.

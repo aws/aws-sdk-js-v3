@@ -27,7 +27,6 @@ export interface AddTagsCommandInput extends AddTagsInput {}
 export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds tags to an Amazon EMR resource, such as a cluster or an Amazon EMR
  *          Studio. Tags make it easier to associate resources in various ways, such as grouping
  *          clusters to track your Amazon EMR resource allocation costs. For more information,
@@ -70,6 +69,7 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class AddTagsCommand extends $Command
   .classBuilder<

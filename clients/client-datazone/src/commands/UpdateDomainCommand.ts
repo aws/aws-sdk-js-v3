@@ -27,7 +27,6 @@ export interface UpdateDomainCommandInput extends UpdateDomainInput {}
 export interface UpdateDomainCommandOutput extends UpdateDomainOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a Amazon DataZone domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface UpdateDomainCommandOutput extends UpdateDomainOutput, __Metadat
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class UpdateDomainCommand extends $Command
   .classBuilder<

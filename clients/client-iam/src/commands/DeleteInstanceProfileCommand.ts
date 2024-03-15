@@ -27,7 +27,6 @@ export interface DeleteInstanceProfileCommandInput extends DeleteInstanceProfile
 export interface DeleteInstanceProfileCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified instance profile. The instance profile must not have an
  *             associated role.</p>
  *          <important>
@@ -78,6 +77,7 @@ export interface DeleteInstanceProfileCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To delete an instance profile
  * ```javascript
  * // The following command deletes the instance profile named ExampleInstanceProfile

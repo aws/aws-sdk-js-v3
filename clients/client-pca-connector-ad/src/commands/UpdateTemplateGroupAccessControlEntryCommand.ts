@@ -31,7 +31,6 @@ export interface UpdateTemplateGroupAccessControlEntryCommandInput
 export interface UpdateTemplateGroupAccessControlEntryCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Update a group access control entry you created using <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplateGroupAccessControlEntry.html">CreateTemplateGroupAccessControlEntry</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface UpdateTemplateGroupAccessControlEntryCommandOutput extends __Me
  * @throws {@link PcaConnectorAdServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ * @public
  */
 export class UpdateTemplateGroupAccessControlEntryCommand extends $Command
   .classBuilder<

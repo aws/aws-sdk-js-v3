@@ -36,7 +36,6 @@ export interface CreateReplicationSubnetGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a replication subnet group given a list of the subnet IDs in a VPC.</p>
  *          <p>The VPC needs to have at least one subnet in at least two availability zones in the Amazon Web Services Region, otherwise the
  *           service will throw a <code>ReplicationSubnetGroupDoesNotCoverEnoughAZs</code> exception.</p>
@@ -117,6 +116,7 @@ export interface CreateReplicationSubnetGroupCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Create replication subnet group
  * ```javascript
  * // Creates a replication subnet group given a list of the subnet IDs in a VPC.

@@ -31,7 +31,6 @@ export interface UpdateCellCommandInput extends UpdateCellRequest {}
 export interface UpdateCellCommandOutput extends UpdateCellResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a cell to replace the list of nested cells with a new list of nested cells.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface UpdateCellCommandOutput extends UpdateCellResponse, __MetadataB
  * @throws {@link Route53RecoveryReadinessServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
+ * @public
  */
 export class UpdateCellCommand extends $Command
   .classBuilder<

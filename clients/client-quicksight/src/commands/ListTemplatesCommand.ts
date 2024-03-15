@@ -27,7 +27,6 @@ export interface ListTemplatesCommandInput extends ListTemplatesRequest {}
 export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the templates in the current Amazon QuickSight account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __Met
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class ListTemplatesCommand extends $Command
   .classBuilder<

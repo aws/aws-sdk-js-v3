@@ -27,7 +27,6 @@ export interface GetVariablesCommandInput extends GetVariablesRequest {}
 export interface GetVariablesCommandOutput extends GetVariablesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets all of the variables or the specific variable. This is a
  *          paginated API. Providing null <code>maxSizePerPage</code> results in retrieving maximum of
  *          100 records per page. If you provide <code>maxSizePerPage</code> the value must be between
@@ -90,6 +89,7 @@ export interface GetVariablesCommandOutput extends GetVariablesResult, __Metadat
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class GetVariablesCommand extends $Command
   .classBuilder<

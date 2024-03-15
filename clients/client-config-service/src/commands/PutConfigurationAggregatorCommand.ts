@@ -27,7 +27,6 @@ export interface PutConfigurationAggregatorCommandInput extends PutConfiguration
 export interface PutConfigurationAggregatorCommandOutput extends PutConfigurationAggregatorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates and updates the configuration aggregator with the
  * 			selected source accounts and regions. The source account can be
  * 			individual account(s) or an organization.</p>
@@ -163,6 +162,7 @@ export interface PutConfigurationAggregatorCommandOutput extends PutConfiguratio
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class PutConfigurationAggregatorCommand extends $Command
   .classBuilder<

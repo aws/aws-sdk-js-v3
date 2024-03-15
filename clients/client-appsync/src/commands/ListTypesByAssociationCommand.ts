@@ -27,7 +27,6 @@ export interface ListTypesByAssociationCommandInput extends ListTypesByAssociati
 export interface ListTypesByAssociationCommandOutput extends ListTypesByAssociationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists <code>Type</code> objects by the source API association ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface ListTypesByAssociationCommandOutput extends ListTypesByAssociat
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class ListTypesByAssociationCommand extends $Command
   .classBuilder<

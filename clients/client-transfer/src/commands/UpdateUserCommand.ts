@@ -27,7 +27,6 @@ export interface UpdateUserCommandInput extends UpdateUserRequest {}
 export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Assigns new properties to a user. Parameters you pass modify any or all of the following:
  *       the home directory, role, and policy for the <code>UserName</code> and <code>ServerId</code>
  *       you specify.</p>
@@ -107,6 +106,7 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class UpdateUserCommand extends $Command
   .classBuilder<

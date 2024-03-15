@@ -36,9 +36,6 @@ export interface DescribeExportConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated
- *
  * <p>
  *             <code>DescribeExportConfigurations</code> is deprecated. Use <a href="https://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html">DescribeExportTasks</a>, instead.</p>
  * @example
@@ -104,6 +101,8 @@ export interface DescribeExportConfigurationsCommandOutput
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ * @public
+ * @deprecated
  */
 export class DescribeExportConfigurationsCommand extends $Command
   .classBuilder<

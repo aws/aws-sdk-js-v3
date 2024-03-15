@@ -27,7 +27,6 @@ export interface ListTopicsCommandInput extends ListTopicsInput {}
 export interface ListTopicsCommandOutput extends ListTopicsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the requester's topics. Each call returns a limited list of topics,
  *             up to 100. If there are more topics, a <code>NextToken</code> is also returned. Use the
  *                 <code>NextToken</code> parameter in a new <code>ListTopics</code> call to get
@@ -74,6 +73,7 @@ export interface ListTopicsCommandOutput extends ListTopicsResponse, __MetadataB
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * @public
  */
 export class ListTopicsCommand extends $Command
   .classBuilder<

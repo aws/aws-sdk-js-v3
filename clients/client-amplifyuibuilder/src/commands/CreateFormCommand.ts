@@ -27,7 +27,6 @@ export interface CreateFormCommandInput extends CreateFormRequest {}
 export interface CreateFormCommandOutput extends CreateFormResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new form for an Amplify app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -380,6 +379,7 @@ export interface CreateFormCommandOutput extends CreateFormResponse, __MetadataB
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ * @public
  */
 export class CreateFormCommand extends $Command
   .classBuilder<

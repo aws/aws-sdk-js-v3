@@ -30,7 +30,6 @@ export interface DeleteHostedConfigurationVersionCommandInput extends DeleteHost
 export interface DeleteHostedConfigurationVersionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a version of a configuration from the AppConfig hosted configuration
  *          store.</p>
  * @example
@@ -68,6 +67,7 @@ export interface DeleteHostedConfigurationVersionCommandOutput extends __Metadat
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  * @example To delete a hosted configuration version
  * ```javascript
  * // The following delete-hosted-configuration-version example deletes a configuration version hosted in the AWS AppConfig configuration store.

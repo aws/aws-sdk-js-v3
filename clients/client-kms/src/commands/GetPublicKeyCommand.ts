@@ -27,7 +27,6 @@ export interface GetPublicKeyCommandInput extends GetPublicKeyRequest {}
 export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the public key of an asymmetric KMS key. Unlike the private key of a asymmetric
  *       KMS key, which never leaves KMS unencrypted, callers with <code>kms:GetPublicKey</code>
  *       permission can download the public key of an asymmetric KMS key. You can share the public key
@@ -189,6 +188,7 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __Metad
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To download the public key of an asymmetric KMS key
  * ```javascript
  * // This example gets the public key of an asymmetric RSA KMS key used for encryption and decryption. The operation returns the key spec, key usage, and encryption or signing algorithms to help you use the public key correctly outside of AWS KMS.

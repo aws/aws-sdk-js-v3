@@ -27,7 +27,6 @@ export interface CopyBackupCommandInput extends CopyBackupRequest {}
 export interface CopyBackupCommandOutput extends CopyBackupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Copies an existing backup within the same Amazon Web Services account to another Amazon Web Services Region
  *          (cross-Region copy) or within the same Amazon Web Services Region (in-Region copy). You can have up to five
  *          backup copy requests in progress to a single destination Region per account.</p>
@@ -705,6 +704,7 @@ export interface CopyBackupCommandOutput extends CopyBackupResponse, __MetadataB
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  * @example To copy a backup
  * ```javascript
  * // This operation copies an Amazon FSx backup.

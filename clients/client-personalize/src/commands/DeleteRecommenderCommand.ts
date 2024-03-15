@@ -27,7 +27,6 @@ export interface DeleteRecommenderCommandInput extends DeleteRecommenderRequest 
 export interface DeleteRecommenderCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deactivates and removes a recommender. A deleted recommender can no longer be specified in a <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a>
  *     request.</p>
  * @example
@@ -63,6 +62,7 @@ export interface DeleteRecommenderCommandOutput extends __MetadataBearer {}
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class DeleteRecommenderCommand extends $Command
   .classBuilder<

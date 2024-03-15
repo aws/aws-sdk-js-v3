@@ -35,7 +35,6 @@ export interface ListManagedPoliciesInPermissionSetCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the Amazon Web Services managed policy that is attached to a specified permission set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface ListManagedPoliciesInPermissionSetCommandOutput
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class ListManagedPoliciesInPermissionSetCommand extends $Command
   .classBuilder<

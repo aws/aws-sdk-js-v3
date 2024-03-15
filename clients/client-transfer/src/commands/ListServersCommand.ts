@@ -27,7 +27,6 @@ export interface ListServersCommandInput extends ListServersRequest {}
 export interface ListServersCommandOutput extends ListServersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the file transfer protocol-enabled servers that are associated with your Amazon Web Services
  *       account.</p>
  * @example
@@ -81,6 +80,7 @@ export interface ListServersCommandOutput extends ListServersResponse, __Metadat
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class ListServersCommand extends $Command
   .classBuilder<

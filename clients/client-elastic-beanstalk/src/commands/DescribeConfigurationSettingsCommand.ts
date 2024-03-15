@@ -32,7 +32,6 @@ export interface DescribeConfigurationSettingsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a description of the settings for the specified configuration set, that is,
  *       either a configuration template or the configuration set associated with a running
  *       environment.</p>
@@ -99,6 +98,7 @@ export interface DescribeConfigurationSettingsCommandOutput
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  * @example To view configurations settings for an environment
  * ```javascript
  * // The following operation retrieves configuration settings for an environment named my-env:

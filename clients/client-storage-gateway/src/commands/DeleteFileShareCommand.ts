@@ -27,7 +27,6 @@ export interface DeleteFileShareCommandInput extends DeleteFileShareInput {}
 export interface DeleteFileShareCommandOutput extends DeleteFileShareOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a file share from an S3 File Gateway. This operation is only supported for S3
  *          File Gateways.</p>
  * @example
@@ -65,6 +64,7 @@ export interface DeleteFileShareCommandOutput extends DeleteFileShareOutput, __M
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  */
 export class DeleteFileShareCommand extends $Command
   .classBuilder<

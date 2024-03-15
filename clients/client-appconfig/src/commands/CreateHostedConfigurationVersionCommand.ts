@@ -56,7 +56,6 @@ export interface CreateHostedConfigurationVersionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new configuration in the AppConfig hosted configuration
  *          store.</p>
  * @example
@@ -125,6 +124,7 @@ export interface CreateHostedConfigurationVersionCommandOutput
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  * @example To create a hosted configuration version
  * ```javascript
  * // The following create-hosted-configuration-version example creates a new configuration in the AWS AppConfig configuration store.

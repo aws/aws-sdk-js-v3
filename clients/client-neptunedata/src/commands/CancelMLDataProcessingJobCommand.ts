@@ -27,7 +27,6 @@ export interface CancelMLDataProcessingJobCommandInput extends CancelMLDataProce
 export interface CancelMLDataProcessingJobCommandOutput extends CancelMLDataProcessingJobOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels a Neptune ML data processing job. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-dataprocessing.html">The
  *       <code>dataprocessing</code> command</a>.</p>
  *          <p>When invoking this operation in a Neptune cluster that has IAM
@@ -95,6 +94,7 @@ export interface CancelMLDataProcessingJobCommandOutput extends CancelMLDataProc
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * @public
  */
 export class CancelMLDataProcessingJobCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListContextsCommandInput extends ListContextsRequest {}
 export interface ListContextsCommandOutput extends ListContextsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the contexts in your account and their properties.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface ListContextsCommandOutput extends ListContextsResponse, __Metad
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListContextsCommand extends $Command
   .classBuilder<

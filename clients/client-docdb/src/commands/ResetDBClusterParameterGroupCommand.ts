@@ -29,7 +29,6 @@ export interface ResetDBClusterParameterGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p> Modifies the parameters of a cluster parameter group to the default value. To
  *             reset specific parameters, submit a list of the following: <code>ParameterName</code>
  *             and <code>ApplyMethod</code>. To reset the entire cluster parameter group, specify
@@ -86,6 +85,7 @@ export interface ResetDBClusterParameterGroupCommandOutput
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class ResetDBClusterParameterGroupCommand extends $Command
   .classBuilder<

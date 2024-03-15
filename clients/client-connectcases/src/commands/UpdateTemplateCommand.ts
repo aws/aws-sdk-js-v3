@@ -27,7 +27,6 @@ export interface UpdateTemplateCommandInput extends UpdateTemplateRequest {}
 export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the attributes of an existing template. The template attributes that can be
  *       modified include <code>name</code>, <code>description</code>,
  *       <code>layoutConfiguration</code>, <code>requiredFields</code>, and <code>status</code>. At
@@ -91,6 +90,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ * @public
  */
 export class UpdateTemplateCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateRoutingProfileNameCommandInput extends UpdateRoutingProfi
 export interface UpdateRoutingProfileNameCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the name and description of a routing profile. The request accepts the following data in JSON format.
  *    At least <code>Name</code> or <code>Description</code> must be provided.</p>
  * @example
@@ -75,6 +74,7 @@ export interface UpdateRoutingProfileNameCommandOutput extends __MetadataBearer 
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UpdateRoutingProfileNameCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetEndpointCommandInput extends GetEndpointRequest {}
 export interface GetEndpointCommandOutput extends GetEndpointResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about an Device Advisor endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface GetEndpointCommandOutput extends GetEndpointResponse, __Metadat
  * @throws {@link IotDeviceAdvisorServiceException}
  * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
+ * @public
  */
 export class GetEndpointCommand extends $Command
   .classBuilder<

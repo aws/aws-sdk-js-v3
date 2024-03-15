@@ -27,7 +27,6 @@ export interface DeleteDetectorCommandInput extends DeleteDetectorRequest {}
 export interface DeleteDetectorCommandOutput extends DeleteDetectorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Amazon GuardDuty detector that is specified by the detector ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +58,7 @@ export interface DeleteDetectorCommandOutput extends DeleteDetectorResponse, __M
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class DeleteDetectorCommand extends $Command
   .classBuilder<

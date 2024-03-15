@@ -27,7 +27,6 @@ export interface CreateNatGatewayCommandInput extends CreateNatGatewayRequest {}
 export interface CreateNatGatewayCommandOutput extends CreateNatGatewayResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a NAT gateway in the specified subnet. This action creates a network interface
  *           in the specified subnet with a private IP address from the IP address range of the
  *           subnet. You can create either a public NAT gateway or a private NAT gateway.</p>
@@ -127,6 +126,7 @@ export interface CreateNatGatewayCommandOutput extends CreateNatGatewayResult, _
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To create a NAT gateway
  * ```javascript
  * // This example creates a NAT gateway in subnet subnet-1a2b3c4d and associates an Elastic IP address with the allocation ID eipalloc-37fc1a52 with the NAT gateway.

@@ -27,7 +27,6 @@ export interface GetComponentPolicyCommandInput extends GetComponentPolicyReques
 export interface GetComponentPolicyCommandOutput extends GetComponentPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a component policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface GetComponentPolicyCommandOutput extends GetComponentPolicyRespo
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class GetComponentPolicyCommand extends $Command
   .classBuilder<

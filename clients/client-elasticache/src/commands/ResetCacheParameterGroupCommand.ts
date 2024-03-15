@@ -27,7 +27,6 @@ export interface ResetCacheParameterGroupCommandInput extends ResetCacheParamete
 export interface ResetCacheParameterGroupCommandOutput extends CacheParameterGroupNameMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the parameters of a cache parameter group to the engine or system default
  *             value. You can reset specific parameters by submitting a list of parameter names. To
  *             reset the entire cache parameter group, specify the <code>ResetAllParameters</code> and
@@ -82,6 +81,7 @@ export interface ResetCacheParameterGroupCommandOutput extends CacheParameterGro
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  * @example ResetCacheParameterGroup
  * ```javascript
  * // Modifies the parameters of a cache parameter group to the engine or system default value.

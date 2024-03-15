@@ -35,7 +35,6 @@ export interface GetBotChannelAssociationCommandInput extends GetBotChannelAssoc
 export interface GetBotChannelAssociationCommandOutput extends GetBotChannelAssociationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the association between an Amazon Lex bot and
  *       a messaging platform.</p>
  *          <p>This operation requires permissions for the
@@ -93,6 +92,7 @@ export interface GetBotChannelAssociationCommandOutput extends GetBotChannelAsso
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * @public
  */
 export class GetBotChannelAssociationCommand extends $Command
   .classBuilder<

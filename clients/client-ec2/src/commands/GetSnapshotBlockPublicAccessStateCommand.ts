@@ -32,7 +32,6 @@ export interface GetSnapshotBlockPublicAccessStateCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the current state of <i>block public access for snapshots</i> setting
  *       for the account and Region.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/block-public-access-snapshots.html">
@@ -63,6 +62,7 @@ export interface GetSnapshotBlockPublicAccessStateCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class GetSnapshotBlockPublicAccessStateCommand extends $Command
   .classBuilder<

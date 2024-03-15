@@ -27,7 +27,6 @@ export interface DescribeDBClusterSnapshotsCommandInput extends DescribeDBCluste
 export interface DescribeDBClusterSnapshotsCommandOutput extends DBClusterSnapshotMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about cluster snapshots. This API operation supports pagination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface DescribeDBClusterSnapshotsCommandOutput extends DBClusterSnapsh
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class DescribeDBClusterSnapshotsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListGroupMembersCommandInput extends ListGroupMembersRequest {}
 export interface ListGroupMembersCommandOutput extends ListGroupMembersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an overview of the members of a group. Users and groups can be members of a
  *          group.</p>
  * @example
@@ -88,6 +87,7 @@ export interface ListGroupMembersCommandOutput extends ListGroupMembersResponse,
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class ListGroupMembersCommand extends $Command
   .classBuilder<

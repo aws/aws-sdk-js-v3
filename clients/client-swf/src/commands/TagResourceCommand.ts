@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceInput {}
 export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Add a tag to a Amazon SWF domain.</p>
  *          <note>
  *             <p>Amazon SWF supports a maximum of 50 tags per resource.</p>
@@ -74,6 +73,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

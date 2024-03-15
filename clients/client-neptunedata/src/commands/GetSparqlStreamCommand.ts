@@ -27,7 +27,6 @@ export interface GetSparqlStreamCommandInput extends GetSparqlStreamInput {}
 export interface GetSparqlStreamCommandOutput extends GetSparqlStreamOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a stream for an RDF graph.</p>
  *          <p>With the Neptune Streams feature, you can generate a complete
  *       sequence of change-log entries that record every change made to your
@@ -132,6 +131,7 @@ export interface GetSparqlStreamCommandOutput extends GetSparqlStreamOutput, __M
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * @public
  */
 export class GetSparqlStreamCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface AssociateWebACLCommandInput extends AssociateWebACLRequest {}
 export interface AssociateWebACLCommandOutput extends AssociateWebACLResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a web ACL with a regional application resource, to protect the resource.
  *          A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
  *          <p>For Amazon CloudFront, don't use this call. Instead, use your CloudFront distribution configuration. To
@@ -123,6 +122,7 @@ export interface AssociateWebACLCommandOutput extends AssociateWebACLResponse, _
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class AssociateWebACLCommand extends $Command
   .classBuilder<

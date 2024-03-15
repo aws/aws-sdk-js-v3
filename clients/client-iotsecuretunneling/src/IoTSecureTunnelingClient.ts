@@ -276,12 +276,12 @@ export type IoTSecureTunnelingClientResolvedConfigType = __SmithyResolvedConfigu
 export interface IoTSecureTunnelingClientResolvedConfig extends IoTSecureTunnelingClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>IoT Secure Tunneling</fullname>
  *          <p>IoT Secure Tunneling creates remote connections to devices deployed in the
  * 			field.</p>
  *          <p>For more information about how IoT Secure Tunneling works, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/secure-tunneling.html">IoT
  * 				Secure Tunneling</a>.</p>
+ * @public
  */
 export class IoTSecureTunnelingClient extends __Client<
   __HttpHandlerOptions,

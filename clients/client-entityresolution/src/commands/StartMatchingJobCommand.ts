@@ -27,7 +27,6 @@ export interface StartMatchingJobCommandInput extends StartMatchingJobInput {}
 export interface StartMatchingJobCommandOutput extends StartMatchingJobOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts the <code>MatchingJob</code> of a workflow. The workflow must have previously
  *          been created using the <code>CreateMatchingWorkflow</code> endpoint.</p>
  * @example
@@ -92,6 +91,7 @@ export interface StartMatchingJobCommandOutput extends StartMatchingJobOutput, _
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ * @public
  */
 export class StartMatchingJobCommand extends $Command
   .classBuilder<

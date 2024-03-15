@@ -33,7 +33,6 @@ export interface CreateStorageVirtualMachineCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a storage virtual machine (SVM) for an Amazon FSx for ONTAP file system.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -165,6 +164,7 @@ export interface CreateStorageVirtualMachineCommandOutput
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  */
 export class CreateStorageVirtualMachineCommand extends $Command
   .classBuilder<

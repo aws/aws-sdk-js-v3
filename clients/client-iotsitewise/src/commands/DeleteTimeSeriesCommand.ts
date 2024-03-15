@@ -27,7 +27,6 @@ export interface DeleteTimeSeriesCommandInput extends DeleteTimeSeriesRequest {}
 export interface DeleteTimeSeriesCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a time series (data stream). If you delete a time series that's associated with an
  *       asset property, the asset property still exists, but the time series will no longer be
  *       associated with this asset property.</p>
@@ -97,6 +96,7 @@ export interface DeleteTimeSeriesCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class DeleteTimeSeriesCommand extends $Command
   .classBuilder<

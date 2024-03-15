@@ -27,7 +27,6 @@ export interface DescribeComponentCommandInput extends DescribeComponentRequest 
 export interface DescribeComponentCommandOutput extends DescribeComponentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves metadata for a version of a component.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface DescribeComponentCommandOutput extends DescribeComponentRespons
  * @throws {@link GreengrassV2ServiceException}
  * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ * @public
  */
 export class DescribeComponentCommand extends $Command
   .classBuilder<

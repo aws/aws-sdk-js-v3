@@ -27,7 +27,6 @@ export interface EnableSsoCommandInput extends EnableSsoRequest {}
 export interface EnableSsoCommandOutput extends EnableSsoResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables single sign-on for a directory. Single sign-on allows users in your directory to
  *       access certain Amazon Web Services services from a computer joined to the directory without having to enter
  *       their credentials separately.</p>
@@ -72,6 +71,7 @@ export interface EnableSsoCommandOutput extends EnableSsoResult, __MetadataBeare
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class EnableSsoCommand extends $Command
   .classBuilder<

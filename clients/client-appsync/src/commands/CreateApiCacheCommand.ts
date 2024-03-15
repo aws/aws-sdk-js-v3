@@ -27,7 +27,6 @@ export interface CreateApiCacheCommandInput extends CreateApiCacheRequest {}
 export interface CreateApiCacheCommandOutput extends CreateApiCacheResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a cache for the GraphQL API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface CreateApiCacheCommandOutput extends CreateApiCacheResponse, __M
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class CreateApiCacheCommand extends $Command
   .classBuilder<

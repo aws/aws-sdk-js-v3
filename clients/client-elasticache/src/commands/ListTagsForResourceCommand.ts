@@ -27,7 +27,6 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceMess
 export interface ListTagsForResourceCommandOutput extends TagListMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all tags currently on a named resource.</p>
  *          <p> A tag is a key-value pair where the key and value are case-sensitive. You can use
  *             tags to categorize and track all your ElastiCache resources, with the exception of
@@ -116,6 +115,7 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  * @example ListTagsForResource
  * ```javascript
  * // Lists all cost allocation tags currently on the named resource. A cost allocation tag is a key-value pair where the key is case-sensitive and the value is optional. You can use cost allocation tags to categorize and track your AWS costs.

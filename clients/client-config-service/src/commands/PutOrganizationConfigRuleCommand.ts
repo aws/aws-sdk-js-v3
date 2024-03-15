@@ -27,7 +27,6 @@ export interface PutOrganizationConfigRuleCommandInput extends PutOrganizationCo
 export interface PutOrganizationConfigRuleCommandOutput extends PutOrganizationConfigRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds or updates an Config rule for your entire organization to evaluate if your Amazon Web Services resources comply with your
  * 			desired configurations. For information on how many organization Config rules you can have per account,
  * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
@@ -230,6 +229,7 @@ export interface PutOrganizationConfigRuleCommandOutput extends PutOrganizationC
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class PutOrganizationConfigRuleCommand extends $Command
   .classBuilder<

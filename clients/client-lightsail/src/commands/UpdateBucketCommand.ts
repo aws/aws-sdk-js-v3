@@ -27,7 +27,6 @@ export interface UpdateBucketCommandInput extends UpdateBucketRequest {}
 export interface UpdateBucketCommandOutput extends UpdateBucketResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing Amazon Lightsail bucket.</p>
  *          <p>Use this action to update the configuration of an existing bucket, such as versioning,
  *       public accessibility, and the Amazon Web Services accounts that can access the bucket.</p>
@@ -154,6 +153,7 @@ export interface UpdateBucketCommandOutput extends UpdateBucketResult, __Metadat
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class UpdateBucketCommand extends $Command
   .classBuilder<

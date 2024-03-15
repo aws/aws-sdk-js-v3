@@ -31,7 +31,6 @@ export interface UpdateKeysCommandInput extends UpdateKeysRequest {}
 export interface UpdateKeysCommandOutput extends UpdateKeysResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Puts or Deletes multiple key value pairs in a single, all-or-nothing operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface UpdateKeysCommandOutput extends UpdateKeysResponse, __MetadataB
  * @throws {@link CloudFrontKeyValueStoreServiceException}
  * <p>Base exception class for all service exceptions from CloudFrontKeyValueStore service.</p>
  *
+ * @public
  */
 export class UpdateKeysCommand extends $Command
   .classBuilder<

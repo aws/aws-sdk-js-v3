@@ -35,7 +35,6 @@ export interface DeleteEmailMonitoringConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the email monitoring configuration for a specified organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface DeleteEmailMonitoringConfigurationCommandOutput
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class DeleteEmailMonitoringConfigurationCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface DescribeChapCredentialsCommandInput extends DescribeChapCredent
 export interface DescribeChapCredentialsCommandOutput extends DescribeChapCredentialsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an array of Challenge-Handshake Authentication Protocol (CHAP) credentials
  *          information for a specified iSCSI target, one for each target-initiator pair. This
  *          operation is supported in the volume and tape gateway types.</p>
@@ -76,6 +75,7 @@ export interface DescribeChapCredentialsCommandOutput extends DescribeChapCreden
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To describe CHAP credetnitals for an iSCSI
  * ```javascript
  * // Returns an array of Challenge-Handshake Authentication Protocol (CHAP) credentials information for a specified iSCSI target, one for each target-initiator pair.

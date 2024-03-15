@@ -27,7 +27,6 @@ export interface EnableAlarmActionsCommandInput extends EnableAlarmActionsInput 
 export interface EnableAlarmActionsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables the actions for the specified alarms.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -55,6 +54,7 @@ export interface EnableAlarmActionsCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * @public
  */
 export class EnableAlarmActionsCommand extends $Command
   .classBuilder<

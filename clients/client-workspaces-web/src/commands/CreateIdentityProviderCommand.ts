@@ -31,7 +31,6 @@ export interface CreateIdentityProviderCommandInput extends CreateIdentityProvid
 export interface CreateIdentityProviderCommandOutput extends CreateIdentityProviderResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an identity provider resource that is then associated with a web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface CreateIdentityProviderCommandOutput extends CreateIdentityProvi
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * @public
  */
 export class CreateIdentityProviderCommand extends $Command
   .classBuilder<

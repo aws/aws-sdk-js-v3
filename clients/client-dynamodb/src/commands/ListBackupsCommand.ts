@@ -27,7 +27,6 @@ export interface ListBackupsCommandInput extends ListBackupsInput {}
 export interface ListBackupsCommandOutput extends ListBackupsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>List DynamoDB backups that are associated with an Amazon Web Services account and weren't made with Amazon Web Services Backup.
  *             To list these backups for a given table, specify <code>TableName</code>. <code>ListBackups</code> returns a
  *             paginated list of results with at most 1 MB worth of items in a page. You can also
@@ -88,6 +87,7 @@ export interface ListBackupsCommandOutput extends ListBackupsOutput, __MetadataB
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  */
 export class ListBackupsCommand extends $Command
   .classBuilder<

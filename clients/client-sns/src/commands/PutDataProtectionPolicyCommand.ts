@@ -27,7 +27,6 @@ export interface PutDataProtectionPolicyCommandInput extends PutDataProtectionPo
 export interface PutDataProtectionPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds or updates an inline policy document that is stored in the specified Amazon SNS
  *             topic.</p>
  * @example
@@ -72,6 +71,7 @@ export interface PutDataProtectionPolicyCommandOutput extends __MetadataBearer {
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * @public
  */
 export class PutDataProtectionPolicyCommand extends $Command
   .classBuilder<

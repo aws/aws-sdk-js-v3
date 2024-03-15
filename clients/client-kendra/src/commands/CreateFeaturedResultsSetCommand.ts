@@ -27,7 +27,6 @@ export interface CreateFeaturedResultsSetCommandInput extends CreateFeaturedResu
 export interface CreateFeaturedResultsSetCommandOutput extends CreateFeaturedResultsSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a set of featured results to display at the top of the search results page.
  *             Featured results are placed above all other results for certain queries. You map
  *             specific queries to specific documents for featuring in the results. If a query
@@ -124,6 +123,7 @@ export interface CreateFeaturedResultsSetCommandOutput extends CreateFeaturedRes
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class CreateFeaturedResultsSetCommand extends $Command
   .classBuilder<

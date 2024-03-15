@@ -36,7 +36,6 @@ export interface DescribeFleetAdvisorCollectorsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the Fleet Advisor collectors in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface DescribeFleetAdvisorCollectorsCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class DescribeFleetAdvisorCollectorsCommand extends $Command
   .classBuilder<

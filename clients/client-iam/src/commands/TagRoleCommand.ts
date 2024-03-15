@@ -27,7 +27,6 @@ export interface TagRoleCommandInput extends TagRoleRequest {}
 export interface TagRoleCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds one or more tags to an IAM role. The role can be a regular role or a
  *       service-linked role. If a tag with the same key name already exists, then that tag is
  *       overwritten with the new value.</p>
@@ -123,6 +122,7 @@ export interface TagRoleCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To add a tag key and value to an IAM role
  * ```javascript
  * // The following example shows how to add tags to an existing role.

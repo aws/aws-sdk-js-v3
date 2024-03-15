@@ -27,7 +27,6 @@ export interface GenerateMacCommandInput extends GenerateMacRequest {}
 export interface GenerateMacCommandOutput extends GenerateMacResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Generates a hash-based message authentication code (HMAC) for a message using an HMAC KMS
  *       key and a MAC algorithm that the key supports. HMAC KMS keys and the HMAC algorithms that
  *       KMS uses conform to industry standards defined in <a href="https://datatracker.ietf.org/doc/html/rfc2104">RFC 2104</a>.</p>
@@ -156,6 +155,7 @@ export interface GenerateMacCommandOutput extends GenerateMacResponse, __Metadat
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To generate an HMAC for a message
  * ```javascript
  * // This example generates an HMAC for a message, an HMAC KMS key, and a MAC algorithm. The algorithm must be supported by the specified HMAC KMS key.

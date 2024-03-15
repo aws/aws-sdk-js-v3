@@ -27,7 +27,6 @@ export interface DescribeBudgetsCommandInput extends DescribeBudgetsRequest {}
 export interface DescribeBudgetsCommandOutput extends DescribeBudgetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the budgets that are associated with an account.</p>
  *          <important>
  *             <p>The Request Syntax section shows the <code>BudgetLimit</code> syntax. For <code>PlannedBudgetLimits</code>, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_DescribeBudgets.html#API_DescribeBudgets_Examples">Examples</a> section. </p>
@@ -140,6 +139,7 @@ export interface DescribeBudgetsCommandOutput extends DescribeBudgetsResponse, _
  * @throws {@link BudgetsServiceException}
  * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
+ * @public
  */
 export class DescribeBudgetsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateFindingsCommandInput extends UpdateFindingsRequest {}
 export interface UpdateFindingsCommandOutput extends UpdateFindingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             <code>UpdateFindings</code> is deprecated. Instead of <code>UpdateFindings</code>, use
  *             <code>BatchUpdateFindings</code>.</p>
@@ -347,6 +346,7 @@ export interface UpdateFindingsCommandOutput extends UpdateFindingsResponse, __M
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  */
 export class UpdateFindingsCommand extends $Command
   .classBuilder<

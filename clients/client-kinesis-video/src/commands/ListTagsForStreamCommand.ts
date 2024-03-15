@@ -27,7 +27,6 @@ export interface ListTagsForStreamCommandInput extends ListTagsForStreamInput {}
 export interface ListTagsForStreamCommandOutput extends ListTagsForStreamOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of tags associated with the specified stream.</p>
  *          <p>In the request, you must specify either the <code>StreamName</code> or the
  *                 <code>StreamARN</code>. </p>
@@ -78,6 +77,7 @@ export interface ListTagsForStreamCommandOutput extends ListTagsForStreamOutput,
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ * @public
  */
 export class ListTagsForStreamCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListAccessLogSubscriptionsCommandInput extends ListAccessLogSub
 export interface ListAccessLogSubscriptionsCommandOutput extends ListAccessLogSubscriptionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all access log subscriptions for the specified service network or service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface ListAccessLogSubscriptionsCommandOutput extends ListAccessLogSu
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class ListAccessLogSubscriptionsCommand extends $Command
   .classBuilder<

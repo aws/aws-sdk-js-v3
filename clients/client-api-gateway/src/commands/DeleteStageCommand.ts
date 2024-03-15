@@ -27,7 +27,6 @@ export interface DeleteStageCommandInput extends DeleteStageRequest {}
 export interface DeleteStageCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a Stage resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface DeleteStageCommandOutput extends __MetadataBearer {}
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class DeleteStageCommand extends $Command
   .classBuilder<

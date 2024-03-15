@@ -27,7 +27,6 @@ export interface DeleteExplainabilityCommandInput extends DeleteExplainabilityRe
 export interface DeleteExplainabilityCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Explainability resource.</p>
  *          <p>You can delete only predictor that have a status of <code>ACTIVE</code> or
  *                 <code>CREATE_FAILED</code>. To get the status, use the <a>DescribeExplainability</a> operation.</p>
@@ -66,6 +65,7 @@ export interface DeleteExplainabilityCommandOutput extends __MetadataBearer {}
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class DeleteExplainabilityCommand extends $Command
   .classBuilder<

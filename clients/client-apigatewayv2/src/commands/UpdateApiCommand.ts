@@ -27,7 +27,6 @@ export interface UpdateApiCommandInput extends UpdateApiRequest {}
 export interface UpdateApiCommandOutput extends UpdateApiResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an Api resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -129,6 +128,7 @@ export interface UpdateApiCommandOutput extends UpdateApiResponse, __MetadataBea
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ * @public
  */
 export class UpdateApiCommand extends $Command
   .classBuilder<

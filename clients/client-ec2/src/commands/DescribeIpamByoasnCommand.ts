@@ -27,7 +27,6 @@ export interface DescribeIpamByoasnCommandInput extends DescribeIpamByoasnReques
 export interface DescribeIpamByoasnCommandOutput extends DescribeIpamByoasnResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes your Autonomous System Numbers (ASNs), their provisioning statuses, and the BYOIP CIDRs with which they are associated. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html">Tutorial: Bring your ASN to IPAM</a> in the <i>Amazon VPC IPAM guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface DescribeIpamByoasnCommandOutput extends DescribeIpamByoasnResul
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeIpamByoasnCommand extends $Command
   .classBuilder<

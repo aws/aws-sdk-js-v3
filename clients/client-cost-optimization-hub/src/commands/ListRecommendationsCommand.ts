@@ -31,7 +31,6 @@ export interface ListRecommendationsCommandInput extends ListRecommendationsRequ
 export interface ListRecommendationsCommandOutput extends ListRecommendationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of recommendations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -143,6 +142,7 @@ export interface ListRecommendationsCommandOutput extends ListRecommendationsRes
  * @throws {@link CostOptimizationHubServiceException}
  * <p>Base exception class for all service exceptions from CostOptimizationHub service.</p>
  *
+ * @public
  */
 export class ListRecommendationsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListServicesCommandInput extends ListServicesRequest {}
 export interface ListServicesCommandOutput extends ListServicesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the services owned by the caller account or shared with the caller account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class ListServicesCommand extends $Command
   .classBuilder<

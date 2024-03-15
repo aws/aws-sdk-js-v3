@@ -27,7 +27,6 @@ export interface UpdateAnomalyCommandInput extends UpdateAnomalyRequest {}
 export interface UpdateAnomalyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Use this operation to <i>suppress</i> anomaly detection for a specified anomaly or pattern. If you suppress
  *        an anomaly, CloudWatch Logs won’t report new occurrences of that anomaly and won't
  *        update that anomaly
@@ -80,6 +79,7 @@ export interface UpdateAnomalyCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class UpdateAnomalyCommand extends $Command
   .classBuilder<

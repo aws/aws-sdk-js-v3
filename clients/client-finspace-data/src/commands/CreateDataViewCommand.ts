@@ -27,9 +27,6 @@ export interface CreateDataViewCommandInput extends CreateDataViewRequest {}
 export interface CreateDataViewCommandOutput extends CreateDataViewResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This method will be discontinued.
- *
  * <p>Creates a Dataview for a Dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +90,8 @@ export interface CreateDataViewCommandOutput extends CreateDataViewResponse, __M
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ * @public
+ * @deprecated This method will be discontinued.
  */
 export class CreateDataViewCommand extends $Command
   .classBuilder<

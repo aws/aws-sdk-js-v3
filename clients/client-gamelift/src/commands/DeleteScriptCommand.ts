@@ -27,7 +27,6 @@ export interface DeleteScriptCommandInput extends DeleteScriptInput {}
 export interface DeleteScriptCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a Realtime script. This operation permanently deletes the script record. If
  *             script files were uploaded, they are also deleted (files stored in an S3 bucket are not
  *             deleted). </p>
@@ -90,6 +89,7 @@ export interface DeleteScriptCommandOutput extends __MetadataBearer {}
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DeleteScriptCommand extends $Command
   .classBuilder<

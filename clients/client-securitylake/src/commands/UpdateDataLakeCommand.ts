@@ -27,7 +27,6 @@ export interface UpdateDataLakeCommandInput extends UpdateDataLakeRequest {}
 export interface UpdateDataLakeCommandOutput extends UpdateDataLakeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Specifies where to store your security data and for how long. You can add a rollup
  *          Region to consolidate data from multiple Amazon Web Services Regions.</p>
  * @example
@@ -141,6 +140,7 @@ export interface UpdateDataLakeCommandOutput extends UpdateDataLakeResponse, __M
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ * @public
  */
 export class UpdateDataLakeCommand extends $Command
   .classBuilder<

@@ -40,7 +40,6 @@ export interface ExecuteOpenCypherExplainQueryCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Executes an openCypher <code>explain</code> request. See
  *       <a href="https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-opencypher-explain.html">The
  *       openCypher explain feature</a> for more information.</p>
@@ -147,6 +146,7 @@ export interface ExecuteOpenCypherExplainQueryCommandOutput
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * @public
  */
 export class ExecuteOpenCypherExplainQueryCommand extends $Command
   .classBuilder<

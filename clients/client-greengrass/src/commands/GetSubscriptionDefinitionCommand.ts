@@ -27,7 +27,6 @@ export interface GetSubscriptionDefinitionCommandInput extends GetSubscriptionDe
 export interface GetSubscriptionDefinitionCommandOutput extends GetSubscriptionDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * Retrieves information about a subscription definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface GetSubscriptionDefinitionCommandOutput extends GetSubscriptionD
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class GetSubscriptionDefinitionCommand extends $Command
   .classBuilder<

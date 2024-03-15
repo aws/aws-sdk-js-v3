@@ -27,7 +27,6 @@ export interface StartFleetActionsCommandInput extends StartFleetActionsInput {}
 export interface StartFleetActionsCommandOutput extends StartFleetActionsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Resumes certain types of activity on fleet instances that were suspended with <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StopFleetActions.html">StopFleetActions</a>. For multi-location fleets, fleet actions are managed
  *             separately for each location. Currently, this operation is used to restart a fleet's
  *             auto-scaling activity.</p>
@@ -100,6 +99,7 @@ export interface StartFleetActionsCommandOutput extends StartFleetActionsOutput,
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class StartFleetActionsCommand extends $Command
   .classBuilder<

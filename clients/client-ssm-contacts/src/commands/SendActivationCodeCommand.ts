@@ -27,7 +27,6 @@ export interface SendActivationCodeCommandInput extends SendActivationCodeReques
 export interface SendActivationCodeCommandOutput extends SendActivationCodeResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sends an activation code to a contact channel. The contact can use this code to activate
  *          the contact channel in the console or with the <code>ActivateChannel</code> operation.
  *          Incident Manager can't engage a contact channel until it has been activated.</p>
@@ -77,6 +76,7 @@ export interface SendActivationCodeCommandOutput extends SendActivationCodeResul
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ * @public
  */
 export class SendActivationCodeCommand extends $Command
   .classBuilder<

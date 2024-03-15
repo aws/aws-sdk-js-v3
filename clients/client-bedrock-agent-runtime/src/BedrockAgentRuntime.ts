@@ -59,8 +59,8 @@ export interface BedrockAgentRuntime {
 }
 
 /**
- * @public
  * <p>Contains APIs related to model invocation and querying of knowledge bases.</p>
+ * @public
  */
 export class BedrockAgentRuntime extends BedrockAgentRuntimeClient implements BedrockAgentRuntime {}
 createAggregatedClient(commands, BedrockAgentRuntime);

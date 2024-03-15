@@ -27,7 +27,6 @@ export interface DescribeExportCommandInput extends DescribeExportRequest {}
 export interface DescribeExportCommandOutput extends DescribeExportResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a specific export.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface DescribeExportCommandOutput extends DescribeExportResponse, __M
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class DescribeExportCommand extends $Command
   .classBuilder<

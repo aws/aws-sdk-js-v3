@@ -27,7 +27,6 @@ export interface CreateSyncJobCommandInput extends CreateSyncJobRequest {}
 export interface CreateSyncJobCommandOutput extends CreateSyncJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This action creates a SyncJob.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface CreateSyncJobCommandOutput extends CreateSyncJobResponse, __Met
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ * @public
  */
 export class CreateSyncJobCommand extends $Command
   .classBuilder<

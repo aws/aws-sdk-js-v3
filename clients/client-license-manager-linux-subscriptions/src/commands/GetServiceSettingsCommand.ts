@@ -31,7 +31,6 @@ export interface GetServiceSettingsCommandInput extends GetServiceSettingsReques
 export interface GetServiceSettingsCommandOutput extends GetServiceSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the Linux subscriptions service settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface GetServiceSettingsCommandOutput extends GetServiceSettingsRespo
  * @throws {@link LicenseManagerLinuxSubscriptionsServiceException}
  * <p>Base exception class for all service exceptions from LicenseManagerLinuxSubscriptions service.</p>
  *
+ * @public
  */
 export class GetServiceSettingsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface StopJobCommandInput extends StopJobRequest {}
 export interface StopJobCommandOutput extends StopJobResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Initiates a stop request for the current job. AWS Device Farm immediately stops the job on the device
  *             where tests have not started. You are not billed for this device. On the device where tests have started,
  *             setup suite and teardown suite tests run to completion on the device. You are billed for setup, teardown,
@@ -147,6 +146,7 @@ export interface StopJobCommandOutput extends StopJobResult, __MetadataBearer {}
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  */
 export class StopJobCommand extends $Command
   .classBuilder<

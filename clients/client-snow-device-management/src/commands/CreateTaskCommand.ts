@@ -31,7 +31,6 @@ export interface CreateTaskCommandInput extends CreateTaskInput {}
 export interface CreateTaskCommandOutput extends CreateTaskOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Instructs one or more devices to start a task, such as unlocking or rebooting.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface CreateTaskCommandOutput extends CreateTaskOutput, __MetadataBea
  * @throws {@link SnowDeviceManagementServiceException}
  * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
+ * @public
  */
 export class CreateTaskCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface UpdateLakeFormationIdentityCenterConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the IAM Identity Center connection parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface UpdateLakeFormationIdentityCenterConfigurationCommandOutput
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class UpdateLakeFormationIdentityCenterConfigurationCommand extends $Command
   .classBuilder<

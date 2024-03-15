@@ -27,7 +27,6 @@ export interface ListZonalShiftsCommandInput extends ListZonalShiftsRequest {}
 export interface ListZonalShiftsCommandOutput extends ListZonalShiftsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all active and completed zonal shifts in Amazon Route 53 Application Recovery Controller in your Amazon Web Services account in this Amazon Web Services Region.
  *    		<code>ListZonalShifts</code> returns customer-started zonal shifts, as well as practice run zonal shifts that Route 53 ARC started on
  *    		your behalf for zonal autoshift.</p>
@@ -86,6 +85,7 @@ export interface ListZonalShiftsCommandOutput extends ListZonalShiftsResponse, _
  * @throws {@link ARCZonalShiftServiceException}
  * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
+ * @public
  */
 export class ListZonalShiftsCommand extends $Command
   .classBuilder<

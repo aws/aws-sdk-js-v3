@@ -32,7 +32,6 @@ export interface ListCompositionRelationshipsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a paginated list of composition relationships for an asset model of type <code>COMPONENT_MODEL</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface ListCompositionRelationshipsCommandOutput
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class ListCompositionRelationshipsCommand extends $Command
   .classBuilder<

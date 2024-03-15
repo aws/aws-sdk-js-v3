@@ -27,7 +27,6 @@ export interface ListChangeSetsCommandInput extends ListChangeSetsInput {}
 export interface ListChangeSetsCommandOutput extends ListChangeSetsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the ID and status of each active change set for a stack. For example, CloudFormation lists change sets that are
  *    in the <code>CREATE_IN_PROGRESS</code> or <code>CREATE_PENDING</code> state.</p>
  * @example
@@ -74,6 +73,7 @@ export interface ListChangeSetsCommandOutput extends ListChangeSetsOutput, __Met
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class ListChangeSetsCommand extends $Command
   .classBuilder<

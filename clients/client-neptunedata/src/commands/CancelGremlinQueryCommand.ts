@@ -27,7 +27,6 @@ export interface CancelGremlinQueryCommandInput extends CancelGremlinQueryInput 
 export interface CancelGremlinQueryCommandOutput extends CancelGremlinQueryOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels a Gremlin query. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/gremlin-api-status-cancel.html">Gremlin
  *       query cancellation</a> for more information.</p>
  *          <p>When invoking this operation in a Neptune cluster that has IAM
@@ -103,6 +102,7 @@ export interface CancelGremlinQueryCommandOutput extends CancelGremlinQueryOutpu
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * @public
  */
 export class CancelGremlinQueryCommand extends $Command
   .classBuilder<

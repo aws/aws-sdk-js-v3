@@ -27,7 +27,6 @@ export interface ListAdminsManagingAccountCommandInput extends ListAdminsManagin
 export interface ListAdminsManagingAccountCommandOutput extends ListAdminsManagingAccountResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the accounts that are managing the specified Organizations member account. This is useful for any member account so that they can view the accounts who are managing their account. This operation only returns the managing administrators that have the requested account within their <a>AdminScope</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface ListAdminsManagingAccountCommandOutput extends ListAdminsManagi
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * @public
  */
 export class ListAdminsManagingAccountCommand extends $Command
   .classBuilder<

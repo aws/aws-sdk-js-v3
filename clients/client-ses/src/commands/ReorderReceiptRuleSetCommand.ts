@@ -27,7 +27,6 @@ export interface ReorderReceiptRuleSetCommandInput extends ReorderReceiptRuleSet
 export interface ReorderReceiptRuleSetCommandOutput extends ReorderReceiptRuleSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Reorders the receipt rules within a receipt rule set.</p>
  *          <note>
  *             <p>All of the rules in the rule set must be represented in this request. That is, it
@@ -69,6 +68,7 @@ export interface ReorderReceiptRuleSetCommandOutput extends ReorderReceiptRuleSe
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example ReorderReceiptRuleSet
  * ```javascript
  * // The following example reorders the receipt rules within a receipt rule set:

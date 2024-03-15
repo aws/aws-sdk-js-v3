@@ -27,7 +27,6 @@ export interface StartConfigurationRecorderCommandInput extends StartConfigurati
 export interface StartConfigurationRecorderCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts recording configurations of the Amazon Web Services resources you have
  * 			selected to record in your Amazon Web Services account.</p>
  *          <p>You must have created at least one delivery channel to
@@ -64,6 +63,7 @@ export interface StartConfigurationRecorderCommandOutput extends __MetadataBeare
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class StartConfigurationRecorderCommand extends $Command
   .classBuilder<

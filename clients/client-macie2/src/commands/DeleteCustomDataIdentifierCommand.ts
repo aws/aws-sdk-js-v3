@@ -27,7 +27,6 @@ export interface DeleteCustomDataIdentifierCommandInput extends DeleteCustomData
 export interface DeleteCustomDataIdentifierCommandOutput extends DeleteCustomDataIdentifierResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Soft deletes a custom data identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DeleteCustomDataIdentifierCommandOutput extends DeleteCustomDat
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class DeleteCustomDataIdentifierCommand extends $Command
   .classBuilder<

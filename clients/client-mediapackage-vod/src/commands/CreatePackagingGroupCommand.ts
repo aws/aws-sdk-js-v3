@@ -27,7 +27,6 @@ export interface CreatePackagingGroupCommandInput extends CreatePackagingGroupRe
 export interface CreatePackagingGroupCommandOutput extends CreatePackagingGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * Creates a new MediaPackage VOD PackagingGroup resource.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface CreatePackagingGroupCommandOutput extends CreatePackagingGroupR
  * @throws {@link MediaPackageVodServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageVod service.</p>
  *
+ * @public
  */
 export class CreatePackagingGroupCommand extends $Command
   .classBuilder<

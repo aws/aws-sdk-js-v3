@@ -27,7 +27,6 @@ export interface ListMapsCommandInput extends ListMapsRequest {}
 export interface ListMapsCommandOutput extends ListMapsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists map resources in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface ListMapsCommandOutput extends ListMapsResponse, __MetadataBeare
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class ListMapsCommand extends $Command
   .classBuilder<

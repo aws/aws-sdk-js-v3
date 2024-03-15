@@ -27,7 +27,6 @@ export interface UpdateAppMonitorCommandInput extends UpdateAppMonitorRequest {}
 export interface UpdateAppMonitorCommandOutput extends UpdateAppMonitorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the configuration of an existing app monitor. When you use this operation, only the parts of the app monitor
  *          configuration that you specify in this operation are changed. For any parameters that you omit, the existing
  *          values are kept.</p>
@@ -105,6 +104,7 @@ export interface UpdateAppMonitorCommandOutput extends UpdateAppMonitorResponse,
  * @throws {@link RUMServiceException}
  * <p>Base exception class for all service exceptions from RUM service.</p>
  *
+ * @public
  */
 export class UpdateAppMonitorCommand extends $Command
   .classBuilder<

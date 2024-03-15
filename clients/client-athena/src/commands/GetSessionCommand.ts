@@ -27,7 +27,6 @@ export interface GetSessionCommandInput extends GetSessionRequest {}
 export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the full details of a previously created session, including the session status
  *             and configuration.</p>
  * @example
@@ -102,6 +101,7 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class GetSessionCommand extends $Command
   .classBuilder<

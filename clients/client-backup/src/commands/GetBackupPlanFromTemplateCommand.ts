@@ -31,7 +31,6 @@ export interface GetBackupPlanFromTemplateCommandInput extends GetBackupPlanFrom
 export interface GetBackupPlanFromTemplateCommandOutput extends GetBackupPlanFromTemplateOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the template specified by its <code>templateId</code> as a backup plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -112,6 +111,7 @@ export interface GetBackupPlanFromTemplateCommandOutput extends GetBackupPlanFro
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class GetBackupPlanFromTemplateCommand extends $Command
   .classBuilder<

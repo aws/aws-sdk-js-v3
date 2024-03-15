@@ -40,7 +40,6 @@ export interface DescribeReservedElasticsearchInstancesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about reserved Elasticsearch instances for this account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -104,6 +103,7 @@ export interface DescribeReservedElasticsearchInstancesCommandOutput
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * @public
  */
 export class DescribeReservedElasticsearchInstancesCommand extends $Command
   .classBuilder<

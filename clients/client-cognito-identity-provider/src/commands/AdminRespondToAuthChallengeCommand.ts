@@ -38,7 +38,6 @@ export interface AdminRespondToAuthChallengeCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Some API operations in a user pool generate a challenge, like a prompt for an MFA
  *             code, for device authentication that bypasses MFA, or for a custom authentication
  *             challenge. An <code>AdminRespondToAuthChallenge</code> API request provides the answer
@@ -224,6 +223,7 @@ export interface AdminRespondToAuthChallengeCommandOutput
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class AdminRespondToAuthChallengeCommand extends $Command
   .classBuilder<

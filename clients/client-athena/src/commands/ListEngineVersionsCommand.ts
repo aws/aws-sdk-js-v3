@@ -27,7 +27,6 @@ export interface ListEngineVersionsCommandInput extends ListEngineVersionsInput 
 export interface ListEngineVersionsCommandOutput extends ListEngineVersionsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of engine versions that are available to choose from, including the
  *             Auto option.</p>
  * @example
@@ -71,6 +70,7 @@ export interface ListEngineVersionsCommandOutput extends ListEngineVersionsOutpu
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class ListEngineVersionsCommand extends $Command
   .classBuilder<

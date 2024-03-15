@@ -35,7 +35,6 @@ export interface GetEarthObservationJobCommandInput extends GetEarthObservationJ
 export interface GetEarthObservationJobCommandOutput extends GetEarthObservationJobOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get the details for a previously initiated Earth Observation job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -246,6 +245,7 @@ export interface GetEarthObservationJobCommandOutput extends GetEarthObservation
  * @throws {@link SageMakerGeospatialServiceException}
  * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
+ * @public
  */
 export class GetEarthObservationJobCommand extends $Command
   .classBuilder<

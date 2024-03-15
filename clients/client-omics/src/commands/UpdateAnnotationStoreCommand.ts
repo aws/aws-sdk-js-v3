@@ -27,7 +27,6 @@ export interface UpdateAnnotationStoreCommandInput extends UpdateAnnotationStore
 export interface UpdateAnnotationStoreCommandOutput extends UpdateAnnotationStoreResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an annotation store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface UpdateAnnotationStoreCommandOutput extends UpdateAnnotationStor
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class UpdateAnnotationStoreCommand extends $Command
   .classBuilder<

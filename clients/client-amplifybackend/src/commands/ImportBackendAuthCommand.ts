@@ -27,7 +27,6 @@ export interface ImportBackendAuthCommandInput extends ImportBackendAuthRequest 
 export interface ImportBackendAuthCommandOutput extends ImportBackendAuthResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Imports an existing backend authentication resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface ImportBackendAuthCommandOutput extends ImportBackendAuthRespons
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ * @public
  */
 export class ImportBackendAuthCommand extends $Command
   .classBuilder<

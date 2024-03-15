@@ -27,7 +27,6 @@ export interface DeleteEncoderConfigurationCommandInput extends DeleteEncoderCon
 export interface DeleteEncoderConfigurationCommandOutput extends DeleteEncoderConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an EncoderConfiguration resource. Ensures that no Compositions are using this
  *          template; otherwise, returns an error.</p>
  * @example
@@ -72,6 +71,7 @@ export interface DeleteEncoderConfigurationCommandOutput extends DeleteEncoderCo
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ * @public
  */
 export class DeleteEncoderConfigurationCommand extends $Command
   .classBuilder<

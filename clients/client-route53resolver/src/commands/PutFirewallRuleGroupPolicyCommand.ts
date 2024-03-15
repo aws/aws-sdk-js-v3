@@ -27,7 +27,6 @@ export interface PutFirewallRuleGroupPolicyCommandInput extends PutFirewallRuleG
 export interface PutFirewallRuleGroupPolicyCommandOutput extends PutFirewallRuleGroupPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches an Identity and Access Management (Amazon Web Services IAM) policy for sharing the rule
  * 			group. You can use the policy to share the rule group using Resource Access Manager
  * 			(RAM). </p>
@@ -74,6 +73,7 @@ export interface PutFirewallRuleGroupPolicyCommandOutput extends PutFirewallRule
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class PutFirewallRuleGroupPolicyCommand extends $Command
   .classBuilder<

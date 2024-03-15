@@ -31,7 +31,6 @@ export interface StartTaskContactCommandInput extends StartTaskContactRequest {}
 export interface StartTaskContactCommandOutput extends StartTaskContactResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Initiates a flow to start a new task contact. For more information about task contacts, see
  *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/tasks.html">Concepts: Tasks in
  *      Amazon Connect</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
@@ -145,6 +144,7 @@ export interface StartTaskContactCommandOutput extends StartTaskContactResponse,
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class StartTaskContactCommand extends $Command
   .classBuilder<

@@ -28,7 +28,6 @@ export interface GetHostedZoneCommandInput extends GetHostedZoneRequest {}
 export interface GetHostedZoneCommandOutput extends GetHostedZoneResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a specified hosted zone including the four name servers
  * 			assigned to the hosted zone.</p>
  * @example
@@ -89,6 +88,7 @@ export interface GetHostedZoneCommandOutput extends GetHostedZoneResponse, __Met
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  * @example To get information about a hosted zone
  * ```javascript
  * // The following example gets information about the Z3M3LMPEXAMPLE hosted zone.

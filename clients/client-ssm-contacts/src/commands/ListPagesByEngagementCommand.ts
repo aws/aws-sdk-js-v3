@@ -27,7 +27,6 @@ export interface ListPagesByEngagementCommandInput extends ListPagesByEngagement
 export interface ListPagesByEngagementCommandOutput extends ListPagesByEngagementResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the engagements to contact channels that occurred by engaging a contact.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface ListPagesByEngagementCommandOutput extends ListPagesByEngagemen
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ * @public
  */
 export class ListPagesByEngagementCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteDatasetCommandInput extends DeleteDatasetRequest {}
 export interface DeleteDatasetCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified dataset.</p>
  *          <p>You do not have to delete the content of the dataset before you perform this
  *       operation.</p>
@@ -70,6 +69,7 @@ export interface DeleteDatasetCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
+ * @public
  */
 export class DeleteDatasetCommand extends $Command
   .classBuilder<

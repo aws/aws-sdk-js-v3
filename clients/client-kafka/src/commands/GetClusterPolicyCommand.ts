@@ -27,7 +27,6 @@ export interface GetClusterPolicyCommandInput extends GetClusterPolicyRequest {}
 export interface GetClusterPolicyCommandOutput extends GetClusterPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get the MSK cluster policy specified by the Amazon Resource Name (ARN) in the request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface GetClusterPolicyCommandOutput extends GetClusterPolicyResponse,
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ * @public
  */
 export class GetClusterPolicyCommand extends $Command
   .classBuilder<

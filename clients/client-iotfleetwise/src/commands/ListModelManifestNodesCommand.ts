@@ -27,7 +27,6 @@ export interface ListModelManifestNodesCommandInput extends ListModelManifestNod
 export interface ListModelManifestNodesCommandOutput extends ListModelManifestNodesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Lists information about nodes specified in a vehicle model (model manifest). </p>
  *          <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
@@ -147,6 +146,7 @@ export interface ListModelManifestNodesCommandOutput extends ListModelManifestNo
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class ListModelManifestNodesCommand extends $Command
   .classBuilder<

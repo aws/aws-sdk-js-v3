@@ -27,7 +27,6 @@ export interface CreateExclusionsPreviewCommandInput extends CreateExclusionsPre
 export interface CreateExclusionsPreviewCommandOutput extends CreateExclusionsPreviewResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts the generation of an exclusions preview for the specified assessment template.
  *          The exclusions preview lists the potential exclusions (ExclusionPreview) that Inspector can
  *          detect before it runs the assessment. </p>
@@ -78,6 +77,7 @@ export interface CreateExclusionsPreviewCommandOutput extends CreateExclusionsPr
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * @public
  */
 export class CreateExclusionsPreviewCommand extends $Command
   .classBuilder<

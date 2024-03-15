@@ -27,7 +27,6 @@ export interface DescribeInstancePatchesCommandInput extends DescribeInstancePat
 export interface DescribeInstancePatchesCommandOutput extends DescribeInstancePatchesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the patches on the specified managed node and their state
  *    relative to the patch baseline being used for the node.</p>
  * @example
@@ -106,6 +105,7 @@ export interface DescribeInstancePatchesCommandOutput extends DescribeInstancePa
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DescribeInstancePatchesCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface DeleteCustomDomainAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a custom domain association for Amazon Redshift Serverless.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface DeleteCustomDomainAssociationCommandOutput
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * @public
  */
 export class DeleteCustomDomainAssociationCommand extends $Command
   .classBuilder<

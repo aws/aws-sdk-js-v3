@@ -27,7 +27,6 @@ export interface ListImportsCommandInput extends ListImportsRequest {}
 export interface ListImportsCommandOutput extends ListImportsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns information on all imports, or a select set of imports by
  *             <code>ImportStatus</code> or <code>Destination</code>. </p>
  * @example
@@ -87,6 +86,7 @@ export interface ListImportsCommandOutput extends ListImportsResponse, __Metadat
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class ListImportsCommand extends $Command
   .classBuilder<

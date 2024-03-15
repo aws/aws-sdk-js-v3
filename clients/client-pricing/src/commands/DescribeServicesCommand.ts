@@ -27,7 +27,6 @@ export interface DescribeServicesCommandInput extends DescribeServicesRequest {}
 export interface DescribeServicesCommandOutput extends DescribeServicesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the metadata for one service or a list of the metadata for all services. Use
  *          this without a service code to get the service codes for all services.
  *          Use it with a service code, such as <code>AmazonEC2</code>, to get information specific to
@@ -92,6 +91,7 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * @throws {@link PricingServiceException}
  * <p>Base exception class for all service exceptions from Pricing service.</p>
  *
+ * @public
  */
 export class DescribeServicesCommand extends $Command
   .classBuilder<

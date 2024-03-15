@@ -1198,7 +1198,6 @@ export interface RedshiftServerless {
 }
 
 /**
- * @public
  * <p>This is an interface reference for Amazon Redshift Serverless.
  *            It contains documentation for one of the programming or command line interfaces you can use to manage Amazon Redshift Serverless.
  *         </p>
@@ -1211,6 +1210,7 @@ export interface RedshiftServerless {
  *            To learn more about Amazon Redshift Serverless,
  *            see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-whatis.html">What is Amazon Redshift Serverless</a>.
  *         </p>
+ * @public
  */
 export class RedshiftServerless extends RedshiftServerlessClient implements RedshiftServerless {}
 createAggregatedClient(commands, RedshiftServerless);

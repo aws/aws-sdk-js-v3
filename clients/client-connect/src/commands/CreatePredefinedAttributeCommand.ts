@@ -27,7 +27,6 @@ export interface CreatePredefinedAttributeCommandInput extends CreatePredefinedA
 export interface CreatePredefinedAttributeCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new predefined attribute for the specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface CreatePredefinedAttributeCommandOutput extends __MetadataBearer
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class CreatePredefinedAttributeCommand extends $Command
   .classBuilder<

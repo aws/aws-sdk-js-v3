@@ -27,7 +27,6 @@ export interface EvaluateExpressionCommandInput extends EvaluateExpressionInput 
 export interface EvaluateExpressionCommandOutput extends EvaluateExpressionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Task runners call <code>EvaluateExpression</code> to evaluate a string in the context of the specified object.
  *             For example, a task runner can evaluate SQL queries stored in Amazon S3.</p>
  *
@@ -102,6 +101,7 @@ export interface EvaluateExpressionCommandOutput extends EvaluateExpressionOutpu
  * @throws {@link DataPipelineServiceException}
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ * @public
  */
 export class EvaluateExpressionCommand extends $Command
   .classBuilder<

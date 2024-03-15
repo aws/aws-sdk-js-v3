@@ -31,7 +31,6 @@ export interface StopReplicationTaskCommandInput extends StopReplicationTaskMess
 export interface StopReplicationTaskCommandOutput extends StopReplicationTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops the replication task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface StopReplicationTaskCommandOutput extends StopReplicationTaskRes
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Stop replication task
  * ```javascript
  * // Stops the replication task.

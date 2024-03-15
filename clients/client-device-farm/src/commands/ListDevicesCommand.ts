@@ -27,7 +27,6 @@ export interface ListDevicesCommandInput extends ListDevicesRequest {}
 export interface ListDevicesCommandOutput extends ListDevicesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about unique device types.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -129,6 +128,7 @@ export interface ListDevicesCommandOutput extends ListDevicesResult, __MetadataB
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To get information about devices
  * ```javascript
  * // The following example returns information about the available devices in a specific project.

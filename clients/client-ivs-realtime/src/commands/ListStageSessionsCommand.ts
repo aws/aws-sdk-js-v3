@@ -27,7 +27,6 @@ export interface ListStageSessionsCommandInput extends ListStageSessionsRequest 
 export interface ListStageSessionsCommandOutput extends ListStageSessionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets all sessions for a specified stage.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface ListStageSessionsCommandOutput extends ListStageSessionsRespons
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ * @public
  */
 export class ListStageSessionsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteIdMappingWorkflowCommandInput extends DeleteIdMappingWork
 export interface DeleteIdMappingWorkflowCommandOutput extends DeleteIdMappingWorkflowOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the <code>IdMappingWorkflow</code> with a given name. This operation will
  *          succeed even if a workflow with the given name does not exist.</p>
  * @example
@@ -76,6 +75,7 @@ export interface DeleteIdMappingWorkflowCommandOutput extends DeleteIdMappingWor
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ * @public
  */
 export class DeleteIdMappingWorkflowCommand extends $Command
   .classBuilder<

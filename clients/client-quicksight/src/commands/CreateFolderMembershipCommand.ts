@@ -27,7 +27,6 @@ export interface CreateFolderMembershipCommandInput extends CreateFolderMembersh
 export interface CreateFolderMembershipCommandOutput extends CreateFolderMembershipResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds an asset, such as a dashboard, analysis, or dataset into a folder.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface CreateFolderMembershipCommandOutput extends CreateFolderMembers
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class CreateFolderMembershipCommand extends $Command
   .classBuilder<

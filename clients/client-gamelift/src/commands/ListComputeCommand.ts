@@ -27,7 +27,6 @@ export interface ListComputeCommandInput extends ListComputeInput {}
 export interface ListComputeCommandOutput extends ListComputeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the compute resources in an Amazon GameLift fleet. You can request information for
  *             either managed EC2 fleets or Anywhere fleets. </p>
  *          <p>To request a list of computes, specify the fleet ID. You can filter the result set by
@@ -92,6 +91,7 @@ export interface ListComputeCommandOutput extends ListComputeOutput, __MetadataB
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class ListComputeCommand extends $Command
   .classBuilder<

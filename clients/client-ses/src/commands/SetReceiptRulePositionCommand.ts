@@ -27,7 +27,6 @@ export interface SetReceiptRulePositionCommandInput extends SetReceiptRulePositi
 export interface SetReceiptRulePositionCommandOutput extends SetReceiptRulePositionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the position of the specified receipt rule in the receipt rule set.</p>
  *          <p>For information about managing receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-receipt-rules-console-walkthrough.html">Amazon SES
  *                 Developer Guide</a>.</p>
@@ -64,6 +63,7 @@ export interface SetReceiptRulePositionCommandOutput extends SetReceiptRulePosit
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example SetReceiptRulePosition
  * ```javascript
  * // The following example sets the position of a receipt rule in a receipt rule set:

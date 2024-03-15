@@ -27,7 +27,6 @@ export interface GetResourceMetricsCommandInput extends GetResourceMetricsReques
 export interface GetResourceMetricsCommandOutput extends GetResourceMetricsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieve Performance Insights metrics for a set of data sources over a time period. You can provide
  *       specific dimension groups and dimensions, and provide aggregation and filtering criteria for
  *       each group.</p>
@@ -111,6 +110,7 @@ export interface GetResourceMetricsCommandOutput extends GetResourceMetricsRespo
  * @throws {@link PIServiceException}
  * <p>Base exception class for all service exceptions from PI service.</p>
  *
+ * @public
  */
 export class GetResourceMetricsCommand extends $Command
   .classBuilder<

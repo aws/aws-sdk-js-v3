@@ -27,7 +27,6 @@ export interface UpdateGlobalSettingsCommandInput extends UpdateGlobalSettingsRe
 export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates global settings for the administrator's AWS account, such as Amazon Chime Business Calling and Amazon Chime Voice Connector settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class UpdateGlobalSettingsCommand extends $Command
   .classBuilder<

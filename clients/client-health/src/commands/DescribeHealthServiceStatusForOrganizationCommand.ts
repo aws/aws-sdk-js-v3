@@ -32,7 +32,6 @@ export interface DescribeHealthServiceStatusForOrganizationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation provides status information on enabling or disabling Health to work
  *          with your organization. To call this operation, you must use the organization's
  *          management account.</p>
@@ -60,6 +59,7 @@ export interface DescribeHealthServiceStatusForOrganizationCommandOutput
  * @throws {@link HealthServiceException}
  * <p>Base exception class for all service exceptions from Health service.</p>
  *
+ * @public
  */
 export class DescribeHealthServiceStatusForOrganizationCommand extends $Command
   .classBuilder<

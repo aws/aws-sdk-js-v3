@@ -31,7 +31,6 @@ export interface DescribeServersCommandInput extends DescribeServersRequest {}
 export interface DescribeServersCommandOutput extends DescribeServersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Lists all configuration management servers that are identified with your account.
  *       Only the stored results from Amazon DynamoDB
@@ -121,6 +120,7 @@ export interface DescribeServersCommandOutput extends DescribeServersResponse, _
  * @throws {@link OpsWorksCMServiceException}
  * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
+ * @public
  */
 export class DescribeServersCommand extends $Command
   .classBuilder<

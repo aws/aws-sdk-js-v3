@@ -27,7 +27,6 @@ export interface DownloadDefaultKeyPairCommandInput extends DownloadDefaultKeyPa
 export interface DownloadDefaultKeyPairCommandOutput extends DownloadDefaultKeyPairResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Downloads the regional Amazon Lightsail default key pair.</p>
  *          <p>This action also creates a Lightsail default key pair if a default key pair
  *       does not currently exist in the Amazon Web Services Region.</p>
@@ -87,6 +86,7 @@ export interface DownloadDefaultKeyPairCommandOutput extends DownloadDefaultKeyP
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class DownloadDefaultKeyPairCommand extends $Command
   .classBuilder<

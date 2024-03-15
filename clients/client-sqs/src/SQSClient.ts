@@ -350,7 +350,6 @@ export type SQSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
 export interface SQSClientResolvedConfig extends SQSClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Welcome to the <i>Amazon SQS API Reference</i>.</p>
  *          <p>Amazon SQS is a reliable, highly-scalable hosted queue for storing messages as they
  *             travel between applications or microservices. Amazon SQS moves data between distributed
@@ -424,6 +423,7 @@ export interface SQSClientResolvedConfig extends SQSClientResolvedConfigType {}
  *                </ul>
  *             </li>
  *          </ul>
+ * @public
  */
 export class SQSClient extends __Client<
   __HttpHandlerOptions,

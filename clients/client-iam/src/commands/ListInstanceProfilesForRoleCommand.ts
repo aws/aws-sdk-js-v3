@@ -29,7 +29,6 @@ export interface ListInstanceProfilesForRoleCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the instance profiles that have the specified associated IAM role. If there
  *             are none, the operation returns an empty list. For more information about instance
  *             profiles, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html">Using
@@ -114,6 +113,7 @@ export interface ListInstanceProfilesForRoleCommandOutput
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class ListInstanceProfilesForRoleCommand extends $Command
   .classBuilder<

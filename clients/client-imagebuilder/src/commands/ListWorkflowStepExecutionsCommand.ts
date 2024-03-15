@@ -27,7 +27,6 @@ export interface ListWorkflowStepExecutionsCommandInput extends ListWorkflowStep
 export interface ListWorkflowStepExecutionsCommandOutput extends ListWorkflowStepExecutionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns runtime data for each step in a runtime instance of the workflow
  * 			that you specify in the request.</p>
  * @example
@@ -102,6 +101,7 @@ export interface ListWorkflowStepExecutionsCommandOutput extends ListWorkflowSte
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class ListWorkflowStepExecutionsCommand extends $Command
   .classBuilder<

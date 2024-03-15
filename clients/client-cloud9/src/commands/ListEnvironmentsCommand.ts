@@ -27,7 +27,6 @@ export interface ListEnvironmentsCommandInput extends ListEnvironmentsRequest {}
 export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of Cloud9 development environment identifiers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResult, _
  * @throws {@link Cloud9ServiceException}
  * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
+ * @public
  * @example ListEnvironments
  * ```javascript
  * //

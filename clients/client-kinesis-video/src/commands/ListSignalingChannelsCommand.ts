@@ -27,7 +27,6 @@ export interface ListSignalingChannelsCommandInput extends ListSignalingChannels
 export interface ListSignalingChannelsCommandOutput extends ListSignalingChannelsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an array of <code>ChannelInfo</code> objects. Each object describes a
  *             signaling channel. To retrieve only those channels that satisfy a specific condition,
  *             you can specify a <code>ChannelNameCondition</code>.</p>
@@ -85,6 +84,7 @@ export interface ListSignalingChannelsCommandOutput extends ListSignalingChannel
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ * @public
  */
 export class ListSignalingChannelsCommand extends $Command
   .classBuilder<

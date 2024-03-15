@@ -27,7 +27,6 @@ export interface ListRegexPatternSetsCommandInput extends ListRegexPatternSetsRe
 export interface ListRegexPatternSetsCommandOutput extends ListRegexPatternSetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves an array of <a>RegexPatternSetSummary</a> objects for the regex
  *          pattern sets that you manage.</p>
  * @example
@@ -95,6 +94,7 @@ export interface ListRegexPatternSetsCommandOutput extends ListRegexPatternSetsR
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class ListRegexPatternSetsCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface CreateSlackChannelConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * Creates Slack Channel Configuration
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface CreateSlackChannelConfigurationCommandOutput
  * @throws {@link ChatbotServiceException}
  * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
+ * @public
  */
 export class CreateSlackChannelConfigurationCommand extends $Command
   .classBuilder<

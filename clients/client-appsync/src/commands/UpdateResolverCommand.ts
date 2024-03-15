@@ -27,7 +27,6 @@ export interface UpdateResolverCommandInput extends UpdateResolverRequest {}
 export interface UpdateResolverCommandOutput extends UpdateResolverResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a <code>Resolver</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -136,6 +135,7 @@ export interface UpdateResolverCommandOutput extends UpdateResolverResponse, __M
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class UpdateResolverCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeDomainNodesCommandInput extends DescribeDomainNodesRequ
 export interface DescribeDomainNodesCommandOutput extends DescribeDomainNodesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about domain and nodes, including data nodes, master nodes, ultrawarm
  *    nodes, Availability Zone(s), standby nodes, node configurations, and node states.</p>
  * @example
@@ -85,6 +84,7 @@ export interface DescribeDomainNodesCommandOutput extends DescribeDomainNodesRes
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class DescribeDomainNodesCommand extends $Command
   .classBuilder<

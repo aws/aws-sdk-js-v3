@@ -27,7 +27,6 @@ export interface StopStackCommandInput extends StopStackRequest {}
 export interface StopStackCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a specified stack.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
@@ -64,6 +63,7 @@ export interface StopStackCommandOutput extends __MetadataBearer {}
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class StopStackCommand extends $Command
   .classBuilder<

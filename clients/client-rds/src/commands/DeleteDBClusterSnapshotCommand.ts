@@ -27,7 +27,6 @@ export interface DeleteDBClusterSnapshotCommandInput extends DeleteDBClusterSnap
 export interface DeleteDBClusterSnapshotCommandOutput extends DeleteDBClusterSnapshotResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a DB cluster snapshot. If the snapshot is being copied, the copy operation is terminated.</p>
  *          <note>
  *             <p>The DB cluster snapshot must be in the <code>available</code> state to be
@@ -106,6 +105,7 @@ export interface DeleteDBClusterSnapshotCommandOutput extends DeleteDBClusterSna
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To delete a DB cluster snapshot
  * ```javascript
  * //

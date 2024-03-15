@@ -27,7 +27,6 @@ export interface DeleteGlobalClusterCommandInput extends DeleteGlobalClusterMess
 export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a global cluster. The primary and secondary clusters must already be detached or deleted before attempting to delete a global cluster.</p>
  *          <note>
  *             <p>This action only applies to Amazon DocumentDB clusters.</p>
@@ -83,6 +82,7 @@ export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterRes
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class DeleteGlobalClusterCommand extends $Command
   .classBuilder<

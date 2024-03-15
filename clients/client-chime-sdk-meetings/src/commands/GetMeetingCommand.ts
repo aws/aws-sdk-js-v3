@@ -27,7 +27,6 @@ export interface GetMeetingCommandInput extends GetMeetingRequest {}
 export interface GetMeetingCommandOutput extends GetMeetingResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the Amazon Chime SDK meeting details for the specified meeting ID. For more information about the Amazon Chime SDK, see
  *             <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
  *             in the <i>Amazon Chime Developer Guide</i>.</p>
@@ -112,6 +111,7 @@ export interface GetMeetingCommandOutput extends GetMeetingResponse, __MetadataB
  * @throws {@link ChimeSDKMeetingsServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
+ * @public
  */
 export class GetMeetingCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateMatchingWorkflowCommandInput extends CreateMatchingWorkfl
 export interface CreateMatchingWorkflowCommandOutput extends CreateMatchingWorkflowOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a <code>MatchingWorkflow</code> object which stores the configuration of the
  *          data processing job to be run. It is important to note that there should not be a
  *          pre-existing <code>MatchingWorkflow</code> with the same name. To modify an existing
@@ -186,6 +185,7 @@ export interface CreateMatchingWorkflowCommandOutput extends CreateMatchingWorkf
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ * @public
  */
 export class CreateMatchingWorkflowCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetCostAndUsageCommandInput extends GetCostAndUsageRequest {}
 export interface GetCostAndUsageCommandOutput extends GetCostAndUsageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves cost and usage metrics for your account. You can specify which cost and
  *       usage-related metric that you want the request to return. For example, you can specify
  *         <code>BlendedCosts</code> or <code>UsageQuantity</code>. You can also filter and group your
@@ -200,6 +199,7 @@ export interface GetCostAndUsageCommandOutput extends GetCostAndUsageResponse, _
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * @public
  */
 export class GetCostAndUsageCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface BatchGetApplicationRevisionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about one or more application revisions. The maximum number of
  *             application revisions that can be returned is 25.</p>
  * @example
@@ -139,6 +138,7 @@ export interface BatchGetApplicationRevisionsCommandOutput
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
  */
 export class BatchGetApplicationRevisionsCommand extends $Command
   .classBuilder<

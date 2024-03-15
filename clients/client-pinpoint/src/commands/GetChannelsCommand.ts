@@ -27,7 +27,6 @@ export interface GetChannelsCommandInput extends GetChannelsRequest {}
 export interface GetChannelsCommandOutput extends GetChannelsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the history and status of each channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface GetChannelsCommandOutput extends GetChannelsResponse, __Metadat
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class GetChannelsCommand extends $Command
   .classBuilder<

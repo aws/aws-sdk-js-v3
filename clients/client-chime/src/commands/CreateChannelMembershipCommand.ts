@@ -31,9 +31,6 @@ export interface CreateChannelMembershipCommandInput extends CreateChannelMember
 export interface CreateChannelMembershipCommandOutput extends CreateChannelMembershipResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by CreateChannelMembership in the Amazon Chime SDK Messaging Namespace
- *
  * <p>Adds a user to a channel. The <code>InvitedBy</code> response field is derived from the
  *          request header. A channel member can:</p>
  *          <ul>
@@ -133,6 +130,8 @@ export interface CreateChannelMembershipCommandOutput extends CreateChannelMembe
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by CreateChannelMembership in the Amazon Chime SDK Messaging Namespace
  */
 export class CreateChannelMembershipCommand extends $Command
   .classBuilder<

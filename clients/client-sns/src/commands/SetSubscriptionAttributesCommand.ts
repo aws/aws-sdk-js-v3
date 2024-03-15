@@ -27,7 +27,6 @@ export interface SetSubscriptionAttributesCommandInput extends SetSubscriptionAt
 export interface SetSubscriptionAttributesCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows a subscription owner to set an attribute of the subscription to a new
  *             value.</p>
  * @example
@@ -77,6 +76,7 @@ export interface SetSubscriptionAttributesCommandOutput extends __MetadataBearer
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * @public
  */
 export class SetSubscriptionAttributesCommand extends $Command
   .classBuilder<

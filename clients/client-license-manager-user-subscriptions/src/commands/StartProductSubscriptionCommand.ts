@@ -31,7 +31,6 @@ export interface StartProductSubscriptionCommandInput extends StartProductSubscr
 export interface StartProductSubscriptionCommandOutput extends StartProductSubscriptionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a product subscription for a user with the specified identity provider.</p>
  *          <note>
  *             <p>Your estimated bill for charges on the number of users and related costs will take 48
@@ -106,6 +105,7 @@ export interface StartProductSubscriptionCommandOutput extends StartProductSubsc
  * @throws {@link LicenseManagerUserSubscriptionsServiceException}
  * <p>Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.</p>
  *
+ * @public
  */
 export class StartProductSubscriptionCommand extends $Command
   .classBuilder<

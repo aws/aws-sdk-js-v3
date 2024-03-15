@@ -35,7 +35,6 @@ export interface DescribeChannelModeratorCommandInput extends DescribeChannelMod
 export interface DescribeChannelModeratorCommandOutput extends DescribeChannelModeratorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the full details of a single ChannelModerator.</p>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
@@ -102,6 +101,7 @@ export interface DescribeChannelModeratorCommandOutput extends DescribeChannelMo
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class DescribeChannelModeratorCommand extends $Command
   .classBuilder<

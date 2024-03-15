@@ -36,7 +36,6 @@ export interface CancelDataQualityRulesetEvaluationRunCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels a run where a ruleset is being evaluated against a data source.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface CancelDataQualityRulesetEvaluationRunCommandOutput
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class CancelDataQualityRulesetEvaluationRunCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateApplicationSettingsCommandInput extends UpdateApplication
 export interface UpdateApplicationSettingsCommandOutput extends UpdateApplicationSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the settings for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -131,6 +130,7 @@ export interface UpdateApplicationSettingsCommandOutput extends UpdateApplicatio
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class UpdateApplicationSettingsCommand extends $Command
   .classBuilder<

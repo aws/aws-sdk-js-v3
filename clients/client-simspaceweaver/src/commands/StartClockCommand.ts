@@ -27,7 +27,6 @@ export interface StartClockCommandInput extends StartClockInput {}
 export interface StartClockCommandOutput extends StartClockOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts the simulation clock.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface StartClockCommandOutput extends StartClockOutput, __MetadataBea
  * @throws {@link SimSpaceWeaverServiceException}
  * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
+ * @public
  */
 export class StartClockCommand extends $Command
   .classBuilder<

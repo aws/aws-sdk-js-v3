@@ -31,7 +31,6 @@ export interface ListAssessmentsCommandInput extends ListAssessmentsRequest {}
 export interface ListAssessmentsCommandOutput extends ListAssessmentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns a list of current and past assessments from Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface ListAssessmentsCommandOutput extends ListAssessmentsResponse, _
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class ListAssessmentsCommand extends $Command
   .classBuilder<

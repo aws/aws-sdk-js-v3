@@ -28,7 +28,6 @@ export interface DeactivateKeySigningKeyCommandInput extends DeactivateKeySignin
 export interface DeactivateKeySigningKeyCommandOutput extends DeactivateKeySigningKeyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deactivates a key-signing key (KSK) so that it will not be used for signing by DNSSEC.
  * 			This operation changes the KSK status to <code>INACTIVE</code>.</p>
  * @example
@@ -89,6 +88,7 @@ export interface DeactivateKeySigningKeyCommandOutput extends DeactivateKeySigni
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class DeactivateKeySigningKeyCommand extends $Command
   .classBuilder<

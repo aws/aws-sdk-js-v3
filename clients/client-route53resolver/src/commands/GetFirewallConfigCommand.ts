@@ -27,7 +27,6 @@ export interface GetFirewallConfigCommandInput extends GetFirewallConfigRequest 
 export interface GetFirewallConfigCommandOutput extends GetFirewallConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the configuration of the firewall behavior provided by DNS Firewall for a
  * 			single VPC from Amazon Virtual Private Cloud (Amazon VPC). </p>
  * @example
@@ -77,6 +76,7 @@ export interface GetFirewallConfigCommandOutput extends GetFirewallConfigRespons
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class GetFirewallConfigCommand extends $Command
   .classBuilder<

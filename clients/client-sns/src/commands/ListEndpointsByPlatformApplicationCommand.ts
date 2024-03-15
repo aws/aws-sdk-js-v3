@@ -35,7 +35,6 @@ export interface ListEndpointsByPlatformApplicationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the endpoints and endpoint attributes for devices in a supported push
  *             notification service, such as GCM (Firebase Cloud Messaging) and APNS. The results for
  *                 <code>ListEndpointsByPlatformApplication</code> are paginated and return a limited
@@ -94,6 +93,7 @@ export interface ListEndpointsByPlatformApplicationCommandOutput
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * @public
  */
 export class ListEndpointsByPlatformApplicationCommand extends $Command
   .classBuilder<

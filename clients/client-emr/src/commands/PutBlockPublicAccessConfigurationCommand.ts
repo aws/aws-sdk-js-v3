@@ -32,7 +32,6 @@ export interface PutBlockPublicAccessConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates an Amazon EMR block public access configuration for your
  *             Amazon Web Services account in the current Region. For more information see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/configure-block-public-access.html">Configure Block
  *             Public Access for Amazon EMR</a> in the <i>Amazon EMR
@@ -95,6 +94,7 @@ export interface PutBlockPublicAccessConfigurationCommandOutput
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class PutBlockPublicAccessConfigurationCommand extends $Command
   .classBuilder<

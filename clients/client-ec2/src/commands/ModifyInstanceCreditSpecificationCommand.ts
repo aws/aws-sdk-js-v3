@@ -32,7 +32,6 @@ export interface ModifyInstanceCreditSpecificationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the credit option for CPU usage on a running or stopped burstable performance
  *             instance. The credit options are <code>standard</code> and
  *             <code>unlimited</code>.</p>
@@ -84,6 +83,7 @@ export interface ModifyInstanceCreditSpecificationCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyInstanceCreditSpecificationCommand extends $Command
   .classBuilder<

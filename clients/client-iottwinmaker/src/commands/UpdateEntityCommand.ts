@@ -27,7 +27,6 @@ export interface UpdateEntityCommandInput extends UpdateEntityRequest {}
 export interface UpdateEntityCommandOutput extends UpdateEntityResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an entity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -203,6 +202,7 @@ export interface UpdateEntityCommandOutput extends UpdateEntityResponse, __Metad
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ * @public
  */
 export class UpdateEntityCommand extends $Command
   .classBuilder<

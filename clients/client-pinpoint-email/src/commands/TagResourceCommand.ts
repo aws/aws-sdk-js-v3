@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Add one or more tags (keys and values) to a specified resource. A
  *                 <i>tag</i> is a label that you optionally define and associate with a
  *             resource in Amazon Pinpoint. Tags can help you categorize and manage resources in different ways,
@@ -79,6 +78,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

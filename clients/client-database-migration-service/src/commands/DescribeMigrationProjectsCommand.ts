@@ -31,7 +31,6 @@ export interface DescribeMigrationProjectsCommandInput extends DescribeMigration
 export interface DescribeMigrationProjectsCommandOutput extends DescribeMigrationProjectsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a paginated list of migration projects for your account in the current region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface DescribeMigrationProjectsCommandOutput extends DescribeMigratio
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Describe Migration Projects
  * ```javascript
  * // Returns a paginated list of migration projects for your account in the current region.

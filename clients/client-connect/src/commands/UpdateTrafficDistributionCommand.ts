@@ -27,7 +27,6 @@ export interface UpdateTrafficDistributionCommandInput extends UpdateTrafficDist
 export interface UpdateTrafficDistributionCommandOutput extends UpdateTrafficDistributionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the traffic distribution for a given traffic distribution group. </p>
  *          <note>
  *             <p>The <code>SignInConfig</code> distribution is available only on a
@@ -106,6 +105,7 @@ export interface UpdateTrafficDistributionCommandOutput extends UpdateTrafficDis
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UpdateTrafficDistributionCommand extends $Command
   .classBuilder<

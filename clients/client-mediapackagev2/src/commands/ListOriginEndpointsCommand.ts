@@ -27,7 +27,6 @@ export interface ListOriginEndpointsCommandInput extends ListOriginEndpointsRequ
 export interface ListOriginEndpointsCommandOutput extends ListOriginEndpointsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves all origin endpoints in a specific channel that are configured in AWS Elemental MediaPackage.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface ListOriginEndpointsCommandOutput extends ListOriginEndpointsRes
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
+ * @public
  */
 export class ListOriginEndpointsCommand extends $Command
   .classBuilder<

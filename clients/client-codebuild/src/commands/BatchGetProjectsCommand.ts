@@ -27,7 +27,6 @@ export interface BatchGetProjectsCommandInput extends BatchGetProjectsInput {}
 export interface BatchGetProjectsCommandOutput extends BatchGetProjectsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about one or more build projects.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -253,6 +252,7 @@ export interface BatchGetProjectsCommandOutput extends BatchGetProjectsOutput, _
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * @public
  */
 export class BatchGetProjectsCommand extends $Command
   .classBuilder<

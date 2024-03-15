@@ -39,7 +39,6 @@ export interface SetLoadBalancerListenerSSLCertificateCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the certificate that terminates the specified listener's SSL connections. The specified certificate replaces any prior certificate that was used on the same load balancer and port.</p>
  *
  *         <p>For more information about updating your SSL certificate, see
@@ -88,6 +87,7 @@ export interface SetLoadBalancerListenerSSLCertificateCommandOutput
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * @public
  * @example To update the SSL certificate for an HTTPS listener
  * ```javascript
  * // This example replaces the existing SSL certificate for the specified HTTPS listener.

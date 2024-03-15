@@ -27,7 +27,6 @@ export interface GetAnomalySubscriptionsCommandInput extends GetAnomalySubscript
 export interface GetAnomalySubscriptionsCommandOutput extends GetAnomalySubscriptionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the cost anomaly subscription objects for your account. You can filter using a
  *       list of cost anomaly monitor Amazon Resource Names (ARNs). </p>
  * @example
@@ -156,6 +155,7 @@ export interface GetAnomalySubscriptionsCommandOutput extends GetAnomalySubscrip
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * @public
  */
 export class GetAnomalySubscriptionsCommand extends $Command
   .classBuilder<

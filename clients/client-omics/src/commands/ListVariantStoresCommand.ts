@@ -27,7 +27,6 @@ export interface ListVariantStoresCommandInput extends ListVariantStoresRequest 
 export interface ListVariantStoresCommandOutput extends ListVariantStoresResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of variant stores.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface ListVariantStoresCommandOutput extends ListVariantStoresRespons
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class ListVariantStoresCommand extends $Command
   .classBuilder<

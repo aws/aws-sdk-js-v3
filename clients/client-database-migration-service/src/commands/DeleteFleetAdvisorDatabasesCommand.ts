@@ -33,7 +33,6 @@ export interface DeleteFleetAdvisorDatabasesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified Fleet Advisor collector databases.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface DeleteFleetAdvisorDatabasesCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class DeleteFleetAdvisorDatabasesCommand extends $Command
   .classBuilder<

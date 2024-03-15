@@ -31,7 +31,6 @@ export interface StopReplicationCommandInput extends StopReplicationRequest {}
 export interface StopReplicationCommandOutput extends StopReplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops replication for a Source Server. This action would make the Source Server unprotected, delete its existing snapshots and stop billing for it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -177,6 +176,7 @@ export interface StopReplicationCommandOutput extends StopReplicationResponse, _
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * @public
  */
 export class StopReplicationCommand extends $Command
   .classBuilder<

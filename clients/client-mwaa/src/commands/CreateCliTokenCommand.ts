@@ -31,7 +31,6 @@ export interface CreateCliTokenCommandInput extends CreateCliTokenRequest {}
 export interface CreateCliTokenCommandOutput extends CreateCliTokenResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a CLI token for the Airflow CLI. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/call-mwaa-apis-cli.html">Creating an Apache Airflow CLI token</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +62,7 @@ export interface CreateCliTokenCommandOutput extends CreateCliTokenResponse, __M
  * @throws {@link MWAAServiceException}
  * <p>Base exception class for all service exceptions from MWAA service.</p>
  *
+ * @public
  */
 export class CreateCliTokenCommand extends $Command
   .classBuilder<

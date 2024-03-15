@@ -32,7 +32,6 @@ export interface PutDeliverabilityDashboardOptionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Enable or disable the Deliverability dashboard for your Amazon Pinpoint account. When you enable the
  *             Deliverability dashboard, you gain access to reputation, deliverability, and other metrics for
  *             the domains that you use to send email using Amazon Pinpoint. You also gain the ability to perform
@@ -91,6 +90,7 @@ export interface PutDeliverabilityDashboardOptionCommandOutput
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * @public
  */
 export class PutDeliverabilityDashboardOptionCommand extends $Command
   .classBuilder<

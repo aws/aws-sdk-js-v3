@@ -27,7 +27,6 @@ export interface DescribeTransformJobCommandInput extends DescribeTransformJobRe
 export interface DescribeTransformJobCommandOutput extends DescribeTransformJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a transform job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -115,6 +114,7 @@ export interface DescribeTransformJobCommandOutput extends DescribeTransformJobR
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeTransformJobCommand extends $Command
   .classBuilder<

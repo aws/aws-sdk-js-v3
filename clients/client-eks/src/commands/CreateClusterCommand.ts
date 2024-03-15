@@ -27,7 +27,6 @@ export interface CreateClusterCommandInput extends CreateClusterRequest {}
 export interface CreateClusterCommandOutput extends CreateClusterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon EKS control plane.</p>
  *          <p>The Amazon EKS control plane consists of control plane instances that run the
  *             Kubernetes software, such as <code>etcd</code> and the API server. The control plane runs in
@@ -264,6 +263,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  * @example To create a new cluster
  * ```javascript
  * // The following example creates an Amazon EKS cluster called prod.

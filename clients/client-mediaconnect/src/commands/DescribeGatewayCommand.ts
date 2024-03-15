@@ -27,7 +27,6 @@ export interface DescribeGatewayCommandInput extends DescribeGatewayRequest {}
 export interface DescribeGatewayCommandOutput extends DescribeGatewayResponse, __MetadataBearer {}
 
 /**
- * @public
  * Displays the details of a gateway. The response includes the gateway ARN, name, and CIDR blocks, as well as details about the networks.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface DescribeGatewayCommandOutput extends DescribeGatewayResponse, _
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ * @public
  */
 export class DescribeGatewayCommand extends $Command
   .classBuilder<

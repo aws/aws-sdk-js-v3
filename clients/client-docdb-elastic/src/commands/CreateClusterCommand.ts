@@ -27,7 +27,6 @@ export interface CreateClusterCommandInput extends CreateClusterInput {}
 export interface CreateClusterCommandOutput extends CreateClusterOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new Amazon DocumentDB elastic cluster and returns its cluster structure.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -121,6 +120,7 @@ export interface CreateClusterCommandOutput extends CreateClusterOutput, __Metad
  * @throws {@link DocDBElasticServiceException}
  * <p>Base exception class for all service exceptions from DocDBElastic service.</p>
  *
+ * @public
  */
 export class CreateClusterCommand extends $Command
   .classBuilder<

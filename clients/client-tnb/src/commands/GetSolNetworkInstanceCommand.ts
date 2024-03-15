@@ -31,7 +31,6 @@ export interface GetSolNetworkInstanceCommandInput extends GetSolNetworkInstance
 export interface GetSolNetworkInstanceCommandOutput extends GetSolNetworkInstanceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the details of the network instance.</p>
  *          <p>A network instance is a single network created in Amazon Web Services TNB that can be deployed and on which life-cycle operations (like terminate, update, and delete) can be performed.</p>
  * @example
@@ -91,6 +90,7 @@ export interface GetSolNetworkInstanceCommandOutput extends GetSolNetworkInstanc
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ * @public
  */
 export class GetSolNetworkInstanceCommand extends $Command
   .classBuilder<

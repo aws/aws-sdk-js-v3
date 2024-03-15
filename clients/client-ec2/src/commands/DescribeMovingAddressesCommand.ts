@@ -27,7 +27,6 @@ export interface DescribeMovingAddressesCommandInput extends DescribeMovingAddre
 export interface DescribeMovingAddressesCommandOutput extends DescribeMovingAddressesResult, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This action is deprecated.</p>
  *          </note>
@@ -78,6 +77,7 @@ export interface DescribeMovingAddressesCommandOutput extends DescribeMovingAddr
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To describe your moving addresses
  * ```javascript
  * // This example describes all of your moving Elastic IP addresses.

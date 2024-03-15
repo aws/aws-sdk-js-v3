@@ -31,7 +31,6 @@ export interface DescribeGroupCommandInput extends DescribeGroupRequest {}
 export interface DescribeGroupCommandOutput extends DescribeGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the group metadata and attributes from <code>GroupId</code> in an identity
  *          store.</p>
  *          <note>
@@ -90,6 +89,7 @@ export interface DescribeGroupCommandOutput extends DescribeGroupResponse, __Met
  * @throws {@link IdentitystoreServiceException}
  * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
+ * @public
  */
 export class DescribeGroupCommand extends $Command
   .classBuilder<

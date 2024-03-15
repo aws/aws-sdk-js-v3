@@ -27,7 +27,6 @@ export interface DescribeFHIRDatastoreCommandInput extends DescribeFHIRDatastore
 export interface DescribeFHIRDatastoreCommandOutput extends DescribeFHIRDatastoreResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the properties associated with the FHIR data store, including the data store ID,
  *          data store ARN, data store name, data store status, when the data store was created, data store type version, and the data store's endpoint.</p>
  * @example
@@ -91,6 +90,7 @@ export interface DescribeFHIRDatastoreCommandOutput extends DescribeFHIRDatastor
  * @throws {@link HealthLakeServiceException}
  * <p>Base exception class for all service exceptions from HealthLake service.</p>
  *
+ * @public
  */
 export class DescribeFHIRDatastoreCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeStaleSecurityGroupsCommandInput extends DescribeStaleSe
 export interface DescribeStaleSecurityGroupsCommandOutput extends DescribeStaleSecurityGroupsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the stale security group rules for security groups in a specified VPC.
  *           Rules are stale when they reference a deleted security group in the same VPC or peered VPC. Rules can also be stale if they reference a security group in a peer VPC for which the VPC peering connection has
  *           been deleted.</p>
@@ -116,6 +115,7 @@ export interface DescribeStaleSecurityGroupsCommandOutput extends DescribeStaleS
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeStaleSecurityGroupsCommand extends $Command
   .classBuilder<

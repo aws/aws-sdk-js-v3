@@ -32,7 +32,6 @@ export interface UpdateResourceProfileDetectionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the sensitivity scoring settings for an S3 bucket.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface UpdateResourceProfileDetectionsCommandOutput
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class UpdateResourceProfileDetectionsCommand extends $Command
   .classBuilder<

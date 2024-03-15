@@ -31,7 +31,6 @@ export interface GetConfigurationProfileCommandInput extends GetConfigurationPro
 export interface GetConfigurationProfileCommandOutput extends ConfigurationProfile, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about a configuration profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface GetConfigurationProfileCommandOutput extends ConfigurationProfi
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  * @example To retrieve configuration profile details
  * ```javascript
  * // The following get-configuration-profile example returns the details of the specified configuration profile.

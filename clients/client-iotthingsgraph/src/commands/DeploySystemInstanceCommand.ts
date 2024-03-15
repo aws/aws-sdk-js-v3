@@ -27,9 +27,6 @@ export interface DeploySystemInstanceCommandInput extends DeploySystemInstanceRe
 export interface DeploySystemInstanceCommandOutput extends DeploySystemInstanceResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated since: 2022-08-30
- *
  * <p>
  *             <b>Greengrass and Cloud Deployments</b>
  *          </p>
@@ -94,6 +91,8 @@ export interface DeploySystemInstanceCommandOutput extends DeploySystemInstanceR
  * @throws {@link IoTThingsGraphServiceException}
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ * @public
+ * @deprecated since: 2022-08-30
  */
 export class DeploySystemInstanceCommand extends $Command
   .classBuilder<

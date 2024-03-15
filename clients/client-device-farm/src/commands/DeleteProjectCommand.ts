@@ -27,7 +27,6 @@ export interface DeleteProjectCommandInput extends DeleteProjectRequest {}
 export interface DeleteProjectCommandOutput extends DeleteProjectResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an AWS Device Farm project, given the project ARN.</p>
  *         <p> Deleting this resource does not stop an in-progress run.</p>
  * @example
@@ -66,6 +65,7 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResult, __Metad
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To delete a project
  * ```javascript
  * // The following example deletes a specific project.

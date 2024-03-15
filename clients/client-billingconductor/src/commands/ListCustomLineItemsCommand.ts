@@ -32,7 +32,6 @@ export interface ListCustomLineItemsCommandInput extends ListCustomLineItemsInpu
 export interface ListCustomLineItemsCommandOutput extends ListCustomLineItemsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       A paginated call to get a list of all custom line items (FFLIs) for the given billing period. If you don't provide a billing period, the current billing period is used.
  *     </p>
@@ -129,6 +128,7 @@ export interface ListCustomLineItemsCommandOutput extends ListCustomLineItemsOut
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ * @public
  */
 export class ListCustomLineItemsCommand extends $Command
   .classBuilder<

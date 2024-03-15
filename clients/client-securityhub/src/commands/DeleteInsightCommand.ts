@@ -27,7 +27,6 @@ export interface DeleteInsightCommandInput extends DeleteInsightRequest {}
 export interface DeleteInsightCommandOutput extends DeleteInsightResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the insight specified by the <code>InsightArn</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface DeleteInsightCommandOutput extends DeleteInsightResponse, __Met
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To delete a custom insight
  * ```javascript
  * // The following example deletes a custom insight in Security Hub.

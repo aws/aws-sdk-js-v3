@@ -31,7 +31,6 @@ export interface ListApplicationsCommandInput extends ListApplicationsRequest {}
 export interface ListApplicationsCommandOutput extends ListApplicationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of Managed Service for Apache Flink applications in your account. For each
  *       application, the response includes the application name, Amazon Resource Name (ARN), and
  *       status. </p>
@@ -77,6 +76,7 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ * @public
  */
 export class ListApplicationsCommand extends $Command
   .classBuilder<

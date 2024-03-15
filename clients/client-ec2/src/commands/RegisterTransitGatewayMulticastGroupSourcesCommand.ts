@@ -34,7 +34,6 @@ export interface RegisterTransitGatewayMulticastGroupSourcesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers sources (network interfaces) with the specified  transit gateway multicast group.</p>
  *          <p>A multicast source is a network interface attached to a supported instance that sends
  *             multicast traffic. For information about supported instances, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-limits.html#multicast-limits">Multicast
@@ -78,6 +77,7 @@ export interface RegisterTransitGatewayMulticastGroupSourcesCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class RegisterTransitGatewayMulticastGroupSourcesCommand extends $Command
   .classBuilder<

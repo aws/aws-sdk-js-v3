@@ -27,7 +27,6 @@ export interface ListMatchingJobsCommandInput extends ListMatchingJobsInput {}
 export interface ListMatchingJobsCommandOutput extends ListMatchingJobsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all jobs for a given workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface ListMatchingJobsCommandOutput extends ListMatchingJobsOutput, _
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ * @public
  */
 export class ListMatchingJobsCommand extends $Command
   .classBuilder<

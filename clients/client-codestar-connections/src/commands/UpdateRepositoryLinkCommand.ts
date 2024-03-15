@@ -31,7 +31,6 @@ export interface UpdateRepositoryLinkCommandInput extends UpdateRepositoryLinkIn
 export interface UpdateRepositoryLinkCommandOutput extends UpdateRepositoryLinkOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the association between your connection and a specified external Git repository.
  *       A repository link allows Git sync to monitor and sync changes to files in a specified Git
  *       repository.</p>
@@ -92,6 +91,7 @@ export interface UpdateRepositoryLinkCommandOutput extends UpdateRepositoryLinkO
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ * @public
  */
 export class UpdateRepositoryLinkCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteLanguageModelCommandInput extends DeleteLanguageModelRequ
 export interface DeleteLanguageModelCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a custom language model. To use this operation, specify the name of the
  *             language model you want to delete using <code>ModelName</code>. custom language model
  *             names are case sensitive.</p>
@@ -69,6 +68,7 @@ export interface DeleteLanguageModelCommandOutput extends __MetadataBearer {}
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * @public
  */
 export class DeleteLanguageModelCommand extends $Command
   .classBuilder<

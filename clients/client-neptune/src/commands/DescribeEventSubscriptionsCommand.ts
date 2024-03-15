@@ -27,7 +27,6 @@ export interface DescribeEventSubscriptionsCommandInput extends DescribeEventSub
 export interface DescribeEventSubscriptionsCommandOutput extends EventSubscriptionsMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the subscription descriptions for a customer account. The description for a
  *       subscription includes SubscriptionName, SNSTopicARN, CustomerID, SourceType, SourceID,
  *       CreationTime, and Status.</p>
@@ -89,6 +88,7 @@ export interface DescribeEventSubscriptionsCommandOutput extends EventSubscripti
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class DescribeEventSubscriptionsCommand extends $Command
   .classBuilder<

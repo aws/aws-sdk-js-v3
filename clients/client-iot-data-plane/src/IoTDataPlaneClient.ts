@@ -273,7 +273,6 @@ export type IoTDataPlaneClientResolvedConfigType = __SmithyResolvedConfiguration
 export interface IoTDataPlaneClientResolvedConfig extends IoTDataPlaneClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>IoT data</fullname>
  *          <p>IoT data enables secure, bi-directional communication between Internet-connected things (such as sensors,
  *       actuators, embedded devices, or smart appliances) and the Amazon Web Services cloud. It implements a broker for applications and
@@ -285,6 +284,7 @@ export interface IoTDataPlaneClientResolvedConfig extends IoTDataPlaneClientReso
  *          </p>
  *          <p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Amazon Web ServicesSignature Version 4</a>
  *       to sign requests is: <i>iotdevicegateway</i>.</p>
+ * @public
  */
 export class IoTDataPlaneClient extends __Client<
   __HttpHandlerOptions,

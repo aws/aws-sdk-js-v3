@@ -27,7 +27,6 @@ export interface UpdateDatasourcePackagesCommandInput extends UpdateDatasourcePa
 export interface UpdateDatasourcePackagesCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a data source packages for the behavior graph.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface UpdateDatasourcePackagesCommandOutput extends __MetadataBearer 
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ * @public
  */
 export class UpdateDatasourcePackagesCommand extends $Command
   .classBuilder<

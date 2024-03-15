@@ -28,7 +28,6 @@ export interface DeleteTrafficPolicyCommandInput extends DeleteTrafficPolicyRequ
 export interface DeleteTrafficPolicyCommandOutput extends DeleteTrafficPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a traffic policy.</p>
  *          <p>When you delete a traffic policy, Route 53 sets a flag on the policy to indicate that
  * 			it has been deleted. However, Route 53 never fully deletes the traffic policy. Note the
@@ -84,6 +83,7 @@ export interface DeleteTrafficPolicyCommandOutput extends DeleteTrafficPolicyRes
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class DeleteTrafficPolicyCommand extends $Command
   .classBuilder<

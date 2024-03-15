@@ -27,7 +27,6 @@ export interface ListProfilesCommandInput extends ListProfilesInput {}
 export interface ListProfilesCommandOutput extends ListProfilesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>List profiles.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface ListProfilesCommandOutput extends ListProfilesOutput, __Metadat
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * @public
  */
 export class ListProfilesCommand extends $Command
   .classBuilder<

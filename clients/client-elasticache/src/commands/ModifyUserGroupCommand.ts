@@ -27,7 +27,6 @@ export interface ModifyUserGroupCommandInput extends ModifyUserGroupMessage {}
 export interface ModifyUserGroupCommandOutput extends UserGroup, __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes the list of users that belong to the user group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface ModifyUserGroupCommandOutput extends UserGroup, __MetadataBeare
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  */
 export class ModifyUserGroupCommand extends $Command
   .classBuilder<

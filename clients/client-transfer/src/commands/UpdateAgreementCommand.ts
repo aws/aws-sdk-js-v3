@@ -27,7 +27,6 @@ export interface UpdateAgreementCommandInput extends UpdateAgreementRequest {}
 export interface UpdateAgreementCommandOutput extends UpdateAgreementResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates some of the parameters for an existing agreement. Provide the
  *         <code>AgreementId</code> and the <code>ServerId</code> for the agreement that you want to
  *       update, along with the new values for the parameters to update.</p>
@@ -83,6 +82,7 @@ export interface UpdateAgreementCommandOutput extends UpdateAgreementResponse, _
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class UpdateAgreementCommand extends $Command
   .classBuilder<

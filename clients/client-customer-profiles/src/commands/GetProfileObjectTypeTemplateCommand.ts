@@ -36,7 +36,6 @@ export interface GetProfileObjectTypeTemplateCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the template information for a specific object type.</p>
  *          <p>A template is a predefined ProfileObjectType, such as “Salesforce-Account” or
  *          “Salesforce-Contact.” When a user sends a ProfileObject, using the PutProfileObject API,
@@ -106,6 +105,7 @@ export interface GetProfileObjectTypeTemplateCommandOutput
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * @public
  */
 export class GetProfileObjectTypeTemplateCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface BatchGetReportsCommandInput extends BatchGetReportsInput {}
 export interface BatchGetReportsCommandOutput extends BatchGetReportsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Returns an array of reports.
  *     </p>
@@ -103,6 +102,7 @@ export interface BatchGetReportsCommandOutput extends BatchGetReportsOutput, __M
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * @public
  */
 export class BatchGetReportsCommand extends $Command
   .classBuilder<

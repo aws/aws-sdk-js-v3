@@ -27,7 +27,6 @@ export interface PrepareAgentCommandInput extends PrepareAgentRequest {}
 export interface PrepareAgentCommandOutput extends PrepareAgentResponse, __MetadataBearer {}
 
 /**
- * @public
  * Prepares an existing Amazon Bedrock Agent to receive runtime requests
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface PrepareAgentCommandOutput extends PrepareAgentResponse, __Metad
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ * @public
  */
 export class PrepareAgentCommand extends $Command
   .classBuilder<

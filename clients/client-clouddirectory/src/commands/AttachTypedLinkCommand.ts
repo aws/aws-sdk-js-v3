@@ -27,7 +27,6 @@ export interface AttachTypedLinkCommandInput extends AttachTypedLinkRequest {}
 export interface AttachTypedLinkCommandOutput extends AttachTypedLinkResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches a typed link to a specified source and target object. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -133,6 +132,7 @@ export interface AttachTypedLinkCommandOutput extends AttachTypedLinkResponse, _
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class AttachTypedLinkCommand extends $Command
   .classBuilder<

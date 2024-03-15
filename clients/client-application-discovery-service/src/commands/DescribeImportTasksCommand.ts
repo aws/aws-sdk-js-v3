@@ -31,7 +31,6 @@ export interface DescribeImportTasksCommandInput extends DescribeImportTasksRequ
 export interface DescribeImportTasksCommandOutput extends DescribeImportTasksResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an array of import tasks for your account, including status information, times,
  *       IDs, the Amazon S3 Object URL for the import file, and more.</p>
  * @example
@@ -103,6 +102,7 @@ export interface DescribeImportTasksCommandOutput extends DescribeImportTasksRes
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ * @public
  */
 export class DescribeImportTasksCommand extends $Command
   .classBuilder<

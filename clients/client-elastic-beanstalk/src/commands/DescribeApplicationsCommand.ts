@@ -27,7 +27,6 @@ export interface DescribeApplicationsCommandInput extends DescribeApplicationsMe
 export interface DescribeApplicationsCommandOutput extends ApplicationDescriptionsMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the descriptions of existing applications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface DescribeApplicationsCommandOutput extends ApplicationDescriptio
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  * @example To view a list of applications
  * ```javascript
  * // The following operation retrieves information about applications in the current region:

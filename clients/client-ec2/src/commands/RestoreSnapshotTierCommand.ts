@@ -27,7 +27,6 @@ export interface RestoreSnapshotTierCommandInput extends RestoreSnapshotTierRequ
 export interface RestoreSnapshotTierCommandOutput extends RestoreSnapshotTierResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Restores an archived Amazon EBS snapshot for use temporarily or permanently, or modifies the restore
  *       period or restore type for a snapshot that was previously temporarily restored.</p>
  *          <p>For more information see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/working-with-snapshot-archiving.html#restore-archived-snapshot">
@@ -65,6 +64,7 @@ export interface RestoreSnapshotTierCommandOutput extends RestoreSnapshotTierRes
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class RestoreSnapshotTierCommand extends $Command
   .classBuilder<

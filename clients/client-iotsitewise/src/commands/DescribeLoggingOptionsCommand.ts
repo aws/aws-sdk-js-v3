@@ -27,7 +27,6 @@ export interface DescribeLoggingOptionsCommandInput extends DescribeLoggingOptio
 export interface DescribeLoggingOptionsCommandOutput extends DescribeLoggingOptionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the current IoT SiteWise logging options.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface DescribeLoggingOptionsCommandOutput extends DescribeLoggingOpti
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class DescribeLoggingOptionsCommand extends $Command
   .classBuilder<

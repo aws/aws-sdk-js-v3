@@ -27,7 +27,6 @@ export interface SendRawEmailCommandInput extends SendRawEmailRequest {}
 export interface SendRawEmailCommandOutput extends SendRawEmailResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Composes an email message and immediately queues it for sending.</p>
  *          <p>This operation is more flexible than the <code>SendEmail</code> operation. When you
  *             use the <code>SendRawEmail</code> operation, you can specify the headers of the message
@@ -192,6 +191,7 @@ export interface SendRawEmailCommandOutput extends SendRawEmailResponse, __Metad
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example SendRawEmail
  * ```javascript
  * // The following example sends an email with an attachment:

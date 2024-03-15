@@ -27,7 +27,6 @@ export interface DeleteAttachmentCommandInput extends DeleteAttachmentRequest {}
 export interface DeleteAttachmentCommandOutput extends DeleteAttachmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an attachment. Supports all attachment types.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface DeleteAttachmentCommandOutput extends DeleteAttachmentResponse,
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class DeleteAttachmentCommand extends $Command
   .classBuilder<

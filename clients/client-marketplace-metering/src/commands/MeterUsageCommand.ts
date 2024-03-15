@@ -31,7 +31,6 @@ export interface MeterUsageCommandInput extends MeterUsageRequest {}
 export interface MeterUsageCommandOutput extends MeterUsageResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>API to emit metering records. For identical requests, the API is idempotent. It simply
  *             returns the metering record ID.</p>
  *          <p>
@@ -127,6 +126,7 @@ export interface MeterUsageCommandOutput extends MeterUsageResult, __MetadataBea
  * @throws {@link MarketplaceMeteringServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceMetering service.</p>
  *
+ * @public
  */
 export class MeterUsageCommand extends $Command
   .classBuilder<

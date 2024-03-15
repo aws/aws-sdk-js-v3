@@ -31,7 +31,6 @@ export interface GetSessionEmbedUrlCommandInput extends GetSessionEmbedUrlReques
 export interface GetSessionEmbedUrlCommandOutput extends GetSessionEmbedUrlResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Generates a session URL and authorization code that you can use to embed the Amazon
  *             Amazon QuickSight console in your web server code. Use <code>GetSessionEmbedUrl</code> where
  *             you want to provide an authoring portal that allows users to create data sources,
@@ -125,6 +124,7 @@ export interface GetSessionEmbedUrlCommandOutput extends GetSessionEmbedUrlRespo
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class GetSessionEmbedUrlCommand extends $Command
   .classBuilder<

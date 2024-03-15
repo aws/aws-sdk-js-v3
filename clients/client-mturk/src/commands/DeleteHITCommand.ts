@@ -27,7 +27,6 @@ export interface DeleteHITCommandInput extends DeleteHITRequest {}
 export interface DeleteHITCommandOutput extends DeleteHITResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The <code>DeleteHIT</code> operation is used to delete HIT that is no longer needed.
  *             Only the Requester who created the HIT can delete it.
@@ -94,6 +93,7 @@ export interface DeleteHITCommandOutput extends DeleteHITResponse, __MetadataBea
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * @public
  */
 export class DeleteHITCommand extends $Command
   .classBuilder<

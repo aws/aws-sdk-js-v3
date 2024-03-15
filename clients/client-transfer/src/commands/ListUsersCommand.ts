@@ -27,7 +27,6 @@ export interface ListUsersCommandInput extends ListUsersRequest {}
 export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the users for a file transfer protocol-enabled server that you specify by passing
  *       the <code>ServerId</code> parameter.</p>
  * @example
@@ -85,6 +84,7 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class ListUsersCommand extends $Command
   .classBuilder<

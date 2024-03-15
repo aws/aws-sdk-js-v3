@@ -27,7 +27,6 @@ export interface BatchUpdateClusterCommandInput extends BatchUpdateClusterReques
 export interface BatchUpdateClusterCommandOutput extends BatchUpdateClusterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Apply the service update to a list of clusters supplied. For more information on service updates and applying them, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/managing-updates.html#applying-updates">Applying the service updates</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -144,6 +143,7 @@ export interface BatchUpdateClusterCommandOutput extends BatchUpdateClusterRespo
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * @public
  */
 export class BatchUpdateClusterCommand extends $Command
   .classBuilder<

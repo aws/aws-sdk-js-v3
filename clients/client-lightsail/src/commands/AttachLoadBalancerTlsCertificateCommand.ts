@@ -32,7 +32,6 @@ export interface AttachLoadBalancerTlsCertificateCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches a Transport Layer Security (TLS) certificate to your load balancer. TLS is just
  *       an updated, more secure version of Secure Socket Layer (SSL).</p>
  *          <p>Once you create and validate your certificate, you can attach it to your load balancer.
@@ -117,6 +116,7 @@ export interface AttachLoadBalancerTlsCertificateCommandOutput
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class AttachLoadBalancerTlsCertificateCommand extends $Command
   .classBuilder<

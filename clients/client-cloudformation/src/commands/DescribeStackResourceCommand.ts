@@ -27,7 +27,6 @@ export interface DescribeStackResourceCommandInput extends DescribeStackResource
 export interface DescribeStackResourceCommandOutput extends DescribeStackResourceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a description of the specified resource in the specified stack.</p>
  *          <p>For deleted stacks, DescribeStackResource returns resource information for up to 90 days after the stack has
  *    been deleted.</p>
@@ -77,6 +76,7 @@ export interface DescribeStackResourceCommandOutput extends DescribeStackResourc
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class DescribeStackResourceCommand extends $Command
   .classBuilder<

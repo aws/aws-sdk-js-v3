@@ -35,7 +35,6 @@ export interface DescribeTransitGatewayConnectPeersCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes one or more Connect peers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -107,6 +106,7 @@ export interface DescribeTransitGatewayConnectPeersCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeTransitGatewayConnectPeersCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface DeleteReplicationConfigCommandInput extends DeleteReplicationCo
 export interface DeleteReplicationConfigCommandOutput extends DeleteReplicationConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an DMS Serverless replication configuration. This effectively deprovisions any and all
  *          replications that use this configuration. You can't delete the configuration for an DMS Serverless replication
  *          that is ongoing. You can delete the configuration when the replication is in a non-RUNNING and non-STARTING state.</p>
@@ -95,6 +94,7 @@ export interface DeleteReplicationConfigCommandOutput extends DeleteReplicationC
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class DeleteReplicationConfigCommand extends $Command
   .classBuilder<

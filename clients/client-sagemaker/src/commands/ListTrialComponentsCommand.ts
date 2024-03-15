@@ -27,7 +27,6 @@ export interface ListTrialComponentsCommandInput extends ListTrialComponentsRequ
 export interface ListTrialComponentsCommandOutput extends ListTrialComponentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the trial components in your account. You can sort the list by trial component name
  *       or creation time. You can filter the list to show only components that were created in a
  *       specific time range. You can also filter on one of the following:</p>
@@ -124,6 +123,7 @@ export interface ListTrialComponentsCommandOutput extends ListTrialComponentsRes
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListTrialComponentsCommand extends $Command
   .classBuilder<

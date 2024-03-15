@@ -27,7 +27,6 @@ export interface BatchDeleteImageCommandInput extends BatchDeleteImageRequest {}
 export interface BatchDeleteImageCommandOutput extends BatchDeleteImageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a list of specified images within a repository. Images are specified with
  *             either an <code>imageTag</code> or <code>imageDigest</code>.</p>
  *          <p>You can remove a tag from an image by specifying the image's tag in your request. When
@@ -93,6 +92,7 @@ export interface BatchDeleteImageCommandOutput extends BatchDeleteImageResponse,
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * @public
  * @example To delete multiple images
  * ```javascript
  * // This example deletes images with the tags precise and trusty in a repository called ubuntu in the default registry for an account.

@@ -27,7 +27,6 @@ export interface DeleteTaskTemplateCommandInput extends DeleteTaskTemplateReques
 export interface DeleteTaskTemplateCommandOutput extends DeleteTaskTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the task template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface DeleteTaskTemplateCommandOutput extends DeleteTaskTemplateRespo
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DeleteTaskTemplateCommand extends $Command
   .classBuilder<

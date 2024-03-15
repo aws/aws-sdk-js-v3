@@ -27,7 +27,6 @@ export interface CreateIngestionCommandInput extends CreateIngestionRequest {}
 export interface CreateIngestionCommandOutput extends CreateIngestionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a data ingestion for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface CreateIngestionCommandOutput extends CreateIngestionResponse, _
  * @throws {@link AppFabricServiceException}
  * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
+ * @public
  */
 export class CreateIngestionCommand extends $Command
   .classBuilder<

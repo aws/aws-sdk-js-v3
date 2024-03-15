@@ -27,7 +27,6 @@ export interface ListExportsCommandInput extends ListExportsRequest {}
 export interface ListExportsCommandOutput extends ListExportsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all data export definitions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface ListExportsCommandOutput extends ListExportsResponse, __Metadat
  * @throws {@link BCMDataExportsServiceException}
  * <p>Base exception class for all service exceptions from BCMDataExports service.</p>
  *
+ * @public
  */
 export class ListExportsCommand extends $Command
   .classBuilder<

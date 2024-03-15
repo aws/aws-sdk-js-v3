@@ -27,7 +27,6 @@ export interface ListCodegenJobsCommandInput extends ListCodegenJobsRequest {}
 export interface ListCodegenJobsCommandOutput extends ListCodegenJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of code generation jobs for a specified Amplify app and backend environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface ListCodegenJobsCommandOutput extends ListCodegenJobsResponse, _
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ * @public
  */
 export class ListCodegenJobsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetItemCommandInput extends GetItemInput {}
 export interface GetItemCommandOutput extends GetItemOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>The <code>GetItem</code> operation returns a set of attributes for the item with the
  *             given primary key. If there is no matching item, <code>GetItem</code> does not return
  *             any data and there will be no <code>Item</code> element in the response.</p>
@@ -205,6 +204,7 @@ export interface GetItemCommandOutput extends GetItemOutput, __MetadataBearer {}
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  * @example To read an item from a table
  * ```javascript
  * // This example retrieves an item from the Music table. The table has a partition key and a sort key (Artist and SongTitle), so you must specify both of these attributes.

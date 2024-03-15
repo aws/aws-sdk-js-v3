@@ -31,9 +31,6 @@ export interface UpdateAppInstanceCommandInput extends UpdateAppInstanceRequest 
 export interface UpdateAppInstanceCommandOutput extends UpdateAppInstanceResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by UpdateAppInstance in the Amazon Chime SDK Identity Namespace
- *
  * <p>Updates <code>AppInstance</code> metadata.</p>
  *          <important>
  *             <p>
@@ -92,6 +89,8 @@ export interface UpdateAppInstanceCommandOutput extends UpdateAppInstanceRespons
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by UpdateAppInstance in the Amazon Chime SDK Identity Namespace
  */
 export class UpdateAppInstanceCommand extends $Command
   .classBuilder<

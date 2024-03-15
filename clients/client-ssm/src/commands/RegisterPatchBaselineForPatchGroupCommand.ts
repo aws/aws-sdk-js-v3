@@ -35,7 +35,6 @@ export interface RegisterPatchBaselineForPatchGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers a patch baseline for a patch group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface RegisterPatchBaselineForPatchGroupCommandOutput
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class RegisterPatchBaselineForPatchGroupCommand extends $Command
   .classBuilder<

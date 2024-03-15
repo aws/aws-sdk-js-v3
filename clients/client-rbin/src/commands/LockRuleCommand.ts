@@ -27,7 +27,6 @@ export interface LockRuleCommandInput extends LockRuleRequest {}
 export interface LockRuleCommandOutput extends LockRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Locks a retention rule. A locked retention rule can't be modified or deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface LockRuleCommandOutput extends LockRuleResponse, __MetadataBeare
  * @throws {@link RbinServiceException}
  * <p>Base exception class for all service exceptions from Rbin service.</p>
  *
+ * @public
  */
 export class LockRuleCommand extends $Command
   .classBuilder<

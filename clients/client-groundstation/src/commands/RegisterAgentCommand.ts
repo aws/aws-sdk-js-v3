@@ -27,7 +27,6 @@ export interface RegisterAgentCommandInput extends RegisterAgentRequest {}
 export interface RegisterAgentCommandOutput extends RegisterAgentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p> For use by AWS Ground Station Agent and shouldn't be called directly.</p>
  *          </note>
@@ -96,6 +95,7 @@ export interface RegisterAgentCommandOutput extends RegisterAgentResponse, __Met
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ * @public
  */
 export class RegisterAgentCommand extends $Command
   .classBuilder<

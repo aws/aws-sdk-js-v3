@@ -28,7 +28,6 @@ export interface TestDNSAnswerCommandInput extends TestDNSAnswerRequest {}
 export interface TestDNSAnswerCommandOutput extends TestDNSAnswerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the value that Amazon Route 53 returns in response to a DNS request for a
  * 			specified record name and type. You can optionally specify the IP address of a DNS
  * 			resolver, an EDNS0 client subnet IP address, and a subnet mask. </p>
@@ -83,6 +82,7 @@ export interface TestDNSAnswerCommandOutput extends TestDNSAnswerResponse, __Met
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class TestDNSAnswerCommand extends $Command
   .classBuilder<

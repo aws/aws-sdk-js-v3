@@ -27,7 +27,6 @@ export interface DescribeClustersCommandInput extends DescribeClustersRequest {}
 export interface DescribeClustersCommandOutput extends DescribeClustersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about all provisioned DAX clusters if no cluster identifier
  *             is specified, or about a specific DAX cluster if a cluster identifier is
  *             supplied.</p>
@@ -140,6 +139,7 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * @throws {@link DAXServiceException}
  * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ * @public
  */
 export class DescribeClustersCommand extends $Command
   .classBuilder<

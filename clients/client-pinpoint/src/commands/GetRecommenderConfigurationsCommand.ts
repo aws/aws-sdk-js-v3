@@ -32,7 +32,6 @@ export interface GetRecommenderConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about all the recommender model configurations that are associated with your Amazon Pinpoint account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface GetRecommenderConfigurationsCommandOutput
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class GetRecommenderConfigurationsCommand extends $Command
   .classBuilder<

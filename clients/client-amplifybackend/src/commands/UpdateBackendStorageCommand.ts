@@ -27,7 +27,6 @@ export interface UpdateBackendStorageCommandInput extends UpdateBackendStorageRe
 export interface UpdateBackendStorageCommandOutput extends UpdateBackendStorageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing backend storage resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface UpdateBackendStorageCommandOutput extends UpdateBackendStorageR
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ * @public
  */
 export class UpdateBackendStorageCommand extends $Command
   .classBuilder<

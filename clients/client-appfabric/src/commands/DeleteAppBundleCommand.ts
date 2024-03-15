@@ -27,7 +27,6 @@ export interface DeleteAppBundleCommandInput extends DeleteAppBundleRequest {}
 export interface DeleteAppBundleCommandOutput extends DeleteAppBundleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an app bundle. You must delete all associated app authorizations before you can
  *          delete an app bundle.</p>
  * @example
@@ -70,6 +69,7 @@ export interface DeleteAppBundleCommandOutput extends DeleteAppBundleResponse, _
  * @throws {@link AppFabricServiceException}
  * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
+ * @public
  */
 export class DeleteAppBundleCommand extends $Command
   .classBuilder<

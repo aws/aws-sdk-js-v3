@@ -36,7 +36,6 @@ export interface GetIdentityProviderByIdentifierCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the specified IdP.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface GetIdentityProviderByIdentifierCommandOutput
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class GetIdentityProviderByIdentifierCommand extends $Command
   .classBuilder<

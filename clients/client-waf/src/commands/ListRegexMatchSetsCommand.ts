@@ -27,7 +27,6 @@ export interface ListRegexMatchSetsCommandInput extends ListRegexMatchSetsReques
 export interface ListRegexMatchSetsCommandOutput extends ListRegexMatchSetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -76,6 +75,7 @@ export interface ListRegexMatchSetsCommandOutput extends ListRegexMatchSetsRespo
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
+ * @public
  */
 export class ListRegexMatchSetsCommand extends $Command
   .classBuilder<

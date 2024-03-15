@@ -27,7 +27,6 @@ export interface ListPresetsCommandInput extends ListPresetsRequest {}
 export interface ListPresetsCommandOutput extends ListPresetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * Retrieve a JSON array of up to twenty of your presets. This will return the presets themselves, not just a list of them. To retrieve the next twenty presets, use the nextToken string returned with the array.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -888,6 +887,7 @@ export interface ListPresetsCommandOutput extends ListPresetsResponse, __Metadat
  * @throws {@link MediaConvertServiceException}
  * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
+ * @public
  */
 export class ListPresetsCommand extends $Command
   .classBuilder<

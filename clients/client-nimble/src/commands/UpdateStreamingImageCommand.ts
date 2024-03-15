@@ -32,7 +32,6 @@ export interface UpdateStreamingImageCommandInput extends UpdateStreamingImageRe
 export interface UpdateStreamingImageCommandOutput extends UpdateStreamingImageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update streaming image.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -109,6 +108,7 @@ export interface UpdateStreamingImageCommandOutput extends UpdateStreamingImageR
  * @throws {@link NimbleServiceException}
  * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
+ * @public
  */
 export class UpdateStreamingImageCommand extends $Command
   .classBuilder<

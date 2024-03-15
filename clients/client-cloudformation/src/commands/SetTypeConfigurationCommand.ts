@@ -27,7 +27,6 @@ export interface SetTypeConfigurationCommandInput extends SetTypeConfigurationIn
 export interface SetTypeConfigurationCommandOutput extends SetTypeConfigurationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Specifies the configuration data for a registered CloudFormation extension, in the given account and Region.</p>
  *          <p>To view the current configuration data for an extension, refer to the <code>ConfigurationSchema</code> element
  *    of <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">
@@ -75,6 +74,7 @@ export interface SetTypeConfigurationCommandOutput extends SetTypeConfigurationO
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class SetTypeConfigurationCommand extends $Command
   .classBuilder<

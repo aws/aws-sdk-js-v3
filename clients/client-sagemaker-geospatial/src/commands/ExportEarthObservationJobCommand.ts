@@ -31,7 +31,6 @@ export interface ExportEarthObservationJobCommandInput extends ExportEarthObserv
 export interface ExportEarthObservationJobCommandOutput extends ExportEarthObservationJobOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use this operation to export results of an Earth Observation job and optionally source images used as input to the EOJ to an Amazon S3 location.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface ExportEarthObservationJobCommandOutput extends ExportEarthObser
  * @throws {@link SageMakerGeospatialServiceException}
  * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
+ * @public
  */
 export class ExportEarthObservationJobCommand extends $Command
   .classBuilder<

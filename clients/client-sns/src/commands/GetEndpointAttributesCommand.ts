@@ -27,7 +27,6 @@ export interface GetEndpointAttributesCommandInput extends GetEndpointAttributes
 export interface GetEndpointAttributesCommandOutput extends GetEndpointAttributesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the endpoint attributes for a device on one of the supported push
  *             notification services, such as GCM (Firebase Cloud Messaging) and APNS. For more
  *             information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
@@ -72,6 +71,7 @@ export interface GetEndpointAttributesCommandOutput extends GetEndpointAttribute
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * @public
  */
 export class GetEndpointAttributesCommand extends $Command
   .classBuilder<

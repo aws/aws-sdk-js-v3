@@ -35,7 +35,6 @@ export interface GenerateOrganizationsAccessReportCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Generates a report for service last accessed data for Organizations. You can generate a
  *             report for any entities (organization root, organizational unit, or account) or policies
  *             in your organization.</p>
@@ -198,6 +197,7 @@ export interface GenerateOrganizationsAccessReportCommandOutput
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To generate a service last accessed data report for an organizational unit
  * ```javascript
  * // The following operation generates a report for the organizational unit ou-rge0-awexample

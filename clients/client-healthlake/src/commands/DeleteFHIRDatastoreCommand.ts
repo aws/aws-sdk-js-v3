@@ -27,7 +27,6 @@ export interface DeleteFHIRDatastoreCommandInput extends DeleteFHIRDatastoreRequ
 export interface DeleteFHIRDatastoreCommandOutput extends DeleteFHIRDatastoreResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a data store. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface DeleteFHIRDatastoreCommandOutput extends DeleteFHIRDatastoreRes
  * @throws {@link HealthLakeServiceException}
  * <p>Base exception class for all service exceptions from HealthLake service.</p>
  *
+ * @public
  */
 export class DeleteFHIRDatastoreCommand extends $Command
   .classBuilder<

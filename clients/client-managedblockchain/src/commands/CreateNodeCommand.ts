@@ -31,7 +31,6 @@ export interface CreateNodeCommandInput extends CreateNodeInput {}
 export interface CreateNodeCommandOutput extends CreateNodeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a node on the specified blockchain network.</p>
  *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
  * @example
@@ -115,6 +114,7 @@ export interface CreateNodeCommandOutput extends CreateNodeOutput, __MetadataBea
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ * @public
  */
 export class CreateNodeCommand extends $Command
   .classBuilder<

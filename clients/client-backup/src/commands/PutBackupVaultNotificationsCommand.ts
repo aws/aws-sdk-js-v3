@@ -30,7 +30,6 @@ export interface PutBackupVaultNotificationsCommandInput extends PutBackupVaultN
 export interface PutBackupVaultNotificationsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Turns on notifications on a backup vault for the specified topic and events.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface PutBackupVaultNotificationsCommandOutput extends __MetadataBear
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class PutBackupVaultNotificationsCommand extends $Command
   .classBuilder<

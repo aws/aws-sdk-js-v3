@@ -27,7 +27,6 @@ export interface ListSubscribersCommandInput extends ListSubscribersRequest {}
 export interface ListSubscribersCommandOutput extends ListSubscribersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List all subscribers for the specific Amazon Security Lake account ID. You can retrieve a list
  *          of subscriptions associated with a specific organization or Amazon Web Services account.</p>
  * @example
@@ -126,6 +125,7 @@ export interface ListSubscribersCommandOutput extends ListSubscribersResponse, _
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ * @public
  */
 export class ListSubscribersCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface PutResourcePolicyCommandInput extends PutResourcePolicyRequest 
 export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches a resource-based policy to a custom model. You can use this policy to authorize
  *       an entity in another Amazon Web Services account to import the custom model, which replicates it in Amazon
  *       Comprehend in their account.</p>
@@ -68,6 +67,7 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class PutResourcePolicyCommand extends $Command
   .classBuilder<

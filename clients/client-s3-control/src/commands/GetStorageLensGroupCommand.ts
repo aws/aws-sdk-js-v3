@@ -28,7 +28,6 @@ export interface GetStorageLensGroupCommandInput extends GetStorageLensGroupRequ
 export interface GetStorageLensGroupCommandOutput extends GetStorageLensGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  * Retrieves the Storage Lens group configuration details.</p>
  *          <p>To use this operation, you must have the permission to perform the
@@ -132,6 +131,7 @@ export interface GetStorageLensGroupCommandOutput extends GetStorageLensGroupRes
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class GetStorageLensGroupCommand extends $Command
   .classBuilder<

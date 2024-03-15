@@ -27,7 +27,6 @@ export interface DeleteMLTransformCommandInput extends DeleteMLTransformRequest 
 export interface DeleteMLTransformCommandOutput extends DeleteMLTransformResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Glue machine learning transform. Machine learning transforms are a special
  *       type of transform that use machine learning to learn the details of the transformation to be
  *       performed by learning from examples provided by humans. These transformations are then saved
@@ -72,6 +71,7 @@ export interface DeleteMLTransformCommandOutput extends DeleteMLTransformRespons
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class DeleteMLTransformCommand extends $Command
   .classBuilder<

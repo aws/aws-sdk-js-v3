@@ -27,7 +27,6 @@ export interface DescribeAddressCommandInput extends DescribeAddressRequest {}
 export interface DescribeAddressCommandOutput extends DescribeAddressResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Takes an <code>AddressId</code> and returns specific details about that address in the
  *       form of an <code>Address</code> object.</p>
  * @example
@@ -76,6 +75,7 @@ export interface DescribeAddressCommandOutput extends DescribeAddressResult, __M
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * @public
  * @example To describe an address for a job
  * ```javascript
  * // This operation describes an address for a job.

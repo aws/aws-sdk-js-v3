@@ -27,7 +27,6 @@ export interface UpdateUsageCommandInput extends UpdateUsageRequest {}
 export interface UpdateUsageCommandOutput extends Usage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Grants a temporary extension to the remaining quota of a usage plan associated with a specified API key.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface UpdateUsageCommandOutput extends Usage, __MetadataBearer {}
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class UpdateUsageCommand extends $Command
   .classBuilder<

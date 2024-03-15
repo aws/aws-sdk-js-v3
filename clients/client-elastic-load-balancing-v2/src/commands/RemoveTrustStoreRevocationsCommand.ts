@@ -31,7 +31,6 @@ export interface RemoveTrustStoreRevocationsCommandInput extends RemoveTrustStor
 export interface RemoveTrustStoreRevocationsCommandOutput extends RemoveTrustStoreRevocationsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified revocation file from the specified trust store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface RemoveTrustStoreRevocationsCommandOutput extends RemoveTrustSto
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  */
 export class RemoveTrustStoreRevocationsCommand extends $Command
   .classBuilder<

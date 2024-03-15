@@ -27,7 +27,6 @@ export interface GetRepositorySyncStatusCommandInput extends GetRepositorySyncSt
 export interface GetRepositorySyncStatusCommandOutput extends GetRepositorySyncStatusOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get the sync status of a repository used for Proton template sync. For more information about template sync, see .</p>
  *          <note>
  *             <p>A repository sync status isn't tied to the Proton Repository resource (or any other Proton resource). Therefore, tags on an Proton Repository resource
@@ -91,6 +90,7 @@ export interface GetRepositorySyncStatusCommandOutput extends GetRepositorySyncS
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class GetRepositorySyncStatusCommand extends $Command
   .classBuilder<

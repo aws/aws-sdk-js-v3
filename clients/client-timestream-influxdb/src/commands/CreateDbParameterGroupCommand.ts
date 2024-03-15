@@ -31,7 +31,6 @@ export interface CreateDbParameterGroupCommandInput extends CreateDbParameterGro
 export interface CreateDbParameterGroupCommandOutput extends CreateDbParameterGroupOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new Timestream for InfluxDB DB parameter group to associate with DB instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -109,6 +108,7 @@ export interface CreateDbParameterGroupCommandOutput extends CreateDbParameterGr
  * @throws {@link TimestreamInfluxDBServiceException}
  * <p>Base exception class for all service exceptions from TimestreamInfluxDB service.</p>
  *
+ * @public
  */
 export class CreateDbParameterGroupCommand extends $Command
   .classBuilder<

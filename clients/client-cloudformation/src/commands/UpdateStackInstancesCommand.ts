@@ -27,7 +27,6 @@ export interface UpdateStackInstancesCommandInput extends UpdateStackInstancesIn
 export interface UpdateStackInstancesCommandOutput extends UpdateStackInstancesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the parameter values for stack instances for the specified accounts, within the specified Amazon Web Services Regions. A stack instance refers to a stack in a specific account and Region.</p>
  *          <p>You can only update stack instances in Amazon Web Services Regions and accounts where they already exist; to
  *    create additional stack instances, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStackInstances.html">
@@ -128,6 +127,7 @@ export interface UpdateStackInstancesCommandOutput extends UpdateStackInstancesO
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class UpdateStackInstancesCommand extends $Command
   .classBuilder<

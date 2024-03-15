@@ -27,7 +27,6 @@ export interface AssociateSubnetsCommandInput extends AssociateSubnetsRequest {}
 export interface AssociateSubnetsCommandOutput extends AssociateSubnetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates the specified subnets in the Amazon VPC to the firewall. You can specify one
  *          subnet for each of the Availability Zones that the VPC spans. </p>
  *          <p>This request creates an Network Firewall firewall endpoint in each of the subnets. To
@@ -113,6 +112,7 @@ export interface AssociateSubnetsCommandOutput extends AssociateSubnetsResponse,
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ * @public
  */
 export class AssociateSubnetsCommand extends $Command
   .classBuilder<

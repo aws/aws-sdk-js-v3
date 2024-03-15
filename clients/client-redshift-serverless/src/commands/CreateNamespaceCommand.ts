@@ -36,7 +36,6 @@ export interface CreateNamespaceCommandInput extends CreateNamespaceRequest {}
 export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a namespace in Amazon Redshift Serverless.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -114,6 +113,7 @@ export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, _
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * @public
  */
 export class CreateNamespaceCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface RestoreDBClusterFromS3CommandInput extends RestoreDBClusterFrom
 export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFromS3Result, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon Aurora DB cluster from MySQL data stored in an Amazon S3 bucket.
  *             Amazon RDS must be authorized to access the Amazon S3 bucket and the data must be
  *             created using the Percona XtraBackup utility as described in <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3"> Migrating Data from MySQL by Using an Amazon S3 Bucket</a> in the
@@ -362,6 +361,7 @@ export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFro
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To restore an Amazon Aurora DB cluster from Amazon S3
  * ```javascript
  * // The following example restores an Amazon Aurora MySQL version 5.7-compatible DB cluster from a MySQL 5.7 DB backup file in Amazon S3.

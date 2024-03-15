@@ -31,7 +31,6 @@ export interface StopReplicationCommandInput extends StopReplicationMessage {}
 export interface StopReplicationCommandOutput extends StopReplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>For a given DMS Serverless replication configuration, DMS stops any and all ongoing DMS Serverless replications.
  *          This command doesn't deprovision the stopped replications.</p>
  * @example
@@ -111,6 +110,7 @@ export interface StopReplicationCommandOutput extends StopReplicationResponse, _
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class StopReplicationCommand extends $Command
   .classBuilder<

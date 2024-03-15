@@ -27,7 +27,6 @@ export interface StopTrainingJobCommandInput extends StopTrainingJobRequest {}
 export interface StopTrainingJobCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a training job. To stop a job, SageMaker sends the algorithm the
  *                 <code>SIGTERM</code> signal, which delays job termination for 120 seconds.
  *             Algorithms might use this 120-second window to save the model artifacts, so the results
@@ -62,6 +61,7 @@ export interface StopTrainingJobCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class StopTrainingJobCommand extends $Command
   .classBuilder<

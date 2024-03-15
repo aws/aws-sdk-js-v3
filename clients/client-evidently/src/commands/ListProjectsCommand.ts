@@ -27,7 +27,6 @@ export interface ListProjectsCommandInput extends ListProjectsRequest {}
 export interface ListProjectsCommandOutput extends ListProjectsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns configuration details about all the projects in the current Region in your
  *       account.</p>
  * @example
@@ -84,6 +83,7 @@ export interface ListProjectsCommandOutput extends ListProjectsResponse, __Metad
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ * @public
  */
 export class ListProjectsCommand extends $Command
   .classBuilder<

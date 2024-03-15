@@ -27,7 +27,6 @@ export interface AssociateElasticIpCommandInput extends AssociateElasticIpReques
 export interface AssociateElasticIpCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates one of the stack's registered Elastic IP addresses with a specified instance. The
  *       address must first be registered with the stack by calling <a>RegisterElasticIp</a>. For more
  *       information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource
@@ -68,6 +67,7 @@ export interface AssociateElasticIpCommandOutput extends __MetadataBearer {}
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class AssociateElasticIpCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateDatasetCommandInput extends UpdateDatasetRequest {}
 export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the definition of an existing DataBrew dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -144,6 +143,7 @@ export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __Met
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * @public
  */
 export class UpdateDatasetCommand extends $Command
   .classBuilder<

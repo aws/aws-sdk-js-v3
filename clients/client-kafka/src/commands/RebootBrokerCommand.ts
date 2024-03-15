@@ -27,7 +27,6 @@ export interface RebootBrokerCommandInput extends RebootBrokerRequest {}
 export interface RebootBrokerCommandOutput extends RebootBrokerResponse, __MetadataBearer {}
 
 /**
- * @public
  * Reboots brokers.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface RebootBrokerCommandOutput extends RebootBrokerResponse, __Metad
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ * @public
  */
 export class RebootBrokerCommand extends $Command
   .classBuilder<

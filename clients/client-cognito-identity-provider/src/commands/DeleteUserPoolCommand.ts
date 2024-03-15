@@ -31,7 +31,6 @@ export interface DeleteUserPoolCommandInput extends DeleteUserPoolRequest {}
 export interface DeleteUserPoolCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified Amazon Cognito user pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface DeleteUserPoolCommandOutput extends __MetadataBearer {}
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class DeleteUserPoolCommand extends $Command
   .classBuilder<

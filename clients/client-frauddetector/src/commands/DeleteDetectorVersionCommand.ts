@@ -27,7 +27,6 @@ export interface DeleteDetectorVersionCommandInput extends DeleteDetectorVersion
 export interface DeleteDetectorVersionCommandOutput extends DeleteDetectorVersionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the detector version. You cannot delete detector versions that are in <code>ACTIVE</code> status.</p>
  *          <p>When you delete a detector version, Amazon Fraud Detector permanently deletes the detector and the data is no longer stored in Amazon Fraud Detector.</p>
  * @example
@@ -73,6 +72,7 @@ export interface DeleteDetectorVersionCommandOutput extends DeleteDetectorVersio
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class DeleteDetectorVersionCommand extends $Command
   .classBuilder<

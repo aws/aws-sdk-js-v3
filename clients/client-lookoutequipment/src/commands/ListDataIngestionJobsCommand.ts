@@ -27,7 +27,6 @@ export interface ListDataIngestionJobsCommandInput extends ListDataIngestionJobs
 export interface ListDataIngestionJobsCommandOutput extends ListDataIngestionJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a list of all data ingestion jobs, including dataset name and ARN, S3 location
  *          of the input data, status, and so on. </p>
  * @example
@@ -89,6 +88,7 @@ export interface ListDataIngestionJobsCommandOutput extends ListDataIngestionJob
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  */
 export class ListDataIngestionJobsCommand extends $Command
   .classBuilder<

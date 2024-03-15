@@ -17,54 +17,54 @@ export const UnlockDelayUnit = {
 export type UnlockDelayUnit = (typeof UnlockDelayUnit)[keyof typeof UnlockDelayUnit];
 
 /**
- * @public
  * <p>Information about the retention rule unlock delay. The unlock delay is the period after which
  *       a retention rule can be modified or edited after it has been unlocked by a user with the required
  *       permissions. The retention rule can't be modified or deleted during the unlock delay.</p>
+ * @public
  */
 export interface UnlockDelay {
   /**
-   * @public
    * <p>The unlock delay period, measured in the unit specified for <b>
    *       UnlockDelayUnit</b>.</p>
+   * @public
    */
   UnlockDelayValue: number | undefined;
 
   /**
-   * @public
    * <p>The unit of time in which to measure the unlock delay. Currently, the unlock delay can
    *       be measure only in days.</p>
+   * @public
    */
   UnlockDelayUnit: UnlockDelayUnit | undefined;
 }
 
 /**
- * @public
  * <p>Information about a retention rule lock configuration.</p>
+ * @public
  */
 export interface LockConfiguration {
   /**
-   * @public
    * <p>Information about the retention rule unlock delay.</p>
+   * @public
    */
   UnlockDelay: UnlockDelay | undefined;
 }
 
 /**
- * @public
  * <p>Information about the resource tags used to identify resources that are retained by the retention
  *       rule.</p>
+ * @public
  */
 export interface ResourceTag {
   /**
-   * @public
    * <p>The tag key.</p>
+   * @public
    */
   ResourceTagKey: string | undefined;
 
   /**
-   * @public
    * <p>The tag value.</p>
+   * @public
    */
   ResourceTagValue?: string;
 }
@@ -97,39 +97,39 @@ export const RetentionPeriodUnit = {
 export type RetentionPeriodUnit = (typeof RetentionPeriodUnit)[keyof typeof RetentionPeriodUnit];
 
 /**
- * @public
  * <p>Information about the retention period for which the retention rule is to retain resources.</p>
+ * @public
  */
 export interface RetentionPeriod {
   /**
-   * @public
    * <p>The period value for which the retention rule is to retain resources. The period is measured using
    *       the unit specified for <b>RetentionPeriodUnit</b>.</p>
+   * @public
    */
   RetentionPeriodValue: number | undefined;
 
   /**
-   * @public
    * <p>The unit of time in which the retention period is measured. Currently, only <code>DAYS</code>
    *       is supported.</p>
+   * @public
    */
   RetentionPeriodUnit: RetentionPeriodUnit | undefined;
 }
 
 /**
- * @public
  * <p>Information about the tags to assign to the retention rule.</p>
+ * @public
  */
 export interface Tag {
   /**
-   * @public
    * <p>The tag key.</p>
+   * @public
    */
   Key: string | undefined;
 
   /**
-   * @public
    * <p>The tag value.</p>
+   * @public
    */
   Value: string | undefined;
 }
@@ -139,33 +139,32 @@ export interface Tag {
  */
 export interface CreateRuleRequest {
   /**
-   * @public
    * <p>Information about the retention period for which the retention rule is to retain resources.</p>
+   * @public
    */
   RetentionPeriod: RetentionPeriod | undefined;
 
   /**
-   * @public
    * <p>The retention rule description.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>Information about the tags to assign to the retention rule.</p>
+   * @public
    */
   Tags?: Tag[];
 
   /**
-   * @public
    * <p>The resource type to be retained by the retention rule. Currently, only Amazon EBS snapshots
    *       and EBS-backed AMIs are supported. To retain snapshots, specify <code>EBS_SNAPSHOT</code>. To
    *       retain EBS-backed AMIs, specify <code>EC2_IMAGE</code>.</p>
+   * @public
    */
   ResourceType: ResourceType | undefined;
 
   /**
-   * @public
    * <p>Specifies the resource tags to use to identify resources that are to be retained by a
    *   tag-level retention rule. For tag-level retention rules, only deleted resources, of the specified resource type, that
    *   have one or more of the specified tag key and value pairs are retained. If a resource is deleted, but it does not have
@@ -174,12 +173,13 @@ export interface CreateRuleRequest {
    *          <p>To create a Region-level retention rule, omit this parameter. A Region-level retention rule
    *       does not have any resource tags specified. It retains all deleted resources of the specified
    *       resource type in the Region in which the rule is created, even if the resources are not tagged.</p>
+   * @public
    */
   ResourceTags?: ResourceTag[];
 
   /**
-   * @public
    * <p>Information about the retention rule lock configuration.</p>
+   * @public
    */
   LockConfiguration?: LockConfiguration;
 }
@@ -218,57 +218,56 @@ export type RuleStatus = (typeof RuleStatus)[keyof typeof RuleStatus];
  */
 export interface CreateRuleResponse {
   /**
-   * @public
    * <p>The unique ID of the retention rule.</p>
+   * @public
    */
   Identifier?: string;
 
   /**
-   * @public
    * <p>Information about the retention period for which the retention rule is to retain resources.</p>
+   * @public
    */
   RetentionPeriod?: RetentionPeriod;
 
   /**
-   * @public
    * <p>The retention rule description.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>Information about the tags assigned to the retention rule.</p>
+   * @public
    */
   Tags?: Tag[];
 
   /**
-   * @public
    * <p>The resource type retained by the retention rule.</p>
+   * @public
    */
   ResourceType?: ResourceType;
 
   /**
-   * @public
    * <p>Information about the resource tags used to identify resources that are retained by the retention
    *       rule.</p>
+   * @public
    */
   ResourceTags?: ResourceTag[];
 
   /**
-   * @public
    * <p>The state of the retention rule. Only retention rules that are in the <code>available</code>
    *       state retain resources.</p>
+   * @public
    */
   Status?: RuleStatus;
 
   /**
-   * @public
    * <p>Information about the retention rule lock configuration.</p>
+   * @public
    */
   LockConfiguration?: LockConfiguration;
 
   /**
-   * @public
    * <p>The lock state for the retention rule.</p>
    *          <ul>
    *             <li>
@@ -293,19 +292,20 @@ export interface CreateRuleResponse {
    *         only; it can never transition back to <code>null</code>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   LockState?: LockState;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the retention rule.</p>
+   * @public
    */
   RuleArn?: string;
 }
 
 /**
- * @public
  * <p>The service could not respond to the request due to an internal problem.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -340,16 +340,16 @@ export type ServiceQuotaExceededExceptionReason =
   (typeof ServiceQuotaExceededExceptionReason)[keyof typeof ServiceQuotaExceededExceptionReason];
 
 /**
- * @public
  * <p>The request would cause a service quota for the number of tags per resource to be exceeded.</p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
   Message?: string;
   /**
-   * @public
    * <p>The reason for the exception.</p>
+   * @public
    */
   Reason?: ServiceQuotaExceededExceptionReason;
   /**
@@ -382,16 +382,16 @@ export const ValidationExceptionReason = {
 export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
- * @public
  * <p>One or more of the parameters in the request is not valid.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   Message?: string;
   /**
-   * @public
    * <p>The reason for the exception.</p>
+   * @public
    */
   Reason?: ValidationExceptionReason;
   /**
@@ -423,16 +423,16 @@ export const ConflictExceptionReason = {
 export type ConflictExceptionReason = (typeof ConflictExceptionReason)[keyof typeof ConflictExceptionReason];
 
 /**
- * @public
  * <p>The specified retention rule lock request can't be completed.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   Message?: string;
   /**
-   * @public
    * <p>The reason for the exception.</p>
+   * @public
    */
   Reason?: ConflictExceptionReason;
   /**
@@ -455,8 +455,8 @@ export class ConflictException extends __BaseException {
  */
 export interface DeleteRuleRequest {
   /**
-   * @public
    * <p>The unique ID of the retention rule.</p>
+   * @public
    */
   Identifier: string | undefined;
 }
@@ -481,16 +481,16 @@ export type ResourceNotFoundExceptionReason =
   (typeof ResourceNotFoundExceptionReason)[keyof typeof ResourceNotFoundExceptionReason];
 
 /**
- * @public
  * <p>The specified resource was not found.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   Message?: string;
   /**
-   * @public
    * <p>The reason for the exception.</p>
+   * @public
    */
   Reason?: ResourceNotFoundExceptionReason;
   /**
@@ -513,8 +513,8 @@ export class ResourceNotFoundException extends __BaseException {
  */
 export interface GetRuleRequest {
   /**
-   * @public
    * <p>The unique ID of the retention rule.</p>
+   * @public
    */
   Identifier: string | undefined;
 }
@@ -524,51 +524,50 @@ export interface GetRuleRequest {
  */
 export interface GetRuleResponse {
   /**
-   * @public
    * <p>The unique ID of the retention rule.</p>
+   * @public
    */
   Identifier?: string;
 
   /**
-   * @public
    * <p>The retention rule description.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The resource type retained by the retention rule.</p>
+   * @public
    */
   ResourceType?: ResourceType;
 
   /**
-   * @public
    * <p>Information about the retention period for which the retention rule is to retain resources.</p>
+   * @public
    */
   RetentionPeriod?: RetentionPeriod;
 
   /**
-   * @public
    * <p>Information about the resource tags used to identify resources that are retained by the retention
    *       rule.</p>
+   * @public
    */
   ResourceTags?: ResourceTag[];
 
   /**
-   * @public
    * <p>The state of the retention rule. Only retention rules that are in the <code>available</code>
    *       state retain resources.</p>
+   * @public
    */
   Status?: RuleStatus;
 
   /**
-   * @public
    * <p>Information about the retention rule lock configuration.</p>
+   * @public
    */
   LockConfiguration?: LockConfiguration;
 
   /**
-   * @public
    * <p>The lock state for the retention rule.</p>
    *          <ul>
    *             <li>
@@ -593,20 +592,21 @@ export interface GetRuleResponse {
    *         only; it can never transition back to <code>null</code>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   LockState?: LockState;
 
   /**
-   * @public
    * <p>The date and time at which the unlock delay is set to expire. Only returned
    *       for retention rules that have been unlocked and that are still within the unlock
    *       delay period.</p>
+   * @public
    */
   LockEndTime?: Date;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the retention rule.</p>
+   * @public
    */
   RuleArn?: string;
 }
@@ -616,68 +616,67 @@ export interface GetRuleResponse {
  */
 export interface ListRulesRequest {
   /**
-   * @public
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>NextToken</code> value.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The resource type retained by the retention rule. Only retention rules that retain
    *       the specified resource type are listed. Currently, only Amazon EBS snapshots and EBS-backed
    *       AMIs are supported. To list retention rules that retain snapshots, specify
    *       <code>EBS_SNAPSHOT</code>. To list retention rules that retain EBS-backed AMIs, specify
    *       <code>EC2_IMAGE</code>.</p>
+   * @public
    */
   ResourceType: ResourceType | undefined;
 
   /**
-   * @public
    * <p>Information about the resource tags used to identify resources that are retained by the retention
    *       rule.</p>
+   * @public
    */
   ResourceTags?: ResourceTag[];
 
   /**
-   * @public
    * <p>The lock state of the retention rules to list. Only retention rules with the specified
    *       lock state are returned.</p>
+   * @public
    */
   LockState?: LockState;
 }
 
 /**
- * @public
  * <p>Information about a Recycle Bin retention rule.</p>
+ * @public
  */
 export interface RuleSummary {
   /**
-   * @public
    * <p>The unique ID of the retention rule.</p>
+   * @public
    */
   Identifier?: string;
 
   /**
-   * @public
    * <p>The retention rule description.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>Information about the retention period for which the retention rule is to retain resources.</p>
+   * @public
    */
   RetentionPeriod?: RetentionPeriod;
 
   /**
-   * @public
    * <p>The lock state for the retention rule.</p>
    *          <ul>
    *             <li>
@@ -702,12 +701,13 @@ export interface RuleSummary {
    *         only; it can never transition back to <code>null</code>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   LockState?: LockState;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the retention rule.</p>
+   * @public
    */
   RuleArn?: string;
 }
@@ -717,14 +717,14 @@ export interface RuleSummary {
  */
 export interface ListRulesResponse {
   /**
-   * @public
    * <p>Information about the retention rules.</p>
+   * @public
    */
   Rules?: RuleSummary[];
 
   /**
-   * @public
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -734,8 +734,8 @@ export interface ListRulesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the retention rule.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 }
@@ -745,8 +745,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>Information about the tags assigned to the retention rule.</p>
+   * @public
    */
   Tags?: Tag[];
 }
@@ -756,14 +756,14 @@ export interface ListTagsForResourceResponse {
  */
 export interface LockRuleRequest {
   /**
-   * @public
    * <p>The unique ID of the retention rule.</p>
+   * @public
    */
   Identifier: string | undefined;
 
   /**
-   * @public
    * <p>Information about the retention rule lock configuration.</p>
+   * @public
    */
   LockConfiguration: LockConfiguration | undefined;
 }
@@ -773,51 +773,50 @@ export interface LockRuleRequest {
  */
 export interface LockRuleResponse {
   /**
-   * @public
    * <p>The unique ID of the retention rule.</p>
+   * @public
    */
   Identifier?: string;
 
   /**
-   * @public
    * <p>The retention rule description.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The resource type retained by the retention rule.</p>
+   * @public
    */
   ResourceType?: ResourceType;
 
   /**
-   * @public
    * <p>Information about the retention period for which the retention rule is to retain resources.</p>
+   * @public
    */
   RetentionPeriod?: RetentionPeriod;
 
   /**
-   * @public
    * <p>Information about the resource tags used to identify resources that are retained by the retention
    *       rule.</p>
+   * @public
    */
   ResourceTags?: ResourceTag[];
 
   /**
-   * @public
    * <p>The state of the retention rule. Only retention rules that are in the <code>available</code>
    *       state retain resources.</p>
+   * @public
    */
   Status?: RuleStatus;
 
   /**
-   * @public
    * <p>Information about the retention rule lock configuration.</p>
+   * @public
    */
   LockConfiguration?: LockConfiguration;
 
   /**
-   * @public
    * <p>The lock state for the retention rule.</p>
    *          <ul>
    *             <li>
@@ -842,12 +841,13 @@ export interface LockRuleResponse {
    *         only; it can never transition back to <code>null</code>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   LockState?: LockState;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the retention rule.</p>
+   * @public
    */
   RuleArn?: string;
 }
@@ -857,14 +857,14 @@ export interface LockRuleResponse {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the retention rule.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * @public
    * <p>Information about the tags to assign to the retention rule.</p>
+   * @public
    */
   Tags: Tag[] | undefined;
 }
@@ -879,8 +879,8 @@ export interface TagResourceResponse {}
  */
 export interface UnlockRuleRequest {
   /**
-   * @public
    * <p>The unique ID of the retention rule.</p>
+   * @public
    */
   Identifier: string | undefined;
 }
@@ -890,51 +890,50 @@ export interface UnlockRuleRequest {
  */
 export interface UnlockRuleResponse {
   /**
-   * @public
    * <p>The unique ID of the retention rule.</p>
+   * @public
    */
   Identifier?: string;
 
   /**
-   * @public
    * <p>The retention rule description.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The resource type retained by the retention rule.</p>
+   * @public
    */
   ResourceType?: ResourceType;
 
   /**
-   * @public
    * <p>Information about the retention period for which the retention rule is to retain resources.</p>
+   * @public
    */
   RetentionPeriod?: RetentionPeriod;
 
   /**
-   * @public
    * <p>Information about the resource tags used to identify resources that are retained by the retention
    *       rule.</p>
+   * @public
    */
   ResourceTags?: ResourceTag[];
 
   /**
-   * @public
    * <p>The state of the retention rule. Only retention rules that are in the <code>available</code>
    *       state retain resources.</p>
+   * @public
    */
   Status?: RuleStatus;
 
   /**
-   * @public
    * <p>Information about the retention rule lock configuration.</p>
+   * @public
    */
   LockConfiguration?: LockConfiguration;
 
   /**
-   * @public
    * <p>The lock state for the retention rule.</p>
    *          <ul>
    *             <li>
@@ -959,20 +958,21 @@ export interface UnlockRuleResponse {
    *         only; it can never transition back to <code>null</code>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   LockState?: LockState;
 
   /**
-   * @public
    * <p>The date and time at which the unlock delay is set to expire. Only returned
    *       for retention rules that have been unlocked and that are still within the unlock
    *       delay period.</p>
+   * @public
    */
   LockEndTime?: Date;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the retention rule.</p>
+   * @public
    */
   RuleArn?: string;
 }
@@ -982,14 +982,14 @@ export interface UnlockRuleResponse {
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the retention rule.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The tag keys of the tags to unassign. All tags that have the specified tag key are unassigned.</p>
+   * @public
    */
   TagKeys: string[] | undefined;
 }
@@ -1004,34 +1004,33 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateRuleRequest {
   /**
-   * @public
    * <p>The unique ID of the retention rule.</p>
+   * @public
    */
   Identifier: string | undefined;
 
   /**
-   * @public
    * <p>Information about the retention period for which the retention rule is to retain resources.</p>
+   * @public
    */
   RetentionPeriod?: RetentionPeriod;
 
   /**
-   * @public
    * <p>The retention rule description.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <note>
    *             <p>This parameter is currently not supported. You can't update a retention rule's resource type
    *       after creation.</p>
    *          </note>
+   * @public
    */
   ResourceType?: ResourceType;
 
   /**
-   * @public
    * <p>Specifies the resource tags to use to identify resources that are to be retained by a
    *   tag-level retention rule. For tag-level retention rules, only deleted resources, of the specified resource type, that
    *   have one or more of the specified tag key and value pairs are retained. If a resource is deleted, but it does not have
@@ -1040,6 +1039,7 @@ export interface UpdateRuleRequest {
    *          <p>To create a Region-level retention rule, omit this parameter. A Region-level retention rule
    *       does not have any resource tags specified. It retains all deleted resources of the specified
    *       resource type in the Region in which the rule is created, even if the resources are not tagged.</p>
+   * @public
    */
   ResourceTags?: ResourceTag[];
 }
@@ -1049,45 +1049,44 @@ export interface UpdateRuleRequest {
  */
 export interface UpdateRuleResponse {
   /**
-   * @public
    * <p>The unique ID of the retention rule.</p>
+   * @public
    */
   Identifier?: string;
 
   /**
-   * @public
    * <p>Information about the retention period for which the retention rule is to retain resources.</p>
+   * @public
    */
   RetentionPeriod?: RetentionPeriod;
 
   /**
-   * @public
    * <p>The retention rule description.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The resource type retained by the retention rule.</p>
+   * @public
    */
   ResourceType?: ResourceType;
 
   /**
-   * @public
    * <p>Information about the resource tags used to identify resources that are retained by the retention
    *       rule.</p>
+   * @public
    */
   ResourceTags?: ResourceTag[];
 
   /**
-   * @public
    * <p>The state of the retention rule. Only retention rules that are in the <code>available</code>
    *       state retain resources.</p>
+   * @public
    */
   Status?: RuleStatus;
 
   /**
-   * @public
    * <p>The lock state for the retention rule.</p>
    *          <ul>
    *             <li>
@@ -1112,20 +1111,21 @@ export interface UpdateRuleResponse {
    *         only; it can never transition back to <code>null</code>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   LockState?: LockState;
 
   /**
-   * @public
    * <p>The date and time at which the unlock delay is set to expire. Only returned
    *       for retention rules that have been unlocked and that are still within the unlock
    *       delay period.</p>
+   * @public
    */
   LockEndTime?: Date;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the retention rule.</p>
+   * @public
    */
   RuleArn?: string;
 }

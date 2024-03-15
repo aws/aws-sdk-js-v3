@@ -27,7 +27,6 @@ export interface DeleteFleetsCommandInput extends DeleteFleetsRequest {}
 export interface DeleteFleetsCommandOutput extends DeleteFleetsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified EC2 Fleets.</p>
  *          <p>After you delete an EC2 Fleet, it launches no new instances.</p>
  *          <p>You must also specify whether a deleted EC2 Fleet should terminate its instances. If you
@@ -99,6 +98,7 @@ export interface DeleteFleetsCommandOutput extends DeleteFleetsResult, __Metadat
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DeleteFleetsCommand extends $Command
   .classBuilder<

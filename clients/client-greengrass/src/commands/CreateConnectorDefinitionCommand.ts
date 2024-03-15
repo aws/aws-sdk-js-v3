@@ -27,7 +27,6 @@ export interface CreateConnectorDefinitionCommandInput extends CreateConnectorDe
 export interface CreateConnectorDefinitionCommandOutput extends CreateConnectorDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * Creates a connector definition. You may provide the initial version of the connector definition now or use ''CreateConnectorDefinitionVersion'' at a later time.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface CreateConnectorDefinitionCommandOutput extends CreateConnectorD
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class CreateConnectorDefinitionCommand extends $Command
   .classBuilder<

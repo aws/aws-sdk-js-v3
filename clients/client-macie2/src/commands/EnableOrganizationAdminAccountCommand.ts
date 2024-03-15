@@ -32,7 +32,6 @@ export interface EnableOrganizationAdminAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Designates an account as the delegated Amazon Macie administrator account for an organization in Organizations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface EnableOrganizationAdminAccountCommandOutput
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class EnableOrganizationAdminAccountCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteTagsCommandInput extends DeleteTagsMessage {}
 export interface DeleteTagsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes tags from a resource. You must provide the ARN of the resource
  *             from which you want to delete the tag or tags.</p>
  * @example
@@ -63,6 +62,7 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DeleteTagsCommand extends $Command
   .classBuilder<

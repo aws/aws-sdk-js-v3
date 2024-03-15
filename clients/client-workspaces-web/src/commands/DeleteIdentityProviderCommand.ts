@@ -27,7 +27,6 @@ export interface DeleteIdentityProviderCommandInput extends DeleteIdentityProvid
 export interface DeleteIdentityProviderCommandOutput extends DeleteIdentityProviderResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the identity provider.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DeleteIdentityProviderCommandOutput extends DeleteIdentityProvi
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * @public
  */
 export class DeleteIdentityProviderCommand extends $Command
   .classBuilder<

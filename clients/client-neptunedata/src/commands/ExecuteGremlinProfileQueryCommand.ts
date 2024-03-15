@@ -37,7 +37,6 @@ export interface ExecuteGremlinProfileQueryCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Executes a Gremlin Profile query, which runs a specified traversal,
  *       collects various metrics about the run, and produces a profile report
  *       as output. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/gremlin-profile-api.html">Gremlin profile
@@ -144,6 +143,7 @@ export interface ExecuteGremlinProfileQueryCommandOutput
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * @public
  */
 export class ExecuteGremlinProfileQueryCommand extends $Command
   .classBuilder<

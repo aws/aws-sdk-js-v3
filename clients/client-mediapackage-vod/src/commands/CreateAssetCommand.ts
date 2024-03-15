@@ -27,7 +27,6 @@ export interface CreateAssetCommandInput extends CreateAssetRequest {}
 export interface CreateAssetCommandOutput extends CreateAssetResponse, __MetadataBearer {}
 
 /**
- * @public
  * Creates a new MediaPackage VOD Asset resource.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface CreateAssetCommandOutput extends CreateAssetResponse, __Metadat
  * @throws {@link MediaPackageVodServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageVod service.</p>
  *
+ * @public
  */
 export class CreateAssetCommand extends $Command
   .classBuilder<

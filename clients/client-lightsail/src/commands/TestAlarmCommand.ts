@@ -27,7 +27,6 @@ export interface TestAlarmCommandInput extends TestAlarmRequest {}
 export interface TestAlarmCommandOutput extends TestAlarmResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Tests an alarm by displaying a banner on the Amazon Lightsail console. If a notification
  *       trigger is configured for the specified alarm, the test also sends a notification to the
  *       notification protocol (<code>Email</code> and/or <code>SMS</code>) configured for the
@@ -107,6 +106,7 @@ export interface TestAlarmCommandOutput extends TestAlarmResult, __MetadataBeare
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class TestAlarmCommand extends $Command
   .classBuilder<

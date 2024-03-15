@@ -36,7 +36,6 @@ export interface CreateMediaStreamPipelineCommandInput extends CreateMediaStream
 export interface CreateMediaStreamPipelineCommandOutput extends CreateMediaStreamPipelineResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a streaming media pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -128,6 +127,7 @@ export interface CreateMediaStreamPipelineCommandOutput extends CreateMediaStrea
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ * @public
  */
 export class CreateMediaStreamPipelineCommand extends $Command
   .classBuilder<

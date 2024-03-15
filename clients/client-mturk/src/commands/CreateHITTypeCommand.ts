@@ -27,7 +27,6 @@ export interface CreateHITTypeCommandInput extends CreateHITTypeRequest {}
 export interface CreateHITTypeCommandOutput extends CreateHITTypeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The <code>CreateHITType</code> operation creates a new HIT type. This operation
  *             allows you to define a standard set of HIT properties to use when creating HITs.
@@ -88,6 +87,7 @@ export interface CreateHITTypeCommandOutput extends CreateHITTypeResponse, __Met
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * @public
  */
 export class CreateHITTypeCommand extends $Command
   .classBuilder<

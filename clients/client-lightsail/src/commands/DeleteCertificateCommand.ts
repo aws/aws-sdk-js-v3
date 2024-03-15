@@ -27,7 +27,6 @@ export interface DeleteCertificateCommandInput extends DeleteCertificateRequest 
 export interface DeleteCertificateCommandOutput extends DeleteCertificateResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an SSL/TLS certificate for your Amazon Lightsail content delivery network (CDN)
  *       distribution.</p>
  *          <p>Certificates that are currently attached to a distribution cannot be deleted. Use the
@@ -100,6 +99,7 @@ export interface DeleteCertificateCommandOutput extends DeleteCertificateResult,
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class DeleteCertificateCommand extends $Command
   .classBuilder<

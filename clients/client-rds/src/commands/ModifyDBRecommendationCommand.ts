@@ -27,7 +27,6 @@ export interface ModifyDBRecommendationCommandInput extends ModifyDBRecommendati
 export interface ModifyDBRecommendationCommandOutput extends DBRecommendationMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the recommendation status and recommended action status for the specified recommendation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -179,6 +178,7 @@ export interface ModifyDBRecommendationCommandOutput extends DBRecommendationMes
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  */
 export class ModifyDBRecommendationCommand extends $Command
   .classBuilder<

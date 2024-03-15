@@ -6,8 +6,8 @@ import { DocumentType as __DocumentType } from "@smithy/types";
 import { ControlTowerServiceException as __BaseException } from "./ControlTowerServiceException";
 
 /**
- * @public
  * <p>You do not have sufficient access to perform this action.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -30,8 +30,8 @@ export class AccessDeniedException extends __BaseException {
  */
 export interface GetBaselineInput {
   /**
-   * @public
    * <p>The ARN of the <code>Baseline</code> resource to be retrieved.</p>
+   * @public
    */
   baselineIdentifier: string | undefined;
 }
@@ -41,27 +41,27 @@ export interface GetBaselineInput {
  */
 export interface GetBaselineOutput {
   /**
-   * @public
    * <p>The baseline ARN.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>A user-friendly name for the baseline.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>A description of the baseline.</p>
+   * @public
    */
   description?: string;
 }
 
 /**
- * @public
  * <p>An unexpected error occurred during processing of a request.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -81,8 +81,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request references a resource that does not exist.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -101,8 +101,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request was denied due to request throttling.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -111,20 +111,20 @@ export class ThrottlingException extends __BaseException {
     throttling: true,
   };
   /**
-   * @public
    * <p>The ID of the service that is associated with the error.</p>
+   * @public
    */
   serviceCode?: string;
 
   /**
-   * @public
    * <p>The ID of the service quota that was exceeded.</p>
+   * @public
    */
   quotaCode?: string;
 
   /**
-   * @public
    * <p>The number of seconds the caller should wait before retrying.</p>
+   * @public
    */
   retryAfterSeconds?: number;
 
@@ -145,8 +145,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -169,38 +169,38 @@ export class ValidationException extends __BaseException {
  */
 export interface ListBaselinesInput {
   /**
-   * @public
    * <p>A pagination token.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to be shown.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Returns a summary of information about a <code>Baseline</code> object.</p>
+ * @public
  */
 export interface BaselineSummary {
   /**
-   * @public
    * <p>The full ARN of a Baseline.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The human-readable name of a Baseline.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>A summary description of a Baseline.</p>
+   * @public
    */
   description?: string;
 }
@@ -210,21 +210,21 @@ export interface BaselineSummary {
  */
 export interface ListBaselinesOutput {
   /**
-   * @public
    * <p>A  list of <code>Baseline</code> object details.</p>
+   * @public
    */
   baselines: BaselineSummary[] | undefined;
 
   /**
-   * @public
    * <p>A pagination token.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>Updating or deleting the resource can cause an inconsistent state.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -247,16 +247,16 @@ export class ConflictException extends __BaseException {
  */
 export interface DisableControlInput {
   /**
-   * @public
    * <p>The ARN of the control. Only <b>Strongly recommended</b> and
    *          <b>Elective</b> controls are permitted, with the exception of the
    *          <b>Region deny</b> control. For information on how to find the <code>controlIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
+   * @public
    */
   controlIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the organizational unit. For information on how to find the <code>targetIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
+   * @public
    */
   targetIdentifier: string | undefined;
 }
@@ -266,16 +266,16 @@ export interface DisableControlInput {
  */
 export interface DisableControlOutput {
   /**
-   * @public
    * <p>The ID of the asynchronous operation, which is used to track status. The operation is
    *          available for 90 days.</p>
+   * @public
    */
   operationIdentifier: string | undefined;
 }
 
 /**
- * @public
  * <p>The request would cause a service quota to be exceeded. The limit is 10 concurrent operations.</p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
@@ -294,19 +294,19 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A key/value pair, where <code>Key</code> is of type <code>String</code> and <code>Value</code> is of type <code>Document</code>.</p>
+ * @public
  */
 export interface EnabledControlParameter {
   /**
-   * @public
    * <p>The key of a key/value pair.</p>
+   * @public
    */
   key: string | undefined;
 
   /**
-   * @public
    * <p>The value of a key/value pair.</p>
+   * @public
    */
   value: __DocumentType | undefined;
 }
@@ -316,28 +316,28 @@ export interface EnabledControlParameter {
  */
 export interface EnableControlInput {
   /**
-   * @public
    * <p>The ARN of the control. Only <b>Strongly recommended</b> and
    *          <b>Elective</b> controls are permitted, with the exception of the
    *          <b>Region deny</b> control. For information on how to find the <code>controlIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
+   * @public
    */
   controlIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the organizational unit. For information on how to find the <code>targetIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
+   * @public
    */
   targetIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>Tags to be applied to the <code>EnabledControl</code> resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>A list of input parameter values, which are specified to configure the control when you enable it.</p>
+   * @public
    */
   parameters?: EnabledControlParameter[];
 }
@@ -347,15 +347,15 @@ export interface EnableControlInput {
  */
 export interface EnableControlOutput {
   /**
-   * @public
    * <p>The ID of the asynchronous operation, which is used to track status. The operation is
    *          available for 90 days.</p>
+   * @public
    */
   operationIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the <code>EnabledControl</code> resource.</p>
+   * @public
    */
   arn?: string;
 }
@@ -365,8 +365,8 @@ export interface EnableControlOutput {
  */
 export interface DisableBaselineInput {
   /**
-   * @public
    * <p>Identifier of the <code>EnabledBaseline</code> resource to be deactivated, in ARN format.</p>
+   * @public
    */
   enabledBaselineIdentifier: string | undefined;
 }
@@ -376,26 +376,26 @@ export interface DisableBaselineInput {
  */
 export interface DisableBaselineOutput {
   /**
-   * @public
    * <p>The ID (in UUID format) of the asynchronous <code>DisableBaseline</code> operation. This <code>operationIdentifier</code> is used to track status through calls to the <code>GetBaselineOperation</code> API.</p>
+   * @public
    */
   operationIdentifier: string | undefined;
 }
 
 /**
- * @public
  * <p>A key-value parameter to an <code>EnabledBaseline</code> resource.</p>
+ * @public
  */
 export interface EnabledBaselineParameter {
   /**
-   * @public
    * <p>A string denoting the parameter key.</p>
+   * @public
    */
   key: string | undefined;
 
   /**
-   * @public
    * <p>A low-level <code>Document</code> object of any type (for example, a Java Object).</p>
+   * @public
    */
   value: __DocumentType | undefined;
 }
@@ -405,32 +405,32 @@ export interface EnabledBaselineParameter {
  */
 export interface EnableBaselineInput {
   /**
-   * @public
    * <p>The specific version to be enabled of the specified baseline.</p>
+   * @public
    */
   baselineVersion: string | undefined;
 
   /**
-   * @public
    * <p>A list of <code>key-value</code> objects that specify enablement parameters, where <code>key</code> is a string and <code>value</code> is a document of any type.</p>
+   * @public
    */
   parameters?: EnabledBaselineParameter[];
 
   /**
-   * @public
    * <p>The ARN of the baseline to be enabled.</p>
+   * @public
    */
   baselineIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the target on which the baseline will be enabled. Only OUs are supported as targets.</p>
+   * @public
    */
   targetIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>Tags associated with input to <code>EnableBaseline</code>.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -440,14 +440,14 @@ export interface EnableBaselineInput {
  */
 export interface EnableBaselineOutput {
   /**
-   * @public
    * <p>The ID (in UUID format) of the asynchronous <code>EnableBaseline</code> operation. This <code>operationIdentifier</code> is used to track status through calls to the <code>GetBaselineOperation</code> API.</p>
+   * @public
    */
   operationIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the <code>EnabledBaseline</code> resource.</p>
+   * @public
    */
   arn: string | undefined;
 }
@@ -457,8 +457,8 @@ export interface EnableBaselineOutput {
  */
 export interface GetBaselineOperationInput {
   /**
-   * @public
    * <p>The operation ID returned from mutating asynchronous APIs (Enable, Disable, Update, Reset).</p>
+   * @public
    */
   operationIdentifier: string | undefined;
 }
@@ -495,43 +495,43 @@ export const BaselineOperationStatus = {
 export type BaselineOperationStatus = (typeof BaselineOperationStatus)[keyof typeof BaselineOperationStatus];
 
 /**
- * @public
  * <p>An object of shape <code>BaselineOperation</code>, returning details about the specified <code>Baseline</code> operation ID.</p>
+ * @public
  */
 export interface BaselineOperation {
   /**
-   * @public
    * <p>The identifier of the specified operation.</p>
+   * @public
    */
   operationIdentifier?: string;
 
   /**
-   * @public
    * <p>An enumerated type (<code>enum</code>) with possible values of <code>ENABLE_BASELINE</code>, <code>DISABLE_BASELINE</code>, <code>UPDATE_ENABLED_BASELINE</code>, or <code>RESET_ENABLED_BASELINE</code>.</p>
+   * @public
    */
   operationType?: BaselineOperationType;
 
   /**
-   * @public
    * <p>An enumerated type (<code>enum</code>) with possible values of <code>SUCCEEDED</code>, <code>FAILED</code>, or <code>IN_PROGRESS</code>.</p>
+   * @public
    */
   status?: BaselineOperationStatus;
 
   /**
-   * @public
    * <p>The start time of the operation, in ISO 8601 format.</p>
+   * @public
    */
   startTime?: Date;
 
   /**
-   * @public
    * <p>The end time of the operation (if applicable), in ISO 8601 format.</p>
+   * @public
    */
   endTime?: Date;
 
   /**
-   * @public
    * <p>A status message that gives more information about the operation's status, if applicable.</p>
+   * @public
    */
   statusMessage?: string;
 }
@@ -541,8 +541,8 @@ export interface BaselineOperation {
  */
 export interface GetBaselineOperationOutput {
   /**
-   * @public
    * <p>A <code>baselineOperation</code> object that shows information about the specified operation ID.</p>
+   * @public
    */
   baselineOperation: BaselineOperation | undefined;
 }
@@ -552,26 +552,26 @@ export interface GetBaselineOperationOutput {
  */
 export interface GetEnabledBaselineInput {
   /**
-   * @public
    * <p>Identifier of the <code>EnabledBaseline</code> resource to be retrieved, in ARN format.</p>
+   * @public
    */
   enabledBaselineIdentifier: string | undefined;
 }
 
 /**
- * @public
  * <p>Summary of an applied parameter to an <code>EnabledBaseline</code> resource. </p>
+ * @public
  */
 export interface EnabledBaselineParameterSummary {
   /**
-   * @public
    * <p>A string denoting the parameter key.</p>
+   * @public
    */
   key: string | undefined;
 
   /**
-   * @public
    * <p>A low-level document object of any type (for example, a Java Object).</p>
+   * @public
    */
   value: __DocumentType | undefined;
 }
@@ -592,12 +592,11 @@ export const EnablementStatus = {
 export type EnablementStatus = (typeof EnablementStatus)[keyof typeof EnablementStatus];
 
 /**
- * @public
  * <p>The deployment summary of the enabled control.</p>
+ * @public
  */
 export interface EnablementStatusSummary {
   /**
-   * @public
    * <p> The deployment status of the enabled control.</p>
    *          <p>Valid values:</p>
    *          <ul>
@@ -614,54 +613,55 @@ export interface EnablementStatusSummary {
    *                   <code>FAILED</code>: The <code>enabledControl</code> configuration failed to deploy.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   status?: EnablementStatus;
 
   /**
-   * @public
    * <p>The last operation identifier for the enabled control.</p>
+   * @public
    */
   lastOperationIdentifier?: string;
 }
 
 /**
- * @public
  * <p>Details of the <code>EnabledBaseline</code> resource.</p>
+ * @public
  */
 export interface EnabledBaselineDetails {
   /**
-   * @public
    * <p>The ARN of the <code>EnabledBaseline</code> resource.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The specific <code>Baseline</code> enabled as part of the <code>EnabledBaseline</code> resource.</p>
+   * @public
    */
   baselineIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The enabled version of the <code>Baseline</code>.</p>
+   * @public
    */
   baselineVersion?: string;
 
   /**
-   * @public
    * <p>The target on which to enable the <code>Baseline</code>.</p>
+   * @public
    */
   targetIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The deployment summary of the enabled control.</p>
+   * @public
    */
   statusSummary: EnablementStatusSummary | undefined;
 
   /**
-   * @public
    * <p>Shows the parameters that are applied when enabling this <code>Baseline</code>.</p>
+   * @public
    */
   parameters?: EnabledBaselineParameterSummary[];
 }
@@ -671,26 +671,26 @@ export interface EnabledBaselineDetails {
  */
 export interface GetEnabledBaselineOutput {
   /**
-   * @public
    * <p>Details of the <code>EnabledBaseline</code> resource.</p>
+   * @public
    */
   enabledBaselineDetails?: EnabledBaselineDetails;
 }
 
 /**
- * @public
  * <p>A filter applied on the <code>ListEnabledBaseline</code> operation. Allowed filters are <code>baselineIdentifiers</code> and <code>targetIdentifiers</code>. The filter can be applied for either, or both.</p>
+ * @public
  */
 export interface EnabledBaselineFilter {
   /**
-   * @public
    * <p>Identifiers for the targets of the <code>Baseline</code> filter operation.</p>
+   * @public
    */
   targetIdentifiers?: string[];
 
   /**
-   * @public
    * <p>Identifiers for the <code>Baseline</code> objects returned as part of the filter operation.</p>
+   * @public
    */
   baselineIdentifiers?: string[];
 }
@@ -700,56 +700,56 @@ export interface EnabledBaselineFilter {
  */
 export interface ListEnabledBaselinesInput {
   /**
-   * @public
    * <p>A filter applied on the <code>ListEnabledBaseline</code> operation. Allowed filters are <code>baselineIdentifiers</code> and <code>targetIdentifiers</code>. The filter can be applied for either, or both.</p>
+   * @public
    */
   filter?: EnabledBaselineFilter;
 
   /**
-   * @public
    * <p>A pagination token.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to be shown.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Returns a summary of information about an <code>EnabledBaseline</code> object.</p>
+ * @public
  */
 export interface EnabledBaselineSummary {
   /**
-   * @public
    * <p>The ARN of the <code>EnabledBaseline</code> resource</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The specific baseline that is enabled as part of the <code>EnabledBaseline</code> resource.</p>
+   * @public
    */
   baselineIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The enabled version of the baseline.</p>
+   * @public
    */
   baselineVersion?: string;
 
   /**
-   * @public
    * <p>The target upon which the baseline is enabled.</p>
+   * @public
    */
   targetIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The deployment summary of the enabled control.</p>
+   * @public
    */
   statusSummary: EnablementStatusSummary | undefined;
 }
@@ -759,14 +759,14 @@ export interface EnabledBaselineSummary {
  */
 export interface ListEnabledBaselinesOutput {
   /**
-   * @public
    * <p>Retuens a list of summaries of <code>EnabledBaseline</code> resources.</p>
+   * @public
    */
   enabledBaselines: EnabledBaselineSummary[] | undefined;
 
   /**
-   * @public
    * <p>A pagination token.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -776,8 +776,8 @@ export interface ListEnabledBaselinesOutput {
  */
 export interface ResetEnabledBaselineInput {
   /**
-   * @public
    * <p>Specifies the ID of the <code>EnabledBaseline</code> resource to be re-enabled, in ARN format.</p>
+   * @public
    */
   enabledBaselineIdentifier: string | undefined;
 }
@@ -787,8 +787,8 @@ export interface ResetEnabledBaselineInput {
  */
 export interface ResetEnabledBaselineOutput {
   /**
-   * @public
    * <p>The ID (in UUID format) of the asynchronous <code>ResetEnabledBaseline</code> operation. This <code>operationIdentifier</code> is used to track status through calls to the <code>GetBaselineOperation</code> API.</p>
+   * @public
    */
   operationIdentifier: string | undefined;
 }
@@ -798,20 +798,20 @@ export interface ResetEnabledBaselineOutput {
  */
 export interface UpdateEnabledBaselineInput {
   /**
-   * @public
    * <p>Specifies the new <code>Baseline</code> version, to which the <code>EnabledBaseline</code> should be updated.</p>
+   * @public
    */
   baselineVersion: string | undefined;
 
   /**
-   * @public
    * <p>Parameters to apply when making an update.</p>
+   * @public
    */
   parameters?: EnabledBaselineParameter[];
 
   /**
-   * @public
    * <p>Specifies the <code>EnabledBaseline</code> resource to be updated.</p>
+   * @public
    */
   enabledBaselineIdentifier: string | undefined;
 }
@@ -821,8 +821,8 @@ export interface UpdateEnabledBaselineInput {
  */
 export interface UpdateEnabledBaselineOutput {
   /**
-   * @public
    * <p>The ID (in UUID format) of the asynchronous <code>UpdateEnabledBaseline</code> operation. This <code>operationIdentifier</code> is used to track status through calls to the <code>GetBaselineOperation</code> API.</p>
+   * @public
    */
   operationIdentifier: string | undefined;
 }
@@ -832,9 +832,9 @@ export interface UpdateEnabledBaselineOutput {
  */
 export interface GetControlOperationInput {
   /**
-   * @public
    * <p>The ID of the asynchronous operation, which is used to track status. The operation is
    *          available for 90 days.</p>
+   * @public
    */
   operationIdentifier: string | undefined;
 }
@@ -870,38 +870,38 @@ export const ControlOperationStatus = {
 export type ControlOperationStatus = (typeof ControlOperationStatus)[keyof typeof ControlOperationStatus];
 
 /**
- * @public
  * <p>An operation performed by the control.</p>
+ * @public
  */
 export interface ControlOperation {
   /**
-   * @public
    * <p>One of <code>ENABLE_CONTROL</code> or <code>DISABLE_CONTROL</code>.</p>
+   * @public
    */
   operationType?: ControlOperationType;
 
   /**
-   * @public
    * <p>The time that the operation began.</p>
+   * @public
    */
   startTime?: Date;
 
   /**
-   * @public
    * <p>The time that the operation finished.</p>
+   * @public
    */
   endTime?: Date;
 
   /**
-   * @public
    * <p>One of <code>IN_PROGRESS</code>, <code>SUCEEDED</code>, or <code>FAILED</code>.</p>
+   * @public
    */
   status?: ControlOperationStatus;
 
   /**
-   * @public
    * <p>If the operation result is <code>FAILED</code>, this string contains a message explaining
    *          why the operation failed.</p>
+   * @public
    */
   statusMessage?: string;
 }
@@ -911,8 +911,8 @@ export interface ControlOperation {
  */
 export interface GetControlOperationOutput {
   /**
-   * @public
    * <p>An operation performed by the control.</p>
+   * @public
    */
   controlOperation: ControlOperation | undefined;
 }
@@ -922,8 +922,8 @@ export interface GetControlOperationOutput {
  */
 export interface GetEnabledControlInput {
   /**
-   * @public
    * <p>The <code>controlIdentifier</code> of the enabled control.</p>
+   * @public
    */
   enabledControlIdentifier: string | undefined;
 }
@@ -945,15 +945,14 @@ export const DriftStatus = {
 export type DriftStatus = (typeof DriftStatus)[keyof typeof DriftStatus];
 
 /**
- * @public
  * <p>The drift summary of the enabled control.</p>
  *          <p>Amazon Web Services Control Tower expects the enabled control
  *          configuration to include all supported and governed Regions. If the enabled control differs
  *          from the expected configuration, it is defined to be in a state of drift. You can repair this drift by resetting the enabled control.</p>
+ * @public
  */
 export interface DriftStatusSummary {
   /**
-   * @public
    * <p> The drift status of the enabled control.</p>
    *          <p>Valid values:</p>
    *          <ul>
@@ -978,87 +977,88 @@ export interface DriftStatusSummary {
    *                   enabled control. </p>
    *             </li>
    *          </ul>
+   * @public
    */
   driftStatus?: DriftStatus;
 }
 
 /**
- * @public
  * <p>Returns a summary of information about the parameters of an enabled control.</p>
+ * @public
  */
 export interface EnabledControlParameterSummary {
   /**
-   * @public
    * <p>The key of a key/value pair.</p>
+   * @public
    */
   key: string | undefined;
 
   /**
-   * @public
    * <p>The value of a key/value pair.</p>
+   * @public
    */
   value: __DocumentType | undefined;
 }
 
 /**
- * @public
  * <p>An Amazon Web Services Region in which Amazon Web Services Control Tower expects to find the control deployed. </p>
  *          <p>The expected Regions are based on the Regions that are governed by the landing zone. In
  *             certain cases, a control is not actually enabled in the Region as expected, such as during
  *             drift, or <a href="https://docs.aws.amazon.com/controltower/latest/userguide/region-how.html#mixed-governance">mixed governance</a>.</p>
+ * @public
  */
 export interface Region {
   /**
-   * @public
    * <p>The Amazon Web Services Region name.</p>
+   * @public
    */
   name?: string;
 }
 
 /**
- * @public
  * <p>Information about the enabled control.</p>
+ * @public
  */
 export interface EnabledControlDetails {
   /**
-   * @public
    * <p>The ARN of the enabled control.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>The control identifier of the enabled control. For information on how to find the <code>controlIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
+   * @public
    */
   controlIdentifier?: string;
 
   /**
-   * @public
    * <p>The ARN of the organizational unit. For information on how to find the <code>targetIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
+   * @public
    */
   targetIdentifier?: string;
 
   /**
-   * @public
    * <p>Target Amazon Web Services Regions for the enabled control.</p>
+   * @public
    */
   targetRegions?: Region[];
 
   /**
-   * @public
    * <p>The deployment summary of the enabled control.</p>
+   * @public
    */
   statusSummary?: EnablementStatusSummary;
 
   /**
-   * @public
    * <p>The drift status of the enabled control.</p>
+   * @public
    */
   driftStatusSummary?: DriftStatusSummary;
 
   /**
-   * @public
    * <p>Array of <code>EnabledControlParameter</code> objects.</p>
+   * @public
    */
   parameters?: EnabledControlParameterSummary[];
 }
@@ -1068,8 +1068,8 @@ export interface EnabledControlDetails {
  */
 export interface GetEnabledControlOutput {
   /**
-   * @public
    * <p>Information about the enabled control.</p>
+   * @public
    */
   enabledControlDetails: EnabledControlDetails | undefined;
 }
@@ -1079,21 +1079,21 @@ export interface GetEnabledControlOutput {
  */
 export interface CreateLandingZoneInput {
   /**
-   * @public
    * <p>The landing zone version, for example, 3.0.</p>
+   * @public
    */
   version: string | undefined;
 
   /**
-   * @public
    * <p>The manifest.yaml file is a text file that describes your Amazon Web Services resources. For examples, review
    *          <a href="https://docs.aws.amazon.com/controltower/latest/userguide/the-manifest-file">The manifest file</a>. </p>
+   * @public
    */
   manifest: __DocumentType | undefined;
 
   /**
-   * @public
    * <p>Tags to be applied to the landing zone. </p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1103,15 +1103,15 @@ export interface CreateLandingZoneInput {
  */
 export interface CreateLandingZoneOutput {
   /**
-   * @public
    * <p>The ARN of the landing zone resource.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>A unique identifier assigned to a <code>CreateLandingZone</code> operation. You can use this
    *          identifier as an input of <code>GetLandingZoneOperation</code> to check the operation's status.</p>
+   * @public
    */
   operationIdentifier: string | undefined;
 }
@@ -1121,8 +1121,8 @@ export interface CreateLandingZoneOutput {
  */
 export interface DeleteLandingZoneInput {
   /**
-   * @public
    * <p>The unique identifier of the landing zone.</p>
+   * @public
    */
   landingZoneIdentifier: string | undefined;
 }
@@ -1132,9 +1132,9 @@ export interface DeleteLandingZoneInput {
  */
 export interface DeleteLandingZoneOutput {
   /**
-   * @public
    * <p>&gt;A unique identifier assigned to a <code>DeleteLandingZone</code> operation. You can use this
    *          identifier as an input parameter of <code>GetLandingZoneOperation</code> to check the operation's status.</p>
+   * @public
    */
   operationIdentifier: string | undefined;
 }
@@ -1144,8 +1144,8 @@ export interface DeleteLandingZoneOutput {
  */
 export interface GetLandingZoneInput {
   /**
-   * @public
    * <p>The unique identifier of the landing zone.</p>
+   * @public
    */
   landingZoneIdentifier: string | undefined;
 }
@@ -1165,14 +1165,13 @@ export const LandingZoneDriftStatus = {
 export type LandingZoneDriftStatus = (typeof LandingZoneDriftStatus)[keyof typeof LandingZoneDriftStatus];
 
 /**
- * @public
  * <p>The drift status summary of the landing zone. </p>
  *          <p>If the landing zone differs from the expected configuration, it is defined to be in a state of
  *          drift. You can repair this drift by resetting the landing zone.</p>
+ * @public
  */
 export interface LandingZoneDriftStatusSummary {
   /**
-   * @public
    * <p>The drift status of the landing zone. </p>
    *          <p>Valid values:</p>
    *          <ul>
@@ -1187,6 +1186,7 @@ export interface LandingZoneDriftStatusSummary {
    *                   configuration that Amazon Web Services Control Tower expected. </p>
    *             </li>
    *          </ul>
+   * @public
    */
   status?: LandingZoneDriftStatus;
 }
@@ -1207,43 +1207,43 @@ export const LandingZoneStatus = {
 export type LandingZoneStatus = (typeof LandingZoneStatus)[keyof typeof LandingZoneStatus];
 
 /**
- * @public
  * <p>Information about the landing zone.</p>
+ * @public
  */
 export interface LandingZoneDetail {
   /**
-   * @public
    * <p>The landing zone's current deployed version.</p>
+   * @public
    */
   version: string | undefined;
 
   /**
-   * @public
    * <p>The landing zone <code>manifest.yaml</code> text file that specifies the landing zone configurations. </p>
+   * @public
    */
   manifest: __DocumentType | undefined;
 
   /**
-   * @public
    * <p>The ARN of the landing zone.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>The landing zone deployment status. One of <code>ACTIVE</code>, <code>PROCESSING</code>, <code>FAILED</code>.</p>
+   * @public
    */
   status?: LandingZoneStatus;
 
   /**
-   * @public
    * <p>The latest available version of the landing zone.</p>
+   * @public
    */
   latestAvailableVersion?: string;
 
   /**
-   * @public
    * <p>The drift status of the landing zone.</p>
+   * @public
    */
   driftStatus?: LandingZoneDriftStatusSummary;
 }
@@ -1253,8 +1253,8 @@ export interface LandingZoneDetail {
  */
 export interface GetLandingZoneOutput {
   /**
-   * @public
    * <p>Information about the landing zone.</p>
+   * @public
    */
   landingZone: LandingZoneDetail | undefined;
 }
@@ -1264,8 +1264,8 @@ export interface GetLandingZoneOutput {
  */
 export interface GetLandingZoneOperationInput {
   /**
-   * @public
    * <p>A unique identifier assigned to a landing zone operation.</p>
+   * @public
    */
   operationIdentifier: string | undefined;
 }
@@ -1302,12 +1302,11 @@ export const LandingZoneOperationStatus = {
 export type LandingZoneOperationStatus = (typeof LandingZoneOperationStatus)[keyof typeof LandingZoneOperationStatus];
 
 /**
- * @public
  * <p>Information about a landing zone operation.</p>
+ * @public
  */
 export interface LandingZoneOperationDetail {
   /**
-   * @public
    * <p>The landing zone operation type. </p>
    *          <p>Valid values:</p>
    *          <ul>
@@ -1328,23 +1327,23 @@ export interface LandingZoneOperationDetail {
    *                   <code>RESET</code>: The <code>ResetLandingZone</code> operation. </p>
    *             </li>
    *          </ul>
+   * @public
    */
   operationType?: LandingZoneOperationType;
 
   /**
-   * @public
    * <p>The landing zone operation start time.</p>
+   * @public
    */
   startTime?: Date;
 
   /**
-   * @public
    * <p>The landing zone operation end time.</p>
+   * @public
    */
   endTime?: Date;
 
   /**
-   * @public
    * <p>Valid values:</p>
    *          <ul>
    *             <li>
@@ -1360,12 +1359,13 @@ export interface LandingZoneOperationDetail {
    *                   <code>FAILED</code>: The landing zone operation failed. </p>
    *             </li>
    *          </ul>
+   * @public
    */
   status?: LandingZoneOperationStatus;
 
   /**
-   * @public
    * <p>If the operation result is FAILED, this string contains a message explaining why the operation failed.</p>
+   * @public
    */
   statusMessage?: string;
 }
@@ -1375,8 +1375,8 @@ export interface LandingZoneOperationDetail {
  */
 export interface GetLandingZoneOperationOutput {
   /**
-   * @public
    * <p>Details about a landing zone operation.</p>
+   * @public
    */
   operationDetails: LandingZoneOperationDetail | undefined;
 }
@@ -1386,26 +1386,26 @@ export interface GetLandingZoneOperationOutput {
  */
 export interface ListLandingZonesInput {
   /**
-   * @public
    * <p>The token to continue the list from a previous API call with the same parameters.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of returned landing zone ARNs, which is one.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Returns a summary of information about a landing zone.</p>
+ * @public
  */
 export interface LandingZoneSummary {
   /**
-   * @public
    * <p>The ARN of the landing zone.</p>
+   * @public
    */
   arn?: string;
 }
@@ -1415,14 +1415,14 @@ export interface LandingZoneSummary {
  */
 export interface ListLandingZonesOutput {
   /**
-   * @public
    * <p>The ARN of the landing zone.</p>
+   * @public
    */
   landingZones: LandingZoneSummary[] | undefined;
 
   /**
-   * @public
    * <p>Retrieves the next page of results. If the string is empty, the response is the end of the results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1432,8 +1432,8 @@ export interface ListLandingZonesOutput {
  */
 export interface ResetLandingZoneInput {
   /**
-   * @public
    * <p>The unique identifier of the landing zone.</p>
+   * @public
    */
   landingZoneIdentifier: string | undefined;
 }
@@ -1443,9 +1443,9 @@ export interface ResetLandingZoneInput {
  */
 export interface ResetLandingZoneOutput {
   /**
-   * @public
    * <p>A unique identifier assigned to a <code>ResetLandingZone</code> operation. You can use this
    *          identifier as an input parameter of <code>GetLandingZoneOperation</code> to check the operation's status.</p>
+   * @public
    */
   operationIdentifier: string | undefined;
 }
@@ -1455,21 +1455,21 @@ export interface ResetLandingZoneOutput {
  */
 export interface UpdateLandingZoneInput {
   /**
-   * @public
    * <p>The landing zone version, for example, 3.2.</p>
+   * @public
    */
   version: string | undefined;
 
   /**
-   * @public
    * <p>The <code>manifest.yaml</code> file is a text file that describes your Amazon Web Services resources. For examples, review
    *          <a href="https://docs.aws.amazon.com/controltower/latest/userguide/the-manifest-file">The manifest file</a>.</p>
+   * @public
    */
   manifest: __DocumentType | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of the landing zone.</p>
+   * @public
    */
   landingZoneIdentifier: string | undefined;
 }
@@ -1479,9 +1479,9 @@ export interface UpdateLandingZoneInput {
  */
 export interface UpdateLandingZoneOutput {
   /**
-   * @public
    * <p>A unique identifier assigned to a <code>UpdateLandingZone</code> operation. You can use this
    *          identifier as an input of <code>GetLandingZoneOperation</code> to check the operation's status.</p>
+   * @public
    */
   operationIdentifier: string | undefined;
 }
@@ -1491,56 +1491,56 @@ export interface UpdateLandingZoneOutput {
  */
 export interface ListEnabledControlsInput {
   /**
-   * @public
    * <p>The ARN of the organizational unit. For information on how to find the <code>targetIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
+   * @public
    */
   targetIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The token to continue the list from a previous API call with the same parameters.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>How many results to return per API call.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Returns a summary of information about an enabled control.</p>
+ * @public
  */
 export interface EnabledControlSummary {
   /**
-   * @public
    * <p>The <code>controlIdentifier</code> of the enabled control.</p>
+   * @public
    */
   controlIdentifier?: string;
 
   /**
-   * @public
    * <p>The ARN of the enabled control.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>The ARN of the organizational unit.</p>
+   * @public
    */
   targetIdentifier?: string;
 
   /**
-   * @public
    * <p>A short description of the status of the enabled control.</p>
+   * @public
    */
   statusSummary?: EnablementStatusSummary;
 
   /**
-   * @public
    * <p>The drift status of the enabled control.</p>
+   * @public
    */
   driftStatusSummary?: DriftStatusSummary;
 }
@@ -1550,16 +1550,16 @@ export interface EnabledControlSummary {
  */
 export interface ListEnabledControlsOutput {
   /**
-   * @public
    * <p>Lists the controls enabled by Amazon Web Services Control Tower on the specified organizational unit and
    *          the accounts it contains.</p>
+   * @public
    */
   enabledControls: EnabledControlSummary[] | undefined;
 
   /**
-   * @public
    * <p>Retrieves the next page of results. If the string is empty, the response is the
    *          end of the results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1569,8 +1569,8 @@ export interface ListEnabledControlsOutput {
  */
 export interface ListTagsForResourceInput {
   /**
-   * @public
    * <p> The ARN of the resource.</p>
+   * @public
    */
   resourceArn: string | undefined;
 }
@@ -1580,8 +1580,8 @@ export interface ListTagsForResourceInput {
  */
 export interface ListTagsForResourceOutput {
   /**
-   * @public
    * <p>A list of tags, as <code>key:value</code> strings.</p>
+   * @public
    */
   tags: Record<string, string> | undefined;
 }
@@ -1591,14 +1591,14 @@ export interface ListTagsForResourceOutput {
  */
 export interface TagResourceInput {
   /**
-   * @public
    * <p>The ARN of the resource to be tagged.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>Tags to be applied to the resource.</p>
+   * @public
    */
   tags: Record<string, string> | undefined;
 }
@@ -1613,14 +1613,14 @@ export interface TagResourceOutput {}
  */
 export interface UntagResourceInput {
   /**
-   * @public
    * <p>The ARN of the resource.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>Tag keys to be removed from the resource.</p>
+   * @public
    */
   tagKeys: string[] | undefined;
 }
@@ -1635,16 +1635,16 @@ export interface UntagResourceOutput {}
  */
 export interface UpdateEnabledControlInput {
   /**
-   * @public
    * <p>A key/value pair, where <code>Key</code> is of type <code>String</code> and <code>Value</code> is of type <code>Document</code>.</p>
+   * @public
    */
   parameters: EnabledControlParameter[] | undefined;
 
   /**
-   * @public
    * <p>
    *          The ARN of the enabled control that will be updated.
    *       </p>
+   * @public
    */
   enabledControlIdentifier: string | undefined;
 }
@@ -1654,10 +1654,10 @@ export interface UpdateEnabledControlInput {
  */
 export interface UpdateEnabledControlOutput {
   /**
-   * @public
    * <p>
    *          The operation identifier for this <code>UpdateEnabledControl</code> operation.
    *       </p>
+   * @public
    */
   operationIdentifier: string | undefined;
 }

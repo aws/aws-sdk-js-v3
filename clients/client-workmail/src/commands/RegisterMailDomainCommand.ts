@@ -27,7 +27,6 @@ export interface RegisterMailDomainCommandInput extends RegisterMailDomainReques
 export interface RegisterMailDomainCommandOutput extends RegisterMailDomainResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers a new domain in WorkMail and SES, and configures it for use by WorkMail. Emails received by SES for this domain are routed to the specified WorkMail organization, and WorkMail has
  *          permanent permission to use the specified domain for sending your users' emails.</p>
  * @example
@@ -73,6 +72,7 @@ export interface RegisterMailDomainCommandOutput extends RegisterMailDomainRespo
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class RegisterMailDomainCommand extends $Command
   .classBuilder<

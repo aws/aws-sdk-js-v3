@@ -27,7 +27,6 @@ export interface UpdateApiDestinationCommandInput extends UpdateApiDestinationRe
 export interface UpdateApiDestinationCommandOutput extends UpdateApiDestinationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an API destination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface UpdateApiDestinationCommandOutput extends UpdateApiDestinationR
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * @public
  */
 export class UpdateApiDestinationCommand extends $Command
   .classBuilder<

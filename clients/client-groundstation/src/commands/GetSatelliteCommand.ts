@@ -27,7 +27,6 @@ export interface GetSatelliteCommandInput extends GetSatelliteRequest {}
 export interface GetSatelliteCommandOutput extends GetSatelliteResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a satellite.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface GetSatelliteCommandOutput extends GetSatelliteResponse, __Metad
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ * @public
  */
 export class GetSatelliteCommand extends $Command
   .classBuilder<

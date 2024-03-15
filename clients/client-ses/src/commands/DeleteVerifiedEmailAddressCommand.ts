@@ -27,7 +27,6 @@ export interface DeleteVerifiedEmailAddressCommandInput extends DeleteVerifiedEm
 export interface DeleteVerifiedEmailAddressCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deprecated. Use the <code>DeleteIdentity</code> operation to delete email addresses
  *             and domains.</p>
  * @example
@@ -54,6 +53,7 @@ export interface DeleteVerifiedEmailAddressCommandOutput extends __MetadataBeare
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example DeleteVerifiedEmailAddress
  * ```javascript
  * // The following example deletes an email address from the list of identities that have been submitted for verification with Amazon SES:

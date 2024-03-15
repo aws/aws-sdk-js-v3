@@ -28,7 +28,6 @@ export interface DeleteQueryLoggingConfigCommandInput extends DeleteQueryLogging
 export interface DeleteQueryLoggingConfigCommandOutput extends DeleteQueryLoggingConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a configuration for DNS query logging. If you delete a configuration, Amazon
  * 			Route 53 stops sending query logs to CloudWatch Logs. Route 53 doesn't delete any logs
  * 			that are already in CloudWatch Logs.</p>
@@ -67,6 +66,7 @@ export interface DeleteQueryLoggingConfigCommandOutput extends DeleteQueryLoggin
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class DeleteQueryLoggingConfigCommand extends $Command
   .classBuilder<

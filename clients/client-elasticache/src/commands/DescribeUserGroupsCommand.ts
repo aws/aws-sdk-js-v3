@@ -27,7 +27,6 @@ export interface DescribeUserGroupsCommandInput extends DescribeUserGroupsMessag
 export interface DescribeUserGroupsCommandOutput extends DescribeUserGroupsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of user groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface DescribeUserGroupsCommandOutput extends DescribeUserGroupsResul
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  */
 export class DescribeUserGroupsCommand extends $Command
   .classBuilder<

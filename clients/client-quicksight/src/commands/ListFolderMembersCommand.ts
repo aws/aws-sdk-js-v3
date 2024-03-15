@@ -27,7 +27,6 @@ export interface ListFolderMembersCommandInput extends ListFolderMembersRequest 
 export interface ListFolderMembersCommandOutput extends ListFolderMembersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List all assets (<code>DASHBOARD</code>, <code>ANALYSIS</code>, and <code>DATASET</code>) in a folder. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface ListFolderMembersCommandOutput extends ListFolderMembersRespons
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class ListFolderMembersCommand extends $Command
   .classBuilder<

@@ -35,7 +35,6 @@ export interface PutDeploymentParameterCommandInput extends PutDeploymentParamet
 export interface PutDeploymentParameterCommandOutput extends PutDeploymentParameterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates a deployment parameter and is targeted by <code>catalog</code> and <code>agreementId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface PutDeploymentParameterCommandOutput extends PutDeploymentParame
  * @throws {@link MarketplaceDeploymentServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceDeployment service.</p>
  *
+ * @public
  */
 export class PutDeploymentParameterCommand extends $Command
   .classBuilder<

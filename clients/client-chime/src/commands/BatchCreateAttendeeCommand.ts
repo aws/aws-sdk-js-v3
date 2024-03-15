@@ -32,9 +32,6 @@ export interface BatchCreateAttendeeCommandInput extends BatchCreateAttendeeRequ
 export interface BatchCreateAttendeeCommandOutput extends BatchCreateAttendeeResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by BatchCreateAttendee in the Amazon Chime SDK Meetings Namespace
- *
  * <p>Creates up to 100 new attendees for an active Amazon Chime SDK meeting.</p>
  *          <important>
  *             <p>
@@ -122,6 +119,8 @@ export interface BatchCreateAttendeeCommandOutput extends BatchCreateAttendeeRes
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by BatchCreateAttendee in the Amazon Chime SDK Meetings Namespace
  */
 export class BatchCreateAttendeeCommand extends $Command
   .classBuilder<

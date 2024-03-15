@@ -27,7 +27,6 @@ export interface CreateTypedLinkFacetCommandInput extends CreateTypedLinkFacetRe
 export interface CreateTypedLinkFacetCommandOutput extends CreateTypedLinkFacetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a <a>TypedLinkFacet</a>. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -114,6 +113,7 @@ export interface CreateTypedLinkFacetCommandOutput extends CreateTypedLinkFacetR
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class CreateTypedLinkFacetCommand extends $Command
   .classBuilder<

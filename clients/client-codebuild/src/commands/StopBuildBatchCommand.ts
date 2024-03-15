@@ -27,7 +27,6 @@ export interface StopBuildBatchCommandInput extends StopBuildBatchInput {}
 export interface StopBuildBatchCommandOutput extends StopBuildBatchOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a running batch build.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -275,6 +274,7 @@ export interface StopBuildBatchCommandOutput extends StopBuildBatchOutput, __Met
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * @public
  */
 export class StopBuildBatchCommand extends $Command
   .classBuilder<

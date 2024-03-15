@@ -27,7 +27,6 @@ export interface RebootNodeCommandInput extends RebootNodeRequest {}
 export interface RebootNodeCommandOutput extends RebootNodeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Reboots a single node of a DAX cluster. The reboot action takes place
  *             as soon as possible. During the
  *             reboot, the node status is set to REBOOTING.</p>
@@ -135,6 +134,7 @@ export interface RebootNodeCommandOutput extends RebootNodeResponse, __MetadataB
  * @throws {@link DAXServiceException}
  * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ * @public
  */
 export class RebootNodeCommand extends $Command
   .classBuilder<

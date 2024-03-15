@@ -27,7 +27,6 @@ export interface TerminateJobFlowsCommandInput extends TerminateJobFlowsInput {}
 export interface TerminateJobFlowsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>TerminateJobFlows shuts a list of clusters (job flows) down. When a job flow is shut
  *          down, any step not yet completed is canceled and the Amazon EC2 instances on which
  *          the cluster is running are stopped. Any log files not already saved are uploaded to Amazon S3 if a LogUri was specified when the cluster was created.</p>
@@ -65,6 +64,7 @@ export interface TerminateJobFlowsCommandOutput extends __MetadataBearer {}
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class TerminateJobFlowsCommand extends $Command
   .classBuilder<

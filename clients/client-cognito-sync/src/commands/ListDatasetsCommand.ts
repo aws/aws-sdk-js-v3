@@ -27,7 +27,6 @@ export interface ListDatasetsCommandInput extends ListDatasetsRequest {}
 export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists datasets for an identity. With Amazon Cognito Sync, each identity has access only to
  *          its own data. Thus, the credentials used to make this API call need to have access to the
  *          identity data.</p>
@@ -144,6 +143,7 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * @throws {@link CognitoSyncServiceException}
  * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
+ * @public
  */
 export class ListDatasetsCommand extends $Command
   .classBuilder<

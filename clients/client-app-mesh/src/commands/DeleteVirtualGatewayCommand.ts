@@ -27,7 +27,6 @@ export interface DeleteVirtualGatewayCommandInput extends DeleteVirtualGatewayIn
 export interface DeleteVirtualGatewayCommandOutput extends DeleteVirtualGatewayOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing virtual gateway. You cannot delete a virtual gateway if any gateway
  *          routes are associated to it.</p>
  * @example
@@ -218,6 +217,7 @@ export interface DeleteVirtualGatewayCommandOutput extends DeleteVirtualGatewayO
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ * @public
  */
 export class DeleteVirtualGatewayCommand extends $Command
   .classBuilder<

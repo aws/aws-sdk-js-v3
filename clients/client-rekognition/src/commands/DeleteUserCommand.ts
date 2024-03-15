@@ -27,7 +27,6 @@ export interface DeleteUserCommandInput extends DeleteUserRequest {}
 export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified UserID within the collection. Faces that are associated with the
  *       UserID are disassociated from the UserID before deleting the specified UserID. If the
  *       specified <code>Collection</code> or <code>UserID</code> is already deleted or not found, a
@@ -87,6 +86,7 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example DeleteUser
  * ```javascript
  * // Deletes the specified UserID within the collection.

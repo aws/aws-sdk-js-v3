@@ -31,7 +31,6 @@ export interface GetSchemaCommandInput extends GetSchemaInput {}
 export interface GetSchemaCommandOutput extends GetSchemaOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieve the details for the specified schema in the specified policy store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -161,6 +160,7 @@ export interface GetSchemaCommandOutput extends GetSchemaOutput, __MetadataBeare
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ * @public
  */
 export class GetSchemaCommand extends $Command
   .classBuilder<

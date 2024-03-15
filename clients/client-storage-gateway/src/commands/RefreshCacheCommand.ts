@@ -27,7 +27,6 @@ export interface RefreshCacheCommandInput extends RefreshCacheInput {}
 export interface RefreshCacheCommandOutput extends RefreshCacheOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Refreshes the cached inventory of objects for the specified file share. This operation
  *          finds objects in the Amazon S3 bucket that were added, removed, or replaced since
  *          the gateway last listed the bucket's contents and cached the results. This operation
@@ -108,6 +107,7 @@ export interface RefreshCacheCommandOutput extends RefreshCacheOutput, __Metadat
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  */
 export class RefreshCacheCommand extends $Command
   .classBuilder<

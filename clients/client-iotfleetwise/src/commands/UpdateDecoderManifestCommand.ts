@@ -27,7 +27,6 @@ export interface UpdateDecoderManifestCommandInput extends UpdateDecoderManifest
 export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifestResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Updates a decoder manifest.</p>
  *          <p>A decoder manifest can only be updated when the status is <code>DRAFT</code>. Only
  *                 <code>ACTIVE</code> decoder manifests can be associated with vehicles.</p>
@@ -245,6 +244,7 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class UpdateDecoderManifestCommand extends $Command
   .classBuilder<

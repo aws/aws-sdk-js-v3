@@ -31,9 +31,6 @@ export interface GetProxySessionCommandInput extends GetProxySessionRequest {}
 export interface GetProxySessionCommandOutput extends GetProxySessionResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by GetProxySession in the Amazon Chime SDK Voice Namespace
- *
  * <p>Gets the specified proxy session details for the specified Amazon Chime Voice Connector.</p>
  *          <important>
  *             <p>
@@ -114,6 +111,8 @@ export interface GetProxySessionCommandOutput extends GetProxySessionResponse, _
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by GetProxySession in the Amazon Chime SDK Voice Namespace
  */
 export class GetProxySessionCommand extends $Command
   .classBuilder<

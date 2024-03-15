@@ -32,7 +32,6 @@ export interface DisassociateCustomerGatewayCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates a customer gateway from a device and a link.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface DisassociateCustomerGatewayCommandOutput
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class DisassociateCustomerGatewayCommand extends $Command
   .classBuilder<

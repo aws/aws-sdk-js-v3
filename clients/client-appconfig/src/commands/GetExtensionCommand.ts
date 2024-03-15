@@ -27,7 +27,6 @@ export interface GetExtensionCommandInput extends GetExtensionRequest {}
 export interface GetExtensionCommandOutput extends Extension, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about an AppConfig extension.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface GetExtensionCommandOutput extends Extension, __MetadataBearer {
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  */
 export class GetExtensionCommand extends $Command
   .classBuilder<

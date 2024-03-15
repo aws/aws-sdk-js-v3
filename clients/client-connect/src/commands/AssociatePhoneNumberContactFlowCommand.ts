@@ -30,7 +30,6 @@ export interface AssociatePhoneNumberContactFlowCommandInput extends AssociatePh
 export interface AssociatePhoneNumberContactFlowCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a flow with a phone number claimed to your Amazon Connect instance.</p>
  *          <important>
  *             <p>If the number is claimed to a traffic distribution group, and you are calling this API using an instance in the
@@ -84,6 +83,7 @@ export interface AssociatePhoneNumberContactFlowCommandOutput extends __Metadata
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class AssociatePhoneNumberContactFlowCommand extends $Command
   .classBuilder<

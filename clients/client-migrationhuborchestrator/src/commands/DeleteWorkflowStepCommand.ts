@@ -31,7 +31,6 @@ export interface DeleteWorkflowStepCommandInput extends DeleteWorkflowStepReques
 export interface DeleteWorkflowStepCommandOutput extends DeleteWorkflowStepResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete a step in a migration workflow. Pause the workflow to delete a running
  *             step.</p>
  * @example
@@ -75,6 +74,7 @@ export interface DeleteWorkflowStepCommandOutput extends DeleteWorkflowStepRespo
  * @throws {@link MigrationHubOrchestratorServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
+ * @public
  */
 export class DeleteWorkflowStepCommand extends $Command
   .classBuilder<

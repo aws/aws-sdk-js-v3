@@ -31,7 +31,6 @@ export interface BatchGetLifecyclePolicyCommandInput extends BatchGetLifecyclePo
 export interface BatchGetLifecyclePolicyCommandOutput extends BatchGetLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns one or more configured OpenSearch Serverless lifecycle policies. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-list">Viewing data lifecycle policies</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface BatchGetLifecyclePolicyCommandOutput extends BatchGetLifecycleP
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ * @public
  */
 export class BatchGetLifecyclePolicyCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetServiceGraphCommandInput extends GetServiceGraphRequest {}
 export interface GetServiceGraphCommandOutput extends GetServiceGraphResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a document that describes services that process incoming requests, and
  *       downstream services that they call as a result. Root services process incoming requests and
  *       make calls to downstream services. Root services are applications that use the <a href="https://docs.aws.amazon.com/xray/index.html">Amazon Web Services X-Ray SDK</a>.
@@ -156,6 +155,7 @@ export interface GetServiceGraphCommandOutput extends GetServiceGraphResult, __M
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ * @public
  */
 export class GetServiceGraphCommand extends $Command
   .classBuilder<

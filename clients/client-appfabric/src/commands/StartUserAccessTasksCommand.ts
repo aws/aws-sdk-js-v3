@@ -31,7 +31,6 @@ export interface StartUserAccessTasksCommandInput extends StartUserAccessTasksRe
 export interface StartUserAccessTasksCommandOutput extends StartUserAccessTasksResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts the tasks to search user access status for a specific email address.</p>
  *          <p>The tasks are stopped when the user access status data is found. The tasks are
  *          terminated when the API calls to the application time out.</p>
@@ -88,6 +87,7 @@ export interface StartUserAccessTasksCommandOutput extends StartUserAccessTasksR
  * @throws {@link AppFabricServiceException}
  * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
+ * @public
  */
 export class StartUserAccessTasksCommand extends $Command
   .classBuilder<

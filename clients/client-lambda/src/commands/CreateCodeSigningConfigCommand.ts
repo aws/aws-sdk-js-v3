@@ -27,7 +27,6 @@ export interface CreateCodeSigningConfigCommandInput extends CreateCodeSigningCo
 export interface CreateCodeSigningConfigCommandOutput extends CreateCodeSigningConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a code signing configuration. A <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html">code signing configuration</a> defines a list of
  *       allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment
  *       validation checks fail). </p>
@@ -84,6 +83,7 @@ export interface CreateCodeSigningConfigCommandOutput extends CreateCodeSigningC
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class CreateCodeSigningConfigCommand extends $Command
   .classBuilder<

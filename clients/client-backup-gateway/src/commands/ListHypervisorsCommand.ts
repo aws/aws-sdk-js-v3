@@ -27,7 +27,6 @@ export interface ListHypervisorsCommandInput extends ListHypervisorsInput {}
 export interface ListHypervisorsCommandOutput extends ListHypervisorsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists your hypervisors.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface ListHypervisorsCommandOutput extends ListHypervisorsOutput, __M
  * @throws {@link BackupGatewayServiceException}
  * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
+ * @public
  */
 export class ListHypervisorsCommand extends $Command
   .classBuilder<

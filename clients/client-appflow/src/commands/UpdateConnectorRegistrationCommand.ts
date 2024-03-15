@@ -32,7 +32,6 @@ export interface UpdateConnectorRegistrationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a custom connector that you've previously registered. This operation updates the
  *       connector with one of the following:</p>
  *          <ul>
@@ -108,6 +107,7 @@ export interface UpdateConnectorRegistrationCommandOutput
  * @throws {@link AppflowServiceException}
  * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ * @public
  */
 export class UpdateConnectorRegistrationCommand extends $Command
   .classBuilder<

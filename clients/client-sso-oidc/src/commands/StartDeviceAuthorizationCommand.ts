@@ -31,7 +31,6 @@ export interface StartDeviceAuthorizationCommandInput extends StartDeviceAuthori
 export interface StartDeviceAuthorizationCommandOutput extends StartDeviceAuthorizationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Initiates device authorization by requesting a pair of verification codes from the
  *       authorization service.</p>
  * @example
@@ -88,6 +87,7 @@ export interface StartDeviceAuthorizationCommandOutput extends StartDeviceAuthor
  * @throws {@link SSOOIDCServiceException}
  * <p>Base exception class for all service exceptions from SSOOIDC service.</p>
  *
+ * @public
  * @example Call OAuth/OIDC /start-device-authorization endpoint
  * ```javascript
  * //

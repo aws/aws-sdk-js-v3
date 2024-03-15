@@ -27,7 +27,6 @@ export interface StopCrawlerCommandInput extends StopCrawlerRequest {}
 export interface StopCrawlerCommandOutput extends StopCrawlerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>If the specified crawler is running, stops the crawl.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface StopCrawlerCommandOutput extends StopCrawlerResponse, __Metadat
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class StopCrawlerCommand extends $Command
   .classBuilder<

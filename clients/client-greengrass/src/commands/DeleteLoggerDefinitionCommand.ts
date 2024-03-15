@@ -27,7 +27,6 @@ export interface DeleteLoggerDefinitionCommandInput extends DeleteLoggerDefiniti
 export interface DeleteLoggerDefinitionCommandOutput extends DeleteLoggerDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * Deletes a logger definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,6 +55,7 @@ export interface DeleteLoggerDefinitionCommandOutput extends DeleteLoggerDefinit
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class DeleteLoggerDefinitionCommand extends $Command
   .classBuilder<

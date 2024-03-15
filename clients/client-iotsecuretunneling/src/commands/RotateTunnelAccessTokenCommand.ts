@@ -35,7 +35,6 @@ export interface RotateTunnelAccessTokenCommandInput extends RotateTunnelAccessT
 export interface RotateTunnelAccessTokenCommandOutput extends RotateTunnelAccessTokenResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Revokes the current client access token (CAT) and returns new CAT for clients to
  * 			use when reconnecting to secure tunneling to access the same tunnel.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">RotateTunnelAccessToken</a> action.</p>
@@ -83,6 +82,7 @@ export interface RotateTunnelAccessTokenCommandOutput extends RotateTunnelAccess
  * @throws {@link IoTSecureTunnelingServiceException}
  * <p>Base exception class for all service exceptions from IoTSecureTunneling service.</p>
  *
+ * @public
  */
 export class RotateTunnelAccessTokenCommand extends $Command
   .classBuilder<

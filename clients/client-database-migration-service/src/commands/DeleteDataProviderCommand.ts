@@ -31,7 +31,6 @@ export interface DeleteDataProviderCommandInput extends DeleteDataProviderMessag
 export interface DeleteDataProviderCommandOutput extends DeleteDataProviderResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified data provider.</p>
  *          <note>
  *             <p>All migration projects associated with the data provider must be deleted or modified
@@ -141,6 +140,7 @@ export interface DeleteDataProviderCommandOutput extends DeleteDataProviderRespo
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Delete Data Provider
  * ```javascript
  * // Deletes the specified data provider.

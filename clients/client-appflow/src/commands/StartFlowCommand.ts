@@ -27,7 +27,6 @@ export interface StartFlowCommandInput extends StartFlowRequest {}
 export interface StartFlowCommandOutput extends StartFlowResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Activates an existing flow. For on-demand flows, this operation runs the flow
  *       immediately. For schedule and event-triggered flows, this operation activates the flow. </p>
  * @example
@@ -75,6 +74,7 @@ export interface StartFlowCommandOutput extends StartFlowResponse, __MetadataBea
  * @throws {@link AppflowServiceException}
  * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ * @public
  */
 export class StartFlowCommand extends $Command
   .classBuilder<

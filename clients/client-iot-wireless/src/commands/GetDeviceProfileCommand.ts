@@ -31,7 +31,6 @@ export interface GetDeviceProfileCommandInput extends GetDeviceProfileRequest {}
 export interface GetDeviceProfileCommandOutput extends GetDeviceProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a device profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -112,6 +111,7 @@ export interface GetDeviceProfileCommandOutput extends GetDeviceProfileResponse,
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class GetDeviceProfileCommand extends $Command
   .classBuilder<

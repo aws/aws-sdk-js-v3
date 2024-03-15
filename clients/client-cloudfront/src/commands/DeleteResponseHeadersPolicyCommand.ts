@@ -27,7 +27,6 @@ export interface DeleteResponseHeadersPolicyCommandInput extends DeleteResponseH
 export interface DeleteResponseHeadersPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a response headers policy.</p>
  *          <p>You cannot delete a response headers policy if it's attached to a cache behavior.
  * 			First update your distributions to remove the response headers policy from all cache
@@ -80,6 +79,7 @@ export interface DeleteResponseHeadersPolicyCommandOutput extends __MetadataBear
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class DeleteResponseHeadersPolicyCommand extends $Command
   .classBuilder<

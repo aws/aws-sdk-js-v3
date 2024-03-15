@@ -27,7 +27,6 @@ export interface ResumeSessionCommandInput extends ResumeSessionRequest {}
 export interface ResumeSessionCommandOutput extends ResumeSessionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Reconnects a session to a managed node after it has been disconnected. Connections can be
  *    resumed for disconnected sessions, but not terminated sessions.</p>
  *          <note>
@@ -71,6 +70,7 @@ export interface ResumeSessionCommandOutput extends ResumeSessionResponse, __Met
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class ResumeSessionCommand extends $Command
   .classBuilder<

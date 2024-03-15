@@ -27,7 +27,6 @@ export interface GetWebhookCommandInput extends GetWebhookRequest {}
 export interface GetWebhookCommandOutput extends GetWebhookResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the webhook information that corresponds to a specified webhook ID. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface GetWebhookCommandOutput extends GetWebhookResult, __MetadataBea
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ * @public
  */
 export class GetWebhookCommand extends $Command
   .classBuilder<

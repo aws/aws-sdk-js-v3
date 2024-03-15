@@ -36,7 +36,6 @@ export interface ListModelExplainabilityJobDefinitionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists model explainability job definitions that satisfy various filters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface ListModelExplainabilityJobDefinitionsCommandOutput
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListModelExplainabilityJobDefinitionsCommand extends $Command
   .classBuilder<

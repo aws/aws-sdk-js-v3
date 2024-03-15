@@ -567,7 +567,6 @@ export type CleanRoomsClientResolvedConfigType = __SmithyResolvedConfiguration<_
 export interface CleanRoomsClientResolvedConfig extends CleanRoomsClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Welcome to the <i>Clean Rooms API Reference</i>.</p>
  *          <p>Clean Rooms is an Amazon Web Services service that helps multiple parties to join
  *          their data together in a secure collaboration workspace. In the collaboration, members who
@@ -577,6 +576,7 @@ export interface CleanRoomsClientResolvedConfig extends CleanRoomsClientResolved
  *             <a href="https://docs.aws.amazon.com/clean-rooms/latest/userguide/what-is.html">Clean Rooms User Guide</a>.</p>
  *          <p>To learn more about SQL commands, functions, and conditions supported in Clean Rooms, see the
  *             <a href="https://docs.aws.amazon.com/clean-rooms/latest/sql-reference/sql-reference.html">Clean Rooms SQL Reference</a>.</p>
+ * @public
  */
 export class CleanRoomsClient extends __Client<
   __HttpHandlerOptions,

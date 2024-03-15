@@ -27,7 +27,6 @@ export interface DetectFacesCommandInput extends DetectFacesRequest {}
 export interface DetectFacesCommandOutput extends DetectFacesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Detects faces within an image that is provided as input.</p>
  *          <p>
  *             <code>DetectFaces</code> detects the 100 largest faces in the image. For each face
@@ -190,6 +189,7 @@ export interface DetectFacesCommandOutput extends DetectFacesResponse, __Metadat
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example To detect faces in an image
  * ```javascript
  * // This operation detects faces in an image stored in an AWS S3 bucket.

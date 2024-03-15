@@ -29,7 +29,6 @@ export interface DisableHealthServiceAccessForOrganizationCommandInput {}
 export interface DisableHealthServiceAccessForOrganizationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables Health from working with Organizations. To call this operation, you must sign
  *          in to the organization's management account. For more information, see <a href="https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html">Aggregating
  *             Health events</a> in the <i>Health User Guide</i>.</p>
@@ -71,6 +70,7 @@ export interface DisableHealthServiceAccessForOrganizationCommandOutput extends 
  * @throws {@link HealthServiceException}
  * <p>Base exception class for all service exceptions from Health service.</p>
  *
+ * @public
  */
 export class DisableHealthServiceAccessForOrganizationCommand extends $Command
   .classBuilder<

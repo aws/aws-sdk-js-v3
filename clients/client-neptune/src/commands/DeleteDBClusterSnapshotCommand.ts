@@ -27,7 +27,6 @@ export interface DeleteDBClusterSnapshotCommandInput extends DeleteDBClusterSnap
 export interface DeleteDBClusterSnapshotCommandOutput extends DeleteDBClusterSnapshotResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a DB cluster snapshot. If the snapshot is being copied, the copy operation is
  *       terminated.</p>
  *          <note>
@@ -92,6 +91,7 @@ export interface DeleteDBClusterSnapshotCommandOutput extends DeleteDBClusterSna
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class DeleteDBClusterSnapshotCommand extends $Command
   .classBuilder<

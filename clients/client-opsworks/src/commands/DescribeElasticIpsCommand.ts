@@ -27,7 +27,6 @@ export interface DescribeElasticIpsCommandInput extends DescribeElasticIpsReques
 export interface DescribeElasticIpsCommandOutput extends DescribeElasticIpsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP addresses</a>.</p>
  *          <note>
  *             <p>This call accepts only one resource-identifying parameter.</p>
@@ -81,6 +80,7 @@ export interface DescribeElasticIpsCommandOutput extends DescribeElasticIpsResul
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class DescribeElasticIpsCommand extends $Command
   .classBuilder<

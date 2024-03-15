@@ -27,7 +27,6 @@ export interface DescribeEventsCommandInput extends DescribeEventsRequest {}
 export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns information about events that meet the specified filter criteria. Events are
  *          returned in a summary form and do not include the detailed description, any additional
  *          metadata that depends on the event type, or any affected resources. To retrieve that
@@ -152,6 +151,7 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * @throws {@link HealthServiceException}
  * <p>Base exception class for all service exceptions from Health service.</p>
  *
+ * @public
  */
 export class DescribeEventsCommand extends $Command
   .classBuilder<

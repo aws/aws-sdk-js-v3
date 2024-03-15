@@ -32,7 +32,6 @@ export interface GetDeliveryDestinationPolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the delivery destination policy assigned to the delivery destination that you specify.
  *       For more information about delivery destinations and their policies, see
  *         <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationPolicy.html">PutDeliveryDestinationPolicy</a>.</p>
@@ -73,6 +72,7 @@ export interface GetDeliveryDestinationPolicyCommandOutput
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class GetDeliveryDestinationPolicyCommand extends $Command
   .classBuilder<

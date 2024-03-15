@@ -32,7 +32,6 @@ export interface DeleteResolverQueryLogConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a query logging configuration. When you delete a configuration, Resolver stops logging DNS queries for all of the Amazon VPCs that are
  * 			associated with the configuration. This also applies if the query logging configuration is shared with other Amazon Web Services accounts, and
  * 			the other accounts have associated VPCs with the shared configuration.</p>
@@ -97,6 +96,7 @@ export interface DeleteResolverQueryLogConfigCommandOutput
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class DeleteResolverQueryLogConfigCommand extends $Command
   .classBuilder<

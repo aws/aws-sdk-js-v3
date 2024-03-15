@@ -31,7 +31,6 @@ export interface CreateTagsCommandInput extends CreateTagsRequest {}
 export interface CreateTagsCommandOutput extends CreateTagsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates one or more tags for configuration items. Tags are metadata that help you
  *       categorize IT assets. This API accepts a list of multiple configuration items.</p>
  *          <important>
@@ -90,6 +89,7 @@ export interface CreateTagsCommandOutput extends CreateTagsResponse, __MetadataB
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ * @public
  */
 export class CreateTagsCommand extends $Command
   .classBuilder<

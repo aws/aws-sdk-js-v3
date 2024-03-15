@@ -32,7 +32,6 @@ export interface DescribeDBClusterParameterGroupsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns a list of <code>DBClusterParameterGroup</code> descriptions. If a
  *       <code>DBClusterParameterGroupName</code> parameter is specified, the list will contain only
  *       the description of the specified DB cluster parameter group.</p>
@@ -85,6 +84,7 @@ export interface DescribeDBClusterParameterGroupsCommandOutput
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class DescribeDBClusterParameterGroupsCommand extends $Command
   .classBuilder<

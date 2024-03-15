@@ -27,7 +27,6 @@ export interface CreateAnomalySubscriptionCommandInput extends CreateAnomalySubs
 export interface CreateAnomalySubscriptionCommandOutput extends CreateAnomalySubscriptionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds an alert subscription to a cost anomaly detection monitor. You can use each
  *       subscription to define subscribers with email or SNS notifications. Email subscribers can set
  *       an absolute or percentage threshold and a time frequency for receiving notifications. </p>
@@ -152,6 +151,7 @@ export interface CreateAnomalySubscriptionCommandOutput extends CreateAnomalySub
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * @public
  */
 export class CreateAnomalySubscriptionCommand extends $Command
   .classBuilder<

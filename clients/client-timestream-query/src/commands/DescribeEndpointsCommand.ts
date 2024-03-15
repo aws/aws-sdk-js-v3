@@ -27,7 +27,6 @@ export interface DescribeEndpointsCommandInput extends DescribeEndpointsRequest 
 export interface DescribeEndpointsCommandOutput extends DescribeEndpointsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>DescribeEndpoints returns a list of available endpoints to make Timestream
  *             API calls against. This API is available through both Write and Query.</p>
  *          <p>Because the Timestream SDKs are designed to transparently work with the
@@ -89,6 +88,7 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * @throws {@link TimestreamQueryServiceException}
  * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
+ * @public
  */
 export class DescribeEndpointsCommand extends $Command
   .classBuilder<

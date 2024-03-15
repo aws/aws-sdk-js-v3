@@ -27,7 +27,6 @@ export interface ProvisionPublicIpv4PoolCidrCommandInput extends ProvisionPublic
 export interface ProvisionPublicIpv4PoolCidrCommandOutput extends ProvisionPublicIpv4PoolCidrResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provision a CIDR to a public IPv4 pool.</p>
  *          <p>For more information about IPAM, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  * @example
@@ -65,6 +64,7 @@ export interface ProvisionPublicIpv4PoolCidrCommandOutput extends ProvisionPubli
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ProvisionPublicIpv4PoolCidrCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface UpdateNamespaceCommandInput extends UpdateNamespaceRequest {}
 export interface UpdateNamespaceCommandOutput extends UpdateNamespaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a namespace with the specified settings. Unless required, you can't update multiple parameters in one request. For example,
  *       you must specify both <code>adminUsername</code> and <code>adminUserPassword</code> to update either field, but you can't update both <code>kmsKeyId</code>
  *       and <code>logExports</code> in a single request.</p>
@@ -108,6 +107,7 @@ export interface UpdateNamespaceCommandOutput extends UpdateNamespaceResponse, _
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * @public
  */
 export class UpdateNamespaceCommand extends $Command
   .classBuilder<

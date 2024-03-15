@@ -27,7 +27,6 @@ export interface DeleteKeyValueStoreCommandInput extends DeleteKeyValueStoreRequ
 export interface DeleteKeyValueStoreCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Specifies the Key Value Store to delete.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface DeleteKeyValueStoreCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  * @example To delete a KeyValueStore
  * ```javascript
  * // Use the following command to delete a KeyValueStore.

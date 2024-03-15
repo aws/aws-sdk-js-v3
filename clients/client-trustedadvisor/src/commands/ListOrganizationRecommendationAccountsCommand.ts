@@ -37,7 +37,6 @@ export interface ListOrganizationRecommendationAccountsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the accounts that own the resources for an organization aggregate recommendation. This API only
  *             supports prioritized recommendations.
  *         </p>
@@ -97,6 +96,7 @@ export interface ListOrganizationRecommendationAccountsCommandOutput
  * @throws {@link TrustedAdvisorServiceException}
  * <p>Base exception class for all service exceptions from TrustedAdvisor service.</p>
  *
+ * @public
  */
 export class ListOrganizationRecommendationAccountsCommand extends $Command
   .classBuilder<

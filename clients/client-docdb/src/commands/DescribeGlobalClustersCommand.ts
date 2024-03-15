@@ -27,7 +27,6 @@ export interface DescribeGlobalClustersCommandInput extends DescribeGlobalCluste
 export interface DescribeGlobalClustersCommandOutput extends GlobalClustersMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about Amazon DocumentDB global  clusters. This API supports pagination.</p>
  *          <note>
  *             <p>This action only applies to Amazon DocumentDB clusters.</p>
@@ -93,6 +92,7 @@ export interface DescribeGlobalClustersCommandOutput extends GlobalClustersMessa
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class DescribeGlobalClustersCommand extends $Command
   .classBuilder<

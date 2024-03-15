@@ -31,7 +31,6 @@ export interface CreateViewVersionCommandInput extends CreateViewVersionRequest 
 export interface CreateViewVersionCommandOutput extends CreateViewVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Publishes a new version of the view identifier.</p>
  *          <p>Versions are immutable and monotonically increasing.</p>
  *          <p>It returns the highest version if there is no change in content compared to that version. An
@@ -112,6 +111,7 @@ export interface CreateViewVersionCommandOutput extends CreateViewVersionRespons
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class CreateViewVersionCommand extends $Command
   .classBuilder<

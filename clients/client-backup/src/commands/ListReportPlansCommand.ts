@@ -27,7 +27,6 @@ export interface ListReportPlansCommandInput extends ListReportPlansInput {}
 export interface ListReportPlansCommandOutput extends ListReportPlansOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of your report plans. For detailed information about a single report
  *          plan, use <code>DescribeReportPlan</code>.</p>
  * @example
@@ -98,6 +97,7 @@ export interface ListReportPlansCommandOutput extends ListReportPlansOutput, __M
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class ListReportPlansCommand extends $Command
   .classBuilder<

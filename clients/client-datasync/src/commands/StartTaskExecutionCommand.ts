@@ -27,7 +27,6 @@ export interface StartTaskExecutionCommandInput extends StartTaskExecutionReques
 export interface StartTaskExecutionCommandOutput extends StartTaskExecutionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an DataSync transfer task. For each task, you can only run one task
  *       execution at a time.</p>
  *          <p>There are several phases to a task execution. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/working-with-task-executions.html#understand-task-execution-statuses">Task execution statuses</a>.</p>
@@ -143,6 +142,7 @@ export interface StartTaskExecutionCommandOutput extends StartTaskExecutionRespo
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class StartTaskExecutionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateRelatedItemsCommandInput extends UpdateRelatedItemsInput 
 export interface UpdateRelatedItemsCommandOutput extends UpdateRelatedItemsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Add or remove related items from the related items tab of an incident record.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface UpdateRelatedItemsCommandOutput extends UpdateRelatedItemsOutpu
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ * @public
  */
 export class UpdateRelatedItemsCommand extends $Command
   .classBuilder<

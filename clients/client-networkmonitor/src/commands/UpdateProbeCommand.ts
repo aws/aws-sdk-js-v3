@@ -27,7 +27,6 @@ export interface UpdateProbeCommandInput extends UpdateProbeInput {}
 export interface UpdateProbeCommandOutput extends UpdateProbeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a monitor probe. This action requires both the <code>monitorName</code> and <code>probeId</code> parameters. Run <code>ListMonitors</code> to get a list of monitor names. Run <code>GetMonitor</code> to get a list of probes and probe IDs. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface UpdateProbeCommandOutput extends UpdateProbeOutput, __MetadataB
  * @throws {@link NetworkMonitorServiceException}
  * <p>Base exception class for all service exceptions from NetworkMonitor service.</p>
  *
+ * @public
  */
 export class UpdateProbeCommand extends $Command
   .classBuilder<

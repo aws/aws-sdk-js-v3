@@ -32,7 +32,6 @@ export interface DescribeDocumentVersionsCommandInput extends DescribeDocumentVe
 export interface DescribeDocumentVersionsCommandOutput extends DescribeDocumentVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the document versions for the specified document.</p>
  *          <p>By default, only active versions are returned.</p>
  * @example
@@ -113,6 +112,7 @@ export interface DescribeDocumentVersionsCommandOutput extends DescribeDocumentV
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class DescribeDocumentVersionsCommand extends $Command
   .classBuilder<

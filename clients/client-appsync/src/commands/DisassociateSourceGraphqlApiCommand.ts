@@ -32,7 +32,6 @@ export interface DisassociateSourceGraphqlApiCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an association between a Merged API and source API using the Merged API's identifier and the
  *          association ID.</p>
  * @example
@@ -79,6 +78,7 @@ export interface DisassociateSourceGraphqlApiCommandOutput
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class DisassociateSourceGraphqlApiCommand extends $Command
   .classBuilder<

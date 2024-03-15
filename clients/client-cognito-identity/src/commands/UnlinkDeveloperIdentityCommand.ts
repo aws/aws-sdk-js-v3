@@ -27,7 +27,6 @@ export interface UnlinkDeveloperIdentityCommandInput extends UnlinkDeveloperIden
 export interface UnlinkDeveloperIdentityCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Unlinks a <code>DeveloperUserIdentifier</code> from an existing identity. Unlinked
  *          developer users will be considered new identities next time they are seen. If, for a given
  *          Cognito identity, you remove all federated identities as well as the developer user
@@ -80,6 +79,7 @@ export interface UnlinkDeveloperIdentityCommandOutput extends __MetadataBearer {
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ * @public
  */
 export class UnlinkDeveloperIdentityCommand extends $Command
   .classBuilder<

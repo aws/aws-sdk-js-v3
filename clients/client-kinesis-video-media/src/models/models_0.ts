@@ -6,9 +6,9 @@ import { StreamingBlobTypes } from "@smithy/types";
 import { KinesisVideoMediaServiceException as __BaseException } from "./KinesisVideoMediaServiceException";
 
 /**
- * @public
  * <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
  *       allowed client calls. Try making the call later.</p>
+ * @public
  */
 export class ClientLimitExceededException extends __BaseException {
   readonly name: "ClientLimitExceededException" = "ClientLimitExceededException";
@@ -29,9 +29,9 @@ export class ClientLimitExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
  *       allowed client connections.</p>
+ * @public
  */
 export class ConnectionLimitExceededException extends __BaseException {
   readonly name: "ConnectionLimitExceededException" = "ConnectionLimitExceededException";
@@ -70,7 +70,6 @@ export const StartSelectorType = {
 export type StartSelectorType = (typeof StartSelectorType)[keyof typeof StartSelectorType];
 
 /**
- * @public
  * <p>Identifies the chunk on the Kinesis video stream where you want the
  *         <code>GetMedia</code> API to start returning media data. You have the following options to
  *       identify the starting chunk: </p>
@@ -90,10 +89,10 @@ export type StartSelectorType = (typeof StartSelectorType)[keyof typeof StartSel
  *           last API ended.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export interface StartSelector {
   /**
-   * @public
    * <p>Identifies the fragment on the Kinesis video stream where you want to start getting the
    *       data from.</p>
    *          <ul>
@@ -121,29 +120,30 @@ export interface StartSelector {
    *           <code>startSelectorType</code>, you don't provide any additional information in the
    *           <code>startSelector</code>.</p>
    *          </note>
+   * @public
    */
   StartSelectorType: StartSelectorType | undefined;
 
   /**
-   * @public
    * <p>Specifies the fragment number from where you want the <code>GetMedia</code> API to
    *       start returning the fragments. </p>
+   * @public
    */
   AfterFragmentNumber?: string;
 
   /**
-   * @public
    * <p>A timestamp value. This value is required if you choose the PRODUCER_TIMESTAMP or the
    *       SERVER_TIMESTAMP as the <code>startSelectorType</code>. The <code>GetMedia</code> API then
    *       starts with the chunk containing the fragment that has the specified timestamp.</p>
+   * @public
    */
   StartTimestamp?: Date;
 
   /**
-   * @public
    * <p>Continuation token that Kinesis Video Streams returned in the previous
    *         <code>GetMedia</code> response. The <code>GetMedia</code> API then starts with the chunk
    *       identified by the continuation token.</p>
+   * @public
    */
   ContinuationToken?: string;
 }
@@ -153,23 +153,23 @@ export interface StartSelector {
  */
 export interface GetMediaInput {
   /**
-   * @public
    * <p>The Kinesis video stream name from where you want to get the media content. If you
    *       don't specify the <code>streamName</code>, you must specify the
    *       <code>streamARN</code>.</p>
+   * @public
    */
   StreamName?: string;
 
   /**
-   * @public
    * <p>The ARN of the stream from where you want to get the media content. If you don't
    *       specify the <code>streamARN</code>, you must specify the <code>streamName</code>.</p>
+   * @public
    */
   StreamARN?: string;
 
   /**
-   * @public
    * <p>Identifies the starting chunk to get from the specified stream. </p>
+   * @public
    */
   StartSelector: StartSelector | undefined;
 }
@@ -179,13 +179,12 @@ export interface GetMediaInput {
  */
 export interface GetMediaOutput {
   /**
-   * @public
    * <p>The content type of the requested media.</p>
+   * @public
    */
   ContentType?: string;
 
   /**
-   * @public
    * <p> The payload Kinesis Video Streams returns is a sequence of chunks from the specified
    *       stream. For information about the chunks, see . The
    *       chunks that Kinesis Video Streams returns in the <code>GetMedia</code> call also include the
@@ -254,13 +253,14 @@ export interface GetMediaOutput {
    *                <p>5000 - Internal error</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Payload?: StreamingBlobTypes;
 }
 
 /**
- * @public
  * <p>The value for this input parameter is invalid.</p>
+ * @public
  */
 export class InvalidArgumentException extends __BaseException {
   readonly name: "InvalidArgumentException" = "InvalidArgumentException";
@@ -281,11 +281,11 @@ export class InvalidArgumentException extends __BaseException {
 }
 
 /**
- * @public
  * <p> Status Code: 400, Caller used wrong endpoint to write data to a stream. On receiving
  *       such an exception, the user must call <code>GetDataEndpoint</code> with
  *         <code>AccessMode</code> set to "READ" and use the endpoint Kinesis Video returns in the next
  *         <code>GetMedia</code> call. </p>
+ * @public
  */
 export class InvalidEndpointException extends __BaseException {
   readonly name: "InvalidEndpointException" = "InvalidEndpointException";
@@ -306,9 +306,9 @@ export class InvalidEndpointException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Status Code: 403, The caller is not authorized to perform an operation on the given
  *       stream, or the token has expired.</p>
+ * @public
  */
 export class NotAuthorizedException extends __BaseException {
   readonly name: "NotAuthorizedException" = "NotAuthorizedException";
@@ -329,8 +329,8 @@ export class NotAuthorizedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Status Code: 404, The stream with the given name does not exist.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";

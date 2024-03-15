@@ -31,7 +31,6 @@ export interface DisableSnapshotCopyCommandInput extends DisableSnapshotCopyMess
 export interface DisableSnapshotCopyCommandOutput extends DisableSnapshotCopyResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables the automatic copying of snapshots from one region to another region for a
  *             specified cluster.</p>
  *          <p>If your cluster and its snapshots are encrypted using an encrypted symmetric key
@@ -267,6 +266,7 @@ export interface DisableSnapshotCopyCommandOutput extends DisableSnapshotCopyRes
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DisableSnapshotCopyCommand extends $Command
   .classBuilder<

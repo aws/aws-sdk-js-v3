@@ -27,7 +27,6 @@ export interface GetTemplateCommandInput extends GetTemplateRequest {}
 export interface GetTemplateCommandOutput extends GetTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a certificate template that the connector uses to issue certificates from a
  *          private CA.</p>
  * @example
@@ -327,6 +326,7 @@ export interface GetTemplateCommandOutput extends GetTemplateResponse, __Metadat
  * @throws {@link PcaConnectorAdServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ * @public
  */
 export class GetTemplateCommand extends $Command
   .classBuilder<

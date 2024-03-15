@@ -27,7 +27,6 @@ export interface CreateFirewallRuleCommandInput extends CreateFirewallRuleReques
 export interface CreateFirewallRuleCommandOutput extends CreateFirewallRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a single DNS Firewall rule in the specified rule group, using the specified domain list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface CreateFirewallRuleCommandOutput extends CreateFirewallRuleRespo
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class CreateFirewallRuleCommand extends $Command
   .classBuilder<

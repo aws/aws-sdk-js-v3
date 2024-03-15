@@ -27,7 +27,6 @@ export interface DescribeClientPropertiesCommandInput extends DescribeClientProp
 export interface DescribeClientPropertiesCommandOutput extends DescribeClientPropertiesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list that describes one or more specified Amazon WorkSpaces clients.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DescribeClientPropertiesCommandOutput extends DescribeClientPro
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class DescribeClientPropertiesCommand extends $Command
   .classBuilder<

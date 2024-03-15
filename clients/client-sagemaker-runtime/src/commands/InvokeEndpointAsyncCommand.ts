@@ -31,7 +31,6 @@ export interface InvokeEndpointAsyncCommandInput extends InvokeEndpointAsyncInpu
 export interface InvokeEndpointAsyncCommandOutput extends InvokeEndpointAsyncOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>After you deploy a model into production using Amazon SageMaker hosting services,
  *             your client applications use this API to get inferences from the model hosted at the
  *             specified endpoint in an asynchronous manner.</p>
@@ -88,6 +87,7 @@ export interface InvokeEndpointAsyncCommandOutput extends InvokeEndpointAsyncOut
  * @throws {@link SageMakerRuntimeServiceException}
  * <p>Base exception class for all service exceptions from SageMakerRuntime service.</p>
  *
+ * @public
  */
 export class InvokeEndpointAsyncCommand extends $Command
   .classBuilder<

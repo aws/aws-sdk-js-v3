@@ -27,7 +27,6 @@ export interface DescribeAvailabilityZonesCommandInput extends DescribeAvailabil
 export interface DescribeAvailabilityZonesCommandOutput extends DescribeAvailabilityZonesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the Availability Zones, Local Zones, and Wavelength Zones that are available to
  *       you. If there is an event impacting a zone, you can use this request to view the state and any
  *       provided messages for that zone.</p>
@@ -98,6 +97,7 @@ export interface DescribeAvailabilityZonesCommandOutput extends DescribeAvailabi
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To describe your Availability Zones
  * ```javascript
  * // This example describes the Availability Zones that are available to you. The response includes Availability Zones only for the current region.

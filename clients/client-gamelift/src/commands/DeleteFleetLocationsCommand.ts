@@ -27,7 +27,6 @@ export interface DeleteFleetLocationsCommandInput extends DeleteFleetLocationsIn
 export interface DeleteFleetLocationsCommandOutput extends DeleteFleetLocationsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes locations from a multi-location fleet. When deleting a location, all game
  *             server process and all instances that are still active in the location are shut down. </p>
  *          <p>To delete fleet locations, identify the fleet ID and provide a list of the locations
@@ -95,6 +94,7 @@ export interface DeleteFleetLocationsCommandOutput extends DeleteFleetLocationsO
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DeleteFleetLocationsCommand extends $Command
   .classBuilder<

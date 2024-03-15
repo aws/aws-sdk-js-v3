@@ -28,7 +28,6 @@ export interface ChangeCidrCollectionCommandInput extends ChangeCidrCollectionRe
 export interface ChangeCidrCollectionCommandOutput extends ChangeCidrCollectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates, changes, or deletes CIDR blocks within a collection. Contains authoritative
  * 			IP information mapping blocks to one or multiple locations.</p>
  *          <p>A change request can update multiple locations in a collection at a time, which is
@@ -112,6 +111,7 @@ export interface ChangeCidrCollectionCommandOutput extends ChangeCidrCollectionR
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class ChangeCidrCollectionCommand extends $Command
   .classBuilder<

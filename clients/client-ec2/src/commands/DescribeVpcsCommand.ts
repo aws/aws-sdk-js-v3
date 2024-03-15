@@ -27,7 +27,6 @@ export interface DescribeVpcsCommandInput extends DescribeVpcsRequest {}
 export interface DescribeVpcsCommandOutput extends DescribeVpcsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes one or more of your VPCs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -107,6 +106,7 @@ export interface DescribeVpcsCommandOutput extends DescribeVpcsResult, __Metadat
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To describe a VPC
  * ```javascript
  * // This example describes the specified VPC.

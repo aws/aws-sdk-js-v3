@@ -27,7 +27,6 @@ export interface BatchReadCommandInput extends BatchReadRequest {}
 export interface BatchReadCommandOutput extends BatchReadResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Performs all the read operations in a batch. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -478,6 +477,7 @@ export interface BatchReadCommandOutput extends BatchReadResponse, __MetadataBea
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class BatchReadCommand extends $Command
   .classBuilder<

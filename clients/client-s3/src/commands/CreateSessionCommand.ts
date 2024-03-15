@@ -27,7 +27,6 @@ export interface CreateSessionCommandInput extends CreateSessionRequest {}
 export interface CreateSessionCommandOutput extends CreateSessionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a session that establishes temporary security credentials to support fast authentication and authorization for the Zonal endpoint APIs on directory buckets.
  *          For more information about Zonal endpoint APIs that include the Availability Zone in the request endpoint, see
  *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-APIs.html">S3 Express One Zone  APIs</a> in the <i>Amazon S3 User Guide</i>.
@@ -127,6 +126,7 @@ export interface CreateSessionCommandOutput extends CreateSessionOutput, __Metad
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  */
 export class CreateSessionCommand extends $Command
   .classBuilder<

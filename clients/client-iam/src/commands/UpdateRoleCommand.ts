@@ -27,7 +27,6 @@ export interface UpdateRoleCommandInput extends UpdateRoleRequest {}
 export interface UpdateRoleCommandOutput extends UpdateRoleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the description or maximum session duration setting of a role.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface UpdateRoleCommandOutput extends UpdateRoleResponse, __MetadataB
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class UpdateRoleCommand extends $Command
   .classBuilder<

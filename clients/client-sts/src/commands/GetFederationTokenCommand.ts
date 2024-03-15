@@ -31,7 +31,6 @@ export interface GetFederationTokenCommandInput extends GetFederationTokenReques
 export interface GetFederationTokenCommandOutput extends GetFederationTokenResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a set of temporary security credentials (consisting of an access key ID, a
  *          secret access key, and a security token) for a user. A typical use is in a proxy
  *          application that gets temporary security credentials on behalf of distributed applications
@@ -192,6 +191,7 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  * @throws {@link STSServiceException}
  * <p>Base exception class for all service exceptions from STS service.</p>
  *
+ * @public
  * @example To get temporary credentials for a role by using GetFederationToken
  * ```javascript
  * //

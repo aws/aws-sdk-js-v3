@@ -31,9 +31,6 @@ export interface CreateChannelModeratorCommandInput extends CreateChannelModerat
 export interface CreateChannelModeratorCommandOutput extends CreateChannelModeratorResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by CreateChannelModerator in the Amazon Chime SDK Messaging Namespace
- *
  * <p>Creates a new <code>ChannelModerator</code>. A channel moderator can:</p>
  *          <ul>
  *             <li>
@@ -121,6 +118,8 @@ export interface CreateChannelModeratorCommandOutput extends CreateChannelModera
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by CreateChannelModerator in the Amazon Chime SDK Messaging Namespace
  */
 export class CreateChannelModeratorCommand extends $Command
   .classBuilder<

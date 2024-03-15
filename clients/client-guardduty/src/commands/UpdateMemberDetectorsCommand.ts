@@ -27,7 +27,6 @@ export interface UpdateMemberDetectorsCommandInput extends UpdateMemberDetectors
 export interface UpdateMemberDetectorsCommandOutput extends UpdateMemberDetectorsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Contains information on member accounts to be updated.</p>
  *          <p>Specifying both EKS Runtime Monitoring (<code>EKS_RUNTIME_MONITORING</code>)
  *       and Runtime Monitoring (<code>RUNTIME_MONITORING</code>) will cause an error.
@@ -104,6 +103,7 @@ export interface UpdateMemberDetectorsCommandOutput extends UpdateMemberDetector
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class UpdateMemberDetectorsCommand extends $Command
   .classBuilder<

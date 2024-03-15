@@ -567,7 +567,6 @@ export type RekognitionClientResolvedConfigType = __SmithyResolvedConfiguration<
 export interface RekognitionClientResolvedConfig extends RekognitionClientResolvedConfigType {}
 
 /**
- * @public
  * <p>This is the API Reference for <a href="https://docs.aws.amazon.com/rekognition/latest/dg/images.html">Amazon Rekognition Image</a>, <a href="https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/what-is.html">Amazon Rekognition Custom Labels</a>,
  *         <a href="https://docs.aws.amazon.com/rekognition/latest/dg/video.html">Amazon Rekognition Stored
  *         Video</a>, <a href="https://docs.aws.amazon.com/rekognition/latest/dg/streaming-video.html">Amazon Rekognition Streaming Video</a>. It provides descriptions of actions, data types, common
@@ -942,6 +941,7 @@ export interface RekognitionClientResolvedConfig extends RekognitionClientResolv
  *                </p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class RekognitionClient extends __Client<
   __HttpHandlerOptions,

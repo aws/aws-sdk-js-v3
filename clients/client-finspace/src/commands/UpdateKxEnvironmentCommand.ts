@@ -27,7 +27,6 @@ export interface UpdateKxEnvironmentCommandInput extends UpdateKxEnvironmentRequ
 export interface UpdateKxEnvironmentCommandOutput extends UpdateKxEnvironmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates information for the given kdb environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -118,6 +117,7 @@ export interface UpdateKxEnvironmentCommandOutput extends UpdateKxEnvironmentRes
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class UpdateKxEnvironmentCommand extends $Command
   .classBuilder<

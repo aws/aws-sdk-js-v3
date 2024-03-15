@@ -27,7 +27,6 @@ export interface GetByteMatchSetCommandInput extends GetByteMatchSetRequest {}
 export interface GetByteMatchSetCommandOutput extends GetByteMatchSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -86,6 +85,7 @@ export interface GetByteMatchSetCommandOutput extends GetByteMatchSetResponse, _
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
+ * @public
  * @example To get a byte match set
  * ```javascript
  * // The following example returns the details of a byte match set with the ID exampleIDs3t-46da-4fdb-b8d5-abc321j569j5.

@@ -28,7 +28,6 @@ export interface CreateTrafficPolicyVersionCommandInput extends CreateTrafficPol
 export interface CreateTrafficPolicyVersionCommandOutput extends CreateTrafficPolicyVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new version of an existing traffic policy. When you create a new version of
  * 			a traffic policy, you specify the ID of the traffic policy that you want to update and a
  * 			JSON-formatted document that describes the new version. You use traffic policies to
@@ -94,6 +93,7 @@ export interface CreateTrafficPolicyVersionCommandOutput extends CreateTrafficPo
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class CreateTrafficPolicyVersionCommand extends $Command
   .classBuilder<

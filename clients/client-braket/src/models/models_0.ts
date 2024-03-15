@@ -7,8 +7,8 @@ import {
 import { BraketServiceException as __BaseException } from "./BraketServiceException";
 
 /**
- * @public
  * <p>You do not have sufficient access to perform this action.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -27,13 +27,13 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The container image used to create an Amazon Braket job.</p>
+ * @public
  */
 export interface ContainerImage {
   /**
-   * @public
    * <p>The URI locating the container image.</p>
+   * @public
    */
   uri: string | undefined;
 }
@@ -53,47 +53,47 @@ export const CompressionType = {
 export type CompressionType = (typeof CompressionType)[keyof typeof CompressionType];
 
 /**
- * @public
  * <p>Contains information about the Python scripts used for entry and by an Amazon Braket
  *          job.</p>
+ * @public
  */
 export interface ScriptModeConfig {
   /**
-   * @public
    * <p>The path to the Python script that serves as the entry point for an Amazon Braket
    *          job.</p>
+   * @public
    */
   entryPoint: string | undefined;
 
   /**
-   * @public
    * <p>The URI that specifies the S3 path to the Python script module that contains the
    *          training script used by an Amazon Braket job.</p>
+   * @public
    */
   s3Uri: string | undefined;
 
   /**
-   * @public
    * <p>The type of compression used by the Python scripts for an Amazon Braket job.</p>
+   * @public
    */
   compressionType?: CompressionType;
 }
 
 /**
- * @public
  * <p>Defines the Amazon Braket job to be created. Specifies the container image the job uses
  *          and the paths to the Python scripts used for entry and training.</p>
+ * @public
  */
 export interface AlgorithmSpecification {
   /**
-   * @public
    * <p>Configures the paths to the Python scripts used for entry and training.</p>
+   * @public
    */
   scriptModeConfig?: ScriptModeConfig;
 
   /**
-   * @public
    * <p>The container image used to create an Amazon Braket job.</p>
+   * @public
    */
   containerImage?: ContainerImage;
 }
@@ -112,19 +112,19 @@ export const AssociationType = {
 export type AssociationType = (typeof AssociationType)[keyof typeof AssociationType];
 
 /**
- * @public
  * <p>The Amazon Braket resource and the association type.</p>
+ * @public
  */
 export interface Association {
   /**
-   * @public
    * <p>The Amazon Braket resource arn.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The association type for the specified Amazon Braket resource arn.</p>
+   * @public
    */
   type: AssociationType | undefined;
 }
@@ -134,8 +134,8 @@ export interface Association {
  */
 export interface GetDeviceRequest {
   /**
-   * @public
    * <p>The ARN of the device to retrieve.</p>
+   * @public
    */
   deviceArn: string | undefined;
 }
@@ -169,26 +169,26 @@ export const QueuePriority = {
 export type QueuePriority = (typeof QueuePriority)[keyof typeof QueuePriority];
 
 /**
- * @public
  * <p>Information about tasks and jobs queued on a device.</p>
+ * @public
  */
 export interface DeviceQueueInfo {
   /**
-   * @public
    * <p>The name of the queue. </p>
+   * @public
    */
   queue: QueueName | undefined;
 
   /**
-   * @public
    * <p>The number of jobs or tasks in the queue for a given device. </p>
+   * @public
    */
   queueSize: string | undefined;
 
   /**
-   * @public
    * <p>Optional. Specifies the priority of the queue. Tasks in a priority queue
    *          are processed before the tasks in a normal queue.</p>
+   * @public
    */
   queuePriority?: QueuePriority;
 }
@@ -227,52 +227,52 @@ export type DeviceType = (typeof DeviceType)[keyof typeof DeviceType];
  */
 export interface GetDeviceResponse {
   /**
-   * @public
    * <p>The ARN of the device.</p>
+   * @public
    */
   deviceArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the device.</p>
+   * @public
    */
   deviceName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the partner company for the device.</p>
+   * @public
    */
   providerName: string | undefined;
 
   /**
-   * @public
    * <p>The type of the device.</p>
+   * @public
    */
   deviceType: DeviceType | undefined;
 
   /**
-   * @public
    * <p>The status of the device.</p>
+   * @public
    */
   deviceStatus: DeviceStatus | undefined;
 
   /**
-   * @public
    * <p>Details about the capabilities of the device.</p>
+   * @public
    */
   deviceCapabilities: __LazyJsonString | string | undefined;
 
   /**
-   * @public
    * <p>List of information about tasks and jobs queued on a device.</p>
+   * @public
    */
   deviceQueueInfo?: DeviceQueueInfo[];
 }
 
 /**
- * @public
  * <p>The request processing has failed because of an unknown error, exception, or
  *          failure.</p>
+ * @public
  */
 export class InternalServiceException extends __BaseException {
   readonly name: "InternalServiceException" = "InternalServiceException";
@@ -291,8 +291,8 @@ export class InternalServiceException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified resource was not found.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -311,8 +311,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The throttling rate limit is met.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -331,8 +331,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -351,19 +351,19 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The filter to use for searching devices.</p>
+ * @public
  */
 export interface SearchDevicesFilter {
   /**
-   * @public
    * <p>The name to use to filter results.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The values to use to filter results.</p>
+   * @public
    */
   values: string[] | undefined;
 }
@@ -373,57 +373,57 @@ export interface SearchDevicesFilter {
  */
 export interface SearchDevicesRequest {
   /**
-   * @public
    * <p>A token used for pagination of results returned in the response. Use the token returned
    *          from the previous request continue results where the previous request ended.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return in the response.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The filter values to use to search for a device.</p>
+   * @public
    */
   filters: SearchDevicesFilter[] | undefined;
 }
 
 /**
- * @public
  * <p>Includes information about the device.</p>
+ * @public
  */
 export interface DeviceSummary {
   /**
-   * @public
    * <p>The ARN of the device.</p>
+   * @public
    */
   deviceArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the device.</p>
+   * @public
    */
   deviceName: string | undefined;
 
   /**
-   * @public
    * <p>The provider of the device.</p>
+   * @public
    */
   providerName: string | undefined;
 
   /**
-   * @public
    * <p>The type of the device.</p>
+   * @public
    */
   deviceType: DeviceType | undefined;
 
   /**
-   * @public
    * <p>The status of the device.</p>
+   * @public
    */
   deviceStatus: DeviceStatus | undefined;
 }
@@ -433,17 +433,17 @@ export interface DeviceSummary {
  */
 export interface SearchDevicesResponse {
   /**
-   * @public
    * <p>An array of <code>DeviceSummary</code> objects for devices that match the specified
    *          filter values.</p>
+   * @public
    */
   devices: DeviceSummary[] | undefined;
 
   /**
-   * @public
    * <p>A token used for pagination of results, or null if there are no additional results. Use
    *          the token value in a subsequent request to continue results where the previous request
    *          ended.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -453,8 +453,8 @@ export interface SearchDevicesResponse {
  */
 export interface CancelJobRequest {
   /**
-   * @public
    * <p>The ARN of the Amazon Braket job to cancel.</p>
+   * @public
    */
   jobArn: string | undefined;
 }
@@ -478,21 +478,21 @@ export type CancellationStatus = (typeof CancellationStatus)[keyof typeof Cancel
  */
 export interface CancelJobResponse {
   /**
-   * @public
    * <p>The ARN of the Amazon Braket job.</p>
+   * @public
    */
   jobArn: string | undefined;
 
   /**
-   * @public
    * <p>The status of the job cancellation request.</p>
+   * @public
    */
   cancellationStatus: CancellationStatus | undefined;
 }
 
 /**
- * @public
  * <p>An error occurred due to a conflict.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -511,85 +511,85 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Contains information about the output locations for job checkpoint data.</p>
+ * @public
  */
 export interface JobCheckpointConfig {
   /**
-   * @public
    * <p>(Optional) The local directory where checkpoints are written. The default directory is
    *             <code>/opt/braket/checkpoints/</code>.</p>
+   * @public
    */
   localPath?: string;
 
   /**
-   * @public
    * <p>Identifies the S3 path where you want Amazon Braket to store checkpoints. For example,
    *             <code>s3://bucket-name/key-name-prefix</code>.</p>
+   * @public
    */
   s3Uri: string | undefined;
 }
 
 /**
- * @public
  * <p>Configures the quantum processing units (QPUs) or simulator used to create and run an
  *          Amazon Braket job.</p>
+ * @public
  */
 export interface DeviceConfig {
   /**
-   * @public
    * <p>The primary quantum processing unit (QPU) or simulator used to create and run an Amazon
    *          Braket job.</p>
+   * @public
    */
   device: string | undefined;
 }
 
 /**
- * @public
  * <p>Information about the data stored in Amazon S3 used by the Amazon Braket job.</p>
+ * @public
  */
 export interface S3DataSource {
   /**
-   * @public
    * <p>Depending on the value specified for the <code>S3DataType</code>, identifies either a
    *          key name prefix or a manifest that locates the S3 data source.</p>
+   * @public
    */
   s3Uri: string | undefined;
 }
 
 /**
- * @public
  * <p>Information about the source of the data used by the Amazon Braket job.</p>
+ * @public
  */
 export interface DataSource {
   /**
-   * @public
    * <p>Information about the data stored in Amazon S3 used by the Amazon Braket job.</p>
+   * @public
    */
   s3DataSource: S3DataSource | undefined;
 }
 
 /**
- * @public
  * <p>A list of parameters that specify the input channels, type of input data, and where it
  *          is located.</p>
+ * @public
  */
 export interface InputFileConfig {
   /**
-   * @public
    * <p>A named input source that an Amazon Braket job can consume.</p>
+   * @public
    */
   channelName: string | undefined;
 
   /**
-   * @public
    * <p>The MIME type of the data.</p>
+   * @public
    */
   contentType?: string;
 
   /**
-   * @public
    * <p>The location of the channel data.</p>
+   * @public
    */
   dataSource: DataSource | undefined;
 }
@@ -646,61 +646,61 @@ export const _InstanceType = {
 export type _InstanceType = (typeof _InstanceType)[keyof typeof _InstanceType];
 
 /**
- * @public
  * <p>Configures the resource instances to use while running the Amazon Braket hybrid job on
  *          Amazon Braket.</p>
+ * @public
  */
 export interface InstanceConfig {
   /**
-   * @public
    * <p>Configures the type resource instances to use while running an Amazon Braket hybrid
    *          job.</p>
+   * @public
    */
   instanceType: _InstanceType | undefined;
 
   /**
-   * @public
    * <p>The size of the storage volume, in GB, that user wants to provision.</p>
+   * @public
    */
   volumeSizeInGb: number | undefined;
 
   /**
-   * @public
    * <p>Configures the number of resource instances to use while running an Amazon Braket job on
    *          Amazon Braket. The default value is 1.</p>
+   * @public
    */
   instanceCount?: number;
 }
 
 /**
- * @public
  * <p>Specifies the path to the S3 location where you want to store job artifacts and the
  *          encryption key used to store them.</p>
+ * @public
  */
 export interface JobOutputDataConfig {
   /**
-   * @public
    * <p>The AWS Key Management Service (AWS KMS) key that Amazon Braket uses to encrypt the job
    *          training artifacts at rest using Amazon S3 server-side encryption.</p>
+   * @public
    */
   kmsKeyId?: string;
 
   /**
-   * @public
    * <p>Identifies the S3 path where you want Amazon Braket to store the job training artifacts.
    *          For example, <code>s3://bucket-name/key-name-prefix</code>.</p>
+   * @public
    */
   s3Path: string | undefined;
 }
 
 /**
- * @public
  * <p>Specifies limits for how long an Amazon Braket job can run. </p>
+ * @public
  */
 export interface JobStoppingCondition {
   /**
-   * @public
    * <p>The maximum length of time, in seconds, that an Amazon Braket job can run.</p>
+   * @public
    */
   maxRuntimeInSeconds?: number;
 }
@@ -710,90 +710,90 @@ export interface JobStoppingCondition {
  */
 export interface CreateJobRequest {
   /**
-   * @public
    * <p>A unique token that guarantees that the call to this API is idempotent.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>Definition of the Amazon Braket job to be created. Specifies the container image the job
    *          uses and information about the Python scripts used for entry and training.</p>
+   * @public
    */
   algorithmSpecification: AlgorithmSpecification | undefined;
 
   /**
-   * @public
    * <p>A list of parameters that specify the name and type of input data and where it is
    *          located.</p>
+   * @public
    */
   inputDataConfig?: InputFileConfig[];
 
   /**
-   * @public
    * <p>The path to the S3 location where you want to store job artifacts and the encryption key
    *          used to store them.</p>
+   * @public
    */
   outputDataConfig: JobOutputDataConfig | undefined;
 
   /**
-   * @public
    * <p>Information about the output locations for job checkpoint data.</p>
+   * @public
    */
   checkpointConfig?: JobCheckpointConfig;
 
   /**
-   * @public
    * <p>The name of the Amazon Braket job.</p>
+   * @public
    */
   jobName: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon Braket can assume to perform
    *          tasks on behalf of a user. It can access user resources, run an Amazon Braket job container
    *          on behalf of user, and output resources to the users' s3 buckets.</p>
+   * @public
    */
   roleArn: string | undefined;
 
   /**
-   * @public
    * <p> The user-defined criteria that specifies when a job stops running.</p>
+   * @public
    */
   stoppingCondition?: JobStoppingCondition;
 
   /**
-   * @public
    * <p>Configuration of the resource instances to use while running the hybrid job on Amazon
    *          Braket.</p>
+   * @public
    */
   instanceConfig: InstanceConfig | undefined;
 
   /**
-   * @public
    * <p>Algorithm-specific parameters used by an Amazon Braket job that influence the quality of
    *          the training job. The values are set with a string of JSON key:value pairs, where the key
    *          is the name of the hyperparameter and the value is the value of th hyperparameter.</p>
+   * @public
    */
   hyperParameters?: Record<string, string>;
 
   /**
-   * @public
    * <p>The quantum processing unit (QPU) or simulator used to create an Amazon Braket
    *          job.</p>
+   * @public
    */
   deviceConfig: DeviceConfig | undefined;
 
   /**
-   * @public
    * <p>A tag object that consists of a key and an optional value, used to manage metadata for
    *          Amazon Braket resources.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The list of Amazon Braket resources associated with the hybrid job.</p>
+   * @public
    */
   associations?: Association[];
 }
@@ -803,15 +803,15 @@ export interface CreateJobRequest {
  */
 export interface CreateJobResponse {
   /**
-   * @public
    * <p>The ARN of the Amazon Braket job created.</p>
+   * @public
    */
   jobArn: string | undefined;
 }
 
 /**
- * @public
  * <p>The specified device is currently offline.</p>
+ * @public
  */
 export class DeviceOfflineException extends __BaseException {
   readonly name: "DeviceOfflineException" = "DeviceOfflineException";
@@ -830,8 +830,8 @@ export class DeviceOfflineException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified device has been retired.</p>
+ * @public
  */
 export class DeviceRetiredException extends __BaseException {
   readonly name: "DeviceRetiredException" = "DeviceRetiredException";
@@ -850,8 +850,8 @@ export class DeviceRetiredException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request failed because a service quota is exceeded.</p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
@@ -888,14 +888,14 @@ export type HybridJobAdditionalAttributeName =
  */
 export interface GetJobRequest {
   /**
-   * @public
    * <p>The ARN of the job to retrieve.</p>
+   * @public
    */
   jobArn: string | undefined;
 
   /**
-   * @public
    * <p>A list of attributes to return information for.</p>
+   * @public
    */
   additionalAttributeNames?: HybridJobAdditionalAttributeName[];
 }
@@ -924,51 +924,51 @@ export const JobEventType = {
 export type JobEventType = (typeof JobEventType)[keyof typeof JobEventType];
 
 /**
- * @public
  * <p>Details about the type and time events occurred related to the Amazon Braket job.</p>
+ * @public
  */
 export interface JobEventDetails {
   /**
-   * @public
    * <p>The type of event that occurred related to the Amazon Braket job.</p>
+   * @public
    */
   eventType?: JobEventType;
 
   /**
-   * @public
    * <p>The type of event that occurred related to the Amazon Braket job.</p>
+   * @public
    */
   timeOfEvent?: Date;
 
   /**
-   * @public
    * <p>A message describing the event that occurred related to the Amazon Braket job.</p>
+   * @public
    */
   message?: string;
 }
 
 /**
- * @public
  * <p>Information about the queue for a specified job.</p>
+ * @public
  */
 export interface HybridJobQueueInfo {
   /**
-   * @public
    * <p>The name of the queue.</p>
+   * @public
    */
   queue: QueueName | undefined;
 
   /**
-   * @public
    * <p>Current position of the job in the jobs queue.</p>
+   * @public
    */
   position: string | undefined;
 
   /**
-   * @public
    * <p>Optional. Provides more information about the queue position. For example,
    *          if the job is complete and no longer in the queue, the message field contains
    *          that information.</p>
+   * @public
    */
   message?: string;
 }
@@ -996,139 +996,139 @@ export type JobPrimaryStatus = (typeof JobPrimaryStatus)[keyof typeof JobPrimary
  */
 export interface GetJobResponse {
   /**
-   * @public
    * <p>The status of the Amazon Braket job.</p>
+   * @public
    */
   status: JobPrimaryStatus | undefined;
 
   /**
-   * @public
    * <p>The ARN of the Amazon Braket job.</p>
+   * @public
    */
   jobArn: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon Braket can assume to perform
    *          tasks on behalf of a user. It can access user resources, run an Amazon Braket job container
    *          on behalf of user, and output resources to the s3 buckets of a user.</p>
+   * @public
    */
   roleArn: string | undefined;
 
   /**
-   * @public
    * <p>A description of the reason why an Amazon Braket job failed, if it failed.</p>
+   * @public
    */
   failureReason?: string;
 
   /**
-   * @public
    * <p>The name of the Amazon Braket job.</p>
+   * @public
    */
   jobName: string | undefined;
 
   /**
-   * @public
    * <p>Algorithm-specific parameters used by an Amazon Braket job that influence the quality of
    *          the traiing job. The values are set with a string of JSON key:value pairs, where the key is
    *          the name of the hyperparameter and the value is the value of th hyperparameter.</p>
+   * @public
    */
   hyperParameters?: Record<string, string>;
 
   /**
-   * @public
    * <p>A list of parameters that specify the name and type of input data and where it is
    *          located.</p>
+   * @public
    */
   inputDataConfig?: InputFileConfig[];
 
   /**
-   * @public
    * <p>The path to the S3 location where job artifacts are stored and the encryption key used
    *          to store them there.</p>
+   * @public
    */
   outputDataConfig: JobOutputDataConfig | undefined;
 
   /**
-   * @public
    * <p>The user-defined criteria that specifies when to stop a job running.</p>
+   * @public
    */
   stoppingCondition?: JobStoppingCondition;
 
   /**
-   * @public
    * <p>Information about the output locations for job checkpoint data.</p>
+   * @public
    */
   checkpointConfig?: JobCheckpointConfig;
 
   /**
-   * @public
    * <p>Definition of the Amazon Braket job created. Specifies the container image the job uses,
    *          information about the Python scripts used for entry and training, and the user-defined
    *          metrics used to evaluation the job.</p>
+   * @public
    */
   algorithmSpecification: AlgorithmSpecification | undefined;
 
   /**
-   * @public
    * <p>The resource instances to use while running the hybrid job on Amazon Braket.</p>
+   * @public
    */
   instanceConfig: InstanceConfig | undefined;
 
   /**
-   * @public
    * <p>The date and time that the Amazon Braket job was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The date and time that the Amazon Braket job was started.</p>
+   * @public
    */
   startedAt?: Date;
 
   /**
-   * @public
    * <p>The date and time that the Amazon Braket job ended.</p>
+   * @public
    */
   endedAt?: Date;
 
   /**
-   * @public
    * <p>The billable time the Amazon Braket job used to complete.</p>
+   * @public
    */
   billableDuration?: number;
 
   /**
-   * @public
    * <p>The quantum processing unit (QPU) or simulator used to run the Amazon Braket job.</p>
+   * @public
    */
   deviceConfig?: DeviceConfig;
 
   /**
-   * @public
    * <p>Details about the type and time events occurred related to the Amazon Braket job.</p>
+   * @public
    */
   events?: JobEventDetails[];
 
   /**
-   * @public
    * <p>A tag object that consists of a key and an optional value, used to manage metadata for
    *          Amazon Braket resources.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>Queue information for the requested job. Only returned if
    *          <code>QueueInfo</code> is specified in the <code>additionalAttributeNames"</code>
    *          field in the <code>GetJob</code> API request.</p>
+   * @public
    */
   queueInfo?: HybridJobQueueInfo;
 
   /**
-   * @public
    * <p>The list of Amazon Braket resources associated with the hybrid job.</p>
+   * @public
    */
   associations?: Association[];
 }
@@ -1153,25 +1153,25 @@ export const SearchJobsFilterOperator = {
 export type SearchJobsFilterOperator = (typeof SearchJobsFilterOperator)[keyof typeof SearchJobsFilterOperator];
 
 /**
- * @public
  * <p>A filter used to search for Amazon Braket jobs.</p>
+ * @public
  */
 export interface SearchJobsFilter {
   /**
-   * @public
    * <p>The name to use for the jobs filter.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The values to use for the jobs filter.</p>
+   * @public
    */
   values: string[] | undefined;
 
   /**
-   * @public
    * <p>An operator to use for the jobs filter.</p>
+   * @public
    */
   operator: SearchJobsFilterOperator | undefined;
 }
@@ -1181,77 +1181,77 @@ export interface SearchJobsFilter {
  */
 export interface SearchJobsRequest {
   /**
-   * @public
    * <p>A token used for pagination of results returned in the response. Use the token returned
    *          from the previous request to continue results where the previous request ended.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return in the response.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The filter values to use when searching for a job.</p>
+   * @public
    */
   filters: SearchJobsFilter[] | undefined;
 }
 
 /**
- * @public
  * <p>Provides summary information about an Amazon Braket job.</p>
+ * @public
  */
 export interface JobSummary {
   /**
-   * @public
    * <p>The status of the Amazon Braket job.</p>
+   * @public
    */
   status: JobPrimaryStatus | undefined;
 
   /**
-   * @public
    * <p>The ARN of the Amazon Braket job.</p>
+   * @public
    */
   jobArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the Amazon Braket job.</p>
+   * @public
    */
   jobName: string | undefined;
 
   /**
-   * @public
    * <p>Provides summary information about the primary device used by an Amazon Braket
    *          job.</p>
+   * @public
    */
   device: string | undefined;
 
   /**
-   * @public
    * <p>The date and time that the Amazon Braket job was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The date and time that the Amazon Braket job was started.</p>
+   * @public
    */
   startedAt?: Date;
 
   /**
-   * @public
    * <p>The date and time that the Amazon Braket job ended.</p>
+   * @public
    */
   endedAt?: Date;
 
   /**
-   * @public
    * <p>A tag object that consists of a key and an optional value, used to manage metadata for
    *          Amazon Braket resources.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1261,17 +1261,17 @@ export interface JobSummary {
  */
 export interface SearchJobsResponse {
   /**
-   * @public
    * <p>An array of <code>JobSummary</code> objects for devices that match the specified filter
    *          values.</p>
+   * @public
    */
   jobs: JobSummary[] | undefined;
 
   /**
-   * @public
    * <p>A token used for pagination of results, or <code>null</code> if there are no additional
    *          results. Use the token value in a subsequent request to continue results where the previous
    *          request ended.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1281,8 +1281,8 @@ export interface SearchJobsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>Specify the <code>resourceArn</code> for the resource whose tags to display.</p>
+   * @public
    */
   resourceArn: string | undefined;
 }
@@ -1292,8 +1292,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>Displays the key, value pairs of tags associated with this resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1303,14 +1303,14 @@ export interface ListTagsForResourceResponse {
  */
 export interface CancelQuantumTaskRequest {
   /**
-   * @public
    * <p>The ARN of the task to cancel.</p>
+   * @public
    */
   quantumTaskArn: string | undefined;
 
   /**
-   * @public
    * <p>The client token associated with the request.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -1320,14 +1320,14 @@ export interface CancelQuantumTaskRequest {
  */
 export interface CancelQuantumTaskResponse {
   /**
-   * @public
    * <p>The ARN of the task.</p>
+   * @public
    */
   quantumTaskArn: string | undefined;
 
   /**
-   * @public
    * <p>The status of the cancellation request.</p>
+   * @public
    */
   cancellationStatus: CancellationStatus | undefined;
 }
@@ -1337,62 +1337,62 @@ export interface CancelQuantumTaskResponse {
  */
 export interface CreateQuantumTaskRequest {
   /**
-   * @public
    * <p>The client token associated with the request.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>The ARN of the device to run the task on.</p>
+   * @public
    */
   deviceArn: string | undefined;
 
   /**
-   * @public
    * <p>The parameters for the device to run the task on.</p>
+   * @public
    */
   deviceParameters?: __LazyJsonString | string;
 
   /**
-   * @public
    * <p>The number of shots to use for the task.</p>
+   * @public
    */
   shots: number | undefined;
 
   /**
-   * @public
    * <p>The S3 bucket to store task result files in.</p>
+   * @public
    */
   outputS3Bucket: string | undefined;
 
   /**
-   * @public
    * <p>The key prefix for the location in the S3 bucket to store task results in.</p>
+   * @public
    */
   outputS3KeyPrefix: string | undefined;
 
   /**
-   * @public
    * <p>The action associated with the task.</p>
+   * @public
    */
   action: __LazyJsonString | string | undefined;
 
   /**
-   * @public
    * <p>Tags to be added to the quantum task you're creating.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The token for an Amazon Braket job that associates it with the quantum task.</p>
+   * @public
    */
   jobToken?: string;
 
   /**
-   * @public
    * <p>The list of Amazon Braket resources associated with the quantum task.</p>
+   * @public
    */
   associations?: Association[];
 }
@@ -1402,8 +1402,8 @@ export interface CreateQuantumTaskRequest {
  */
 export interface CreateQuantumTaskResponse {
   /**
-   * @public
    * <p>The ARN of the task created by the request.</p>
+   * @public
    */
   quantumTaskArn: string | undefined;
 }
@@ -1427,47 +1427,47 @@ export type QuantumTaskAdditionalAttributeName =
  */
 export interface GetQuantumTaskRequest {
   /**
-   * @public
    * <p>The ARN of the task to retrieve.</p>
+   * @public
    */
   quantumTaskArn: string | undefined;
 
   /**
-   * @public
    * <p>A list of attributes to return information for.</p>
+   * @public
    */
   additionalAttributeNames?: QuantumTaskAdditionalAttributeName[];
 }
 
 /**
- * @public
  * <p>Information about the queue for the specified quantum task.</p>
+ * @public
  */
 export interface QuantumTaskQueueInfo {
   /**
-   * @public
    * <p>The name of the queue. </p>
+   * @public
    */
   queue: QueueName | undefined;
 
   /**
-   * @public
    * <p>Current position of the task in the quantum tasks queue.</p>
+   * @public
    */
   position: string | undefined;
 
   /**
-   * @public
    * <p>Optional. Specifies the priority of the queue. Quantum tasks in a priority queue
    *          are processed before the tasks in a normal queue.</p>
+   * @public
    */
   queuePriority?: QueuePriority;
 
   /**
-   * @public
    * <p>Optional. Provides more information about the queue position. For example,
    *          if the task is complete and no longer in the queue, the message field contains
    *          that information.</p>
+   * @public
    */
   message?: string;
 }
@@ -1496,88 +1496,88 @@ export type QuantumTaskStatus = (typeof QuantumTaskStatus)[keyof typeof QuantumT
  */
 export interface GetQuantumTaskResponse {
   /**
-   * @public
    * <p>The ARN of the task.</p>
+   * @public
    */
   quantumTaskArn: string | undefined;
 
   /**
-   * @public
    * <p>The status of the task.</p>
+   * @public
    */
   status: QuantumTaskStatus | undefined;
 
   /**
-   * @public
    * <p>The reason that a task failed.</p>
+   * @public
    */
   failureReason?: string;
 
   /**
-   * @public
    * <p>The ARN of the device the task was run on.</p>
+   * @public
    */
   deviceArn: string | undefined;
 
   /**
-   * @public
    * <p>The parameters for the device on which the task ran.</p>
+   * @public
    */
   deviceParameters: __LazyJsonString | string | undefined;
 
   /**
-   * @public
    * <p>The number of shots used in the task.</p>
+   * @public
    */
   shots: number | undefined;
 
   /**
-   * @public
    * <p>The S3 bucket where task results are stored.</p>
+   * @public
    */
   outputS3Bucket: string | undefined;
 
   /**
-   * @public
    * <p>The folder in the S3 bucket where task results are stored.</p>
+   * @public
    */
   outputS3Directory: string | undefined;
 
   /**
-   * @public
    * <p>The time at which the task was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The time at which the task ended.</p>
+   * @public
    */
   endedAt?: Date;
 
   /**
-   * @public
    * <p>The tags that belong to this task.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The ARN of the Amazon Braket job associated with the quantum task.</p>
+   * @public
    */
   jobArn?: string;
 
   /**
-   * @public
    * <p>Queue information for the requested quantum task. Only returned if
    *          <code>QueueInfo</code> is specified in the <code>additionalAttributeNames"</code>
    *          field in the <code>GetQuantumTask</code> API request.</p>
+   * @public
    */
   queueInfo?: QuantumTaskQueueInfo;
 
   /**
-   * @public
    * <p>The list of Amazon Braket resources associated with the quantum task.</p>
+   * @public
    */
   associations?: Association[];
 }
@@ -1602,25 +1602,25 @@ export type SearchQuantumTasksFilterOperator =
   (typeof SearchQuantumTasksFilterOperator)[keyof typeof SearchQuantumTasksFilterOperator];
 
 /**
- * @public
  * <p>A filter to use to search for tasks.</p>
+ * @public
  */
 export interface SearchQuantumTasksFilter {
   /**
-   * @public
    * <p>The name of the device used for the task.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The values to use for the filter.</p>
+   * @public
    */
   values: string[] | undefined;
 
   /**
-   * @public
    * <p>An operator to use in the filter.</p>
+   * @public
    */
   operator: SearchQuantumTasksFilterOperator | undefined;
 }
@@ -1630,81 +1630,81 @@ export interface SearchQuantumTasksFilter {
  */
 export interface SearchQuantumTasksRequest {
   /**
-   * @public
    * <p>A token used for pagination of results returned in the response. Use the token returned
    *          from the previous request continue results where the previous request ended.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Maximum number of results to return in the response.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>Array of <code>SearchQuantumTasksFilter</code> objects.</p>
+   * @public
    */
   filters: SearchQuantumTasksFilter[] | undefined;
 }
 
 /**
- * @public
  * <p>Includes information about a quantum task.</p>
+ * @public
  */
 export interface QuantumTaskSummary {
   /**
-   * @public
    * <p>The ARN of the task.</p>
+   * @public
    */
   quantumTaskArn: string | undefined;
 
   /**
-   * @public
    * <p>The status of the task.</p>
+   * @public
    */
   status: QuantumTaskStatus | undefined;
 
   /**
-   * @public
    * <p>The ARN of the device the task ran on.</p>
+   * @public
    */
   deviceArn: string | undefined;
 
   /**
-   * @public
    * <p>The shots used for the task.</p>
+   * @public
    */
   shots: number | undefined;
 
   /**
-   * @public
    * <p>The S3 bucket where the task result file is stored..</p>
+   * @public
    */
   outputS3Bucket: string | undefined;
 
   /**
-   * @public
    * <p>The folder in the S3 bucket where the task result file is stored.</p>
+   * @public
    */
   outputS3Directory: string | undefined;
 
   /**
-   * @public
    * <p>The time at which the task was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The time at which the task finished.</p>
+   * @public
    */
   endedAt?: Date;
 
   /**
-   * @public
    * <p>Displays the key, value pairs of tags associated with this quantum task.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1714,17 +1714,17 @@ export interface QuantumTaskSummary {
  */
 export interface SearchQuantumTasksResponse {
   /**
-   * @public
    * <p>An array of <code>QuantumTaskSummary</code> objects for tasks that match the specified
    *          filters.</p>
+   * @public
    */
   quantumTasks: QuantumTaskSummary[] | undefined;
 
   /**
-   * @public
    * <p>A token used for pagination of results, or null if there are no additional results. Use
    *          the token value in a subsequent request to continue results where the previous request
    *          ended.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1734,15 +1734,15 @@ export interface SearchQuantumTasksResponse {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>Specify the <code>resourceArn</code> of the resource to which a tag will be
    *          added.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>Specify the tags to add to the resource.</p>
+   * @public
    */
   tags: Record<string, string> | undefined;
 }
@@ -1757,15 +1757,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>Specify the <code>resourceArn</code> for the resource from which to remove the
    *          tags.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>Specify the keys for the tags to remove from the resource.</p>
+   * @public
    */
   tagKeys: string[] | undefined;
 }

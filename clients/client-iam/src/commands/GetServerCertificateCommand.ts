@@ -27,7 +27,6 @@ export interface GetServerCertificateCommandInput extends GetServerCertificateRe
 export interface GetServerCertificateCommandOutput extends GetServerCertificateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the specified server certificate stored in IAM.</p>
  *          <p>For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
  *                 with server certificates</a> in the <i>IAM User Guide</i>. This
@@ -84,6 +83,7 @@ export interface GetServerCertificateCommandOutput extends GetServerCertificateR
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class GetServerCertificateCommand extends $Command
   .classBuilder<

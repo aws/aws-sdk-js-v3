@@ -27,7 +27,6 @@ export interface GetReportMetadataCommandInput extends GetReportMetadataRequest 
 export interface GetReportMetadataCommandOutput extends GetReportMetadataResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get the metadata for a single report.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface GetReportMetadataCommandOutput extends GetReportMetadataRespons
  * @throws {@link ArtifactServiceException}
  * <p>Base exception class for all service exceptions from Artifact service.</p>
  *
+ * @public
  */
 export class GetReportMetadataCommand extends $Command
   .classBuilder<

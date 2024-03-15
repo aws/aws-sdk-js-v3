@@ -27,7 +27,6 @@ export interface CreateUsagePlanKeyCommandInput extends CreateUsagePlanKeyReques
 export interface CreateUsagePlanKeyCommandOutput extends UsagePlanKey, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a usage plan key for adding an existing API key to a usage plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface CreateUsagePlanKeyCommandOutput extends UsagePlanKey, __Metadat
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class CreateUsagePlanKeyCommand extends $Command
   .classBuilder<

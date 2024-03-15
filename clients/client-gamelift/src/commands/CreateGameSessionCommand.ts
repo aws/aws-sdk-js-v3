@@ -31,7 +31,6 @@ export interface CreateGameSessionCommandInput extends CreateGameSessionInput {}
 export interface CreateGameSessionCommandOutput extends CreateGameSessionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a multiplayer game session for players in a specific fleet location. This
  *             operation prompts an available server process to start a game session and retrieves
  *             connection information for the new game session. As an alternative, consider using the
@@ -188,6 +187,7 @@ export interface CreateGameSessionCommandOutput extends CreateGameSessionOutput,
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class CreateGameSessionCommand extends $Command
   .classBuilder<

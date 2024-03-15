@@ -27,7 +27,6 @@ export interface ListFirewallConfigsCommandInput extends ListFirewallConfigsRequ
 export interface ListFirewallConfigsCommandOutput extends ListFirewallConfigsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the firewall configurations that you have defined. DNS Firewall uses the configurations to manage firewall behavior for your VPCs. </p>
  *          <p>A single call might return only a partial list of the configurations. For information, see <code>MaxResults</code>. </p>
  * @example
@@ -78,6 +77,7 @@ export interface ListFirewallConfigsCommandOutput extends ListFirewallConfigsRes
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class ListFirewallConfigsCommand extends $Command
   .classBuilder<

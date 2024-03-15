@@ -27,7 +27,6 @@ export interface ListBotRecommendationsCommandInput extends ListBotRecommendatio
 export interface ListBotRecommendationsCommandOutput extends ListBotRecommendationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get a list of bot recommendations that meet the specified
  *          criteria.</p>
  * @example
@@ -87,6 +86,7 @@ export interface ListBotRecommendationsCommandOutput extends ListBotRecommendati
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class ListBotRecommendationsCommand extends $Command
   .classBuilder<

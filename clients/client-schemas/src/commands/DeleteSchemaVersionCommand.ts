@@ -27,7 +27,6 @@ export interface DeleteSchemaVersionCommandInput extends DeleteSchemaVersionRequ
 export interface DeleteSchemaVersionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete the schema version definition</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface DeleteSchemaVersionCommandOutput extends __MetadataBearer {}
  * @throws {@link SchemasServiceException}
  * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ * @public
  */
 export class DeleteSchemaVersionCommand extends $Command
   .classBuilder<

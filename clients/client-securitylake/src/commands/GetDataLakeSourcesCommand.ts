@@ -27,7 +27,6 @@ export interface GetDataLakeSourcesCommandInput extends GetDataLakeSourcesReques
 export interface GetDataLakeSourcesCommandOutput extends GetDataLakeSourcesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a snapshot of the current Region, including whether Amazon Security Lake is enabled
  *          for those accounts and which sources Security Lake is collecting data from.</p>
  * @example
@@ -101,6 +100,7 @@ export interface GetDataLakeSourcesCommandOutput extends GetDataLakeSourcesRespo
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ * @public
  */
 export class GetDataLakeSourcesCommand extends $Command
   .classBuilder<

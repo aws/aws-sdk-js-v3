@@ -35,7 +35,6 @@ export interface UpdateColumnStatisticsForPartitionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates partition statistics of columns.</p>
  *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>UpdatePartition</code>.</p>
  * @example
@@ -201,6 +200,7 @@ export interface UpdateColumnStatisticsForPartitionCommandOutput
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class UpdateColumnStatisticsForPartitionCommand extends $Command
   .classBuilder<

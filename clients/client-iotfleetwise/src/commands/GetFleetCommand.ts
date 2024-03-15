@@ -27,7 +27,6 @@ export interface GetFleetCommandInput extends GetFleetRequest {}
 export interface GetFleetCommandOutput extends GetFleetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Retrieves information about a fleet. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface GetFleetCommandOutput extends GetFleetResponse, __MetadataBeare
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class GetFleetCommand extends $Command
   .classBuilder<

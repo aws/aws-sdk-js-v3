@@ -27,7 +27,6 @@ export interface ImportKeyPairCommandInput extends ImportKeyPairRequest {}
 export interface ImportKeyPairCommandOutput extends ImportKeyPairResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Imports a public SSH key from a specific key pair.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface ImportKeyPairCommandOutput extends ImportKeyPairResult, __Metad
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class ImportKeyPairCommand extends $Command
   .classBuilder<

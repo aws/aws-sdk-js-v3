@@ -27,7 +27,6 @@ export interface DescribeSessionsCommandInput extends DescribeSessionsRequest {}
 export interface DescribeSessionsCommandOutput extends DescribeSessionsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list that describes the streaming sessions for a specified stack and fleet. If a UserId is provided for the stack and fleet,
  *             only streaming sessions for that user are described. If an authentication type is not provided,
  *             the default is to authenticate users using a streaming URL.</p>
@@ -84,6 +83,7 @@ export interface DescribeSessionsCommandOutput extends DescribeSessionsResult, _
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class DescribeSessionsCommand extends $Command
   .classBuilder<

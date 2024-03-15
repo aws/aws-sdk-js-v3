@@ -27,7 +27,6 @@ export interface StartLendingAnalysisCommandInput extends StartLendingAnalysisRe
 export interface StartLendingAnalysisCommandOutput extends StartLendingAnalysisResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts the classification and analysis of an input document.
  *     <code>StartLendingAnalysis</code> initiates the classification and analysis of a packet of
  *    lending documents. <code>StartLendingAnalysis</code> operates on a document file located in an
@@ -158,6 +157,7 @@ export interface StartLendingAnalysisCommandOutput extends StartLendingAnalysisR
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ * @public
  */
 export class StartLendingAnalysisCommand extends $Command
   .classBuilder<

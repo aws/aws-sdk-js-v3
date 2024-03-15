@@ -27,7 +27,6 @@ export interface DeleteInstanceCommandInput extends DeleteInstanceRequest {}
 export interface DeleteInstanceCommandOutput extends DeleteInstanceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the instance of IAM Identity Center. Only the account that owns the instance can
  *             call this API. Neither the delegated administrator nor member account can delete the
  *             organization instance, but those roles can delete their own instance.</p>
@@ -75,6 +74,7 @@ export interface DeleteInstanceCommandOutput extends DeleteInstanceResponse, __M
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class DeleteInstanceCommand extends $Command
   .classBuilder<

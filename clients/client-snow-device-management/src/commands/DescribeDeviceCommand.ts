@@ -31,7 +31,6 @@ export interface DescribeDeviceCommandInput extends DescribeDeviceInput {}
 export interface DescribeDeviceCommandOutput extends DescribeDeviceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Checks device-specific information, such as the device type, software version, IP
  *       addresses, and lock status.</p>
  * @example
@@ -109,6 +108,7 @@ export interface DescribeDeviceCommandOutput extends DescribeDeviceOutput, __Met
  * @throws {@link SnowDeviceManagementServiceException}
  * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
+ * @public
  */
 export class DescribeDeviceCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface PutMetadataFlagCommandInput extends PutMetadataFlagRequest {}
 export interface PutMetadataFlagCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Stores the metadata information about a feature on a form.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +63,7 @@ export interface PutMetadataFlagCommandOutput extends __MetadataBearer {}
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ * @public
  */
 export class PutMetadataFlagCommand extends $Command
   .classBuilder<

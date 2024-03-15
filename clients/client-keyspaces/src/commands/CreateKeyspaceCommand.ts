@@ -27,7 +27,6 @@ export interface CreateKeyspaceCommandInput extends CreateKeyspaceRequest {}
 export interface CreateKeyspaceCommandOutput extends CreateKeyspaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The <code>CreateKeyspace</code> operation adds a new keyspace to your account. In an Amazon Web Services account, keyspace names
  *       must be unique within each Region.</p>
  *          <p>
@@ -91,6 +90,7 @@ export interface CreateKeyspaceCommandOutput extends CreateKeyspaceResponse, __M
  * @throws {@link KeyspacesServiceException}
  * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
+ * @public
  */
 export class CreateKeyspaceCommand extends $Command
   .classBuilder<

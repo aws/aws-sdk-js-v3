@@ -27,7 +27,6 @@ export interface GetRecordsCommandInput extends GetRecordsInput {}
 export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the stream records from a given shard.</p>
  *          <p>Specify a shard iterator using the <code>ShardIterator</code> parameter. The shard iterator
  *       specifies the position in the shard from which you want to start reading stream records
@@ -179,6 +178,7 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  * @throws {@link DynamoDBStreamsServiceException}
  * <p>Base exception class for all service exceptions from DynamoDBStreams service.</p>
  *
+ * @public
  * @example To retrieve all the stream records from a shard
  * ```javascript
  * // The following example retrieves all the stream records from a shard.

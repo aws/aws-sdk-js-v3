@@ -27,7 +27,6 @@ export interface DeleteProfilingGroupCommandInput extends DeleteProfilingGroupRe
 export interface DeleteProfilingGroupCommandOutput extends DeleteProfilingGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a profiling group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface DeleteProfilingGroupCommandOutput extends DeleteProfilingGroupR
  * @throws {@link CodeGuruProfilerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
+ * @public
  */
 export class DeleteProfilingGroupCommand extends $Command
   .classBuilder<

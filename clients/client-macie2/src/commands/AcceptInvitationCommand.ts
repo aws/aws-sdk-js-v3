@@ -27,7 +27,6 @@ export interface AcceptInvitationCommandInput extends AcceptInvitationRequest {}
 export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Accepts an Amazon Macie membership invitation that was received from a specific account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class AcceptInvitationCommand extends $Command
   .classBuilder<

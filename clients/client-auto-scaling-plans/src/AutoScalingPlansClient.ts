@@ -273,7 +273,6 @@ export type AutoScalingPlansClientResolvedConfigType = __SmithyResolvedConfigura
 export interface AutoScalingPlansClientResolvedConfig extends AutoScalingPlansClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>AWS Auto Scaling</fullname>
  *
  *
@@ -309,6 +308,7 @@ export interface AutoScalingPlansClientResolvedConfig extends AutoScalingPlansCl
  *
  *          <p>To learn more about AWS Auto Scaling, including information about granting IAM users required
  *          permissions for AWS Auto Scaling actions, see the <a href="https://docs.aws.amazon.com/autoscaling/plans/userguide/what-is-aws-auto-scaling.html">AWS Auto Scaling User Guide</a>. </p>
+ * @public
  */
 export class AutoScalingPlansClient extends __Client<
   __HttpHandlerOptions,

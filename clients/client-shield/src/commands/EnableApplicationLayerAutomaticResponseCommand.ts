@@ -36,7 +36,6 @@ export interface EnableApplicationLayerAutomaticResponseCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Enable the Shield Advanced automatic application layer DDoS mitigation for the protected resource. </p>
  *          <note>
  *             <p>This feature is available for Amazon CloudFront distributions and Application Load Balancers only.</p>
@@ -99,6 +98,7 @@ export interface EnableApplicationLayerAutomaticResponseCommandOutput
  * @throws {@link ShieldServiceException}
  * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ * @public
  */
 export class EnableApplicationLayerAutomaticResponseCommand extends $Command
   .classBuilder<

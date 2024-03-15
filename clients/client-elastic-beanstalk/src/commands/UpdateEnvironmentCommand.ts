@@ -27,7 +27,6 @@ export interface UpdateEnvironmentCommandInput extends UpdateEnvironmentMessage 
 export interface UpdateEnvironmentCommandOutput extends EnvironmentDescription, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the environment description, deploys a new application version, updates the
  *       configuration settings to an entirely new configuration template, or updates select
  *       configuration option values in the running environment.</p>
@@ -138,6 +137,7 @@ export interface UpdateEnvironmentCommandOutput extends EnvironmentDescription, 
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  * @example To update an environment to a new version
  * ```javascript
  * // The following operation updates an environment named "my-env" to version "v2" of the application to which it belongs:

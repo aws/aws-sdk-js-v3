@@ -27,7 +27,6 @@ export interface ListActivityTypesCommandInput extends ListActivityTypesInput {}
 export interface ListActivityTypesCommandOutput extends ActivityTypeInfos, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about all activities registered in the specified domain that match
  *       the specified name and registration status. The result includes information like creation
  *       date, current status of the activity, etc. The results may be split into multiple pages. To
@@ -105,6 +104,7 @@ export interface ListActivityTypesCommandOutput extends ActivityTypeInfos, __Met
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ * @public
  */
 export class ListActivityTypesCommand extends $Command
   .classBuilder<

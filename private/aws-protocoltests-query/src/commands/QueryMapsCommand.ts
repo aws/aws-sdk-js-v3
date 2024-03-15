@@ -25,7 +25,6 @@ export interface QueryMapsCommandInput extends QueryMapsInput {}
 export interface QueryMapsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * This test serializes simple and complex maps.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface QueryMapsCommandOutput extends __MetadataBearer {}
  * @throws {@link QueryProtocolServiceException}
  * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
+ * @public
  */
 export class QueryMapsCommand extends $Command
   .classBuilder<

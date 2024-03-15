@@ -27,7 +27,6 @@ export interface DeleteTrustCommandInput extends DeleteTrustRequest {}
 export interface DeleteTrustCommandOutput extends DeleteTrustResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing trust relationship between your Managed Microsoft AD directory and an external
  *       domain.</p>
  * @example
@@ -72,6 +71,7 @@ export interface DeleteTrustCommandOutput extends DeleteTrustResult, __MetadataB
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class DeleteTrustCommand extends $Command
   .classBuilder<

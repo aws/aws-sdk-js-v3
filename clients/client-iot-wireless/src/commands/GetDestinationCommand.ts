@@ -27,7 +27,6 @@ export interface GetDestinationCommandInput extends GetDestinationRequest {}
 export interface GetDestinationCommandOutput extends GetDestinationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a destination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface GetDestinationCommandOutput extends GetDestinationResponse, __M
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class GetDestinationCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface ModifyReplicationGroupShardConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies a replication group's shards (node groups) by allowing you to add shards,
  *             remove shards, or rebalance the keyspaces among existing shards.</p>
  * @example
@@ -233,6 +232,7 @@ export interface ModifyReplicationGroupShardConfigurationCommandOutput
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  */
 export class ModifyReplicationGroupShardConfigurationCommand extends $Command
   .classBuilder<

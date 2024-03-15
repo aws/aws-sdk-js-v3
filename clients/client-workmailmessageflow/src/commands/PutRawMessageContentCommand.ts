@@ -31,7 +31,6 @@ export interface PutRawMessageContentCommandInput extends PutRawMessageContentRe
 export interface PutRawMessageContentCommandOutput extends PutRawMessageContentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the raw content of an in-transit email message, in MIME format.</p>
  *          <p>This example describes how to update in-transit email message. For more information and examples for using this API, see
  *       <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/update-with-lambda.html">
@@ -104,6 +103,7 @@ export interface PutRawMessageContentCommandOutput extends PutRawMessageContentR
  * @throws {@link WorkMailMessageFlowServiceException}
  * <p>Base exception class for all service exceptions from WorkMailMessageFlow service.</p>
  *
+ * @public
  */
 export class PutRawMessageContentCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeLanguageModelCommandInput extends DescribeLanguageModel
 export interface DescribeLanguageModelCommandOutput extends DescribeLanguageModelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides information about the specified custom language model.</p>
  *          <p>This operation also shows if the base language model that you used to create your
  *             custom language model has been updated. If Amazon Transcribe has updated the base
@@ -93,6 +92,7 @@ export interface DescribeLanguageModelCommandOutput extends DescribeLanguageMode
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * @public
  */
 export class DescribeLanguageModelCommand extends $Command
   .classBuilder<

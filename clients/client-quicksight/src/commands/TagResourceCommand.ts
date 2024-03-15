@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Assigns one or more tags (key-value pairs) to the specified Amazon QuickSight resource. </p>
  *          <p>Tags can help you organize and categorize your resources. You can also use them to
  * 			scope user permissions, by granting a user permission to access or change only resources
@@ -102,6 +101,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

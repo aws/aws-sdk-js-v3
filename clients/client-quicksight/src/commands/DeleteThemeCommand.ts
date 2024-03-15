@@ -27,7 +27,6 @@ export interface DeleteThemeCommandInput extends DeleteThemeRequest {}
 export interface DeleteThemeCommandOutput extends DeleteThemeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a theme.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface DeleteThemeCommandOutput extends DeleteThemeResponse, __Metadat
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DeleteThemeCommand extends $Command
   .classBuilder<

@@ -25,7 +25,6 @@ export interface JsonBlobsCommandInput extends JsonBlobsInputOutput {}
 export interface JsonBlobsCommandOutput extends JsonBlobsInputOutput, __MetadataBearer {}
 
 /**
- * @public
  * Blobs are base64 encoded
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,6 +52,7 @@ export interface JsonBlobsCommandOutput extends JsonBlobsInputOutput, __Metadata
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ * @public
  */
 export class JsonBlobsCommand extends $Command
   .classBuilder<

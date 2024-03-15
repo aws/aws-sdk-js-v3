@@ -27,7 +27,6 @@ export interface DescribeProjectCommandInput extends DescribeProjectRequest {}
 export interface DescribeProjectCommandOutput extends DescribeProjectResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes an Amazon Lookout for Vision project.</p>
  *          <p>This operation requires permissions to perform the
  *          <code>lookoutvision:DescribeProject</code> operation.</p>
@@ -88,6 +87,7 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResponse, _
  * @throws {@link LookoutVisionServiceException}
  * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
+ * @public
  */
 export class DescribeProjectCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface RevokeCacheSecurityGroupIngressCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Revokes ingress from a cache security group. Use this operation to disallow access
  *             from an Amazon EC2 security group that had been previously authorized.</p>
  * @example
@@ -92,6 +91,7 @@ export interface RevokeCacheSecurityGroupIngressCommandOutput
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  * @example DescribeCacheSecurityGroups
  * ```javascript
  * // Returns a list of cache security group descriptions. If a cache security group name is specified, the list contains only the description of that group.

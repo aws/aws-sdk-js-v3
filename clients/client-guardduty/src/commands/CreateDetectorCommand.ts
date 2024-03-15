@@ -27,7 +27,6 @@ export interface CreateDetectorCommandInput extends CreateDetectorRequest {}
 export interface CreateDetectorCommandOutput extends CreateDetectorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a single GuardDuty detector. A detector is a resource that represents the
  *       GuardDuty service. To start using GuardDuty, you must create a detector in each Region where
  *       you enable the service. You can have only one detector per account per Region. All data
@@ -126,6 +125,7 @@ export interface CreateDetectorCommandOutput extends CreateDetectorResponse, __M
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class CreateDetectorCommand extends $Command
   .classBuilder<

@@ -6,9 +6,9 @@ import { DocumentType as __DocumentType } from "@smithy/types";
 import { MarketplaceCatalogServiceException as __BaseException } from "./MarketplaceCatalogServiceException";
 
 /**
- * @public
  * <p>Access is denied.</p>
  *          <p>HTTP status code: 403</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -29,61 +29,61 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Object that allows filtering on entity id of an AMI product.</p>
+ * @public
  */
 export interface AmiProductEntityIdFilter {
   /**
-   * @public
    * <p>A string array of unique entity id values to be filtered on.</p>
+   * @public
    */
   ValueList?: string[];
 }
 
 /**
- * @public
  * <p>Object that contains date range of the last modified date to be filtered on. You can optionally provide a <code>BeforeValue</code> and/or <code>AfterValue</code>. Both are inclusive.</p>
+ * @public
  */
 export interface AmiProductLastModifiedDateFilterDateRange {
   /**
-   * @public
    * <p>Date after which the AMI product was last modified.</p>
+   * @public
    */
   AfterValue?: string;
 
   /**
-   * @public
    * <p>Date before which the AMI product was last modified.</p>
+   * @public
    */
   BeforeValue?: string;
 }
 
 /**
- * @public
  * <p>Object that allows filtering based on the last modified date of AMI products.</p>
+ * @public
  */
 export interface AmiProductLastModifiedDateFilter {
   /**
-   * @public
    * <p>Dates between which the AMI product was last modified.</p>
+   * @public
    */
   DateRange?: AmiProductLastModifiedDateFilterDateRange;
 }
 
 /**
- * @public
  * <p>Object that allows filtering on product title.</p>
+ * @public
  */
 export interface AmiProductTitleFilter {
   /**
-   * @public
    * <p>A string array of unique product title values to be filtered on.</p>
+   * @public
    */
   ValueList?: string[];
 
   /**
-   * @public
    * <p>A string that will be the <code>wildCard</code> input for product tile filter. It matches the provided value as a substring in the actual value.</p>
+   * @public
    */
   WildCardValue?: string;
 }
@@ -105,44 +105,44 @@ export const AmiProductVisibilityString = {
 export type AmiProductVisibilityString = (typeof AmiProductVisibilityString)[keyof typeof AmiProductVisibilityString];
 
 /**
- * @public
  * <p>Object that allows filtering on the visibility of the product in the AWS Marketplace.</p>
+ * @public
  */
 export interface AmiProductVisibilityFilter {
   /**
-   * @public
    * <p>A string array of unique visibility values to be filtered on.</p>
+   * @public
    */
   ValueList?: AmiProductVisibilityString[];
 }
 
 /**
- * @public
  * <p>Object containing all the filter fields for AMI products. Client can add only one wildcard filter and a maximum of 8
  *             filters in a single <code>ListEntities</code> request.</p>
+ * @public
  */
 export interface AmiProductFilters {
   /**
-   * @public
    * <p>Unique identifier for the AMI product.</p>
+   * @public
    */
   EntityId?: AmiProductEntityIdFilter;
 
   /**
-   * @public
    * <p>The last date on which the AMI product was modified.</p>
+   * @public
    */
   LastModifiedDate?: AmiProductLastModifiedDateFilter;
 
   /**
-   * @public
    * <p>The title of the AMI product.</p>
+   * @public
    */
   ProductTitle?: AmiProductTitleFilter;
 
   /**
-   * @public
    * <p>The visibility of the AMI product.</p>
+   * @public
    */
   Visibility?: AmiProductVisibilityFilter;
 }
@@ -178,56 +178,56 @@ export const SortOrder = {
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
- * @public
  * <p>Objects that allows sorting on AMI products based on certain fields and sorting order.</p>
+ * @public
  */
 export interface AmiProductSort {
   /**
-   * @public
    * <p>Field to sort the AMI products by.</p>
+   * @public
    */
   SortBy?: AmiProductSortBy;
 
   /**
-   * @public
    * <p>The sorting order. Can be <code>ASCENDING</code> or <code>DESCENDING</code>. The default value is <code>DESCENDING</code>.</p>
+   * @public
    */
   SortOrder?: SortOrder;
 }
 
 /**
- * @public
  * <p>Object that contains summarized information about an AMI product.</p>
+ * @public
  */
 export interface AmiProductSummary {
   /**
-   * @public
    * <p>The title of the AMI product.</p>
+   * @public
    */
   ProductTitle?: string;
 
   /**
-   * @public
    * <p>The lifecycle of the AMI product.</p>
+   * @public
    */
   Visibility?: AmiProductVisibilityString;
 }
 
 /**
- * @public
  * <p>An object that contains entity ID and the catalog in which the entity is present.</p>
+ * @public
  */
 export interface EntityRequest {
   /**
-   * @public
    * <p>The name of the catalog the entity is present in. The only value at this time is
    *                 <code>AWSMarketplace</code>.</p>
+   * @public
    */
   Catalog: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the entity.</p>
+   * @public
    */
   EntityId: string | undefined;
 }
@@ -237,63 +237,63 @@ export interface EntityRequest {
  */
 export interface BatchDescribeEntitiesRequest {
   /**
-   * @public
    * <p>List of entity IDs and the catalogs the entities are present in.</p>
+   * @public
    */
   EntityRequestList: EntityRequest[] | undefined;
 }
 
 /**
- * @public
  * <p>An object that contains metadata and details about the entity.</p>
+ * @public
  */
 export interface EntityDetail {
   /**
-   * @public
    * <p>The entity type of the entity, in the format of
    *             <code>EntityType@Version</code>.</p>
+   * @public
    */
   EntityType?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the entity.</p>
+   * @public
    */
   EntityArn?: string;
 
   /**
-   * @public
    * <p>The ID of the entity, in the format of <code>EntityId@RevisionId</code>.</p>
+   * @public
    */
   EntityIdentifier?: string;
 
   /**
-   * @public
    * <p>The last time the entity was modified.</p>
+   * @public
    */
   LastModifiedDate?: string;
 
   /**
-   * @public
    * <p>An object that contains all the details of the entity.</p>
+   * @public
    */
   DetailsDocument?: __DocumentType;
 }
 
 /**
- * @public
  * <p>An object that contains an error code and error message.</p>
+ * @public
  */
 export interface BatchDescribeErrorDetail {
   /**
-   * @public
    * <p>The error code returned.</p>
+   * @public
    */
   ErrorCode?: string;
 
   /**
-   * @public
    * <p>The error message returned.</p>
+   * @public
    */
   ErrorMessage?: string;
 }
@@ -303,23 +303,23 @@ export interface BatchDescribeErrorDetail {
  */
 export interface BatchDescribeEntitiesResponse {
   /**
-   * @public
    * <p>Details about each entity.</p>
+   * @public
    */
   EntityDetails?: Record<string, EntityDetail>;
 
   /**
-   * @public
    * <p>A map of errors returned, with <code>EntityId</code> as the key and
    *                 <code>errorDetail</code> as the value.</p>
+   * @public
    */
   Errors?: Record<string, BatchDescribeErrorDetail>;
 }
 
 /**
- * @public
  * <p>There was an internal service exception.</p>
  *          <p>HTTP status code: 500</p>
+ * @public
  */
 export class InternalServiceException extends __BaseException {
   readonly name: "InternalServiceException" = "InternalServiceException";
@@ -340,9 +340,9 @@ export class InternalServiceException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Too many requests.</p>
  *          <p>HTTP status code: 429</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -363,9 +363,9 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>An error occurred during validation.</p>
  *          <p>HTTP status code: 422</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -390,16 +390,16 @@ export class ValidationException extends __BaseException {
  */
 export interface CancelChangeSetRequest {
   /**
-   * @public
    * <p>Required. The catalog related to the request. Fixed value:
    *             <code>AWSMarketplace</code>.</p>
+   * @public
    */
   Catalog: string | undefined;
 
   /**
-   * @public
    * <p>Required. The unique identifier of the <code>StartChangeSet</code> request that you
    *             want to cancel.</p>
+   * @public
    */
   ChangeSetId: string | undefined;
 }
@@ -409,21 +409,21 @@ export interface CancelChangeSetRequest {
  */
 export interface CancelChangeSetResponse {
   /**
-   * @public
    * <p>The unique identifier for the change set referenced in this request.</p>
+   * @public
    */
   ChangeSetId?: string;
 
   /**
-   * @public
    * <p>The ARN associated with the change set referenced in this request.</p>
+   * @public
    */
   ChangeSetArn?: string;
 }
 
 /**
- * @public
  * <p>The resource is currently in use.</p>
+ * @public
  */
 export class ResourceInUseException extends __BaseException {
   readonly name: "ResourceInUseException" = "ResourceInUseException";
@@ -444,9 +444,9 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified resource wasn't found.</p>
  *          <p>HTTP status code: 404</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -471,9 +471,9 @@ export class ResourceNotFoundException extends __BaseException {
  */
 export interface DeleteResourcePolicyRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the entity resource that is associated with the
    *             resource policy.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 }
@@ -488,98 +488,98 @@ export interface DeleteResourcePolicyResponse {}
  */
 export interface DescribeChangeSetRequest {
   /**
-   * @public
    * <p>Required. The catalog related to the request. Fixed value:
    *             <code>AWSMarketplace</code>
    *          </p>
+   * @public
    */
   Catalog: string | undefined;
 
   /**
-   * @public
    * <p>Required. The unique identifier for the <code>StartChangeSet</code> request that you
    *             want to describe the details for.</p>
+   * @public
    */
   ChangeSetId: string | undefined;
 }
 
 /**
- * @public
  * <p>An entity contains data that describes your product, its supported features, and how
  *             it can be used or launched by your customer. </p>
+ * @public
  */
 export interface Entity {
   /**
-   * @public
    * <p>The type of entity.</p>
+   * @public
    */
   Type: string | undefined;
 
   /**
-   * @public
    * <p>The identifier for the entity.</p>
+   * @public
    */
   Identifier?: string;
 }
 
 /**
- * @public
  * <p>Details about the error.</p>
+ * @public
  */
 export interface ErrorDetail {
   /**
-   * @public
    * <p>The error code that identifies the type of error.</p>
+   * @public
    */
   ErrorCode?: string;
 
   /**
-   * @public
    * <p>The message for the error.</p>
+   * @public
    */
   ErrorMessage?: string;
 }
 
 /**
- * @public
  * <p>This object is a container for common summary information about the change. The
  *             summary doesn't contain the whole change structure.</p>
+ * @public
  */
 export interface ChangeSummary {
   /**
-   * @public
    * <p>The type of the change.</p>
+   * @public
    */
   ChangeType?: string;
 
   /**
-   * @public
    * <p>The entity to be changed.</p>
+   * @public
    */
   Entity?: Entity;
 
   /**
-   * @public
    * <p>This object contains details specific to the change type of the requested
    *             change.</p>
+   * @public
    */
   Details?: string;
 
   /**
-   * @public
    * <p>The JSON value of the details specific to the change type of the requested change.</p>
+   * @public
    */
   DetailsDocument?: __DocumentType;
 
   /**
-   * @public
    * <p>An array of <code>ErrorDetail</code> objects associated with the change.</p>
+   * @public
    */
   ErrorDetailList?: ErrorDetail[];
 
   /**
-   * @public
    * <p>Optional name for the change.</p>
+   * @public
    */
   ChangeName?: string;
 }
@@ -634,72 +634,72 @@ export type ChangeStatus = (typeof ChangeStatus)[keyof typeof ChangeStatus];
  */
 export interface DescribeChangeSetResponse {
   /**
-   * @public
    * <p>Required. The unique identifier for the change set referenced in this request.</p>
+   * @public
    */
   ChangeSetId?: string;
 
   /**
-   * @public
    * <p>The ARN associated with the unique identifier for the change set referenced in this
    *             request.</p>
+   * @public
    */
   ChangeSetArn?: string;
 
   /**
-   * @public
    * <p>The optional name provided in the <code>StartChangeSet</code> request. If you do not
    *             provide a name, one is set by default.</p>
+   * @public
    */
   ChangeSetName?: string;
 
   /**
-   * @public
    * <p>The optional intent provided in the <code>StartChangeSet</code> request. If you do not
    *             provide an intent, <code>APPLY</code> is set by default.</p>
+   * @public
    */
   Intent?: Intent;
 
   /**
-   * @public
    * <p>The date and time, in ISO 8601 format (2018-02-27T13:45:22Z), the request started.
    *         </p>
+   * @public
    */
   StartTime?: string;
 
   /**
-   * @public
    * <p>The date and time, in ISO 8601 format (2018-02-27T13:45:22Z), the request transitioned
    *             to a terminal state. The change cannot transition to a different state. Null if the
    *             request is not in a terminal state. </p>
+   * @public
    */
   EndTime?: string;
 
   /**
-   * @public
    * <p>The status of the change request.</p>
+   * @public
    */
   Status?: ChangeStatus;
 
   /**
-   * @public
    * <p>Returned if the change set is in <code>FAILED</code> status. Can be either
    *                 <code>CLIENT_ERROR</code>, which means that there are issues with the request (see
    *             the <code>ErrorDetailList</code>), or <code>SERVER_FAULT</code>, which means that there
    *             is a problem in the system, and you should retry your request.</p>
+   * @public
    */
   FailureCode?: FailureCode;
 
   /**
-   * @public
    * <p>Returned if there is a failure on the change set, but that failure is not related to
    *             any of the changes in the request.</p>
+   * @public
    */
   FailureDescription?: string;
 
   /**
-   * @public
    * <p>An array of <code>ChangeSummary</code> objects.</p>
+   * @public
    */
   ChangeSet?: ChangeSummary[];
 }
@@ -709,16 +709,16 @@ export interface DescribeChangeSetResponse {
  */
 export interface DescribeEntityRequest {
   /**
-   * @public
    * <p>Required. The catalog related to the request. Fixed value:
    *             <code>AWSMarketplace</code>
    *          </p>
+   * @public
    */
   Catalog: string | undefined;
 
   /**
-   * @public
    * <p>Required. The unique ID of the entity to describe.</p>
+   * @public
    */
   EntityId: string | undefined;
 }
@@ -728,48 +728,48 @@ export interface DescribeEntityRequest {
  */
 export interface DescribeEntityResponse {
   /**
-   * @public
    * <p>The named type of the entity, in the format of <code>EntityType@Version</code>.</p>
+   * @public
    */
   EntityType?: string;
 
   /**
-   * @public
    * <p>The identifier of the entity, in the format of
    *             <code>EntityId@RevisionId</code>.</p>
+   * @public
    */
   EntityIdentifier?: string;
 
   /**
-   * @public
    * <p>The ARN associated to the unique identifier for the entity referenced in this
    *             request.</p>
+   * @public
    */
   EntityArn?: string;
 
   /**
-   * @public
    * <p>The last modified date of the entity, in ISO 8601 format
    *             (2018-02-27T13:45:22Z).</p>
+   * @public
    */
   LastModifiedDate?: string;
 
   /**
-   * @public
    * <p>This stringified JSON object includes the details of the entity.</p>
+   * @public
    */
   Details?: string;
 
   /**
-   * @public
    * <p>The JSON value of the details specific to the entity.</p>
+   * @public
    */
   DetailsDocument?: __DocumentType;
 }
 
 /**
- * @public
  * <p>Currently, the specified resource is not supported.</p>
+ * @public
  */
 export class ResourceNotSupportedException extends __BaseException {
   readonly name: "ResourceNotSupportedException" = "ResourceNotSupportedException";
@@ -794,9 +794,9 @@ export class ResourceNotSupportedException extends __BaseException {
  */
 export interface GetResourcePolicyRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the entity resource that is associated with the
    *             resource policy.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 }
@@ -806,28 +806,27 @@ export interface GetResourcePolicyRequest {
  */
 export interface GetResourcePolicyResponse {
   /**
-   * @public
    * <p>The policy document to set; formatted in JSON.</p>
+   * @public
    */
   Policy?: string;
 }
 
 /**
- * @public
  * <p>A filter object, used to optionally filter results from calls to the
  *                 <code>ListEntities</code> and <code>ListChangeSets</code> actions.</p>
+ * @public
  */
 export interface Filter {
   /**
-   * @public
    * <p>For <code>ListEntities</code>, the supported value for this is an
    *                 <code>EntityId</code>.</p>
    *          <p>For <code>ListChangeSets</code>, the supported values are as follows:</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>
    *             <code>ListEntities</code> - This is a list of unique <code>EntityId</code>s.</p>
    *          <p>
@@ -871,31 +870,32 @@ export interface Filter {
    *                     all change sets that ended after the filter value.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ValueList?: string[];
 }
 
 /**
- * @public
  * <p>An object that contains two attributes, <code>SortBy</code> and
  *             <code>SortOrder</code>.</p>
+ * @public
  */
 export interface Sort {
   /**
-   * @public
    * <p>For <code>ListEntities</code>, supported attributes include
    *                 <code>LastModifiedDate</code> (default) and <code>EntityId</code>. In addition to
    *                 <code>LastModifiedDate</code> and <code>EntityId</code>, each
    *                 <code>EntityType</code> might support additional fields.</p>
    *          <p>For <code>ListChangeSets</code>, supported attributes include <code>StartTime</code>
    *             and <code>EndTime</code>.</p>
+   * @public
    */
   SortBy?: string;
 
   /**
-   * @public
    * <p>The sorting order. Can be <code>ASCENDING</code> or <code>DESCENDING</code>. The
    *             default value is <code>DESCENDING</code>.</p>
+   * @public
    */
   SortOrder?: SortOrder;
 }
@@ -905,100 +905,100 @@ export interface Sort {
  */
 export interface ListChangeSetsRequest {
   /**
-   * @public
    * <p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>
    *          </p>
+   * @public
    */
   Catalog: string | undefined;
 
   /**
-   * @public
    * <p>An array of filter objects.</p>
+   * @public
    */
   FilterList?: Filter[];
 
   /**
-   * @public
    * <p>An object that contains two attributes, <code>SortBy</code> and
    *             <code>SortOrder</code>.</p>
+   * @public
    */
   Sort?: Sort;
 
   /**
-   * @public
    * <p>The maximum number of results returned by a single call. This value must be provided
    *             in the next call to retrieve the next set of results. By default, this value is
    *             20.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token value retrieved from a previous call to access the next page of
    *             results.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>A summary of a change set returned in a list of change sets when the
  *                 <code>ListChangeSets</code> action is called.</p>
+ * @public
  */
 export interface ChangeSetSummaryListItem {
   /**
-   * @public
    * <p>The unique identifier for a change set.</p>
+   * @public
    */
   ChangeSetId?: string;
 
   /**
-   * @public
    * <p>The ARN associated with the unique identifier for the change set referenced in this
    *             request.</p>
+   * @public
    */
   ChangeSetArn?: string;
 
   /**
-   * @public
    * <p>The non-unique name for the change set.</p>
+   * @public
    */
   ChangeSetName?: string;
 
   /**
-   * @public
    * <p>The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set was
    *             started.</p>
+   * @public
    */
   StartTime?: string;
 
   /**
-   * @public
    * <p>The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set was
    *             finished.</p>
+   * @public
    */
   EndTime?: string;
 
   /**
-   * @public
    * <p>The current status of the change set.</p>
+   * @public
    */
   Status?: ChangeStatus;
 
   /**
-   * @public
    * <p>This object is a list of entity IDs (string) that are a part of a change set. The
    *             entity ID list is a maximum of 20 entities. It must contain at least one entity.</p>
+   * @public
    */
   EntityIdList?: string[];
 
   /**
-   * @public
    * <p>Returned if the change set is in <code>FAILED</code> status. Can be either
    *                 <code>CLIENT_ERROR</code>, which means that there are issues with the request (see
    *             the <code>ErrorDetailList</code> of <code>DescribeChangeSet</code>), or
    *                 <code>SERVER_FAULT</code>, which means that there is a problem in the system, and
    *             you should retry your request.</p>
+   * @public
    */
   FailureCode?: FailureCode;
 }
@@ -1008,74 +1008,74 @@ export interface ChangeSetSummaryListItem {
  */
 export interface ListChangeSetsResponse {
   /**
-   * @public
    * <p> Array of <code>ChangeSetSummaryListItem</code> objects.</p>
+   * @public
    */
   ChangeSetSummaryList?: ChangeSetSummaryListItem[];
 
   /**
-   * @public
    * <p>The value of the next token, if it exists. Null if there are no more results.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>Object that allows filtering on entity id of a container product.</p>
+ * @public
  */
 export interface ContainerProductEntityIdFilter {
   /**
-   * @public
    * <p>A string array of unique entity id values to be filtered on.</p>
+   * @public
    */
   ValueList?: string[];
 }
 
 /**
- * @public
  * <p>Object that contains date range of the last modified date to be filtered on. You can optionally provide a <code>BeforeValue</code> and/or <code>AfterValue</code>. Both are inclusive.</p>
+ * @public
  */
 export interface ContainerProductLastModifiedDateFilterDateRange {
   /**
-   * @public
    * <p>Date after which the container product was last modified.</p>
+   * @public
    */
   AfterValue?: string;
 
   /**
-   * @public
    * <p>Date before which the container product was last modified.</p>
+   * @public
    */
   BeforeValue?: string;
 }
 
 /**
- * @public
  * <p>Object that allows filtering based on the last modified date of container products.</p>
+ * @public
  */
 export interface ContainerProductLastModifiedDateFilter {
   /**
-   * @public
    * <p>Dates between which the container product was last modified.</p>
+   * @public
    */
   DateRange?: ContainerProductLastModifiedDateFilterDateRange;
 }
 
 /**
- * @public
  * <p>Object that allows filtering on product title.</p>
+ * @public
  */
 export interface ContainerProductTitleFilter {
   /**
-   * @public
    * <p>A string array of unique product title values to be filtered on.</p>
+   * @public
    */
   ValueList?: string[];
 
   /**
-   * @public
    * <p>A string that will be the <code>wildCard</code> input for product tile filter. It matches the provided value as a substring in the actual value.</p>
+   * @public
    */
   WildCardValue?: string;
 }
@@ -1098,103 +1098,103 @@ export type ContainerProductVisibilityString =
   (typeof ContainerProductVisibilityString)[keyof typeof ContainerProductVisibilityString];
 
 /**
- * @public
  * <p>Object that allows filtering on the visibility of the product in the AWS Marketplace.</p>
+ * @public
  */
 export interface ContainerProductVisibilityFilter {
   /**
-   * @public
    * <p>A string array of unique visibility values to be filtered on.</p>
+   * @public
    */
   ValueList?: ContainerProductVisibilityString[];
 }
 
 /**
- * @public
  * <p>Object containing all the filter fields for container products. Client can add only one wildcard filter and a maximum of 8 filters in a single <code>ListEntities</code> request.</p>
+ * @public
  */
 export interface ContainerProductFilters {
   /**
-   * @public
    * <p>Unique identifier for the container product.</p>
+   * @public
    */
   EntityId?: ContainerProductEntityIdFilter;
 
   /**
-   * @public
    * <p>The last date on which the container product was modified.</p>
+   * @public
    */
   LastModifiedDate?: ContainerProductLastModifiedDateFilter;
 
   /**
-   * @public
    * <p>The title of the container product.</p>
+   * @public
    */
   ProductTitle?: ContainerProductTitleFilter;
 
   /**
-   * @public
    * <p>The visibility of the container product.</p>
+   * @public
    */
   Visibility?: ContainerProductVisibilityFilter;
 }
 
 /**
- * @public
  * <p>Object that allows filtering on entity id of a data product.</p>
+ * @public
  */
 export interface DataProductEntityIdFilter {
   /**
-   * @public
    * <p>A string array of unique entity id values to be filtered on.</p>
+   * @public
    */
   ValueList?: string[];
 }
 
 /**
- * @public
  * <p>Object that contains date range of the last modified date to be filtered on. You can optionally provide a <code>BeforeValue</code> and/or <code>AfterValue</code>. Both are inclusive.</p>
+ * @public
  */
 export interface DataProductLastModifiedDateFilterDateRange {
   /**
-   * @public
    * <p>Date after which the data product was last modified.</p>
+   * @public
    */
   AfterValue?: string;
 
   /**
-   * @public
    * <p>Date before which the data product was last modified.</p>
+   * @public
    */
   BeforeValue?: string;
 }
 
 /**
- * @public
  * <p>Object that allows filtering based on the last modified date of data products.</p>
+ * @public
  */
 export interface DataProductLastModifiedDateFilter {
   /**
-   * @public
    * <p>Dates between which the data product was last modified.</p>
+   * @public
    */
   DateRange?: DataProductLastModifiedDateFilterDateRange;
 }
 
 /**
- * @public
  * <p>Object that allows filtering on product title.</p>
+ * @public
  */
 export interface DataProductTitleFilter {
   /**
-   * @public
    * <p>A string array of unique product title values to be filtered on.</p>
+   * @public
    */
   ValueList?: string[];
 
   /**
-   * @public
    * <p>A string that will be the <code>wildCard</code> input for product tile filter. It matches the provided value as a substring in the actual value.</p>
+   * @public
    */
   WildCardValue?: string;
 }
@@ -1218,187 +1218,187 @@ export type DataProductVisibilityString =
   (typeof DataProductVisibilityString)[keyof typeof DataProductVisibilityString];
 
 /**
- * @public
  * <p>Object that allows filtering on the visibility of the product in the AWS Marketplace.</p>
+ * @public
  */
 export interface DataProductVisibilityFilter {
   /**
-   * @public
    * <p>A string array of unique visibility values to be filtered on.</p>
+   * @public
    */
   ValueList?: DataProductVisibilityString[];
 }
 
 /**
- * @public
  * <p>Object containing all the filter fields for data products. Client can add only one wildcard filter and a maximum of 8 filters in a single <code>ListEntities</code> request.</p>
+ * @public
  */
 export interface DataProductFilters {
   /**
-   * @public
    * <p>Unique identifier for the data product.</p>
+   * @public
    */
   EntityId?: DataProductEntityIdFilter;
 
   /**
-   * @public
    * <p>The title of the data product.</p>
+   * @public
    */
   ProductTitle?: DataProductTitleFilter;
 
   /**
-   * @public
    * <p>The visibility of the data product.</p>
+   * @public
    */
   Visibility?: DataProductVisibilityFilter;
 
   /**
-   * @public
    * <p>The last date on which the data product was modified.</p>
+   * @public
    */
   LastModifiedDate?: DataProductLastModifiedDateFilter;
 }
 
 /**
- * @public
  * <p>Allows filtering on the <code>AvailabilityEndDate</code> of an offer with date range as input.</p>
+ * @public
  */
 export interface OfferAvailabilityEndDateFilterDateRange {
   /**
-   * @public
    * <p>Allows filtering on the <code>AvailabilityEndDate</code> of an offer after a date.</p>
+   * @public
    */
   AfterValue?: string;
 
   /**
-   * @public
    * <p>Allows filtering on the <code>AvailabilityEndDate</code> of an offer before a date.</p>
+   * @public
    */
   BeforeValue?: string;
 }
 
 /**
- * @public
  * <p>Allows filtering on the <code>AvailabilityEndDate</code> of an offer.</p>
+ * @public
  */
 export interface OfferAvailabilityEndDateFilter {
   /**
-   * @public
    * <p>Allows filtering on the <code>AvailabilityEndDate</code> of an offer with date range as input.</p>
+   * @public
    */
   DateRange?: OfferAvailabilityEndDateFilterDateRange;
 }
 
 /**
- * @public
  * <p>Allows filtering on the <code>BuyerAccounts</code> of an offer.</p>
+ * @public
  */
 export interface OfferBuyerAccountsFilter {
   /**
-   * @public
    * <p>Allows filtering on the <code>BuyerAccounts</code> of an offer with wild card input.</p>
+   * @public
    */
   WildCardValue?: string;
 }
 
 /**
- * @public
  * <p>Allows filtering on the entity id of an offer.</p>
+ * @public
  */
 export interface OfferEntityIdFilter {
   /**
-   * @public
    * <p>Allows filtering on entity id of an offer with list input.</p>
+   * @public
    */
   ValueList?: string[];
 }
 
 /**
- * @public
  * <p>Allows filtering on the <code>LastModifiedDate</code> of an offer with date range as input.</p>
+ * @public
  */
 export interface OfferLastModifiedDateFilterDateRange {
   /**
-   * @public
    * <p>Allows filtering on the <code>LastModifiedDate</code> of an offer after a date.</p>
+   * @public
    */
   AfterValue?: string;
 
   /**
-   * @public
    * <p>Allows filtering on the <code>LastModifiedDate</code> of an offer before a date.</p>
+   * @public
    */
   BeforeValue?: string;
 }
 
 /**
- * @public
  * <p>Allows filtering on the <code>LastModifiedDate</code> of an offer.</p>
+ * @public
  */
 export interface OfferLastModifiedDateFilter {
   /**
-   * @public
    * <p>Allows filtering on the <code>LastModifiedDate</code> of an offer with date range as input.</p>
+   * @public
    */
   DateRange?: OfferLastModifiedDateFilterDateRange;
 }
 
 /**
- * @public
  * <p>Allows filtering on the <code>Name</code> of an offer.</p>
+ * @public
  */
 export interface OfferNameFilter {
   /**
-   * @public
    * <p>Allows filtering on the <code>Name</code> of an offer with list input.</p>
+   * @public
    */
   ValueList?: string[];
 
   /**
-   * @public
    * <p>Allows filtering on the <code>Name</code> of an offer with wild card input.</p>
+   * @public
    */
   WildCardValue?: string;
 }
 
 /**
- * @public
  * <p>Allows filtering on the <code>ProductId</code> of an offer.</p>
+ * @public
  */
 export interface OfferProductIdFilter {
   /**
-   * @public
    * <p>Allows filtering on the <code>ProductId</code> of an offer with list input.</p>
+   * @public
    */
   ValueList?: string[];
 }
 
 /**
- * @public
  * <p>Allows filtering on the <code>ReleaseDate</code> of an offer with date range as input.</p>
+ * @public
  */
 export interface OfferReleaseDateFilterDateRange {
   /**
-   * @public
    * <p>Allows filtering on the <code>ReleaseDate</code> of offers after a date.</p>
+   * @public
    */
   AfterValue?: string;
 
   /**
-   * @public
    * <p>Allows filtering on the <code>ReleaseDate</code> of offers before a date.</p>
+   * @public
    */
   BeforeValue?: string;
 }
 
 /**
- * @public
  * <p>Allows filtering on the <code>ReleaseDate</code> of an offer.</p>
+ * @public
  */
 export interface OfferReleaseDateFilter {
   /**
-   * @public
    * <p>Allows filtering on the <code>ReleaseDate</code> of an offer with date range as input.</p>
+   * @public
    */
   DateRange?: OfferReleaseDateFilterDateRange;
 }
@@ -1418,13 +1418,13 @@ export const OfferStateString = {
 export type OfferStateString = (typeof OfferStateString)[keyof typeof OfferStateString];
 
 /**
- * @public
  * <p>Allows filtering on the <code>State</code> of an offer.</p>
+ * @public
  */
 export interface OfferStateFilter {
   /**
-   * @public
    * <p>Allows filtering on the <code>State</code> of an offer with list input.</p>
+   * @public
    */
   ValueList?: OfferStateString[];
 }
@@ -1446,325 +1446,325 @@ export const OfferTargetingString = {
 export type OfferTargetingString = (typeof OfferTargetingString)[keyof typeof OfferTargetingString];
 
 /**
- * @public
  * <p>Allows filtering on the <code>Targeting</code> of an offer.</p>
+ * @public
  */
 export interface OfferTargetingFilter {
   /**
-   * @public
    * <p>Allows filtering on the <code>Targeting</code> of an offer with list input.</p>
+   * @public
    */
   ValueList?: OfferTargetingString[];
 }
 
 /**
- * @public
  * <p>Object containing all the filter fields for offers entity. Client can add only one wildcard filter and a maximum of 8 filters in a single <code>ListEntities</code> request.</p>
+ * @public
  */
 export interface OfferFilters {
   /**
-   * @public
    * <p>Allows filtering on <code>EntityId</code> of an offer.</p>
+   * @public
    */
   EntityId?: OfferEntityIdFilter;
 
   /**
-   * @public
    * <p>Allows filtering on the <code>Name</code> of an offer.</p>
+   * @public
    */
   Name?: OfferNameFilter;
 
   /**
-   * @public
    * <p>Allows filtering on the <code>ProductId</code> of an offer.</p>
+   * @public
    */
   ProductId?: OfferProductIdFilter;
 
   /**
-   * @public
    * <p>Allows filtering on the <code>ReleaseDate</code> of an offer.</p>
+   * @public
    */
   ReleaseDate?: OfferReleaseDateFilter;
 
   /**
-   * @public
    * <p>Allows filtering on the <code>AvailabilityEndDate</code> of an offer.</p>
+   * @public
    */
   AvailabilityEndDate?: OfferAvailabilityEndDateFilter;
 
   /**
-   * @public
    * <p>Allows filtering on the <code>BuyerAccounts</code> of an offer.</p>
+   * @public
    */
   BuyerAccounts?: OfferBuyerAccountsFilter;
 
   /**
-   * @public
    * <p>Allows filtering on the <code>State</code> of an offer.</p>
+   * @public
    */
   State?: OfferStateFilter;
 
   /**
-   * @public
    * <p>Allows filtering on the <code>Targeting</code> of an offer.</p>
+   * @public
    */
   Targeting?: OfferTargetingFilter;
 
   /**
-   * @public
    * <p>Allows filtering on the <code>LastModifiedDate</code> of an offer.</p>
+   * @public
    */
   LastModifiedDate?: OfferLastModifiedDateFilter;
 }
 
 /**
- * @public
  * <p>Allows filtering on <code>AvailabilityEndDate</code> of a ResaleAuthorization with date range as input.</p>
+ * @public
  */
 export interface ResaleAuthorizationAvailabilityEndDateFilterDateRange {
   /**
-   * @public
    * <p>Allows filtering on <code>AvailabilityEndDate</code> of a ResaleAuthorization after a date.</p>
+   * @public
    */
   AfterValue?: string;
 
   /**
-   * @public
    * <p>Allows filtering on <code>AvailabilityEndDate</code> of a ResaleAuthorization before a date.</p>
+   * @public
    */
   BeforeValue?: string;
 }
 
 /**
- * @public
  * <p>Allows filtering on <code>AvailabilityEndDate</code> of a ResaleAuthorization.</p>
+ * @public
  */
 export interface ResaleAuthorizationAvailabilityEndDateFilter {
   /**
-   * @public
    * <p>Allows filtering on <code>AvailabilityEndDate</code> of a ResaleAuthorization with date range as input</p>
+   * @public
    */
   DateRange?: ResaleAuthorizationAvailabilityEndDateFilterDateRange;
 
   /**
-   * @public
    * <p>Allows filtering on <code>AvailabilityEndDate</code> of a ResaleAuthorization with date value as input.</p>
+   * @public
    */
   ValueList?: string[];
 }
 
 /**
- * @public
  * <p>Allows filtering on <code>CreatedDate</code> of a ResaleAuthorization with date range as input.</p>
+ * @public
  */
 export interface ResaleAuthorizationCreatedDateFilterDateRange {
   /**
-   * @public
    * <p>Allows filtering on <code>CreatedDate</code> of a ResaleAuthorization after a date.</p>
+   * @public
    */
   AfterValue?: string;
 
   /**
-   * @public
    * <p>Allows filtering on <code>CreatedDate</code> of a ResaleAuthorization before a date.</p>
+   * @public
    */
   BeforeValue?: string;
 }
 
 /**
- * @public
  * <p>Allows filtering on <code>CreatedDate</code> of a ResaleAuthorization.</p>
+ * @public
  */
 export interface ResaleAuthorizationCreatedDateFilter {
   /**
-   * @public
    * <p>Allows filtering on <code>CreatedDate</code> of a ResaleAuthorization with date range as input.</p>
+   * @public
    */
   DateRange?: ResaleAuthorizationCreatedDateFilterDateRange;
 
   /**
-   * @public
    * <p>Allows filtering on <code>CreatedDate</code> of a ResaleAuthorization with date value as input.</p>
+   * @public
    */
   ValueList?: string[];
 }
 
 /**
- * @public
  * <p>Allows filtering on <code>EntityId</code> of a ResaleAuthorization.</p>
+ * @public
  */
 export interface ResaleAuthorizationEntityIdFilter {
   /**
-   * @public
    * <p>Allows filtering on <code>EntityId</code> of a ResaleAuthorization with list input.</p>
+   * @public
    */
   ValueList?: string[];
 }
 
 /**
- * @public
  * <p>Allows filtering on the <code>LastModifiedDate</code> of a ResaleAuthorization with date range as input.</p>
+ * @public
  */
 export interface ResaleAuthorizationLastModifiedDateFilterDateRange {
   /**
-   * @public
    * <p>Allows filtering on the <code>LastModifiedDate</code> of a ResaleAuthorization after a date.</p>
+   * @public
    */
   AfterValue?: string;
 
   /**
-   * @public
    * <p>Allows filtering on the <code>LastModifiedDate</code> of a ResaleAuthorization before a date.</p>
+   * @public
    */
   BeforeValue?: string;
 }
 
 /**
- * @public
  * <p>Allows filtering on the <code>LastModifiedDate</code> of a ResaleAuthorization.</p>
+ * @public
  */
 export interface ResaleAuthorizationLastModifiedDateFilter {
   /**
-   * @public
    * <p>Allows filtering on the <code>LastModifiedDate</code> of a ResaleAuthorization with date range as input.</p>
+   * @public
    */
   DateRange?: ResaleAuthorizationLastModifiedDateFilterDateRange;
 }
 
 /**
- * @public
  * <p>Allows filtering on the <code>ManufacturerAccountId</code> of a ResaleAuthorization.</p>
+ * @public
  */
 export interface ResaleAuthorizationManufacturerAccountIdFilter {
   /**
-   * @public
    * <p>Allows filtering on the <code>ManufacturerAccountId</code> of a ResaleAuthorization with list input.</p>
+   * @public
    */
   ValueList?: string[];
 
   /**
-   * @public
    * <p>Allows filtering on the <code>ManufacturerAccountId</code> of a ResaleAuthorization with wild card input.</p>
+   * @public
    */
   WildCardValue?: string;
 }
 
 /**
- * @public
  * <p>Allows filtering on the <code>ManufacturerLegalName</code> of a ResaleAuthorization.</p>
+ * @public
  */
 export interface ResaleAuthorizationManufacturerLegalNameFilter {
   /**
-   * @public
    * <p>Allows filtering on the <code>ManufacturerLegalName</code> of a ResaleAuthorization with list input.</p>
+   * @public
    */
   ValueList?: string[];
 
   /**
-   * @public
    * <p>Allows filtering on the <code>ManufacturerLegalName</code> of a ResaleAuthorization with wild card input.</p>
+   * @public
    */
   WildCardValue?: string;
 }
 
 /**
- * @public
  * <p>Allows filtering on the <code>Name</code> of a ResaleAuthorization.</p>
+ * @public
  */
 export interface ResaleAuthorizationNameFilter {
   /**
-   * @public
    * <p>Allows filtering on the <code>Name</code> of a ResaleAuthorization with list input.</p>
+   * @public
    */
   ValueList?: string[];
 
   /**
-   * @public
    * <p>Allows filtering on the <code>Name</code> of a ResaleAuthorization with wild card input.</p>
+   * @public
    */
   WildCardValue?: string;
 }
 
 /**
- * @public
  * <p>Allows filtering on the <code>OfferExtendedStatus</code> of a ResaleAuthorization.</p>
+ * @public
  */
 export interface ResaleAuthorizationOfferExtendedStatusFilter {
   /**
-   * @public
    * <p>Allows filtering on the <code>OfferExtendedStatus</code> of a ResaleAuthorization with list input.</p>
+   * @public
    */
   ValueList?: string[];
 }
 
 /**
- * @public
  * <p>Allows filtering on the <code>ProductId</code> of a ResaleAuthorization.</p>
+ * @public
  */
 export interface ResaleAuthorizationProductIdFilter {
   /**
-   * @public
    * <p>Allows filtering on the <code>ProductId</code> of a ResaleAuthorization with list input.</p>
+   * @public
    */
   ValueList?: string[];
 
   /**
-   * @public
    * <p>Allows filtering on the <code>ProductId</code> of a ResaleAuthorization with wild card input.</p>
+   * @public
    */
   WildCardValue?: string;
 }
 
 /**
- * @public
  * <p>Allows filtering on the <code>ProductName</code> of a ResaleAuthorization.</p>
+ * @public
  */
 export interface ResaleAuthorizationProductNameFilter {
   /**
-   * @public
    * <p>Allows filtering on the <code>ProductName</code> of a ResaleAuthorization with list input.</p>
+   * @public
    */
   ValueList?: string[];
 
   /**
-   * @public
    * <p>Allows filtering on the <code>ProductName</code> of a ResaleAuthorization with wild card input.</p>
+   * @public
    */
   WildCardValue?: string;
 }
 
 /**
- * @public
  * <p>Allows filtering on the <code>ResellerAccountID</code> of a ResaleAuthorization.</p>
+ * @public
  */
 export interface ResaleAuthorizationResellerAccountIDFilter {
   /**
-   * @public
    * <p>Allows filtering on the <code>ResellerAccountID</code> of a ResaleAuthorization with list input.</p>
+   * @public
    */
   ValueList?: string[];
 
   /**
-   * @public
    * <p>Allows filtering on the <code>ResellerAccountID</code> of a ResaleAuthorization with wild card input.</p>
+   * @public
    */
   WildCardValue?: string;
 }
 
 /**
- * @public
  * <p>Allows filtering on the ResellerLegalName of a ResaleAuthorization.</p>
+ * @public
  */
 export interface ResaleAuthorizationResellerLegalNameFilter {
   /**
-   * @public
    * <p>Allows filtering on the ResellerLegalNameProductName of a ResaleAuthorization with list input.</p>
+   * @public
    */
   ValueList?: string[];
 
   /**
-   * @public
    * <p>Allows filtering on the ResellerLegalName of a ResaleAuthorization with wild card input.</p>
+   * @public
    */
   WildCardValue?: string;
 }
@@ -1786,157 +1786,157 @@ export type ResaleAuthorizationStatusString =
   (typeof ResaleAuthorizationStatusString)[keyof typeof ResaleAuthorizationStatusString];
 
 /**
- * @public
  * <p>Allows filtering on the <code>Status</code> of a ResaleAuthorization.</p>
+ * @public
  */
 export interface ResaleAuthorizationStatusFilter {
   /**
-   * @public
    * <p>Allows filtering on the <code>Status</code> of a ResaleAuthorization with list input.</p>
+   * @public
    */
   ValueList?: ResaleAuthorizationStatusString[];
 }
 
 /**
- * @public
  * <p>Object containing all the filter fields for resale authorization entity. Client can add only one wildcard filter and a maximum of 8 filters in a single <code>ListEntities</code> request.</p>
+ * @public
  */
 export interface ResaleAuthorizationFilters {
   /**
-   * @public
    * <p>Allows filtering on the <code>EntityId</code> of a ResaleAuthorization.</p>
+   * @public
    */
   EntityId?: ResaleAuthorizationEntityIdFilter;
 
   /**
-   * @public
    * <p>Allows filtering on the <code>Name</code> of a ResaleAuthorization.</p>
+   * @public
    */
   Name?: ResaleAuthorizationNameFilter;
 
   /**
-   * @public
    * <p>Allows filtering on the <code>ProductId</code> of a ResaleAuthorization.</p>
+   * @public
    */
   ProductId?: ResaleAuthorizationProductIdFilter;
 
   /**
-   * @public
    * <p>Allows filtering on the <code>CreatedDate</code> of a ResaleAuthorization.</p>
+   * @public
    */
   CreatedDate?: ResaleAuthorizationCreatedDateFilter;
 
   /**
-   * @public
    * <p>Allows filtering on the <code>AvailabilityEndDate</code> of a ResaleAuthorization.</p>
+   * @public
    */
   AvailabilityEndDate?: ResaleAuthorizationAvailabilityEndDateFilter;
 
   /**
-   * @public
    * <p>Allows filtering on the <code>ManufacturerAccountId</code> of a ResaleAuthorization.</p>
+   * @public
    */
   ManufacturerAccountId?: ResaleAuthorizationManufacturerAccountIdFilter;
 
   /**
-   * @public
    * <p>Allows filtering on the <code>ProductName</code> of a ResaleAuthorization.</p>
+   * @public
    */
   ProductName?: ResaleAuthorizationProductNameFilter;
 
   /**
-   * @public
    * <p>Allows filtering on the <code>ManufacturerLegalName</code> of a ResaleAuthorization.</p>
+   * @public
    */
   ManufacturerLegalName?: ResaleAuthorizationManufacturerLegalNameFilter;
 
   /**
-   * @public
    * <p>Allows filtering on the <code>ResellerAccountID</code> of a ResaleAuthorization.</p>
+   * @public
    */
   ResellerAccountID?: ResaleAuthorizationResellerAccountIDFilter;
 
   /**
-   * @public
    * <p>Allows filtering on the <code>ResellerLegalName</code> of a ResaleAuthorization.</p>
+   * @public
    */
   ResellerLegalName?: ResaleAuthorizationResellerLegalNameFilter;
 
   /**
-   * @public
    * <p>Allows filtering on the <code>Status</code> of a ResaleAuthorization.</p>
+   * @public
    */
   Status?: ResaleAuthorizationStatusFilter;
 
   /**
-   * @public
    * <p>Allows filtering on the <code>OfferExtendedStatus</code> of a ResaleAuthorization.</p>
+   * @public
    */
   OfferExtendedStatus?: ResaleAuthorizationOfferExtendedStatusFilter;
 
   /**
-   * @public
    * <p>Allows filtering on the <code>LastModifiedDate</code> of a ResaleAuthorization.</p>
+   * @public
    */
   LastModifiedDate?: ResaleAuthorizationLastModifiedDateFilter;
 }
 
 /**
- * @public
  * <p>Object that allows filtering on entity id of a SaaS product.</p>
+ * @public
  */
 export interface SaaSProductEntityIdFilter {
   /**
-   * @public
    * <p>A string array of unique entity id values to be filtered on.</p>
+   * @public
    */
   ValueList?: string[];
 }
 
 /**
- * @public
  * <p>Object that contains date range of the last modified date to be filtered on. You can optionally provide a <code>BeforeValue</code> and/or <code>AfterValue</code>. Both are inclusive.</p>
+ * @public
  */
 export interface SaaSProductLastModifiedDateFilterDateRange {
   /**
-   * @public
    * <p>Date after which the SaaS product was last modified.</p>
+   * @public
    */
   AfterValue?: string;
 
   /**
-   * @public
    * <p>Date before which the SaaS product was last modified.</p>
+   * @public
    */
   BeforeValue?: string;
 }
 
 /**
- * @public
  * <p>Object that allows filtering based on the last modified date of SaaS products</p>
+ * @public
  */
 export interface SaaSProductLastModifiedDateFilter {
   /**
-   * @public
    * <p>Dates between which the SaaS product was last modified.</p>
+   * @public
    */
   DateRange?: SaaSProductLastModifiedDateFilterDateRange;
 }
 
 /**
- * @public
  * <p>Object that allows filtering on product title.</p>
+ * @public
  */
 export interface SaaSProductTitleFilter {
   /**
-   * @public
    * <p>A string array of unique product title values to be filtered on.</p>
+   * @public
    */
   ValueList?: string[];
 
   /**
-   * @public
    * <p>A string that will be the <code>wildCard</code> input for product tile filter. It matches the provided value as a substring in the actual value.</p>
+   * @public
    */
   WildCardValue?: string;
 }
@@ -1959,50 +1959,50 @@ export type SaaSProductVisibilityString =
   (typeof SaaSProductVisibilityString)[keyof typeof SaaSProductVisibilityString];
 
 /**
- * @public
  * <p>Object that allows filtering on the visibility of the product in the AWS Marketplace.</p>
+ * @public
  */
 export interface SaaSProductVisibilityFilter {
   /**
-   * @public
    * <p>A string array of unique visibility values to be filtered on.</p>
+   * @public
    */
   ValueList?: SaaSProductVisibilityString[];
 }
 
 /**
- * @public
  * <p>Object containing all the filter fields for SaaS products. Client can add only one wildcard filter and a maximum of 8 filters in a single <code>ListEntities</code> request.</p>
+ * @public
  */
 export interface SaaSProductFilters {
   /**
-   * @public
    * <p>Unique identifier for the SaaS product.</p>
+   * @public
    */
   EntityId?: SaaSProductEntityIdFilter;
 
   /**
-   * @public
    * <p>The title of the SaaS product.</p>
+   * @public
    */
   ProductTitle?: SaaSProductTitleFilter;
 
   /**
-   * @public
    * <p>The visibility of the SaaS product.</p>
+   * @public
    */
   Visibility?: SaaSProductVisibilityFilter;
 
   /**
-   * @public
    * <p>The last date on which the SaaS product was modified.</p>
+   * @public
    */
   LastModifiedDate?: SaaSProductLastModifiedDateFilter;
 }
 
 /**
- * @public
  * <p>Object containing all the filter fields per entity type.</p>
+ * @public
  */
 export type EntityTypeFilters =
   | EntityTypeFilters.AmiProductFiltersMember
@@ -2018,8 +2018,8 @@ export type EntityTypeFilters =
  */
 export namespace EntityTypeFilters {
   /**
-   * @public
    * <p>A filter for data products.</p>
+   * @public
    */
   export interface DataProductFiltersMember {
     DataProductFilters: DataProductFilters;
@@ -2032,8 +2032,8 @@ export namespace EntityTypeFilters {
   }
 
   /**
-   * @public
    * <p>A filter for SaaS products.</p>
+   * @public
    */
   export interface SaaSProductFiltersMember {
     DataProductFilters?: never;
@@ -2046,8 +2046,8 @@ export namespace EntityTypeFilters {
   }
 
   /**
-   * @public
    * <p>A filter for AMI products.</p>
+   * @public
    */
   export interface AmiProductFiltersMember {
     DataProductFilters?: never;
@@ -2060,8 +2060,8 @@ export namespace EntityTypeFilters {
   }
 
   /**
-   * @public
    * <p>A filter for offers.</p>
+   * @public
    */
   export interface OfferFiltersMember {
     DataProductFilters?: never;
@@ -2074,8 +2074,8 @@ export namespace EntityTypeFilters {
   }
 
   /**
-   * @public
    * <p>A filter for container products.</p>
+   * @public
    */
   export interface ContainerProductFiltersMember {
     DataProductFilters?: never;
@@ -2088,8 +2088,8 @@ export namespace EntityTypeFilters {
   }
 
   /**
-   * @public
    * <p>A filter for Resale Authorizations.</p>
+   * @public
    */
   export interface ResaleAuthorizationFiltersMember {
     DataProductFilters?: never;
@@ -2154,19 +2154,19 @@ export const ContainerProductSortBy = {
 export type ContainerProductSortBy = (typeof ContainerProductSortBy)[keyof typeof ContainerProductSortBy];
 
 /**
- * @public
  * <p>Objects that allows sorting on container products based on certain fields and sorting order.</p>
+ * @public
  */
 export interface ContainerProductSort {
   /**
-   * @public
    * <p>Field to sort the container products by.</p>
+   * @public
    */
   SortBy?: ContainerProductSortBy;
 
   /**
-   * @public
    * <p>The sorting order. Can be <code>ASCENDING</code> or <code>DESCENDING</code>. The default value is <code>DESCENDING</code>.</p>
+   * @public
    */
   SortOrder?: SortOrder;
 }
@@ -2188,19 +2188,19 @@ export const DataProductSortBy = {
 export type DataProductSortBy = (typeof DataProductSortBy)[keyof typeof DataProductSortBy];
 
 /**
- * @public
  * <p>Objects that allows sorting on data products based on certain fields and sorting order.</p>
+ * @public
  */
 export interface DataProductSort {
   /**
-   * @public
    * <p>Field to sort the data products by.</p>
+   * @public
    */
   SortBy?: DataProductSortBy;
 
   /**
-   * @public
    * <p>The sorting order. Can be <code>ASCENDING</code> or <code>DESCENDING</code>. The default value is <code>DESCENDING</code>.</p>
+   * @public
    */
   SortOrder?: SortOrder;
 }
@@ -2227,19 +2227,19 @@ export const OfferSortBy = {
 export type OfferSortBy = (typeof OfferSortBy)[keyof typeof OfferSortBy];
 
 /**
- * @public
  * <p>Allows to sort offers.</p>
+ * @public
  */
 export interface OfferSort {
   /**
-   * @public
    * <p>Allows to sort offers.</p>
+   * @public
    */
   SortBy?: OfferSortBy;
 
   /**
-   * @public
    * <p>Allows to sort offers.</p>
+   * @public
    */
   SortOrder?: SortOrder;
 }
@@ -2270,19 +2270,19 @@ export const ResaleAuthorizationSortBy = {
 export type ResaleAuthorizationSortBy = (typeof ResaleAuthorizationSortBy)[keyof typeof ResaleAuthorizationSortBy];
 
 /**
- * @public
  * <p>Allows to sort ResaleAuthorization.</p>
+ * @public
  */
 export interface ResaleAuthorizationSort {
   /**
-   * @public
    * <p>Allows to sort ResaleAuthorization.</p>
+   * @public
    */
   SortBy?: ResaleAuthorizationSortBy;
 
   /**
-   * @public
    * <p>Allows to sort ResaleAuthorization.</p>
+   * @public
    */
   SortOrder?: SortOrder;
 }
@@ -2304,26 +2304,26 @@ export const SaaSProductSortBy = {
 export type SaaSProductSortBy = (typeof SaaSProductSortBy)[keyof typeof SaaSProductSortBy];
 
 /**
- * @public
  * <p>Objects that allows sorting on SaaS products based on certain fields and sorting order.</p>
+ * @public
  */
 export interface SaaSProductSort {
   /**
-   * @public
    * <p>Field to sort the SaaS products by.</p>
+   * @public
    */
   SortBy?: SaaSProductSortBy;
 
   /**
-   * @public
    * <p>The sorting order. Can be <code>ASCENDING</code> or <code>DESCENDING</code>. The default value is <code>DESCENDING</code>.</p>
+   * @public
    */
   SortOrder?: SortOrder;
 }
 
 /**
- * @public
  * <p>Object containing all the sort fields per entity type.</p>
+ * @public
  */
 export type EntityTypeSort =
   | EntityTypeSort.AmiProductSortMember
@@ -2339,8 +2339,8 @@ export type EntityTypeSort =
  */
 export namespace EntityTypeSort {
   /**
-   * @public
    * <p>A sort for data products.</p>
+   * @public
    */
   export interface DataProductSortMember {
     DataProductSort: DataProductSort;
@@ -2353,8 +2353,8 @@ export namespace EntityTypeSort {
   }
 
   /**
-   * @public
    * <p>A sort for SaaS products.</p>
+   * @public
    */
   export interface SaaSProductSortMember {
     DataProductSort?: never;
@@ -2367,8 +2367,8 @@ export namespace EntityTypeSort {
   }
 
   /**
-   * @public
    * <p>A sort for AMI products.</p>
+   * @public
    */
   export interface AmiProductSortMember {
     DataProductSort?: never;
@@ -2381,8 +2381,8 @@ export namespace EntityTypeSort {
   }
 
   /**
-   * @public
    * <p>A sort for offers.</p>
+   * @public
    */
   export interface OfferSortMember {
     DataProductSort?: never;
@@ -2395,8 +2395,8 @@ export namespace EntityTypeSort {
   }
 
   /**
-   * @public
    * <p>A sort for container products.</p>
+   * @public
    */
   export interface ContainerProductSortMember {
     DataProductSort?: never;
@@ -2409,8 +2409,8 @@ export namespace EntityTypeSort {
   }
 
   /**
-   * @public
    * <p>A sort for Resale Authorizations.</p>
+   * @public
    */
   export interface ResaleAuthorizationSortMember {
     DataProductSort?: never;
@@ -2476,14 +2476,13 @@ export type OwnershipType = (typeof OwnershipType)[keyof typeof OwnershipType];
  */
 export interface ListEntitiesRequest {
   /**
-   * @public
    * <p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>
    *          </p>
+   * @public
    */
   Catalog: string | undefined;
 
   /**
-   * @public
    * <p>The type of entities to
    *             retrieve. Valid
    *             values are: <code>AmiProduct</code>, <code>ContainerProduct</code>,
@@ -2491,318 +2490,319 @@ export interface ListEntitiesRequest {
    *                 <code>Experience</code>, <code>Audience</code>, <code>BrandingSettings</code>,
    *                 <code>Offer</code>, <code>Seller</code>,
    *             <code>ResaleAuthorization</code>.</p>
+   * @public
    */
   EntityType: string | undefined;
 
   /**
-   * @public
    * <p>An array of filter objects. Each filter object contains two attributes,
    *                 <code>filterName</code> and <code>filterValues</code>.</p>
+   * @public
    */
   FilterList?: Filter[];
 
   /**
-   * @public
    * <p>An object that contains two attributes, <code>SortBy</code> and
    *             <code>SortOrder</code>.</p>
+   * @public
    */
   Sort?: Sort;
 
   /**
-   * @public
    * <p>The value of the next token, if it exists. Null if there are no more results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Specifies the upper limit of the elements on a single page. If a value isn't provided,
    *             the default value is 20.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>Filters the returned set of entities based on their owner. The default is
    *                 <code>SELF</code>. To list entities shared with you
    *             through AWS Resource Access Manager (AWS RAM), set to <code>SHARED</code>. Entities shared through the AWS Marketplace
    *             Catalog API <code>PutResourcePolicy</code> operation can't be discovered through the
    *                 <code>SHARED</code> parameter.</p>
+   * @public
    */
   OwnershipType?: OwnershipType;
 
   /**
-   * @public
    * <p>A Union object containing filter shapes for all <code>EntityType</code>s. Each
    *                 <code>EntityTypeFilter</code> shape will have filters applicable for that
    *                 <code>EntityType</code> that can be used to search or filter entities.</p>
+   * @public
    */
   EntityTypeFilters?: EntityTypeFilters;
 
   /**
-   * @public
    * <p>A Union object containing <code>Sort</code> shapes for all <code>EntityType</code>s.
    *             Each <code>EntityTypeSort</code> shape will have <code>SortBy</code> and
    *                 <code>SortOrder</code> applicable for fields on that <code>EntityType</code>. This
    *             can be used to sort the results of the filter query.</p>
+   * @public
    */
   EntityTypeSort?: EntityTypeSort;
 }
 
 /**
- * @public
  * <p>Object that contains summarized information about a container product.</p>
+ * @public
  */
 export interface ContainerProductSummary {
   /**
-   * @public
    * <p>The title of the container product.</p>
+   * @public
    */
   ProductTitle?: string;
 
   /**
-   * @public
    * <p>The lifecycle of the product.</p>
+   * @public
    */
   Visibility?: ContainerProductVisibilityString;
 }
 
 /**
- * @public
  * <p>Object that contains summarized information about a data product.</p>
+ * @public
  */
 export interface DataProductSummary {
   /**
-   * @public
    * <p>The title of the data product.</p>
+   * @public
    */
   ProductTitle?: string;
 
   /**
-   * @public
    * <p>The lifecycle of the data product.</p>
+   * @public
    */
   Visibility?: DataProductVisibilityString;
 }
 
 /**
- * @public
  * <p>Summarized information about an offer.</p>
+ * @public
  */
 export interface OfferSummary {
   /**
-   * @public
    * <p>The name of the offer.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The product ID of the offer.</p>
+   * @public
    */
   ProductId?: string;
 
   /**
-   * @public
    * <p>The release date of the offer.</p>
+   * @public
    */
   ReleaseDate?: string;
 
   /**
-   * @public
    * <p>The availability end date of the offer.</p>
+   * @public
    */
   AvailabilityEndDate?: string;
 
   /**
-   * @public
    * <p>The buyer accounts in the offer.</p>
+   * @public
    */
   BuyerAccounts?: string[];
 
   /**
-   * @public
    * <p>The status of the offer.</p>
+   * @public
    */
   State?: OfferStateString;
 
   /**
-   * @public
    * <p>The targeting in the offer.</p>
+   * @public
    */
   Targeting?: OfferTargetingString[];
 }
 
 /**
- * @public
  * <p>Summarized information about a Resale Authorization.</p>
+ * @public
  */
 export interface ResaleAuthorizationSummary {
   /**
-   * @public
    * <p>The name of the ResaleAuthorization.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The product ID of the ResaleAuthorization.</p>
+   * @public
    */
   ProductId?: string;
 
   /**
-   * @public
    * <p>The product name of the ResaleAuthorization.</p>
+   * @public
    */
   ProductName?: string;
 
   /**
-   * @public
    * <p>The manufacturer account ID of the ResaleAuthorization.</p>
+   * @public
    */
   ManufacturerAccountId?: string;
 
   /**
-   * @public
    * <p>The manufacturer legal name of the ResaleAuthorization.</p>
+   * @public
    */
   ManufacturerLegalName?: string;
 
   /**
-   * @public
    * <p>The reseller account ID of the ResaleAuthorization.</p>
+   * @public
    */
   ResellerAccountID?: string;
 
   /**
-   * @public
    * <p>The reseller legal name of the ResaleAuthorization</p>
+   * @public
    */
   ResellerLegalName?: string;
 
   /**
-   * @public
    * <p>The status of the ResaleAuthorization.</p>
+   * @public
    */
   Status?: ResaleAuthorizationStatusString;
 
   /**
-   * @public
    * <p>The offer extended status of the ResaleAuthorization</p>
+   * @public
    */
   OfferExtendedStatus?: string;
 
   /**
-   * @public
    * <p>The created date of the ResaleAuthorization.</p>
+   * @public
    */
   CreatedDate?: string;
 
   /**
-   * @public
    * <p>The availability end date of the ResaleAuthorization.</p>
+   * @public
    */
   AvailabilityEndDate?: string;
 }
 
 /**
- * @public
  * <p>Object that contains summarized information about a SaaS product.</p>
+ * @public
  */
 export interface SaaSProductSummary {
   /**
-   * @public
    * <p>The title of the SaaS product.</p>
+   * @public
    */
   ProductTitle?: string;
 
   /**
-   * @public
    * <p>The lifecycle of the SaaS product.</p>
+   * @public
    */
   Visibility?: SaaSProductVisibilityString;
 }
 
 /**
- * @public
  * <p>This object is a container for common summary information about the entity. The
  *             summary doesn't contain the whole entity structure, but it does contain information
  *             common across all entities.</p>
+ * @public
  */
 export interface EntitySummary {
   /**
-   * @public
    * <p>The name for the entity. This value is not unique. It is defined by the seller.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The type of the entity.</p>
+   * @public
    */
   EntityType?: string;
 
   /**
-   * @public
    * <p>The unique identifier for the entity.</p>
+   * @public
    */
   EntityId?: string;
 
   /**
-   * @public
    * <p>The ARN associated with the unique identifier for the entity.</p>
+   * @public
    */
   EntityArn?: string;
 
   /**
-   * @public
    * <p>The last time the entity was published, using ISO 8601 format
    *             (2018-02-27T13:45:22Z).</p>
+   * @public
    */
   LastModifiedDate?: string;
 
   /**
-   * @public
    * <p>The visibility status of the entity to buyers. This value can be <code>Public</code>
    *             (everyone can view the entity), <code>Limited</code> (the entity is visible to limited
    *             accounts only), or <code>Restricted</code> (the entity was published and then
    *             unpublished and only existing buyers can view it). </p>
+   * @public
    */
   Visibility?: string;
 
   /**
-   * @public
    * <p>An object that contains summary information about the AMI product.</p>
+   * @public
    */
   AmiProductSummary?: AmiProductSummary;
 
   /**
-   * @public
    * <p>An object that contains summary information about the container product.</p>
+   * @public
    */
   ContainerProductSummary?: ContainerProductSummary;
 
   /**
-   * @public
    * <p>An object that contains summary information about the data product.</p>
+   * @public
    */
   DataProductSummary?: DataProductSummary;
 
   /**
-   * @public
    * <p>An object that contains summary information about the SaaS product.</p>
+   * @public
    */
   SaaSProductSummary?: SaaSProductSummary;
 
   /**
-   * @public
    * <p>An object that contains summary information about the offer.</p>
+   * @public
    */
   OfferSummary?: OfferSummary;
 
   /**
-   * @public
    * <p>An object that contains summary information about the Resale Authorization.</p>
+   * @public
    */
   ResaleAuthorizationSummary?: ResaleAuthorizationSummary;
 }
@@ -2812,14 +2812,14 @@ export interface EntitySummary {
  */
 export interface ListEntitiesResponse {
   /**
-   * @public
    * <p>Array of <code>EntitySummary</code> objects.</p>
+   * @public
    */
   EntitySummaryList?: EntitySummary[];
 
   /**
-   * @public
    * <p>The value of the next token if it exists. Null if there is no more result.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -2829,27 +2829,27 @@ export interface ListEntitiesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>Required. The Amazon Resource Name (ARN) associated with the resource you want to list
    *             tags on.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 }
 
 /**
- * @public
  * <p>A list of objects specifying each key name and value.</p>
+ * @public
  */
 export interface Tag {
   /**
-   * @public
    * <p>The key associated with the tag.</p>
+   * @public
    */
   Key: string | undefined;
 
   /**
-   * @public
    * <p>The value associated with the tag.</p>
+   * @public
    */
   Value: string | undefined;
 }
@@ -2859,15 +2859,15 @@ export interface Tag {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>Required. The ARN associated with the resource you want to list tags on.</p>
+   * @public
    */
   ResourceArn?: string;
 
   /**
-   * @public
    * <p>Required. A list of objects specifying each key name and value. Number of objects
    *             allowed: 1-50.</p>
+   * @public
    */
   Tags?: Tag[];
 }
@@ -2877,15 +2877,15 @@ export interface ListTagsForResourceResponse {
  */
 export interface PutResourcePolicyRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the entity resource you want to associate with a
    *             resource policy.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The policy document to set; formatted in JSON.</p>
+   * @public
    */
   Policy: string | undefined;
 }
@@ -2896,8 +2896,8 @@ export interface PutResourcePolicyRequest {
 export interface PutResourcePolicyResponse {}
 
 /**
- * @public
  * <p>The maximum number of open requests per account has been exceeded.</p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
@@ -2918,52 +2918,52 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>An object that contains the <code>ChangeType</code>, <code>Details</code>, and
  *                 <code>Entity</code>.</p>
+ * @public
  */
 export interface Change {
   /**
-   * @public
    * <p>Change types are single string values that describe your intention for the change.
    *             Each change type is unique for each <code>EntityType</code> provided in the change's
    *             scope. For more information about change types available for single-AMI products, see
    *                 <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#working-with-single-AMI-products">Working with single-AMI products</a>. Also, for more information about change
    *             types available for container-based products, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/container-products.html#working-with-container-products">Working with container products</a>.</p>
+   * @public
    */
   ChangeType: string | undefined;
 
   /**
-   * @public
    * <p>The entity to be changed.</p>
+   * @public
    */
   Entity: Entity | undefined;
 
   /**
-   * @public
    * <p>The tags associated with the change.</p>
+   * @public
    */
   EntityTags?: Tag[];
 
   /**
-   * @public
    * <p>This object contains details specific to the change type of the requested change. For
    *             more information about change types available for single-AMI products, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#working-with-single-AMI-products">Working with single-AMI products</a>. Also, for more information about change
    *             types available for container-based products, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/container-products.html#working-with-container-products">Working with container products</a>.</p>
+   * @public
    */
   Details?: string;
 
   /**
-   * @public
    * <p>Alternative field that accepts a JSON value instead of a string for
    *                 <code>ChangeType</code> details. You can use either <code>Details</code> or
    *                 <code>DetailsDocument</code>, but not both.</p>
+   * @public
    */
   DetailsDocument?: __DocumentType;
 
   /**
-   * @public
    * <p>Optional name for the change.</p>
+   * @public
    */
   ChangeName?: string;
 }
@@ -2973,44 +2973,44 @@ export interface Change {
  */
 export interface StartChangeSetRequest {
   /**
-   * @public
    * <p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>
    *          </p>
+   * @public
    */
   Catalog: string | undefined;
 
   /**
-   * @public
    * <p>Array of <code>change</code> object.</p>
+   * @public
    */
   ChangeSet: Change[] | undefined;
 
   /**
-   * @public
    * <p>Optional case sensitive string of up to 100 ASCII characters. The change set name can
    *             be used to filter the list of change sets. </p>
+   * @public
    */
   ChangeSetName?: string;
 
   /**
-   * @public
    * <p>A unique token to identify the request to ensure idempotency.</p>
+   * @public
    */
   ClientRequestToken?: string;
 
   /**
-   * @public
    * <p>A list of objects specifying each key name and value for the
    *                 <code>ChangeSetTags</code> property.</p>
+   * @public
    */
   ChangeSetTags?: Tag[];
 
   /**
-   * @public
    * <p>The intent related to the request. The default is <code>APPLY</code>.
    *             To test your request before applying changes to your entities, use <code>VALIDATE</code>.
    *             This feature is currently available for adding versions to single-AMI products. For more information, see
    *             <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#ami-add-version">Add a new version</a>.</p>
+   * @public
    */
   Intent?: Intent;
 }
@@ -3020,14 +3020,14 @@ export interface StartChangeSetRequest {
  */
 export interface StartChangeSetResponse {
   /**
-   * @public
    * <p>Unique identifier generated for the request.</p>
+   * @public
    */
   ChangeSetId?: string;
 
   /**
-   * @public
    * <p>The ARN associated to the unique identifier generated for the request.</p>
+   * @public
    */
   ChangeSetArn?: string;
 }
@@ -3037,16 +3037,16 @@ export interface StartChangeSetResponse {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>Required. The Amazon Resource Name (ARN) associated with the resource you want to
    *             tag.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * @public
    * <p>Required. A list of objects specifying each key name and value. Number of objects
    *             allowed: 1-50.</p>
+   * @public
    */
   Tags: Tag[] | undefined;
 }
@@ -3061,16 +3061,16 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>Required. The Amazon Resource Name (ARN) associated with the resource you want to
    *             remove the tag from.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * @public
    * <p>Required. A list of key names of tags to be removed. Number of strings allowed:
    *             0-256.</p>
+   * @public
    */
   TagKeys: string[] | undefined;
 }

@@ -27,7 +27,6 @@ export interface DescribeLimitsCommandInput extends DescribeLimitsInput {}
 export interface DescribeLimitsCommandOutput extends DescribeLimitsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the shard limits and usage for the account.</p>
  *          <p>If you update your account limits, the old limits might be returned for a few
  *             minutes.</p>
@@ -63,6 +62,7 @@ export interface DescribeLimitsCommandOutput extends DescribeLimitsOutput, __Met
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * @public
  */
 export class DescribeLimitsCommand extends $Command
   .classBuilder<

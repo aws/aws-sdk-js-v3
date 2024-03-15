@@ -32,7 +32,6 @@ export interface DescribeComplianceByConfigRuleCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Indicates whether the specified Config rules are compliant.
  * 			If a rule is noncompliant, this action returns the number of Amazon Web Services
  * 			resources that do not comply with the rule.</p>
@@ -122,6 +121,7 @@ export interface DescribeComplianceByConfigRuleCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class DescribeComplianceByConfigRuleCommand extends $Command
   .classBuilder<

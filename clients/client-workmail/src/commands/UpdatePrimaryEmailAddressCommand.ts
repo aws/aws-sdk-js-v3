@@ -27,7 +27,6 @@ export interface UpdatePrimaryEmailAddressCommandInput extends UpdatePrimaryEmai
 export interface UpdatePrimaryEmailAddressCommandOutput extends UpdatePrimaryEmailAddressResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the primary email for a user, group, or resource. The current email is moved
  *          into the list of aliases (or swapped between an existing alias and the current primary
  *          email), and the email provided in the input is promoted as the primary.</p>
@@ -96,6 +95,7 @@ export interface UpdatePrimaryEmailAddressCommandOutput extends UpdatePrimaryEma
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class UpdatePrimaryEmailAddressCommand extends $Command
   .classBuilder<

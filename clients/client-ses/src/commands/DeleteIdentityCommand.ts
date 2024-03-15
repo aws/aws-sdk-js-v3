@@ -27,7 +27,6 @@ export interface DeleteIdentityCommandInput extends DeleteIdentityRequest {}
 export interface DeleteIdentityCommandOutput extends DeleteIdentityResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified identity (an email address or a domain) from the list of
  *             verified identities.</p>
  *          <p>You can execute this operation no more than once per second.</p>
@@ -55,6 +54,7 @@ export interface DeleteIdentityCommandOutput extends DeleteIdentityResponse, __M
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example DeleteIdentity
  * ```javascript
  * // The following example deletes an identity from the list of identities that have been submitted for verification with Amazon SES:

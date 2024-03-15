@@ -27,7 +27,6 @@ export interface PutUserStatusCommandInput extends PutUserStatusRequest {}
 export interface PutUserStatusCommandOutput extends PutUserStatusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes the current status of a user or agent in Amazon Connect. If the agent is
  *    currently handling a contact, this sets the agent's next status.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-agent-status.html">Agent status</a> and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-next-status.html">Set your next
@@ -76,6 +75,7 @@ export interface PutUserStatusCommandOutput extends PutUserStatusResponse, __Met
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class PutUserStatusCommand extends $Command
   .classBuilder<

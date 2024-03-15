@@ -27,7 +27,6 @@ export interface DeleteApplicationCommandInput extends DeleteApplicationInput {}
 export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +63,7 @@ export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
  */
 export class DeleteApplicationCommand extends $Command
   .classBuilder<

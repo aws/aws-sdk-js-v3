@@ -32,7 +32,6 @@ export interface ListDataIntegrationAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a paginated list of DataIntegration associations in the account.</p>
  *          <note>
  *             <p>You cannot create a DataIntegration association for a DataIntegration that has been previously associated.
@@ -89,6 +88,7 @@ export interface ListDataIntegrationAssociationsCommandOutput
  * @throws {@link AppIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
+ * @public
  */
 export class ListDataIntegrationAssociationsCommand extends $Command
   .classBuilder<

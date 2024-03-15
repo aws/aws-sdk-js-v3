@@ -27,7 +27,6 @@ export interface CreateRoomCommandInput extends CreateRoomRequest {}
 export interface CreateRoomCommandOutput extends CreateRoomResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a room that allows clients to connect and pass messages.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface CreateRoomCommandOutput extends CreateRoomResponse, __MetadataB
  * @throws {@link IvschatServiceException}
  * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
+ * @public
  */
 export class CreateRoomCommand extends $Command
   .classBuilder<

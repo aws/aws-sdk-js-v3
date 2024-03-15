@@ -32,7 +32,6 @@ export interface CreatePublishingDestinationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a publishing destination to export findings to. The resource to export findings to
  *       must exist before you use this operation.</p>
  * @example
@@ -73,6 +72,7 @@ export interface CreatePublishingDestinationCommandOutput
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class CreatePublishingDestinationCommand extends $Command
   .classBuilder<

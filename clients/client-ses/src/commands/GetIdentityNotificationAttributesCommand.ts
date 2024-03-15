@@ -35,7 +35,6 @@ export interface GetIdentityNotificationAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Given a list of verified identities (email addresses and/or domains), returns a
  *             structure describing identity notification attributes.</p>
  *          <p>This operation is throttled at one request per second and can only get notification
@@ -80,6 +79,7 @@ export interface GetIdentityNotificationAttributesCommandOutput
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example GetIdentityNotificationAttributes
  * ```javascript
  * // The following example returns the notification attributes for an identity:

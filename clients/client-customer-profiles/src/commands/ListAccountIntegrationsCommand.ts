@@ -27,7 +27,6 @@ export interface ListAccountIntegrationsCommandInput extends ListAccountIntegrat
 export interface ListAccountIntegrationsCommandOutput extends ListAccountIntegrationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all of the integrations associated to a specific URI in the AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface ListAccountIntegrationsCommandOutput extends ListAccountIntegra
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * @public
  */
 export class ListAccountIntegrationsCommand extends $Command
   .classBuilder<

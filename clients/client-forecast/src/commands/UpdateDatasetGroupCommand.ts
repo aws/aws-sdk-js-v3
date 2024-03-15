@@ -27,7 +27,6 @@ export interface UpdateDatasetGroupCommandInput extends UpdateDatasetGroupReques
 export interface UpdateDatasetGroupCommandOutput extends UpdateDatasetGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Replaces the datasets in a dataset group with the specified datasets.</p>
  *          <note>
  *             <p>The <code>Status</code> of the dataset group must be <code>ACTIVE</code> before you can
@@ -72,6 +71,7 @@ export interface UpdateDatasetGroupCommandOutput extends UpdateDatasetGroupRespo
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class UpdateDatasetGroupCommand extends $Command
   .classBuilder<

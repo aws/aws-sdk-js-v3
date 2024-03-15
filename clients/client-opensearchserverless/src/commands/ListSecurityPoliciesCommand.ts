@@ -31,7 +31,6 @@ export interface ListSecurityPoliciesCommandInput extends ListSecurityPoliciesRe
 export interface ListSecurityPoliciesCommandOutput extends ListSecurityPoliciesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about configured OpenSearch Serverless security policies.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface ListSecurityPoliciesCommandOutput extends ListSecurityPoliciesR
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ * @public
  */
 export class ListSecurityPoliciesCommand extends $Command
   .classBuilder<

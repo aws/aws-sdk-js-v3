@@ -27,7 +27,6 @@ export interface StartThingRegistrationTaskCommandInput extends StartThingRegist
 export interface StartThingRegistrationTaskCommandOutput extends StartThingRegistrationTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a bulk thing provisioning task.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StartThingRegistrationTask</a> action.</p>
  * @example
@@ -71,6 +70,7 @@ export interface StartThingRegistrationTaskCommandOutput extends StartThingRegis
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class StartThingRegistrationTaskCommand extends $Command
   .classBuilder<

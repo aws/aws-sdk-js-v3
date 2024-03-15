@@ -31,7 +31,6 @@ export interface DescribeEventSubscriptionsCommandInput extends DescribeEventSub
 export interface DescribeEventSubscriptionsCommandOutput extends DescribeEventSubscriptionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the event subscriptions for a customer account. The description of a
  *          subscription includes <code>SubscriptionName</code>, <code>SNSTopicARN</code>,
  *             <code>CustomerID</code>, <code>SourceType</code>, <code>SourceID</code>,
@@ -94,6 +93,7 @@ export interface DescribeEventSubscriptionsCommandOutput extends DescribeEventSu
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class DescribeEventSubscriptionsCommand extends $Command
   .classBuilder<

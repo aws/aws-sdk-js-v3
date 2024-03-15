@@ -27,7 +27,6 @@ export interface ListPlatformBranchesCommandInput extends ListPlatformBranchesRe
 export interface ListPlatformBranchesCommandOutput extends ListPlatformBranchesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the platform branches available for your account in an AWS Region. Provides
  *       summary information about each platform branch.</p>
  *          <p>For definitions of platform branch and other platform-related terms, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platforms-glossary.html">AWS Elastic Beanstalk
@@ -79,6 +78,7 @@ export interface ListPlatformBranchesCommandOutput extends ListPlatformBranchesR
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  */
 export class ListPlatformBranchesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListReferenceImportJobsCommandInput extends ListReferenceImport
 export interface ListReferenceImportJobsCommandOutput extends ListReferenceImportJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of reference import jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface ListReferenceImportJobsCommandOutput extends ListReferenceImpor
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class ListReferenceImportJobsCommand extends $Command
   .classBuilder<

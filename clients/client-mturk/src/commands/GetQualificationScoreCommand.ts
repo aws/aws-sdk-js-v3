@@ -27,7 +27,6 @@ export interface GetQualificationScoreCommandInput extends GetQualificationScore
 export interface GetQualificationScoreCommandOutput extends GetQualificationScoreResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The
  *             <code>GetQualificationScore</code>
@@ -85,6 +84,7 @@ export interface GetQualificationScoreCommandOutput extends GetQualificationScor
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * @public
  */
 export class GetQualificationScoreCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface EnableTrustAnchorCommandInput extends ScalarTrustAnchorRequest 
 export interface EnableTrustAnchorCommandOutput extends TrustAnchorDetailResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables a trust anchor. When enabled, certificates in the trust anchor chain are authorized for trust validation. </p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -88,6 +87,7 @@ export interface EnableTrustAnchorCommandOutput extends TrustAnchorDetailRespons
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ * @public
  */
 export class EnableTrustAnchorCommand extends $Command
   .classBuilder<

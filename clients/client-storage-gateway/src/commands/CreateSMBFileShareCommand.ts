@@ -27,7 +27,6 @@ export interface CreateSMBFileShareCommandInput extends CreateSMBFileShareInput 
 export interface CreateSMBFileShareCommandOutput extends CreateSMBFileShareOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Server Message Block (SMB) file share on an existing S3 File Gateway. In
  *          Storage Gateway, a file share is a file system mount point backed by Amazon S3
  *          cloud storage. Storage Gateway exposes file shares using an SMB interface. This operation
@@ -115,6 +114,7 @@ export interface CreateSMBFileShareCommandOutput extends CreateSMBFileShareOutpu
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  */
 export class CreateSMBFileShareCommand extends $Command
   .classBuilder<

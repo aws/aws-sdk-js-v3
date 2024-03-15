@@ -31,7 +31,6 @@ export interface DisassociateTimeSeriesFromAssetPropertyCommandInput
 export interface DisassociateTimeSeriesFromAssetPropertyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates a time series (data stream) from an asset property.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface DisassociateTimeSeriesFromAssetPropertyCommandOutput extends __
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class DisassociateTimeSeriesFromAssetPropertyCommand extends $Command
   .classBuilder<

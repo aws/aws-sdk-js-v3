@@ -27,7 +27,6 @@ export interface GetStatementCommandInput extends GetStatementRequest {}
 export interface GetStatementCommandOutput extends GetStatementResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the statement.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface GetStatementCommandOutput extends GetStatementResponse, __Metad
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetStatementCommand extends $Command
   .classBuilder<

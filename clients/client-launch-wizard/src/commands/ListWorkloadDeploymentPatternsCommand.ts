@@ -32,7 +32,6 @@ export interface ListWorkloadDeploymentPatternsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the workload deployment patterns.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface ListWorkloadDeploymentPatternsCommandOutput
  * @throws {@link LaunchWizardServiceException}
  * <p>Base exception class for all service exceptions from LaunchWizard service.</p>
  *
+ * @public
  */
 export class ListWorkloadDeploymentPatternsCommand extends $Command
   .classBuilder<

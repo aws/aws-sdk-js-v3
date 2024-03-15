@@ -35,7 +35,6 @@ export type GetMapTileCommandOutputType = Omit<GetMapTileResponse, "Blob"> & {
 export interface GetMapTileCommandOutput extends GetMapTileCommandOutputType, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a vector data tile from the map resource. Map tiles are used by clients to
  *             render a map. they're addressed using a grid arrangement with an X coordinate, Y
  *             coordinate, and Z (zoom) level. </p>
@@ -90,6 +89,7 @@ export interface GetMapTileCommandOutput extends GetMapTileCommandOutputType, __
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class GetMapTileCommand extends $Command
   .classBuilder<

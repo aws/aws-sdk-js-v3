@@ -27,7 +27,6 @@ export interface DescribeSupportedLanguagesCommandInput extends DescribeSupporte
 export interface DescribeSupportedLanguagesCommandOutput extends DescribeSupportedLanguagesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of supported languages for a specified <code>categoryCode</code>,
  *         <code>issueType</code> and <code>serviceCode</code>. The returned supported languages will
  *         include a ISO 639-1 code for the <code>language</code>, and the language display name.</p>
@@ -87,6 +86,7 @@ export interface DescribeSupportedLanguagesCommandOutput extends DescribeSupport
  * @throws {@link SupportServiceException}
  * <p>Base exception class for all service exceptions from Support service.</p>
  *
+ * @public
  */
 export class DescribeSupportedLanguagesCommand extends $Command
   .classBuilder<

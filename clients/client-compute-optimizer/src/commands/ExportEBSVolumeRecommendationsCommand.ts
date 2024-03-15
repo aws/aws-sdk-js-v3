@@ -32,7 +32,6 @@ export interface ExportEBSVolumeRecommendationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Exports optimization recommendations for Amazon EBS volumes.</p>
  *          <p>Recommendations are exported in a comma-separated values (.csv) file, and its metadata
  *             in a JavaScript Object Notation (JSON) (.json) file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that you specify. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html">Exporting
@@ -114,6 +113,7 @@ export interface ExportEBSVolumeRecommendationsCommandOutput
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ * @public
  */
 export class ExportEBSVolumeRecommendationsCommand extends $Command
   .classBuilder<

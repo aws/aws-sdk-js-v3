@@ -27,7 +27,6 @@ export interface AssignTapePoolCommandInput extends AssignTapePoolInput {}
 export interface AssignTapePoolCommandOutput extends AssignTapePoolOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Assigns a tape to a tape pool for archiving. The tape assigned to a pool is archived in
  *          the S3 storage class that is associated with the pool. When you use your backup application
  *          to eject the tape, the tape is archived directly into the S3 storage class (S3 Glacier or
@@ -68,6 +67,7 @@ export interface AssignTapePoolCommandOutput extends AssignTapePoolOutput, __Met
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  */
 export class AssignTapePoolCommand extends $Command
   .classBuilder<

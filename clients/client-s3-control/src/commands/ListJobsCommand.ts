@@ -28,7 +28,6 @@ export interface ListJobsCommandInput extends ListJobsRequest {}
 export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists current S3 Batch Operations jobs as well as the jobs that have ended within the last 30 days for
  *          the Amazon Web Services account making the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html">S3 Batch Operations</a> in the
  *             <i>Amazon S3 User Guide</i>.</p>
@@ -123,6 +122,7 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class ListJobsCommand extends $Command
   .classBuilder<

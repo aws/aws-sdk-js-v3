@@ -27,7 +27,6 @@ export interface DeleteContentCommandInput extends DeleteContentRequest {}
 export interface DeleteContentCommandOutput extends DeleteContentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the content.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +62,7 @@ export interface DeleteContentCommandOutput extends DeleteContentResponse, __Met
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ * @public
  */
 export class DeleteContentCommand extends $Command
   .classBuilder<

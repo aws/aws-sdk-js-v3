@@ -27,7 +27,6 @@ export interface CreateFilterCommandInput extends CreateFilterRequest {}
 export interface CreateFilterCommandOutput extends CreateFilterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a filter using the specified finding criteria. The maximum number of saved filters
  *       per Amazon Web Services account per Region is 100. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_limits.html">Quotas for GuardDuty</a>.</p>
  * @example
@@ -96,6 +95,7 @@ export interface CreateFilterCommandOutput extends CreateFilterResponse, __Metad
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class CreateFilterCommand extends $Command
   .classBuilder<

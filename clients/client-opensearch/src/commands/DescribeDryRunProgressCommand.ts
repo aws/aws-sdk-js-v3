@@ -27,7 +27,6 @@ export interface DescribeDryRunProgressCommandInput extends DescribeDryRunProgre
 export interface DescribeDryRunProgressCommandOutput extends DescribeDryRunProgressResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the progress of a pre-update dry run analysis on an Amazon OpenSearch
  *    Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#dryrun">Determining whether a change will cause a blue/green deployment</a>.</p>
  * @example
@@ -234,6 +233,7 @@ export interface DescribeDryRunProgressCommandOutput extends DescribeDryRunProgr
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class DescribeDryRunProgressCommand extends $Command
   .classBuilder<

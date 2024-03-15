@@ -27,7 +27,6 @@ export interface GetEvaluationCommandInput extends GetEvaluationInput {}
 export interface GetEvaluationCommandOutput extends GetEvaluationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an <code>Evaluation</code> that includes metadata as well as the current status of the <code>Evaluation</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface GetEvaluationCommandOutput extends GetEvaluationOutput, __Metad
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * @public
  */
 export class GetEvaluationCommand extends $Command
   .classBuilder<

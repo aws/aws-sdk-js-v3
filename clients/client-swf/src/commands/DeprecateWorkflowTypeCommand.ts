@@ -27,7 +27,6 @@ export interface DeprecateWorkflowTypeCommandInput extends DeprecateWorkflowType
 export interface DeprecateWorkflowTypeCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deprecates the specified <i>workflow type</i>. After a workflow type has
  *       been deprecated, you cannot create new executions of that type. Executions that were started
  *       before the type was deprecated continues to run. A deprecated workflow type may still be used
@@ -109,6 +108,7 @@ export interface DeprecateWorkflowTypeCommandOutput extends __MetadataBearer {}
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ * @public
  */
 export class DeprecateWorkflowTypeCommand extends $Command
   .classBuilder<

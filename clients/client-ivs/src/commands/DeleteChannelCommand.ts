@@ -27,7 +27,6 @@ export interface DeleteChannelCommandInput extends DeleteChannelRequest {}
 export interface DeleteChannelCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified channel and its associated stream keys.</p>
  *          <p>If you try to delete a live channel, you will get an error (409 ConflictException). To
  *       delete a channel that is live, call <a>StopStream</a>, wait for the Amazon
@@ -73,6 +72,7 @@ export interface DeleteChannelCommandOutput extends __MetadataBearer {}
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ * @public
  */
 export class DeleteChannelCommand extends $Command
   .classBuilder<

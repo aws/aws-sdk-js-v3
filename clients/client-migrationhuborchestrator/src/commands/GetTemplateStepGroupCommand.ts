@@ -31,7 +31,6 @@ export interface GetTemplateStepGroupCommandInput extends GetTemplateStepGroupRe
 export interface GetTemplateStepGroupCommandOutput extends GetTemplateStepGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get a step group in a template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface GetTemplateStepGroupCommandOutput extends GetTemplateStepGroupR
  * @throws {@link MigrationHubOrchestratorServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
+ * @public
  */
 export class GetTemplateStepGroupCommand extends $Command
   .classBuilder<

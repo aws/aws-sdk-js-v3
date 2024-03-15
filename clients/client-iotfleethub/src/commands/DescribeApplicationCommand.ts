@@ -27,7 +27,6 @@ export interface DescribeApplicationCommandInput extends DescribeApplicationRequ
 export interface DescribeApplicationCommandOutput extends DescribeApplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a Fleet Hub for AWS IoT Device Management web application.</p>
  *          <note>
  *             <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p>
@@ -83,6 +82,7 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * @throws {@link IoTFleetHubServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetHub service.</p>
  *
+ * @public
  */
 export class DescribeApplicationCommand extends $Command
   .classBuilder<

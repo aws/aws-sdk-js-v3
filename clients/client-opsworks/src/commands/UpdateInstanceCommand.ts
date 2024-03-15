@@ -27,7 +27,6 @@ export interface UpdateInstanceCommandInput extends UpdateInstanceRequest {}
 export interface UpdateInstanceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a specified instance.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
@@ -77,6 +76,7 @@ export interface UpdateInstanceCommandOutput extends __MetadataBearer {}
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class UpdateInstanceCommand extends $Command
   .classBuilder<

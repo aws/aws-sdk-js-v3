@@ -30,7 +30,6 @@ export interface DeleteNotificationSubscriptionCommandInput extends DeleteNotifi
 export interface DeleteNotificationSubscriptionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified subscription from the specified organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface DeleteNotificationSubscriptionCommandOutput extends __MetadataB
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class DeleteNotificationSubscriptionCommand extends $Command
   .classBuilder<

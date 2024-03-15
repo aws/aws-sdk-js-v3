@@ -27,7 +27,6 @@ export interface CreateHttpNamespaceCommandInput extends CreateHttpNamespaceRequ
 export interface CreateHttpNamespaceCommandOutput extends CreateHttpNamespaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an HTTP namespace. Service instances registered using an HTTP namespace can be
  *    discovered using a <code>DiscoverInstances</code> request but can't be discovered using
  *    DNS.</p>
@@ -86,6 +85,7 @@ export interface CreateHttpNamespaceCommandOutput extends CreateHttpNamespaceRes
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
+ * @public
  * @example CreateHttpNamespace example
  * ```javascript
  * // This example creates an HTTP namespace.

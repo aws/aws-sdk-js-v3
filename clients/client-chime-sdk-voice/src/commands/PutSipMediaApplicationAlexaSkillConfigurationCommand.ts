@@ -38,7 +38,6 @@ export interface PutSipMediaApplicationAlexaSkillConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the Alexa Skill configuration for the SIP media application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface PutSipMediaApplicationAlexaSkillConfigurationCommandOutput
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class PutSipMediaApplicationAlexaSkillConfigurationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CancelFlowExecutionsCommandInput extends CancelFlowExecutionsRe
 export interface CancelFlowExecutionsCommandOutput extends CancelFlowExecutionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels active runs for a flow.</p>
  *          <p>You can cancel all of the active runs for a flow, or you can cancel specific runs by
  *       providing their IDs.</p>
@@ -95,6 +94,7 @@ export interface CancelFlowExecutionsCommandOutput extends CancelFlowExecutionsR
  * @throws {@link AppflowServiceException}
  * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ * @public
  */
 export class CancelFlowExecutionsCommand extends $Command
   .classBuilder<

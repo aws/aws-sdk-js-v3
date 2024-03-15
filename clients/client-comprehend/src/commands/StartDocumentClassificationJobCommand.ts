@@ -32,7 +32,6 @@ export interface StartDocumentClassificationJobCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an asynchronous document classification job using a custom classification model.  Use the
  *       <code>DescribeDocumentClassificationJob</code>
  *           operation to track the progress of the job.</p>
@@ -128,6 +127,7 @@ export interface StartDocumentClassificationJobCommandOutput
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class StartDocumentClassificationJobCommand extends $Command
   .classBuilder<

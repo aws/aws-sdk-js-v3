@@ -42,7 +42,6 @@ export interface ListChannelsAssociatedWithChannelFlowCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all channels associated with a specified channel flow. You can associate a channel flow with multiple channels, but you can only associate a channel with one channel flow. This is a developer API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface ListChannelsAssociatedWithChannelFlowCommandOutput
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class ListChannelsAssociatedWithChannelFlowCommand extends $Command
   .classBuilder<

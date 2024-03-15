@@ -27,7 +27,6 @@ export interface GetReportGroupTrendCommandInput extends GetReportGroupTrendInpu
 export interface GetReportGroupTrendCommandOutput extends GetReportGroupTrendOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Analyzes and accumulates test report values for the specified test reports.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface GetReportGroupTrendCommandOutput extends GetReportGroupTrendOut
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * @public
  */
 export class GetReportGroupTrendCommand extends $Command
   .classBuilder<

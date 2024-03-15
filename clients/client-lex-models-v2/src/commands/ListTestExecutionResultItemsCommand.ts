@@ -32,7 +32,6 @@ export interface ListTestExecutionResultItemsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of test execution result items.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -278,6 +277,7 @@ export interface ListTestExecutionResultItemsCommandOutput
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class ListTestExecutionResultItemsCommand extends $Command
   .classBuilder<

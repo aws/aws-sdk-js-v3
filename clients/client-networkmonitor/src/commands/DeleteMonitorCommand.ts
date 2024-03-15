@@ -27,7 +27,6 @@ export interface DeleteMonitorCommandInput extends DeleteMonitorInput {}
 export interface DeleteMonitorCommandOutput extends DeleteMonitorOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specified monitor.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DeleteMonitorCommandOutput extends DeleteMonitorOutput, __Metad
  * @throws {@link NetworkMonitorServiceException}
  * <p>Base exception class for all service exceptions from NetworkMonitor service.</p>
  *
+ * @public
  */
 export class DeleteMonitorCommand extends $Command
   .classBuilder<

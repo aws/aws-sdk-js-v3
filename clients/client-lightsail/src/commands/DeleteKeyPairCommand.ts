@@ -27,7 +27,6 @@ export interface DeleteKeyPairCommandInput extends DeleteKeyPairRequest {}
 export interface DeleteKeyPairCommandOutput extends DeleteKeyPairResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified key pair by removing the public key from Amazon Lightsail.</p>
  *          <p>You can delete key pairs that were created using the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_ImportKeyPair.html">ImportKeyPair</a> and
  *         <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateKeyPair.html">CreateKeyPair</a> actions, as well as the Lightsail default key pair. A new default
@@ -109,6 +108,7 @@ export interface DeleteKeyPairCommandOutput extends DeleteKeyPairResult, __Metad
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class DeleteKeyPairCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetDiskCommandInput extends GetDiskRequest {}
 export interface GetDiskCommandOutput extends GetDiskResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a specific block storage disk.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -121,6 +120,7 @@ export interface GetDiskCommandOutput extends GetDiskResult, __MetadataBearer {}
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetDiskCommand extends $Command
   .classBuilder<

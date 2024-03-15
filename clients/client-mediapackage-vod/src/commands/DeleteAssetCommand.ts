@@ -27,7 +27,6 @@ export interface DeleteAssetCommandInput extends DeleteAssetRequest {}
 export interface DeleteAssetCommandOutput extends DeleteAssetResponse, __MetadataBearer {}
 
 /**
- * @public
  * Deletes an existing MediaPackage VOD Asset resource.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface DeleteAssetCommandOutput extends DeleteAssetResponse, __Metadat
  * @throws {@link MediaPackageVodServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageVod service.</p>
  *
+ * @public
  */
 export class DeleteAssetCommand extends $Command
   .classBuilder<

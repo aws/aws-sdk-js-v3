@@ -27,7 +27,6 @@ export interface ListAssetRevisionsCommandInput extends ListAssetRevisionsInput 
 export interface ListAssetRevisionsCommandOutput extends ListAssetRevisionsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the revisions for the asset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface ListAssetRevisionsCommandOutput extends ListAssetRevisionsOutpu
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class ListAssetRevisionsCommand extends $Command
   .classBuilder<

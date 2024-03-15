@@ -27,7 +27,6 @@ export interface GetOperationsCommandInput extends GetOperationsRequest {}
 export interface GetOperationsCommandOutput extends GetOperationsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about all operations.</p>
  *          <p>Results are returned from oldest to newest, up to a maximum of 200. Results can be paged
  *       by making each subsequent call to <code>GetOperations</code> use the maximum (last)
@@ -107,6 +106,7 @@ export interface GetOperationsCommandOutput extends GetOperationsResult, __Metad
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetOperationsCommand extends $Command
   .classBuilder<

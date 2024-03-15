@@ -27,7 +27,6 @@ export interface UpdateEndpointsBatchCommandInput extends UpdateEndpointsBatchRe
 export interface UpdateEndpointsBatchCommandOutput extends UpdateEndpointsBatchResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new batch of endpoints for an application or updates the settings and attributes of a batch of existing endpoints for an application. You can also use this operation to define custom attributes for a batch of endpoints. If an update includes one or more values for a custom attribute, Amazon Pinpoint replaces (overwrites) any existing values with the new values.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -126,6 +125,7 @@ export interface UpdateEndpointsBatchCommandOutput extends UpdateEndpointsBatchR
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class UpdateEndpointsBatchCommand extends $Command
   .classBuilder<

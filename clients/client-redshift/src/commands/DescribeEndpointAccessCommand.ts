@@ -27,7 +27,6 @@ export interface DescribeEndpointAccessCommandInput extends DescribeEndpointAcce
 export interface DescribeEndpointAccessCommandOutput extends EndpointAccessList, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a Redshift-managed VPC endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface DescribeEndpointAccessCommandOutput extends EndpointAccessList,
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DescribeEndpointAccessCommand extends $Command
   .classBuilder<

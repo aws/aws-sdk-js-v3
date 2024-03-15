@@ -27,7 +27,6 @@ export interface SetQueueAttributesCommandInput extends SetQueueAttributesReques
 export interface SetQueueAttributesCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the value of one or more queue attributes. When you change a queue's attributes,
  *             the change can take up to 60 seconds for most of the attributes to propagate throughout
  *             the Amazon SQS system. Changes made to the <code>MessageRetentionPeriod</code> attribute
@@ -123,6 +122,7 @@ export interface SetQueueAttributesCommandOutput extends __MetadataBearer {}
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ * @public
  */
 export class SetQueueAttributesCommand extends $Command
   .classBuilder<

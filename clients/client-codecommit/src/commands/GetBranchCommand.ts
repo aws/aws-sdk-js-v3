@@ -27,7 +27,6 @@ export interface GetBranchCommandInput extends GetBranchInput {}
 export interface GetBranchCommandOutput extends GetBranchOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a repository branch, including its name and the last commit ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface GetBranchCommandOutput extends GetBranchOutput, __MetadataBeare
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class GetBranchCommand extends $Command
   .classBuilder<

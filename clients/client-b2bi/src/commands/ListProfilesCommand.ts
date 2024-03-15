@@ -27,7 +27,6 @@ export interface ListProfilesCommandInput extends ListProfilesRequest {}
 export interface ListProfilesCommandOutput extends ListProfilesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the profiles associated with your Amazon Web Services account for your current or specified region. A profile is the mechanism used to create the concept of
  *    a private network.</p>
  * @example
@@ -68,6 +67,7 @@ export interface ListProfilesCommandOutput extends ListProfilesResponse, __Metad
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
+ * @public
  * @example Sample ListProfiles call
  * ```javascript
  * //

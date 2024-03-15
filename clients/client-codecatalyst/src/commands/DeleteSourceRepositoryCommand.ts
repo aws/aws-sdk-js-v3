@@ -27,7 +27,6 @@ export interface DeleteSourceRepositoryCommandInput extends DeleteSourceReposito
 export interface DeleteSourceRepositoryCommandOutput extends DeleteSourceRepositoryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a source repository in Amazon CodeCatalyst. You cannot use this API to delete a linked repository. It can only be used to delete a Amazon CodeCatalyst source repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface DeleteSourceRepositoryCommandOutput extends DeleteSourceReposit
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ * @public
  */
 export class DeleteSourceRepositoryCommand extends $Command
   .classBuilder<

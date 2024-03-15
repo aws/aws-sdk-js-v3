@@ -31,7 +31,6 @@ export interface GetRoutingControlStateCommandInput extends GetRoutingControlSta
 export interface GetRoutingControlStateCommandOutput extends GetRoutingControlStateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get the state for a routing control. A routing control is a simple on/off switch that you
  * 				can use to route traffic to cells. When a routing control state is set to ON, traffic flows to a cell. When
  * 				the state is set to OFF, traffic does not flow. </p>
@@ -109,6 +108,7 @@ export interface GetRoutingControlStateCommandOutput extends GetRoutingControlSt
  * @throws {@link Route53RecoveryClusterServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryCluster service.</p>
  *
+ * @public
  */
 export class GetRoutingControlStateCommand extends $Command
   .classBuilder<

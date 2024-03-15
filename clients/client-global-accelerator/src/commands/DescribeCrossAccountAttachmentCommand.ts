@@ -36,7 +36,6 @@ export interface DescribeCrossAccountAttachmentCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets configuration information about a cross-account attachment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface DescribeCrossAccountAttachmentCommandOutput
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class DescribeCrossAccountAttachmentCommand extends $Command
   .classBuilder<

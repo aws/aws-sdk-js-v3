@@ -39,7 +39,6 @@ export interface DescribeReplicationTableStatisticsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns table and schema statistics for one or more provisioned replications that use a
  *          given DMS Serverless replication configuration.</p>
  * @example
@@ -112,6 +111,7 @@ export interface DescribeReplicationTableStatisticsCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class DescribeReplicationTableStatisticsCommand extends $Command
   .classBuilder<

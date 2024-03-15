@@ -27,7 +27,6 @@ export interface CreateApplicationCommandInput extends CreateApplicationRequest 
 export interface CreateApplicationCommandOutput extends CreateApplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Fleet Hub for AWS IoT Device Management web application.</p>
  *          <note>
  *             <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p>
@@ -77,6 +76,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * @throws {@link IoTFleetHubServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetHub service.</p>
  *
+ * @public
  */
 export class CreateApplicationCommand extends $Command
   .classBuilder<

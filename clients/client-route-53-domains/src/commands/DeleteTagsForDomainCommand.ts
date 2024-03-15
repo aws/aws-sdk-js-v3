@@ -27,7 +27,6 @@ export interface DeleteTagsForDomainCommandInput extends DeleteTagsForDomainRequ
 export interface DeleteTagsForDomainCommandOutput extends DeleteTagsForDomainResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation deletes the specified tags for a domain.</p>
  *          <p>All tag operations are eventually consistent; subsequent operations might not
  * 			immediately represent all issued operations.</p>
@@ -71,6 +70,7 @@ export interface DeleteTagsForDomainCommandOutput extends DeleteTagsForDomainRes
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * @public
  */
 export class DeleteTagsForDomainCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateAddressCommandInput extends CreateAddressRequest {}
 export interface CreateAddressCommandOutput extends CreateAddressResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an address for a Snow device to be shipped to. In most regions,
  *       addresses are validated at the time of creation. The address you provide must be located
  *       within the serviceable area of your region. If the address is invalid or unsupported, then an
@@ -83,6 +82,7 @@ export interface CreateAddressCommandOutput extends CreateAddressResult, __Metad
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * @public
  * @example To create an address for a job
  * ```javascript
  * // This operation creates an address for a job. Addresses are validated at the time of creation. The address you provide must be located within the serviceable area of your region. If the address is invalid or unsupported, then an exception is thrown.

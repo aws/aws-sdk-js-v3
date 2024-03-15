@@ -27,7 +27,6 @@ export interface TagMFADeviceCommandInput extends TagMFADeviceRequest {}
 export interface TagMFADeviceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds one or more tags to an IAM virtual multi-factor authentication (MFA) device. If
  *       a tag with the same key name already exists, then that tag is overwritten with the new
  *       value.</p>
@@ -115,6 +114,7 @@ export interface TagMFADeviceCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class TagMFADeviceCommand extends $Command
   .classBuilder<

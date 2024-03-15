@@ -27,7 +27,6 @@ export interface DeleteUserEndpointsCommandInput extends DeleteUserEndpointsRequ
 export interface DeleteUserEndpointsCommandOutput extends DeleteUserEndpointsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes all the endpoints that are associated with a specific user ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -126,6 +125,7 @@ export interface DeleteUserEndpointsCommandOutput extends DeleteUserEndpointsRes
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class DeleteUserEndpointsCommand extends $Command
   .classBuilder<

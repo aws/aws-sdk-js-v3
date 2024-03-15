@@ -27,7 +27,6 @@ export interface GetTranscriptionJobCommandInput extends GetTranscriptionJobRequ
 export interface GetTranscriptionJobCommandOutput extends GetTranscriptionJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides information about the specified transcription job.</p>
  *          <p>To view the status of the specified transcription job, check the
  *                 <code>TranscriptionJobStatus</code> field. If the status is <code>COMPLETED</code>,
@@ -165,6 +164,7 @@ export interface GetTranscriptionJobCommandOutput extends GetTranscriptionJobRes
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * @public
  */
 export class GetTranscriptionJobCommand extends $Command
   .classBuilder<

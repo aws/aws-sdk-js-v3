@@ -27,7 +27,6 @@ export interface ListAgentStatusesCommandInput extends ListAgentStatusRequest {}
 export interface ListAgentStatusesCommandOutput extends ListAgentStatusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Lists agent statuses.</p>
  * @example
@@ -86,6 +85,7 @@ export interface ListAgentStatusesCommandOutput extends ListAgentStatusResponse,
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class ListAgentStatusesCommand extends $Command
   .classBuilder<

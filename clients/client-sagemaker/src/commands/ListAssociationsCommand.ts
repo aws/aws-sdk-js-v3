@@ -27,7 +27,6 @@ export interface ListAssociationsCommandInput extends ListAssociationsRequest {}
 export interface ListAssociationsCommandOutput extends ListAssociationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the associations in your account and their properties.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface ListAssociationsCommandOutput extends ListAssociationsResponse,
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListAssociationsCommand extends $Command
   .classBuilder<

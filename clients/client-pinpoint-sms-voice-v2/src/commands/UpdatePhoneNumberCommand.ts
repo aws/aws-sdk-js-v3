@@ -31,7 +31,6 @@ export interface UpdatePhoneNumberCommandInput extends UpdatePhoneNumberRequest 
 export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the configuration of an existing origination phone number. You can update the
  *             opt-out list, enable or disable two-way messaging, change the TwoWayChannelArn, enable
  *             or disable self-managed opt-outs, and enable or disable deletion protection.</p>
@@ -111,6 +110,7 @@ export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberResult,
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class UpdatePhoneNumberCommand extends $Command
   .classBuilder<

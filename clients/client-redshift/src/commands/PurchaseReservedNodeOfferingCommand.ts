@@ -29,7 +29,6 @@ export interface PurchaseReservedNodeOfferingCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows you to purchase reserved nodes. Amazon Redshift offers a predefined set of
  *             reserved node offerings. You can purchase one or more of the offerings. You can call the
  *                 <a>DescribeReservedNodeOfferings</a> API to obtain the available reserved
@@ -100,6 +99,7 @@ export interface PurchaseReservedNodeOfferingCommandOutput
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class PurchaseReservedNodeOfferingCommand extends $Command
   .classBuilder<

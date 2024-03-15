@@ -27,7 +27,6 @@ export interface UpdateInferenceComponentCommandInput extends UpdateInferenceCom
 export interface UpdateInferenceComponentCommandOutput extends UpdateInferenceComponentOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an inference component.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface UpdateInferenceComponentCommandOutput extends UpdateInferenceCo
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class UpdateInferenceComponentCommand extends $Command
   .classBuilder<

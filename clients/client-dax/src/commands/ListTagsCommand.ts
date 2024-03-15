@@ -27,7 +27,6 @@ export interface ListTagsCommandInput extends ListTagsRequest {}
 export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List all of the tags for a DAX cluster. You can call <code>ListTags</code> up to
  *             10 times per second, per account.</p>
  * @example
@@ -82,6 +81,7 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * @throws {@link DAXServiceException}
  * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ * @public
  */
 export class ListTagsCommand extends $Command
   .classBuilder<

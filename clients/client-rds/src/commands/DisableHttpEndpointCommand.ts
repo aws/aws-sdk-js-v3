@@ -27,7 +27,6 @@ export interface DisableHttpEndpointCommandInput extends DisableHttpEndpointRequ
 export interface DisableHttpEndpointCommandOutput extends DisableHttpEndpointResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables the HTTP endpoint for the specified DB cluster. Disabling this endpoint disables RDS Data API.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using RDS Data API</a> in the
  *             <i>Amazon Aurora User Guide</i>.</p>
@@ -68,6 +67,7 @@ export interface DisableHttpEndpointCommandOutput extends DisableHttpEndpointRes
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  */
 export class DisableHttpEndpointCommand extends $Command
   .classBuilder<

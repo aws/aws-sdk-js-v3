@@ -27,7 +27,6 @@ export interface ListApplicationProvidersCommandInput extends ListApplicationPro
 export interface ListApplicationProvidersCommandOutput extends ListApplicationProvidersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the application providers configured in the IAM Identity Center identity store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface ListApplicationProvidersCommandOutput extends ListApplicationPr
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class ListApplicationProvidersCommand extends $Command
   .classBuilder<

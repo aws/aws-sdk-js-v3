@@ -27,7 +27,6 @@ export interface ListMultipartUploadsCommandInput extends ListMultipartUploadsIn
 export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation lists in-progress multipart uploads for the specified vault. An
  *          in-progress multipart upload is a multipart upload that has been initiated by an <a>InitiateMultipartUpload</a> request, but has not yet been completed or aborted.
  *          The list returned in the List Multipart Upload response has no guaranteed order. </p>
@@ -105,6 +104,7 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * @public
  * @example To list all the in-progress multipart uploads for a vault
  * ```javascript
  * // The example lists all the in-progress multipart uploads for the vault named examplevault.

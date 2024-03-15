@@ -27,7 +27,6 @@ export interface ListShardsCommandInput extends ListShardsInput {}
 export interface ListShardsCommandOutput extends ListShardsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the shards in a stream and provides information about each shard. This operation
  *             has a limit of 1000 transactions per second per data stream.</p>
  *          <note>
@@ -118,6 +117,7 @@ export interface ListShardsCommandOutput extends ListShardsOutput, __MetadataBea
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * @public
  */
 export class ListShardsCommand extends $Command
   .classBuilder<

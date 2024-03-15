@@ -27,7 +27,6 @@ export interface DescribeNodeCommandInput extends DescribeNodeRequest {}
 export interface DescribeNodeCommandOutput extends DescribeNodeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a node.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface DescribeNodeCommandOutput extends DescribeNodeResponse, __Metad
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ * @public
  */
 export class DescribeNodeCommand extends $Command
   .classBuilder<

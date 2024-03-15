@@ -27,7 +27,6 @@ export interface DeleteFuotaTaskCommandInput extends DeleteFuotaTaskRequest {}
 export interface DeleteFuotaTaskCommandOutput extends DeleteFuotaTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a FUOTA task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DeleteFuotaTaskCommandOutput extends DeleteFuotaTaskResponse, _
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class DeleteFuotaTaskCommand extends $Command
   .classBuilder<

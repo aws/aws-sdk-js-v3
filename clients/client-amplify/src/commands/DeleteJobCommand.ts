@@ -27,7 +27,6 @@ export interface DeleteJobCommandInput extends DeleteJobRequest {}
 export interface DeleteJobCommandOutput extends DeleteJobResult, __MetadataBearer {}
 
 /**
- * @public
  * <p> Deletes a job for a branch of an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface DeleteJobCommandOutput extends DeleteJobResult, __MetadataBeare
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ * @public
  */
 export class DeleteJobCommand extends $Command
   .classBuilder<

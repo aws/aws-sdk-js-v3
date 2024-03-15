@@ -32,7 +32,6 @@ export interface AttachInstancesToLoadBalancerCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches one or more Lightsail instances to a load balancer.</p>
  *          <p>After some time, the instances are attached to the load balancer and the health check
  *       status is available.</p>
@@ -116,6 +115,7 @@ export interface AttachInstancesToLoadBalancerCommandOutput
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class AttachInstancesToLoadBalancerCommand extends $Command
   .classBuilder<

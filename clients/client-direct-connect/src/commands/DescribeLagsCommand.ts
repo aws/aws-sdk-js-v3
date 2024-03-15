@@ -27,7 +27,6 @@ export interface DescribeLagsCommandInput extends DescribeLagsRequest {}
 export interface DescribeLagsCommandOutput extends Lags, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes all your link aggregation groups (LAG) or the specified LAG.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -134,6 +133,7 @@ export interface DescribeLagsCommandOutput extends Lags, __MetadataBearer {}
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class DescribeLagsCommand extends $Command
   .classBuilder<

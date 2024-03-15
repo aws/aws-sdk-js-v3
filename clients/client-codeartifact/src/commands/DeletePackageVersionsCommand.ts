@@ -27,7 +27,6 @@ export interface DeletePackageVersionsCommandInput extends DeletePackageVersions
 export interface DeletePackageVersionsCommandOutput extends DeletePackageVersionsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p> Deletes one or more versions of a package. A deleted package version cannot be restored
  *       in your repository. If you want to remove a package version from your repository and be able
  *       to restore it later, set its status to <code>Archived</code>. Archived packages cannot be
@@ -107,6 +106,7 @@ export interface DeletePackageVersionsCommandOutput extends DeletePackageVersion
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * @public
  */
 export class DeletePackageVersionsCommand extends $Command
   .classBuilder<

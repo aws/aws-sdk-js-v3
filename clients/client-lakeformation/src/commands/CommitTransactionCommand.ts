@@ -27,7 +27,6 @@ export interface CommitTransactionCommandInput extends CommitTransactionRequest 
 export interface CommitTransactionCommandOutput extends CommitTransactionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Attempts to commit the specified transaction. Returns an exception if the transaction was previously aborted. This API action is idempotent if called multiple times for the same transaction.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface CommitTransactionCommandOutput extends CommitTransactionRespons
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class CommitTransactionCommand extends $Command
   .classBuilder<

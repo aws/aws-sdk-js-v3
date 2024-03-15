@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds one or more tags to a specified Amazon QLDB resource.</p>
  *          <p>A resource can have up to 50 tags. If you try to create more than 50 tags for a
  *          resource, your request fails and returns an error.</p>
@@ -64,6 +63,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link QLDBServiceException}
  * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

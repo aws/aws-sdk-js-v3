@@ -31,7 +31,6 @@ export interface GetAccessPolicyCommandInput extends GetAccessPolicyRequest {}
 export interface GetAccessPolicyCommandOutput extends GetAccessPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an OpenSearch Serverless access policy. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html">Data
  *             access control for Amazon OpenSearch Serverless</a>.</p>
  * @example
@@ -79,6 +78,7 @@ export interface GetAccessPolicyCommandOutput extends GetAccessPolicyResponse, _
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ * @public
  */
 export class GetAccessPolicyCommand extends $Command
   .classBuilder<

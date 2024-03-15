@@ -36,7 +36,6 @@ export interface ModifyVpcEndpointConnectionNotificationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies a connection notification for VPC endpoint or VPC endpoint service. You
  *             can change the SNS topic for the notification, or the events for which to be notified. </p>
  * @example
@@ -70,6 +69,7 @@ export interface ModifyVpcEndpointConnectionNotificationCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyVpcEndpointConnectionNotificationCommand extends $Command
   .classBuilder<

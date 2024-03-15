@@ -31,7 +31,6 @@ export interface DeleteCustomRoutingListenerCommandInput extends DeleteCustomRou
 export interface DeleteCustomRoutingListenerCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete a listener for a custom routing accelerator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface DeleteCustomRoutingListenerCommandOutput extends __MetadataBear
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class DeleteCustomRoutingListenerCommand extends $Command
   .classBuilder<

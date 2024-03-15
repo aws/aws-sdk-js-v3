@@ -36,7 +36,6 @@ export interface CreateDirectConnectGatewayAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an association between a Direct Connect gateway and a virtual private gateway. The virtual
  *       private gateway must be attached to a VPC and must not be associated with another Direct Connect gateway.</p>
  * @example
@@ -98,6 +97,7 @@ export interface CreateDirectConnectGatewayAssociationCommandOutput
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class CreateDirectConnectGatewayAssociationCommand extends $Command
   .classBuilder<

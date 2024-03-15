@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceInput {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Assigns a set of tags to the specified Amazon Cognito identity pool. A tag is a label
  *          that you can use to categorize and manage identity pools in different ways, such as by
  *          purpose, owner, environment, or other criteria.</p>
@@ -86,6 +85,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

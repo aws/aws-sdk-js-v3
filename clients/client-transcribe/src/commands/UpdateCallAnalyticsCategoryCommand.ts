@@ -29,7 +29,6 @@ export interface UpdateCallAnalyticsCategoryCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified Call Analytics category with new rules. Note that the
  *                 <code>UpdateCallAnalyticsCategory</code> operation overwrites all existing rules
  *             contained in the specified category. You cannot append additional rules onto an existing
@@ -241,6 +240,7 @@ export interface UpdateCallAnalyticsCategoryCommandOutput
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * @public
  */
 export class UpdateCallAnalyticsCategoryCommand extends $Command
   .classBuilder<

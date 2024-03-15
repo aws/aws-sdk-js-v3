@@ -27,7 +27,6 @@ export interface GetPhoneNumberSettingsCommandInput {}
 export interface GetPhoneNumberSettingsCommandOutput extends GetPhoneNumberSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the phone number settings for the administrator's AWS account,
  *          such as the default outbound calling name.</p>
  * @example
@@ -73,6 +72,7 @@ export interface GetPhoneNumberSettingsCommandOutput extends GetPhoneNumberSetti
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class GetPhoneNumberSettingsCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface DeleteAliasCommandInput extends DeleteAliasInput {}
 export interface DeleteAliasCommandOutput extends DeleteAliasOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the alias, but doesn't affect the underlying key.</p>
  *          <p>Each key can have multiple aliases. To get the aliases of all keys, use the <a>ListAliases</a> operation. To change the alias of a key, first use <a>DeleteAlias</a> to delete the current alias and then use <a>CreateAlias</a> to create a new alias. To associate an existing alias with a different key, call <a>UpdateAlias</a>.</p>
  *          <p>
@@ -106,6 +105,7 @@ export interface DeleteAliasCommandOutput extends DeleteAliasOutput, __MetadataB
  * @throws {@link PaymentCryptographyServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptography service.</p>
  *
+ * @public
  */
 export class DeleteAliasCommand extends $Command
   .classBuilder<

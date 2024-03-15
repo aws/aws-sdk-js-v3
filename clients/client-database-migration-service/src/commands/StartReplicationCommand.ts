@@ -31,7 +31,6 @@ export interface StartReplicationCommandInput extends StartReplicationMessage {}
 export interface StartReplicationCommandOutput extends StartReplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>For a given DMS Serverless replication configuration, DMS connects to the source endpoint and
  *          collects the metadata to analyze the replication workload. Using this metadata, DMS then
  *          computes and provisions the required capacity and starts replicating to the target endpoint
@@ -117,6 +116,7 @@ export interface StartReplicationCommandOutput extends StartReplicationResponse,
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class StartReplicationCommand extends $Command
   .classBuilder<

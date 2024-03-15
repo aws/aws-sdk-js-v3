@@ -32,7 +32,6 @@ export interface ListTypedLinkFacetAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a paginated list of all attribute definitions for a particular <a>TypedLinkFacet</a>. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -114,6 +113,7 @@ export interface ListTypedLinkFacetAttributesCommandOutput
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class ListTypedLinkFacetAttributesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreatePartitionCommandInput extends CreatePartitionRequest {}
 export interface CreatePartitionCommandOutput extends CreatePartitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new partition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -142,6 +141,7 @@ export interface CreatePartitionCommandOutput extends CreatePartitionResponse, _
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class CreatePartitionCommand extends $Command
   .classBuilder<

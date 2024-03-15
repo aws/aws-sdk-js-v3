@@ -27,7 +27,6 @@ export interface GetFindingStatisticsCommandInput extends GetFindingStatisticsRe
 export interface GetFindingStatisticsCommandOutput extends GetFindingStatisticsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves (queries) aggregated statistical data about findings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -105,6 +104,7 @@ export interface GetFindingStatisticsCommandOutput extends GetFindingStatisticsR
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class GetFindingStatisticsCommand extends $Command
   .classBuilder<

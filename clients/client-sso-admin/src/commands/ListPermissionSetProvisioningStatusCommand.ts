@@ -35,7 +35,6 @@ export interface ListPermissionSetProvisioningStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the status of the permission set provisioning requests for a specified IAM Identity Center
  *             instance.</p>
  * @example
@@ -93,6 +92,7 @@ export interface ListPermissionSetProvisioningStatusCommandOutput
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class ListPermissionSetProvisioningStatusCommand extends $Command
   .classBuilder<

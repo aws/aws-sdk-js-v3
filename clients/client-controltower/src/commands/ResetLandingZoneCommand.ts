@@ -27,7 +27,6 @@ export interface ResetLandingZoneCommandInput extends ResetLandingZoneInput {}
 export interface ResetLandingZoneCommandOutput extends ResetLandingZoneOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This API call resets a landing zone. It starts an asynchronous operation that resets the
  *          landing zone to the parameters specified in its original configuration.</p>
  * @example
@@ -74,6 +73,7 @@ export interface ResetLandingZoneCommandOutput extends ResetLandingZoneOutput, _
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ * @public
  */
 export class ResetLandingZoneCommand extends $Command
   .classBuilder<

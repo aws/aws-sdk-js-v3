@@ -27,7 +27,6 @@ export interface ListIndexCommandInput extends ListIndexRequest {}
 export interface ListIndexCommandOutput extends ListIndexResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists objects attached to the specified index.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -144,6 +143,7 @@ export interface ListIndexCommandOutput extends ListIndexResponse, __MetadataBea
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class ListIndexCommand extends $Command
   .classBuilder<

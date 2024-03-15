@@ -31,7 +31,6 @@ export interface GetEventsConfigurationCommandInput extends GetEventsConfigurati
 export interface GetEventsConfigurationCommandOutput extends GetEventsConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets details for an events configuration that allows a bot to receive outgoing events, such as an HTTPS endpoint or Lambda function ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface GetEventsConfigurationCommandOutput extends GetEventsConfigurat
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class GetEventsConfigurationCommand extends $Command
   .classBuilder<

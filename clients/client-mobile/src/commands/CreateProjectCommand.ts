@@ -34,7 +34,6 @@ export interface CreateProjectCommandInput extends CreateProjectCommandInputType
 export interface CreateProjectCommandOutput extends CreateProjectResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Creates an AWS Mobile Hub project.
  *         </p>
@@ -128,6 +127,7 @@ export interface CreateProjectCommandOutput extends CreateProjectResult, __Metad
  * @throws {@link MobileServiceException}
  * <p>Base exception class for all service exceptions from Mobile service.</p>
  *
+ * @public
  */
 export class CreateProjectCommand extends $Command
   .classBuilder<

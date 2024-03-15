@@ -27,7 +27,6 @@ export interface DeleteIPSetCommandInput extends DeleteIPSetRequest {}
 export interface DeleteIPSetCommandOutput extends DeleteIPSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the IPSet specified by the <code>ipSetId</code>. IPSets are called trusted IP
  *       lists in the console user interface.</p>
  * @example
@@ -61,6 +60,7 @@ export interface DeleteIPSetCommandOutput extends DeleteIPSetResponse, __Metadat
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class DeleteIPSetCommand extends $Command
   .classBuilder<

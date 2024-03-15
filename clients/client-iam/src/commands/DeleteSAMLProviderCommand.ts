@@ -27,7 +27,6 @@ export interface DeleteSAMLProviderCommandInput extends DeleteSAMLProviderReques
 export interface DeleteSAMLProviderCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a SAML provider resource in IAM.</p>
  *          <p>Deleting the provider resource from IAM does not update any roles that reference the
  *             SAML provider resource's ARN as a principal in their trust policies. Any attempt to
@@ -75,6 +74,7 @@ export interface DeleteSAMLProviderCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class DeleteSAMLProviderCommand extends $Command
   .classBuilder<

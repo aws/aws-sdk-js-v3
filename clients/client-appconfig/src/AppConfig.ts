@@ -948,7 +948,6 @@ export interface AppConfig {
 }
 
 /**
- * @public
  * <p>AppConfig feature flags and dynamic configurations help software builders
  *          quickly and securely adjust application behavior in production environments without full
  *          code deployments. AppConfig speeds up software release frequency, improves
@@ -1099,6 +1098,7 @@ export interface AppConfig {
  *          </dl>
  *          <p>This reference is intended to be used with the <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html">AppConfig User
  *          Guide</a>.</p>
+ * @public
  */
 export class AppConfig extends AppConfigClient implements AppConfig {}
 createAggregatedClient(commands, AppConfig);

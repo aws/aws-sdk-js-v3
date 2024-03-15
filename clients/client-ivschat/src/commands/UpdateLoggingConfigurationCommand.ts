@@ -27,7 +27,6 @@ export interface UpdateLoggingConfigurationCommandInput extends UpdateLoggingCon
 export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a specified logging configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingCo
  * @throws {@link IvschatServiceException}
  * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
+ * @public
  */
 export class UpdateLoggingConfigurationCommand extends $Command
   .classBuilder<

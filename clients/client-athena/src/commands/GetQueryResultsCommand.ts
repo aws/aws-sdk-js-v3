@@ -27,7 +27,6 @@ export interface GetQueryResultsCommandInput extends GetQueryResultsInput {}
 export interface GetQueryResultsCommandOutput extends GetQueryResultsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Streams the results of a single query execution specified by
  *                 <code>QueryExecutionId</code> from the Athena query results location in
  *                 Amazon S3. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Working with query results, recent queries, and
@@ -111,6 +110,7 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsOutput, __M
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class GetQueryResultsCommand extends $Command
   .classBuilder<

@@ -110,7 +110,6 @@ export interface SageMakerA2IRuntime {
 }
 
 /**
- * @public
  * <p>Amazon Augmented AI (Amazon A2I) adds the benefit of human judgment to any machine learning
  *       application. When an AI application can't evaluate data with a high degree of confidence,
  *       human reviewers can take over. This human review is called a human review workflow. To create
@@ -137,6 +136,7 @@ export interface SageMakerA2IRuntime {
  *          <p>Amazon A2I integrates APIs from various AWS services to create and start human review
  *       workflows for those services. To learn how Amazon A2I uses these APIs, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-api-references.html">Use APIs in
  *         Amazon A2I</a> in the Amazon SageMaker Developer Guide.</p>
+ * @public
  */
 export class SageMakerA2IRuntime extends SageMakerA2IRuntimeClient implements SageMakerA2IRuntime {}
 createAggregatedClient(commands, SageMakerA2IRuntime);

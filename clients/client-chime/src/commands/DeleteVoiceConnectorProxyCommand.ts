@@ -27,9 +27,6 @@ export interface DeleteVoiceConnectorProxyCommandInput extends DeleteVoiceConnec
 export interface DeleteVoiceConnectorProxyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by DeleteVoiceConnectorProxy in the Amazon Chime SDK Voice Namespace
- *
  * <p>Deletes the proxy configuration from the specified Amazon Chime Voice Connector.</p>
  *          <important>
  *             <p>
@@ -83,6 +80,8 @@ export interface DeleteVoiceConnectorProxyCommandOutput extends __MetadataBearer
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by DeleteVoiceConnectorProxy in the Amazon Chime SDK Voice Namespace
  */
 export class DeleteVoiceConnectorProxyCommand extends $Command
   .classBuilder<

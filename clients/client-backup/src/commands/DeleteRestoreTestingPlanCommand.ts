@@ -27,7 +27,6 @@ export interface DeleteRestoreTestingPlanCommandInput extends DeleteRestoreTesti
 export interface DeleteRestoreTestingPlanCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>This request deletes the specified restore testing plan.</p>
  *          <p>Deletion can only successfully occur if all associated
  *          restore testing selections are deleted first.</p>
@@ -62,6 +61,7 @@ export interface DeleteRestoreTestingPlanCommandOutput extends __MetadataBearer 
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class DeleteRestoreTestingPlanCommand extends $Command
   .classBuilder<

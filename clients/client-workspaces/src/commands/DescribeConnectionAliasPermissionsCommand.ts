@@ -35,7 +35,6 @@ export interface DescribeConnectionAliasPermissionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the permissions that the owner of a connection alias has granted to another
  *             Amazon Web Services account for the specified connection alias. For more information, see
  *             <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html"> Cross-Region
@@ -87,6 +86,7 @@ export interface DescribeConnectionAliasPermissionsCommandOutput
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class DescribeConnectionAliasPermissionsCommand extends $Command
   .classBuilder<

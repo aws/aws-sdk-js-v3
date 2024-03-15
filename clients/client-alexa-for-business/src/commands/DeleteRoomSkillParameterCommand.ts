@@ -27,9 +27,6 @@ export interface DeleteRoomSkillParameterCommandInput extends DeleteRoomSkillPar
 export interface DeleteRoomSkillParameterCommandOutput extends DeleteRoomSkillParameterResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Deletes room skill parameter details by room, skill, and parameter key ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -60,6 +57,8 @@ export interface DeleteRoomSkillParameterCommandOutput extends DeleteRoomSkillPa
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class DeleteRoomSkillParameterCommand extends $Command
   .classBuilder<

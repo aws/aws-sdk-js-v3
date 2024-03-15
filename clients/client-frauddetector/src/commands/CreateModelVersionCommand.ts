@@ -27,7 +27,6 @@ export interface CreateModelVersionCommandInput extends CreateModelVersionReques
 export interface CreateModelVersionCommandOutput extends CreateModelVersionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a version of the model using the specified model type and model id.
  *         </p>
  * @example
@@ -105,6 +104,7 @@ export interface CreateModelVersionCommandOutput extends CreateModelVersionResul
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class CreateModelVersionCommand extends $Command
   .classBuilder<

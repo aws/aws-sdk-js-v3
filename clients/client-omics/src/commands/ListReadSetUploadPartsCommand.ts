@@ -27,7 +27,6 @@ export interface ListReadSetUploadPartsCommandInput extends ListReadSetUploadPar
 export interface ListReadSetUploadPartsCommandOutput extends ListReadSetUploadPartsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       This operation will list all parts in a requested multipart upload for a sequence store.
  *     </p>
@@ -101,6 +100,7 @@ export interface ListReadSetUploadPartsCommandOutput extends ListReadSetUploadPa
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class ListReadSetUploadPartsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GrantAccessCommandInput extends GrantAccessRequest {}
 export interface GrantAccessCommandOutput extends GrantAccessResult, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This action can be used only with Windows stacks.</p>
  *          </note>
@@ -70,6 +69,7 @@ export interface GrantAccessCommandOutput extends GrantAccessResult, __MetadataB
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class GrantAccessCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateIngestionDestinationCommandInput extends CreateIngestionD
 export interface CreateIngestionDestinationCommandOutput extends CreateIngestionDestinationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an ingestion destination, which specifies how an application's ingested data is
  *          processed by Amazon Web Services AppFabric and where it's delivered.</p>
  * @example
@@ -128,6 +127,7 @@ export interface CreateIngestionDestinationCommandOutput extends CreateIngestion
  * @throws {@link AppFabricServiceException}
  * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
+ * @public
  */
 export class CreateIngestionDestinationCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface CreateDatasetCommandInput extends CreateDatasetRequest {}
 export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon Forecast dataset. The information about the dataset that you provide helps
  *       Forecast understand how to consume the data for model training. This includes the
  *       following:</p>
@@ -131,6 +130,7 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class CreateDatasetCommand extends $Command
   .classBuilder<

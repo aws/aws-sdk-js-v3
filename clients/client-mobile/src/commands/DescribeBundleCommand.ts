@@ -27,7 +27,6 @@ export interface DescribeBundleCommandInput extends DescribeBundleRequest {}
 export interface DescribeBundleCommandOutput extends DescribeBundleResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Get the bundle details for the requested bundle id.
  *         </p>
@@ -100,6 +99,7 @@ export interface DescribeBundleCommandOutput extends DescribeBundleResult, __Met
  * @throws {@link MobileServiceException}
  * <p>Base exception class for all service exceptions from Mobile service.</p>
  *
+ * @public
  */
 export class DescribeBundleCommand extends $Command
   .classBuilder<

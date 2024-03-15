@@ -27,7 +27,6 @@ export interface CreateLabelCommandInput extends CreateLabelRequest {}
 export interface CreateLabelCommandOutput extends CreateLabelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Creates a label for an event. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface CreateLabelCommandOutput extends CreateLabelResponse, __Metadat
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  */
 export class CreateLabelCommand extends $Command
   .classBuilder<

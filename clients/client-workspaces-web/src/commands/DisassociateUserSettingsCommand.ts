@@ -27,7 +27,6 @@ export interface DisassociateUserSettingsCommandInput extends DisassociateUserSe
 export interface DisassociateUserSettingsCommandOutput extends DisassociateUserSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates user settings from a web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DisassociateUserSettingsCommandOutput extends DisassociateUserS
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * @public
  */
 export class DisassociateUserSettingsCommand extends $Command
   .classBuilder<

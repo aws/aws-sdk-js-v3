@@ -27,7 +27,6 @@ export interface CreatePolicyCommandInput extends CreatePolicyRequest {}
 export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a policy of a specified type that you can attach to a root, an organizational
  *             unit (OU), or an individual Amazon Web Services account.</p>
  *          <p>For more information about policies and their use, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html">Managing
@@ -425,6 +424,7 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  * @example To create a service control policy
  * ```javascript
  * // The following example shows how to create a service control policy (SCP) that is named AllowAllS3Actions. The JSON string in the content parameter specifies the content in the policy. The parameter string is escaped with backslashes to ensure that the embedded double quotes in the JSON policy are treated as literals in the parameter, which itself is surrounded by double quotes:

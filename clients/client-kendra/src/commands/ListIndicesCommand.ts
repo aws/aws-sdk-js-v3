@@ -27,7 +27,6 @@ export interface ListIndicesCommandInput extends ListIndicesRequest {}
 export interface ListIndicesCommandOutput extends ListIndicesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the Amazon Kendra indexes that you created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface ListIndicesCommandOutput extends ListIndicesResponse, __Metadat
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class ListIndicesCommand extends $Command
   .classBuilder<

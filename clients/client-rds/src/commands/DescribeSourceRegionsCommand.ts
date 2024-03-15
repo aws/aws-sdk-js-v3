@@ -27,7 +27,6 @@ export interface DescribeSourceRegionsCommandInput extends DescribeSourceRegions
 export interface DescribeSourceRegionsCommandOutput extends SourceRegionMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the source Amazon Web Services Regions where the current Amazon Web Services Region can create a read replica,
  *          copy a DB snapshot from, or replicate automated backups from.</p>
  *          <p>Use this operation to determine whether cross-Region features are supported between other Regions
@@ -80,6 +79,7 @@ export interface DescribeSourceRegionsCommandOutput extends SourceRegionMessage,
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To describe source Regions
  * ```javascript
  * // The following example retrieves details about all source AWS Regions where the current AWS Region can create a read replica, copy a DB snapshot from, or replicate automated backups from. It also shows that automated backups can be replicated only from US West (Oregon) to the destination AWS Region, US East (N. Virginia).

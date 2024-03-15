@@ -27,7 +27,6 @@ export interface CreateRequestValidatorCommandInput extends CreateRequestValidat
 export interface CreateRequestValidatorCommandOutput extends RequestValidator, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a RequestValidator of a given RestApi.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface CreateRequestValidatorCommandOutput extends RequestValidator, _
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class CreateRequestValidatorCommand extends $Command
   .classBuilder<

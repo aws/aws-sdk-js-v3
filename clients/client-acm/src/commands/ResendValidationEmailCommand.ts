@@ -27,7 +27,6 @@ export interface ResendValidationEmailCommandInput extends ResendValidationEmail
 export interface ResendValidationEmailCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Resends the email that requests domain ownership validation. The domain owner or an
  *       authorized representative must approve the ACM certificate before it can be issued. The
  *       certificate can be approved by clicking a link in the mail to navigate to the Amazon
@@ -77,6 +76,7 @@ export interface ResendValidationEmailCommandOutput extends __MetadataBearer {}
  * @throws {@link ACMServiceException}
  * <p>Base exception class for all service exceptions from ACM service.</p>
  *
+ * @public
  */
 export class ResendValidationEmailCommand extends $Command
   .classBuilder<

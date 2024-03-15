@@ -27,7 +27,6 @@ export interface PutMetricFilterCommandInput extends PutMetricFilterRequest {}
 export interface PutMetricFilterCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates a metric filter and associates it with the specified log group. With
  *       metric filters, you can configure rules to extract metric data from log events ingested
  *       through <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html">PutLogEvents</a>.</p>
@@ -103,6 +102,7 @@ export interface PutMetricFilterCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class PutMetricFilterCommand extends $Command
   .classBuilder<

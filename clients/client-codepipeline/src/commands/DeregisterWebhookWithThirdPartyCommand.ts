@@ -32,7 +32,6 @@ export interface DeregisterWebhookWithThirdPartyCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the connection between the webhook that was created by CodePipeline
  *             and the external tool with events to be detected. Currently supported only for webhooks
  *             that target an action type of GitHub.</p>
@@ -67,6 +66,7 @@ export interface DeregisterWebhookWithThirdPartyCommandOutput
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * @public
  */
 export class DeregisterWebhookWithThirdPartyCommand extends $Command
   .classBuilder<

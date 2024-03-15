@@ -32,7 +32,6 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Restores a DB instance to an arbitrary point in time. You can restore to any point in time before the time identified by the <code>LatestRestorableTime</code> property. You can restore to a point up to the number of days specified by the <code>BackupRetentionPeriod</code> property.</p>
  *          <p>The target database is created with most of the original configuration, but in a
  *             system-selected Availability Zone, with the default security group, the default subnet
@@ -438,6 +437,7 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To restore a DB instance to a point in time
  * ```javascript
  * // The following example restores test-instance to a new DB instance named restored-test-instance, as of the specified time.

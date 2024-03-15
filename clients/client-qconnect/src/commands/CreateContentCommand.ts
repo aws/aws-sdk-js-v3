@@ -31,7 +31,6 @@ export interface CreateContentCommandInput extends CreateContentRequest {}
 export interface CreateContentCommandOutput extends CreateContentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates Amazon Q content. Before to calling this API, use <a href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a> to
  *       upload an asset.</p>
  * @example
@@ -109,6 +108,7 @@ export interface CreateContentCommandOutput extends CreateContentResponse, __Met
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ * @public
  */
 export class CreateContentCommand extends $Command
   .classBuilder<

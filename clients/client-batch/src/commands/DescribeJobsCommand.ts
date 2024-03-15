@@ -27,7 +27,6 @@ export interface DescribeJobsCommandInput extends DescribeJobsRequest {}
 export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a list of Batch jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -602,6 +601,7 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ * @public
  * @example To describe a specific job
  * ```javascript
  * // This example describes a job with the specified job ID.

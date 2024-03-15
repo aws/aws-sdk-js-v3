@@ -27,7 +27,6 @@ export interface DescribeOptionGroupOptionsCommandInput extends DescribeOptionGr
 export interface DescribeOptionGroupOptionsCommandOutput extends OptionGroupOptionsMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes all available options for the specified engine.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -112,6 +111,7 @@ export interface DescribeOptionGroupOptionsCommandOutput extends OptionGroupOpti
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To describe all available options
  * ```javascript
  * // The following example lists the options for an RDS for MySQL version 8.0 DB instance.

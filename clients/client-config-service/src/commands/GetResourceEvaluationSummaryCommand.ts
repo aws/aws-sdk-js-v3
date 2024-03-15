@@ -32,7 +32,6 @@ export interface GetResourceEvaluationSummaryCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a summary of resource evaluation for the specified resource evaluation ID from the proactive rules that were run.
  * 			The results indicate which evaluation context was used to evaluate the rules, which resource details were evaluated,
  * 			the evaluation mode that was run, and whether the resource details comply with the configuration of the proactive rules. </p>
@@ -85,6 +84,7 @@ export interface GetResourceEvaluationSummaryCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class GetResourceEvaluationSummaryCommand extends $Command
   .classBuilder<

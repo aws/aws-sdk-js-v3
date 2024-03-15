@@ -27,7 +27,6 @@ export interface ListHoursOfOperationsCommandInput extends ListHoursOfOperations
 export interface ListHoursOfOperationsCommandOutput extends ListHoursOfOperationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides information about the hours of operation for the specified Amazon Connect
  *    instance.</p>
  *          <p>For more information about hours of operation, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-hours-operation.html">Set the Hours of Operation for a
@@ -84,6 +83,7 @@ export interface ListHoursOfOperationsCommandOutput extends ListHoursOfOperation
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class ListHoursOfOperationsCommand extends $Command
   .classBuilder<

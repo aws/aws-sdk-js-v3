@@ -27,7 +27,6 @@ export interface PreviewPrivacyImpactCommandInput extends PreviewPrivacyImpactIn
 export interface PreviewPrivacyImpactCommandOutput extends PreviewPrivacyImpactOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>An estimate of the number of aggregation functions that the member who can query can run given epsilon and noise parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface PreviewPrivacyImpactCommandOutput extends PreviewPrivacyImpactO
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class PreviewPrivacyImpactCommand extends $Command
   .classBuilder<

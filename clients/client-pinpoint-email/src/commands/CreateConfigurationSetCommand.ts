@@ -27,7 +27,6 @@ export interface CreateConfigurationSetCommandInput extends CreateConfigurationS
 export interface CreateConfigurationSetCommandOutput extends CreateConfigurationSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a configuration set. <i>Configuration sets</i> are groups of
  *             rules that you can apply to the emails you send using Amazon Pinpoint. You apply a configuration
  *             set to an email by including a reference to the configuration set in the headers of the
@@ -95,6 +94,7 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * @public
  */
 export class CreateConfigurationSetCommand extends $Command
   .classBuilder<

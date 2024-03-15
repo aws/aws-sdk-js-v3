@@ -27,7 +27,6 @@ export interface GetMetricsSummaryCommandInput extends GetMetricsSummaryRequest 
 export interface GetMetricsSummaryCommandOutput extends GetMetricsSummaryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns top level metrics about an account from a specified date, including number of open
  *       findings, the categories with most findings, the scans with most open findings, and scans with
  *       most open critical findings. </p>
@@ -96,6 +95,7 @@ export interface GetMetricsSummaryCommandOutput extends GetMetricsSummaryRespons
  * @throws {@link CodeGuruSecurityServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruSecurity service.</p>
  *
+ * @public
  */
 export class GetMetricsSummaryCommand extends $Command
   .classBuilder<

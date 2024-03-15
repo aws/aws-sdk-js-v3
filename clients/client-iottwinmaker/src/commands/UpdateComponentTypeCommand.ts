@@ -27,7 +27,6 @@ export interface UpdateComponentTypeCommandInput extends UpdateComponentTypeRequ
 export interface UpdateComponentTypeCommandOutput extends UpdateComponentTypeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates information in a component type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -176,6 +175,7 @@ export interface UpdateComponentTypeCommandOutput extends UpdateComponentTypeRes
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ * @public
  */
 export class UpdateComponentTypeCommand extends $Command
   .classBuilder<

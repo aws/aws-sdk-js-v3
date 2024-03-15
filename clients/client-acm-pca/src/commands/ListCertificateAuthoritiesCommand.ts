@@ -27,7 +27,6 @@ export interface ListCertificateAuthoritiesCommandInput extends ListCertificateA
 export interface ListCertificateAuthoritiesCommandOutput extends ListCertificateAuthoritiesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the private certificate authorities that you created by using the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -178,6 +177,7 @@ export interface ListCertificateAuthoritiesCommandOutput extends ListCertificate
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ * @public
  */
 export class ListCertificateAuthoritiesCommand extends $Command
   .classBuilder<

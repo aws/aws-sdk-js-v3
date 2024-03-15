@@ -27,7 +27,6 @@ export interface GetAnomalyGroupCommandInput extends GetAnomalyGroupRequest {}
 export interface GetAnomalyGroupCommandOutput extends GetAnomalyGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns details about a group of anomalous metrics.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface GetAnomalyGroupCommandOutput extends GetAnomalyGroupResponse, _
  * @throws {@link LookoutMetricsServiceException}
  * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
+ * @public
  */
 export class GetAnomalyGroupCommand extends $Command
   .classBuilder<

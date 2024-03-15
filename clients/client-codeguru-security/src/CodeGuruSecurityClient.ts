@@ -297,7 +297,6 @@ export type CodeGuruSecurityClientResolvedConfigType = __SmithyResolvedConfigura
 export interface CodeGuruSecurityClientResolvedConfig extends CodeGuruSecurityClientResolvedConfigType {}
 
 /**
- * @public
  * <note>
  *             <p>Amazon CodeGuru Security is in preview release and is subject to
  *         change.</p>
@@ -310,6 +309,7 @@ export interface CodeGuruSecurityClientResolvedConfig extends CodeGuruSecurityCl
  *       CodeGuru Security improves the overall security of your application code. For more information
  *       about CodeGuru Security, see the
  *       <a href="https://docs.aws.amazon.com/codeguru/latest/security-ug/what-is-codeguru-security.html">Amazon CodeGuru Security User Guide</a>. </p>
+ * @public
  */
 export class CodeGuruSecurityClient extends __Client<
   __HttpHandlerOptions,

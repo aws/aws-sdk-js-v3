@@ -27,7 +27,6 @@ export interface CreateOrganizationalUnitCommandInput extends CreateOrganization
 export interface CreateOrganizationalUnitCommandOutput extends CreateOrganizationalUnitResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an organizational unit (OU) within a root or parent OU. An OU is a container
  *             for accounts that enables you to organize your accounts to apply policies according to
  *             your business requirements. The number of levels deep that you can nest OUs is dependent
@@ -407,6 +406,7 @@ export interface CreateOrganizationalUnitCommandOutput extends CreateOrganizatio
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  * @example To create a new organization unit
  * ```javascript
  * // The following example shows how to create an OU that is named AccountingOU. The new OU is directly under the root.:

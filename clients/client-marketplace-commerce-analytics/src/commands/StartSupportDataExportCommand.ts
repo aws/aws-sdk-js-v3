@@ -31,9 +31,6 @@ export interface StartSupportDataExportCommandInput extends StartSupportDataExpo
 export interface StartSupportDataExportCommandOutput extends StartSupportDataExportResult, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This target has been deprecated. As of December 2022 Product Support Connection is no longer supported.
- *
  * <i>This target has been deprecated.</i> Given a data set type and a from date, asynchronously publishes the requested customer support data
  *         to the specified S3 bucket and notifies the specified SNS topic once the data is available. Returns a unique request
  *         identifier that can be used to correlate requests with notifications from the SNS topic.
@@ -79,6 +76,8 @@ export interface StartSupportDataExportCommandOutput extends StartSupportDataExp
  * @throws {@link MarketplaceCommerceAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceCommerceAnalytics service.</p>
  *
+ * @public
+ * @deprecated This target has been deprecated. As of December 2022 Product Support Connection is no longer supported.
  */
 export class StartSupportDataExportCommand extends $Command
   .classBuilder<

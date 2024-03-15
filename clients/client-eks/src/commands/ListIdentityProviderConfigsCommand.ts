@@ -32,7 +32,6 @@ export interface ListIdentityProviderConfigsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the identity provider configurations for your cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface ListIdentityProviderConfigsCommandOutput
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class ListIdentityProviderConfigsCommand extends $Command
   .classBuilder<

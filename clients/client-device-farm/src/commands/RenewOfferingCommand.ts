@@ -27,7 +27,6 @@ export interface RenewOfferingCommandInput extends RenewOfferingRequest {}
 export interface RenewOfferingCommandOutput extends RenewOfferingResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Explicitly sets the quantity of devices to renew for an offering, starting from the
  *                 <code>effectiveDate</code> of the next period. The API returns a <code>NotEligible</code> error if the
  *             user is not permitted to invoke the operation. If you must be able to invoke this operation, contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a>.</p>
@@ -102,6 +101,7 @@ export interface RenewOfferingCommandOutput extends RenewOfferingResult, __Metad
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To renew a device slot offering
  * ```javascript
  * // The following example renews a specific device slot offering.

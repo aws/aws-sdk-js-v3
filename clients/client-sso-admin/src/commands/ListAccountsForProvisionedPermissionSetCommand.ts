@@ -36,7 +36,6 @@ export interface ListAccountsForProvisionedPermissionSetCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the Amazon Web Services accounts where the specified permission set is provisioned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface ListAccountsForProvisionedPermissionSetCommandOutput
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class ListAccountsForProvisionedPermissionSetCommand extends $Command
   .classBuilder<

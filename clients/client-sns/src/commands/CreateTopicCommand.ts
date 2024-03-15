@@ -27,7 +27,6 @@ export interface CreateTopicCommandInput extends CreateTopicInput {}
 export interface CreateTopicCommandOutput extends CreateTopicResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a topic to which notifications can be published. Users can create at most
  *             100,000 standard topics (at most 1,000 FIFO topics). For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-create-topic.html">Creating an Amazon SNS
  *                 topic</a> in the <i>Amazon SNS Developer Guide</i>. This action is
@@ -101,6 +100,7 @@ export interface CreateTopicCommandOutput extends CreateTopicResponse, __Metadat
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * @public
  */
 export class CreateTopicCommand extends $Command
   .classBuilder<

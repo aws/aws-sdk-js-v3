@@ -27,7 +27,6 @@ export interface DeleteClusterCommandInput extends DeleteClusterRequest {}
 export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a previously provisioned DAX cluster.
  *                 <i>DeleteCluster</i> deletes all associated nodes, node endpoints
  *             and the DAX cluster itself. When you receive a successful response from this action,
@@ -129,6 +128,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * @throws {@link DAXServiceException}
  * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ * @public
  */
 export class DeleteClusterCommand extends $Command
   .classBuilder<

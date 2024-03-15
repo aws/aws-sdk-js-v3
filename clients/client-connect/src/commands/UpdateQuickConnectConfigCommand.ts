@@ -27,7 +27,6 @@ export interface UpdateQuickConnectConfigCommandInput extends UpdateQuickConnect
 export interface UpdateQuickConnectConfigCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the configuration settings for the specified quick connect.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface UpdateQuickConnectConfigCommandOutput extends __MetadataBearer 
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UpdateQuickConnectConfigCommand extends $Command
   .classBuilder<

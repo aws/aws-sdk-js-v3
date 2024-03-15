@@ -27,7 +27,6 @@ export interface DescribeQueriesCommandInput extends DescribeQueriesRequest {}
 export interface DescribeQueriesCommandOutput extends DescribeQueriesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of CloudWatch Logs Insights queries that are scheduled, running, or have
  *       been run recently in this account. You can request all queries or limit it to queries of a
  *       specific log group or queries with a certain status.</p>
@@ -78,6 +77,7 @@ export interface DescribeQueriesCommandOutput extends DescribeQueriesResponse, _
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class DescribeQueriesCommand extends $Command
   .classBuilder<

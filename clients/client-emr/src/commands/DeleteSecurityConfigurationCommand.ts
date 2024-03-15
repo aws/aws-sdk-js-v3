@@ -27,7 +27,6 @@ export interface DeleteSecurityConfigurationCommandInput extends DeleteSecurityC
 export interface DeleteSecurityConfigurationCommandOutput extends DeleteSecurityConfigurationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a security configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -60,6 +59,7 @@ export interface DeleteSecurityConfigurationCommandOutput extends DeleteSecurity
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class DeleteSecurityConfigurationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateAppImageConfigCommandInput extends UpdateAppImageConfigRe
 export interface UpdateAppImageConfigCommandOutput extends UpdateAppImageConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the properties of an AppImageConfig.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface UpdateAppImageConfigCommandOutput extends UpdateAppImageConfigR
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class UpdateAppImageConfigCommand extends $Command
   .classBuilder<

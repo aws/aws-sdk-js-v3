@@ -27,7 +27,6 @@ export interface StartDocumentTextDetectionCommandInput extends StartDocumentTex
 export interface StartDocumentTextDetectionCommandOutput extends StartDocumentTextDetectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts the asynchronous detection of text in a document. Amazon Textract can detect lines of
  *          text and the words that make up a line of text.</p>
  *          <p>
@@ -144,6 +143,7 @@ export interface StartDocumentTextDetectionCommandOutput extends StartDocumentTe
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ * @public
  */
 export class StartDocumentTextDetectionCommand extends $Command
   .classBuilder<

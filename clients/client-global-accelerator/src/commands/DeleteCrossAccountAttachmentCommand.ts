@@ -34,7 +34,6 @@ export interface DeleteCrossAccountAttachmentCommandInput extends DeleteCrossAcc
 export interface DeleteCrossAccountAttachmentCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete a cross-account attachment. When you delete an attachment, Global Accelerator revokes the permission
  * 			to use the resources in the attachment from all principals in the list of principals. Global Accelerator
  * 			revokes the permission for specific resources by doing the following:</p>
@@ -92,6 +91,7 @@ export interface DeleteCrossAccountAttachmentCommandOutput extends __MetadataBea
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class DeleteCrossAccountAttachmentCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListFleetsCommandInput extends ListFleetsInput {}
 export interface ListFleetsCommandOutput extends ListFleetsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a collection of fleet resources in an Amazon Web Services Region. You can call this
  *             operation to get fleets in a previously selected default Region (see <a href="https://docs.aws.amazon.com/credref/latest/refdocs/setting-global-region.html">https://docs.aws.amazon.com/credref/latest/refdocs/setting-global-region.html</a>or
  *             specify a Region in your request. You can filter the result set to find only those
@@ -107,6 +106,7 @@ export interface ListFleetsCommandOutput extends ListFleetsOutput, __MetadataBea
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class ListFleetsCommand extends $Command
   .classBuilder<

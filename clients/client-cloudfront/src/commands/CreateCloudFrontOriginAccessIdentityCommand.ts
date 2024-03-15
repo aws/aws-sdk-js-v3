@@ -35,7 +35,6 @@ export interface CreateCloudFrontOriginAccessIdentityCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new origin access identity. If you're using Amazon S3 for your origin, you can
  * 			use an origin access identity to require users to access your content using a CloudFront URL
  * 			instead of the Amazon S3 URL. For more information about how to use origin access identities,
@@ -101,6 +100,7 @@ export interface CreateCloudFrontOriginAccessIdentityCommandOutput
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class CreateCloudFrontOriginAccessIdentityCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeTransitGatewaysCommandInput extends DescribeTransitGate
 export interface DescribeTransitGatewaysCommandOutput extends DescribeTransitGatewaysResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes one or more transit gateways. By default, all transit gateways are described. Alternatively, you can
  *          filter the results.</p>
  * @example
@@ -100,6 +99,7 @@ export interface DescribeTransitGatewaysCommandOutput extends DescribeTransitGat
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeTransitGatewaysCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListStudiosCommandInput extends ListStudiosRequest {}
 export interface ListStudiosCommandOutput extends ListStudiosResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List studios in your Amazon Web Services accounts in the requested Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -104,6 +103,7 @@ export interface ListStudiosCommandOutput extends ListStudiosResponse, __Metadat
  * @throws {@link NimbleServiceException}
  * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
+ * @public
  */
 export class ListStudiosCommand extends $Command
   .classBuilder<

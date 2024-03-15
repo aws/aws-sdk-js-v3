@@ -27,7 +27,6 @@ export interface ListOpenIDConnectProvidersCommandInput extends ListOpenIDConnec
 export interface ListOpenIDConnectProvidersCommandOutput extends ListOpenIDConnectProvidersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists information about the IAM OpenID Connect (OIDC) provider resource objects
  *             defined in the Amazon Web Services account.</p>
  *          <note>
@@ -66,6 +65,7 @@ export interface ListOpenIDConnectProvidersCommandOutput extends ListOpenIDConne
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class ListOpenIDConnectProvidersCommand extends $Command
   .classBuilder<

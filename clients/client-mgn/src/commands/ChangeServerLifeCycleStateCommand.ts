@@ -27,7 +27,6 @@ export interface ChangeServerLifeCycleStateCommandInput extends ChangeServerLife
 export interface ChangeServerLifeCycleStateCommandOutput extends SourceServer, __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows the user to set the SourceServer.LifeCycle.state property for specific Source Server IDs to one of the following: READY_FOR_TEST or READY_FOR_CUTOVER. This command only works if the Source Server is already launchable (dataReplicationInfo.lagDuration is not null.)</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -186,6 +185,7 @@ export interface ChangeServerLifeCycleStateCommandOutput extends SourceServer, _
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * @public
  */
 export class ChangeServerLifeCycleStateCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface PutConfigurationCommandInput extends PutConfigurationRequest {}
 export interface PutConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Associates a <code>TagKey</code> configuration
  *       to an account.
@@ -74,6 +73,7 @@ export interface PutConfigurationCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceCatalogAppRegistryServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
+ * @public
  */
 export class PutConfigurationCommand extends $Command
   .classBuilder<

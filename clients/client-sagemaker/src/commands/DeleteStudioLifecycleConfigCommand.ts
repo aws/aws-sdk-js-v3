@@ -27,7 +27,6 @@ export interface DeleteStudioLifecycleConfigCommandInput extends DeleteStudioLif
 export interface DeleteStudioLifecycleConfigCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the Amazon SageMaker Studio Lifecycle Configuration. In order to delete the Lifecycle Configuration, there must be no running apps using the Lifecycle Configuration. You must also remove the Lifecycle Configuration from UserSettings in all Domains and UserProfiles.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +58,7 @@ export interface DeleteStudioLifecycleConfigCommandOutput extends __MetadataBear
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteStudioLifecycleConfigCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateClassificationJobCommandInput extends UpdateClassificatio
 export interface UpdateClassificationJobCommandOutput extends UpdateClassificationJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes the status of a classification job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface UpdateClassificationJobCommandOutput extends UpdateClassificati
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class UpdateClassificationJobCommand extends $Command
   .classBuilder<

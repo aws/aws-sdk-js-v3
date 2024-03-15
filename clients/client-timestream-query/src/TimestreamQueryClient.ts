@@ -324,10 +324,10 @@ export type TimestreamQueryClientResolvedConfigType = __SmithyResolvedConfigurat
 export interface TimestreamQueryClientResolvedConfig extends TimestreamQueryClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>Amazon Timestream Query
  *         </fullname>
  *          <p></p>
+ * @public
  */
 export class TimestreamQueryClient extends __Client<
   __HttpHandlerOptions,

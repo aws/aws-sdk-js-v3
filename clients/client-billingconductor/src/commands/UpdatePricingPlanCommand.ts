@@ -32,7 +32,6 @@ export interface UpdatePricingPlanCommandInput extends UpdatePricingPlanInput {}
 export interface UpdatePricingPlanCommandOutput extends UpdatePricingPlanOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This updates an existing pricing plan.
  *     </p>
  * @example
@@ -90,6 +89,7 @@ export interface UpdatePricingPlanCommandOutput extends UpdatePricingPlanOutput,
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ * @public
  */
 export class UpdatePricingPlanCommand extends $Command
   .classBuilder<

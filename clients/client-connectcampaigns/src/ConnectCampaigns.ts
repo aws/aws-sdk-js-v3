@@ -468,8 +468,8 @@ export interface ConnectCampaigns {
 }
 
 /**
- * @public
  * Provide APIs to create and manage Amazon Connect Campaigns.
+ * @public
  */
 export class ConnectCampaigns extends ConnectCampaignsClient implements ConnectCampaigns {}
 createAggregatedClient(commands, ConnectCampaigns);

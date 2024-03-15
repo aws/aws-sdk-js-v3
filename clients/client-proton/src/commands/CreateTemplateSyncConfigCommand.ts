@@ -27,7 +27,6 @@ export interface CreateTemplateSyncConfigCommandInput extends CreateTemplateSync
 export interface CreateTemplateSyncConfigCommandOutput extends CreateTemplateSyncConfigOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Set up a template to create new template versions automatically by tracking a linked repository. A linked repository is a repository that has
  *    been registered with Proton. For more information, see <a>CreateRepository</a>.</p>
  *          <p>When a commit is pushed to your linked repository, Proton checks for changes to your repository template bundles. If it detects a template
@@ -90,6 +89,7 @@ export interface CreateTemplateSyncConfigCommandOutput extends CreateTemplateSyn
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class CreateTemplateSyncConfigCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListAccountAliasesCommandInput extends ListAccountAliasesReques
 export interface ListAccountAliasesCommandOutput extends ListAccountAliasesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the account alias associated with the Amazon Web Services account (Note: you can have only
  *             one). For information about using an Amazon Web Services account alias, see <a href="https://docs.aws.amazon.com/signin/latest/userguide/CreateAccountAlias.html">Creating,
  *                 deleting, and listing an Amazon Web Services account alias</a> in the <i>Amazon Web Services Sign-In
@@ -67,6 +66,7 @@ export interface ListAccountAliasesCommandOutput extends ListAccountAliasesRespo
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To list account aliases
  * ```javascript
  * // The following command lists the aliases for the current account.

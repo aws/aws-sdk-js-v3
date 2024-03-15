@@ -254,8 +254,8 @@ export type KinesisVideoMediaClientResolvedConfigType = __SmithyResolvedConfigur
 export interface KinesisVideoMediaClientResolvedConfig extends KinesisVideoMediaClientResolvedConfigType {}
 
 /**
- * @public
  * <p></p>
+ * @public
  */
 export class KinesisVideoMediaClient extends __Client<
   __HttpHandlerOptions,

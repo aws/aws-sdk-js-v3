@@ -32,7 +32,6 @@ export interface ListObservabilityConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of active App Runner observability configurations in your Amazon Web Services account. You can query the revisions for a specific
  *       configuration name or the revisions for all active configurations in your account. You can optionally query only the latest revision of each requested
  *       name.</p>
@@ -80,6 +79,7 @@ export interface ListObservabilityConfigurationsCommandOutput
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ * @public
  */
 export class ListObservabilityConfigurationsCommand extends $Command
   .classBuilder<

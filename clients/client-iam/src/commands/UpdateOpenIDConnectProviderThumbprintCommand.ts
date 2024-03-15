@@ -31,7 +31,6 @@ export interface UpdateOpenIDConnectProviderThumbprintCommandInput
 export interface UpdateOpenIDConnectProviderThumbprintCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Replaces the existing list of server certificate thumbprints associated with an OpenID
  *             Connect (OIDC) provider resource object with a new list of thumbprints.</p>
  *          <p>The list that you pass with this operation completely replaces the existing list of
@@ -94,6 +93,7 @@ export interface UpdateOpenIDConnectProviderThumbprintCommandOutput extends __Me
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class UpdateOpenIDConnectProviderThumbprintCommand extends $Command
   .classBuilder<

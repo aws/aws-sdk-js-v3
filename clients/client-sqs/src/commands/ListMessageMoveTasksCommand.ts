@@ -27,7 +27,6 @@ export interface ListMessageMoveTasksCommandInput extends ListMessageMoveTasksRe
 export interface ListMessageMoveTasksCommandOutput extends ListMessageMoveTasksResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the most recent message movement tasks (up to 10) under a specific source
  *             queue.</p>
  *          <note>
@@ -117,6 +116,7 @@ export interface ListMessageMoveTasksCommandOutput extends ListMessageMoveTasksR
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ * @public
  */
 export class ListMessageMoveTasksCommand extends $Command
   .classBuilder<

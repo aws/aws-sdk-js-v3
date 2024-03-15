@@ -27,7 +27,6 @@ export interface GetAWSDefaultServiceQuotaCommandInput extends GetAWSDefaultServ
 export interface GetAWSDefaultServiceQuotaCommandOutput extends GetAWSDefaultServiceQuotaResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the default value for the specified quota. The default value does not
  *             reflect any quota increases.</p>
  * @example
@@ -105,6 +104,7 @@ export interface GetAWSDefaultServiceQuotaCommandOutput extends GetAWSDefaultSer
  * @throws {@link ServiceQuotasServiceException}
  * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
+ * @public
  */
 export class GetAWSDefaultServiceQuotaCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeFleetsCommandInput extends DescribeFleetsRequest {}
 export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified EC2 Fleet or all of your EC2 Fleets.</p>
  *          <important>
  *             <p>If a fleet is of type <code>instant</code>, you must specify the fleet ID in the
@@ -415,6 +414,7 @@ export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __Met
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeFleetsCommand extends $Command
   .classBuilder<

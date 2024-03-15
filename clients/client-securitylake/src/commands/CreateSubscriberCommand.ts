@@ -27,7 +27,6 @@ export interface CreateSubscriberCommandInput extends CreateSubscriberRequest {}
 export interface CreateSubscriberCommandOutput extends CreateSubscriberResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a subscription permission for accounts that are already enabled in
  *          Amazon Security Lake. You can create a subscriber with access to data in the current Amazon Web Services Region.</p>
  * @example
@@ -157,6 +156,7 @@ export interface CreateSubscriberCommandOutput extends CreateSubscriberResponse,
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ * @public
  */
 export class CreateSubscriberCommand extends $Command
   .classBuilder<

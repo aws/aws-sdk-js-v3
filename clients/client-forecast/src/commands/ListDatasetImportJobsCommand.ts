@@ -27,7 +27,6 @@ export interface ListDatasetImportJobsCommandInput extends ListDatasetImportJobs
 export interface ListDatasetImportJobsCommandOutput extends ListDatasetImportJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of dataset import jobs created using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a>
  *       operation. For each import job, this operation returns a summary of its properties, including
  *       its Amazon Resource Name (ARN). You can retrieve the complete set of properties by using the
@@ -92,6 +91,7 @@ export interface ListDatasetImportJobsCommandOutput extends ListDatasetImportJob
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class ListDatasetImportJobsCommand extends $Command
   .classBuilder<

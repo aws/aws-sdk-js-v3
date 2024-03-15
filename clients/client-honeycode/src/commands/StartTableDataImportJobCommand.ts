@@ -31,7 +31,6 @@ export interface StartTableDataImportJobCommandInput extends StartTableDataImpor
 export interface StartTableDataImportJobCommandOutput extends StartTableDataImportJobResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The StartTableDataImportJob API allows you to start an import job on a table. This API will only return
  *             the id of the job that was started. To find out the status of the import request, you need to call the
@@ -118,6 +117,7 @@ export interface StartTableDataImportJobCommandOutput extends StartTableDataImpo
  * @throws {@link HoneycodeServiceException}
  * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
+ * @public
  */
 export class StartTableDataImportJobCommand extends $Command
   .classBuilder<

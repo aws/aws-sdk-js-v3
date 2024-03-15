@@ -27,7 +27,6 @@ export interface ListRecipeVersionsCommandInput extends ListRecipeVersionsReques
 export interface ListRecipeVersionsCommandOutput extends ListRecipeVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the versions of a particular DataBrew recipe, except for
  *                 <code>LATEST_WORKING</code>.</p>
  * @example
@@ -96,6 +95,7 @@ export interface ListRecipeVersionsCommandOutput extends ListRecipeVersionsRespo
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * @public
  */
 export class ListRecipeVersionsCommand extends $Command
   .classBuilder<

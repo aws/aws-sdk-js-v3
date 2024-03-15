@@ -27,7 +27,6 @@ export interface StopRemoteAccessSessionCommandInput extends StopRemoteAccessSes
 export interface StopRemoteAccessSessionCommandOutput extends StopRemoteAccessSessionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Ends a specified remote access session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -151,6 +150,7 @@ export interface StopRemoteAccessSessionCommandOutput extends StopRemoteAccessSe
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  */
 export class StopRemoteAccessSessionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteFileCacheCommandInput extends DeleteFileCacheRequest {}
 export interface DeleteFileCacheCommandOutput extends DeleteFileCacheResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Amazon File Cache resource. After deletion, the cache no longer exists, and its data
  *             is gone.</p>
  *          <p>The <code>DeleteFileCache</code> operation returns while the cache has the
@@ -86,6 +85,7 @@ export interface DeleteFileCacheCommandOutput extends DeleteFileCacheResponse, _
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  */
 export class DeleteFileCacheCommand extends $Command
   .classBuilder<

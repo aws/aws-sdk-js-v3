@@ -27,7 +27,6 @@ export interface GetContactCommandInput extends GetContactRequest {}
 export interface GetContactCommandOutput extends GetContactResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the specified contact or escalation plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface GetContactCommandOutput extends GetContactResult, __MetadataBea
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ * @public
  */
 export class GetContactCommand extends $Command
   .classBuilder<

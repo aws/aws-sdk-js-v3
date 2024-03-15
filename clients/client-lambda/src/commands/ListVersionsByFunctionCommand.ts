@@ -31,7 +31,6 @@ export interface ListVersionsByFunctionCommandInput extends ListVersionsByFuncti
 export interface ListVersionsByFunctionCommandOutput extends ListVersionsByFunctionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">versions</a>,
  *       with the version-specific configuration of each. Lambda returns up to 50 versions per call.</p>
  * @example
@@ -179,6 +178,7 @@ export interface ListVersionsByFunctionCommandOutput extends ListVersionsByFunct
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class ListVersionsByFunctionCommand extends $Command
   .classBuilder<

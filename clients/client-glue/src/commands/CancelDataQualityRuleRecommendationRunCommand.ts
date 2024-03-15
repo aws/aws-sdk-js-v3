@@ -36,7 +36,6 @@ export interface CancelDataQualityRuleRecommendationRunCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels the specified recommendation run that was being used to generate rules.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface CancelDataQualityRuleRecommendationRunCommandOutput
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class CancelDataQualityRuleRecommendationRunCommand extends $Command
   .classBuilder<

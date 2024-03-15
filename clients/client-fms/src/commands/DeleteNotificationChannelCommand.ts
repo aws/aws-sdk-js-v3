@@ -27,7 +27,6 @@ export interface DeleteNotificationChannelCommandInput extends DeleteNotificatio
 export interface DeleteNotificationChannelCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Firewall Manager association with the IAM role and the Amazon Simple
  *       Notification Service (SNS) topic that is used to record Firewall Manager SNS logs.</p>
  * @example
@@ -66,6 +65,7 @@ export interface DeleteNotificationChannelCommandOutput extends __MetadataBearer
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * @public
  */
 export class DeleteNotificationChannelCommand extends $Command
   .classBuilder<

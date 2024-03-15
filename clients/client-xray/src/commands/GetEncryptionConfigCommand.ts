@@ -27,7 +27,6 @@ export interface GetEncryptionConfigCommandInput extends GetEncryptionConfigRequ
 export interface GetEncryptionConfigCommandOutput extends GetEncryptionConfigResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the current encryption configuration for X-Ray data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +62,7 @@ export interface GetEncryptionConfigCommandOutput extends GetEncryptionConfigRes
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ * @public
  */
 export class GetEncryptionConfigCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeTrailsCommandInput extends DescribeTrailsRequest {}
 export interface DescribeTrailsCommandOutput extends DescribeTrailsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves settings for one or more trails associated with the current Region for your
  *          account.</p>
  * @example
@@ -122,6 +121,7 @@ export interface DescribeTrailsCommandOutput extends DescribeTrailsResponse, __M
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class DescribeTrailsCommand extends $Command
   .classBuilder<

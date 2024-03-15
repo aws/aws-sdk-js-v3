@@ -27,7 +27,6 @@ export interface UpdateClassificationScopeCommandInput extends UpdateClassificat
 export interface UpdateClassificationScopeCommandOutput extends UpdateClassificationScopeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the classification scope settings for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface UpdateClassificationScopeCommandOutput extends UpdateClassifica
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class UpdateClassificationScopeCommand extends $Command
   .classBuilder<

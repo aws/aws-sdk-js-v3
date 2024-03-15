@@ -27,7 +27,6 @@ export interface CreateUserHierarchyGroupCommandInput extends CreateUserHierarch
 export interface CreateUserHierarchyGroupCommandOutput extends CreateUserHierarchyGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new user hierarchy group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface CreateUserHierarchyGroupCommandOutput extends CreateUserHierarc
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class CreateUserHierarchyGroupCommand extends $Command
   .classBuilder<

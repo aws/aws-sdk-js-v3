@@ -27,7 +27,6 @@ export interface ImportComponentCommandInput extends ImportComponentRequest {}
 export interface ImportComponentCommandOutput extends ImportComponentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Imports a component and transforms its data into a component document.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface ImportComponentCommandOutput extends ImportComponentResponse, _
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class ImportComponentCommand extends $Command
   .classBuilder<

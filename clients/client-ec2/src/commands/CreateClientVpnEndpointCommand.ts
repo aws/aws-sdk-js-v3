@@ -27,7 +27,6 @@ export interface CreateClientVpnEndpointCommandInput extends CreateClientVpnEndp
 export interface CreateClientVpnEndpointCommandOutput extends CreateClientVpnEndpointResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Client VPN endpoint. A Client VPN endpoint is the resource you create and configure to
  * 			enable and manage client VPN sessions. It is the destination endpoint at which all client VPN sessions
  * 			are terminated.</p>
@@ -117,6 +116,7 @@ export interface CreateClientVpnEndpointCommandOutput extends CreateClientVpnEnd
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateClientVpnEndpointCommand extends $Command
   .classBuilder<

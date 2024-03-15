@@ -31,7 +31,6 @@ export interface ListEntitiesCommandInput extends ListEntitiesRequest {}
 export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides the list of entities of a given type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -403,6 +402,7 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  * @throws {@link MarketplaceCatalogServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceCatalog service.</p>
  *
+ * @public
  */
 export class ListEntitiesCommand extends $Command
   .classBuilder<

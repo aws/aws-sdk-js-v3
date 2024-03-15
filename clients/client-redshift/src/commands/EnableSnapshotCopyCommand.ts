@@ -31,7 +31,6 @@ export interface EnableSnapshotCopyCommandInput extends EnableSnapshotCopyMessag
 export interface EnableSnapshotCopyCommandOutput extends EnableSnapshotCopyResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables the automatic copy of snapshots from one region to another region for a
  *             specified cluster.</p>
  * @example
@@ -290,6 +289,7 @@ export interface EnableSnapshotCopyCommandOutput extends EnableSnapshotCopyResul
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class EnableSnapshotCopyCommand extends $Command
   .classBuilder<

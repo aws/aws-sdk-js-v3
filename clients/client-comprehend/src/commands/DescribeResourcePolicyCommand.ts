@@ -27,7 +27,6 @@ export interface DescribeResourcePolicyCommandInput extends DescribeResourcePoli
 export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the details of a resource-based policy that is attached to a custom model, including
  *       the JSON body of the policy.</p>
  * @example
@@ -68,6 +67,7 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class DescribeResourcePolicyCommand extends $Command
   .classBuilder<

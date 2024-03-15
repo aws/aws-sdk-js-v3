@@ -27,7 +27,6 @@ export interface ListMediaAnalysisJobsCommandInput extends ListMediaAnalysisJobs
 export interface ListMediaAnalysisJobsCommandOutput extends ListMediaAnalysisJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of media analysis jobs. Results are sorted by <code>CreationTimestamp</code> in descending order.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -124,6 +123,7 @@ export interface ListMediaAnalysisJobsCommandOutput extends ListMediaAnalysisJob
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example ListMediaAnalysisJobs
  * ```javascript
  * // Returns a list of media analysis jobs.

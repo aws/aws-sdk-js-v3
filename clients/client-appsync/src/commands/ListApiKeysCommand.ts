@@ -27,7 +27,6 @@ export interface ListApiKeysCommandInput extends ListApiKeysRequest {}
 export interface ListApiKeysCommandOutput extends ListApiKeysResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the API keys for a given API.</p>
  *          <note>
  *             <p>API keys are deleted automatically 60 days after they expire. However, they may still be included in the
@@ -83,6 +82,7 @@ export interface ListApiKeysCommandOutput extends ListApiKeysResponse, __Metadat
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class ListApiKeysCommand extends $Command
   .classBuilder<

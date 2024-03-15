@@ -27,7 +27,6 @@ export interface PutResourceLogLevelCommandInput extends PutResourceLogLevelRequ
 export interface PutResourceLogLevelCommandOutput extends PutResourceLogLevelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the log-level override for a resource-ID and resource-type. This option can be
  *             specified for a wireless gateway or a wireless device. A limit of 200 log level override
  *             can be set per account.</p>
@@ -72,6 +71,7 @@ export interface PutResourceLogLevelCommandOutput extends PutResourceLogLevelRes
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class PutResourceLogLevelCommand extends $Command
   .classBuilder<

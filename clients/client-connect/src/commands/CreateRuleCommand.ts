@@ -27,7 +27,6 @@ export interface CreateRuleCommandInput extends CreateRuleRequest {}
 export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a rule for the specified Amazon Connect instance.</p>
  *          <p>Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html">Rules Function language</a> to
  *    code conditions for the rule. </p>
@@ -149,6 +148,7 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class CreateRuleCommand extends $Command
   .classBuilder<

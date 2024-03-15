@@ -27,7 +27,6 @@ export interface PutRolePermissionsBoundaryCommandInput extends PutRolePermissio
 export interface PutRolePermissionsBoundaryCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds or updates the policy that is specified as the IAM role's permissions boundary.
  *             You can use an Amazon Web Services managed policy or a customer managed policy to set the boundary for
  *             a role. Use the boundary to control the maximum permissions that the role can have.
@@ -87,6 +86,7 @@ export interface PutRolePermissionsBoundaryCommandOutput extends __MetadataBeare
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class PutRolePermissionsBoundaryCommand extends $Command
   .classBuilder<

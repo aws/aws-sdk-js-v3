@@ -36,7 +36,6 @@ export interface DescribeConfigurationAggregatorSourcesStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns status information for sources within an aggregator.
  * 			The status includes information about the last time Config verified authorization between the source account and an aggregator account. In case of a failure, the status contains the related error code or message. </p>
  * @example
@@ -96,6 +95,7 @@ export interface DescribeConfigurationAggregatorSourcesStatusCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class DescribeConfigurationAggregatorSourcesStatusCommand extends $Command
   .classBuilder<

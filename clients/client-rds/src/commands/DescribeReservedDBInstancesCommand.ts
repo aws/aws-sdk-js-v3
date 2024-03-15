@@ -27,7 +27,6 @@ export interface DescribeReservedDBInstancesCommandInput extends DescribeReserve
 export interface DescribeReservedDBInstancesCommandOutput extends ReservedDBInstanceMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about reserved DB instances for this account, or about a specified reserved DB instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface DescribeReservedDBInstancesCommandOutput extends ReservedDBInst
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To describe reserved DB instances
  * ```javascript
  * // The following example retrieves details about any reserved DB instances in the current AWS account.

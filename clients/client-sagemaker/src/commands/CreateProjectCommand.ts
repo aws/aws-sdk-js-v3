@@ -27,7 +27,6 @@ export interface CreateProjectCommandInput extends CreateProjectInput {}
 export interface CreateProjectCommandOutput extends CreateProjectOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a machine learning (ML) project that can contain one or more templates that set
  *             up an ML pipeline from training to deploying an approved model.</p>
  * @example
@@ -79,6 +78,7 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateProjectCommand extends $Command
   .classBuilder<

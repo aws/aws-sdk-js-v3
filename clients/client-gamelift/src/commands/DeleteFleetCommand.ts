@@ -27,7 +27,6 @@ export interface DeleteFleetCommandInput extends DeleteFleetInput {}
 export interface DeleteFleetCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes all resources and information related a fleet. Any current fleet instances,
  *             including those in remote locations, are shut down. You don't need to call
  *                 <code>DeleteFleetLocations</code> separately.</p>
@@ -95,6 +94,7 @@ export interface DeleteFleetCommandOutput extends __MetadataBearer {}
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DeleteFleetCommand extends $Command
   .classBuilder<

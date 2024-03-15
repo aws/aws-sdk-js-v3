@@ -27,7 +27,6 @@ export interface CreateApplicationCommandInput extends CreateApplicationInput {}
 export interface CreateApplicationCommandOutput extends CreateApplicationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationOutput,
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
  */
 export class CreateApplicationCommand extends $Command
   .classBuilder<

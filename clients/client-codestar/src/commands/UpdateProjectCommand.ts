@@ -27,7 +27,6 @@ export interface UpdateProjectCommandInput extends UpdateProjectRequest {}
 export interface UpdateProjectCommandOutput extends UpdateProjectResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a project in AWS CodeStar.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,6 +60,7 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResult, __Metad
  * @throws {@link CodeStarServiceException}
  * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
+ * @public
  */
 export class UpdateProjectCommand extends $Command
   .classBuilder<

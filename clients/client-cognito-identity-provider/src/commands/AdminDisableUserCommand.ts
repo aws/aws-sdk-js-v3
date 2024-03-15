@@ -35,7 +35,6 @@ export interface AdminDisableUserCommandInput extends AdminDisableUserRequest {}
 export interface AdminDisableUserCommandOutput extends AdminDisableUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deactivates a user and revokes all access tokens for the user. A deactivated user
  *             can't sign in, but still appears in the responses to <code>GetUser</code> and
  *                 <code>ListUsers</code> API requests.</p>
@@ -105,6 +104,7 @@ export interface AdminDisableUserCommandOutput extends AdminDisableUserResponse,
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class AdminDisableUserCommand extends $Command
   .classBuilder<

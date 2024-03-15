@@ -27,7 +27,6 @@ export interface PauseCampaignCommandInput extends PauseCampaignRequest {}
 export interface PauseCampaignCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * Pauses a campaign for the specified Amazon Connect account.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface PauseCampaignCommandOutput extends __MetadataBearer {}
  * @throws {@link ConnectCampaignsServiceException}
  * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
+ * @public
  */
 export class PauseCampaignCommand extends $Command
   .classBuilder<

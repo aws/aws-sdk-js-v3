@@ -27,7 +27,6 @@ export interface CreateNetworkAclCommandInput extends CreateNetworkAclRequest {}
 export interface CreateNetworkAclCommandOutput extends CreateNetworkAclResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a network ACL in a VPC. Network ACLs provide an optional layer of security (in addition to security groups) for the instances in your VPC.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html">Network ACLs</a> in the
  * 				<i>Amazon VPC User Guide</i>.</p>
@@ -107,6 +106,7 @@ export interface CreateNetworkAclCommandOutput extends CreateNetworkAclResult, _
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To create a network ACL
  * ```javascript
  * // This example creates a network ACL for the specified VPC.

@@ -27,7 +27,6 @@ export interface GetOperationCommandInput extends GetOperationRequest {}
 export interface GetOperationCommandOutput extends GetOperationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about any operation that returns an operation ID in the response, such as a
  *     <code>CreateHttpNamespace</code> request.</p>
  *          <note>
@@ -78,6 +77,7 @@ export interface GetOperationCommandOutput extends GetOperationResponse, __Metad
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
+ * @public
  * @example Example: Get operation result
  * ```javascript
  * // Example: Get operation result

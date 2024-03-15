@@ -27,7 +27,6 @@ export interface DescribeWorkspaceBundlesCommandInput extends DescribeWorkspaceB
 export interface DescribeWorkspaceBundlesCommandOutput extends DescribeWorkspaceBundlesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list that describes the available WorkSpace bundles.</p>
  *          <p>You can filter the results using either bundle ID or owner, but not both.</p>
  * @example
@@ -85,6 +84,7 @@ export interface DescribeWorkspaceBundlesCommandOutput extends DescribeWorkspace
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class DescribeWorkspaceBundlesCommand extends $Command
   .classBuilder<

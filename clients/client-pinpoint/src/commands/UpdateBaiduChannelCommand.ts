@@ -27,7 +27,6 @@ export interface UpdateBaiduChannelCommandInput extends UpdateBaiduChannelReques
 export interface UpdateBaiduChannelCommandOutput extends UpdateBaiduChannelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables the Baidu channel for an application or updates the status and settings of the Baidu channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface UpdateBaiduChannelCommandOutput extends UpdateBaiduChannelRespo
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class UpdateBaiduChannelCommand extends $Command
   .classBuilder<

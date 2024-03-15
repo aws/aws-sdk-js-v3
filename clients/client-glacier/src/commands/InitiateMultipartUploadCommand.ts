@@ -27,7 +27,6 @@ export interface InitiateMultipartUploadCommandInput extends InitiateMultipartUp
 export interface InitiateMultipartUploadCommandOutput extends InitiateMultipartUploadOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation initiates a multipart upload. Amazon S3 Glacier creates a multipart
  *          upload resource and returns its ID in the response. The multipart upload ID is used in
  *          subsequent requests to upload parts of an archive (see <a>UploadMultipartPart</a>).</p>
@@ -105,6 +104,7 @@ export interface InitiateMultipartUploadCommandOutput extends InitiateMultipartU
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * @public
  * @example To initiate a multipart upload
  * ```javascript
  * // The example initiates a multipart upload to a vault named my-vault with a part size of 1 MiB (1024 x 1024 bytes) per file.

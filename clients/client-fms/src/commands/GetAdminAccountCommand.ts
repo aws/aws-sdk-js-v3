@@ -27,7 +27,6 @@ export interface GetAdminAccountCommandInput extends GetAdminAccountRequest {}
 export interface GetAdminAccountCommandOutput extends GetAdminAccountResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the Organizations account that is associated with Firewall Manager
  *       as the Firewall Manager default administrator.</p>
  * @example
@@ -69,6 +68,7 @@ export interface GetAdminAccountCommandOutput extends GetAdminAccountResponse, _
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * @public
  */
 export class GetAdminAccountCommand extends $Command
   .classBuilder<

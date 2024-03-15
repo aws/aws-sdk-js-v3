@@ -36,7 +36,6 @@ export interface BatchDisassociateResourcesFromCustomLineItemCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Disassociates a batch of resources from a percentage custom line item.
  *     </p>
@@ -113,6 +112,7 @@ export interface BatchDisassociateResourcesFromCustomLineItemCommandOutput
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ * @public
  */
 export class BatchDisassociateResourcesFromCustomLineItemCommand extends $Command
   .classBuilder<

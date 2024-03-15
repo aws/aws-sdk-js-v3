@@ -27,7 +27,6 @@ export interface DeleteWebACLCommandInput extends DeleteWebACLRequest {}
 export interface DeleteWebACLCommandOutput extends DeleteWebACLResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -124,6 +123,7 @@ export interface DeleteWebACLCommandOutput extends DeleteWebACLResponse, __Metad
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
+ * @public
  * @example To delete a web ACL
  * ```javascript
  * // The following example deletes a web ACL with the ID example-46da-4444-5555-example.

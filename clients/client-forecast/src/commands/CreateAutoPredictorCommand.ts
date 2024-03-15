@@ -31,7 +31,6 @@ export interface CreateAutoPredictorCommandInput extends CreateAutoPredictorRequ
 export interface CreateAutoPredictorCommandOutput extends CreateAutoPredictorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon Forecast predictor.</p>
  *          <p>Amazon Forecast creates predictors with AutoPredictor, which involves applying the
  *             optimal combination of algorithms to each time series in your datasets. You can use
@@ -175,6 +174,7 @@ export interface CreateAutoPredictorCommandOutput extends CreateAutoPredictorRes
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class CreateAutoPredictorCommand extends $Command
   .classBuilder<

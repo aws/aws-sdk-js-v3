@@ -32,7 +32,6 @@ export interface DisassociateBudgetFromResourceCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates the specified budget from the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +61,7 @@ export interface DisassociateBudgetFromResourceCommandOutput
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class DisassociateBudgetFromResourceCommand extends $Command
   .classBuilder<

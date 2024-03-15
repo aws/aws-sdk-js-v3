@@ -27,7 +27,6 @@ export interface UpdateRealtimeLogConfigCommandInput extends UpdateRealtimeLogCo
 export interface UpdateRealtimeLogConfigCommandOutput extends UpdateRealtimeLogConfigResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a real-time log configuration.</p>
  *          <p>When you update a real-time log configuration, all the parameters are updated with the
  * 			values provided in the request. You cannot update some parameters independent of others.
@@ -114,6 +113,7 @@ export interface UpdateRealtimeLogConfigCommandOutput extends UpdateRealtimeLogC
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class UpdateRealtimeLogConfigCommand extends $Command
   .classBuilder<

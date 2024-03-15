@@ -32,7 +32,6 @@ export interface CreateEnvironmentAccountConnectionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Create an environment account connection in an environment account so that environment infrastructure resources can be provisioned in the environment
  *       account from a management account.</p>
  *          <p>An environment account connection is a secure bi-directional connection between a <i>management account</i> and an <i>environment
@@ -106,6 +105,7 @@ export interface CreateEnvironmentAccountConnectionCommandOutput
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class CreateEnvironmentAccountConnectionCommand extends $Command
   .classBuilder<

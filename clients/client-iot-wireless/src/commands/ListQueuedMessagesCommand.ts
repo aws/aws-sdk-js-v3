@@ -27,7 +27,6 @@ export interface ListQueuedMessagesCommandInput extends ListQueuedMessagesReques
 export interface ListQueuedMessagesCommandOutput extends ListQueuedMessagesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List queued messages in the downlink queue.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface ListQueuedMessagesCommandOutput extends ListQueuedMessagesRespo
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class ListQueuedMessagesCommand extends $Command
   .classBuilder<

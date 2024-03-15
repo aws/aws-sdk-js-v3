@@ -27,7 +27,6 @@ export interface GetDataSetImportTaskCommandInput extends GetDataSetImportTaskRe
 export interface GetDataSetImportTaskCommandOutput extends GetDataSetImportTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the status of a data set import task initiated with the <a>CreateDataSetImportTask</a> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface GetDataSetImportTaskCommandOutput extends GetDataSetImportTaskR
  * @throws {@link M2ServiceException}
  * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ * @public
  */
 export class GetDataSetImportTaskCommand extends $Command
   .classBuilder<

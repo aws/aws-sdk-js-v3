@@ -27,7 +27,6 @@ export interface DeleteClusterParameterGroupCommandInput extends DeleteClusterPa
 export interface DeleteClusterParameterGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specified Amazon Redshift parameter group.</p>
  *          <note>
  *             <p>You cannot delete a parameter group if it is associated with a
@@ -65,6 +64,7 @@ export interface DeleteClusterParameterGroupCommandOutput extends __MetadataBear
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DeleteClusterParameterGroupCommand extends $Command
   .classBuilder<

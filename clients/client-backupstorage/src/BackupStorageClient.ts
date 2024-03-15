@@ -283,8 +283,8 @@ export type BackupStorageClientResolvedConfigType = __SmithyResolvedConfiguratio
 export interface BackupStorageClientResolvedConfig extends BackupStorageClientResolvedConfigType {}
 
 /**
- * @public
  * The frontend service for Cryo Storage.
+ * @public
  */
 export class BackupStorageClient extends __Client<
   __HttpHandlerOptions,

@@ -36,7 +36,6 @@ export interface ListApplicationAssignmentsForPrincipalCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the applications to which a specified principal is assigned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface ListApplicationAssignmentsForPrincipalCommandOutput
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class ListApplicationAssignmentsForPrincipalCommand extends $Command
   .classBuilder<

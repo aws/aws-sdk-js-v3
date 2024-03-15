@@ -35,7 +35,6 @@ export interface RestoreFromSnapshotCommandInput extends RestoreFromSnapshotRequ
 export interface RestoreFromSnapshotCommandOutput extends RestoreFromSnapshotResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Restores a namespace from a snapshot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -104,6 +103,7 @@ export interface RestoreFromSnapshotCommandOutput extends RestoreFromSnapshotRes
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * @public
  */
 export class RestoreFromSnapshotCommand extends $Command
   .classBuilder<

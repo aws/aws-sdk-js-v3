@@ -27,7 +27,6 @@ export interface ListResourceSetResourcesCommandInput extends ListResourceSetRes
 export interface ListResourceSetResourcesCommandOutput extends ListResourceSetResourcesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an array of resources that are currently associated to a resource set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface ListResourceSetResourcesCommandOutput extends ListResourceSetRe
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * @public
  */
 export class ListResourceSetResourcesCommand extends $Command
   .classBuilder<

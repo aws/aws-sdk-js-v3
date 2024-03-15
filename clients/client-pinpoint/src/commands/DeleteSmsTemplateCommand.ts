@@ -27,7 +27,6 @@ export interface DeleteSmsTemplateCommandInput extends DeleteSmsTemplateRequest 
 export interface DeleteSmsTemplateCommandOutput extends DeleteSmsTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a message template for messages that were sent through the SMS channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface DeleteSmsTemplateCommandOutput extends DeleteSmsTemplateRespons
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class DeleteSmsTemplateCommand extends $Command
   .classBuilder<

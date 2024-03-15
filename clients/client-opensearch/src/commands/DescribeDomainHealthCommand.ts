@@ -27,7 +27,6 @@ export interface DescribeDomainHealthCommandInput extends DescribeDomainHealthRe
 export interface DescribeDomainHealthCommandOutput extends DescribeDomainHealthResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about domain and node health, the standby Availability Zone, number of nodes per Availability Zone, and shard count per node.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface DescribeDomainHealthCommandOutput extends DescribeDomainHealthR
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class DescribeDomainHealthCommand extends $Command
   .classBuilder<

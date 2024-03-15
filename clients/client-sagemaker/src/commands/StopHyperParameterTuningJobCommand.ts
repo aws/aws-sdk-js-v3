@@ -27,7 +27,6 @@ export interface StopHyperParameterTuningJobCommandInput extends StopHyperParame
 export interface StopHyperParameterTuningJobCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a running hyperparameter tuning job and all running training jobs that the
  *             tuning job launched.</p>
  *          <p>All model artifacts output from the training jobs are stored in Amazon Simple Storage Service (Amazon S3). All
@@ -62,6 +61,7 @@ export interface StopHyperParameterTuningJobCommandOutput extends __MetadataBear
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class StopHyperParameterTuningJobCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateResponseHeadersPolicyCommandInput extends CreateResponseH
 export interface CreateResponseHeadersPolicyCommandOutput extends CreateResponseHeadersPolicyResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a response headers policy.</p>
  *          <p>A response headers policy contains information about a set of HTTP headers. To create a
  * 			response headers policy, you provide some metadata about the policy and a set of
@@ -276,6 +275,7 @@ export interface CreateResponseHeadersPolicyCommandOutput extends CreateResponse
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class CreateResponseHeadersPolicyCommand extends $Command
   .classBuilder<

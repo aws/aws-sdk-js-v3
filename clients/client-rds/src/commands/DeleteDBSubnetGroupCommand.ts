@@ -27,7 +27,6 @@ export interface DeleteDBSubnetGroupCommandInput extends DeleteDBSubnetGroupMess
 export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a DB subnet group.</p>
  *          <note>
  *             <p>The specified database subnet group must not be associated with any DB instances.</p>
@@ -66,6 +65,7 @@ export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To delete a DB subnet group
  * ```javascript
  * // The following example deletes the DB subnet group called mysubnetgroup.

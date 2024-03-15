@@ -31,7 +31,6 @@ export interface DeleteUsageLimitCommandInput extends DeleteUsageLimitRequest {}
 export interface DeleteUsageLimitCommandOutput extends DeleteUsageLimitResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a usage limit from Amazon Redshift Serverless.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface DeleteUsageLimitCommandOutput extends DeleteUsageLimitResponse,
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * @public
  */
 export class DeleteUsageLimitCommand extends $Command
   .classBuilder<

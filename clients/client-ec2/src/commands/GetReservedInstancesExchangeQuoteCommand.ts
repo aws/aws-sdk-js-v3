@@ -32,7 +32,6 @@ export interface GetReservedInstancesExchangeQuoteCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a quote and exchange information for exchanging one or more specified
  *             Convertible Reserved Instances for a new Convertible Reserved Instance. If the exchange
  *             cannot be performed, the reason is returned in the response. Use <a>AcceptReservedInstancesExchangeQuote</a> to perform the exchange.</p>
@@ -108,6 +107,7 @@ export interface GetReservedInstancesExchangeQuoteCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class GetReservedInstancesExchangeQuoteCommand extends $Command
   .classBuilder<

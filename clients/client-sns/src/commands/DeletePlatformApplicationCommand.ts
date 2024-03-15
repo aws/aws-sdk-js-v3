@@ -27,7 +27,6 @@ export interface DeletePlatformApplicationCommandInput extends DeletePlatformApp
 export interface DeletePlatformApplicationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a platform application object for one of the supported push notification
  *             services, such as APNS and GCM (Firebase Cloud Messaging). For more information, see
  *                 <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS
@@ -66,6 +65,7 @@ export interface DeletePlatformApplicationCommandOutput extends __MetadataBearer
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * @public
  */
 export class DeletePlatformApplicationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListSecurityProfilesCommandInput extends ListSecurityProfilesRe
 export interface ListSecurityProfilesCommandOutput extends ListSecurityProfilesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the Device Defender security profiles
  *       you've
  *       created. You can filter security profiles by dimension or custom metric.</p>
@@ -83,6 +82,7 @@ export interface ListSecurityProfilesCommandOutput extends ListSecurityProfilesR
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListSecurityProfilesCommand extends $Command
   .classBuilder<

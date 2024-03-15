@@ -27,7 +27,6 @@ export interface GetChangeTokenCommandInput extends GetChangeTokenRequest {}
 export interface GetChangeTokenCommandOutput extends GetChangeTokenResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -70,6 +69,7 @@ export interface GetChangeTokenCommandOutput extends GetChangeTokenResponse, __M
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
+ * @public
  * @example To get a change token
  * ```javascript
  * // The following example returns a change token to use for a create, update or delete operation.

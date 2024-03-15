@@ -31,7 +31,6 @@ export interface GetPreferencesCommandInput extends GetPreferencesRequest {}
 export interface GetPreferencesCommandOutput extends GetPreferencesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a set of preferences for an account in order to add account-specific preferences
  *       into the service. These preferences impact how the savings associated with recommendations are
  *       presented—estimated savings after discounts or estimated savings before discounts, for
@@ -75,6 +74,7 @@ export interface GetPreferencesCommandOutput extends GetPreferencesResponse, __M
  * @throws {@link CostOptimizationHubServiceException}
  * <p>Base exception class for all service exceptions from CostOptimizationHub service.</p>
  *
+ * @public
  */
 export class GetPreferencesCommand extends $Command
   .classBuilder<

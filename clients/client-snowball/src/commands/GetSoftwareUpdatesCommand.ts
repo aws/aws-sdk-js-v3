@@ -27,7 +27,6 @@ export interface GetSoftwareUpdatesCommandInput extends GetSoftwareUpdatesReques
 export interface GetSoftwareUpdatesCommandOutput extends GetSoftwareUpdatesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an Amazon S3 presigned URL for an update file associated with a specified
  *         <code>JobId</code>.</p>
  * @example
@@ -64,6 +63,7 @@ export interface GetSoftwareUpdatesCommandOutput extends GetSoftwareUpdatesResul
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * @public
  */
 export class GetSoftwareUpdatesCommand extends $Command
   .classBuilder<

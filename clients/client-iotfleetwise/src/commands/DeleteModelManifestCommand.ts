@@ -27,7 +27,6 @@ export interface DeleteModelManifestCommandInput extends DeleteModelManifestRequ
 export interface DeleteModelManifestCommandOutput extends DeleteModelManifestResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Deletes a vehicle model (model manifest).</p>
  *          <note>
  *             <p>If the vehicle model is successfully deleted, Amazon Web Services IoT FleetWise sends back an HTTP 200
@@ -76,6 +75,7 @@ export interface DeleteModelManifestCommandOutput extends DeleteModelManifestRes
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class DeleteModelManifestCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface DeleteApplicationSnapshotCommandInput extends DeleteApplication
 export interface DeleteApplicationSnapshotCommandOutput extends DeleteApplicationSnapshotResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a snapshot of application state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface DeleteApplicationSnapshotCommandOutput extends DeleteApplicatio
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ * @public
  */
 export class DeleteApplicationSnapshotCommand extends $Command
   .classBuilder<

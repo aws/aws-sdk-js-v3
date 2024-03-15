@@ -35,7 +35,6 @@ export interface ListFirewallRuleGroupAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the firewall rule group associations that you have defined. Each association enables DNS filtering for a VPC with one rule group. </p>
  *          <p>A single call might return only a partial list of the associations. For information, see <code>MaxResults</code>. </p>
  * @example
@@ -99,6 +98,7 @@ export interface ListFirewallRuleGroupAssociationsCommandOutput
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class ListFirewallRuleGroupAssociationsCommand extends $Command
   .classBuilder<

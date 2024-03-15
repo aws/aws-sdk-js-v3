@@ -27,7 +27,6 @@ export interface RestoreTableFromBackupCommandInput extends RestoreTableFromBack
 export interface RestoreTableFromBackupCommandOutput extends RestoreTableFromBackupOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new table from an existing backup. Any number of users can execute up to 50
  *             concurrent restores (any type of restore) in a given account. </p>
  *          <p>You can call <code>RestoreTableFromBackup</code> at a maximum rate of 10 times per
@@ -297,6 +296,7 @@ export interface RestoreTableFromBackupCommandOutput extends RestoreTableFromBac
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  */
 export class RestoreTableFromBackupCommand extends $Command
   .classBuilder<

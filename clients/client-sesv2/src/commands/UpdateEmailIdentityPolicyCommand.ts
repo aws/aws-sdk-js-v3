@@ -27,7 +27,6 @@ export interface UpdateEmailIdentityPolicyCommandInput extends UpdateEmailIdenti
 export interface UpdateEmailIdentityPolicyCommandOutput extends UpdateEmailIdentityPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified sending authorization policy for the given identity (an email
  *             address or a domain). This API returns successfully even if a policy with the specified
  *             name does not exist.</p>
@@ -75,6 +74,7 @@ export interface UpdateEmailIdentityPolicyCommandOutput extends UpdateEmailIdent
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class UpdateEmailIdentityPolicyCommand extends $Command
   .classBuilder<

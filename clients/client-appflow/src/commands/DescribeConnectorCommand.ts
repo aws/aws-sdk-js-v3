@@ -27,7 +27,6 @@ export interface DescribeConnectorCommandInput extends DescribeConnectorRequest 
 export interface DescribeConnectorCommandOutput extends DescribeConnectorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the given custom connector registered in your Amazon Web Services account. This
  *       API can be used for custom connectors that are registered in your account and also for Amazon
  *       authored connectors.</p>
@@ -235,6 +234,7 @@ export interface DescribeConnectorCommandOutput extends DescribeConnectorRespons
  * @throws {@link AppflowServiceException}
  * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ * @public
  */
 export class DescribeConnectorCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateResolverCommandInput extends CreateResolverRequest {}
 export interface CreateResolverCommandOutput extends CreateResolverResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a <code>Resolver</code> object.</p>
  *          <p>A resolver converts incoming requests into a format that a data source can understand, and converts the data
  *          source's responses into GraphQL.</p>
@@ -138,6 +137,7 @@ export interface CreateResolverCommandOutput extends CreateResolverResponse, __M
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class CreateResolverCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeCustomDomainsCommandInput extends DescribeCustomDomains
 export interface DescribeCustomDomainsCommandOutput extends DescribeCustomDomainsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Return a description of custom domain names that are associated with an App Runner service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface DescribeCustomDomainsCommandOutput extends DescribeCustomDomain
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ * @public
  */
 export class DescribeCustomDomainsCommand extends $Command
   .classBuilder<

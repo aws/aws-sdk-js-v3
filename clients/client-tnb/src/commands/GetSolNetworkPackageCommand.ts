@@ -31,7 +31,6 @@ export interface GetSolNetworkPackageCommandInput extends GetSolNetworkPackageIn
 export interface GetSolNetworkPackageCommandOutput extends GetSolNetworkPackageOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the details of a network package.</p>
  *          <p>A network package is a .zip file in CSAR (Cloud Service Archive) format defines the function packages you want to deploy and the Amazon Web Services infrastructure you want to deploy them on.</p>
  * @example
@@ -100,6 +99,7 @@ export interface GetSolNetworkPackageCommandOutput extends GetSolNetworkPackageO
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ * @public
  */
 export class GetSolNetworkPackageCommand extends $Command
   .classBuilder<

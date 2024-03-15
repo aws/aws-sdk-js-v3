@@ -35,7 +35,6 @@ export interface CreateSnapshotFromVolumeRecoveryPointCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Initiates a snapshot of a gateway from a volume recovery point. This operation is only
  *          supported in the cached volume gateway type.</p>
  *          <p>A volume recovery point is a point in time at which all data of the volume is consistent
@@ -101,6 +100,7 @@ export interface CreateSnapshotFromVolumeRecoveryPointCommandOutput
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To create a snapshot of a gateway volume
  * ```javascript
  * // Initiates a snapshot of a gateway from a volume recovery point.

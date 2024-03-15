@@ -31,7 +31,6 @@ export interface GenerateDataKeyPairCommandInput extends GenerateDataKeyPairRequ
 export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a unique asymmetric data key pair for use outside of KMS. This operation returns
  *       a plaintext public key, a plaintext private key, and a copy of the private key that is
  *       encrypted under the symmetric encryption KMS key you specify. You can use the data key pair to
@@ -230,6 +229,7 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To generate an RSA key pair for encryption and decryption
  * ```javascript
  * // This example generates an RSA data key pair for encryption and decryption. The operation returns a plaintext public key and private key, and a copy of the private key that is encrypted under a symmetric encryption KMS key that you specify.

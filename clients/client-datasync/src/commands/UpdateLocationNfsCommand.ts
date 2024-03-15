@@ -27,7 +27,6 @@ export interface UpdateLocationNfsCommandInput extends UpdateLocationNfsRequest 
 export interface UpdateLocationNfsCommandOutput extends UpdateLocationNfsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies some configurations of the Network File System (NFS) transfer location that
  *       you're using with DataSync.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html">Configuring transfers to or from an
@@ -72,6 +71,7 @@ export interface UpdateLocationNfsCommandOutput extends UpdateLocationNfsRespons
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class UpdateLocationNfsCommand extends $Command
   .classBuilder<

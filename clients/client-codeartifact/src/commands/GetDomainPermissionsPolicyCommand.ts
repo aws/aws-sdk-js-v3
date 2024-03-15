@@ -27,7 +27,6 @@ export interface GetDomainPermissionsPolicyCommandInput extends GetDomainPermiss
 export interface GetDomainPermissionsPolicyCommandOutput extends GetDomainPermissionsPolicyResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *         Returns the resource policy attached to the specified domain.
  *       </p>
@@ -92,6 +91,7 @@ export interface GetDomainPermissionsPolicyCommandOutput extends GetDomainPermis
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * @public
  */
 export class GetDomainPermissionsPolicyCommand extends $Command
   .classBuilder<

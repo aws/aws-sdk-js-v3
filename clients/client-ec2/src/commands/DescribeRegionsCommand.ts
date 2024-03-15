@@ -27,7 +27,6 @@ export interface DescribeRegionsCommandInput extends DescribeRegionsRequest {}
 export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the Regions that are enabled for your account, or all Regions.</p>
  *          <p>For a list of the Regions supported by Amazon EC2, see <a href="https://docs.aws.amazon.com/general/latest/gr/ec2-service.html">
  *        Amazon Elastic Compute Cloud endpoints and quotas</a>.</p>
@@ -80,6 +79,7 @@ export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __M
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To describe your regions
  * ```javascript
  * // This example describes all the regions that are available to you.

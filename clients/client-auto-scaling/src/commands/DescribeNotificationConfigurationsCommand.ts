@@ -32,7 +32,6 @@ export interface DescribeNotificationConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the Amazon SNS notifications that are configured for one or more
  *             Auto Scaling groups.</p>
  * @example
@@ -79,6 +78,7 @@ export interface DescribeNotificationConfigurationsCommandOutput
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To describe Auto Scaling notification configurations
  * ```javascript
  * // This example describes the notification configurations for the specified Auto Scaling group.

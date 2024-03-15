@@ -27,7 +27,6 @@ export interface DisableControlCommandInput extends DisableControlInput {}
 export interface DisableControlCommandOutput extends DisableControlOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This API call turns off a control. It starts an asynchronous operation that deletes AWS
  *          resources on the specified organizational unit and the accounts it contains. The resources
  *          will vary according to the control that you specify. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html">
@@ -81,6 +80,7 @@ export interface DisableControlCommandOutput extends DisableControlOutput, __Met
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ * @public
  */
 export class DisableControlCommand extends $Command
   .classBuilder<

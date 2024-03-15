@@ -27,7 +27,6 @@ export interface BatchUpdateFindingsCommandInput extends BatchUpdateFindingsRequ
 export interface BatchUpdateFindingsCommandOutput extends BatchUpdateFindingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Used by Security Hub customers to update information about their investigation into a finding.
  *          Requested by administrator accounts or member accounts. Administrator accounts can update findings for
  *          their account and their member accounts. Member accounts can update findings for their
@@ -174,6 +173,7 @@ export interface BatchUpdateFindingsCommandOutput extends BatchUpdateFindingsRes
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To update Security Hub findings
  * ```javascript
  * // The following example updates Security Hub findings. The finding identifier parameter specifies which findings to update. Only specific finding fields can be updated with this operation.

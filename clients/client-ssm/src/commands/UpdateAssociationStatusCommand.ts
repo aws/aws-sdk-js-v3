@@ -31,7 +31,6 @@ export interface UpdateAssociationStatusCommandInput extends UpdateAssociationSt
 export interface UpdateAssociationStatusCommandOutput extends UpdateAssociationStatusResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the status of the Amazon Web Services Systems Manager document (SSM document) associated with the specified
  *    managed node.</p>
  *          <p>
@@ -204,6 +203,7 @@ export interface UpdateAssociationStatusCommandOutput extends UpdateAssociationS
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class UpdateAssociationStatusCommand extends $Command
   .classBuilder<

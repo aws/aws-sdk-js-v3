@@ -27,7 +27,6 @@ export interface ExecuteGremlinQueryCommandInput extends ExecuteGremlinQueryInpu
 export interface ExecuteGremlinQueryCommandOutput extends ExecuteGremlinQueryOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This commands executes a Gremlin query. Amazon Neptune is compatible
  *       with Apache TinkerPop3 and Gremlin, so you can use the Gremlin traversal
  *       language to query the graph, as described under <a href="https://tinkerpop.apache.org/docs/current/reference/#graph">The
@@ -157,6 +156,7 @@ export interface ExecuteGremlinQueryCommandOutput extends ExecuteGremlinQueryOut
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * @public
  */
 export class ExecuteGremlinQueryCommand extends $Command
   .classBuilder<

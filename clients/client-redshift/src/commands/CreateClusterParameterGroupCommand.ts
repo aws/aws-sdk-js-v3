@@ -27,7 +27,6 @@ export interface CreateClusterParameterGroupCommandInput extends CreateClusterPa
 export interface CreateClusterParameterGroupCommandOutput extends CreateClusterParameterGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon Redshift parameter group.</p>
  *          <p>Creating parameter groups is independent of creating clusters. You can associate a
  *             cluster with a parameter group when you create the cluster. You can also associate an
@@ -97,6 +96,7 @@ export interface CreateClusterParameterGroupCommandOutput extends CreateClusterP
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class CreateClusterParameterGroupCommand extends $Command
   .classBuilder<

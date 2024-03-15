@@ -542,7 +542,6 @@ export interface DataExchange {
 }
 
 /**
- * @public
  * <p>AWS Data Exchange is a service that makes it easy for AWS customers to exchange data in the cloud. You can use the AWS Data Exchange APIs to create, update, manage, and access file-based data set in the AWS Cloud.</p>
  *          <p>As a subscriber, you can view and access the data sets that you have an entitlement to through
  *          a subscription. You can use the APIs to download or copy your entitled data sets to Amazon
@@ -559,6 +558,7 @@ export interface DataExchange {
  *          Formation data permission, or Amazon S3 data access. The asset can be a structured data
  *          file, an image file, or some other data file. Jobs are asynchronous import or export
  *          operations used to create or copy assets.</p>
+ * @public
  */
 export class DataExchange extends DataExchangeClient implements DataExchange {}
 createAggregatedClient(commands, DataExchange);

@@ -27,7 +27,6 @@ export interface DisableFederationCommandInput extends DisableFederationRequest 
 export interface DisableFederationCommandOutput extends DisableFederationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Disables Lake query federation on the specified event data store. When you disable federation, CloudTrail disables
  *          the integration with Glue, Lake Formation, and Amazon Athena.
@@ -116,6 +115,7 @@ export interface DisableFederationCommandOutput extends DisableFederationRespons
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class DisableFederationCommand extends $Command
   .classBuilder<

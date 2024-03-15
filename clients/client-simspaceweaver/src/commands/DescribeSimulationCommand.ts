@@ -27,7 +27,6 @@ export interface DescribeSimulationCommandInput extends DescribeSimulationInput 
 export interface DescribeSimulationCommandOutput extends DescribeSimulationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the current state of the given simulation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -108,6 +107,7 @@ export interface DescribeSimulationCommandOutput extends DescribeSimulationOutpu
  * @throws {@link SimSpaceWeaverServiceException}
  * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
+ * @public
  */
 export class DescribeSimulationCommand extends $Command
   .classBuilder<

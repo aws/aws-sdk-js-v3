@@ -35,7 +35,6 @@ export interface GetParametersForExportCommandInput extends GetParametersForExpo
 export interface GetParametersForExportCommandOutput extends GetParametersForExportOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the export token and the signing key certificate to initiate a TR-34 key export from Amazon Web Services Payment Cryptography.</p>
  *          <p>The signing key certificate signs the wrapped key under export within the TR-34 key payload. The export token and signing key certificate must be in place and operational before calling <a>ExportKey</a>. The export token expires in 7 days. You can use the same export token to export multiple keys from your service account.</p>
  *          <p>
@@ -110,6 +109,7 @@ export interface GetParametersForExportCommandOutput extends GetParametersForExp
  * @throws {@link PaymentCryptographyServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptography service.</p>
  *
+ * @public
  */
 export class GetParametersForExportCommand extends $Command
   .classBuilder<

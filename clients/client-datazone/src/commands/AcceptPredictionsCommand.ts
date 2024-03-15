@@ -27,7 +27,6 @@ export interface AcceptPredictionsCommandInput extends AcceptPredictionsInput {}
 export interface AcceptPredictionsCommandOutput extends AcceptPredictionsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Accepts automatically generated business-friendly metadata for your Amazon DataZone
  *          assets.</p>
  * @example
@@ -92,6 +91,7 @@ export interface AcceptPredictionsCommandOutput extends AcceptPredictionsOutput,
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class AcceptPredictionsCommand extends $Command
   .classBuilder<

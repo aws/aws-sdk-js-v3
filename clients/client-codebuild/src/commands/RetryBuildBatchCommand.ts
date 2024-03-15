@@ -27,7 +27,6 @@ export interface RetryBuildBatchCommandInput extends RetryBuildBatchInput {}
 export interface RetryBuildBatchCommandOutput extends RetryBuildBatchOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Restarts a failed batch build. Only batch builds that have failed can be retried.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -277,6 +276,7 @@ export interface RetryBuildBatchCommandOutput extends RetryBuildBatchOutput, __M
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * @public
  */
 export class RetryBuildBatchCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeDeliveryChannelsCommandInput extends DescribeDeliveryCh
 export interface DescribeDeliveryChannelsCommandOutput extends DescribeDeliveryChannelsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns details about the specified delivery channel. If a
  * 			delivery channel is not specified, this action returns the details
  * 			of all delivery channels associated with the account.</p>
@@ -78,6 +77,7 @@ export interface DescribeDeliveryChannelsCommandOutput extends DescribeDeliveryC
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class DescribeDeliveryChannelsCommand extends $Command
   .classBuilder<

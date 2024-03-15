@@ -27,7 +27,6 @@ export interface ListBackupPlanTemplatesCommandInput extends ListBackupPlanTempl
 export interface ListBackupPlanTemplatesCommandOutput extends ListBackupPlanTemplatesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns metadata of your saved backup plan templates, including the template ID, name,
  *          and the creation and deletion dates.</p>
  * @example
@@ -76,6 +75,7 @@ export interface ListBackupPlanTemplatesCommandOutput extends ListBackupPlanTemp
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class ListBackupPlanTemplatesCommand extends $Command
   .classBuilder<

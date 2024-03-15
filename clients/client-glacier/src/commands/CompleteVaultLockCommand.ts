@@ -27,7 +27,6 @@ export interface CompleteVaultLockCommandInput extends CompleteVaultLockInput {}
 export interface CompleteVaultLockCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation completes the vault locking process by transitioning the vault lock
  *          from the <code>InProgress</code> state to the <code>Locked</code> state, which causes the
  *          vault lock policy to become unchangeable. A vault lock is put into the
@@ -81,6 +80,7 @@ export interface CompleteVaultLockCommandOutput extends __MetadataBearer {}
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * @public
  * @example To complete a vault lock
  * ```javascript
  * // The example completes the vault locking process by transitioning the vault lock from the InProgress state to the Locked state.

@@ -27,7 +27,6 @@ export interface DeleteLaunchProfileMemberCommandInput extends DeleteLaunchProfi
 export interface DeleteLaunchProfileMemberCommandOutput extends DeleteLaunchProfileMemberResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete a user from launch profile membership.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface DeleteLaunchProfileMemberCommandOutput extends DeleteLaunchProf
  * @throws {@link NimbleServiceException}
  * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
+ * @public
  */
 export class DeleteLaunchProfileMemberCommand extends $Command
   .classBuilder<

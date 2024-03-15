@@ -31,7 +31,6 @@ export interface ListResourceServersCommandInput extends ListResourceServersRequ
 export interface ListResourceServersCommandOutput extends ListResourceServersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the resource servers for a user pool.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
@@ -112,6 +111,7 @@ export interface ListResourceServersCommandOutput extends ListResourceServersRes
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class ListResourceServersCommand extends $Command
   .classBuilder<

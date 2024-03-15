@@ -32,7 +32,6 @@ export interface ListStackInstanceResourceDriftsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns drift information for resources in a stack instance.</p>
  *          <note>
  *             <p>
@@ -107,6 +106,7 @@ export interface ListStackInstanceResourceDriftsCommandOutput
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class ListStackInstanceResourceDriftsCommand extends $Command
   .classBuilder<

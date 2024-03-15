@@ -31,7 +31,6 @@ export interface GetPackageVersionCommandInput extends GetPackageVersionRequest 
 export interface GetPackageVersionCommandOutput extends GetPackageVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the specified package version. </p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetPackageVersion</a> action.</p>
  * @example
@@ -84,6 +83,7 @@ export interface GetPackageVersionCommandOutput extends GetPackageVersionRespons
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class GetPackageVersionCommand extends $Command
   .classBuilder<

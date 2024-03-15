@@ -27,7 +27,6 @@ export interface ListJobRunsCommandInput extends ListJobRunsRequest {}
 export interface ListJobRunsCommandOutput extends ListJobRunsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists job runs based on a set of parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface ListJobRunsCommandOutput extends ListJobRunsResponse, __Metadat
  * @throws {@link EMRServerlessServiceException}
  * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
+ * @public
  */
 export class ListJobRunsCommand extends $Command
   .classBuilder<

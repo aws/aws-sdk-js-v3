@@ -27,7 +27,6 @@ export interface RestoreCertificateAuthorityCommandInput extends RestoreCertific
 export interface RestoreCertificateAuthorityCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Restores a certificate authority (CA) that is in the <code>DELETED</code> state. You
  * 			can restore a CA during the period that you defined in the <b>PermanentDeletionTimeInDays</b> parameter of the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeleteCertificateAuthority.html">DeleteCertificateAuthority</a> action. Currently, you can specify 7 to 30 days.
  * 			If you did not specify a <b>PermanentDeletionTimeInDays</b>
@@ -74,6 +73,7 @@ export interface RestoreCertificateAuthorityCommandOutput extends __MetadataBear
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ * @public
  */
 export class RestoreCertificateAuthorityCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface AssociateWorkspaceApplicationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates the specified application to the specified WorkSpace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface AssociateWorkspaceApplicationCommandOutput
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class AssociateWorkspaceApplicationCommand extends $Command
   .classBuilder<

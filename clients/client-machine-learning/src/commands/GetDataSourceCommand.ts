@@ -27,7 +27,6 @@ export interface GetDataSourceCommandInput extends GetDataSourceInput {}
 export interface GetDataSourceCommandOutput extends GetDataSourceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a <code>DataSource</code> that includes metadata and data file information, as well as the current status of the <code>DataSource</code>.</p>
  *         <p>
  *             <code>GetDataSource</code> provides results in normal or verbose format. The verbose format
@@ -104,6 +103,7 @@ export interface GetDataSourceCommandOutput extends GetDataSourceOutput, __Metad
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * @public
  */
 export class GetDataSourceCommand extends $Command
   .classBuilder<

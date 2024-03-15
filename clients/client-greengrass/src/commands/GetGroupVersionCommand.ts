@@ -27,7 +27,6 @@ export interface GetGroupVersionCommandInput extends GetGroupVersionRequest {}
 export interface GetGroupVersionCommandOutput extends GetGroupVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * Retrieves information about a group version.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface GetGroupVersionCommandOutput extends GetGroupVersionResponse, _
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class GetGroupVersionCommand extends $Command
   .classBuilder<

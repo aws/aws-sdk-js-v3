@@ -453,7 +453,6 @@ export interface KinesisAnalytics {
 }
 
 /**
- * @public
  * <fullname>Amazon Kinesis Analytics</fullname>
  *         <p>
  *             <b>Overview</b>
@@ -464,6 +463,7 @@ export interface KinesisAnalytics {
  *         <p>This is the <i>Amazon Kinesis Analytics v1 API Reference</i>.
  *             The Amazon Kinesis Analytics Developer Guide provides additional information.
  *             </p>
+ * @public
  */
 export class KinesisAnalytics extends KinesisAnalyticsClient implements KinesisAnalytics {}
 createAggregatedClient(commands, KinesisAnalytics);

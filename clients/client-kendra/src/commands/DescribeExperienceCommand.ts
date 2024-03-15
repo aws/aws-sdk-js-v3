@@ -27,7 +27,6 @@ export interface DescribeExperienceCommandInput extends DescribeExperienceReques
 export interface DescribeExperienceCommandOutput extends DescribeExperienceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about your Amazon Kendra experience such as a search application.
  *             For more information on creating a search application experience,
  *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building
@@ -107,6 +106,7 @@ export interface DescribeExperienceCommandOutput extends DescribeExperienceRespo
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class DescribeExperienceCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DetectPiiEntitiesCommandInput extends DetectPiiEntitiesRequest 
 export interface DetectPiiEntitiesCommandOutput extends DetectPiiEntitiesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Inspects the input text for entities that contain personally identifiable information
  *       (PII) and returns information about them.</p>
  * @example
@@ -78,6 +77,7 @@ export interface DetectPiiEntitiesCommandOutput extends DetectPiiEntitiesRespons
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class DetectPiiEntitiesCommand extends $Command
   .classBuilder<

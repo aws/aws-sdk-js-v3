@@ -31,7 +31,6 @@ export interface GetCustomDomainAssociationCommandInput extends GetCustomDomainA
 export interface GetCustomDomainAssociationCommandOutput extends GetCustomDomainAssociationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a specific custom domain association.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface GetCustomDomainAssociationCommandOutput extends GetCustomDomain
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * @public
  */
 export class GetCustomDomainAssociationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface StartProjectVersionCommandInput extends StartProjectVersionRequ
 export interface StartProjectVersionCommandOutput extends StartProjectVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation applies only to Amazon Rekognition Custom Labels.</p>
  *          </note>
@@ -99,6 +98,7 @@ export interface StartProjectVersionCommandOutput extends StartProjectVersionRes
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example To start an Amazon Rekognition Custom Labels model
  * ```javascript
  * // Starts a version of an Amazon Rekognition Custom Labels model.

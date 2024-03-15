@@ -27,7 +27,6 @@ export interface DescribeParametersCommandInput extends DescribeParametersReques
 export interface DescribeParametersCommandOutput extends DescribeParametersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the detailed parameter list for a particular parameter group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface DescribeParametersCommandOutput extends DescribeParametersRespo
  * @throws {@link DAXServiceException}
  * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ * @public
  */
 export class DescribeParametersCommand extends $Command
   .classBuilder<

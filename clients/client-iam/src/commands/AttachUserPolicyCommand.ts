@@ -27,7 +27,6 @@ export interface AttachUserPolicyCommandInput extends AttachUserPolicyRequest {}
 export interface AttachUserPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches the specified managed policy to the specified user.</p>
  *          <p>You use this operation to attach a <i>managed</i> policy to a user. To
  *             embed an inline policy in a user, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_PutUserPolicy.html">
@@ -83,6 +82,7 @@ export interface AttachUserPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To attach a managed policy to an IAM user
  * ```javascript
  * // The following command attaches the AWS managed policy named AdministratorAccess to the IAM user named Alice.

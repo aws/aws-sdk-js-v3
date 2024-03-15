@@ -27,7 +27,6 @@ export interface ListResolversCommandInput extends ListResolversRequest {}
 export interface ListResolversCommandOutput extends ListResolversResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the resolvers for a given API and type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -107,6 +106,7 @@ export interface ListResolversCommandOutput extends ListResolversResponse, __Met
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class ListResolversCommand extends $Command
   .classBuilder<

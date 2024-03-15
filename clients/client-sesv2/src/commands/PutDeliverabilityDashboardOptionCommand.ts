@@ -32,7 +32,6 @@ export interface PutDeliverabilityDashboardOptionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Enable or disable the Deliverability dashboard. When you enable the Deliverability dashboard, you gain
  *             access to reputation, deliverability, and other metrics for the domains that you use to
  *             send email. You also gain the ability to perform predictive inbox placement tests.</p>
@@ -90,6 +89,7 @@ export interface PutDeliverabilityDashboardOptionCommandOutput
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class PutDeliverabilityDashboardOptionCommand extends $Command
   .classBuilder<

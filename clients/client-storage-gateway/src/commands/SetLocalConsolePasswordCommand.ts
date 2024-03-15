@@ -31,7 +31,6 @@ export interface SetLocalConsolePasswordCommandInput extends SetLocalConsolePass
 export interface SetLocalConsolePasswordCommandOutput extends SetLocalConsolePasswordOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the password for your VM local console. When you log in to the local console for
  *          the first time, you log in to the VM with the default credentials. We recommend that you
  *          set a new password. You don't need to know the default password to set a new
@@ -71,6 +70,7 @@ export interface SetLocalConsolePasswordCommandOutput extends SetLocalConsolePas
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To set a password for your VM
  * ```javascript
  * // Sets the password for your VM local console.

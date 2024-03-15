@@ -1532,7 +1532,6 @@ export interface PinpointSMSVoiceV2 {
 }
 
 /**
- * @public
  * <p>Welcome to the <i>Amazon Pinpoint SMS and Voice, version 2 API Reference</i>.
  *             This guide provides information about Amazon Pinpoint SMS and Voice, version 2 API
  *             resources, including supported HTTP methods, parameters, and schemas.</p>
@@ -1568,6 +1567,7 @@ export interface PinpointSMSVoiceV2 {
  *             are available in each Region, see <a href="https://aws.amazon.com/about-aws/global-infrastructure/">Amazon Web Services
  *                 Global Infrastructure.</a>
  *          </p>
+ * @public
  */
 export class PinpointSMSVoiceV2 extends PinpointSMSVoiceV2Client implements PinpointSMSVoiceV2 {}
 createAggregatedClient(commands, PinpointSMSVoiceV2);

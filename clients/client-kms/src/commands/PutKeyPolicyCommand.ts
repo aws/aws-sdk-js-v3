@@ -27,7 +27,6 @@ export interface PutKeyPolicyCommandInput extends PutKeyPolicyRequest {}
 export interface PutKeyPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches a key policy to the specified KMS key. </p>
  *          <p>For more information about key policies, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Key Policies</a> in the <i>Key Management Service Developer Guide</i>.
  *       For help writing and formatting a JSON policy document, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM JSON Policy Reference</a> in the <i>
@@ -119,6 +118,7 @@ export interface PutKeyPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To attach a key policy to a KMS key
  * ```javascript
  * // The following example attaches a key policy to the specified KMS key.

@@ -27,7 +27,6 @@ export interface GetModelVersionCommandInput extends GetModelVersionRequest {}
 export interface GetModelVersionCommandOutput extends GetModelVersionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the details of the specified model version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface GetModelVersionCommandOutput extends GetModelVersionResult, __M
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class GetModelVersionCommand extends $Command
   .classBuilder<

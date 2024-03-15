@@ -28,7 +28,6 @@ export interface PutMetricDataCommandInput extends PutMetricDataInput {}
 export interface PutMetricDataCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Publishes metric data points to Amazon CloudWatch. CloudWatch associates
  * 			the data points with the specified metric. If the specified metric does not exist,
  * 			CloudWatch creates the metric. When CloudWatch creates a metric, it can
@@ -135,6 +134,7 @@ export interface PutMetricDataCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * @public
  */
 export class PutMetricDataCommand extends $Command
   .classBuilder<

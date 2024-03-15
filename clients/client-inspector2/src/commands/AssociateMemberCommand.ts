@@ -27,7 +27,6 @@ export interface AssociateMemberCommandInput extends AssociateMemberRequest {}
 export interface AssociateMemberCommandOutput extends AssociateMemberResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates an Amazon Web Services account with an Amazon Inspector delegated administrator.   An HTTP 200 response indicates the association was successfully started, but doesn’t indicate whether it was completed. You can check if the association completed by using <a href="https://docs.aws.amazon.com/inspector/v2/APIReference/API_ListMembers.html">ListMembers</a> for multiple accounts or <a href="https://docs.aws.amazon.com/inspector/v2/APIReference/API_GetMember.html">GetMembers</a> for a single account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface AssociateMemberCommandOutput extends AssociateMemberResponse, _
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class AssociateMemberCommand extends $Command
   .classBuilder<

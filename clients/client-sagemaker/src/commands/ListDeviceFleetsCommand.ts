@@ -27,7 +27,6 @@ export interface ListDeviceFleetsCommandInput extends ListDeviceFleetsRequest {}
 export interface ListDeviceFleetsCommandOutput extends ListDeviceFleetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of devices in the fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface ListDeviceFleetsCommandOutput extends ListDeviceFleetsResponse,
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListDeviceFleetsCommand extends $Command
   .classBuilder<

@@ -35,7 +35,6 @@ export interface GetDeliverabilityDashboardOptionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieve information about the status of the Deliverability dashboard for your Amazon Pinpoint account.
  *             When the Deliverability dashboard is enabled, you gain access to reputation, deliverability, and
  *             other metrics for the domains that you use to send email using Amazon Pinpoint. You also gain the
@@ -102,6 +101,7 @@ export interface GetDeliverabilityDashboardOptionsCommandOutput
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * @public
  */
 export class GetDeliverabilityDashboardOptionsCommand extends $Command
   .classBuilder<

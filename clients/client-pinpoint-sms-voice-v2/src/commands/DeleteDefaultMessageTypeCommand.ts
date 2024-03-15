@@ -31,7 +31,6 @@ export interface DeleteDefaultMessageTypeCommandInput extends DeleteDefaultMessa
 export interface DeleteDefaultMessageTypeCommandOutput extends DeleteDefaultMessageTypeResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing default message type on a configuration set.</p>
  *          <p> A message type is a type of messages that you plan to send. If you send
  *             account-related messages or time-sensitive messages such as one-time passcodes, choose
@@ -84,6 +83,7 @@ export interface DeleteDefaultMessageTypeCommandOutput extends DeleteDefaultMess
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class DeleteDefaultMessageTypeCommand extends $Command
   .classBuilder<

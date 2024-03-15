@@ -27,7 +27,6 @@ export interface RegisterThingCommandInput extends RegisterThingRequest {}
 export interface RegisterThingCommandOutput extends RegisterThingResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provisions a thing in the device registry. RegisterThing calls other IoT control
  *          plane APIs. These calls might exceed your account level <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_iot">
  *             IoT Throttling Limits</a> and cause throttle errors. Please contact <a href="https://console.aws.amazon.com/support/home">Amazon Web Services Customer Support</a> to raise
@@ -87,6 +86,7 @@ export interface RegisterThingCommandOutput extends RegisterThingResponse, __Met
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class RegisterThingCommand extends $Command
   .classBuilder<

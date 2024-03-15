@@ -27,7 +27,6 @@ export interface GetSessionStatusCommandInput extends GetSessionStatusRequest {}
 export interface GetSessionStatusCommandOutput extends GetSessionStatusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the current status of a session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface GetSessionStatusCommandOutput extends GetSessionStatusResponse,
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class GetSessionStatusCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListAccountsCommandInput extends ListAccountsRequest {}
 export interface ListAccountsCommandOutput extends ListAccountsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all AWS accounts assigned to the user. These AWS accounts are assigned by the
  *       administrator of the account. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/useraccess.html#assignusers">Assign User Access</a> in the <i>IAM Identity Center User Guide</i>. This operation
  *       returns a paginated response.</p>
@@ -81,6 +80,7 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  * @throws {@link SSOServiceException}
  * <p>Base exception class for all service exceptions from SSO service.</p>
  *
+ * @public
  */
 export class ListAccountsCommand extends $Command
   .classBuilder<

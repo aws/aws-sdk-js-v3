@@ -27,7 +27,6 @@ export interface DeleteOutboundConnectionCommandInput extends DeleteOutboundConn
 export interface DeleteOutboundConnectionCommandOutput extends DeleteOutboundConnectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows the source Amazon OpenSearch Service domain owner to delete an existing outbound
  *    cross-cluster search connection. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search
  *     for Amazon OpenSearch Service</a>.</p>
@@ -91,6 +90,7 @@ export interface DeleteOutboundConnectionCommandOutput extends DeleteOutboundCon
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class DeleteOutboundConnectionCommand extends $Command
   .classBuilder<

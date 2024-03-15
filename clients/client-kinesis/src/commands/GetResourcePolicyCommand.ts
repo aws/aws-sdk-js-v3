@@ -27,7 +27,6 @@ export interface GetResourcePolicyCommandInput extends GetResourcePolicyInput {}
 export interface GetResourcePolicyCommandOutput extends GetResourcePolicyOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a policy attached to the specified data stream or consumer. Request patterns can be one of the following:</p>
  *          <ul>
  *             <li>
@@ -81,6 +80,7 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyOutput,
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * @public
  */
 export class GetResourcePolicyCommand extends $Command
   .classBuilder<

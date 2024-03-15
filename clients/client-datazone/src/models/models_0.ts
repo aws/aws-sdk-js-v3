@@ -4,22 +4,22 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { DataZoneServiceException as __BaseException } from "./DataZoneServiceException";
 
 /**
- * @public
  * <p>Specifies the prediction (aka, the automatically generated piece of metadata) and the
  *          target (for example, a column name) that can be accepted.</p>
+ * @public
  */
 export interface AcceptChoice {
   /**
-   * @public
    * <p>Specifies the target (for example, a column name) where a prediction can be
    *          accepted.</p>
+   * @public
    */
   predictionTarget?: string;
 
   /**
-   * @public
    * <p>Specifies the prediction (aka, the automatically generated piece of metadata) that can
    *          be accepted.</p>
+   * @public
    */
   predictionChoice?: number;
 }
@@ -39,20 +39,20 @@ export const AcceptRuleBehavior = {
 export type AcceptRuleBehavior = (typeof AcceptRuleBehavior)[keyof typeof AcceptRuleBehavior];
 
 /**
- * @public
  * <p>Specifies the rule and the threshold under which a prediction can be accepted.</p>
+ * @public
  */
 export interface AcceptRule {
   /**
-   * @public
    * <p>Specifies whether you want to accept the top prediction for all targets or none.</p>
+   * @public
    */
   rule?: AcceptRuleBehavior;
 
   /**
-   * @public
    * <p>The confidence score that specifies the condition at which a prediction can be
    *          accepted.</p>
+   * @public
    */
   threshold?: number;
 }
@@ -62,39 +62,39 @@ export interface AcceptRule {
  */
 export interface AcceptPredictionsInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   identifier: string | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   revision?: string;
 
   /**
-   * @public
    * <p>Specifies the rule (or the conditions) under which a prediction can be accepted.</p>
+   * @public
    */
   acceptRule?: AcceptRule;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   acceptChoices?: AcceptChoice[];
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is
    *          automatically populated if not provided.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -104,27 +104,27 @@ export interface AcceptPredictionsInput {
  */
 export interface AcceptPredictionsOutput {
   /**
-   * @public
    * <p/>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   assetId: string | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   revision: string | undefined;
 }
 
 /**
- * @public
  * <p>You do not have sufficient access to perform this action.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -143,8 +143,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>There is a conflict while performing this action.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -163,8 +163,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request has failed because of an unknown error, exception or failure.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -184,8 +184,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified resource cannot be found.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -204,8 +204,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request was denied due to request throttling.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -225,8 +225,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>You do not have permission to perform this action.</p>
+ * @public
  */
 export class UnauthorizedException extends __BaseException {
   readonly name: "UnauthorizedException" = "UnauthorizedException";
@@ -245,8 +245,8 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The input fails to satisfy the constraints specified by the Amazon Web Services service.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -269,21 +269,21 @@ export class ValidationException extends __BaseException {
  */
 export interface AcceptSubscriptionRequestInput {
   /**
-   * @public
    * <p>The Amazon DataZone domain where the specified subscription request is being accepted.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of the subscription request that is to be accepted.</p>
+   * @public
    */
   identifier: string | undefined;
 
   /**
-   * @public
    * <p>A description that specifies the reason for accepting the specified subscription
    *          request.</p>
+   * @public
    */
   decisionComment?: string;
 }
@@ -304,65 +304,65 @@ export const SubscriptionRequestStatus = {
 export type SubscriptionRequestStatus = (typeof SubscriptionRequestStatus)[keyof typeof SubscriptionRequestStatus];
 
 /**
- * @public
  * <p>Details of a glossary term attached to the inventory asset.</p>
+ * @public
  */
 export interface DetailedGlossaryTerm {
   /**
-   * @public
    * <p>The name of a glossary term attached to the inventory asset.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The shoft description of a glossary term attached to the inventory asset.</p>
+   * @public
    */
   shortDescription?: string;
 }
 
 /**
- * @public
  * <p>The details of the published asset for which the subscription grant is created.</p>
+ * @public
  */
 export interface SubscribedAssetListing {
   /**
-   * @public
    * <p>The identifier of the published asset for which the subscription grant is
    *          created.</p>
+   * @public
    */
   entityId?: string;
 
   /**
-   * @public
    * <p>The revision of the published asset for which the subscription grant is created.</p>
+   * @public
    */
   entityRevision?: string;
 
   /**
-   * @public
    * <p>The type of the published asset for which the subscription grant is created.</p>
+   * @public
    */
   entityType?: string;
 
   /**
-   * @public
    * <p>The forms attached to the published asset for which the subscription grant is
    *          created.</p>
+   * @public
    */
   forms?: string;
 
   /**
-   * @public
    * <p>The glossary terms attached to the published asset for which the subscription grant is
    *          created.</p>
+   * @public
    */
   glossaryTerms?: DetailedGlossaryTerm[];
 }
 
 /**
- * @public
  * <p>The published asset for which the subscription grant is created.</p>
+ * @public
  */
 export type SubscribedListingItem = SubscribedListingItem.AssetListingMember | SubscribedListingItem.$UnknownMember;
 
@@ -371,8 +371,8 @@ export type SubscribedListingItem = SubscribedListingItem.AssetListingMember | S
  */
 export namespace SubscribedListingItem {
   /**
-   * @public
    * <p>The asset for which the subscription grant is created.</p>
+   * @public
    */
   export interface AssetListingMember {
     assetListing: SubscribedAssetListing;
@@ -399,78 +399,78 @@ export namespace SubscribedListingItem {
 }
 
 /**
- * @public
  * <p>The details of the published asset for which the subscription grant is created.</p>
+ * @public
  */
 export interface SubscribedListing {
   /**
-   * @public
    * <p>The identifier of the published asset for which the subscription grant is
    *          created.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The revision of the published asset for which the subscription grant is created.</p>
+   * @public
    */
   revision?: string;
 
   /**
-   * @public
    * <p>The name of the published asset for which the subscription grant is created.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description of the published asset for which the subscription grant is
    *          created.</p>
+   * @public
    */
   description: string | undefined;
 
   /**
-   * @public
    * <p>The published asset for which the subscription grant is created.</p>
+   * @public
    */
   item: SubscribedListingItem | undefined;
 
   /**
-   * @public
    * <p>The identifier of the project of the published asset for which the subscription grant is
    *          created.</p>
+   * @public
    */
   ownerProjectId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the project that owns the published asset for which the subscription grant
    *          is created.</p>
+   * @public
    */
   ownerProjectName?: string;
 }
 
 /**
- * @public
  * <p>The project that has the subscription grant.</p>
+ * @public
  */
 export interface SubscribedProject {
   /**
-   * @public
    * <p>The identifier of the project that has the subscription grant.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The name of the project that has the subscription grant.</p>
+   * @public
    */
   name?: string;
 }
 
 /**
- * @public
  * <p>The principal that has the subscription grant for the asset.</p>
+ * @public
  */
 export type SubscribedPrincipal = SubscribedPrincipal.ProjectMember | SubscribedPrincipal.$UnknownMember;
 
@@ -479,8 +479,8 @@ export type SubscribedPrincipal = SubscribedPrincipal.ProjectMember | Subscribed
  */
 export namespace SubscribedPrincipal {
   /**
-   * @public
    * <p>The project that has the subscription grant.</p>
+   * @public
    */
   export interface ProjectMember {
     project: SubscribedProject;
@@ -511,76 +511,76 @@ export namespace SubscribedPrincipal {
  */
 export interface AcceptSubscriptionRequestOutput {
   /**
-   * @public
    * <p>The identifier of the subscription request.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the Amazon DataZone user that accepted the specified subscription request.</p>
+   * @public
    */
   createdBy: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the Amazon DataZone user who updated the subscription request.</p>
+   * @public
    */
   updatedBy?: string;
 
   /**
-   * @public
    * <p>The unique identifier of the Amazon DataZone domain where the specified subscription request
    *          was accepted.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the status of the subscription request.</p>
+   * @public
    */
   status: SubscriptionRequestStatus | undefined;
 
   /**
-   * @public
    * <p>The timestamp that specifies when the subscription request was accepted.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>Specifies the timestamp when subscription request was updated.</p>
+   * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * @public
    * <p>Specifies the reason for requesting a subscription to the asset.</p>
+   * @public
    */
   requestReason: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the Amazon DataZone users who are subscribed to the asset specified in the
    *          subscription request.</p>
+   * @public
    */
   subscribedPrincipals: SubscribedPrincipal[] | undefined;
 
   /**
-   * @public
    * <p>Specifies the asset for which the subscription request was created.</p>
+   * @public
    */
   subscribedListings: SubscribedListing[] | undefined;
 
   /**
-   * @public
    * <p>Specifes the ID of the Amazon DataZone user who reviewed the subscription request.</p>
+   * @public
    */
   reviewerId?: string;
 
   /**
-   * @public
    * <p>Specifies the reason for accepting the subscription request.</p>
+   * @public
    */
   decisionComment?: string;
 }
@@ -601,73 +601,73 @@ export const ListingStatus = {
 export type ListingStatus = (typeof ListingStatus)[keyof typeof ListingStatus];
 
 /**
- * @public
  * <p>The details of an asset published in an Amazon DataZone catalog. </p>
+ * @public
  */
 export interface AssetListingDetails {
   /**
-   * @public
    * <p>The identifier of an asset published in an Amazon DataZone catalog. </p>
+   * @public
    */
   listingId: string | undefined;
 
   /**
-   * @public
    * <p>The status of an asset published in an Amazon DataZone catalog. </p>
+   * @public
    */
   listingStatus: ListingStatus | undefined;
 }
 
 /**
- * @public
  * <p>The details of a metadata form.</p>
+ * @public
  */
 export interface FormInput {
   /**
-   * @public
    * <p>The name of the metadata form.</p>
+   * @public
    */
   formName: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the metadata form type.</p>
+   * @public
    */
   typeIdentifier?: string;
 
   /**
-   * @public
    * <p>The revision of the metadata form type.</p>
+   * @public
    */
   typeRevision?: string;
 
   /**
-   * @public
    * <p>The content of the metadata form.</p>
+   * @public
    */
   content?: string;
 }
 
 /**
- * @public
  * <p>The configuration of the business name generation.</p>
+ * @public
  */
 export interface BusinessNameGenerationConfiguration {
   /**
-   * @public
    * <p>Specifies whether the business name generation is enabled.</p>
+   * @public
    */
   enabled?: boolean;
 }
 
 /**
- * @public
  * <p>The configuration of the prediction.</p>
+ * @public
  */
 export interface PredictionConfiguration {
   /**
-   * @public
    * <p>The business name generation mechanism.</p>
+   * @public
    */
   businessNameGeneration?: BusinessNameGenerationConfiguration;
 }
@@ -677,100 +677,100 @@ export interface PredictionConfiguration {
  */
 export interface CreateAssetInput {
   /**
-   * @public
    * <p>Asset name.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Amazon DataZone domain where the asset is created.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   externalIdentifier?: string;
 
   /**
-   * @public
    * <p>The unique identifier of this asset's type.</p>
+   * @public
    */
   typeIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The revision of this asset's type.</p>
+   * @public
    */
   typeRevision?: string;
 
   /**
-   * @public
    * <p>Asset description.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>Glossary terms attached to the asset.</p>
+   * @public
    */
   glossaryTerms?: string[];
 
   /**
-   * @public
    * <p>Metadata forms attached to the asset.</p>
+   * @public
    */
   formsInput?: FormInput[];
 
   /**
-   * @public
    * <p>The unique identifier of the project that owns this asset.</p>
+   * @public
    */
   owningProjectIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The configuration of the automatically generated business-friendly metadata for the
    *          asset.</p>
+   * @public
    */
   predictionConfiguration?: PredictionConfiguration;
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
    *          request.</p>
+   * @public
    */
   clientToken?: string;
 }
 
 /**
- * @public
  * <p>The details of a metadata form.</p>
+ * @public
  */
 export interface FormOutput {
   /**
-   * @public
    * <p>The name of the metadata form.</p>
+   * @public
    */
   formName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the metadata form type.</p>
+   * @public
    */
   typeName?: string;
 
   /**
-   * @public
    * <p>The revision of the metadata form type.</p>
+   * @public
    */
   typeRevision?: string;
 
   /**
-   * @public
    * <p>The content of the metadata form.</p>
+   * @public
    */
   content?: string;
 }
@@ -780,118 +780,118 @@ export interface FormOutput {
  */
 export interface CreateAssetOutput {
   /**
-   * @public
    * <p>The unique identifier of the created asset.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The name of the created asset.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the created asset type.</p>
+   * @public
    */
   typeIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The revision type of the asset.</p>
+   * @public
    */
   typeRevision: string | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   externalIdentifier?: string;
 
   /**
-   * @public
    * <p>The revision of the asset.</p>
+   * @public
    */
   revision: string | undefined;
 
   /**
-   * @public
    * <p>The description of the created asset.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The timestamp of when the asset was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The Amazon DataZone user that created this asset in the catalog.</p>
+   * @public
    */
   createdBy?: string;
 
   /**
-   * @public
    * <p>The timestamp of when the first revision of the asset took place.</p>
+   * @public
    */
   firstRevisionCreatedAt?: Date;
 
   /**
-   * @public
    * <p>The Amazon DataZone user that made the first revision of the asset.</p>
+   * @public
    */
   firstRevisionCreatedBy?: string;
 
   /**
-   * @public
    * <p>The glossary terms that are attached to the created asset.</p>
+   * @public
    */
   glossaryTerms?: string[];
 
   /**
-   * @public
    * <p>The ID of the Amazon DataZone project that owns the created asset. </p>
+   * @public
    */
   owningProjectId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which the asset was created.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   listing?: AssetListingDetails;
 
   /**
-   * @public
    * <p>The metadata forms that are attached to the created asset.</p>
+   * @public
    */
   formsOutput: FormOutput[] | undefined;
 
   /**
-   * @public
    * <p>The read-only metadata forms that are attached to the created asset.</p>
+   * @public
    */
   readOnlyFormsOutput?: FormOutput[];
 
   /**
-   * @public
    * <p>The configuration of the automatically generated business-friendly metadata for the
    *          asset.</p>
+   * @public
    */
   predictionConfiguration?: PredictionConfiguration;
 }
 
 /**
- * @public
  * <p>The request has exceeded the specified service quota.</p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
@@ -914,58 +914,58 @@ export class ServiceQuotaExceededException extends __BaseException {
  */
 export interface CreateAssetRevisionInput {
   /**
-   * @public
    * <p>Te revised name of the asset.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of the domain where the asset is being revised.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the asset.</p>
+   * @public
    */
   identifier: string | undefined;
 
   /**
-   * @public
    * <p>The revision type of the asset.</p>
+   * @public
    */
   typeRevision?: string;
 
   /**
-   * @public
    * <p>The revised description of the asset.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The glossary terms to be attached to the asset as part of asset revision.</p>
+   * @public
    */
   glossaryTerms?: string[];
 
   /**
-   * @public
    * <p>The metadata forms to be attached to the asset as part of asset revision.</p>
+   * @public
    */
   formsInput?: FormInput[];
 
   /**
-   * @public
    * <p>The configuration of the automatically generated business-friendly metadata for the
    *          asset.</p>
+   * @public
    */
   predictionConfiguration?: PredictionConfiguration;
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
    *          request.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -975,112 +975,112 @@ export interface CreateAssetRevisionInput {
  */
 export interface CreateAssetRevisionOutput {
   /**
-   * @public
    * <p>The unique identifier of the asset revision.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The revised name of the asset.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the revision type.</p>
+   * @public
    */
   typeIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The revision type of the asset.</p>
+   * @public
    */
   typeRevision: string | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   externalIdentifier?: string;
 
   /**
-   * @public
    * <p>The revision of the asset.</p>
+   * @public
    */
   revision: string | undefined;
 
   /**
-   * @public
    * <p>The revised asset description.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The timestamp of when the asset revision occured.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who performed the asset revision.</p>
+   * @public
    */
   createdBy?: string;
 
   /**
-   * @public
    * <p>The timestamp of when the first asset revision occured.</p>
+   * @public
    */
   firstRevisionCreatedAt?: Date;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who performed the first asset revision.</p>
+   * @public
    */
   firstRevisionCreatedBy?: string;
 
   /**
-   * @public
    * <p>The glossary terms that were attached to the asset as part of asset revision.</p>
+   * @public
    */
   glossaryTerms?: string[];
 
   /**
-   * @public
    * <p>The unique identifier of the revised project that owns the asset.</p>
+   * @public
    */
   owningProjectId: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of the Amazon DataZone domain where the asset was revised.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   listing?: AssetListingDetails;
 
   /**
-   * @public
    * <p>The metadata forms that were attached to the asset as part of the asset revision.</p>
+   * @public
    */
   formsOutput: FormOutput[] | undefined;
 
   /**
-   * @public
    * <p>The read-only metadata forms that were attached to the asset as part of the asset
    *          revision.</p>
+   * @public
    */
   readOnlyFormsOutput?: FormOutput[];
 
   /**
-   * @public
    * <p>The configuration of the automatically generated business-friendly metadata for the
    *          asset.</p>
+   * @public
    */
   predictionConfiguration?: PredictionConfiguration;
 }
@@ -1090,14 +1090,14 @@ export interface CreateAssetRevisionOutput {
  */
 export interface DeleteAssetInput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which the asset is deleted.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the asset that is deleted.</p>
+   * @public
    */
   identifier: string | undefined;
 }
@@ -1112,20 +1112,20 @@ export interface DeleteAssetOutput {}
  */
 export interface GetAssetInput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain to which the asset belongs.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the Amazon DataZone asset.</p>
+   * @public
    */
   identifier: string | undefined;
 
   /**
-   * @public
    * <p>The revision of the Amazon DataZone asset.</p>
+   * @public
    */
   revision?: string;
 }
@@ -1135,435 +1135,435 @@ export interface GetAssetInput {
  */
 export interface GetAssetOutput {
   /**
-   * @public
    * <p>The ID of the asset.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The name of the asset.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the asset type.</p>
+   * @public
    */
   typeIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The revision of the asset type.</p>
+   * @public
    */
   typeRevision: string | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   externalIdentifier?: string;
 
   /**
-   * @public
    * <p>The revision of the asset.</p>
+   * @public
    */
   revision: string | undefined;
 
   /**
-   * @public
    * <p>The description of the Amazon DataZone asset.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The timestamp of when the asset was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created the asset.</p>
+   * @public
    */
   createdBy?: string;
 
   /**
-   * @public
    * <p>The timestamp of when the first revision of the asset was created.</p>
+   * @public
    */
   firstRevisionCreatedAt?: Date;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created the first revision of the asset.</p>
+   * @public
    */
   firstRevisionCreatedBy?: string;
 
   /**
-   * @public
    * <p>The business glossary terms attached to the asset.</p>
+   * @public
    */
   glossaryTerms?: string[];
 
   /**
-   * @public
    * <p>The ID of the project that owns the asset.</p>
+   * @public
    */
   owningProjectId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain to which the asset belongs.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   listing?: AssetListingDetails;
 
   /**
-   * @public
    * <p>The metadata forms attached to the asset.</p>
+   * @public
    */
   formsOutput: FormOutput[] | undefined;
 
   /**
-   * @public
    * <p>The read-only metadata forms attached to the asset.</p>
+   * @public
    */
   readOnlyFormsOutput?: FormOutput[];
 }
 
 /**
- * @public
  * <p>The additional attributes of an inventory asset.</p>
+ * @public
  */
 export interface AssetItemAdditionalAttributes {
   /**
-   * @public
    * <p>The forms included in the additional attributes of an inventory asset.</p>
+   * @public
    */
   formsOutput?: FormOutput[];
 
   /**
-   * @public
    * <p>The read-only forms included in the additional attributes of an inventory asset.</p>
+   * @public
    */
   readOnlyFormsOutput?: FormOutput[];
 }
 
 /**
- * @public
  * <p>A Amazon DataZone inventory asset.</p>
+ * @public
  */
 export interface AssetItem {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which the inventory asset exists.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>the identifier of the Amazon DataZone inventory asset.</p>
+   * @public
    */
   identifier: string | undefined;
 
   /**
-   * @public
    * <p>The name of the Amazon DataZone inventory asset.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the asset type of the specified Amazon DataZone inventory asset.</p>
+   * @public
    */
   typeIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The revision of the inventory asset type.</p>
+   * @public
    */
   typeRevision: string | undefined;
 
   /**
-   * @public
    * <p>The external identifier of the Amazon DataZone inventory asset.</p>
+   * @public
    */
   externalIdentifier?: string;
 
   /**
-   * @public
    * <p>The description of an Amazon DataZone inventory asset.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The timestamp of when the Amazon DataZone inventory asset was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created the inventory asset.</p>
+   * @public
    */
   createdBy?: string;
 
   /**
-   * @public
    * <p>The timestamp of when the first revision of the inventory asset was created.</p>
+   * @public
    */
   firstRevisionCreatedAt?: Date;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created the first revision of the inventory asset.</p>
+   * @public
    */
   firstRevisionCreatedBy?: string;
 
   /**
-   * @public
    * <p>The glossary terms attached to the Amazon DataZone inventory asset.</p>
+   * @public
    */
   glossaryTerms?: string[];
 
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone project that owns the inventory asset.</p>
+   * @public
    */
   owningProjectId: string | undefined;
 
   /**
-   * @public
    * <p>The additional attributes of a Amazon DataZone inventory asset. </p>
+   * @public
    */
   additionalAttributes?: AssetItemAdditionalAttributes;
 }
 
 /**
- * @public
  * <p>An asset published in an Amazon DataZone catalog.</p>
+ * @public
  */
 export interface AssetListing {
   /**
-   * @public
    * <p>The identifier of an asset published in an Amazon DataZone catalog. </p>
+   * @public
    */
   assetId?: string;
 
   /**
-   * @public
    * <p>The revision of an asset published in an Amazon DataZone catalog. </p>
+   * @public
    */
   assetRevision?: string;
 
   /**
-   * @public
    * <p>The type of an asset published in an Amazon DataZone catalog. </p>
+   * @public
    */
   assetType?: string;
 
   /**
-   * @public
    * <p>The timestamp of when an asset published in an Amazon DataZone catalog was created. </p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The metadata forms attached to an asset published in an Amazon DataZone catalog. </p>
+   * @public
    */
   forms?: string;
 
   /**
-   * @public
    * <p>The glossary terms attached to an asset published in an Amazon DataZone catalog. </p>
+   * @public
    */
   glossaryTerms?: DetailedGlossaryTerm[];
 
   /**
-   * @public
    * <p>The identifier of the project where an asset published in an Amazon DataZone catalog exists.
    *       </p>
+   * @public
    */
   owningProjectId?: string;
 }
 
 /**
- * @public
  * <p>Additional attributes of an inventory asset.</p>
+ * @public
  */
 export interface AssetListingItemAdditionalAttributes {
   /**
-   * @public
    * <p>The metadata forms that form additional attributes of the metadata asset.</p>
+   * @public
    */
   forms?: string;
 }
 
 /**
- * @public
  * <p>The details of an asset published in an Amazon DataZone catalog.</p>
+ * @public
  */
 export interface AssetListingItem {
   /**
-   * @public
    * <p>The identifier of the listing (asset published in Amazon DataZone catalog).</p>
+   * @public
    */
   listingId?: string;
 
   /**
-   * @public
    * <p>The revision of the listing (asset published in Amazon DataZone catalog).</p>
+   * @public
    */
   listingRevision?: string;
 
   /**
-   * @public
    * <p>The name of the inventory asset.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The identifier of the inventory asset.</p>
+   * @public
    */
   entityId?: string;
 
   /**
-   * @public
    * <p>The revision of the inventory asset.</p>
+   * @public
    */
   entityRevision?: string;
 
   /**
-   * @public
    * <p>The type of the inventory asset.</p>
+   * @public
    */
   entityType?: string;
 
   /**
-   * @public
    * <p>The description of an asset published in an Amazon DataZone catalog.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The timestamp of when an asset published in an Amazon DataZone catalog was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created the listing.</p>
+   * @public
    */
   listingCreatedBy?: string;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who updated the listing.</p>
+   * @public
    */
   listingUpdatedBy?: string;
 
   /**
-   * @public
    * <p>Glossary terms attached to the inventory asset.</p>
+   * @public
    */
   glossaryTerms?: DetailedGlossaryTerm[];
 
   /**
-   * @public
    * <p>The identifier of the project that owns the inventory asset.</p>
+   * @public
    */
   owningProjectId?: string;
 
   /**
-   * @public
    * <p>The additional attributes of an asset published in an Amazon DataZone catalog.</p>
+   * @public
    */
   additionalAttributes?: AssetListingItemAdditionalAttributes;
 }
 
 /**
- * @public
  * <p>The revision of an inventory asset.</p>
+ * @public
  */
 export interface AssetRevision {
   /**
-   * @public
    * <p>The Amazon DataZone user who created the inventory asset.</p>
+   * @public
    */
   domainId?: string;
 
   /**
-   * @public
    * <p>The identifier of the inventory asset revision.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The revision details of the inventory asset.</p>
+   * @public
    */
   revision?: string;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created the asset revision.</p>
+   * @public
    */
   createdBy?: string;
 
   /**
-   * @public
    * <p>The timestamp of when an inventory asset revison was created.</p>
+   * @public
    */
   createdAt?: Date;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface AssetTargetNameMap {
   /**
-   * @public
    * <p>The identifier of the inventory asset.</p>
+   * @public
    */
   assetId: string | undefined;
 
   /**
-   * @public
    * <p>The target name in the asset target name map.</p>
+   * @public
    */
   targetName: string | undefined;
 }
 
 /**
- * @public
  * <p>The details of the form entry.</p>
+ * @public
  */
 export interface FormEntryInput {
   /**
-   * @public
    * <p>The type ID of the form entry.</p>
+   * @public
    */
   typeIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The type revision of the form entry.</p>
+   * @public
    */
   typeRevision: string | undefined;
 
   /**
-   * @public
    * <p>Specifies whether a form entry is required.</p>
+   * @public
    */
   required?: boolean;
 }
@@ -1573,57 +1573,57 @@ export interface FormEntryInput {
  */
 export interface CreateAssetTypeInput {
   /**
-   * @public
    * <p>The unique identifier of the Amazon DataZone domain where the custom asset type is being
    *          created.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The name of the custom asset type.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The descripton of the custom asset type.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The metadata forms that are to be attached to the custom asset type.</p>
+   * @public
    */
   formsInput: Record<string, FormEntryInput> | undefined;
 
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone project that is to own the custom asset type.</p>
+   * @public
    */
   owningProjectIdentifier: string | undefined;
 }
 
 /**
- * @public
  * <p>The details of the form entry.</p>
+ * @public
  */
 export interface FormEntryOutput {
   /**
-   * @public
    * <p>The name of the type of the form entry.</p>
+   * @public
    */
   typeName: string | undefined;
 
   /**
-   * @public
    * <p>The type revision of the form entry.</p>
+   * @public
    */
   typeRevision: string | undefined;
 
   /**
-   * @public
    * <p>Specifies whether a form entry is required.</p>
+   * @public
    */
   required?: boolean;
 }
@@ -1633,74 +1633,74 @@ export interface FormEntryOutput {
  */
 export interface CreateAssetTypeOutput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which the asset type was created.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the asset type.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The revision of the custom asset type.</p>
+   * @public
    */
   revision: string | undefined;
 
   /**
-   * @public
    * <p>The description of the custom asset type.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The metadata forms that are attached to the asset type.</p>
+   * @public
    */
   formsOutput: Record<string, FormEntryOutput> | undefined;
 
   /**
-   * @public
    * <p>The ID of the Amazon DataZone project that currently owns this asset type.</p>
+   * @public
    */
   owningProjectId?: string;
 
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain where the asset type was originally created.</p>
+   * @public
    */
   originDomainId?: string;
 
   /**
-   * @public
    * <p>The ID of the Amazon DataZone project where the asset type was originally created.</p>
+   * @public
    */
   originProjectId?: string;
 
   /**
-   * @public
    * <p>The timestamp of when the asset type is to be created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who creates this custom asset type.</p>
+   * @public
    */
   createdBy?: string;
 
   /**
-   * @public
    * <p>The timestamp of when the custom type was created.</p>
+   * @public
    */
   updatedAt?: Date;
 
   /**
-   * @public
    * <p>The Amazon DataZone user that created the custom asset type.</p>
+   * @public
    */
   updatedBy?: string;
 }
@@ -1710,14 +1710,14 @@ export interface CreateAssetTypeOutput {
  */
 export interface DeleteAssetTypeInput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which the asset type is deleted.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the asset type that is deleted.</p>
+   * @public
    */
   identifier: string | undefined;
 }
@@ -1732,20 +1732,20 @@ export interface DeleteAssetTypeOutput {}
  */
 export interface GetAssetTypeInput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which the asset type exists.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the asset type.</p>
+   * @public
    */
   identifier: string | undefined;
 
   /**
-   * @public
    * <p>The revision of the asset type.</p>
+   * @public
    */
   revision?: string;
 }
@@ -1755,153 +1755,153 @@ export interface GetAssetTypeInput {
  */
 export interface GetAssetTypeOutput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which the asset type exists.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the asset type.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The revision of the asset type.</p>
+   * @public
    */
   revision: string | undefined;
 
   /**
-   * @public
    * <p>The description of the asset type.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The metadata forms attached to the asset type.</p>
+   * @public
    */
   formsOutput: Record<string, FormEntryOutput> | undefined;
 
   /**
-   * @public
    * <p>The ID of the Amazon DataZone project that owns the asset type.</p>
+   * @public
    */
   owningProjectId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which the asset type was originally created.</p>
+   * @public
    */
   originDomainId?: string;
 
   /**
-   * @public
    * <p>The ID of the Amazon DataZone project in which the asset type was originally created.</p>
+   * @public
    */
   originProjectId?: string;
 
   /**
-   * @public
    * <p>The timestamp of when the asset type was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created the asset type.</p>
+   * @public
    */
   createdBy?: string;
 
   /**
-   * @public
    * <p>The timestamp of when the asset type was updated.</p>
+   * @public
    */
   updatedAt?: Date;
 
   /**
-   * @public
    * <p>The Amazon DataZone user that updated the asset type.</p>
+   * @public
    */
   updatedBy?: string;
 }
 
 /**
- * @public
  * <p>The details of the asset type.</p>
+ * @public
  */
 export interface AssetTypeItem {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain where the asset type exists.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the asset type.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The revision of the asset type.</p>
+   * @public
    */
   revision: string | undefined;
 
   /**
-   * @public
    * <p>The description of the asset type.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The forms included in the details of the asset type.</p>
+   * @public
    */
   formsOutput: Record<string, FormEntryOutput> | undefined;
 
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone project that owns the asset type.</p>
+   * @public
    */
   owningProjectId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain where the asset type was originally
    *          created.</p>
+   * @public
    */
   originDomainId?: string;
 
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone project where the asset type exists.</p>
+   * @public
    */
   originProjectId?: string;
 
   /**
-   * @public
    * <p>The timestamp of when the asset type was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created the asset type.</p>
+   * @public
    */
   createdBy?: string;
 
   /**
-   * @public
    * <p>The timestamp of when the asset type was updated.</p>
+   * @public
    */
   updatedAt?: Date;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who updated the asset type.</p>
+   * @public
    */
   updatedBy?: string;
 }
@@ -1925,15 +1925,15 @@ export type AuthType = (typeof AuthType)[keyof typeof AuthType];
  */
 export interface CancelSubscriptionInput {
   /**
-   * @public
    * <p>The unique identifier of the Amazon DataZone domain where the subscription request is being
    *          cancelled.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of the subscription that is being cancelled.</p>
+   * @public
    */
   identifier: string | undefined;
 }
@@ -1958,73 +1958,73 @@ export type SubscriptionStatus = (typeof SubscriptionStatus)[keyof typeof Subscr
  */
 export interface CancelSubscriptionOutput {
   /**
-   * @public
    * <p>The identifier of the subscription.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the Amazon DataZone user who is cancelling the subscription.</p>
+   * @public
    */
   createdBy: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone user that cancelled the subscription.</p>
+   * @public
    */
   updatedBy?: string;
 
   /**
-   * @public
    * <p>The unique identifier of the Amazon DataZone domain where the subscription is being
    *          cancelled.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The status of the request to cancel the subscription.</p>
+   * @public
    */
   status: SubscriptionStatus | undefined;
 
   /**
-   * @public
    * <p>The timestamp that specifies when the request to cancel the subscription was
    *          created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The timestamp that specifies when the subscription was cancelled.</p>
+   * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who is made a subscriber to the specified asset by the subscription
    *          that is being cancelled.</p>
+   * @public
    */
   subscribedPrincipal: SubscribedPrincipal | undefined;
 
   /**
-   * @public
    * <p>The asset to which a subscription is being cancelled.</p>
+   * @public
    */
   subscribedListing: SubscribedListing | undefined;
 
   /**
-   * @public
    * <p>The unique ID of the subscripton request for the subscription that is being
    *          cancelled.</p>
+   * @public
    */
   subscriptionRequestId?: string;
 
   /**
-   * @public
    * <p>Specifies whether the permissions to the asset are retained after the subscription is
    *          cancelled.</p>
+   * @public
    */
   retainPermissions?: boolean;
 }
@@ -2044,32 +2044,32 @@ export const ChangeAction = {
 export type ChangeAction = (typeof ChangeAction)[keyof typeof ChangeAction];
 
 /**
- * @public
  * <p>Part of the provisioning properties of the environment blueprint.</p>
+ * @public
  */
 export interface CloudFormationProperties {
   /**
-   * @public
    * <p>The template URL of the cloud formation provisioning properties of the environment
    *          blueprint.</p>
+   * @public
    */
   templateUrl: string | undefined;
 }
 
 /**
- * @public
  * <p>The details of the parameters for the configurable environment action.</p>
+ * @public
  */
 export interface ConfigurableActionParameter {
   /**
-   * @public
    * <p>The key of the configurable action parameter.</p>
+   * @public
    */
   key?: string;
 
   /**
-   * @public
    * <p>The value of the configurable action parameter.</p>
+   * @public
    */
   value?: string;
 }
@@ -2090,25 +2090,25 @@ export type ConfigurableActionTypeAuthorization =
   (typeof ConfigurableActionTypeAuthorization)[keyof typeof ConfigurableActionTypeAuthorization];
 
 /**
- * @public
  * <p>The configurable action of a Amazon DataZone environment.</p>
+ * @public
  */
 export interface ConfigurableEnvironmentAction {
   /**
-   * @public
    * <p>The type of a configurable action in a Amazon DataZone environment.</p>
+   * @public
    */
   type: string | undefined;
 
   /**
-   * @public
    * <p>The authentication type of a configurable action of a Amazon DataZone environment. </p>
+   * @public
    */
   auth?: ConfigurableActionTypeAuthorization;
 
   /**
-   * @public
    * <p>The parameters of a configurable action in a Amazon DataZone environment.</p>
+   * @public
    */
   parameters: ConfigurableActionParameter[] | undefined;
 }
@@ -2128,110 +2128,110 @@ export const FilterExpressionType = {
 export type FilterExpressionType = (typeof FilterExpressionType)[keyof typeof FilterExpressionType];
 
 /**
- * @public
  * <p>A filter expression in Amazon DataZone.</p>
+ * @public
  */
 export interface FilterExpression {
   /**
-   * @public
    * <p>The search filter explresison type.</p>
+   * @public
    */
   type: FilterExpressionType | undefined;
 
   /**
-   * @public
    * <p>The search filter expression.</p>
+   * @public
    */
   expression: string | undefined;
 }
 
 /**
- * @public
  * <p>The relational filter configuration for the data source.</p>
+ * @public
  */
 export interface RelationalFilterConfiguration {
   /**
-   * @public
    * <p>The database name specified in the relational filter configuration for the data
    *          source.</p>
+   * @public
    */
   databaseName: string | undefined;
 
   /**
-   * @public
    * <p>The schema name specified in the relational filter configuration for the data
    *          source.</p>
+   * @public
    */
   schemaName?: string;
 
   /**
-   * @public
    * <p>The filter expressions specified in the relational filter configuration for the data
    *          source.</p>
+   * @public
    */
   filterExpressions?: FilterExpression[];
 }
 
 /**
- * @public
  * <p>The configuration details of the Amazon Web Services Glue data source.</p>
+ * @public
  */
 export interface GlueRunConfigurationInput {
   /**
-   * @public
    * <p>The data access role included in the configuration details of the Amazon Web Services Glue data
    *          source.</p>
+   * @public
    */
   dataAccessRole?: string;
 
   /**
-   * @public
    * <p>The relational filter configurations included in the configuration details of the Amazon Web Services
    *          Glue data source.</p>
+   * @public
    */
   relationalFilterConfigurations: RelationalFilterConfiguration[] | undefined;
 }
 
 /**
- * @public
  * <p>The details of the credentials required to access an Amazon Redshift cluster.</p>
+ * @public
  */
 export interface RedshiftCredentialConfiguration {
   /**
-   * @public
    * <p>The ARN of a secret manager for an Amazon Redshift cluster.</p>
+   * @public
    */
   secretManagerArn: string | undefined;
 }
 
 /**
- * @public
  * <p>The details of the Amazon Redshift cluster storage.</p>
+ * @public
  */
 export interface RedshiftClusterStorage {
   /**
-   * @public
    * <p>The name of an Amazon Redshift cluster.</p>
+   * @public
    */
   clusterName: string | undefined;
 }
 
 /**
- * @public
  * <p>The details of the Amazon Redshift Serverless workgroup storage.</p>
+ * @public
  */
 export interface RedshiftServerlessStorage {
   /**
-   * @public
    * <p>The name of the Amazon Redshift Serverless workgroup.</p>
+   * @public
    */
   workgroupName: string | undefined;
 }
 
 /**
- * @public
  * <p>The details of the Amazon Redshift storage as part of the configuration of an Amazon
  *          Redshift data source run.</p>
+ * @public
  */
 export type RedshiftStorage =
   | RedshiftStorage.RedshiftClusterSourceMember
@@ -2243,8 +2243,8 @@ export type RedshiftStorage =
  */
 export namespace RedshiftStorage {
   /**
-   * @public
    * <p>The details of the Amazon Redshift cluster source.</p>
+   * @public
    */
   export interface RedshiftClusterSourceMember {
     redshiftClusterSource: RedshiftClusterStorage;
@@ -2253,8 +2253,8 @@ export namespace RedshiftStorage {
   }
 
   /**
-   * @public
    * <p>The details of the Amazon Redshift Serverless workgroup source.</p>
+   * @public
    */
   export interface RedshiftServerlessSourceMember {
     redshiftClusterSource?: never;
@@ -2286,41 +2286,41 @@ export namespace RedshiftStorage {
 }
 
 /**
- * @public
  * <p>The configuration details of the Amazon Redshift data source.</p>
+ * @public
  */
 export interface RedshiftRunConfigurationInput {
   /**
-   * @public
    * <p>The data access role included in the configuration details of the Amazon Redshift data
    *          source.</p>
+   * @public
    */
   dataAccessRole?: string;
 
   /**
-   * @public
    * <p>The relational filger configurations included in the configuration details of the Amazon
    *          Redshift data source.</p>
+   * @public
    */
   relationalFilterConfigurations: RelationalFilterConfiguration[] | undefined;
 
   /**
-   * @public
    * <p>The details of the credentials required to access an Amazon Redshift cluster.</p>
+   * @public
    */
   redshiftCredentialConfiguration: RedshiftCredentialConfiguration | undefined;
 
   /**
-   * @public
    * <p>The details of the Amazon Redshift storage as part of the configuration of an Amazon
    *          Redshift data source run.</p>
+   * @public
    */
   redshiftStorage: RedshiftStorage | undefined;
 }
 
 /**
- * @public
  * <p>The configuration of the data source.</p>
+ * @public
  */
 export type DataSourceConfigurationInput =
   | DataSourceConfigurationInput.GlueRunConfigurationMember
@@ -2332,8 +2332,8 @@ export type DataSourceConfigurationInput =
  */
 export namespace DataSourceConfigurationInput {
   /**
-   * @public
    * <p>The configuration of the Amazon Web Services Glue data source.</p>
+   * @public
    */
   export interface GlueRunConfigurationMember {
     glueRunConfiguration: GlueRunConfigurationInput;
@@ -2342,8 +2342,8 @@ export namespace DataSourceConfigurationInput {
   }
 
   /**
-   * @public
    * <p>The configuration of the Amazon Redshift data source.</p>
+   * @public
    */
   export interface RedshiftRunConfigurationMember {
     glueRunConfiguration?: never;
@@ -2389,15 +2389,15 @@ export const EnableSetting = {
 export type EnableSetting = (typeof EnableSetting)[keyof typeof EnableSetting];
 
 /**
- * @public
  * <p>The recommendation to be updated as part of the <code>UpdateDataSource</code>
  *          action.</p>
+ * @public
  */
 export interface RecommendationConfiguration {
   /**
-   * @public
    * <p>Specifies whether automatic business name generation is to be enabled or not as part of
    *          the recommendation configuration.</p>
+   * @public
    */
   enableBusinessNameGeneration?: boolean;
 }
@@ -2479,19 +2479,19 @@ export const Timezone = {
 export type Timezone = (typeof Timezone)[keyof typeof Timezone];
 
 /**
- * @public
  * <p>The details of the schedule of the data source runs.</p>
+ * @public
  */
 export interface ScheduleConfiguration {
   /**
-   * @public
    * <p>The timezone of the data source run. </p>
+   * @public
    */
   timezone?: Timezone;
 
   /**
-   * @public
    * <p>The schedule of the data source runs.</p>
+   * @public
    */
   schedule?: string;
 }
@@ -2501,175 +2501,175 @@ export interface ScheduleConfiguration {
  */
 export interface CreateDataSourceInput {
   /**
-   * @public
    * <p>The name of the data source.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description of the data source.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain where the data source is created.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone project in which you want to add this data
    *          source.</p>
+   * @public
    */
   projectIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of the Amazon DataZone environment to which the data source publishes
    *          assets. </p>
+   * @public
    */
   environmentIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The type of the data source.</p>
+   * @public
    */
   type: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the configuration of the data source. It can be set to either
    *             <code>glueRunConfiguration</code> or <code>redshiftRunConfiguration</code>.</p>
+   * @public
    */
   configuration?: DataSourceConfigurationInput;
 
   /**
-   * @public
    * <p>Specifies whether the business name generation is to be enabled for this data
    *          source.</p>
+   * @public
    */
   recommendation?: RecommendationConfiguration;
 
   /**
-   * @public
    * <p>Specifies whether the data source is enabled.</p>
+   * @public
    */
   enableSetting?: EnableSetting;
 
   /**
-   * @public
    * <p>The schedule of the data source runs.</p>
+   * @public
    */
   schedule?: ScheduleConfiguration;
 
   /**
-   * @public
    * <p>Specifies whether the assets that this data source creates in the inventory are to be
    *          also automatically published to the catalog.</p>
+   * @public
    */
   publishOnImport?: boolean;
 
   /**
-   * @public
    * <p>The metadata forms that are to be attached to the assets that this data source works
    *          with.</p>
+   * @public
    */
   assetFormsInput?: FormInput[];
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
    *          request.</p>
+   * @public
    */
   clientToken?: string;
 }
 
 /**
- * @public
  * <p>The configuration details of the Amazon Web Services Glue data source.</p>
+ * @public
  */
 export interface GlueRunConfigurationOutput {
   /**
-   * @public
    * <p>The Amazon Web Services account ID included in the configuration details of the Amazon Web Services Glue data
    *          source. </p>
+   * @public
    */
   accountId?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services region included in the configuration details of the Amazon Web Services Glue data source.
    *       </p>
+   * @public
    */
   region?: string;
 
   /**
-   * @public
    * <p>The data access role included in the configuration details of the Amazon Web Services Glue data
    *          source. </p>
+   * @public
    */
   dataAccessRole?: string;
 
   /**
-   * @public
    * <p>The relational filter configurations included in the configuration details of the Amazon Web Services
    *          Glue data source.</p>
+   * @public
    */
   relationalFilterConfigurations: RelationalFilterConfiguration[] | undefined;
 }
 
 /**
- * @public
  * <p>The configuration details of the Amazon Redshift data source.</p>
+ * @public
  */
 export interface RedshiftRunConfigurationOutput {
   /**
-   * @public
    * <p>The ID of the Amazon Web Services account included in the configuration details of the Amazon Redshift
    *          data source.</p>
+   * @public
    */
   accountId?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services region included in the configuration details of the Amazon Redshift
    *          data source.</p>
+   * @public
    */
   region?: string;
 
   /**
-   * @public
    * <p>The data access role included in the configuration details of the Amazon Redshift data
    *          source.</p>
+   * @public
    */
   dataAccessRole?: string;
 
   /**
-   * @public
    * <p>The relational filger configurations included in the configuration details of the Amazon
    *          Redshift data source.</p>
+   * @public
    */
   relationalFilterConfigurations: RelationalFilterConfiguration[] | undefined;
 
   /**
-   * @public
    * <p>The details of the credentials required to access an Amazon Redshift cluster.</p>
+   * @public
    */
   redshiftCredentialConfiguration: RedshiftCredentialConfiguration | undefined;
 
   /**
-   * @public
    * <p>The details of the Amazon Redshift storage as part of the configuration of an Amazon
    *          Redshift data source run.</p>
+   * @public
    */
   redshiftStorage: RedshiftStorage | undefined;
 }
 
 /**
- * @public
  * <p>The configuration of the data source.</p>
+ * @public
  */
 export type DataSourceConfigurationOutput =
   | DataSourceConfigurationOutput.GlueRunConfigurationMember
@@ -2681,8 +2681,8 @@ export type DataSourceConfigurationOutput =
  */
 export namespace DataSourceConfigurationOutput {
   /**
-   * @public
    * <p>The configuration of the Amazon Web Services Glue data source.</p>
+   * @public
    */
   export interface GlueRunConfigurationMember {
     glueRunConfiguration: GlueRunConfigurationOutput;
@@ -2691,8 +2691,8 @@ export namespace DataSourceConfigurationOutput {
   }
 
   /**
-   * @public
    * <p>The configuration of the Amazon Redshift data source.</p>
+   * @public
    */
   export interface RedshiftRunConfigurationMember {
     glueRunConfiguration?: never;
@@ -2743,22 +2743,22 @@ export const DataSourceErrorType = {
 export type DataSourceErrorType = (typeof DataSourceErrorType)[keyof typeof DataSourceErrorType];
 
 /**
- * @public
  * <p>The details of the error message that is returned if the operation cannot be
  *          successfully completed.</p>
+ * @public
  */
 export interface DataSourceErrorMessage {
   /**
-   * @public
    * <p>The type of the error message that is returned if the operation cannot be successfully
    *          completed.</p>
+   * @public
    */
   errorType: DataSourceErrorType | undefined;
 
   /**
-   * @public
    * <p>The details of the error message that is returned if the operation cannot be
    *          successfully completed.</p>
+   * @public
    */
   errorDetail?: string;
 }
@@ -2805,128 +2805,128 @@ export type DataSourceStatus = (typeof DataSourceStatus)[keyof typeof DataSource
  */
 export interface CreateDataSourceOutput {
   /**
-   * @public
    * <p>The unique identifier of the data source.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The status of the data source.</p>
+   * @public
    */
   status?: DataSourceStatus;
 
   /**
-   * @public
    * <p>The type of the data source.</p>
+   * @public
    */
   type?: string;
 
   /**
-   * @public
    * <p>The name of the data source.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description of the data source.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which the data source is created.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the Amazon DataZone project to which the data source is added.</p>
+   * @public
    */
   projectId: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of the Amazon DataZone environment to which the data source publishes
    *          assets. </p>
+   * @public
    */
   environmentId: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the configuration of the data source. It can be set to either
    *             <code>glueRunConfiguration</code> or <code>redshiftRunConfiguration</code>.</p>
+   * @public
    */
   configuration?: DataSourceConfigurationOutput;
 
   /**
-   * @public
    * <p>Specifies whether the business name generation is to be enabled for this data
    *          source.</p>
+   * @public
    */
   recommendation?: RecommendationConfiguration;
 
   /**
-   * @public
    * <p>Specifies whether the data source is enabled.</p>
+   * @public
    */
   enableSetting?: EnableSetting;
 
   /**
-   * @public
    * <p>Specifies whether the assets that this data source creates in the inventory are to be
    *          also automatically published to the catalog.</p>
+   * @public
    */
   publishOnImport?: boolean;
 
   /**
-   * @public
    * <p>The metadata forms attached to the assets that this data source creates.</p>
+   * @public
    */
   assetFormsOutput?: FormOutput[];
 
   /**
-   * @public
    * <p>The schedule of the data source runs.</p>
+   * @public
    */
   schedule?: ScheduleConfiguration;
 
   /**
-   * @public
    * <p>The status of the last run of this data source.</p>
+   * @public
    */
   lastRunStatus?: DataSourceRunStatus;
 
   /**
-   * @public
    * <p>The timestamp that specifies when the data source was last run.</p>
+   * @public
    */
   lastRunAt?: Date;
 
   /**
-   * @public
    * <p>Specifies the error message that is returned if the operation cannot be successfully
    *          completed.</p>
+   * @public
    */
   lastRunErrorMessage?: DataSourceErrorMessage;
 
   /**
-   * @public
    * <p>Specifies the error message that is returned if the operation cannot be successfully
    *          completed.</p>
+   * @public
    */
   errorMessage?: DataSourceErrorMessage;
 
   /**
-   * @public
    * <p>The timestamp of when the data source was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The timestamp of when the data source was updated.</p>
+   * @public
    */
   updatedAt?: Date;
 }
@@ -2946,19 +2946,19 @@ export const UserAssignment = {
 export type UserAssignment = (typeof UserAssignment)[keyof typeof UserAssignment];
 
 /**
- * @public
  * <p>The single sign-on details in Amazon DataZone.</p>
+ * @public
  */
 export interface SingleSignOn {
   /**
-   * @public
    * <p>The type of single sign-on in Amazon DataZone.</p>
+   * @public
    */
   type?: AuthType;
 
   /**
-   * @public
    * <p>The single sign-on user assignment in Amazon DataZone.</p>
+   * @public
    */
   userAssignment?: UserAssignment;
 }
@@ -2968,48 +2968,48 @@ export interface SingleSignOn {
  */
 export interface CreateDomainInput {
   /**
-   * @public
    * <p>The name of the Amazon DataZone domain.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description of the Amazon DataZone domain.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The single-sign on configuration of the Amazon DataZone domain.</p>
+   * @public
    */
   singleSignOn?: SingleSignOn;
 
   /**
-   * @public
    * <p>The domain execution role that is created when an Amazon DataZone domain is created. The
    *          domain execution role is created in the Amazon Web Services account that houses the
    *          Amazon DataZone domain.</p>
+   * @public
    */
   domainExecutionRole: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the Amazon Web Services Key Management Service (KMS) key that is used
    *          to encrypt the Amazon DataZone domain, metadata, and reporting data. </p>
+   * @public
    */
   kmsKeyIdentifier?: string;
 
   /**
-   * @public
    * <p>The tags specified for the Amazon DataZone domain.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
    *          request.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -3037,83 +3037,83 @@ export type DomainStatus = (typeof DomainStatus)[keyof typeof DomainStatus];
  */
 export interface CreateDomainOutput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The name of the Amazon DataZone domain.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The description of the Amazon DataZone domain.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The single-sign on configuration of the Amazon DataZone domain.</p>
+   * @public
    */
   singleSignOn?: SingleSignOn;
 
   /**
-   * @public
    * <p>The domain execution role that is created when an Amazon DataZone domain is created. The
    *          domain execution role is created in the Amazon Web Services account that houses the
    *          Amazon DataZone domain.</p>
+   * @public
    */
   domainExecutionRole?: string;
 
   /**
-   * @public
    * <p>The ARN of the Amazon DataZone domain.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>The identifier of the Amazon Web Services Key Management Service (KMS) key that is used
    *          to encrypt the Amazon DataZone domain, metadata, and reporting data. </p>
+   * @public
    */
   kmsKeyIdentifier?: string;
 
   /**
-   * @public
    * <p>The status of the Amazon DataZone domain.</p>
+   * @public
    */
   status?: DomainStatus;
 
   /**
-   * @public
    * <p>The URL of the data portal for this Amazon DataZone domain.</p>
+   * @public
    */
   portalUrl?: string;
 
   /**
-   * @public
    * <p>The tags specified for the Amazon DataZone domain.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
 
 /**
- * @public
  * <p>The parameter details of an evironment profile.</p>
+ * @public
  */
 export interface EnvironmentParameter {
   /**
-   * @public
    * <p>The name of an environment profile parameter.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The value of an environment profile parameter.</p>
+   * @public
    */
   value?: string;
 }
@@ -3123,63 +3123,63 @@ export interface EnvironmentParameter {
  */
 export interface CreateEnvironmentInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone project in which this environment is created.</p>
+   * @public
    */
   projectIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which the environment is created.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The description of the Amazon DataZone environment.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The name of the Amazon DataZone environment.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the environment profile that is used to create this Amazon DataZone
    *          environment.</p>
+   * @public
    */
   environmentProfileIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The user parameters of this Amazon DataZone environment.</p>
+   * @public
    */
   userParameters?: EnvironmentParameter[];
 
   /**
-   * @public
    * <p>The glossary terms that can be used in this Amazon DataZone environment.</p>
+   * @public
    */
   glossaryTerms?: string[];
 }
 
 /**
- * @public
  * <p>The deployment properties of the Amazon DataZone blueprint.</p>
+ * @public
  */
 export interface DeploymentProperties {
   /**
-   * @public
    * <p>The start timeout of the environment blueprint deployment.</p>
+   * @public
    */
   startTimeoutMinutes?: number;
 
   /**
-   * @public
    * <p>The end timeout of the environment blueprint deployment.</p>
+   * @public
    */
   endTimeoutMinutes?: number;
 }
@@ -3216,98 +3216,98 @@ export const DeploymentType = {
 export type DeploymentType = (typeof DeploymentType)[keyof typeof DeploymentType];
 
 /**
- * @public
  * <p>The failure reasons for the environment deployment.</p>
+ * @public
  */
 export interface EnvironmentError {
   /**
-   * @public
    * <p>The error code for the failure reason for the environment deployment.</p>
+   * @public
    */
   code?: string;
 
   /**
-   * @public
    * <p>The error message for the failure reason for the environment deployment.</p>
+   * @public
    */
   message: string | undefined;
 }
 
 /**
- * @public
  * <p>The details of the last deployment of the environment.</p>
+ * @public
  */
 export interface Deployment {
   /**
-   * @public
    * <p>The identifier of the last deployment of the environment.</p>
+   * @public
    */
   deploymentId?: string;
 
   /**
-   * @public
    * <p>The type of the last deployment of the environment.</p>
+   * @public
    */
   deploymentType?: DeploymentType;
 
   /**
-   * @public
    * <p>The status of the last deployment of the environment.</p>
+   * @public
    */
   deploymentStatus?: DeploymentStatus;
 
   /**
-   * @public
    * <p>The failure reason of the last deployment of the environment.</p>
+   * @public
    */
   failureReason?: EnvironmentError;
 
   /**
-   * @public
    * <p>The messages of the last deployment of the environment.</p>
+   * @public
    */
   messages?: string[];
 
   /**
-   * @public
    * <p>Specifies whether the last deployment of the environment is complete.</p>
+   * @public
    */
   isDeploymentComplete?: boolean;
 }
 
 /**
- * @public
  * <p>The details of a provisioned resource of this Amazon DataZone environment.</p>
+ * @public
  */
 export interface Resource {
   /**
-   * @public
    * <p>The provider of a provisioned resource of this Amazon DataZone environment.</p>
+   * @public
    */
   provider?: string;
 
   /**
-   * @public
    * <p>The name of a provisioned resource of this Amazon DataZone environment.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The value of a provisioned resource of this Amazon DataZone environment.</p>
+   * @public
    */
   value: string | undefined;
 
   /**
-   * @public
    * <p>The type of a provisioned resource of this Amazon DataZone environment.</p>
+   * @public
    */
   type: string | undefined;
 }
 
 /**
- * @public
  * <p>The provisioning properties of an environment blueprint.</p>
+ * @public
  */
 export type ProvisioningProperties =
   | ProvisioningProperties.CloudFormationMember
@@ -3318,9 +3318,9 @@ export type ProvisioningProperties =
  */
 export namespace ProvisioningProperties {
   /**
-   * @public
    * <p>The cloud formation properties included as part of the provisioning properties of an
    *          environment blueprint.</p>
+   * @public
    */
   export interface CloudFormationMember {
     cloudFormation: CloudFormationProperties;
@@ -3372,43 +3372,43 @@ export const EnvironmentStatus = {
 export type EnvironmentStatus = (typeof EnvironmentStatus)[keyof typeof EnvironmentStatus];
 
 /**
- * @public
  * <p>The details of user parameters of an environment blueprint.</p>
+ * @public
  */
 export interface CustomParameter {
   /**
-   * @public
    * <p>The key name of the parameter.</p>
+   * @public
    */
   keyName: string | undefined;
 
   /**
-   * @public
    * <p>The description of the parameter.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The filed type of the parameter.</p>
+   * @public
    */
   fieldType: string | undefined;
 
   /**
-   * @public
    * <p>The default value of the parameter.</p>
+   * @public
    */
   defaultValue?: string;
 
   /**
-   * @public
    * <p>Specifies whether the parameter is editable.</p>
+   * @public
    */
   isEditable?: boolean;
 
   /**
-   * @public
    * <p>Specifies whether the custom parameter is optional.</p>
+   * @public
    */
   isOptional?: boolean;
 }
@@ -3418,129 +3418,129 @@ export interface CustomParameter {
  */
 export interface CreateEnvironmentOutput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone project in which this environment is created.</p>
+   * @public
    */
   projectId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of this Amazon DataZone environment.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which the environment is created.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created this environment.</p>
+   * @public
    */
   createdBy: string | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the environment was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The timestamp of when this environment was updated.</p>
+   * @public
    */
   updatedAt?: Date;
 
   /**
-   * @public
    * <p>The name of this environment.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description of this Amazon DataZone environment.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The ID of the environment profile with which this Amazon DataZone environment was
    *          created.</p>
+   * @public
    */
   environmentProfileId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Web Services account in which the Amazon DataZone environment is created.</p>
+   * @public
    */
   awsAccountId?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services region in which the Amazon DataZone environment is created.</p>
+   * @public
    */
   awsAccountRegion?: string;
 
   /**
-   * @public
    * <p>The provider of this Amazon DataZone environment.</p>
+   * @public
    */
   provider: string | undefined;
 
   /**
-   * @public
    * <p>The provisioned resources of this Amazon DataZone environment.</p>
+   * @public
    */
   provisionedResources?: Resource[];
 
   /**
-   * @public
    * <p>The status of this Amazon DataZone environment.</p>
+   * @public
    */
   status?: EnvironmentStatus;
 
   /**
-   * @public
    * <p>The configurable actions of this Amazon DataZone environment.</p>
+   * @public
    */
   environmentActions?: ConfigurableEnvironmentAction[];
 
   /**
-   * @public
    * <p>The glossary terms that can be used in this Amazon DataZone environment.</p>
+   * @public
    */
   glossaryTerms?: string[];
 
   /**
-   * @public
    * <p>The user parameters of this Amazon DataZone environment.</p>
+   * @public
    */
   userParameters?: CustomParameter[];
 
   /**
-   * @public
    * <p>The details of the last deployment of this Amazon DataZone environment.</p>
+   * @public
    */
   lastDeployment?: Deployment;
 
   /**
-   * @public
    * <p>The provisioning properties of this Amazon DataZone environment.</p>
+   * @public
    */
   provisioningProperties?: ProvisioningProperties;
 
   /**
-   * @public
    * <p>The deployment properties of this Amazon DataZone environment.</p>
+   * @public
    */
   deploymentProperties?: DeploymentProperties;
 
   /**
-   * @public
    * <p>The ID of the blueprint with which this Amazon DataZone environment was created.</p>
+   * @public
    */
   environmentBlueprintId?: string;
 }
@@ -3550,50 +3550,50 @@ export interface CreateEnvironmentOutput {
  */
 export interface CreateEnvironmentProfileInput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which this environment profile is created.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The name of this Amazon DataZone environment profile.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description of this Amazon DataZone environment profile.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The ID of the blueprint with which this environment profile is created.</p>
+   * @public
    */
   environmentBlueprintIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the project in which to create the environment profile.</p>
+   * @public
    */
   projectIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The user parameters of this Amazon DataZone environment profile.</p>
+   * @public
    */
   userParameters?: EnvironmentParameter[];
 
   /**
-   * @public
    * <p>The Amazon Web Services account in which the Amazon DataZone environment is created.</p>
+   * @public
    */
   awsAccountId?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services region in which this environment profile is created.</p>
+   * @public
    */
   awsAccountRegion?: string;
 }
@@ -3603,83 +3603,83 @@ export interface CreateEnvironmentProfileInput {
  */
 export interface CreateEnvironmentProfileOutput {
   /**
-   * @public
    * <p>The ID of this Amazon DataZone environment profile.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which this environment profile is created.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Web Services account ID in which this Amazon DataZone environment profile is
    *          created.</p>
+   * @public
    */
   awsAccountId?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services region in which this Amazon DataZone environment profile is
    *          created.</p>
+   * @public
    */
   awsAccountRegion?: string;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created this environment profile.</p>
+   * @public
    */
   createdBy: string | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when this environment profile was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The timestamp of when this environment profile was updated.</p>
+   * @public
    */
   updatedAt?: Date;
 
   /**
-   * @public
    * <p>The name of this Amazon DataZone environment profile.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description of this Amazon DataZone environment profile.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The ID of the blueprint with which this environment profile is created.</p>
+   * @public
    */
   environmentBlueprintId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the Amazon DataZone project in which this environment profile is created.</p>
+   * @public
    */
   projectId?: string;
 
   /**
-   * @public
    * <p>The user parameters of this Amazon DataZone environment profile.</p>
+   * @public
    */
   userParameters?: CustomParameter[];
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export type Model = Model.SmithyMember | Model.$UnknownMember;
 
@@ -3688,8 +3688,8 @@ export type Model = Model.SmithyMember | Model.$UnknownMember;
  */
 export namespace Model {
   /**
-   * @public
    * <p/>
+   * @public
    */
   export interface SmithyMember {
     smithy: string;
@@ -3734,38 +3734,38 @@ export type FormTypeStatus = (typeof FormTypeStatus)[keyof typeof FormTypeStatus
  */
 export interface CreateFormTypeInput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which this metadata form type is created.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The name of this Amazon DataZone metadata form type.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The model of this Amazon DataZone metadata form type.</p>
+   * @public
    */
   model: Model | undefined;
 
   /**
-   * @public
    * <p>The ID of the Amazon DataZone project that owns this metadata form type.</p>
+   * @public
    */
   owningProjectIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The status of this Amazon DataZone metadata form type.</p>
+   * @public
    */
   status?: FormTypeStatus;
 
   /**
-   * @public
    * <p>The description of this Amazon DataZone metadata form type.</p>
+   * @public
    */
   description?: string;
 }
@@ -3775,46 +3775,46 @@ export interface CreateFormTypeInput {
  */
 export interface CreateFormTypeOutput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which this metadata form type is created.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The name of this Amazon DataZone metadata form type.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The revision of this Amazon DataZone metadata form type.</p>
+   * @public
    */
   revision: string | undefined;
 
   /**
-   * @public
    * <p>The description of this Amazon DataZone metadata form type.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The ID of the project that owns this Amazon DataZone metadata form type.</p>
+   * @public
    */
   owningProjectId?: string;
 
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which this metadata form type was originally
    *          created.</p>
+   * @public
    */
   originDomainId?: string;
 
   /**
-   * @public
    * <p>The ID of the project in which this Amazon DataZone metadata form type was originally
    *          created.</p>
+   * @public
    */
   originProjectId?: string;
 }
@@ -3838,39 +3838,39 @@ export type GlossaryStatus = (typeof GlossaryStatus)[keyof typeof GlossaryStatus
  */
 export interface CreateGlossaryInput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which this business glossary is created.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The name of this business glossary.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the project that currently owns business glossary.</p>
+   * @public
    */
   owningProjectIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The description of this business glossary.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The status of this business glossary.</p>
+   * @public
    */
   status?: GlossaryStatus;
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
    *          request.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -3880,38 +3880,38 @@ export interface CreateGlossaryInput {
  */
 export interface CreateGlossaryOutput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which this business glossary is created.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of this business glossary.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The name of this business glossary.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the project that currently owns this business glossary.</p>
+   * @public
    */
   owningProjectId: string | undefined;
 
   /**
-   * @public
    * <p>The description of this business glossary.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The status of this business glossary.</p>
+   * @public
    */
   status?: GlossaryStatus;
 }
@@ -3931,19 +3931,19 @@ export const GlossaryTermStatus = {
 export type GlossaryTermStatus = (typeof GlossaryTermStatus)[keyof typeof GlossaryTermStatus];
 
 /**
- * @public
  * <p>The details of the term relations.</p>
+ * @public
  */
 export interface TermRelations {
   /**
-   * @public
    * <p>The <code>isA</code> property of the term relations.</p>
+   * @public
    */
   isA?: string[];
 
   /**
-   * @public
    * <p>The classifies of the term relations.</p>
+   * @public
    */
   classifies?: string[];
 }
@@ -3953,51 +3953,51 @@ export interface TermRelations {
  */
 export interface CreateGlossaryTermInput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which this business glossary term is created.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the business glossary in which this term is created.</p>
+   * @public
    */
   glossaryIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The name of this business glossary term.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The status of this business glossary term.</p>
+   * @public
    */
   status?: GlossaryTermStatus;
 
   /**
-   * @public
    * <p>The short description of this business glossary term.</p>
+   * @public
    */
   shortDescription?: string;
 
   /**
-   * @public
    * <p>The long description of this business glossary term.</p>
+   * @public
    */
   longDescription?: string;
 
   /**
-   * @public
    * <p>The term relations of this business glossary term.</p>
+   * @public
    */
   termRelations?: TermRelations;
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
    *          request.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -4007,50 +4007,50 @@ export interface CreateGlossaryTermInput {
  */
 export interface CreateGlossaryTermOutput {
   /**
-   * @public
    * <p>The ID of this business glossary term.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which this business glossary term is created.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the business glossary in which this term is created.</p>
+   * @public
    */
   glossaryId: string | undefined;
 
   /**
-   * @public
    * <p>The name of this business glossary term.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The status of this business glossary term.</p>
+   * @public
    */
   status: GlossaryTermStatus | undefined;
 
   /**
-   * @public
    * <p>The short description of this business glossary term.</p>
+   * @public
    */
   shortDescription?: string;
 
   /**
-   * @public
    * <p>The long description of this business glossary term.</p>
+   * @public
    */
   longDescription?: string;
 
   /**
-   * @public
    * <p>The term relations of this business glossary term.</p>
+   * @public
    */
   termRelations?: TermRelations;
 }
@@ -4060,21 +4060,21 @@ export interface CreateGlossaryTermOutput {
  */
 export interface CreateGroupProfileInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which the group profile is created.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the group for which the group profile is created.</p>
+   * @public
    */
   groupIdentifier: string | undefined;
 
   /**
-   * @public
    * <p> A unique, case-sensitive identifier that is provided to ensure the idempotency of the
    *          request.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -4098,26 +4098,26 @@ export type GroupProfileStatus = (typeof GroupProfileStatus)[keyof typeof GroupP
  */
 export interface CreateGroupProfileOutput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which the group profile is created.</p>
+   * @public
    */
   domainId?: string;
 
   /**
-   * @public
    * <p>The identifier of the group profile.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The status of the group profile.</p>
+   * @public
    */
   status?: GroupProfileStatus;
 
   /**
-   * @public
    * <p>The name of the group for which group profile is created.</p>
+   * @public
    */
   groupName?: string;
 }
@@ -4140,38 +4140,38 @@ export type EntityType = (typeof EntityType)[keyof typeof EntityType];
  */
 export interface CreateListingChangeSetInput {
   /**
-   * @public
    * <p/>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   entityIdentifier: string | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   entityType: EntityType | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   entityRevision?: string;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   action: ChangeAction | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   clientToken?: string;
 }
@@ -4181,20 +4181,20 @@ export interface CreateListingChangeSetInput {
  */
 export interface CreateListingChangeSetOutput {
   /**
-   * @public
    * <p/>
+   * @public
    */
   listingId: string | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   listingRevision: string | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   status: ListingStatus | undefined;
 }
@@ -4204,44 +4204,44 @@ export interface CreateListingChangeSetOutput {
  */
 export interface CreateProjectInput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which this project is created.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The name of the Amazon DataZone project.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description of the Amazon DataZone project.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The glossary terms that can be used in this Amazon DataZone project.</p>
+   * @public
    */
   glossaryTerms?: string[];
 }
 
 /**
- * @public
  * Error that occurred during project deletion
+ * @public
  */
 export interface ProjectDeletionError {
   /**
-   * @public
    * Project Deletion Error Code
+   * @public
    */
   code?: string;
 
   /**
-   * @public
    * Project Deletion Error Message
+   * @public
    */
   message?: string;
 }
@@ -4266,62 +4266,62 @@ export type ProjectStatus = (typeof ProjectStatus)[keyof typeof ProjectStatus];
  */
 export interface CreateProjectOutput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which the project was created.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the Amazon DataZone project.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The name of the project.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description of the project.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * Status of the project
+   * @public
    */
   projectStatus?: ProjectStatus;
 
   /**
-   * @public
    * Reasons for failed project deletion
+   * @public
    */
   failureReasons?: ProjectDeletionError[];
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created the project.</p>
+   * @public
    */
   createdBy: string | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the project was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The timestamp of when the project was last updated.</p>
+   * @public
    */
   lastUpdatedAt?: Date;
 
   /**
-   * @public
    * <p>The glossary terms that can be used in the project.</p>
+   * @public
    */
   glossaryTerms?: string[];
 }
@@ -4341,8 +4341,8 @@ export const UserDesignation = {
 export type UserDesignation = (typeof UserDesignation)[keyof typeof UserDesignation];
 
 /**
- * @public
  * <p>The details about a project member.</p>
+ * @public
  */
 export type Member = Member.GroupIdentifierMember | Member.UserIdentifierMember | Member.$UnknownMember;
 
@@ -4351,8 +4351,8 @@ export type Member = Member.GroupIdentifierMember | Member.UserIdentifierMember 
  */
 export namespace Member {
   /**
-   * @public
    * <p>The user ID of a project member.</p>
+   * @public
    */
   export interface UserIdentifierMember {
     userIdentifier: string;
@@ -4361,8 +4361,8 @@ export namespace Member {
   }
 
   /**
-   * @public
    * <p>The ID of the group of a project member.</p>
+   * @public
    */
   export interface GroupIdentifierMember {
     userIdentifier?: never;
@@ -4397,26 +4397,26 @@ export namespace Member {
  */
 export interface CreateProjectMembershipInput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which project membership is created.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the project for which this project membership was created.</p>
+   * @public
    */
   projectIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The project member whose project membership was created.</p>
+   * @public
    */
   member: Member | undefined;
 
   /**
-   * @public
    * <p>The designation of the project membership.</p>
+   * @public
    */
   designation: UserDesignation | undefined;
 }
@@ -4427,28 +4427,28 @@ export interface CreateProjectMembershipInput {
 export interface CreateProjectMembershipOutput {}
 
 /**
- * @public
  * <p>A revision to be made to an asset published in a Amazon DataZone catalog.</p>
+ * @public
  */
 export interface ListingRevisionInput {
   /**
-   * @public
    * <p>An identifier of revision to be made to an asset published in a Amazon DataZone
    *          catalog.</p>
+   * @public
    */
   identifier: string | undefined;
 
   /**
-   * @public
    * <p>The details of a revision to be made to an asset published in a Amazon DataZone
    *          catalog.</p>
+   * @public
    */
   revision: string | undefined;
 }
 
 /**
- * @public
  * <p>The details of a listing for which a subscription is to be granted.</p>
+ * @public
  */
 export type GrantedEntityInput = GrantedEntityInput.ListingMember | GrantedEntityInput.$UnknownMember;
 
@@ -4457,8 +4457,8 @@ export type GrantedEntityInput = GrantedEntityInput.ListingMember | GrantedEntit
  */
 export namespace GrantedEntityInput {
   /**
-   * @public
    * <p>The listing for which a subscription is to be granted.</p>
+   * @public
    */
   export interface ListingMember {
     listing: ListingRevisionInput;
@@ -4489,52 +4489,52 @@ export namespace GrantedEntityInput {
  */
 export interface CreateSubscriptionGrantInput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which the subscription grant is created.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the environment in which the subscription grant is created.</p>
+   * @public
    */
   environmentIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the subscription target for which the subscription grant is created.</p>
+   * @public
    */
   subscriptionTargetIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The entity to which the subscription is to be granted.</p>
+   * @public
    */
   grantedEntity: GrantedEntityInput | undefined;
 
   /**
-   * @public
    * <p>The names of the assets for which the subscription grant is created.</p>
+   * @public
    */
   assetTargetNames?: AssetTargetNameMap[];
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
    *          request.</p>
+   * @public
    */
   clientToken?: string;
 }
 
 /**
- * @public
  * <p>Specifies the error message that is returned if the operation cannot be successfully
  *          completed.</p>
+ * @public
  */
 export interface FailureCause {
   /**
-   * @public
    * <p>The description of the error message.</p>
+   * @public
    */
   message?: string;
 }
@@ -4560,76 +4560,76 @@ export const SubscriptionGrantStatus = {
 export type SubscriptionGrantStatus = (typeof SubscriptionGrantStatus)[keyof typeof SubscriptionGrantStatus];
 
 /**
- * @public
  * <p>The details of the asset for which the subscription grant is created.</p>
+ * @public
  */
 export interface SubscribedAsset {
   /**
-   * @public
    * <p>The identifier of the asset for which the subscription grant is created.</p>
+   * @public
    */
   assetId: string | undefined;
 
   /**
-   * @public
    * <p>The revision of the asset for which the subscription grant is created.</p>
+   * @public
    */
   assetRevision: string | undefined;
 
   /**
-   * @public
    * <p>The status of the asset for which the subscription grant is created.</p>
+   * @public
    */
   status: SubscriptionGrantStatus | undefined;
 
   /**
-   * @public
    * <p>The target name of the asset for which the subscription grant is created.</p>
+   * @public
    */
   targetName?: string;
 
   /**
-   * @public
    * <p>The failure cause included in the details of the asset for which the subscription grant
    *          is created.</p>
+   * @public
    */
   failureCause?: FailureCause;
 
   /**
-   * @public
    * <p>The timestamp of when the subscription grant to the asset is created.</p>
+   * @public
    */
   grantedTimestamp?: Date;
 
   /**
-   * @public
    * <p>The failure timestamp included in the details of the asset for which the subscription
    *          grant is created.</p>
+   * @public
    */
   failureTimestamp?: Date;
 }
 
 /**
- * @public
  * <p>A revision of an asset published in a Amazon DataZone catalog.</p>
+ * @public
  */
 export interface ListingRevision {
   /**
-   * @public
    * <p>An identifier of a revision of an asset published in a Amazon DataZone catalog.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The details of a revision of an asset published in a Amazon DataZone catalog.</p>
+   * @public
    */
   revision: string | undefined;
 }
 
 /**
- * @public
  * <p>The details of a listing for which a subscription is granted.</p>
+ * @public
  */
 export type GrantedEntity = GrantedEntity.ListingMember | GrantedEntity.$UnknownMember;
 
@@ -4638,8 +4638,8 @@ export type GrantedEntity = GrantedEntity.ListingMember | GrantedEntity.$Unknown
  */
 export namespace GrantedEntity {
   /**
-   * @public
    * <p>The listing for which a subscription is granted.</p>
+   * @public
    */
   export interface ListingMember {
     listing: ListingRevision;
@@ -4690,100 +4690,100 @@ export type SubscriptionGrantOverallStatus =
  */
 export interface CreateSubscriptionGrantOutput {
   /**
-   * @public
    * <p>The ID of the subscription grant.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created the subscription grant.</p>
+   * @public
    */
   createdBy: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who updated the subscription grant.</p>
+   * @public
    */
   updatedBy?: string;
 
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which the subscription grant is created.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>A timestamp of when the subscription grant is created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>A timestamp of when the subscription grant was updated.</p>
+   * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The ID of the subscription target for which the subscription grant is created.</p>
+   * @public
    */
   subscriptionTargetId: string | undefined;
 
   /**
-   * @public
    * <p>The entity to which the subscription is granted.</p>
+   * @public
    */
   grantedEntity: GrantedEntity | undefined;
 
   /**
-   * @public
    * <p>The status of the subscription grant.</p>
+   * @public
    */
   status: SubscriptionGrantOverallStatus | undefined;
 
   /**
-   * @public
    * <p>The assets for which the subscription grant is created.</p>
+   * @public
    */
   assets?: SubscribedAsset[];
 
   /**
-   * @public
    * <p>The identifier of the subscription grant.</p>
+   * @public
    */
   subscriptionId?: string;
 }
 
 /**
- * @public
  * <p>The published asset for which the subscription grant is to be created.</p>
+ * @public
  */
 export interface SubscribedListingInput {
   /**
-   * @public
    * <p>The identifier of the published asset for which the subscription grant is to be
    *          created.</p>
+   * @public
    */
   identifier: string | undefined;
 }
 
 /**
- * @public
  * <p>The project that is to be given a subscription grant.</p>
+ * @public
  */
 export interface SubscribedProjectInput {
   /**
-   * @public
    * <p>The identifier of the project that is to be given a subscription grant.</p>
+   * @public
    */
   identifier?: string;
 }
 
 /**
- * @public
  * <p>The principal that is to be given a subscriptiong grant.</p>
+ * @public
  */
 export type SubscribedPrincipalInput = SubscribedPrincipalInput.ProjectMember | SubscribedPrincipalInput.$UnknownMember;
 
@@ -4792,8 +4792,8 @@ export type SubscribedPrincipalInput = SubscribedPrincipalInput.ProjectMember | 
  */
 export namespace SubscribedPrincipalInput {
   /**
-   * @public
    * <p>The project that is to be given a subscription grant.</p>
+   * @public
    */
   export interface ProjectMember {
     project: SubscribedProjectInput;
@@ -4824,33 +4824,33 @@ export namespace SubscribedPrincipalInput {
  */
 export interface CreateSubscriptionRequestInput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which the subscription request is created.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone principals for whom the subscription request is created.</p>
+   * @public
    */
   subscribedPrincipals: SubscribedPrincipalInput[] | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   subscribedListings: SubscribedListingInput[] | undefined;
 
   /**
-   * @public
    * <p>The reason for the subscription request.</p>
+   * @public
    */
   requestReason: string | undefined;
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
    *          request.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -4860,92 +4860,92 @@ export interface CreateSubscriptionRequestInput {
  */
 export interface CreateSubscriptionRequestOutput {
   /**
-   * @public
    * <p>The ID of the subscription request.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created the subscription request.</p>
+   * @public
    */
   createdBy: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who updated the subscription request.</p>
+   * @public
    */
   updatedBy?: string;
 
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in whcih the subscription request is created.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The status of the subscription request.</p>
+   * @public
    */
   status: SubscriptionRequestStatus | undefined;
 
   /**
-   * @public
    * <p>A timestamp of when the subscription request is created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the subscription request was updated.</p>
+   * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The reason for the subscription request.</p>
+   * @public
    */
   requestReason: string | undefined;
 
   /**
-   * @public
    * <p>The subscribed principals of the subscription request.</p>
+   * @public
    */
   subscribedPrincipals: SubscribedPrincipal[] | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   subscribedListings: SubscribedListing[] | undefined;
 
   /**
-   * @public
    * <p>The ID of the reviewer of the subscription request.</p>
+   * @public
    */
   reviewerId?: string;
 
   /**
-   * @public
    * <p>The decision comment of the subscription request.</p>
+   * @public
    */
   decisionComment?: string;
 }
 
 /**
- * @public
  * <p>The details of the subscription target configuration.</p>
+ * @public
  */
 export interface SubscriptionTargetForm {
   /**
-   * @public
    * <p>The form name included in the subscription target configuration.</p>
+   * @public
    */
   formName: string | undefined;
 
   /**
-   * @public
    * <p>The content of the subscription target configuration.</p>
+   * @public
    */
   content: string | undefined;
 }
@@ -4955,63 +4955,63 @@ export interface SubscriptionTargetForm {
  */
 export interface CreateSubscriptionTargetInput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which subscription target is created.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the environment in which subscription target is created.</p>
+   * @public
    */
   environmentIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The name of the subscription target.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The type of the subscription target.</p>
+   * @public
    */
   type: string | undefined;
 
   /**
-   * @public
    * <p>The configuration of the subscription target.</p>
+   * @public
    */
   subscriptionTargetConfig: SubscriptionTargetForm[] | undefined;
 
   /**
-   * @public
    * <p>The authorized principals of the subscription target.</p>
+   * @public
    */
   authorizedPrincipals: string[] | undefined;
 
   /**
-   * @public
    * <p>The manage access role that is used to create the subscription target.</p>
+   * @public
    */
   manageAccessRole: string | undefined;
 
   /**
-   * @public
    * <p>The asset types that can be included in the subscription target.</p>
+   * @public
    */
   applicableAssetTypes: string[] | undefined;
 
   /**
-   * @public
    * <p>The provider of the subscription target.</p>
+   * @public
    */
   provider?: string;
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
    *          request.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -5021,92 +5021,92 @@ export interface CreateSubscriptionTargetInput {
  */
 export interface CreateSubscriptionTargetOutput {
   /**
-   * @public
    * <p>The ID of the subscription target.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The authorised principals of the subscription target.</p>
+   * @public
    */
   authorizedPrincipals: string[] | undefined;
 
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which the subscription target was created.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>???</p>
+   * @public
    */
   projectId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the environment in which the subscription target was created.</p>
+   * @public
    */
   environmentId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the subscription target.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The type of the subscription target.</p>
+   * @public
    */
   type: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created the subscription target.</p>
+   * @public
    */
   createdBy: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who updated the subscription target.</p>
+   * @public
    */
   updatedBy?: string;
 
   /**
-   * @public
    * <p>The timestamp of when the subscription target was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the subscription target was updated.</p>
+   * @public
    */
   updatedAt?: Date;
 
   /**
-   * @public
    * <p>The manage access role with which the subscription target was created.</p>
+   * @public
    */
   manageAccessRole: string | undefined;
 
   /**
-   * @public
    * <p>The asset types that can be included in the subscription target.</p>
+   * @public
    */
   applicableAssetTypes: string[] | undefined;
 
   /**
-   * @public
    * <p>The configuration of the subscription target.</p>
+   * @public
    */
   subscriptionTargetConfig: SubscriptionTargetForm[] | undefined;
 
   /**
-   * @public
    * <p>The provider of the subscription target.</p>
+   * @public
    */
   provider: string | undefined;
 }
@@ -5131,70 +5131,70 @@ export type UserType = (typeof UserType)[keyof typeof UserType];
  */
 export interface CreateUserProfileInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which a user profile is created.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the user for which the user profile is created.</p>
+   * @public
    */
   userIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The user type of the user for which the user profile is created.</p>
+   * @public
    */
   userType?: UserType;
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
    *          request.</p>
+   * @public
    */
   clientToken?: string;
 }
 
 /**
- * @public
  * <p>The details of an IAM user profile in Amazon DataZone.</p>
+ * @public
  */
 export interface IamUserProfileDetails {
   /**
-   * @public
    * <p>The ARN of an IAM user profile in Amazon DataZone.</p>
+   * @public
    */
   arn?: string;
 }
 
 /**
- * @public
  * <p>The single sign-on details of the user profile.</p>
+ * @public
  */
 export interface SsoUserProfileDetails {
   /**
-   * @public
    * <p>The username included in the single sign-on details of the user profile.</p>
+   * @public
    */
   username?: string;
 
   /**
-   * @public
    * <p>The first name included in the single sign-on details of the user profile.</p>
+   * @public
    */
   firstName?: string;
 
   /**
-   * @public
    * <p>The last name included in the single sign-on details of the user profile.</p>
+   * @public
    */
   lastName?: string;
 }
 
 /**
- * @public
  * <p>The details of the user profile in Amazon DataZone.</p>
+ * @public
  */
 export type UserProfileDetails =
   | UserProfileDetails.IamMember
@@ -5206,8 +5206,8 @@ export type UserProfileDetails =
  */
 export namespace UserProfileDetails {
   /**
-   * @public
    * <p>The IAM details included in the user profile details.</p>
+   * @public
    */
   export interface IamMember {
     iam: IamUserProfileDetails;
@@ -5216,8 +5216,8 @@ export namespace UserProfileDetails {
   }
 
   /**
-   * @public
    * <p>The single sign-on details included in the user profile details.</p>
+   * @public
    */
   export interface SsoMember {
     iam?: never;
@@ -5282,32 +5282,32 @@ export type UserProfileType = (typeof UserProfileType)[keyof typeof UserProfileT
  */
 export interface CreateUserProfileOutput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which a user profile is created.</p>
+   * @public
    */
   domainId?: string;
 
   /**
-   * @public
    * <p>The identifier of the user profile.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The type of the user profile.</p>
+   * @public
    */
   type?: UserProfileType;
 
   /**
-   * @public
    * <p>The status of the user profile.</p>
+   * @public
    */
   status?: UserProfileStatus;
 
   /**
-   * @public
    * <p>The details of the user profile in Amazon DataZone.</p>
+   * @public
    */
   details?: UserProfileDetails;
 }
@@ -5333,91 +5333,91 @@ export const DataAssetActivityStatus = {
 export type DataAssetActivityStatus = (typeof DataAssetActivityStatus)[keyof typeof DataAssetActivityStatus];
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface DataProductItem {
   /**
-   * @public
    * <p/>
+   * @public
    */
   itemId?: string;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   domainId?: string;
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface DataProductSummary {
   /**
-   * @public
    * <p/>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   owningProjectId: string | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   glossaryTerms?: string[];
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   dataProductItems?: DataProductItem[];
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   createdBy?: string;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   updatedAt?: Date;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   updatedBy?: string;
 }
@@ -5427,21 +5427,21 @@ export interface DataProductSummary {
  */
 export interface DeleteDataSourceInput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which the data source is deleted.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the data source that is deleted.</p>
+   * @public
    */
   identifier: string | undefined;
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
    *          request.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -5451,121 +5451,121 @@ export interface DeleteDataSourceInput {
  */
 export interface DeleteDataSourceOutput {
   /**
-   * @public
    * <p>The ID of the data source that is deleted.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The status of this data source.</p>
+   * @public
    */
   status?: DataSourceStatus;
 
   /**
-   * @public
    * <p>The type of this data source.</p>
+   * @public
    */
   type?: string;
 
   /**
-   * @public
    * <p>The name of the data source that is deleted.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description of the data source that is deleted.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which the data source is deleted.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the project in which this data source exists and from which it's
    *          deleted.</p>
+   * @public
    */
   projectId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the environemnt associated with this data source.</p>
+   * @public
    */
   environmentId: string | undefined;
 
   /**
-   * @public
    * <p>The configuration of the data source that is deleted.</p>
+   * @public
    */
   configuration?: DataSourceConfigurationOutput;
 
   /**
-   * @public
    * <p>The enable setting of the data source that specifies whether the data source is enabled
    *          or disabled.</p>
+   * @public
    */
   enableSetting?: EnableSetting;
 
   /**
-   * @public
    * <p>Specifies whether the assets that this data source creates in the inventory are to be
    *          also automatically published to the catalog.</p>
+   * @public
    */
   publishOnImport?: boolean;
 
   /**
-   * @public
    * <p>The asset data forms associated with this data source.</p>
+   * @public
    */
   assetFormsOutput?: FormOutput[];
 
   /**
-   * @public
    * <p>The schedule of runs for this data source.</p>
+   * @public
    */
   schedule?: ScheduleConfiguration;
 
   /**
-   * @public
    * <p>The status of the last run of this data source.</p>
+   * @public
    */
   lastRunStatus?: DataSourceRunStatus;
 
   /**
-   * @public
    * <p>The timestamp of when the data source was last run.</p>
+   * @public
    */
   lastRunAt?: Date;
 
   /**
-   * @public
    * <p>Specifies the error message that is returned if the operation cannot be successfully
    *          completed.</p>
+   * @public
    */
   lastRunErrorMessage?: DataSourceErrorMessage;
 
   /**
-   * @public
    * <p>Specifies the error message that is returned if the operation cannot be successfully
    *          completed.</p>
+   * @public
    */
   errorMessage?: DataSourceErrorMessage;
 
   /**
-   * @public
    * <p>The timestamp of when this data source was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The timestamp of when this data source was updated.</p>
+   * @public
    */
   updatedAt?: Date;
 }
@@ -5575,14 +5575,14 @@ export interface DeleteDataSourceOutput {
  */
 export interface GetDataSourceInput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which the data source exists.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the Amazon DataZone data source.</p>
+   * @public
    */
   identifier: string | undefined;
 }
@@ -5592,131 +5592,131 @@ export interface GetDataSourceInput {
  */
 export interface GetDataSourceOutput {
   /**
-   * @public
    * <p>The ID of the data source.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The status of the data source.</p>
+   * @public
    */
   status?: DataSourceStatus;
 
   /**
-   * @public
    * <p>The type of the data source.</p>
+   * @public
    */
   type?: string;
 
   /**
-   * @public
    * <p>The name of the data source.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description of the data source.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which the data source exists.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the project where the data source creates and publishes assets.</p>
+   * @public
    */
   projectId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the environment where this data source creates and publishes assets,</p>
+   * @public
    */
   environmentId: string | undefined;
 
   /**
-   * @public
    * <p>The configuration of the data source.</p>
+   * @public
    */
   configuration?: DataSourceConfigurationOutput;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   recommendation?: RecommendationConfiguration;
 
   /**
-   * @public
    * <p>Specifies whether this data source is enabled or not.</p>
+   * @public
    */
   enableSetting?: EnableSetting;
 
   /**
-   * @public
    * <p>Specifies whether the assets that this data source creates in the inventory are to be
    *          also automatically published to the catalog.</p>
+   * @public
    */
   publishOnImport?: boolean;
 
   /**
-   * @public
    * <p>The metadata forms attached to the assets created by this data source.</p>
+   * @public
    */
   assetFormsOutput?: FormOutput[];
 
   /**
-   * @public
    * <p>The schedule of the data source runs.</p>
+   * @public
    */
   schedule?: ScheduleConfiguration;
 
   /**
-   * @public
    * <p>The status of the last run of the data source.</p>
+   * @public
    */
   lastRunStatus?: DataSourceRunStatus;
 
   /**
-   * @public
    * <p>The timestamp of the last run of the data source.</p>
+   * @public
    */
   lastRunAt?: Date;
 
   /**
-   * @public
    * <p>Specifies the error message that is returned if the operation cannot be successfully
    *          completed.</p>
+   * @public
    */
   lastRunErrorMessage?: DataSourceErrorMessage;
 
   /**
-   * @public
    * <p>The number of assets created by the data source during its last run.</p>
+   * @public
    */
   lastRunAssetCount?: number;
 
   /**
-   * @public
    * <p>Specifies the error message that is returned if the operation cannot be successfully
    *          completed.</p>
+   * @public
    */
   errorMessage?: DataSourceErrorMessage;
 
   /**
-   * @public
    * <p>The timestamp of when the data source was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The timestamp of when the data source was updated.</p>
+   * @public
    */
   updatedAt?: Date;
 }
@@ -5726,150 +5726,150 @@ export interface GetDataSourceOutput {
  */
 export interface ListDataSourcesInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which to list the data sources.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the project in which to list data sources.</p>
+   * @public
    */
   projectIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the environment in which to list the data sources.</p>
+   * @public
    */
   environmentIdentifier?: string;
 
   /**
-   * @public
    * <p>The type of the data source.</p>
+   * @public
    */
   type?: string;
 
   /**
-   * @public
    * <p>The status of the data source.</p>
+   * @public
    */
   status?: DataSourceStatus;
 
   /**
-   * @public
    * <p>The name of the data source.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>When the number of data sources is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of data sources, the response
    *          includes a pagination token named <code>NextToken</code>. You can specify this
    *             <code>NextToken</code> value in a subsequent call to <code>ListDataSources</code> to
    *          list the next set of data sources.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of data sources to return in a single call to
    *             <code>ListDataSources</code>. When the number of data sources to be listed is greater
    *          than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code>
    *          value that you can use in a subsequent call to <code>ListDataSources</code> to list the
    *          next set of data sources.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>The details of the data source.</p>
+ * @public
  */
 export interface DataSourceSummary {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which the data source exists.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the environment in which the data source exists.</p>
+   * @public
    */
   environmentId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the data source.</p>
+   * @public
    */
   dataSourceId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the data source.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The type of the data source.</p>
+   * @public
    */
   type: string | undefined;
 
   /**
-   * @public
    * <p>The status of the data source.</p>
+   * @public
    */
   status: DataSourceStatus | undefined;
 
   /**
-   * @public
    * <p>Specifies whether the data source is enabled.</p>
+   * @public
    */
   enableSetting?: EnableSetting;
 
   /**
-   * @public
    * <p>The details of the schedule of the data source runs.</p>
+   * @public
    */
   schedule?: ScheduleConfiguration;
 
   /**
-   * @public
    * <p>The status of the last data source run.</p>
+   * @public
    */
   lastRunStatus?: DataSourceRunStatus;
 
   /**
-   * @public
    * <p>The timestamp of when the data source run was last performed.</p>
+   * @public
    */
   lastRunAt?: Date;
 
   /**
-   * @public
    * <p>The details of the error message that is returned if the operation cannot be
    *          successfully completed.</p>
+   * @public
    */
   lastRunErrorMessage?: DataSourceErrorMessage;
 
   /**
-   * @public
    * <p>The count of the assets created during the last data source run.</p>
+   * @public
    */
   lastRunAssetCount?: number;
 
   /**
-   * @public
    * <p>The timestamp of when the data source was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The timestamp of when the data source was updated.</p>
+   * @public
    */
   updatedAt?: Date;
 }
@@ -5879,19 +5879,19 @@ export interface DataSourceSummary {
  */
 export interface ListDataSourcesOutput {
   /**
-   * @public
    * <p>The results of the <code>ListDataSources</code> action.</p>
+   * @public
    */
   items: DataSourceSummary[] | undefined;
 
   /**
-   * @public
    * <p>When the number of data sources is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of data sources, the response
    *          includes a pagination token named <code>NextToken</code>. You can specify this
    *             <code>NextToken</code> value in a subsequent call to <code>ListDataSources</code> to
    *          list the next set of data sources.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -5901,68 +5901,68 @@ export interface ListDataSourcesOutput {
  */
 export interface UpdateDataSourceInput {
   /**
-   * @public
    * <p>The identifier of the domain in which to update a data source.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the data source to be updated.</p>
+   * @public
    */
   identifier: string | undefined;
 
   /**
-   * @public
    * <p>The name to be updated as part of the <code>UpdateDataSource</code> action.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The description to be updated as part of the <code>UpdateDataSource</code>
    *          action.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The enable setting to be updated as part of the <code>UpdateDataSource</code>
    *          action.</p>
+   * @public
    */
   enableSetting?: EnableSetting;
 
   /**
-   * @public
    * <p>The publish on import setting to be updated as part of the <code>UpdateDataSource</code>
    *          action.</p>
+   * @public
    */
   publishOnImport?: boolean;
 
   /**
-   * @public
    * <p>The asset forms to be updated as part of the <code>UpdateDataSource</code>
    *          action.</p>
+   * @public
    */
   assetFormsInput?: FormInput[];
 
   /**
-   * @public
    * <p>The schedule to be updated as part of the <code>UpdateDataSource</code> action.</p>
+   * @public
    */
   schedule?: ScheduleConfiguration;
 
   /**
-   * @public
    * <p>The configuration to be updated as part of the <code>UpdateDataSource</code>
    *          action.</p>
+   * @public
    */
   configuration?: DataSourceConfigurationInput;
 
   /**
-   * @public
    * <p>The recommendation to be updated as part of the <code>UpdateDataSource</code>
    *          action.</p>
+   * @public
    */
   recommendation?: RecommendationConfiguration;
 }
@@ -5972,129 +5972,129 @@ export interface UpdateDataSourceInput {
  */
 export interface UpdateDataSourceOutput {
   /**
-   * @public
    * <p>The identifier of the data source to be updated.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The status to be updated as part of the <code>UpdateDataSource</code> action.</p>
+   * @public
    */
   status?: DataSourceStatus;
 
   /**
-   * @public
    * <p>The type to be updated as part of the <code>UpdateDataSource</code> action.</p>
+   * @public
    */
   type?: string;
 
   /**
-   * @public
    * <p>The name to be updated as part of the <code>UpdateDataSource</code> action.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description to be updated as part of the <code>UpdateDataSource</code>
    *          action.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which a data source is to be updated.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the project where data source is to be updated.</p>
+   * @public
    */
   projectId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the environment in which a data source is to be updated.</p>
+   * @public
    */
   environmentId: string | undefined;
 
   /**
-   * @public
    * <p>The configuration to be updated as part of the <code>UpdateDataSource</code>
    *          action.</p>
+   * @public
    */
   configuration?: DataSourceConfigurationOutput;
 
   /**
-   * @public
    * <p>The recommendation to be updated as part of the <code>UpdateDataSource</code>
    *          action.</p>
+   * @public
    */
   recommendation?: RecommendationConfiguration;
 
   /**
-   * @public
    * <p>The enable setting to be updated as part of the <code>UpdateDataSource</code>
    *          action.</p>
+   * @public
    */
   enableSetting?: EnableSetting;
 
   /**
-   * @public
    * <p>The publish on import setting to be updated as part of the <code>UpdateDataSource</code>
    *          action.</p>
+   * @public
    */
   publishOnImport?: boolean;
 
   /**
-   * @public
    * <p>The asset forms to be updated as part of the <code>UpdateDataSource</code>
    *          action.</p>
+   * @public
    */
   assetFormsOutput?: FormOutput[];
 
   /**
-   * @public
    * <p>The schedule to be updated as part of the <code>UpdateDataSource</code> action.</p>
+   * @public
    */
   schedule?: ScheduleConfiguration;
 
   /**
-   * @public
    * <p>The last run status of the data source.</p>
+   * @public
    */
   lastRunStatus?: DataSourceRunStatus;
 
   /**
-   * @public
    * <p>The timestamp of when the data source was last run.</p>
+   * @public
    */
   lastRunAt?: Date;
 
   /**
-   * @public
    * <p>The last run error message of the data source.</p>
+   * @public
    */
   lastRunErrorMessage?: DataSourceErrorMessage;
 
   /**
-   * @public
    * <p>Specifies the error message that is returned if the operation cannot be successfully
    *          completed.</p>
+   * @public
    */
   errorMessage?: DataSourceErrorMessage;
 
   /**
-   * @public
    * <p>The timestamp of when the data source was updated.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The timestamp of when the data source was updated.</p>
+   * @public
    */
   updatedAt?: Date;
 }
@@ -6118,50 +6118,50 @@ export type DataSourceRunType = (typeof DataSourceRunType)[keyof typeof DataSour
  */
 export interface GetDataSourceRunInput {
   /**
-   * @public
    * <p>The ID of the domain in which this data source run was performed.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the data source run.</p>
+   * @public
    */
   identifier: string | undefined;
 }
 
 /**
- * @public
  * <p>The asset statistics from the data source run.</p>
+ * @public
  */
 export interface RunStatisticsForAssets {
   /**
-   * @public
    * <p>The <code>added</code> statistic for the data source run.</p>
+   * @public
    */
   added?: number;
 
   /**
-   * @public
    * <p>The <code>updated</code> statistic for the data source run.</p>
+   * @public
    */
   updated?: number;
 
   /**
-   * @public
    * <p>The <code>unchanged</code> statistic for the data source run.</p>
+   * @public
    */
   unchanged?: number;
 
   /**
-   * @public
    * <p>The <code>skipped</code> statistic for the data source run.</p>
+   * @public
    */
   skipped?: number;
 
   /**
-   * @public
    * <p>The <code>failed</code> statistic for the data source run.</p>
+   * @public
    */
   failed?: number;
 }
@@ -6171,81 +6171,81 @@ export interface RunStatisticsForAssets {
  */
 export interface GetDataSourceRunOutput {
   /**
-   * @public
    * <p>The ID of the domain in which this data source run was performed.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the data source for this data source run.</p>
+   * @public
    */
   dataSourceId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the data source run.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the project in which this data source run occured.</p>
+   * @public
    */
   projectId: string | undefined;
 
   /**
-   * @public
    * <p>The status of this data source run.</p>
+   * @public
    */
   status: DataSourceRunStatus | undefined;
 
   /**
-   * @public
    * <p>The type of this data source run.</p>
+   * @public
    */
   type: DataSourceRunType | undefined;
 
   /**
-   * @public
    * <p>The configuration snapshot of the data source run.</p>
+   * @public
    */
   dataSourceConfigurationSnapshot?: string;
 
   /**
-   * @public
    * <p>The asset statistics from this data source run.</p>
+   * @public
    */
   runStatisticsForAssets?: RunStatisticsForAssets;
 
   /**
-   * @public
    * <p>Specifies the error message that is returned if the operation cannot be successfully
    *          completed.</p>
+   * @public
    */
   errorMessage?: DataSourceErrorMessage;
 
   /**
-   * @public
    * <p>The timestamp of when the data source run was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when this data source run was updated.</p>
+   * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when this data source run started.</p>
+   * @public
    */
   startedAt?: Date;
 
   /**
-   * @public
    * <p>The timestamp of when this data source run stopped.</p>
+   * @public
    */
   stoppedAt?: Date;
 }
@@ -6255,115 +6255,115 @@ export interface GetDataSourceRunOutput {
  */
 export interface ListDataSourceRunsInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which to invoke the
    *             <code>ListDataSourceRuns</code> action.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the data source.</p>
+   * @public
    */
   dataSourceIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The status of the data source.</p>
+   * @public
    */
   status?: DataSourceRunStatus;
 
   /**
-   * @public
    * <p>When the number of runs is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of runs, the response includes a
    *          pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
    *          value in a subsequent call to <code>ListDataSourceRuns</code> to list the next set of
    *          runs.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of runs to return in a single call to
    *          <code>ListDataSourceRuns</code>. When the number of runs to be listed is greater than the
    *          value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that
    *          you can use in a subsequent call to <code>ListDataSourceRuns</code> to list the next set of
    *          runs.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>The details of a data source run.</p>
+ * @public
  */
 export interface DataSourceRunSummary {
   /**
-   * @public
    * <p>The identifier of the data source run.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the data source of the data source run.</p>
+   * @public
    */
   dataSourceId: string | undefined;
 
   /**
-   * @public
    * <p>The type of the data source run.</p>
+   * @public
    */
   type: DataSourceRunType | undefined;
 
   /**
-   * @public
    * <p>The status of the data source run.</p>
+   * @public
    */
   status: DataSourceRunStatus | undefined;
 
   /**
-   * @public
    * <p>The project ID of the data source run.</p>
+   * @public
    */
   projectId: string | undefined;
 
   /**
-   * @public
    * <p>The asset statistics from the data source run.</p>
+   * @public
    */
   runStatisticsForAssets?: RunStatisticsForAssets;
 
   /**
-   * @public
    * <p>The details of the error message that is returned if the operation cannot be
    *          successfully completed.</p>
+   * @public
    */
   errorMessage?: DataSourceErrorMessage;
 
   /**
-   * @public
    * <p>The timestamp of when a data source run was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when a data source run was updated.</p>
+   * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when a data source run was started.</p>
+   * @public
    */
   startedAt?: Date;
 
   /**
-   * @public
    * <p>The timestamp of when a data source run was stopped.</p>
+   * @public
    */
   stoppedAt?: Date;
 }
@@ -6373,19 +6373,19 @@ export interface DataSourceRunSummary {
  */
 export interface ListDataSourceRunsOutput {
   /**
-   * @public
    * <p>The results of the <code>ListDataSourceRuns</code> action.</p>
+   * @public
    */
   items: DataSourceRunSummary[] | undefined;
 
   /**
-   * @public
    * <p>When the number of runs is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of runs, the response includes a
    *          pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
    *          value in a subsequent call to <code>ListDataSourceRuns</code> to list the next set of
    *          runs.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -6395,21 +6395,21 @@ export interface ListDataSourceRunsOutput {
  */
 export interface StartDataSourceRunInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which to start a data source run.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the data source.</p>
+   * @public
    */
   dataSourceIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
    *          request.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -6419,148 +6419,148 @@ export interface StartDataSourceRunInput {
  */
 export interface StartDataSourceRunOutput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which to start a data source run.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the data source.</p>
+   * @public
    */
   dataSourceId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the data source run.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the project.</p>
+   * @public
    */
   projectId: string | undefined;
 
   /**
-   * @public
    * <p>The status of the data source run.</p>
+   * @public
    */
   status: DataSourceRunStatus | undefined;
 
   /**
-   * @public
    * <p>The type of the data source run.</p>
+   * @public
    */
   type: DataSourceRunType | undefined;
 
   /**
-   * @public
    * <p>The configuration snapshot of the data source that is being run.</p>
+   * @public
    */
   dataSourceConfigurationSnapshot?: string;
 
   /**
-   * @public
    * <p>Specifies run statistics for assets.</p>
+   * @public
    */
   runStatisticsForAssets?: RunStatisticsForAssets;
 
   /**
-   * @public
    * <p>Specifies the error message that is returned if the operation cannot be successfully
    *          completed.</p>
+   * @public
    */
   errorMessage?: DataSourceErrorMessage;
 
   /**
-   * @public
    * <p>The timestamp of when data source run was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the data source run was updated.</p>
+   * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the data source run was started.</p>
+   * @public
    */
   startedAt?: Date;
 
   /**
-   * @public
    * <p>The timestamp of when the data source run was stopped.</p>
+   * @public
    */
   stoppedAt?: Date;
 }
 
 /**
- * @public
  * <p>The activity details of the data source run.</p>
+ * @public
  */
 export interface DataSourceRunActivity {
   /**
-   * @public
    * <p>The database included in the data source run activity.</p>
+   * @public
    */
   database: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the data source for the data source run activity.</p>
+   * @public
    */
   dataSourceRunId: string | undefined;
 
   /**
-   * @public
    * <p>The technical name included in the data source run activity.</p>
+   * @public
    */
   technicalName: string | undefined;
 
   /**
-   * @public
    * <p>The status of the asset included in the data source run activity.</p>
+   * @public
    */
   dataAssetStatus: DataAssetActivityStatus | undefined;
 
   /**
-   * @public
    * <p>The project ID included in the data source run activity.</p>
+   * @public
    */
   projectId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the asset included in the data source run activity.</p>
+   * @public
    */
   dataAssetId?: string;
 
   /**
-   * @public
    * <p>The technical description included in the data source run activity.</p>
+   * @public
    */
   technicalDescription?: string;
 
   /**
-   * @public
    * <p>The details of the error message that is returned if the operation cannot be
    *          successfully completed.</p>
+   * @public
    */
   errorMessage?: DataSourceErrorMessage;
 
   /**
-   * @public
    * <p>The timestamp of when data source run activity was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when data source run activity was updated.</p>
+   * @public
    */
   updatedAt: Date | undefined;
 }
@@ -6570,14 +6570,14 @@ export interface DataSourceRunActivity {
  */
 export interface DeleteEnvironmentInput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which the environment is deleted.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the environment that is to be deleted.</p>
+   * @public
    */
   identifier: string | undefined;
 }
@@ -6587,14 +6587,14 @@ export interface DeleteEnvironmentInput {
  */
 export interface DeleteEnvironmentProfileInput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which the environment profile is deleted.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the environment profile that is deleted.</p>
+   * @public
    */
   identifier: string | undefined;
 }
@@ -6604,20 +6604,20 @@ export interface DeleteEnvironmentProfileInput {
  */
 export interface DeleteProjectInput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which the project is deleted.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the project that is to be deleted.</p>
+   * @public
    */
   identifier: string | undefined;
 
   /**
-   * @public
    * Optional flag to asynchronously delete child entities within the project
+   * @public
    */
   skipDeletionCheck?: boolean;
 }
@@ -6632,20 +6632,20 @@ export interface DeleteProjectOutput {}
  */
 export interface DeleteProjectMembershipInput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain where project membership is deleted.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the Amazon DataZone project the membership to which is deleted.</p>
+   * @public
    */
   projectIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The project member whose project membership is deleted.</p>
+   * @public
    */
   member: Member | undefined;
 }
@@ -6660,14 +6660,14 @@ export interface DeleteProjectMembershipOutput {}
  */
 export interface DeleteSubscriptionGrantInput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain where the subscription grant is deleted.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the subscription grant that is deleted.</p>
+   * @public
    */
   identifier: string | undefined;
 }
@@ -6677,69 +6677,69 @@ export interface DeleteSubscriptionGrantInput {
  */
 export interface DeleteSubscriptionGrantOutput {
   /**
-   * @public
    * <p>The ID of the subscription grant that is deleted.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created the subscription grant that is deleted.</p>
+   * @public
    */
   createdBy: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who updated the subscription grant that is deleted.</p>
+   * @public
    */
   updatedBy?: string;
 
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which the subscription grant is deleted.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the subscription grant that is deleted was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the subscription grant that is deleted was updated.</p>
+   * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The ID of the subscription target associated with the subscription grant that is
    *          deleted.</p>
+   * @public
    */
   subscriptionTargetId: string | undefined;
 
   /**
-   * @public
    * <p>The entity to which the subscription is deleted.</p>
+   * @public
    */
   grantedEntity: GrantedEntity | undefined;
 
   /**
-   * @public
    * <p>The status of the subscription grant that is deleted.</p>
+   * @public
    */
   status: SubscriptionGrantOverallStatus | undefined;
 
   /**
-   * @public
    * <p>The assets for which the subsctiption grant that is deleted gave access.</p>
+   * @public
    */
   assets?: SubscribedAsset[];
 
   /**
-   * @public
    * <p>The identifier of the subsctiption whose subscription grant is to be deleted.</p>
+   * @public
    */
   subscriptionId?: string;
 }
@@ -6749,14 +6749,14 @@ export interface DeleteSubscriptionGrantOutput {
  */
 export interface DeleteSubscriptionRequestInput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which the subscription request is deleted.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the subscription request that is deleted.</p>
+   * @public
    */
   identifier: string | undefined;
 }
@@ -6766,20 +6766,20 @@ export interface DeleteSubscriptionRequestInput {
  */
 export interface DeleteSubscriptionTargetInput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which the subscription target is deleted.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the Amazon DataZone environment in which the subscription target is deleted.</p>
+   * @public
    */
   environmentIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the subscription target that is deleted.</p>
+   * @public
    */
   identifier: string | undefined;
 }
@@ -6789,21 +6789,21 @@ export interface DeleteSubscriptionTargetInput {
  */
 export interface DeleteDomainInput {
   /**
-   * @public
    * <p>The identifier of the Amazon Web Services domain that is to be deleted.</p>
+   * @public
    */
   identifier: string | undefined;
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
    *          request.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * Optional flag to delete all child entities within the domain
+   * @public
    */
   skipDeletionCheck?: boolean;
 }
@@ -6813,8 +6813,8 @@ export interface DeleteDomainInput {
  */
 export interface DeleteDomainOutput {
   /**
-   * @public
    * <p>The status of the domain.</p>
+   * @public
    */
   status: DomainStatus | undefined;
 }
@@ -6824,8 +6824,8 @@ export interface DeleteDomainOutput {
  */
 export interface GetDomainInput {
   /**
-   * @public
    * <p>The identifier of the specified Amazon DataZone domain.</p>
+   * @public
    */
   identifier: string | undefined;
 }
@@ -6835,75 +6835,75 @@ export interface GetDomainInput {
  */
 export interface GetDomainOutput {
   /**
-   * @public
    * <p>The identifier of the specified Amazon DataZone domain.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The name of the Amazon DataZone domain.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The description of the Amazon DataZone domain.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The single sing-on option of the specified Amazon DataZone domain.</p>
+   * @public
    */
   singleSignOn?: SingleSignOn;
 
   /**
-   * @public
    * <p>The domain execution role with which the Amazon DataZone domain is created.</p>
+   * @public
    */
   domainExecutionRole: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the specified Amazon DataZone domain.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>The identifier of the Amazon Web Services Key Management Service (KMS) key that is used
    *          to encrypt the Amazon DataZone domain, metadata, and reporting data. </p>
+   * @public
    */
   kmsKeyIdentifier?: string;
 
   /**
-   * @public
    * <p>The status of the specified Amazon DataZone domain.</p>
+   * @public
    */
   status: DomainStatus | undefined;
 
   /**
-   * @public
    * <p>The URL of the data portal for this Amazon DataZone domain.</p>
+   * @public
    */
   portalUrl?: string;
 
   /**
-   * @public
    * <p>The timestamp of when the Amazon DataZone domain was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The timestamp of when the Amazon DataZone domain was last updated.</p>
+   * @public
    */
   lastUpdatedAt?: Date;
 
   /**
-   * @public
    * <p>The tags specified for the Amazon DataZone domain.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -6913,89 +6913,89 @@ export interface GetDomainOutput {
  */
 export interface ListDomainsInput {
   /**
-   * @public
    * <p>The status of the data source.</p>
+   * @public
    */
   status?: DomainStatus;
 
   /**
-   * @public
    * <p>The maximum number of domains to return in a single call to <code>ListDomains</code>.
    *          When the number of domains to be listed is greater than the value of
    *             <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you
    *          can use in a subsequent call to <code>ListDomains</code> to list the next set of
    *          domains.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>When the number of domains is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of domains, the response includes a
    *          pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
    *          value in a subsequent call to <code>ListDomains</code> to list the next set of
    *          domains.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>A summary of a Amazon DataZone domain.</p>
+ * @public
  */
 export interface DomainSummary {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>A name of an Amazon DataZone domain.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>A description of an Amazon DataZone domain.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The ARN of the Amazon DataZone domain.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the Amazon Web Services account that manages the domain.</p>
+   * @public
    */
   managedAccountId: string | undefined;
 
   /**
-   * @public
    * <p>The status of the Amazon DataZone domain.</p>
+   * @public
    */
   status: DomainStatus | undefined;
 
   /**
-   * @public
    * <p>The data portal URL for the Amazon DataZone domain.</p>
+   * @public
    */
   portalUrl?: string;
 
   /**
-   * @public
    * <p>A timestamp of when a Amazon DataZone domain was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>A timestamp of when a Amazon DataZone domain was last updated.</p>
+   * @public
    */
   lastUpdatedAt?: Date;
 }
@@ -7005,19 +7005,19 @@ export interface DomainSummary {
  */
 export interface ListDomainsOutput {
   /**
-   * @public
    * <p>The results of the <code>ListDomains</code> action.</p>
+   * @public
    */
   items: DomainSummary[] | undefined;
 
   /**
-   * @public
    * <p>When the number of domains is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of domains, the response includes a
    *          pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
    *          value in a subsequent call to <code>ListDomains</code> to list the next set of
    *          domains.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -7027,41 +7027,41 @@ export interface ListDomainsOutput {
  */
 export interface UpdateDomainInput {
   /**
-   * @public
    * <p>The ID of the Amazon Web Services domain that is to be updated.</p>
+   * @public
    */
   identifier: string | undefined;
 
   /**
-   * @public
    * <p>The description to be updated as part of the <code>UpdateDomain</code> action.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The single sign-on option to be updated as part of the <code>UpdateDomain</code>
    *          action.</p>
+   * @public
    */
   singleSignOn?: SingleSignOn;
 
   /**
-   * @public
    * <p>The domain execution role to be updated as part of the <code>UpdateDomain</code>
    *          action.</p>
+   * @public
    */
   domainExecutionRole?: string;
 
   /**
-   * @public
    * <p>The name to be updated as part of the <code>UpdateDomain</code> action.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
    *          request.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -7071,39 +7071,39 @@ export interface UpdateDomainInput {
  */
 export interface UpdateDomainOutput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The description to be updated as part of the <code>UpdateDomain</code> action.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The single sign-on option of the Amazon DataZone domain.</p>
+   * @public
    */
   singleSignOn?: SingleSignOn;
 
   /**
-   * @public
    * <p>The domain execution role to be updated as part of the <code>UpdateDomain</code>
    *          action.</p>
+   * @public
    */
   domainExecutionRole?: string;
 
   /**
-   * @public
    * <p>The name to be updated as part of the <code>UpdateDomain</code> action.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Specifies the timestamp of when the domain was last updated.</p>
+   * @public
    */
   lastUpdatedAt?: Date;
 }
@@ -7113,14 +7113,14 @@ export interface UpdateDomainOutput {
  */
 export interface DeleteEnvironmentBlueprintConfigurationInput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which the blueprint configuration is deleted.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the blueprint the configuration of which is deleted.</p>
+   * @public
    */
   environmentBlueprintIdentifier: string | undefined;
 }
@@ -7135,14 +7135,14 @@ export interface DeleteEnvironmentBlueprintConfigurationOutput {}
  */
 export interface GetEnvironmentBlueprintConfigurationInput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain where this blueprint exists.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>He ID of the blueprint.</p>
+   * @public
    */
   environmentBlueprintIdentifier: string | undefined;
 }
@@ -7152,50 +7152,50 @@ export interface GetEnvironmentBlueprintConfigurationInput {
  */
 export interface GetEnvironmentBlueprintConfigurationOutput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain where this blueprint exists.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the blueprint.</p>
+   * @public
    */
   environmentBlueprintId: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the provisioning role with which this blueprint is created.</p>
+   * @public
    */
   provisioningRoleArn?: string;
 
   /**
-   * @public
    * <p>The ARN of the manage access role with which this blueprint is created.</p>
+   * @public
    */
   manageAccessRoleArn?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services regions in which this blueprint is enabled.</p>
+   * @public
    */
   enabledRegions?: string[];
 
   /**
-   * @public
    * <p>The regional parameters of the blueprint.</p>
+   * @public
    */
   regionalParameters?: Record<string, Record<string, string>>;
 
   /**
-   * @public
    * <p>The timestamp of when this blueprint was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The timestamp of when this blueprint was upated.</p>
+   * @public
    */
   updatedAt?: Date;
 }
@@ -7205,24 +7205,23 @@ export interface GetEnvironmentBlueprintConfigurationOutput {
  */
 export interface ListEnvironmentBlueprintConfigurationsInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of blueprint configurations to return in a single call to
    *             <code>ListEnvironmentBlueprintConfigurations</code>. When the number of configurations
    *          to be listed is greater than the value of <code>MaxResults</code>, the response contains a
    *             <code>NextToken</code> value that you can use in a subsequent call to
    *             <code>ListEnvironmentBlueprintConfigurations</code> to list the next set of
    *          configurations.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>When the number of blueprint configurations is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of configurations, the response
@@ -7230,62 +7229,63 @@ export interface ListEnvironmentBlueprintConfigurationsInput {
    *             <code>NextToken</code> value in a subsequent call to
    *             <code>ListEnvironmentBlueprintConfigurations</code> to list the next set of
    *          configurations.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>The configuration details of an environment blueprint.</p>
+ * @public
  */
 export interface EnvironmentBlueprintConfigurationItem {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which an environment blueprint exists.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the environment blueprint.</p>
+   * @public
    */
   environmentBlueprintId: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the provisioning role specified in the environment blueprint
    *          configuration.</p>
+   * @public
    */
   provisioningRoleArn?: string;
 
   /**
-   * @public
    * <p>The ARN of the manage access role specified in the environment blueprint
    *          configuration.</p>
+   * @public
    */
   manageAccessRoleArn?: string;
 
   /**
-   * @public
    * <p>The enabled Amazon Web Services Regions specified in a blueprint configuration.</p>
+   * @public
    */
   enabledRegions?: string[];
 
   /**
-   * @public
    * <p>The regional parameters of the environment blueprint.</p>
+   * @public
    */
   regionalParameters?: Record<string, Record<string, string>>;
 
   /**
-   * @public
    * <p>The timestamp of when an environment blueprint was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The timestamp of when the environment blueprint was updated.</p>
+   * @public
    */
   updatedAt?: Date;
 }
@@ -7295,13 +7295,12 @@ export interface EnvironmentBlueprintConfigurationItem {
  */
 export interface ListEnvironmentBlueprintConfigurationsOutput {
   /**
-   * @public
    * <p>The results of the <code>ListEnvironmentBlueprintConfigurations</code> action.</p>
+   * @public
    */
   items?: EnvironmentBlueprintConfigurationItem[];
 
   /**
-   * @public
    * <p>When the number of blueprint configurations is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of configurations, the response
@@ -7309,6 +7308,7 @@ export interface ListEnvironmentBlueprintConfigurationsOutput {
    *             <code>NextToken</code> value in a subsequent call to
    *             <code>ListEnvironmentBlueprintConfigurations</code> to list the next set of
    *          configurations.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -7318,38 +7318,38 @@ export interface ListEnvironmentBlueprintConfigurationsOutput {
  */
 export interface PutEnvironmentBlueprintConfigurationInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the environment blueprint.</p>
+   * @public
    */
   environmentBlueprintIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the provisioning role.</p>
+   * @public
    */
   provisioningRoleArn?: string;
 
   /**
-   * @public
    * <p>The ARN of the manage access role.</p>
+   * @public
    */
   manageAccessRoleArn?: string;
 
   /**
-   * @public
    * <p>Specifies the enabled Amazon Web Services Regions.</p>
+   * @public
    */
   enabledRegions: string[] | undefined;
 
   /**
-   * @public
    * <p>The regional parameters in the environment blueprint.</p>
+   * @public
    */
   regionalParameters?: Record<string, Record<string, string>>;
 }
@@ -7359,50 +7359,50 @@ export interface PutEnvironmentBlueprintConfigurationInput {
  */
 export interface PutEnvironmentBlueprintConfigurationOutput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the environment blueprint.</p>
+   * @public
    */
   environmentBlueprintId: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the provisioning role.</p>
+   * @public
    */
   provisioningRoleArn?: string;
 
   /**
-   * @public
    * <p>The ARN of the manage access role.</p>
+   * @public
    */
   manageAccessRoleArn?: string;
 
   /**
-   * @public
    * <p>Specifies the enabled Amazon Web Services Regions.</p>
+   * @public
    */
   enabledRegions?: string[];
 
   /**
-   * @public
    * <p>The regional parameters in the environment blueprint.</p>
+   * @public
    */
   regionalParameters?: Record<string, Record<string, string>>;
 
   /**
-   * @public
    * <p>The timestamp of when the environment blueprint was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The timestamp of when the environment blueprint was updated.</p>
+   * @public
    */
   updatedAt?: Date;
 }
@@ -7412,14 +7412,14 @@ export interface PutEnvironmentBlueprintConfigurationOutput {
  */
 export interface DeleteFormTypeInput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which the metadata form type is deleted.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the metadata form type that is deleted.</p>
+   * @public
    */
   formTypeIdentifier: string | undefined;
 }
@@ -7434,38 +7434,38 @@ export interface DeleteFormTypeOutput {}
  */
 export interface GetFormTypeInput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which this metadata form type exists.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the metadata form type.</p>
+   * @public
    */
   formTypeIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The revision of this metadata form type.</p>
+   * @public
    */
   revision?: string;
 }
 
 /**
- * @public
  * <p>The details of the import of the metadata form type.</p>
+ * @public
  */
 export interface Import {
   /**
-   * @public
    * <p>The name of the import.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The revision of the import.</p>
+   * @public
    */
   revision: string | undefined;
 }
@@ -7475,75 +7475,75 @@ export interface Import {
  */
 export interface GetFormTypeOutput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which this metadata form type exists.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the metadata form type.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The revision of the metadata form type.</p>
+   * @public
    */
   revision: string | undefined;
 
   /**
-   * @public
    * <p>The model of the metadata form type.</p>
+   * @public
    */
   model: Model | undefined;
 
   /**
-   * @public
    * <p>The ID of the project that owns this metadata form type.</p>
+   * @public
    */
   owningProjectId?: string;
 
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which the metadata form type was originally
    *          created.</p>
+   * @public
    */
   originDomainId?: string;
 
   /**
-   * @public
    * <p>The ID of the project in which this metadata form type was originally created.</p>
+   * @public
    */
   originProjectId?: string;
 
   /**
-   * @public
    * <p>The status of the metadata form type.</p>
+   * @public
    */
   status?: FormTypeStatus;
 
   /**
-   * @public
    * <p>The timestamp of when this metadata form type was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created this metadata form type.</p>
+   * @public
    */
   createdBy?: string;
 
   /**
-   * @public
    * <p>The description of the metadata form type.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The imports of the metadata form type.</p>
+   * @public
    */
   imports?: Import[];
 }
@@ -7553,14 +7553,14 @@ export interface GetFormTypeOutput {
  */
 export interface GetEnvironmentInput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain where the environment exists.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the Amazon DataZone environment.</p>
+   * @public
    */
   identifier: string | undefined;
 }
@@ -7570,128 +7570,128 @@ export interface GetEnvironmentInput {
  */
 export interface GetEnvironmentOutput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone project in which this environment is created.</p>
+   * @public
    */
   projectId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the environment.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain where the environment exists.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created the environment.</p>
+   * @public
    */
   createdBy: string | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the environment was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The timestamp of when this environment was updated.</p>
+   * @public
    */
   updatedAt?: Date;
 
   /**
-   * @public
    * <p>The name of the environment.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description of the environment.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The ID of the environment profile with which the environment is created.</p>
+   * @public
    */
   environmentProfileId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the Amazon Web Services account where the environment exists.</p>
+   * @public
    */
   awsAccountId?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services region where the environment exists.</p>
+   * @public
    */
   awsAccountRegion?: string;
 
   /**
-   * @public
    * <p>The provider of this Amazon DataZone environment.</p>
+   * @public
    */
   provider: string | undefined;
 
   /**
-   * @public
    * <p>The provisioned resources of this Amazon DataZone environment.</p>
+   * @public
    */
   provisionedResources?: Resource[];
 
   /**
-   * @public
    * <p>The status of this Amazon DataZone environment.</p>
+   * @public
    */
   status?: EnvironmentStatus;
 
   /**
-   * @public
    * <p>The actions of the environment.</p>
+   * @public
    */
   environmentActions?: ConfigurableEnvironmentAction[];
 
   /**
-   * @public
    * <p>The business glossary terms that can be used in this environment.</p>
+   * @public
    */
   glossaryTerms?: string[];
 
   /**
-   * @public
    * <p>The user parameters of this Amazon DataZone environment.</p>
+   * @public
    */
   userParameters?: CustomParameter[];
 
   /**
-   * @public
    * <p>The details of the last deployment of the environment.</p>
+   * @public
    */
   lastDeployment?: Deployment;
 
   /**
-   * @public
    * <p>The provisioning properties of this Amazon DataZone environment.</p>
+   * @public
    */
   provisioningProperties?: ProvisioningProperties;
 
   /**
-   * @public
    * <p>The deployment properties of the environment.</p>
+   * @public
    */
   deploymentProperties?: DeploymentProperties;
 
   /**
-   * @public
    * <p>The blueprint with which the environment is created.</p>
+   * @public
    */
   environmentBlueprintId?: string;
 }
@@ -7701,14 +7701,14 @@ export interface GetEnvironmentOutput {
  */
 export interface GetEnvironmentBlueprintInput {
   /**
-   * @public
    * <p>The identifier of the domain in which this blueprint exists.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The ID of this Amazon DataZone blueprint.</p>
+   * @public
    */
   identifier: string | undefined;
 }
@@ -7718,62 +7718,62 @@ export interface GetEnvironmentBlueprintInput {
  */
 export interface GetEnvironmentBlueprintOutput {
   /**
-   * @public
    * <p>The ID of this Amazon DataZone blueprint.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The name of this Amazon DataZone blueprint.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description of this Amazon DataZone blueprint.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The provider of this Amazon DataZone blueprint.</p>
+   * @public
    */
   provider: string | undefined;
 
   /**
-   * @public
    * <p>The provisioning properties of this Amazon DataZone blueprint.</p>
+   * @public
    */
   provisioningProperties: ProvisioningProperties | undefined;
 
   /**
-   * @public
    * <p>The deployment properties of this Amazon DataZone blueprint.</p>
+   * @public
    */
   deploymentProperties?: DeploymentProperties;
 
   /**
-   * @public
    * <p>The user parameters of this blueprint.</p>
+   * @public
    */
   userParameters?: CustomParameter[];
 
   /**
-   * @public
    * <p>The glossary terms attached to this Amazon DataZone blueprint.</p>
+   * @public
    */
   glossaryTerms?: string[];
 
   /**
-   * @public
    * <p>A timestamp of when this blueprint was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The timestamp of when this blueprint was updated.</p>
+   * @public
    */
   updatedAt?: Date;
 }
@@ -7783,14 +7783,14 @@ export interface GetEnvironmentBlueprintOutput {
  */
 export interface GetEnvironmentProfileInput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which this environment profile exists.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the environment profile.</p>
+   * @public
    */
   identifier: string | undefined;
 }
@@ -7800,74 +7800,74 @@ export interface GetEnvironmentProfileInput {
  */
 export interface GetEnvironmentProfileOutput {
   /**
-   * @public
    * <p>The ID of the environment profile.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which this environment profile exists.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the Amazon Web Services account where this environment profile exists.</p>
+   * @public
    */
   awsAccountId?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services region where this environment profile exists.</p>
+   * @public
    */
   awsAccountRegion?: string;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created this environment profile.</p>
+   * @public
    */
   createdBy: string | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when this environment profile was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The timestamp of when this environment profile was upated.</p>
+   * @public
    */
   updatedAt?: Date;
 
   /**
-   * @public
    * <p>The name of the environment profile.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description of the environment profile.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The ID of the blueprint with which this environment profile is created.</p>
+   * @public
    */
   environmentBlueprintId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the Amazon DataZone project in which this environment profile is created.</p>
+   * @public
    */
   projectId?: string;
 
   /**
-   * @public
    * <p>The user parameters of the environment profile.</p>
+   * @public
    */
   userParameters?: CustomParameter[];
 }
@@ -7877,14 +7877,14 @@ export interface GetEnvironmentProfileOutput {
  */
 export interface GetGroupProfileInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which the group profile exists.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the group profile.</p>
+   * @public
    */
   groupIdentifier: string | undefined;
 }
@@ -7894,26 +7894,26 @@ export interface GetGroupProfileInput {
  */
 export interface GetGroupProfileOutput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which the group profile exists.</p>
+   * @public
    */
   domainId?: string;
 
   /**
-   * @public
    * <p>The identifier of the group profile.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The identifier of the group profile.</p>
+   * @public
    */
   status?: GroupProfileStatus;
 
   /**
-   * @public
    * <p>The name of the group for which the specified group profile exists.</p>
+   * @public
    */
   groupName?: string;
 }
@@ -7923,8 +7923,8 @@ export interface GetGroupProfileOutput {
  */
 export interface GetIamPortalLoginUrlInput {
   /**
-   * @public
    * <p>the ID of the Amazon DataZone domain the data portal of which you want to get.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 }
@@ -7934,14 +7934,14 @@ export interface GetIamPortalLoginUrlInput {
  */
 export interface GetIamPortalLoginUrlOutput {
   /**
-   * @public
    * <p>The data portal URL of the specified Amazon DataZone domain.</p>
+   * @public
    */
   authCodeUrl?: string;
 
   /**
-   * @public
    * <p>The ID of the user profile.</p>
+   * @public
    */
   userProfileId: string | undefined;
 }
@@ -7951,14 +7951,14 @@ export interface GetIamPortalLoginUrlOutput {
  */
 export interface GetProjectInput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which the project exists.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the project.</p>
+   * @public
    */
   identifier: string | undefined;
 }
@@ -7968,62 +7968,62 @@ export interface GetProjectInput {
  */
 export interface GetProjectOutput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which the project exists.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>&gt;The ID of the project.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The name of the project.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description of the project.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * Status of the project
+   * @public
    */
   projectStatus?: ProjectStatus;
 
   /**
-   * @public
    * Reasons for failed project deletion
+   * @public
    */
   failureReasons?: ProjectDeletionError[];
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created the project.</p>
+   * @public
    */
   createdBy: string | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the project was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The timestamp of when the project was last updated.</p>
+   * @public
    */
   lastUpdatedAt?: Date;
 
   /**
-   * @public
    * <p>The business glossary terms that can be used in the project.</p>
+   * @public
    */
   glossaryTerms?: string[];
 }
@@ -8033,14 +8033,14 @@ export interface GetProjectOutput {
  */
 export interface GetSubscriptionInput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which the subscription exists.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the subscription.</p>
+   * @public
    */
   identifier: string | undefined;
 }
@@ -8050,68 +8050,68 @@ export interface GetSubscriptionInput {
  */
 export interface GetSubscriptionOutput {
   /**
-   * @public
    * <p>The ID of the subscription.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created the subscription.</p>
+   * @public
    */
   createdBy: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who updated the subscription.</p>
+   * @public
    */
   updatedBy?: string;
 
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which the subscription exists.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The status of the subscription.</p>
+   * @public
    */
   status: SubscriptionStatus | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the subscription was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the subscription was updated.</p>
+   * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The principal that owns the subscription.</p>
+   * @public
    */
   subscribedPrincipal: SubscribedPrincipal | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   subscribedListing: SubscribedListing | undefined;
 
   /**
-   * @public
    * <p>The ID of the subscription request.</p>
+   * @public
    */
   subscriptionRequestId?: string;
 
   /**
-   * @public
    * <p>The retain permissions of the subscription.</p>
+   * @public
    */
   retainPermissions?: boolean;
 }
@@ -8121,14 +8121,14 @@ export interface GetSubscriptionOutput {
  */
 export interface GetSubscriptionGrantInput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which the subscription grant exists.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the subscription grant.</p>
+   * @public
    */
   identifier: string | undefined;
 }
@@ -8138,68 +8138,68 @@ export interface GetSubscriptionGrantInput {
  */
 export interface GetSubscriptionGrantOutput {
   /**
-   * @public
    * <p>The ID of the subscription grant.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created the subscription grant.</p>
+   * @public
    */
   createdBy: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who updated the subscription grant.</p>
+   * @public
    */
   updatedBy?: string;
 
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which the subscription grant exists.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the subscription grant is created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the subscription grant was upated.</p>
+   * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The subscription target ID associated with the subscription grant.</p>
+   * @public
    */
   subscriptionTargetId: string | undefined;
 
   /**
-   * @public
    * <p>The entity to which the subscription is granted.</p>
+   * @public
    */
   grantedEntity: GrantedEntity | undefined;
 
   /**
-   * @public
    * <p>The status of the subscription grant.</p>
+   * @public
    */
   status: SubscriptionGrantOverallStatus | undefined;
 
   /**
-   * @public
    * <p>The assets for which the subscription grant is created.</p>
+   * @public
    */
   assets?: SubscribedAsset[];
 
   /**
-   * @public
    * <p>The identifier of the subscription.</p>
+   * @public
    */
   subscriptionId?: string;
 }
@@ -8209,15 +8209,15 @@ export interface GetSubscriptionGrantOutput {
  */
 export interface GetSubscriptionRequestDetailsInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which to get the subscription request
    *          details.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the subscription request the details of which to get.</p>
+   * @public
    */
   identifier: string | undefined;
 }
@@ -8227,74 +8227,74 @@ export interface GetSubscriptionRequestDetailsInput {
  */
 export interface GetSubscriptionRequestDetailsOutput {
   /**
-   * @public
    * <p>The identifier of the subscription request.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created the subscription request.</p>
+   * @public
    */
   createdBy: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who updated the subscription request.</p>
+   * @public
    */
   updatedBy?: string;
 
   /**
-   * @public
    * <p>The Amazon DataZone domain of the subscription request.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The status of the subscription request.</p>
+   * @public
    */
   status: SubscriptionRequestStatus | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the specified subscription request was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the subscription request was updated.</p>
+   * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The reason for the subscription request.</p>
+   * @public
    */
   requestReason: string | undefined;
 
   /**
-   * @public
    * <p>The subscribed principals in the subscription request.</p>
+   * @public
    */
   subscribedPrincipals: SubscribedPrincipal[] | undefined;
 
   /**
-   * @public
    * <p>The subscribed listings in the subscription request.</p>
+   * @public
    */
   subscribedListings: SubscribedListing[] | undefined;
 
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone user who reviewed the subscription request.</p>
+   * @public
    */
   reviewerId?: string;
 
   /**
-   * @public
    * <p>The decision comment of the subscription request.</p>
+   * @public
    */
   decisionComment?: string;
 }
@@ -8304,20 +8304,20 @@ export interface GetSubscriptionRequestDetailsOutput {
  */
 export interface GetSubscriptionTargetInput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which the subscription target exists.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the environment associated with the subscription target.</p>
+   * @public
    */
   environmentIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the subscription target.</p>
+   * @public
    */
   identifier: string | undefined;
 }
@@ -8327,92 +8327,92 @@ export interface GetSubscriptionTargetInput {
  */
 export interface GetSubscriptionTargetOutput {
   /**
-   * @public
    * <p>The ID of the subscription target.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The authorized principals of the subscription target.</p>
+   * @public
    */
   authorizedPrincipals: string[] | undefined;
 
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which the subscription target exists.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the project associated with the subscription target.</p>
+   * @public
    */
   projectId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the environment associated with the subscription target.</p>
+   * @public
    */
   environmentId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the subscription target.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The type of the subscription target.</p>
+   * @public
    */
   type: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created the subscription target.</p>
+   * @public
    */
   createdBy: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who updated the subscription target.</p>
+   * @public
    */
   updatedBy?: string;
 
   /**
-   * @public
    * <p>The timestamp of when the subscription target was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the subscription target was updated.</p>
+   * @public
    */
   updatedAt?: Date;
 
   /**
-   * @public
    * <p>The manage access role with which the subscription target was created.</p>
+   * @public
    */
   manageAccessRole: string | undefined;
 
   /**
-   * @public
    * <p>The asset types associated with the subscription target.</p>
+   * @public
    */
   applicableAssetTypes: string[] | undefined;
 
   /**
-   * @public
    * <p>The configuration of teh subscription target.</p>
+   * @public
    */
   subscriptionTargetConfig: SubscriptionTargetForm[] | undefined;
 
   /**
-   * @public
    * <p>The provider of the subscription target.</p>
+   * @public
    */
   provider: string | undefined;
 }
@@ -8422,20 +8422,20 @@ export interface GetSubscriptionTargetOutput {
  */
 export interface GetUserProfileInput {
   /**
-   * @public
    * <p>the ID of the Amazon DataZone domain the data portal of which you want to get.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the user for which you want to get the user profile.</p>
+   * @public
    */
   userIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The type of the user profile.</p>
+   * @public
    */
   type?: UserProfileType;
 }
@@ -8445,33 +8445,33 @@ export interface GetUserProfileInput {
  */
 export interface GetUserProfileOutput {
   /**
-   * @public
    * <p>the identifier of the Amazon DataZone domain of which you want to get the user
    *          profile.</p>
+   * @public
    */
   domainId?: string;
 
   /**
-   * @public
    * <p>The identifier of the user profile.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The type of the user profile.</p>
+   * @public
    */
   type?: UserProfileType;
 
   /**
-   * @public
    * <p>The status of the user profile.</p>
+   * @public
    */
   status?: UserProfileStatus;
 
   /**
-   * @public
    * <p>The details of the user profile in Amazon DataZone.</p>
+   * @public
    */
   details?: UserProfileDetails;
 }
@@ -8481,14 +8481,14 @@ export interface GetUserProfileOutput {
  */
 export interface DeleteGlossaryInput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which the business glossary is deleted.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the business glossary that is deleted.</p>
+   * @public
    */
   identifier: string | undefined;
 }
@@ -8503,14 +8503,14 @@ export interface DeleteGlossaryOutput {}
  */
 export interface GetGlossaryInput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which this business glossary exists.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the business glossary.</p>
+   * @public
    */
   identifier: string | undefined;
 }
@@ -8520,62 +8520,62 @@ export interface GetGlossaryInput {
  */
 export interface GetGlossaryOutput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which this business glossary exists.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the business glossary.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the project that owns this business glossary.</p>
+   * @public
    */
   owningProjectId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the business glossary.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description of the business glossary.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The status of the business glossary.</p>
+   * @public
    */
   status: GlossaryStatus | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when this business glossary was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created this business glossary.</p>
+   * @public
    */
   createdBy?: string;
 
   /**
-   * @public
    * <p>The timestamp of when the business glossary was updated.</p>
+   * @public
    */
   updatedAt?: Date;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who updated the business glossary.</p>
+   * @public
    */
   updatedBy?: string;
 }
@@ -8585,40 +8585,40 @@ export interface GetGlossaryOutput {
  */
 export interface UpdateGlossaryInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which a business glossary is to be
    *          updated.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the business glossary to be updated.</p>
+   * @public
    */
   identifier: string | undefined;
 
   /**
-   * @public
    * <p>The name to be updated as part of the <code>UpdateGlossary</code> action.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The description to be updated as part of the <code>UpdateGlossary</code> action.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The status to be updated as part of the <code>UpdateGlossary</code> action.</p>
+   * @public
    */
   status?: GlossaryStatus;
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
    *          request.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -8628,39 +8628,39 @@ export interface UpdateGlossaryInput {
  */
 export interface UpdateGlossaryOutput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which a business glossary is to be
    *          updated.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the business glossary that is to be updated.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The name to be updated as part of the <code>UpdateGlossary</code> action.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the project in which to update a business glossary.</p>
+   * @public
    */
   owningProjectId: string | undefined;
 
   /**
-   * @public
    * <p>The description to be updated as part of the <code>UpdateGlossary</code> action.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The status to be updated as part of the <code>UpdateGlossary</code> action.</p>
+   * @public
    */
   status?: GlossaryStatus;
 }
@@ -8670,14 +8670,14 @@ export interface UpdateGlossaryOutput {
  */
 export interface DeleteGlossaryTermInput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which the business glossary term is deleted.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the business glossary term that is deleted.</p>
+   * @public
    */
   identifier: string | undefined;
 }
@@ -8692,14 +8692,14 @@ export interface DeleteGlossaryTermOutput {}
  */
 export interface GetGlossaryTermInput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which this business glossary term exists.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the business glossary term.</p>
+   * @public
    */
   identifier: string | undefined;
 }
@@ -8709,74 +8709,74 @@ export interface GetGlossaryTermInput {
  */
 export interface GetGlossaryTermOutput {
   /**
-   * @public
    * <p>The ID of the Amazon DataZone domain in which this business glossary term exists.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the business glossary to which this term belongs.</p>
+   * @public
    */
   glossaryId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the business glossary term.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The name of the business glossary term.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The short decription of the business glossary term.</p>
+   * @public
    */
   shortDescription?: string;
 
   /**
-   * @public
    * <p>The long description of the business glossary term.</p>
+   * @public
    */
   longDescription?: string;
 
   /**
-   * @public
    * <p>The relations of the business glossary term.</p>
+   * @public
    */
   termRelations?: TermRelations;
 
   /**
-   * @public
    * <p>The status of the business glossary term.</p>
+   * @public
    */
   status: GlossaryTermStatus | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the business glossary term was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created the business glossary.</p>
+   * @public
    */
   createdBy?: string;
 
   /**
-   * @public
    * <p>The timestamp of when the business glossary term was updated.</p>
+   * @public
    */
   updatedAt?: Date;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who updated the business glossary term.</p>
+   * @public
    */
   updatedBy?: string;
 }
@@ -8786,54 +8786,54 @@ export interface GetGlossaryTermOutput {
  */
 export interface UpdateGlossaryTermInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which a business glossary term is to be
    *          updated.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the business glossary in which a term is to be updated.</p>
+   * @public
    */
   glossaryIdentifier?: string;
 
   /**
-   * @public
    * <p>The identifier of the business glossary term that is to be updated.</p>
+   * @public
    */
   identifier: string | undefined;
 
   /**
-   * @public
    * <p>The name to be updated as part of the <code>UpdateGlossaryTerm</code> action.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The short description to be updated as part of the <code>UpdateGlossaryTerm</code>
    *          action.</p>
+   * @public
    */
   shortDescription?: string;
 
   /**
-   * @public
    * <p>The long description to be updated as part of the <code>UpdateGlossaryTerm</code>
    *          action.</p>
+   * @public
    */
   longDescription?: string;
 
   /**
-   * @public
    * <p>The term relations to be updated as part of the <code>UpdateGlossaryTerm</code>
    *          action.</p>
+   * @public
    */
   termRelations?: TermRelations;
 
   /**
-   * @public
    * <p>The status to be updated as part of the <code>UpdateGlossaryTerm</code> action.</p>
+   * @public
    */
   status?: GlossaryTermStatus;
 }
@@ -8843,54 +8843,54 @@ export interface UpdateGlossaryTermInput {
  */
 export interface UpdateGlossaryTermOutput {
   /**
-   * @public
    * <p>The identifier of the business glossary term that is to be updated.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which a business glossary term is to be
    *          updated.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the business glossary in which a term is to be updated.</p>
+   * @public
    */
   glossaryId: string | undefined;
 
   /**
-   * @public
    * <p>The name to be updated as part of the <code>UpdateGlossaryTerm</code> action.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The status to be updated as part of the <code>UpdateGlossaryTerm</code> action.</p>
+   * @public
    */
   status: GlossaryTermStatus | undefined;
 
   /**
-   * @public
    * <p>The short description to be updated as part of the <code>UpdateGlossaryTerm</code>
    *          action.</p>
+   * @public
    */
   shortDescription?: string;
 
   /**
-   * @public
    * <p>The long description to be updated as part of the <code>UpdateGlossaryTerm</code>
    *          action.</p>
+   * @public
    */
   longDescription?: string;
 
   /**
-   * @public
    * <p>The term relations to be updated as part of the <code>UpdateGlossaryTerm</code>
    *          action.</p>
+   * @public
    */
   termRelations?: TermRelations;
 }
@@ -8900,35 +8900,35 @@ export interface UpdateGlossaryTermOutput {
  */
 export interface ListAssetRevisionsInput {
   /**
-   * @public
    * <p>The identifier of the domain.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the asset.</p>
+   * @public
    */
   identifier: string | undefined;
 
   /**
-   * @public
    * <p>When the number of revisions is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of revisions, the response includes
    *          a pagination token named <code>NextToken</code>. You can specify this
    *             <code>NextToken</code> value in a subsequent call to <code>ListAssetRevisions</code> to
    *          list the next set of revisions.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of revisions to return in a single call to
    *             <code>ListAssetRevisions</code>. When the number of revisions to be listed is greater
    *          than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code>
    *          value that you can use in a subsequent call to <code>ListAssetRevisions</code> to list the
    *          next set of revisions.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -8938,19 +8938,19 @@ export interface ListAssetRevisionsInput {
  */
 export interface ListAssetRevisionsOutput {
   /**
-   * @public
    * <p>The results of the <code>ListAssetRevisions</code> action.</p>
+   * @public
    */
   items?: AssetRevision[];
 
   /**
-   * @public
    * <p>When the number of revisions is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of revisions, the response includes
    *          a pagination token named <code>NextToken</code>. You can specify this
    *             <code>NextToken</code> value in a subsequent call to <code>ListAssetRevisions</code> to
    *          list the next set of revisions.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -8960,42 +8960,42 @@ export interface ListAssetRevisionsOutput {
  */
 export interface ListDataSourceRunActivitiesInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which to list data source run
    *          activities.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the data source run.</p>
+   * @public
    */
   identifier: string | undefined;
 
   /**
-   * @public
    * <p>The status of the data source run.</p>
+   * @public
    */
   status?: DataAssetActivityStatus;
 
   /**
-   * @public
    * <p>When the number of activities is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of activities, the response
    *          includes a pagination token named <code>NextToken</code>. You can specify this
    *             <code>NextToken</code> value in a subsequent call to
    *             <code>ListDataSourceRunActivities</code> to list the next set of activities.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of activities to return in a single call to
    *             <code>ListDataSourceRunActivities</code>. When the number of activities to be listed is
    *          greater than the value of <code>MaxResults</code>, the response contains a
    *             <code>NextToken</code> value that you can use in a subsequent call to
    *             <code>ListDataSourceRunActivities</code> to list the next set of activities.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -9005,19 +9005,19 @@ export interface ListDataSourceRunActivitiesInput {
  */
 export interface ListDataSourceRunActivitiesOutput {
   /**
-   * @public
    * <p>The results of the <code>ListDataSourceRunActivities</code> action.</p>
+   * @public
    */
   items: DataSourceRunActivity[] | undefined;
 
   /**
-   * @public
    * <p>When the number of activities is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of activities, the response
    *          includes a pagination token named <code>NextToken</code>. You can specify this
    *             <code>NextToken</code> value in a subsequent call to
    *             <code>ListDataSourceRunActivities</code> to list the next set of activities.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -9027,89 +9027,89 @@ export interface ListDataSourceRunActivitiesOutput {
  */
 export interface ListEnvironmentBlueprintsInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of blueprints to return in a single call to
    *             <code>ListEnvironmentBlueprints</code>. When the number of blueprints to be listed is
    *          greater than the value of <code>MaxResults</code>, the response contains a
    *             <code>NextToken</code> value that you can use in a subsequent call to
    *             <code>ListEnvironmentBlueprints</code> to list the next set of blueprints.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>When the number of blueprints in the environment is greater than the default value for
    *          the <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of blueprints in the environment,
    *          the response includes a pagination token named <code>NextToken</code>. You can specify this
    *             <code>NextToken</code> value in a subsequent call to
    *             <code>ListEnvironmentBlueprints</code>to list the next set of blueprints.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The name of the Amazon DataZone environment.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Specifies whether the environment blueprint is managed by Amazon DataZone.</p>
+   * @public
    */
   managed?: boolean;
 }
 
 /**
- * @public
  * <p>The details of an environment blueprint summary.</p>
+ * @public
  */
 export interface EnvironmentBlueprintSummary {
   /**
-   * @public
    * <p>The identifier of the blueprint.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The name of the blueprint.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description of a blueprint.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The provider of the blueprint.</p>
+   * @public
    */
   provider: string | undefined;
 
   /**
-   * @public
    * <p>The provisioning properties of the blueprint.</p>
+   * @public
    */
   provisioningProperties: ProvisioningProperties | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when an environment blueprint was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The timestamp of when the blueprint was enabled.</p>
+   * @public
    */
   updatedAt?: Date;
 }
@@ -9119,19 +9119,19 @@ export interface EnvironmentBlueprintSummary {
  */
 export interface ListEnvironmentBlueprintsOutput {
   /**
-   * @public
    * <p>The results of the <code>ListEnvironmentBlueprints</code> action.</p>
+   * @public
    */
   items: EnvironmentBlueprintSummary[] | undefined;
 
   /**
-   * @public
    * <p>When the number of blueprints in the environment is greater than the default value for
    *          the <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of blueprints in the environment,
    *          the response includes a pagination token named <code>NextToken</code>. You can specify this
    *             <code>NextToken</code> value in a subsequent call to
    *             <code>ListEnvironmentBlueprints</code>to list the next set of blueprints.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -9141,45 +9141,44 @@ export interface ListEnvironmentBlueprintsOutput {
  */
 export interface ListEnvironmentProfilesInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the Amazon Web Services account where you want to list environment
    *          profiles.</p>
+   * @public
    */
   awsAccountId?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services region where you want to list environment profiles.</p>
+   * @public
    */
   awsAccountRegion?: string;
 
   /**
-   * @public
    * <p>The identifier of the blueprint that was used to create the environment profiles that
    *          you want to list.</p>
+   * @public
    */
   environmentBlueprintIdentifier?: string;
 
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone project.</p>
+   * @public
    */
   projectIdentifier?: string;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>When the number of environment profiles is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of environment profiles, the
@@ -9187,89 +9186,90 @@ export interface ListEnvironmentProfilesInput {
    *             <code>NextToken</code> value in a subsequent call to
    *             <code>ListEnvironmentProfiles</code> to list the next set of environment
    *          profiles.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of environment profiles to return in a single call to
    *             <code>ListEnvironmentProfiles</code>. When the number of environment profiles to be
    *          listed is greater than the value of <code>MaxResults</code>, the response contains a
    *             <code>NextToken</code> value that you can use in a subsequent call to
    *             <code>ListEnvironmentProfiles</code> to list the next set of environment
    *          profiles.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>The details of an environment profile.</p>
+ * @public
  */
 export interface EnvironmentProfileSummary {
   /**
-   * @public
    * <p>The identifier of the environment profile.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which the environment profile exists.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of an Amazon Web Services account in which an environment profile exists.</p>
+   * @public
    */
   awsAccountId?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services Region in which an environment profile exists.</p>
+   * @public
    */
   awsAccountRegion?: string;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created the environment profile.</p>
+   * @public
    */
   createdBy: string | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when an environment profile was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The timestamp of when the environment profile was updated.</p>
+   * @public
    */
   updatedAt?: Date;
 
   /**
-   * @public
    * <p>The name of the environment profile.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description of the environment profile.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The identifier of a blueprint with which an environment profile is created.</p>
+   * @public
    */
   environmentBlueprintId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of a project in which an environment profile exists.</p>
+   * @public
    */
   projectId?: string;
 }
@@ -9279,13 +9279,12 @@ export interface EnvironmentProfileSummary {
  */
 export interface ListEnvironmentProfilesOutput {
   /**
-   * @public
    * <p>The results of the <code>ListEnvironmentProfiles</code> action. </p>
+   * @public
    */
   items: EnvironmentProfileSummary[] | undefined;
 
   /**
-   * @public
    * <p>When the number of environment profiles is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of environment profiles, the
@@ -9293,6 +9292,7 @@ export interface ListEnvironmentProfilesOutput {
    *             <code>NextToken</code> value in a subsequent call to
    *             <code>ListEnvironmentProfiles</code> to list the next set of environment
    *          profiles.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -9302,162 +9302,162 @@ export interface ListEnvironmentProfilesOutput {
  */
 export interface ListEnvironmentsInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the Amazon Web Services account where you want to list
    *          environments.</p>
+   * @public
    */
   awsAccountId?: string;
 
   /**
-   * @public
    * <p>The status of the environments that you want to list.</p>
+   * @public
    */
   status?: EnvironmentStatus;
 
   /**
-   * @public
    * <p>The Amazon Web Services region where you want to list environments.</p>
+   * @public
    */
   awsAccountRegion?: string;
 
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone project.</p>
+   * @public
    */
   projectIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the environment profile.</p>
+   * @public
    */
   environmentProfileIdentifier?: string;
 
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone blueprint.</p>
+   * @public
    */
   environmentBlueprintIdentifier?: string;
 
   /**
-   * @public
    * <p>The provider of the environment.</p>
+   * @public
    */
   provider?: string;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The maximum number of environments to return in a single call to
    *             <code>ListEnvironments</code>. When the number of environments to be listed is greater
    *          than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code>
    *          value that you can use in a subsequent call to <code>ListEnvironments</code> to list the
    *          next set of environments.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>When the number of environments is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of environments, the response
    *          includes a pagination token named <code>NextToken</code>. You can specify this
    *             <code>NextToken</code> value in a subsequent call to <code>ListEnvironments</code> to
    *          list the next set of environments.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>The details of an environment.</p>
+ * @public
  */
 export interface EnvironmentSummary {
   /**
-   * @public
    * <p>The identifier of the project in which the environment exists.</p>
+   * @public
    */
   projectId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the environment.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which the environment exists.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created the environment.</p>
+   * @public
    */
   createdBy: string | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the environment was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The timestamp of when the environment was updated.</p>
+   * @public
    */
   updatedAt?: Date;
 
   /**
-   * @public
    * <p>The name of the environment.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description of the environment.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The identifier of the environment profile with which the environment was created.</p>
+   * @public
    */
   environmentProfileId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the Amazon Web Services account in which an environment exists.</p>
+   * @public
    */
   awsAccountId?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services Region in which an environment exists.</p>
+   * @public
    */
   awsAccountRegion?: string;
 
   /**
-   * @public
    * <p>The provider of the environment.</p>
+   * @public
    */
   provider: string | undefined;
 
   /**
-   * @public
    * <p>The status of the environment.</p>
+   * @public
    */
   status?: EnvironmentStatus;
 }
@@ -9467,19 +9467,19 @@ export interface EnvironmentSummary {
  */
 export interface ListEnvironmentsOutput {
   /**
-   * @public
    * <p>The results of the <code>ListEnvironments</code> action.</p>
+   * @public
    */
   items: EnvironmentSummary[] | undefined;
 
   /**
-   * @public
    * <p>When the number of environments is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of environments, the response
    *          includes a pagination token named <code>NextToken</code>. You can specify this
    *             <code>NextToken</code> value in a subsequent call to <code>ListEnvironments</code> to
    *          list the next set of environments.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -9489,14 +9489,14 @@ export interface ListEnvironmentsOutput {
  */
 export interface DeleteListingInput {
   /**
-   * @public
    * <p/>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   identifier: string | undefined;
 }
@@ -9511,27 +9511,27 @@ export interface DeleteListingOutput {}
  */
 export interface GetListingInput {
   /**
-   * @public
    * <p/>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   identifier: string | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   listingRevision?: string;
 }
 
 /**
- * @public
  * <p>The details of a listing (aka asset published in a Amazon DataZone catalog).</p>
+ * @public
  */
 export type ListingItem = ListingItem.AssetListingMember | ListingItem.$UnknownMember;
 
@@ -9540,8 +9540,8 @@ export type ListingItem = ListingItem.AssetListingMember | ListingItem.$UnknownM
  */
 export namespace ListingItem {
   /**
-   * @public
    * <p>An asset published in an Amazon DataZone catalog.</p>
+   * @public
    */
   export interface AssetListingMember {
     assetListing: AssetListing;
@@ -9572,68 +9572,68 @@ export namespace ListingItem {
  */
 export interface GetListingOutput {
   /**
-   * @public
    * <p/>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   listingRevision: string | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The timestamp of when the listing was updated.</p>
+   * @public
    */
   updatedAt?: Date;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created the listing.</p>
+   * @public
    */
   createdBy?: string;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who updated the listing.</p>
+   * @public
    */
   updatedBy?: string;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   item?: ListingItem;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   status?: ListingStatus;
 }
@@ -9671,59 +9671,59 @@ export type NotificationType = (typeof NotificationType)[keyof typeof Notificati
  */
 export interface ListNotificationsInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The type of notifications.</p>
+   * @public
    */
   type: NotificationType | undefined;
 
   /**
-   * @public
    * <p>The time after which you want to list notifications.</p>
+   * @public
    */
   afterTimestamp?: Date;
 
   /**
-   * @public
    * <p>The time before which you want to list notifications.</p>
+   * @public
    */
   beforeTimestamp?: Date;
 
   /**
-   * @public
    * <p>The subjects of notifications.</p>
+   * @public
    */
   subjects?: string[];
 
   /**
-   * @public
    * <p>The task status of notifications.</p>
+   * @public
    */
   taskStatus?: TaskStatus;
 
   /**
-   * @public
    * <p>The maximum number of notifications to return in a single call to
    *             <code>ListNotifications</code>. When the number of notifications to be listed is greater
    *          than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code>
    *          value that you can use in a subsequent call to <code>ListNotifications</code> to list the
    *          next set of notifications.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>When the number of notifications is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of notifications, the response
    *          includes a pagination token named <code>NextToken</code>. You can specify this
    *             <code>NextToken</code> value in a subsequent call to <code>ListNotifications</code> to
    *          list the next set of notifications.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -9742,25 +9742,25 @@ export const NotificationResourceType = {
 export type NotificationResourceType = (typeof NotificationResourceType)[keyof typeof NotificationResourceType];
 
 /**
- * @public
  * <p>The details of the resource mentioned in a notification.</p>
+ * @public
  */
 export interface NotificationResource {
   /**
-   * @public
    * <p>The type of the resource mentioned in a notification.</p>
+   * @public
    */
   type: NotificationResourceType | undefined;
 
   /**
-   * @public
    * <p>The ID of the resource mentioned in a notification.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The name of the resource mentioned in a notification.</p>
+   * @public
    */
   name?: string;
 }
@@ -9783,97 +9783,97 @@ export const NotificationRole = {
 export type NotificationRole = (typeof NotificationRole)[keyof typeof NotificationRole];
 
 /**
- * @public
  * <p>The topic of the notification.</p>
+ * @public
  */
 export interface Topic {
   /**
-   * @public
    * <p>The subject of the resource mentioned in a notification.</p>
+   * @public
    */
   subject: string | undefined;
 
   /**
-   * @public
    * <p>The details of the resource mentioned in a notification.</p>
+   * @public
    */
   resource: NotificationResource | undefined;
 
   /**
-   * @public
    * <p>The role of the resource mentioned in a notification.</p>
+   * @public
    */
   role: NotificationRole | undefined;
 }
 
 /**
- * @public
  * <p>The details of a notification generated in Amazon DataZone.</p>
+ * @public
  */
 export interface NotificationOutput {
   /**
-   * @public
    * <p>The identifier of the notification.</p>
+   * @public
    */
   identifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of a Amazon DataZone domain in which the notification exists.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The type of the notification.</p>
+   * @public
    */
   type: NotificationType | undefined;
 
   /**
-   * @public
    * <p>The topic of the notification.</p>
+   * @public
    */
   topic: Topic | undefined;
 
   /**
-   * @public
    * <p>The title of the notification.</p>
+   * @public
    */
   title: string | undefined;
 
   /**
-   * @public
    * <p>The message included in the notification.</p>
+   * @public
    */
   message: string | undefined;
 
   /**
-   * @public
    * <p>The status included in the notification.</p>
+   * @public
    */
   status?: TaskStatus;
 
   /**
-   * @public
    * <p>The action link included in the notification.</p>
+   * @public
    */
   actionLink: string | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when a notification was created.</p>
+   * @public
    */
   creationTimestamp: Date | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the notification was last updated.</p>
+   * @public
    */
   lastUpdatedTimestamp: Date | undefined;
 
   /**
-   * @public
    * <p>The metadata included in the notification.</p>
+   * @public
    */
   metadata?: Record<string, string>;
 }
@@ -9883,19 +9883,19 @@ export interface NotificationOutput {
  */
 export interface ListNotificationsOutput {
   /**
-   * @public
    * <p>The results of the <code>ListNotifications</code> action.</p>
+   * @public
    */
   notifications?: NotificationOutput[];
 
   /**
-   * @public
    * <p>When the number of notifications is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of notifications, the response
    *          includes a pagination token named <code>NextToken</code>. You can specify this
    *             <code>NextToken</code> value in a subsequent call to <code>ListNotifications</code> to
    *          list the next set of notifications.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -9932,79 +9932,79 @@ export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
  */
 export interface ListProjectMembershipsInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which you want to list project
    *          memberships.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the project whose memberships you want to list.</p>
+   * @public
    */
   projectIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The method by which you want to sort the project memberships.</p>
+   * @public
    */
   sortBy?: SortFieldProject;
 
   /**
-   * @public
    * <p>The sort order of the project memberships.</p>
+   * @public
    */
   sortOrder?: SortOrder;
 
   /**
-   * @public
    * <p>When the number of memberships is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of memberships, the response
    *          includes a pagination token named <code>NextToken</code>. You can specify this
    *             <code>NextToken</code> value in a subsequent call to <code>ListProjectMemberships</code>
    *          to list the next set of memberships.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of memberships to return in a single call to
    *             <code>ListProjectMemberships</code>. When the number of memberships to be listed is
    *          greater than the value of <code>MaxResults</code>, the response contains a
    *             <code>NextToken</code> value that you can use in a subsequent call to
    *             <code>ListProjectMemberships</code> to list the next set of memberships.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>The details of a group in Amazon DataZone.</p>
+ * @public
  */
 export interface GroupDetails {
   /**
-   * @public
    * <p>The identifier of the group in Amazon DataZone.</p>
+   * @public
    */
   groupId: string | undefined;
 }
 
 /**
- * @public
  * <p>The user details of a project member.</p>
+ * @public
  */
 export interface UserDetails {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone user.</p>
+   * @public
    */
   userId: string | undefined;
 }
 
 /**
- * @public
  * <p>The details about a project member.</p>
+ * @public
  */
 export type MemberDetails = MemberDetails.GroupMember | MemberDetails.UserMember | MemberDetails.$UnknownMember;
 
@@ -10013,8 +10013,8 @@ export type MemberDetails = MemberDetails.GroupMember | MemberDetails.UserMember
  */
 export namespace MemberDetails {
   /**
-   * @public
    * <p>The user details of a project member.</p>
+   * @public
    */
   export interface UserMember {
     user: UserDetails;
@@ -10023,8 +10023,8 @@ export namespace MemberDetails {
   }
 
   /**
-   * @public
    * <p>The group details of a project member.</p>
+   * @public
    */
   export interface GroupMember {
     user?: never;
@@ -10055,19 +10055,19 @@ export namespace MemberDetails {
 }
 
 /**
- * @public
  * <p>The details of a project member.</p>
+ * @public
  */
 export interface ProjectMember {
   /**
-   * @public
    * <p>The membership details of a project member.</p>
+   * @public
    */
   memberDetails: MemberDetails | undefined;
 
   /**
-   * @public
    * <p>The designated role of a project member.</p>
+   * @public
    */
   designation: UserDesignation | undefined;
 }
@@ -10077,19 +10077,19 @@ export interface ProjectMember {
  */
 export interface ListProjectMembershipsOutput {
   /**
-   * @public
    * <p>The members of the project.</p>
+   * @public
    */
   members: ProjectMember[] | undefined;
 
   /**
-   * @public
    * <p>When the number of memberships is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of memberships, the response
    *          includes a pagination token named <code>NextToken</code>. You can specify this
    *             <code>NextToken</code> value in a subsequent call to <code>ListProjectMemberships</code>
    *          to list the next set of memberships.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -10099,107 +10099,107 @@ export interface ListProjectMembershipsOutput {
  */
 export interface ListProjectsInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone user.</p>
+   * @public
    */
   userIdentifier?: string;
 
   /**
-   * @public
    * <p>The identifier of a group.</p>
+   * @public
    */
   groupIdentifier?: string;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>When the number of projects is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of projects, the response includes
    *          a pagination token named <code>NextToken</code>. You can specify this
    *             <code>NextToken</code> value in a subsequent call to <code>ListProjects</code> to list
    *          the next set of projects.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of projects to return in a single call to <code>ListProjects</code>.
    *          When the number of projects to be listed is greater than the value of
    *             <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you
    *          can use in a subsequent call to <code>ListProjects</code> to list the next set of
    *          projects.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>The details of a Amazon DataZone project.</p>
+ * @public
  */
 export interface ProjectSummary {
   /**
-   * @public
    * <p>The identifier of a Amazon DataZone domain where the project exists.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of a project.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The name of a project.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The description of a project.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * Status of the project
+   * @public
    */
   projectStatus?: ProjectStatus;
 
   /**
-   * @public
    * Reasons for failed project deletion
+   * @public
    */
   failureReasons?: ProjectDeletionError[];
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created the project.</p>
+   * @public
    */
   createdBy: string | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when a project was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>The timestamp of when the project was updated.</p>
+   * @public
    */
   updatedAt?: Date;
 }
@@ -10209,19 +10209,19 @@ export interface ProjectSummary {
  */
 export interface ListProjectsOutput {
   /**
-   * @public
    * <p>The results of the <code>ListProjects</code> action.</p>
+   * @public
    */
   items?: ProjectSummary[];
 
   /**
-   * @public
    * <p>When the number of projects is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of projects, the response includes
    *          a pagination token named <code>NextToken</code>. You can specify this
    *             <code>NextToken</code> value in a subsequent call to <code>ListProjects</code> to list
    *          the next set of projects.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -10245,137 +10245,137 @@ export type SortKey = (typeof SortKey)[keyof typeof SortKey];
  */
 export interface ListSubscriptionGrantsInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone environment.</p>
+   * @public
    */
   environmentId?: string;
 
   /**
-   * @public
    * <p>The identifier of the subscription target.</p>
+   * @public
    */
   subscriptionTargetId?: string;
 
   /**
-   * @public
    * <p>The identifier of the subscribed listing.</p>
+   * @public
    */
   subscribedListingId?: string;
 
   /**
-   * @public
    * <p>The identifier of the subscription.</p>
+   * @public
    */
   subscriptionId?: string;
 
   /**
-   * @public
    * <p>Specifies the way of sorting the results of this action.</p>
+   * @public
    */
   sortBy?: SortKey;
 
   /**
-   * @public
    * <p>Specifies the sort order of this action.</p>
+   * @public
    */
   sortOrder?: SortOrder;
 
   /**
-   * @public
    * <p>The maximum number of subscription grants to return in a single call to
    *             <code>ListSubscriptionGrants</code>. When the number of subscription grants to be listed
    *          is greater than the value of <code>MaxResults</code>, the response contains a
    *             <code>NextToken</code> value that you can use in a subsequent call to
    *             <code>ListSubscriptionGrants</code> to list the next set of subscription grants.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>When the number of subscription grants is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of subscription grants, the
    *          response includes a pagination token named <code>NextToken</code>. You can specify this
    *             <code>NextToken</code> value in a subsequent call to <code>ListSubscriptionGrants</code>
    *          to list the next set of subscription grants.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>The details of the subscription grant.</p>
+ * @public
  */
 export interface SubscriptionGrantSummary {
   /**
-   * @public
    * <p>The identifier of the subscription grant.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The datazone user who created the subscription grant.</p>
+   * @public
    */
   createdBy: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who updated the subscription grant.</p>
+   * @public
    */
   updatedBy?: string;
 
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which a subscription grant exists.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when a subscription grant was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The timestampf of when the subscription grant was updated.</p>
+   * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The identifier of the target of the subscription grant.</p>
+   * @public
    */
   subscriptionTargetId: string | undefined;
 
   /**
-   * @public
    * <p>The entity to which the subscription is granted.</p>
+   * @public
    */
   grantedEntity: GrantedEntity | undefined;
 
   /**
-   * @public
    * <p>The status of the subscription grant.</p>
+   * @public
    */
   status: SubscriptionGrantOverallStatus | undefined;
 
   /**
-   * @public
    * <p>The assets included in the subscription grant.</p>
+   * @public
    */
   assets?: SubscribedAsset[];
 
   /**
-   * @public
    * <p>The ID of the subscription grant.</p>
+   * @public
    */
   subscriptionId?: string;
 }
@@ -10385,19 +10385,19 @@ export interface SubscriptionGrantSummary {
  */
 export interface ListSubscriptionGrantsOutput {
   /**
-   * @public
    * <p>The results of the <code>ListSubscriptionGrants</code> action. </p>
+   * @public
    */
   items: SubscriptionGrantSummary[] | undefined;
 
   /**
-   * @public
    * <p>When the number of subscription grants is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of subscription grants, the
    *          response includes a pagination token named <code>NextToken</code>. You can specify this
    *             <code>NextToken</code> value in a subsequent call to <code>ListSubscriptionGrants</code>
    *          to list the next set of subscription grants.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -10407,60 +10407,59 @@ export interface ListSubscriptionGrantsOutput {
  */
 export interface ListSubscriptionRequestsInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the status of the subscription requests.</p>
+   * @public
    */
   status?: SubscriptionRequestStatus;
 
   /**
-   * @public
    * <p>The identifier of the subscribed listing.</p>
+   * @public
    */
   subscribedListingId?: string;
 
   /**
-   * @public
    * <p>The identifier of the project for the subscription requests.</p>
+   * @public
    */
   owningProjectId?: string;
 
   /**
-   * @public
    * <p>The identifier of the subscription request approver's project.</p>
+   * @public
    */
   approverProjectId?: string;
 
   /**
-   * @public
    * <p>Specifies the way to sort the results of this action.</p>
+   * @public
    */
   sortBy?: SortKey;
 
   /**
-   * @public
    * <p>Specifies the sort order for the results of this action.</p>
+   * @public
    */
   sortOrder?: SortOrder;
 
   /**
-   * @public
    * <p>The maximum number of subscription requests to return in a single call to
    *             <code>ListSubscriptionRequests</code>. When the number of subscription requests to be
    *          listed is greater than the value of <code>MaxResults</code>, the response contains a
    *             <code>NextToken</code> value that you can use in a subsequent call to
    *             <code>ListSubscriptionRequests</code> to list the next set of subscription
    *          requests.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>When the number of subscription requests is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of subscription requests, the
@@ -10468,84 +10467,85 @@ export interface ListSubscriptionRequestsInput {
    *             <code>NextToken</code> value in a subsequent call to
    *             <code>ListSubscriptionRequests</code> to list the next set of subscription
    *          requests.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>The details of the subscription request.</p>
+ * @public
  */
 export interface SubscriptionRequestSummary {
   /**
-   * @public
    * <p>The identifier of the subscription request.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created the subscription request.</p>
+   * @public
    */
   createdBy: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone user who updated the subscription request.</p>
+   * @public
    */
   updatedBy?: string;
 
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which a subscription request exists.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The status of the subscription request.</p>
+   * @public
    */
   status: SubscriptionRequestStatus | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when a subscription request was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the subscription request was updated.</p>
+   * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The reason for the subscription request.</p>
+   * @public
    */
   requestReason: string | undefined;
 
   /**
-   * @public
    * <p>The principals included in the subscription request. </p>
+   * @public
    */
   subscribedPrincipals: SubscribedPrincipal[] | undefined;
 
   /**
-   * @public
    * <p>The listings included in the subscription request.</p>
+   * @public
    */
   subscribedListings: SubscribedListing[] | undefined;
 
   /**
-   * @public
    * <p>The identifier of the subscription request reviewer.</p>
+   * @public
    */
   reviewerId?: string;
 
   /**
-   * @public
    * <p>The decision comment of the subscription request.</p>
+   * @public
    */
   decisionComment?: string;
 }
@@ -10555,13 +10555,12 @@ export interface SubscriptionRequestSummary {
  */
 export interface ListSubscriptionRequestsOutput {
   /**
-   * @public
    * <p>The results of the <code>ListSubscriptionRequests</code> action. </p>
+   * @public
    */
   items: SubscriptionRequestSummary[] | undefined;
 
   /**
-   * @public
    * <p>When the number of subscription requests is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of subscription requests, the
@@ -10569,6 +10568,7 @@ export interface ListSubscriptionRequestsOutput {
    *             <code>NextToken</code> value in a subsequent call to
    *             <code>ListSubscriptionRequests</code> to list the next set of subscription
    *          requests.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -10578,145 +10578,145 @@ export interface ListSubscriptionRequestsOutput {
  */
 export interface ListSubscriptionsInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the subscription request for the subscriptions that you want to
    *          list.</p>
+   * @public
    */
   subscriptionRequestIdentifier?: string;
 
   /**
-   * @public
    * <p>The status of the subscriptions that you want to list.</p>
+   * @public
    */
   status?: SubscriptionStatus;
 
   /**
-   * @public
    * <p>The identifier of the subscribed listing for the subscriptions that you want to
    *          list.</p>
+   * @public
    */
   subscribedListingId?: string;
 
   /**
-   * @public
    * <p>The identifier of the owning project.</p>
+   * @public
    */
   owningProjectId?: string;
 
   /**
-   * @public
    * <p>The identifier of the project for the subscription's approver.</p>
+   * @public
    */
   approverProjectId?: string;
 
   /**
-   * @public
    * <p>Specifies the way in which the results of this action are to be sorted.</p>
+   * @public
    */
   sortBy?: SortKey;
 
   /**
-   * @public
    * <p>Specifies the sort order for the results of this action.</p>
+   * @public
    */
   sortOrder?: SortOrder;
 
   /**
-   * @public
    * <p>The maximum number of subscriptions to return in a single call to
    *             <code>ListSubscriptions</code>. When the number of subscriptions to be listed is greater
    *          than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code>
    *          value that you can use in a subsequent call to <code>ListSubscriptions</code> to list the
    *          next set of Subscriptions. </p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>When the number of subscriptions is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of subscriptions, the response
    *          includes a pagination token named <code>NextToken</code>. You can specify this
    *             <code>NextToken</code> value in a subsequent call to <code>ListSubscriptions</code> to
    *          list the next set of subscriptions.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>The details of the subscription.</p>
+ * @public
  */
 export interface SubscriptionSummary {
   /**
-   * @public
    * <p>The identifier of the subscription.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created the subscription.</p>
+   * @public
    */
   createdBy: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who updated the subscription.</p>
+   * @public
    */
   updatedBy?: string;
 
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which a subscription exists.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The status of the subscription.</p>
+   * @public
    */
   status: SubscriptionStatus | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the subscription was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the subscription was updated.</p>
+   * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * @public
    * <p>The principal included in the subscription.</p>
+   * @public
    */
   subscribedPrincipal: SubscribedPrincipal | undefined;
 
   /**
-   * @public
    * <p>The listing included in the subscription.</p>
+   * @public
    */
   subscribedListing: SubscribedListing | undefined;
 
   /**
-   * @public
    * <p>The identifier of the subscription request for the subscription.</p>
+   * @public
    */
   subscriptionRequestId?: string;
 
   /**
-   * @public
    * <p>The retain permissions included in the subscription.</p>
+   * @public
    */
   retainPermissions?: boolean;
 }
@@ -10726,19 +10726,19 @@ export interface SubscriptionSummary {
  */
 export interface ListSubscriptionsOutput {
   /**
-   * @public
    * <p>The results of the <code>ListSubscriptions</code> action.</p>
+   * @public
    */
   items: SubscriptionSummary[] | undefined;
 
   /**
-   * @public
    * <p>When the number of subscriptions is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of subscriptions, the response
    *          includes a pagination token named <code>NextToken</code>. You can specify this
    *             <code>NextToken</code> value in a subsequent call to <code>ListSubscriptions</code> to
    *          list the next set of subscriptions.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -10748,43 +10748,42 @@ export interface ListSubscriptionsOutput {
  */
 export interface ListSubscriptionTargetsInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain where you want to list subscription
    *          targets.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the environment where you want to list subscription targets.</p>
+   * @public
    */
   environmentIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the way in which the results of this action are to be sorted.</p>
+   * @public
    */
   sortBy?: SortKey;
 
   /**
-   * @public
    * <p>Specifies the sort order for the results of this action.</p>
+   * @public
    */
   sortOrder?: SortOrder;
 
   /**
-   * @public
    * <p>The maximum number of subscription targets to return in a single call to
    *             <code>ListSubscriptionTargets</code>. When the number of subscription targets to be
    *          listed is greater than the value of <code>MaxResults</code>, the response contains a
    *             <code>NextToken</code> value that you can use in a subsequent call to
    *             <code>ListSubscriptionTargets</code> to list the next set of subscription targets.
    *       </p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>When the number of subscription targets is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of subscription targets, the
@@ -10792,102 +10791,103 @@ export interface ListSubscriptionTargetsInput {
    *             <code>NextToken</code> value in a subsequent call to
    *             <code>ListSubscriptionTargets</code> to list the next set of subscription
    *          targets.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>The details of the subscription target.</p>
+ * @public
  */
 export interface SubscriptionTargetSummary {
   /**
-   * @public
    * <p>The identifier of the subscription target.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The authorized principals included in the subscription target.</p>
+   * @public
    */
   authorizedPrincipals: string[] | undefined;
 
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain in which the subscription target exists.</p>
+   * @public
    */
   domainId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the project specified in the subscription target.</p>
+   * @public
    */
   projectId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the environment of the subscription target.</p>
+   * @public
    */
   environmentId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the subscription target.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The type of the subscription target.</p>
+   * @public
    */
   type: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who created the subscription target.</p>
+   * @public
    */
   createdBy: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon DataZone user who updated the subscription target.</p>
+   * @public
    */
   updatedBy?: string;
 
   /**
-   * @public
    * <p>The timestamp of when the subscription target was created.</p>
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * <p>The timestamp of when the subscription target was updated.</p>
+   * @public
    */
   updatedAt?: Date;
 
   /**
-   * @public
    * <p>The manage access role specified in the subscription target.</p>
+   * @public
    */
   manageAccessRole: string | undefined;
 
   /**
-   * @public
    * <p>The asset types included in the subscription target.</p>
+   * @public
    */
   applicableAssetTypes: string[] | undefined;
 
   /**
-   * @public
    * <p>The configuration of the subscription target.</p>
+   * @public
    */
   subscriptionTargetConfig: SubscriptionTargetForm[] | undefined;
 
   /**
-   * @public
    * <p>The provider of the subscription target.</p>
+   * @public
    */
   provider: string | undefined;
 }
@@ -10897,13 +10897,12 @@ export interface SubscriptionTargetSummary {
  */
 export interface ListSubscriptionTargetsOutput {
   /**
-   * @public
    * <p>The results of the <code>ListSubscriptionTargets</code> action.</p>
+   * @public
    */
   items: SubscriptionTargetSummary[] | undefined;
 
   /**
-   * @public
    * <p>When the number of subscription targets is greater than the default value for the
    *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
    *             <code>MaxResults</code> that is less than the number of subscription targets, the
@@ -10911,6 +10910,7 @@ export interface ListSubscriptionTargetsOutput {
    *             <code>NextToken</code> value in a subsequent call to
    *             <code>ListSubscriptionTargets</code> to list the next set of subscription
    *          targets.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -10920,8 +10920,8 @@ export interface ListSubscriptionTargetsOutput {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The ARN of the resource whose tags you want to list.</p>
+   * @public
    */
   resourceArn: string | undefined;
 }
@@ -10931,27 +10931,27 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>The tags of the specified resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
 
 /**
- * @public
  * <p>The details of the automatically generated business metadata that is rejected.</p>
+ * @public
  */
 export interface RejectChoice {
   /**
-   * @public
    * <p>Specifies the target (for example, a column name) where a prediction can be
    *          rejected.</p>
+   * @public
    */
   predictionTarget?: string;
 
   /**
-   * @public
    * <p>Specifies the the automatically generated business metadata that can be rejected.</p>
+   * @public
    */
   predictionChoices?: number[];
 }
@@ -10971,20 +10971,20 @@ export const RejectRuleBehavior = {
 export type RejectRuleBehavior = (typeof RejectRuleBehavior)[keyof typeof RejectRuleBehavior];
 
 /**
- * @public
  * <p>Specifies the rule and the threshold under which a prediction can be rejected.</p>
+ * @public
  */
 export interface RejectRule {
   /**
-   * @public
    * <p>Specifies whether you want to reject the top prediction for all targets or none.</p>
+   * @public
    */
   rule?: RejectRuleBehavior;
 
   /**
-   * @public
    * <p>The confidence score that specifies the condition at which a prediction can be
    *          rejected.</p>
+   * @public
    */
   threshold?: number;
 }
@@ -10994,39 +10994,39 @@ export interface RejectRule {
  */
 export interface RejectPredictionsInput {
   /**
-   * @public
    * <p>The identifier of the Amazon DataZone domain.</p>
+   * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the prediction.</p>
+   * @public
    */
   identifier: string | undefined;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   revision?: string;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   rejectRule?: RejectRule;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   rejectChoices?: RejectChoice[];
 
   /**
-   * @public
    * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
    *          request.</p>
+   * @public
    */
   clientToken?: string;
 }

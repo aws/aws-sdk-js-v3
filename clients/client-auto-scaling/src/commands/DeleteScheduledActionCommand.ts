@@ -27,7 +27,6 @@ export interface DeleteScheduledActionCommandInput extends DeleteScheduledAction
 export interface DeleteScheduledActionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified scheduled action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -58,6 +57,7 @@ export interface DeleteScheduledActionCommandOutput extends __MetadataBearer {}
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To delete a scheduled action from an Auto Scaling group
  * ```javascript
  * // This example deletes the specified scheduled action from the specified Auto Scaling group.

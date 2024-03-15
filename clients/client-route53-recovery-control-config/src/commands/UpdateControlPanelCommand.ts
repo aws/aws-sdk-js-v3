@@ -31,7 +31,6 @@ export interface UpdateControlPanelCommandInput extends UpdateControlPanelReques
 export interface UpdateControlPanelCommandOutput extends UpdateControlPanelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a control panel. The only update you can make to a control panel is to change the name of the control panel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface UpdateControlPanelCommandOutput extends UpdateControlPanelRespo
  * @throws {@link Route53RecoveryControlConfigServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
+ * @public
  */
 export class UpdateControlPanelCommand extends $Command
   .classBuilder<

@@ -29,7 +29,6 @@ export interface DescribeApplicationProviderCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves details about a provider that can be used to connect an Amazon Web Services managed application or customer managed application to IAM Identity Center.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface DescribeApplicationProviderCommandOutput
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class DescribeApplicationProviderCommand extends $Command
   .classBuilder<

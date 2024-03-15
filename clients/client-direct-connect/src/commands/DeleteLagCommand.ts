@@ -27,7 +27,6 @@ export interface DeleteLagCommandInput extends DeleteLagRequest {}
 export interface DeleteLagCommandOutput extends Lag, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified link aggregation group (LAG). You cannot delete a LAG if it has active
  *       virtual interfaces or hosted connections.</p>
  * @example
@@ -131,6 +130,7 @@ export interface DeleteLagCommandOutput extends Lag, __MetadataBearer {}
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class DeleteLagCommand extends $Command
   .classBuilder<

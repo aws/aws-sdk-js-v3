@@ -27,7 +27,6 @@ export interface ListInsightsCommandInput extends ListInsightsRequest {}
 export interface ListInsightsCommandOutput extends ListInsightsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns a list of insights in your Amazon Web Services account. You can specify which insights are
  * 			returned by their start time and status (<code>ONGOING</code>, <code>CLOSED</code>, or
  * 				<code>ANY</code>). </p>
@@ -167,6 +166,7 @@ export interface ListInsightsCommandOutput extends ListInsightsResponse, __Metad
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ * @public
  */
 export class ListInsightsCommand extends $Command
   .classBuilder<

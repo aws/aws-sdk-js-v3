@@ -27,7 +27,6 @@ export interface RegisterWorkflowTypeCommandInput extends RegisterWorkflowTypeIn
 export interface RegisterWorkflowTypeCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers a new <i>workflow type</i> and its configuration settings in
  *       the specified domain.</p>
  *          <p>The retention period for the workflow history is set by the <a>RegisterDomain</a> action.</p>
@@ -123,6 +122,7 @@ export interface RegisterWorkflowTypeCommandOutput extends __MetadataBearer {}
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ * @public
  */
 export class RegisterWorkflowTypeCommand extends $Command
   .classBuilder<

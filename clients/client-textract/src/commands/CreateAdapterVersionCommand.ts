@@ -27,7 +27,6 @@ export interface CreateAdapterVersionCommandInput extends CreateAdapterVersionRe
 export interface CreateAdapterVersionCommandOutput extends CreateAdapterVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates  a new version of an adapter. Operates on a provided AdapterId and a specified
  *          dataset provided via the DatasetConfig argument. Requires that you
  *          specify an Amazon S3 bucket with the OutputConfig argument. You can provide an optional KMSKeyId,
@@ -130,6 +129,7 @@ export interface CreateAdapterVersionCommandOutput extends CreateAdapterVersionR
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ * @public
  */
 export class CreateAdapterVersionCommand extends $Command
   .classBuilder<

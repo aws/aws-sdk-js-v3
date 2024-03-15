@@ -31,7 +31,6 @@ export interface DeletePlacementCommandInput extends DeletePlacementRequest {}
 export interface DeletePlacementCommandOutput extends DeletePlacementResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a placement. To delete a placement, it must not have any devices associated with
  *       it.</p>
  *          <note>
@@ -74,6 +73,7 @@ export interface DeletePlacementCommandOutput extends DeletePlacementResponse, _
  * @throws {@link IoT1ClickProjectsServiceException}
  * <p>Base exception class for all service exceptions from IoT1ClickProjects service.</p>
  *
+ * @public
  */
 export class DeletePlacementCommand extends $Command
   .classBuilder<

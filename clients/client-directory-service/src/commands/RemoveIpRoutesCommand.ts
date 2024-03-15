@@ -27,7 +27,6 @@ export interface RemoveIpRoutesCommandInput extends RemoveIpRoutesRequest {}
 export interface RemoveIpRoutesCommandOutput extends RemoveIpRoutesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes IP address blocks from a directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface RemoveIpRoutesCommandOutput extends RemoveIpRoutesResult, __Met
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class RemoveIpRoutesCommand extends $Command
   .classBuilder<

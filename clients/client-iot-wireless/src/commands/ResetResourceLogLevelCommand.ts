@@ -27,7 +27,6 @@ export interface ResetResourceLogLevelCommandInput extends ResetResourceLogLevel
 export interface ResetResourceLogLevelCommandOutput extends ResetResourceLogLevelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the log-level override, if any, for a specific resource-ID and resource-type.
  *             It can be used for a wireless device or a wireless gateway.</p>
  * @example
@@ -70,6 +69,7 @@ export interface ResetResourceLogLevelCommandOutput extends ResetResourceLogLeve
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class ResetResourceLogLevelCommand extends $Command
   .classBuilder<

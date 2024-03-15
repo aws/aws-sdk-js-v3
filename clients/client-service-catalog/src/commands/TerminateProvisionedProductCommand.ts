@@ -27,7 +27,6 @@ export interface TerminateProvisionedProductCommandInput extends TerminateProvis
 export interface TerminateProvisionedProductCommandOutput extends TerminateProvisionedProductOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Terminates the specified provisioned product.</p>
  *          <p>This operation does not delete any records associated with the provisioned product.</p>
  *          <p>You can check the status of this request using <a>DescribeRecord</a>.</p>
@@ -90,6 +89,7 @@ export interface TerminateProvisionedProductCommandOutput extends TerminateProvi
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class TerminateProvisionedProductCommand extends $Command
   .classBuilder<

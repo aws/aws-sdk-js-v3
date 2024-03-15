@@ -27,7 +27,6 @@ export interface CreateOTAUpdateCommandInput extends CreateOTAUpdateRequest {}
 export interface CreateOTAUpdateCommandOutput extends CreateOTAUpdateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an IoT OTA update on a target group of things or groups.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateOTAUpdate</a> action.</p>
  * @example
@@ -178,6 +177,7 @@ export interface CreateOTAUpdateCommandOutput extends CreateOTAUpdateResponse, _
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class CreateOTAUpdateCommand extends $Command
   .classBuilder<

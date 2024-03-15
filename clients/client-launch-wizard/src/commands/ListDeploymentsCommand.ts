@@ -27,7 +27,6 @@ export interface ListDeploymentsCommandInput extends ListDeploymentsInput {}
 export interface ListDeploymentsCommandOutput extends ListDeploymentsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the deployments that have been created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsOutput, __M
  * @throws {@link LaunchWizardServiceException}
  * <p>Base exception class for all service exceptions from LaunchWizard service.</p>
  *
+ * @public
  */
 export class ListDeploymentsCommand extends $Command
   .classBuilder<

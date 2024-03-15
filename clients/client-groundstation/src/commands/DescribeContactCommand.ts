@@ -27,7 +27,6 @@ export interface DescribeContactCommandInput extends DescribeContactRequest {}
 export interface DescribeContactCommandOutput extends DescribeContactResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes an existing contact.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -206,6 +205,7 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ * @public
  */
 export class DescribeContactCommand extends $Command
   .classBuilder<

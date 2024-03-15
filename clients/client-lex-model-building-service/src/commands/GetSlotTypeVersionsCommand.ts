@@ -31,7 +31,6 @@ export interface GetSlotTypeVersionsCommandInput extends GetSlotTypeVersionsRequ
 export interface GetSlotTypeVersionsCommandOutput extends GetSlotTypeVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about all versions of a slot type.</p>
  *          <p>The <code>GetSlotTypeVersions</code> operation returns a
  *         <code>SlotTypeMetadata</code> object for each version of a slot type.
@@ -95,6 +94,7 @@ export interface GetSlotTypeVersionsCommandOutput extends GetSlotTypeVersionsRes
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * @public
  */
 export class GetSlotTypeVersionsCommand extends $Command
   .classBuilder<

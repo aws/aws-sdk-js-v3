@@ -30,7 +30,6 @@ export interface DisassociateUserProficienciesCommandInput extends DisassociateU
 export interface DisassociateUserProficienciesCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates a set of proficiencies from a user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface DisassociateUserProficienciesCommandOutput extends __MetadataBe
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DisassociateUserProficienciesCommand extends $Command
   .classBuilder<

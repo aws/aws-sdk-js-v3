@@ -27,7 +27,6 @@ export interface DescribeDomainCommandInput extends DescribeDomainRequest {}
 export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The description of the domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -280,6 +279,7 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeDomainCommand extends $Command
   .classBuilder<

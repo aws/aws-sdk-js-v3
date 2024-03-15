@@ -27,9 +27,6 @@ export interface AcceptInvitationCommandInput extends AcceptInvitationRequest {}
 export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This API has been deprecated, use AcceptAdministratorInvitation API instead.
- *
  * <p>This method is deprecated. Instead, use <code>AcceptAdministratorInvitation</code>.</p>
  *          <p>The Security Hub console continues to use <code>AcceptInvitation</code>. It will eventually change to use <code>AcceptAdministratorInvitation</code>. Any IAM policies that specifically control access to this function must continue to use <code>AcceptInvitation</code>. You should also add <code>AcceptAdministratorInvitation</code> to your policies to ensure that the correct permissions are in place after the console begins to use <code>AcceptAdministratorInvitation</code>.</p>
  *          <p>Accepts the invitation to be a member account and be monitored by the Security Hub administrator
@@ -80,6 +77,8 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
+ * @deprecated This API has been deprecated, use AcceptAdministratorInvitation API instead.
  */
 export class AcceptInvitationCommand extends $Command
   .classBuilder<

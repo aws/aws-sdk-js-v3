@@ -31,7 +31,6 @@ export interface DeleteComponentCommandInput extends DeleteComponentInput {}
 export interface DeleteComponentCommandOutput extends DeleteComponentOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete an Proton component resource.</p>
  *          <p>For more information about components, see
  *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
@@ -97,6 +96,7 @@ export interface DeleteComponentCommandOutput extends DeleteComponentOutput, __M
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class DeleteComponentCommand extends $Command
   .classBuilder<

@@ -48,7 +48,6 @@ export interface HttpPayloadTraitsWithMediaTypeCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * This example uses a `@mediaType` trait on the payload to force a custom
  * content-type to be serialized.
  * @example
@@ -79,6 +78,7 @@ export interface HttpPayloadTraitsWithMediaTypeCommandOutput
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ * @public
  */
 export class HttpPayloadTraitsWithMediaTypeCommand extends $Command
   .classBuilder<

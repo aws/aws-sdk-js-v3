@@ -31,7 +31,6 @@ export interface GetSolFunctionInstanceCommandInput extends GetSolFunctionInstan
 export interface GetSolFunctionInstanceCommandOutput extends GetSolFunctionInstanceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the details of a network function instance, including the instantation state and metadata from the function package descriptor in the network function package.</p>
  *          <p>A network function instance is a function in a function package .</p>
  * @example
@@ -102,6 +101,7 @@ export interface GetSolFunctionInstanceCommandOutput extends GetSolFunctionInsta
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ * @public
  */
 export class GetSolFunctionInstanceCommand extends $Command
   .classBuilder<

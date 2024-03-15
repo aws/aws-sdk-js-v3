@@ -27,7 +27,6 @@ export interface PutIntegrationResponseCommandInput extends PutIntegrationRespon
 export interface PutIntegrationResponseCommandOutput extends IntegrationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Represents a put integration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface PutIntegrationResponseCommandOutput extends IntegrationResponse
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class PutIntegrationResponseCommand extends $Command
   .classBuilder<

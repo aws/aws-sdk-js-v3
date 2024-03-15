@@ -27,7 +27,6 @@ export interface StopRunCommandInput extends StopRunRequest {}
 export interface StopRunCommandOutput extends StopRunResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Initiates a stop request for the current test run. AWS Device Farm immediately stops the run on devices
  *             where tests have not started. You are not billed for these devices. On devices where tests have started
  *             executing, setup suite and teardown suite tests run to completion on those devices. You are billed for
@@ -166,6 +165,7 @@ export interface StopRunCommandOutput extends StopRunResult, __MetadataBearer {}
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To stop a test run
  * ```javascript
  * // The following example stops a specific test run.

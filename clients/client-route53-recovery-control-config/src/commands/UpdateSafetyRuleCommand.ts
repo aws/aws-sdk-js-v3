@@ -31,7 +31,6 @@ export interface UpdateSafetyRuleCommandInput extends UpdateSafetyRuleRequest {}
 export interface UpdateSafetyRuleCommandOutput extends UpdateSafetyRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update a safety rule (an assertion rule or gating rule). You can only update the name and the waiting period for a safety rule. To make other updates, delete the safety rule and create a new one.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -111,6 +110,7 @@ export interface UpdateSafetyRuleCommandOutput extends UpdateSafetyRuleResponse,
  * @throws {@link Route53RecoveryControlConfigServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
+ * @public
  */
 export class UpdateSafetyRuleCommand extends $Command
   .classBuilder<

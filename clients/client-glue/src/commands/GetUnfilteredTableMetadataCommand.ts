@@ -27,7 +27,6 @@ export interface GetUnfilteredTableMetadataCommandInput extends GetUnfilteredTab
 export interface GetUnfilteredTableMetadataCommandOutput extends GetUnfilteredTableMetadataResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves table metadata from the Data Catalog that contains unfiltered
  *           metadata.</p>
  *          <p>For IAM authorization, the public IAM action associated with this API is <code>glue:GetTable</code>.</p>
@@ -218,6 +217,7 @@ export interface GetUnfilteredTableMetadataCommandOutput extends GetUnfilteredTa
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetUnfilteredTableMetadataCommand extends $Command
   .classBuilder<

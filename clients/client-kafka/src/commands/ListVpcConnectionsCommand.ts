@@ -27,7 +27,6 @@ export interface ListVpcConnectionsCommandInput extends ListVpcConnectionsReques
 export interface ListVpcConnectionsCommandOutput extends ListVpcConnectionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all the VPC connections in this Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface ListVpcConnectionsCommandOutput extends ListVpcConnectionsRespo
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ * @public
  */
 export class ListVpcConnectionsCommand extends $Command
   .classBuilder<

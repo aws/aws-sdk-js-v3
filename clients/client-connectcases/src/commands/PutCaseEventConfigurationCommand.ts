@@ -27,7 +27,6 @@ export interface PutCaseEventConfigurationCommandInput extends PutCaseEventConfi
 export interface PutCaseEventConfigurationCommandOutput extends PutCaseEventConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds case event publishing configuration. For a complete list of fields you can add to the
  *       event message, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-fields.html">Create case fields</a> in the
  *           <i>Amazon Connect Administrator Guide</i>
@@ -88,6 +87,7 @@ export interface PutCaseEventConfigurationCommandOutput extends PutCaseEventConf
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ * @public
  */
 export class PutCaseEventConfigurationCommand extends $Command
   .classBuilder<

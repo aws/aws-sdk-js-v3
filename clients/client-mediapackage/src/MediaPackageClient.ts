@@ -327,8 +327,8 @@ export type MediaPackageClientResolvedConfigType = __SmithyResolvedConfiguration
 export interface MediaPackageClientResolvedConfig extends MediaPackageClientResolvedConfigType {}
 
 /**
- * @public
  * AWS Elemental MediaPackage
+ * @public
  */
 export class MediaPackageClient extends __Client<
   __HttpHandlerOptions,

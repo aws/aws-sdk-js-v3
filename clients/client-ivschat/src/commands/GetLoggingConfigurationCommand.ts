@@ -27,7 +27,6 @@ export interface GetLoggingConfigurationCommandInput extends GetLoggingConfigura
 export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the specified logging configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigur
  * @throws {@link IvschatServiceException}
  * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
+ * @public
  */
 export class GetLoggingConfigurationCommand extends $Command
   .classBuilder<

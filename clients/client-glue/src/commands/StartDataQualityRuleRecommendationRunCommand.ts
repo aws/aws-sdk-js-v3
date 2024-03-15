@@ -36,7 +36,6 @@ export interface StartDataQualityRuleRecommendationRunCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a recommendation run that is used to generate rules when you don't know what rules to write. Glue Data Quality analyzes the data and comes up with recommendations for a potential ruleset. You can then triage the ruleset and modify the generated ruleset to your liking.</p>
  *          <p>Recommendation runs are automatically deleted after 90 days.</p>
  * @example
@@ -92,6 +91,7 @@ export interface StartDataQualityRuleRecommendationRunCommandOutput
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class StartDataQualityRuleRecommendationRunCommand extends $Command
   .classBuilder<

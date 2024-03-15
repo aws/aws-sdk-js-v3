@@ -31,7 +31,6 @@ export interface AssociateDefaultViewCommandInput extends AssociateDefaultViewIn
 export interface AssociateDefaultViewCommandOutput extends AssociateDefaultViewOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the specified view as the default for the Amazon Web Services Region in which you call this
  *             operation. When a user performs a <a>Search</a> that doesn't explicitly
  *             specify which view to use, then Amazon Web Services Resource Explorer automatically chooses this default view for
@@ -86,6 +85,7 @@ export interface AssociateDefaultViewCommandOutput extends AssociateDefaultViewO
  * @throws {@link ResourceExplorer2ServiceException}
  * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
+ * @public
  */
 export class AssociateDefaultViewCommand extends $Command
   .classBuilder<

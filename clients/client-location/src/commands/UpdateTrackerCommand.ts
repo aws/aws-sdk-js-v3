@@ -27,7 +27,6 @@ export interface UpdateTrackerCommandInput extends UpdateTrackerRequest {}
 export interface UpdateTrackerCommandOutput extends UpdateTrackerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified properties of a given tracker resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface UpdateTrackerCommandOutput extends UpdateTrackerResponse, __Met
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class UpdateTrackerCommand extends $Command
   .classBuilder<

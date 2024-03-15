@@ -32,7 +32,6 @@ export interface ApplyEnvironmentManagedActionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Applies a scheduled managed action immediately. A managed action can be applied only if
  *       its status is <code>Scheduled</code>. Get the status and action ID of a managed action with
  *         <a>DescribeEnvironmentManagedActions</a>.</p>
@@ -73,6 +72,7 @@ export interface ApplyEnvironmentManagedActionCommandOutput
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  */
 export class ApplyEnvironmentManagedActionCommand extends $Command
   .classBuilder<

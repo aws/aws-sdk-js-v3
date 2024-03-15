@@ -27,7 +27,6 @@ export interface StartNotebookInstanceCommandInput extends StartNotebookInstance
 export interface StartNotebookInstanceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Launches an ML compute instance with the latest version of the libraries and
  *             attaches your ML storage volume. After configuring the notebook instance, SageMaker sets the
  *             notebook instance status to <code>InService</code>. A notebook instance's status must be
@@ -60,6 +59,7 @@ export interface StartNotebookInstanceCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class StartNotebookInstanceCommand extends $Command
   .classBuilder<

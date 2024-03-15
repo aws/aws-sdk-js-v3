@@ -27,7 +27,6 @@ export interface CreateGameSessionQueueCommandInput extends CreateGameSessionQue
 export interface CreateGameSessionQueueCommandOutput extends CreateGameSessionQueueOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a placement queue that processes requests for new game sessions. A queue uses
  *             FleetIQ algorithms to determine the best placement locations and find an available game
  *             server there, then prompts the game server process to start a new game session. </p>
@@ -186,6 +185,7 @@ export interface CreateGameSessionQueueCommandOutput extends CreateGameSessionQu
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class CreateGameSessionQueueCommand extends $Command
   .classBuilder<

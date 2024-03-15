@@ -27,7 +27,6 @@ export interface GetInstancePortStatesCommandInput extends GetInstancePortStates
 export interface GetInstancePortStatesCommandOutput extends GetInstancePortStatesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the firewall port states for a specific Amazon Lightsail instance, the IP addresses
  *       allowed to connect to the instance through the ports, and the protocol.</p>
  * @example
@@ -102,6 +101,7 @@ export interface GetInstancePortStatesCommandOutput extends GetInstancePortState
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetInstancePortStatesCommand extends $Command
   .classBuilder<

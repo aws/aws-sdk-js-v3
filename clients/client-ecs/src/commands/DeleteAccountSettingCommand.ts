@@ -27,7 +27,6 @@ export interface DeleteAccountSettingCommandInput extends DeleteAccountSettingRe
 export interface DeleteAccountSettingCommandOutput extends DeleteAccountSettingResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables an account setting for a specified user, role, or the root user for an
  * 			account.</p>
  * @example
@@ -74,6 +73,7 @@ export interface DeleteAccountSettingCommandOutput extends DeleteAccountSettingR
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  * @example To delete your account setting
  * ```javascript
  * // This example deletes the account setting for your user for the specified resource type.

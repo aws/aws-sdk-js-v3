@@ -27,7 +27,6 @@ export interface CreateTagsCommandInput extends CreateTagsMessage {}
 export interface CreateTagsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds tags to a cluster.</p>
  *          <p>A resource can have up to 50 tags. If you try to create more than 50 tags for a
  *             resource, you will receive an error and the attempt will fail.</p>
@@ -75,6 +74,7 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class CreateTagsCommand extends $Command
   .classBuilder<

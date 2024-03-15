@@ -27,7 +27,6 @@ export interface GetEmailIdentityCommandInput extends GetEmailIdentityRequest {}
 export interface GetEmailIdentityCommandOutput extends GetEmailIdentityResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides information about a specific identity associated with your Amazon Pinpoint account,
  *             including the identity's verification status, its DKIM authentication status, and its
  *             custom Mail-From settings.</p>
@@ -86,6 +85,7 @@ export interface GetEmailIdentityCommandOutput extends GetEmailIdentityResponse,
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * @public
  */
 export class GetEmailIdentityCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface EnableControlCommandInput extends EnableControlInput {}
 export interface EnableControlCommandOutput extends EnableControlOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This API call activates a control. It starts an asynchronous operation that creates Amazon Web Services
  *          resources on the specified organizational unit and the accounts it contains. The resources
  *          created will vary according to the control that you specify. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html">
@@ -91,6 +90,7 @@ export interface EnableControlCommandOutput extends EnableControlOutput, __Metad
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ * @public
  */
 export class EnableControlCommand extends $Command
   .classBuilder<

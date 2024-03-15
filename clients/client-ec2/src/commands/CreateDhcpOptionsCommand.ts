@@ -27,7 +27,6 @@ export interface CreateDhcpOptionsCommandInput extends CreateDhcpOptionsRequest 
 export interface CreateDhcpOptionsCommandOutput extends CreateDhcpOptionsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a custom set of DHCP options. After you create a DHCP option set, you associate
  * 	       it with a VPC. After you associate a DHCP option set with a VPC, all existing and newly
  * 	       launched instances in the VPC use this set of DHCP options.</p>
@@ -142,6 +141,7 @@ export interface CreateDhcpOptionsCommandOutput extends CreateDhcpOptionsResult,
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To create a DHCP options set
  * ```javascript
  * // This example creates a DHCP options set.

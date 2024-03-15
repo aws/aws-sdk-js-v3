@@ -32,7 +32,6 @@ export interface GetContainerServiceDeploymentsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the deployments for your Amazon Lightsail container service</p>
  *          <p>A deployment specifies the settings, such as the ports and launch command, of containers
  *       that are deployed to your container service.</p>
@@ -125,6 +124,7 @@ export interface GetContainerServiceDeploymentsCommandOutput
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetContainerServiceDeploymentsCommand extends $Command
   .classBuilder<

@@ -34,7 +34,6 @@ export interface DeregisterInstancesFromLoadBalancerCommandInput extends Deregis
 export interface DeregisterInstancesFromLoadBalancerCommandOutput extends DeregisterEndPointsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deregisters the specified instances from the specified load balancer. After the instance is deregistered, it no longer receives traffic from the load balancer.</p>
  *
  *         <p>You can use <a>DescribeLoadBalancers</a> to verify that the instance is deregistered from the load balancer.</p>
@@ -82,6 +81,7 @@ export interface DeregisterInstancesFromLoadBalancerCommandOutput extends Deregi
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * @public
  * @example To deregister instances from a load balancer
  * ```javascript
  * // This example deregisters the specified instance from the specified load balancer.

@@ -27,7 +27,6 @@ export interface ListAttachedRolePoliciesCommandInput extends ListAttachedRolePo
 export interface ListAttachedRolePoliciesCommandOutput extends ListAttachedRolePoliciesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all managed policies that are attached to the specified IAM role.</p>
  *          <p>An IAM role can also have inline policies embedded with it. To list the inline
  *             policies for a role, use <a>ListRolePolicies</a>. For information about
@@ -86,6 +85,7 @@ export interface ListAttachedRolePoliciesCommandOutput extends ListAttachedRoleP
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class ListAttachedRolePoliciesCommand extends $Command
   .classBuilder<

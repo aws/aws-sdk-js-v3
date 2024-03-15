@@ -27,7 +27,6 @@ export interface StopBgpFailoverTestCommandInput extends StopBgpFailoverTestRequ
 export interface StopBgpFailoverTestCommandOutput extends StopBgpFailoverTestResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops the virtual interface failover test.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface StopBgpFailoverTestCommandOutput extends StopBgpFailoverTestRes
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class StopBgpFailoverTestCommand extends $Command
   .classBuilder<

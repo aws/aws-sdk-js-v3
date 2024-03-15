@@ -27,7 +27,6 @@ export interface DeleteThingGroupCommandInput extends DeleteThingGroupRequest {}
 export interface DeleteThingGroupCommandOutput extends DeleteThingGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a thing group.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteThingGroup</a> action.</p>
  * @example
@@ -69,6 +68,7 @@ export interface DeleteThingGroupCommandOutput extends DeleteThingGroupResponse,
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DeleteThingGroupCommand extends $Command
   .classBuilder<

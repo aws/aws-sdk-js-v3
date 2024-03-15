@@ -27,7 +27,6 @@ export interface UpdateFleetCommandInput extends UpdateFleetRequest {}
 export interface UpdateFleetCommandOutput extends UpdateFleetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Updates the description of an existing fleet. </p>
  *          <note>
  *             <p>If the fleet is successfully updated, Amazon Web Services IoT FleetWise sends back an HTTP 200 response
@@ -80,6 +79,7 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResponse, __Metadat
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class UpdateFleetCommand extends $Command
   .classBuilder<

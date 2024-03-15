@@ -32,7 +32,6 @@ export interface DisassociateProductFromPortfolioCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates the specified product from the specified portfolio. </p>
  *          <p>A delegated admin is authorized to invoke this command.</p>
  * @example
@@ -70,6 +69,7 @@ export interface DisassociateProductFromPortfolioCommandOutput
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class DisassociateProductFromPortfolioCommand extends $Command
   .classBuilder<

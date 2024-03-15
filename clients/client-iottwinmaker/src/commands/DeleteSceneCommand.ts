@@ -27,7 +27,6 @@ export interface DeleteSceneCommandInput extends DeleteSceneRequest {}
 export interface DeleteSceneCommandOutput extends DeleteSceneResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a scene.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface DeleteSceneCommandOutput extends DeleteSceneResponse, __Metadat
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ * @public
  */
 export class DeleteSceneCommand extends $Command
   .classBuilder<

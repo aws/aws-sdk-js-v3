@@ -31,7 +31,6 @@ export interface StopUserImportJobCommandInput extends StopUserImportJobRequest 
 export interface StopUserImportJobCommandOutput extends StopUserImportJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops the user import job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface StopUserImportJobCommandOutput extends StopUserImportJobRespons
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class StopUserImportJobCommand extends $Command
   .classBuilder<

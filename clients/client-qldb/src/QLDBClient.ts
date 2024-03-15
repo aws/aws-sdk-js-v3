@@ -333,8 +333,8 @@ export type QLDBClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpH
 export interface QLDBClientResolvedConfig extends QLDBClientResolvedConfigType {}
 
 /**
- * @public
  * <p>The resource management API for Amazon QLDB</p>
+ * @public
  */
 export class QLDBClient extends __Client<
   __HttpHandlerOptions,

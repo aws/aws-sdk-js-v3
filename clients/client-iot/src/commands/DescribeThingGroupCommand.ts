@@ -27,7 +27,6 @@ export interface DescribeThingGroupCommandInput extends DescribeThingGroupReques
 export interface DescribeThingGroupCommandOutput extends DescribeThingGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describe a thing group.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeThingGroup</a> action.</p>
  * @example
@@ -94,6 +93,7 @@ export interface DescribeThingGroupCommandOutput extends DescribeThingGroupRespo
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DescribeThingGroupCommand extends $Command
   .classBuilder<

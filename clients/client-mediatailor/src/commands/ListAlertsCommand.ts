@@ -27,7 +27,6 @@ export interface ListAlertsCommandInput extends ListAlertsRequest {}
 export interface ListAlertsCommandOutput extends ListAlertsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the alerts that are associated with a MediaTailor channel assembly resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface ListAlertsCommandOutput extends ListAlertsResponse, __MetadataB
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ * @public
  */
 export class ListAlertsCommand extends $Command
   .classBuilder<

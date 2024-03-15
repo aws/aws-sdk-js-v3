@@ -27,9 +27,6 @@ export interface UpdateVoiceConnectorGroupCommandInput extends UpdateVoiceConnec
 export interface UpdateVoiceConnectorGroupCommandOutput extends UpdateVoiceConnectorGroupResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by UpdateVoiceConnectorGroup in the Amazon Chime SDK Voice Namespace
- *
  * <p>Updates details of the specified Amazon Chime Voice Connector group, such as the name and
  *             Amazon Chime Voice Connector priority ranking.</p>
  *          <important>
@@ -109,6 +106,8 @@ export interface UpdateVoiceConnectorGroupCommandOutput extends UpdateVoiceConne
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by UpdateVoiceConnectorGroup in the Amazon Chime SDK Voice Namespace
  */
 export class UpdateVoiceConnectorGroupCommand extends $Command
   .classBuilder<

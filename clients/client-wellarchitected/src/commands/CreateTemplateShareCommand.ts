@@ -27,7 +27,6 @@ export interface CreateTemplateShareCommandInput extends CreateTemplateShareInpu
 export interface CreateTemplateShareCommandOutput extends CreateTemplateShareOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a review template share.</p>
  *          <p>The owner of a review template can share it with other Amazon Web Services accounts,
  *             users, an organization, and organizational units (OUs) in the same Amazon Web Services Region. </p>
@@ -93,6 +92,7 @@ export interface CreateTemplateShareCommandOutput extends CreateTemplateShareOut
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * @public
  */
 export class CreateTemplateShareCommand extends $Command
   .classBuilder<

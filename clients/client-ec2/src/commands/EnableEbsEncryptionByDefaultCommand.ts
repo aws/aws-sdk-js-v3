@@ -29,7 +29,6 @@ export interface EnableEbsEncryptionByDefaultCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables EBS encryption by default for your account in the current Region.</p>
  *          <p>After you enable encryption by default, the EBS volumes that you create are
  *     	always encrypted, either using the default KMS key or the KMS key that you specified
@@ -68,6 +67,7 @@ export interface EnableEbsEncryptionByDefaultCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class EnableEbsEncryptionByDefaultCommand extends $Command
   .classBuilder<

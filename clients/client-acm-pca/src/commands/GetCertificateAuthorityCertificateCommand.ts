@@ -35,7 +35,6 @@ export interface GetCertificateAuthorityCertificateCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the certificate and certificate chain for your private certificate authority
  * 			(CA) or one that has been shared with you. Both the certificate and the chain are base64
  * 			PEM-encoded. The chain does not include the CA certificate. Each certificate in the
@@ -78,6 +77,7 @@ export interface GetCertificateAuthorityCertificateCommandOutput
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ * @public
  */
 export class GetCertificateAuthorityCertificateCommand extends $Command
   .classBuilder<

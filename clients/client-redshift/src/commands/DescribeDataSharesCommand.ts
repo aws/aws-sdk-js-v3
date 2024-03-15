@@ -27,7 +27,6 @@ export interface DescribeDataSharesCommandInput extends DescribeDataSharesMessag
 export interface DescribeDataSharesCommandOutput extends DescribeDataSharesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Shows the status of any inbound or outbound datashares available in the specified
  *             account.</p>
  * @example
@@ -80,6 +79,7 @@ export interface DescribeDataSharesCommandOutput extends DescribeDataSharesResul
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DescribeDataSharesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CancelLoaderJobCommandInput extends CancelLoaderJobInput {}
 export interface CancelLoaderJobCommandOutput extends CancelLoaderJobOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels a specified load job. This is an HTTP <code>DELETE</code>
  *       request. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/load-api-reference-status.htm">Neptune
  *       Loader Get-Status API</a> for more information.</p>
@@ -100,6 +99,7 @@ export interface CancelLoaderJobCommandOutput extends CancelLoaderJobOutput, __M
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * @public
  */
 export class CancelLoaderJobCommand extends $Command
   .classBuilder<

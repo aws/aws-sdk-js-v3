@@ -27,7 +27,6 @@ export interface UpdateMonitorCommandInput extends UpdateMonitorInput {}
 export interface UpdateMonitorCommandOutput extends UpdateMonitorOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a monitor. You can update a monitor to change the percentage of traffic to monitor or the maximum number of city-networks
  * 			(locations and ASNs), to add or remove resources, or to change the status of the monitor. Note that you can't change the name of a monitor.</p>
  *          <p>The city-network maximum that you choose is the limit, but you only pay for the number of city-networks that are actually monitored.
@@ -108,6 +107,7 @@ export interface UpdateMonitorCommandOutput extends UpdateMonitorOutput, __Metad
  * @throws {@link InternetMonitorServiceException}
  * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
+ * @public
  */
 export class UpdateMonitorCommand extends $Command
   .classBuilder<

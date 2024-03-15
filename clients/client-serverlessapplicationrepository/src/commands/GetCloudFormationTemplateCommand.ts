@@ -31,7 +31,6 @@ export interface GetCloudFormationTemplateCommandInput extends GetCloudFormation
 export interface GetCloudFormationTemplateCommandOutput extends GetCloudFormationTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the specified AWS CloudFormation template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface GetCloudFormationTemplateCommandOutput extends GetCloudFormatio
  * @throws {@link ServerlessApplicationRepositoryServiceException}
  * <p>Base exception class for all service exceptions from ServerlessApplicationRepository service.</p>
  *
+ * @public
  */
 export class GetCloudFormationTemplateCommand extends $Command
   .classBuilder<

@@ -35,9 +35,6 @@ export interface DisassociateContactFromAddressBookCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Disassociates a contact from a given address book.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +61,8 @@ export interface DisassociateContactFromAddressBookCommandOutput
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class DisassociateContactFromAddressBookCommand extends $Command
   .classBuilder<

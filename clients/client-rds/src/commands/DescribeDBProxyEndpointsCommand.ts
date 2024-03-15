@@ -27,7 +27,6 @@ export interface DescribeDBProxyEndpointsCommandInput extends DescribeDBProxyEnd
 export interface DescribeDBProxyEndpointsCommandOutput extends DescribeDBProxyEndpointsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about DB proxy endpoints.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface DescribeDBProxyEndpointsCommandOutput extends DescribeDBProxyEn
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  */
 export class DescribeDBProxyEndpointsCommand extends $Command
   .classBuilder<

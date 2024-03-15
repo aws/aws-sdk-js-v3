@@ -27,7 +27,6 @@ export interface ListOrganizationInsightsCommandInput extends ListOrganizationIn
 export interface ListOrganizationInsightsCommandOutput extends ListOrganizationInsightsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of insights associated with the account or OU Id.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -169,6 +168,7 @@ export interface ListOrganizationInsightsCommandOutput extends ListOrganizationI
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ * @public
  */
 export class ListOrganizationInsightsCommand extends $Command
   .classBuilder<

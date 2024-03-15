@@ -27,7 +27,6 @@ export interface PutStoredQueryCommandInput extends PutStoredQueryRequest {}
 export interface PutStoredQueryCommandOutput extends PutStoredQueryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Saves a new query or updates an existing saved query. The <code>QueryName</code> must be unique for a single Amazon Web Services account and a single Amazon Web Services Region.
  * 			You can create upto 300 queries in a single Amazon Web Services account and a single Amazon Web Services Region.</p>
  *          <note>
@@ -87,6 +86,7 @@ export interface PutStoredQueryCommandOutput extends PutStoredQueryResponse, __M
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class PutStoredQueryCommand extends $Command
   .classBuilder<

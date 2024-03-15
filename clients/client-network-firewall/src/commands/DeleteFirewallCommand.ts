@@ -27,7 +27,6 @@ export interface DeleteFirewallCommandInput extends DeleteFirewallRequest {}
 export interface DeleteFirewallCommandOutput extends DeleteFirewallResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified <a>Firewall</a> and its <a>FirewallStatus</a>.
  *        This operation requires the firewall's <code>DeleteProtection</code> flag to be
  *             <code>FALSE</code>. You can't revert this operation. </p>
@@ -156,6 +155,7 @@ export interface DeleteFirewallCommandOutput extends DeleteFirewallResponse, __M
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ * @public
  */
 export class DeleteFirewallCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListTemplateActionsCommandInput extends ListTemplateActionsRequ
 export interface ListTemplateActionsCommandOutput extends ListTemplateActionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List template post migration custom actions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface ListTemplateActionsCommandOutput extends ListTemplateActionsRes
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * @public
  */
 export class ListTemplateActionsCommand extends $Command
   .classBuilder<

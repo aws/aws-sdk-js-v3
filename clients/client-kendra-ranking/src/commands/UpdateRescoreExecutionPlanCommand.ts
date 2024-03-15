@@ -27,7 +27,6 @@ export interface UpdateRescoreExecutionPlanCommandInput extends UpdateRescoreExe
 export interface UpdateRescoreExecutionPlanCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a rescore execution plan. A rescore execution plan
  *             is an Amazon Kendra Intelligent Ranking resource used for
  *             provisioning the <code>Rescore</code> API. You can update the
@@ -100,6 +99,7 @@ export interface UpdateRescoreExecutionPlanCommandOutput extends __MetadataBeare
  * @throws {@link KendraRankingServiceException}
  * <p>Base exception class for all service exceptions from KendraRanking service.</p>
  *
+ * @public
  */
 export class UpdateRescoreExecutionPlanCommand extends $Command
   .classBuilder<

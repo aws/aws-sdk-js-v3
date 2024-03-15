@@ -27,7 +27,6 @@ export interface CreateAlarmModelCommandInput extends CreateAlarmModelRequest {}
 export interface CreateAlarmModelCommandOutput extends CreateAlarmModelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an alarm model to monitor an AWS IoT Events input attribute. You can use the alarm to get
  *       notified when the value is outside a specified range. For more information, see <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/create-alarms.html">Create an
  *         alarm model</a> in the <i>AWS IoT Events Developer Guide</i>.</p>
@@ -234,6 +233,7 @@ export interface CreateAlarmModelCommandOutput extends CreateAlarmModelResponse,
  * @throws {@link IoTEventsServiceException}
  * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
+ * @public
  */
 export class CreateAlarmModelCommand extends $Command
   .classBuilder<

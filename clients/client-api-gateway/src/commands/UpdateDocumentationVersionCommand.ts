@@ -27,7 +27,6 @@ export interface UpdateDocumentationVersionCommandInput extends UpdateDocumentat
 export interface UpdateDocumentationVersionCommandOutput extends DocumentationVersion, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a documentation version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface UpdateDocumentationVersionCommandOutput extends DocumentationVe
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class UpdateDocumentationVersionCommand extends $Command
   .classBuilder<

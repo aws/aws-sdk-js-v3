@@ -27,7 +27,6 @@ export interface DescribeLocationFsxLustreCommandInput extends DescribeLocationF
 export interface DescribeLocationFsxLustreCommandOutput extends DescribeLocationFsxLustreResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides details about how an DataSync transfer location for an Amazon FSx for Lustre file system is configured.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface DescribeLocationFsxLustreCommandOutput extends DescribeLocation
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class DescribeLocationFsxLustreCommand extends $Command
   .classBuilder<

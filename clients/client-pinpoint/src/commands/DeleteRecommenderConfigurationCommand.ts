@@ -32,7 +32,6 @@ export interface DeleteRecommenderConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Amazon Pinpoint configuration for a recommender model.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface DeleteRecommenderConfigurationCommandOutput
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class DeleteRecommenderConfigurationCommand extends $Command
   .classBuilder<

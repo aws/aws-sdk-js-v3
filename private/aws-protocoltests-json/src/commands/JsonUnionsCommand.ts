@@ -25,7 +25,6 @@ export interface JsonUnionsCommandInput extends UnionInputOutput {}
 export interface JsonUnionsCommandOutput extends UnionInputOutput, __MetadataBearer {}
 
 /**
- * @public
  * This operation uses unions for inputs and outputs.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface JsonUnionsCommandOutput extends UnionInputOutput, __MetadataBea
  * @throws {@link JsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from JsonProtocol service.</p>
  *
+ * @public
  */
 export class JsonUnionsCommand extends $Command
   .classBuilder<

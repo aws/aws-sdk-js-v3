@@ -27,7 +27,6 @@ export interface PutRumEventsCommandInput extends PutRumEventsRequest {}
 export interface PutRumEventsCommandOutput extends PutRumEventsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sends telemetry events about your application performance and user behavior to CloudWatch RUM. The code
  *       snippet that RUM generates for you to add to your application includes <code>PutRumEvents</code> operations to
  *       send this data to RUM.</p>
@@ -90,6 +89,7 @@ export interface PutRumEventsCommandOutput extends PutRumEventsResponse, __Metad
  * @throws {@link RUMServiceException}
  * <p>Base exception class for all service exceptions from RUM service.</p>
  *
+ * @public
  */
 export class PutRumEventsCommand extends $Command
   .classBuilder<

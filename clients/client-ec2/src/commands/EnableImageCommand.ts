@@ -27,7 +27,6 @@ export interface EnableImageCommandInput extends EnableImageRequest {}
 export interface EnableImageCommandOutput extends EnableImageResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Re-enables a disabled AMI. The re-enabled AMI is marked as <code>available</code> and can
  *       be used for instance launches, appears in describe operations, and can be shared. Amazon Web Services
  *       accounts, organizations, and Organizational Units that lost access to the AMI when it was
@@ -63,6 +62,7 @@ export interface EnableImageCommandOutput extends EnableImageResult, __MetadataB
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class EnableImageCommand extends $Command
   .classBuilder<

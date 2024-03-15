@@ -27,7 +27,6 @@ export interface CreateBlueGreenDeploymentCommandInput extends CreateBlueGreenDe
 export interface CreateBlueGreenDeploymentCommandOutput extends CreateBlueGreenDeploymentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a blue/green deployment.</p>
  *          <p>A blue/green deployment creates a staging environment that copies the production environment.
  *             In a blue/green deployment, the blue environment is the current production environment.
@@ -150,6 +149,7 @@ export interface CreateBlueGreenDeploymentCommandOutput extends CreateBlueGreenD
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To create a blue/green deployment for an RDS for MySQL DB instance
  * ```javascript
  * // The following example creates a blue/green deployment for a MySQL DB instance.

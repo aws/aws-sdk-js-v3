@@ -27,7 +27,6 @@ export interface DeletePermissionVersionCommandInput extends DeletePermissionVer
 export interface DeletePermissionVersionCommandOutput extends DeletePermissionVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes one version of a customer managed permission. The version you specify must not be attached to any
  *             resource share and must not be the default version for the permission.</p>
  *          <p>If a customer managed permission has the maximum of 5 versions, then you must delete at
@@ -90,6 +89,7 @@ export interface DeletePermissionVersionCommandOutput extends DeletePermissionVe
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * @public
  */
 export class DeletePermissionVersionCommand extends $Command
   .classBuilder<

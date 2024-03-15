@@ -27,7 +27,6 @@ export interface DeleteQualificationTypeCommandInput extends DeleteQualification
 export interface DeleteQualificationTypeCommandOutput extends DeleteQualificationTypeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The
  *             <code>DeleteQualificationType</code>
@@ -77,6 +76,7 @@ export interface DeleteQualificationTypeCommandOutput extends DeleteQualificatio
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * @public
  */
 export class DeleteQualificationTypeCommand extends $Command
   .classBuilder<

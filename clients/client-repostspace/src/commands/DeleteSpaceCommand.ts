@@ -27,7 +27,6 @@ export interface DeleteSpaceCommandInput extends DeleteSpaceInput {}
 export interface DeleteSpaceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an AWS re:Post Private private re:Post.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DeleteSpaceCommandOutput extends __MetadataBearer {}
  * @throws {@link RepostspaceServiceException}
  * <p>Base exception class for all service exceptions from Repostspace service.</p>
  *
+ * @public
  */
 export class DeleteSpaceCommand extends $Command
   .classBuilder<

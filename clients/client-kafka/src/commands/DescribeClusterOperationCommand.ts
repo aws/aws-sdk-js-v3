@@ -27,7 +27,6 @@ export interface DescribeClusterOperationCommandInput extends DescribeClusterOpe
 export interface DescribeClusterOperationCommandOutput extends DescribeClusterOperationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a description of the cluster operation specified by the ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -291,6 +290,7 @@ export interface DescribeClusterOperationCommandOutput extends DescribeClusterOp
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ * @public
  */
 export class DescribeClusterOperationCommand extends $Command
   .classBuilder<

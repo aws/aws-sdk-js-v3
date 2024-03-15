@@ -27,7 +27,6 @@ export interface DeleteTaskDefinitionsCommandInput extends DeleteTaskDefinitions
 export interface DeleteTaskDefinitionsCommandOutput extends DeleteTaskDefinitionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes one or more task definitions.</p>
  *          <p>You must deregister a task definition revision before you delete it. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeregisterTaskDefinition.html">DeregisterTaskDefinition</a>.</p>
@@ -362,6 +361,7 @@ export interface DeleteTaskDefinitionsCommandOutput extends DeleteTaskDefinition
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  */
 export class DeleteTaskDefinitionsCommand extends $Command
   .classBuilder<

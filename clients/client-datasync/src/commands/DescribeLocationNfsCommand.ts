@@ -27,7 +27,6 @@ export interface DescribeLocationNfsCommandInput extends DescribeLocationNfsRequ
 export interface DescribeLocationNfsCommandOutput extends DescribeLocationNfsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides details about how an DataSync transfer location for a Network
  *       File System (NFS) file server is configured.</p>
  * @example
@@ -73,6 +72,7 @@ export interface DescribeLocationNfsCommandOutput extends DescribeLocationNfsRes
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class DescribeLocationNfsCommand extends $Command
   .classBuilder<

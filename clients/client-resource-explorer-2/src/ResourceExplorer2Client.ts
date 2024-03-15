@@ -327,7 +327,6 @@ export type ResourceExplorer2ClientResolvedConfigType = __SmithyResolvedConfigur
 export interface ResourceExplorer2ClientResolvedConfig extends ResourceExplorer2ClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Amazon Web Services Resource Explorer is a resource search and discovery service. By using Resource Explorer, you can
  *             explore your resources using an internet search engine-like experience. Examples of
  *             resources include Amazon Relational Database Service (Amazon RDS) instances, Amazon Simple Storage Service (Amazon S3) buckets, or Amazon DynamoDB
@@ -349,6 +348,7 @@ export interface ResourceExplorer2ClientResolvedConfig extends ResourceExplorer2
  *             account.</p>
  *          <p>For more information about Amazon Web Services Resource Explorer, including how to enable and configure the
  *             service, see the <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/">Amazon Web Services Resource Explorer User Guide</a>.</p>
+ * @public
  */
 export class ResourceExplorer2Client extends __Client<
   __HttpHandlerOptions,

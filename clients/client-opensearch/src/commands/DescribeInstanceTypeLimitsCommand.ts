@@ -27,7 +27,6 @@ export interface DescribeInstanceTypeLimitsCommandInput extends DescribeInstance
 export interface DescribeInstanceTypeLimitsCommandOutput extends DescribeInstanceTypeLimitsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the instance count, storage, and master node limits for a given OpenSearch or
  *    Elasticsearch version and instance type.</p>
  * @example
@@ -107,6 +106,7 @@ export interface DescribeInstanceTypeLimitsCommandOutput extends DescribeInstanc
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class DescribeInstanceTypeLimitsCommand extends $Command
   .classBuilder<

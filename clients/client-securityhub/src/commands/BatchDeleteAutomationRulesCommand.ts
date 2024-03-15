@@ -27,7 +27,6 @@ export interface BatchDeleteAutomationRulesCommandInput extends BatchDeleteAutom
 export interface BatchDeleteAutomationRulesCommandOutput extends BatchDeleteAutomationRulesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Deletes one or more automation rules.
  *       </p>
@@ -85,6 +84,7 @@ export interface BatchDeleteAutomationRulesCommandOutput extends BatchDeleteAuto
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To delete one or more automation rules
  * ```javascript
  * // The following example deletes the specified automation rules.

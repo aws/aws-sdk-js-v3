@@ -27,9 +27,6 @@ export interface GetEntitiesCommandInput extends GetEntitiesRequest {}
 export interface GetEntitiesCommandOutput extends GetEntitiesResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated since: 2022-08-30
- *
  * <p>Gets definitions of the specified entities. Uses the latest version of the user's namespace by default. This API returns the
  *       following TDM entities.</p>
  *          <ul>
@@ -114,6 +111,8 @@ export interface GetEntitiesCommandOutput extends GetEntitiesResponse, __Metadat
  * @throws {@link IoTThingsGraphServiceException}
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ * @public
+ * @deprecated since: 2022-08-30
  */
 export class GetEntitiesCommand extends $Command
   .classBuilder<

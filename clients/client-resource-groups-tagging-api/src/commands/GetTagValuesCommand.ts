@@ -31,7 +31,6 @@ export interface GetTagValuesCommandInput extends GetTagValuesInput {}
 export interface GetTagValuesCommandOutput extends GetTagValuesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns all tag values for the specified key that are used in the specified Amazon Web Services
  *             Region for the calling account.</p>
  *          <p>This operation supports pagination, where the response can be sent in
@@ -104,6 +103,7 @@ export interface GetTagValuesCommandOutput extends GetTagValuesOutput, __Metadat
  * @throws {@link ResourceGroupsTaggingAPIServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroupsTaggingAPI service.</p>
  *
+ * @public
  */
 export class GetTagValuesCommand extends $Command
   .classBuilder<

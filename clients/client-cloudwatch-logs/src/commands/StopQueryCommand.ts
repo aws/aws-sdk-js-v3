@@ -27,7 +27,6 @@ export interface StopQueryCommandInput extends StopQueryRequest {}
 export interface StopQueryCommandOutput extends StopQueryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a CloudWatch Logs Insights query that is in progress. If the query has already ended, the operation
  *     returns an error indicating that the specified query is not running.</p>
  * @example
@@ -65,6 +64,7 @@ export interface StopQueryCommandOutput extends StopQueryResponse, __MetadataBea
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class StopQueryCommand extends $Command
   .classBuilder<

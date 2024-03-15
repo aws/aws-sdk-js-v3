@@ -27,7 +27,6 @@ export interface GetDecoderManifestCommandInput extends GetDecoderManifestReques
 export interface GetDecoderManifestCommandOutput extends GetDecoderManifestResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Retrieves information about a created decoder manifest. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface GetDecoderManifestCommandOutput extends GetDecoderManifestRespo
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class GetDecoderManifestCommand extends $Command
   .classBuilder<

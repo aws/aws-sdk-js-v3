@@ -27,7 +27,6 @@ export interface ListStackInstancesCommandInput extends ListStackInstancesInput 
 export interface ListStackInstancesCommandOutput extends ListStackInstancesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns summary information about stack instances that are associated with the specified stack set. You can
  *    filter for stack instances that are associated with a specific Amazon Web Services account name or Region, or that
  *    have a specific status.</p>
@@ -88,6 +87,7 @@ export interface ListStackInstancesCommandOutput extends ListStackInstancesOutpu
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class ListStackInstancesCommand extends $Command
   .classBuilder<

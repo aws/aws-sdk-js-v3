@@ -27,7 +27,6 @@ export interface CreateEventBusCommandInput extends CreateEventBusRequest {}
 export interface CreateEventBusCommandOutput extends CreateEventBusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new event bus within your account. This can be a custom event bus which you can
  *       use to receive events from your custom applications and services, or it can be a partner event
  *       bus which can be matched to a partner event source.</p>
@@ -86,6 +85,7 @@ export interface CreateEventBusCommandOutput extends CreateEventBusResponse, __M
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ * @public
  */
 export class CreateEventBusCommand extends $Command
   .classBuilder<

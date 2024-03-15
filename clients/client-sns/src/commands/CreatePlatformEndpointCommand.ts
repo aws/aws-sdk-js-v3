@@ -27,7 +27,6 @@ export interface CreatePlatformEndpointCommandInput extends CreatePlatformEndpoi
 export interface CreatePlatformEndpointCommandOutput extends CreateEndpointResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an endpoint for a device and mobile app on one of the supported push
  *             notification services, such as GCM (Firebase Cloud Messaging) and APNS.
  *                 <code>CreatePlatformEndpoint</code> requires the <code>PlatformApplicationArn</code>
@@ -86,6 +85,7 @@ export interface CreatePlatformEndpointCommandOutput extends CreateEndpointRespo
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * @public
  */
 export class CreatePlatformEndpointCommand extends $Command
   .classBuilder<

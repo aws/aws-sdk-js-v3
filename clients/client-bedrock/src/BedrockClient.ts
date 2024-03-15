@@ -348,8 +348,8 @@ export type BedrockClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
 export interface BedrockClientResolvedConfig extends BedrockClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Describes the API operations for creating and managing Amazon Bedrock models.</p>
+ * @public
  */
 export class BedrockClient extends __Client<
   __HttpHandlerOptions,

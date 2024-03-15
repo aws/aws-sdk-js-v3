@@ -28,7 +28,6 @@ export interface PutBucketCorsCommandInput extends PutBucketCorsRequest {}
 export interface PutBucketCorsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -133,6 +132,7 @@ export interface PutBucketCorsCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example To set cors configuration on a bucket.
  * ```javascript
  * // The following example enables PUT, POST, and DELETE requests from www.example.com, and enables GET requests from any domain.

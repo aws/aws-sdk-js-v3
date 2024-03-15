@@ -31,9 +31,6 @@ export interface CreateEnvironmentCommandInput extends CreateEnvironmentRequest 
 export interface CreateEnvironmentCommandOutput extends CreateEnvironmentResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This method will be discontinued.
- *
  * <p>Create a new FinSpace environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -107,6 +104,8 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
+ * @deprecated This method will be discontinued.
  */
 export class CreateEnvironmentCommand extends $Command
   .classBuilder<

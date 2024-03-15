@@ -4,7 +4,6 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { TranscribeServiceException as __BaseException } from "./TranscribeServiceException";
 
 /**
- * @public
  * <p>A time range, in milliseconds, between two points in your media file.</p>
  *          <p>You can use <code>StartTime</code> and <code>EndTime</code> to search a custom
  *             segment. For example, setting <code>StartTime</code> to 10000 and <code>EndTime</code>
@@ -19,45 +18,46 @@ import { TranscribeServiceException as __BaseException } from "./TranscribeServi
  *             media file to the 50,000 millisecond mark. You can use <code>First</code> and
  *                 <code>Last</code> independently of each other.</p>
  *          <p>If you prefer to use percentage instead of milliseconds, see .</p>
+ * @public
  */
 export interface AbsoluteTimeRange {
   /**
-   * @public
    * <p>The time, in milliseconds, when Amazon Transcribe starts searching for the specified
    *             criteria in your audio. If you include <code>StartTime</code> in your request, you must
    *             also include <code>EndTime</code>.</p>
+   * @public
    */
   StartTime?: number;
 
   /**
-   * @public
    * <p>The time, in milliseconds, when Amazon Transcribe stops searching for the specified
    *             criteria in your audio. If you include <code>EndTime</code> in your request, you must
    *             also include <code>StartTime</code>.</p>
+   * @public
    */
   EndTime?: number;
 
   /**
-   * @public
    * <p>The time, in milliseconds, from the start of your media file until the specified value.
    *             Amazon Transcribe searches for your specified criteria in this time segment.</p>
+   * @public
    */
   First?: number;
 
   /**
-   * @public
    * <p>The time, in milliseconds, from the specified value until the end of your media file.
    *             Amazon Transcribe searches for your specified criteria in this time segment.</p>
+   * @public
    */
   Last?: number;
 }
 
 /**
- * @public
  * <p>Your request didn't pass one or more validation tests. This can occur when the entity
  *             you're trying to delete doesn't exist or if it's in a non-terminal state (such as
  *                 <code>IN PROGRESS</code>). See the exception message field for more
  *             information.</p>
+ * @public
  */
 export class BadRequestException extends __BaseException {
   readonly name: "BadRequestException" = "BadRequestException";
@@ -122,23 +122,23 @@ export const ParticipantRole = {
 export type ParticipantRole = (typeof ParticipantRole)[keyof typeof ParticipantRole];
 
 /**
- * @public
  * <p>Makes it possible to specify which speaker is on which channel. For example, if your
  *             agent is the first participant to speak, you would set <code>ChannelId</code> to
  *                 <code>0</code> (to indicate the first channel) and <code>ParticipantRole</code> to
  *                 <code>AGENT</code> (to indicate that it's the agent speaking).</p>
+ * @public
  */
 export interface ChannelDefinition {
   /**
-   * @public
    * <p>Specify the audio channel you want to define.</p>
+   * @public
    */
   ChannelId?: number;
 
   /**
-   * @public
    * <p>Specify the speaker you want to define. Omitting this parameter is equivalent to
    *             specifying both participants.</p>
+   * @public
    */
   ParticipantRole?: ParticipantRole;
 }
@@ -259,16 +259,15 @@ export const LanguageCode = {
 export type LanguageCode = (typeof LanguageCode)[keyof typeof LanguageCode];
 
 /**
- * @public
  * <p>Describes the Amazon S3 location of the media file you want to use in your
  *             request.</p>
  *          <p>For information on supported media formats, refer to the <code>MediaFormat</code>
  *             parameter or the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a> section
  *             in the Amazon S3 Developer Guide.</p>
+ * @public
  */
 export interface Media {
   /**
-   * @public
    * <p>The Amazon S3 location of the media file you want to transcribe. For
    *             example:</p>
    *          <ul>
@@ -286,11 +285,11 @@ export interface Media {
    *          <p>Note that the Amazon S3 bucket that contains your input media must be located
    *             in the same Amazon Web Services Region where you're making your transcription
    *             request.</p>
+   * @public
    */
   MediaFileUri?: string;
 
   /**
-   * @public
    * <p>The Amazon S3 location of the media file you want to redact. For
    *             example:</p>
    *          <ul>
@@ -314,6 +313,7 @@ export interface Media {
    *                 redacted transcript. It is only supported for Call Analytics
    *                 (<code>StartCallAnalyticsJob</code>) transcription requests.</p>
    *          </important>
+   * @public
    */
   RedactedMediaFileUri?: string;
 }
@@ -390,25 +390,24 @@ export const RedactionType = {
 export type RedactionType = (typeof RedactionType)[keyof typeof RedactionType];
 
 /**
- * @public
  * <p>Makes it possible to redact or flag specified personally identifiable information (PII) in
  *             your transcript. If you use <code>ContentRedaction</code>, you must also include the
  *             sub-parameters: <code>RedactionOutput</code> and <code>RedactionType</code>. You can
  *             optionally include <code>PiiEntityTypes</code> to choose which types of PII you want to
  *             redact.</p>
+ * @public
  */
 export interface ContentRedaction {
   /**
-   * @public
    * <p>Specify the category of information you want to redact; <code>PII</code> (personally
    *             identifiable information) is the only valid value. You can use <code>PiiEntityTypes</code> to
    *             choose which types of PII you want to redact. If you do not include <code>PiiEntityTypes</code> in
    *             your request, all PII is redacted.</p>
+   * @public
    */
   RedactionType: RedactionType | undefined;
 
   /**
-   * @public
    * <p>Specify if you want only a redacted transcript, or if you want a redacted and an
    *             unredacted transcript.</p>
    *          <p>When you choose <code>redacted</code>
@@ -416,21 +415,21 @@ export interface ContentRedaction {
    *          <p>When you choose <code>redacted_and_unredacted</code>
    *             Amazon Transcribe creates a redacted and an unredacted transcript (as two separate
    *             files).</p>
+   * @public
    */
   RedactionOutput: RedactionOutput | undefined;
 
   /**
-   * @public
    * <p>Specify which types of personally identifiable information (PII) you want to redact in
    *             your transcript. You can include as many types as you'd like, or you can select
    *             <code>ALL</code>. If you do not include <code>PiiEntityTypes</code> in your request, all PII is
    *             redacted.</p>
+   * @public
    */
   PiiEntityTypes?: PiiEntityType[];
 }
 
 /**
- * @public
  * <p>If using automatic language identification in your request and you want to apply a
  *             custom language model, a custom vocabulary, or a custom vocabulary filter, include
  *                 <code>LanguageIdSettings</code> with the relevant sub-parameters
@@ -459,21 +458,21 @@ export interface ContentRedaction {
  *             instead the <code></code> parameter with the
  *                 <code>VocabularyName</code> or <code>VocabularyFilterName</code> (or both)
  *             sub-parameter.</p>
+ * @public
  */
 export interface LanguageIdSettings {
   /**
-   * @public
    * <p>The name of the custom vocabulary you want to use when processing your transcription
    *             job. Custom vocabulary names are case sensitive.</p>
    *          <p>The language of the specified custom vocabulary must match the language code that you
    *             specify in your transcription request. If the languages do not match, the custom
    *             vocabulary isn't applied. There are no errors or warnings associated with a language
    *             mismatch.</p>
+   * @public
    */
   VocabularyName?: string;
 
   /**
-   * @public
    * <p>The name of the custom vocabulary filter you want to use when processing your
    *             transcription job. Custom vocabulary filter names are case sensitive.</p>
    *          <p>The language of the specified custom vocabulary filter must match the language code
@@ -482,34 +481,35 @@ export interface LanguageIdSettings {
    *             language mismatch.</p>
    *          <p>Note that if you include <code>VocabularyFilterName</code> in your request, you must
    *             also include <code>VocabularyFilterMethod</code>.</p>
+   * @public
    */
   VocabularyFilterName?: string;
 
   /**
-   * @public
    * <p>The name of the custom language model you want to use when processing your
    *             transcription job. Note that custom language model names are case sensitive.</p>
    *          <p>The language of the specified custom language model must match the language code that
    *             you specify in your transcription request. If the languages do not match, the custom
    *             language model isn't applied. There are no errors or warnings associated with a language
    *             mismatch.</p>
+   * @public
    */
   LanguageModelName?: string;
 }
 
 /**
- * @public
  * <p>Contains <code>GenerateAbstractiveSummary</code>, which is a required parameter if you
  * 	    want to enable Generative call summarization in your Call Analytics request.</p>
+ * @public
  */
 export interface Summarization {
   /**
-   * @public
    * <p>Enables Generative call summarization in your Call Analytics request</p>
    *          <p>Generative call summarization provides a summary of the transcript including important
    * 	    components discussed in the conversation.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-enable-summarization.html">Enabling generative call
    * 	        summarization</a>.</p>
+   * @public
    */
   GenerateAbstractiveSummary: boolean | undefined;
 }
@@ -530,60 +530,59 @@ export const VocabularyFilterMethod = {
 export type VocabularyFilterMethod = (typeof VocabularyFilterMethod)[keyof typeof VocabularyFilterMethod];
 
 /**
- * @public
  * <p>Provides additional optional settings for your  request, including content redaction,
  *             automatic language identification; allows you to apply custom language models, custom
  *             vocabulary filters, and custom vocabularies.</p>
+ * @public
  */
 export interface CallAnalyticsJobSettings {
   /**
-   * @public
    * <p>The name of the custom vocabulary you want to include in your Call Analytics
    *             transcription request. Custom vocabulary names are case sensitive.</p>
+   * @public
    */
   VocabularyName?: string;
 
   /**
-   * @public
    * <p>The name of the custom vocabulary filter you want to include in your Call Analytics
    *             transcription request. Custom vocabulary filter names are case sensitive.</p>
    *          <p>Note that if you include <code>VocabularyFilterName</code> in your request, you must
    *             also include <code>VocabularyFilterMethod</code>.</p>
+   * @public
    */
   VocabularyFilterName?: string;
 
   /**
-   * @public
    * <p>Specify how you want your custom vocabulary filter applied to your transcript.</p>
    *          <p>To replace words with <code>***</code>, choose <code>mask</code>.</p>
    *          <p>To delete words, choose <code>remove</code>.</p>
    *          <p>To flag words without changing them, choose <code>tag</code>.</p>
+   * @public
    */
   VocabularyFilterMethod?: VocabularyFilterMethod;
 
   /**
-   * @public
    * <p>The name of the custom language model you want to use when processing your Call
    *             Analytics job. Note that custom language model names are case sensitive.</p>
    *          <p>The language of the specified custom language model must match the language code that
    *             you specify in your transcription request. If the languages do not match, the custom
    *             language model isn't applied. There are no errors or warnings associated with a language
    *             mismatch.</p>
+   * @public
    */
   LanguageModelName?: string;
 
   /**
-   * @public
    * <p>Makes it possible to redact or flag specified personally identifiable information (PII) in
    *             your transcript. If you use <code>ContentRedaction</code>, you must also include the
    *             sub-parameters: <code>RedactionOutput</code> and <code>RedactionType</code>. You can
    *             optionally include <code>PiiEntityTypes</code> to choose which types of PII you want to
    *             redact.</p>
+   * @public
    */
   ContentRedaction?: ContentRedaction;
 
   /**
-   * @public
    * <p>You can specify two or more language codes that represent the languages you think may
    *             be present in your media. Including more than five is not recommended. If you're unsure
    *             what languages are present, do not include this parameter.</p>
@@ -592,11 +591,11 @@ export interface CallAnalyticsJobSettings {
    *                 languages</a> table.</p>
    *          <p>To transcribe speech in Modern Standard Arabic (<code>ar-SA</code>), your media file
    *             must be encoded at a sample rate of 16,000 Hz or higher.</p>
+   * @public
    */
   LanguageOptions?: LanguageCode[];
 
   /**
-   * @public
    * <p>If using automatic language identification in your request and you want to apply a
    *             custom language model, a custom vocabulary, or a custom vocabulary filter, include
    *                 <code>LanguageIdSettings</code> with the relevant sub-parameters
@@ -623,25 +622,25 @@ export interface CallAnalyticsJobSettings {
    *                 <code>VocabularyFilterName</code> sub-parameters.</p>
    *          <p>For a list of languages supported with Call Analytics, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported languages and
    *             language-specific features</a>.</p>
+   * @public
    */
   LanguageIdSettings?: Partial<Record<LanguageCode, LanguageIdSettings>>;
 
   /**
-   * @public
    * <p>Contains <code>GenerateAbstractiveSummary</code>, which is a required parameter if you
    * 	    want to enable Generative call summarization in your Call Analytics request.</p>
+   * @public
    */
   Summarization?: Summarization;
 }
 
 /**
- * @public
  * <p>Provides you with the Amazon S3 URI you can use to access your
  *             transcript.</p>
+ * @public
  */
 export interface Transcript {
   /**
-   * @public
    * <p>The Amazon S3 location of your transcript. You can use this URI to access or
    *             download your transcript.</p>
    *          <p>If you included <code>OutputBucketName</code> in your transcription job request, this
@@ -657,11 +656,11 @@ export interface Transcript {
    *                 URI by running a <code>GetTranscriptionJob</code> or
    *                     <code>ListTranscriptionJob</code> request.</p>
    *          </note>
+   * @public
    */
   TranscriptFileUri?: string;
 
   /**
-   * @public
    * <p>The Amazon S3 location of your redacted transcript. You can use this URI to
    *             access or download your transcript.</p>
    *          <p>If you included <code>OutputBucketName</code> in your transcription job request, this
@@ -677,12 +676,12 @@ export interface Transcript {
    *                 URI by running a <code>GetTranscriptionJob</code> or
    *                     <code>ListTranscriptionJob</code> request.</p>
    *          </note>
+   * @public
    */
   RedactedTranscriptFileUri?: string;
 }
 
 /**
- * @public
  * <p>Provides detailed information about a Call Analytics job.</p>
  *          <p>To view the job's status, refer to <code>CallAnalyticsJobStatus</code>. If the status
  *             is <code>COMPLETED</code>, the job is finished. You can find your completed transcript
@@ -695,92 +694,92 @@ export interface Transcript {
  *          <p>If you chose to redact the audio in your media file, you can find your redacted media
  *             file at the location specified in the <code>RedactedMediaFileUri</code> field of your
  *             response.</p>
+ * @public
  */
 export interface CallAnalyticsJob {
   /**
-   * @public
    * <p>The name of the Call Analytics job. Job names are case sensitive and must be unique
    *             within an Amazon Web Services account.</p>
+   * @public
    */
   CallAnalyticsJobName?: string;
 
   /**
-   * @public
    * <p>Provides the status of the specified Call Analytics job.</p>
    *          <p>If the status is <code>COMPLETED</code>, the job is finished and you can find the
    *             results at the location specified in <code>TranscriptFileUri</code> (or
    *                 <code>RedactedTranscriptFileUri</code>, if you requested transcript redaction). If
    *             the status is <code>FAILED</code>, <code>FailureReason</code> provides details on why
    *             your transcription job failed.</p>
+   * @public
    */
   CallAnalyticsJobStatus?: CallAnalyticsJobStatus;
 
   /**
-   * @public
    * <p>The language code used to create your Call Analytics job. For a list of supported
    *             languages and their associated language codes, refer to the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported languages</a>
    *             table.</p>
    *          <p>If you do not know the language spoken in your media file, you can omit this field and
    *             let Amazon Transcribe automatically identify the language of your media. To improve the
    *             accuracy of language identification, you can include several language codes and Amazon Transcribe chooses the closest match for your transcription.</p>
+   * @public
    */
   LanguageCode?: LanguageCode;
 
   /**
-   * @public
    * <p>The sample rate, in hertz, of the audio track in your input media file.</p>
+   * @public
    */
   MediaSampleRateHertz?: number;
 
   /**
-   * @public
    * <p>The format of the input media file.</p>
+   * @public
    */
   MediaFormat?: MediaFormat;
 
   /**
-   * @public
    * <p>Provides the Amazon S3 location of the media file you used in your Call
    *             Analytics request.</p>
+   * @public
    */
   Media?: Media;
 
   /**
-   * @public
    * <p>Provides you with the Amazon S3 URI you can use to access your
    *             transcript.</p>
+   * @public
    */
   Transcript?: Transcript;
 
   /**
-   * @public
    * <p>The date and time the specified Call Analytics job began processing.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:32:58.789000-07:00</code> represents a transcription job
    *             that started processing at 12:32 PM UTC-7 on May 4, 2022.</p>
+   * @public
    */
   StartTime?: Date;
 
   /**
-   * @public
    * <p>The date and time the specified Call Analytics job request was made.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:32:58.761000-07:00</code> represents a transcription job
    *             that started processing at 12:32 PM UTC-7 on May 4, 2022.</p>
+   * @public
    */
   CreationTime?: Date;
 
   /**
-   * @public
    * <p>The date and time the specified Call Analytics job finished processing.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:33:13.922000-07:00</code> represents a transcription job
    *             that started processing at 12:33 PM UTC-7 on May 4, 2022.</p>
+   * @public
    */
   CompletionTime?: Date;
 
   /**
-   * @public
    * <p>If <code>CallAnalyticsJobStatus</code> is <code>FAILED</code>,
    *                 <code>FailureReason</code> contains information about why the Call Analytics job
    *             request failed.</p>
@@ -830,101 +829,102 @@ export interface CallAnalyticsJob {
    *                         quotas</a>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   FailureReason?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) you included in your request.</p>
+   * @public
    */
   DataAccessRoleArn?: string;
 
   /**
-   * @public
    * <p>The confidence score associated with the language identified in your media
    *             file.</p>
    *          <p>Confidence scores are values between 0 and 1; a larger value indicates a higher
    *             probability that the identified language correctly matches the language spoken in your
    *             media.</p>
+   * @public
    */
   IdentifiedLanguageScore?: number;
 
   /**
-   * @public
    * <p>Provides information on any additional settings that were included in your request.
    *             Additional settings include content redaction and language identification
    *             settings.</p>
+   * @public
    */
   Settings?: CallAnalyticsJobSettings;
 
   /**
-   * @public
    * <p>Indicates which speaker is on which channel.</p>
+   * @public
    */
   ChannelDefinitions?: ChannelDefinition[];
 }
 
 /**
- * @public
  * <p>Provides detailed information about a specific Call Analytics job.</p>
+ * @public
  */
 export interface CallAnalyticsJobSummary {
   /**
-   * @public
    * <p>The name of the Call Analytics job. Job names are case sensitive and must be unique
    *             within an Amazon Web Services account.</p>
+   * @public
    */
   CallAnalyticsJobName?: string;
 
   /**
-   * @public
    * <p>The date and time the specified Call Analytics job request was made.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:32:58.761000-07:00</code> represents a transcription job
    *             that started processing at 12:32 PM UTC-7 on May 4, 2022.</p>
+   * @public
    */
   CreationTime?: Date;
 
   /**
-   * @public
    * <p>The date and time your Call Analytics job began processing.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:32:58.789000-07:00</code> represents a transcription job
    *             that started processing at 12:32 PM UTC-7 on May 4, 2022.</p>
+   * @public
    */
   StartTime?: Date;
 
   /**
-   * @public
    * <p>The date and time the specified Call Analytics job finished processing.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:33:13.922000-07:00</code> represents a transcription job
    *             that started processing at 12:33 PM UTC-7 on May 4, 2022.</p>
+   * @public
    */
   CompletionTime?: Date;
 
   /**
-   * @public
    * <p>The language code used to create your Call Analytics transcription.</p>
+   * @public
    */
   LanguageCode?: LanguageCode;
 
   /**
-   * @public
    * <p>Provides the status of your Call Analytics job.</p>
    *          <p>If the status is <code>COMPLETED</code>, the job is finished and you can find the
    *             results at the location specified in <code>TranscriptFileUri</code> (or
    *                 <code>RedactedTranscriptFileUri</code>, if you requested transcript redaction). If
    *             the status is <code>FAILED</code>, <code>FailureReason</code> provides details on why
    *             your transcription job failed.</p>
+   * @public
    */
   CallAnalyticsJobStatus?: CallAnalyticsJobStatus;
 
   /**
-   * @public
    * <p>If <code>CallAnalyticsJobStatus</code> is <code>FAILED</code>,
    *                 <code>FailureReason</code> contains information about why the Call Analytics job
    *             failed. See also: <a href="https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html">Common Errors</a>.</p>
+   * @public
    */
   FailureReason?: string;
 }
@@ -944,7 +944,6 @@ export const InputType = {
 export type InputType = (typeof InputType)[keyof typeof InputType];
 
 /**
- * @public
  * <p>A time range, in percentage, between two points in your media file.</p>
  *          <p>You can use <code>StartPercentage</code> and <code>EndPercentage</code> to search a
  *             custom segment. For example, setting <code>StartPercentage</code> to 10 and
@@ -957,41 +956,41 @@ export type InputType = (typeof InputType)[keyof typeof InputType];
  *             only searches for your specified criteria in the audio contained in the first 10 percent
  *             of the media file.</p>
  *          <p>If you prefer to use milliseconds instead of percentage, see .</p>
+ * @public
  */
 export interface RelativeTimeRange {
   /**
-   * @public
    * <p>The time, in percentage, when Amazon Transcribe starts searching for the specified
    *             criteria in your media file. If you include <code>StartPercentage</code> in your
    *             request, you must also include <code>EndPercentage</code>.</p>
+   * @public
    */
   StartPercentage?: number;
 
   /**
-   * @public
    * <p>The time, in percentage, when Amazon Transcribe stops searching for the specified
    *             criteria in your media file. If you include <code>EndPercentage</code> in your request,
    *             you must also include <code>StartPercentage</code>.</p>
+   * @public
    */
   EndPercentage?: number;
 
   /**
-   * @public
    * <p>The time, in percentage, from the start of your media file until the specified value.
    *             Amazon Transcribe searches for your specified criteria in this time segment.</p>
+   * @public
    */
   First?: number;
 
   /**
-   * @public
    * <p>The time, in percentage, from the specified value until the end of your media file.
    *             Amazon Transcribe searches for your specified criteria in this time segment.</p>
+   * @public
    */
   Last?: number;
 }
 
 /**
- * @public
  * <p>Flag the presence or absence of interruptions in your Call Analytics transcription
  *             output.</p>
  *          <p>Rules using <code>InterruptionFilter</code> are designed to match:</p>
@@ -1011,46 +1010,46 @@ export interface RelativeTimeRange {
  *          </ul>
  *          <p>See <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html#tca-rules-batch">Rule criteria for post-call
  *             categories</a> for usage examples.</p>
+ * @public
  */
 export interface InterruptionFilter {
   /**
-   * @public
    * <p>Specify the duration of the interruptions in milliseconds. For example, you can flag
    *             speech that contains more than 10,000 milliseconds of interruptions.</p>
+   * @public
    */
   Threshold?: number;
 
   /**
-   * @public
    * <p>Specify the interrupter that you want to flag. Omitting this parameter is equivalent
    *             to specifying both participants.</p>
+   * @public
    */
   ParticipantRole?: ParticipantRole;
 
   /**
-   * @public
    * <p>Makes it possible to specify a time range (in milliseconds) in your audio, during
    *             which you want to search for an interruption. See  for more detail.</p>
+   * @public
    */
   AbsoluteTimeRange?: AbsoluteTimeRange;
 
   /**
-   * @public
    * <p>Makes it possible to specify a time range (in percentage) in your media file, during
    *             which you want to search for an interruption. See  for more detail.</p>
+   * @public
    */
   RelativeTimeRange?: RelativeTimeRange;
 
   /**
-   * @public
    * <p>Set to <code>TRUE</code> to flag speech that does not contain interruptions. Set to
    *                 <code>FALSE</code> to flag speech that contains interruptions.</p>
+   * @public
    */
   Negate?: boolean;
 }
 
 /**
- * @public
  * <p>Flag the presence or absence of periods of silence in your Call Analytics
  *             transcription output.</p>
  *          <p>Rules using <code>NonTalkTimeFilter</code> are designed to match:</p>
@@ -1064,33 +1063,34 @@ export interface InterruptionFilter {
  *          </ul>
  *          <p>See <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html#tca-rules-batch">Rule criteria for post-call
  *             categories</a> for usage examples.</p>
+ * @public
  */
 export interface NonTalkTimeFilter {
   /**
-   * @public
    * <p>Specify the duration, in milliseconds, of the period of silence that you want to flag.
    *             For example, you can flag a silent period that lasts 30,000 milliseconds.</p>
+   * @public
    */
   Threshold?: number;
 
   /**
-   * @public
    * <p>Makes it possible to specify a time range (in milliseconds) in your audio, during
    *             which you want to search for a period of silence. See  for more detail.</p>
+   * @public
    */
   AbsoluteTimeRange?: AbsoluteTimeRange;
 
   /**
-   * @public
    * <p>Makes it possible to specify a time range (in percentage) in your media file, during
    *             which you want to search for a period of silence. See  for more detail.</p>
+   * @public
    */
   RelativeTimeRange?: RelativeTimeRange;
 
   /**
-   * @public
    * <p>Set to <code>TRUE</code> to flag periods of speech. Set to <code>FALSE</code> to flag
    *             periods of silence</p>
+   * @public
    */
   Negate?: boolean;
 }
@@ -1112,7 +1112,6 @@ export const SentimentValue = {
 export type SentimentValue = (typeof SentimentValue)[keyof typeof SentimentValue];
 
 /**
- * @public
  * <p>Flag the presence or absence of specific sentiments detected in your Call Analytics
  *             transcription output.</p>
  *          <p>Rules using <code>SentimentFilter</code> are designed to match:</p>
@@ -1136,40 +1135,41 @@ export type SentimentValue = (typeof SentimentValue)[keyof typeof SentimentValue
  *          </ul>
  *          <p>See <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html#tca-rules-batch">Rule criteria for post-call
  *             categories</a> for usage examples.</p>
+ * @public
  */
 export interface SentimentFilter {
   /**
-   * @public
    * <p>Specify the sentiments that you want to flag.</p>
+   * @public
    */
   Sentiments: SentimentValue[] | undefined;
 
   /**
-   * @public
    * <p>Makes it possible to specify a time range (in milliseconds) in your audio, during
    *             which you want to search for the specified sentiments. See  for more detail.</p>
+   * @public
    */
   AbsoluteTimeRange?: AbsoluteTimeRange;
 
   /**
-   * @public
    * <p>Makes it possible to specify a time range (in percentage) in your media file, during
    *             which you want to search for the specified sentiments. See  for more detail.</p>
+   * @public
    */
   RelativeTimeRange?: RelativeTimeRange;
 
   /**
-   * @public
    * <p>Specify the participant that you want to flag. Omitting this parameter is equivalent
    *             to specifying both participants.</p>
+   * @public
    */
   ParticipantRole?: ParticipantRole;
 
   /**
-   * @public
    * <p>Set to <code>TRUE</code> to flag the sentiments that you didn't include in your
    *             request. Set to <code>FALSE</code> to flag the sentiments that you specified in your
    *             request.</p>
+   * @public
    */
   Negate?: boolean;
 }
@@ -1188,7 +1188,6 @@ export const TranscriptFilterType = {
 export type TranscriptFilterType = (typeof TranscriptFilterType)[keyof typeof TranscriptFilterType];
 
 /**
- * @public
  * <p>Flag the presence or absence of specific words or phrases detected in your Call
  *             Analytics transcription output.</p>
  *          <p>Rules using <code>TranscriptFilter</code> are designed to match:</p>
@@ -1207,57 +1206,57 @@ export type TranscriptFilterType = (typeof TranscriptFilterType)[keyof typeof Tr
  *          <p>See <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html#tca-rules-batch">Rule criteria for post-call
  *             categories</a> and <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-stream.html#tca-rules-stream">Rule criteria for
  *                 streaming categories</a> for usage examples.</p>
+ * @public
  */
 export interface TranscriptFilter {
   /**
-   * @public
    * <p>Flag the presence or absence of an exact match to the phrases that you specify. For
    *             example, if you specify the phrase "speak to a manager" as your <code>Targets</code>
    *             value, only that exact phrase is flagged.</p>
    *          <p>Note that semantic matching is not supported. For example, if your customer says
    *             "speak to <i>the</i> manager", instead of "speak to <i>a</i>
    *             manager", your content is not flagged.</p>
+   * @public
    */
   TranscriptFilterType: TranscriptFilterType | undefined;
 
   /**
-   * @public
    * <p>Makes it possible to specify a time range (in milliseconds) in your audio, during
    *             which you want to search for the specified key words or phrases. See  for more detail.</p>
+   * @public
    */
   AbsoluteTimeRange?: AbsoluteTimeRange;
 
   /**
-   * @public
    * <p>Makes it possible to specify a time range (in percentage) in your media file, during
    *             which you want to search for the specified key words or phrases. See  for more detail.</p>
+   * @public
    */
   RelativeTimeRange?: RelativeTimeRange;
 
   /**
-   * @public
    * <p>Specify the participant that you want to flag. Omitting this parameter is equivalent
    *             to specifying both participants.</p>
+   * @public
    */
   ParticipantRole?: ParticipantRole;
 
   /**
-   * @public
    * <p>Set to <code>TRUE</code> to flag the absence of the phrase that you specified in your
    *             request. Set to <code>FALSE</code> to flag the presence of the phrase that you specified
    *             in your request.</p>
+   * @public
    */
   Negate?: boolean;
 
   /**
-   * @public
    * <p>Specify the phrases that you want to flag.</p>
+   * @public
    */
   Targets: string[] | undefined;
 }
 
 /**
- * @public
  * <p>A rule is a set of criteria that you can specify to flag an attribute in your Call
  *             Analytics output. Rules define a Call Analytics category.</p>
  *          <p>Rules can include these parameters: , , , and .</p>
@@ -1266,6 +1265,7 @@ export interface TranscriptFilter {
  *                 real-time transcriptions</a>.</p>
  *          <p>To learn more about Call Analytics, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics.html">Analyzing call center audio with Call
  *                 Analytics</a>.</p>
+ * @public
  */
 export type Rule =
   | Rule.InterruptionFilterMember
@@ -1279,10 +1279,10 @@ export type Rule =
  */
 export namespace Rule {
   /**
-   * @public
    * <p>Flag the presence or absence of periods of silence in your Call Analytics
    *             transcription output. Refer to  for more
    *             detail.</p>
+   * @public
    */
   export interface NonTalkTimeFilterMember {
     NonTalkTimeFilter: NonTalkTimeFilter;
@@ -1293,9 +1293,9 @@ export namespace Rule {
   }
 
   /**
-   * @public
    * <p>Flag the presence or absence of interruptions in your Call Analytics transcription
    *             output. Refer to  for more detail.</p>
+   * @public
    */
   export interface InterruptionFilterMember {
     NonTalkTimeFilter?: never;
@@ -1306,10 +1306,10 @@ export namespace Rule {
   }
 
   /**
-   * @public
    * <p>Flag the presence or absence of specific words or phrases in your Call Analytics
    *             transcription output. Refer to  for more
    *             detail.</p>
+   * @public
    */
   export interface TranscriptFilterMember {
     NonTalkTimeFilter?: never;
@@ -1320,10 +1320,10 @@ export namespace Rule {
   }
 
   /**
-   * @public
    * <p>Flag the presence or absence of specific sentiments in your Call Analytics
    *             transcription output. Refer to  for more
    *             detail.</p>
+   * @public
    */
   export interface SentimentFilterMember {
     NonTalkTimeFilter?: never;
@@ -1362,48 +1362,48 @@ export namespace Rule {
 }
 
 /**
- * @public
  * <p>Provides you with the properties of the Call Analytics category you specified in your
  *             request. This includes the list of rules that define the specified category.</p>
+ * @public
  */
 export interface CategoryProperties {
   /**
-   * @public
    * <p>The name of the Call Analytics category. Category names are case sensitive and must be
    *             unique within an Amazon Web Services account.</p>
+   * @public
    */
   CategoryName?: string;
 
   /**
-   * @public
    * <p>The rules used to define a Call Analytics category. Each category can have between 1
    *             and 20 rules.</p>
+   * @public
    */
   Rules?: Rule[];
 
   /**
-   * @public
    * <p>The date and time the specified Call Analytics category was created.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:32:58.761000-07:00</code> represents 12:32 PM UTC-7 on May
    *             4, 2022.</p>
+   * @public
    */
   CreateTime?: Date;
 
   /**
-   * @public
    * <p>The date and time the specified Call Analytics category was last updated.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-05T12:45:32.691000-07:00</code> represents 12:45 PM UTC-7 on May
    *             5, 2022.</p>
+   * @public
    */
   LastUpdateTime?: Date;
 
   /**
-   * @public
    * <p>The input type associated with the specified category. <code>POST_CALL</code>
    *             refers to a category that is applied to batch transcriptions; <code>REAL_TIME</code>
    *             refers to a category that is applied to streaming transcriptions.</p>
+   * @public
    */
   InputType?: InputType;
 }
@@ -1428,9 +1428,9 @@ export const CLMLanguageCode = {
 export type CLMLanguageCode = (typeof CLMLanguageCode)[keyof typeof CLMLanguageCode];
 
 /**
- * @public
  * <p>A resource already exists with this name. Resource names must be unique within an
  *                 Amazon Web Services account.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -1455,26 +1455,25 @@ export class ConflictException extends __BaseException {
  */
 export interface CreateCallAnalyticsCategoryRequest {
   /**
-   * @public
    * <p>A unique name, chosen by you, for your Call Analytics category. It's helpful to use a
    *             detailed naming system that will make sense to you in the future. For example, it's
    *             better to use <code>sentiment-positive-last30seconds</code> for a category over a
    *             generic name like <code>test-category</code>.</p>
    *          <p>Category names are case sensitive.</p>
+   * @public
    */
   CategoryName: string | undefined;
 
   /**
-   * @public
    * <p>Rules define a Call Analytics category. When creating a new category, you must create
    *             between 1 and 20 rules for that category. For each rule, you specify a filter you want
    *             applied to the attributes of a call. For example, you can choose a sentiment filter that
    *             detects if a customer's sentiment was positive during the last 30 seconds of the call.</p>
+   * @public
    */
   Rules: Rule[] | undefined;
 
   /**
-   * @public
    * <p>Choose whether you want to create a real-time or a post-call category for your Call
    *             Analytics transcription.</p>
    *          <p>Specifying <code>POST_CALL</code> assigns your category to post-call transcriptions;
@@ -1484,6 +1483,7 @@ export interface CreateCallAnalyticsCategoryRequest {
    *             categories with this input type cannot be applied to post-call transcriptions.</p>
    *          <p>If you do not include <code>InputType</code>, your category is created as a post-call
    *             category by default.</p>
+   * @public
    */
   InputType?: InputType;
 }
@@ -1493,17 +1493,17 @@ export interface CreateCallAnalyticsCategoryRequest {
  */
 export interface CreateCallAnalyticsCategoryResponse {
   /**
-   * @public
    * <p>Provides you with the properties of your new category, including its associated
    *             rules.</p>
+   * @public
    */
   CategoryProperties?: CategoryProperties;
 }
 
 /**
- * @public
  * <p>There was an internal error. Check the error message, correct the issue, and try your
  *             request again.</p>
+ * @public
  */
 export class InternalFailureException extends __BaseException {
   readonly name: "InternalFailureException" = "InternalFailureException";
@@ -1524,9 +1524,9 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
- * @public
  * <p>You've either sent too many requests or your input file is too long. Wait before
  *             retrying your request, or use a smaller file and try your request again.</p>
+ * @public
  */
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
@@ -1547,36 +1547,35 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Contains the Amazon S3 location of the training data you want to use to create
  *             a new custom language model, and permissions to access this location.</p>
  *          <p>When using <code>InputDataConfig</code>, you must include these sub-parameters:
  *                 <code>S3Uri</code> and <code>DataAccessRoleArn</code>. You can optionally include
  *                 <code>TuningDataS3Uri</code>.</p>
+ * @public
  */
 export interface InputDataConfig {
   /**
-   * @public
    * <p>The Amazon S3 location (URI) of the text files you want to use to train your
    *             custom language model.</p>
    *          <p>Here's an example URI path:
    *                 <code>s3://DOC-EXAMPLE-BUCKET/my-model-training-data/</code>
    *          </p>
+   * @public
    */
   S3Uri: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon S3 location (URI) of the text files you want to use to tune your
    *             custom language model.</p>
    *          <p>Here's an example URI path:
    *             <code>s3://DOC-EXAMPLE-BUCKET/my-model-tuning-data/</code>
    *          </p>
+   * @public
    */
   TuningDataS3Uri?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of an IAM role that has permissions to
    *             access the Amazon S3 bucket that contains your input files. If the role that you
    *             specify doesn’t have the appropriate permissions to access the specified Amazon S3
@@ -1586,33 +1585,34 @@ export interface InputDataConfig {
    *                 <code>arn:aws:iam::111122223333:role/Admin</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM
    *                 ARNs</a>.</p>
+   * @public
    */
   DataAccessRoleArn: string | undefined;
 }
 
 /**
- * @public
  * <p>Adds metadata, in the form of a key:value pair, to the specified resource.</p>
  *          <p>For example, you could add the tag <code>Department:Sales</code> to a resource to
  *             indicate that it pertains to your organization's sales department. You can also use tags
  *             for tag-based access control.</p>
  *          <p>To learn more about tagging, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging resources</a>.</p>
+ * @public
  */
 export interface Tag {
   /**
-   * @public
    * <p>The first part of a key:value pair that forms a tag associated with a given resource.
    *             For example, in the tag <code>Department:Sales</code>, the key is 'Department'.</p>
+   * @public
    */
   Key: string | undefined;
 
   /**
-   * @public
    * <p>The second part of a key:value pair that forms a tag associated with a given resource.
    *             For example, in the tag <code>Department:Sales</code>, the value is 'Sales'.</p>
    *          <p>Note that you can set the value of a tag to an empty string, but you can't set the
    *             value of a tag to null. Omitting the tag value is the same as using an empty
    *             string.</p>
+   * @public
    */
   Value: string | undefined;
 }
@@ -1622,7 +1622,6 @@ export interface Tag {
  */
 export interface CreateLanguageModelRequest {
   /**
-   * @public
    * <p>The language code that represents the language of your model. Each custom language
    *             model must contain terms in only one language, and the language you select for your
    *             custom language model must match the language of your training and tuning data.</p>
@@ -1633,32 +1632,32 @@ export interface CreateLanguageModelRequest {
    *             the model. For example, if you create a custom language model using US English
    *                 (<code>en-US</code>), you can only apply this model to files that contain English
    *             audio.</p>
+   * @public
    */
   LanguageCode: CLMLanguageCode | undefined;
 
   /**
-   * @public
    * <p>The Amazon Transcribe standard language model, or base model, used to create your
    *             custom language model. Amazon Transcribe offers two options for base models: Wideband
    *             and Narrowband.</p>
    *          <p>If the audio you want to transcribe has a sample rate of 16,000 Hz or greater, choose
    *                 <code>WideBand</code>. To transcribe audio with a sample rate less than 16,000 Hz,
    *             choose <code>NarrowBand</code>.</p>
+   * @public
    */
   BaseModelName: BaseModelName | undefined;
 
   /**
-   * @public
    * <p>A unique name, chosen by you, for your custom language model.</p>
    *          <p>This name is case sensitive, cannot contain spaces, and must be unique within an
    *                 Amazon Web Services account. If you try to create a new custom language model with
    *             the same name as an existing custom language model, you get a
    *                 <code>ConflictException</code> error.</p>
+   * @public
    */
   ModelName: string | undefined;
 
   /**
-   * @public
    * <p>Contains the Amazon S3 location of the training data you want to use to create
    *             a new custom language model, and permissions to access this location.</p>
    *          <p>When using <code>InputDataConfig</code>, you must include these sub-parameters:
@@ -1668,15 +1667,16 @@ export interface CreateLanguageModelRequest {
    *             optionally include <code>TuningDataS3Uri</code>, which is the Amazon S3 location
    *             of your tuning data. If you specify different Amazon S3 locations for training
    *             and tuning data, the ARN you use must have permissions to access both locations.</p>
+   * @public
    */
   InputDataConfig: InputDataConfig | undefined;
 
   /**
-   * @public
    * <p>Adds one or more custom tags, each in the form of a key:value pair, to a new custom
    *             language model at the time you create this new model.</p>
    *          <p>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
    *                 resources</a>.</p>
+   * @public
    */
   Tags?: Tag[];
 }
@@ -1701,36 +1701,36 @@ export type ModelStatus = (typeof ModelStatus)[keyof typeof ModelStatus];
  */
 export interface CreateLanguageModelResponse {
   /**
-   * @public
    * <p>The language code you selected for your custom language model.</p>
+   * @public
    */
   LanguageCode?: CLMLanguageCode;
 
   /**
-   * @public
    * <p>The Amazon Transcribe standard language model, or base model, you specified when
    *             creating your custom language model.</p>
+   * @public
    */
   BaseModelName?: BaseModelName;
 
   /**
-   * @public
    * <p>The name of your custom language model.</p>
+   * @public
    */
   ModelName?: string;
 
   /**
-   * @public
    * <p>Lists your data access role ARN (Amazon Resource Name) and the Amazon S3
    *             locations you provided for your training (<code>S3Uri</code>) and tuning
    *                 (<code>TuningDataS3Uri</code>) data.</p>
+   * @public
    */
   InputDataConfig?: InputDataConfig;
 
   /**
-   * @public
    * <p>The status of your custom language model. When the status displays as
    *                 <code>COMPLETED</code>, your model is ready to use.</p>
+   * @public
    */
   ModelStatus?: ModelStatus;
 }
@@ -1740,39 +1740,39 @@ export interface CreateLanguageModelResponse {
  */
 export interface CreateMedicalVocabularyRequest {
   /**
-   * @public
    * <p>A unique name, chosen by you, for your new custom medical vocabulary.</p>
    *          <p>This name is case sensitive, cannot contain spaces, and must be unique within an
    *                 Amazon Web Services account. If you try to create a new custom medical vocabulary
    *             with the same name as an existing custom medical vocabulary, you get a
    *                 <code>ConflictException</code> error.</p>
+   * @public
    */
   VocabularyName: string | undefined;
 
   /**
-   * @public
    * <p>The language code that represents the language of the entries in your custom
    *             vocabulary. US English (<code>en-US</code>) is the only language supported with Amazon Transcribe Medical.</p>
+   * @public
    */
   LanguageCode: LanguageCode | undefined;
 
   /**
-   * @public
    * <p>The Amazon S3 location (URI) of the text file that contains your custom
    *             medical vocabulary. The URI must be in the same Amazon Web Services Region as the
    *             resource you're calling.</p>
    *          <p>Here's an example URI path:
    *             <code>s3://DOC-EXAMPLE-BUCKET/my-vocab-file.txt</code>
    *          </p>
+   * @public
    */
   VocabularyFileUri: string | undefined;
 
   /**
-   * @public
    * <p>Adds one or more custom tags, each in the form of a key:value pair, to a new custom
    *             medical vocabulary at the time you create this new custom vocabulary.</p>
    *          <p>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
    *                 resources</a>.</p>
+   * @public
    */
   Tags?: Tag[];
 }
@@ -1797,41 +1797,41 @@ export type VocabularyState = (typeof VocabularyState)[keyof typeof VocabularySt
  */
 export interface CreateMedicalVocabularyResponse {
   /**
-   * @public
    * <p>The name you chose for your custom medical vocabulary.</p>
+   * @public
    */
   VocabularyName?: string;
 
   /**
-   * @public
    * <p>The language code you selected for your custom medical vocabulary. US English
    *                 (<code>en-US</code>) is the only language supported with Amazon Transcribe
    *             Medical.</p>
+   * @public
    */
   LanguageCode?: LanguageCode;
 
   /**
-   * @public
    * <p>The processing state of your custom medical vocabulary. If the state is
    *                 <code>READY</code>, you can use the custom vocabulary in a
    *                 <code>StartMedicalTranscriptionJob</code> request.</p>
+   * @public
    */
   VocabularyState?: VocabularyState;
 
   /**
-   * @public
    * <p>The date and time you created your custom medical vocabulary.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:32:58.761000-07:00</code> represents 12:32 PM UTC-7 on May
    *             4, 2022.</p>
+   * @public
    */
   LastModifiedTime?: Date;
 
   /**
-   * @public
    * <p>If <code>VocabularyState</code> is <code>FAILED</code>, <code>FailureReason</code>
    *             contains information about why the medical transcription job request failed. See also:
    *                 <a href="https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html">Common Errors</a>.</p>
+   * @public
    */
   FailureReason?: string;
 }
@@ -1841,17 +1841,16 @@ export interface CreateMedicalVocabularyResponse {
  */
 export interface CreateVocabularyRequest {
   /**
-   * @public
    * <p>A unique name, chosen by you, for your new custom vocabulary.</p>
    *          <p>This name is case sensitive, cannot contain spaces, and must be unique within an
    *                 Amazon Web Services account. If you try to create a new custom vocabulary with the
    *             same name as an existing custom vocabulary, you get a <code>ConflictException</code>
    *             error.</p>
+   * @public
    */
   VocabularyName: string | undefined;
 
   /**
-   * @public
    * <p>The language code that represents the language of the entries in your custom
    *             vocabulary. Each custom vocabulary must contain terms in only one language.</p>
    *          <p>A custom vocabulary can only be used to transcribe files in the same language as the
@@ -1860,11 +1859,11 @@ export interface CreateVocabularyRequest {
    *             contain English audio.</p>
    *          <p>For a list of supported languages and their associated language codes, refer to the
    *                 <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported languages</a> table.</p>
+   * @public
    */
   LanguageCode: LanguageCode | undefined;
 
   /**
-   * @public
    * <p>Use this parameter if you want to create your custom vocabulary by including all
    *             desired terms, as comma-separated values, within your request. The other option for
    *             creating your custom vocabulary is to save your entries in a text file and upload them
@@ -1876,11 +1875,11 @@ export interface CreateVocabularyRequest {
    *             specific language. If you use unsupported characters, your custom vocabulary filter
    *             request fails. Refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character Sets for Custom
    *                 Vocabularies</a> to get the character set for your language.</p>
+   * @public
    */
   Phrases?: string[];
 
   /**
-   * @public
    * <p>The Amazon S3 location of the text file that contains your custom vocabulary.
    *             The URI must be located in the same Amazon Web Services Region as the resource you're
    *             calling.</p>
@@ -1889,20 +1888,20 @@ export interface CreateVocabularyRequest {
    *          </p>
    *          <p>Note that if you include <code>VocabularyFileUri</code> in your request, you cannot
    *             use the <code>Phrases</code> flag; you must choose one or the other.</p>
+   * @public
    */
   VocabularyFileUri?: string;
 
   /**
-   * @public
    * <p>Adds one or more custom tags, each in the form of a key:value pair, to a new custom
    *             vocabulary at the time you create this new custom vocabulary.</p>
    *          <p>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
    *                 resources</a>.</p>
+   * @public
    */
   Tags?: Tag[];
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of an IAM role that has permissions to
    *             access the Amazon S3 bucket that contains your input files (in this case, your custom
    *             vocabulary). If the role that you specify doesn’t have the appropriate permissions to access
@@ -1912,6 +1911,7 @@ export interface CreateVocabularyRequest {
    *             <code>arn:aws:iam::111122223333:role/Admin</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM
    *             ARNs</a>.</p>
+   * @public
    */
   DataAccessRoleArn?: string;
 }
@@ -1921,39 +1921,39 @@ export interface CreateVocabularyRequest {
  */
 export interface CreateVocabularyResponse {
   /**
-   * @public
    * <p>The name you chose for your custom vocabulary.</p>
+   * @public
    */
   VocabularyName?: string;
 
   /**
-   * @public
    * <p>The language code you selected for your custom vocabulary.</p>
+   * @public
    */
   LanguageCode?: LanguageCode;
 
   /**
-   * @public
    * <p>The processing state of your custom vocabulary. If the state is <code>READY</code>,
    *             you can use the custom vocabulary in a <code>StartTranscriptionJob</code>
    *             request.</p>
+   * @public
    */
   VocabularyState?: VocabularyState;
 
   /**
-   * @public
    * <p>The date and time you created your custom vocabulary.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:32:58.761000-07:00</code> represents 12:32 PM UTC-7 on May
    *             4, 2022.</p>
+   * @public
    */
   LastModifiedTime?: Date;
 
   /**
-   * @public
    * <p>If <code>VocabularyState</code> is <code>FAILED</code>, <code>FailureReason</code>
    *             contains information about why the custom vocabulary request failed. See also: <a href="https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html">Common
    *                 Errors</a>.</p>
+   * @public
    */
   FailureReason?: string;
 }
@@ -1963,17 +1963,16 @@ export interface CreateVocabularyResponse {
  */
 export interface CreateVocabularyFilterRequest {
   /**
-   * @public
    * <p>A unique name, chosen by you, for your new custom vocabulary filter.</p>
    *          <p>This name is case sensitive, cannot contain spaces, and must be unique within an
    *                 Amazon Web Services account. If you try to create a new custom vocabulary filter with
    *             the same name as an existing custom vocabulary filter, you get a
    *                 <code>ConflictException</code> error.</p>
+   * @public
    */
   VocabularyFilterName: string | undefined;
 
   /**
-   * @public
    * <p>The language code that represents the language of the entries in your vocabulary
    *             filter. Each custom vocabulary filter must contain terms in only one language.</p>
    *          <p>A custom vocabulary filter can only be used to transcribe files in the same language
@@ -1982,11 +1981,11 @@ export interface CreateVocabularyFilterRequest {
    *             audio.</p>
    *          <p>For a list of supported languages and their associated language codes, refer to the
    *                 <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported languages</a> table.</p>
+   * @public
    */
   LanguageCode: LanguageCode | undefined;
 
   /**
-   * @public
    * <p>Use this parameter if you want to create your custom vocabulary filter by including
    *             all desired terms, as comma-separated values, within your request. The other option for
    *             creating your vocabulary filter is to save your entries in a text file and upload them
@@ -1998,11 +1997,11 @@ export interface CreateVocabularyFilterRequest {
    *             specific language. If you use unsupported characters, your custom vocabulary filter
    *             request fails. Refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character Sets for Custom
    *                 Vocabularies</a> to get the character set for your language.</p>
+   * @public
    */
   Words?: string[];
 
   /**
-   * @public
    * <p>The Amazon S3 location of the text file that contains your custom vocabulary
    *             filter terms. The URI must be located in the same Amazon Web Services Region as the
    *             resource you're calling.</p>
@@ -2011,20 +2010,20 @@ export interface CreateVocabularyFilterRequest {
    *          </p>
    *          <p>Note that if you include <code>VocabularyFilterFileUri</code> in your request, you
    *             cannot use <code>Words</code>; you must choose one or the other.</p>
+   * @public
    */
   VocabularyFilterFileUri?: string;
 
   /**
-   * @public
    * <p>Adds one or more custom tags, each in the form of a key:value pair, to a new custom
    *             vocabulary filter at the time you create this new vocabulary filter.</p>
    *          <p>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
    *                 resources</a>.</p>
+   * @public
    */
   Tags?: Tag[];
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of an IAM role that has permissions to
    *             access the Amazon S3 bucket that contains your input files (in this case, your custom
    *             vocabulary filter). If the role that you specify doesn’t have the appropriate permissions to access
@@ -2034,6 +2033,7 @@ export interface CreateVocabularyFilterRequest {
    *             <code>arn:aws:iam::111122223333:role/Admin</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM
    *             ARNs</a>.</p>
+   * @public
    */
   DataAccessRoleArn?: string;
 }
@@ -2043,23 +2043,23 @@ export interface CreateVocabularyFilterRequest {
  */
 export interface CreateVocabularyFilterResponse {
   /**
-   * @public
    * <p>The name you chose for your custom vocabulary filter.</p>
+   * @public
    */
   VocabularyFilterName?: string;
 
   /**
-   * @public
    * <p>The language code you selected for your custom vocabulary filter.</p>
+   * @public
    */
   LanguageCode?: LanguageCode;
 
   /**
-   * @public
    * <p>The date and time you created your custom vocabulary filter.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:32:58.761000-07:00</code> represents 12:32 PM UTC-7 on May
    *             4, 2022.</p>
+   * @public
    */
   LastModifiedTime?: Date;
 }
@@ -2069,9 +2069,9 @@ export interface CreateVocabularyFilterResponse {
  */
 export interface DeleteCallAnalyticsCategoryRequest {
   /**
-   * @public
    * <p>The name of the Call Analytics category you want to delete. Category names are case
    *             sensitive.</p>
+   * @public
    */
   CategoryName: string | undefined;
 }
@@ -2082,9 +2082,9 @@ export interface DeleteCallAnalyticsCategoryRequest {
 export interface DeleteCallAnalyticsCategoryResponse {}
 
 /**
- * @public
  * <p>We can't find the requested resource. Check that the specified name is correct and try
  *             your request again.</p>
+ * @public
  */
 export class NotFoundException extends __BaseException {
   readonly name: "NotFoundException" = "NotFoundException";
@@ -2109,9 +2109,9 @@ export class NotFoundException extends __BaseException {
  */
 export interface DeleteCallAnalyticsJobRequest {
   /**
-   * @public
    * <p>The name of the Call Analytics job you want to delete. Job names are case
    *             sensitive.</p>
+   * @public
    */
   CallAnalyticsJobName: string | undefined;
 }
@@ -2126,9 +2126,9 @@ export interface DeleteCallAnalyticsJobResponse {}
  */
 export interface DeleteLanguageModelRequest {
   /**
-   * @public
    * <p>The name of the custom language model you want to delete. Model names are case
    *             sensitive.</p>
+   * @public
    */
   ModelName: string | undefined;
 }
@@ -2138,9 +2138,9 @@ export interface DeleteLanguageModelRequest {
  */
 export interface DeleteMedicalScribeJobRequest {
   /**
-   * @public
    * <p>The name of the Medical Scribe job you want to delete. Job names are case
    *             sensitive.</p>
+   * @public
    */
   MedicalScribeJobName: string | undefined;
 }
@@ -2150,9 +2150,9 @@ export interface DeleteMedicalScribeJobRequest {
  */
 export interface DeleteMedicalTranscriptionJobRequest {
   /**
-   * @public
    * <p>The name of the medical transcription job you want to delete. Job names are case
    *             sensitive.</p>
+   * @public
    */
   MedicalTranscriptionJobName: string | undefined;
 }
@@ -2162,9 +2162,9 @@ export interface DeleteMedicalTranscriptionJobRequest {
  */
 export interface DeleteMedicalVocabularyRequest {
   /**
-   * @public
    * <p>The name of the custom medical vocabulary you want to delete. Custom medical
    *             vocabulary names are case sensitive.</p>
+   * @public
    */
   VocabularyName: string | undefined;
 }
@@ -2174,9 +2174,9 @@ export interface DeleteMedicalVocabularyRequest {
  */
 export interface DeleteTranscriptionJobRequest {
   /**
-   * @public
    * <p>The name of the transcription job you want to delete. Job names are case
    *             sensitive.</p>
+   * @public
    */
   TranscriptionJobName: string | undefined;
 }
@@ -2186,9 +2186,9 @@ export interface DeleteTranscriptionJobRequest {
  */
 export interface DeleteVocabularyRequest {
   /**
-   * @public
    * <p>The name of the custom vocabulary you want to delete. Custom vocabulary names are case
    *             sensitive.</p>
+   * @public
    */
   VocabularyName: string | undefined;
 }
@@ -2198,9 +2198,9 @@ export interface DeleteVocabularyRequest {
  */
 export interface DeleteVocabularyFilterRequest {
   /**
-   * @public
    * <p>The name of the custom vocabulary filter you want to delete. Custom vocabulary filter
    *             names are case sensitive.</p>
+   * @public
    */
   VocabularyFilterName: string | undefined;
 }
@@ -2210,15 +2210,14 @@ export interface DeleteVocabularyFilterRequest {
  */
 export interface DescribeLanguageModelRequest {
   /**
-   * @public
    * <p>The name of the custom language model you want information about. Model names are case
    *             sensitive.</p>
+   * @public
    */
   ModelName: string | undefined;
 }
 
 /**
- * @public
  * <p>Provides information about a custom language model, including:</p>
  *          <ul>
  *             <li>
@@ -2246,61 +2245,61 @@ export interface DescribeLanguageModelRequest {
  *                <p>Any available upgrades for the base model</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export interface LanguageModel {
   /**
-   * @public
    * <p>A unique name, chosen by you, for your custom language model.</p>
    *          <p>This name is case sensitive, cannot contain spaces, and must be unique within an
    *                 Amazon Web Services account.</p>
+   * @public
    */
   ModelName?: string;
 
   /**
-   * @public
    * <p>The date and time the specified custom language model was created.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:32:58.761000-07:00</code> represents 12:32 PM UTC-7 on May
    *             4, 2022.</p>
+   * @public
    */
   CreateTime?: Date;
 
   /**
-   * @public
    * <p>The date and time the specified custom language model was last modified.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:32:58.761000-07:00</code> represents 12:32 PM UTC-7 on May
    *             4, 2022.</p>
+   * @public
    */
   LastModifiedTime?: Date;
 
   /**
-   * @public
    * <p>The language code used to create your custom language model. Each custom language
    *             model must contain terms in only one language, and the language you select for your
    *             custom language model must match the language of your training and tuning data.</p>
    *          <p>For a list of supported languages and their associated language codes, refer to the
    *                 <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported languages</a> table. Note that US English (<code>en-US</code>) is
    *             the only language supported with Amazon Transcribe Medical.</p>
+   * @public
    */
   LanguageCode?: CLMLanguageCode;
 
   /**
-   * @public
    * <p>The Amazon Transcribe standard language model, or base model, used to create your
    *             custom language model.</p>
+   * @public
    */
   BaseModelName?: BaseModelName;
 
   /**
-   * @public
    * <p>The status of the specified custom language model. When the status displays as
    *                 <code>COMPLETED</code> the model is ready for use.</p>
+   * @public
    */
   ModelStatus?: ModelStatus;
 
   /**
-   * @public
    * <p>Shows if a more current base model is available for use with the specified custom
    *             language model.</p>
    *          <p>If <code>false</code>, your custom language model is using the most up-to-date base
@@ -2310,22 +2309,23 @@ export interface LanguageModel {
    *          <p>Note that to update a base model, you must recreate the custom language model using
    *             the new base model. Base model upgrades for existing custom language models are not
    *             supported.</p>
+   * @public
    */
   UpgradeAvailability?: boolean;
 
   /**
-   * @public
    * <p>If <code>ModelStatus</code> is <code>FAILED</code>, <code>FailureReason</code>
    *             contains information about why the custom language model request failed. See also:
    *                 <a href="https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html">Common Errors</a>.</p>
+   * @public
    */
   FailureReason?: string;
 
   /**
-   * @public
    * <p>The Amazon S3 location of the input files used to train and tune your custom
    *             language model, in addition to the data access role ARN (Amazon Resource Name) that has
    *             permissions to access these data.</p>
+   * @public
    */
   InputDataConfig?: InputDataConfig;
 }
@@ -2335,7 +2335,6 @@ export interface LanguageModel {
  */
 export interface DescribeLanguageModelResponse {
   /**
-   * @public
    * <p>Provides information about the specified custom language model.</p>
    *          <p>This parameter also shows if the base language model you used to create your custom
    *             language model has been updated. If Amazon Transcribe has updated the base model, you
@@ -2343,6 +2342,7 @@ export interface DescribeLanguageModelResponse {
    *          <p>If you tried to create a new custom language model and the request wasn't successful,
    *             you can use this <code>DescribeLanguageModel</code> to help identify the reason for this
    *             failure.</p>
+   * @public
    */
   LanguageModel?: LanguageModel;
 }
@@ -2352,9 +2352,9 @@ export interface DescribeLanguageModelResponse {
  */
 export interface GetCallAnalyticsCategoryRequest {
   /**
-   * @public
    * <p>The name of the Call Analytics category you want information about. Category names are
    *             case sensitive.</p>
+   * @public
    */
   CategoryName: string | undefined;
 }
@@ -2364,9 +2364,9 @@ export interface GetCallAnalyticsCategoryRequest {
  */
 export interface GetCallAnalyticsCategoryResponse {
   /**
-   * @public
    * <p>Provides you with the properties of the Call Analytics category you specified in your
    *                 <code>GetCallAnalyticsCategory</code> request.</p>
+   * @public
    */
   CategoryProperties?: CategoryProperties;
 }
@@ -2376,9 +2376,9 @@ export interface GetCallAnalyticsCategoryResponse {
  */
 export interface GetCallAnalyticsJobRequest {
   /**
-   * @public
    * <p>The name of the Call Analytics job you want information about. Job names are case
    *             sensitive.</p>
+   * @public
    */
   CallAnalyticsJobName: string | undefined;
 }
@@ -2388,9 +2388,9 @@ export interface GetCallAnalyticsJobRequest {
  */
 export interface GetCallAnalyticsJobResponse {
   /**
-   * @public
    * <p>Provides detailed information about the specified Call Analytics job, including job
    *             status and, if applicable, failure reason.</p>
+   * @public
    */
   CallAnalyticsJob?: CallAnalyticsJob;
 }
@@ -2400,9 +2400,9 @@ export interface GetCallAnalyticsJobResponse {
  */
 export interface GetMedicalScribeJobRequest {
   /**
-   * @public
    * <p>The name of the Medical Scribe job you want information about. Job names are
    *             case sensitive.</p>
+   * @public
    */
   MedicalScribeJobName: string | undefined;
 }
@@ -2423,23 +2423,23 @@ export type MedicalScribeParticipantRole =
   (typeof MedicalScribeParticipantRole)[keyof typeof MedicalScribeParticipantRole];
 
 /**
- * @public
  * <p>Indicates which speaker is on which channel. The options are
  *       <code>CLINICIAN</code> and <code>PATIENT</code>
  *          </p>
+ * @public
  */
 export interface MedicalScribeChannelDefinition {
   /**
-   * @public
    * <p>Specify the audio channel you want to define.</p>
+   * @public
    */
   ChannelId: number | undefined;
 
   /**
-   * @public
    * <p>Specify the participant that you want to flag.
    *       The options are <code>CLINICIAN</code> and <code>PATIENT</code>
    *          </p>
+   * @public
    */
   ParticipantRole: MedicalScribeParticipantRole | undefined;
 }
@@ -2474,27 +2474,26 @@ export const MedicalScribeJobStatus = {
 export type MedicalScribeJobStatus = (typeof MedicalScribeJobStatus)[keyof typeof MedicalScribeJobStatus];
 
 /**
- * @public
  * <p>The location of the output of your Medical Scribe job.
  *       <code>ClinicalDocumentUri</code> holds the Amazon S3 URI for the Clinical Document
  *       and <code>TranscriptFileUri</code> holds the Amazon S3 URI for the Transcript.</p>
+ * @public
  */
 export interface MedicalScribeOutput {
   /**
-   * @public
    * <p>Holds the Amazon S3 URI for the Transcript.</p>
+   * @public
    */
   TranscriptFileUri: string | undefined;
 
   /**
-   * @public
    * <p>Holds the Amazon S3 URI for the Clinical Document.</p>
+   * @public
    */
   ClinicalDocumentUri: string | undefined;
 }
 
 /**
- * @public
  * <p>Makes it possible to control how your Medical Scribe job is processed using a
  *             <code>MedicalScribeSettings</code> object. Specify <code>ChannelIdentification</code> if
  *             <code>ChannelDefinitions</code> are set. Enabled <code>ShowSpeakerLabels</code> if <code>ChannelIdentification</code>
@@ -2503,67 +2502,67 @@ export interface MedicalScribeOutput {
  *             to specify a vocabulary or vocabulary filter or both using <code>VocabularyName</code>, <code>VocabularyFilterName</code>.
  *             <code>VocabularyFilterMethod</code> must be specified if <code>VocabularyFilterName</code> is set.
  *         </p>
+ * @public
  */
 export interface MedicalScribeSettings {
   /**
-   * @public
    * <p>Enables speaker partitioning (diarization) in your Medical Scribe output. Speaker
    *             partitioning labels the speech from individual speakers in your media file.</p>
    *          <p>If you enable <code>ShowSpeakerLabels</code> in your request, you must also include
    *                 <code>MaxSpeakerLabels</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html">Partitioning speakers
    *                 (diarization)</a>.</p>
+   * @public
    */
   ShowSpeakerLabels?: boolean;
 
   /**
-   * @public
    * <p>Specify the maximum number of speakers you want to partition in your media.</p>
    *          <p>Note that if your media contains more speakers than the specified number, multiple
    *             speakers are treated as a single speaker.</p>
    *          <p>If you specify the <code>MaxSpeakerLabels</code> field, you must set the
    *                 <code>ShowSpeakerLabels</code> field to true.</p>
+   * @public
    */
   MaxSpeakerLabels?: number;
 
   /**
-   * @public
    * <p>Enables channel identification in multi-channel audio.</p>
    *          <p>Channel identification transcribes the audio on each channel independently, then
    *             appends the output for each channel into one transcript.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/channel-id.html">Transcribing multi-channel
    *             audio</a>.</p>
+   * @public
    */
   ChannelIdentification?: boolean;
 
   /**
-   * @public
    * <p>The name of the custom vocabulary you want to include in your Medical Scribe
    *             request. Custom vocabulary names are case sensitive.</p>
+   * @public
    */
   VocabularyName?: string;
 
   /**
-   * @public
    * <p>The name of the custom vocabulary filter you want to include in your Medical Scribe
    *             request. Custom vocabulary filter names are case sensitive.</p>
    *          <p>Note that if you include <code>VocabularyFilterName</code> in your request, you must
    *             also include <code>VocabularyFilterMethod</code>.</p>
+   * @public
    */
   VocabularyFilterName?: string;
 
   /**
-   * @public
    * <p>Specify how you want your custom vocabulary filter applied to your transcript.</p>
    *          <p>To replace words with <code>***</code>, choose <code>mask</code>.</p>
    *          <p>To delete words, choose <code>remove</code>.</p>
    *          <p>To flag words without changing them, choose <code>tag</code>.</p>
+   * @public
    */
   VocabularyFilterMethod?: VocabularyFilterMethod;
 }
 
 /**
- * @public
  * <p>Provides detailed information about a Medical Scribe job.</p>
  *          <p>To view the status of the specified Medical Scribe job, check the
  *                 <code>MedicalScribeJobStatus</code> field. If the status is <code>COMPLETED</code>,
@@ -2571,87 +2570,87 @@ export interface MedicalScribeSettings {
  *                 <code>MedicalScribeOutput</code>. If the status is <code>FAILED</code>,
  *                 <code>FailureReason</code> provides details on why your Medical Scribe job
  *             failed.</p>
+ * @public
  */
 export interface MedicalScribeJob {
   /**
-   * @public
    * <p>The name of the Medical Scribe job. Job names are case sensitive and must be
    *             unique within an Amazon Web Services account.</p>
+   * @public
    */
   MedicalScribeJobName?: string;
 
   /**
-   * @public
    * <p>Provides the status of the specified Medical Scribe job.</p>
    *          <p>If the status is <code>COMPLETED</code>, the job is finished and you can find the
    *             results at the location specified in <code>MedicalScribeOutput</code> If
    *             the status is <code>FAILED</code>, <code>FailureReason</code> provides details on why
    *             your Medical Scribe job failed.</p>
+   * @public
    */
   MedicalScribeJobStatus?: MedicalScribeJobStatus;
 
   /**
-   * @public
    * <p>The language code used to create your Medical Scribe job. US English
    *                 (<code>en-US</code>) is the only supported language for Medical Scribe jobs. </p>
+   * @public
    */
   LanguageCode?: MedicalScribeLanguageCode;
 
   /**
-   * @public
    * <p>Describes the Amazon S3 location of the media file you want to use in your
    *             request.</p>
    *          <p>For information on supported media formats, refer to the <code>MediaFormat</code>
    *             parameter or the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a> section
    *             in the Amazon S3 Developer Guide.</p>
+   * @public
    */
   Media?: Media;
 
   /**
-   * @public
    * <p>The location of the output of your Medical Scribe job.
    *       <code>ClinicalDocumentUri</code> holds the Amazon S3 URI for the Clinical Document
    *       and <code>TranscriptFileUri</code> holds the Amazon S3 URI for the Transcript.</p>
+   * @public
    */
   MedicalScribeOutput?: MedicalScribeOutput;
 
   /**
-   * @public
    * <p>The date and time your Medical Scribe job began processing.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:32:58.789000-07:00</code> represents a Medical Scribe job
    *             that started processing at 12:32 PM UTC-7 on May 4, 2022.</p>
+   * @public
    */
   StartTime?: Date;
 
   /**
-   * @public
    * <p>The date and time the specified Medical Scribe job request was made.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:32:58.761000-07:00</code> represents a Medical Scribe job
    *             that started processing at 12:32 PM UTC-7 on May 4, 2022.</p>
+   * @public
    */
   CreationTime?: Date;
 
   /**
-   * @public
    * <p>The date and time the specified Medical Scribe job finished processing.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:32:58.761000-07:00</code> represents a Medical Scribe job
    *             that finished processing at 12:32 PM UTC-7 on May 4, 2022.</p>
+   * @public
    */
   CompletionTime?: Date;
 
   /**
-   * @public
    * <p>If <code>MedicalScribeJobStatus</code> is <code>FAILED</code>,
    *                 <code>FailureReason</code> contains information about why the transcription job
    *             failed. See also: <a href="https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html">Common Errors</a>.</p>
+   * @public
    */
   FailureReason?: string;
 
   /**
-   * @public
    * <p>Makes it possible to control how your Medical Scribe job is processed using a
    *             <code>MedicalScribeSettings</code> object. Specify <code>ChannelIdentification</code> if
    *             <code>ChannelDefinitions</code> are set. Enabled <code>ShowSpeakerLabels</code> if <code>ChannelIdentification</code>
@@ -2660,11 +2659,11 @@ export interface MedicalScribeJob {
    *             to specify a vocabulary or vocabulary filter or both using <code>VocabularyName</code>, <code>VocabularyFilterName</code>.
    *             <code>VocabularyFilterMethod</code> must be specified if <code>VocabularyFilterName</code> is set.
    *         </p>
+   * @public
    */
   Settings?: MedicalScribeSettings;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of an IAM role that has permissions to
    *             access the Amazon S3 bucket that contains your input files,
    *             write to the output bucket, and use your KMS key if supplied.
@@ -2674,11 +2673,11 @@ export interface MedicalScribeJob {
    *             <code>arn:aws:iam::111122223333:role/Admin</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM
    *             ARNs</a>.</p>
+   * @public
    */
   DataAccessRoleArn?: string;
 
   /**
-   * @public
    * <p>Makes it possible to specify which speaker is on which channel. For example, if the clinician
    *             is the first participant to speak, you would set <code>ChannelId</code> of the first <code>ChannelDefinition</code>
    *             in the list to <code>0</code> (to indicate the first channel) and <code>ParticipantRole</code> to
@@ -2687,14 +2686,15 @@ export interface MedicalScribeJob {
    *             <code>1</code> (to indicate the second channel) and <code>ParticipantRole</code> to
    *             <code>PATIENT</code> (to indicate that it's the patient speaking).
    *         </p>
+   * @public
    */
   ChannelDefinitions?: MedicalScribeChannelDefinition[];
 
   /**
-   * @public
    * <p>Adds one or more custom tags, each in the form of a key:value pair, to the Medica Scribe job.</p>
    *          <p>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
    *                 resources</a>.</p>
+   * @public
    */
   Tags?: Tag[];
 }
@@ -2704,9 +2704,9 @@ export interface MedicalScribeJob {
  */
 export interface GetMedicalScribeJobResponse {
   /**
-   * @public
    * <p>Provides detailed information about the specified Medical Scribe job, including
    *             job status and, if applicable, failure reason</p>
+   * @public
    */
   MedicalScribeJob?: MedicalScribeJob;
 }
@@ -2716,9 +2716,9 @@ export interface GetMedicalScribeJobResponse {
  */
 export interface GetMedicalTranscriptionJobRequest {
   /**
-   * @public
    * <p>The name of the medical transcription job you want information about. Job names are
    *             case sensitive.</p>
+   * @public
    */
   MedicalTranscriptionJobName: string | undefined;
 }
@@ -2738,35 +2738,34 @@ export type MedicalContentIdentificationType =
   (typeof MedicalContentIdentificationType)[keyof typeof MedicalContentIdentificationType];
 
 /**
- * @public
  * <p>Allows additional optional settings in your  request, including channel
  *             identification, alternative transcriptions, and speaker partitioning. You can use that to
  *             apply custom vocabularies to your medical transcription job.</p>
+ * @public
  */
 export interface MedicalTranscriptionSetting {
   /**
-   * @public
    * <p>Enables speaker partitioning (diarization) in your transcription output. Speaker
    *             partitioning labels the speech from individual speakers in your media file.</p>
    *          <p>If you enable <code>ShowSpeakerLabels</code> in your request, you must also include
    *                 <code>MaxSpeakerLabels</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html">Partitioning speakers
    *                 (diarization)</a>.</p>
+   * @public
    */
   ShowSpeakerLabels?: boolean;
 
   /**
-   * @public
    * <p>Specify the maximum number of speakers you want to partition in your media.</p>
    *          <p>Note that if your media contains more speakers than the specified number, multiple
    *             speakers are treated as a single speaker.</p>
    *          <p>If you specify the <code>MaxSpeakerLabels</code> field, you must set the
    *                 <code>ShowSpeakerLabels</code> field to true.</p>
+   * @public
    */
   MaxSpeakerLabels?: number;
 
   /**
-   * @public
    * <p>Enables channel identification in multi-channel audio.</p>
    *          <p>Channel identification transcribes the audio on each channel independently, then
    *             appends the output for each channel into one transcript.</p>
@@ -2775,11 +2774,11 @@ export interface MedicalTranscriptionSetting {
    *             by channel.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/channel-id.html">Transcribing multi-channel
    *             audio</a>.</p>
+   * @public
    */
   ChannelIdentification?: boolean;
 
   /**
-   * @public
    * <p>To include alternative transcriptions within your transcription output, include
    *                 <code>ShowAlternatives</code> in your transcription request.</p>
    *          <p>If you include <code>ShowAlternatives</code>, you must also include
@@ -2787,11 +2786,11 @@ export interface MedicalTranscriptionSetting {
    *             transcriptions you want Amazon Transcribe Medical to generate.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-alternatives.html">Alternative
    *             transcriptions</a>.</p>
+   * @public
    */
   ShowAlternatives?: boolean;
 
   /**
-   * @public
    * <p>Indicate the maximum number of alternative transcriptions you want Amazon Transcribe
    *             Medical to include in your transcript.</p>
    *          <p>If you select a number greater than the number of alternative transcriptions generated
@@ -2801,17 +2800,18 @@ export interface MedicalTranscriptionSetting {
    *                 <code>ShowAlternatives</code> with a value of <code>true</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-alternatives.html">Alternative
    *             transcriptions</a>.</p>
+   * @public
    */
   MaxAlternatives?: number;
 
   /**
-   * @public
    * <p>The name of the custom vocabulary you want to use when processing your medical
    *             transcription job. Custom vocabulary names are case sensitive.</p>
    *          <p>The language of the specified custom vocabulary must match the language code that you
    *             specify in your transcription request. If the languages do not match, the custom
    *             vocabulary isn't applied. There are no errors or warnings associated with a language
    *             mismatch. US English (<code>en-US</code>) is the only valid language for Amazon Transcribe Medical.</p>
+   * @public
    */
   VocabularyName?: string;
 }
@@ -2830,17 +2830,17 @@ export const Specialty = {
 export type Specialty = (typeof Specialty)[keyof typeof Specialty];
 
 /**
- * @public
  * <p>Provides you with the Amazon S3 URI you can use to access your
  *             transcript.</p>
+ * @public
  */
 export interface MedicalTranscript {
   /**
-   * @public
    * <p>The Amazon S3 location of your transcript. You can use this URI to access or
    *             download your transcript.</p>
    *          <p>Note that this is the Amazon S3 location you specified in your request using the
    *             <code>OutputBucketName</code> parameter.</p>
+   * @public
    */
   TranscriptFileUri?: string;
 }
@@ -2876,7 +2876,6 @@ export const Type = {
 export type Type = (typeof Type)[keyof typeof Type];
 
 /**
- * @public
  * <p>Provides detailed information about a medical transcription job.</p>
  *          <p>To view the status of the specified medical transcription job, check the
  *                 <code>TranscriptionJobStatus</code> field. If the status is <code>COMPLETED</code>,
@@ -2884,91 +2883,91 @@ export type Type = (typeof Type)[keyof typeof Type];
  *                 <code>TranscriptFileUri</code>. If the status is <code>FAILED</code>,
  *                 <code>FailureReason</code> provides details on why your transcription job
  *             failed.</p>
+ * @public
  */
 export interface MedicalTranscriptionJob {
   /**
-   * @public
    * <p>The name of the medical transcription job. Job names are case sensitive and must be
    *             unique within an Amazon Web Services account.</p>
+   * @public
    */
   MedicalTranscriptionJobName?: string;
 
   /**
-   * @public
    * <p>Provides the status of the specified medical transcription job.</p>
    *          <p>If the status is <code>COMPLETED</code>, the job is finished and you can find the
    *             results at the location specified in <code>TranscriptFileUri</code>. If the status is
    *                 <code>FAILED</code>, <code>FailureReason</code> provides details on why your
    *             transcription job failed.</p>
+   * @public
    */
   TranscriptionJobStatus?: TranscriptionJobStatus;
 
   /**
-   * @public
    * <p>The language code used to create your medical transcription job. US English
    *                 (<code>en-US</code>) is the only supported language for medical
    *             transcriptions.</p>
+   * @public
    */
   LanguageCode?: LanguageCode;
 
   /**
-   * @public
    * <p>The sample rate, in hertz, of the audio track in your input media file.</p>
+   * @public
    */
   MediaSampleRateHertz?: number;
 
   /**
-   * @public
    * <p>The format of the input media file.</p>
+   * @public
    */
   MediaFormat?: MediaFormat;
 
   /**
-   * @public
    * <p>Describes the Amazon S3 location of the media file you want to use in your
    *             request.</p>
    *          <p>For information on supported media formats, refer to the <code>MediaFormat</code>
    *             parameter or the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a> section
    *             in the Amazon S3 Developer Guide.</p>
+   * @public
    */
   Media?: Media;
 
   /**
-   * @public
    * <p>Provides you with the Amazon S3 URI you can use to access your
    *             transcript.</p>
+   * @public
    */
   Transcript?: MedicalTranscript;
 
   /**
-   * @public
    * <p>The date and time the specified medical transcription job began processing.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:32:58.789000-07:00</code> represents a transcription job
    *             that started processing at 12:32 PM UTC-7 on May 4, 2022.</p>
+   * @public
    */
   StartTime?: Date;
 
   /**
-   * @public
    * <p>The date and time the specified medical transcription job request was made.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:32:58.761000-07:00</code> represents a transcription job
    *             that started processing at 12:32 PM UTC-7 on May 4, 2022.</p>
+   * @public
    */
   CreationTime?: Date;
 
   /**
-   * @public
    * <p>The date and time the specified medical transcription job finished processing.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:33:13.922000-07:00</code> represents a transcription job
    *             that started processing at 12:33 PM UTC-7 on May 4, 2022.</p>
+   * @public
    */
   CompletionTime?: Date;
 
   /**
-   * @public
    * <p>If <code>TranscriptionJobStatus</code> is <code>FAILED</code>,
    *                 <code>FailureReason</code> contains information about why the transcription job
    *             request failed.</p>
@@ -3018,41 +3017,42 @@ export interface MedicalTranscriptionJob {
    *                         quotas</a>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   FailureReason?: string;
 
   /**
-   * @public
    * <p>Provides information on any additional settings that were included in your request.
    *             Additional settings include channel identification, alternative transcriptions, speaker
    *             partitioning, custom vocabularies, and custom vocabulary filters.</p>
+   * @public
    */
   Settings?: MedicalTranscriptionSetting;
 
   /**
-   * @public
    * <p>Indicates whether content identification was enabled for your transcription
    *             request.</p>
+   * @public
    */
   ContentIdentificationType?: MedicalContentIdentificationType;
 
   /**
-   * @public
    * <p>Describes the medical specialty represented in your media.</p>
+   * @public
    */
   Specialty?: Specialty;
 
   /**
-   * @public
    * <p>Indicates whether the input media is a dictation or a conversation, as specified in
    *             the <code>StartMedicalTranscriptionJob</code> request.</p>
+   * @public
    */
   Type?: Type;
 
   /**
-   * @public
    * <p>The tags, each in the form of a key:value pair, assigned to the specified medical
    *             transcription job.</p>
+   * @public
    */
   Tags?: Tag[];
 }
@@ -3062,9 +3062,9 @@ export interface MedicalTranscriptionJob {
  */
 export interface GetMedicalTranscriptionJobResponse {
   /**
-   * @public
    * <p>Provides detailed information about the specified medical transcription job, including
    *             job status and, if applicable, failure reason.</p>
+   * @public
    */
   MedicalTranscriptionJob?: MedicalTranscriptionJob;
 }
@@ -3074,9 +3074,9 @@ export interface GetMedicalTranscriptionJobResponse {
  */
 export interface GetMedicalVocabularyRequest {
   /**
-   * @public
    * <p>The name of the custom medical vocabulary you want information about. Custom medical
    *             vocabulary names are case sensitive.</p>
+   * @public
    */
   VocabularyName: string | undefined;
 }
@@ -3086,48 +3086,48 @@ export interface GetMedicalVocabularyRequest {
  */
 export interface GetMedicalVocabularyResponse {
   /**
-   * @public
    * <p>The name of the custom medical vocabulary you requested information about.</p>
+   * @public
    */
   VocabularyName?: string;
 
   /**
-   * @public
    * <p>The language code you selected for your custom medical vocabulary. US English
    *                 (<code>en-US</code>) is the only language supported with Amazon Transcribe
    *             Medical.</p>
+   * @public
    */
   LanguageCode?: LanguageCode;
 
   /**
-   * @public
    * <p>The processing state of your custom medical vocabulary. If the state is
    *                 <code>READY</code>, you can use the custom vocabulary in a
    *                 <code>StartMedicalTranscriptionJob</code> request.</p>
+   * @public
    */
   VocabularyState?: VocabularyState;
 
   /**
-   * @public
    * <p>The date and time the specified custom medical vocabulary was last modified.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:32:58.761000-07:00</code> represents 12:32 PM UTC-7 on May
    *             4, 2022.</p>
+   * @public
    */
   LastModifiedTime?: Date;
 
   /**
-   * @public
    * <p>If <code>VocabularyState</code> is <code>FAILED</code>, <code>FailureReason</code>
    *             contains information about why the custom medical vocabulary request failed. See also:
    *                 <a href="https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html">Common Errors</a>.</p>
+   * @public
    */
   FailureReason?: string;
 
   /**
-   * @public
    * <p>The Amazon S3 location where the specified custom medical vocabulary is stored; use this URI
    *             to view or download the custom vocabulary.</p>
+   * @public
    */
   DownloadUri?: string;
 }
@@ -3137,25 +3137,24 @@ export interface GetMedicalVocabularyResponse {
  */
 export interface GetTranscriptionJobRequest {
   /**
-   * @public
    * <p>The name of the transcription job you want information about. Job names are case
    *             sensitive.</p>
+   * @public
    */
   TranscriptionJobName: string | undefined;
 }
 
 /**
- * @public
  * <p>Makes it possible to control how your transcription job is processed. Currently, the
  *             only <code>JobExecutionSettings</code> modification you can choose is enabling job
  *             queueing using the <code>AllowDeferredExecution</code> sub-parameter.</p>
  *          <p>If you include <code>JobExecutionSettings</code> in your request, you must also
  *             include the sub-parameters: <code>AllowDeferredExecution</code> and
  *                 <code>DataAccessRoleArn</code>.</p>
+ * @public
  */
 export interface JobExecutionSettings {
   /**
-   * @public
    * <p>Makes it possible to enable job queuing when your concurrent request limit is
    *             exceeded. When <code>AllowDeferredExecution</code> is set to <code>true</code>,
    *             transcription job requests are placed in a queue until the number of jobs falls below
@@ -3164,11 +3163,11 @@ export interface JobExecutionSettings {
    *             concurrent request limit, you get a <code>LimitExceededException</code> error.</p>
    *          <p>If you include <code>AllowDeferredExecution</code> in your request, you must also
    *             include <code>DataAccessRoleArn</code>.</p>
+   * @public
    */
   AllowDeferredExecution?: boolean;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of an IAM role that has permissions to
    *             access the Amazon S3 bucket that contains your input files. If the role that you
    *             specify doesn’t have the appropriate permissions to access the specified Amazon S3
@@ -3179,34 +3178,34 @@ export interface JobExecutionSettings {
    *                 ARNs</a>.</p>
    *          <p>Note that if you include <code>DataAccessRoleArn</code> in your request, you must also
    *             include <code>AllowDeferredExecution</code>.</p>
+   * @public
    */
   DataAccessRoleArn?: string;
 }
 
 /**
- * @public
  * <p>Provides information on the speech contained in a discreet utterance when
  *             multi-language identification is enabled in your request. This utterance represents a
  *             block of speech consisting of one language, preceded or followed by a block of speech in
  *             a different language.</p>
+ * @public
  */
 export interface LanguageCodeItem {
   /**
-   * @public
    * <p>Provides the language code for each language identified in your media.</p>
+   * @public
    */
   LanguageCode?: LanguageCode;
 
   /**
-   * @public
    * <p>Provides the total time, in seconds, each identified language is spoken in your
    *             media.</p>
+   * @public
    */
   DurationInSeconds?: number;
 }
 
 /**
- * @public
  * <p>Provides the name of the custom language model that was included in the specified
  *             transcription job.</p>
  *          <p>Only use <code>ModelSettings</code> with the <code>LanguageModelName</code>
@@ -3214,68 +3213,68 @@ export interface LanguageCodeItem {
  *             identification (<code></code>). If using
  *                 <code>LanguageIdSettings</code> in your request, this parameter contains a
  *                 <code>LanguageModelName</code> sub-parameter.</p>
+ * @public
  */
 export interface ModelSettings {
   /**
-   * @public
    * <p>The name of the custom language model you want to use when processing your
    *             transcription job. Note that custom language model names are case sensitive.</p>
    *          <p>The language of the specified custom language model must match the language code that
    *             you specify in your transcription request. If the languages do not match, the custom
    *             language model isn't applied. There are no errors or warnings associated with a language
    *             mismatch.</p>
+   * @public
    */
   LanguageModelName?: string;
 }
 
 /**
- * @public
  * <p>Allows additional optional settings in your
  *             request, including channel identification, alternative transcriptions, and speaker
  *             partitioning. You can use that to apply custom vocabularies to your transcription
  *             job.</p>
+ * @public
  */
 export interface Settings {
   /**
-   * @public
    * <p>The name of the custom vocabulary you want to use in your transcription job request.
    *             This name is case sensitive, cannot contain spaces, and must be unique within an Amazon Web Services account.</p>
+   * @public
    */
   VocabularyName?: string;
 
   /**
-   * @public
    * <p>Enables speaker partitioning (diarization) in your transcription output. Speaker
    *             partitioning labels the speech from individual speakers in your media file.</p>
    *          <p>If you enable <code>ShowSpeakerLabels</code> in your request, you must also include
    *                 <code>MaxSpeakerLabels</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html">Partitioning speakers
    *                 (diarization)</a>.</p>
+   * @public
    */
   ShowSpeakerLabels?: boolean;
 
   /**
-   * @public
    * <p>Specify the maximum number of speakers you want to partition in your media.</p>
    *          <p>Note that if your media contains more speakers than the specified number, multiple
    *             speakers are treated as a single speaker.</p>
    *          <p>If you specify the <code>MaxSpeakerLabels</code> field, you must set the
    *                 <code>ShowSpeakerLabels</code> field to true.</p>
+   * @public
    */
   MaxSpeakerLabels?: number;
 
   /**
-   * @public
    * <p>Enables channel identification in multi-channel audio.</p>
    *          <p>Channel identification transcribes the audio on each channel independently, then
    *             appends the output for each channel into one transcript.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/channel-id.html">Transcribing multi-channel
    *             audio</a>.</p>
+   * @public
    */
   ChannelIdentification?: boolean;
 
   /**
-   * @public
    * <p>To include alternative transcriptions within your transcription output, include
    *                 <code>ShowAlternatives</code> in your transcription request.</p>
    *          <p>If you have multi-channel audio and do not enable channel identification, your audio
@@ -3286,11 +3285,11 @@ export interface Settings {
    *             transcriptions you want Amazon Transcribe to generate.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-alternatives.html">Alternative
    *             transcriptions</a>.</p>
+   * @public
    */
   ShowAlternatives?: boolean;
 
   /**
-   * @public
    * <p>Indicate the maximum number of alternative transcriptions you want Amazon Transcribe
    *             to include in your transcript.</p>
    *          <p>If you select a number greater than the number of alternative transcriptions generated
@@ -3300,25 +3299,26 @@ export interface Settings {
    *                 <code>ShowAlternatives</code> with a value of <code>true</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-alternatives.html">Alternative
    *             transcriptions</a>.</p>
+   * @public
    */
   MaxAlternatives?: number;
 
   /**
-   * @public
    * <p>The name of the custom vocabulary filter you want to use in your transcription job
    *             request. This name is case sensitive, cannot contain spaces, and must be unique within
    *             an Amazon Web Services account.</p>
    *          <p>Note that if you include <code>VocabularyFilterName</code> in your request, you must
    *             also include <code>VocabularyFilterMethod</code>.</p>
+   * @public
    */
   VocabularyFilterName?: string;
 
   /**
-   * @public
    * <p>Specify how you want your custom vocabulary filter applied to your transcript.</p>
    *          <p>To replace words with <code>***</code>, choose <code>mask</code>.</p>
    *          <p>To delete words, choose <code>remove</code>.</p>
    *          <p>To flag words without changing them, choose <code>tag</code>.</p>
+   * @public
    */
   VocabularyFilterMethod?: VocabularyFilterMethod;
 }
@@ -3338,21 +3338,20 @@ export const SubtitleFormat = {
 export type SubtitleFormat = (typeof SubtitleFormat)[keyof typeof SubtitleFormat];
 
 /**
- * @public
  * <p>Provides information about your subtitle file, including format, start index, and
  *                 Amazon S3 location.</p>
+ * @public
  */
 export interface SubtitlesOutput {
   /**
-   * @public
    * <p>Provides the format of your subtitle files. If your request included both WebVTT
    *                 (<code>vtt</code>) and SubRip (<code>srt</code>) formats, both formats are
    *             shown.</p>
+   * @public
    */
   Formats?: SubtitleFormat[];
 
   /**
-   * @public
    * <p>The Amazon S3 location of your transcript. You can use this URI to access or
    *             download your subtitle file. Your subtitle file is stored in the same location as your
    *             transcript. If you specified both WebVTT and SubRip subtitle formats, two URIs are
@@ -3370,13 +3369,14 @@ export interface SubtitlesOutput {
    *                 URI by running a <code>GetTranscriptionJob</code> or
    *                     <code>ListTranscriptionJob</code> request.</p>
    *          </note>
+   * @public
    */
   SubtitleFileUris?: string[];
 
   /**
-   * @public
    * <p>Provides the start index value for your subtitle files. If you did not specify a value
    *             in your request, the default value of <code>0</code> is used.</p>
+   * @public
    */
   OutputStartIndex?: number;
 }
@@ -3395,23 +3395,22 @@ export const ToxicityCategory = {
 export type ToxicityCategory = (typeof ToxicityCategory)[keyof typeof ToxicityCategory];
 
 /**
- * @public
  * <p>Contains <code>ToxicityCategories</code>, which is a required parameter if you
  *             want to enable toxicity detection (<code>ToxicityDetection</code>) in your transcription
  *             request.</p>
+ * @public
  */
 export interface ToxicityDetectionSettings {
   /**
-   * @public
    * <p> If you include <code>ToxicityDetection</code> in your transcription request, you
    *             must also include <code>ToxicityCategories</code>. The only accepted value for this
    *             parameter is <code>ALL</code>.</p>
+   * @public
    */
   ToxicityCategories: ToxicityCategory[] | undefined;
 }
 
 /**
- * @public
  * <p>Provides detailed information about a transcription job.</p>
  *          <p>To view the status of the specified transcription job, check the
  *                 <code>TranscriptionJobStatus</code> field. If the status is <code>COMPLETED</code>,
@@ -3421,89 +3420,89 @@ export interface ToxicityDetectionSettings {
  *             failed.</p>
  *          <p>If you enabled content redaction, the redacted transcript can be found at the location
  *             specified in <code>RedactedTranscriptFileUri</code>.</p>
+ * @public
  */
 export interface TranscriptionJob {
   /**
-   * @public
    * <p>The name of the transcription job. Job names are case sensitive and must be unique
    *             within an Amazon Web Services account.</p>
+   * @public
    */
   TranscriptionJobName?: string;
 
   /**
-   * @public
    * <p>Provides the status of the specified transcription job.</p>
    *          <p>If the status is <code>COMPLETED</code>, the job is finished and you can find the
    *             results at the location specified in <code>TranscriptFileUri</code> (or
    *                 <code>RedactedTranscriptFileUri</code>, if you requested transcript redaction). If
    *             the status is <code>FAILED</code>, <code>FailureReason</code> provides details on why
    *             your transcription job failed.</p>
+   * @public
    */
   TranscriptionJobStatus?: TranscriptionJobStatus;
 
   /**
-   * @public
    * <p>The language code used to create your transcription job. This parameter is used with
    *             single-language identification. For multi-language identification requests, refer to the
    *             plural version of this parameter, <code>LanguageCodes</code>.</p>
+   * @public
    */
   LanguageCode?: LanguageCode;
 
   /**
-   * @public
    * <p>The sample rate, in hertz, of the audio track in your input media file.</p>
+   * @public
    */
   MediaSampleRateHertz?: number;
 
   /**
-   * @public
    * <p>The format of the input media file.</p>
+   * @public
    */
   MediaFormat?: MediaFormat;
 
   /**
-   * @public
    * <p>Provides the Amazon S3 location of the media file you used in your
    *             request.</p>
+   * @public
    */
   Media?: Media;
 
   /**
-   * @public
    * <p>Provides you with the Amazon S3 URI you can use to access your
    *             transcript.</p>
+   * @public
    */
   Transcript?: Transcript;
 
   /**
-   * @public
    * <p>The date and time the specified transcription job began processing.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:32:58.789000-07:00</code> represents a transcription job
    *             that started processing at 12:32 PM UTC-7 on May 4, 2022.</p>
+   * @public
    */
   StartTime?: Date;
 
   /**
-   * @public
    * <p>The date and time the specified transcription job request was made.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:32:58.761000-07:00</code> represents a transcription job
    *             that started processing at 12:32 PM UTC-7 on May 4, 2022.</p>
+   * @public
    */
   CreationTime?: Date;
 
   /**
-   * @public
    * <p>The date and time the specified transcription job finished processing.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:33:13.922000-07:00</code> represents a transcription job
    *             that started processing at 12:33 PM UTC-7 on May 4, 2022.</p>
+   * @public
    */
   CompletionTime?: Date;
 
   /**
-   * @public
    * <p>If <code>TranscriptionJobStatus</code> is <code>FAILED</code>,
    *                 <code>FailureReason</code> contains information about why the transcription job
    *             request failed.</p>
@@ -3553,97 +3552,98 @@ export interface TranscriptionJob {
    *                         quotas</a>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   FailureReason?: string;
 
   /**
-   * @public
    * <p>Provides information on any additional settings that were included in your request.
    *             Additional settings include channel identification, alternative transcriptions, speaker
    *             partitioning, custom vocabularies, and custom vocabulary filters.</p>
+   * @public
    */
   Settings?: Settings;
 
   /**
-   * @public
    * <p>Provides information on the custom language model you included in your request.</p>
+   * @public
    */
   ModelSettings?: ModelSettings;
 
   /**
-   * @public
    * <p>Provides information about how your transcription job was processed. This parameter
    *             shows if your request was queued and what data access role was used.</p>
+   * @public
    */
   JobExecutionSettings?: JobExecutionSettings;
 
   /**
-   * @public
    * <p>Indicates whether redaction was enabled in your transcript.</p>
+   * @public
    */
   ContentRedaction?: ContentRedaction;
 
   /**
-   * @public
    * <p>Indicates whether automatic language identification was enabled (<code>TRUE</code>)
    *             for the specified transcription job.</p>
+   * @public
    */
   IdentifyLanguage?: boolean;
 
   /**
-   * @public
    * <p>Indicates whether automatic multi-language identification was enabled
    *                 (<code>TRUE</code>) for the specified transcription job.</p>
+   * @public
    */
   IdentifyMultipleLanguages?: boolean;
 
   /**
-   * @public
    * <p>Provides the language codes you specified in your request.</p>
+   * @public
    */
   LanguageOptions?: LanguageCode[];
 
   /**
-   * @public
    * <p>The confidence score associated with the language identified in your media
    *             file.</p>
    *          <p>Confidence scores are values between 0 and 1; a larger value indicates a higher
    *             probability that the identified language correctly matches the language spoken in your
    *             media.</p>
+   * @public
    */
   IdentifiedLanguageScore?: number;
 
   /**
-   * @public
    * <p>The language codes used to create your transcription job. This parameter is used with
    *             multi-language identification. For single-language identification requests, refer to the
    *             singular version of this parameter, <code>LanguageCode</code>.</p>
+   * @public
    */
   LanguageCodes?: LanguageCodeItem[];
 
   /**
-   * @public
    * <p>The tags, each in the form of a key:value pair, assigned to the specified
    *             transcription job.</p>
+   * @public
    */
   Tags?: Tag[];
 
   /**
-   * @public
    * <p>Indicates whether subtitles were generated with your transcription.</p>
+   * @public
    */
   Subtitles?: SubtitlesOutput;
 
   /**
-   * @public
    * <p>Provides the name and language of all custom language models, custom vocabularies, and
    *             custom vocabulary filters that you included in your request.</p>
+   * @public
    */
   LanguageIdSettings?: Partial<Record<LanguageCode, LanguageIdSettings>>;
 
   /**
-   * @public
    * <p>Provides information about the toxicity detection settings applied to your transcription.</p>
+   * @public
    */
   ToxicityDetection?: ToxicityDetectionSettings[];
 }
@@ -3653,9 +3653,9 @@ export interface TranscriptionJob {
  */
 export interface GetTranscriptionJobResponse {
   /**
-   * @public
    * <p>Provides detailed information about the specified transcription job, including job
    *             status and, if applicable, failure reason.</p>
+   * @public
    */
   TranscriptionJob?: TranscriptionJob;
 }
@@ -3665,9 +3665,9 @@ export interface GetTranscriptionJobResponse {
  */
 export interface GetVocabularyRequest {
   /**
-   * @public
    * <p>The name of the custom vocabulary you want information about. Custom vocabulary names
    *             are case sensitive.</p>
+   * @public
    */
   VocabularyName: string | undefined;
 }
@@ -3677,46 +3677,46 @@ export interface GetVocabularyRequest {
  */
 export interface GetVocabularyResponse {
   /**
-   * @public
    * <p>The name of the custom vocabulary you requested information about.</p>
+   * @public
    */
   VocabularyName?: string;
 
   /**
-   * @public
    * <p>The language code you selected for your custom vocabulary.</p>
+   * @public
    */
   LanguageCode?: LanguageCode;
 
   /**
-   * @public
    * <p>The processing state of your custom vocabulary. If the state is <code>READY</code>,
    *             you can use the custom vocabulary in a <code>StartTranscriptionJob</code>
    *             request.</p>
+   * @public
    */
   VocabularyState?: VocabularyState;
 
   /**
-   * @public
    * <p>The date and time the specified custom vocabulary was last modified.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:32:58.761000-07:00</code> represents 12:32 PM UTC-7 on May
    *             4, 2022.</p>
+   * @public
    */
   LastModifiedTime?: Date;
 
   /**
-   * @public
    * <p>If <code>VocabularyState</code> is <code>FAILED</code>, <code>FailureReason</code>
    *             contains information about why the custom vocabulary request failed. See also: <a href="https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html">Common
    *                 Errors</a>.</p>
+   * @public
    */
   FailureReason?: string;
 
   /**
-   * @public
    * <p>The Amazon S3 location where the custom vocabulary is stored; use this URI to view or
    *             download the custom vocabulary.</p>
+   * @public
    */
   DownloadUri?: string;
 }
@@ -3726,9 +3726,9 @@ export interface GetVocabularyResponse {
  */
 export interface GetVocabularyFilterRequest {
   /**
-   * @public
    * <p>The name of the custom vocabulary filter you want information about. Custom vocabulary
    *             filter names are case sensitive.</p>
+   * @public
    */
   VocabularyFilterName: string | undefined;
 }
@@ -3738,30 +3738,30 @@ export interface GetVocabularyFilterRequest {
  */
 export interface GetVocabularyFilterResponse {
   /**
-   * @public
    * <p>The name of the custom vocabulary filter you requested information about.</p>
+   * @public
    */
   VocabularyFilterName?: string;
 
   /**
-   * @public
    * <p>The language code you selected for your custom vocabulary filter.</p>
+   * @public
    */
   LanguageCode?: LanguageCode;
 
   /**
-   * @public
    * <p>The date and time the specified custom vocabulary filter was last modified.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:32:58.761000-07:00</code> represents 12:32 PM UTC-7 on May
    *             4, 2022.</p>
+   * @public
    */
   LastModifiedTime?: Date;
 
   /**
-   * @public
    * <p>The Amazon S3 location where the custom vocabulary filter is stored; use this
    *             URI to view or download the custom vocabulary filter.</p>
+   * @public
    */
   DownloadUri?: string;
 }
@@ -3771,20 +3771,20 @@ export interface GetVocabularyFilterResponse {
  */
 export interface ListCallAnalyticsCategoriesRequest {
   /**
-   * @public
    * <p>If your <code>ListCallAnalyticsCategories</code> request returns more results than can
    *             be displayed, <code>NextToken</code> is displayed in the response with an associated
    *             string. To get the next page of results, copy this string and repeat your request,
    *             including <code>NextToken</code> with the value of the copied string. Repeat as needed
    *             to view all your results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of Call Analytics categories to return in each page of results. If
    *             there are fewer results than the value that you specify, only the actual results are
    *             returned. If you do not specify a value, a default of 5 is used.</p>
+   * @public
    */
   MaxResults?: number;
 }
@@ -3794,19 +3794,19 @@ export interface ListCallAnalyticsCategoriesRequest {
  */
 export interface ListCallAnalyticsCategoriesResponse {
   /**
-   * @public
    * <p>If <code>NextToken</code> is present in your response, it indicates that not all
    *             results are displayed. To view the next set of results, copy the string associated with
    *             the <code>NextToken</code> parameter in your results output, then run your request again
    *             including <code>NextToken</code> with the value of the copied string. Repeat as needed
    *             to view all your results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Provides detailed information about your Call Analytics categories, including all the
    *             rules associated with each category.</p>
+   * @public
    */
   Categories?: CategoryProperties[];
 }
@@ -3816,35 +3816,35 @@ export interface ListCallAnalyticsCategoriesResponse {
  */
 export interface ListCallAnalyticsJobsRequest {
   /**
-   * @public
    * <p>Returns only Call Analytics jobs with the specified status. Jobs are ordered by
    *             creation date, with the newest job first. If you do not include <code>Status</code>, all
    *             Call Analytics jobs are returned.</p>
+   * @public
    */
   Status?: CallAnalyticsJobStatus;
 
   /**
-   * @public
    * <p>Returns only the Call Analytics jobs that contain the specified string. The search is
    *             not case sensitive.</p>
+   * @public
    */
   JobNameContains?: string;
 
   /**
-   * @public
    * <p>If your <code>ListCallAnalyticsJobs</code> request returns more results than can be
    *             displayed, <code>NextToken</code> is displayed in the response with an associated
    *             string. To get the next page of results, copy this string and repeat your request,
    *             including <code>NextToken</code> with the value of the copied string. Repeat as needed
    *             to view all your results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of Call Analytics jobs to return in each page of results. If there
    *             are fewer results than the value that you specify, only the actual results are returned.
    *             If you do not specify a value, a default of 5 is used.</p>
+   * @public
    */
   MaxResults?: number;
 }
@@ -3854,25 +3854,25 @@ export interface ListCallAnalyticsJobsRequest {
  */
 export interface ListCallAnalyticsJobsResponse {
   /**
-   * @public
    * <p>Lists all Call Analytics jobs that have the status specified in your request. Jobs are
    *             ordered by creation date, with the newest job first.</p>
+   * @public
    */
   Status?: CallAnalyticsJobStatus;
 
   /**
-   * @public
    * <p>If <code>NextToken</code> is present in your response, it indicates that not all
    *             results are displayed. To view the next set of results, copy the string associated with
    *             the <code>NextToken</code> parameter in your results output, then run your request again
    *             including <code>NextToken</code> with the value of the copied string. Repeat as needed
    *             to view all your results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Provides a summary of information about each result.</p>
+   * @public
    */
   CallAnalyticsJobSummaries?: CallAnalyticsJobSummary[];
 }
@@ -3882,35 +3882,35 @@ export interface ListCallAnalyticsJobsResponse {
  */
 export interface ListLanguageModelsRequest {
   /**
-   * @public
    * <p>Returns only custom language models with the specified status. Language models are
    *             ordered by creation date, with the newest model first. If you do not include
    *                 <code>StatusEquals</code>, all custom language models are returned.</p>
+   * @public
    */
   StatusEquals?: ModelStatus;
 
   /**
-   * @public
    * <p>Returns only the custom language models that contain the specified string. The search
    *             is not case sensitive.</p>
+   * @public
    */
   NameContains?: string;
 
   /**
-   * @public
    * <p>If your <code>ListLanguageModels</code> request returns more results than can be
    *             displayed, <code>NextToken</code> is displayed in the response with an associated
    *             string. To get the next page of results, copy this string and repeat your request,
    *             including <code>NextToken</code> with the value of the copied string. Repeat as needed
    *             to view all your results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of custom language models to return in each page of results. If
    *             there are fewer results than the value that you specify, only the actual results are
    *             returned. If you do not specify a value, a default of 5 is used.</p>
+   * @public
    */
   MaxResults?: number;
 }
@@ -3920,19 +3920,19 @@ export interface ListLanguageModelsRequest {
  */
 export interface ListLanguageModelsResponse {
   /**
-   * @public
    * <p>If <code>NextToken</code> is present in your response, it indicates that not all
    *             results are displayed. To view the next set of results, copy the string associated with
    *             the <code>NextToken</code> parameter in your results output, then run your request again
    *             including <code>NextToken</code> with the value of the copied string. Repeat as needed
    *             to view all your results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Provides information about the custom language models that match the criteria
    *             specified in your request.</p>
+   * @public
    */
   Models?: LanguageModel[];
 }
@@ -3942,100 +3942,100 @@ export interface ListLanguageModelsResponse {
  */
 export interface ListMedicalScribeJobsRequest {
   /**
-   * @public
    * <p>Returns only Medical Scribe jobs with the specified status. Jobs are ordered by
    *             creation date, with the newest job first. If you do not include <code>Status</code>, all
    *             Medical Scribe jobs are returned.</p>
+   * @public
    */
   Status?: MedicalScribeJobStatus;
 
   /**
-   * @public
    * <p>Returns only the Medical Scribe jobs that contain the specified string. The
    *             search is not case sensitive.</p>
+   * @public
    */
   JobNameContains?: string;
 
   /**
-   * @public
    * <p>If your <code>ListMedicalScribeJobs</code> request returns more results than
    *             can be displayed, <code>NextToken</code> is displayed in the response with an associated
    *             string. To get the next page of results, copy this string and repeat your request,
    *             including <code>NextToken</code> with the value of the copied string. Repeat as needed
    *             to view all your results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of Medical Scribe jobs to return in each page of results. If
    *             there are fewer results than the value that you specify, only the actual results are
    *             returned. If you do not specify a value, a default of 5 is used.</p>
+   * @public
    */
   MaxResults?: number;
 }
 
 /**
- * @public
  * <p>Provides detailed information about a specific Medical Scribe job.</p>
+ * @public
  */
 export interface MedicalScribeJobSummary {
   /**
-   * @public
    * <p>The name of the Medical Scribe job. Job names are case sensitive and must be
    *             unique within an Amazon Web Services account.</p>
+   * @public
    */
   MedicalScribeJobName?: string;
 
   /**
-   * @public
    * <p>The date and time the specified Medical Scribe job request was made.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:32:58.761000-07:00</code> represents a Medical Scribe job
    *             that started processing at 12:32 PM UTC-7 on May 4, 2022.</p>
+   * @public
    */
   CreationTime?: Date;
 
   /**
-   * @public
    * <p>The date and time your Medical Scribe job began processing.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:32:58.789000-07:00</code> represents a Medical Scribe job
    *             that started processing at 12:32 PM UTC-7 on May 4, 2022.</p>
+   * @public
    */
   StartTime?: Date;
 
   /**
-   * @public
    * <p>The date and time the specified Medical Scribe job finished processing.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:32:58.761000-07:00</code> represents a Medical Scribe job
    *             that finished processing at 12:32 PM UTC-7 on May 4, 2022.</p>
+   * @public
    */
   CompletionTime?: Date;
 
   /**
-   * @public
    * <p>The language code used to create your Medical Scribe job. US English
    *                 (<code>en-US</code>) is the only supported language for Medical Scribe jobs. </p>
+   * @public
    */
   LanguageCode?: MedicalScribeLanguageCode;
 
   /**
-   * @public
    * <p>Provides the status of the specified Medical Scribe job.</p>
    *          <p>If the status is <code>COMPLETED</code>, the job is finished and you can find the
    *             results at the location specified in <code>MedicalScribeOutput</code> If
    *             the status is <code>FAILED</code>, <code>FailureReason</code> provides details on why
    *             your Medical Scribe job failed.</p>
+   * @public
    */
   MedicalScribeJobStatus?: MedicalScribeJobStatus;
 
   /**
-   * @public
    * <p>If <code>MedicalScribeJobStatus</code> is <code>FAILED</code>,
    *             <code>FailureReason</code> contains information about why the transcription job
    *             failed. See also: <a href="https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html">Common Errors</a>.</p>
+   * @public
    */
   FailureReason?: string;
 }
@@ -4045,25 +4045,25 @@ export interface MedicalScribeJobSummary {
  */
 export interface ListMedicalScribeJobsResponse {
   /**
-   * @public
    * <p>Lists all Medical Scribe jobs that have the status specified in your request.
    *             Jobs are ordered by creation date, with the newest job first.</p>
+   * @public
    */
   Status?: MedicalScribeJobStatus;
 
   /**
-   * @public
    * <p>If <code>NextToken</code> is present in your response, it indicates that not all
    *             results are displayed. To view the next set of results, copy the string associated with
    *             the <code>NextToken</code> parameter in your results output, then run your request again
    *             including <code>NextToken</code> with the value of the copied string. Repeat as needed
    *             to view all your results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Provides a summary of information about each result.</p>
+   * @public
    */
   MedicalScribeJobSummaries?: MedicalScribeJobSummary[];
 }
@@ -4073,35 +4073,35 @@ export interface ListMedicalScribeJobsResponse {
  */
 export interface ListMedicalTranscriptionJobsRequest {
   /**
-   * @public
    * <p>Returns only medical transcription jobs with the specified status. Jobs are ordered by
    *             creation date, with the newest job first. If you do not include <code>Status</code>, all
    *             medical transcription jobs are returned.</p>
+   * @public
    */
   Status?: TranscriptionJobStatus;
 
   /**
-   * @public
    * <p>Returns only the medical transcription jobs that contain the specified string. The
    *             search is not case sensitive.</p>
+   * @public
    */
   JobNameContains?: string;
 
   /**
-   * @public
    * <p>If your <code>ListMedicalTranscriptionJobs</code> request returns more results than
    *             can be displayed, <code>NextToken</code> is displayed in the response with an associated
    *             string. To get the next page of results, copy this string and repeat your request,
    *             including <code>NextToken</code> with the value of the copied string. Repeat as needed
    *             to view all your results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of medical transcription jobs to return in each page of results. If
    *             there are fewer results than the value that you specify, only the actual results are
    *             returned. If you do not specify a value, a default of 5 is used.</p>
+   * @public
    */
   MaxResults?: number;
 }
@@ -4121,72 +4121,71 @@ export const OutputLocationType = {
 export type OutputLocationType = (typeof OutputLocationType)[keyof typeof OutputLocationType];
 
 /**
- * @public
  * <p>Provides detailed information about a specific medical transcription job.</p>
+ * @public
  */
 export interface MedicalTranscriptionJobSummary {
   /**
-   * @public
    * <p>The name of the medical transcription job. Job names are case sensitive and must be
    *             unique within an Amazon Web Services account.</p>
+   * @public
    */
   MedicalTranscriptionJobName?: string;
 
   /**
-   * @public
    * <p>The date and time the specified medical transcription job request was made.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:32:58.761000-07:00</code> represents a transcription job
    *             that started processing at 12:32 PM UTC-7 on May 4, 2022.</p>
+   * @public
    */
   CreationTime?: Date;
 
   /**
-   * @public
    * <p>The date and time your medical transcription job began processing.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:32:58.789000-07:00</code> represents a transcription job
    *             that started processing at 12:32 PM UTC-7 on May 4, 2022.</p>
+   * @public
    */
   StartTime?: Date;
 
   /**
-   * @public
    * <p>The date and time the specified medical transcription job finished processing.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:33:13.922000-07:00</code> represents a transcription job
    *             that started processing at 12:33 PM UTC-7 on May 4, 2022.</p>
+   * @public
    */
   CompletionTime?: Date;
 
   /**
-   * @public
    * <p>The language code used to create your medical transcription. US English
    *                 (<code>en-US</code>) is the only supported language for medical
    *             transcriptions.</p>
+   * @public
    */
   LanguageCode?: LanguageCode;
 
   /**
-   * @public
    * <p>Provides the status of your medical transcription job.</p>
    *          <p>If the status is <code>COMPLETED</code>, the job is finished and you can find the
    *             results at the location specified in <code>TranscriptFileUri</code>. If the status is
    *                 <code>FAILED</code>, <code>FailureReason</code> provides details on why your
    *             transcription job failed.</p>
+   * @public
    */
   TranscriptionJobStatus?: TranscriptionJobStatus;
 
   /**
-   * @public
    * <p>If <code>TranscriptionJobStatus</code> is <code>FAILED</code>,
    *                 <code>FailureReason</code> contains information about why the transcription job
    *             failed. See also: <a href="https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html">Common Errors</a>.</p>
+   * @public
    */
   FailureReason?: string;
 
   /**
-   * @public
    * <p>Indicates where the specified medical transcription output is stored.</p>
    *          <p>If the value is <code>CUSTOMER_BUCKET</code>, the location is the Amazon S3
    *             bucket you specified using the <code>OutputBucketName</code> parameter in your  request. If you also included
@@ -4194,26 +4193,27 @@ export interface MedicalTranscriptionJobSummary {
    *             specified in your request.</p>
    *          <p>If the value is <code>SERVICE_BUCKET</code>, the location is a service-managed Amazon S3 bucket. To access a transcript stored in a service-managed bucket, use the
    *             URI shown in the <code>TranscriptFileUri</code> field.</p>
+   * @public
    */
   OutputLocationType?: OutputLocationType;
 
   /**
-   * @public
    * <p>Provides the medical specialty represented in your media.</p>
+   * @public
    */
   Specialty?: Specialty;
 
   /**
-   * @public
    * <p>Labels all personal health information (PHI) identified in your transcript. For more
    *             information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/phi-id.html">Identifying personal health information (PHI) in a transcription</a>.</p>
+   * @public
    */
   ContentIdentificationType?: MedicalContentIdentificationType;
 
   /**
-   * @public
    * <p>Indicates whether the input media is a dictation or a conversation, as specified in
    *             the <code>StartMedicalTranscriptionJob</code> request.</p>
+   * @public
    */
   Type?: Type;
 }
@@ -4223,25 +4223,25 @@ export interface MedicalTranscriptionJobSummary {
  */
 export interface ListMedicalTranscriptionJobsResponse {
   /**
-   * @public
    * <p>Lists all medical transcription jobs that have the status specified in your request.
    *             Jobs are ordered by creation date, with the newest job first.</p>
+   * @public
    */
   Status?: TranscriptionJobStatus;
 
   /**
-   * @public
    * <p>If <code>NextToken</code> is present in your response, it indicates that not all
    *             results are displayed. To view the next set of results, copy the string associated with
    *             the <code>NextToken</code> parameter in your results output, then run your request again
    *             including <code>NextToken</code> with the value of the copied string. Repeat as needed
    *             to view all your results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Provides a summary of information about each result.</p>
+   * @public
    */
   MedicalTranscriptionJobSummaries?: MedicalTranscriptionJobSummary[];
 }
@@ -4251,77 +4251,77 @@ export interface ListMedicalTranscriptionJobsResponse {
  */
 export interface ListMedicalVocabulariesRequest {
   /**
-   * @public
    * <p>If your <code>ListMedicalVocabularies</code> request returns more results than can be
    *             displayed, <code>NextToken</code> is displayed in the response with an associated
    *             string. To get the next page of results, copy this string and repeat your request,
    *             including <code>NextToken</code> with the value of the copied string. Repeat as needed
    *             to view all your results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of custom medical vocabularies to return in each page of results.
    *             If there are fewer results than the value that you specify, only the actual results are
    *             returned. If you do not specify a value, a default of 5 is used.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>Returns only custom medical vocabularies with the specified state. Custom vocabularies
    *             are ordered by creation date, with the newest vocabulary first. If you do not include
    *                 <code>StateEquals</code>, all custom medical vocabularies are returned.</p>
+   * @public
    */
   StateEquals?: VocabularyState;
 
   /**
-   * @public
    * <p>Returns only the custom medical vocabularies that contain the specified string. The
    *             search is not case sensitive.</p>
+   * @public
    */
   NameContains?: string;
 }
 
 /**
- * @public
  * <p>Provides information about a custom vocabulary, including the language of the custom
  *             vocabulary, when it was last modified, its name, and the processing state.</p>
+ * @public
  */
 export interface VocabularyInfo {
   /**
-   * @public
    * <p>A unique name, chosen by you, for your custom vocabulary. This name is case sensitive,
    *             cannot contain spaces, and must be unique within an Amazon Web Services account.</p>
+   * @public
    */
   VocabularyName?: string;
 
   /**
-   * @public
    * <p>The language code used to create your custom vocabulary. Each custom vocabulary must
    *             contain terms in only one language.</p>
    *          <p>A custom vocabulary can only be used to transcribe files in the same language as the
    *             custom vocabulary. For example, if you create a custom vocabulary using US English
    *                 (<code>en-US</code>), you can only apply this custom vocabulary to files that
    *             contain English audio.</p>
+   * @public
    */
   LanguageCode?: LanguageCode;
 
   /**
-   * @public
    * <p>The date and time the specified custom vocabulary was last modified.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:32:58.761000-07:00</code> represents 12:32 PM UTC-7 on May
    *             4, 2022.</p>
+   * @public
    */
   LastModifiedTime?: Date;
 
   /**
-   * @public
    * <p>The processing state of your custom vocabulary. If the state is <code>READY</code>,
    *             you can use the custom vocabulary in a <code>StartTranscriptionJob</code>
    *             request.</p>
+   * @public
    */
   VocabularyState?: VocabularyState;
 }
@@ -4331,27 +4331,27 @@ export interface VocabularyInfo {
  */
 export interface ListMedicalVocabulariesResponse {
   /**
-   * @public
    * <p>Lists all custom medical vocabularies that have the status specified in your request.
    *             Custom vocabularies are ordered by creation date, with the newest vocabulary
    *             first.</p>
+   * @public
    */
   Status?: VocabularyState;
 
   /**
-   * @public
    * <p>If <code>NextToken</code> is present in your response, it indicates that not all
    *             results are displayed. To view the next set of results, copy the string associated with
    *             the <code>NextToken</code> parameter in your results output, then run your request again
    *             including <code>NextToken</code> with the value of the copied string. Repeat as needed
    *             to view all your results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Provides information about the custom medical vocabularies that match the criteria
    *             specified in your request.</p>
+   * @public
    */
   Vocabularies?: VocabularyInfo[];
 }
@@ -4361,7 +4361,6 @@ export interface ListMedicalVocabulariesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>Returns a list of all tags associated with the specified Amazon Resource Name (ARN).
    *             ARNs have the format
    *                 <code>arn:partition:service:region:account-id:resource-type/resource-id</code>.</p>
@@ -4371,6 +4370,7 @@ export interface ListTagsForResourceRequest {
    *                 <code>medical-transcription-job</code>, <code>vocabulary</code>,
    *                 <code>medical-vocabulary</code>, <code>vocabulary-filter</code>, and
    *                 <code>language-model</code>.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 }
@@ -4380,15 +4380,15 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) specified in your request.</p>
+   * @public
    */
   ResourceArn?: string;
 
   /**
-   * @public
    * <p>Lists all tags associated with the given transcription job, vocabulary, model, or
    *             resource.</p>
+   * @public
    */
   Tags?: Tag[];
 }
@@ -4398,105 +4398,104 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListTranscriptionJobsRequest {
   /**
-   * @public
    * <p>Returns only transcription jobs with the specified status. Jobs are ordered by
    *             creation date, with the newest job first. If you do not include <code>Status</code>, all
    *             transcription jobs are returned.</p>
+   * @public
    */
   Status?: TranscriptionJobStatus;
 
   /**
-   * @public
    * <p>Returns only the transcription jobs that contain the specified string. The search is
    *             not case sensitive.</p>
+   * @public
    */
   JobNameContains?: string;
 
   /**
-   * @public
    * <p>If your <code>ListTranscriptionJobs</code> request returns more results than can be
    *             displayed, <code>NextToken</code> is displayed in the response with an associated
    *             string. To get the next page of results, copy this string and repeat your request,
    *             including <code>NextToken</code> with the value of the copied string. Repeat as needed
    *             to view all your results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of transcription jobs to return in each page of results. If there
    *             are fewer results than the value that you specify, only the actual results are returned.
    *             If you do not specify a value, a default of 5 is used.</p>
+   * @public
    */
   MaxResults?: number;
 }
 
 /**
- * @public
  * <p>Provides detailed information about a specific transcription job.</p>
+ * @public
  */
 export interface TranscriptionJobSummary {
   /**
-   * @public
    * <p>The name of the transcription job. Job names are case sensitive and must be unique
    *             within an Amazon Web Services account.</p>
+   * @public
    */
   TranscriptionJobName?: string;
 
   /**
-   * @public
    * <p>The date and time the specified transcription job request was made.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:32:58.761000-07:00</code> represents a transcription job
    *             that started processing at 12:32 PM UTC-7 on May 4, 2022.</p>
+   * @public
    */
   CreationTime?: Date;
 
   /**
-   * @public
    * <p>The date and time your transcription job began processing.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:32:58.789000-07:00</code> represents a transcription job
    *             that started processing at 12:32 PM UTC-7 on May 4, 2022.</p>
+   * @public
    */
   StartTime?: Date;
 
   /**
-   * @public
    * <p>The date and time the specified transcription job finished processing.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:33:13.922000-07:00</code> represents a transcription job
    *             that started processing at 12:33 PM UTC-7 on May 4, 2022.</p>
+   * @public
    */
   CompletionTime?: Date;
 
   /**
-   * @public
    * <p>The language code used to create your transcription.</p>
+   * @public
    */
   LanguageCode?: LanguageCode;
 
   /**
-   * @public
    * <p>Provides the status of your transcription job.</p>
    *          <p>If the status is <code>COMPLETED</code>, the job is finished and you can find the
    *             results at the location specified in <code>TranscriptFileUri</code> (or
    *                 <code>RedactedTranscriptFileUri</code>, if you requested transcript redaction). If
    *             the status is <code>FAILED</code>, <code>FailureReason</code> provides details on why
    *             your transcription job failed.</p>
+   * @public
    */
   TranscriptionJobStatus?: TranscriptionJobStatus;
 
   /**
-   * @public
    * <p>If <code>TranscriptionJobStatus</code> is <code>FAILED</code>,
    *                 <code>FailureReason</code> contains information about why the transcription job
    *             failed. See also: <a href="https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html">Common Errors</a>.</p>
+   * @public
    */
   FailureReason?: string;
 
   /**
-   * @public
    * <p>Indicates where the specified transcription output is stored.</p>
    *          <p>If the value is <code>CUSTOMER_BUCKET</code>, the location is the Amazon S3
    *             bucket you specified using the <code>OutputBucketName</code> parameter in your  request. If you also included
@@ -4505,17 +4504,17 @@ export interface TranscriptionJobSummary {
    *          <p>If the value is <code>SERVICE_BUCKET</code>, the location is a service-managed Amazon S3 bucket. To access a transcript stored in a service-managed bucket, use the
    *             URI shown in the <code>TranscriptFileUri</code> or
    *                 <code>RedactedTranscriptFileUri</code> field.</p>
+   * @public
    */
   OutputLocationType?: OutputLocationType;
 
   /**
-   * @public
    * <p>The content redaction settings of the transcription job.</p>
+   * @public
    */
   ContentRedaction?: ContentRedaction;
 
   /**
-   * @public
    * <p>Provides the name of the custom language model that was included in the specified
    *             transcription job.</p>
    *          <p>Only use <code>ModelSettings</code> with the <code>LanguageModelName</code>
@@ -4523,45 +4522,46 @@ export interface TranscriptionJobSummary {
    *             identification (<code></code>). If using
    *                 <code>LanguageIdSettings</code> in your request, this parameter contains a
    *                 <code>LanguageModelName</code> sub-parameter.</p>
+   * @public
    */
   ModelSettings?: ModelSettings;
 
   /**
-   * @public
    * <p>Indicates whether automatic language identification was enabled (<code>TRUE</code>)
    *             for the specified transcription job.</p>
+   * @public
    */
   IdentifyLanguage?: boolean;
 
   /**
-   * @public
    * <p>Indicates whether automatic multi-language identification was enabled
    *                 (<code>TRUE</code>) for the specified transcription job.</p>
+   * @public
    */
   IdentifyMultipleLanguages?: boolean;
 
   /**
-   * @public
    * <p>The confidence score associated with the language identified in your media
    *             file.</p>
    *          <p>Confidence scores are values between 0 and 1; a larger value indicates a higher
    *             probability that the identified language correctly matches the language spoken in your
    *             media.</p>
+   * @public
    */
   IdentifiedLanguageScore?: number;
 
   /**
-   * @public
    * <p>The language codes used to create your transcription job. This parameter is used with
    *             multi-language identification. For single-language identification, the singular version
    *             of this parameter, <code>LanguageCode</code>, is present.</p>
+   * @public
    */
   LanguageCodes?: LanguageCodeItem[];
 
   /**
-   * @public
    * <p>Indicates whether toxicity detection was enabled for the specified transcription
    *             job.</p>
+   * @public
    */
   ToxicityDetection?: ToxicityDetectionSettings[];
 }
@@ -4571,25 +4571,25 @@ export interface TranscriptionJobSummary {
  */
 export interface ListTranscriptionJobsResponse {
   /**
-   * @public
    * <p>Lists all transcription jobs that have the status specified in your request. Jobs are
    *             ordered by creation date, with the newest job first.</p>
+   * @public
    */
   Status?: TranscriptionJobStatus;
 
   /**
-   * @public
    * <p>If <code>NextToken</code> is present in your response, it indicates that not all
    *             results are displayed. To view the next set of results, copy the string associated with
    *             the <code>NextToken</code> parameter in your results output, then run your request again
    *             including <code>NextToken</code> with the value of the copied string. Repeat as needed
    *             to view all your results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Provides a summary of information about each result.</p>
+   * @public
    */
   TranscriptionJobSummaries?: TranscriptionJobSummary[];
 }
@@ -4599,35 +4599,35 @@ export interface ListTranscriptionJobsResponse {
  */
 export interface ListVocabulariesRequest {
   /**
-   * @public
    * <p>If your <code>ListVocabularies</code> request returns more results than can be
    *             displayed, <code>NextToken</code> is displayed in the response with an associated
    *             string. To get the next page of results, copy this string and repeat your request,
    *             including <code>NextToken</code> with the value of the copied string. Repeat as needed
    *             to view all your results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of custom vocabularies to return in each page of results. If there
    *             are fewer results than the value that you specify, only the actual results are returned.
    *             If you do not specify a value, a default of 5 is used.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>Returns only custom vocabularies with the specified state. Vocabularies are ordered by
    *             creation date, with the newest vocabulary first. If you do not include
    *                 <code>StateEquals</code>, all custom medical vocabularies are returned.</p>
+   * @public
    */
   StateEquals?: VocabularyState;
 
   /**
-   * @public
    * <p>Returns only the custom vocabularies that contain the specified string. The search is
    *             not case sensitive.</p>
+   * @public
    */
   NameContains?: string;
 }
@@ -4637,26 +4637,26 @@ export interface ListVocabulariesRequest {
  */
 export interface ListVocabulariesResponse {
   /**
-   * @public
    * <p>Lists all custom vocabularies that have the status specified in your request.
    *             Vocabularies are ordered by creation date, with the newest vocabulary first.</p>
+   * @public
    */
   Status?: VocabularyState;
 
   /**
-   * @public
    * <p>If <code>NextToken</code> is present in your response, it indicates that not all
    *             results are displayed. To view the next set of results, copy the string associated with
    *             the <code>NextToken</code> parameter in your results output, then run your request again
    *             including <code>NextToken</code> with the value of the copied string. Repeat as needed
    *             to view all your results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Provides information about the custom vocabularies that match the criteria specified
    *             in your request.</p>
+   * @public
    */
   Vocabularies?: VocabularyInfo[];
 }
@@ -4666,46 +4666,45 @@ export interface ListVocabulariesResponse {
  */
 export interface ListVocabularyFiltersRequest {
   /**
-   * @public
    * <p>If your <code>ListVocabularyFilters</code> request returns more results than can be
    *             displayed, <code>NextToken</code> is displayed in the response with an associated
    *             string. To get the next page of results, copy this string and repeat your request,
    *             including <code>NextToken</code> with the value of the copied string. Repeat as needed
    *             to view all your results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of custom vocabulary filters to return in each page of results. If
    *             there are fewer results than the value that you specify, only the actual results are
    *             returned. If you do not specify a value, a default of 5 is used.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>Returns only the custom vocabulary filters that contain the specified string. The
    *             search is not case sensitive.</p>
+   * @public
    */
   NameContains?: string;
 }
 
 /**
- * @public
  * <p>Provides information about a custom vocabulary filter, including the language of the
  *             filter, when it was last modified, and its name.</p>
+ * @public
  */
 export interface VocabularyFilterInfo {
   /**
-   * @public
    * <p>A unique name, chosen by you, for your custom vocabulary filter. This name is case
    *             sensitive, cannot contain spaces, and must be unique within an Amazon Web Services account.</p>
+   * @public
    */
   VocabularyFilterName?: string;
 
   /**
-   * @public
    * <p>The language code that represents the language of the entries in your vocabulary
    *             filter. Each custom vocabulary filter must contain terms in only one language.</p>
    *          <p>A custom vocabulary filter can only be used to transcribe files in the same language
@@ -4714,15 +4713,16 @@ export interface VocabularyFilterInfo {
    *             audio.</p>
    *          <p>For a list of supported languages and their associated language codes, refer to the
    *                 <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported languages</a> table.</p>
+   * @public
    */
   LanguageCode?: LanguageCode;
 
   /**
-   * @public
    * <p>The date and time the specified custom vocabulary filter was last modified.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:32:58.761000-07:00</code> represents 12:32 PM UTC-7 on May
    *             4, 2022.</p>
+   * @public
    */
   LastModifiedTime?: Date;
 }
@@ -4732,19 +4732,19 @@ export interface VocabularyFilterInfo {
  */
 export interface ListVocabularyFiltersResponse {
   /**
-   * @public
    * <p>If <code>NextToken</code> is present in your response, it indicates that not all
    *             results are displayed. To view the next set of results, copy the string associated with
    *             the <code>NextToken</code> parameter in your results output, then run your request again
    *             including <code>NextToken</code> with the value of the copied string. Repeat as needed
    *             to view all your results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Provides information about the custom vocabulary filters that match the criteria
    *             specified in your request.</p>
+   * @public
    */
   VocabularyFilters?: VocabularyFilterInfo[];
 }
@@ -4754,23 +4754,22 @@ export interface ListVocabularyFiltersResponse {
  */
 export interface StartCallAnalyticsJobRequest {
   /**
-   * @public
    * <p>A unique name, chosen by you, for your Call Analytics job.</p>
    *          <p>This name is case sensitive, cannot contain spaces, and must be unique within an
    *                 Amazon Web Services account. If you try to create a new job with the same name as an
    *             existing job, you get a <code>ConflictException</code> error.</p>
+   * @public
    */
   CallAnalyticsJobName: string | undefined;
 
   /**
-   * @public
    * <p>Describes the Amazon S3 location of the media file you want to use in your
    *             Call Analytics request.</p>
+   * @public
    */
   Media: Media | undefined;
 
   /**
-   * @public
    * <p>The Amazon S3 location where you want your Call Analytics transcription output
    *             stored. You can use any of the following formats to specify the output location:</p>
    *          <ol>
@@ -4793,11 +4792,11 @@ export interface StartCallAnalyticsJobRequest {
    *          <p>If you do not specify <code>OutputLocation</code>, your transcript is placed in a
    *             service-managed Amazon S3 bucket and you are provided with a URI to access your
    *             transcript.</p>
+   * @public
    */
   OutputLocation?: string;
 
   /**
-   * @public
    * <p>The KMS key you want to use to encrypt your Call Analytics
    *             output.</p>
    *          <p>If using a key located in the <b>current</b>
@@ -4841,11 +4840,11 @@ export interface StartCallAnalyticsJobRequest {
    *             an output location using the <code>OutputLocation</code> parameter.</p>
    *          <p>Note that the role making the  request must
    *             have permission to use the specified KMS key.</p>
+   * @public
    */
   OutputEncryptionKMSKeyId?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of an IAM role that has permissions to
    *             access the Amazon S3 bucket that contains your input files. If the role that you
    *             specify doesn’t have the appropriate permissions to access the specified Amazon S3 location, your request fails.</p>
@@ -4854,22 +4853,23 @@ export interface StartCallAnalyticsJobRequest {
    *             <code>arn:aws:iam::111122223333:role/Admin</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM
    *             ARNs</a>.</p>
+   * @public
    */
   DataAccessRoleArn?: string;
 
   /**
-   * @public
    * <p>Specify additional optional settings in your  request, including content redaction; allows you to apply custom language models,
    *             vocabulary filters, and custom vocabularies to your Call Analytics job.</p>
+   * @public
    */
   Settings?: CallAnalyticsJobSettings;
 
   /**
-   * @public
    * <p>Makes it possible to specify which speaker is on which channel. For example, if your
    *             agent is the first participant to speak, you would set <code>ChannelId</code> to
    *                 <code>0</code> (to indicate the first channel) and <code>ParticipantRole</code> to
    *                 <code>AGENT</code> (to indicate that it's the agent speaking).</p>
+   * @public
    */
   ChannelDefinitions?: ChannelDefinition[];
 }
@@ -4879,9 +4879,9 @@ export interface StartCallAnalyticsJobRequest {
  */
 export interface StartCallAnalyticsJobResponse {
   /**
-   * @public
    * <p>Provides detailed information about the current Call Analytics job, including job
    *             status and, if applicable, failure reason.</p>
+   * @public
    */
   CallAnalyticsJob?: CallAnalyticsJob;
 }
@@ -4891,37 +4891,36 @@ export interface StartCallAnalyticsJobResponse {
  */
 export interface StartMedicalScribeJobRequest {
   /**
-   * @public
    * <p>A unique name, chosen by you, for your Medical Scribe job.</p>
    *          <p>This name is case sensitive, cannot contain spaces, and must be unique within an
    *                 Amazon Web Services account. If you try to create a new job with the same name as an
    *             existing job, you get a <code>ConflictException</code> error.</p>
+   * @public
    */
   MedicalScribeJobName: string | undefined;
 
   /**
-   * @public
    * <p>Describes the Amazon S3 location of the media file you want to use in your
    *             request.</p>
    *          <p>For information on supported media formats, refer to the <code>MediaFormat</code>
    *             parameter or the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a> section
    *             in the Amazon S3 Developer Guide.</p>
+   * @public
    */
   Media: Media | undefined;
 
   /**
-   * @public
    * <p>The name of the Amazon S3 bucket where you want your Medical Scribe
    *             output stored. Do not include the <code>S3://</code> prefix of the specified
    *             bucket.</p>
    *          <p>Note that the role specified in the <code>DataAccessRoleArn</code> request parameter
    *             must have permission to use the specified location. You
    *             can change Amazon S3 permissions using the <a href="https://console.aws.amazon.com/s3">Amazon Web Services Management Console</a>. See also <a href="https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user">Permissions Required for IAM User Roles</a>.</p>
+   * @public
    */
   OutputBucketName: string | undefined;
 
   /**
-   * @public
    * <p>The KMS key you want to use to encrypt your Medical Scribe
    *             output.</p>
    *          <p>If using a key located in the <b>current</b>
@@ -4963,18 +4962,18 @@ export interface StartMedicalScribeJobRequest {
    *                 Amazon S3 key (SSE-S3).</p>
    *          <p>Note that the role specified in the <code>DataAccessRoleArn</code> request parameter
    *             must have permission to use the specified KMS key.</p>
+   * @public
    */
   OutputEncryptionKMSKeyId?: string;
 
   /**
-   * @public
    * <p>A map of plain text, non-secret key:value pairs, known as encryption context pairs,
    *             that provide an added layer of security for your data. For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/key-management.html#kms-context">KMS encryption context</a> and <a href="https://docs.aws.amazon.com/transcribe/latest/dg/symmetric-asymmetric.html">Asymmetric keys in KMS</a>.</p>
+   * @public
    */
   KMSEncryptionContext?: Record<string, string>;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of an IAM role that has permissions to
    *             access the Amazon S3 bucket that contains your input files,
    *             write to the output bucket, and use your KMS key if supplied.
@@ -4984,11 +4983,11 @@ export interface StartMedicalScribeJobRequest {
    *             <code>arn:aws:iam::111122223333:role/Admin</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM
    *             ARNs</a>.</p>
+   * @public
    */
   DataAccessRoleArn: string | undefined;
 
   /**
-   * @public
    * <p>Makes it possible to control how your Medical Scribe job is processed using a
    *             <code>MedicalScribeSettings</code> object. Specify <code>ChannelIdentification</code> if
    *             <code>ChannelDefinitions</code> are set. Enabled <code>ShowSpeakerLabels</code> if <code>ChannelIdentification</code>
@@ -4997,11 +4996,11 @@ export interface StartMedicalScribeJobRequest {
    *             to specify a vocabulary or vocabulary filter or both using <code>VocabularyName</code>, <code>VocabularyFilterName</code>.
    *             <code>VocabularyFilterMethod</code> must be specified if <code>VocabularyFilterName</code> is set.
    *         </p>
+   * @public
    */
   Settings: MedicalScribeSettings | undefined;
 
   /**
-   * @public
    * <p>Makes it possible to specify which speaker is on which channel. For example, if the clinician
    *              is the first participant to speak, you would set <code>ChannelId</code> of the first <code>ChannelDefinition</code>
    *              in the list to <code>0</code> (to indicate the first channel) and <code>ParticipantRole</code> to
@@ -5010,14 +5009,15 @@ export interface StartMedicalScribeJobRequest {
    *                 <code>1</code> (to indicate the second channel) and <code>ParticipantRole</code> to
    *                 <code>PATIENT</code> (to indicate that it's the patient speaking).
    *                 </p>
+   * @public
    */
   ChannelDefinitions?: MedicalScribeChannelDefinition[];
 
   /**
-   * @public
    * <p>Adds one or more custom tags, each in the form of a key:value pair, to the Medica Scribe job.</p>
    *          <p>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
    *                 resources</a>.</p>
+   * @public
    */
   Tags?: Tag[];
 }
@@ -5027,9 +5027,9 @@ export interface StartMedicalScribeJobRequest {
  */
 export interface StartMedicalScribeJobResponse {
   /**
-   * @public
    * <p>Provides detailed information about the current Medical Scribe job, including
    *             job status and, if applicable, failure reason.</p>
+   * @public
    */
   MedicalScribeJob?: MedicalScribeJob;
 }
@@ -5039,7 +5039,6 @@ export interface StartMedicalScribeJobResponse {
  */
 export interface StartMedicalTranscriptionJobRequest {
   /**
-   * @public
    * <p>A unique name, chosen by you, for your medical transcription job. The name that you
    *             specify is also used as the default name of your transcription output file. If you want
    *             to specify a different name for your transcription output, use the
@@ -5047,47 +5046,47 @@ export interface StartMedicalTranscriptionJobRequest {
    *          <p>This name is case sensitive, cannot contain spaces, and must be unique within an
    *                 Amazon Web Services account. If you try to create a new job with the same name as an
    *             existing job, you get a <code>ConflictException</code> error.</p>
+   * @public
    */
   MedicalTranscriptionJobName: string | undefined;
 
   /**
-   * @public
    * <p>The language code that represents the language spoken in the input media file. US
    *             English (<code>en-US</code>) is the only valid value for medical transcription jobs. Any
    *             other value you enter for language code results in a <code>BadRequestException</code>
    *             error.</p>
+   * @public
    */
   LanguageCode: LanguageCode | undefined;
 
   /**
-   * @public
    * <p>The sample rate, in hertz, of the audio track in your input media file.</p>
    *          <p>If you do not specify the media sample rate, Amazon Transcribe Medical determines it
    *             for you. If you specify the sample rate, it must match the rate detected by Amazon Transcribe Medical; if there's a mismatch between the value that you specify and the
    *             value detected, your job fails. Therefore, in most cases, it's advised to omit
    *                 <code>MediaSampleRateHertz</code> and let Amazon Transcribe Medical determine the
    *             sample rate.</p>
+   * @public
    */
   MediaSampleRateHertz?: number;
 
   /**
-   * @public
    * <p>Specify the format of your input media file.</p>
+   * @public
    */
   MediaFormat?: MediaFormat;
 
   /**
-   * @public
    * <p>Describes the Amazon S3 location of the media file you want to use in your
    *             request.</p>
    *          <p>For information on supported media formats, refer to the <code>MediaFormat</code>
    *             parameter or the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a> section
    *             in the Amazon S3 Developer Guide.</p>
+   * @public
    */
   Media: Media | undefined;
 
   /**
-   * @public
    * <p>The name of the Amazon S3 bucket where you want your medical transcription
    *             output stored. Do not include the <code>S3://</code> prefix of the specified
    *             bucket.</p>
@@ -5101,11 +5100,11 @@ export interface StartMedicalTranscriptionJobRequest {
    *                 <code>OutputKey</code> to <code>test-files/</code>.</p>
    *          <p>Note that Amazon Transcribe must have permission to use the specified location. You
    *             can change Amazon S3 permissions using the <a href="https://console.aws.amazon.com/s3">Amazon Web Services Management Console</a>. See also <a href="https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user">Permissions Required for IAM User Roles</a>.</p>
+   * @public
    */
   OutputBucketName: string | undefined;
 
   /**
-   * @public
    * <p>Use in combination with <code>OutputBucketName</code> to specify the output location
    *             of your transcript and, optionally, a unique name for your output file. The default name
    *             for your transcription output is the same as the name you specified for your medical
@@ -5140,11 +5139,11 @@ export interface StartMedicalTranscriptionJobRequest {
    *          </ul>
    *          <p>If you specify the name of an Amazon S3 bucket sub-folder that doesn't exist,
    *             one is created for you.</p>
+   * @public
    */
   OutputKey?: string;
 
   /**
-   * @public
    * <p>The KMS key you want to use to encrypt your medical transcription
    *             output.</p>
    *          <p>If using a key located in the <b>current</b>
@@ -5188,55 +5187,56 @@ export interface StartMedicalTranscriptionJobRequest {
    *             an output location using the <code>OutputLocation</code> parameter.</p>
    *          <p>Note that the role making the  request must
    *             have permission to use the specified KMS key.</p>
+   * @public
    */
   OutputEncryptionKMSKeyId?: string;
 
   /**
-   * @public
    * <p>A map of plain text, non-secret key:value pairs, known as encryption context pairs,
    *             that provide an added layer of security for your data. For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/key-management.html#kms-context">KMS encryption context</a> and <a href="https://docs.aws.amazon.com/transcribe/latest/dg/symmetric-asymmetric.html">Asymmetric keys in KMS</a>.</p>
+   * @public
    */
   KMSEncryptionContext?: Record<string, string>;
 
   /**
-   * @public
    * <p>Specify additional optional settings in your  request, including channel
    *             identification, alternative transcriptions, and speaker partitioning. You can use that to
    *             apply custom vocabularies to your transcription job.</p>
+   * @public
    */
   Settings?: MedicalTranscriptionSetting;
 
   /**
-   * @public
    * <p>Labels all personal health information (PHI) identified in your transcript. For more
    *             information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/phi-id.html">Identifying personal health information (PHI) in a transcription</a>.</p>
+   * @public
    */
   ContentIdentificationType?: MedicalContentIdentificationType;
 
   /**
-   * @public
    * <p>Specify the predominant medical specialty represented in your media. For batch
    *             transcriptions, <code>PRIMARYCARE</code> is the only valid value. If you require
    *             additional specialties, refer to .</p>
+   * @public
    */
   Specialty: Specialty | undefined;
 
   /**
-   * @public
    * <p>Specify whether your input media contains only one person (<code>DICTATION</code>) or
    *             contains a conversation between two people (<code>CONVERSATION</code>).</p>
    *          <p>For example, <code>DICTATION</code> could be used for a medical professional wanting
    *             to transcribe voice memos; <code>CONVERSATION</code> could be used for transcribing the
    *             doctor-patient dialogue during the patient's office visit.</p>
+   * @public
    */
   Type: Type | undefined;
 
   /**
-   * @public
    * <p>Adds one or more custom tags, each in the form of a key:value pair, to a new medical
    *             transcription job at the time you start this new job.</p>
    *          <p>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
    *                 resources</a>.</p>
+   * @public
    */
   Tags?: Tag[];
 }
@@ -5246,37 +5246,37 @@ export interface StartMedicalTranscriptionJobRequest {
  */
 export interface StartMedicalTranscriptionJobResponse {
   /**
-   * @public
    * <p>Provides detailed information about the current medical transcription job, including
    *             job status and, if applicable, failure reason.</p>
+   * @public
    */
   MedicalTranscriptionJob?: MedicalTranscriptionJob;
 }
 
 /**
- * @public
  * <p>Generate subtitles for your media file with your transcription request.</p>
  *          <p>You can choose a start index of 0 or 1, and you can specify either WebVTT or SubRip
  *             (or both) as your output format.</p>
  *          <p>Note that your subtitle files are placed in the same location as your transcription
  *             output.</p>
+ * @public
  */
 export interface Subtitles {
   /**
-   * @public
    * <p>Specify the output format for your subtitle file; if you select both WebVTT
    *                 (<code>vtt</code>) and SubRip (<code>srt</code>) formats, two output files are
    *             generated.</p>
+   * @public
    */
   Formats?: SubtitleFormat[];
 
   /**
-   * @public
    * <p>Specify the starting value that is assigned to the first subtitle segment.</p>
    *          <p>The default start index for Amazon Transcribe is <code>0</code>, which differs from
    *             the more widely used standard of <code>1</code>. If you're uncertain which value to use,
    *             we recommend choosing <code>1</code>, as this may improve compatibility with other
    *             services.</p>
+   * @public
    */
   OutputStartIndex?: number;
 }
@@ -5286,7 +5286,6 @@ export interface Subtitles {
  */
 export interface StartTranscriptionJobRequest {
   /**
-   * @public
    * <p>A unique name, chosen by you, for your transcription job. The name that you specify is
    *             also used as the default name of your transcription output file. If you want to specify
    *             a different name for your transcription output, use the <code>OutputKey</code>
@@ -5294,11 +5293,11 @@ export interface StartTranscriptionJobRequest {
    *          <p>This name is case sensitive, cannot contain spaces, and must be unique within an
    *                 Amazon Web Services account. If you try to create a new job with the same name as an
    *             existing job, you get a <code>ConflictException</code> error.</p>
+   * @public
    */
   TranscriptionJobName: string | undefined;
 
   /**
-   * @public
    * <p>The language code that represents the language spoken in the input media file.</p>
    *          <p>If you're unsure of the language spoken in your media file, consider using
    *                 <code>IdentifyLanguage</code> or <code>IdentifyMultipleLanguages</code> to enable
@@ -5313,34 +5312,34 @@ export interface StartTranscriptionJobRequest {
    *             <p>To transcribe speech in Modern Standard Arabic (<code>ar-SA</code>), your media
    *                 file must be encoded at a sample rate of 16,000 Hz or higher.</p>
    *          </note>
+   * @public
    */
   LanguageCode?: LanguageCode;
 
   /**
-   * @public
    * <p>The sample rate, in hertz, of the audio track in your input media file.</p>
    *          <p>If you do not specify the media sample rate, Amazon Transcribe determines it for you.
    *             If you specify the sample rate, it must match the rate detected by Amazon Transcribe.
    *             If there's a mismatch between the value that you specify and the value detected, your
    *             job fails. In most cases, you can omit <code>MediaSampleRateHertz</code> and let Amazon Transcribe determine the sample rate.</p>
+   * @public
    */
   MediaSampleRateHertz?: number;
 
   /**
-   * @public
    * <p>Specify the format of your input media file.</p>
+   * @public
    */
   MediaFormat?: MediaFormat;
 
   /**
-   * @public
    * <p>Describes the Amazon S3 location of the media file you want to use in your
    *             request.</p>
+   * @public
    */
   Media: Media | undefined;
 
   /**
-   * @public
    * <p>The name of the Amazon S3 bucket where you want your transcription output
    *             stored. Do not include the <code>S3://</code> prefix of the specified bucket.</p>
    *          <p>If you want your output to go to a sub-folder of this bucket, specify it using the
@@ -5356,11 +5355,11 @@ export interface StartTranscriptionJobRequest {
    *          <p>If you do not specify <code>OutputBucketName</code>, your transcript is placed in a
    *             service-managed Amazon S3 bucket and you are provided with a URI to access your
    *             transcript.</p>
+   * @public
    */
   OutputBucketName?: string;
 
   /**
-   * @public
    * <p>Use in combination with <code>OutputBucketName</code> to specify the output location
    *             of your transcript and, optionally, a unique name for your output file. The default name
    *             for your transcription output is the same as the name you specified for your
@@ -5395,11 +5394,11 @@ export interface StartTranscriptionJobRequest {
    *          </ul>
    *          <p>If you specify the name of an Amazon S3 bucket sub-folder that doesn't exist,
    *             one is created for you.</p>
+   * @public
    */
   OutputKey?: string;
 
   /**
-   * @public
    * <p>The KMS key you want to use to encrypt your transcription
    *             output.</p>
    *          <p>If using a key located in the <b>current</b>
@@ -5443,18 +5442,18 @@ export interface StartTranscriptionJobRequest {
    *             an output location using the <code>OutputLocation</code> parameter.</p>
    *          <p>Note that the role making the  request must
    *             have permission to use the specified KMS key.</p>
+   * @public
    */
   OutputEncryptionKMSKeyId?: string;
 
   /**
-   * @public
    * <p>A map of plain text, non-secret key:value pairs, known as encryption context pairs,
    *             that provide an added layer of security for your data. For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/key-management.html#kms-context">KMS encryption context</a> and <a href="https://docs.aws.amazon.com/transcribe/latest/dg/symmetric-asymmetric.html">Asymmetric keys in KMS</a>.</p>
+   * @public
    */
   KMSEncryptionContext?: Record<string, string>;
 
   /**
-   * @public
    * <p>Specify additional optional settings in your
    *             request, including channel identification, alternative transcriptions, speaker
    *             partitioning. You can use that to apply custom vocabularies and vocabulary filters.</p>
@@ -5467,42 +5466,42 @@ export interface StartTranscriptionJobRequest {
    *             instead the <code></code> parameter with the
    *                 <code>LanguageModelName</code>, <code>VocabularyName</code> or
    *                 <code>VocabularyFilterName</code> sub-parameters.</p>
+   * @public
    */
   Settings?: Settings;
 
   /**
-   * @public
    * <p>Specify the custom language model you want to include with your transcription job. If
    *             you include <code>ModelSettings</code> in your request, you must include the
    *                 <code>LanguageModelName</code> sub-parameter.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-language-models.html">Custom language
    *                 models</a>.</p>
+   * @public
    */
   ModelSettings?: ModelSettings;
 
   /**
-   * @public
    * <p>Makes it possible to control how your transcription job is processed. Currently, the
    *             only <code>JobExecutionSettings</code> modification you can choose is enabling job
    *             queueing using the <code>AllowDeferredExecution</code> sub-parameter.</p>
    *          <p>If you include <code>JobExecutionSettings</code> in your request, you must also
    *             include the sub-parameters: <code>AllowDeferredExecution</code> and
    *                 <code>DataAccessRoleArn</code>.</p>
+   * @public
    */
   JobExecutionSettings?: JobExecutionSettings;
 
   /**
-   * @public
    * <p>Makes it possible to redact or flag specified personally identifiable information (PII) in
    *             your transcript. If you use <code>ContentRedaction</code>, you must also include the
    *             sub-parameters: <code>RedactionOutput</code> and <code>RedactionType</code>. You can
    *             optionally include <code>PiiEntityTypes</code> to choose which types of PII you want to redact.
    *             If you do not include <code>PiiEntityTypes</code> in your request, all PII is redacted.</p>
+   * @public
    */
   ContentRedaction?: ContentRedaction;
 
   /**
-   * @public
    * <p>Enables automatic language identification in your transcription job request. Use this
    *             parameter if your media file contains only one language. If your media contains multiple
    *             languages, use <code>IdentifyMultipleLanguages</code> instead.</p>
@@ -5521,11 +5520,11 @@ export interface StartTranscriptionJobRequest {
    *                 <code>IdentifyLanguage</code>, or <code>IdentifyMultipleLanguages</code> in your
    *             request. If you include more than one of these parameters, your transcription job
    *             fails.</p>
+   * @public
    */
   IdentifyLanguage?: boolean;
 
   /**
-   * @public
    * <p>Enables automatic multi-language identification in your transcription job request. Use
    *             this parameter if your media file contains more than one language. If your media
    *             contains only one language, use <code>IdentifyLanguage</code> instead.</p>
@@ -5543,11 +5542,11 @@ export interface StartTranscriptionJobRequest {
    *                 <code>IdentifyLanguage</code>, or <code>IdentifyMultipleLanguages</code> in your
    *             request. If you include more than one of these parameters, your transcription job
    *             fails.</p>
+   * @public
    */
   IdentifyMultipleLanguages?: boolean;
 
   /**
-   * @public
    * <p>You can specify two or more language codes that represent the languages you think may
    *             be present in your media. Including more than five is not recommended. If you're unsure
    *             what languages are present, do not include this parameter.</p>
@@ -5557,27 +5556,27 @@ export interface StartTranscriptionJobRequest {
    *             languages</a>.</p>
    *          <p>To transcribe speech in Modern Standard Arabic (<code>ar-SA</code>), your media file
    *             must be encoded at a sample rate of 16,000 Hz or higher.</p>
+   * @public
    */
   LanguageOptions?: LanguageCode[];
 
   /**
-   * @public
    * <p>Produces subtitle files for your input media. You can specify WebVTT (*.vtt) and
    *             SubRip (*.srt) formats.</p>
+   * @public
    */
   Subtitles?: Subtitles;
 
   /**
-   * @public
    * <p>Adds one or more custom tags, each in the form of a key:value pair, to a new
    *             transcription job at the time you start this new job.</p>
    *          <p>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
    *                 resources</a>.</p>
+   * @public
    */
   Tags?: Tag[];
 
   /**
-   * @public
    * <p>If using automatic language identification in your request and you want to apply a
    *             custom language model, a custom vocabulary, or a custom vocabulary filter, include
    *                 <code>LanguageIdSettings</code> with the relevant sub-parameters
@@ -5606,17 +5605,18 @@ export interface StartTranscriptionJobRequest {
    *             instead the <code></code> parameter with the
    *                 <code>VocabularyName</code> or <code>VocabularyFilterName</code> (or both)
    *             sub-parameter.</p>
+   * @public
    */
   LanguageIdSettings?: Partial<Record<LanguageCode, LanguageIdSettings>>;
 
   /**
-   * @public
    * <p>Enables toxic speech detection in your transcript. If you include
    *             <code>ToxicityDetection</code> in your request, you must also include
    *             <code>ToxicityCategories</code>.</p>
    *          <p>For information on the types of toxic speech Amazon Transcribe can detect, see
    *             <a href="https://docs.aws.amazon.com/transcribe/latest/dg/toxic-language.html">Detecting toxic
    *                 speech</a>.</p>
+   * @public
    */
   ToxicityDetection?: ToxicityDetectionSettings[];
 }
@@ -5626,9 +5626,9 @@ export interface StartTranscriptionJobRequest {
  */
 export interface StartTranscriptionJobResponse {
   /**
-   * @public
    * <p>Provides detailed information about the current transcription job, including job
    *             status and, if applicable, failure reason.</p>
+   * @public
    */
   TranscriptionJob?: TranscriptionJob;
 }
@@ -5638,7 +5638,6 @@ export interface StartTranscriptionJobResponse {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resource you want to tag. ARNs have the format
    *                 <code>arn:partition:service:region:account-id:resource-type/resource-id</code>.</p>
    *          <p>For example,
@@ -5647,15 +5646,16 @@ export interface TagResourceRequest {
    *                 <code>medical-transcription-job</code>, <code>vocabulary</code>,
    *                 <code>medical-vocabulary</code>, <code>vocabulary-filter</code>, and
    *                 <code>language-model</code>.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * @public
    * <p>Adds one or more custom tags, each in the form of a key:value pair, to the specified
    *             resource.</p>
    *          <p>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
    *                 resources</a>.</p>
+   * @public
    */
   Tags: Tag[] | undefined;
 }
@@ -5670,7 +5670,6 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Amazon Transcribe resource you want to remove
    *             tags from. ARNs have the format
    *                 <code>arn:partition:service:region:account-id:resource-type/resource-id</code>.</p>
@@ -5680,12 +5679,13 @@ export interface UntagResourceRequest {
    *                 <code>medical-transcription-job</code>, <code>vocabulary</code>,
    *                 <code>medical-vocabulary</code>, <code>vocabulary-filter</code>, and
    *                 <code>language-model</code>.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * @public
    * <p>Removes the specified tag keys from the specified Amazon Transcribe resource.</p>
+   * @public
    */
   TagKeys: string[] | undefined;
 }
@@ -5700,25 +5700,25 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateCallAnalyticsCategoryRequest {
   /**
-   * @public
    * <p>The name of the Call Analytics category you want to update. Category names are case
    *             sensitive.</p>
+   * @public
    */
   CategoryName: string | undefined;
 
   /**
-   * @public
    * <p>The rules used for the updated Call Analytics category. The rules you provide in this
    *             field replace the ones that are currently being used in the specified category.</p>
+   * @public
    */
   Rules: Rule[] | undefined;
 
   /**
-   * @public
    * <p>Choose whether you want to update a real-time or a post-call category. The
    *             input type you specify must match the input type specified when the category was created. For
    *             example, if you created a category with the <code>POST_CALL</code> input type, you must
    *             use <code>POST_CALL</code> as the input type when updating this category.</p>
+   * @public
    */
   InputType?: InputType;
 }
@@ -5728,9 +5728,9 @@ export interface UpdateCallAnalyticsCategoryRequest {
  */
 export interface UpdateCallAnalyticsCategoryResponse {
   /**
-   * @public
    * <p>Provides you with the properties of the Call Analytics category you specified in your
    *                 <code>UpdateCallAnalyticsCategory</code> request.</p>
+   * @public
    */
   CategoryProperties?: CategoryProperties;
 }
@@ -5740,28 +5740,28 @@ export interface UpdateCallAnalyticsCategoryResponse {
  */
 export interface UpdateMedicalVocabularyRequest {
   /**
-   * @public
    * <p>The name of the custom medical vocabulary you want to update. Custom medical
    *             vocabulary names are case sensitive.</p>
+   * @public
    */
   VocabularyName: string | undefined;
 
   /**
-   * @public
    * <p>The language code that represents the language of the entries in the custom vocabulary
    *             you want to update. US English (<code>en-US</code>) is the only language supported with
    *                 Amazon Transcribe Medical.</p>
+   * @public
    */
   LanguageCode: LanguageCode | undefined;
 
   /**
-   * @public
    * <p>The Amazon S3 location of the text file that contains your custom medical
    *             vocabulary. The URI must be located in the same Amazon Web Services Region as the
    *             resource you're calling.</p>
    *          <p>Here's an example URI path:
    *             <code>s3://DOC-EXAMPLE-BUCKET/my-vocab-file.txt</code>
    *          </p>
+   * @public
    */
   VocabularyFileUri: string | undefined;
 }
@@ -5771,33 +5771,33 @@ export interface UpdateMedicalVocabularyRequest {
  */
 export interface UpdateMedicalVocabularyResponse {
   /**
-   * @public
    * <p>The name of the updated custom medical vocabulary.</p>
+   * @public
    */
   VocabularyName?: string;
 
   /**
-   * @public
    * <p>The language code you selected for your custom medical vocabulary. US English
    *                 (<code>en-US</code>) is the only language supported with Amazon Transcribe
    *             Medical.</p>
+   * @public
    */
   LanguageCode?: LanguageCode;
 
   /**
-   * @public
    * <p>The date and time the specified custom medical vocabulary was last updated.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:32:58.761000-07:00</code> represents 12:32 PM UTC-7 on May
    *             4, 2022.</p>
+   * @public
    */
   LastModifiedTime?: Date;
 
   /**
-   * @public
    * <p>The processing state of your custom medical vocabulary. If the state is
    *                 <code>READY</code>, you can use the custom vocabulary in a
    *                 <code>StartMedicalTranscriptionJob</code> request.</p>
+   * @public
    */
   VocabularyState?: VocabularyState;
 }
@@ -5807,14 +5807,13 @@ export interface UpdateMedicalVocabularyResponse {
  */
 export interface UpdateVocabularyRequest {
   /**
-   * @public
    * <p>The name of the custom vocabulary you want to update. Custom vocabulary names are case
    *             sensitive.</p>
+   * @public
    */
   VocabularyName: string | undefined;
 
   /**
-   * @public
    * <p>The language code that represents the language of the entries in the custom vocabulary
    *             you want to update. Each custom vocabulary must contain terms in only one
    *             language.</p>
@@ -5824,11 +5823,11 @@ export interface UpdateVocabularyRequest {
    *             contain English audio.</p>
    *          <p>For a list of supported languages and their associated language codes, refer to the
    *                 <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported languages</a> table.</p>
+   * @public
    */
   LanguageCode: LanguageCode | undefined;
 
   /**
-   * @public
    * <p>Use this parameter if you want to update your custom vocabulary by including all
    *             desired terms, as comma-separated values, within your request. The other option for
    *             updating your custom vocabulary is to save your entries in a text file and upload them
@@ -5840,11 +5839,11 @@ export interface UpdateVocabularyRequest {
    *             specific language. If you use unsupported characters, your custom vocabulary filter
    *             request fails. Refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character Sets for Custom
    *                 Vocabularies</a> to get the character set for your language.</p>
+   * @public
    */
   Phrases?: string[];
 
   /**
-   * @public
    * <p>The Amazon S3 location of the text file that contains your custom vocabulary.
    *             The URI must be located in the same Amazon Web Services Region as the resource you're
    *             calling.</p>
@@ -5853,11 +5852,11 @@ export interface UpdateVocabularyRequest {
    *          </p>
    *          <p>Note that if you include <code>VocabularyFileUri</code> in your request, you cannot
    *             use the <code>Phrases</code> flag; you must choose one or the other.</p>
+   * @public
    */
   VocabularyFileUri?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of an IAM role that has permissions to
    *             access the Amazon S3 bucket that contains your input files (in this case, your custom
    *             vocabulary). If the role that you specify doesn’t have the appropriate permissions to access
@@ -5867,6 +5866,7 @@ export interface UpdateVocabularyRequest {
    *             <code>arn:aws:iam::111122223333:role/Admin</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM
    *             ARNs</a>.</p>
+   * @public
    */
   DataAccessRoleArn?: string;
 }
@@ -5876,31 +5876,31 @@ export interface UpdateVocabularyRequest {
  */
 export interface UpdateVocabularyResponse {
   /**
-   * @public
    * <p>The name of the updated custom vocabulary.</p>
+   * @public
    */
   VocabularyName?: string;
 
   /**
-   * @public
    * <p>The language code you selected for your custom vocabulary.</p>
+   * @public
    */
   LanguageCode?: LanguageCode;
 
   /**
-   * @public
    * <p>The date and time the specified custom vocabulary was last updated.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:32:58.761000-07:00</code> represents 12:32 PM UTC-7 on May
    *             4, 2022.</p>
+   * @public
    */
   LastModifiedTime?: Date;
 
   /**
-   * @public
    * <p>The processing state of your custom vocabulary. If the state is <code>READY</code>,
    *             you can use the custom vocabulary in a <code>StartTranscriptionJob</code>
    *             request.</p>
+   * @public
    */
   VocabularyState?: VocabularyState;
 }
@@ -5910,14 +5910,13 @@ export interface UpdateVocabularyResponse {
  */
 export interface UpdateVocabularyFilterRequest {
   /**
-   * @public
    * <p>The name of the custom vocabulary filter you want to update. Custom vocabulary filter
    *             names are case sensitive.</p>
+   * @public
    */
   VocabularyFilterName: string | undefined;
 
   /**
-   * @public
    * <p>Use this parameter if you want to update your custom vocabulary filter by including
    *             all desired terms, as comma-separated values, within your request. The other option for
    *             updating your vocabulary filter is to save your entries in a text file and upload them
@@ -5929,11 +5928,11 @@ export interface UpdateVocabularyFilterRequest {
    *             specific language. If you use unsupported characters, your custom vocabulary filter
    *             request fails. Refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character Sets for Custom
    *                 Vocabularies</a> to get the character set for your language.</p>
+   * @public
    */
   Words?: string[];
 
   /**
-   * @public
    * <p>The Amazon S3 location of the text file that contains your custom vocabulary
    *             filter terms. The URI must be located in the same Amazon Web Services Region as the
    *             resource you're calling.</p>
@@ -5942,11 +5941,11 @@ export interface UpdateVocabularyFilterRequest {
    *          </p>
    *          <p>Note that if you include <code>VocabularyFilterFileUri</code> in your request, you
    *             cannot use <code>Words</code>; you must choose one or the other.</p>
+   * @public
    */
   VocabularyFilterFileUri?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of an IAM role that has permissions to
    *             access the Amazon S3 bucket that contains your input files (in this case, your custom
    *             vocabulary filter). If the role that you specify doesn’t have the appropriate permissions to access
@@ -5956,6 +5955,7 @@ export interface UpdateVocabularyFilterRequest {
    *             <code>arn:aws:iam::111122223333:role/Admin</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM
    *             ARNs</a>.</p>
+   * @public
    */
   DataAccessRoleArn?: string;
 }
@@ -5965,23 +5965,23 @@ export interface UpdateVocabularyFilterRequest {
  */
 export interface UpdateVocabularyFilterResponse {
   /**
-   * @public
    * <p>The name of the updated custom vocabulary filter.</p>
+   * @public
    */
   VocabularyFilterName?: string;
 
   /**
-   * @public
    * <p>The language code you selected for your custom vocabulary filter.</p>
+   * @public
    */
   LanguageCode?: LanguageCode;
 
   /**
-   * @public
    * <p>The date and time the specified custom vocabulary filter was last updated.</p>
    *          <p>Timestamps are in the format <code>YYYY-MM-DD'T'HH:MM:SS.SSSSSS-UTC</code>. For
    *             example, <code>2022-05-04T12:32:58.761000-07:00</code> represents 12:32 PM UTC-7 on May
    *             4, 2022.</p>
+   * @public
    */
   LastModifiedTime?: Date;
 }

@@ -27,7 +27,6 @@ export interface DeletePhoneNumberCommandInput extends DeletePhoneNumberRequest 
 export interface DeletePhoneNumberCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Moves the specified phone number into the <b>Deletion queue</b>. A
  *             phone number must be disassociated from any users or Amazon Chime Voice Connectors
  *             before it can be deleted.</p>
@@ -79,6 +78,7 @@ export interface DeletePhoneNumberCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class DeletePhoneNumberCommand extends $Command
   .classBuilder<

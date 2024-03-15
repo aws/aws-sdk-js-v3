@@ -489,7 +489,6 @@ export type WAFV2ClientResolvedConfigType = __SmithyResolvedConfiguration<__Http
 export interface WAFV2ClientResolvedConfig extends WAFV2ClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>WAF</fullname>
  *          <note>
  *             <p>This is the latest version of the <b>WAF</b> API,
@@ -548,6 +547,7 @@ export interface WAFV2ClientResolvedConfig extends WAFV2ClientResolvedConfigType
  *                maximum cost of a rule group when you use it.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class WAFV2Client extends __Client<
   __HttpHandlerOptions,

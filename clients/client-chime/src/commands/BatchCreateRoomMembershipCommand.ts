@@ -27,7 +27,6 @@ export interface BatchCreateRoomMembershipCommandInput extends BatchCreateRoomMe
 export interface BatchCreateRoomMembershipCommandOutput extends BatchCreateRoomMembershipResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds up to 50 members to a chat room in an Amazon Chime Enterprise account. Members can be users or bots. The member role designates whether the member is a
  *     chat room administrator or a general chat room member.</p>
  * @example
@@ -90,6 +89,7 @@ export interface BatchCreateRoomMembershipCommandOutput extends BatchCreateRoomM
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class BatchCreateRoomMembershipCommand extends $Command
   .classBuilder<

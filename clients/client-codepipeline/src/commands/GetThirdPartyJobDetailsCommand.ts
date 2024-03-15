@@ -31,7 +31,6 @@ export interface GetThirdPartyJobDetailsCommandInput extends GetThirdPartyJobDet
 export interface GetThirdPartyJobDetailsCommandOutput extends GetThirdPartyJobDetailsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Requests the details of a job for a third party action. Used for partner actions
  *             only.</p>
  *          <important>
@@ -143,6 +142,7 @@ export interface GetThirdPartyJobDetailsCommandOutput extends GetThirdPartyJobDe
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * @public
  */
 export class GetThirdPartyJobDetailsCommand extends $Command
   .classBuilder<

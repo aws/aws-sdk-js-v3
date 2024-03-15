@@ -27,7 +27,6 @@ export interface DeleteTrainingDatasetCommandInput extends DeleteTrainingDataset
 export interface DeleteTrainingDatasetCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Specifies a training dataset that you want to delete. You can't delete a training dataset if there are any audience models that depend on the training dataset. In Clean Rooms ML, the <code>TrainingDataset</code> is metadata that points to a Glue table, which is read only during <code>AudienceModel</code> creation. This action deletes the metadata.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface DeleteTrainingDatasetCommandOutput extends __MetadataBearer {}
  * @throws {@link CleanRoomsMLServiceException}
  * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
+ * @public
  */
 export class DeleteTrainingDatasetCommand extends $Command
   .classBuilder<

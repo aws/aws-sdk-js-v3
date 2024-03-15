@@ -31,7 +31,6 @@ export interface DescribeResiliencyPolicyCommandInput extends DescribeResiliency
 export interface DescribeResiliencyPolicyCommandOutput extends DescribeResiliencyPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a specified resiliency policy for an Resilience Hub application. The
  *       returned policy object includes creation time, data location constraints, the Amazon Resource
  *       Name (ARN) for the policy, tags, tier, and more.</p>
@@ -96,6 +95,7 @@ export interface DescribeResiliencyPolicyCommandOutput extends DescribeResilienc
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class DescribeResiliencyPolicyCommand extends $Command
   .classBuilder<

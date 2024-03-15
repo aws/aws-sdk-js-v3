@@ -31,7 +31,6 @@ export interface CreateDataProviderCommandInput extends CreateDataProviderMessag
 export interface CreateDataProviderCommandOutput extends CreateDataProviderResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a data provider using the provided settings. A data provider stores
  *          a data store type and location information about your database. </p>
  * @example
@@ -209,6 +208,7 @@ export interface CreateDataProviderCommandOutput extends CreateDataProviderRespo
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Create Data Provider
  * ```javascript
  * // Creates the data provider with the specified parameters.

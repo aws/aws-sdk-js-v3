@@ -27,7 +27,6 @@ export interface CreateEmailIdentityPolicyCommandInput extends CreateEmailIdenti
 export interface CreateEmailIdentityPolicyCommandOutput extends CreateEmailIdentityPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates the specified sending authorization policy for the given identity (an email
  *         address or a domain).</p>
  *          <note>
@@ -80,6 +79,7 @@ export interface CreateEmailIdentityPolicyCommandOutput extends CreateEmailIdent
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class CreateEmailIdentityPolicyCommand extends $Command
   .classBuilder<

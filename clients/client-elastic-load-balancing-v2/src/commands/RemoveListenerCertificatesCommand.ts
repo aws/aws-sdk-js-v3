@@ -31,7 +31,6 @@ export interface RemoveListenerCertificatesCommandInput extends RemoveListenerCe
 export interface RemoveListenerCertificatesCommandOutput extends RemoveListenerCertificatesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified certificate from the certificate list for the specified HTTPS or TLS
  *       listener.</p>
  * @example
@@ -70,6 +69,7 @@ export interface RemoveListenerCertificatesCommandOutput extends RemoveListenerC
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  */
 export class RemoveListenerCertificatesCommand extends $Command
   .classBuilder<

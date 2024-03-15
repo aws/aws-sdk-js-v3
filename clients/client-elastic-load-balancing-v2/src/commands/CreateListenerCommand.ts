@@ -31,7 +31,6 @@ export interface CreateListenerCommandInput extends CreateListenerInput {}
 export interface CreateListenerCommandOutput extends CreateListenerOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a listener for the specified Application Load Balancer, Network Load Balancer, or
  *       Gateway Load Balancer.</p>
  *          <p>For more information, see the following:</p>
@@ -311,6 +310,7 @@ export interface CreateListenerCommandOutput extends CreateListenerOutput, __Met
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  * @example To create an HTTP listener
  * ```javascript
  * // This example creates an HTTP listener for the specified load balancer that forwards requests to the specified target group.

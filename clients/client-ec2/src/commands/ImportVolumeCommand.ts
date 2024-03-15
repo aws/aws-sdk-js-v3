@@ -32,7 +32,6 @@ export interface ImportVolumeCommandInput extends ImportVolumeRequest {}
 export interface ImportVolumeCommandOutput extends ImportVolumeResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an import volume task using metadata from the specified disk image.</p>
  *          <p>This API action supports only single-volume VMs. To import multi-volume VMs, use
  *    <a>ImportImage</a> instead. To import a disk to a snapshot, use
@@ -126,6 +125,7 @@ export interface ImportVolumeCommandOutput extends ImportVolumeResult, __Metadat
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ImportVolumeCommand extends $Command
   .classBuilder<

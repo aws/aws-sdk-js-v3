@@ -303,7 +303,6 @@ export type CodestarNotificationsClientResolvedConfigType = __SmithyResolvedConf
 export interface CodestarNotificationsClientResolvedConfig extends CodestarNotificationsClientResolvedConfigType {}
 
 /**
- * @public
  * <p>This AWS CodeStar Notifications API Reference provides descriptions and usage examples of the
  *       operations and data types for the AWS CodeStar Notifications API. You can use the AWS CodeStar Notifications API
  *       to work with the following objects:</p>
@@ -382,6 +381,7 @@ export interface CodestarNotificationsClientResolvedConfig extends CodestarNotif
  *          </ul>
  *          <p> For information about how to use AWS CodeStar Notifications, see the <a href="https://docs.aws.amazon.com/dtconsole/latest/userguide/what-is-dtconsole.html">Amazon Web Services Developer Tools Console User Guide</a>.
  *     </p>
+ * @public
  */
 export class CodestarNotificationsClient extends __Client<
   __HttpHandlerOptions,

@@ -27,7 +27,6 @@ export interface ListBuildBatchesCommandInput extends ListBuildBatchesInput {}
 export interface ListBuildBatchesCommandOutput extends ListBuildBatchesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the identifiers of your build batches in the current region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface ListBuildBatchesCommandOutput extends ListBuildBatchesOutput, _
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * @public
  */
 export class ListBuildBatchesCommand extends $Command
   .classBuilder<

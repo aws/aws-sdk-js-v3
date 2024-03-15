@@ -27,7 +27,6 @@ export interface GetDevicePoolCompatibilityCommandInput extends GetDevicePoolCom
 export interface GetDevicePoolCompatibilityCommandOutput extends GetDevicePoolCompatibilityResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about compatibility with a device pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -232,6 +231,7 @@ export interface GetDevicePoolCompatibilityCommandOutput extends GetDevicePoolCo
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To get information about the compatibility of a device pool
  * ```javascript
  * // The following example returns information about the compatibility of a specific device pool, given its ARN.

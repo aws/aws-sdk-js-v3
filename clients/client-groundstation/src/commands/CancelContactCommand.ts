@@ -27,7 +27,6 @@ export interface CancelContactCommandInput extends CancelContactRequest {}
 export interface CancelContactCommandOutput extends ContactIdResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels a contact with a specified contact ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +63,7 @@ export interface CancelContactCommandOutput extends ContactIdResponse, __Metadat
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ * @public
  */
 export class CancelContactCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface AssociateTrunkInterfaceCommandInput extends AssociateTrunkInter
 export interface AssociateTrunkInterfaceCommandOutput extends AssociateTrunkInterfaceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a branch network interface with a trunk network interface.</p>
  *          <p>Before you create the association, run the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html">create-network-interface</a> command and set
  *             <code>--interface-type</code> to <code>trunk</code>. You must also create a network interface for each branch network interface that you want to associate with the trunk network interface.</p>
@@ -76,6 +75,7 @@ export interface AssociateTrunkInterfaceCommandOutput extends AssociateTrunkInte
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class AssociateTrunkInterfaceCommand extends $Command
   .classBuilder<

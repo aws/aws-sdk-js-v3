@@ -31,7 +31,6 @@ export interface DisassociateFraudsterCommandInput extends DisassociateFraudster
 export interface DisassociateFraudsterCommandOutput extends DisassociateFraudsterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates the fraudsters from the watchlist specified. Voice ID always expects a
  *             fraudster to be a part of at least one watchlist. If
  *             you try to disassociate a fraudster from its only watchlist, a <code>ValidationException</code> is thrown.
@@ -96,6 +95,7 @@ export interface DisassociateFraudsterCommandOutput extends DisassociateFraudste
  * @throws {@link VoiceIDServiceException}
  * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
+ * @public
  */
 export class DisassociateFraudsterCommand extends $Command
   .classBuilder<

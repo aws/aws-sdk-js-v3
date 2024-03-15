@@ -4,42 +4,42 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { Route53DomainsServiceException as __BaseException } from "./Route53DomainsServiceException";
 
 /**
- * @public
  * <p>The AcceptDomainTransferFromAnotherAwsAccount request includes the following
  * 			elements.</p>
+ * @public
  */
 export interface AcceptDomainTransferFromAnotherAwsAccountRequest {
   /**
-   * @public
    * <p>The name of the domain that was specified when another Amazon Web Services account
    * 			submitted a <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a> request. </p>
+   * @public
    */
   DomainName: string | undefined;
 
   /**
-   * @public
    * <p>The password that was returned by the <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a> request. </p>
+   * @public
    */
   Password: string | undefined;
 }
 
 /**
- * @public
  * <p>The AcceptDomainTransferFromAnotherAwsAccount response includes the following
  * 			element.</p>
+ * @public
  */
 export interface AcceptDomainTransferFromAnotherAwsAccountResponse {
   /**
-   * @public
    * <p>Identifier for tracking the progress of the request. To query the operation status,
    * 			use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
+   * @public
    */
   OperationId?: string;
 }
 
 /**
- * @public
  * <p>The number of domains has exceeded the allowed threshold for the account.</p>
+ * @public
  */
 export class DomainLimitExceeded extends __BaseException {
   readonly name: "DomainLimitExceeded" = "DomainLimitExceeded";
@@ -58,11 +58,11 @@ export class DomainLimitExceeded extends __BaseException {
 }
 
 /**
- * @public
  * <p>The requested item is not acceptable. For example, for APIs that accept a domain name,
  * 			the request might specify a domain name that doesn't belong to the account that
  * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
  * 			password might be invalid.</p>
+ * @public
  */
 export class InvalidInput extends __BaseException {
   readonly name: "InvalidInput" = "InvalidInput";
@@ -81,9 +81,9 @@ export class InvalidInput extends __BaseException {
 }
 
 /**
- * @public
  * <p>The number of operations or jobs running exceeded the allowed threshold for the
  * 			account.</p>
+ * @public
  */
 export class OperationLimitExceeded extends __BaseException {
   readonly name: "OperationLimitExceeded" = "OperationLimitExceeded";
@@ -102,8 +102,8 @@ export class OperationLimitExceeded extends __BaseException {
 }
 
 /**
- * @public
  * <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+ * @public
  */
 export class UnsupportedTLD extends __BaseException {
   readonly name: "UnsupportedTLD" = "UnsupportedTLD";
@@ -122,31 +122,31 @@ export class UnsupportedTLD extends __BaseException {
 }
 
 /**
- * @public
  * <p>Information about a delegation signer (DS) record that was created in the registry by
  * 				<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_AssociateDelegationSignerToDomain.html">AssociateDelegationSignerToDomain</a>. </p>
+ * @public
  */
 export interface DnssecSigningAttributes {
   /**
-   * @public
    * <p> Algorithm which was used to generate the digest from the public key. </p>
+   * @public
    */
   Algorithm?: number;
 
   /**
-   * @public
    * <p>Defines the type of key. It can be either a KSK (key-signing-key, value 257) or ZSK
    * 			(zone-signing-key, value 256). Using KSK is always encouraged. Only use ZSK if your DNS
    * 			provider isn't Route 53 and you don’t have KSK available.</p>
    *          <p>If you have KSK and ZSK keys, always use KSK to create a delegations signer (DS)
    * 			record. If you have ZSK keys only – use ZSK to create a DS record.</p>
+   * @public
    */
   Flags?: number;
 
   /**
-   * @public
    * <p> The base64-encoded public key part of the key pair that is passed to the registry.
    * 		</p>
+   * @public
    */
   PublicKey?: string;
 }
@@ -156,15 +156,15 @@ export interface DnssecSigningAttributes {
  */
 export interface AssociateDelegationSignerToDomainRequest {
   /**
-   * @public
    * <p>The name of the domain.</p>
+   * @public
    */
   DomainName: string | undefined;
 
   /**
-   * @public
    * <p>The information about a key, including the algorithm, public key-value, and
    * 			flags.</p>
+   * @public
    */
   SigningAttributes: DnssecSigningAttributes | undefined;
 }
@@ -174,18 +174,18 @@ export interface AssociateDelegationSignerToDomainRequest {
  */
 export interface AssociateDelegationSignerToDomainResponse {
   /**
-   * @public
    * <p>The identifier for tracking the progress of the request. To query the operation
    * 			status, use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
+   * @public
    */
   OperationId?: string;
 }
 
 /**
- * @public
  * <p> This error is returned if you call <code>AssociateDelegationSignerToDomain</code>
  * 			when the specified domain has reached the maximum number of DS records. You can't add
  * 			any additional DS records unless you delete an existing one first. </p>
+ * @public
  */
 export class DnssecLimitExceeded extends __BaseException {
   readonly name: "DnssecLimitExceeded" = "DnssecLimitExceeded";
@@ -204,15 +204,15 @@ export class DnssecLimitExceeded extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request is already in progress for the domain.</p>
+ * @public
  */
 export class DuplicateRequest extends __BaseException {
   readonly name: "DuplicateRequest" = "DuplicateRequest";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>ID of the request operation.</p>
+   * @public
    */
   requestId?: string;
 
@@ -231,8 +231,8 @@ export class DuplicateRequest extends __BaseException {
 }
 
 /**
- * @public
  * <p>The top-level domain does not support this operation.</p>
+ * @public
  */
 export class TLDRulesViolation extends __BaseException {
   readonly name: "TLDRulesViolation" = "TLDRulesViolation";
@@ -283,82 +283,81 @@ export const OperationType = {
 export type OperationType = (typeof OperationType)[keyof typeof OperationType];
 
 /**
- * @public
  * <p>Information for one billing record.</p>
+ * @public
  */
 export interface BillingRecord {
   /**
-   * @public
    * <p>The name of the domain that the billing record applies to. If the domain name contains
    * 			characters other than a-z, 0-9, and - (hyphen), such as an internationalized domain
    * 			name, then this value is in Punycode. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html">DNS
    * 				Domain Name Format</a> in the <i>Amazon Route 53 Developer
    * 				Guide</i>.</p>
+   * @public
    */
   DomainName?: string;
 
   /**
-   * @public
    * <p>The operation that you were charged for.</p>
+   * @public
    */
   Operation?: OperationType;
 
   /**
-   * @public
    * <p>The ID of the invoice that is associated with the billing record.</p>
+   * @public
    */
   InvoiceId?: string;
 
   /**
-   * @public
    * <p>The date that the operation was billed, in Unix format.</p>
+   * @public
    */
   BillDate?: Date;
 
   /**
-   * @public
    * <p>The price that you were charged for the operation, in US dollars.</p>
    *          <p>Example value: 12.0</p>
+   * @public
    */
   Price?: number;
 }
 
 /**
- * @public
  * <p>The CancelDomainTransferToAnotherAwsAccount request includes the following
  * 			element.</p>
+ * @public
  */
 export interface CancelDomainTransferToAnotherAwsAccountRequest {
   /**
-   * @public
    * <p>The name of the domain for which you want to cancel the transfer to another Amazon Web Services account.</p>
+   * @public
    */
   DomainName: string | undefined;
 }
 
 /**
- * @public
  * <p>The <code>CancelDomainTransferToAnotherAwsAccount</code> response includes the
  * 			following element.</p>
+ * @public
  */
 export interface CancelDomainTransferToAnotherAwsAccountResponse {
   /**
-   * @public
    * <p>The identifier that <code>TransferDomainToAnotherAwsAccount</code> returned to track
    * 			the progress of the request. Because the transfer request was canceled, the value is no
    * 			longer valid, and you can't use <code>GetOperationDetail</code> to query the operation
    * 			status.</p>
+   * @public
    */
   OperationId?: string;
 }
 
 /**
- * @public
  * <p>The CheckDomainAvailability request contains the following elements.</p>
+ * @public
  */
 export interface CheckDomainAvailabilityRequest {
   /**
-   * @public
    * <p>The name of the domain that you want to get availability for. The top-level domain
    * 			(TLD), such as .com, must be a TLD that Route 53 supports. For a list of supported TLDs,
    * 			see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains that You Can
@@ -385,12 +384,13 @@ export interface CheckDomainAvailabilityRequest {
    * 			determine whether the TLD that you want to use supports internationalized domain names,
    * 			see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains that You Can
    * 				Register with Amazon Route 53</a>. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html#domain-name-format-idns">Formatting Internationalized Domain Names</a>. </p>
+   * @public
    */
   DomainName: string | undefined;
 
   /**
-   * @public
    * <p>Reserved for future use.</p>
+   * @public
    */
   IdnLangCode?: string;
 }
@@ -418,12 +418,11 @@ export const DomainAvailability = {
 export type DomainAvailability = (typeof DomainAvailability)[keyof typeof DomainAvailability];
 
 /**
- * @public
  * <p>The CheckDomainAvailability response includes the following elements.</p>
+ * @public
  */
 export interface CheckDomainAvailabilityResponse {
   /**
-   * @public
    * <p>Whether the domain name is available for registering.</p>
    *          <note>
    *             <p>You can register only domains designated as <code>AVAILABLE</code>.</p>
@@ -477,17 +476,17 @@ export interface CheckDomainAvailabilityResponse {
    *                <p>The domain name is forbidden.</p>
    *             </dd>
    *          </dl>
+   * @public
    */
   Availability?: DomainAvailability;
 }
 
 /**
- * @public
  * <p>The CheckDomainTransferability request contains the following elements.</p>
+ * @public
  */
 export interface CheckDomainTransferabilityRequest {
   /**
-   * @public
    * <p>The name of the domain that you want to transfer to Route 53. The top-level domain
    * 			(TLD), such as .com, must be a TLD that Route 53 supports. For a list of supported TLDs,
    * 			see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains that You Can
@@ -510,14 +509,15 @@ export interface CheckDomainTransferabilityRequest {
    * 						<code>example.com</code>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   DomainName: string | undefined;
 
   /**
-   * @public
    * <p>If the registrar for the top-level domain (TLD) requires an authorization code to
    * 			transfer the domain, the code that you got from the current registrar for the
    * 			domain.</p>
+   * @public
    */
   AuthCode?: string;
 }
@@ -541,13 +541,12 @@ export const Transferable = {
 export type Transferable = (typeof Transferable)[keyof typeof Transferable];
 
 /**
- * @public
  * <p>A complex type that contains information about whether the specified domain can be
  * 			transferred to Route 53.</p>
+ * @public
  */
 export interface DomainTransferability {
   /**
-   * @public
    * <p>Whether the domain name can be transferred to Route 53.</p>
    *          <note>
    *             <p>You can transfer only domains that have a value of <code>TRANSFERABLE</code> or
@@ -580,43 +579,44 @@ export interface DomainTransferability {
    *                <p>Premium domain transfer is not supported.</p>
    *             </dd>
    *          </dl>
+   * @public
    */
   Transferable?: Transferable;
 }
 
 /**
- * @public
  * <p>The CheckDomainTransferability response includes the following elements.</p>
+ * @public
  */
 export interface CheckDomainTransferabilityResponse {
   /**
-   * @public
    * <p>A complex type that contains information about whether the specified domain can be
    * 			transferred to Route 53.</p>
+   * @public
    */
   Transferability?: DomainTransferability;
 
   /**
-   * @public
    * <p>Provides an explanation for when a domain can't be transferred.</p>
+   * @public
    */
   Message?: string;
 }
 
 /**
- * @public
  * <p> Customer's consent for the owner change request. </p>
+ * @public
  */
 export interface Consent {
   /**
-   * @public
    * <p> Maximum amount the customer agreed to accept. </p>
+   * @public
    */
   MaxPrice: number | undefined;
 
   /**
-   * @public
    * <p> Currency for the <code>MaxPrice</code>. </p>
+   * @public
    */
   Currency: string | undefined;
 }
@@ -945,12 +945,11 @@ export const ExtraParamName = {
 export type ExtraParamName = (typeof ExtraParamName)[keyof typeof ExtraParamName];
 
 /**
- * @public
  * <p>ExtraParam includes the following elements.</p>
+ * @public
  */
 export interface ExtraParam {
   /**
-   * @public
    * <p>The name of an additional parameter that is required by a top-level domain. Here are
    * 			the top-level domains that require additional parameters and the names of the parameters
    * 			that they require:</p>
@@ -1768,35 +1767,35 @@ export interface ExtraParam {
    *             </dd>
    *          </dl>
    *          <p>In addition, many TLDs require a <code>VAT_NUMBER</code>.</p>
+   * @public
    */
   Name: ExtraParamName | undefined;
 
   /**
-   * @public
    * <p>The value that corresponds with the name of an extra parameter.</p>
+   * @public
    */
   Value: string | undefined;
 }
 
 /**
- * @public
  * <p>ContactDetail includes the following elements.</p>
+ * @public
  */
 export interface ContactDetail {
   /**
-   * @public
    * <p>First name of contact.</p>
+   * @public
    */
   FirstName?: string;
 
   /**
-   * @public
    * <p>Last name of contact.</p>
+   * @public
    */
   LastName?: string;
 
   /**
-   * @public
    * <p>Indicates whether the contact is a person, company, association, or public
    * 			organization. Note the following:</p>
    *          <ul>
@@ -1817,79 +1816,80 @@ export interface ContactDetail {
    * 						<code>PERSON</code> for all three contacts.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ContactType?: ContactType;
 
   /**
-   * @public
    * <p>Name of the organization for contact types other than <code>PERSON</code>.</p>
+   * @public
    */
   OrganizationName?: string;
 
   /**
-   * @public
    * <p>First line of the contact's address.</p>
+   * @public
    */
   AddressLine1?: string;
 
   /**
-   * @public
    * <p>Second line of contact's address, if any.</p>
+   * @public
    */
   AddressLine2?: string;
 
   /**
-   * @public
    * <p>The city of the contact's address.</p>
+   * @public
    */
   City?: string;
 
   /**
-   * @public
    * <p>The state or province of the contact's city.</p>
+   * @public
    */
   State?: string;
 
   /**
-   * @public
    * <p>Code for the country of the contact's address.</p>
+   * @public
    */
   CountryCode?: CountryCode;
 
   /**
-   * @public
    * <p>The zip or postal code of the contact's address.</p>
+   * @public
    */
   ZipCode?: string;
 
   /**
-   * @public
    * <p>The phone number of the contact.</p>
    *          <p>Constraints: Phone number must be specified in the format "+[country dialing
    * 			code].[number including any area code>]". For example, a US phone number might appear
    * 			as <code>"+1.1234567890"</code>.</p>
+   * @public
    */
   PhoneNumber?: string;
 
   /**
-   * @public
    * <p>Email address of the contact.</p>
+   * @public
    */
   Email?: string;
 
   /**
-   * @public
    * <p>Fax number of the contact.</p>
    *          <p>Constraints: Phone number must be specified in the format "+[country dialing
    * 			code].[number including any area code]". For example, a US phone number might appear as
    * 				<code>"+1.1234567890"</code>.</p>
+   * @public
    */
   Fax?: string;
 
   /**
-   * @public
    * <p>A list of name-value pairs for parameters required by certain top-level
    * 			domains.</p>
+   * @public
    */
   ExtraParams?: ExtraParam[];
 }
@@ -1899,8 +1899,8 @@ export interface ContactDetail {
  */
 export interface DeleteDomainRequest {
   /**
-   * @public
    * <p>Name of the domain to be deleted.</p>
+   * @public
    */
   DomainName: string | undefined;
 }
@@ -1910,27 +1910,27 @@ export interface DeleteDomainRequest {
  */
 export interface DeleteDomainResponse {
   /**
-   * @public
    * <p>Identifier for tracking the progress of the request. To query the operation status,
    * 			use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
+   * @public
    */
   OperationId?: string;
 }
 
 /**
- * @public
  * <p>The DeleteTagsForDomainRequest includes the following elements.</p>
+ * @public
  */
 export interface DeleteTagsForDomainRequest {
   /**
-   * @public
    * <p>The domain for which you want to delete one or more tags.</p>
+   * @public
    */
   DomainName: string | undefined;
 
   /**
-   * @public
    * <p>A list of tag keys to delete.</p>
+   * @public
    */
   TagsToDelete: string[] | undefined;
 }
@@ -1945,8 +1945,8 @@ export interface DeleteTagsForDomainResponse {}
  */
 export interface DisableDomainAutoRenewRequest {
   /**
-   * @public
    * <p>The name of the domain that you want to disable automatic renewal for.</p>
+   * @public
    */
   DomainName: string | undefined;
 }
@@ -1957,26 +1957,26 @@ export interface DisableDomainAutoRenewRequest {
 export interface DisableDomainAutoRenewResponse {}
 
 /**
- * @public
  * <p>The DisableDomainTransferLock request includes the following element.</p>
+ * @public
  */
 export interface DisableDomainTransferLockRequest {
   /**
-   * @public
    * <p>The name of the domain that you want to remove the transfer lock for.</p>
+   * @public
    */
   DomainName: string | undefined;
 }
 
 /**
- * @public
  * <p>The DisableDomainTransferLock response includes the following element.</p>
+ * @public
  */
 export interface DisableDomainTransferLockResponse {
   /**
-   * @public
    * <p>Identifier for tracking the progress of the request. To query the operation status,
    * 			use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
+   * @public
    */
   OperationId?: string;
 }
@@ -1986,15 +1986,15 @@ export interface DisableDomainTransferLockResponse {
  */
 export interface DisassociateDelegationSignerFromDomainRequest {
   /**
-   * @public
    * <p>Name of the domain.</p>
+   * @public
    */
   DomainName: string | undefined;
 
   /**
-   * @public
    * <p>An internal identification number assigned to each DS record after it’s created. You
    * 			can retrieve it as part of DNSSEC information returned by <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetDomainDetail.html">GetDomainDetail</a>.</p>
+   * @public
    */
   Id: string | undefined;
 }
@@ -2004,149 +2004,148 @@ export interface DisassociateDelegationSignerFromDomainRequest {
  */
 export interface DisassociateDelegationSignerFromDomainResponse {
   /**
-   * @public
    * <p>Identifier for tracking the progress of the request. To query the operation status,
    * 			use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
+   * @public
    */
   OperationId?: string;
 }
 
 /**
- * @public
  * <p>Information about the DNSSEC key.</p>
  *          <p>You get this from your DNS provider and then give it to Route 53 (by using
  * 				<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_AssociateDelegationSignerToDomain.html">AssociateDelegationSignerToDomain</a>) to pass it to the registry to establish
  * 			the chain of trust.</p>
+ * @public
  */
 export interface DnssecKey {
   /**
-   * @public
    * <p>The number of the public key’s cryptographic algorithm according to an <a href="https://www.iana.org/assignments/dns-sec-alg-numbers/dns-sec-alg-numbers.xml">IANA</a> assignment. </p>
    *          <p>If Route 53 is your DNS service, set this to 13.</p>
    *          <p>For more information about enabling DNSSEC signing, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-enable-signing.html">Enabling DNSSEC signing and establishing a chain of trust</a>.</p>
+   * @public
    */
   Algorithm?: number;
 
   /**
-   * @public
    * <p>Defines the type of key. It can be either a KSK (key-signing-key, value 257) or ZSK
    * 			(zone-signing-key, value 256). Using KSK is always encouraged. Only use ZSK if your DNS
    * 			provider isn't Route 53 and you don’t have KSK available.</p>
    *          <p>If you have KSK and ZSK keys, always use KSK to create a delegations signer (DS)
    * 			record. If you have ZSK keys only – use ZSK to create a DS record.</p>
+   * @public
    */
   Flags?: number;
 
   /**
-   * @public
    * <p>The base64-encoded public key part of the key pair that is passed to the registry
    * 			.</p>
+   * @public
    */
   PublicKey?: string;
 
   /**
-   * @public
    * <p> The number of the DS digest algorithm according to an IANA assignment.</p>
    *          <p>For more information, see <a href="https://www.iana.org/assignments/ds-rr-types/ds-rr-types.xhtml">IANA</a>
    * 			for DNSSEC Delegation Signer (DS) Resource Record (RR) Type Digest Algorithms. </p>
+   * @public
    */
   DigestType?: number;
 
   /**
-   * @public
    * <p> The delegation signer digest.</p>
    *          <p>Digest is calculated from the public key provided using specified digest algorithm and
    * 			this digest is the actual value returned from the registry nameservers as the value of
    * 			DS records. </p>
+   * @public
    */
   Digest?: string;
 
   /**
-   * @public
    * <p> A numeric identification of the DNSKEY record referred to by this DS record. </p>
+   * @public
    */
   KeyTag?: number;
 
   /**
-   * @public
    * <p> An ID assigned to each DS record created by <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_AssociateDelegationSignerToDomain.html">AssociateDelegationSignerToDomain</a>. </p>
+   * @public
    */
   Id?: string;
 }
 
 /**
- * @public
  * <p>Currency-specific price information.</p>
+ * @public
  */
 export interface PriceWithCurrency {
   /**
-   * @public
    * <p>The price of a domain, in a specific currency.</p>
+   * @public
    */
   Price: number | undefined;
 
   /**
-   * @public
    * <p>The currency specifier.</p>
+   * @public
    */
   Currency: string | undefined;
 }
 
 /**
- * @public
  * <p>Information about the domain price associated with a TLD.</p>
+ * @public
  */
 export interface DomainPrice {
   /**
-   * @public
    * <p>The name of the TLD for which the prices apply.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The price for domain registration with Route 53.</p>
+   * @public
    */
   RegistrationPrice?: PriceWithCurrency;
 
   /**
-   * @public
    * <p>The price for transferring the domain registration to Route 53.</p>
+   * @public
    */
   TransferPrice?: PriceWithCurrency;
 
   /**
-   * @public
    * <p>The price for renewing domain registration with Route 53.</p>
+   * @public
    */
   RenewalPrice?: PriceWithCurrency;
 
   /**
-   * @public
    * <p>The price for changing domain ownership.</p>
+   * @public
    */
   ChangeOwnershipPrice?: PriceWithCurrency;
 
   /**
-   * @public
    * <p>The price for restoring the domain with Route 53.</p>
+   * @public
    */
   RestorationPrice?: PriceWithCurrency;
 }
 
 /**
- * @public
  * <p>Information about one suggested domain name.</p>
+ * @public
  */
 export interface DomainSuggestion {
   /**
-   * @public
    * <p>A suggested domain name.</p>
+   * @public
    */
   DomainName?: string;
 
   /**
-   * @public
    * <p>Whether the domain name is available for registering.</p>
    *          <note>
    *             <p>You can register only the domains that are designated as
@@ -2197,38 +2196,39 @@ export interface DomainSuggestion {
    *                <p>The domain name is forbidden.</p>
    *             </dd>
    *          </dl>
+   * @public
    */
   Availability?: string;
 }
 
 /**
- * @public
  * <p>Summary information about one domain.</p>
+ * @public
  */
 export interface DomainSummary {
   /**
-   * @public
    * <p>The name of the domain that the summary information applies to.</p>
+   * @public
    */
   DomainName?: string;
 
   /**
-   * @public
    * <p>Indicates whether the domain is automatically renewed upon expiration.</p>
+   * @public
    */
   AutoRenew?: boolean;
 
   /**
-   * @public
    * <p>Indicates whether a domain is locked from unauthorized transfer to another
    * 			party.</p>
+   * @public
    */
   TransferLock?: boolean;
 
   /**
-   * @public
    * <p>Expiration date of the domain in Unix time format and Coordinated Universal Time
    * 			(UTC).</p>
+   * @public
    */
   Expiry?: Date;
 }
@@ -2238,8 +2238,8 @@ export interface DomainSummary {
  */
 export interface EnableDomainAutoRenewRequest {
   /**
-   * @public
    * <p>The name of the domain that you want to enable automatic renewal for.</p>
+   * @public
    */
   DomainName: string | undefined;
 }
@@ -2250,26 +2250,26 @@ export interface EnableDomainAutoRenewRequest {
 export interface EnableDomainAutoRenewResponse {}
 
 /**
- * @public
  * <p>A request to set the transfer lock for the specified domain.</p>
+ * @public
  */
 export interface EnableDomainTransferLockRequest {
   /**
-   * @public
    * <p>The name of the domain that you want to set the transfer lock for.</p>
+   * @public
    */
   DomainName: string | undefined;
 }
 
 /**
- * @public
  * <p>The EnableDomainTransferLock response includes the following elements.</p>
+ * @public
  */
 export interface EnableDomainTransferLockResponse {
   /**
-   * @public
    * <p>Identifier for tracking the progress of the request. To use this ID to query the
    * 			operation status, use GetOperationDetail.</p>
+   * @public
    */
   OperationId?: string;
 }
@@ -2304,18 +2304,17 @@ export const Operator = {
 export type Operator = (typeof Operator)[keyof typeof Operator];
 
 /**
- * @public
  * <p>Information for the filtering of a list of domains returned by <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains__ListDomains.html">ListDomains</a>.</p>
+ * @public
  */
 export interface FilterCondition {
   /**
-   * @public
    * <p>Name of the field which should be used for filtering the list of domains.</p>
+   * @public
    */
   Name: ListDomainsAttributeName | undefined;
 
   /**
-   * @public
    * <p>The operator values for filtering domain names. The values can be:</p>
    *          <ul>
    *             <li>
@@ -2331,13 +2330,14 @@ export interface FilterCondition {
    *                   <code>BEGINS_WITH</code>: Begins with</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Operator: Operator | undefined;
 
   /**
-   * @public
    * <p> An array of strings presenting values to compare. Only 1 item in the list is
    * 			currently supported.</p>
+   * @public
    */
   Values: string[] | undefined;
 }
@@ -2347,9 +2347,9 @@ export interface FilterCondition {
  */
 export interface GetContactReachabilityStatusRequest {
   /**
-   * @public
    * <p>The name of the domain for which you want to know whether the registrant contact has
    * 			confirmed that the email address is valid.</p>
+   * @public
    */
   domainName?: string;
 }
@@ -2374,13 +2374,12 @@ export type ReachabilityStatus = (typeof ReachabilityStatus)[keyof typeof Reacha
  */
 export interface GetContactReachabilityStatusResponse {
   /**
-   * @public
    * <p>The domain name for which you requested the reachability status.</p>
+   * @public
    */
   domainName?: string;
 
   /**
-   * @public
    * <p>Whether the registrant contact has responded. Values include the following:</p>
    *          <dl>
    *             <dt>PENDING</dt>
@@ -2396,191 +2395,191 @@ export interface GetContactReachabilityStatusResponse {
    *                <p>The time limit expired before the registrant contact responded.</p>
    *             </dd>
    *          </dl>
+   * @public
    */
   status?: ReachabilityStatus;
 }
 
 /**
- * @public
  * <p>The GetDomainDetail request includes the following element.</p>
+ * @public
  */
 export interface GetDomainDetailRequest {
   /**
-   * @public
    * <p>The name of the domain that you want to get detailed information about.</p>
+   * @public
    */
   DomainName: string | undefined;
 }
 
 /**
- * @public
  * <p>Name server includes the following elements.</p>
+ * @public
  */
 export interface Nameserver {
   /**
-   * @public
    * <p>The fully qualified host name of the name server.</p>
    *          <p>Constraint: Maximum 255 characters</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>Glue IP address of a name server entry. Glue IP addresses are required only when the
    * 			name of the name server is a subdomain of the domain. For example, if your domain is
    * 			example.com and the name server for the domain is ns.example.com, you need to specify
    * 			the IP address for ns.example.com.</p>
    *          <p>Constraints: The list can contain only one IPv4 and one IPv6 address.</p>
+   * @public
    */
   GlueIps?: string[];
 }
 
 /**
- * @public
  * <p>The GetDomainDetail response includes the following elements.</p>
+ * @public
  */
 export interface GetDomainDetailResponse {
   /**
-   * @public
    * <p>The name of a domain.</p>
+   * @public
    */
   DomainName?: string;
 
   /**
-   * @public
    * <p>The name servers of the domain.</p>
+   * @public
    */
   Nameservers?: Nameserver[];
 
   /**
-   * @public
    * <p>Specifies whether the domain registration is set to renew automatically.</p>
+   * @public
    */
   AutoRenew?: boolean;
 
   /**
-   * @public
    * <p>Provides details about the domain administrative contact.</p>
+   * @public
    */
   AdminContact?: ContactDetail;
 
   /**
-   * @public
    * <p>Provides details about the domain registrant.</p>
+   * @public
    */
   RegistrantContact?: ContactDetail;
 
   /**
-   * @public
    * <p>Provides details about the domain technical contact.</p>
+   * @public
    */
   TechContact?: ContactDetail;
 
   /**
-   * @public
    * <p>Specifies whether contact information is concealed from WHOIS queries. If the value is
    * 				<code>true</code>, WHOIS ("who is") queries return contact information either for
    * 			Amazon Registrar or for our registrar associate,
    * 			Gandi. If the value is <code>false</code>, WHOIS queries return the
    * 			information that you entered for the admin contact.</p>
+   * @public
    */
   AdminPrivacy?: boolean;
 
   /**
-   * @public
    * <p>Specifies whether contact information is concealed from WHOIS queries. If the value is
    * 				<code>true</code>, WHOIS ("who is") queries return contact information either for
    * 			Amazon Registrar or for our registrar associate,
    * 			Gandi. If the value is <code>false</code>, WHOIS queries return the
    * 			information that you entered for the registrant contact (domain owner).</p>
+   * @public
    */
   RegistrantPrivacy?: boolean;
 
   /**
-   * @public
    * <p>Specifies whether contact information is concealed from WHOIS queries. If the value is
    * 				<code>true</code>, WHOIS ("who is") queries return contact information either for
    * 			Amazon Registrar or for our registrar associate,
    * 			Gandi. If the value is <code>false</code>, WHOIS queries return the
    * 			information that you entered for the technical contact.</p>
+   * @public
    */
   TechPrivacy?: boolean;
 
   /**
-   * @public
    * <p>Name of the registrar of the domain as identified in the registry. </p>
+   * @public
    */
   RegistrarName?: string;
 
   /**
-   * @public
    * <p>The fully qualified name of the WHOIS server that can answer the WHOIS query for the
    * 			domain.</p>
+   * @public
    */
   WhoIsServer?: string;
 
   /**
-   * @public
    * <p>Web address of the registrar.</p>
+   * @public
    */
   RegistrarUrl?: string;
 
   /**
-   * @public
    * <p>Email address to contact to report incorrect contact information for a domain, to
    * 			report that the domain is being used to send spam, to report that someone is
    * 			cybersquatting on a domain name, or report some other type of abuse.</p>
+   * @public
    */
   AbuseContactEmail?: string;
 
   /**
-   * @public
    * <p>Phone number for reporting abuse.</p>
+   * @public
    */
   AbuseContactPhone?: string;
 
   /**
-   * @public
    * <p>Reserved for future use.</p>
+   * @public
    */
   RegistryDomainId?: string;
 
   /**
-   * @public
    * <p>The date when the domain was created as found in the response to a WHOIS query. The
    * 			date and time is in Unix time format and Coordinated Universal time (UTC).</p>
+   * @public
    */
   CreationDate?: Date;
 
   /**
-   * @public
    * <p>The last updated date of the domain as found in the response to a WHOIS query. The
    * 			date and time is in Unix time format and Coordinated Universal time (UTC).</p>
+   * @public
    */
   UpdatedDate?: Date;
 
   /**
-   * @public
    * <p>The date when the registration for the domain is set to expire. The date and time is
    * 			in Unix time format and Coordinated Universal time (UTC).</p>
+   * @public
    */
   ExpirationDate?: Date;
 
   /**
-   * @public
    * <p>Reseller of the domain. Domains registered or transferred using Route 53 domains will
    * 			have <code>"Amazon"</code> as the reseller. </p>
+   * @public
    */
   Reseller?: string;
 
   /**
-   * @public
    * <p>Deprecated.</p>
+   * @public
    */
   DnsSec?: string;
 
   /**
-   * @public
    * <p>An array of domain name status codes, also known as Extensible Provisioning Protocol
    * 			(EPP) status codes.</p>
    *          <p>ICANN, the organization that maintains a central database of domain names, has
@@ -2592,28 +2591,29 @@ export interface GetDomainDetailResponse {
    * 			means, go to the <a href="https://www.icann.org/">ICANN website</a> and search
    * 			for <code>epp status codes</code>. (Search on the ICANN website; web searches sometimes
    * 			return an old version of the document.)</p>
+   * @public
    */
   StatusList?: string[];
 
   /**
-   * @public
    * <p>A complex type that contains information about the DNSSEC configuration.</p>
+   * @public
    */
   DnssecKeys?: DnssecKey[];
 
   /**
-   * @public
    * <p>Provides details about the domain billing contact.</p>
+   * @public
    */
   BillingContact?: ContactDetail;
 
   /**
-   * @public
    * <p>Specifies whether contact information is concealed from WHOIS queries. If the value is
    * 		<code>true</code>, WHOIS ("who is") queries return contact information either for
    * 		Amazon Registrar or for our registrar associate,
    * 		Gandi. If the value is <code>false</code>, WHOIS queries return the
    * 		information that you entered for the billing contact.</p>
+   * @public
    */
   BillingPrivacy?: boolean;
 }
@@ -2623,7 +2623,6 @@ export interface GetDomainDetailResponse {
  */
 export interface GetDomainSuggestionsRequest {
   /**
-   * @public
    * <p>A domain name that you want to use as the basis for a list of possible domain names.
    * 			The top-level domain (TLD), such as .com, must be a TLD that Route 53 supports. For a
    * 			list of supported TLDs, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains that You Can
@@ -2650,23 +2649,24 @@ export interface GetDomainSuggestionsRequest {
    * 			determine whether the TLD that you want to use supports internationalized domain names,
    * 			see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains that You Can
    * 				Register with Amazon Route 53</a>. </p>
+   * @public
    */
   DomainName: string | undefined;
 
   /**
-   * @public
    * <p>The number of suggested domain names that you want Route 53 to return. Specify a value
    * 			between 1 and 50.</p>
+   * @public
    */
   SuggestionCount: number | undefined;
 
   /**
-   * @public
    * <p>If <code>OnlyAvailable</code> is <code>true</code>, Route 53 returns only domain names
    * 			that are available. If <code>OnlyAvailable</code> is <code>false</code>, Route 53
    * 			returns domain names without checking whether they're available to be registered. To
    * 			determine whether the domain is available, you can call
    * 				<code>checkDomainAvailability</code> for each suggestion.</p>
+   * @public
    */
   OnlyAvailable: boolean | undefined;
 }
@@ -2676,23 +2676,23 @@ export interface GetDomainSuggestionsRequest {
  */
 export interface GetDomainSuggestionsResponse {
   /**
-   * @public
    * <p>A list of possible domain names. If you specified <code>true</code> for
    * 				<code>OnlyAvailable</code> in the request, the list contains only domains that are
    * 			available for registration.</p>
+   * @public
    */
   SuggestionsList?: DomainSuggestion[];
 }
 
 /**
- * @public
  * <p>The <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a> request includes the following element.</p>
+ * @public
  */
 export interface GetOperationDetailRequest {
   /**
-   * @public
    * <p>The identifier for the operation for which you want to get the status. Route 53
    * 			returned the identifier in the response to the original request.</p>
+   * @public
    */
   OperationId: string | undefined;
 }
@@ -2732,54 +2732,53 @@ export const StatusFlag = {
 export type StatusFlag = (typeof StatusFlag)[keyof typeof StatusFlag];
 
 /**
- * @public
  * <p>The GetOperationDetail response includes the following elements.</p>
+ * @public
  */
 export interface GetOperationDetailResponse {
   /**
-   * @public
    * <p>The identifier for the operation.</p>
+   * @public
    */
   OperationId?: string;
 
   /**
-   * @public
    * <p>The current status of the requested operation in the system.</p>
+   * @public
    */
   Status?: OperationStatus;
 
   /**
-   * @public
    * <p>Detailed information on the status including possible errors.</p>
+   * @public
    */
   Message?: string;
 
   /**
-   * @public
    * <p>The name of a domain.</p>
+   * @public
    */
   DomainName?: string;
 
   /**
-   * @public
    * <p>The type of operation that was requested.</p>
+   * @public
    */
   Type?: OperationType;
 
   /**
-   * @public
    * <p>The date when the request was submitted.</p>
+   * @public
    */
   SubmittedDate?: Date;
 
   /**
-   * @public
    * <p> The date when the operation was last updated. </p>
+   * @public
    */
   LastUpdatedDate?: Date;
 
   /**
-   * @public
    * <p> Lists any outstanding operations that require customer action. Valid values
    * 			are:</p>
    *          <ul>
@@ -2809,6 +2808,7 @@ export interface GetOperationDetailResponse {
    * 					is waiting for its resolution.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   StatusFlag?: StatusFlag;
 }
@@ -2828,50 +2828,49 @@ export const SortOrder = {
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
- * @public
  * <p>Information for sorting a list of domains.</p>
+ * @public
  */
 export interface SortCondition {
   /**
-   * @public
    * <p>Field to be used for sorting the list of domains. It can be either the name or the
    * 			expiration for a domain. Note that if <code>filterCondition</code> is used in the same
    * 				<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains__ListDomains.html">ListDomains</a>
    * 			call, the field used for sorting has to be the same as the field used for
    * 			filtering.</p>
+   * @public
    */
   Name: ListDomainsAttributeName | undefined;
 
   /**
-   * @public
    * <p>The sort order for a list of domains. Either ascending (ASC) or descending
    * 			(DES).</p>
+   * @public
    */
   SortOrder: SortOrder | undefined;
 }
 
 /**
- * @public
  * <p>The ListDomains request includes the following elements.</p>
+ * @public
  */
 export interface ListDomainsRequest {
   /**
-   * @public
    * <p>A complex type that contains information about the filters applied during the
    * 				<code>ListDomains</code> request. The filter conditions can include domain name and
    * 			domain expiration.</p>
+   * @public
    */
   FilterConditions?: FilterCondition[];
 
   /**
-   * @public
    * <p>A complex type that contains information about the requested ordering of domains in
    * 			the returned list.</p>
+   * @public
    */
   SortCondition?: SortCondition;
 
   /**
-   * @public
    * <p>For an initial request for a list of domains, omit this element. If the number of
    * 			domains that are associated with the current Amazon Web Services account is greater than
    * 			the value that you specified for <code>MaxItems</code>, you can use <code>Marker</code>
@@ -2879,33 +2878,34 @@ export interface ListDomainsRequest {
    * 			previous response, and submit another request that includes the value of
    * 				<code>NextPageMarker</code> in the <code>Marker</code> element.</p>
    *          <p>Constraints: The marker must match the value specified in the previous request.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>Number of domains to be returned.</p>
    *          <p>Default: 20</p>
+   * @public
    */
   MaxItems?: number;
 }
 
 /**
- * @public
  * <p>The ListDomains response includes the following elements.</p>
+ * @public
  */
 export interface ListDomainsResponse {
   /**
-   * @public
    * <p>A list of domains.</p>
+   * @public
    */
   Domains?: DomainSummary[];
 
   /**
-   * @public
    * <p>If there are more domains than you specified for <code>MaxItems</code> in the request,
    * 			submit another request and include the value of <code>NextPageMarker</code> in the value
    * 			of <code>Marker</code>.</p>
+   * @public
    */
   NextPageMarker?: string;
 }
@@ -2925,104 +2925,103 @@ export type ListOperationsSortAttributeName =
   (typeof ListOperationsSortAttributeName)[keyof typeof ListOperationsSortAttributeName];
 
 /**
- * @public
  * <p>The ListOperations request includes the following elements.</p>
+ * @public
  */
 export interface ListOperationsRequest {
   /**
-   * @public
    * <p>An optional parameter that lets you get information about all the operations that you
    * 			submitted after a specified date and time. Specify the date and time in Unix time format
    * 			and Coordinated Universal time (UTC).</p>
+   * @public
    */
   SubmittedSince?: Date;
 
   /**
-   * @public
    * <p>For an initial request for a list of operations, omit this element. If the number of
    * 			operations that are not yet complete is greater than the value that you specified for
    * 				<code>MaxItems</code>, you can use <code>Marker</code> to return additional
    * 			operations. Get the value of <code>NextPageMarker</code> from the previous response, and
    * 			submit another request that includes the value of <code>NextPageMarker</code> in the
    * 				<code>Marker</code> element.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>Number of domains to be returned.</p>
    *          <p>Default: 20</p>
+   * @public
    */
   MaxItems?: number;
 
   /**
-   * @public
    * <p> The status of the operations. </p>
+   * @public
    */
   Status?: OperationStatus[];
 
   /**
-   * @public
    * <p> An arrays of the domains operation types. </p>
+   * @public
    */
   Type?: OperationType[];
 
   /**
-   * @public
    * <p> The sort type for returned values. </p>
+   * @public
    */
   SortBy?: ListOperationsSortAttributeName;
 
   /**
-   * @public
    * <p> The sort order for returned values, either ascending or descending. </p>
+   * @public
    */
   SortOrder?: SortOrder;
 }
 
 /**
- * @public
  * <p>OperationSummary includes the following elements.</p>
+ * @public
  */
 export interface OperationSummary {
   /**
-   * @public
    * <p>Identifier returned to track the requested action.</p>
+   * @public
    */
   OperationId?: string;
 
   /**
-   * @public
    * <p>The current status of the requested operation in the system.</p>
+   * @public
    */
   Status?: OperationStatus;
 
   /**
-   * @public
    * <p>Type of the action requested.</p>
+   * @public
    */
   Type?: OperationType;
 
   /**
-   * @public
    * <p>The date when the request was submitted.</p>
+   * @public
    */
   SubmittedDate?: Date;
 
   /**
-   * @public
    * <p> Name of the domain. </p>
+   * @public
    */
   DomainName?: string;
 
   /**
-   * @public
    * <p> Message about the operation. </p>
+   * @public
    */
   Message?: string;
 
   /**
-   * @public
    * <p> Automatically checks whether there are no outstanding operations on domains that need
    * 			customer attention. </p>
    *          <p> Valid values are:</p>
@@ -3053,33 +3052,34 @@ export interface OperationSummary {
    * 					is waiting for its resolution.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   StatusFlag?: StatusFlag;
 
   /**
-   * @public
    * <p> The date when the last change was made in Unix time format and Coordinated Universal
    * 			Time (UTC). </p>
+   * @public
    */
   LastUpdatedDate?: Date;
 }
 
 /**
- * @public
  * <p>The ListOperations response includes the following elements.</p>
+ * @public
  */
 export interface ListOperationsResponse {
   /**
-   * @public
    * <p>Lists summaries of the operations.</p>
+   * @public
    */
   Operations?: OperationSummary[];
 
   /**
-   * @public
    * <p>If there are more operations than you specified for <code>MaxItems</code> in the
    * 			request, submit another request and include the value of <code>NextPageMarker</code> in
    * 			the value of <code>Marker</code>.</p>
+   * @public
    */
   NextPageMarker?: string;
 }
@@ -3089,16 +3089,15 @@ export interface ListOperationsResponse {
  */
 export interface ListPricesRequest {
   /**
-   * @public
    * <p>The TLD for which you want to receive the pricing information. For example.
    * 				<code>.net</code>.</p>
    *          <p>If a <code>Tld</code> value is not provided, a list of prices for all TLDs supported
    * 			by Route 53 is returned.</p>
+   * @public
    */
   Tld?: string;
 
   /**
-   * @public
    * <p>For an initial request for a list of prices, omit this element. If the number of
    * 			prices that are not yet complete is greater than the value that you specified for
    * 				<code>MaxItems</code>, you can use <code>Marker</code> to return additional prices.
@@ -3107,14 +3106,15 @@ export interface ListPricesRequest {
    * 				<code>Marker</code> element. </p>
    *          <p>Used only for all TLDs. If you specify a TLD, don't specify a
    * 			<code>Marker</code>.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>Number of <code>Prices</code> to be returned.</p>
    *          <p>Used only for all TLDs. If you specify a TLD, don't specify a
    * 			<code>MaxItems</code>.</p>
+   * @public
    */
   MaxItems?: number;
 }
@@ -3124,65 +3124,65 @@ export interface ListPricesRequest {
  */
 export interface ListPricesResponse {
   /**
-   * @public
    * <p>A complex type that includes all the pricing information. If you specify a TLD, this
    * 			array contains only the pricing for that TLD.</p>
+   * @public
    */
   Prices?: DomainPrice[];
 
   /**
-   * @public
    * <p>If there are more prices than you specified for <code>MaxItems</code> in the request,
    * 			submit another request and include the value of <code>NextPageMarker</code> in the value
    * 			of <code>Marker</code>. </p>
    *          <p>Used only for all TLDs. If you specify a TLD, don't specify a
    * 				<code>NextPageMarker</code>.</p>
+   * @public
    */
   NextPageMarker?: string;
 }
 
 /**
- * @public
  * <p>The ListTagsForDomainRequest includes the following elements.</p>
+ * @public
  */
 export interface ListTagsForDomainRequest {
   /**
-   * @public
    * <p>The domain for which you want to get a list of tags.</p>
+   * @public
    */
   DomainName: string | undefined;
 }
 
 /**
- * @public
  * <p>Each tag includes the following elements.</p>
+ * @public
  */
 export interface Tag {
   /**
-   * @public
    * <p>The key (name) of a tag.</p>
    *          <p>Valid values: A-Z, a-z, 0-9, space, ".:/=+\-@"</p>
    *          <p>Constraints: Each key can be 1-128 characters long.</p>
+   * @public
    */
   Key?: string;
 
   /**
-   * @public
    * <p>The value of a tag.</p>
    *          <p>Valid values: A-Z, a-z, 0-9, space, ".:/=+\-@"</p>
    *          <p>Constraints: Each value can be 0-256 characters long.</p>
+   * @public
    */
   Value?: string;
 }
 
 /**
- * @public
  * <p>The ListTagsForDomain response includes the following elements.</p>
+ * @public
  */
 export interface ListTagsForDomainResponse {
   /**
-   * @public
    * <p>A list of the tags that are associated with the specified domain.</p>
+   * @public
    */
   TagList?: Tag[];
 }
@@ -3192,25 +3192,24 @@ export interface ListTagsForDomainResponse {
  */
 export interface PushDomainRequest {
   /**
-   * @public
    * <p> Name of the domain. </p>
+   * @public
    */
   DomainName: string | undefined;
 
   /**
-   * @public
    * <p> New IPS tag for the domain. </p>
+   * @public
    */
   Target: string | undefined;
 }
 
 /**
- * @public
  * <p>The RegisterDomain request includes the following elements.</p>
+ * @public
  */
 export interface RegisterDomainRequest {
   /**
-   * @public
    * <p>The domain name that you want to register. The top-level domain (TLD), such as .com,
    * 			must be a TLD that Route 53 supports. For a list of supported TLDs, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains that You Can Register with Amazon Route 53</a> in the <i>Amazon
    * 				Route 53 Developer Guide</i>.</p>
@@ -3235,59 +3234,59 @@ export interface RegisterDomainRequest {
    * 			determine whether the TLD that you want to use supports internationalized domain names,
    * 			see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains that You Can
    * 				Register with Amazon Route 53</a>. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html#domain-name-format-idns">Formatting Internationalized Domain Names</a>. </p>
+   * @public
    */
   DomainName: string | undefined;
 
   /**
-   * @public
    * <p>Reserved for future use.</p>
+   * @public
    */
   IdnLangCode?: string;
 
   /**
-   * @public
    * <p>The number of years that you want to register the domain for. Domains are registered
    * 			for a minimum of one year. The maximum period depends on the top-level domain. For the
    * 			range of valid values for your domain, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains that You Can
    * 				Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer
    * 				Guide</i>.</p>
    *          <p>Default: 1</p>
+   * @public
    */
   DurationInYears: number | undefined;
 
   /**
-   * @public
    * <p>Indicates whether the domain will be automatically renewed (<code>true</code>) or not
    * 				(<code>false</code>). Auto renewal only takes effect after the account is
    * 			charged.</p>
    *          <p>Default: <code>true</code>
    *          </p>
+   * @public
    */
   AutoRenew?: boolean;
 
   /**
-   * @public
    * <p>Provides detailed contact information. For information about the values that you
    * 			specify for each element, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html">ContactDetail</a>.</p>
+   * @public
    */
   AdminContact: ContactDetail | undefined;
 
   /**
-   * @public
    * <p>Provides detailed contact information. For information about the values that you
    * 			specify for each element, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html">ContactDetail</a>.</p>
+   * @public
    */
   RegistrantContact: ContactDetail | undefined;
 
   /**
-   * @public
    * <p>Provides detailed contact information. For information about the values that you
    * 			specify for each element, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html">ContactDetail</a>.</p>
+   * @public
    */
   TechContact: ContactDetail | undefined;
 
   /**
-   * @public
    * <p>Whether you want to conceal contact information from WHOIS queries. If you specify
    * 				<code>true</code>, WHOIS ("who is") queries return contact information either for
    * 			Amazon Registrar or for our registrar associate,
@@ -3299,11 +3298,11 @@ export interface RegisterDomainRequest {
    *          </note>
    *          <p>Default: <code>true</code>
    *          </p>
+   * @public
    */
   PrivacyProtectAdminContact?: boolean;
 
   /**
-   * @public
    * <p>Whether you want to conceal contact information from WHOIS queries. If you specify
    * 				<code>true</code>, WHOIS ("who is") queries return contact information either for
    * 			Amazon Registrar or for our registrar associate,
@@ -3315,11 +3314,11 @@ export interface RegisterDomainRequest {
    *          </note>
    *          <p>Default: <code>true</code>
    *          </p>
+   * @public
    */
   PrivacyProtectRegistrantContact?: boolean;
 
   /**
-   * @public
    * <p>Whether you want to conceal contact information from WHOIS queries. If you specify
    * 				<code>true</code>, WHOIS ("who is") queries return contact information either for
    * 			Amazon Registrar or for our registrar associate,
@@ -3331,18 +3330,18 @@ export interface RegisterDomainRequest {
    *          </note>
    *          <p>Default: <code>true</code>
    *          </p>
+   * @public
    */
   PrivacyProtectTechContact?: boolean;
 
   /**
-   * @public
    * <p>Provides detailed contact information. For information about the values that you
    * 			specify for each element, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html">ContactDetail</a>.</p>
+   * @public
    */
   BillingContact?: ContactDetail;
 
   /**
-   * @public
    * <p>Whether you want to conceal contact information from WHOIS queries. If you specify
    * 			<code>true</code>, WHOIS ("who is") queries return contact information either for
    * 			Amazon Registrar or for our registrar associate,
@@ -3352,80 +3351,81 @@ export interface RegisterDomainRequest {
    *             <p>You must specify the same privacy setting for the administrative, billing, registrant, and
    * 				technical contacts.</p>
    *          </note>
+   * @public
    */
   PrivacyProtectBillingContact?: boolean;
 }
 
 /**
- * @public
  * <p>The RegisterDomain response includes the following element.</p>
+ * @public
  */
 export interface RegisterDomainResponse {
   /**
-   * @public
    * <p>Identifier for tracking the progress of the request. To query the operation status,
    * 			use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
+   * @public
    */
   OperationId?: string;
 }
 
 /**
- * @public
  * <p>The RejectDomainTransferFromAnotherAwsAccount request includes the following
  * 			element.</p>
+ * @public
  */
 export interface RejectDomainTransferFromAnotherAwsAccountRequest {
   /**
-   * @public
    * <p>The name of the domain that was specified when another Amazon Web Services account
    * 			submitted a <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a> request. </p>
+   * @public
    */
   DomainName: string | undefined;
 }
 
 /**
- * @public
  * <p>The RejectDomainTransferFromAnotherAwsAccount response includes the following
  * 			element.</p>
+ * @public
  */
 export interface RejectDomainTransferFromAnotherAwsAccountResponse {
   /**
-   * @public
    * <p>The identifier that <code>TransferDomainToAnotherAwsAccount</code> returned to track
    * 			the progress of the request. Because the transfer request was rejected, the value is no
    * 			longer valid, and you can't use <code>GetOperationDetail</code> to query the operation
    * 			status.</p>
+   * @public
    */
   OperationId?: string;
 }
 
 /**
- * @public
  * <p>A <code>RenewDomain</code> request includes the number of years that you want to renew
  * 			for and the current expiration year.</p>
+ * @public
  */
 export interface RenewDomainRequest {
   /**
-   * @public
    * <p>The name of the domain that you want to renew.</p>
+   * @public
    */
   DomainName: string | undefined;
 
   /**
-   * @public
    * <p>The number of years that you want to renew the domain for. The maximum number of years
    * 			depends on the top-level domain. For the range of valid values for your domain, see
    * 				<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains that You Can
    * 				Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer
    * 				Guide</i>.</p>
    *          <p>Default: 1</p>
+   * @public
    */
   DurationInYears?: number;
 
   /**
-   * @public
    * <p>The year when the registration for the domain is set to expire. This value must match
    * 			the current expiration date for the domain.</p>
+   * @public
    */
   CurrentExpiryYear: number | undefined;
 }
@@ -3435,9 +3435,9 @@ export interface RenewDomainRequest {
  */
 export interface RenewDomainResponse {
   /**
-   * @public
    * <p>Identifier for tracking the progress of the request. To query the operation status,
    * 			use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
+   * @public
    */
   OperationId?: string;
 }
@@ -3447,9 +3447,9 @@ export interface RenewDomainResponse {
  */
 export interface ResendContactReachabilityEmailRequest {
   /**
-   * @public
    * <p>The name of the domain for which you want Route 53 to resend a confirmation email to
    * 			the registrant contact.</p>
+   * @public
    */
   domainName?: string;
 }
@@ -3459,24 +3459,24 @@ export interface ResendContactReachabilityEmailRequest {
  */
 export interface ResendContactReachabilityEmailResponse {
   /**
-   * @public
    * <p>The domain name for which you requested a confirmation email.</p>
+   * @public
    */
   domainName?: string;
 
   /**
-   * @public
    * <p>The email address for the registrant contact at the time that we sent the verification
    * 			email.</p>
+   * @public
    */
   emailAddress?: string;
 
   /**
-   * @public
    * <p>
    *             <code>True</code> if the email address for the registrant contact has already been
    * 			verified, and <code>false</code> otherwise. If the email address has already been
    * 			verified, we don't send another confirmation email.</p>
+   * @public
    */
   isAlreadyVerified?: boolean;
 }
@@ -3486,44 +3486,43 @@ export interface ResendContactReachabilityEmailResponse {
  */
 export interface ResendOperationAuthorizationRequest {
   /**
-   * @public
    * <p> Operation ID. </p>
+   * @public
    */
   OperationId: string | undefined;
 }
 
 /**
- * @public
  * <p>A request for the authorization code for the specified domain. To transfer a domain to
  * 			another registrar, you provide this value to the new registrar.</p>
+ * @public
  */
 export interface RetrieveDomainAuthCodeRequest {
   /**
-   * @public
    * <p>The name of the domain that you want to get an authorization code for.</p>
+   * @public
    */
   DomainName: string | undefined;
 }
 
 /**
- * @public
  * <p>The RetrieveDomainAuthCode response includes the following element.</p>
+ * @public
  */
 export interface RetrieveDomainAuthCodeResponse {
   /**
-   * @public
    * <p>The authorization code for the domain.</p>
+   * @public
    */
   AuthCode?: string;
 }
 
 /**
- * @public
  * <p>The TransferDomain request includes the following elements.</p>
+ * @public
  */
 export interface TransferDomainRequest {
   /**
-   * @public
    * <p>The name of the domain that you want to transfer to Route 53. The top-level domain
    * 			(TLD), such as .com, must be a TLD that Route 53 supports. For a list of supported TLDs,
    * 			see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains that You Can
@@ -3546,64 +3545,64 @@ export interface TransferDomainRequest {
    * 						<code>example.com</code>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   DomainName: string | undefined;
 
   /**
-   * @public
    * <p>Reserved for future use.</p>
+   * @public
    */
   IdnLangCode?: string;
 
   /**
-   * @public
    * <p>The number of years that you want to register the domain for. Domains are registered
    * 			for a minimum of one year. The maximum period depends on the top-level domain.</p>
    *          <p>Default: 1</p>
+   * @public
    */
   DurationInYears: number | undefined;
 
   /**
-   * @public
    * <p>Contains details for the host and glue IP addresses.</p>
+   * @public
    */
   Nameservers?: Nameserver[];
 
   /**
-   * @public
    * <p>The authorization code for the domain. You get this value from the current
    * 			registrar.</p>
+   * @public
    */
   AuthCode?: string;
 
   /**
-   * @public
    * <p>Indicates whether the domain will be automatically renewed (true) or not (false). Auto
    * 			renewal only takes effect after the account is charged.</p>
    *          <p>Default: true</p>
+   * @public
    */
   AutoRenew?: boolean;
 
   /**
-   * @public
    * <p>Provides detailed contact information.</p>
+   * @public
    */
   AdminContact: ContactDetail | undefined;
 
   /**
-   * @public
    * <p>Provides detailed contact information.</p>
+   * @public
    */
   RegistrantContact: ContactDetail | undefined;
 
   /**
-   * @public
    * <p>Provides detailed contact information.</p>
+   * @public
    */
   TechContact: ContactDetail | undefined;
 
   /**
-   * @public
    * <p>Whether you want to conceal contact information from WHOIS queries. If you specify
    * 				<code>true</code>, WHOIS ("who is") queries return contact information for the
    * 			registrar, the phrase "REDACTED FOR PRIVACY", or "On behalf of <domain name>
@@ -3614,11 +3613,11 @@ export interface TransferDomainRequest {
    *          </note>
    *          <p>Default: <code>true</code>
    *          </p>
+   * @public
    */
   PrivacyProtectAdminContact?: boolean;
 
   /**
-   * @public
    * <p>Whether you want to conceal contact information from WHOIS queries. If you specify
    * 				<code>true</code>, WHOIS ("who is") queries return contact information either for
    * 			Amazon Registrar or for our registrar associate,
@@ -3630,11 +3629,11 @@ export interface TransferDomainRequest {
    *          </note>
    *          <p>Default: <code>true</code>
    *          </p>
+   * @public
    */
   PrivacyProtectRegistrantContact?: boolean;
 
   /**
-   * @public
    * <p>Whether you want to conceal contact information from WHOIS queries. If you specify
    * 				<code>true</code>, WHOIS ("who is") queries return contact information either for
    * 			Amazon Registrar or for our registrar associate,
@@ -3646,17 +3645,17 @@ export interface TransferDomainRequest {
    *          </note>
    *          <p>Default: <code>true</code>
    *          </p>
+   * @public
    */
   PrivacyProtectTechContact?: boolean;
 
   /**
-   * @public
    * <p>Provides detailed contact information.</p>
+   * @public
    */
   BillingContact?: ContactDetail;
 
   /**
-   * @public
    * <p>
    * 			Whether you want to conceal contact information from WHOIS queries. If you specify
    * 			<code>true</code>, WHOIS ("who is") queries return contact information either for
@@ -3668,133 +3667,133 @@ export interface TransferDomainRequest {
    *             <p>You must specify the same privacy setting for the administrative, billing, registrant, and
    * 				technical contacts.</p>
    *          </note>
+   * @public
    */
   PrivacyProtectBillingContact?: boolean;
 }
 
 /**
- * @public
  * <p>The TransferDomain response includes the following element.</p>
+ * @public
  */
 export interface TransferDomainResponse {
   /**
-   * @public
    * <p>Identifier for tracking the progress of the request. To query the operation status,
    * 			use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
+   * @public
    */
   OperationId?: string;
 }
 
 /**
- * @public
  * <p>The TransferDomainToAnotherAwsAccount request includes the following elements.</p>
+ * @public
  */
 export interface TransferDomainToAnotherAwsAccountRequest {
   /**
-   * @public
    * <p>The name of the domain that you want to transfer from the current Amazon Web Services account to another account.</p>
+   * @public
    */
   DomainName: string | undefined;
 
   /**
-   * @public
    * <p>The account ID of the Amazon Web Services account that you want to transfer the domain
    * 			to, for example, <code>111122223333</code>.</p>
+   * @public
    */
   AccountId: string | undefined;
 }
 
 /**
- * @public
  * <p>The <code>TransferDomainToAnotherAwsAccount</code> response includes the following
  * 			elements.</p>
+ * @public
  */
 export interface TransferDomainToAnotherAwsAccountResponse {
   /**
-   * @public
    * <p>Identifier for tracking the progress of the request. To query the operation status,
    * 			use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
+   * @public
    */
   OperationId?: string;
 
   /**
-   * @public
    * <p>To finish transferring a domain to another Amazon Web Services account, the account
    * 			that the domain is being transferred to must submit an <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_AcceptDomainTransferFromAnotherAwsAccount.html">AcceptDomainTransferFromAnotherAwsAccount</a> request. The request must include
    * 			the value of the <code>Password</code> element that was returned in the
    * 				<code>TransferDomainToAnotherAwsAccount</code> response.</p>
+   * @public
    */
   Password?: string;
 }
 
 /**
- * @public
  * <p>The UpdateDomainContact request includes the following elements.</p>
+ * @public
  */
 export interface UpdateDomainContactRequest {
   /**
-   * @public
    * <p>The name of the domain that you want to update contact information for.</p>
+   * @public
    */
   DomainName: string | undefined;
 
   /**
-   * @public
    * <p>Provides detailed contact information.</p>
+   * @public
    */
   AdminContact?: ContactDetail;
 
   /**
-   * @public
    * <p>Provides detailed contact information.</p>
+   * @public
    */
   RegistrantContact?: ContactDetail;
 
   /**
-   * @public
    * <p>Provides detailed contact information.</p>
+   * @public
    */
   TechContact?: ContactDetail;
 
   /**
-   * @public
    * <p> Customer's consent for the owner change request. Required if the domain is not free (consent price is more than $0.00).</p>
+   * @public
    */
   Consent?: Consent;
 
   /**
-   * @public
    * <p>Provides detailed contact information.</p>
+   * @public
    */
   BillingContact?: ContactDetail;
 }
 
 /**
- * @public
  * <p>The UpdateDomainContact response includes the following element.</p>
+ * @public
  */
 export interface UpdateDomainContactResponse {
   /**
-   * @public
    * <p>Identifier for tracking the progress of the request. To query the operation status,
    * 			use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
+   * @public
    */
   OperationId?: string;
 }
 
 /**
- * @public
  * <p>The UpdateDomainContactPrivacy request includes the following elements.</p>
+ * @public
  */
 export interface UpdateDomainContactPrivacyRequest {
   /**
-   * @public
    * <p>The name of the domain that you want to update the privacy setting for.</p>
+   * @public
    */
   DomainName: string | undefined;
 
   /**
-   * @public
    * <p>Whether you want to conceal contact information from WHOIS queries. If you specify
    * 			<code>true</code>, WHOIS ("who is") queries return contact information either for
    * 			Amazon Registrar or for our registrar associate,
@@ -3804,11 +3803,11 @@ export interface UpdateDomainContactPrivacyRequest {
    *             <p>You must specify the same privacy setting for the administrative, billing, registrant, and
    * 				technical contacts.</p>
    *          </note>
+   * @public
    */
   AdminPrivacy?: boolean;
 
   /**
-   * @public
    * <p>Whether you want to conceal contact information from WHOIS queries. If you specify
    * 			<code>true</code>, WHOIS ("who is") queries return contact information either for
    * 			Amazon Registrar or for our registrar associate,
@@ -3818,11 +3817,11 @@ export interface UpdateDomainContactPrivacyRequest {
    *             <p>You must specify the same privacy setting for the administrative, billing, registrant, and
    * 				technical contacts.</p>
    *          </note>
+   * @public
    */
   RegistrantPrivacy?: boolean;
 
   /**
-   * @public
    * <p>Whether you want to conceal contact information from WHOIS queries. If you specify
    * 				<code>true</code>, WHOIS ("who is") queries return contact information either for
    * 			Amazon Registrar or for our registrar associate,
@@ -3832,11 +3831,11 @@ export interface UpdateDomainContactPrivacyRequest {
    *             <p>You must specify the same privacy setting for the administrative, billing, registrant, and
    * 				technical contacts.</p>
    *          </note>
+   * @public
    */
   TechPrivacy?: boolean;
 
   /**
-   * @public
    * <p>
    * 			Whether you want to conceal contact information from WHOIS queries. If you specify
    * 			<code>true</code>, WHOIS ("who is") queries return contact information either for
@@ -3848,82 +3847,83 @@ export interface UpdateDomainContactPrivacyRequest {
    *             <p>You must specify the same privacy setting for the administrative, billing, registrant, and
    * 				technical contacts.</p>
    *          </note>
+   * @public
    */
   BillingPrivacy?: boolean;
 }
 
 /**
- * @public
  * <p>The UpdateDomainContactPrivacy response includes the following element.</p>
+ * @public
  */
 export interface UpdateDomainContactPrivacyResponse {
   /**
-   * @public
    * <p>Identifier for tracking the progress of the request. To use this ID to query the
    * 			operation status, use GetOperationDetail.</p>
+   * @public
    */
   OperationId?: string;
 }
 
 /**
- * @public
  * <p>Replaces the current set of name servers for the domain with the specified set of name
  * 			servers. If you use Amazon Route 53 as your DNS service, specify the four name servers
  * 			in the delegation set for the hosted zone for the domain.</p>
  *          <p>If successful, this operation returns an operation ID that you can use to track the
  * 			progress and completion of the action. If the request is not completed successfully, the
  * 			domain registrant will be notified by email. </p>
+ * @public
  */
 export interface UpdateDomainNameserversRequest {
   /**
-   * @public
    * <p>The name of the domain that you want to change name servers for.</p>
+   * @public
    */
   DomainName: string | undefined;
 
   /**
-   * @public
    * @deprecated
    *
    * <p>The authorization key for .fi domains</p>
+   * @public
    */
   FIAuthKey?: string;
 
   /**
-   * @public
    * <p>A list of new name servers for the domain.</p>
+   * @public
    */
   Nameservers: Nameserver[] | undefined;
 }
 
 /**
- * @public
  * <p>The UpdateDomainNameservers response includes the following element.</p>
+ * @public
  */
 export interface UpdateDomainNameserversResponse {
   /**
-   * @public
    * <p>Identifier for tracking the progress of the request. To query the operation status,
    * 			use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
+   * @public
    */
   OperationId?: string;
 }
 
 /**
- * @public
  * <p>The UpdateTagsForDomainRequest includes the following elements.</p>
+ * @public
  */
 export interface UpdateTagsForDomainRequest {
   /**
-   * @public
    * <p>The domain for which you want to add or update tags.</p>
+   * @public
    */
   DomainName: string | undefined;
 
   /**
-   * @public
    * <p>A list of the tag keys and values that you want to add or update. If you specify a key
    * 			that already exists, the corresponding value will be replaced.</p>
+   * @public
    */
   TagsToUpdate?: Tag[];
 }
@@ -3934,28 +3934,27 @@ export interface UpdateTagsForDomainRequest {
 export interface UpdateTagsForDomainResponse {}
 
 /**
- * @public
  * <p>The ViewBilling request includes the following elements.</p>
+ * @public
  */
 export interface ViewBillingRequest {
   /**
-   * @public
    * <p>The beginning date and time for the time period for which you want a list of billing
    * 			records. Specify the date and time in Unix time format and Coordinated Universal time
    * 			(UTC).</p>
+   * @public
    */
   Start?: Date;
 
   /**
-   * @public
    * <p>The end date and time for the time period for which you want a list of billing
    * 			records. Specify the date and time in Unix time format and Coordinated Universal time
    * 			(UTC).</p>
+   * @public
    */
   End?: Date;
 
   /**
-   * @public
    * <p>For an initial request for a list of billing records, omit this element. If the number
    * 			of billing records that are associated with the current Amazon Web Services account
    * 			during the specified period is greater than the value that you specified for
@@ -3965,33 +3964,34 @@ export interface ViewBillingRequest {
    * 				<code>Marker</code> element. </p>
    *          <p>Constraints: The marker must match the value of <code>NextPageMarker</code> that was
    * 			returned in the previous response.</p>
+   * @public
    */
   Marker?: string;
 
   /**
-   * @public
    * <p>The number of billing records to be returned.</p>
    *          <p>Default: 20</p>
+   * @public
    */
   MaxItems?: number;
 }
 
 /**
- * @public
  * <p>The ViewBilling response includes the following elements.</p>
+ * @public
  */
 export interface ViewBillingResponse {
   /**
-   * @public
    * <p>If there are more billing records than you specified for <code>MaxItems</code> in the
    * 			request, submit another request and include the value of <code>NextPageMarker</code> in
    * 			the value of <code>Marker</code>.</p>
+   * @public
    */
   NextPageMarker?: string;
 
   /**
-   * @public
    * <p>A summary of billing records.</p>
+   * @public
    */
   BillingRecords?: BillingRecord[];
 }

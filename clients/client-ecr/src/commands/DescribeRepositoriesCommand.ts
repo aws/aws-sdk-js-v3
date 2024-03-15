@@ -27,7 +27,6 @@ export interface DescribeRepositoriesCommandInput extends DescribeRepositoriesRe
 export interface DescribeRepositoriesCommandOutput extends DescribeRepositoriesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes image repositories in a registry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface DescribeRepositoriesCommandOutput extends DescribeRepositoriesR
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * @public
  * @example To describe all repositories in the current account
  * ```javascript
  * // The following example obtains a list and description of all repositories in the default registry to which the current user has access.

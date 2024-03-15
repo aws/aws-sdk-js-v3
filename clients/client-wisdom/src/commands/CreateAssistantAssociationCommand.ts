@@ -27,7 +27,6 @@ export interface CreateAssistantAssociationCommandInput extends CreateAssistantA
 export interface CreateAssistantAssociationCommandOutput extends CreateAssistantAssociationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an association between an Amazon Connect Wisdom assistant and another resource. Currently, the
  *       only supported association is with a knowledge base. An assistant can have only a single
  *       association.</p>
@@ -99,6 +98,7 @@ export interface CreateAssistantAssociationCommandOutput extends CreateAssistant
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ * @public
  */
 export class CreateAssistantAssociationCommand extends $Command
   .classBuilder<

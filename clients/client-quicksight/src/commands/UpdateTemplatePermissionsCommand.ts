@@ -27,7 +27,6 @@ export interface UpdateTemplatePermissionsCommandInput extends UpdateTemplatePer
 export interface UpdateTemplatePermissionsCommandOutput extends UpdateTemplatePermissionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the resource permissions for a template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -107,6 +106,7 @@ export interface UpdateTemplatePermissionsCommandOutput extends UpdateTemplatePe
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class UpdateTemplatePermissionsCommand extends $Command
   .classBuilder<

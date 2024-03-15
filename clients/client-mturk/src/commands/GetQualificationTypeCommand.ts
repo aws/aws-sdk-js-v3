@@ -27,7 +27,6 @@ export interface GetQualificationTypeCommandInput extends GetQualificationTypeRe
 export interface GetQualificationTypeCommandOutput extends GetQualificationTypeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The <code>GetQualificationType</code>operation retrieves information about a Qualification type using its ID.
  *         </p>
@@ -77,6 +76,7 @@ export interface GetQualificationTypeCommandOutput extends GetQualificationTypeR
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * @public
  */
 export class GetQualificationTypeCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface RemoveFromGlobalClusterCommandInput extends RemoveFromGlobalClu
 export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Detaches an Aurora secondary cluster from an Aurora global database cluster. The cluster becomes a
  *         standalone cluster with read-write capability instead of being read-only and receiving data from a
  *         primary cluster in a different Region.</p>
@@ -98,6 +97,7 @@ export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalCl
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To detach an Aurora secondary cluster from an Aurora global database cluster
  * ```javascript
  * // The following example detaches an Aurora secondary cluster from an Aurora global database cluster. The cluster changes from being read-only to a standalone cluster with read-write capability.

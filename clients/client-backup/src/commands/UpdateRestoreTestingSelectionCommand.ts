@@ -36,7 +36,6 @@ export interface UpdateRestoreTestingSelectionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Most elements except the <code>RestoreTestingSelectionName</code>
  *          can be updated with this request.</p>
  *          <p>
@@ -117,6 +116,7 @@ export interface UpdateRestoreTestingSelectionCommandOutput
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class UpdateRestoreTestingSelectionCommand extends $Command
   .classBuilder<

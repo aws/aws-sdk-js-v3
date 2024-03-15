@@ -27,7 +27,6 @@ export interface UpdateMetricSetCommandInput extends UpdateMetricSetRequest {}
 export interface UpdateMetricSetCommandOutput extends UpdateMetricSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -184,6 +183,7 @@ export interface UpdateMetricSetCommandOutput extends UpdateMetricSetResponse, _
  * @throws {@link LookoutMetricsServiceException}
  * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
+ * @public
  */
 export class UpdateMetricSetCommand extends $Command
   .classBuilder<

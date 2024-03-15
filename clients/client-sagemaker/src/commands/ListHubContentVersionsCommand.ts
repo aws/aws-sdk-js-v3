@@ -27,7 +27,6 @@ export interface ListHubContentVersionsCommandInput extends ListHubContentVersio
 export interface ListHubContentVersionsCommandOutput extends ListHubContentVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List hub content versions.</p>
  *          <note>
  *             <p>Hub APIs are only callable through SageMaker Studio.</p>
@@ -87,6 +86,7 @@ export interface ListHubContentVersionsCommandOutput extends ListHubContentVersi
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListHubContentVersionsCommand extends $Command
   .classBuilder<

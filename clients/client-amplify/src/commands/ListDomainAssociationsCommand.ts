@@ -27,7 +27,6 @@ export interface ListDomainAssociationsCommandInput extends ListDomainAssociatio
 export interface ListDomainAssociationsCommandOutput extends ListDomainAssociationsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the domain associations for an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface ListDomainAssociationsCommandOutput extends ListDomainAssociati
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ * @public
  */
 export class ListDomainAssociationsCommand extends $Command
   .classBuilder<

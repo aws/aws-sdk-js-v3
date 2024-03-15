@@ -1698,7 +1698,6 @@ export type SageMakerClientResolvedConfigType = __SmithyResolvedConfiguration<__
 export interface SageMakerClientResolvedConfig extends SageMakerClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Provides APIs for creating and managing SageMaker resources. </p>
  *          <p>Other Resources:</p>
  *          <ul>
@@ -1715,6 +1714,7 @@ export interface SageMakerClientResolvedConfig extends SageMakerClientResolvedCo
  *                </p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class SageMakerClient extends __Client<
   __HttpHandlerOptions,

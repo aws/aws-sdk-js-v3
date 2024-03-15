@@ -31,7 +31,6 @@ export interface UpdateRelationalDatabaseCommandInput extends UpdateRelationalDa
 export interface UpdateRelationalDatabaseCommandOutput extends UpdateRelationalDatabaseResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows the update of one or more attributes of a database in Amazon Lightsail.</p>
  *          <p>Updates are applied immediately, or in cases where the updates could result in an outage,
  *       are applied during the database's predefined maintenance window.</p>
@@ -122,6 +121,7 @@ export interface UpdateRelationalDatabaseCommandOutput extends UpdateRelationalD
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class UpdateRelationalDatabaseCommand extends $Command
   .classBuilder<

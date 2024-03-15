@@ -27,7 +27,6 @@ export interface SelectResourceConfigCommandInput extends SelectResourceConfigRe
 export interface SelectResourceConfigCommandOutput extends SelectResourceConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Accepts a structured query language (SQL) <code>SELECT</code> command, performs the corresponding search, and returns resource configurations matching the properties.</p>
  *          <p>For more information about query components, see the
  * 			<a href="https://docs.aws.amazon.com/config/latest/developerguide/query-components.html">
@@ -82,6 +81,7 @@ export interface SelectResourceConfigCommandOutput extends SelectResourceConfigR
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class SelectResourceConfigCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateACLCommandInput extends CreateACLRequest {}
 export interface CreateACLCommandOutput extends CreateACLResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Access Control List. For more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/clusters.acls.html">Authenticating users with Access Contol Lists (ACLs)</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -104,6 +103,7 @@ export interface CreateACLCommandOutput extends CreateACLResponse, __MetadataBea
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * @public
  */
 export class CreateACLCommand extends $Command
   .classBuilder<

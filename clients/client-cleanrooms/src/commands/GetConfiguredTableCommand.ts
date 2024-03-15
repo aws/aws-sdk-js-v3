@@ -27,7 +27,6 @@ export interface GetConfiguredTableCommandInput extends GetConfiguredTableInput 
 export interface GetConfiguredTableCommandOutput extends GetConfiguredTableOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a configured table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface GetConfiguredTableCommandOutput extends GetConfiguredTableOutpu
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class GetConfiguredTableCommand extends $Command
   .classBuilder<

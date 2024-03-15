@@ -36,7 +36,6 @@ export interface ListFraudsterRegistrationJobsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the fraudster registration jobs in the domain with the given
  *                 <code>JobStatus</code>. If <code>JobStatus</code> is not provided, this lists all
  *             fraudster registration jobs in the given domain. </p>
@@ -107,6 +106,7 @@ export interface ListFraudsterRegistrationJobsCommandOutput
  * @throws {@link VoiceIDServiceException}
  * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
+ * @public
  */
 export class ListFraudsterRegistrationJobsCommand extends $Command
   .classBuilder<

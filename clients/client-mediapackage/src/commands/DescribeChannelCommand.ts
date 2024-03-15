@@ -31,7 +31,6 @@ export interface DescribeChannelCommandInput extends DescribeChannelRequest {}
 export interface DescribeChannelCommandOutput extends DescribeChannelResponse, __MetadataBearer {}
 
 /**
- * @public
  * Gets details about a Channel.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
  * @throws {@link MediaPackageServiceException}
  * <p>Base exception class for all service exceptions from MediaPackage service.</p>
  *
+ * @public
  */
 export class DescribeChannelCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListReferencesCommandInput extends ListReferencesRequest {}
 export interface ListReferencesCommandOutput extends ListReferencesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of references.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface ListReferencesCommandOutput extends ListReferencesResponse, __M
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class ListReferencesCommand extends $Command
   .classBuilder<

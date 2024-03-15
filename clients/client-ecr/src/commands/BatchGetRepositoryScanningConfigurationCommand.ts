@@ -36,7 +36,6 @@ export interface BatchGetRepositoryScanningConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the scanning configuration for one or more repositories.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface BatchGetRepositoryScanningConfigurationCommandOutput
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * @public
  */
 export class BatchGetRepositoryScanningConfigurationCommand extends $Command
   .classBuilder<

@@ -31,9 +31,6 @@ export interface ListMeetingTagsCommandInput extends ListMeetingTagsRequest {}
 export interface ListMeetingTagsCommandOutput extends ListMeetingTagsResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Use ListTagsForResource in the Amazon Chime SDK Meetings Namespace.
- *
  * <p>Lists the tags applied to an Amazon Chime SDK meeting resource.</p>
  *          <important>
  *             <p>
@@ -94,6 +91,8 @@ export interface ListMeetingTagsCommandOutput extends ListMeetingTagsResponse, _
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Use ListTagsForResource in the Amazon Chime SDK Meetings Namespace.
  */
 export class ListMeetingTagsCommand extends $Command
   .classBuilder<

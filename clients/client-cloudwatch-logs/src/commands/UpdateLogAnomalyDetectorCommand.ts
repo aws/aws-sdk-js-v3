@@ -27,7 +27,6 @@ export interface UpdateLogAnomalyDetectorCommandInput extends UpdateLogAnomalyDe
 export interface UpdateLogAnomalyDetectorCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing log anomaly detector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface UpdateLogAnomalyDetectorCommandOutput extends __MetadataBearer 
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class UpdateLogAnomalyDetectorCommand extends $Command
   .classBuilder<

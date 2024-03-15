@@ -27,7 +27,6 @@ export interface CreateTrackerCommandInput extends CreateTrackerRequest {}
 export interface CreateTrackerCommandOutput extends CreateTrackerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a tracker resource in your Amazon Web Services account, which lets you retrieve current and
  *             historical location of devices.</p>
  * @example
@@ -88,6 +87,7 @@ export interface CreateTrackerCommandOutput extends CreateTrackerResponse, __Met
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class CreateTrackerCommand extends $Command
   .classBuilder<

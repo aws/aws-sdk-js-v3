@@ -27,7 +27,6 @@ export interface CreateVoiceTemplateCommandInput extends CreateVoiceTemplateRequ
 export interface CreateVoiceTemplateCommandOutput extends CreateVoiceTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a message template for messages that are sent through the voice channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface CreateVoiceTemplateCommandOutput extends CreateVoiceTemplateRes
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class CreateVoiceTemplateCommand extends $Command
   .classBuilder<

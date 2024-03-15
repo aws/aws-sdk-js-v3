@@ -27,7 +27,6 @@ export interface UpdateBandwidthRateLimitCommandInput extends UpdateBandwidthRat
 export interface UpdateBandwidthRateLimitCommandOutput extends UpdateBandwidthRateLimitOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the bandwidth rate limits of a gateway. You can update both the upload and
  *          download bandwidth rate limit or specify only one of the two. If you don't set a
  *          bandwidth rate limit, the existing rate limit remains. This operation is supported only for
@@ -74,6 +73,7 @@ export interface UpdateBandwidthRateLimitCommandOutput extends UpdateBandwidthRa
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To update the bandwidth rate limits of a gateway
  * ```javascript
  * // Updates the bandwidth rate limits of a gateway. Both the upload and download bandwidth rate limit can be set, or either one of the two. If a new limit is not set, the existing rate limit remains.

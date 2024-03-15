@@ -40,7 +40,6 @@ export interface DescribeApplicableIndividualAssessmentsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a list of individual assessments that you can specify for a new premigration
  *          assessment run, given one or more parameters.</p>
  *          <p>If you specify an existing migration task, this operation provides the default individual
@@ -101,6 +100,7 @@ export interface DescribeApplicableIndividualAssessmentsCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class DescribeApplicableIndividualAssessmentsCommand extends $Command
   .classBuilder<

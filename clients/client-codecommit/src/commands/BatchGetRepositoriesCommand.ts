@@ -27,7 +27,6 @@ export interface BatchGetRepositoriesCommandInput extends BatchGetRepositoriesIn
 export interface BatchGetRepositoriesCommandOutput extends BatchGetRepositoriesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about one or more repositories.</p>
  *          <note>
  *             <p>The description field for a repository accepts all HTML characters and all valid
@@ -118,6 +117,7 @@ export interface BatchGetRepositoriesCommandOutput extends BatchGetRepositoriesO
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class BatchGetRepositoriesCommand extends $Command
   .classBuilder<

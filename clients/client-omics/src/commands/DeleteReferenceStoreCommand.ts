@@ -27,7 +27,6 @@ export interface DeleteReferenceStoreCommandInput extends DeleteReferenceStoreRe
 export interface DeleteReferenceStoreCommandOutput extends DeleteReferenceStoreResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a genome reference store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DeleteReferenceStoreCommandOutput extends DeleteReferenceStoreR
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class DeleteReferenceStoreCommand extends $Command
   .classBuilder<

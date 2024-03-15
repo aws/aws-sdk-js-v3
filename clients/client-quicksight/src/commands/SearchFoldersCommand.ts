@@ -27,7 +27,6 @@ export interface SearchFoldersCommandInput extends SearchFoldersRequest {}
 export interface SearchFoldersCommandOutput extends SearchFoldersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Searches the subfolders in a folder.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -107,6 +106,7 @@ export interface SearchFoldersCommandOutput extends SearchFoldersResponse, __Met
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class SearchFoldersCommand extends $Command
   .classBuilder<

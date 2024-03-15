@@ -27,7 +27,6 @@ export interface ListIntentMetricsCommandInput extends ListIntentMetricsRequest 
 export interface ListIntentMetricsCommandOutput extends ListIntentMetricsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves summary metrics for the intents in your bot. The following fields are required:</p>
  *          <ul>
  *             <li>
@@ -151,6 +150,7 @@ export interface ListIntentMetricsCommandOutput extends ListIntentMetricsRespons
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class ListIntentMetricsCommand extends $Command
   .classBuilder<

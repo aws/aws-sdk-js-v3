@@ -27,7 +27,6 @@ export interface DeleteObjectsOnCancelCommandInput extends DeleteObjectsOnCancel
 export interface DeleteObjectsOnCancelCommandOutput extends DeleteObjectsOnCancelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>For a specific governed table, provides a list of Amazon S3 objects that will be written during the current transaction and that can be automatically deleted
  *       if the transaction is canceled. Without this call, no Amazon S3 objects are automatically deleted when a transaction cancels.
  *     </p>
@@ -93,6 +92,7 @@ export interface DeleteObjectsOnCancelCommandOutput extends DeleteObjectsOnCance
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class DeleteObjectsOnCancelCommand extends $Command
   .classBuilder<

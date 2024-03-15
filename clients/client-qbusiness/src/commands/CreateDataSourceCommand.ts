@@ -27,7 +27,6 @@ export interface CreateDataSourceCommandInput extends CreateDataSourceRequest {}
 export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a data source connector for an Amazon Q application.</p>
  *          <p>
  *             <code>CreateDataSource</code> is a synchronous operation. The operation returns 200 if
@@ -172,6 +171,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ * @public
  */
 export class CreateDataSourceCommand extends $Command
   .classBuilder<

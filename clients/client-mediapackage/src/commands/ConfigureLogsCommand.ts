@@ -31,7 +31,6 @@ export interface ConfigureLogsCommandInput extends ConfigureLogsRequest {}
 export interface ConfigureLogsCommandOutput extends ConfigureLogsResponse, __MetadataBearer {}
 
 /**
- * @public
  * Changes the Channel's properities to configure log subscription
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -105,6 +104,7 @@ export interface ConfigureLogsCommandOutput extends ConfigureLogsResponse, __Met
  * @throws {@link MediaPackageServiceException}
  * <p>Base exception class for all service exceptions from MediaPackage service.</p>
  *
+ * @public
  */
 export class ConfigureLogsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetBucketMetricDataCommandInput extends GetBucketMetricDataRequ
 export interface GetBucketMetricDataCommandOutput extends GetBucketMetricDataResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the data points of a specific metric for an Amazon Lightsail bucket.</p>
  *          <p>Metrics report the utilization of a bucket. View and collect metric data regularly to
  *       monitor the number of objects stored in a bucket (including object versions) and the storage
@@ -100,6 +99,7 @@ export interface GetBucketMetricDataCommandOutput extends GetBucketMetricDataRes
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetBucketMetricDataCommand extends $Command
   .classBuilder<

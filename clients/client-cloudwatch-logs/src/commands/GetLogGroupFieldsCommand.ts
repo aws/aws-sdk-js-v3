@@ -27,7 +27,6 @@ export interface GetLogGroupFieldsCommandInput extends GetLogGroupFieldsRequest 
 export interface GetLogGroupFieldsCommandOutput extends GetLogGroupFieldsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the fields that are included in log events in the specified log group.
  *       Includes the percentage of log events that contain each field. The search is limited to a time
  *       period that you specify.</p>
@@ -88,6 +87,7 @@ export interface GetLogGroupFieldsCommandOutput extends GetLogGroupFieldsRespons
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class GetLogGroupFieldsCommand extends $Command
   .classBuilder<

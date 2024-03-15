@@ -27,7 +27,6 @@ export interface DescribeReservedCacheNodesCommandInput extends DescribeReserved
 export interface DescribeReservedCacheNodesCommandOutput extends ReservedCacheNodeMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about reserved cache nodes for this account, or about a specified
  *             reserved cache node.</p>
  * @example
@@ -94,6 +93,7 @@ export interface DescribeReservedCacheNodesCommandOutput extends ReservedCacheNo
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  * @example DescribeReservedCacheNodes
  * ```javascript
  * // Returns information about reserved cache nodes for this account, or about a specified reserved cache node. If the account has no reserved cache nodes, the operation returns an empty list, as shown here.

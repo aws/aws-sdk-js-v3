@@ -1339,8 +1339,8 @@ export interface MediaLive {
 }
 
 /**
- * @public
  * API for AWS Elemental MediaLive
+ * @public
  */
 export class MediaLive extends MediaLiveClient implements MediaLive {}
 createAggregatedClient(commands, MediaLive);

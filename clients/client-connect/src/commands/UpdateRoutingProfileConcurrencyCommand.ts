@@ -30,7 +30,6 @@ export interface UpdateRoutingProfileConcurrencyCommandInput extends UpdateRouti
 export interface UpdateRoutingProfileConcurrencyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the channels that agents can handle in the Contact Control Panel (CCP) for a routing
  *    profile.</p>
  * @example
@@ -82,6 +81,7 @@ export interface UpdateRoutingProfileConcurrencyCommandOutput extends __Metadata
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UpdateRoutingProfileConcurrencyCommand extends $Command
   .classBuilder<

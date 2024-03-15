@@ -31,7 +31,6 @@ export interface GetSyncBlockerSummaryCommandInput extends GetSyncBlockerSummary
 export interface GetSyncBlockerSummaryCommandOutput extends GetSyncBlockerSummaryOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the most recent sync blockers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface GetSyncBlockerSummaryCommandOutput extends GetSyncBlockerSummar
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ * @public
  */
 export class GetSyncBlockerSummaryCommand extends $Command
   .classBuilder<

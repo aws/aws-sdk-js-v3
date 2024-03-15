@@ -27,7 +27,6 @@ export interface DescribeClusterDbRevisionsCommandInput extends DescribeClusterD
 export interface DescribeClusterDbRevisionsCommandOutput extends ClusterDbRevisionsMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an array of <code>ClusterDbRevision</code> objects.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface DescribeClusterDbRevisionsCommandOutput extends ClusterDbRevisi
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DescribeClusterDbRevisionsCommand extends $Command
   .classBuilder<

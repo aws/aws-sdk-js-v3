@@ -27,7 +27,6 @@ export interface ListAggregatedUtterancesCommandInput extends ListAggregatedUtte
 export interface ListAggregatedUtterancesCommandOutput extends ListAggregatedUtterancesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a list of utterances that users have sent to the
  *          bot.</p>
  *          <p>Utterances are aggregated by the text of the utterance. For example,
@@ -143,6 +142,7 @@ export interface ListAggregatedUtterancesCommandOutput extends ListAggregatedUtt
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class ListAggregatedUtterancesCommand extends $Command
   .classBuilder<

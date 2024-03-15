@@ -35,7 +35,6 @@ export interface VerifyUserAttributeCommandInput extends VerifyUserAttributeRequ
 export interface VerifyUserAttributeCommandOutput extends VerifyUserAttributeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Verifies the specified user attributes in the user pool.</p>
  *          <p> If your user pool requires verification before Amazon Cognito updates the attribute value,
  *             VerifyUserAttribute updates the affected attribute to its pending value. For more
@@ -122,6 +121,7 @@ export interface VerifyUserAttributeCommandOutput extends VerifyUserAttributeRes
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class VerifyUserAttributeCommand extends $Command
   .classBuilder<

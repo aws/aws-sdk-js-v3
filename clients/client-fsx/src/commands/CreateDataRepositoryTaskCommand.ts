@@ -27,7 +27,6 @@ export interface CreateDataRepositoryTaskCommandInput extends CreateDataReposito
 export interface CreateDataRepositoryTaskCommandOutput extends CreateDataRepositoryTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon FSx for Lustre data repository task.
  *             A <code>CreateDataRepositoryTask</code> operation will fail if a data
  *             repository is not linked to the FSx file system.</p>
@@ -160,6 +159,7 @@ export interface CreateDataRepositoryTaskCommandOutput extends CreateDataReposit
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  */
 export class CreateDataRepositoryTaskCommand extends $Command
   .classBuilder<

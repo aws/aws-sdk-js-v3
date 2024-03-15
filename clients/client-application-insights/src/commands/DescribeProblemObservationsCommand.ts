@@ -33,7 +33,6 @@ export interface DescribeProblemObservationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the anomalies or errors associated with the problem.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -121,6 +120,7 @@ export interface DescribeProblemObservationsCommandOutput
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ * @public
  */
 export class DescribeProblemObservationsCommand extends $Command
   .classBuilder<

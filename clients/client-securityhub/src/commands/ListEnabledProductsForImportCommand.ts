@@ -32,7 +32,6 @@ export interface ListEnabledProductsForImportCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all findings-generating solutions (products) that you are subscribed to receive
  *          findings from in Security Hub.</p>
  * @example
@@ -75,6 +74,7 @@ export interface ListEnabledProductsForImportCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To list ARNs for enabled integrations
  * ```javascript
  * // The following example returns a list of subscription Amazon Resource Names (ARNs) for the product integrations that you have currently enabled in Security Hub.

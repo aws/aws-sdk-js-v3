@@ -27,7 +27,6 @@ export interface ListSitesCommandInput extends ListSitesInput {}
 export interface ListSitesCommandOutput extends ListSitesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the Outpost sites for your Amazon Web Services account. Use filters to return specific
  *       results.</p>
  *          <p>Use filters to return specific results. If you specify multiple filters, the results include only the resources that match
@@ -105,6 +104,7 @@ export interface ListSitesCommandOutput extends ListSitesOutput, __MetadataBeare
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ * @public
  */
 export class ListSitesCommand extends $Command
   .classBuilder<

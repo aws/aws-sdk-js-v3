@@ -27,7 +27,6 @@ export interface CancelDeploymentCommandInput extends CancelDeploymentRequest {}
 export interface CancelDeploymentCommandOutput extends CancelDeploymentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels a deployment. This operation cancels the deployment for devices that haven't yet
  *       received it. If a device already received the deployment, this operation doesn't change
  *       anything for that device.</p>
@@ -78,6 +77,7 @@ export interface CancelDeploymentCommandOutput extends CancelDeploymentResponse,
  * @throws {@link GreengrassV2ServiceException}
  * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ * @public
  */
 export class CancelDeploymentCommand extends $Command
   .classBuilder<

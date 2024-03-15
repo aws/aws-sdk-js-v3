@@ -27,7 +27,6 @@ export interface CreateDatasetGroupCommandInput extends CreateDatasetGroupReques
 export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an empty dataset group. A dataset group is a container for
  *       Amazon Personalize resources. A dataset group can contain at most three datasets, one
  *       for each type of dataset:</p>
@@ -163,6 +162,7 @@ export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupRespo
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class CreateDatasetGroupCommand extends $Command
   .classBuilder<

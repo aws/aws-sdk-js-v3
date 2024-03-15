@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates tags with the specified Amazon Web Services resource. Tags are key:value pairs that you can
  *          use to categorize and manage your resources, for purposes like billing. For example, you
  *          might set the tag key to "customer" and the value to the customer name or ID. You can
@@ -113,6 +112,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

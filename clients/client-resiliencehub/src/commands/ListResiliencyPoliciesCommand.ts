@@ -31,7 +31,6 @@ export interface ListResiliencyPoliciesCommandInput extends ListResiliencyPolici
 export interface ListResiliencyPoliciesCommandOutput extends ListResiliencyPoliciesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the resiliency policies for the Resilience Hub applications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface ListResiliencyPoliciesCommandOutput extends ListResiliencyPolic
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class ListResiliencyPoliciesCommand extends $Command
   .classBuilder<

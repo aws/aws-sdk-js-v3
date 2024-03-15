@@ -31,7 +31,6 @@ export interface DeleteVoiceConnectorStreamingConfigurationCommandInput
 export interface DeleteVoiceConnectorStreamingConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a Voice Connector's streaming configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface DeleteVoiceConnectorStreamingConfigurationCommandOutput extends
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class DeleteVoiceConnectorStreamingConfigurationCommand extends $Command
   .classBuilder<

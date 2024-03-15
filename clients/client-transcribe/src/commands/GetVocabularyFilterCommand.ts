@@ -27,7 +27,6 @@ export interface GetVocabularyFilterCommandInput extends GetVocabularyFilterRequ
 export interface GetVocabularyFilterCommandOutput extends GetVocabularyFilterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides information about the specified custom vocabulary filter.</p>
  *          <p>To get a list of your custom vocabulary filters, use the  operation.</p>
  * @example
@@ -77,6 +76,7 @@ export interface GetVocabularyFilterCommandOutput extends GetVocabularyFilterRes
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * @public
  */
 export class GetVocabularyFilterCommand extends $Command
   .classBuilder<

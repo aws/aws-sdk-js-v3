@@ -27,7 +27,6 @@ export interface DeleteVPCConnectionCommandInput extends DeleteVPCConnectionRequ
 export interface DeleteVPCConnectionCommandOutput extends DeleteVPCConnectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a VPC connection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface DeleteVPCConnectionCommandOutput extends DeleteVPCConnectionRes
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DeleteVPCConnectionCommand extends $Command
   .classBuilder<

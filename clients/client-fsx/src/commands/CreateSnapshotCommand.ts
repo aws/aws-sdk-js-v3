@@ -31,7 +31,6 @@ export interface CreateSnapshotCommandInput extends CreateSnapshotRequest {}
 export interface CreateSnapshotCommandOutput extends CreateSnapshotResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a snapshot of an existing Amazon FSx for OpenZFS volume. With
  *             snapshots, you can easily undo file changes and compare file versions by restoring the
  *             volume to a previous version.</p>
@@ -661,6 +660,7 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResponse, __M
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  */
 export class CreateSnapshotCommand extends $Command
   .classBuilder<

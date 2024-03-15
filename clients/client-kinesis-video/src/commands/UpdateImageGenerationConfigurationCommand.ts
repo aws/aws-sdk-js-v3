@@ -32,7 +32,6 @@ export interface UpdateImageGenerationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the <code>StreamInfo</code> and <code>ImageProcessingConfiguration</code> fields.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -110,6 +109,7 @@ export interface UpdateImageGenerationConfigurationCommandOutput
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ * @public
  */
 export class UpdateImageGenerationConfigurationCommand extends $Command
   .classBuilder<

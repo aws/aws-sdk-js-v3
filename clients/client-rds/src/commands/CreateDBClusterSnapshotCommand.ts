@@ -27,7 +27,6 @@ export interface CreateDBClusterSnapshotCommandInput extends CreateDBClusterSnap
 export interface CreateDBClusterSnapshotCommandOutput extends CreateDBClusterSnapshotResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a snapshot of a DB cluster.</p>
  *          <p>For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon
  *                 Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
@@ -118,6 +117,7 @@ export interface CreateDBClusterSnapshotCommandOutput extends CreateDBClusterSna
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To create a DB cluster snapshot
  * ```javascript
  * // The following example creates a DB cluster snapshot.

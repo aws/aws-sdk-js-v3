@@ -36,7 +36,6 @@ export interface BatchGetEffectiveLifecyclePolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of successful and failed retrievals for the OpenSearch Serverless indexes. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-list">Viewing data lifecycle policies</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface BatchGetEffectiveLifecyclePolicyCommandOutput
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ * @public
  */
 export class BatchGetEffectiveLifecyclePolicyCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface StartCrawlerCommandInput extends StartCrawlerRequest {}
 export interface StartCrawlerCommandOutput extends StartCrawlerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a crawl using the specified crawler, regardless
  *       of what is scheduled. If the crawler is already running, returns a
  *       <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-exceptions.html#aws-glue-api-exceptions-CrawlerRunningException">CrawlerRunningException</a>.</p>
@@ -64,6 +63,7 @@ export interface StartCrawlerCommandOutput extends StartCrawlerResponse, __Metad
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class StartCrawlerCommand extends $Command
   .classBuilder<

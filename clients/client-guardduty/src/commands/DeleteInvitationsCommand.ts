@@ -27,7 +27,6 @@ export interface DeleteInvitationsCommandInput extends DeleteInvitationsRequest 
 export interface DeleteInvitationsCommandOutput extends DeleteInvitationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes invitations sent to the current member account by Amazon Web Services accounts specified by
  *       their account IDs.</p>
  * @example
@@ -69,6 +68,7 @@ export interface DeleteInvitationsCommandOutput extends DeleteInvitationsRespons
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class DeleteInvitationsCommand extends $Command
   .classBuilder<

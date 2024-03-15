@@ -27,7 +27,6 @@ export interface GetExperimentCommandInput extends GetExperimentRequest {}
 export interface GetExperimentCommandOutput extends GetExperimentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the details about one experiment. You must already know the
  *       experiment name. To retrieve a list of experiments in your account, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListExperiments.html">ListExperiments</a>.</p>
  * @example
@@ -119,6 +118,7 @@ export interface GetExperimentCommandOutput extends GetExperimentResponse, __Met
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ * @public
  */
 export class GetExperimentCommand extends $Command
   .classBuilder<

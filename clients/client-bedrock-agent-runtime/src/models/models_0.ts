@@ -4,8 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { BedrockAgentRuntimeServiceException as __BaseException } from "./BedrockAgentRuntimeServiceException";
 
 /**
- * @public
  * <p>The request is denied because of missing access permissions. Check your permissions and retry your request.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -24,99 +24,99 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A parameter in the Lambda input event.</p>
+ * @public
  */
 export interface Parameter {
   /**
-   * @public
    * <p>The name of the parameter.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The type of the parameter.</p>
+   * @public
    */
   type?: string;
 
   /**
-   * @public
    * <p>The value of the parameter.</p>
+   * @public
    */
   value?: string;
 }
 
 /**
- * @public
  * <p>The parameters in the request body for the Lambda input event.</p>
+ * @public
  */
 export interface RequestBody {
   /**
-   * @public
    * <p>The content in the request body.</p>
+   * @public
    */
   content?: Record<string, Parameter[]>;
 }
 
 /**
- * @public
  * <p>Contains information about the action group being invoked.</p>
+ * @public
  */
 export interface ActionGroupInvocationInput {
   /**
-   * @public
    * <p>The name of the action group.</p>
+   * @public
    */
   actionGroupName?: string;
 
   /**
-   * @public
    * <p>The API method being used, based off the action group.</p>
+   * @public
    */
   verb?: string;
 
   /**
-   * @public
    * <p>The path to the API to call, based off the action group.</p>
+   * @public
    */
   apiPath?: string;
 
   /**
-   * @public
    * <p>The parameters in the Lambda input event.</p>
+   * @public
    */
   parameters?: Parameter[];
 
   /**
-   * @public
    * <p>The parameters in the request body for the Lambda input event.</p>
+   * @public
    */
   requestBody?: RequestBody;
 }
 
 /**
- * @public
  * <p>Contains the JSON-formatted string returned by the API invoked by the action group.</p>
+ * @public
  */
 export interface ActionGroupInvocationOutput {
   /**
-   * @public
    * <p>The JSON-formatted string returned by the API invoked by the action group.</p>
+   * @public
    */
   text?: string;
 }
 
 /**
- * @public
  * <p>There was an issue with a dependency due to a server issue. Retry your request.</p>
+ * @public
  */
 export class BadGatewayException extends __BaseException {
   readonly name: "BadGatewayException" = "BadGatewayException";
   readonly $fault: "server" = "server";
   /**
-   * @public
    * <p>The name of the dependency that caused the issue, such as Amazon Bedrock, Lambda, or STS.</p>
+   * @public
    */
   resourceName?: string;
 
@@ -135,8 +135,8 @@ export class BadGatewayException extends __BaseException {
 }
 
 /**
- * @public
  * <p>There was a conflict performing an operation. Resolve the conflict and retry your request.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -155,15 +155,15 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * @public
  * <p>There was an issue with a dependency. Check the resource configurations and retry the request.</p>
+ * @public
  */
 export class DependencyFailedException extends __BaseException {
   readonly name: "DependencyFailedException" = "DependencyFailedException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The name of the dependency that caused the issue, such as Amazon Bedrock, Lambda, or STS.</p>
+   * @public
    */
   resourceName?: string;
 
@@ -182,8 +182,8 @@ export class DependencyFailedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>An internal server error occurred. Retry your request.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -202,19 +202,19 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Contains parameters that specify various attributes that persist across a session or prompt. You can define session state attributes as key-value pairs when writing a <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-lambda.html">Lambda function</a> for an action group or pass them when making an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html">InvokeAgent</a> request. Use session state attributes to control and provide conversational context for your agent and to help customize your agent's behavior. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/sessionstate.html">Session context</a>.</p>
+ * @public
  */
 export interface SessionState {
   /**
-   * @public
    * <p>Contains attributes that persist across a session and the values of those attributes.</p>
+   * @public
    */
   sessionAttributes?: Record<string, string>;
 
   /**
-   * @public
    * <p>Contains attributes that persist across a prompt and the values of those attributes. These attributes replace the $prompt_session_attributes$ placeholder variable in the orchestration prompt template. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html">Prompt template placeholder variables</a>.</p>
+   * @public
    */
   promptSessionAttributes?: Record<string, string>;
 }
@@ -224,116 +224,116 @@ export interface SessionState {
  */
 export interface InvokeAgentRequest {
   /**
-   * @public
    * <p>Contains parameters that specify various attributes of the session.</p>
+   * @public
    */
   sessionState?: SessionState;
 
   /**
-   * @public
    * <p>The unique identifier of the agent to use.</p>
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * <p>The alias of the agent to use.</p>
+   * @public
    */
   agentAliasId: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of the session. Use the same value across requests to continue the same conversation.</p>
+   * @public
    */
   sessionId: string | undefined;
 
   /**
-   * @public
    * <p>Specifies whether to end the session with the agent or not.</p>
+   * @public
    */
   endSession?: boolean;
 
   /**
-   * @public
    * <p>Specifies whether to turn on the trace or not to track the agent's reasoning process. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-events">Trace enablement</a>.</p>
+   * @public
    */
   enableTrace?: boolean;
 
   /**
-   * @public
    * <p>The prompt text to send the agent.</p>
+   * @public
    */
   inputText: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains information about where the text with a citation begins and ends in the generated output.</p>
+ * @public
  */
 export interface Span {
   /**
-   * @public
    * <p>Where the text with a citation starts in the generated output.</p>
+   * @public
    */
   start?: number;
 
   /**
-   * @public
    * <p>Where the text with a citation ends in the generated output.</p>
+   * @public
    */
   end?: number;
 }
 
 /**
- * @public
  * <p>Contains the part of the generated text that contains a citation, alongside where it begins and ends.</p>
+ * @public
  */
 export interface TextResponsePart {
   /**
-   * @public
    * <p>The part of the generated text that contains a citation.</p>
+   * @public
    */
   text?: string;
 
   /**
-   * @public
    * <p>Contains information about where the text with a citation begins and ends in the generated output.</p>
+   * @public
    */
   span?: Span;
 }
 
 /**
- * @public
  * <p>Contains metadata about a part of the generated response that is accompanied by a citation.</p>
+ * @public
  */
 export interface GeneratedResponsePart {
   /**
-   * @public
    * <p>Contains metadata about a textual part of the generated response that is accompanied by a citation.</p>
+   * @public
    */
   textResponsePart?: TextResponsePart;
 }
 
 /**
- * @public
  * <p>Contains the cited text from the data source.</p>
+ * @public
  */
 export interface RetrievalResultContent {
   /**
-   * @public
    * <p>The cited text from the data source.</p>
+   * @public
    */
   text: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains the S3 location of the data source.</p>
+ * @public
  */
 export interface RetrievalResultS3Location {
   /**
-   * @public
    * <p>The S3 URI of the data source.</p>
+   * @public
    */
   uri?: string;
 }
@@ -353,92 +353,92 @@ export type RetrievalResultLocationType =
   (typeof RetrievalResultLocationType)[keyof typeof RetrievalResultLocationType];
 
 /**
- * @public
  * <p>Contains information about the location of the data source.</p>
+ * @public
  */
 export interface RetrievalResultLocation {
   /**
-   * @public
    * <p>The type of the location of the data source.</p>
+   * @public
    */
   type: RetrievalResultLocationType | undefined;
 
   /**
-   * @public
    * <p>Contains the S3 location of the data source.</p>
+   * @public
    */
   s3Location?: RetrievalResultS3Location;
 }
 
 /**
- * @public
  * <p>Contains metadata about a sources cited for the generated response.</p>
+ * @public
  */
 export interface RetrievedReference {
   /**
-   * @public
    * <p>Contains the cited text from the data source.</p>
+   * @public
    */
   content?: RetrievalResultContent;
 
   /**
-   * @public
    * <p>Contains information about the location of the data source.</p>
+   * @public
    */
   location?: RetrievalResultLocation;
 }
 
 /**
- * @public
  * <p>An object containing a segment of the generated response that is based on a source in the knowledge base, alongside information about the source.</p>
+ * @public
  */
 export interface Citation {
   /**
-   * @public
    * <p>Contains the generated response and metadata </p>
+   * @public
    */
   generatedResponsePart?: GeneratedResponsePart;
 
   /**
-   * @public
    * <p>Contains metadata about the sources cited for the generated response.</p>
+   * @public
    */
   retrievedReferences?: RetrievedReference[];
 }
 
 /**
- * @public
  * <p>Contains citations for a part of an agent response.</p>
+ * @public
  */
 export interface Attribution {
   /**
-   * @public
    * <p>A list of citations and related information for a part of an agent response.</p>
+   * @public
    */
   citations?: Citation[];
 }
 
 /**
- * @public
  * <p>Contains a part of an agent response and citations for it.</p>
+ * @public
  */
 export interface PayloadPart {
   /**
-   * @public
    * <p>A part of the agent response in bytes.</p>
+   * @public
    */
   bytes?: Uint8Array;
 
   /**
-   * @public
    * <p>Contains citations for a part of an agent response.</p>
+   * @public
    */
   attribution?: Attribution;
 }
 
 /**
- * @public
  * <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -457,8 +457,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
@@ -477,8 +477,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -497,19 +497,19 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Contains information about the failure of the interaction.</p>
+ * @public
  */
 export interface FailureTrace {
   /**
-   * @public
    * <p>The unique identifier of the trace.</p>
+   * @public
    */
   traceId?: string;
 
   /**
-   * @public
    * <p>The reason the interaction failed.</p>
+   * @public
    */
   failureReason?: string;
 }
@@ -530,85 +530,85 @@ export const InvocationType = {
 export type InvocationType = (typeof InvocationType)[keyof typeof InvocationType];
 
 /**
- * @public
  * <p>Contains details about the knowledge base to look up and the query to be made.</p>
+ * @public
  */
 export interface KnowledgeBaseLookupInput {
   /**
-   * @public
    * <p>The query made to the knowledge base.</p>
+   * @public
    */
   text?: string;
 
   /**
-   * @public
    * <p>The unique identifier of the knowledge base to look up.</p>
+   * @public
    */
   knowledgeBaseId?: string;
 }
 
 /**
- * @public
  * <p>Contains information pertaining to the action group or knowledge base that is being invoked.</p>
+ * @public
  */
 export interface InvocationInput {
   /**
-   * @public
    * <p>The unique identifier of the trace.</p>
+   * @public
    */
   traceId?: string;
 
   /**
-   * @public
    * <p>Specifies whether the agent is invoking an action group or a knowledge base.</p>
+   * @public
    */
   invocationType?: InvocationType;
 
   /**
-   * @public
    * <p>Contains information about the action group to be invoked.</p>
+   * @public
    */
   actionGroupInvocationInput?: ActionGroupInvocationInput;
 
   /**
-   * @public
    * <p>Contains details about the knowledge base to look up and the query to be made.</p>
+   * @public
    */
   knowledgeBaseLookupInput?: KnowledgeBaseLookupInput;
 }
 
 /**
- * @public
  * <p>Specifications about the inference parameters that were provided alongside the prompt. These are specified in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html">PromptOverrideConfiguration</a> object that was set when the agent was created or updated. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundation models</a>.</p>
+ * @public
  */
 export interface InferenceConfiguration {
   /**
-   * @public
    * <p>The likelihood of the model selecting higher-probability options while generating a response. A lower value makes the model more likely to choose higher-probability options, while a higher value makes the model more likely to choose lower-probability options.</p>
+   * @public
    */
   temperature?: number;
 
   /**
-   * @public
    * <p>While generating a response, the model determines the probability of the following token at each point of generation. The value that you set for <code>Top P</code> determines the number of most-likely candidates from which the model chooses the next token in the sequence. For example, if you set <code>topP</code> to 80, the model only selects the next token from the top 80% of the probability distribution of next tokens.</p>
+   * @public
    */
   topP?: number;
 
   /**
-   * @public
    * <p>While generating a response, the model determines the probability of the following token at each point of generation. The value that you set for <code>topK</code> is the number of most-likely candidates from which the model chooses the next token in the sequence. For example, if you set <code>topK</code> to 50, the model selects the next token from among the top 50 most likely choices.</p>
+   * @public
    */
   topK?: number;
 
   /**
-   * @public
    * <p>The maximum number of tokens allowed in the generated response.</p>
+   * @public
    */
   maximumLength?: number;
 
   /**
-   * @public
    * <p>A list of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.</p>
+   * @public
    */
   stopSequences?: string[];
 }
@@ -644,7 +644,6 @@ export const PromptType = {
 export type PromptType = (typeof PromptType)[keyof typeof PromptType];
 
 /**
- * @public
  * <p>The input for the pre-processing step.</p>
  *          <ul>
  *             <li>
@@ -657,71 +656,72 @@ export type PromptType = (typeof PromptType)[keyof typeof PromptType];
  *                <p>The <code>inferenceConfiguration</code>, <code>parserMode</code>, and <code>overrideLambda</code> values are set in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html">PromptOverrideConfiguration</a> object that was set when the agent was created or updated.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export interface ModelInvocationInput {
   /**
-   * @public
    * <p>The unique identifier of the trace.</p>
+   * @public
    */
   traceId?: string;
 
   /**
-   * @public
    * <p>The text that prompted the agent at this step.</p>
+   * @public
    */
   text?: string;
 
   /**
-   * @public
    * <p>The step in the agent sequence.</p>
+   * @public
    */
   type?: PromptType;
 
   /**
-   * @public
    * <p>Specifications about the inference parameters that were provided alongside the prompt. These are specified in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html">PromptOverrideConfiguration</a> object that was set when the agent was created or updated. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundation models</a>.</p>
+   * @public
    */
   inferenceConfiguration?: InferenceConfiguration;
 
   /**
-   * @public
    * <p>The ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence.</p>
+   * @public
    */
   overrideLambda?: string;
 
   /**
-   * @public
    * <p>Specifies whether the default prompt template was <code>OVERRIDDEN</code>. If it was, the <code>basePromptTemplate</code> that was set in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html">PromptOverrideConfiguration</a> object when the agent was created or updated is used instead.</p>
+   * @public
    */
   promptCreationMode?: CreationMode;
 
   /**
-   * @public
    * <p>Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the <code>promptType</code>.</p>
+   * @public
    */
   parserMode?: CreationMode;
 }
 
 /**
- * @public
  * <p>Contains details about the response to the user.</p>
+ * @public
  */
 export interface FinalResponse {
   /**
-   * @public
    * <p>The text in the response to the user.</p>
+   * @public
    */
   text?: string;
 }
 
 /**
- * @public
  * <p>Contains details about the results from looking up the knowledge base.</p>
+ * @public
  */
 export interface KnowledgeBaseLookupOutput {
   /**
-   * @public
    * <p>Contains metadata about the sources cited for the generated response.</p>
+   * @public
    */
   retrievedReferences?: RetrievedReference[];
 }
@@ -742,19 +742,19 @@ export const Source = {
 export type Source = (typeof Source)[keyof typeof Source];
 
 /**
- * @public
  * <p>Contains details about the agent's response to reprompt the input.</p>
+ * @public
  */
 export interface RepromptResponse {
   /**
-   * @public
    * <p>The text reprompting the input.</p>
+   * @public
    */
   text?: string;
 
   /**
-   * @public
    * <p>Specifies what output is prompting the agent to reprompt the input.</p>
+   * @public
    */
   source?: Source;
 }
@@ -777,18 +777,17 @@ export const Type = {
 export type Type = (typeof Type)[keyof typeof Type];
 
 /**
- * @public
  * <p>Contains the result or output of an action group or knowledge base, or the response to the user.</p>
+ * @public
  */
 export interface Observation {
   /**
-   * @public
    * <p>The unique identifier of the trace.</p>
+   * @public
    */
   traceId?: string;
 
   /**
-   * @public
    * <p>Specifies what kind of information the agent returns in the observation. The following values are possible.</p>
    *          <ul>
    *             <li>
@@ -812,55 +811,56 @@ export interface Observation {
    *                   <code>REPROMPT</code> – The agent prompts the user again for the same information.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   type?: Type;
 
   /**
-   * @public
    * <p>Contains the JSON-formatted string returned by the API invoked by the action group.</p>
+   * @public
    */
   actionGroupInvocationOutput?: ActionGroupInvocationOutput;
 
   /**
-   * @public
    * <p>Contains details about the results from looking up the knowledge base.</p>
+   * @public
    */
   knowledgeBaseLookupOutput?: KnowledgeBaseLookupOutput;
 
   /**
-   * @public
    * <p>Contains details about the response to the user.</p>
+   * @public
    */
   finalResponse?: FinalResponse;
 
   /**
-   * @public
    * <p>Contains details about the response to reprompt the input.</p>
+   * @public
    */
   repromptResponse?: RepromptResponse;
 }
 
 /**
- * @public
  * <p>Contains the reasoning, based on the input, that the agent uses to justify carrying out an action group or getting information from a knowledge base.</p>
+ * @public
  */
 export interface Rationale {
   /**
-   * @public
    * <p>The unique identifier of the trace step.</p>
+   * @public
    */
   traceId?: string;
 
   /**
-   * @public
    * <p>The reasoning or thought process of the agent, based on the input.</p>
+   * @public
    */
   text?: string;
 }
 
 /**
- * @public
  * <p>Details about the orchestration step, in which the agent determines the order in which actions are executed and which knowledge bases are retrieved.</p>
+ * @public
  */
 export type OrchestrationTrace =
   | OrchestrationTrace.InvocationInputMember
@@ -874,8 +874,8 @@ export type OrchestrationTrace =
  */
 export namespace OrchestrationTrace {
   /**
-   * @public
    * <p>Details about the reasoning, based on the input, that the agent uses to justify carrying out an action group or getting information from a knowledge base.</p>
+   * @public
    */
   export interface RationaleMember {
     rationale: Rationale;
@@ -886,8 +886,8 @@ export namespace OrchestrationTrace {
   }
 
   /**
-   * @public
    * <p>Contains information pertaining to the action group or knowledge base that is being invoked.</p>
+   * @public
    */
   export interface InvocationInputMember {
     rationale?: never;
@@ -898,8 +898,8 @@ export namespace OrchestrationTrace {
   }
 
   /**
-   * @public
    * <p>Details about the observation (the output of the action group Lambda or knowledge base) made by the agent.</p>
+   * @public
    */
   export interface ObservationMember {
     rationale?: never;
@@ -910,7 +910,6 @@ export namespace OrchestrationTrace {
   }
 
   /**
-   * @public
    * <p>The input for the orchestration step.</p>
    *          <ul>
    *             <li>
@@ -923,6 +922,7 @@ export namespace OrchestrationTrace {
    *                <p>The <code>inferenceConfiguration</code>, <code>parserMode</code>, and <code>overrideLambda</code> values are set in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html">PromptOverrideConfiguration</a> object that was set when the agent was created or updated.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   export interface ModelInvocationInputMember {
     rationale?: never;
@@ -961,38 +961,38 @@ export namespace OrchestrationTrace {
 }
 
 /**
- * @public
  * <p>Details about the response from the Lambda parsing of the output from the post-processing step.</p>
+ * @public
  */
 export interface PostProcessingParsedResponse {
   /**
-   * @public
    * <p>The text returned by the parser.</p>
+   * @public
    */
   text?: string;
 }
 
 /**
- * @public
  * <p>The foundation model output from the post-processing step.</p>
+ * @public
  */
 export interface PostProcessingModelInvocationOutput {
   /**
-   * @public
    * <p>The unique identifier of the trace.</p>
+   * @public
    */
   traceId?: string;
 
   /**
-   * @public
    * <p>Details about the response from the Lambda parsing of the output of the post-processing step.</p>
+   * @public
    */
   parsedResponse?: PostProcessingParsedResponse;
 }
 
 /**
- * @public
  * <p>Details about the post-processing step, in which the agent shapes the response.</p>
+ * @public
  */
 export type PostProcessingTrace =
   | PostProcessingTrace.ModelInvocationInputMember
@@ -1004,7 +1004,6 @@ export type PostProcessingTrace =
  */
 export namespace PostProcessingTrace {
   /**
-   * @public
    * <p>The input for the post-processing step.</p>
    *          <ul>
    *             <li>
@@ -1017,6 +1016,7 @@ export namespace PostProcessingTrace {
    *                <p>The <code>inferenceConfiguration</code>, <code>parserMode</code>, and <code>overrideLambda</code> values are set in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html">PromptOverrideConfiguration</a> object that was set when the agent was created or updated.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   export interface ModelInvocationInputMember {
     modelInvocationInput: ModelInvocationInput;
@@ -1025,8 +1025,8 @@ export namespace PostProcessingTrace {
   }
 
   /**
-   * @public
    * <p>The foundation model output from the post-processing step.</p>
+   * @public
    */
   export interface ModelInvocationOutputMember {
     modelInvocationInput?: never;
@@ -1057,44 +1057,44 @@ export namespace PostProcessingTrace {
 }
 
 /**
- * @public
  * <p>Details about the response from the Lambda parsing of the output from the pre-processing step.</p>
+ * @public
  */
 export interface PreProcessingParsedResponse {
   /**
-   * @public
    * <p>The text returned by the parsing of the pre-processing step, explaining the steps that the agent plans to take in orchestration, if the user input is valid.</p>
+   * @public
    */
   rationale?: string;
 
   /**
-   * @public
    * <p>Whether the user input is valid or not. If <code>false</code>, the agent doesn't proceed to orchestration.</p>
+   * @public
    */
   isValid?: boolean;
 }
 
 /**
- * @public
  * <p>The foundation model output from the pre-processing step.</p>
+ * @public
  */
 export interface PreProcessingModelInvocationOutput {
   /**
-   * @public
    * <p>The unique identifier of the trace.</p>
+   * @public
    */
   traceId?: string;
 
   /**
-   * @public
    * <p>Details about the response from the Lambda parsing of the output of the pre-processing step.</p>
+   * @public
    */
   parsedResponse?: PreProcessingParsedResponse;
 }
 
 /**
- * @public
  * <p>Details about the pre-processing step, in which the agent contextualizes and categorizes user inputs.</p>
+ * @public
  */
 export type PreProcessingTrace =
   | PreProcessingTrace.ModelInvocationInputMember
@@ -1106,7 +1106,6 @@ export type PreProcessingTrace =
  */
 export namespace PreProcessingTrace {
   /**
-   * @public
    * <p>The input for the pre-processing step.</p>
    *          <ul>
    *             <li>
@@ -1119,6 +1118,7 @@ export namespace PreProcessingTrace {
    *                <p>The <code>inferenceConfiguration</code>, <code>parserMode</code>, and <code>overrideLambda</code> values are set in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html">PromptOverrideConfiguration</a> object that was set when the agent was created or updated.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   export interface ModelInvocationInputMember {
     modelInvocationInput: ModelInvocationInput;
@@ -1127,8 +1127,8 @@ export namespace PreProcessingTrace {
   }
 
   /**
-   * @public
    * <p>The foundation model output from the pre-processing step.</p>
+   * @public
    */
   export interface ModelInvocationOutputMember {
     modelInvocationInput?: never;
@@ -1159,8 +1159,8 @@ export namespace PreProcessingTrace {
 }
 
 /**
- * @public
  * <p>Contains one part of the agent's reasoning process and results from calling API actions and querying knowledge bases. You can use the trace to understand how the agent arrived at the response it provided the customer. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-enablement">Trace enablement</a>.</p>
+ * @public
  */
 export type Trace =
   | Trace.FailureTraceMember
@@ -1174,8 +1174,8 @@ export type Trace =
  */
 export namespace Trace {
   /**
-   * @public
    * <p>Details about the pre-processing step, in which the agent contextualizes and categorizes user inputs.</p>
+   * @public
    */
   export interface PreProcessingTraceMember {
     preProcessingTrace: PreProcessingTrace;
@@ -1186,8 +1186,8 @@ export namespace Trace {
   }
 
   /**
-   * @public
    * <p>Details about the orchestration step, in which the agent determines the order in which actions are executed and which knowledge bases are retrieved.</p>
+   * @public
    */
   export interface OrchestrationTraceMember {
     preProcessingTrace?: never;
@@ -1198,8 +1198,8 @@ export namespace Trace {
   }
 
   /**
-   * @public
    * <p>Details about the post-processing step, in which the agent shapes the response..</p>
+   * @public
    */
   export interface PostProcessingTraceMember {
     preProcessingTrace?: never;
@@ -1210,8 +1210,8 @@ export namespace Trace {
   }
 
   /**
-   * @public
    * <p>Contains information about the failure of the interaction.</p>
+   * @public
    */
   export interface FailureTraceMember {
     preProcessingTrace?: never;
@@ -1250,38 +1250,38 @@ export namespace Trace {
 }
 
 /**
- * @public
  * <p>Contains information about the agent and session, alongside the agent's reasoning process and results from calling API actions and querying knowledge bases and metadata about the trace. You can use the trace to understand how the agent arrived at the response it provided the customer. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-enablement">Trace enablement</a>.</p>
+ * @public
  */
 export interface TracePart {
   /**
-   * @public
    * <p>The unique identifier of the agent.</p>
+   * @public
    */
   agentId?: string;
 
   /**
-   * @public
    * <p>The unique identifier of the alias of the agent.</p>
+   * @public
    */
   agentAliasId?: string;
 
   /**
-   * @public
    * <p>The unique identifier of the session with the agent.</p>
+   * @public
    */
   sessionId?: string;
 
   /**
-   * @public
    * <p>Contains one part of the agent's reasoning process and results from calling API actions and querying knowledge bases. You can use the trace to understand how the agent arrived at the response it provided the customer. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-enablement">Trace enablement</a>.</p>
+   * @public
    */
   trace?: Trace;
 }
 
 /**
- * @public
  * <p>Input validation failed. Check your request parameters and retry the request.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -1300,8 +1300,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The response from invoking the agent and associated citations and trace information.</p>
+ * @public
  */
 export type ResponseStream =
   | ResponseStream.AccessDeniedExceptionMember
@@ -1322,8 +1322,8 @@ export type ResponseStream =
  */
 export namespace ResponseStream {
   /**
-   * @public
    * <p>Contains a part of an agent response and citations for it.</p>
+   * @public
    */
   export interface ChunkMember {
     chunk: PayloadPart;
@@ -1341,8 +1341,8 @@ export namespace ResponseStream {
   }
 
   /**
-   * @public
    * <p>Contains information about the agent and session, alongside the agent's reasoning process and results from calling API actions and querying knowledge bases and metadata about the trace. You can use the trace to understand how the agent arrived at the response it provided the customer. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html">Trace events</a>.</p>
+   * @public
    */
   export interface TraceMember {
     chunk?: never;
@@ -1360,8 +1360,8 @@ export namespace ResponseStream {
   }
 
   /**
-   * @public
    * <p>An internal server error occurred. Retry your request.</p>
+   * @public
    */
   export interface InternalServerExceptionMember {
     chunk?: never;
@@ -1379,8 +1379,8 @@ export namespace ResponseStream {
   }
 
   /**
-   * @public
    * <p>Input validation failed. Check your request parameters and retry the request.</p>
+   * @public
    */
   export interface ValidationExceptionMember {
     chunk?: never;
@@ -1398,8 +1398,8 @@ export namespace ResponseStream {
   }
 
   /**
-   * @public
    * <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+   * @public
    */
   export interface ResourceNotFoundExceptionMember {
     chunk?: never;
@@ -1417,8 +1417,8 @@ export namespace ResponseStream {
   }
 
   /**
-   * @public
    * <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
+   * @public
    */
   export interface ServiceQuotaExceededExceptionMember {
     chunk?: never;
@@ -1436,8 +1436,8 @@ export namespace ResponseStream {
   }
 
   /**
-   * @public
    * <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+   * @public
    */
   export interface ThrottlingExceptionMember {
     chunk?: never;
@@ -1455,8 +1455,8 @@ export namespace ResponseStream {
   }
 
   /**
-   * @public
    * <p>The request is denied because of missing access permissions. Check your permissions and retry your request.</p>
+   * @public
    */
   export interface AccessDeniedExceptionMember {
     chunk?: never;
@@ -1474,8 +1474,8 @@ export namespace ResponseStream {
   }
 
   /**
-   * @public
    * <p>There was a conflict performing an operation. Resolve the conflict and retry your request.</p>
+   * @public
    */
   export interface ConflictExceptionMember {
     chunk?: never;
@@ -1493,8 +1493,8 @@ export namespace ResponseStream {
   }
 
   /**
-   * @public
    * <p>There was an issue with a dependency. Check the resource configurations and retry the request.</p>
+   * @public
    */
   export interface DependencyFailedExceptionMember {
     chunk?: never;
@@ -1512,8 +1512,8 @@ export namespace ResponseStream {
   }
 
   /**
-   * @public
    * <p>There was an issue with a dependency due to a server issue. Retry your request.</p>
+   * @public
    */
   export interface BadGatewayExceptionMember {
     chunk?: never;
@@ -1588,32 +1588,32 @@ export namespace ResponseStream {
  */
 export interface InvokeAgentResponse {
   /**
-   * @public
    * <p>The agent's response to the user prompt.</p>
+   * @public
    */
   completion: AsyncIterable<ResponseStream> | undefined;
 
   /**
-   * @public
    * <p>The MIME type of the input data in the request. The default value is <code>application/json</code>.</p>
+   * @public
    */
   contentType: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of the session with the agent.</p>
+   * @public
    */
   sessionId: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains the query made to the knowledge base.</p>
+ * @public
  */
 export interface RetrieveAndGenerateInput {
   /**
-   * @public
    * <p>The query made to the knowledge base.</p>
+   * @public
    */
   text: string | undefined;
 }
@@ -1633,28 +1633,27 @@ export const SearchType = {
 export type SearchType = (typeof SearchType)[keyof typeof SearchType];
 
 /**
- * @public
  * <p>Configurations for how to carry out the search.</p>
+ * @public
  */
 export interface KnowledgeBaseVectorSearchConfiguration {
   /**
-   * @public
    * <p>The number of results to return.</p>
    *          <note>
    *             <p>The <code>numberOfResults</code> field is currently unsupported for <code>RetrieveAndGenerate</code>. Don't include it in this field if you are sending a <code>RetrieveAndGenerate</code> request.</p>
    *          </note>
+   * @public
    */
   numberOfResults?: number;
 
   /**
-   * @public
    * <p>By default, Amazon Bedrock decides a search strategy for you. If you're using an Amazon OpenSearch Serverless vector store that contains a filterable text field, you can specify whether to query the knowledge base with a <code>HYBRID</code> search using both vector embeddings and raw text, or <code>SEMANTIC</code> search using only vector embeddings. For other vector store configurations, only <code>SEMANTIC</code> search is available. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-test.html">Test a knowledge base</a>.</p>
+   * @public
    */
   overrideSearchType?: SearchType;
 }
 
 /**
- * @public
  * <p>Contains details about how the results should be returned.</p>
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
@@ -1669,35 +1668,36 @@ export interface KnowledgeBaseVectorSearchConfiguration {
  *                </p>
  *             </li>
  *          </ul>
+ * @public
  */
 export interface KnowledgeBaseRetrievalConfiguration {
   /**
-   * @public
    * <p>Contains details about how the results from the vector search should be returned.</p>
+   * @public
    */
   vectorSearchConfiguration: KnowledgeBaseVectorSearchConfiguration | undefined;
 }
 
 /**
- * @public
  * <p>Contains details about the resource being queried.</p>
+ * @public
  */
 export interface KnowledgeBaseRetrieveAndGenerateConfiguration {
   /**
-   * @public
    * <p>The unique identifier of the knowledge base that is queried and the foundation model used for generation.</p>
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the foundation model used to generate a response.</p>
+   * @public
    */
   modelArn: string | undefined;
 
   /**
-   * @public
    * <p>Contains configurations for how to retrieve and return the knowledge base query.</p>
+   * @public
    */
   retrievalConfiguration?: KnowledgeBaseRetrievalConfiguration;
 }
@@ -1716,31 +1716,31 @@ export const RetrieveAndGenerateType = {
 export type RetrieveAndGenerateType = (typeof RetrieveAndGenerateType)[keyof typeof RetrieveAndGenerateType];
 
 /**
- * @public
  * <p>Contains details about the resource being queried.</p>
+ * @public
  */
 export interface RetrieveAndGenerateConfiguration {
   /**
-   * @public
    * <p>The type of resource that is queried by the request.</p>
+   * @public
    */
   type: RetrieveAndGenerateType | undefined;
 
   /**
-   * @public
    * <p>Contains details about the resource being queried.</p>
+   * @public
    */
   knowledgeBaseConfiguration?: KnowledgeBaseRetrieveAndGenerateConfiguration;
 }
 
 /**
- * @public
  * <p>Contains configuration about the session with the knowledge base.</p>
+ * @public
  */
 export interface RetrieveAndGenerateSessionConfiguration {
   /**
-   * @public
    * <p>The ARN of the KMS key encrypting the session.</p>
+   * @public
    */
   kmsKeyArn: string | undefined;
 }
@@ -1750,38 +1750,38 @@ export interface RetrieveAndGenerateSessionConfiguration {
  */
 export interface RetrieveAndGenerateRequest {
   /**
-   * @public
    * <p>The unique identifier of the session. Reuse the same value to continue the same session with the knowledge base.</p>
+   * @public
    */
   sessionId?: string;
 
   /**
-   * @public
    * <p>Contains the query made to the knowledge base.</p>
+   * @public
    */
   input: RetrieveAndGenerateInput | undefined;
 
   /**
-   * @public
    * <p>Contains details about the resource being queried and the foundation model used for generation.</p>
+   * @public
    */
   retrieveAndGenerateConfiguration?: RetrieveAndGenerateConfiguration;
 
   /**
-   * @public
    * <p>Contains details about the session with the knowledge base.</p>
+   * @public
    */
   sessionConfiguration?: RetrieveAndGenerateSessionConfiguration;
 }
 
 /**
- * @public
  * <p>Contains the response generated from querying the knowledge base.</p>
+ * @public
  */
 export interface RetrieveAndGenerateOutput {
   /**
-   * @public
    * <p>The response generated from querying the knowledge base.</p>
+   * @public
    */
   text: string | undefined;
 }
@@ -1791,32 +1791,32 @@ export interface RetrieveAndGenerateOutput {
  */
 export interface RetrieveAndGenerateResponse {
   /**
-   * @public
    * <p>The unique identifier of the session. Reuse the same value to continue the same session with the knowledge base.</p>
+   * @public
    */
   sessionId: string | undefined;
 
   /**
-   * @public
    * <p>Contains the response generated from querying the knowledge base.</p>
+   * @public
    */
   output: RetrieveAndGenerateOutput | undefined;
 
   /**
-   * @public
    * <p>A list of segments of the generated response that are based on sources in the knowledge base, alongside information about the sources.</p>
+   * @public
    */
   citations?: Citation[];
 }
 
 /**
- * @public
  * <p>Contains the query made to the knowledge base.</p>
+ * @public
  */
 export interface KnowledgeBaseQuery {
   /**
-   * @public
    * <p>The text of the query made to the knowledge base.</p>
+   * @public
    */
   text: string | undefined;
 }
@@ -1826,50 +1826,50 @@ export interface KnowledgeBaseQuery {
  */
 export interface RetrieveRequest {
   /**
-   * @public
    * <p>The unique identifier of the knowledge base to query.</p>
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * <p>The query to send the knowledge base.</p>
+   * @public
    */
   retrievalQuery: KnowledgeBaseQuery | undefined;
 
   /**
-   * @public
    * <p>Contains details about how the results should be returned.</p>
+   * @public
    */
   retrievalConfiguration?: KnowledgeBaseRetrievalConfiguration;
 
   /**
-   * @public
    * <p>If there are more results than can fit in the response, the response returns a <code>nextToken</code>. Use this token in the <code>nextToken</code> field of another request to retrieve the next batch of results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>Details about a result from querying the knowledge base.</p>
+ * @public
  */
 export interface KnowledgeBaseRetrievalResult {
   /**
-   * @public
    * <p>Contains a chunk of text from a data source in the knowledge base.</p>
+   * @public
    */
   content: RetrievalResultContent | undefined;
 
   /**
-   * @public
    * <p>Contains information about the location of the data source.</p>
+   * @public
    */
   location?: RetrievalResultLocation;
 
   /**
-   * @public
    * <p>The level of relevance of the result to the query.</p>
+   * @public
    */
   score?: number;
 }
@@ -1879,14 +1879,14 @@ export interface KnowledgeBaseRetrievalResult {
  */
 export interface RetrieveResponse {
   /**
-   * @public
    * <p>A list of results from querying the knowledge base.</p>
+   * @public
    */
   retrievalResults: KnowledgeBaseRetrievalResult[] | undefined;
 
   /**
-   * @public
    * <p>If there are more results than can fit in the response, the response returns a <code>nextToken</code>. Use this token in the <code>nextToken</code> field of another request to retrieve the next batch of results.</p>
+   * @public
    */
   nextToken?: string;
 }

@@ -27,7 +27,6 @@ export interface UpdateConnectivityInfoCommandInput extends UpdateConnectivityIn
 export interface UpdateConnectivityInfoCommandOutput extends UpdateConnectivityInfoResponse, __MetadataBearer {}
 
 /**
- * @public
  * Updates the connectivity information for the core. Any devices that belong to the group which has this core will receive this information in order to find the location of the core and connect to it.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface UpdateConnectivityInfoCommandOutput extends UpdateConnectivityI
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class UpdateConnectivityInfoCommand extends $Command
   .classBuilder<

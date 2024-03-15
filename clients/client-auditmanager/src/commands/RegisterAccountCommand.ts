@@ -27,7 +27,6 @@ export interface RegisterAccountCommandInput extends RegisterAccountRequest {}
 export interface RegisterAccountCommandOutput extends RegisterAccountResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Enables Audit Manager for the specified Amazon Web Services account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface RegisterAccountCommandOutput extends RegisterAccountResponse, _
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class RegisterAccountCommand extends $Command
   .classBuilder<

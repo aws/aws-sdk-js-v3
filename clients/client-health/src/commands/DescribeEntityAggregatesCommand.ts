@@ -27,7 +27,6 @@ export interface DescribeEntityAggregatesCommandInput extends DescribeEntityAggr
 export interface DescribeEntityAggregatesCommandOutput extends DescribeEntityAggregatesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the number of entities that are affected by each of the specified events.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface DescribeEntityAggregatesCommandOutput extends DescribeEntityAgg
  * @throws {@link HealthServiceException}
  * <p>Base exception class for all service exceptions from Health service.</p>
  *
+ * @public
  */
 export class DescribeEntityAggregatesCommand extends $Command
   .classBuilder<

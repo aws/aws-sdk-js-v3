@@ -32,7 +32,6 @@ export interface UpdateProjectCommandInput extends UpdateProjectInput {}
 export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified project in Amazon DataZone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class UpdateProjectCommand extends $Command
   .classBuilder<

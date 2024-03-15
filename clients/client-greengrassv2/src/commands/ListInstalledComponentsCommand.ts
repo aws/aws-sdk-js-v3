@@ -27,7 +27,6 @@ export interface ListInstalledComponentsCommandInput extends ListInstalledCompon
 export interface ListInstalledComponentsCommandOutput extends ListInstalledComponentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a paginated list of the components that a Greengrass core device runs. By default,
  *       this list doesn't include components that are deployed as dependencies of other components. To
  *       include dependencies in the response, set the <code>topologyFilter</code> parameter to
@@ -120,6 +119,7 @@ export interface ListInstalledComponentsCommandOutput extends ListInstalledCompo
  * @throws {@link GreengrassV2ServiceException}
  * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ * @public
  */
 export class ListInstalledComponentsCommand extends $Command
   .classBuilder<

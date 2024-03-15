@@ -27,7 +27,6 @@ export interface UpdateRepositoryCommandInput extends UpdateRepositoryRequest {}
 export interface UpdateRepositoryCommandOutput extends UpdateRepositoryResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Update the properties of a repository.
  *        </p>
@@ -118,6 +117,7 @@ export interface UpdateRepositoryCommandOutput extends UpdateRepositoryResult, _
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * @public
  */
 export class UpdateRepositoryCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetMembersCommandInput extends GetMembersRequest {}
 export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves GuardDuty member accounts (of the current GuardDuty administrator account)
  *       specified by the account IDs.</p>
  * @example
@@ -82,6 +81,7 @@ export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataB
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class GetMembersCommand extends $Command
   .classBuilder<

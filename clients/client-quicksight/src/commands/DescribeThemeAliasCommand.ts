@@ -27,7 +27,6 @@ export interface DescribeThemeAliasCommandInput extends DescribeThemeAliasReques
 export interface DescribeThemeAliasCommandOutput extends DescribeThemeAliasResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the alias for a theme.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface DescribeThemeAliasCommandOutput extends DescribeThemeAliasRespo
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DescribeThemeAliasCommand extends $Command
   .classBuilder<

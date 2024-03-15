@@ -27,7 +27,6 @@ export interface DescribeWorkteamCommandInput extends DescribeWorkteamRequest {}
 export interface DescribeWorkteamCommandOutput extends DescribeWorkteamResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a specific work team. You can see information such as the
  *             create date, the last updated date, membership information, and the work team's Amazon
  *             Resource Name (ARN).</p>
@@ -85,6 +84,7 @@ export interface DescribeWorkteamCommandOutput extends DescribeWorkteamResponse,
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeWorkteamCommand extends $Command
   .classBuilder<

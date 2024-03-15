@@ -27,7 +27,6 @@ export interface UpdateFileSystemProtectionCommandInput extends UpdateFileSystem
 export interface UpdateFileSystemProtectionCommandOutput extends FileSystemProtectionDescription, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates protection on the file system.</p>
  *          <p>This operation requires permissions for the
  *         <code>elasticfilesystem:UpdateFileSystemProtection</code> action. </p>
@@ -90,6 +89,7 @@ export interface UpdateFileSystemProtectionCommandOutput extends FileSystemProte
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * @public
  */
 export class UpdateFileSystemProtectionCommand extends $Command
   .classBuilder<

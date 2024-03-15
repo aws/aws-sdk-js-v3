@@ -31,7 +31,6 @@ export interface SendProjectSessionActionCommandInput extends SendProjectSession
 export interface SendProjectSessionActionCommandOutput extends SendProjectSessionActionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Performs a recipe step within an interactive DataBrew session that's currently
  *             open.</p>
  * @example
@@ -99,6 +98,7 @@ export interface SendProjectSessionActionCommandOutput extends SendProjectSessio
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * @public
  */
 export class SendProjectSessionActionCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface ListVirtualMFADevicesCommandInput extends ListVirtualMFADevices
 export interface ListVirtualMFADevicesCommandOutput extends ListVirtualMFADevicesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the virtual MFA devices defined in the Amazon Web Services account by assignment status. If
  *             you do not specify an assignment status, the operation returns a list of all virtual MFA
  *             devices. Assignment status can be <code>Assigned</code>, <code>Unassigned</code>, or
@@ -103,6 +102,7 @@ export interface ListVirtualMFADevicesCommandOutput extends ListVirtualMFADevice
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To list virtual MFA devices
  * ```javascript
  * // The following command lists the virtual MFA devices that have been configured for the current account.

@@ -27,7 +27,6 @@ export interface DeleteRetentionPolicyCommandInput extends DeleteRetentionPolicy
 export interface DeleteRetentionPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified retention policy.</p>
  *          <p>Log events do not expire if they belong to log groups without a retention policy.</p>
  * @example
@@ -66,6 +65,7 @@ export interface DeleteRetentionPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class DeleteRetentionPolicyCommand extends $Command
   .classBuilder<

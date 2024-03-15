@@ -27,7 +27,6 @@ export interface RevokeCertificateCommandInput extends RevokeCertificateRequest 
 export interface RevokeCertificateCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Revokes a certificate that was issued inside Amazon Web Services Private CA. If you enable a certificate
  * 			revocation list (CRL) when you create or update your private CA, information about the
  * 			revoked certificates will be included in the CRL. Amazon Web Services Private CA writes the CRL to an S3
@@ -104,6 +103,7 @@ export interface RevokeCertificateCommandOutput extends __MetadataBearer {}
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ * @public
  */
 export class RevokeCertificateCommand extends $Command
   .classBuilder<

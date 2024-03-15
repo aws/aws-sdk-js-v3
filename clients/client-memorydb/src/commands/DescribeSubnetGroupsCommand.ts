@@ -27,7 +27,6 @@ export interface DescribeSubnetGroupsCommandInput extends DescribeSubnetGroupsRe
 export interface DescribeSubnetGroupsCommandOutput extends DescribeSubnetGroupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of subnet group descriptions. If a subnet group name is specified, the list contains only the description of that group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface DescribeSubnetGroupsCommandOutput extends DescribeSubnetGroupsR
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * @public
  */
 export class DescribeSubnetGroupsCommand extends $Command
   .classBuilder<

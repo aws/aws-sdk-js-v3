@@ -27,7 +27,6 @@ export interface GetDeploymentsCommandInput extends GetDeploymentsRequest {}
 export interface GetDeploymentsCommandOutput extends Deployments, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a Deployments collection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface GetDeploymentsCommandOutput extends Deployments, __MetadataBear
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class GetDeploymentsCommand extends $Command
   .classBuilder<

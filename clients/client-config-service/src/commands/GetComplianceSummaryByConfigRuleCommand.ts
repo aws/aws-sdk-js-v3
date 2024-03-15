@@ -32,7 +32,6 @@ export interface GetComplianceSummaryByConfigRuleCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the number of Config rules that are compliant and
  * 			noncompliant, up to a maximum of 25 for each.</p>
  * @example
@@ -69,6 +68,7 @@ export interface GetComplianceSummaryByConfigRuleCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class GetComplianceSummaryByConfigRuleCommand extends $Command
   .classBuilder<

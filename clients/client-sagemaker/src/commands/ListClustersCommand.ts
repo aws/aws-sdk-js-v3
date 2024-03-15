@@ -27,7 +27,6 @@ export interface ListClustersCommandInput extends ListClustersRequest {}
 export interface ListClustersCommandOutput extends ListClustersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the list of SageMaker HyperPod clusters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListClustersCommand extends $Command
   .classBuilder<

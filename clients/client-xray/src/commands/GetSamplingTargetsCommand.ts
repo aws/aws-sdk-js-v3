@@ -27,7 +27,6 @@ export interface GetSamplingTargetsCommandInput extends GetSamplingTargetsReques
 export interface GetSamplingTargetsCommandOutput extends GetSamplingTargetsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Requests a sampling quota for rules that the service is using to sample requests.
  *       </p>
  * @example
@@ -87,6 +86,7 @@ export interface GetSamplingTargetsCommandOutput extends GetSamplingTargetsResul
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ * @public
  */
 export class GetSamplingTargetsCommand extends $Command
   .classBuilder<

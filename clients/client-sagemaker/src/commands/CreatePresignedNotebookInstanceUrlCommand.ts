@@ -32,7 +32,6 @@ export interface CreatePresignedNotebookInstanceUrlCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a URL that you can use to connect to the Jupyter server from a notebook
  *             instance. In the SageMaker console, when you choose <code>Open</code> next to a notebook
  *             instance, SageMaker opens a new tab showing the Jupyter server home page from the notebook
@@ -77,6 +76,7 @@ export interface CreatePresignedNotebookInstanceUrlCommandOutput
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreatePresignedNotebookInstanceUrlCommand extends $Command
   .classBuilder<

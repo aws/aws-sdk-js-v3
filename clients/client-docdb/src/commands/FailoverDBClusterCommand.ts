@@ -27,7 +27,6 @@ export interface FailoverDBClusterCommandInput extends FailoverDBClusterMessage 
 export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Forces a failover for a cluster.</p>
  *          <p>A failover for a cluster promotes one of the Amazon DocumentDB replicas (read-only instances) in the cluster to be the primary instance (the cluster writer).</p>
  *          <p>If the primary instance fails, Amazon DocumentDB automatically fails over to an Amazon DocumentDB replica, if one exists. You can force a failover when you want to simulate a failure of a primary instance for testing.</p>
@@ -126,6 +125,7 @@ export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult,
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class FailoverDBClusterCommand extends $Command
   .classBuilder<

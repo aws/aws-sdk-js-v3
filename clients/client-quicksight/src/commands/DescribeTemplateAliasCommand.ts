@@ -27,7 +27,6 @@ export interface DescribeTemplateAliasCommandInput extends DescribeTemplateAlias
 export interface DescribeTemplateAliasCommandOutput extends DescribeTemplateAliasResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the template alias for a template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface DescribeTemplateAliasCommandOutput extends DescribeTemplateAlia
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DescribeTemplateAliasCommand extends $Command
   .classBuilder<

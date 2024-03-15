@@ -29,7 +29,6 @@ export interface AuthorizeSecurityGroupEgressCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds the specified outbound (egress) rules to a security group.</p>
  *          <p>An outbound rule permits instances to send traffic to the specified IPv4 or IPv6
  *        address ranges, the IP address ranges specified by a prefix list, or the instances
@@ -151,6 +150,7 @@ export interface AuthorizeSecurityGroupEgressCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To add a rule that allows outbound traffic to a specific address range
  * ```javascript
  * // This example adds a rule that grants access to the specified address ranges on TCP port 80.

@@ -27,7 +27,6 @@ export interface ListReviewableHITsCommandInput extends ListReviewableHITsReques
 export interface ListReviewableHITsCommandOutput extends ListReviewableHITsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The <code>ListReviewableHITs</code> operation retrieves the HITs with Status equal to
  *             Reviewable or Status equal to Reviewing that belong to the Requester calling the operation.
@@ -109,6 +108,7 @@ export interface ListReviewableHITsCommandOutput extends ListReviewableHITsRespo
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * @public
  */
 export class ListReviewableHITsCommand extends $Command
   .classBuilder<

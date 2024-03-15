@@ -36,7 +36,6 @@ export interface AssociatePhoneNumberWithUserCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a phone number with the specified Amazon Chime user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface AssociatePhoneNumberWithUserCommandOutput
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class AssociatePhoneNumberWithUserCommand extends $Command
   .classBuilder<

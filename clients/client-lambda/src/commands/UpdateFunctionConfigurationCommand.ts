@@ -35,7 +35,6 @@ export interface UpdateFunctionConfigurationCommandInput extends UpdateFunctionC
 export interface UpdateFunctionConfigurationCommandOutput extends FunctionConfiguration, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modify the version-specific settings of a Lambda function.</p>
  *          <p>When you update a function, Lambda provisions an instance of the function and its supporting
  *       resources. If your function connects to a VPC, this process can take a minute. During this time, you can't modify
@@ -262,6 +261,7 @@ export interface UpdateFunctionConfigurationCommandOutput extends FunctionConfig
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class UpdateFunctionConfigurationCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface SetUICustomizationCommandInput extends SetUICustomizationReques
 export interface SetUICustomizationCommandOutput extends SetUICustomizationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the user interface (UI) customization information for a user pool's built-in app
  *             UI.</p>
  *          <p>You can specify app UI customization settings for a single client (with a specific
@@ -105,6 +104,7 @@ export interface SetUICustomizationCommandOutput extends SetUICustomizationRespo
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class SetUICustomizationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateImageCommandInput extends CreateImageRequest {}
 export interface CreateImageCommandOutput extends CreateImageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a custom SageMaker image. A SageMaker image is a set of image versions. Each image
  *         version represents a container image stored in Amazon ECR. For more information, see
  *         <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html">Bring your own SageMaker image</a>.</p>
@@ -73,6 +72,7 @@ export interface CreateImageCommandOutput extends CreateImageResponse, __Metadat
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateImageCommand extends $Command
   .classBuilder<

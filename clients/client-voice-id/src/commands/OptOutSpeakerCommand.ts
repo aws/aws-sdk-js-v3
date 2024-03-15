@@ -32,7 +32,6 @@ export interface OptOutSpeakerCommandInput extends OptOutSpeakerRequest {}
 export interface OptOutSpeakerCommandOutput extends OptOutSpeakerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Opts out a speaker from Voice ID. A speaker can be opted out regardless of whether or
  *             not they already exist in Voice ID. If they don't yet exist, a new speaker is created
  *             in an opted out state. If they already exist, their existing status is overridden and
@@ -102,6 +101,7 @@ export interface OptOutSpeakerCommandOutput extends OptOutSpeakerResponse, __Met
  * @throws {@link VoiceIDServiceException}
  * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
+ * @public
  */
 export class OptOutSpeakerCommand extends $Command
   .classBuilder<

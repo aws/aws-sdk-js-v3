@@ -36,7 +36,6 @@ export interface ExecuteProvisionedProductServiceActionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Executes a self-service action against a provisioned product.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -107,6 +106,7 @@ export interface ExecuteProvisionedProductServiceActionCommandOutput
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class ExecuteProvisionedProductServiceActionCommand extends $Command
   .classBuilder<

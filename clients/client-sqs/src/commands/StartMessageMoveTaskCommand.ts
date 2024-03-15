@@ -27,7 +27,6 @@ export interface StartMessageMoveTaskCommandInput extends StartMessageMoveTaskRe
 export interface StartMessageMoveTaskCommandOutput extends StartMessageMoveTaskResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an asynchronous task to move messages from a specified source queue to a
  *             specified destination queue.</p>
  *          <note>
@@ -113,6 +112,7 @@ export interface StartMessageMoveTaskCommandOutput extends StartMessageMoveTaskR
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ * @public
  */
 export class StartMessageMoveTaskCommand extends $Command
   .classBuilder<

@@ -258,8 +258,8 @@ export type SagemakerEdgeClientResolvedConfigType = __SmithyResolvedConfiguratio
 export interface SagemakerEdgeClientResolvedConfig extends SagemakerEdgeClientResolvedConfigType {}
 
 /**
- * @public
  * <p>SageMaker Edge Manager dataplane service for communicating with active agents.</p>
+ * @public
  */
 export class SagemakerEdgeClient extends __Client<
   __HttpHandlerOptions,

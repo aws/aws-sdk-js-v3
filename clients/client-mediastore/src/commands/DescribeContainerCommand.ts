@@ -27,7 +27,6 @@ export interface DescribeContainerCommandInput extends DescribeContainerInput {}
 export interface DescribeContainerCommandOutput extends DescribeContainerOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the properties of the requested container. This request is commonly used to
  *          retrieve the endpoint of a container. An endpoint is a value assigned by the service when a
  *          new container is created. A container's endpoint does not change after it has been
@@ -74,6 +73,7 @@ export interface DescribeContainerCommandOutput extends DescribeContainerOutput,
  * @throws {@link MediaStoreServiceException}
  * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ * @public
  */
 export class DescribeContainerCommand extends $Command
   .classBuilder<

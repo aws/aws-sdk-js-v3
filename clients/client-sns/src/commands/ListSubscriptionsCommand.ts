@@ -27,7 +27,6 @@ export interface ListSubscriptionsCommandInput extends ListSubscriptionsInput {}
 export interface ListSubscriptionsCommandOutput extends ListSubscriptionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the requester's subscriptions. Each call returns a limited list of
  *             subscriptions, up to 100. If there are more subscriptions, a <code>NextToken</code> is
  *             also returned. Use the <code>NextToken</code> parameter in a new
@@ -78,6 +77,7 @@ export interface ListSubscriptionsCommandOutput extends ListSubscriptionsRespons
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * @public
  */
 export class ListSubscriptionsCommand extends $Command
   .classBuilder<

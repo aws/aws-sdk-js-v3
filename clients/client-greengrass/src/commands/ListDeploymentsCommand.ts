@@ -27,7 +27,6 @@ export interface ListDeploymentsCommandInput extends ListDeploymentsRequest {}
 export interface ListDeploymentsCommandOutput extends ListDeploymentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * Returns a history of deployments for the group.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsResponse, _
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class ListDeploymentsCommand extends $Command
   .classBuilder<

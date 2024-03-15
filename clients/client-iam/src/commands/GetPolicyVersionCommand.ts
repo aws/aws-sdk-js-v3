@@ -27,7 +27,6 @@ export interface GetPolicyVersionCommandInput extends GetPolicyVersionRequest {}
 export interface GetPolicyVersionCommandOutput extends GetPolicyVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the specified version of the specified managed policy,
  *             including the policy document.</p>
  *          <note>
@@ -88,6 +87,7 @@ export interface GetPolicyVersionCommandOutput extends GetPolicyVersionResponse,
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class GetPolicyVersionCommand extends $Command
   .classBuilder<

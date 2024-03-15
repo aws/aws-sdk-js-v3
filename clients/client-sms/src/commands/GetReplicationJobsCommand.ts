@@ -27,7 +27,6 @@ export interface GetReplicationJobsCommandInput extends GetReplicationJobsReques
 export interface GetReplicationJobsCommandOutput extends GetReplicationJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified replication job or all of your replication jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -115,6 +114,7 @@ export interface GetReplicationJobsCommandOutput extends GetReplicationJobsRespo
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ * @public
  */
 export class GetReplicationJobsCommand extends $Command
   .classBuilder<

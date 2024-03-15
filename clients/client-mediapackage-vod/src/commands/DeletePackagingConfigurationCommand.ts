@@ -32,7 +32,6 @@ export interface DeletePackagingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * Deletes a MediaPackage VOD PackagingConfiguration resource.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface DeletePackagingConfigurationCommandOutput
  * @throws {@link MediaPackageVodServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageVod service.</p>
  *
+ * @public
  */
 export class DeletePackagingConfigurationCommand extends $Command
   .classBuilder<

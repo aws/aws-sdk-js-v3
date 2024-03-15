@@ -27,7 +27,6 @@ export interface GetSourceApiAssociationCommandInput extends GetSourceApiAssocia
 export interface GetSourceApiAssociationCommandOutput extends GetSourceApiAssociationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a <code>SourceApiAssociation</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface GetSourceApiAssociationCommandOutput extends GetSourceApiAssoci
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class GetSourceApiAssociationCommand extends $Command
   .classBuilder<

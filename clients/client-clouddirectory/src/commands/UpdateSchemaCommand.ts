@@ -27,7 +27,6 @@ export interface UpdateSchemaCommandInput extends UpdateSchemaRequest {}
 export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the schema name with a new name. Only development schema names can be
  *       updated.</p>
  * @example
@@ -79,6 +78,7 @@ export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __Metad
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class UpdateSchemaCommand extends $Command
   .classBuilder<

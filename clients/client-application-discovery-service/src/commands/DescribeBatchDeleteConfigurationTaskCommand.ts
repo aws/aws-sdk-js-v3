@@ -39,7 +39,6 @@ export interface DescribeBatchDeleteConfigurationTaskCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *         Takes a unique deletion task identifier as input and returns metadata about a configuration deletion task.</p>
  * @example
@@ -108,6 +107,7 @@ export interface DescribeBatchDeleteConfigurationTaskCommandOutput
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ * @public
  */
 export class DescribeBatchDeleteConfigurationTaskCommand extends $Command
   .classBuilder<

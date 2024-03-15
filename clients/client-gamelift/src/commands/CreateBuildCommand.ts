@@ -27,7 +27,6 @@ export interface CreateBuildCommandInput extends CreateBuildInput {}
 export interface CreateBuildCommandOutput extends CreateBuildOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new Amazon GameLift build resource for your game server binary files. Combine game
  *             server binaries into a zip file for use with Amazon GameLift. </p>
  *          <important>
@@ -155,6 +154,7 @@ export interface CreateBuildCommandOutput extends CreateBuildOutput, __MetadataB
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class CreateBuildCommand extends $Command
   .classBuilder<

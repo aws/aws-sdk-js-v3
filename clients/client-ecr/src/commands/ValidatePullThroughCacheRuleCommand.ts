@@ -32,7 +32,6 @@ export interface ValidatePullThroughCacheRuleCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Validates an existing pull through cache rule for an upstream registry that requires
  *             authentication. This will retrieve the contents of the Amazon Web Services Secrets Manager secret, verify the
  *             syntax, and then validate that authentication to the upstream registry is
@@ -83,6 +82,7 @@ export interface ValidatePullThroughCacheRuleCommandOutput
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * @public
  */
 export class ValidatePullThroughCacheRuleCommand extends $Command
   .classBuilder<

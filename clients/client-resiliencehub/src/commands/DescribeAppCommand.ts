@@ -27,7 +27,6 @@ export interface DescribeAppCommandInput extends DescribeAppRequest {}
 export interface DescribeAppCommandOutput extends DescribeAppResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes an Resilience Hub application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface DescribeAppCommandOutput extends DescribeAppResponse, __Metadat
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class DescribeAppCommand extends $Command
   .classBuilder<

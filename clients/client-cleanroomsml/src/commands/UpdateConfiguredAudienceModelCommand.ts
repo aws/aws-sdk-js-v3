@@ -32,7 +32,6 @@ export interface UpdateConfiguredAudienceModelCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides the information necessary to update a configured audience model. Updates that impact audience generation jobs take effect when a new job starts, but do not impact currently running jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface UpdateConfiguredAudienceModelCommandOutput
  * @throws {@link CleanRoomsMLServiceException}
  * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
+ * @public
  */
 export class UpdateConfiguredAudienceModelCommand extends $Command
   .classBuilder<

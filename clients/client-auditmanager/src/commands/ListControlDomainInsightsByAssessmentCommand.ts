@@ -36,7 +36,6 @@ export interface ListControlDomainInsightsByAssessmentCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists analytics data for control domains within a specified active assessment.</p>
  *          <note>
  *             <p>A control domain is listed only if at least one of the controls within that domain
@@ -100,6 +99,7 @@ export interface ListControlDomainInsightsByAssessmentCommandOutput
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class ListControlDomainInsightsByAssessmentCommand extends $Command
   .classBuilder<

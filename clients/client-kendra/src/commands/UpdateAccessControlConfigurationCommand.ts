@@ -32,7 +32,6 @@ export interface UpdateAccessControlConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an access control configuration for your documents in an index. This includes
  *             user and group access information for your documents. This is useful for user context
  *             filtering, where search results are filtered based on the user or their group access to
@@ -129,6 +128,7 @@ export interface UpdateAccessControlConfigurationCommandOutput
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class UpdateAccessControlConfigurationCommand extends $Command
   .classBuilder<

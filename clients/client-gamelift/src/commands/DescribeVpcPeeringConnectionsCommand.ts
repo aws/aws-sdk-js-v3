@@ -32,7 +32,6 @@ export interface DescribeVpcPeeringConnectionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information on VPC peering connections. Use this operation to get peering
  *             information for all fleets or for one specific fleet ID. </p>
  *          <p>To retrieve connection information, call this operation from the Amazon Web Services account that is
@@ -99,6 +98,7 @@ export interface DescribeVpcPeeringConnectionsCommandOutput
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DescribeVpcPeeringConnectionsCommand extends $Command
   .classBuilder<

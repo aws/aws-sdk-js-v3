@@ -27,7 +27,6 @@ export interface CreateAutoScalingGroupCommandInput extends CreateAutoScalingGro
 export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             <b>We strongly recommend using a launch template when calling this operation to ensure full functionality for Amazon EC2 Auto Scaling and Amazon EC2.</b>
  *          </p>
@@ -240,6 +239,7 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To create an Auto Scaling group
  * ```javascript
  * // This example creates an Auto Scaling group.

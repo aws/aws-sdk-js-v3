@@ -27,7 +27,6 @@ export interface PutOutcomeCommandInput extends PutOutcomeRequest {}
 export interface PutOutcomeCommandOutput extends PutOutcomeResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates an outcome. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface PutOutcomeCommandOutput extends PutOutcomeResult, __MetadataBea
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class PutOutcomeCommand extends $Command
   .classBuilder<

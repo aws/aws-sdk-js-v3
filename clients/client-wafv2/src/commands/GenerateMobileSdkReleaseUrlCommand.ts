@@ -29,7 +29,6 @@ export interface GenerateMobileSdkReleaseUrlCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Generates a presigned download URL for the specified release of the mobile SDK.</p>
  *          <p>The mobile SDK is not generally available. Customers who have access to the mobile SDK can use it to establish and manage WAF tokens for use in HTTP(S) requests from a mobile device to WAF. For more information, see
  * <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF client application integration</a> in the <i>WAF Developer Guide</i>.</p>
@@ -94,6 +93,7 @@ export interface GenerateMobileSdkReleaseUrlCommandOutput
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class GenerateMobileSdkReleaseUrlCommand extends $Command
   .classBuilder<

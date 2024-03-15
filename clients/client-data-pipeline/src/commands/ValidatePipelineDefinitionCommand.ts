@@ -27,7 +27,6 @@ export interface ValidatePipelineDefinitionCommandInput extends ValidatePipeline
 export interface ValidatePipelineDefinitionCommandOutput extends ValidatePipelineDefinitionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Validates the specified pipeline definition to ensure that it is well formed and can be run without error.</p>
  *
  *         <examples>
@@ -264,6 +263,7 @@ export interface ValidatePipelineDefinitionCommandOutput extends ValidatePipelin
  * @throws {@link DataPipelineServiceException}
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ * @public
  */
 export class ValidatePipelineDefinitionCommand extends $Command
   .classBuilder<

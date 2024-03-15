@@ -27,7 +27,6 @@ export interface GetAdministratorAccountCommandInput extends GetAdministratorAcc
 export interface GetAdministratorAccountCommandOutput extends GetAdministratorAccountResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides the details for the Security Hub administrator account for the current member account.</p>
  *          <p>Can be used by both member accounts that are managed using Organizations and accounts that were
  *          invited manually.</p>
@@ -77,6 +76,7 @@ export interface GetAdministratorAccountCommandOutput extends GetAdministratorAc
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To get details about the Security Hub administrator account
  * ```javascript
  * // The following example provides details about the Security Hub administrator account for the requesting member account.

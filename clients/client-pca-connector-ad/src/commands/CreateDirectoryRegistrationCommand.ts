@@ -32,7 +32,6 @@ export interface CreateDirectoryRegistrationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a directory registration that authorizes communication between Amazon Web Services Private CA and an
  *          Active Directory</p>
  * @example
@@ -91,6 +90,7 @@ export interface CreateDirectoryRegistrationCommandOutput
  * @throws {@link PcaConnectorAdServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ * @public
  */
 export class CreateDirectoryRegistrationCommand extends $Command
   .classBuilder<

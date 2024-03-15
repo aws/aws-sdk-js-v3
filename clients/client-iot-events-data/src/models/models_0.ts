@@ -4,44 +4,44 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { IoTEventsDataServiceException as __BaseException } from "./IoTEventsDataServiceException";
 
 /**
- * @public
  * <p>Contains the configuration information of an acknowledge action.</p>
+ * @public
  */
 export interface AcknowledgeActionConfiguration {
   /**
-   * @public
    * <p>The note that you can leave when you acknowledge the alarm.</p>
+   * @public
    */
   note?: string;
 }
 
 /**
- * @public
  * <p>Information needed to acknowledge the alarm.</p>
+ * @public
  */
 export interface AcknowledgeAlarmActionRequest {
   /**
-   * @public
    * <p>The request ID. Each ID must be unique within each batch.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the alarm model.</p>
+   * @public
    */
   alarmModelName: string | undefined;
 
   /**
-   * @public
    * <p>The value of the key used as a filter to select only the alarms associated with the
    * <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateAlarmModel.html#iotevents-CreateAlarmModel-request-key">key</a>.</p>
+   * @public
    */
   keyValue?: string;
 
   /**
-   * @public
    * <p>The note that you can leave when you acknowledge the alarm.</p>
+   * @public
    */
   note?: string;
 }
@@ -64,66 +64,65 @@ export const CustomerActionName = {
 export type CustomerActionName = (typeof CustomerActionName)[keyof typeof CustomerActionName];
 
 /**
- * @public
  * <p>Contains the configuration information of a disable action.</p>
+ * @public
  */
 export interface DisableActionConfiguration {
   /**
-   * @public
    * <p>The note that you can leave when you disable the alarm.</p>
+   * @public
    */
   note?: string;
 }
 
 /**
- * @public
  * <p>Contains the configuration information of an enable action.</p>
+ * @public
  */
 export interface EnableActionConfiguration {
   /**
-   * @public
    * <p>The note that you can leave when you enable the alarm.</p>
+   * @public
    */
   note?: string;
 }
 
 /**
- * @public
  * <p>Contains the configuration information of a reset action.</p>
+ * @public
  */
 export interface ResetActionConfiguration {
   /**
-   * @public
    * <p>The note that you can leave when you reset the alarm.</p>
+   * @public
    */
   note?: string;
 }
 
 /**
- * @public
  * <p>Contains the configuration information of a snooze action.</p>
+ * @public
  */
 export interface SnoozeActionConfiguration {
   /**
-   * @public
    * <p>The snooze time in seconds. The alarm automatically changes to the <code>NORMAL</code> state after this duration.</p>
+   * @public
    */
   snoozeDuration?: number;
 
   /**
-   * @public
    * <p>The note that you can leave when you snooze the alarm.</p>
+   * @public
    */
   note?: string;
 }
 
 /**
- * @public
  * <p>Contains information about the action that you can take to respond to the alarm.</p>
+ * @public
  */
 export interface CustomerAction {
   /**
-   * @public
    * <p>The name of the action. The action name can be one of the following values:</p>
    *          <ul>
    *             <li>
@@ -148,36 +147,37 @@ export interface CustomerAction {
    *             </li>
    *          </ul>
    *          <p>For more information, see the <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_AlarmState.html">AlarmState</a> API.</p>
+   * @public
    */
   actionName?: CustomerActionName;
 
   /**
-   * @public
    * <p>Contains the configuration information of a snooze action.</p>
+   * @public
    */
   snoozeActionConfiguration?: SnoozeActionConfiguration;
 
   /**
-   * @public
    * <p>Contains the configuration information of an enable action.</p>
+   * @public
    */
   enableActionConfiguration?: EnableActionConfiguration;
 
   /**
-   * @public
    * <p>Contains the configuration information of a disable action.</p>
+   * @public
    */
   disableActionConfiguration?: DisableActionConfiguration;
 
   /**
-   * @public
    * <p>Contains the configuration information of an acknowledge action.</p>
+   * @public
    */
   acknowledgeActionConfiguration?: AcknowledgeActionConfiguration;
 
   /**
-   * @public
    * <p>Contains the configuration information of a reset action.</p>
+   * @public
    */
   resetActionConfiguration?: ResetActionConfiguration;
 }
@@ -201,37 +201,37 @@ export const ComparisonOperator = {
 export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
 
 /**
- * @public
  * <p>Information needed to compare two values with a comparison operator.</p>
+ * @public
  */
 export interface SimpleRuleEvaluation {
   /**
-   * @public
    * <p>The value of the input property, on the left side of the comparison operator.</p>
+   * @public
    */
   inputPropertyValue?: string;
 
   /**
-   * @public
    * <p>The comparison operator.</p>
+   * @public
    */
   operator?: ComparisonOperator;
 
   /**
-   * @public
    * <p>The threshold value, on the right side of the comparison operator.</p>
+   * @public
    */
   thresholdValue?: string;
 }
 
 /**
- * @public
  * <p>Information needed to evaluate data.</p>
+ * @public
  */
 export interface RuleEvaluation {
   /**
-   * @public
    * <p>Information needed to compare two values with a comparison operator.</p>
+   * @public
    */
   simpleRuleEvaluation?: SimpleRuleEvaluation;
 }
@@ -281,44 +281,43 @@ export const TriggerType = {
 export type TriggerType = (typeof TriggerType)[keyof typeof TriggerType];
 
 /**
- * @public
  * <p>Contains the configuration information of alarm state changes.</p>
+ * @public
  */
 export interface StateChangeConfiguration {
   /**
-   * @public
    * <p>The trigger type. If the value is <code>SNOOZE_TIMEOUT</code>, the snooze duration ends
    *       and the alarm automatically changes to the <code>NORMAL</code> state.</p>
+   * @public
    */
   triggerType?: TriggerType;
 }
 
 /**
- * @public
  * <p>Contains information about alarm state changes.</p>
+ * @public
  */
 export interface SystemEvent {
   /**
-   * @public
    * <p>The event type. If the value is <code>STATE_CHANGE</code>, the event contains information
    *       about alarm state changes.</p>
+   * @public
    */
   eventType?: EventType;
 
   /**
-   * @public
    * <p>Contains the configuration information of alarm state changes.</p>
+   * @public
    */
   stateChangeConfiguration?: StateChangeConfiguration;
 }
 
 /**
- * @public
  * <p>Contains information about the current state of the alarm.</p>
+ * @public
  */
 export interface AlarmState {
   /**
-   * @public
    * <p>The name of the alarm state. The state name can be one of the following values:</p>
    *          <ul>
    *             <li>
@@ -355,103 +354,103 @@ export interface AlarmState {
    * 		To change the alarm to the <code>NORMAL</code> state, you must acknowledge the alarm.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   stateName?: AlarmStateName;
 
   /**
-   * @public
    * <p>Information needed to evaluate data.</p>
+   * @public
    */
   ruleEvaluation?: RuleEvaluation;
 
   /**
-   * @public
    * <p>Contains information about the action that you can take to respond to the alarm.</p>
+   * @public
    */
   customerAction?: CustomerAction;
 
   /**
-   * @public
    * <p>Contains information about alarm state changes.</p>
+   * @public
    */
   systemEvent?: SystemEvent;
 }
 
 /**
- * @public
  * <p>Contains information about an alarm.</p>
+ * @public
  */
 export interface Alarm {
   /**
-   * @public
    * <p>The name of the alarm model.</p>
+   * @public
    */
   alarmModelName?: string;
 
   /**
-   * @public
    * <p>The version of the alarm model.</p>
+   * @public
    */
   alarmModelVersion?: string;
 
   /**
-   * @public
    * <p>The value of the key used as a filter to select only the alarms associated with the
    * <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateAlarmModel.html#iotevents-CreateAlarmModel-request-key">key</a>.</p>
+   * @public
    */
   keyValue?: string;
 
   /**
-   * @public
    * <p>Contains information about the current state of the alarm.</p>
+   * @public
    */
   alarmState?: AlarmState;
 
   /**
-   * @public
    * <p>A non-negative integer that reflects the severity level of the alarm.</p>
+   * @public
    */
   severity?: number;
 
   /**
-   * @public
    * <p>The time the alarm was created, in the Unix epoch format.</p>
+   * @public
    */
   creationTime?: Date;
 
   /**
-   * @public
    * <p>The time the alarm was last updated, in the Unix epoch format.</p>
+   * @public
    */
   lastUpdateTime?: Date;
 }
 
 /**
- * @public
  * <p>Contains a summary of an alarm.</p>
+ * @public
  */
 export interface AlarmSummary {
   /**
-   * @public
    * <p>The name of the alarm model.</p>
+   * @public
    */
   alarmModelName?: string;
 
   /**
-   * @public
    * <p>The version of the alarm model.</p>
+   * @public
    */
   alarmModelVersion?: string;
 
   /**
-   * @public
    * <p>The value of the key used as a filter to select only the alarms associated with the
    * <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateAlarmModel.html#iotevents-CreateAlarmModel-request-key">key</a>.</p>
+   * @public
    */
   keyValue?: string;
 
   /**
-   * @public
    * <p>The name of the alarm state. The state name can be one of the following values:</p>
    *          <ul>
    *             <li>
@@ -488,18 +487,19 @@ export interface AlarmSummary {
    * 		To change the alarm to the <code>NORMAL</code> state, you must acknowledge the alarm.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   stateName?: AlarmStateName;
 
   /**
-   * @public
    * <p>The time the alarm was created, in the Unix epoch format.</p>
+   * @public
    */
   creationTime?: Date;
 
   /**
-   * @public
    * <p>The time the alarm was last updated, in the Unix epoch format.</p>
+   * @public
    */
   lastUpdateTime?: Date;
 }
@@ -509,8 +509,8 @@ export interface AlarmSummary {
  */
 export interface BatchAcknowledgeAlarmRequest {
   /**
-   * @public
    * <p>The list of acknowledge action requests. You can specify up to 10 requests per operation.</p>
+   * @public
    */
   acknowledgeActionRequests: AcknowledgeAlarmActionRequest[] | undefined;
 }
@@ -533,7 +533,6 @@ export const ErrorCode = {
 export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
 
 /**
- * @public
  * <p>Contains error messages associated with one of the following requests:</p>
  *          <ul>
  *             <li>
@@ -562,23 +561,24 @@ export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
  *                </p>
  *             </li>
  *          </ul>
+ * @public
  */
 export interface BatchAlarmActionErrorEntry {
   /**
-   * @public
    * <p>The request ID. Each ID must be unique within each batch.</p>
+   * @public
    */
   requestId?: string;
 
   /**
-   * @public
    * <p>The error code.</p>
+   * @public
    */
   errorCode?: ErrorCode;
 
   /**
-   * @public
    * <p>A message that describes the error.</p>
+   * @public
    */
   errorMessage?: string;
 }
@@ -588,16 +588,16 @@ export interface BatchAlarmActionErrorEntry {
  */
 export interface BatchAcknowledgeAlarmResponse {
   /**
-   * @public
    * <p>A list of errors associated with the request, or <code>null</code> if there are no errors.
    * Each error entry contains an entry ID that helps you identify the entry that failed.</p>
+   * @public
    */
   errorEntries?: BatchAlarmActionErrorEntry[];
 }
 
 /**
- * @public
  * <p>An internal failure occurred.</p>
+ * @public
  */
 export class InternalFailureException extends __BaseException {
   readonly name: "InternalFailureException" = "InternalFailureException";
@@ -616,8 +616,8 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request was invalid.</p>
+ * @public
  */
 export class InvalidRequestException extends __BaseException {
   readonly name: "InvalidRequestException" = "InvalidRequestException";
@@ -636,8 +636,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The service is currently unavailable.</p>
+ * @public
  */
 export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
@@ -656,8 +656,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request could not be completed due to throttling.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -676,25 +676,25 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Information used to delete the detector model.</p>
+ * @public
  */
 export interface DeleteDetectorRequest {
   /**
-   * @public
    * <p>The ID to assign to the <code>DeleteDetectorRequest</code>. Each <code>"messageId"</code> must be unique within each batch sent.</p>
+   * @public
    */
   messageId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the detector model that was used to create the detector instance.</p>
+   * @public
    */
   detectorModelName: string | undefined;
 
   /**
-   * @public
    * <p>The value of the <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateDetectorModel.html#iotevents-CreateDetectorModel-request-key">key</a> used to identify the detector. </p>
+   * @public
    */
   keyValue?: string;
 }
@@ -704,32 +704,32 @@ export interface DeleteDetectorRequest {
  */
 export interface BatchDeleteDetectorRequest {
   /**
-   * @public
    * <p>The list of one or more detectors to be deleted.</p>
+   * @public
    */
   detectors: DeleteDetectorRequest[] | undefined;
 }
 
 /**
- * @public
  * <p>Contains error messages associated with the deletion request.</p>
+ * @public
  */
 export interface BatchDeleteDetectorErrorEntry {
   /**
-   * @public
    * <p>The ID of the message that caused the error. (See the value of the <code>"messageId"</code> in the <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchDeleteDetector.html#iotevents-iotevents-data_BatchDeleteDetector-request-detectors">detectors</a> object of the <code>DeleteDetectorRequest</code>.)</p>
+   * @public
    */
   messageId?: string;
 
   /**
-   * @public
    * <p>The error code.</p>
+   * @public
    */
   errorCode?: ErrorCode;
 
   /**
-   * @public
    * <p>A message that describes the error.</p>
+   * @public
    */
   errorMessage?: string;
 }
@@ -739,39 +739,39 @@ export interface BatchDeleteDetectorErrorEntry {
  */
 export interface BatchDeleteDetectorResponse {
   /**
-   * @public
    * <p>A list of errors associated with the request, or an empty array (<code>[]</code>) if there are no errors. Each error entry contains a <code>messageId</code> that helps you identify the entry that failed.</p>
+   * @public
    */
   batchDeleteDetectorErrorEntries?: BatchDeleteDetectorErrorEntry[];
 }
 
 /**
- * @public
  * <p>Information used to disable the alarm.</p>
+ * @public
  */
 export interface DisableAlarmActionRequest {
   /**
-   * @public
    * <p>The request ID. Each ID must be unique within each batch.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the alarm model.</p>
+   * @public
    */
   alarmModelName: string | undefined;
 
   /**
-   * @public
    * <p>The value of the key used as a filter to select only the alarms associated with the
    * <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateAlarmModel.html#iotevents-CreateAlarmModel-request-key">key</a>.</p>
+   * @public
    */
   keyValue?: string;
 
   /**
-   * @public
    * <p>The note that you can leave when you disable the alarm.</p>
+   * @public
    */
   note?: string;
 }
@@ -781,8 +781,8 @@ export interface DisableAlarmActionRequest {
  */
 export interface BatchDisableAlarmRequest {
   /**
-   * @public
    * <p>The list of disable action requests. You can specify up to 10 requests per operation.</p>
+   * @public
    */
   disableActionRequests: DisableAlarmActionRequest[] | undefined;
 }
@@ -792,40 +792,40 @@ export interface BatchDisableAlarmRequest {
  */
 export interface BatchDisableAlarmResponse {
   /**
-   * @public
    * <p>A list of errors associated with the request, or <code>null</code> if there are no errors.
    * Each error entry contains an entry ID that helps you identify the entry that failed.</p>
+   * @public
    */
   errorEntries?: BatchAlarmActionErrorEntry[];
 }
 
 /**
- * @public
  * <p>Information needed to enable the alarm.</p>
+ * @public
  */
 export interface EnableAlarmActionRequest {
   /**
-   * @public
    * <p>The request ID. Each ID must be unique within each batch.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the alarm model.</p>
+   * @public
    */
   alarmModelName: string | undefined;
 
   /**
-   * @public
    * <p>The value of the key used as a filter to select only the alarms associated with the
    * <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateAlarmModel.html#iotevents-CreateAlarmModel-request-key">key</a>.</p>
+   * @public
    */
   keyValue?: string;
 
   /**
-   * @public
    * <p>The note that you can leave when you enable the alarm.</p>
+   * @public
    */
   note?: string;
 }
@@ -835,8 +835,8 @@ export interface EnableAlarmActionRequest {
  */
 export interface BatchEnableAlarmRequest {
   /**
-   * @public
    * <p>The list of enable action requests. You can specify up to 10 requests per operation.</p>
+   * @public
    */
   enableActionRequests: EnableAlarmActionRequest[] | undefined;
 }
@@ -846,53 +846,53 @@ export interface BatchEnableAlarmRequest {
  */
 export interface BatchEnableAlarmResponse {
   /**
-   * @public
    * <p>A list of errors associated with the request, or <code>null</code> if there are no errors.
    * Each error entry contains an entry ID that helps you identify the entry that failed.</p>
+   * @public
    */
   errorEntries?: BatchAlarmActionErrorEntry[];
 }
 
 /**
- * @public
  * <p>Contains information about a timestamp.</p>
+ * @public
  */
 export interface TimestampValue {
   /**
-   * @public
    * <p>The value of the timestamp, in the Unix epoch format.</p>
+   * @public
    */
   timeInMillis?: number;
 }
 
 /**
- * @public
  * <p>Information about a message.</p>
+ * @public
  */
 export interface Message {
   /**
-   * @public
    * <p>The ID to assign to the message. Within each batch sent, each <code>"messageId"</code>
    *       must be unique.</p>
+   * @public
    */
   messageId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the input into which the message payload is transformed.</p>
+   * @public
    */
   inputName: string | undefined;
 
   /**
-   * @public
    * <p>The payload of the message. This can be a JSON string or a Base-64-encoded string
    *       representing binary data (in which case you must decode it).</p>
+   * @public
    */
   payload: Uint8Array | undefined;
 
   /**
-   * @public
    * <p>The timestamp associated with the message.</p>
+   * @public
    */
   timestamp?: TimestampValue;
 }
@@ -902,35 +902,35 @@ export interface Message {
  */
 export interface BatchPutMessageRequest {
   /**
-   * @public
    * <p>The list of messages to send. Each message has the following format: <code>'\{ "messageId":
    *         "string", "inputName": "string", "payload": "string"\}'</code>
    *          </p>
+   * @public
    */
   messages: Message[] | undefined;
 }
 
 /**
- * @public
  * <p>Contains information about the errors encountered.</p>
+ * @public
  */
 export interface BatchPutMessageErrorEntry {
   /**
-   * @public
    * <p>The ID of the message that caused the error. (See the value corresponding to the
    *         <code>"messageId"</code> key in the <code>"message"</code> object.)</p>
+   * @public
    */
   messageId?: string;
 
   /**
-   * @public
    * <p>The error code.</p>
+   * @public
    */
   errorCode?: ErrorCode;
 
   /**
-   * @public
    * <p>A message that describes the error.</p>
+   * @public
    */
   errorMessage?: string;
 }
@@ -940,39 +940,39 @@ export interface BatchPutMessageErrorEntry {
  */
 export interface BatchPutMessageResponse {
   /**
-   * @public
    * <p>A list of any errors encountered when sending the messages.</p>
+   * @public
    */
   BatchPutMessageErrorEntries?: BatchPutMessageErrorEntry[];
 }
 
 /**
- * @public
  * <p>Information needed to reset the alarm.</p>
+ * @public
  */
 export interface ResetAlarmActionRequest {
   /**
-   * @public
    * <p>The request ID. Each ID must be unique within each batch.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the alarm model.</p>
+   * @public
    */
   alarmModelName: string | undefined;
 
   /**
-   * @public
    * <p>The value of the key used as a filter to select only the alarms associated with the
    * <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateAlarmModel.html#iotevents-CreateAlarmModel-request-key">key</a>.</p>
+   * @public
    */
   keyValue?: string;
 
   /**
-   * @public
    * <p>The note that you can leave when you reset the alarm.</p>
+   * @public
    */
   note?: string;
 }
@@ -982,8 +982,8 @@ export interface ResetAlarmActionRequest {
  */
 export interface BatchResetAlarmRequest {
   /**
-   * @public
    * <p>The list of reset action requests. You can specify up to 10 requests per operation.</p>
+   * @public
    */
   resetActionRequests: ResetAlarmActionRequest[] | undefined;
 }
@@ -993,46 +993,46 @@ export interface BatchResetAlarmRequest {
  */
 export interface BatchResetAlarmResponse {
   /**
-   * @public
    * <p>A list of errors associated with the request, or <code>null</code> if there are no errors.
    * Each error entry contains an entry ID that helps you identify the entry that failed.</p>
+   * @public
    */
   errorEntries?: BatchAlarmActionErrorEntry[];
 }
 
 /**
- * @public
  * <p>Information needed to snooze the alarm.</p>
+ * @public
  */
 export interface SnoozeAlarmActionRequest {
   /**
-   * @public
    * <p>The request ID. Each ID must be unique within each batch.</p>
+   * @public
    */
   requestId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the alarm model.</p>
+   * @public
    */
   alarmModelName: string | undefined;
 
   /**
-   * @public
    * <p>The value of the key used as a filter to select only the alarms associated with the
    * <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateAlarmModel.html#iotevents-CreateAlarmModel-request-key">key</a>.</p>
+   * @public
    */
   keyValue?: string;
 
   /**
-   * @public
    * <p>The note that you can leave when you snooze the alarm.</p>
+   * @public
    */
   note?: string;
 
   /**
-   * @public
    * <p>The snooze time in seconds. The alarm automatically changes to the <code>NORMAL</code> state after this duration.</p>
+   * @public
    */
   snoozeDuration: number | undefined;
 }
@@ -1042,8 +1042,8 @@ export interface SnoozeAlarmActionRequest {
  */
 export interface BatchSnoozeAlarmRequest {
   /**
-   * @public
    * <p>The list of snooze action requests. You can specify up to 10 requests per operation.</p>
+   * @public
    */
   snoozeActionRequests: SnoozeAlarmActionRequest[] | undefined;
 }
@@ -1053,103 +1053,103 @@ export interface BatchSnoozeAlarmRequest {
  */
 export interface BatchSnoozeAlarmResponse {
   /**
-   * @public
    * <p>A list of errors associated with the request, or <code>null</code> if there are no errors.
    * Each error entry contains an entry ID that helps you identify the entry that failed.</p>
+   * @public
    */
   errorEntries?: BatchAlarmActionErrorEntry[];
 }
 
 /**
- * @public
  * <p>The new setting of a timer.</p>
+ * @public
  */
 export interface TimerDefinition {
   /**
-   * @public
    * <p>The name of the timer.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The new setting of the timer (the number of seconds before the timer elapses).</p>
+   * @public
    */
   seconds: number | undefined;
 }
 
 /**
- * @public
  * <p>The new value of the variable.</p>
+ * @public
  */
 export interface VariableDefinition {
   /**
-   * @public
    * <p>The name of the variable.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The new value of the variable.</p>
+   * @public
    */
   value: string | undefined;
 }
 
 /**
- * @public
  * <p>The new state, variable values, and timer settings of the detector (instance).</p>
+ * @public
  */
 export interface DetectorStateDefinition {
   /**
-   * @public
    * <p>The name of the new state of the detector (instance).</p>
+   * @public
    */
   stateName: string | undefined;
 
   /**
-   * @public
    * <p>The new values of the detector's variables. Any variable whose value isn't specified is
    *       cleared.</p>
+   * @public
    */
   variables: VariableDefinition[] | undefined;
 
   /**
-   * @public
    * <p>The new values of the detector's timers. Any timer whose value isn't specified is cleared,
    *       and its timeout event won't occur.</p>
+   * @public
    */
   timers: TimerDefinition[] | undefined;
 }
 
 /**
- * @public
  * <p>Information used to update the detector (instance).</p>
+ * @public
  */
 export interface UpdateDetectorRequest {
   /**
-   * @public
    * <p>The ID to assign to the detector update <code>"message"</code>. Each
    *         <code>"messageId"</code> must be unique within each batch sent.</p>
+   * @public
    */
   messageId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the detector model that created the detectors (instances).</p>
+   * @public
    */
   detectorModelName: string | undefined;
 
   /**
-   * @public
    * <p>The value of the input key attribute (identifying the device or system) that caused the
    *       creation of this detector (instance).</p>
+   * @public
    */
   keyValue?: string;
 
   /**
-   * @public
    * <p>The new state, variable values, and timer settings of the detector (instance).</p>
+   * @public
    */
   state: DetectorStateDefinition | undefined;
 }
@@ -1159,33 +1159,33 @@ export interface UpdateDetectorRequest {
  */
 export interface BatchUpdateDetectorRequest {
   /**
-   * @public
    * <p>The list of detectors (instances) to update, along with the values to update.</p>
+   * @public
    */
   detectors: UpdateDetectorRequest[] | undefined;
 }
 
 /**
- * @public
  * <p>Information about the error that occurred when attempting to update a detector.</p>
+ * @public
  */
 export interface BatchUpdateDetectorErrorEntry {
   /**
-   * @public
    * <p>The <code>"messageId"</code> of the update request that caused the error. (The value of
    *       the <code>"messageId"</code> in the update request <code>"Detector"</code> object.)</p>
+   * @public
    */
   messageId?: string;
 
   /**
-   * @public
    * <p>The error code.</p>
+   * @public
    */
   errorCode?: ErrorCode;
 
   /**
-   * @public
    * <p>A message that describes the error.</p>
+   * @public
    */
   errorMessage?: string;
 }
@@ -1195,9 +1195,9 @@ export interface BatchUpdateDetectorErrorEntry {
  */
 export interface BatchUpdateDetectorResponse {
   /**
-   * @public
    * <p>A list of those detector updates that resulted in errors. (If an error is listed here, the
    *       specific update did not occur.)</p>
+   * @public
    */
   batchUpdateDetectorErrorEntries?: BatchUpdateDetectorErrorEntry[];
 }
@@ -1207,15 +1207,15 @@ export interface BatchUpdateDetectorResponse {
  */
 export interface DescribeAlarmRequest {
   /**
-   * @public
    * <p>The name of the alarm model.</p>
+   * @public
    */
   alarmModelName: string | undefined;
 
   /**
-   * @public
    * <p>The value of the key used as a filter to select only the alarms associated with the
    * <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateAlarmModel.html#iotevents-CreateAlarmModel-request-key">key</a>.</p>
+   * @public
    */
   keyValue?: string;
 }
@@ -1225,15 +1225,15 @@ export interface DescribeAlarmRequest {
  */
 export interface DescribeAlarmResponse {
   /**
-   * @public
    * <p>Contains information about an alarm.</p>
+   * @public
    */
   alarm?: Alarm;
 }
 
 /**
- * @public
  * <p>The resource was not found.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -1256,119 +1256,119 @@ export class ResourceNotFoundException extends __BaseException {
  */
 export interface DescribeDetectorRequest {
   /**
-   * @public
    * <p>The name of the detector model whose detectors (instances) you want information
    *       about.</p>
+   * @public
    */
   detectorModelName: string | undefined;
 
   /**
-   * @public
    * <p>A filter used to limit results to detectors (instances) created because of the given key
    *       ID.</p>
+   * @public
    */
   keyValue?: string;
 }
 
 /**
- * @public
  * <p>The current state of a timer.</p>
+ * @public
  */
 export interface Timer {
   /**
-   * @public
    * <p>The name of the timer.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The expiration time for the timer.</p>
+   * @public
    */
   timestamp: Date | undefined;
 }
 
 /**
- * @public
  * <p>The current state of the variable.</p>
+ * @public
  */
 export interface Variable {
   /**
-   * @public
    * <p>The name of the variable.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The current value of the variable.</p>
+   * @public
    */
   value: string | undefined;
 }
 
 /**
- * @public
  * <p>Information about the current state of the detector instance.</p>
+ * @public
  */
 export interface DetectorState {
   /**
-   * @public
    * <p>The name of the state.</p>
+   * @public
    */
   stateName: string | undefined;
 
   /**
-   * @public
    * <p>The current values of the detector's variables.</p>
+   * @public
    */
   variables: Variable[] | undefined;
 
   /**
-   * @public
    * <p>The current state of the detector's timers.</p>
+   * @public
    */
   timers: Timer[] | undefined;
 }
 
 /**
- * @public
  * <p>Information about the detector (instance).</p>
+ * @public
  */
 export interface Detector {
   /**
-   * @public
    * <p>The name of the detector model that created this detector (instance).</p>
+   * @public
    */
   detectorModelName?: string;
 
   /**
-   * @public
    * <p>The value of the key (identifying the device or system) that caused the creation of this
    *       detector (instance).</p>
+   * @public
    */
   keyValue?: string;
 
   /**
-   * @public
    * <p>The version of the detector model that created this detector (instance).</p>
+   * @public
    */
   detectorModelVersion?: string;
 
   /**
-   * @public
    * <p>The current state of the detector (instance).</p>
+   * @public
    */
   state?: DetectorState;
 
   /**
-   * @public
    * <p>The time the detector (instance) was created.</p>
+   * @public
    */
   creationTime?: Date;
 
   /**
-   * @public
    * <p>The time the detector (instance) was last updated.</p>
+   * @public
    */
   lastUpdateTime?: Date;
 }
@@ -1378,63 +1378,63 @@ export interface Detector {
  */
 export interface DescribeDetectorResponse {
   /**
-   * @public
    * <p>Information about the detector (instance).</p>
+   * @public
    */
   detector?: Detector;
 }
 
 /**
- * @public
  * <p>Information about the detector state.</p>
+ * @public
  */
 export interface DetectorStateSummary {
   /**
-   * @public
    * <p>The name of the state.</p>
+   * @public
    */
   stateName?: string;
 }
 
 /**
- * @public
  * <p>Information about the detector (instance).</p>
+ * @public
  */
 export interface DetectorSummary {
   /**
-   * @public
    * <p>The name of the detector model that created this detector (instance).</p>
+   * @public
    */
   detectorModelName?: string;
 
   /**
-   * @public
    * <p>The value of the key (identifying the device or system) that caused the creation of this
    *       detector (instance).</p>
+   * @public
    */
   keyValue?: string;
 
   /**
-   * @public
    * <p>The version of the detector model that created this detector (instance).</p>
+   * @public
    */
   detectorModelVersion?: string;
 
   /**
-   * @public
    * <p>The current state of the detector (instance).</p>
+   * @public
    */
   state?: DetectorStateSummary;
 
   /**
-   * @public
    * <p>The time the detector (instance) was created.</p>
+   * @public
    */
   creationTime?: Date;
 
   /**
-   * @public
    * <p>The time the detector (instance) was last updated.</p>
+   * @public
    */
   lastUpdateTime?: Date;
 }
@@ -1444,20 +1444,20 @@ export interface DetectorSummary {
  */
 export interface ListAlarmsRequest {
   /**
-   * @public
    * <p>The name of the alarm model.</p>
+   * @public
    */
   alarmModelName: string | undefined;
 
   /**
-   * @public
    * <p>The token that you can use to return the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to be returned per request.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -1467,15 +1467,15 @@ export interface ListAlarmsRequest {
  */
 export interface ListAlarmsResponse {
   /**
-   * @public
    * <p>A list that summarizes each alarm.</p>
+   * @public
    */
   alarmSummaries?: AlarmSummary[];
 
   /**
-   * @public
    * <p>The token that you can use to return the next set of results,
    * or <code>null</code> if there are no more results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1485,26 +1485,26 @@ export interface ListAlarmsResponse {
  */
 export interface ListDetectorsRequest {
   /**
-   * @public
    * <p>The name of the detector model whose detectors (instances) are listed.</p>
+   * @public
    */
   detectorModelName: string | undefined;
 
   /**
-   * @public
    * <p>A filter that limits results to those detectors (instances) in the given state.</p>
+   * @public
    */
   stateName?: string;
 
   /**
-   * @public
    * <p>The token that you can use to return the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to be returned per request.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -1514,15 +1514,15 @@ export interface ListDetectorsRequest {
  */
 export interface ListDetectorsResponse {
   /**
-   * @public
    * <p>A list of summary information about the detectors (instances).</p>
+   * @public
    */
   detectorSummaries?: DetectorSummary[];
 
   /**
-   * @public
    * <p>The token that you can use to return the next set of results,
    * or <code>null</code> if there are no more results.</p>
+   * @public
    */
   nextToken?: string;
 }

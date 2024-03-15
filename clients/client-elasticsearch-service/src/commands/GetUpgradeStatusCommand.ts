@@ -31,7 +31,6 @@ export interface GetUpgradeStatusCommandInput extends GetUpgradeStatusRequest {}
 export interface GetUpgradeStatusCommandOutput extends GetUpgradeStatusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the latest status of the last upgrade or upgrade eligibility check that was performed on the domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface GetUpgradeStatusCommandOutput extends GetUpgradeStatusResponse,
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * @public
  */
 export class GetUpgradeStatusCommand extends $Command
   .classBuilder<

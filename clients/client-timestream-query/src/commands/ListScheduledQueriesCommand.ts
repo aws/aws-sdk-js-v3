@@ -28,7 +28,6 @@ export interface ListScheduledQueriesCommandInput extends ListScheduledQueriesRe
 export interface ListScheduledQueriesCommandOutput extends ListScheduledQueriesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of all scheduled queries in the caller's Amazon account and Region. <code>ListScheduledQueries</code> is eventually consistent. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface ListScheduledQueriesCommandOutput extends ListScheduledQueriesR
  * @throws {@link TimestreamQueryServiceException}
  * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
+ * @public
  */
 export class ListScheduledQueriesCommand extends $Command
   .classBuilder<

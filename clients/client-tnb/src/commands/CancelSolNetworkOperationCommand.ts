@@ -27,7 +27,6 @@ export interface CancelSolNetworkOperationCommandInput extends CancelSolNetworkO
 export interface CancelSolNetworkOperationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels a network operation.</p>
  *          <p>A network operation is any operation that is done to your network, such as network instance instantiation or termination.</p>
  * @example
@@ -69,6 +68,7 @@ export interface CancelSolNetworkOperationCommandOutput extends __MetadataBearer
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ * @public
  */
 export class CancelSolNetworkOperationCommand extends $Command
   .classBuilder<

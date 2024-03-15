@@ -27,7 +27,6 @@ export interface DeleteInternetGatewayCommandInput extends DeleteInternetGateway
 export interface DeleteInternetGatewayCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified internet gateway. You must detach the internet gateway from the
  * 			VPC before you can delete it.</p>
  * @example
@@ -55,6 +54,7 @@ export interface DeleteInternetGatewayCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To delete an Internet gateway
  * ```javascript
  * // This example deletes the specified Internet gateway.

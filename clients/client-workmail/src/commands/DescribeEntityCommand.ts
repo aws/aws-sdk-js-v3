@@ -27,7 +27,6 @@ export interface DescribeEntityCommandInput extends DescribeEntityRequest {}
 export interface DescribeEntityCommandOutput extends DescribeEntityResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns basic details about an entity in WorkMail. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface DescribeEntityCommandOutput extends DescribeEntityResponse, __M
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class DescribeEntityCommand extends $Command
   .classBuilder<

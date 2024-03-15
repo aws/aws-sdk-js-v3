@@ -27,7 +27,6 @@ export interface ListTestSetsCommandInput extends ListTestSetsRequest {}
 export interface ListTestSetsCommandOutput extends ListTestSetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The list of the test sets</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface ListTestSetsCommandOutput extends ListTestSetsResponse, __Metad
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class ListTestSetsCommand extends $Command
   .classBuilder<

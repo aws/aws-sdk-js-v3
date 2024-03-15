@@ -27,7 +27,6 @@ export interface ListCatalogItemsCommandInput extends ListCatalogItemsInput {}
 export interface ListCatalogItemsCommandOutput extends ListCatalogItemsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the items in the catalog.</p>
  *          <p>Use filters to return specific results. If you specify multiple filters, the results include only the resources that match
  *  all of the specified filters. For a filter where you can specify multiple values, the results include
@@ -98,6 +97,7 @@ export interface ListCatalogItemsCommandOutput extends ListCatalogItemsOutput, _
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ * @public
  */
 export class ListCatalogItemsCommand extends $Command
   .classBuilder<

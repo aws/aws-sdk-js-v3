@@ -27,7 +27,6 @@ export interface ListConnectPeersCommandInput extends ListConnectPeersRequest {}
 export interface ListConnectPeersCommandOutput extends ListConnectPeersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of core network Connect peers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface ListConnectPeersCommandOutput extends ListConnectPeersResponse,
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class ListConnectPeersCommand extends $Command
   .classBuilder<

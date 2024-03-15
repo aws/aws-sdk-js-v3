@@ -27,7 +27,6 @@ export interface UpdateComponentCommandInput extends UpdateComponentRequest {}
 export interface UpdateComponentCommandOutput extends UpdateComponentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing component.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -497,6 +496,7 @@ export interface UpdateComponentCommandOutput extends UpdateComponentResponse, _
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ * @public
  */
 export class UpdateComponentCommand extends $Command
   .classBuilder<

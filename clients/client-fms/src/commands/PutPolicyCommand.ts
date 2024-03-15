@@ -27,7 +27,6 @@ export interface PutPolicyCommandInput extends PutPolicyRequest {}
 export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Firewall Manager policy.</p>
  *          <p>A Firewall Manager policy is specific to the individual policy type. If you want to enforce multiple
  * 		policy types across accounts, you can create multiple policies. You can create more than one
@@ -221,6 +220,7 @@ export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBea
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * @public
  */
 export class PutPolicyCommand extends $Command
   .classBuilder<

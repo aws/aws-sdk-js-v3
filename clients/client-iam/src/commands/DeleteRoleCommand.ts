@@ -27,7 +27,6 @@ export interface DeleteRoleCommandInput extends DeleteRoleRequest {}
 export interface DeleteRoleCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified role. Unlike the Amazon Web Services Management Console, when you delete a role
  *             programmatically, you must delete the items attached to the role manually, or the
  *             deletion fails. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_delete.html#roles-managingrole-deleting-cli">Deleting an IAM role</a>. Before attempting to delete a role, remove the
@@ -102,6 +101,7 @@ export interface DeleteRoleCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To delete an IAM role
  * ```javascript
  * // The following command removes the role named Test-Role.

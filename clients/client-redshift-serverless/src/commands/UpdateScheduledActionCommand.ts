@@ -31,7 +31,6 @@ export interface UpdateScheduledActionCommandInput extends UpdateScheduledAction
 export interface UpdateScheduledActionCommandOutput extends UpdateScheduledActionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a scheduled action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -122,6 +121,7 @@ export interface UpdateScheduledActionCommandOutput extends UpdateScheduledActio
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * @public
  */
 export class UpdateScheduledActionCommand extends $Command
   .classBuilder<

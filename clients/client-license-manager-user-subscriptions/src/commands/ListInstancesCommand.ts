@@ -31,7 +31,6 @@ export interface ListInstancesCommandInput extends ListInstancesRequest {}
 export interface ListInstancesCommandOutput extends ListInstancesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the EC2 instances providing user-based subscriptions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * @throws {@link LicenseManagerUserSubscriptionsServiceException}
  * <p>Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.</p>
  *
+ * @public
  */
 export class ListInstancesCommand extends $Command
   .classBuilder<

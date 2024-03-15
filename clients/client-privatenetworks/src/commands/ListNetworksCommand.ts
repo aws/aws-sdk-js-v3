@@ -27,7 +27,6 @@ export interface ListNetworksCommandInput extends ListNetworksRequest {}
 export interface ListNetworksCommandOutput extends ListNetworksResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists networks. Add filters to your request to return a more specific list of results.
  *             Use filters to match the status of the network.</p>
  * @example
@@ -81,6 +80,7 @@ export interface ListNetworksCommandOutput extends ListNetworksResponse, __Metad
  * @throws {@link PrivateNetworksServiceException}
  * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
+ * @public
  */
 export class ListNetworksCommand extends $Command
   .classBuilder<

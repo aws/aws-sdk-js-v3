@@ -29,7 +29,6 @@ export interface DescribeBlueGreenDeploymentsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes one or more blue/green deployments.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS Blue/Green Deployments
  *             for database updates</a> in the <i>Amazon RDS User Guide</i> and
@@ -107,6 +106,7 @@ export interface DescribeBlueGreenDeploymentsCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To describe a blue/green deployment of an RDS DB instance after creation completes
  * ```javascript
  * // The following example retrieves the details of a blue/green deployment after creation completes.

@@ -31,7 +31,6 @@ export interface ListControlPanelsCommandInput extends ListControlPanelsRequest 
 export interface ListControlPanelsCommandOutput extends ListControlPanelsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an array of control panels in an account or in a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface ListControlPanelsCommandOutput extends ListControlPanelsRespons
  * @throws {@link Route53RecoveryControlConfigServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
+ * @public
  */
 export class ListControlPanelsCommand extends $Command
   .classBuilder<

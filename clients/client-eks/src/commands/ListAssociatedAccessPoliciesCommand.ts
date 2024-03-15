@@ -32,7 +32,6 @@ export interface ListAssociatedAccessPoliciesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the access policies associated with an access entry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface ListAssociatedAccessPoliciesCommandOutput
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class ListAssociatedAccessPoliciesCommand extends $Command
   .classBuilder<

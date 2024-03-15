@@ -27,7 +27,6 @@ export interface DisableCommandInput extends DisableRequest {}
 export interface DisableCommandOutput extends DisableResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables Amazon Inspector scans for one or more Amazon Web Services accounts. Disabling all scan types in an account
  *          disables the Amazon Inspector service.</p>
  * @example
@@ -102,6 +101,7 @@ export interface DisableCommandOutput extends DisableResponse, __MetadataBearer 
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class DisableCommand extends $Command
   .classBuilder<

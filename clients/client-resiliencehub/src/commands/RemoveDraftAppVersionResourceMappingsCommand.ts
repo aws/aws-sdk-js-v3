@@ -36,7 +36,6 @@ export interface RemoveDraftAppVersionResourceMappingsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes resource mappings from a draft application version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -107,6 +106,7 @@ export interface RemoveDraftAppVersionResourceMappingsCommandOutput
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class RemoveDraftAppVersionResourceMappingsCommand extends $Command
   .classBuilder<

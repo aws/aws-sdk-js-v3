@@ -31,7 +31,6 @@ export interface UpdateUsageLimitCommandInput extends UpdateUsageLimitRequest {}
 export interface UpdateUsageLimitCommandOutput extends UpdateUsageLimitResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update a usage limit in Amazon Redshift Serverless. You can't update the usage type or period of a usage limit.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface UpdateUsageLimitCommandOutput extends UpdateUsageLimitResponse,
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * @public
  */
 export class UpdateUsageLimitCommand extends $Command
   .classBuilder<

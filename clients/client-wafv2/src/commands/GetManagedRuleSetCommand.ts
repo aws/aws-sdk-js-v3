@@ -27,7 +27,6 @@ export interface GetManagedRuleSetCommandInput extends GetManagedRuleSetRequest 
 export interface GetManagedRuleSetCommandOutput extends GetManagedRuleSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the specified managed rule set. </p>
  *          <note>
  *             <p>This is intended for use only by vendors of managed rule sets. Vendors are Amazon Web Services and Amazon Web Services Marketplace sellers. </p>
@@ -113,6 +112,7 @@ export interface GetManagedRuleSetCommandOutput extends GetManagedRuleSetRespons
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class GetManagedRuleSetCommand extends $Command
   .classBuilder<

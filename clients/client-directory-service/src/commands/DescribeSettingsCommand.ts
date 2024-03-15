@@ -27,7 +27,6 @@ export interface DescribeSettingsCommandInput extends DescribeSettingsRequest {}
 export interface DescribeSettingsCommandOutput extends DescribeSettingsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the configurable settings for the specified directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface DescribeSettingsCommandOutput extends DescribeSettingsResult, _
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class DescribeSettingsCommand extends $Command
   .classBuilder<

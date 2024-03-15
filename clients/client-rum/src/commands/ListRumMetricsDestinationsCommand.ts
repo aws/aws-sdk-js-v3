@@ -27,7 +27,6 @@ export interface ListRumMetricsDestinationsCommandInput extends ListRumMetricsDe
 export interface ListRumMetricsDestinationsCommandOutput extends ListRumMetricsDestinationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of destinations that you have created to receive RUM extended metrics,
  *          for the specified app monitor.</p>
  *          <p>For more information about extended metrics, see <a href="https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_AddRumMetrcs.html">AddRumMetrics</a>.</p>
@@ -78,6 +77,7 @@ export interface ListRumMetricsDestinationsCommandOutput extends ListRumMetricsD
  * @throws {@link RUMServiceException}
  * <p>Base exception class for all service exceptions from RUM service.</p>
  *
+ * @public
  */
 export class ListRumMetricsDestinationsCommand extends $Command
   .classBuilder<

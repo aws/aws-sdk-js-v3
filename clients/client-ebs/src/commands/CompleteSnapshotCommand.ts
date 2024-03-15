@@ -27,7 +27,6 @@ export interface CompleteSnapshotCommandInput extends CompleteSnapshotRequest {}
 export interface CompleteSnapshotCommandOutput extends CompleteSnapshotResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Seals and completes the snapshot after all of the required blocks of data have been
  *             written to it. Completing the snapshot changes the status to <code>completed</code>. You
  *             cannot write new blocks to a snapshot after it has been completed.</p>
@@ -86,6 +85,7 @@ export interface CompleteSnapshotCommandOutput extends CompleteSnapshotResponse,
  * @throws {@link EBSServiceException}
  * <p>Base exception class for all service exceptions from EBS service.</p>
  *
+ * @public
  */
 export class CompleteSnapshotCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListGroupsForUserCommandInput extends ListGroupsForUserRequest 
 export interface ListGroupsForUserCommandOutput extends ListGroupsForUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the IAM groups that the specified IAM user belongs to.</p>
  *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
  *             parameters.</p>
@@ -77,6 +76,7 @@ export interface ListGroupsForUserCommandOutput extends ListGroupsForUserRespons
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To list the groups that an IAM user belongs to
  * ```javascript
  * // The following command displays the groups that the IAM user named Bob belongs to.

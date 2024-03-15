@@ -27,7 +27,6 @@ export interface ListExperimentsCommandInput extends ListExperimentsRequest {}
 export interface ListExperimentsCommandOutput extends ListExperimentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the experiments in your account. The list can be filtered to show only
  *       experiments that were created in a specific time range. The list can be sorted by experiment
  *       name or creation time.</p>
@@ -75,6 +74,7 @@ export interface ListExperimentsCommandOutput extends ListExperimentsResponse, _
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListExperimentsCommand extends $Command
   .classBuilder<

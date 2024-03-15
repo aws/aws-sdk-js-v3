@@ -27,7 +27,6 @@ export interface ListStudioSessionMappingsCommandInput extends ListStudioSession
 export interface ListStudioSessionMappingsCommandOutput extends ListStudioSessionMappingsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all user or group session mappings for the Amazon EMR Studio
  *          specified by <code>StudioId</code>.</p>
  * @example
@@ -75,6 +74,7 @@ export interface ListStudioSessionMappingsCommandOutput extends ListStudioSessio
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class ListStudioSessionMappingsCommand extends $Command
   .classBuilder<

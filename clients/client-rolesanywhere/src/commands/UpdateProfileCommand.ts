@@ -27,7 +27,6 @@ export interface UpdateProfileCommandInput extends UpdateProfileRequest {}
 export interface UpdateProfileCommandOutput extends ProfileDetailResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a <i>profile</i>, a list of the roles that IAM
  *          Roles Anywhere service is trusted to assume. You use profiles to intersect permissions with
  *             IAM managed policies.</p>
@@ -96,6 +95,7 @@ export interface UpdateProfileCommandOutput extends ProfileDetailResponse, __Met
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ * @public
  */
 export class UpdateProfileCommand extends $Command
   .classBuilder<

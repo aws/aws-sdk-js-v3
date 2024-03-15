@@ -36,7 +36,6 @@ export interface UpdateAppInstanceUserEndpointCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the details of an <code>AppInstanceUserEndpoint</code>. You can update the name and <code>AllowMessage</code> values.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface UpdateAppInstanceUserEndpointCommandOutput
  * @throws {@link ChimeSDKIdentityServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
+ * @public
  */
 export class UpdateAppInstanceUserEndpointCommand extends $Command
   .classBuilder<

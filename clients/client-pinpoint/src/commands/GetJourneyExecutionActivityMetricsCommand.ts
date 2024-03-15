@@ -35,7 +35,6 @@ export interface GetJourneyExecutionActivityMetricsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves (queries) pre-aggregated data for a standard execution metric that applies to a journey activity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface GetJourneyExecutionActivityMetricsCommandOutput
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class GetJourneyExecutionActivityMetricsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeletePolicyCommandInput extends DeletePolicyRequest {}
 export interface DeletePolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Permanently deletes an Firewall Manager policy. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * @public
  */
 export class DeletePolicyCommand extends $Command
   .classBuilder<

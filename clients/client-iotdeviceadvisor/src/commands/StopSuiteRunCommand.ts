@@ -27,7 +27,6 @@ export interface StopSuiteRunCommandInput extends StopSuiteRunRequest {}
 export interface StopSuiteRunCommandOutput extends StopSuiteRunResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a Device Advisor test suite run that is currently running.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">StopSuiteRun</a> action.</p>
  * @example
@@ -64,6 +63,7 @@ export interface StopSuiteRunCommandOutput extends StopSuiteRunResponse, __Metad
  * @throws {@link IotDeviceAdvisorServiceException}
  * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
+ * @public
  */
 export class StopSuiteRunCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface RemovePermissionCommandInput extends RemovePermissionRequest {}
 export interface RemovePermissionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Revokes the permission of another Amazon Web Services account to be able to put events to the specified
  *       event bus. Specify the account to revoke by the <code>StatementId</code> value that you
  *       associated with the account when you granted it permission with <code>PutPermission</code>.
@@ -70,6 +69,7 @@ export interface RemovePermissionCommandOutput extends __MetadataBearer {}
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * @public
  */
 export class RemovePermissionCommand extends $Command
   .classBuilder<

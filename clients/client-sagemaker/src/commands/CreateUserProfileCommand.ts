@@ -27,7 +27,6 @@ export interface CreateUserProfileCommandInput extends CreateUserProfileRequest 
 export interface CreateUserProfileCommandOutput extends CreateUserProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a user profile. A user profile represents a single user within a domain, and is
  *      the main way to reference a "person" for the purposes of sharing, reporting, and other
  *      user-oriented features. This entity is created when a user onboards to a domain. If an
@@ -233,6 +232,7 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileRespons
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateUserProfileCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface ListVoiceProfileDomainsCommandInput extends ListVoiceProfileDom
 export interface ListVoiceProfileDomainsCommandOutput extends ListVoiceProfileDomainsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the specified voice profile domains in the administrator's AWS account.
  *          </p>
  * @example
@@ -92,6 +91,7 @@ export interface ListVoiceProfileDomainsCommandOutput extends ListVoiceProfileDo
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class ListVoiceProfileDomainsCommand extends $Command
   .classBuilder<

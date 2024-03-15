@@ -31,7 +31,6 @@ export interface DescribeBudgetActionCommandInput extends DescribeBudgetActionRe
 export interface DescribeBudgetActionCommandOutput extends DescribeBudgetActionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Describes a budget action detail.
  *       </p>
@@ -126,6 +125,7 @@ export interface DescribeBudgetActionCommandOutput extends DescribeBudgetActionR
  * @throws {@link BudgetsServiceException}
  * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
+ * @public
  */
 export class DescribeBudgetActionCommand extends $Command
   .classBuilder<

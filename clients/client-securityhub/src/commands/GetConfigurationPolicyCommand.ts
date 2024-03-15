@@ -27,7 +27,6 @@ export interface GetConfigurationPolicyCommandInput extends GetConfigurationPoli
 export interface GetConfigurationPolicyCommandOutput extends GetConfigurationPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Provides information about a configuration policy. Only the Security Hub delegated administrator can invoke
  *             this operation from the home Region.
@@ -125,6 +124,7 @@ export interface GetConfigurationPolicyCommandOutput extends GetConfigurationPol
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To get details about a configuration policy
  * ```javascript
  * // This operation provides details about the specified configuration policy.

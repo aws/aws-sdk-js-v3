@@ -27,7 +27,6 @@ export interface ListRotationOverridesCommandInput extends ListRotationOverrides
 export interface ListRotationOverridesCommandOutput extends ListRotationOverridesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of overrides currently specified for an on-call rotation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface ListRotationOverridesCommandOutput extends ListRotationOverride
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ * @public
  */
 export class ListRotationOverridesCommand extends $Command
   .classBuilder<

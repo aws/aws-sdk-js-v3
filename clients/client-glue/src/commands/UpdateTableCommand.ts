@@ -27,7 +27,6 @@ export interface UpdateTableCommandInput extends UpdateTableRequest {}
 export interface UpdateTableCommandOutput extends UpdateTableResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a metadata table in the Data Catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -165,6 +164,7 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class UpdateTableCommand extends $Command
   .classBuilder<

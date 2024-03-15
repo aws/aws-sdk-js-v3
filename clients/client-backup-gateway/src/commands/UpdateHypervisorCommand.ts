@@ -31,7 +31,6 @@ export interface UpdateHypervisorCommandInput extends UpdateHypervisorInput {}
 export interface UpdateHypervisorCommandOutput extends UpdateHypervisorOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a hypervisor metadata, including its host, username, and password. Specify which
  *       hypervisor to update using the Amazon Resource Name (ARN) of the hypervisor in your
  *       request.</p>
@@ -85,6 +84,7 @@ export interface UpdateHypervisorCommandOutput extends UpdateHypervisorOutput, _
  * @throws {@link BackupGatewayServiceException}
  * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
+ * @public
  */
 export class UpdateHypervisorCommand extends $Command
   .classBuilder<

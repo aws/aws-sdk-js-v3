@@ -27,7 +27,6 @@ export interface DescribeResourcePolicyCommandInput extends DescribeResourcePoli
 export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides the details of a resource policy attached to a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  */
 export class DescribeResourcePolicyCommand extends $Command
   .classBuilder<

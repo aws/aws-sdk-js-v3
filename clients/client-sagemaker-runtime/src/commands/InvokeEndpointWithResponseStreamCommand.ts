@@ -45,7 +45,6 @@ export interface InvokeEndpointWithResponseStreamCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Invokes a model at the specified endpoint to return the inference response as a
  *             stream. The inference stream provides the response payload incrementally as a series of
  *             parts. Before you can get an inference stream, you must have access to a model that's
@@ -149,6 +148,7 @@ export interface InvokeEndpointWithResponseStreamCommandOutput
  * @throws {@link SageMakerRuntimeServiceException}
  * <p>Base exception class for all service exceptions from SageMakerRuntime service.</p>
  *
+ * @public
  */
 export class InvokeEndpointWithResponseStreamCommand extends $Command
   .classBuilder<

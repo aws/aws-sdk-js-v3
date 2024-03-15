@@ -27,7 +27,6 @@ export interface GetRolePolicyCommandInput extends GetRolePolicyRequest {}
 export interface GetRolePolicyCommandOutput extends GetRolePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the specified inline policy document that is embedded with the specified
  *             IAM role.</p>
  *          <note>
@@ -82,6 +81,7 @@ export interface GetRolePolicyCommandOutput extends GetRolePolicyResponse, __Met
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class GetRolePolicyCommand extends $Command
   .classBuilder<

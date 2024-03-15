@@ -36,7 +36,6 @@ export interface DescribeInstanceAccessControlAttributeConfigurationCommandOutpu
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the list of IAM Identity Center identity store attributes that have been configured to work
  *             with attributes-based access control (ABAC) for the specified IAM Identity Center instance. This will
  *             not return attributes configured and sent by an external identity provider.
@@ -97,6 +96,7 @@ export interface DescribeInstanceAccessControlAttributeConfigurationCommandOutpu
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class DescribeInstanceAccessControlAttributeConfigurationCommand extends $Command
   .classBuilder<

@@ -515,7 +515,6 @@ export interface Budgets {
 }
 
 /**
- * @public
  * <p>Use the Amazon Web Services Budgets API to plan your service usage, service costs, and instance reservations. This API reference provides descriptions, syntax, and usage examples for each of the actions and data types for the Amazon Web Services Budgets feature. </p>
  *          <p>Budgets provide you with a way to see the following information:</p>
  *          <ul>
@@ -559,6 +558,7 @@ export interface Budgets {
  *             </li>
  *          </ul>
  *          <p>For information about costs that are associated with the Amazon Web Services Budgets API, see <a href="https://aws.amazon.com/aws-cost-management/pricing/">Amazon Web Services Cost Management Pricing</a>.</p>
+ * @public
  */
 export class Budgets extends BudgetsClient implements Budgets {}
 createAggregatedClient(commands, Budgets);

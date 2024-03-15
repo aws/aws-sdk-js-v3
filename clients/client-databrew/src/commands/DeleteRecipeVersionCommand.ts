@@ -27,7 +27,6 @@ export interface DeleteRecipeVersionCommandInput extends DeleteRecipeVersionRequ
 export interface DeleteRecipeVersionCommandOutput extends DeleteRecipeVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a single version of a DataBrew recipe.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface DeleteRecipeVersionCommandOutput extends DeleteRecipeVersionRes
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * @public
  */
 export class DeleteRecipeVersionCommand extends $Command
   .classBuilder<

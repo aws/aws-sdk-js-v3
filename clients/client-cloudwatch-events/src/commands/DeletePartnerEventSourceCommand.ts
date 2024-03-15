@@ -27,7 +27,6 @@ export interface DeletePartnerEventSourceCommandInput extends DeletePartnerEvent
 export interface DeletePartnerEventSourceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation is used by SaaS partners to delete a partner event source. This operation
  *       is not used by Amazon Web Services customers.</p>
  *          <p>When you delete an event source, the status of the corresponding partner event bus in the
@@ -67,6 +66,7 @@ export interface DeletePartnerEventSourceCommandOutput extends __MetadataBearer 
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ * @public
  */
 export class DeletePartnerEventSourceCommand extends $Command
   .classBuilder<

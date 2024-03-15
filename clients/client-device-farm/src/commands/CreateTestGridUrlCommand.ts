@@ -31,7 +31,6 @@ export interface CreateTestGridUrlCommandInput extends CreateTestGridUrlRequest 
 export interface CreateTestGridUrlCommandOutput extends CreateTestGridUrlResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a signed, short-term URL that can be passed to a Selenium <code>RemoteWebDriver</code>
  *          constructor.</p>
  * @example
@@ -72,6 +71,7 @@ export interface CreateTestGridUrlCommandOutput extends CreateTestGridUrlResult,
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  */
 export class CreateTestGridUrlCommand extends $Command
   .classBuilder<

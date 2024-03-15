@@ -27,7 +27,6 @@ export interface BatchDescribeSimulationJobCommandInput extends BatchDescribeSim
 export interface BatchDescribeSimulationJobCommandOutput extends BatchDescribeSimulationJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes one or more simulation jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -225,6 +224,7 @@ export interface BatchDescribeSimulationJobCommandOutput extends BatchDescribeSi
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ * @public
  */
 export class BatchDescribeSimulationJobCommand extends $Command
   .classBuilder<

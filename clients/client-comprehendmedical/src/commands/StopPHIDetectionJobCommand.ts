@@ -31,7 +31,6 @@ export interface StopPHIDetectionJobCommandInput extends StopPHIDetectionJobRequ
 export interface StopPHIDetectionJobCommandOutput extends StopPHIDetectionJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a protected health information (PHI) detection job in progress.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface StopPHIDetectionJobCommandOutput extends StopPHIDetectionJobRes
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ * @public
  */
 export class StopPHIDetectionJobCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface RejectSharedDirectoryCommandInput extends RejectSharedDirectory
 export interface RejectSharedDirectoryCommandOutput extends RejectSharedDirectoryResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Rejects a directory sharing request that was sent from the directory owner account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface RejectSharedDirectoryCommandOutput extends RejectSharedDirector
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class RejectSharedDirectoryCommand extends $Command
   .classBuilder<

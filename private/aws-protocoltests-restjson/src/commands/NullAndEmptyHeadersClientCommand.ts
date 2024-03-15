@@ -25,7 +25,6 @@ export interface NullAndEmptyHeadersClientCommandInput extends NullAndEmptyHeade
 export interface NullAndEmptyHeadersClientCommandOutput extends NullAndEmptyHeadersIO, __MetadataBearer {}
 
 /**
- * @public
  * Null and empty headers are not sent over the wire.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,6 +60,7 @@ export interface NullAndEmptyHeadersClientCommandOutput extends NullAndEmptyHead
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ * @public
  */
 export class NullAndEmptyHeadersClientCommand extends $Command
   .classBuilder<

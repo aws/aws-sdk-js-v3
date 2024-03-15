@@ -32,7 +32,6 @@ export interface CreateAssetRevisionCommandInput extends CreateAssetRevisionInpu
 export interface CreateAssetRevisionCommandOutput extends CreateAssetRevisionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a revision of the asset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -142,6 +141,7 @@ export interface CreateAssetRevisionCommandOutput extends CreateAssetRevisionOut
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class CreateAssetRevisionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetDetectorVersionCommandInput extends GetDetectorVersionReques
 export interface GetDetectorVersionCommandOutput extends GetDetectorVersionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a particular detector version. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface GetDetectorVersionCommandOutput extends GetDetectorVersionResul
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class GetDetectorVersionCommand extends $Command
   .classBuilder<

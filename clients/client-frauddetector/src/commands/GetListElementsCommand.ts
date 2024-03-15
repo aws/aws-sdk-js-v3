@@ -31,7 +31,6 @@ export interface GetListElementsCommandInput extends GetListElementsRequest {}
 export interface GetListElementsCommandOutput extends GetListElementsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Gets all the elements in the specified list.
  *         </p>
@@ -81,6 +80,7 @@ export interface GetListElementsCommandOutput extends GetListElementsResult, __M
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class GetListElementsCommand extends $Command
   .classBuilder<

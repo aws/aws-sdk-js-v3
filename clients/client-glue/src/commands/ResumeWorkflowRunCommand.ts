@@ -27,7 +27,6 @@ export interface ResumeWorkflowRunCommandInput extends ResumeWorkflowRunRequest 
 export interface ResumeWorkflowRunCommandOutput extends ResumeWorkflowRunResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Restarts selected nodes of a previous partially completed workflow run and resumes the workflow run. The selected nodes and all nodes that are downstream from the selected nodes are run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface ResumeWorkflowRunCommandOutput extends ResumeWorkflowRunRespons
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class ResumeWorkflowRunCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface StartAssessmentFrameworkShareCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p> Creates a share request for a custom framework in Audit Manager. </p>
  *          <p>The share request specifies a recipient and notifies them that a custom framework is
  *          available. Recipients have 120 days to accept or decline the request. If no action is
@@ -133,6 +132,7 @@ export interface StartAssessmentFrameworkShareCommandOutput
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class StartAssessmentFrameworkShareCommand extends $Command
   .classBuilder<

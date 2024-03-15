@@ -27,7 +27,6 @@ export interface CreateGroupVersionCommandInput extends CreateGroupVersionReques
 export interface CreateGroupVersionCommandOutput extends CreateGroupVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * Creates a version of a group which has already been defined.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface CreateGroupVersionCommandOutput extends CreateGroupVersionRespo
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class CreateGroupVersionCommand extends $Command
   .classBuilder<

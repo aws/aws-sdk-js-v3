@@ -312,7 +312,6 @@ export type ApplicationAutoScalingClientResolvedConfigType = __SmithyResolvedCon
 export interface ApplicationAutoScalingClientResolvedConfig extends ApplicationAutoScalingClientResolvedConfigType {}
 
 /**
- * @public
  * <p>With Application Auto Scaling, you can configure automatic scaling for the following
  *       resources:</p>
  *          <ul>
@@ -390,6 +389,7 @@ export interface ApplicationAutoScalingClientResolvedConfig extends ApplicationA
  *           and scheduled scaling.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class ApplicationAutoScalingClient extends __Client<
   __HttpHandlerOptions,

@@ -2453,7 +2453,6 @@ export interface DatabaseMigrationService {
 }
 
 /**
- * @public
  * <fullname>Database Migration Service</fullname>
  *          <p>Database Migration Service (DMS) can migrate your data to and from the most
  *          widely used commercial and open-source databases such as Oracle, PostgreSQL, Microsoft SQL
@@ -2464,6 +2463,7 @@ export interface DatabaseMigrationService {
  *          <p>For more information about DMS, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/Welcome.html">What Is Database Migration Service?</a>
  *          in the <i>Database Migration Service User Guide.</i>
  *          </p>
+ * @public
  */
 export class DatabaseMigrationService extends DatabaseMigrationServiceClient implements DatabaseMigrationService {}
 createAggregatedClient(commands, DatabaseMigrationService);

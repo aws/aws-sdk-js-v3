@@ -35,7 +35,6 @@ export interface GetConfigurationPolicyAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Returns the association between a configuration and a target account, organizational unit, or the root. The
  *             configuration can be a configuration policy or self-managed behavior. Only the Security Hub delegated administrator can
@@ -97,6 +96,7 @@ export interface GetConfigurationPolicyAssociationCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To get details about a configuration association
  * ```javascript
  * // This operation provides details about configuration associations for a specific target account, organizational unit, or the root.

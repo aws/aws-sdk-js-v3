@@ -27,7 +27,6 @@ export interface ListEntitiesForPolicyCommandInput extends ListEntitiesForPolicy
 export interface ListEntitiesForPolicyCommandOutput extends ListEntitiesForPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all IAM users, groups, and roles that the specified managed policy is attached
  *             to.</p>
  *          <p>You can use the optional <code>EntityFilter</code> parameter to limit the results to a
@@ -98,6 +97,7 @@ export interface ListEntitiesForPolicyCommandOutput extends ListEntitiesForPolic
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class ListEntitiesForPolicyCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface BatchPutPropertyValuesCommandInput extends BatchPutPropertyValu
 export interface BatchPutPropertyValuesCommandOutput extends BatchPutPropertyValuesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets values for multiple time series properties.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -182,6 +181,7 @@ export interface BatchPutPropertyValuesCommandOutput extends BatchPutPropertyVal
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ * @public
  */
 export class BatchPutPropertyValuesCommand extends $Command
   .classBuilder<

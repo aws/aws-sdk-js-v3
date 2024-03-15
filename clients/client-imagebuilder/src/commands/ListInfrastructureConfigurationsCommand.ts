@@ -32,7 +32,6 @@ export interface ListInfrastructureConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of infrastructure configurations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -113,6 +112,7 @@ export interface ListInfrastructureConfigurationsCommandOutput
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class ListInfrastructureConfigurationsCommand extends $Command
   .classBuilder<

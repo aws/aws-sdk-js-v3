@@ -31,9 +31,6 @@ export interface CreatePermissionGroupCommandInput extends CreatePermissionGroup
 export interface CreatePermissionGroupCommandOutput extends CreatePermissionGroupResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This method will be discontinued.
- *
  * <p>Creates a group of permissions for various actions that a user can perform in FinSpace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +82,8 @@ export interface CreatePermissionGroupCommandOutput extends CreatePermissionGrou
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ * @public
+ * @deprecated This method will be discontinued.
  */
 export class CreatePermissionGroupCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface PromoteResourceShareCreatedFromPolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>When you attach a resource-based policy to a resource, RAM automatically creates
  *             a resource share of <code>featureSet</code>=<code>CREATED_FROM_POLICY</code> with a managed permission that
  *             has the same IAM permissions as the original resource-based policy. However, this type
@@ -113,6 +112,7 @@ export interface PromoteResourceShareCreatedFromPolicyCommandOutput
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * @public
  */
 export class PromoteResourceShareCreatedFromPolicyCommand extends $Command
   .classBuilder<

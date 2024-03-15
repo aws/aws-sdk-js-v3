@@ -27,7 +27,6 @@ export interface UpdateLoggingConfigurationCommandInput extends UpdateLoggingCon
 export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the log group ARN or the workspace ID of the current logging
  *             configuration.</p>
  * @example
@@ -77,6 +76,7 @@ export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingCo
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ * @public
  */
 export class UpdateLoggingConfigurationCommand extends $Command
   .classBuilder<

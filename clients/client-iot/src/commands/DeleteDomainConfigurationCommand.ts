@@ -27,7 +27,6 @@ export interface DeleteDomainConfigurationCommandInput extends DeleteDomainConfi
 export interface DeleteDomainConfigurationCommandOutput extends DeleteDomainConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified domain configuration.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteDomainConfiguration</a> action.</p>
  * @example
@@ -72,6 +71,7 @@ export interface DeleteDomainConfigurationCommandOutput extends DeleteDomainConf
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DeleteDomainConfigurationCommand extends $Command
   .classBuilder<

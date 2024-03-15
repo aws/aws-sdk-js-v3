@@ -30,7 +30,6 @@ export interface CreatePublicVirtualInterfaceCommandInput extends CreatePublicVi
 export interface CreatePublicVirtualInterfaceCommandOutput extends VirtualInterface, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a public virtual interface. A virtual interface is the VLAN that transports Direct Connect traffic.
  *       A public virtual interface supports sending traffic to public services of Amazon Web Services such as Amazon S3.</p>
  *          <p>When creating an IPv6 public virtual interface (<code>addressFamily</code> is <code>ipv6</code>), leave the <code>customer</code>
@@ -140,6 +139,7 @@ export interface CreatePublicVirtualInterfaceCommandOutput extends VirtualInterf
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class CreatePublicVirtualInterfaceCommand extends $Command
   .classBuilder<

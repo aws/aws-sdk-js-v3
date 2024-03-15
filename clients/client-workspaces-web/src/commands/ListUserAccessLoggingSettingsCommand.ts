@@ -32,7 +32,6 @@ export interface ListUserAccessLoggingSettingsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of user access logging settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface ListUserAccessLoggingSettingsCommandOutput
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * @public
  */
 export class ListUserAccessLoggingSettingsCommand extends $Command
   .classBuilder<

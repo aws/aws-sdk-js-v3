@@ -32,7 +32,6 @@ export interface DescribeAcceleratorOfferingsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Describes the locations in which a given accelerator type or set of types is present in a given region.
  *         </p>
@@ -91,6 +90,7 @@ export interface DescribeAcceleratorOfferingsCommandOutput
  * @throws {@link ElasticInferenceServiceException}
  * <p>Base exception class for all service exceptions from ElasticInference service.</p>
  *
+ * @public
  */
 export class DescribeAcceleratorOfferingsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateDestinationCommandInput extends CreateDestinationRequest 
 export interface CreateDestinationCommandOutput extends CreateDestinationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new destination that maps a device message to an AWS IoT rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface CreateDestinationCommandOutput extends CreateDestinationRespons
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class CreateDestinationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteAccountCustomizationCommandInput extends DeleteAccountCus
 export interface DeleteAccountCustomizationCommandOutput extends DeleteAccountCustomizationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes all Amazon QuickSight customizations in this Amazon Web Services Region for the specified
  *             Amazon Web Services account and Amazon QuickSight namespace.</p>
  * @example
@@ -88,6 +87,7 @@ export interface DeleteAccountCustomizationCommandOutput extends DeleteAccountCu
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DeleteAccountCustomizationCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface CreateRecoveryGroupCommandInput extends CreateRecoveryGroupRequ
 export interface CreateRecoveryGroupCommandOutput extends CreateRecoveryGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a recovery group in an account. A recovery group corresponds to an application and includes a list of the cells that make up the application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface CreateRecoveryGroupCommandOutput extends CreateRecoveryGroupRes
  * @throws {@link Route53RecoveryReadinessServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
+ * @public
  */
 export class CreateRecoveryGroupCommand extends $Command
   .classBuilder<

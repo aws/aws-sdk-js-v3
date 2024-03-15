@@ -1061,7 +1061,6 @@ export interface DynamoDB {
 }
 
 /**
- * @public
  * <fullname>Amazon DynamoDB</fullname>
  *          <p>Amazon DynamoDB is a fully managed NoSQL database service that provides fast
  *             and predictable performance with seamless scalability. DynamoDB lets you
@@ -1079,6 +1078,7 @@ export interface DynamoDB {
  *             disks (SSDs) and automatically replicated across multiple Availability Zones in an
  *                 Amazon Web Services Region, providing built-in high availability and data
  *             durability.</p>
+ * @public
  */
 export class DynamoDB extends DynamoDBClient implements DynamoDB {}
 createAggregatedClient(commands, DynamoDB);

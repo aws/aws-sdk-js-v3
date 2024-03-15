@@ -27,7 +27,6 @@ export interface DeleteFeatureGroupCommandInput extends DeleteFeatureGroupReques
 export interface DeleteFeatureGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete the <code>FeatureGroup</code> and any data that was written to the
  *             <code>OnlineStore</code> of the <code>FeatureGroup</code>. Data cannot be accessed from
  *          the <code>OnlineStore</code> immediately after <code>DeleteFeatureGroup</code> is called. </p>
@@ -63,6 +62,7 @@ export interface DeleteFeatureGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteFeatureGroupCommand extends $Command
   .classBuilder<

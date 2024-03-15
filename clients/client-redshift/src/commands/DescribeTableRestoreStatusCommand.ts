@@ -27,7 +27,6 @@ export interface DescribeTableRestoreStatusCommandInput extends DescribeTableRes
 export interface DescribeTableRestoreStatusCommandOutput extends TableRestoreStatusMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the status of one or more table restore requests made using the <a>RestoreTableFromClusterSnapshot</a> API action. If you don't specify a value
  *             for the <code>TableRestoreRequestId</code> parameter, then
  *                 <code>DescribeTableRestoreStatus</code> returns the status of all table restore
@@ -88,6 +87,7 @@ export interface DescribeTableRestoreStatusCommandOutput extends TableRestoreSta
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DescribeTableRestoreStatusCommand extends $Command
   .classBuilder<

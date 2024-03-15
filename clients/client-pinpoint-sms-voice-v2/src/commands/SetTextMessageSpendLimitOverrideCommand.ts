@@ -36,7 +36,6 @@ export interface SetTextMessageSpendLimitOverrideCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets an account level monthly spend limit override for sending text messages. The
  *             requested spend limit must be less than or equal to the <code>MaxLimit</code>, which is
  *             set by Amazon Web Services. </p>
@@ -81,6 +80,7 @@ export interface SetTextMessageSpendLimitOverrideCommandOutput
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class SetTextMessageSpendLimitOverrideCommand extends $Command
   .classBuilder<

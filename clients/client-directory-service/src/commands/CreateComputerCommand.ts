@@ -31,7 +31,6 @@ export interface CreateComputerCommandInput extends CreateComputerRequest {}
 export interface CreateComputerCommandOutput extends CreateComputerResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Active Directory computer object in the specified directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface CreateComputerCommandOutput extends CreateComputerResult, __Met
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class CreateComputerCommand extends $Command
   .classBuilder<

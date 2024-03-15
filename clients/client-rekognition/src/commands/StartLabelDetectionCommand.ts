@@ -27,7 +27,6 @@ export interface StartLabelDetectionCommandInput extends StartLabelDetectionRequ
 export interface StartLabelDetectionCommandOutput extends StartLabelDetectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts asynchronous detection of labels in a stored video.</p>
  *          <p>Amazon Rekognition Video can detect labels in a video. Labels are instances of real-world entities.
  *        This includes objects like flower, tree, and table; events like
@@ -146,6 +145,7 @@ export interface StartLabelDetectionCommandOutput extends StartLabelDetectionRes
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  */
 export class StartLabelDetectionCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface CreateAssetTypeCommandInput extends CreateAssetTypeInput {}
 export interface CreateAssetTypeCommandOutput extends CreateAssetTypeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a custom asset type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -108,6 +107,7 @@ export interface CreateAssetTypeCommandOutput extends CreateAssetTypeOutput, __M
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class CreateAssetTypeCommand extends $Command
   .classBuilder<

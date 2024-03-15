@@ -27,7 +27,6 @@ export interface ListPeeringsCommandInput extends ListPeeringsRequest {}
 export interface ListPeeringsCommandOutput extends ListPeeringsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the peerings for a core network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface ListPeeringsCommandOutput extends ListPeeringsResponse, __Metad
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class ListPeeringsCommand extends $Command
   .classBuilder<

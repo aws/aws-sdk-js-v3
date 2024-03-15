@@ -27,7 +27,6 @@ export interface RebootCacheClusterCommandInput extends RebootCacheClusterMessag
 export interface RebootCacheClusterCommandOutput extends RebootCacheClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Reboots some, or all, of the cache nodes within a provisioned cluster. This operation
  *             applies any modified cache parameter groups to the cluster. The reboot operation takes
  *             place as soon as possible, and results in a momentary outage to the cluster. During the
@@ -186,6 +185,7 @@ export interface RebootCacheClusterCommandOutput extends RebootCacheClusterResul
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  * @example RebootCacheCluster
  * ```javascript
  * // Reboots the specified nodes in the names cluster.

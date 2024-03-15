@@ -27,7 +27,6 @@ export interface RejectInvitationCommandInput extends RejectInvitationRequest {}
 export interface RejectInvitationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Rejects an invitation to contribute the account data to a behavior graph. This operation
  *          must be called by an invited member account that has the <code>INVITED</code>
  *          status.</p>
@@ -75,6 +74,7 @@ export interface RejectInvitationCommandOutput extends __MetadataBearer {}
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ * @public
  */
 export class RejectInvitationCommand extends $Command
   .classBuilder<

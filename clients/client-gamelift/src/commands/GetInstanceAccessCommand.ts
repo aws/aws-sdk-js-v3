@@ -31,7 +31,6 @@ export interface GetInstanceAccessCommandInput extends GetInstanceAccessInput {}
 export interface GetInstanceAccessCommandOutput extends GetInstanceAccessOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Requests authorization to remotely connect to an instance in an Amazon GameLift managed fleet.
  *             Use this operation to connect to instances with game servers that use Amazon GameLift server SDK
  *             4.x or earlier. To connect to instances with game servers that use server SDK 5.x or
@@ -119,6 +118,7 @@ export interface GetInstanceAccessCommandOutput extends GetInstanceAccessOutput,
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class GetInstanceAccessCommand extends $Command
   .classBuilder<

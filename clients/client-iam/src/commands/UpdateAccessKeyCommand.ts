@@ -27,7 +27,6 @@ export interface UpdateAccessKeyCommandInput extends UpdateAccessKeyRequest {}
 export interface UpdateAccessKeyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes the status of the specified access key from Active to Inactive, or vice versa.
  *             This operation can be used to disable a user's key as part of a key rotation
  *             workflow.</p>
@@ -77,6 +76,7 @@ export interface UpdateAccessKeyCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To activate or deactivate an access key for an IAM user
  * ```javascript
  * // The following command deactivates the specified access key (access key ID and secret access key) for the IAM user named Bob.

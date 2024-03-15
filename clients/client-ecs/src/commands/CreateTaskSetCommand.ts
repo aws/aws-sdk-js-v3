@@ -27,7 +27,6 @@ export interface CreateTaskSetCommandInput extends CreateTaskSetRequest {}
 export interface CreateTaskSetCommandOutput extends CreateTaskSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a task set in the specified cluster and service. This is used when a service
  * 			uses the <code>EXTERNAL</code> deployment controller type. For more information, see
  * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS deployment
@@ -212,6 +211,7 @@ export interface CreateTaskSetCommandOutput extends CreateTaskSetResponse, __Met
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  */
 export class CreateTaskSetCommand extends $Command
   .classBuilder<

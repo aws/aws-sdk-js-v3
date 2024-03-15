@@ -35,7 +35,6 @@ export interface DeleteMediaInsightsPipelineConfigurationCommandInput
 export interface DeleteMediaInsightsPipelineConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified configuration settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface DeleteMediaInsightsPipelineConfigurationCommandOutput extends _
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ * @public
  */
 export class DeleteMediaInsightsPipelineConfigurationCommand extends $Command
   .classBuilder<

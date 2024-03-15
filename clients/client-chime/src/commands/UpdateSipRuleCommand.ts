@@ -27,9 +27,6 @@ export interface UpdateSipRuleCommandInput extends UpdateSipRuleRequest {}
 export interface UpdateSipRuleCommandOutput extends UpdateSipRuleResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by UpdateSipRule in the Amazon Chime SDK Voice Namespace
- *
  * <p>Updates the details of the specified SIP rule.</p>
  *          <important>
  *             <p>
@@ -116,6 +113,8 @@ export interface UpdateSipRuleCommandOutput extends UpdateSipRuleResponse, __Met
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by UpdateSipRule in the Amazon Chime SDK Voice Namespace
  */
 export class UpdateSipRuleCommand extends $Command
   .classBuilder<

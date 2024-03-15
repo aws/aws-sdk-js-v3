@@ -27,7 +27,6 @@ export interface ListTapesCommandInput extends ListTapesInput {}
 export interface ListTapesCommandOutput extends ListTapesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists virtual tapes in your virtual tape library (VTL) and your virtual tape shelf
  *          (VTS). You specify the tapes to list by specifying one or more tape Amazon Resource Names
  *          (ARNs). If you don't specify a tape ARN, the operation lists all virtual tapes in both
@@ -88,6 +87,7 @@ export interface ListTapesCommandOutput extends ListTapesOutput, __MetadataBeare
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  */
 export class ListTapesCommand extends $Command
   .classBuilder<

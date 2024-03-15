@@ -103,7 +103,6 @@ export interface Route53RecoveryCluster {
 }
 
 /**
- * @public
  * <p>Welcome to the Routing Control (Recovery Cluster) API Reference Guide for Amazon Route 53 Application Recovery Controller.</p>
  *          <p>With Route 53 ARC, you can use routing control with extreme reliability to
  * 			recover applications by rerouting traffic across
@@ -144,6 +143,7 @@ export interface Route53RecoveryCluster {
  * 					recovery readiness with Route 53 ARC, see the <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/">Amazon Route 53 Application Recovery Controller Developer Guide</a>.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class Route53RecoveryCluster extends Route53RecoveryClusterClient implements Route53RecoveryCluster {}
 createAggregatedClient(commands, Route53RecoveryCluster);

@@ -27,7 +27,6 @@ export interface UpdateMLTransformCommandInput extends UpdateMLTransformRequest 
 export interface UpdateMLTransformCommandOutput extends UpdateMLTransformResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing machine learning transform. Call this operation to tune the algorithm parameters to achieve better results.</p>
  *          <p>After calling this operation, you can call the <code>StartMLEvaluationTaskRun</code>
  *       operation to assess how well your new parameters achieved your goals (such as improving the
@@ -91,6 +90,7 @@ export interface UpdateMLTransformCommandOutput extends UpdateMLTransformRespons
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class UpdateMLTransformCommand extends $Command
   .classBuilder<

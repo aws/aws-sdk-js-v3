@@ -31,9 +31,6 @@ export interface UpdateAppInstanceUserCommandInput extends UpdateAppInstanceUser
 export interface UpdateAppInstanceUserCommandOutput extends UpdateAppInstanceUserResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by UpdateAppInstanceUser in the Amazon Chime SDK Identity Namespace
- *
  * <p>Updates the details of an <code>AppInstanceUser</code>. You can update names and metadata.</p>
  *          <important>
  *             <p>
@@ -92,6 +89,8 @@ export interface UpdateAppInstanceUserCommandOutput extends UpdateAppInstanceUse
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by UpdateAppInstanceUser in the Amazon Chime SDK Identity Namespace
  */
 export class UpdateAppInstanceUserCommand extends $Command
   .classBuilder<

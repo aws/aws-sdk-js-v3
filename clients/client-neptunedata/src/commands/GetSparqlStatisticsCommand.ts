@@ -27,7 +27,6 @@ export interface GetSparqlStatisticsCommandInput {}
 export interface GetSparqlStatisticsCommandOutput extends GetSparqlStatisticsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets RDF statistics (SPARQL).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -104,6 +103,7 @@ export interface GetSparqlStatisticsCommandOutput extends GetSparqlStatisticsOut
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * @public
  */
 export class GetSparqlStatisticsCommand extends $Command
   .classBuilder<

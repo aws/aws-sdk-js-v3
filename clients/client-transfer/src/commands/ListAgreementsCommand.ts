@@ -27,7 +27,6 @@ export interface ListAgreementsCommandInput extends ListAgreementsRequest {}
 export interface ListAgreementsCommandOutput extends ListAgreementsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the agreements for the server that's identified by the
  *         <code>ServerId</code> that you supply. If you want to limit the results to a certain number,
  *       supply a value for the <code>MaxResults</code> parameter. If you ran the command previously
@@ -88,6 +87,7 @@ export interface ListAgreementsCommandOutput extends ListAgreementsResponse, __M
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class ListAgreementsCommand extends $Command
   .classBuilder<

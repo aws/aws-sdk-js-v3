@@ -27,7 +27,6 @@ export interface UpdateDimensionCommandInput extends UpdateDimensionRequest {}
 export interface UpdateDimensionCommandOutput extends UpdateDimensionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the definition for a dimension. You
  *       cannot
  *       change the type of a dimension after
@@ -83,6 +82,7 @@ export interface UpdateDimensionCommandOutput extends UpdateDimensionResponse, _
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class UpdateDimensionCommand extends $Command
   .classBuilder<

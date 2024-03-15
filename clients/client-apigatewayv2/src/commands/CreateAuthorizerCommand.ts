@@ -27,7 +27,6 @@ export interface CreateAuthorizerCommandInput extends CreateAuthorizerRequest {}
 export interface CreateAuthorizerCommandOutput extends CreateAuthorizerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Authorizer for an API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface CreateAuthorizerCommandOutput extends CreateAuthorizerResponse,
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ * @public
  */
 export class CreateAuthorizerCommand extends $Command
   .classBuilder<

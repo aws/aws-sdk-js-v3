@@ -27,7 +27,6 @@ export interface DeleteBlueprintCommandInput extends DeleteBlueprintRequest {}
 export interface DeleteBlueprintCommandOutput extends DeleteBlueprintResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing blueprint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +63,7 @@ export interface DeleteBlueprintCommandOutput extends DeleteBlueprintResponse, _
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class DeleteBlueprintCommand extends $Command
   .classBuilder<

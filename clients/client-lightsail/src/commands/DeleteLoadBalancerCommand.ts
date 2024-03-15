@@ -27,7 +27,6 @@ export interface DeleteLoadBalancerCommandInput extends DeleteLoadBalancerReques
 export interface DeleteLoadBalancerCommandOutput extends DeleteLoadBalancerResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a Lightsail load balancer and all its associated SSL/TLS certificates. Once the
  *       load balancer is deleted, you will need to create a new load balancer, create a new
  *       certificate, and verify domain ownership again.</p>
@@ -108,6 +107,7 @@ export interface DeleteLoadBalancerCommandOutput extends DeleteLoadBalancerResul
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class DeleteLoadBalancerCommand extends $Command
   .classBuilder<

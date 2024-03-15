@@ -36,7 +36,6 @@ export interface NotifyProvisionProductEngineWorkflowResultCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Notifies the result
  *          of the provisioning engine execution.
@@ -88,6 +87,7 @@ export interface NotifyProvisionProductEngineWorkflowResultCommandOutput
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class NotifyProvisionProductEngineWorkflowResultCommand extends $Command
   .classBuilder<

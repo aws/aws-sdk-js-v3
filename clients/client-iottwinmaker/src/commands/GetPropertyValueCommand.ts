@@ -27,7 +27,6 @@ export interface GetPropertyValueCommandInput extends GetPropertyValueRequest {}
 export interface GetPropertyValueCommandOutput extends GetPropertyValueResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the property values for a component, component type, entity, or workspace.</p>
  *          <p>You must specify a value for either <code>componentName</code>,
  *             <code>componentTypeId</code>, <code>entityId</code>, or <code>workspaceId</code>.</p>
@@ -192,6 +191,7 @@ export interface GetPropertyValueCommandOutput extends GetPropertyValueResponse,
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ * @public
  */
 export class GetPropertyValueCommand extends $Command
   .classBuilder<

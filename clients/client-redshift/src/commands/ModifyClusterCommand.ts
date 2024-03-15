@@ -32,7 +32,6 @@ export interface ModifyClusterCommandInput extends ModifyClusterMessage {}
 export interface ModifyClusterCommandOutput extends ModifyClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the settings for a cluster.</p>
  *          <p>You can also change node type and the number of nodes to scale up or down the
  *             cluster. When resizing a cluster, you must specify both the number of nodes and the node
@@ -366,6 +365,7 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResult, __Metad
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class ModifyClusterCommand extends $Command
   .classBuilder<

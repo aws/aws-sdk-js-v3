@@ -27,7 +27,6 @@ export interface GetPromptFileCommandInput extends GetPromptFileRequest {}
 export interface GetPromptFileCommandOutput extends GetPromptFileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the prompt file.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface GetPromptFileCommandOutput extends GetPromptFileResponse, __Met
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class GetPromptFileCommand extends $Command
   .classBuilder<

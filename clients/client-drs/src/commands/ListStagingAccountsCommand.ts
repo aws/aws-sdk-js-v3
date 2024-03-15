@@ -27,7 +27,6 @@ export interface ListStagingAccountsCommandInput extends ListStagingAccountsRequ
 export interface ListStagingAccountsCommandOutput extends ListStagingAccountsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an array of staging accounts for existing extended source servers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface ListStagingAccountsCommandOutput extends ListStagingAccountsRes
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * @public
  */
 export class ListStagingAccountsCommand extends $Command
   .classBuilder<

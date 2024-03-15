@@ -27,9 +27,6 @@ export interface DeleteFlowTemplateCommandInput extends DeleteFlowTemplateReques
 export interface DeleteFlowTemplateCommandOutput extends DeleteFlowTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated since: 2022-08-30
- *
  * <p>Deletes a workflow. Any new system or deployment that contains this workflow will fail to update or deploy.
  *          Existing deployments that contain the workflow will continue to run (since they use a snapshot of the workflow taken at the time of deployment).</p>
  * @example
@@ -68,6 +65,8 @@ export interface DeleteFlowTemplateCommandOutput extends DeleteFlowTemplateRespo
  * @throws {@link IoTThingsGraphServiceException}
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ * @public
+ * @deprecated since: 2022-08-30
  */
 export class DeleteFlowTemplateCommand extends $Command
   .classBuilder<

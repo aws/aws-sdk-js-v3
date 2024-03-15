@@ -27,7 +27,6 @@ export interface GetLifecyclePolicyCommandInput extends GetLifecyclePolicyReques
 export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the lifecycle policy for the specified repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyRespo
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * @public
  */
 export class GetLifecyclePolicyCommand extends $Command
   .classBuilder<

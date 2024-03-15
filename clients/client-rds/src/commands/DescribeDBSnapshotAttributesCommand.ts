@@ -29,7 +29,6 @@ export interface DescribeDBSnapshotAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of DB snapshot attribute names and values for a manual DB snapshot.</p>
  *          <p>When sharing snapshots with other Amazon Web Services accounts, <code>DescribeDBSnapshotAttributes</code>
  *       returns the <code>restore</code> attribute and a list of IDs for the Amazon Web Services accounts that are
@@ -78,6 +77,7 @@ export interface DescribeDBSnapshotAttributesCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To describe the attribute names and values for a DB snapshot
  * ```javascript
  * // The following example describes the attribute names and values for a DB snapshot.

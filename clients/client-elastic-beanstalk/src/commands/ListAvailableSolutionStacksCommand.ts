@@ -29,7 +29,6 @@ export interface ListAvailableSolutionStacksCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the available solution stack names, with the public version first and
  *       then in reverse chronological order.</p>
  * @example
@@ -66,6 +65,7 @@ export interface ListAvailableSolutionStacksCommandOutput
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  * @example To view solution stacks
  * ```javascript
  * // The following operation lists solution stacks for all currently available platform configurations and any that you have used in the past:

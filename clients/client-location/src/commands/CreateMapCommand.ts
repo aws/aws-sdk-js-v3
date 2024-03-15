@@ -27,7 +27,6 @@ export interface CreateMapCommandInput extends CreateMapRequest {}
 export interface CreateMapCommandOutput extends CreateMapResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a map resource in your Amazon Web Services account, which provides map tiles of different
  *             styles sourced from global location data providers.</p>
  *          <note>
@@ -96,6 +95,7 @@ export interface CreateMapCommandOutput extends CreateMapResponse, __MetadataBea
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class CreateMapCommand extends $Command
   .classBuilder<

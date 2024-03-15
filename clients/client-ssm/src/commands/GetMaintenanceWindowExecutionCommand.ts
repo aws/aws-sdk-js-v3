@@ -32,7 +32,6 @@ export interface GetMaintenanceWindowExecutionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves details about a specific a maintenance window execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface GetMaintenanceWindowExecutionCommandOutput
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class GetMaintenanceWindowExecutionCommand extends $Command
   .classBuilder<

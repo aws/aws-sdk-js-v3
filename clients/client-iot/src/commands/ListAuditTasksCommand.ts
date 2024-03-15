@@ -27,7 +27,6 @@ export interface ListAuditTasksCommandInput extends ListAuditTasksRequest {}
 export interface ListAuditTasksCommandOutput extends ListAuditTasksResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the Device Defender audits that have been performed during a given
  *           time period.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListAuditTasks</a> action.</p>
@@ -78,6 +77,7 @@ export interface ListAuditTasksCommandOutput extends ListAuditTasksResponse, __M
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListAuditTasksCommand extends $Command
   .classBuilder<

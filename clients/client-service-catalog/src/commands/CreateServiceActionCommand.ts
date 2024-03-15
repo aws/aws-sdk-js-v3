@@ -27,7 +27,6 @@ export interface CreateServiceActionCommandInput extends CreateServiceActionInpu
 export interface CreateServiceActionCommandOutput extends CreateServiceActionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a self-service action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface CreateServiceActionCommandOutput extends CreateServiceActionOut
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class CreateServiceActionCommand extends $Command
   .classBuilder<

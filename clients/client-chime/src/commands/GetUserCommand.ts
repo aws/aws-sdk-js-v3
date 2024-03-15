@@ -27,7 +27,6 @@ export interface GetUserCommandInput extends GetUserRequest {}
 export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves details for the specified user ID, such as primary email address, license type,and personal meeting PIN.</p>
  *          <p>
  * To retrieve user details with an email address instead of a user ID, use the
@@ -98,6 +97,7 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class GetUserCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface RebootWorkspacesCommandInput extends RebootWorkspacesRequest {}
 export interface RebootWorkspacesCommandOutput extends RebootWorkspacesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Reboots the specified WorkSpaces.</p>
  *          <p>You cannot reboot a WorkSpace unless its state is <code>AVAILABLE</code>,
  *          <code>UNHEALTHY</code>, or <code>REBOOTING</code>. Reboot a WorkSpace in the <code>REBOOTING</code>
@@ -72,6 +71,7 @@ export interface RebootWorkspacesCommandOutput extends RebootWorkspacesResult, _
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class RebootWorkspacesCommand extends $Command
   .classBuilder<

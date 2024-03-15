@@ -27,7 +27,6 @@ export interface CreatePortalCommandInput extends CreatePortalRequest {}
 export interface CreatePortalCommandOutput extends CreatePortalResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a portal, which can contain projects and dashboards. IoT SiteWise Monitor uses IAM Identity Center or IAM
  *       to authenticate portal users and manage user permissions.</p>
  *          <note>
@@ -110,6 +109,7 @@ export interface CreatePortalCommandOutput extends CreatePortalResponse, __Metad
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class CreatePortalCommand extends $Command
   .classBuilder<

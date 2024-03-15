@@ -31,7 +31,6 @@ export interface GetUsageLimitCommandInput extends GetUsageLimitRequest {}
 export interface GetUsageLimitCommandOutput extends GetUsageLimitResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a usage limit.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface GetUsageLimitCommandOutput extends GetUsageLimitResponse, __Met
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * @public
  */
 export class GetUsageLimitCommand extends $Command
   .classBuilder<

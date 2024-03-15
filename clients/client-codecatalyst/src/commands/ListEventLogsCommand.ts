@@ -27,7 +27,6 @@ export interface ListEventLogsCommandInput extends ListEventLogsRequest {}
 export interface ListEventLogsCommandOutput extends ListEventLogsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of events that occurred during a specific time in a space. You can
  *       use these events to audit user and system activity in a space. For more information, see
  *         <a href="https://docs.aws.amazon.com/codecatalyst/latest/userguide/ipa-monitoring.html">Monitoring</a> in the <i>Amazon CodeCatalyst User Guide</i>.</p>
@@ -122,6 +121,7 @@ export interface ListEventLogsCommandOutput extends ListEventLogsResponse, __Met
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ * @public
  */
 export class ListEventLogsCommand extends $Command
   .classBuilder<

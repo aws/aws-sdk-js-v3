@@ -27,7 +27,6 @@ export interface VerifyMacCommandInput extends VerifyMacRequest {}
 export interface VerifyMacCommandOutput extends VerifyMacResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Verifies the hash-based message authentication code (HMAC) for a specified message, HMAC
  *       KMS key, and MAC algorithm. To verify the HMAC, <code>VerifyMac</code> computes an HMAC using
  *       the message, HMAC KMS key, and MAC algorithm that you specify, and compares the computed HMAC
@@ -154,6 +153,7 @@ export interface VerifyMacCommandOutput extends VerifyMacResponse, __MetadataBea
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To verify an HMAC
  * ```javascript
  * // This example verifies an HMAC for a particular message, HMAC KMS keys, and MAC algorithm. A value of 'true' in the MacValid value in the response indicates that the HMAC is valid.

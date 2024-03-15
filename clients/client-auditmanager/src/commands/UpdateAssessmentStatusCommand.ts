@@ -31,7 +31,6 @@ export interface UpdateAssessmentStatusCommandInput extends UpdateAssessmentStat
 export interface UpdateAssessmentStatusCommandOutput extends UpdateAssessmentStatusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Updates the status of an assessment in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -199,6 +198,7 @@ export interface UpdateAssessmentStatusCommandOutput extends UpdateAssessmentSta
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class UpdateAssessmentStatusCommand extends $Command
   .classBuilder<

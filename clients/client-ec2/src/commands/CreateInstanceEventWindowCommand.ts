@@ -27,7 +27,6 @@ export interface CreateInstanceEventWindowCommandInput extends CreateInstanceEve
 export interface CreateInstanceEventWindowCommandOutput extends CreateInstanceEventWindowResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an event window in which scheduled events for the associated Amazon EC2 instances can
  *          run.</p>
  *          <p>You can define either a set of time ranges or a cron expression when creating the event
@@ -131,6 +130,7 @@ export interface CreateInstanceEventWindowCommandOutput extends CreateInstanceEv
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateInstanceEventWindowCommand extends $Command
   .classBuilder<

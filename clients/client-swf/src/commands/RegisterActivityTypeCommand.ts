@@ -27,7 +27,6 @@ export interface RegisterActivityTypeCommandInput extends RegisterActivityTypeIn
 export interface RegisterActivityTypeCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers a new <i>activity type</i> along with its configuration
  *       settings in the specified domain.</p>
  *          <important>
@@ -122,6 +121,7 @@ export interface RegisterActivityTypeCommandOutput extends __MetadataBearer {}
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ * @public
  */
 export class RegisterActivityTypeCommand extends $Command
   .classBuilder<

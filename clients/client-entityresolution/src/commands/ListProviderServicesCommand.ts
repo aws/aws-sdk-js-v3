@@ -27,7 +27,6 @@ export interface ListProviderServicesCommandInput extends ListProviderServicesIn
 export interface ListProviderServicesCommandOutput extends ListProviderServicesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all the <code>ProviderServices</code> that are available in this
  *             Amazon Web Services Region.</p>
  * @example
@@ -87,6 +86,7 @@ export interface ListProviderServicesCommandOutput extends ListProviderServicesO
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ * @public
  */
 export class ListProviderServicesCommand extends $Command
   .classBuilder<

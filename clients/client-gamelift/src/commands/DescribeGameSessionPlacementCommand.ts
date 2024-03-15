@@ -36,7 +36,6 @@ export interface DescribeGameSessionPlacementCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information, including current status, about a game session placement
  *             request. </p>
  *          <p>To get game session placement details, specify the placement ID.</p>
@@ -120,6 +119,7 @@ export interface DescribeGameSessionPlacementCommandOutput
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DescribeGameSessionPlacementCommand extends $Command
   .classBuilder<

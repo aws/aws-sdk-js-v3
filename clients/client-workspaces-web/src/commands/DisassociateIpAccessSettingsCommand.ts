@@ -32,7 +32,6 @@ export interface DisassociateIpAccessSettingsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates IP access settings from a web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface DisassociateIpAccessSettingsCommandOutput
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * @public
  */
 export class DisassociateIpAccessSettingsCommand extends $Command
   .classBuilder<

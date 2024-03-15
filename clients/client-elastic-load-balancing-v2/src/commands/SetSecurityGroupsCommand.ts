@@ -31,7 +31,6 @@ export interface SetSecurityGroupsCommandInput extends SetSecurityGroupsInput {}
 export interface SetSecurityGroupsCommandOutput extends SetSecurityGroupsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates the specified security groups with the specified Application Load Balancer or
  *       Network Load Balancer. The specified security groups override the previously associated
  *       security groups.</p>
@@ -80,6 +79,7 @@ export interface SetSecurityGroupsCommandOutput extends SetSecurityGroupsOutput,
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  * @example To associate a security group with a load balancer
  * ```javascript
  * // This example associates the specified security group with the specified load balancer.

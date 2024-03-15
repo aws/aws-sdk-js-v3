@@ -35,7 +35,6 @@ export interface GetSavingsPlansUtilizationDetailsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves attribute data along with aggregate utilization and savings data for a given
  *       time period. This doesn't support granular or grouped data (daily/monthly) in response. You
  *       can't retrieve data by dates in a single response similar to
@@ -206,6 +205,7 @@ export interface GetSavingsPlansUtilizationDetailsCommandOutput
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * @public
  */
 export class GetSavingsPlansUtilizationDetailsCommand extends $Command
   .classBuilder<

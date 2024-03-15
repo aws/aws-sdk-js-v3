@@ -31,7 +31,6 @@ export interface StartImportFileTaskCommandInput extends StartImportFileTaskRequ
 export interface StartImportFileTaskCommandOutput extends StartImportFileTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Starts a file import. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface StartImportFileTaskCommandOutput extends StartImportFileTaskRes
  * @throws {@link MigrationHubStrategyServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ * @public
  */
 export class StartImportFileTaskCommand extends $Command
   .classBuilder<

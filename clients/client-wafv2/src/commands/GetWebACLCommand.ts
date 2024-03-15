@@ -27,7 +27,6 @@ export interface GetWebACLCommandInput extends GetWebACLRequest {}
 export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the specified <a>WebACL</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -1267,6 +1266,7 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class GetWebACLCommand extends $Command
   .classBuilder<

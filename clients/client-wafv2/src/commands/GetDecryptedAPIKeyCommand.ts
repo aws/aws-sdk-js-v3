@@ -27,7 +27,6 @@ export interface GetDecryptedAPIKeyCommandInput extends GetDecryptedAPIKeyReques
 export interface GetDecryptedAPIKeyCommandOutput extends GetDecryptedAPIKeyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns your API key in decrypted form. Use this to check the token domains that you have defined for the key. </p>
  *          <p>API keys are required for the integration of the CAPTCHA API in your JavaScript client applications.
  *            The API lets you customize the placement and characteristics of the CAPTCHA puzzle for your end users.
@@ -100,6 +99,7 @@ export interface GetDecryptedAPIKeyCommandOutput extends GetDecryptedAPIKeyRespo
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class GetDecryptedAPIKeyCommand extends $Command
   .classBuilder<

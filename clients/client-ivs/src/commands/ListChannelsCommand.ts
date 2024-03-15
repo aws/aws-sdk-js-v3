@@ -27,7 +27,6 @@ export interface ListChannelsCommandInput extends ListChannelsRequest {}
 export interface ListChannelsCommandOutput extends ListChannelsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets summary information about all channels in your account, in the Amazon Web Services
  *       region where the API request is processed. This list can be filtered to match a specified name
  *       or recording-configuration ARN. Filters are mutually exclusive and cannot be used together. If
@@ -87,6 +86,7 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ * @public
  */
 export class ListChannelsCommand extends $Command
   .classBuilder<

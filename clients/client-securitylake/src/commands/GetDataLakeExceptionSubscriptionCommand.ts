@@ -32,7 +32,6 @@ export interface GetDataLakeExceptionSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the details of exception notifications for the account in Amazon Security Lake.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface GetDataLakeExceptionSubscriptionCommandOutput
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ * @public
  */
 export class GetDataLakeExceptionSubscriptionCommand extends $Command
   .classBuilder<

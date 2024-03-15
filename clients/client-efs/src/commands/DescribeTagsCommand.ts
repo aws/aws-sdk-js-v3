@@ -27,9 +27,6 @@ export interface DescribeTagsCommandInput extends DescribeTagsRequest {}
 export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Use ListTagsForResource.
- *
  * <note>
  *             <p>DEPRECATED - The <code>DescribeTags</code> action is deprecated and not maintained. To view
  *         tags associated with EFS resources, use the <code>ListTagsForResource</code> API
@@ -86,6 +83,8 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __Metad
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * @public
+ * @deprecated Use ListTagsForResource.
  * @example To describe the tags for a file system
  * ```javascript
  * // This operation describes all of a file system's tags.

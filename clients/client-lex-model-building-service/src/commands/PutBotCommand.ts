@@ -31,7 +31,6 @@ export interface PutBotCommandInput extends PutBotRequest {}
 export interface PutBotCommandOutput extends PutBotResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon Lex conversational bot or replaces an existing bot.
  *       When you create or update a bot you are only required to specify a name, a
  *       locale, and whether the bot is directed toward children under age 13. You
@@ -187,6 +186,7 @@ export interface PutBotCommandOutput extends PutBotResponse, __MetadataBearer {}
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * @public
  * @example To create a bot
  * ```javascript
  * // This example shows how to create a bot for ordering pizzas.

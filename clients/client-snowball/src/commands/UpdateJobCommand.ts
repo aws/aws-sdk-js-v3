@@ -27,7 +27,6 @@ export interface UpdateJobCommandInput extends UpdateJobRequest {}
 export interface UpdateJobCommandOutput extends UpdateJobResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>While a job's <code>JobState</code> value is <code>New</code>, you can update some of
  *       the information associated with a job. Once the job changes to a different job state, usually
  *       within 60 minutes of the job being created, this action is no longer available.</p>
@@ -155,6 +154,7 @@ export interface UpdateJobCommandOutput extends UpdateJobResult, __MetadataBeare
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * @public
  * @example To update a job
  * ```javascript
  * // This action allows you to update certain parameters for a job. Once the job changes to a different job state, usually within 60 minutes of the job being created, this action is no longer available.

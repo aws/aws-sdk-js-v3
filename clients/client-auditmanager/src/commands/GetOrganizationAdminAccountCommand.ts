@@ -32,7 +32,6 @@ export interface GetOrganizationAdminAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p> Gets the name of the delegated Amazon Web Services administrator account for a specified
  *          organization. </p>
  * @example
@@ -74,6 +73,7 @@ export interface GetOrganizationAdminAccountCommandOutput
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class GetOrganizationAdminAccountCommand extends $Command
   .classBuilder<

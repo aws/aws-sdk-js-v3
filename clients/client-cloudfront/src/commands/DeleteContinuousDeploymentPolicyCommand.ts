@@ -30,7 +30,6 @@ export interface DeleteContinuousDeploymentPolicyCommandInput extends DeleteCont
 export interface DeleteContinuousDeploymentPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a continuous deployment policy.</p>
  *          <p>You cannot delete a continuous deployment policy that's attached to a primary
  * 			distribution. First update your distribution to remove the continuous deployment policy,
@@ -80,6 +79,7 @@ export interface DeleteContinuousDeploymentPolicyCommandOutput extends __Metadat
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class DeleteContinuousDeploymentPolicyCommand extends $Command
   .classBuilder<

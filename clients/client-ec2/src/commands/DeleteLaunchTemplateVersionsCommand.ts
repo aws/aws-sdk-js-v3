@@ -29,7 +29,6 @@ export interface DeleteLaunchTemplateVersionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes one or more versions of a launch template.</p>
  *          <p>You can't delete the default version of a launch template; you must first assign a
  *             different version as the default. If the default version is the only version for the
@@ -87,6 +86,7 @@ export interface DeleteLaunchTemplateVersionsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To delete a launch template version
  * ```javascript
  * // This example deletes the specified launch template version.

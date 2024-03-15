@@ -31,7 +31,6 @@ export interface DescribeEntityCommandInput extends DescribeEntityRequest {}
 export interface DescribeEntityCommandOutput extends DescribeEntityResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the metadata and content of the entity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface DescribeEntityCommandOutput extends DescribeEntityResponse, __M
  * @throws {@link MarketplaceCatalogServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceCatalog service.</p>
  *
+ * @public
  */
 export class DescribeEntityCommand extends $Command
   .classBuilder<

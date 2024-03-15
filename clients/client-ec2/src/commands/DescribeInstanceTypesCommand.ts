@@ -27,7 +27,6 @@ export interface DescribeInstanceTypesCommandInput extends DescribeInstanceTypes
 export interface DescribeInstanceTypesCommandOutput extends DescribeInstanceTypesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the details of the instance types that are offered in a location. The results can be filtered by the
  *    attributes of the instance types.</p>
  * @example
@@ -220,6 +219,7 @@ export interface DescribeInstanceTypesCommandOutput extends DescribeInstanceType
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeInstanceTypesCommand extends $Command
   .classBuilder<

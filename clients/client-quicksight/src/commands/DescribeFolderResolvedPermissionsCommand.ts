@@ -35,7 +35,6 @@ export interface DescribeFolderResolvedPermissionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the folder resolved permissions. Permissions consists of both folder direct permissions and the inherited permissions from the ancestor folders.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface DescribeFolderResolvedPermissionsCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DescribeFolderResolvedPermissionsCommand extends $Command
   .classBuilder<

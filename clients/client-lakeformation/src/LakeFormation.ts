@@ -1189,9 +1189,9 @@ export interface LakeFormation {
 }
 
 /**
- * @public
  * <fullname>Lake Formation</fullname>
  *          <p>Defines the public endpoint for the Lake Formation service.</p>
+ * @public
  */
 export class LakeFormation extends LakeFormationClient implements LakeFormation {}
 createAggregatedClient(commands, LakeFormation);

@@ -35,7 +35,6 @@ export type GetSdkCommandOutputType = Omit<SdkResponse, "body"> & {
 export interface GetSdkCommandOutput extends GetSdkCommandOutputType, __MetadataBearer {}
 
 /**
- * @public
  * <p>Generates a client SDK for a RestApi and Stage.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface GetSdkCommandOutput extends GetSdkCommandOutputType, __Metadata
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class GetSdkCommand extends $Command
   .classBuilder<

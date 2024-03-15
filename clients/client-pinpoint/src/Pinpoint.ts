@@ -2540,8 +2540,8 @@ export interface Pinpoint {
 }
 
 /**
- * @public
  * <p>Doc Engage API - Amazon Pinpoint API</p>
+ * @public
  */
 export class Pinpoint extends PinpointClient implements Pinpoint {}
 createAggregatedClient(commands, Pinpoint);

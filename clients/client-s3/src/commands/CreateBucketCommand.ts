@@ -28,7 +28,6 @@ export interface CreateBucketCommandInput extends CreateBucketRequest {}
 export interface CreateBucketCommandOutput extends CreateBucketOutput, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This action creates an Amazon S3 bucket. To create an Amazon S3 on Outposts bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateBucket.html">
  *                   <code>CreateBucket</code>
@@ -208,6 +207,7 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example To create a bucket in a specific region
  * ```javascript
  * // The following example creates a bucket. The request specifies an AWS region where to create the bucket.

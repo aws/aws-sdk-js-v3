@@ -27,7 +27,6 @@ export interface DeleteScraperCommandInput extends DeleteScraperRequest {}
 export interface DeleteScraperCommandOutput extends DeleteScraperResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The <code>DeleteScraper</code> operation deletes one scraper, and stops any metrics
  *             collection that the scraper performs.</p>
  * @example
@@ -79,6 +78,7 @@ export interface DeleteScraperCommandOutput extends DeleteScraperResponse, __Met
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ * @public
  */
 export class DeleteScraperCommand extends $Command
   .classBuilder<

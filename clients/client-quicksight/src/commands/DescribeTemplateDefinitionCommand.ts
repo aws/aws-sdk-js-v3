@@ -31,7 +31,6 @@ export interface DescribeTemplateDefinitionCommandInput extends DescribeTemplate
 export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplateDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a detailed description of the definition of a template.</p>
  *          <note>
  *             <p>If you do not need to know details about the content of a template, for instance if you
@@ -4688,6 +4687,7 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DescribeTemplateDefinitionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListOpsMetadataCommandInput extends ListOpsMetadataRequest {}
 export interface ListOpsMetadataCommandOutput extends ListOpsMetadataResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Amazon Web Services Systems Manager calls this API operation when displaying all Application Manager OpsMetadata objects or
  *    blobs.</p>
  * @example
@@ -80,6 +79,7 @@ export interface ListOpsMetadataCommandOutput extends ListOpsMetadataResult, __M
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class ListOpsMetadataCommand extends $Command
   .classBuilder<

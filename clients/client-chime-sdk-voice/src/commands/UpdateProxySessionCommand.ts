@@ -31,7 +31,6 @@ export interface UpdateProxySessionCommandInput extends UpdateProxySessionReques
 export interface UpdateProxySessionCommandOutput extends UpdateProxySessionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified proxy session details, such as voice or SMS capabilities.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -109,6 +108,7 @@ export interface UpdateProxySessionCommandOutput extends UpdateProxySessionRespo
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class UpdateProxySessionCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface GetAlternateContactCommandInput extends GetAlternateContactRequ
 export interface GetAlternateContactCommandOutput extends GetAlternateContactResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the specified alternate contact attached to an Amazon Web Services account.</p>
  *          <p>For complete details about how to use the alternate contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html">Access or
  *                 updating the alternate contacts</a>.</p>
@@ -92,6 +91,7 @@ export interface GetAlternateContactCommandOutput extends GetAlternateContactRes
  * @throws {@link AccountServiceException}
  * <p>Base exception class for all service exceptions from Account service.</p>
  *
+ * @public
  */
 export class GetAlternateContactCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetEncryptionConfigurationCommandInput extends GetEncryptionCon
 export interface GetEncryptionConfigurationCommandOutput extends GetEncryptionConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the encryption configuration for resources and data in Amazon Web Services IoT FleetWise.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface GetEncryptionConfigurationCommandOutput extends GetEncryptionCo
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class GetEncryptionConfigurationCommand extends $Command
   .classBuilder<

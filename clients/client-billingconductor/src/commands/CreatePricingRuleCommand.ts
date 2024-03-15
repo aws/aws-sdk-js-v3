@@ -31,7 +31,6 @@ export interface CreatePricingRuleCommandInput extends CreatePricingRuleInput {}
 export interface CreatePricingRuleCommandOutput extends CreatePricingRuleOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Creates a pricing rule can be associated to a pricing plan, or a set of pricing plans.
  *     </p>
@@ -101,6 +100,7 @@ export interface CreatePricingRuleCommandOutput extends CreatePricingRuleOutput,
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ * @public
  */
 export class CreatePricingRuleCommand extends $Command
   .classBuilder<

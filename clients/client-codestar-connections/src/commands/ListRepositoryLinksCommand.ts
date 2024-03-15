@@ -31,7 +31,6 @@ export interface ListRepositoryLinksCommandInput extends ListRepositoryLinksInpu
 export interface ListRepositoryLinksCommandOutput extends ListRepositoryLinksOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the repository links created for connections in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface ListRepositoryLinksCommandOutput extends ListRepositoryLinksOut
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ * @public
  */
 export class ListRepositoryLinksCommand extends $Command
   .classBuilder<

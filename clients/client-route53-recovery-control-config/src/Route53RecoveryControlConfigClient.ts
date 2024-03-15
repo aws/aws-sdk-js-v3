@@ -343,8 +343,8 @@ export interface Route53RecoveryControlConfigClientResolvedConfig
   extends Route53RecoveryControlConfigClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Recovery Control Configuration API Reference for Amazon Route 53 Application Recovery Controller</p>
+ * @public
  */
 export class Route53RecoveryControlConfigClient extends __Client<
   __HttpHandlerOptions,

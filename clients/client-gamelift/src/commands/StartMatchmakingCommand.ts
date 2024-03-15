@@ -32,7 +32,6 @@ export interface StartMatchmakingCommandInput extends StartMatchmakingInput {}
 export interface StartMatchmakingCommandOutput extends StartMatchmakingOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Uses FlexMatch to create a game match for a group of players based on custom matchmaking
  *             rules. With games that use Amazon GameLift managed hosting, this operation also triggers Amazon GameLift
  *             to find hosting resources and start a new game session for the new match. Each
@@ -168,6 +167,7 @@ export interface StartMatchmakingCommandOutput extends StartMatchmakingOutput, _
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class StartMatchmakingCommand extends $Command
   .classBuilder<

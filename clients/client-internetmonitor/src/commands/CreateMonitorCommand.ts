@@ -27,7 +27,6 @@ export interface CreateMonitorCommandInput extends CreateMonitorInput {}
 export interface CreateMonitorCommandOutput extends CreateMonitorOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a monitor in Amazon CloudWatch Internet Monitor. A monitor is built based on information from the application resources that you add: VPCs,
  * 			Network Load Balancers (NLBs), Amazon CloudFront distributions, and Amazon WorkSpaces directories. Internet Monitor then publishes internet measurements from Amazon Web Services
  * 			that are specific to the <i>city-networks</i>. That is, the locations and ASNs (typically internet service providers or ISPs),
@@ -112,6 +111,7 @@ export interface CreateMonitorCommandOutput extends CreateMonitorOutput, __Metad
  * @throws {@link InternetMonitorServiceException}
  * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
+ * @public
  */
 export class CreateMonitorCommand extends $Command
   .classBuilder<

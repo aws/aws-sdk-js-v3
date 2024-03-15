@@ -27,7 +27,6 @@ export interface DeclineInvitationsCommandInput extends DeclineInvitationsReques
 export interface DeclineInvitationsCommandOutput extends DeclineInvitationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Declines invitations to become a member account.</p>
  *          <p>A prospective member account uses this operation to decline an invitation to become a member.</p>
  *          <p>This operation is only called by member accounts that aren't part of an organization.
@@ -78,6 +77,7 @@ export interface DeclineInvitationsCommandOutput extends DeclineInvitationsRespo
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To decline invitation to become a member account
  * ```javascript
  * // The following example declines an invitation from the Security Hub administrator account to become a member account. The invited account makes the request.

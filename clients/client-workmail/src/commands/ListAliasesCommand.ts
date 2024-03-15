@@ -27,7 +27,6 @@ export interface ListAliasesCommandInput extends ListAliasesRequest {}
 export interface ListAliasesCommandOutput extends ListAliasesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a paginated call to list the aliases associated with a given
  *          entity.</p>
  * @example
@@ -81,6 +80,7 @@ export interface ListAliasesCommandOutput extends ListAliasesResponse, __Metadat
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class ListAliasesCommand extends $Command
   .classBuilder<

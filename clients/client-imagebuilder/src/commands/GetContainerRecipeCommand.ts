@@ -27,7 +27,6 @@ export interface GetContainerRecipeCommandInput extends GetContainerRecipeReques
 export interface GetContainerRecipeCommandOutput extends GetContainerRecipeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a container recipe.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -131,6 +130,7 @@ export interface GetContainerRecipeCommandOutput extends GetContainerRecipeRespo
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class GetContainerRecipeCommand extends $Command
   .classBuilder<

@@ -29,7 +29,6 @@ export interface GetEBSVolumeRecommendationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns Amazon Elastic Block Store (Amazon EBS) volume recommendations.</p>
  *          <p>Compute Optimizer generates recommendations for Amazon EBS volumes that
  *             meet a specific set of requirements. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported
@@ -174,6 +173,7 @@ export interface GetEBSVolumeRecommendationsCommandOutput
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ * @public
  */
 export class GetEBSVolumeRecommendationsCommand extends $Command
   .classBuilder<

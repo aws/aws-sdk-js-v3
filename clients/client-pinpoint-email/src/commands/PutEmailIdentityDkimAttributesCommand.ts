@@ -32,7 +32,6 @@ export interface PutEmailIdentityDkimAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Used to enable or disable DKIM authentication for an email identity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface PutEmailIdentityDkimAttributesCommandOutput
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * @public
  */
 export class PutEmailIdentityDkimAttributesCommand extends $Command
   .classBuilder<

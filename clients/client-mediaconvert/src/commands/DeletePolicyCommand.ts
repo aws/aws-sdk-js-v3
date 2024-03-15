@@ -27,7 +27,6 @@ export interface DeletePolicyCommandInput extends DeletePolicyRequest {}
 export interface DeletePolicyCommandOutput extends DeletePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * Permanently delete a policy that you created.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface DeletePolicyCommandOutput extends DeletePolicyResponse, __Metad
  * @throws {@link MediaConvertServiceException}
  * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
+ * @public
  */
 export class DeletePolicyCommand extends $Command
   .classBuilder<

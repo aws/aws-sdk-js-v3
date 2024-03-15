@@ -29,7 +29,6 @@ export interface DeleteStorageVirtualMachineCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing Amazon FSx for ONTAP storage virtual machine (SVM). Prior
  *         to deleting an SVM, you must delete all non-root volumes in the SVM, otherwise the operation will fail.</p>
  * @example
@@ -74,6 +73,7 @@ export interface DeleteStorageVirtualMachineCommandOutput
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  */
 export class DeleteStorageVirtualMachineCommand extends $Command
   .classBuilder<

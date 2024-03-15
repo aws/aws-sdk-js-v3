@@ -32,7 +32,6 @@ export interface DeleteRecommendationTemplateCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a recommendation template. This is a destructive action that can't be
  *       undone.</p>
  * @example
@@ -81,6 +80,7 @@ export interface DeleteRecommendationTemplateCommandOutput
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class DeleteRecommendationTemplateCommand extends $Command
   .classBuilder<

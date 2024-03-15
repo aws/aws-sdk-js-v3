@@ -36,7 +36,6 @@ export interface GetTrustStoreCaCertificatesBundleCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the ca certificate bundle.</p>
  *          <p>This action returns a pre-signed S3 URI which is
  *       active for ten minutes.</p>
@@ -69,6 +68,7 @@ export interface GetTrustStoreCaCertificatesBundleCommandOutput
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  */
 export class GetTrustStoreCaCertificatesBundleCommand extends $Command
   .classBuilder<

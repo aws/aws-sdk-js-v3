@@ -27,7 +27,6 @@ export interface ListWorldsCommandInput extends ListWorldsRequest {}
 export interface ListWorldsCommandOutput extends ListWorldsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists worlds.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface ListWorldsCommandOutput extends ListWorldsResponse, __MetadataB
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ * @public
  */
 export class ListWorldsCommand extends $Command
   .classBuilder<

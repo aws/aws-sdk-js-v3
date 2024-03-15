@@ -31,7 +31,6 @@ export interface CreateConnectorProfileCommandInput extends CreateConnectorProfi
 export interface CreateConnectorProfileCommandOutput extends CreateConnectorProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Creates a new connector profile associated with your Amazon Web Services account. There is
  *       a soft quota of 100 connector profiles per Amazon Web Services account. If you need more
  *       connector profiles than this quota allows, you can submit a request to the Amazon AppFlow
@@ -321,6 +320,7 @@ export interface CreateConnectorProfileCommandOutput extends CreateConnectorProf
  * @throws {@link AppflowServiceException}
  * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ * @public
  */
 export class CreateConnectorProfileCommand extends $Command
   .classBuilder<

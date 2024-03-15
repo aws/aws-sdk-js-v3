@@ -30,7 +30,6 @@ export interface DeleteDataflowEndpointGroupCommandInput extends DeleteDataflowE
 export interface DeleteDataflowEndpointGroupCommandOutput extends DataflowEndpointGroupIdResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a dataflow endpoint group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface DeleteDataflowEndpointGroupCommandOutput extends DataflowEndpoi
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ * @public
  */
 export class DeleteDataflowEndpointGroupCommand extends $Command
   .classBuilder<

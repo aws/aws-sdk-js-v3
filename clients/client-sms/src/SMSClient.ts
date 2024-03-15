@@ -411,9 +411,6 @@ export type SMSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
 export interface SMSClientResolvedConfig extends SMSClientResolvedConfigType {}
 
 /**
- * @public
- * @deprecated AWS Server Migration Service is Deprecated.
- *
  * <important>
  *             <p>
  *                <b>Product update</b>
@@ -439,6 +436,8 @@ export interface SMSClientResolvedConfig extends SMSClientResolvedConfigType {}
  *                </p>
  *             </li>
  *          </ul>
+ * @public
+ * @deprecated AWS Server Migration Service is Deprecated.
  */
 export class SMSClient extends __Client<
   __HttpHandlerOptions,

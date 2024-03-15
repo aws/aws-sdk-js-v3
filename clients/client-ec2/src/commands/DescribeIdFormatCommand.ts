@@ -27,7 +27,6 @@ export interface DescribeIdFormatCommandInput extends DescribeIdFormatRequest {}
 export interface DescribeIdFormatCommandOutput extends DescribeIdFormatResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the ID format settings for your resources on a per-Region basis, for example, to view which resource types are enabled for longer IDs. This request only returns information about resource types whose ID formats can be modified; it does not return information about other resource types.</p>
  *          <p>The following resource types support longer IDs: <code>bundle</code> |
  *            <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
@@ -80,6 +79,7 @@ export interface DescribeIdFormatCommandOutput extends DescribeIdFormatResult, _
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeIdFormatCommand extends $Command
   .classBuilder<

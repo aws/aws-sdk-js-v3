@@ -27,7 +27,6 @@ export interface DescribeBatchInferenceJobCommandInput extends DescribeBatchInfe
 export interface DescribeBatchInferenceJobCommandOutput extends DescribeBatchInferenceJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the properties of a batch inference job including name, Amazon Resource Name (ARN),
  *       status, input and output configurations, and the ARN of the solution version used to generate
  *       the recommendations.</p>
@@ -97,6 +96,7 @@ export interface DescribeBatchInferenceJobCommandOutput extends DescribeBatchInf
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class DescribeBatchInferenceJobCommand extends $Command
   .classBuilder<

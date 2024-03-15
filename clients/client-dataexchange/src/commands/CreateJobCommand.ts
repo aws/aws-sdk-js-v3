@@ -27,7 +27,6 @@ export interface CreateJobCommandInput extends CreateJobRequest {}
 export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation creates a job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -350,6 +349,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ * @public
  */
 export class CreateJobCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ModifyWorkspaceStateCommandInput extends ModifyWorkspaceStateRe
 export interface ModifyWorkspaceStateCommandOutput extends ModifyWorkspaceStateResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the state of the specified WorkSpace.</p>
  *          <p>To maintain a WorkSpace without being interrupted, set the WorkSpace state to
  *             <code>ADMIN_MAINTENANCE</code>. WorkSpaces in this state do not respond to requests to
@@ -71,6 +70,7 @@ export interface ModifyWorkspaceStateCommandOutput extends ModifyWorkspaceStateR
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class ModifyWorkspaceStateCommand extends $Command
   .classBuilder<

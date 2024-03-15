@@ -27,7 +27,6 @@ export interface CreateWorkGroupCommandInput extends CreateWorkGroupInput {}
 export interface CreateWorkGroupCommandOutput extends CreateWorkGroupOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a workgroup with the specified name. A workgroup can be an Apache Spark
  *             enabled workgroup or an Athena SQL workgroup.</p>
  * @example
@@ -105,6 +104,7 @@ export interface CreateWorkGroupCommandOutput extends CreateWorkGroupOutput, __M
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class CreateWorkGroupCommand extends $Command
   .classBuilder<

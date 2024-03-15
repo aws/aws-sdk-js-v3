@@ -27,7 +27,6 @@ export interface DeleteMonitoringScheduleCommandInput extends DeleteMonitoringSc
 export interface DeleteMonitoringScheduleCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a monitoring schedule. Also stops the schedule had not already been stopped.
  *          This does not delete the job execution history of the monitoring schedule. </p>
  * @example
@@ -57,6 +56,7 @@ export interface DeleteMonitoringScheduleCommandOutput extends __MetadataBearer 
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteMonitoringScheduleCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface AddFacetToObjectCommandInput extends AddFacetToObjectRequest {}
 export interface AddFacetToObjectCommandOutput extends AddFacetToObjectResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a new <a>Facet</a> to an object. An object can have more than one facet applied on it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -105,6 +104,7 @@ export interface AddFacetToObjectCommandOutput extends AddFacetToObjectResponse,
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class AddFacetToObjectCommand extends $Command
   .classBuilder<

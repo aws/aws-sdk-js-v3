@@ -27,7 +27,6 @@ export interface ModifyDBClusterEndpointCommandInput extends ModifyDBClusterEndp
 export interface ModifyDBClusterEndpointCommandOutput extends ModifyDBClusterEndpointOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the properties of an endpoint in an Amazon Neptune DB cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface ModifyDBClusterEndpointCommandOutput extends ModifyDBClusterEnd
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class ModifyDBClusterEndpointCommand extends $Command
   .classBuilder<

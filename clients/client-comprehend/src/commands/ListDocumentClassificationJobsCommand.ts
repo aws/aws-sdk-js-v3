@@ -32,7 +32,6 @@ export interface ListDocumentClassificationJobsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of the documentation classification jobs that you have submitted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -118,6 +117,7 @@ export interface ListDocumentClassificationJobsCommandOutput
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class ListDocumentClassificationJobsCommand extends $Command
   .classBuilder<

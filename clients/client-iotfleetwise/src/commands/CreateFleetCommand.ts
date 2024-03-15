@@ -27,7 +27,6 @@ export interface CreateFleetCommandInput extends CreateFleetRequest {}
 export interface CreateFleetCommandOutput extends CreateFleetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Creates a fleet that represents a group of vehicles.
  *             </p>
  *          <note>
@@ -93,6 +92,7 @@ export interface CreateFleetCommandOutput extends CreateFleetResponse, __Metadat
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class CreateFleetCommand extends $Command
   .classBuilder<

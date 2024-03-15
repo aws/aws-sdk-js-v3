@@ -27,7 +27,6 @@ export interface DescribeInstanceRefreshesCommandInput extends DescribeInstanceR
 export interface DescribeInstanceRefreshesCommandOutput extends DescribeInstanceRefreshesAnswer, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the instance refreshes for the specified Auto Scaling group from the
  *             previous six weeks.</p>
  *          <p>This operation is part of the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">instance refresh
@@ -233,6 +232,7 @@ export interface DescribeInstanceRefreshesCommandOutput extends DescribeInstance
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To list instance refreshes
  * ```javascript
  * // This example describes the instance refreshes for the specified Auto Scaling group.

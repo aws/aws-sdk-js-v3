@@ -27,7 +27,6 @@ export interface GetStoredQueryCommandInput extends GetStoredQueryRequest {}
 export interface GetStoredQueryCommandOutput extends GetStoredQueryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the details of a specific stored query.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface GetStoredQueryCommandOutput extends GetStoredQueryResponse, __M
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class GetStoredQueryCommand extends $Command
   .classBuilder<

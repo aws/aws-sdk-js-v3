@@ -36,7 +36,6 @@ export interface GetEvidenceFoldersByAssessmentControlCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p> Gets a list of evidence folders that are associated with a specified control in an
  *             Audit Manager assessment. </p>
  * @example
@@ -105,6 +104,7 @@ export interface GetEvidenceFoldersByAssessmentControlCommandOutput
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class GetEvidenceFoldersByAssessmentControlCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateConnectionCommandInput extends CreateConnectionRequest {}
 export interface CreateConnectionCommandOutput extends Connection, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a connection between a customer network and a specific Direct Connect location.</p>
  *          <p>A connection links your internal network to an Direct Connect location over a standard Ethernet fiber-optic
  *       cable. One end of the cable is connected to your router, the other to an Direct Connect router.</p>
@@ -118,6 +117,7 @@ export interface CreateConnectionCommandOutput extends Connection, __MetadataBea
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class CreateConnectionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribePartnerEventSourceCommandInput extends DescribePartnerE
 export interface DescribePartnerEventSourceCommandOutput extends DescribePartnerEventSourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>An SaaS partner can use this operation to list details about a partner event source that
  *       they have created. Amazon Web Services customers do not use this operation. Instead, Amazon Web Services customers can use <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DescribeEventSource.html">DescribeEventSource</a>
  *       to see details about a partner event source that is
@@ -68,6 +67,7 @@ export interface DescribePartnerEventSourceCommandOutput extends DescribePartner
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ * @public
  */
 export class DescribePartnerEventSourceCommand extends $Command
   .classBuilder<

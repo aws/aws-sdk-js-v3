@@ -27,7 +27,6 @@ export interface DescribeEventSubscriptionsCommandInput extends DescribeEventSub
 export interface DescribeEventSubscriptionsCommandOutput extends EventSubscriptionsMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists descriptions of all the Amazon Redshift event notification subscriptions for a
  *             customer account. If you specify a subscription name, lists the description for that
  *             subscription.</p>
@@ -104,6 +103,7 @@ export interface DescribeEventSubscriptionsCommandOutput extends EventSubscripti
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DescribeEventSubscriptionsCommand extends $Command
   .classBuilder<

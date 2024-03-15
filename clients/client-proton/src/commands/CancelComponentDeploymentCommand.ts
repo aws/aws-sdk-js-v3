@@ -31,7 +31,6 @@ export interface CancelComponentDeploymentCommandInput extends CancelComponentDe
 export interface CancelComponentDeploymentCommandOutput extends CancelComponentDeploymentOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Attempts to cancel a component deployment (for a component that is in the <code>IN_PROGRESS</code> deployment status).</p>
  *          <p>For more information about components, see
  *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
@@ -97,6 +96,7 @@ export interface CancelComponentDeploymentCommandOutput extends CancelComponentD
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class CancelComponentDeploymentCommand extends $Command
   .classBuilder<

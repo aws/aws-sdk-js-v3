@@ -27,7 +27,6 @@ export interface DescribeBackupPolicyCommandInput extends DescribeBackupPolicyRe
 export interface DescribeBackupPolicyCommandOutput extends BackupPolicyDescription, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the backup policy for the specified EFS file system.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DescribeBackupPolicyCommandOutput extends BackupPolicyDescripti
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * @public
  */
 export class DescribeBackupPolicyCommand extends $Command
   .classBuilder<

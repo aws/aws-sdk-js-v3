@@ -36,7 +36,6 @@ export interface GetFaceLivenessSessionResultsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the results of a specific Face Liveness session. It requires the
  *         <code>sessionId</code> as input, which was created using
  *         <code>CreateFaceLivenessSession</code>. Returns the corresponding Face Liveness confidence
@@ -124,6 +123,7 @@ export interface GetFaceLivenessSessionResultsCommandOutput
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  */
 export class GetFaceLivenessSessionResultsCommand extends $Command
   .classBuilder<

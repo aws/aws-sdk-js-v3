@@ -40,7 +40,6 @@ export interface DeleteInboundCrossClusterSearchConnectionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows the destination domain owner to delete an existing inbound cross-cluster search connection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface DeleteInboundCrossClusterSearchConnectionCommandOutput
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * @public
  */
 export class DeleteInboundCrossClusterSearchConnectionCommand extends $Command
   .classBuilder<

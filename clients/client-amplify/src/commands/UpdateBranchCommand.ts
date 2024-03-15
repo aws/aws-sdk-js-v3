@@ -32,7 +32,6 @@ export interface UpdateBranchCommandInput extends UpdateBranchRequest {}
 export interface UpdateBranchCommandOutput extends UpdateBranchResult, __MetadataBearer {}
 
 /**
- * @public
  * <p> Updates a branch for an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -135,6 +134,7 @@ export interface UpdateBranchCommandOutput extends UpdateBranchResult, __Metadat
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ * @public
  */
 export class UpdateBranchCommand extends $Command
   .classBuilder<

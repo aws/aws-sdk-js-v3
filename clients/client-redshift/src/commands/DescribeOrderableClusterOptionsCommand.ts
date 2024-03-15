@@ -32,7 +32,6 @@ export interface DescribeOrderableClusterOptionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of orderable cluster options. Before you create a new cluster you
  *             can use this operation to find what options are available, such as the EC2 Availability
  *             Zones (AZ) in the specific Amazon Web Services Region that you can specify, and the node types you can
@@ -88,6 +87,7 @@ export interface DescribeOrderableClusterOptionsCommandOutput
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DescribeOrderableClusterOptionsCommand extends $Command
   .classBuilder<

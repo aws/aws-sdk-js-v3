@@ -27,7 +27,6 @@ export interface GetProfileCommandInput extends ScalarProfileRequest {}
 export interface GetProfileCommandOutput extends ProfileDetailResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a profile.</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -82,6 +81,7 @@ export interface GetProfileCommandOutput extends ProfileDetailResponse, __Metada
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ * @public
  */
 export class GetProfileCommand extends $Command
   .classBuilder<

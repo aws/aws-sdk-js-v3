@@ -32,7 +32,6 @@ export interface UpdatePatchBaselineCommandInput extends UpdatePatchBaselineRequ
 export interface UpdatePatchBaselineCommandOutput extends UpdatePatchBaselineResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies an existing patch baseline. Fields not specified in the request are left
  *    unchanged.</p>
  *          <note>
@@ -178,6 +177,7 @@ export interface UpdatePatchBaselineCommandOutput extends UpdatePatchBaselineRes
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class UpdatePatchBaselineCommand extends $Command
   .classBuilder<

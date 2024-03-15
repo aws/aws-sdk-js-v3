@@ -27,7 +27,6 @@ export interface CreateLifecyclePolicyCommandInput extends CreateLifecyclePolicy
 export interface CreateLifecyclePolicyCommandOutput extends CreateLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon Data Lifecycle Manager lifecycle policy. Amazon Data Lifecycle Manager supports the following policy types:</p>
  *          <ul>
  *             <li>
@@ -274,6 +273,7 @@ export interface CreateLifecyclePolicyCommandOutput extends CreateLifecyclePolic
  * @throws {@link DLMServiceException}
  * <p>Base exception class for all service exceptions from DLM service.</p>
  *
+ * @public
  */
 export class CreateLifecyclePolicyCommand extends $Command
   .classBuilder<

@@ -29,7 +29,6 @@ export interface DescribeClassicLinkInstancesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This action is deprecated.</p>
  *          </note>
@@ -93,6 +92,7 @@ export interface DescribeClassicLinkInstancesCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeClassicLinkInstancesCommand extends $Command
   .classBuilder<

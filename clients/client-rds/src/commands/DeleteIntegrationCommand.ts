@@ -27,7 +27,6 @@ export interface DeleteIntegrationCommandInput extends DeleteIntegrationMessage 
 export interface DeleteIntegrationCommandOutput extends Integration, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a zero-ETL integration with Amazon Redshift.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface DeleteIntegrationCommandOutput extends Integration, __MetadataB
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To delete a zero-ETL integration
  * ```javascript
  * // The following example deletes a zero-ETL integration with Amazon Redshift.

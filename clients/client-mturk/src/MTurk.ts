@@ -845,8 +845,8 @@ export interface MTurk {
 }
 
 /**
- * @public
  * <fullname>Amazon Mechanical Turk API Reference</fullname>
+ * @public
  */
 export class MTurk extends MTurkClient implements MTurk {}
 createAggregatedClient(commands, MTurk);

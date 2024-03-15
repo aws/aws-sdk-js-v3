@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a specified tag to a specified rescore execution
  *             plan. A rescore execution plan is an Amazon Kendra
  *             Intelligent Ranking resource used for provisioning the
@@ -89,6 +88,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link KendraRankingServiceException}
  * <p>Base exception class for all service exceptions from KendraRanking service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

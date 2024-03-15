@@ -32,7 +32,6 @@ export interface CreateTransitGatewayConnectPeerCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Connect peer for a specified transit gateway Connect attachment between a
  *             transit gateway and an appliance.</p>
  *          <p>The peer address and transit gateway address must be the same IP address family (IPv4 or IPv6).</p>
@@ -111,6 +110,7 @@ export interface CreateTransitGatewayConnectPeerCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateTransitGatewayConnectPeerCommand extends $Command
   .classBuilder<

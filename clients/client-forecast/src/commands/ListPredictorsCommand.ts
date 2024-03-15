@@ -27,7 +27,6 @@ export interface ListPredictorsCommandInput extends ListPredictorsRequest {}
 export interface ListPredictorsCommandOutput extends ListPredictorsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of predictors created using the <a>CreateAutoPredictor</a> or
  *         <a>CreatePredictor</a> operations. For each predictor, this operation returns a
  *       summary of its properties, including its Amazon Resource Name (ARN). </p>
@@ -90,6 +89,7 @@ export interface ListPredictorsCommandOutput extends ListPredictorsResponse, __M
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class ListPredictorsCommand extends $Command
   .classBuilder<

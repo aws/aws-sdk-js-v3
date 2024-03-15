@@ -32,7 +32,6 @@ export interface DeleteProvisionedProductPlanCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface DeleteProvisionedProductPlanCommandOutput
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class DeleteProvisionedProductPlanCommand extends $Command
   .classBuilder<

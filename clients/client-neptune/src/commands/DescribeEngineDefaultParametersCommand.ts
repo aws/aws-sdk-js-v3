@@ -32,7 +32,6 @@ export interface DescribeEngineDefaultParametersCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the default engine and system parameter information for the specified database
  *       engine.</p>
  * @example
@@ -88,6 +87,7 @@ export interface DescribeEngineDefaultParametersCommandOutput
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class DescribeEngineDefaultParametersCommand extends $Command
   .classBuilder<

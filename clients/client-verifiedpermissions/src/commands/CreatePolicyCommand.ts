@@ -36,7 +36,6 @@ export interface CreatePolicyCommandInput extends CreatePolicyInput {}
 export interface CreatePolicyCommandOutput extends CreatePolicyOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Cedar policy and saves it in the specified policy store. You can create either a
  *             static policy or a policy linked to a policy template.</p>
  *          <ul>
@@ -223,6 +222,7 @@ export interface CreatePolicyCommandOutput extends CreatePolicyOutput, __Metadat
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ * @public
  */
 export class CreatePolicyCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface ListByoipCidrsCommandInput extends ListByoipCidrsRequest {}
 export interface ListByoipCidrsCommandOutput extends ListByoipCidrsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the IP address ranges that were specified in calls to <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/ProvisionByoipCidr.html">ProvisionByoipCidr</a>, including
  * 			the current state and a history of state changes.</p>
  * @example
@@ -85,6 +84,7 @@ export interface ListByoipCidrsCommandOutput extends ListByoipCidrsResponse, __M
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class ListByoipCidrsCommand extends $Command
   .classBuilder<

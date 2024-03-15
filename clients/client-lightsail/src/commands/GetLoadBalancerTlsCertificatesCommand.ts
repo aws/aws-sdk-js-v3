@@ -32,7 +32,6 @@ export interface GetLoadBalancerTlsCertificatesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the TLS certificates that are associated with the specified
  *       Lightsail load balancer.</p>
  *          <p>TLS is just an updated, more secure version of Secure Socket Layer (SSL).</p>
@@ -152,6 +151,7 @@ export interface GetLoadBalancerTlsCertificatesCommandOutput
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetLoadBalancerTlsCertificatesCommand extends $Command
   .classBuilder<

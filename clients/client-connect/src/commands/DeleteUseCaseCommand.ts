@@ -27,7 +27,6 @@ export interface DeleteUseCaseCommandInput extends DeleteUseCaseRequest {}
 export interface DeleteUseCaseCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a use case from an integration association.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface DeleteUseCaseCommandOutput extends __MetadataBearer {}
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DeleteUseCaseCommand extends $Command
   .classBuilder<

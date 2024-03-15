@@ -27,7 +27,6 @@ export interface DescribeClusterTracksCommandInput extends DescribeClusterTracks
 export interface DescribeClusterTracksCommandOutput extends TrackListMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all the available maintenance tracks.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface DescribeClusterTracksCommandOutput extends TrackListMessage, __
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DescribeClusterTracksCommand extends $Command
   .classBuilder<

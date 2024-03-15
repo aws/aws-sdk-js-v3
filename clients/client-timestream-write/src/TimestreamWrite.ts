@@ -368,7 +368,6 @@ export interface TimestreamWrite {
 }
 
 /**
- * @public
  * <fullname>Amazon Timestream Write</fullname>
  *          <p>Amazon Timestream is a fast, scalable, fully managed time-series database service
  *          that makes it easy to store and analyze trillions of time-series data points per day. With
@@ -382,6 +381,7 @@ export interface TimestreamWrite {
  *          optimal performance while inserting and querying data. As your data grows over time,
  *             Timestream’s adaptive query processing engine spans across storage tiers to
  *          provide fast analysis while reducing costs.</p>
+ * @public
  */
 export class TimestreamWrite extends TimestreamWriteClient implements TimestreamWrite {}
 createAggregatedClient(commands, TimestreamWrite);

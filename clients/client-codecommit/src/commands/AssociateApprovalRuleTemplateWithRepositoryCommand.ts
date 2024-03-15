@@ -31,7 +31,6 @@ export interface AssociateApprovalRuleTemplateWithRepositoryCommandInput
 export interface AssociateApprovalRuleTemplateWithRepositoryCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an association between an approval rule template and a specified repository.
  *             Then, the next time a pull request is created in the repository where the destination
  *             reference (if specified) matches the destination reference (branch) for the pull
@@ -109,6 +108,7 @@ export interface AssociateApprovalRuleTemplateWithRepositoryCommandOutput extend
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class AssociateApprovalRuleTemplateWithRepositoryCommand extends $Command
   .classBuilder<

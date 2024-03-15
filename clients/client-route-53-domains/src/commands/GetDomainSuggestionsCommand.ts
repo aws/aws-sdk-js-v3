@@ -27,7 +27,6 @@ export interface GetDomainSuggestionsCommandInput extends GetDomainSuggestionsRe
 export interface GetDomainSuggestionsCommandOutput extends GetDomainSuggestionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The GetDomainSuggestions operation returns a list of suggested domain names.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface GetDomainSuggestionsCommandOutput extends GetDomainSuggestionsR
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * @public
  */
 export class GetDomainSuggestionsCommand extends $Command
   .classBuilder<

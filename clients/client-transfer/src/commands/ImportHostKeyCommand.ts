@@ -31,7 +31,6 @@ export interface ImportHostKeyCommandInput extends ImportHostKeyRequest {}
 export interface ImportHostKeyCommandOutput extends ImportHostKeyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a host key to the server that's specified by the <code>ServerId</code>
  *       parameter.</p>
  * @example
@@ -88,6 +87,7 @@ export interface ImportHostKeyCommandOutput extends ImportHostKeyResponse, __Met
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class ImportHostKeyCommand extends $Command
   .classBuilder<

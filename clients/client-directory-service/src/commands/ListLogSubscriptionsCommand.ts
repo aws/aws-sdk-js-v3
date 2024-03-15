@@ -27,7 +27,6 @@ export interface ListLogSubscriptionsCommandInput extends ListLogSubscriptionsRe
 export interface ListLogSubscriptionsCommandOutput extends ListLogSubscriptionsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the active log subscriptions for the Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface ListLogSubscriptionsCommandOutput extends ListLogSubscriptionsR
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class ListLogSubscriptionsCommand extends $Command
   .classBuilder<

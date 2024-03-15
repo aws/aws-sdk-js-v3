@@ -25,7 +25,6 @@ export interface TestPayloadStructureCommandInput extends TestPayloadStructureIn
 export interface TestPayloadStructureCommandOutput extends TestPayloadStructureInputOutput, __MetadataBearer {}
 
 /**
- * @public
  * This example operation serializes a payload targeting a structure.
  *
  * This enforces the same requirements as TestBodyStructure
@@ -63,6 +62,7 @@ export interface TestPayloadStructureCommandOutput extends TestPayloadStructureI
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ * @public
  */
 export class TestPayloadStructureCommand extends $Command
   .classBuilder<

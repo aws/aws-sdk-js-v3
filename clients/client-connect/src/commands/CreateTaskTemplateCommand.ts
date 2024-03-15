@@ -27,7 +27,6 @@ export interface CreateTaskTemplateCommandInput extends CreateTaskTemplateReques
 export interface CreateTaskTemplateCommandOutput extends CreateTaskTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new task template in the specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -124,6 +123,7 @@ export interface CreateTaskTemplateCommandOutput extends CreateTaskTemplateRespo
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class CreateTaskTemplateCommand extends $Command
   .classBuilder<

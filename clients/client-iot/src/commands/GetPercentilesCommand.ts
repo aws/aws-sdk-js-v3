@@ -27,7 +27,6 @@ export interface GetPercentilesCommandInput extends GetPercentilesRequest {}
 export interface GetPercentilesCommandOutput extends GetPercentilesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Groups the aggregated values that match the query into percentile groupings. The default
  *         percentile groupings are: 1,5,25,50,75,95,99, although you can specify your own
  *         when you call <code>GetPercentiles</code>. This function returns a value for each
@@ -102,6 +101,7 @@ export interface GetPercentilesCommandOutput extends GetPercentilesResponse, __M
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class GetPercentilesCommand extends $Command
   .classBuilder<

@@ -71,8 +71,8 @@ export interface ComplexNestedErrorData {
 }
 
 /**
- * @public
  * This error is thrown when a request is invalid.
+ * @public
  */
 export class ComplexError extends __BaseException {
   readonly name: "ComplexError" = "ComplexError";
@@ -177,9 +177,9 @@ export interface EnumPayloadInput {
 }
 
 /**
- * @public
  * This error has test cases that test some of the dark corners of Amazon service
  * framework history. It should only be implemented by clients.
+ * @public
  */
 export class FooError extends __BaseException {
   readonly name: "FooError" = "FooError";
@@ -212,8 +212,8 @@ export interface GreetingWithErrorsOutput {
 }
 
 /**
- * @public
  * This error is thrown when an invalid greeting value is provided.
+ * @public
  */
 export class InvalidGreeting extends __BaseException {
   readonly name: "InvalidGreeting" = "InvalidGreeting";
@@ -366,14 +366,14 @@ export interface HttpRequestWithLabelsInput {
   float: number | undefined;
   double: number | undefined;
   /**
-   * @public
    * Serialized in the path as true or false.
+   * @public
    */
   boolean: boolean | undefined;
 
   /**
-   * @public
    * Note that this member has no format, so it's serialized as an RFC 3399 date-time.
+   * @public
    */
   timestamp: Date | undefined;
 }
@@ -495,8 +495,8 @@ export interface JsonListsInputOutput {
   enumList?: FooEnum[];
   intEnumList?: IntegerEnum[];
   /**
-   * @public
    * A list of lists of strings.
+   * @public
    */
   nestedStringList?: string[][];
 
@@ -540,8 +540,8 @@ export interface RenamedGreeting {
 }
 
 /**
- * @public
  * A union with a representative set of types for members.
+ * @public
  */
 export type MyUnion =
   | MyUnion.BlobValueMember
@@ -747,13 +747,13 @@ export namespace MyUnion {
 }
 
 /**
- * @public
  * A shared structure that contains a single union member.
+ * @public
  */
 export interface UnionInputOutput {
   /**
-   * @public
    * A union with a representative set of types for members.
+   * @public
    */
   contents?: MyUnion;
 }
@@ -1097,8 +1097,8 @@ export type PlayerAction = PlayerAction.QuitMember | PlayerAction.$UnknownMember
  */
 export namespace PlayerAction {
   /**
-   * @public
    * Quit the game.
+   * @public
    */
   export interface QuitMember {
     quit: Unit;

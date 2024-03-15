@@ -28,7 +28,6 @@ export interface DeleteHostedZoneCommandInput extends DeleteHostedZoneRequest {}
 export interface DeleteHostedZoneCommandOutput extends DeleteHostedZoneResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a hosted zone.</p>
  *          <p>If the hosted zone was created by another service, such as Cloud Map, see
  * 				<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DeleteHostedZone.html#delete-public-hosted-zone-created-by-another-service">Deleting Public Hosted Zones That Were Created by Another Service</a> in the
@@ -121,6 +120,7 @@ export interface DeleteHostedZoneCommandOutput extends DeleteHostedZoneResponse,
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class DeleteHostedZoneCommand extends $Command
   .classBuilder<

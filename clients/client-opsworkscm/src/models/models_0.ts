@@ -4,13 +4,12 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { OpsWorksCMServiceException as __BaseException } from "./OpsWorksCMServiceException";
 
 /**
- * @public
  * <p>Stores account attributes.
  *     </p>
+ * @public
  */
 export interface AccountAttribute {
   /**
-   * @public
    * <p>
    *       The attribute name. The following are supported attribute names.
    *     </p>
@@ -27,43 +26,44 @@ export interface AccountAttribute {
    *       </p>
    *             </li>
    *          </ul>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>
    *       The maximum allowed value.
    *     </p>
+   * @public
    */
   Maximum?: number;
 
   /**
-   * @public
    * <p>
    *       The current usage, such as the current number of servers that are associated with the account.
    *     </p>
+   * @public
    */
   Used?: number;
 }
 
 /**
- * @public
  * <p>A name and value pair that is specific to the engine of the server.
  *     </p>
+ * @public
  */
 export interface EngineAttribute {
   /**
-   * @public
    * <p>The name of the engine attribute.
    *     </p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The value of the engine attribute.
    *     </p>
+   * @public
    */
   Value?: string;
 }
@@ -73,21 +73,20 @@ export interface EngineAttribute {
  */
 export interface AssociateNodeRequest {
   /**
-   * @public
    * <p>The name of the server with which to associate the node.
    *     </p>
+   * @public
    */
   ServerName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the node.
    *     </p>
+   * @public
    */
   NodeName: string | undefined;
 
   /**
-   * @public
    * <p>Engine attributes used for associating the node.
    *     </p>
    *          <p class="title">
@@ -117,6 +116,7 @@ export interface AssociateNodeRequest {
    *     </p>
    *             </li>
    *          </ul>
+   * @public
    */
   EngineAttributes: EngineAttribute[] | undefined;
 }
@@ -126,26 +126,26 @@ export interface AssociateNodeRequest {
  */
 export interface AssociateNodeResponse {
   /**
-   * @public
    * <p>Contains a token which can be passed to the <code>DescribeNodeAssociationStatus</code> API call to get the status of the association request.
    *     </p>
+   * @public
    */
   NodeAssociationStatusToken?: string;
 }
 
 /**
- * @public
  * <p>The resource is in a state that does not allow you to perform a specified action.
  *     </p>
+ * @public
  */
 export class InvalidStateException extends __BaseException {
   readonly name: "InvalidStateException" = "InvalidStateException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>Error or informational message that provides more detail if a resource is
    *       in a state that is not valid for performing a specified action.
    *     </p>
+   * @public
    */
   Message?: string;
   /**
@@ -163,17 +163,17 @@ export class InvalidStateException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The requested resource does not exist, or access was denied.
  *     </p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>Error or informational message that can contain more detail about problems locating or accessing a resource.
    *     </p>
+   * @public
    */
   Message?: string;
   /**
@@ -191,17 +191,17 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>One or more of the provided request parameters are not valid.
  *     </p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>Error or informational message that can contain more detail about a validation failure.
    *     </p>
+   * @public
    */
   Message?: string;
   /**
@@ -249,227 +249,227 @@ export const BackupStatus = {
 export type BackupStatus = (typeof BackupStatus)[keyof typeof BackupStatus];
 
 /**
- * @public
  * <p>Describes a single backup.
  *     </p>
+ * @public
  */
 export interface Backup {
   /**
-   * @public
    * <p>The ARN of the backup.
    *     </p>
+   * @public
    */
   BackupArn?: string;
 
   /**
-   * @public
    * <p>
    *       The generated ID of the backup. Example: <code>myServerName-yyyyMMddHHmmssSSS</code>
    *          </p>
+   * @public
    */
   BackupId?: string;
 
   /**
-   * @public
    * <p>
    *       The backup type. Valid values are <code>automated</code> or <code>manual</code>.
    *     </p>
+   * @public
    */
   BackupType?: BackupType;
 
   /**
-   * @public
    * <p>
    *       The time stamp when the backup was created in the database. Example: <code>2016-07-29T13:38:47.520Z</code>
    *          </p>
+   * @public
    */
   CreatedAt?: Date;
 
   /**
-   * @public
    * <p>
    *       A user-provided description for a manual backup. This field is empty for automated backups.
    *     </p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>
    *       The engine type that is obtained from the server when the backup is created.
    *     </p>
+   * @public
    */
   Engine?: string;
 
   /**
-   * @public
    * <p>
    *       The engine model that is obtained from the server when the backup is created.
    *     </p>
+   * @public
    */
   EngineModel?: string;
 
   /**
-   * @public
    * <p>
    *       The engine version that is obtained from the server when the backup is created.
    *     </p>
+   * @public
    */
   EngineVersion?: string;
 
   /**
-   * @public
    * <p>
    *       The EC2 instance profile ARN that is obtained from the server when the backup is created. Because this value is stored,
    *       you are not required to provide the InstanceProfileArn again if you restore a backup.
    *     </p>
+   * @public
    */
   InstanceProfileArn?: string;
 
   /**
-   * @public
    * <p>
    *       The instance type that is obtained from the server when the backup is created.
    *     </p>
+   * @public
    */
   InstanceType?: string;
 
   /**
-   * @public
    * <p>
    *       The key pair that is obtained from the server when the backup is created.
    *     </p>
+   * @public
    */
   KeyPair?: string;
 
   /**
-   * @public
    * <p>
    *       The preferred backup period that is obtained from the server when the backup is created.
    *     </p>
+   * @public
    */
   PreferredBackupWindow?: string;
 
   /**
-   * @public
    * <p>
    *       The preferred maintenance period that is obtained from the server when the backup is created.
    *     </p>
+   * @public
    */
   PreferredMaintenanceWindow?: string;
 
   /**
-   * @public
    * @deprecated
    *
    * <p>
    *       This field is deprecated and is no longer used.
    *     </p>
+   * @public
    */
   S3DataSize?: number;
 
   /**
-   * @public
    * @deprecated
    *
    * <p>
    *       This field is deprecated and is no longer used.
    *     </p>
+   * @public
    */
   S3DataUrl?: string;
 
   /**
-   * @public
    * <p>
    *       The Amazon S3 URL of the backup's log file.
    *     </p>
+   * @public
    */
   S3LogUrl?: string;
 
   /**
-   * @public
    * <p>
    *       The security group IDs that are obtained from the server when the backup is created.
    *     </p>
+   * @public
    */
   SecurityGroupIds?: string[];
 
   /**
-   * @public
    * <p>
    *       The name of the server from which the backup was made.
    *     </p>
+   * @public
    */
   ServerName?: string;
 
   /**
-   * @public
    * <p>
    *       The service role ARN that is obtained from the server when the backup is created.
    *     </p>
+   * @public
    */
   ServiceRoleArn?: string;
 
   /**
-   * @public
    * <p>The status of a backup while in progress.
    *     </p>
+   * @public
    */
   Status?: BackupStatus;
 
   /**
-   * @public
    * <p>
    *       An informational message about backup status.
    *     </p>
+   * @public
    */
   StatusDescription?: string;
 
   /**
-   * @public
    * <p>
    *       The subnet IDs that are obtained from the server when the backup is created.
    *     </p>
+   * @public
    */
   SubnetIds?: string[];
 
   /**
-   * @public
    * <p>
    *       The version of AWS OpsWorks CM-specific tools that is obtained from the server when the backup is created.
    *     </p>
+   * @public
    */
   ToolsVersion?: string;
 
   /**
-   * @public
    * <p>
    *       The IAM user ARN of the requester for manual backups. This field is empty for automated backups.
    *     </p>
+   * @public
    */
   UserArn?: string;
 }
 
 /**
- * @public
  * <p>A map that contains tag keys and tag values to attach to an AWS OpsWorks for Chef Automate
  *       or AWS OpsWorks for Puppet Enterprise server. Leading and trailing white spaces are trimmed from both the key and value.
  *       A maximum of 50 user-applied tags is allowed for tag-supported AWS OpsWorks-CM resources.</p>
+ * @public
  */
 export interface Tag {
   /**
-   * @public
    * <p>A tag key, such as <code>Stage</code> or <code>Name</code>. A tag key cannot be empty. The key can be a maximum of 127 characters,
    *       and can contain only Unicode letters, numbers, or separators, or the following special characters: <code>+ - = . _ : /</code>
    *          </p>
+   * @public
    */
   Key: string | undefined;
 
   /**
-   * @public
    * <p>An optional tag value, such as <code>Production</code> or <code>test-owcm-server</code>. The value can be a maximum of 255 characters,
    *       and contain only Unicode letters, numbers, or separators, or the following special characters: <code>+ - = . _ : /</code>
    *          </p>
+   * @public
    */
   Value: string | undefined;
 }
@@ -479,22 +479,21 @@ export interface Tag {
  */
 export interface CreateBackupRequest {
   /**
-   * @public
    * <p>The name of the server that you want to back up.
    *     </p>
+   * @public
    */
   ServerName: string | undefined;
 
   /**
-   * @public
    * <p>
    *       A user-defined description of the backup.
    *     </p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>A map that contains tag keys and tag values to attach to an AWS OpsWorks-CM server backup.</p>
    *          <ul>
    *             <li>
@@ -515,6 +514,7 @@ export interface CreateBackupRequest {
    *                <p>A maximum of 50 user-applied tags is allowed for tag-supported AWS OpsWorks-CM resources.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Tags?: Tag[];
 }
@@ -524,24 +524,24 @@ export interface CreateBackupRequest {
  */
 export interface CreateBackupResponse {
   /**
-   * @public
    * <p>Backup created by request.</p>
+   * @public
    */
   Backup?: Backup;
 }
 
 /**
- * @public
  * <p>The limit of servers or backups has been reached.
  *     </p>
+ * @public
  */
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>Error or informational message that the maximum allowed number of servers or backups has been exceeded.
    *     </p>
+   * @public
    */
   Message?: string;
   /**
@@ -563,24 +563,23 @@ export class LimitExceededException extends __BaseException {
  */
 export interface CreateServerRequest {
   /**
-   * @public
    * <p>
    *         Associate a public IP address with a server that you are launching. Valid values are <code>true</code> or <code>false</code>. The default value is <code>true</code>.
    *       </p>
+   * @public
    */
   AssociatePublicIpAddress?: boolean;
 
   /**
-   * @public
    * <p>An optional public endpoint of a server, such as <code>https://aws.my-company.com</code>. To access the server, create a CNAME DNS record in your preferred DNS service that points the custom
    *       domain to the endpoint that is generated when the server is created (the value of the CreateServer Endpoint attribute). You cannot access the server by using the
    *       generated <code>Endpoint</code> value if the server is using a custom domain. If you specify a custom domain, you must also specify values for <code>CustomCertificate</code>
    *       and <code>CustomPrivateKey</code>.</p>
+   * @public
    */
   CustomDomain?: string;
 
   /**
-   * @public
    * <p>A PEM-formatted HTTPS certificate. The value can be be a single, self-signed certificate, or a certificate chain. If you specify a
    *       custom certificate, you must also specify values for <code>CustomDomain</code> and <code>CustomPrivateKey</code>. The following are requirements for the <code>CustomCertificate</code> value:</p>
    *          <ul>
@@ -601,51 +600,51 @@ export interface CreateServerRequest {
    *                <p>The certificate must match the value of <code>CustomPrivateKey</code>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   CustomCertificate?: string;
 
   /**
-   * @public
    * <p>A private key in PEM format for connecting to the server by using HTTPS. The private key must not be encrypted; it cannot be protected by a password or passphrase.
    *       If you specify a custom private key, you must also specify values for <code>CustomDomain</code> and <code>CustomCertificate</code>.</p>
+   * @public
    */
   CustomPrivateKey?: string;
 
   /**
-   * @public
    * <p>
    *         Enable or disable scheduled backups. Valid values are <code>true</code> or <code>false</code>. The default value is <code>true</code>.
    *       </p>
+   * @public
    */
   DisableAutomatedBackup?: boolean;
 
   /**
-   * @public
    * <p>
    *         The configuration management engine to use. Valid values include <code>ChefAutomate</code> and <code>Puppet</code>.
    *       </p>
+   * @public
    */
   Engine: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The engine model of the server. Valid values in this release include <code>Monolithic</code> for Puppet and <code>Single</code> for Chef.
    *       </p>
+   * @public
    */
   EngineModel?: string;
 
   /**
-   * @public
    * <p>
    *         The major release version of the engine that you want to use. For a Chef server, the valid value for EngineVersion
    *         is currently <code>2</code>. For a Puppet server, valid values are <code>2019</code> or <code>2017</code>.
    *       </p>
+   * @public
    */
   EngineVersion?: string;
 
   /**
-   * @public
    * <p>Optional engine attributes on a specified server.
    *     </p>
    *          <p class="title">
@@ -690,29 +689,29 @@ export interface CreateServerRequest {
    *         PUPPET_R10K_PRIVATE_KEY to specify a PEM-encoded private SSH key.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   EngineAttributes?: EngineAttribute[];
 
   /**
-   * @public
    * <p>
    *         The number of automated backups that you want to keep. Whenever a new backup is created, AWS OpsWorks CM deletes the oldest backups if this number is exceeded.
    *         The default value is <code>1</code>.
    *       </p>
+   * @public
    */
   BackupRetentionCount?: number;
 
   /**
-   * @public
    * <p>
    *         The name of the server. The server name must be unique within your AWS account, within each region.
    *         Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
    *       </p>
+   * @public
    */
   ServerName: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The ARN of the instance profile that your Amazon EC2
    *         instances use. Although the AWS OpsWorks console typically creates
@@ -721,27 +720,27 @@ export interface CreateServerRequest {
    *         This template creates a CloudFormation stack that includes the instance profile you need.
    *
    *       </p>
+   * @public
    */
   InstanceProfileArn: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The Amazon EC2 instance type to use. For example, <code>m5.large</code>.
    *       </p>
+   * @public
    */
   InstanceType: string | undefined;
 
   /**
-   * @public
    * <p>
    *         The Amazon EC2 key pair to set for the instance. This parameter is optional; if desired, you may specify this parameter to connect to your instances by using SSH.
    *       </p>
+   * @public
    */
   KeyPair?: string;
 
   /**
-   * @public
    * <p>
    *       The start time for a one-hour period each week during which AWS OpsWorks CM performs maintenance on the instance.
    *       Valid values must be specified in the following format: <code>DDD:HH:MM</code>. <code>MM</code> must be specified as <code>00</code>. The specified time is in coordinated universal time (UTC).
@@ -752,11 +751,11 @@ export interface CreateServerRequest {
    *             <code>Mon:08:00</code>,
    *       which represents a start time of every Monday at 08:00 UTC. (8:00 a.m.)
    *     </p>
+   * @public
    */
   PreferredMaintenanceWindow?: string;
 
   /**
-   * @public
    * <p>
    *       The start time for a one-hour period during which AWS OpsWorks CM backs up application-level data on your server
    *       if automated backups are enabled. Valid values must be specified in one of the following formats:
@@ -779,11 +778,11 @@ export interface CreateServerRequest {
    *          <p>
    *             <b>Example:</b>
    *             <code>Mon:08:00</code>, which represents a start time of every Monday at 08:00 UTC. (8:00 a.m.)</p>
+   * @public
    */
   PreferredBackupWindow?: string;
 
   /**
-   * @public
    * <p>
    *       A list of security group IDs to attach to the Amazon EC2 instance. If you add this parameter, the specified security groups
    *       must be within the VPC that is specified by <code>SubnetIds</code>.
@@ -792,22 +791,22 @@ export interface CreateServerRequest {
    *       If you do not specify this parameter, AWS OpsWorks CM creates one new security group that uses TCP ports 22 and 443, open to
    *       0.0.0.0/0 (everyone).
    *     </p>
+   * @public
    */
   SecurityGroupIds?: string[];
 
   /**
-   * @public
    * <p>
    *       The service role that the AWS OpsWorks CM service backend uses to work with your account. Although the AWS OpsWorks management console typically creates
    *       the service role for you, if you are using the AWS CLI or API commands,
    *       run the service-role-creation.yaml AWS CloudFormation template, located at https://s3.amazonaws.com/opsworks-cm-us-east-1-prod-default-assets/misc/opsworks-cm-roles.yaml.
    *       This template creates a CloudFormation stack that includes the service role and instance profile that you need.
    *     </p>
+   * @public
    */
   ServiceRoleArn: string | undefined;
 
   /**
-   * @public
    * <p>
    *       The IDs of subnets in which to launch the server EC2 instance.
    *     </p>
@@ -819,11 +818,11 @@ export interface CreateServerRequest {
    *     </p>
    *          <p>For more information about supported Amazon EC2 platforms, see
    *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported Platforms</a>.</p>
+   * @public
    */
   SubnetIds?: string[];
 
   /**
-   * @public
    * <p>A map that contains tag keys and tag values to attach to an AWS OpsWorks for Chef Automate or AWS OpsWorks for Puppet Enterprise server.</p>
    *          <ul>
    *             <li>
@@ -844,14 +843,15 @@ export interface CreateServerRequest {
    *                <p>A maximum of 50 user-applied tags is allowed for any AWS OpsWorks-CM server.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Tags?: Tag[];
 
   /**
-   * @public
    * <p>
    *       If you specify this field, AWS OpsWorks CM creates the server by using the backup represented by BackupId.
    *     </p>
+   * @public
    */
   BackupId?: string;
 }
@@ -896,85 +896,84 @@ export const ServerStatus = {
 export type ServerStatus = (typeof ServerStatus)[keyof typeof ServerStatus];
 
 /**
- * @public
  * <p>Describes a configuration management server.
  *     </p>
+ * @public
  */
 export interface Server {
   /**
-   * @public
    * <p>Associate a public IP address with a server that you are launching.
    *     </p>
+   * @public
    */
   AssociatePublicIpAddress?: boolean;
 
   /**
-   * @public
    * <p>The number of automated backups to keep.
    *     </p>
+   * @public
    */
   BackupRetentionCount?: number;
 
   /**
-   * @public
    * <p>The name of the server.
    *     </p>
+   * @public
    */
   ServerName?: string;
 
   /**
-   * @public
    * <p>Time stamp of server creation. Example <code>2016-07-29T13:38:47.520Z</code>
    *          </p>
+   * @public
    */
   CreatedAt?: Date;
 
   /**
-   * @public
    * <p>The ARN of the CloudFormation stack that was used to create the server.
    *     </p>
+   * @public
    */
   CloudFormationStackArn?: string;
 
   /**
-   * @public
    * <p>An optional public endpoint of a server, such as <code>https://aws.my-company.com</code>.
    *       You cannot access the server by using the <code>Endpoint</code> value if the server has a <code>CustomDomain</code> specified.</p>
+   * @public
    */
   CustomDomain?: string;
 
   /**
-   * @public
    * <p>Disables automated backups. The number of stored backups is dependent on the value of PreferredBackupCount.
    *     </p>
+   * @public
    */
   DisableAutomatedBackup?: boolean;
 
   /**
-   * @public
    * <p>
    *       A DNS name that can be used to access the engine. Example: <code>myserver-asdfghjkl.us-east-1.opsworks.io</code>.
    *       You cannot access the server by using the <code>Endpoint</code> value if the server has a <code>CustomDomain</code> specified.
    *     </p>
+   * @public
    */
   Endpoint?: string;
 
   /**
-   * @public
    * <p>The engine type of the server. Valid values in this release include <code>ChefAutomate</code> and <code>Puppet</code>.
    *     </p>
+   * @public
    */
   Engine?: string;
 
   /**
-   * @public
    * <p>The engine model of the server. Valid values in this release include <code>Monolithic</code> for Puppet and <code>Single</code> for Chef.
    *     </p>
+   * @public
    */
   EngineModel?: string;
 
   /**
-   * @public
    * <p>The response of a createServer() request returns the master
    *     credential to access the server in EngineAttributes. These
    *     credentials are not stored by AWS OpsWorks CM; they are returned only as part of the result of createServer().
@@ -1014,106 +1013,107 @@ export interface Server {
    *                   <code>PUPPET_ADMIN_PASSWORD</code>: An administrator password that you can use to sign in to the Puppet Enterprise console after the server is online.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   EngineAttributes?: EngineAttribute[];
 
   /**
-   * @public
    * <p>The engine version of the server. For a Chef server, the valid value for EngineVersion is
    *       currently <code>2</code>. For a Puppet server, specify either <code>2019</code> or <code>2017</code>.
    *     </p>
+   * @public
    */
   EngineVersion?: string;
 
   /**
-   * @public
    * <p>The instance profile ARN of the server.
    *     </p>
+   * @public
    */
   InstanceProfileArn?: string;
 
   /**
-   * @public
    * <p>
    *       The instance type for the server, as specified in the CloudFormation stack. This might not be the same instance type that is shown in the EC2 console.
    *     </p>
+   * @public
    */
   InstanceType?: string;
 
   /**
-   * @public
    * <p>The key pair associated with the server.
    *     </p>
+   * @public
    */
   KeyPair?: string;
 
   /**
-   * @public
    * <p>The status of the most recent server maintenance run. Shows <code>SUCCESS</code> or <code>FAILED</code>.
    *     </p>
+   * @public
    */
   MaintenanceStatus?: MaintenanceStatus;
 
   /**
-   * @public
    * <p>The preferred maintenance period specified for the server.
    *     </p>
+   * @public
    */
   PreferredMaintenanceWindow?: string;
 
   /**
-   * @public
    * <p>The preferred backup period specified for the server.
    *     </p>
+   * @public
    */
   PreferredBackupWindow?: string;
 
   /**
-   * @public
    * <p>
    *       The security group IDs for the server, as specified in the CloudFormation stack.
    *       These might not be the same security groups that are shown in the EC2 console.
    *     </p>
+   * @public
    */
   SecurityGroupIds?: string[];
 
   /**
-   * @public
    * <p>The service role ARN used to create the server.
    *     </p>
+   * @public
    */
   ServiceRoleArn?: string;
 
   /**
-   * @public
    * <p>
    *       The server's status. This field displays the states of actions in progress, such as creating, running, or backing up the server,
    *       as well as the server's health state.
    *     </p>
+   * @public
    */
   Status?: ServerStatus;
 
   /**
-   * @public
    * <p>
    *       Depending on the server status, this field has either a human-readable
    *       message (such as a create or backup error), or an escaped block of JSON (used for health check results).
    *     </p>
+   * @public
    */
   StatusReason?: string;
 
   /**
-   * @public
    * <p>
    *       The subnet IDs specified in a CreateServer request.
    *     </p>
+   * @public
    */
   SubnetIds?: string[];
 
   /**
-   * @public
    * <p>The ARN of the server.
    *     </p>
+   * @public
    */
   ServerArn?: string;
 }
@@ -1123,25 +1123,25 @@ export interface Server {
  */
 export interface CreateServerResponse {
   /**
-   * @public
    * <p>The server that is created by the request.
    *     </p>
+   * @public
    */
   Server?: Server;
 }
 
 /**
- * @public
  * <p>The requested resource cannot be created because it already exists.
  *     </p>
+ * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
   readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>Error or informational message in response to a CreateServer request that a resource cannot be created because it already exists.
    *     </p>
+   * @public
    */
   Message?: string;
   /**
@@ -1163,10 +1163,10 @@ export class ResourceAlreadyExistsException extends __BaseException {
  */
 export interface DeleteBackupRequest {
   /**
-   * @public
    * <p>The ID of the backup to delete. Run the DescribeBackups command to get a list of backup IDs.
    *       Backup IDs are in the format <code>ServerName-yyyyMMddHHmmssSSS</code>.
    *     </p>
+   * @public
    */
   BackupId: string | undefined;
 }
@@ -1181,8 +1181,8 @@ export interface DeleteBackupResponse {}
  */
 export interface DeleteServerRequest {
   /**
-   * @public
    * <p>The ID of the server to delete.</p>
+   * @public
    */
   ServerName: string | undefined;
 }
@@ -1202,10 +1202,10 @@ export interface DescribeAccountAttributesRequest {}
  */
 export interface DescribeAccountAttributesResponse {
   /**
-   * @public
    * <p>
    *       The attributes that are currently set for the account.
    *     </p>
+   * @public
    */
   Attributes?: AccountAttribute[];
 }
@@ -1215,28 +1215,28 @@ export interface DescribeAccountAttributesResponse {
  */
 export interface DescribeBackupsRequest {
   /**
-   * @public
    * <p>Describes a single backup.
    *     </p>
+   * @public
    */
   BackupId?: string;
 
   /**
-   * @public
    * <p>Returns backups for the server with the specified ServerName.
    *     </p>
+   * @public
    */
   ServerName?: string;
 
   /**
-   * @public
    * <p>This is not currently implemented for <code>DescribeBackups</code> requests.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>This is not currently implemented for <code>DescribeBackups</code> requests.</p>
+   * @public
    */
   MaxResults?: number;
 }
@@ -1246,31 +1246,31 @@ export interface DescribeBackupsRequest {
  */
 export interface DescribeBackupsResponse {
   /**
-   * @public
    * <p>Contains the response to a <code>DescribeBackups</code> request.
    *     </p>
+   * @public
    */
   Backups?: Backup[];
 
   /**
-   * @public
    * <p>This is not currently implemented for <code>DescribeBackups</code> requests.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>This occurs when the provided nextToken is not valid.
  *     </p>
+ * @public
  */
 export class InvalidNextTokenException extends __BaseException {
   readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>Error or informational message that can contain more detail about a nextToken failure.
    *     </p>
+   * @public
    */
   Message?: string;
   /**
@@ -1292,13 +1292,12 @@ export class InvalidNextTokenException extends __BaseException {
  */
 export interface DescribeEventsRequest {
   /**
-   * @public
    * <p>The name of the server for which you want to view events.</p>
+   * @public
    */
   ServerName: string | undefined;
 
   /**
-   * @public
    * <p>NextToken is a string that is returned in some command responses. It indicates that
    *       not all entries have been returned, and that you must run at least one more request to get remaining
    *       items. To get remaining results, call <code>DescribeEvents</code> again, and assign the token from the previous
@@ -1307,49 +1306,50 @@ export interface DescribeEventsRequest {
    *       Setting a <code>nextToken</code> value that was not returned in
    *       your previous results causes an <code>InvalidNextTokenException</code> to occur.
    *     </p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>To receive a paginated response, use this parameter to specify the maximum number
    *       of results to be returned with a single call. If the number of available results exceeds
    *       this maximum, the response includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code>
    *       request parameter to get the next set of results.
    *     </p>
+   * @public
    */
   MaxResults?: number;
 }
 
 /**
- * @public
  * <p>An event that is related to the server, such as the start of maintenance or backup.
  *     </p>
+ * @public
  */
 export interface ServerEvent {
   /**
-   * @public
    * <p>The time when the event occurred.
    *     </p>
+   * @public
    */
   CreatedAt?: Date;
 
   /**
-   * @public
    * <p>The name of the server on or for which the event occurred.
    *     </p>
+   * @public
    */
   ServerName?: string;
 
   /**
-   * @public
    * <p>A human-readable informational or status message.</p>
+   * @public
    */
   Message?: string;
 
   /**
-   * @public
    * <p>The Amazon S3 URL of the event's log file.</p>
+   * @public
    */
   LogUrl?: string;
 }
@@ -1359,14 +1359,13 @@ export interface ServerEvent {
  */
 export interface DescribeEventsResponse {
   /**
-   * @public
    * <p>Contains the response to a <code>DescribeEvents</code> request.
    *     </p>
+   * @public
    */
   ServerEvents?: ServerEvent[];
 
   /**
-   * @public
    * <p>NextToken is a string that is returned in some command responses. It indicates that
    *       not all entries have been returned, and that you must run at least one more request to get remaining
    *       items. To get remaining results, call <code>DescribeEvents</code> again, and assign the token from the previous
@@ -1375,6 +1374,7 @@ export interface DescribeEventsResponse {
    *       Setting a <code>nextToken</code> value that was not returned in
    *       your previous results causes an <code>InvalidNextTokenException</code> to occur.
    *     </p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1384,16 +1384,16 @@ export interface DescribeEventsResponse {
  */
 export interface DescribeNodeAssociationStatusRequest {
   /**
-   * @public
    * <p>The token returned in either the AssociateNodeResponse or the DisassociateNodeResponse.
    *     </p>
+   * @public
    */
   NodeAssociationStatusToken: string | undefined;
 
   /**
-   * @public
    * <p>The name of the server from which to disassociate the node.
    *     </p>
+   * @public
    */
   ServerName: string | undefined;
 }
@@ -1418,7 +1418,6 @@ export type NodeAssociationStatus = (typeof NodeAssociationStatus)[keyof typeof 
  */
 export interface DescribeNodeAssociationStatusResponse {
   /**
-   * @public
    * <p>The status of the association or disassociation request.
    *     </p>
    *          <p class="title">
@@ -1441,14 +1440,15 @@ export interface DescribeNodeAssociationStatusResponse {
    *       </p>
    *             </li>
    *          </ul>
+   * @public
    */
   NodeAssociationStatus?: NodeAssociationStatus;
 
   /**
-   * @public
    * <p>Attributes specific to the node association.
    *       In Puppet, the attibute PUPPET_NODE_CERT contains the signed certificate (the result of the CSR).
    *     </p>
+   * @public
    */
   EngineAttributes?: EngineAttribute[];
 }
@@ -1458,22 +1458,22 @@ export interface DescribeNodeAssociationStatusResponse {
  */
 export interface DescribeServersRequest {
   /**
-   * @public
    * <p>Describes the server with the specified ServerName.</p>
+   * @public
    */
   ServerName?: string;
 
   /**
-   * @public
    * <p>This is not currently implemented for <code>DescribeServers</code> requests.
    *     </p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>This is not currently implemented for <code>DescribeServers</code> requests.
    *     </p>
+   * @public
    */
   MaxResults?: number;
 }
@@ -1483,7 +1483,6 @@ export interface DescribeServersRequest {
  */
 export interface DescribeServersResponse {
   /**
-   * @public
    * <p>Contains the response to a <code>DescribeServers</code> request.</p>
    *          <p>
    *             <i>For Chef Automate servers:</i>  If <code>DescribeServersResponse$Servers$EngineAttributes</code> includes
@@ -1506,13 +1505,14 @@ export interface DescribeServersResponse {
    *         <a href="https://puppet.com/docs/puppet/5.5/man/certificate_revocation_list.html">Man Page: puppet certificate_revocation_list</a> in the Puppet documentation.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Servers?: Server[];
 
   /**
-   * @public
    * <p>This is not currently implemented for <code>DescribeServers</code> requests.
    *     </p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1522,21 +1522,20 @@ export interface DescribeServersResponse {
  */
 export interface DisassociateNodeRequest {
   /**
-   * @public
    * <p>The name of the server from which to disassociate the node.
    *     </p>
+   * @public
    */
   ServerName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the client node.
    *     </p>
+   * @public
    */
   NodeName: string | undefined;
 
   /**
-   * @public
    * <p>Engine attributes that are used for disassociating the node. No attributes are required for Puppet.
    *     </p>
    *          <p class="title">
@@ -1551,6 +1550,7 @@ export interface DisassociateNodeRequest {
    *       </p>
    *             </li>
    *          </ul>
+   * @public
    */
   EngineAttributes?: EngineAttribute[];
 }
@@ -1560,11 +1560,11 @@ export interface DisassociateNodeRequest {
  */
 export interface DisassociateNodeResponse {
   /**
-   * @public
    * <p>Contains a token which can be passed to the
    *       <code>DescribeNodeAssociationStatus</code> API call to get the status of
    *       the disassociation request.
    *     </p>
+   * @public
    */
   NodeAssociationStatusToken?: string;
 }
@@ -1574,20 +1574,19 @@ export interface DisassociateNodeResponse {
  */
 export interface ExportServerEngineAttributeRequest {
   /**
-   * @public
    * <p>The name of the export attribute. Currently, the supported export attribute is <code>Userdata</code>.
    *       This exports a user data script that includes parameters and values provided in the <code>InputAttributes</code> list.</p>
+   * @public
    */
   ExportAttributeName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the server from which you are exporting the attribute.</p>
+   * @public
    */
   ServerName: string | undefined;
 
   /**
-   * @public
    * <p>The list of engine attributes. The list type is <code>EngineAttribute</code>. An <code>EngineAttribute</code> list item
    *       is a pair that includes an attribute name and its value. For the <code>Userdata</code> ExportAttributeName, the following are
    *       supported engine attribute names.</p>
@@ -1614,6 +1613,7 @@ export interface ExportServerEngineAttributeRequest {
    *         this parameter is ignored.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   InputAttributes?: EngineAttribute[];
 }
@@ -1623,14 +1623,14 @@ export interface ExportServerEngineAttributeRequest {
  */
 export interface ExportServerEngineAttributeResponse {
   /**
-   * @public
    * <p>The requested engine attribute pair with attribute name and value.</p>
+   * @public
    */
   EngineAttribute?: EngineAttribute;
 
   /**
-   * @public
    * <p>The server name used in the request.</p>
+   * @public
    */
   ServerName?: string;
 }
@@ -1640,14 +1640,13 @@ export interface ExportServerEngineAttributeResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Number (ARN) of an AWS OpsWorks for Chef Automate or AWS OpsWorks for Puppet Enterprise server for which you want to show applied tags. For example,
    *         <code>arn:aws:opsworks-cm:us-west-2:123456789012:server/test-owcm-server/EXAMPLE-66b0-4196-8274-d1a2bEXAMPLE</code>.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * @public
    * <p>NextToken is a string that is returned in some command responses. It indicates that
    *         not all entries have been returned, and that you must run at least one more request to get remaining
    *         items. To get remaining results, call <code>ListTagsForResource</code> again, and assign the token from the previous
@@ -1655,15 +1654,16 @@ export interface ListTagsForResourceRequest {
    *         the response object's <code>nextToken</code> parameter value is <code>null</code>.
    *         Setting a <code>nextToken</code> value that was not returned in
    *         your previous results causes an <code>InvalidNextTokenException</code> to occur.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>To receive a paginated response, use this parameter to specify the maximum number
    *         of results to be returned with a single call. If the number of available results exceeds
    *         this maximum, the response includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code>
    *         request parameter to get the next set of results.</p>
+   * @public
    */
   MaxResults?: number;
 }
@@ -1673,14 +1673,14 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>Tags that have been applied to the resource.</p>
+   * @public
    */
   Tags?: Tag[];
 
   /**
-   * @public
    * <p>A token that you can use as the value of <code>NextToken</code> in subsequent calls to the API to show more results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1690,33 +1690,33 @@ export interface ListTagsForResourceResponse {
  */
 export interface RestoreServerRequest {
   /**
-   * @public
    * <p> The ID of the backup that you want to use to restore a server.
    *     </p>
+   * @public
    */
   BackupId: string | undefined;
 
   /**
-   * @public
    * <p> The name of the server that you want to restore.
    *     </p>
+   * @public
    */
   ServerName: string | undefined;
 
   /**
-   * @public
    * <p> The type of instance to restore. Valid values must be specified in the following format: <code>^([cm][34]|t2).*</code>
    *       For example, <code>m5.large</code>. Valid values are <code>m5.large</code>, <code>r5.xlarge</code>, and <code>r5.2xlarge</code>. If you do not specify this parameter,
    *       RestoreServer uses the instance type from the specified backup.
    *     </p>
+   * @public
    */
   InstanceType?: string;
 
   /**
-   * @public
    * <p> The name of the key pair to set on the new EC2 instance. This can be helpful
    *       if the administrator no longer has the SSH key.
    *     </p>
+   * @public
    */
   KeyPair?: string;
 }
@@ -1726,9 +1726,9 @@ export interface RestoreServerRequest {
  */
 export interface RestoreServerResponse {
   /**
-   * @public
    * <p>Describes a configuration management server.
    *     </p>
+   * @public
    */
   Server?: Server;
 }
@@ -1738,14 +1738,13 @@ export interface RestoreServerResponse {
  */
 export interface StartMaintenanceRequest {
   /**
-   * @public
    * <p>The name of the server on which to run maintenance.
    *     </p>
+   * @public
    */
   ServerName: string | undefined;
 
   /**
-   * @public
    * <p>Engine attributes that are specific to the server on which you want to run maintenance.</p>
    *          <p class="title">
    *             <b>Attributes accepted in a StartMaintenance request for Chef</b>
@@ -1759,6 +1758,7 @@ export interface StartMaintenanceRequest {
    *       </p>
    *             </li>
    *          </ul>
+   * @public
    */
   EngineAttributes?: EngineAttribute[];
 }
@@ -1768,9 +1768,9 @@ export interface StartMaintenanceRequest {
  */
 export interface StartMaintenanceResponse {
   /**
-   * @public
    * <p>Contains the response to a <code>StartMaintenance</code> request.
    *     </p>
+   * @public
    */
   Server?: Server;
 }
@@ -1780,14 +1780,13 @@ export interface StartMaintenanceResponse {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Number (ARN) of a resource to which you want to apply tags. For example,
    *       <code>arn:aws:opsworks-cm:us-west-2:123456789012:server/test-owcm-server/EXAMPLE-66b0-4196-8274-d1a2bEXAMPLE</code>.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * @public
    * <p>A map that contains tag keys and tag values to attach to AWS OpsWorks-CM servers or backups.</p>
    *          <ul>
    *             <li>
@@ -1808,6 +1807,7 @@ export interface TagResourceRequest {
    *                <p>A maximum of 50 user-applied tags is allowed for any AWS OpsWorks-CM server or backup.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Tags: Tag[] | undefined;
 }
@@ -1822,15 +1822,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Number (ARN) of a resource from which you want to remove tags. For example,
    *       <code>arn:aws:opsworks-cm:us-west-2:123456789012:server/test-owcm-server/EXAMPLE-66b0-4196-8274-d1a2bEXAMPLE</code>.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The keys of tags that you want to remove.</p>
+   * @public
    */
   TagKeys: string[] | undefined;
 }
@@ -1845,28 +1845,27 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateServerRequest {
   /**
-   * @public
    * <p>Setting DisableAutomatedBackup to <code>true</code> disables automated or scheduled backups. Automated backups are enabled by default.
    *     </p>
+   * @public
    */
   DisableAutomatedBackup?: boolean;
 
   /**
-   * @public
    * <p>Sets the number of automated backups that you want to keep.
    *       </p>
+   * @public
    */
   BackupRetentionCount?: number;
 
   /**
-   * @public
    * <p>The name of the server to update.
    *     </p>
+   * @public
    */
   ServerName: string | undefined;
 
   /**
-   * @public
    * <p>
    *             <code>DDD:HH:MM</code> (weekly start time) or
    *     <code>HH:MM</code> (daily start time).
@@ -1874,11 +1873,11 @@ export interface UpdateServerRequest {
    *          <p>
    *       Time windows always use coordinated universal time (UTC). Valid strings for day of week (<code>DDD</code>) are: <code>Mon</code>, <code>Tue</code>, <code>Wed</code>,
    *       <code>Thr</code>, <code>Fri</code>, <code>Sat</code>, or <code>Sun</code>.</p>
+   * @public
    */
   PreferredMaintenanceWindow?: string;
 
   /**
-   * @public
    * <p>
    *             <code>DDD:HH:MM</code> (weekly start time) or
    *     <code>HH:MM</code> (daily start time).
@@ -1886,6 +1885,7 @@ export interface UpdateServerRequest {
    *          <p>
    *       Time windows always use coordinated universal time (UTC). Valid strings for day of week (<code>DDD</code>) are: <code>Mon</code>, <code>Tue</code>, <code>Wed</code>,
    *       <code>Thr</code>, <code>Fri</code>, <code>Sat</code>, or <code>Sun</code>.</p>
+   * @public
    */
   PreferredBackupWindow?: string;
 }
@@ -1895,9 +1895,9 @@ export interface UpdateServerRequest {
  */
 export interface UpdateServerResponse {
   /**
-   * @public
    * <p>Contains the response to a <code>UpdateServer</code> request.
    *     </p>
+   * @public
    */
   Server?: Server;
 }
@@ -1907,23 +1907,23 @@ export interface UpdateServerResponse {
  */
 export interface UpdateServerEngineAttributesRequest {
   /**
-   * @public
    * <p>The name of the server to update.
    *     </p>
+   * @public
    */
   ServerName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the engine attribute to update.
    *     </p>
+   * @public
    */
   AttributeName: string | undefined;
 
   /**
-   * @public
    * <p>The value to set for the attribute.
    *     </p>
+   * @public
    */
   AttributeValue?: string;
 }
@@ -1933,9 +1933,9 @@ export interface UpdateServerEngineAttributesRequest {
  */
 export interface UpdateServerEngineAttributesResponse {
   /**
-   * @public
    * <p>Contains the response to an <code>UpdateServerEngineAttributes</code> request.
    *     </p>
+   * @public
    */
   Server?: Server;
 }

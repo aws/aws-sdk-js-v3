@@ -27,7 +27,6 @@ export interface GetSampledRequestsCommandInput extends GetSampledRequestsReques
 export interface GetSampledRequestsCommandOutput extends GetSampledRequestsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets detailed information about a specified number of requests--a sample--that WAF
  *          randomly selects from among the first 5,000 requests that your Amazon Web Services resource received
  *          during a time range that you choose. You can specify a sample size of up to 500 requests,
@@ -150,6 +149,7 @@ export interface GetSampledRequestsCommandOutput extends GetSampledRequestsRespo
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class GetSampledRequestsCommand extends $Command
   .classBuilder<

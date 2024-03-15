@@ -27,7 +27,6 @@ export interface ListDataSourcesCommandInput extends ListDataSourcesRequest {}
 export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists direct-query data sources for a specific domain. For more information, see
  *    For more information, see
  *    <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/direct-query-s3.html">Working with Amazon OpenSearch Service direct queries with Amazon S3</a>.</p>
@@ -85,6 +84,7 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class ListDataSourcesCommand extends $Command
   .classBuilder<

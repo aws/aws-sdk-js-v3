@@ -32,7 +32,6 @@ export interface DisassociateThirdPartyFirewallCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates a Firewall Manager policy administrator from a third-party firewall tenant. When you call <code>DisassociateThirdPartyFirewall</code>, the third-party firewall vendor deletes all of the firewalls that are associated with the account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface DisassociateThirdPartyFirewallCommandOutput
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * @public
  */
 export class DisassociateThirdPartyFirewallCommand extends $Command
   .classBuilder<

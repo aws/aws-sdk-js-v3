@@ -32,7 +32,6 @@ export interface ListVirtualInterfaceTestHistoryCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the virtual interface failover test history.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface ListVirtualInterfaceTestHistoryCommandOutput
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class ListVirtualInterfaceTestHistoryCommand extends $Command
   .classBuilder<

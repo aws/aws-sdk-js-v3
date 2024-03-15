@@ -27,7 +27,6 @@ export interface CreateBatchPredictionCommandInput extends CreateBatchPrediction
 export interface CreateBatchPredictionCommandOutput extends CreateBatchPredictionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Generates predictions for a group of observations. The observations to process exist in one or more data files referenced
  *             by a <code>DataSource</code>. This operation creates a new <code>BatchPrediction</code>, and uses an <code>MLModel</code> and the data
  *             files referenced by the <code>DataSource</code> as information sources.
@@ -79,6 +78,7 @@ export interface CreateBatchPredictionCommandOutput extends CreateBatchPredictio
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * @public
  */
 export class CreateBatchPredictionCommand extends $Command
   .classBuilder<

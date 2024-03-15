@@ -32,7 +32,6 @@ export interface GetRegistryScanningConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the scanning configuration for a registry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface GetRegistryScanningConfigurationCommandOutput
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * @public
  */
 export class GetRegistryScanningConfigurationCommand extends $Command
   .classBuilder<

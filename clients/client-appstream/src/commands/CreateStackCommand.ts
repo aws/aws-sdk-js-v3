@@ -27,7 +27,6 @@ export interface CreateStackCommandInput extends CreateStackRequest {}
 export interface CreateStackCommandOutput extends CreateStackResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a stack to start streaming applications to users. A stack consists of an associated fleet, user access policies, and storage configurations. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -165,6 +164,7 @@ export interface CreateStackCommandOutput extends CreateStackResult, __MetadataB
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class CreateStackCommand extends $Command
   .classBuilder<

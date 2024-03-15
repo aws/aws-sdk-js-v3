@@ -27,7 +27,6 @@ export interface DeleteContextCommandInput extends DeleteContextRequest {}
 export interface DeleteContextCommandOutput extends DeleteContextResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an context.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -58,6 +57,7 @@ export interface DeleteContextCommandOutput extends DeleteContextResponse, __Met
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteContextCommand extends $Command
   .classBuilder<

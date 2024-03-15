@@ -36,7 +36,6 @@ export interface DescribeSubscribersForNotificationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the subscribers that are associated with a notification.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface DescribeSubscribersForNotificationCommandOutput
  * @throws {@link BudgetsServiceException}
  * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
+ * @public
  */
 export class DescribeSubscribersForNotificationCommand extends $Command
   .classBuilder<

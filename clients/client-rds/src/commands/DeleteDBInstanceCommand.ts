@@ -27,7 +27,6 @@ export interface DeleteDBInstanceCommandInput extends DeleteDBInstanceMessage {}
 export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a previously provisioned DB instance.
  *           When you delete a DB instance, all automated backups for that instance are deleted and can't be recovered.
  *           However, manual DB snapshots of the DB instance aren't deleted.</p>
@@ -325,6 +324,7 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To delete a DB instance
  * ```javascript
  * // The following example deletes the specified DB instance after creating a final DB snapshot named test-instance-final-snap.

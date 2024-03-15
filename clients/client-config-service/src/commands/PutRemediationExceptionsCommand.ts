@@ -27,7 +27,6 @@ export interface PutRemediationExceptionsCommandInput extends PutRemediationExce
 export interface PutRemediationExceptionsCommandOutput extends PutRemediationExceptionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>A remediation exception is when a specified resource is no longer considered for auto-remediation.
  * 			This API adds a new exception or updates an existing exception for a specified resource with a specified Config rule. </p>
  *          <note>
@@ -141,6 +140,7 @@ export interface PutRemediationExceptionsCommandOutput extends PutRemediationExc
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class PutRemediationExceptionsCommand extends $Command
   .classBuilder<

@@ -30,7 +30,6 @@ export interface UpdateQueueHoursOfOperationCommandInput extends UpdateQueueHour
 export interface UpdateQueueHoursOfOperationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Updates the hours of operation for the specified queue.</p>
  * @example
@@ -74,6 +73,7 @@ export interface UpdateQueueHoursOfOperationCommandOutput extends __MetadataBear
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UpdateQueueHoursOfOperationCommand extends $Command
   .classBuilder<

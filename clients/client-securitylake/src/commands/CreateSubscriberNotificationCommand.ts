@@ -32,7 +32,6 @@ export interface CreateSubscriberNotificationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Notifies the subscriber when new data is written to the data lake for the sources that
  *          the subscriber consumes in Security Lake. You can create only one subscriber notification per
  *          subscriber.</p>
@@ -97,6 +96,7 @@ export interface CreateSubscriberNotificationCommandOutput
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ * @public
  */
 export class CreateSubscriberNotificationCommand extends $Command
   .classBuilder<

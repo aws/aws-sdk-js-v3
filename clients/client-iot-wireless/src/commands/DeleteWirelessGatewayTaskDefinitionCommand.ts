@@ -35,7 +35,6 @@ export interface DeleteWirelessGatewayTaskDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a wireless gateway task definition. Deleting this task definition does not
  *             affect tasks that are currently in progress.</p>
  * @example
@@ -77,6 +76,7 @@ export interface DeleteWirelessGatewayTaskDefinitionCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class DeleteWirelessGatewayTaskDefinitionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateDomainEntryCommandInput extends CreateDomainEntryRequest 
 export interface CreateDomainEntryCommandOutput extends CreateDomainEntryResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates one of the following domain name system (DNS) records in a domain DNS zone:
  *       Address (A), canonical name (CNAME), mail exchanger (MX), name server (NS), start of authority
  *       (SOA), service locator (SRV), or text (TXT).</p>
@@ -116,6 +115,7 @@ export interface CreateDomainEntryCommandOutput extends CreateDomainEntryResult,
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class CreateDomainEntryCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ImportServerCatalogCommandInput extends ImportServerCatalogRequ
 export interface ImportServerCatalogCommandOutput extends ImportServerCatalogResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gathers a complete list of on-premises servers. Connectors must be installed and
  *             monitoring all servers to import.</p>
  *          <p>This call returns immediately, but might take additional time to retrieve all the
@@ -70,6 +69,7 @@ export interface ImportServerCatalogCommandOutput extends ImportServerCatalogRes
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ * @public
  */
 export class ImportServerCatalogCommand extends $Command
   .classBuilder<

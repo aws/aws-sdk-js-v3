@@ -27,7 +27,6 @@ export interface PutMetadataCommandInput extends PutMetadataRequest {}
 export interface PutMetadataCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Inserts metadata into the active stream of the specified channel. At most 5 requests per
  *       second per channel are allowed, each with a maximum 1 KB payload. (If 5 TPS is not sufficient
  *       for your needs, we recommend batching your data into a single PutMetadata call.) At most 155
@@ -73,6 +72,7 @@ export interface PutMetadataCommandOutput extends __MetadataBearer {}
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ * @public
  */
 export class PutMetadataCommand extends $Command
   .classBuilder<

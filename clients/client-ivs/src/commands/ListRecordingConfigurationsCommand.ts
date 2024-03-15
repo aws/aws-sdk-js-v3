@@ -32,7 +32,6 @@ export interface ListRecordingConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets summary information about all recording configurations in your account, in the
  *         Amazon Web Services region where the API request is processed.</p>
  * @example
@@ -86,6 +85,7 @@ export interface ListRecordingConfigurationsCommandOutput
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ * @public
  */
 export class ListRecordingConfigurationsCommand extends $Command
   .classBuilder<

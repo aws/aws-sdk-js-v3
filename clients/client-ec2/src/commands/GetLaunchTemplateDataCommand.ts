@@ -31,7 +31,6 @@ export interface GetLaunchTemplateDataCommandInput extends GetLaunchTemplateData
 export interface GetLaunchTemplateDataCommandOutput extends GetLaunchTemplateDataResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the configuration data of the specified instance. You can use this data to
  *             create a launch template. </p>
  *          <p>This action calls on other describe actions to get instance information. Depending on
@@ -316,6 +315,7 @@ export interface GetLaunchTemplateDataCommandOutput extends GetLaunchTemplateDat
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To get the launch template data for an instance
  * ```javascript
  * // This example gets the launch template data for the specified instance.

@@ -27,7 +27,6 @@ export interface GetRestoreTestingPlanCommandInput extends GetRestoreTestingPlan
 export interface GetRestoreTestingPlanCommandOutput extends GetRestoreTestingPlanOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns <code>RestoreTestingPlan</code> details for the specified
  *             <code>RestoreTestingPlanName</code>. The details are the body of a restore testing plan
  *          in JSON format, in addition to plan metadata.</p>
@@ -86,6 +85,7 @@ export interface GetRestoreTestingPlanCommandOutput extends GetRestoreTestingPla
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class GetRestoreTestingPlanCommand extends $Command
   .classBuilder<

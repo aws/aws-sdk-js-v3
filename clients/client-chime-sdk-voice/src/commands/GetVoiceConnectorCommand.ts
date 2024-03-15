@@ -27,7 +27,6 @@ export interface GetVoiceConnectorCommandInput extends GetVoiceConnectorRequest 
 export interface GetVoiceConnectorCommandOutput extends GetVoiceConnectorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves details for the specified Amazon Chime SDK Voice Connector, such as
  *          timestamps,name, outbound host, and encryption requirements.</p>
  * @example
@@ -86,6 +85,7 @@ export interface GetVoiceConnectorCommandOutput extends GetVoiceConnectorRespons
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class GetVoiceConnectorCommand extends $Command
   .classBuilder<

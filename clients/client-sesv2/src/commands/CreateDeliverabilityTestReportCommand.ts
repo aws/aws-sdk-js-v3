@@ -32,7 +32,6 @@ export interface CreateDeliverabilityTestReportCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a new predictive inbox placement test. Predictive inbox placement tests can help you predict how your messages will be handled
  *             by various email providers around the world. When you perform a predictive inbox placement test, you provide a
  *             sample message that contains the content that you plan to send to your customers. Amazon SES
@@ -141,6 +140,7 @@ export interface CreateDeliverabilityTestReportCommandOutput
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class CreateDeliverabilityTestReportCommand extends $Command
   .classBuilder<

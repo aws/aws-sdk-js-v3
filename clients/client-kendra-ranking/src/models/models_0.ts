@@ -4,10 +4,10 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { KendraRankingServiceException as __BaseException } from "./KendraRankingServiceException";
 
 /**
- * @public
  * <p>You don’t have sufficient access to perform this action.
  *             Please ensure you have the required permission policies
  *             and user accounts and try again.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -28,9 +28,9 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A conflict occurred with the request. Please fix any
  *             inconsistencies with your resources and try again.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -51,27 +51,26 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Sets additional capacity units configured for your
  *             rescore execution plan. A rescore execution plan is an
  *             Amazon Kendra Intelligent Ranking resource used for
  *             provisioning the <code>Rescore</code> API. You can add and
  *             remove capacity units to fit your usage requirements.</p>
+ * @public
  */
 export interface CapacityUnitsConfiguration {
   /**
-   * @public
    * <p>The amount of extra capacity for your rescore execution
    *             plan.</p>
    *          <p>A single extra capacity unit for a rescore execution
    *             plan provides 0.01 rescore requests per second. You can add
    *             up to 1000 extra capacity units.</p>
+   * @public
    */
   RescoreCapacityUnits: number | undefined;
 }
 
 /**
- * @public
  * <p>A key-value pair that identifies or categorizes a rescore
  *             execution plan. A rescore execution plan is an
  *             Amazon Kendra Intelligent Ranking resource used for
@@ -79,19 +78,20 @@ export interface CapacityUnitsConfiguration {
  *             a tag to help control access to a rescore execution plan.
  *             A tag key and value can consist of Unicode letters, digits,
  *             white space, and any of the following symbols: _ . : / = + - @.</p>
+ * @public
  */
 export interface Tag {
   /**
-   * @public
    * <p>The key for the tag. Keys are not case sensitive and must
    *             be unique.</p>
+   * @public
    */
   Key: string | undefined;
 
   /**
-   * @public
    * <p>The value associated with the tag. The value can be an
    *             empty string but it can't be null.</p>
+   * @public
    */
   Value: string | undefined;
 }
@@ -101,19 +101,18 @@ export interface Tag {
  */
 export interface CreateRescoreExecutionPlanRequest {
   /**
-   * @public
    * <p>A name for the rescore execution plan.</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>A description for the rescore execution plan.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>You can set additional capacity units to meet the
    *             needs of your rescore execution plan. You are given a single
    *             capacity unit by default. If you want to use the default
@@ -121,25 +120,26 @@ export interface CreateRescoreExecutionPlanRequest {
    *             information on the default capacity and additional capacity
    *             units, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/adjusting-capacity.html">Adjusting
    *                 capacity</a>.</p>
+   * @public
    */
   CapacityUnits?: CapacityUnitsConfiguration;
 
   /**
-   * @public
    * <p>A list of key-value pairs that identify or categorize your
    *             rescore execution plan. You can also use tags to help control
    *             access to the rescore execution plan. Tag keys and values can
    *             consist of Unicode letters, digits, white space, and any of
    *             the following symbols: _ . : / = + - @.</p>
+   * @public
    */
   Tags?: Tag[];
 
   /**
-   * @public
    * <p>A token that you provide to identify the request to create
    *             a rescore execution plan. Multiple calls to the
    *             <code>CreateRescoreExecutionPlanRequest</code> API with the
    *             same client token will create only one rescore execution plan.</p>
+   * @public
    */
   ClientToken?: string;
 }
@@ -149,26 +149,26 @@ export interface CreateRescoreExecutionPlanRequest {
  */
 export interface CreateRescoreExecutionPlanResponse {
   /**
-   * @public
    * <p>The identifier of the rescore execution plan.</p>
+   * @public
    */
   Id: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the rescore
    *             execution plan.</p>
+   * @public
    */
   Arn: string | undefined;
 }
 
 /**
- * @public
  * <p>An issue occurred with the internal server used for
  *             your Amazon Kendra Intelligent Ranking service.
  *             Please wait a few minutes and try again, or contact
  *             <a href="http://aws.amazon.com/contact-us/">Support</a>
  *             for help.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -189,12 +189,12 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>You have exceeded the set limits for your
  *             Amazon Kendra Intelligent Ranking service. Please
  *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a>
  *             for more information, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> to inquire about
  *             an increase of limits.</p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
@@ -215,9 +215,9 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request was denied due to request throttling.
  *             Please reduce the number of requests and try again.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -238,10 +238,10 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The input fails to satisfy the constraints set by
  *             the Amazon Kendra Intelligent Ranking service.
  *             Please provide the correct input and try again.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -266,18 +266,18 @@ export class ValidationException extends __BaseException {
  */
 export interface DeleteRescoreExecutionPlanRequest {
   /**
-   * @public
    * <p>The identifier of the rescore execution plan that you
    *             want to delete.</p>
+   * @public
    */
   Id: string | undefined;
 }
 
 /**
- * @public
  * <p>The resource you want to use doesn't exist. Please
  *             check you have provided the correct resource and try
  *             again.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -302,9 +302,9 @@ export class ResourceNotFoundException extends __BaseException {
  */
 export interface DescribeRescoreExecutionPlanRequest {
   /**
-   * @public
    * <p>The identifier of the rescore execution plan that you want
    *             to get information on.</p>
+   * @public
    */
   Id: string | undefined;
 }
@@ -331,69 +331,69 @@ export type RescoreExecutionPlanStatus = (typeof RescoreExecutionPlanStatus)[key
  */
 export interface DescribeRescoreExecutionPlanResponse {
   /**
-   * @public
    * <p>The identifier of the rescore execution plan.</p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the rescore execution
    *             plan.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>The name for the rescore execution plan.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The description for the rescore execution plan.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The capacity units set for the rescore execution plan.
    *             A capacity of zero indicates that the rescore execution
    *             plan is using the default capacity. For more information on the
    *             default capacity and additional capacity units, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/adjusting-capacity.html">Adjusting
    *                 capacity</a>.</p>
+   * @public
    */
   CapacityUnits?: CapacityUnitsConfiguration;
 
   /**
-   * @public
    * <p>The Unix timestamp of when the rescore execution plan was
    *             created.</p>
+   * @public
    */
   CreatedAt?: Date;
 
   /**
-   * @public
    * <p>The Unix timestamp of when the rescore execution plan was
    *             last updated.</p>
+   * @public
    */
   UpdatedAt?: Date;
 
   /**
-   * @public
    * <p>The current status of the rescore execution plan. When the
    *             value is <code>ACTIVE</code>, the rescore execution plan is
    *             ready for use. If the <code>Status</code> field value is
    *             <code>FAILED</code>, the <code>ErrorMessage</code> field
    *             contains a message that explains why.</p>
+   * @public
    */
   Status?: RescoreExecutionPlanStatus;
 
   /**
-   * @public
    * <p>When the <code>Status</code> field value is
    *             <code>FAILED</code>, the <code>ErrorMessage</code> field
    *             contains a message that explains why.</p>
+   * @public
    */
   ErrorMessage?: string;
 }
@@ -403,59 +403,59 @@ export interface DescribeRescoreExecutionPlanResponse {
  */
 export interface ListRescoreExecutionPlansRequest {
   /**
-   * @public
    * <p>If the response is truncated, Amazon Kendra Intelligent
    *             Ranking returns a pagination token in the response. You can use
    *             this pagination token to retrieve the next set of rescore
    *             execution plans.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of rescore execution plans to return.</p>
+   * @public
    */
   MaxResults?: number;
 }
 
 /**
- * @public
  * <p>Summary information for a rescore execution plan. A rescore
  *             execution plan is an Amazon Kendra Intelligent Ranking
  *             resource used for provisioning the <code>Rescore</code> API.</p>
+ * @public
  */
 export interface RescoreExecutionPlanSummary {
   /**
-   * @public
    * <p>The name of the rescore execution plan.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The identifier of the rescore execution plan.</p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The Unix timestamp when the rescore execution plan
    *             was created.</p>
+   * @public
    */
   CreatedAt?: Date;
 
   /**
-   * @public
    * <p>The Unix timestamp when the rescore execution plan
    *             was last updated.</p>
+   * @public
    */
   UpdatedAt?: Date;
 
   /**
-   * @public
    * <p>The current status of the rescore execution plan. When
    *             the value is <code>ACTIVE</code>, the rescore execution
    *             plan is ready for use.</p>
+   * @public
    */
   Status?: RescoreExecutionPlanStatus;
 }
@@ -465,55 +465,55 @@ export interface RescoreExecutionPlanSummary {
  */
 export interface ListRescoreExecutionPlansResponse {
   /**
-   * @public
    * <p>An array of summary information for one or more rescore
    *             execution plans.</p>
+   * @public
    */
   SummaryItems?: RescoreExecutionPlanSummary[];
 
   /**
-   * @public
    * <p>If the response is truncated, Amazon Kendra Intelligent
    *             Ranking returns a pagination token in the response.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>The request information for listing tags associated with
  *             a rescore execution plan. A rescore execution plan is an
  *             Amazon Kendra Intelligent Ranking resource used for
  *             provisioning the <code>Rescore</code> API.</p>
+ * @public
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the rescore execution
    *             plan to get a list of tags for.</p>
+   * @public
    */
   ResourceARN: string | undefined;
 }
 
 /**
- * @public
  * <p>If the action is successful, the service sends back an
  *             HTTP 200 response.</p>
+ * @public
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>A list of tags associated with the rescore execution
    *             plan.</p>
+   * @public
    */
   Tags?: Tag[];
 }
 
 /**
- * @public
  * <p>The resource you want to use is unavailable. Please
  *             check you have provided the correct resource
  *             information and try again.</p>
+ * @public
  */
 export class ResourceUnavailableException extends __BaseException {
   readonly name: "ResourceUnavailableException" = "ResourceUnavailableException";
@@ -534,61 +534,61 @@ export class ResourceUnavailableException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Information about a document from a search service such
  *             as OpenSearch (self managed). Amazon Kendra Intelligent
  *             Ranking uses this information to rank and score on.</p>
+ * @public
  */
 export interface Document {
   /**
-   * @public
    * <p>The identifier of the document from the search service.</p>
+   * @public
    */
   Id: string | undefined;
 
   /**
-   * @public
    * <p>The optional group identifier of the document from the search
    *             service. Documents with the same group identifier are grouped
    *             together and processed as one document within the service.</p>
+   * @public
    */
   GroupId?: string;
 
   /**
-   * @public
    * <p>The title of the search service's document.</p>
+   * @public
    */
   Title?: string;
 
   /**
-   * @public
    * <p>The body text of the search service's document.</p>
+   * @public
    */
   Body?: string;
 
   /**
-   * @public
    * <p>The title of the search service's document represented as
    *             a list of tokens or words. You must choose to provide
    *             <code>Title</code> or <code>TokenizedTitle</code>. You cannot
    *             provide both.</p>
+   * @public
    */
   TokenizedTitle?: string[];
 
   /**
-   * @public
    * <p>The body text of the search service's document represented
    *             as a list of tokens or words. You must choose to provide
    *             <code>Body</code> or <code>TokenizedBody</code>. You cannot
    *             provide both.</p>
+   * @public
    */
   TokenizedBody?: string[];
 
   /**
-   * @public
    * <p>The original document score or rank from the search service.
    *             Amazon Kendra Intelligent Ranking gives the document a new
    *             score or rank based on its intelligent search algorithms.</p>
+   * @public
    */
   OriginalScore: number | undefined;
 }
@@ -598,42 +598,42 @@ export interface Document {
  */
 export interface RescoreRequest {
   /**
-   * @public
    * <p>The identifier of the rescore execution plan. A rescore
    *             execution plan is an Amazon Kendra Intelligent Ranking
    *             resource used for provisioning the <code>Rescore</code> API.</p>
+   * @public
    */
   RescoreExecutionPlanId: string | undefined;
 
   /**
-   * @public
    * <p>The input query from the search service.</p>
+   * @public
    */
   SearchQuery: string | undefined;
 
   /**
-   * @public
    * <p>The list of documents for Amazon Kendra Intelligent
    *             Ranking to rescore or rank on.</p>
+   * @public
    */
   Documents: Document[] | undefined;
 }
 
 /**
- * @public
  * <p>A result item for a document with a new relevancy score.</p>
+ * @public
  */
 export interface RescoreResultItem {
   /**
-   * @public
    * <p>The identifier of the document from the search service.</p>
+   * @public
    */
   DocumentId?: string;
 
   /**
-   * @public
    * <p>The relevancy score or rank that Amazon Kendra
    *             Intelligent Ranking gives to the result.</p>
+   * @public
    */
   Score?: number;
 }
@@ -643,81 +643,81 @@ export interface RescoreResultItem {
  */
 export interface RescoreResult {
   /**
-   * @public
    * <p>The identifier associated with the scores that
    *             Amazon Kendra Intelligent Ranking gives to the
    *             results. Amazon Kendra Intelligent Ranking
    *             rescores or re-ranks the results for the search service.</p>
+   * @public
    */
   RescoreId?: string;
 
   /**
-   * @public
    * <p>A list of result items for documents with new relevancy
    *             scores. The results are in descending order.</p>
+   * @public
    */
   ResultItems?: RescoreResultItem[];
 }
 
 /**
- * @public
  * <p>The request information for tagging a rescore execution
  *             plan. A rescore execution plan is an Amazon Kendra
  *             Intelligent Ranking resource used for provisioning the
  *             <code>Rescore</code> API.</p>
+ * @public
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the rescore execution
    *             plan to tag.</p>
+   * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * @public
    * <p>A list of tag keys to add to a rescore execution plan.
    *             If a tag already exists, the existing value is replaced
    *             with the new value.</p>
+   * @public
    */
   Tags: Tag[] | undefined;
 }
 
 /**
- * @public
  * <p>If the action is successful, the service sends back an
  *             HTTP 200 response with an empty HTTP body.</p>
+ * @public
  */
 export interface TagResourceResponse {}
 
 /**
- * @public
  * <p>The request information to remove a tag from a rescore
  *             execution plan. A rescore execution plan is an
  *             Amazon Kendra Intelligent Ranking resource used for
  *             provisioning the <code>Rescore</code> API.</p>
+ * @public
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the rescore execution
    *             plan to remove the tag.</p>
+   * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * @public
    * <p>A list of tag keys to remove from the rescore execution
    *             plan. If a tag key does not exist on the resource, it is
    *             ignored.</p>
+   * @public
    */
   TagKeys: string[] | undefined;
 }
 
 /**
- * @public
  * <p>If the action is successful, the service sends back an
  *             HTTP 200 response with an empty HTTP body.</p>
+ * @public
  */
 export interface UntagResourceResponse {}
 
@@ -726,32 +726,32 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateRescoreExecutionPlanRequest {
   /**
-   * @public
    * <p>The identifier of the rescore execution plan that you want
    *             to update.</p>
+   * @public
    */
   Id: string | undefined;
 
   /**
-   * @public
    * <p>A new name for the rescore execution plan.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>A new description for the rescore execution plan.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>You can set additional capacity units to meet the needs
    *             of your rescore execution plan. You are given a single capacity
    *             unit by default. If you want to use the default capacity, you
    *             don't set additional capacity units. For more information on the
    *             default capacity and additional capacity units, see
    *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/adjusting-capacity.html">Adjusting capacity</a>.</p>
+   * @public
    */
   CapacityUnits?: CapacityUnitsConfiguration;
 }

@@ -27,7 +27,6 @@ export interface ListClustersCommandInput extends ListClustersRequest {}
 export interface ListClustersCommandOutput extends ListClustersResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an array of <code>ClusterListEntry</code> objects of the specified length. Each
  *         <code>ClusterListEntry</code> object contains a cluster's state, a cluster's ID, and other
  *       important status information.</p>
@@ -71,6 +70,7 @@ export interface ListClustersCommandOutput extends ListClustersResult, __Metadat
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * @public
  * @example To get a list of clusters that you've created for AWS Snowball
  * ```javascript
  * // Returns an array of ClusterListEntry objects of the specified length. Each ClusterListEntry object contains a cluster's state, a cluster's ID, and other important status information.

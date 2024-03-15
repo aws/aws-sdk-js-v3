@@ -27,7 +27,6 @@ export interface DescribeSubscribedWorkteamCommandInput extends DescribeSubscrib
 export interface DescribeSubscribedWorkteamCommandOutput extends DescribeSubscribedWorkteamResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a work team provided by a vendor. It returns details about the
  *             subscription with a vendor in the Amazon Web Services Marketplace.</p>
  * @example
@@ -62,6 +61,7 @@ export interface DescribeSubscribedWorkteamCommandOutput extends DescribeSubscri
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeSubscribedWorkteamCommand extends $Command
   .classBuilder<

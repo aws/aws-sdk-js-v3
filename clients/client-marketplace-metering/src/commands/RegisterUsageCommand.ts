@@ -31,7 +31,6 @@ export interface RegisterUsageCommandInput extends RegisterUsageRequest {}
 export interface RegisterUsageCommandOutput extends RegisterUsageResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Paid container software products sold through AWS Marketplace must integrate with the
  *             AWS Marketplace Metering Service and call the <code>RegisterUsage</code> operation for
  *             software entitlement and metering. Free and BYOL products for Amazon ECS or Amazon EKS
@@ -132,6 +131,7 @@ export interface RegisterUsageCommandOutput extends RegisterUsageResult, __Metad
  * @throws {@link MarketplaceMeteringServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceMetering service.</p>
  *
+ * @public
  */
 export class RegisterUsageCommand extends $Command
   .classBuilder<

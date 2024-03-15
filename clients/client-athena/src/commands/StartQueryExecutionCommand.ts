@@ -27,7 +27,6 @@ export interface StartQueryExecutionCommandInput extends StartQueryExecutionInpu
 export interface StartQueryExecutionCommandOutput extends StartQueryExecutionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Runs the SQL query statements contained in the <code>Query</code>. Requires you to
  *             have access to the workgroup in which the query ran. Running queries against an external
  *             catalog requires <a>GetDataCatalog</a> permission to the catalog. For code
@@ -97,6 +96,7 @@ export interface StartQueryExecutionCommandOutput extends StartQueryExecutionOut
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class StartQueryExecutionCommand extends $Command
   .classBuilder<

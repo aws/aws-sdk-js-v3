@@ -31,7 +31,6 @@ export interface UpdateConnectionCommandInput extends UpdateConnectionRequest {}
 export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates settings for a connection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -142,6 +141,7 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * @public
  */
 export class UpdateConnectionCommand extends $Command
   .classBuilder<

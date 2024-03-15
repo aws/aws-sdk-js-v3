@@ -32,7 +32,6 @@ export interface DissociateAccessGrantsIdentityCenterCommandInput extends Dissoc
 export interface DissociateAccessGrantsIdentityCenterCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Dissociates the Amazon Web Services IAM Identity Center instance from the S3 Access Grants instance. </p>
  *          <dl>
  *             <dt>Permissions</dt>
@@ -68,6 +67,7 @@ export interface DissociateAccessGrantsIdentityCenterCommandOutput extends __Met
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class DissociateAccessGrantsIdentityCenterCommand extends $Command
   .classBuilder<

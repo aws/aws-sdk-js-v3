@@ -31,7 +31,6 @@ export interface ListRoutingControlsCommandInput extends ListRoutingControlsRequ
 export interface ListRoutingControlsCommandOutput extends ListRoutingControlsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an array of routing controls for a control panel. A routing control is an Amazon Route 53 Application Recovery Controller construct that has one of two states: ON and OFF. You can map the routing control state to the state of an Amazon Route 53 health check, which can be used to control routing.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface ListRoutingControlsCommandOutput extends ListRoutingControlsRes
  * @throws {@link Route53RecoveryControlConfigServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
+ * @public
  */
 export class ListRoutingControlsCommand extends $Command
   .classBuilder<

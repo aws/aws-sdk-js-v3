@@ -27,7 +27,6 @@ export interface CreateSnapshotScheduleCommandInput extends CreateSnapshotSchedu
 export interface CreateSnapshotScheduleCommandOutput extends SnapshotSchedule, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a snapshot schedule that can be associated to a cluster and which overrides the default system backup schedule. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -105,6 +104,7 @@ export interface CreateSnapshotScheduleCommandOutput extends SnapshotSchedule, _
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class CreateSnapshotScheduleCommand extends $Command
   .classBuilder<

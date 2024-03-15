@@ -32,7 +32,6 @@ export interface DeletePracticeRunConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the practice run configuration for a resource. Before you can delete
  * 			a practice run configuration for a resource., you must disable zonal autoshift for
  * 			the resource. Practice runs must be configured for zonal autoshift to be enabled.</p>
@@ -82,6 +81,7 @@ export interface DeletePracticeRunConfigurationCommandOutput
  * @throws {@link ARCZonalShiftServiceException}
  * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
+ * @public
  */
 export class DeletePracticeRunConfigurationCommand extends $Command
   .classBuilder<

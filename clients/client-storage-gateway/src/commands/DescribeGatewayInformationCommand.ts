@@ -31,7 +31,6 @@ export interface DescribeGatewayInformationCommandInput extends DescribeGatewayI
 export interface DescribeGatewayInformationCommandOutput extends DescribeGatewayInformationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns metadata about a gateway such as its name, network interfaces, time zone,
  *          status, and software version. To specify which gateway to describe, use the Amazon Resource
  *          Name (ARN) of the gateway in your request.</p>
@@ -103,6 +102,7 @@ export interface DescribeGatewayInformationCommandOutput extends DescribeGateway
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To describe metadata about the gateway
  * ```javascript
  * // Returns metadata about a gateway such as its name, network interfaces, configured time zone, and the state (whether the gateway is running or not).

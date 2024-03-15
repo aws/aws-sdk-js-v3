@@ -27,7 +27,6 @@ export interface ListImagesCommandInput extends ListImagesRequest {}
 export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the image IDs for the specified repository.</p>
  *          <p>You can filter images based on whether or not they are tagged by using the
  *                 <code>tagStatus</code> filter and specifying either <code>TAGGED</code>,
@@ -84,6 +83,7 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * @public
  * @example To list all images in a repository
  * ```javascript
  * // This example lists all of the images in the repository named ubuntu in the default registry in the current account.

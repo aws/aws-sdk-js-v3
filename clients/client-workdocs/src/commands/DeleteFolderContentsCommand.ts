@@ -27,7 +27,6 @@ export interface DeleteFolderContentsCommandInput extends DeleteFolderContentsRe
 export interface DeleteFolderContentsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the contents of the specified folder.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface DeleteFolderContentsCommandOutput extends __MetadataBearer {}
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class DeleteFolderContentsCommand extends $Command
   .classBuilder<

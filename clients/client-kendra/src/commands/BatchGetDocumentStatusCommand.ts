@@ -27,7 +27,6 @@ export interface BatchGetDocumentStatusCommandInput extends BatchGetDocumentStat
 export interface BatchGetDocumentStatusCommandOutput extends BatchGetDocumentStatusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the indexing status for one or more documents submitted with the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html">
  *                 BatchPutDocument</a> API.</p>
  *          <p>When you use the <code>BatchPutDocument</code> API, documents are indexed
@@ -119,6 +118,7 @@ export interface BatchGetDocumentStatusCommandOutput extends BatchGetDocumentSta
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class BatchGetDocumentStatusCommand extends $Command
   .classBuilder<

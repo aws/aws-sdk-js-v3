@@ -27,7 +27,6 @@ export interface RenderUiTemplateCommandInput extends RenderUiTemplateRequest {}
 export interface RenderUiTemplateCommandOutput extends RenderUiTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Renders the UI template so that you can preview the worker's experience. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface RenderUiTemplateCommandOutput extends RenderUiTemplateResponse,
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class RenderUiTemplateCommand extends $Command
   .classBuilder<

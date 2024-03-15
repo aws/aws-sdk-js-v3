@@ -27,7 +27,6 @@ export interface UpdateUserSettingsCommandInput extends UpdateUserSettingsReques
 export interface UpdateUserSettingsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the settings for the specified user, such as phone number settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface UpdateUserSettingsCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class UpdateUserSettingsCommand extends $Command
   .classBuilder<

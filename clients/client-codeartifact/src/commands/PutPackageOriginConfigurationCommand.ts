@@ -32,7 +32,6 @@ export interface PutPackageOriginConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the package origin configuration for a package.</p>
  *          <p>The package origin configuration determines how new versions of a package can be added to a repository. You can allow or block direct
  *     publishing of new package versions, or ingestion and retaining of new package versions from an external connection or upstream source.
@@ -105,6 +104,7 @@ export interface PutPackageOriginConfigurationCommandOutput
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * @public
  */
 export class PutPackageOriginConfigurationCommand extends $Command
   .classBuilder<

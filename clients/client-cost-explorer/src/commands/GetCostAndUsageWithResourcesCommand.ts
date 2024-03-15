@@ -32,7 +32,6 @@ export interface GetCostAndUsageWithResourcesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves cost and usage metrics with resources for your account. You can specify which
  *       cost and usage-related metric, such as <code>BlendedCosts</code> or
  *       <code>UsageQuantity</code>, that you want the request to return. You can also filter and group
@@ -210,6 +209,7 @@ export interface GetCostAndUsageWithResourcesCommandOutput
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * @public
  */
 export class GetCostAndUsageWithResourcesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListConversationsCommandInput extends ListConversationsRequest 
 export interface ListConversationsCommandOutput extends ListConversationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists one or more Amazon Q conversations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface ListConversationsCommandOutput extends ListConversationsRespons
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ * @public
  */
 export class ListConversationsCommand extends $Command
   .classBuilder<

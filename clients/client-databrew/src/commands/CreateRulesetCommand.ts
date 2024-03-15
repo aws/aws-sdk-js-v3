@@ -27,7 +27,6 @@ export interface CreateRulesetCommandInput extends CreateRulesetRequest {}
 export interface CreateRulesetCommandOutput extends CreateRulesetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new ruleset that can be used in a profile job to validate
  *             the data quality of a dataset.</p>
  * @example
@@ -91,6 +90,7 @@ export interface CreateRulesetCommandOutput extends CreateRulesetResponse, __Met
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * @public
  */
 export class CreateRulesetCommand extends $Command
   .classBuilder<

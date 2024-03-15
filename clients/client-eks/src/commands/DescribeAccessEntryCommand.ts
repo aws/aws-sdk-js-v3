@@ -27,7 +27,6 @@ export interface DescribeAccessEntryCommandInput extends DescribeAccessEntryRequ
 export interface DescribeAccessEntryCommandOutput extends DescribeAccessEntryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes an access entry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface DescribeAccessEntryCommandOutput extends DescribeAccessEntryRes
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class DescribeAccessEntryCommand extends $Command
   .classBuilder<

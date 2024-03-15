@@ -27,7 +27,6 @@ export interface CreateInferenceExperimentCommandInput extends CreateInferenceEx
 export interface CreateInferenceExperimentCommandOutput extends CreateInferenceExperimentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *            Creates an inference experiment using the configurations specified in the request.
  *        </p>
@@ -125,6 +124,7 @@ export interface CreateInferenceExperimentCommandOutput extends CreateInferenceE
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateInferenceExperimentCommand extends $Command
   .classBuilder<

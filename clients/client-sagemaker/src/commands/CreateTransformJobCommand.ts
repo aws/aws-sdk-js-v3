@@ -27,7 +27,6 @@ export interface CreateTransformJobCommandInput extends CreateTransformJobReques
 export interface CreateTransformJobCommandOutput extends CreateTransformJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a transform job. A transform job uses a trained model to get inferences on a
  *             dataset and saves these results to an Amazon S3 location that you specify.</p>
  *          <p>To perform batch transformations, you create a transform job and use the data that you
@@ -154,6 +153,7 @@ export interface CreateTransformJobCommandOutput extends CreateTransformJobRespo
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateTransformJobCommand extends $Command
   .classBuilder<

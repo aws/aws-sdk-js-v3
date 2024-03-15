@@ -31,7 +31,6 @@ export interface ListMembersCommandInput extends ListMembersInput {}
 export interface ListMembersCommandOutput extends ListMembersOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the members in a network and properties of their configurations.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
@@ -91,6 +90,7 @@ export interface ListMembersCommandOutput extends ListMembersOutput, __MetadataB
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ * @public
  */
 export class ListMembersCommand extends $Command
   .classBuilder<

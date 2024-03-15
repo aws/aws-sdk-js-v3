@@ -27,9 +27,6 @@ export interface RegisterRobotCommandInput extends RegisterRobotRequest {}
 export interface RegisterRobotCommandOutput extends RegisterRobotResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated AWS RoboMaker is unable to process this request as the support for the AWS RoboMaker application deployment feature has ended. For additional information, see https://docs.aws.amazon.com/robomaker/latest/dg/fleets.html.
- *
  * <p>Registers a robot with a fleet.</p>
  *          <important>
  *             <p>This API is no longer supported and will throw an error if used.</p>
@@ -79,6 +76,8 @@ export interface RegisterRobotCommandOutput extends RegisterRobotResponse, __Met
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ * @public
+ * @deprecated AWS RoboMaker is unable to process this request as the support for the AWS RoboMaker application deployment feature has ended. For additional information, see https://docs.aws.amazon.com/robomaker/latest/dg/fleets.html.
  */
 export class RegisterRobotCommand extends $Command
   .classBuilder<

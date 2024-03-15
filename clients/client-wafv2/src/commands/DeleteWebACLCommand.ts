@@ -27,7 +27,6 @@ export interface DeleteWebACLCommandInput extends DeleteWebACLRequest {}
 export interface DeleteWebACLCommandOutput extends DeleteWebACLResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified <a>WebACL</a>. </p>
  *          <p>You can only use this if <code>ManagedByFirewallManager</code> is false in the specified
  *             <a>WebACL</a>. </p>
@@ -140,6 +139,7 @@ export interface DeleteWebACLCommandOutput extends DeleteWebACLResponse, __Metad
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class DeleteWebACLCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteBackupCommandInput extends DeleteBackupRequest {}
 export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specified AWS CloudHSM backup. A backup can be restored up to 7 days
  *             after the DeleteBackup request is made. For more information on restoring a backup, see
  *                 <a>RestoreBackup</a>.</p>
@@ -92,6 +91,7 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  * @throws {@link CloudHSMV2ServiceException}
  * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
+ * @public
  */
 export class DeleteBackupCommand extends $Command
   .classBuilder<

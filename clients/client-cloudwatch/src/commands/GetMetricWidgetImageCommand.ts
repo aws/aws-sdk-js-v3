@@ -27,7 +27,6 @@ export interface GetMetricWidgetImageCommandInput extends GetMetricWidgetImageIn
 export interface GetMetricWidgetImageCommandOutput extends GetMetricWidgetImageOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>You can use the <code>GetMetricWidgetImage</code> API to retrieve a snapshot graph of
  * 			one or more Amazon CloudWatch metrics as a bitmap image. You can then embed this
  * 			image into your services and products, such as wiki pages, reports, and documents.
@@ -71,6 +70,7 @@ export interface GetMetricWidgetImageCommandOutput extends GetMetricWidgetImageO
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * @public
  */
 export class GetMetricWidgetImageCommand extends $Command
   .classBuilder<

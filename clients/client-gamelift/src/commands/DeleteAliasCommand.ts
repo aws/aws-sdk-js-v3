@@ -27,7 +27,6 @@ export interface DeleteAliasCommandInput extends DeleteAliasInput {}
 export interface DeleteAliasCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an alias. This operation removes all record of the alias. Game clients
  *             attempting to access a server process using the deleted alias receive an error. To
  *             delete an alias, specify the alias ID to be deleted.</p>
@@ -80,6 +79,7 @@ export interface DeleteAliasCommandOutput extends __MetadataBearer {}
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DeleteAliasCommand extends $Command
   .classBuilder<

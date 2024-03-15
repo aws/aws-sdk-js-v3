@@ -27,7 +27,6 @@ export interface RebootInputDeviceCommandInput extends RebootInputDeviceRequest 
 export interface RebootInputDeviceCommandOutput extends RebootInputDeviceResponse, __MetadataBearer {}
 
 /**
- * @public
  * Send a reboot command to the specified input device. The device will begin rebooting within a few seconds of sending the command. When the reboot is complete, the device’s connection status will change to connected.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface RebootInputDeviceCommandOutput extends RebootInputDeviceRespons
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class RebootInputDeviceCommand extends $Command
   .classBuilder<

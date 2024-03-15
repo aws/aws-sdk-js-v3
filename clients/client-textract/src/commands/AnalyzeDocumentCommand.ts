@@ -27,7 +27,6 @@ export interface AnalyzeDocumentCommandInput extends AnalyzeDocumentRequest {}
 export interface AnalyzeDocumentCommandOutput extends AnalyzeDocumentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Analyzes an input document for relationships between detected items. </p>
  *          <p>The types of information returned are as follows: </p>
  *          <ul>
@@ -242,6 +241,7 @@ export interface AnalyzeDocumentCommandOutput extends AnalyzeDocumentResponse, _
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ * @public
  */
 export class AnalyzeDocumentCommand extends $Command
   .classBuilder<

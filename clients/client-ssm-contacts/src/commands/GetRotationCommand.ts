@@ -27,7 +27,6 @@ export interface GetRotationCommandInput extends GetRotationRequest {}
 export interface GetRotationCommandOutput extends GetRotationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about an on-call rotation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -113,6 +112,7 @@ export interface GetRotationCommandOutput extends GetRotationResult, __MetadataB
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ * @public
  */
 export class GetRotationCommand extends $Command
   .classBuilder<

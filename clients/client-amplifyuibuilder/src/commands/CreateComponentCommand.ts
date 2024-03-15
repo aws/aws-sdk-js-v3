@@ -27,7 +27,6 @@ export interface CreateComponentCommandInput extends CreateComponentRequest {}
 export interface CreateComponentCommandOutput extends CreateComponentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new component for an Amplify app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -502,6 +501,7 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ * @public
  */
 export class CreateComponentCommand extends $Command
   .classBuilder<

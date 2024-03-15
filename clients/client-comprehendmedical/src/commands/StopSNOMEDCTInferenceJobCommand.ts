@@ -31,7 +31,6 @@ export interface StopSNOMEDCTInferenceJobCommandInput extends StopSNOMEDCTInfere
 export interface StopSNOMEDCTInferenceJobCommandOutput extends StopSNOMEDCTInferenceJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Stops an InferSNOMEDCT inference job in progress.
  *     </p>
@@ -77,6 +76,7 @@ export interface StopSNOMEDCTInferenceJobCommandOutput extends StopSNOMEDCTInfer
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ * @public
  */
 export class StopSNOMEDCTInferenceJobCommand extends $Command
   .classBuilder<

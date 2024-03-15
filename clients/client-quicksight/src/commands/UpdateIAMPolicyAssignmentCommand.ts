@@ -27,7 +27,6 @@ export interface UpdateIAMPolicyAssignmentCommandInput extends UpdateIAMPolicyAs
 export interface UpdateIAMPolicyAssignmentCommandOutput extends UpdateIAMPolicyAssignmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing IAM policy assignment. This operation updates only
  * 			the optional parameter or parameters that are specified in the request. This overwrites
  * 			all of the users included in <code>Identities</code>. </p>
@@ -101,6 +100,7 @@ export interface UpdateIAMPolicyAssignmentCommandOutput extends UpdateIAMPolicyA
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class UpdateIAMPolicyAssignmentCommand extends $Command
   .classBuilder<

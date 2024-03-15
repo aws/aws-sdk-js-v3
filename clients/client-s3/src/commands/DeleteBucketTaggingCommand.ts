@@ -27,7 +27,6 @@ export interface DeleteBucketTaggingCommandInput extends DeleteBucketTaggingRequ
 export interface DeleteBucketTaggingCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -73,6 +72,7 @@ export interface DeleteBucketTaggingCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example To delete bucket tags
  * ```javascript
  * // The following example deletes bucket tags.

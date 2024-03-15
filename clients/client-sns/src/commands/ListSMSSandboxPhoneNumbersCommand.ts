@@ -31,7 +31,6 @@ export interface ListSMSSandboxPhoneNumbersCommandInput extends ListSMSSandboxPh
 export interface ListSMSSandboxPhoneNumbersCommandOutput extends ListSMSSandboxPhoneNumbersResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the calling Amazon Web Services account's current verified and pending destination phone
  *             numbers in the SMS sandbox.</p>
  *          <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the
@@ -92,6 +91,7 @@ export interface ListSMSSandboxPhoneNumbersCommandOutput extends ListSMSSandboxP
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * @public
  */
 export class ListSMSSandboxPhoneNumbersCommand extends $Command
   .classBuilder<

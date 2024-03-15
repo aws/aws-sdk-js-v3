@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceInput {}
 export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Associate a set of tags with an Amazon DynamoDB resource. You can then activate these
  *             user-defined tags so that they appear on the Billing and Cost Management console for
  *             cost allocation tracking. You can call TagResource up to five times per second, per
@@ -94,6 +93,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

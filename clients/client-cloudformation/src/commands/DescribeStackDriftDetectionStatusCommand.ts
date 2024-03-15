@@ -32,7 +32,6 @@ export interface DescribeStackDriftDetectionStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a stack drift detection operation. A stack drift detection operation detects whether a
  *    stack's actual configuration differs, or has <i>drifted</i>, from its expected configuration, as
  *    defined in the stack template and any values specified as template parameters. A stack is considered to have drifted
@@ -74,6 +73,7 @@ export interface DescribeStackDriftDetectionStatusCommandOutput
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class DescribeStackDriftDetectionStatusCommand extends $Command
   .classBuilder<

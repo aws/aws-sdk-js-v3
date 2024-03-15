@@ -27,7 +27,6 @@ export interface DeleteInstanceCommandInput extends DeleteInstanceRequest {}
 export interface DeleteInstanceCommandOutput extends DeleteInstanceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Amazon Lightsail instance.</p>
  *          <p>The <code>delete instance</code> operation supports tag-based access control via resource
  *       tags applied to the resource identified by <code>instance name</code>. For more information,
@@ -107,6 +106,7 @@ export interface DeleteInstanceCommandOutput extends DeleteInstanceResult, __Met
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class DeleteInstanceCommand extends $Command
   .classBuilder<

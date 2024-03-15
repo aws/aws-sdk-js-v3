@@ -27,7 +27,6 @@ export interface DeleteModelCommandInput extends DeleteModelInput {}
 export interface DeleteModelCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a model. The <code>DeleteModel</code> API deletes only the model entry that
  *             was created in SageMaker when you called the <code>CreateModel</code> API. It does not delete
  *             model artifacts, inference code, or the IAM role that you specified when creating the
@@ -56,6 +55,7 @@ export interface DeleteModelCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteModelCommand extends $Command
   .classBuilder<

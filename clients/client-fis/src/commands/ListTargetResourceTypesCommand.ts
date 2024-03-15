@@ -27,7 +27,6 @@ export interface ListTargetResourceTypesCommandInput extends ListTargetResourceT
 export interface ListTargetResourceTypesCommandOutput extends ListTargetResourceTypesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the target resource types.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface ListTargetResourceTypesCommandOutput extends ListTargetResource
  * @throws {@link FisServiceException}
  * <p>Base exception class for all service exceptions from Fis service.</p>
  *
+ * @public
  */
 export class ListTargetResourceTypesCommand extends $Command
   .classBuilder<

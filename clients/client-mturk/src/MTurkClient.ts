@@ -426,8 +426,8 @@ export type MTurkClientResolvedConfigType = __SmithyResolvedConfiguration<__Http
 export interface MTurkClientResolvedConfig extends MTurkClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>Amazon Mechanical Turk API Reference</fullname>
+ * @public
  */
 export class MTurkClient extends __Client<
   __HttpHandlerOptions,

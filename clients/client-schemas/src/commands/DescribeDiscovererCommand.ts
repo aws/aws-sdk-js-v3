@@ -27,7 +27,6 @@ export interface DescribeDiscovererCommandInput extends DescribeDiscovererReques
 export interface DescribeDiscovererCommandOutput extends DescribeDiscovererResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the discoverer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface DescribeDiscovererCommandOutput extends DescribeDiscovererRespo
  * @throws {@link SchemasServiceException}
  * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ * @public
  */
 export class DescribeDiscovererCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateOutpostResolverCommandInput extends CreateOutpostResolver
 export interface CreateOutpostResolverCommandOutput extends CreateOutpostResolverResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Route 53 Resolver on an Outpost.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface CreateOutpostResolverCommandOutput extends CreateOutpostResolve
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class CreateOutpostResolverCommand extends $Command
   .classBuilder<

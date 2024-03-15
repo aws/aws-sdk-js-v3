@@ -27,7 +27,6 @@ export interface DescribeDeliveriesCommandInput extends DescribeDeliveriesReques
 export interface DescribeDeliveriesCommandOutput extends DescribeDeliveriesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of the deliveries that have been created in the account.</p>
  *          <p>A <i>delivery</i> is a
  *        connection between a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html">
@@ -93,6 +92,7 @@ export interface DescribeDeliveriesCommandOutput extends DescribeDeliveriesRespo
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class DescribeDeliveriesCommand extends $Command
   .classBuilder<

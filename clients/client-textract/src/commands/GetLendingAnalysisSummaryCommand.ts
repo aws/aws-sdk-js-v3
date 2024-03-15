@@ -27,7 +27,6 @@ export interface GetLendingAnalysisSummaryCommandInput extends GetLendingAnalysi
 export interface GetLendingAnalysisSummaryCommandOutput extends GetLendingAnalysisSummaryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets summarized results for the <code>StartLendingAnalysis</code> operation, which analyzes
  *    text in a lending document. The returned summary consists of information about documents grouped
  *    together by a common document type. Information like detected signatures, page numbers, and split
@@ -141,6 +140,7 @@ export interface GetLendingAnalysisSummaryCommandOutput extends GetLendingAnalys
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ * @public
  */
 export class GetLendingAnalysisSummaryCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListStreamsCommandInput extends ListStreamsInput {}
 export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an array of stream ARNs associated with the current account and endpoint. If the
  *         <code>TableName</code> parameter is present, then <code>ListStreams</code> will return only the
  *       streams ARNs for that table.</p>
@@ -77,6 +76,7 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  * @throws {@link DynamoDBStreamsServiceException}
  * <p>Base exception class for all service exceptions from DynamoDBStreams service.</p>
  *
+ * @public
  * @example To list all of the stream ARNs
  * ```javascript
  * // The following example lists all of the stream ARNs.

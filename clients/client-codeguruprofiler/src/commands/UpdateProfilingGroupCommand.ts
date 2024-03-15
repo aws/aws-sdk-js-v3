@@ -27,7 +27,6 @@ export interface UpdateProfilingGroupCommandInput extends UpdateProfilingGroupRe
 export interface UpdateProfilingGroupCommandOutput extends UpdateProfilingGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a profiling group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface UpdateProfilingGroupCommandOutput extends UpdateProfilingGroupR
  * @throws {@link CodeGuruProfilerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
+ * @public
  */
 export class UpdateProfilingGroupCommand extends $Command
   .classBuilder<

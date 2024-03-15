@@ -28,7 +28,6 @@ export interface ResizeClusterCommandInput extends ResizeClusterMessage {}
 export interface ResizeClusterCommandOutput extends ResizeClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes the size of the cluster. You can change the cluster's type, or change the
  *             number or type of nodes. The default behavior is to use the elastic resize method. With
  *             an elastic resize, your cluster is available for read and write operations more quickly
@@ -344,6 +343,7 @@ export interface ResizeClusterCommandOutput extends ResizeClusterResult, __Metad
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class ResizeClusterCommand extends $Command
   .classBuilder<

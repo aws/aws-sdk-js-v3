@@ -27,7 +27,6 @@ export interface AssociatePackageCommandInput extends AssociatePackageRequest {}
 export interface AssociatePackageCommandOutput extends AssociatePackageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a package with an Amazon OpenSearch Service domain. For more information, see
  *     <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages
  *     for Amazon OpenSearch Service</a>.</p>
@@ -89,6 +88,7 @@ export interface AssociatePackageCommandOutput extends AssociatePackageResponse,
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class AssociatePackageCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteMembersCommandInput extends DeleteMembersRequest {}
 export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified member accounts from Security Hub.</p>
  *          <p>You can invoke this API only to delete accounts that became members through invitation. You can't invoke this
  *         API to delete accounts that belong to an Organizations organization.</p>
@@ -81,6 +80,7 @@ export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __Met
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To delete a member account
  * ```javascript
  * // The following example deletes the specified member account from Security Hub. This operation can be used to delete member accounts that are part of an organization or that were invited manually.

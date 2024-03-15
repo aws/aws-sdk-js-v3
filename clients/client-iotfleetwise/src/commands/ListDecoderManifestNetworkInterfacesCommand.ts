@@ -35,7 +35,6 @@ export interface ListDecoderManifestNetworkInterfacesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p> Lists the network interfaces specified in a decoder manifest. </p>
  *          <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
@@ -107,6 +106,7 @@ export interface ListDecoderManifestNetworkInterfacesCommandOutput
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class ListDecoderManifestNetworkInterfacesCommand extends $Command
   .classBuilder<

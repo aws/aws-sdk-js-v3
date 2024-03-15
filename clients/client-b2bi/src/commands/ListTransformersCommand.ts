@@ -27,7 +27,6 @@ export interface ListTransformersCommandInput extends ListTransformersRequest {}
 export interface ListTransformersCommandOutput extends ListTransformersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the available transformers. A transformer
  *    describes how to process the incoming EDI documents and extract the necessary
  *    information to the output file.</p>
@@ -76,6 +75,7 @@ export interface ListTransformersCommandOutput extends ListTransformersResponse,
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
+ * @public
  * @example Sample ListTransformers call
  * ```javascript
  * //

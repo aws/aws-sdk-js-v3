@@ -39,7 +39,6 @@ export interface DescribeVerifiedDestinationNumbersCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the specified verified destiona numbers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -109,6 +108,7 @@ export interface DescribeVerifiedDestinationNumbersCommandOutput
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class DescribeVerifiedDestinationNumbersCommand extends $Command
   .classBuilder<

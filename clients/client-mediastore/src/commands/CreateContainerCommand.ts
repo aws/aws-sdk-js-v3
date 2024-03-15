@@ -27,7 +27,6 @@ export interface CreateContainerCommandInput extends CreateContainerInput {}
 export interface CreateContainerCommandOutput extends CreateContainerOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a storage container to hold objects. A container is similar to a bucket in
  *          the Amazon S3 service.</p>
  * @example
@@ -79,6 +78,7 @@ export interface CreateContainerCommandOutput extends CreateContainerOutput, __M
  * @throws {@link MediaStoreServiceException}
  * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ * @public
  */
 export class CreateContainerCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface AdminRemoveUserFromGroupCommandInput extends AdminRemoveUserFro
 export interface AdminRemoveUserFromGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified user from the specified group.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
@@ -100,6 +99,7 @@ export interface AdminRemoveUserFromGroupCommandOutput extends __MetadataBearer 
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class AdminRemoveUserFromGroupCommand extends $Command
   .classBuilder<

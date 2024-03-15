@@ -36,7 +36,6 @@ export interface EnableSagemakerServicecatalogPortfolioCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables using Service Catalog in SageMaker. Service Catalog is used to create
  *             SageMaker projects.</p>
  * @example
@@ -61,6 +60,7 @@ export interface EnableSagemakerServicecatalogPortfolioCommandOutput
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class EnableSagemakerServicecatalogPortfolioCommand extends $Command
   .classBuilder<

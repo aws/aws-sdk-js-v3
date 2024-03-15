@@ -31,7 +31,6 @@ export interface RedactChannelMessageCommandInput extends RedactChannelMessageRe
 export interface RedactChannelMessageCommandOutput extends RedactChannelMessageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Redacts message content, but not metadata. The message exists in the back end, but the
  *          action returns null content, and the state shows as redacted.</p>
  *          <note>
@@ -92,6 +91,7 @@ export interface RedactChannelMessageCommandOutput extends RedactChannelMessageR
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class RedactChannelMessageCommand extends $Command
   .classBuilder<

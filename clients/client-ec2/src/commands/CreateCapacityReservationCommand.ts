@@ -27,7 +27,6 @@ export interface CreateCapacityReservationCommandInput extends CreateCapacityRes
 export interface CreateCapacityReservationCommandOutput extends CreateCapacityReservationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new Capacity Reservation with the specified attributes.</p>
  *          <p>Capacity Reservations enable you to reserve capacity for your Amazon EC2 instances in a specific Availability Zone for any duration. This
  * 			gives you the flexibility to selectively add capacity reservations and still get the Regional RI discounts for that usage.
@@ -129,6 +128,7 @@ export interface CreateCapacityReservationCommandOutput extends CreateCapacityRe
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateCapacityReservationCommand extends $Command
   .classBuilder<

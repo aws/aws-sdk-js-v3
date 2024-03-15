@@ -31,7 +31,6 @@ export interface DeleteModelExplainabilityJobDefinitionCommandInput
 export interface DeleteModelExplainabilityJobDefinitionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Amazon SageMaker model explainability job definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -60,6 +59,7 @@ export interface DeleteModelExplainabilityJobDefinitionCommandOutput extends __M
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteModelExplainabilityJobDefinitionCommand extends $Command
   .classBuilder<

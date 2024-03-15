@@ -27,7 +27,6 @@ export interface CheckoutLicenseCommandInput extends CheckoutLicenseRequest {}
 export interface CheckoutLicenseCommandOutput extends CheckoutLicenseResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Checks out the specified license.</p>
  *          <note>
  *             <p>If the account that created the license is the same that is performing the check out, you must
@@ -115,6 +114,7 @@ export interface CheckoutLicenseCommandOutput extends CheckoutLicenseResponse, _
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * @public
  */
 export class CheckoutLicenseCommand extends $Command
   .classBuilder<

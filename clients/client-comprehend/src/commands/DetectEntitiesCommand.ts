@@ -32,7 +32,6 @@ export interface DetectEntitiesCommandInput extends DetectEntitiesRequest {}
 export interface DetectEntitiesCommandOutput extends DetectEntitiesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Detects named entities in input text when you use the pre-trained model.
  *       Detects custom entities if you have a custom entity recognition model. </p>
  *          <p>
@@ -177,6 +176,7 @@ export interface DetectEntitiesCommandOutput extends DetectEntitiesResponse, __M
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class DetectEntitiesCommand extends $Command
   .classBuilder<

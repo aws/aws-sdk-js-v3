@@ -27,7 +27,6 @@ export interface DeleteDistributionCommandInput extends DeleteDistributionReques
 export interface DeleteDistributionCommandOutput extends DeleteDistributionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes your Amazon Lightsail content delivery network (CDN) distribution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface DeleteDistributionCommandOutput extends DeleteDistributionResul
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class DeleteDistributionCommand extends $Command
   .classBuilder<

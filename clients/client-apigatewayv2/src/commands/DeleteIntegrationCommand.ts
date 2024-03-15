@@ -27,7 +27,6 @@ export interface DeleteIntegrationCommandInput extends DeleteIntegrationRequest 
 export interface DeleteIntegrationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Integration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -60,6 +59,7 @@ export interface DeleteIntegrationCommandOutput extends __MetadataBearer {}
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ * @public
  */
 export class DeleteIntegrationCommand extends $Command
   .classBuilder<

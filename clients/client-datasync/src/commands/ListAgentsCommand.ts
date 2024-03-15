@@ -27,7 +27,6 @@ export interface ListAgentsCommandInput extends ListAgentsRequest {}
 export interface ListAgentsCommandOutput extends ListAgentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of DataSync agents that belong to an Amazon Web Services account in the Amazon Web Services Region specified in the request.</p>
  *          <p>With pagination, you can reduce the number of agents returned in a response. If you get
  *       a truncated list of agents in a response, the response contains a marker that you can specify
@@ -83,6 +82,7 @@ export interface ListAgentsCommandOutput extends ListAgentsResponse, __MetadataB
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class ListAgentsCommand extends $Command
   .classBuilder<

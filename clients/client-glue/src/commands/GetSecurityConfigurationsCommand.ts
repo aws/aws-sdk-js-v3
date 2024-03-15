@@ -28,7 +28,6 @@ export interface GetSecurityConfigurationsCommandInput extends GetSecurityConfig
 export interface GetSecurityConfigurationsCommandOutput extends GetSecurityConfigurationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of all security configurations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface GetSecurityConfigurationsCommandOutput extends GetSecurityConfi
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetSecurityConfigurationsCommand extends $Command
   .classBuilder<

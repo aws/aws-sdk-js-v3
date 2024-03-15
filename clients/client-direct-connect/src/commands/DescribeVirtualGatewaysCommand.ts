@@ -27,7 +27,6 @@ export interface DescribeVirtualGatewaysCommandInput {}
 export interface DescribeVirtualGatewaysCommandOutput extends VirtualGateways, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the virtual private gateways owned by the Amazon Web Services account.</p>
  *          <p>You can create one or more Direct Connect private virtual interfaces linked to a virtual private gateway.</p>
  * @example
@@ -65,6 +64,7 @@ export interface DescribeVirtualGatewaysCommandOutput extends VirtualGateways, _
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class DescribeVirtualGatewaysCommand extends $Command
   .classBuilder<

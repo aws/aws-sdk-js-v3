@@ -27,7 +27,6 @@ export interface ListDataLakeExceptionsCommandInput extends ListDataLakeExceptio
 export interface ListDataLakeExceptionsCommandOutput extends ListDataLakeExceptionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the Amazon Security Lake exceptions that you can use to find the source of problems and
  *          fix them.</p>
  * @example
@@ -93,6 +92,7 @@ export interface ListDataLakeExceptionsCommandOutput extends ListDataLakeExcepti
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ * @public
  */
 export class ListDataLakeExceptionsCommand extends $Command
   .classBuilder<

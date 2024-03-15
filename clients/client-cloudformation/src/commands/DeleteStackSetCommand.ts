@@ -27,7 +27,6 @@ export interface DeleteStackSetCommandInput extends DeleteStackSetInput {}
 export interface DeleteStackSetCommandOutput extends DeleteStackSetOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a stack set. Before you can delete a stack set, all its member stack instances must be deleted. For more
  *    information about how to complete this, see <a>DeleteStackInstances</a>.</p>
  * @example
@@ -63,6 +62,7 @@ export interface DeleteStackSetCommandOutput extends DeleteStackSetOutput, __Met
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class DeleteStackSetCommand extends $Command
   .classBuilder<

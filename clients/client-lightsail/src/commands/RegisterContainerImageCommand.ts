@@ -27,7 +27,6 @@ export interface RegisterContainerImageCommandInput extends RegisterContainerIma
 export interface RegisterContainerImageCommandOutput extends RegisterContainerImageResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers a container image to your Amazon Lightsail container service.</p>
  *          <note>
  *             <p>This action is not required if you install and use the Lightsail Control
@@ -90,6 +89,7 @@ export interface RegisterContainerImageCommandOutput extends RegisterContainerIm
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class RegisterContainerImageCommand extends $Command
   .classBuilder<

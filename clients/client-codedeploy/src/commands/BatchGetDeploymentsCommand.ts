@@ -27,7 +27,6 @@ export interface BatchGetDeploymentsCommandInput extends BatchGetDeploymentsInpu
 export interface BatchGetDeploymentsCommandOutput extends BatchGetDeploymentsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about one or more deployments. The maximum number of deployments that
  *             can be returned is 25.</p>
  * @example
@@ -243,6 +242,7 @@ export interface BatchGetDeploymentsCommandOutput extends BatchGetDeploymentsOut
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
  */
 export class BatchGetDeploymentsCommand extends $Command
   .classBuilder<

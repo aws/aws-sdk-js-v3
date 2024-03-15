@@ -27,7 +27,6 @@ export interface BatchDeleteConnectionCommandInput extends BatchDeleteConnection
 export interface BatchDeleteConnectionCommandOutput extends BatchDeleteConnectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a list of connection definitions from the Data Catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface BatchDeleteConnectionCommandOutput extends BatchDeleteConnectio
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class BatchDeleteConnectionCommand extends $Command
   .classBuilder<

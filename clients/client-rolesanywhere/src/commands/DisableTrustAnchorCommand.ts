@@ -27,7 +27,6 @@ export interface DisableTrustAnchorCommandInput extends ScalarTrustAnchorRequest
 export interface DisableTrustAnchorCommandOutput extends TrustAnchorDetailResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables a trust anchor. When disabled, temporary credential requests specifying this trust anchor are unauthorized.</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -88,6 +87,7 @@ export interface DisableTrustAnchorCommandOutput extends TrustAnchorDetailRespon
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ * @public
  */
 export class DisableTrustAnchorCommand extends $Command
   .classBuilder<

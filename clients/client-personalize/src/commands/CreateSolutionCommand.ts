@@ -27,7 +27,6 @@ export interface CreateSolutionCommandInput extends CreateSolutionRequest {}
 export interface CreateSolutionCommandOutput extends CreateSolutionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates the configuration for training a model. A trained model is known as
  *       a solution version. After the configuration is created, you train the model (create a solution version)
  *       by calling the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html">CreateSolutionVersion</a> operation. Every time you call
@@ -212,6 +211,7 @@ export interface CreateSolutionCommandOutput extends CreateSolutionResponse, __M
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class CreateSolutionCommand extends $Command
   .classBuilder<

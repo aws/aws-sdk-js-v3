@@ -32,7 +32,6 @@ export interface BatchDeleteRumMetricDefinitionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified metrics from being sent to an extended metrics destination.</p>
  *          <p>If some metric definition IDs specified in a <code>BatchDeleteRumMetricDefinitions</code> operations are not valid,
  *          those metric definitions fail and return errors, but all valid metric definition IDs in the same operation are still
@@ -97,6 +96,7 @@ export interface BatchDeleteRumMetricDefinitionsCommandOutput
  * @throws {@link RUMServiceException}
  * <p>Base exception class for all service exceptions from RUM service.</p>
  *
+ * @public
  */
 export class BatchDeleteRumMetricDefinitionsCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface CreateWorkforceCommandInput extends CreateWorkforceRequest {}
 export interface CreateWorkforceCommandOutput extends CreateWorkforceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use this operation to create a workforce. This operation will return an error
  *           if a workforce already exists in the Amazon Web Services Region that you specify. You can only
  *           create one workforce in each Amazon Web Services Region per Amazon Web Services account.</p>
@@ -110,6 +109,7 @@ export interface CreateWorkforceCommandOutput extends CreateWorkforceResponse, _
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateWorkforceCommand extends $Command
   .classBuilder<

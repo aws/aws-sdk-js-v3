@@ -27,7 +27,6 @@ export interface CreatePartitionIndexCommandInput extends CreatePartitionIndexRe
 export interface CreatePartitionIndexCommandOutput extends CreatePartitionIndexResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a specified partition index in an existing table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface CreatePartitionIndexCommandOutput extends CreatePartitionIndexR
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class CreatePartitionIndexCommand extends $Command
   .classBuilder<

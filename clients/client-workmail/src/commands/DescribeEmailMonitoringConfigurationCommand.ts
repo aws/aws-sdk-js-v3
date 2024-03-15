@@ -35,7 +35,6 @@ export interface DescribeEmailMonitoringConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the current email monitoring configuration for a specified organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface DescribeEmailMonitoringConfigurationCommandOutput
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class DescribeEmailMonitoringConfigurationCommand extends $Command
   .classBuilder<

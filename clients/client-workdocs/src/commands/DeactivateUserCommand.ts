@@ -27,7 +27,6 @@ export interface DeactivateUserCommandInput extends DeactivateUserRequest {}
 export interface DeactivateUserCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deactivates the specified user, which revokes the user's access to Amazon
  *             WorkDocs.</p>
  * @example
@@ -72,6 +71,7 @@ export interface DeactivateUserCommandOutput extends __MetadataBearer {}
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class DeactivateUserCommand extends $Command
   .classBuilder<

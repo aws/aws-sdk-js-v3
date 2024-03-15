@@ -27,7 +27,6 @@ export interface DeleteDeliverySourceCommandInput extends DeleteDeliverySourceRe
 export interface DeleteDeliverySourceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a <i>delivery source</i>. A delivery is a connection between a logical <i>delivery source</i> and a logical
  *        <i>delivery destination</i>.</p>
  *          <p>You can't delete a delivery source if any current deliveries are associated with it. To find whether any deliveries are associated with
@@ -74,6 +73,7 @@ export interface DeleteDeliverySourceCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class DeleteDeliverySourceCommand extends $Command
   .classBuilder<

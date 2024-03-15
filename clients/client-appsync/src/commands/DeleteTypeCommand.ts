@@ -27,7 +27,6 @@ export interface DeleteTypeCommandInput extends DeleteTypeRequest {}
 export interface DeleteTypeCommandOutput extends DeleteTypeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a <code>Type</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface DeleteTypeCommandOutput extends DeleteTypeResponse, __MetadataB
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class DeleteTypeCommand extends $Command
   .classBuilder<

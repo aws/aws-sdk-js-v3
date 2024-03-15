@@ -27,7 +27,6 @@ export interface GetDataRetrievalPolicyCommandInput extends GetDataRetrievalPoli
 export interface GetDataRetrievalPolicyCommandOutput extends GetDataRetrievalPolicyOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation returns the current data retrieval policy for the account and region
  *          specified in the GET request. For more information about data retrieval policies, see
  *             <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html">Amazon Glacier Data Retrieval Policies</a>.</p>
@@ -73,6 +72,7 @@ export interface GetDataRetrievalPolicyCommandOutput extends GetDataRetrievalPol
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * @public
  * @example To get the current data retrieval policy for an account
  * ```javascript
  * // The example returns the current data retrieval policy for the account.

@@ -27,7 +27,6 @@ export interface GetLinksCommandInput extends GetLinksRequest {}
 export interface GetLinksCommandOutput extends GetLinksResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about one or more links in a specified global network.</p>
  *          <p>If you specify the site ID, you cannot specify the type or provider in the same request. You can specify the type and provider in the same request.</p>
  * @example
@@ -102,6 +101,7 @@ export interface GetLinksCommandOutput extends GetLinksResponse, __MetadataBeare
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class GetLinksCommand extends $Command
   .classBuilder<

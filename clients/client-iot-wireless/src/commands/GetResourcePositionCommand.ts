@@ -35,7 +35,6 @@ export type GetResourcePositionCommandOutputType = Omit<GetResourcePositionRespo
 export interface GetResourcePositionCommandOutput extends GetResourcePositionCommandOutputType, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get the position information for a given wireless device or a wireless gateway
  *             resource. The position information uses the <a href="https://gisgeography.com/wgs84-world-geodetic-system/"> World Geodetic System
  *                 (WGS84)</a>.</p>
@@ -81,6 +80,7 @@ export interface GetResourcePositionCommandOutput extends GetResourcePositionCom
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class GetResourcePositionCommand extends $Command
   .classBuilder<

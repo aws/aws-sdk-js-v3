@@ -37,7 +37,6 @@ export interface DescribeUserStackAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list that describes the UserStackAssociation objects. You must specify either or both of the following:</p>
  *          <ul>
  *             <li>
@@ -91,6 +90,7 @@ export interface DescribeUserStackAssociationsCommandOutput
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class DescribeUserStackAssociationsCommand extends $Command
   .classBuilder<

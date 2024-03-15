@@ -31,7 +31,6 @@ export interface RemoveTagsCommandInput extends RemoveTagsInput {}
 export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes one or more tags from the specified load balancer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBea
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * @public
  * @example To remove tags from a load balancer
  * ```javascript
  * // This example removes the specified tag from the specified load balancer.

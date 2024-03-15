@@ -27,7 +27,6 @@ export interface UpdateLabelGroupCommandInput extends UpdateLabelGroupRequest {}
 export interface UpdateLabelGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p> Updates the label group. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface UpdateLabelGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  */
 export class UpdateLabelGroupCommand extends $Command
   .classBuilder<

@@ -30,7 +30,6 @@ export interface UpdateUserHierarchyStructureCommandInput extends UpdateUserHier
 export interface UpdateUserHierarchyStructureCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the user hierarchy structure: add, remove, and rename user hierarchy levels.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface UpdateUserHierarchyStructureCommandOutput extends __MetadataBea
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UpdateUserHierarchyStructureCommand extends $Command
   .classBuilder<

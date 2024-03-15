@@ -27,7 +27,6 @@ export interface CreateGraphSnapshotCommandInput extends CreateGraphSnapshotInpu
 export interface CreateGraphSnapshotCommandOutput extends CreateGraphSnapshotOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a snapshot of the specific graph.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface CreateGraphSnapshotCommandOutput extends CreateGraphSnapshotOut
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ * @public
  */
 export class CreateGraphSnapshotCommand extends $Command
   .classBuilder<

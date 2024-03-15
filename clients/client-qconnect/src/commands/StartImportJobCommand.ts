@@ -31,7 +31,6 @@ export interface StartImportJobCommandInput extends StartImportJobRequest {}
 export interface StartImportJobCommandOutput extends StartImportJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Start an asynchronous job to import Amazon Q resources from an uploaded source file. Before calling this API, use <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a> to
  *       upload an asset that contains the resource data.</p>
  *          <ul>
@@ -121,6 +120,7 @@ export interface StartImportJobCommandOutput extends StartImportJobResponse, __M
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ * @public
  */
 export class StartImportJobCommand extends $Command
   .classBuilder<

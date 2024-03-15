@@ -4345,9 +4345,9 @@ export interface Glue {
 }
 
 /**
- * @public
  * <fullname>Glue</fullname>
  *          <p>Defines the public endpoint for the Glue service.</p>
+ * @public
  */
 export class Glue extends GlueClient implements Glue {}
 createAggregatedClient(commands, Glue);

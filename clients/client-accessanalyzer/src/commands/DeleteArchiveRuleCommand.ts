@@ -27,7 +27,6 @@ export interface DeleteArchiveRuleCommandInput extends DeleteArchiveRuleRequest 
 export interface DeleteArchiveRuleCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified archive rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface DeleteArchiveRuleCommandOutput extends __MetadataBearer {}
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ * @public
  */
 export class DeleteArchiveRuleCommand extends $Command
   .classBuilder<

@@ -30,7 +30,6 @@ export interface UpdateFunctionEventInvokeConfigCommandInput extends UpdateFunct
 export interface UpdateFunctionEventInvokeConfigCommandOutput extends FunctionEventInvokeConfig, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the configuration for asynchronous invocation for a function, version, or alias.</p>
  *          <p>To configure options for asynchronous invocation, use <a>PutFunctionEventInvokeConfig</a>.</p>
  * @example
@@ -96,6 +95,7 @@ export interface UpdateFunctionEventInvokeConfigCommandOutput extends FunctionEv
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class UpdateFunctionEventInvokeConfigCommand extends $Command
   .classBuilder<

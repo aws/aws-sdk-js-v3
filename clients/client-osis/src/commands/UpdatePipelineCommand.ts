@@ -27,7 +27,6 @@ export interface UpdatePipelineCommandInput extends UpdatePipelineRequest {}
 export interface UpdatePipelineCommandOutput extends UpdatePipelineResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an OpenSearch Ingestion pipeline. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/update-pipeline.html">Updating Amazon OpenSearch Ingestion pipelines</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -139,6 +138,7 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineResponse, __M
  * @throws {@link OSISServiceException}
  * <p>Base exception class for all service exceptions from OSIS service.</p>
  *
+ * @public
  */
 export class UpdatePipelineCommand extends $Command
   .classBuilder<

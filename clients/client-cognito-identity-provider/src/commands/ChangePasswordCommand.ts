@@ -35,7 +35,6 @@ export interface ChangePasswordCommandInput extends ChangePasswordRequest {}
 export interface ChangePasswordCommandOutput extends ChangePasswordResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes the password for a specified user in a user pool.</p>
  *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
  *          <note>
@@ -108,6 +107,7 @@ export interface ChangePasswordCommandOutput extends ChangePasswordResponse, __M
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class ChangePasswordCommand extends $Command
   .classBuilder<

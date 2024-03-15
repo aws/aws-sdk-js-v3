@@ -27,7 +27,6 @@ export interface AcceptCertificateTransferCommandInput extends AcceptCertificate
 export interface AcceptCertificateTransferCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Accepts a pending certificate transfer. The default state of the certificate is
  *          INACTIVE.</p>
  *          <p>To check for pending certificate transfers, call <a>ListCertificates</a>
@@ -80,6 +79,7 @@ export interface AcceptCertificateTransferCommandOutput extends __MetadataBearer
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class AcceptCertificateTransferCommand extends $Command
   .classBuilder<

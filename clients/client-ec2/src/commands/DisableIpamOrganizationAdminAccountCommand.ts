@@ -35,7 +35,6 @@ export interface DisableIpamOrganizationAdminAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disable the IPAM account. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/enable-integ-ipam.html">Enable integration with Organizations</a> in the <i>Amazon VPC IPAM User Guide</i>.
  *       </p>
  * @example
@@ -65,6 +64,7 @@ export interface DisableIpamOrganizationAdminAccountCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DisableIpamOrganizationAdminAccountCommand extends $Command
   .classBuilder<

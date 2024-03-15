@@ -27,7 +27,6 @@ export interface ResetGraphCommandInput extends ResetGraphInput {}
 export interface ResetGraphCommandOutput extends ResetGraphOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Empties the data from a specified Neptune Analytics graph.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface ResetGraphCommandOutput extends ResetGraphOutput, __MetadataBea
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ * @public
  */
 export class ResetGraphCommand extends $Command
   .classBuilder<

@@ -28,7 +28,6 @@ export interface CopyDBSnapshotCommandInput extends CopyDBSnapshotMessage {}
 export interface CopyDBSnapshotCommandOutput extends CopyDBSnapshotResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Copies the specified DB snapshot. The source DB snapshot must be in the <code>available</code> state.</p>
  *          <p>You can copy a snapshot from one Amazon Web Services Region to another. In that case, the
  *             Amazon Web Services Region where you call the <code>CopyDBSnapshot</code> operation is the destination
@@ -145,6 +144,7 @@ export interface CopyDBSnapshotCommandOutput extends CopyDBSnapshotResult, __Met
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To copy a DB snapshot
  * ```javascript
  * // The following example creates a copy of a DB snapshot.

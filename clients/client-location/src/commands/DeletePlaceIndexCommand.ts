@@ -27,7 +27,6 @@ export interface DeletePlaceIndexCommandInput extends DeletePlaceIndexRequest {}
 export interface DeletePlaceIndexCommandOutput extends DeletePlaceIndexResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a place index resource from your Amazon Web Services account.</p>
  *          <note>
  *             <p>This operation deletes the resource permanently.</p>
@@ -72,6 +71,7 @@ export interface DeletePlaceIndexCommandOutput extends DeletePlaceIndexResponse,
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class DeletePlaceIndexCommand extends $Command
   .classBuilder<

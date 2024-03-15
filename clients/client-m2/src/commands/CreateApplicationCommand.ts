@@ -27,7 +27,6 @@ export interface CreateApplicationCommandInput extends CreateApplicationRequest 
 export interface CreateApplicationCommandOutput extends CreateApplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new application with given parameters. Requires an existing runtime
  *          environment and application definition file.</p>
  * @example
@@ -88,6 +87,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * @throws {@link M2ServiceException}
  * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ * @public
  */
 export class CreateApplicationCommand extends $Command
   .classBuilder<

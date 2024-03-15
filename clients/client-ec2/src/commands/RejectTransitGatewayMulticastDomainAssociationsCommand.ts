@@ -36,7 +36,6 @@ export interface RejectTransitGatewayMulticastDomainAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Rejects a request to associate cross-account subnets with a transit gateway multicast domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface RejectTransitGatewayMulticastDomainAssociationsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class RejectTransitGatewayMulticastDomainAssociationsCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface StartMedicalTranscriptionJobCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Transcribes the audio from a medical dictation or conversation and applies any
  *             additional Request Parameters you choose to include in your request.</p>
  *          <p>In addition to many standard transcription features, Amazon Transcribe Medical
@@ -190,6 +189,7 @@ export interface StartMedicalTranscriptionJobCommandOutput
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * @public
  */
 export class StartMedicalTranscriptionJobCommand extends $Command
   .classBuilder<

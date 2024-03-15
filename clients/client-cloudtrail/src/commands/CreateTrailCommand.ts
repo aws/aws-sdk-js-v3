@@ -27,7 +27,6 @@ export interface CreateTrailCommandInput extends CreateTrailRequest {}
 export interface CreateTrailCommandOutput extends CreateTrailResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a trail that specifies the settings for delivery of log data to an Amazon S3 bucket.
  *          </p>
  * @example
@@ -228,6 +227,7 @@ export interface CreateTrailCommandOutput extends CreateTrailResponse, __Metadat
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class CreateTrailCommand extends $Command
   .classBuilder<

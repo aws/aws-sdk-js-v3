@@ -27,7 +27,6 @@ export interface DescribeAllManagedProductsCommandInput extends DescribeAllManag
 export interface DescribeAllManagedProductsCommandOutput extends DescribeAllManagedProductsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides high-level information for the Amazon Web Services Managed Rules rule groups and Amazon Web Services Marketplace managed rule groups. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface DescribeAllManagedProductsCommandOutput extends DescribeAllMana
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class DescribeAllManagedProductsCommand extends $Command
   .classBuilder<

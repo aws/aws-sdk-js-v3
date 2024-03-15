@@ -27,7 +27,6 @@ export interface CreateKeyPairCommandInput extends CreateKeyPairRequest {}
 export interface CreateKeyPairCommandOutput extends CreateKeyPairResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a custom SSH key pair that you can use with an Amazon Lightsail
  *       instance.</p>
  *          <note>
@@ -135,6 +134,7 @@ export interface CreateKeyPairCommandOutput extends CreateKeyPairResult, __Metad
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class CreateKeyPairCommand extends $Command
   .classBuilder<

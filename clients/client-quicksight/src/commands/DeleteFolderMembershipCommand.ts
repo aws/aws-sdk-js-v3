@@ -27,7 +27,6 @@ export interface DeleteFolderMembershipCommandInput extends DeleteFolderMembersh
 export interface DeleteFolderMembershipCommandOutput extends DeleteFolderMembershipResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes an asset, such as a dashboard, analysis, or dataset, from a folder.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface DeleteFolderMembershipCommandOutput extends DeleteFolderMembers
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DeleteFolderMembershipCommand extends $Command
   .classBuilder<

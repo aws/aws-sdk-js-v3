@@ -32,7 +32,6 @@ export interface StartVirtualMachinesMetadataSyncCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>This action sends a request to sync metadata across the specified virtual machines.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface StartVirtualMachinesMetadataSyncCommandOutput
  * @throws {@link BackupGatewayServiceException}
  * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
+ * @public
  */
 export class StartVirtualMachinesMetadataSyncCommand extends $Command
   .classBuilder<

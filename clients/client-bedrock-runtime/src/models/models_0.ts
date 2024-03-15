@@ -4,8 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { BedrockRuntimeServiceException as __BaseException } from "./BedrockRuntimeServiceException";
 
 /**
- * @public
  * <p>The request is denied because of missing access permissions.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -24,8 +24,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>An internal server error occurred. Retry your request.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -48,28 +48,28 @@ export class InternalServerException extends __BaseException {
  */
 export interface InvokeModelRequest {
   /**
-   * @public
    * <p>Input data in the format specified in the content-type request header. To see the format and content of this field for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>.</p>
+   * @public
    */
   body: Uint8Array | undefined;
 
   /**
-   * @public
    * <p>The MIME type of the input data in the request. The default value is
    *             <code>application/json</code>.</p>
+   * @public
    */
   contentType?: string;
 
   /**
-   * @public
    * <p>The desired MIME type of the inference body in the response. The default value is
    *             <code>application/json</code>.</p>
+   * @public
    */
   accept?: string;
 
   /**
-   * @public
    * <p>Identifier of the model. </p>
+   * @public
    */
   modelId: string | undefined;
 }
@@ -79,34 +79,34 @@ export interface InvokeModelRequest {
  */
 export interface InvokeModelResponse {
   /**
-   * @public
    * <p>Inference response from the model in the format specified in the content-type header field. To see the format and content of this field for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>.</p>
+   * @public
    */
   body: Uint8Array | undefined;
 
   /**
-   * @public
    * <p>The MIME type of the inference result.</p>
+   * @public
    */
   contentType: string | undefined;
 }
 
 /**
- * @public
  * <p>The request failed due to an error while processing the model.</p>
+ * @public
  */
 export class ModelErrorException extends __BaseException {
   readonly name: "ModelErrorException" = "ModelErrorException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The original status code.</p>
+   * @public
    */
   originalStatusCode?: number;
 
   /**
-   * @public
    * <p>The resource name.</p>
+   * @public
    */
   resourceName?: string;
 
@@ -126,8 +126,8 @@ export class ModelErrorException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The model specified in the request is not ready to serve inference requests.</p>
+ * @public
  */
 export class ModelNotReadyException extends __BaseException {
   readonly name: "ModelNotReadyException" = "ModelNotReadyException";
@@ -146,8 +146,8 @@ export class ModelNotReadyException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request took too long to process. Processing time exceeded the model timeout length.</p>
+ * @public
  */
 export class ModelTimeoutException extends __BaseException {
   readonly name: "ModelTimeoutException" = "ModelTimeoutException";
@@ -166,8 +166,8 @@ export class ModelTimeoutException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -186,8 +186,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
@@ -206,8 +206,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -226,8 +226,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Input validation failed. Check your request parameters and retry the request.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -250,61 +250,61 @@ export class ValidationException extends __BaseException {
  */
 export interface InvokeModelWithResponseStreamRequest {
   /**
-   * @public
    * <p>Inference input in the format specified by the
    *          content-type. To see the format and content of this field for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>.</p>
+   * @public
    */
   body: Uint8Array | undefined;
 
   /**
-   * @public
    * <p>The MIME type of the input data in the request. The default value is
    *             <code>application/json</code>.</p>
+   * @public
    */
   contentType?: string;
 
   /**
-   * @public
    * <p>The desired MIME type of the inference body in the response. The default value is
    *             <code>application/json</code>.</p>
+   * @public
    */
   accept?: string;
 
   /**
-   * @public
    * <p>Id of the model to invoke using the streaming request.</p>
+   * @public
    */
   modelId: string | undefined;
 }
 
 /**
- * @public
  * <p>Payload content included in the response.</p>
+ * @public
  */
 export interface PayloadPart {
   /**
-   * @public
    * <p>Base64-encoded bytes of payload data.</p>
+   * @public
    */
   bytes?: Uint8Array;
 }
 
 /**
- * @public
  * <p>An error occurred while streaming the response.</p>
+ * @public
  */
 export class ModelStreamErrorException extends __BaseException {
   readonly name: "ModelStreamErrorException" = "ModelStreamErrorException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The original status code.</p>
+   * @public
    */
   originalStatusCode?: number;
 
   /**
-   * @public
    * <p>The original message.</p>
+   * @public
    */
   originalMessage?: string;
 
@@ -324,8 +324,8 @@ export class ModelStreamErrorException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Definition of content in the response stream.</p>
+ * @public
  */
 export type ResponseStream =
   | ResponseStream.ChunkMember
@@ -341,8 +341,8 @@ export type ResponseStream =
  */
 export namespace ResponseStream {
   /**
-   * @public
    * <p>Content included in the response.</p>
+   * @public
    */
   export interface ChunkMember {
     chunk: PayloadPart;
@@ -355,8 +355,8 @@ export namespace ResponseStream {
   }
 
   /**
-   * @public
    * <p>An internal server error occurred. Retry your request.</p>
+   * @public
    */
   export interface InternalServerExceptionMember {
     chunk?: never;
@@ -369,8 +369,8 @@ export namespace ResponseStream {
   }
 
   /**
-   * @public
    * <p>An error occurred while streaming the response.</p>
+   * @public
    */
   export interface ModelStreamErrorExceptionMember {
     chunk?: never;
@@ -383,8 +383,8 @@ export namespace ResponseStream {
   }
 
   /**
-   * @public
    * <p>Input validation failed. Check your request parameters and retry the request.</p>
+   * @public
    */
   export interface ValidationExceptionMember {
     chunk?: never;
@@ -397,8 +397,8 @@ export namespace ResponseStream {
   }
 
   /**
-   * @public
    * <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+   * @public
    */
   export interface ThrottlingExceptionMember {
     chunk?: never;
@@ -411,8 +411,8 @@ export namespace ResponseStream {
   }
 
   /**
-   * @public
    * <p>The request took too long to process. Processing time exceeded the model timeout length.</p>
+   * @public
    */
   export interface ModelTimeoutExceptionMember {
     chunk?: never;
@@ -465,14 +465,14 @@ export namespace ResponseStream {
  */
 export interface InvokeModelWithResponseStreamResponse {
   /**
-   * @public
    * <p>Inference response from the model in the format specified by Content-Type. To see the format and content of this field for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>.</p>
+   * @public
    */
   body: AsyncIterable<ResponseStream> | undefined;
 
   /**
-   * @public
    * <p>The MIME type of the inference result.</p>
+   * @public
    */
   contentType: string | undefined;
 }

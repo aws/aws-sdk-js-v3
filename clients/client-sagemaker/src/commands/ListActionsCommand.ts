@@ -27,7 +27,6 @@ export interface ListActionsCommandInput extends ListActionsRequest {}
 export interface ListActionsCommandOutput extends ListActionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the actions in your account and their properties.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface ListActionsCommandOutput extends ListActionsResponse, __Metadat
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListActionsCommand extends $Command
   .classBuilder<

@@ -29,7 +29,6 @@ export interface ListCostCategoryDefinitionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the name, Amazon Resource Name (ARN), <code>NumberOfRules</code> and effective
  *       dates of all Cost Categories defined in the account. You have the option to use
  *         <code>EffectiveOn</code> to return a list of Cost Categories that were active on a specific
@@ -87,6 +86,7 @@ export interface ListCostCategoryDefinitionsCommandOutput
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * @public
  */
 export class ListCostCategoryDefinitionsCommand extends $Command
   .classBuilder<

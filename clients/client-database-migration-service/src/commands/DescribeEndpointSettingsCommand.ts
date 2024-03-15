@@ -31,7 +31,6 @@ export interface DescribeEndpointSettingsCommandInput extends DescribeEndpointSe
 export interface DescribeEndpointSettingsCommandOutput extends DescribeEndpointSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the possible endpoint settings available
  *          when you create an endpoint for a specific database engine.</p>
  * @example
@@ -77,6 +76,7 @@ export interface DescribeEndpointSettingsCommandOutput extends DescribeEndpointS
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class DescribeEndpointSettingsCommand extends $Command
   .classBuilder<

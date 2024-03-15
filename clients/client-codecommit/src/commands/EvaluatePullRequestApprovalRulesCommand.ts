@@ -32,7 +32,6 @@ export interface EvaluatePullRequestApprovalRulesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Evaluates whether a pull request has met all the conditions specified in its associated approval rules.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface EvaluatePullRequestApprovalRulesCommandOutput
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class EvaluatePullRequestApprovalRulesCommand extends $Command
   .classBuilder<

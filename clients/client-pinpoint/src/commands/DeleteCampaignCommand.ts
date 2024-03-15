@@ -27,7 +27,6 @@ export interface DeleteCampaignCommandInput extends DeleteCampaignRequest {}
 export interface DeleteCampaignCommandOutput extends DeleteCampaignResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a campaign from an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -458,6 +457,7 @@ export interface DeleteCampaignCommandOutput extends DeleteCampaignResponse, __M
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class DeleteCampaignCommand extends $Command
   .classBuilder<

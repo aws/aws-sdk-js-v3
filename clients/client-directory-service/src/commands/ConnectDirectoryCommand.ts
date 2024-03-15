@@ -31,7 +31,6 @@ export interface ConnectDirectoryCommandInput extends ConnectDirectoryRequest {}
 export interface ConnectDirectoryCommandOutput extends ConnectDirectoryResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an AD Connector to connect to a self-managed directory.</p>
  *          <p>Before you call <code>ConnectDirectory</code>, ensure that all of the required permissions
  *       have been explicitly granted through a policy. For details about what permissions are required
@@ -97,6 +96,7 @@ export interface ConnectDirectoryCommandOutput extends ConnectDirectoryResult, _
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class ConnectDirectoryCommand extends $Command
   .classBuilder<

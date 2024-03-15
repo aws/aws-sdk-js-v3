@@ -27,7 +27,6 @@ export interface DeleteStreamProcessorCommandInput extends DeleteStreamProcessor
 export interface DeleteStreamProcessorCommandOutput extends DeleteStreamProcessorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the stream processor identified by <code>Name</code>. You assign the value for <code>Name</code> when you create the stream processor with
  *             <a>CreateStreamProcessor</a>. You might not be able to use the same name for a stream processor for a few seconds after calling <code>DeleteStreamProcessor</code>.</p>
  * @example
@@ -77,6 +76,7 @@ export interface DeleteStreamProcessorCommandOutput extends DeleteStreamProcesso
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  */
 export class DeleteStreamProcessorCommand extends $Command
   .classBuilder<

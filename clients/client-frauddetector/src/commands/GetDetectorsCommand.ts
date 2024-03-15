@@ -27,7 +27,6 @@ export interface GetDetectorsCommandInput extends GetDetectorsRequest {}
 export interface GetDetectorsCommandOutput extends GetDetectorsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets all detectors or a single detector if a <code>detectorId</code> is specified. This is a paginated API. If you
  *          provide a null <code>maxResults</code>, this action retrieves a maximum of 10 records
  *          per page. If you provide a <code>maxResults</code>, the value must be between 5 and 10.
@@ -87,6 +86,7 @@ export interface GetDetectorsCommandOutput extends GetDetectorsResult, __Metadat
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class GetDetectorsCommand extends $Command
   .classBuilder<

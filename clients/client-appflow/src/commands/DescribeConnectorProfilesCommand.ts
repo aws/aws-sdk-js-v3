@@ -27,7 +27,6 @@ export interface DescribeConnectorProfilesCommandInput extends DescribeConnector
 export interface DescribeConnectorProfilesCommandOutput extends DescribeConnectorProfilesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns a list of <code>connector-profile</code> details matching the provided
  *         <code>connector-profile</code> names and <code>connector-types</code>. Both input lists are
  *       optional, and you can use them to filter the result. </p>
@@ -178,6 +177,7 @@ export interface DescribeConnectorProfilesCommandOutput extends DescribeConnecto
  * @throws {@link AppflowServiceException}
  * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ * @public
  */
 export class DescribeConnectorProfilesCommand extends $Command
   .classBuilder<

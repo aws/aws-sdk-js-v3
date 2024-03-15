@@ -27,7 +27,6 @@ export interface DescribeMetricAttributionCommandInput extends DescribeMetricAtt
 export interface DescribeMetricAttributionCommandOutput extends DescribeMetricAttributionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a metric attribution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface DescribeMetricAttributionCommandOutput extends DescribeMetricAt
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class DescribeMetricAttributionCommand extends $Command
   .classBuilder<

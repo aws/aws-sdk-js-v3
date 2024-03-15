@@ -31,7 +31,6 @@ export interface DeleteChannelFlowCommandInput extends DeleteChannelFlowRequest 
 export interface DeleteChannelFlowCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a channel flow, an irreversible process. This is a developer API.</p>
  *          <note>
  *             <p> This API works only when the channel flow is not associated with any channel. To get a list of all channels that a channel flow is associated with, use the
@@ -83,6 +82,7 @@ export interface DeleteChannelFlowCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class DeleteChannelFlowCommand extends $Command
   .classBuilder<

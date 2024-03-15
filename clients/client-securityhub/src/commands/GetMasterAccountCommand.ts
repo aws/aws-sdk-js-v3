@@ -27,9 +27,6 @@ export interface GetMasterAccountCommandInput extends GetMasterAccountRequest {}
 export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This API has been deprecated, use GetAdministratorAccount API instead.
- *
  * <p>This method is deprecated. Instead, use <code>GetAdministratorAccount</code>.</p>
  *          <p>The Security Hub console continues to use <code>GetMasterAccount</code>. It will eventually change to use <code>GetAdministratorAccount</code>. Any IAM policies that specifically control access to this function must continue to use <code>GetMasterAccount</code>. You should also add <code>GetAdministratorAccount</code> to your policies to ensure that the correct permissions are in place after the console begins to use <code>GetAdministratorAccount</code>.</p>
  *          <p>Provides the details for the Security Hub administrator account for the current member account.</p>
@@ -81,6 +78,8 @@ export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse,
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
+ * @deprecated This API has been deprecated, use GetAdministratorAccount API instead.
  */
 export class GetMasterAccountCommand extends $Command
   .classBuilder<

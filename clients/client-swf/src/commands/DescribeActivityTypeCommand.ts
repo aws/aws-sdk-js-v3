@@ -27,7 +27,6 @@ export interface DescribeActivityTypeCommandInput extends DescribeActivityTypeIn
 export interface DescribeActivityTypeCommandOutput extends ActivityTypeDetail, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the specified activity type. This includes configuration
  *       settings provided when the type was registered and other general information about the
  *       type.</p>
@@ -122,6 +121,7 @@ export interface DescribeActivityTypeCommandOutput extends ActivityTypeDetail, _
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ * @public
  */
 export class DescribeActivityTypeCommand extends $Command
   .classBuilder<

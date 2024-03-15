@@ -32,7 +32,6 @@ export interface GetThingRuntimeConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * Get the runtime configuration of a thing.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface GetThingRuntimeConfigurationCommandOutput
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class GetThingRuntimeConfigurationCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface SetRulePrioritiesCommandInput extends SetRulePrioritiesInput {}
 export interface SetRulePrioritiesCommandOutput extends SetRulePrioritiesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the priorities of the specified rules.</p>
  *          <p>You can reorder the rules as long as there are no priority conflicts in the new order. Any
  *       existing rules that you do not specify retain their current priority.</p>
@@ -181,6 +180,7 @@ export interface SetRulePrioritiesCommandOutput extends SetRulePrioritiesOutput,
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  * @example To set the rule priority
  * ```javascript
  * // This example sets the priority of the specified rule.

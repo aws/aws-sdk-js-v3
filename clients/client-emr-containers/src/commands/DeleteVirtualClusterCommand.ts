@@ -27,7 +27,6 @@ export interface DeleteVirtualClusterCommandInput extends DeleteVirtualClusterRe
 export interface DeleteVirtualClusterCommandOutput extends DeleteVirtualClusterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a virtual cluster. Virtual cluster is a managed entity on Amazon EMR on EKS. You can create, describe, list and delete virtual clusters. They do not consume any
  *          additional resource in your system. A single virtual cluster maps to a single Kubernetes
  *          namespace. Given this relationship, you can model virtual clusters the same way you model
@@ -64,6 +63,7 @@ export interface DeleteVirtualClusterCommandOutput extends DeleteVirtualClusterR
  * @throws {@link EMRContainersServiceException}
  * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
+ * @public
  */
 export class DeleteVirtualClusterCommand extends $Command
   .classBuilder<

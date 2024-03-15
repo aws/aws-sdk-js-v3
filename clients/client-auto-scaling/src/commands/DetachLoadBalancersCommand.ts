@@ -27,7 +27,6 @@ export interface DetachLoadBalancersCommandInput extends DetachLoadBalancersType
 export interface DetachLoadBalancersCommandOutput extends DetachLoadBalancersResultType, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This API operation is superseded by <a>DetachTrafficSources</a>, which
  *                 can detach multiple traffic sources types. We recommend using
@@ -73,6 +72,7 @@ export interface DetachLoadBalancersCommandOutput extends DetachLoadBalancersRes
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To detach a load balancer from an Auto Scaling group
  * ```javascript
  * // This example detaches the specified load balancer from the specified Auto Scaling group.

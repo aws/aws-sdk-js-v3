@@ -27,7 +27,6 @@ export interface GetSolutionMetricsCommandInput extends GetSolutionMetricsReques
 export interface GetSolutionMetricsCommandOutput extends GetSolutionMetricsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the metrics for the specified solution version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface GetSolutionMetricsCommandOutput extends GetSolutionMetricsRespo
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class GetSolutionMetricsCommand extends $Command
   .classBuilder<

@@ -30,7 +30,6 @@ export interface UpdateVirtualInterfaceAttributesCommandInput extends UpdateVirt
 export interface UpdateVirtualInterfaceAttributesCommandOutput extends VirtualInterface, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified attributes of the specified virtual private interface.</p>
  *          <p>Setting the MTU of a virtual interface to 9001 (jumbo frames) can cause an update to
  *       the underlying physical connection if it wasn't updated to support jumbo frames. Updating
@@ -120,6 +119,7 @@ export interface UpdateVirtualInterfaceAttributesCommandOutput extends VirtualIn
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class UpdateVirtualInterfaceAttributesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeModelVersionsCommandInput extends DescribeModelVersions
 export interface DescribeModelVersionsCommandOutput extends DescribeModelVersionsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets all of the model versions for the specified model type or for the specified model type and model ID. You can also get details for a single, specified model version. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -235,6 +234,7 @@ export interface DescribeModelVersionsCommandOutput extends DescribeModelVersion
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class DescribeModelVersionsCommand extends $Command
   .classBuilder<

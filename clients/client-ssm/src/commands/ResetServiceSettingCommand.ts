@@ -27,7 +27,6 @@ export interface ResetServiceSettingCommandInput extends ResetServiceSettingRequ
 export interface ResetServiceSettingCommandOutput extends ResetServiceSettingResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             <code>ServiceSetting</code> is an account-level setting for an Amazon Web Services service. This setting
  *    defines how a user interacts with or uses a service or a feature of a service. For example, if an
@@ -86,6 +85,7 @@ export interface ResetServiceSettingCommandOutput extends ResetServiceSettingRes
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class ResetServiceSettingCommand extends $Command
   .classBuilder<

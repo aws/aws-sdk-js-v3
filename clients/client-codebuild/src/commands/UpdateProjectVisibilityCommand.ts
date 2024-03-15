@@ -27,7 +27,6 @@ export interface UpdateProjectVisibilityCommandInput extends UpdateProjectVisibi
 export interface UpdateProjectVisibilityCommandOutput extends UpdateProjectVisibilityOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes the public visibility for a project. The project's build results, logs, and
  *       artifacts are available to the general public.  For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/public-builds.html">Public build
  *         projects</a> in the <i>CodeBuild User Guide</i>.</p>
@@ -101,6 +100,7 @@ export interface UpdateProjectVisibilityCommandOutput extends UpdateProjectVisib
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * @public
  */
 export class UpdateProjectVisibilityCommand extends $Command
   .classBuilder<

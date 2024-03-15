@@ -30,7 +30,6 @@ export interface DeleteTrafficPolicyInstanceCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a traffic policy instance and all of the resource record sets that Amazon
  * 			Route 53 created when you created the instance.</p>
  *          <note>
@@ -74,6 +73,7 @@ export interface DeleteTrafficPolicyInstanceCommandOutput
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class DeleteTrafficPolicyInstanceCommand extends $Command
   .classBuilder<

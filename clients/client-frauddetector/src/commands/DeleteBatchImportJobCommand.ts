@@ -27,7 +27,6 @@ export interface DeleteBatchImportJobCommandInput extends DeleteBatchImportJobRe
 export interface DeleteBatchImportJobCommandOutput extends DeleteBatchImportJobResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified batch import job ID record. This action does not delete the data that was batch imported.  </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface DeleteBatchImportJobCommandOutput extends DeleteBatchImportJobR
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class DeleteBatchImportJobCommand extends $Command
   .classBuilder<

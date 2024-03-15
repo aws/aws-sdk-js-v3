@@ -27,7 +27,6 @@ export interface BatchCreateVariableCommandInput extends BatchCreateVariableRequ
 export interface BatchCreateVariableCommandOutput extends BatchCreateVariableResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a batch of variables.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface BatchCreateVariableCommandOutput extends BatchCreateVariableRes
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class BatchCreateVariableCommand extends $Command
   .classBuilder<

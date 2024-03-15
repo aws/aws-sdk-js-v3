@@ -36,7 +36,6 @@ export interface GetEffectiveRecommendationPreferencesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the recommendation preferences that are in effect for a given resource, such
  *             as enhanced infrastructure metrics. Considers all applicable preferences that you might
  *             have set at the resource, account, and organization level.</p>
@@ -121,6 +120,7 @@ export interface GetEffectiveRecommendationPreferencesCommandOutput
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ * @public
  */
 export class GetEffectiveRecommendationPreferencesCommand extends $Command
   .classBuilder<

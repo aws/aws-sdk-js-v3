@@ -35,7 +35,6 @@ export interface UpdateCloudFrontOriginAccessIdentityCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Update an origin access identity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface UpdateCloudFrontOriginAccessIdentityCommandOutput
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class UpdateCloudFrontOriginAccessIdentityCommand extends $Command
   .classBuilder<

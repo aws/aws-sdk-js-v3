@@ -27,7 +27,6 @@ export interface GetAudienceModelCommandInput extends GetAudienceModelRequest {}
 export interface GetAudienceModelCommandOutput extends GetAudienceModelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about an audience model</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface GetAudienceModelCommandOutput extends GetAudienceModelResponse,
  * @throws {@link CleanRoomsMLServiceException}
  * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
+ * @public
  */
 export class GetAudienceModelCommand extends $Command
   .classBuilder<

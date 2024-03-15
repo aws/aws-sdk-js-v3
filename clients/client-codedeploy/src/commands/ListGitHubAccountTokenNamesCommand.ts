@@ -27,7 +27,6 @@ export interface ListGitHubAccountTokenNamesCommandInput extends ListGitHubAccou
 export interface ListGitHubAccountTokenNamesCommandOutput extends ListGitHubAccountTokenNamesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the names of stored connections to GitHub accounts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface ListGitHubAccountTokenNamesCommandOutput extends ListGitHubAcco
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
  */
 export class ListGitHubAccountTokenNamesCommand extends $Command
   .classBuilder<

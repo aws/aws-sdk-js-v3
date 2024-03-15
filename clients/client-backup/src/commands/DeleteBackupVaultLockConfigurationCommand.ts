@@ -30,7 +30,6 @@ export interface DeleteBackupVaultLockConfigurationCommandInput extends DeleteBa
 export interface DeleteBackupVaultLockConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes Backup Vault Lock from a backup vault specified by a backup vault
  *          name.</p>
  *          <p>If the Vault Lock configuration is immutable, then you cannot delete Vault Lock using
@@ -78,6 +77,7 @@ export interface DeleteBackupVaultLockConfigurationCommandOutput extends __Metad
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class DeleteBackupVaultLockConfigurationCommand extends $Command
   .classBuilder<

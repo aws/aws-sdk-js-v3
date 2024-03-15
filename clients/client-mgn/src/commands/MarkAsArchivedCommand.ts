@@ -27,7 +27,6 @@ export interface MarkAsArchivedCommandInput extends MarkAsArchivedRequest {}
 export interface MarkAsArchivedCommandOutput extends SourceServer, __MetadataBearer {}
 
 /**
- * @public
  * <p>Archives specific Source Servers by setting the SourceServer.isArchived property to true for specified SourceServers by ID. This command only works for SourceServers with a lifecycle. state which equals DISCONNECTED or CUTOVER.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -180,6 +179,7 @@ export interface MarkAsArchivedCommandOutput extends SourceServer, __MetadataBea
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * @public
  */
 export class MarkAsArchivedCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface AddApplicationOutputCommandInput extends AddApplicationOutputRe
 export interface AddApplicationOutputCommandOutput extends AddApplicationOutputResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds an external destination to your SQL-based Kinesis Data Analytics application.</p>
  *          <p>If you want Kinesis Data Analytics to deliver data from an in-application stream within
  *       your application to an external destination (such as an Kinesis data stream, a Kinesis Data
@@ -126,6 +125,7 @@ export interface AddApplicationOutputCommandOutput extends AddApplicationOutputR
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ * @public
  */
 export class AddApplicationOutputCommand extends $Command
   .classBuilder<

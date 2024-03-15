@@ -36,7 +36,6 @@ export interface GetTransitGatewayConnectPeerAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about one or more of your transit gateway Connect peer associations in a global network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface GetTransitGatewayConnectPeerAssociationsCommandOutput
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class GetTransitGatewayConnectPeerAssociationsCommand extends $Command
   .classBuilder<

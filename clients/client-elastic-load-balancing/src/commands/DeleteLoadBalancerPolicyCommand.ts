@@ -31,7 +31,6 @@ export interface DeleteLoadBalancerPolicyCommandInput extends DeleteLoadBalancer
 export interface DeleteLoadBalancerPolicyCommandOutput extends DeleteLoadBalancerPolicyOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified policy from the specified load balancer. This policy must not be enabled for any listeners.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +63,7 @@ export interface DeleteLoadBalancerPolicyCommandOutput extends DeleteLoadBalance
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * @public
  * @example To delete a policy from your load balancer
  * ```javascript
  * // This example deletes the specified policy from the specified load balancer. The policy must not be enabled on any listener.

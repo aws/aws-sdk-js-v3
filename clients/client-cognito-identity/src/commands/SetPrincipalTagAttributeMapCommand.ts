@@ -29,7 +29,6 @@ export interface SetPrincipalTagAttributeMapCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>You can use this operation to use default (username and clientID) attribute or custom attribute mappings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface SetPrincipalTagAttributeMapCommandOutput
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ * @public
  */
 export class SetPrincipalTagAttributeMapCommand extends $Command
   .classBuilder<

@@ -500,7 +500,6 @@ export interface Batch {
 }
 
 /**
- * @public
  * <fullname>Batch</fullname>
  *          <p>Using Batch, you can run batch computing workloads on the Amazon Web Services Cloud. Batch computing is a common means for
  *    developers, scientists, and engineers to access large amounts of compute resources. Batch uses the advantages of
@@ -512,6 +511,7 @@ export interface Batch {
  *    provisions compute resources and optimizes workload distribution based on the quantity and scale of your specific
  *    workloads. With Batch, there's no need to install or manage batch computing software. This means that you can focus
  *    on analyzing results and solving your specific problems instead.</p>
+ * @public
  */
 export class Batch extends BatchClient implements Batch {}
 createAggregatedClient(commands, Batch);

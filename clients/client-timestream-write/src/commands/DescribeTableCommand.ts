@@ -28,7 +28,6 @@ export interface DescribeTableCommandInput extends DescribeTableRequest {}
 export interface DescribeTableCommandOutput extends DescribeTableResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the table, including the table name, database name, retention
  *          duration of the memory store and the magnetic store. <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service quotas apply</a>. See
  *             <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.describe-table.html">code
@@ -113,6 +112,7 @@ export interface DescribeTableCommandOutput extends DescribeTableResponse, __Met
  * @throws {@link TimestreamWriteServiceException}
  * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
+ * @public
  */
 export class DescribeTableCommand extends $Command
   .classBuilder<

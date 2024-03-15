@@ -27,7 +27,6 @@ export interface LookupPolicyCommandInput extends LookupPolicyRequest {}
 export interface LookupPolicyCommandOutput extends LookupPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all policies from the root of the <a>Directory</a> to the object
  *       specified. If there are no policies present, an empty list is returned. If policies are
  *       present, and if some objects don't have the policies attached, it returns the <code>ObjectIdentifier</code>
@@ -105,6 +104,7 @@ export interface LookupPolicyCommandOutput extends LookupPolicyResponse, __Metad
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class LookupPolicyCommand extends $Command
   .classBuilder<

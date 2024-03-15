@@ -32,7 +32,6 @@ export interface ListPackageVersionDependenciesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Returns the direct dependencies for a package version. The dependencies are returned as
  *         <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDependency.html">PackageDependency</a>
@@ -109,6 +108,7 @@ export interface ListPackageVersionDependenciesCommandOutput
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * @public
  */
 export class ListPackageVersionDependenciesCommand extends $Command
   .classBuilder<

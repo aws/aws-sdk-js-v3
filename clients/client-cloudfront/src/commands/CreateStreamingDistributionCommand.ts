@@ -27,7 +27,6 @@ export interface CreateStreamingDistributionCommandInput extends CreateStreaming
 export interface CreateStreamingDistributionCommandOutput extends CreateStreamingDistributionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is deprecated. Amazon CloudFront is deprecating real-time messaging protocol (RTMP)
  * 			distributions on December 31, 2020. For more information, <a href="http://forums.aws.amazon.com/ann.jspa?annID=7356">read the announcement</a> on the Amazon CloudFront discussion
  * 			forum.</p>
@@ -178,6 +177,7 @@ export interface CreateStreamingDistributionCommandOutput extends CreateStreamin
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class CreateStreamingDistributionCommand extends $Command
   .classBuilder<

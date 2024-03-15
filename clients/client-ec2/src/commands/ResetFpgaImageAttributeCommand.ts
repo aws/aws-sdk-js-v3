@@ -27,7 +27,6 @@ export interface ResetFpgaImageAttributeCommandInput extends ResetFpgaImageAttri
 export interface ResetFpgaImageAttributeCommandOutput extends ResetFpgaImageAttributeResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Resets the specified attribute of the specified Amazon FPGA Image (AFI) to its default value.
  * 		    You can only reset the load permission attribute.</p>
  * @example
@@ -58,6 +57,7 @@ export interface ResetFpgaImageAttributeCommandOutput extends ResetFpgaImageAttr
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ResetFpgaImageAttributeCommand extends $Command
   .classBuilder<

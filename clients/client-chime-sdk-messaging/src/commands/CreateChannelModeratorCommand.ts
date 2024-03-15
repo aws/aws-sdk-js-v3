@@ -35,7 +35,6 @@ export interface CreateChannelModeratorCommandInput extends CreateChannelModerat
 export interface CreateChannelModeratorCommandOutput extends CreateChannelModeratorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new <code>ChannelModerator</code>. A channel moderator can:</p>
  *          <ul>
  *             <li>
@@ -116,6 +115,7 @@ export interface CreateChannelModeratorCommandOutput extends CreateChannelModera
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class CreateChannelModeratorCommand extends $Command
   .classBuilder<

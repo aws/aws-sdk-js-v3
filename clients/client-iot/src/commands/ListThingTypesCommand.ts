@@ -27,7 +27,6 @@ export interface ListThingTypesCommandInput extends ListThingTypesRequest {}
 export interface ListThingTypesCommandOutput extends ListThingTypesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the existing thing types.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingTypes</a> action.</p>
  * @example
@@ -90,6 +89,7 @@ export interface ListThingTypesCommandOutput extends ListThingTypesResponse, __M
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListThingTypesCommand extends $Command
   .classBuilder<

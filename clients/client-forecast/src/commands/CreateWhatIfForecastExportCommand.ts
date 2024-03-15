@@ -31,7 +31,6 @@ export interface CreateWhatIfForecastExportCommandInput extends CreateWhatIfFore
 export interface CreateWhatIfForecastExportCommandOutput extends CreateWhatIfForecastExportResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Exports a forecast created by the <a>CreateWhatIfForecast</a> operation to your
  *       Amazon Simple Storage Service (Amazon S3) bucket. The forecast file name will match the following conventions:</p>
  *          <p>
@@ -109,6 +108,7 @@ export interface CreateWhatIfForecastExportCommandOutput extends CreateWhatIfFor
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class CreateWhatIfForecastExportCommand extends $Command
   .classBuilder<

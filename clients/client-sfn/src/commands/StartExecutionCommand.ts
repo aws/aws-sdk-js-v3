@@ -27,7 +27,6 @@ export interface StartExecutionCommandInput extends StartExecutionInput {}
 export interface StartExecutionCommandOutput extends StartExecutionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a state machine execution.</p>
  *          <p>A qualified state machine ARN can either refer to a <i>Distributed Map state</i> defined within a state machine, a version ARN, or an alias ARN.</p>
  *          <p>The following are some examples of qualified and unqualified state machine ARNs:</p>
@@ -130,6 +129,7 @@ export interface StartExecutionCommandOutput extends StartExecutionOutput, __Met
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * @public
  */
 export class StartExecutionCommand extends $Command
   .classBuilder<

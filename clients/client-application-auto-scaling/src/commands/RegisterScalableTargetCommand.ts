@@ -31,7 +31,6 @@ export interface RegisterScalableTargetCommandInput extends RegisterScalableTarg
 export interface RegisterScalableTargetCommandOutput extends RegisterScalableTargetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers or updates a scalable target, which is the resource that you want to
  *          scale.</p>
  *          <p>Scalable targets are uniquely identified by the combination of resource ID, scalable
@@ -117,6 +116,7 @@ export interface RegisterScalableTargetCommandOutput extends RegisterScalableTar
  * @throws {@link ApplicationAutoScalingServiceException}
  * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
+ * @public
  * @example To register an ECS service as a scalable target
  * ```javascript
  * // This example registers a scalable target from an Amazon ECS service called web-app that is running on the default cluster, with a minimum desired count of 1 task and a maximum desired count of 10 tasks.

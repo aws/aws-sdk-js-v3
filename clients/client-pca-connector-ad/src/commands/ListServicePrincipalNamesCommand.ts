@@ -27,7 +27,6 @@ export interface ListServicePrincipalNamesCommandInput extends ListServicePrinci
 export interface ListServicePrincipalNamesCommandOutput extends ListServicePrincipalNamesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the service principal names that the connector uses to authenticate with
  *          Active Directory.</p>
  * @example
@@ -90,6 +89,7 @@ export interface ListServicePrincipalNamesCommandOutput extends ListServicePrinc
  * @throws {@link PcaConnectorAdServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ * @public
  */
 export class ListServicePrincipalNamesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface PutFeedbackCommandInput extends PutFeedbackRequest {}
 export interface PutFeedbackCommandOutput extends PutFeedbackResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides feedback against the specified assistant for the specified target. This API only supports generative targets.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface PutFeedbackCommandOutput extends PutFeedbackResponse, __Metadat
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ * @public
  */
 export class PutFeedbackCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateAppCommandInput extends UpdateAppRequest {}
 export interface UpdateAppCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a specified app.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have a Deploy or Manage
@@ -101,6 +100,7 @@ export interface UpdateAppCommandOutput extends __MetadataBearer {}
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class UpdateAppCommand extends $Command
   .classBuilder<

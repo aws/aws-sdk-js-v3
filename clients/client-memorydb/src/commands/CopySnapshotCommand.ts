@@ -27,7 +27,6 @@ export interface CopySnapshotCommandInput extends CopySnapshotRequest {}
 export interface CopySnapshotCommandOutput extends CopySnapshotResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Makes a copy of an existing snapshot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -121,6 +120,7 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResponse, __Metad
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * @public
  */
 export class CopySnapshotCommand extends $Command
   .classBuilder<

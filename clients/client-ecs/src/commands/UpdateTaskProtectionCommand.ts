@@ -27,7 +27,6 @@ export interface UpdateTaskProtectionCommandInput extends UpdateTaskProtectionRe
 export interface UpdateTaskProtectionCommandOutput extends UpdateTaskProtectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the protection status of a task. You can set <code>protectionEnabled</code> to
  * 				<code>true</code> to protect your task from termination during scale-in events from
  * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-auto-scaling.html">Service
@@ -123,6 +122,7 @@ export interface UpdateTaskProtectionCommandOutput extends UpdateTaskProtectionR
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  * @example To set task scale-in protection for a task for 60 minutes
  * ```javascript
  * // This example enables scale-in protection for a task for 60 minutes.

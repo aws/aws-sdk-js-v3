@@ -27,7 +27,6 @@ export interface ListBrokersCommandInput extends ListBrokersRequest {}
 export interface ListBrokersCommandOutput extends ListBrokersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all brokers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface ListBrokersCommandOutput extends ListBrokersResponse, __Metadat
  * @throws {@link MqServiceException}
  * <p>Base exception class for all service exceptions from Mq service.</p>
  *
+ * @public
  */
 export class ListBrokersCommand extends $Command
   .classBuilder<

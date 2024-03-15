@@ -113,7 +113,6 @@ export interface Pricing {
 }
 
 /**
- * @public
  * <p>The Amazon Web Services Price List API is a centralized and convenient way to programmatically
  *          query Amazon Web Services for services, products, and pricing information. The Amazon Web Services Price List uses standardized product attributes such as <code>Location</code>,
  *             <code>Storage Class</code>, and <code>Operating System</code>, and provides prices at
@@ -143,6 +142,7 @@ export interface Pricing {
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html">Using the
  *                Amazon Web Services Price List API</a> in the <i>Billing User
  *             Guide</i>.</p>
+ * @public
  */
 export class Pricing extends PricingClient implements Pricing {}
 createAggregatedClient(commands, Pricing);

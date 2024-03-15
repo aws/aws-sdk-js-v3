@@ -36,7 +36,6 @@ export interface GetSavingsPlanPurchaseRecommendationDetailsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the details for a Savings Plan recommendation. These details include the hourly
  *       data-points that construct the cost, coverage, and utilization charts.</p>
  * @example
@@ -110,6 +109,7 @@ export interface GetSavingsPlanPurchaseRecommendationDetailsCommandOutput
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * @public
  */
 export class GetSavingsPlanPurchaseRecommendationDetailsCommand extends $Command
   .classBuilder<

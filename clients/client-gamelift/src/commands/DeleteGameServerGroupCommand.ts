@@ -27,7 +27,6 @@ export interface DeleteGameServerGroupCommandInput extends DeleteGameServerGroup
 export interface DeleteGameServerGroupCommandOutput extends DeleteGameServerGroupOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
  *          </p>
@@ -124,6 +123,7 @@ export interface DeleteGameServerGroupCommandOutput extends DeleteGameServerGrou
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DeleteGameServerGroupCommand extends $Command
   .classBuilder<

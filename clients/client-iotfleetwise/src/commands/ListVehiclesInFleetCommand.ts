@@ -27,7 +27,6 @@ export interface ListVehiclesInFleetCommandInput extends ListVehiclesInFleetRequ
 export interface ListVehiclesInFleetCommandOutput extends ListVehiclesInFleetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Retrieves a list of summaries of all vehicles associated with a fleet. </p>
  *          <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
@@ -78,6 +77,7 @@ export interface ListVehiclesInFleetCommandOutput extends ListVehiclesInFleetRes
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class ListVehiclesInFleetCommand extends $Command
   .classBuilder<

@@ -35,7 +35,6 @@ export interface DescribeConfigRuleEvaluationStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns status information for each of your Config managed rules. The status includes information such as the last time Config invoked the rule, the last time Config failed to invoke
  * 			the rule, and the related error for the last failure.</p>
  * @example
@@ -99,6 +98,7 @@ export interface DescribeConfigRuleEvaluationStatusCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class DescribeConfigRuleEvaluationStatusCommand extends $Command
   .classBuilder<

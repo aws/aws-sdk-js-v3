@@ -27,7 +27,6 @@ export interface ListEmailIdentitiesCommandInput extends ListEmailIdentitiesRequ
 export interface ListEmailIdentitiesCommandOutput extends ListEmailIdentitiesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all of the email identities that are associated with your Amazon Web Services
  *             account. An identity can be either an email address or a domain. This operation returns
  *             identities that are verified as well as those that aren't. This operation returns
@@ -73,6 +72,7 @@ export interface ListEmailIdentitiesCommandOutput extends ListEmailIdentitiesRes
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class ListEmailIdentitiesCommand extends $Command
   .classBuilder<

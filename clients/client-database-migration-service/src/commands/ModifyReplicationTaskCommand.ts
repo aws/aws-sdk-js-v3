@@ -31,7 +31,6 @@ export interface ModifyReplicationTaskCommandInput extends ModifyReplicationTask
 export interface ModifyReplicationTaskCommandOutput extends ModifyReplicationTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the specified replication task.</p>
  *          <p>You can't modify the task endpoints. The task must be stopped before you can modify it. </p>
  *          <p>For more information about DMS tasks, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html">Working with Migration Tasks</a> in the
@@ -114,6 +113,7 @@ export interface ModifyReplicationTaskCommandOutput extends ModifyReplicationTas
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class ModifyReplicationTaskCommand extends $Command
   .classBuilder<

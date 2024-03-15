@@ -27,7 +27,6 @@ export interface DeleteCoreNetworkCommandInput extends DeleteCoreNetworkRequest 
 export interface DeleteCoreNetworkCommandOutput extends DeleteCoreNetworkResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a core network along with all core network policies. This can only be done if there are no attachments on a core network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -107,6 +106,7 @@ export interface DeleteCoreNetworkCommandOutput extends DeleteCoreNetworkRespons
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class DeleteCoreNetworkCommand extends $Command
   .classBuilder<

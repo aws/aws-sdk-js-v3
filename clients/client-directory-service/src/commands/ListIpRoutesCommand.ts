@@ -27,7 +27,6 @@ export interface ListIpRoutesCommandInput extends ListIpRoutesRequest {}
 export interface ListIpRoutesCommandOutput extends ListIpRoutesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the address blocks that you have added to a directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface ListIpRoutesCommandOutput extends ListIpRoutesResult, __Metadat
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class ListIpRoutesCommand extends $Command
   .classBuilder<

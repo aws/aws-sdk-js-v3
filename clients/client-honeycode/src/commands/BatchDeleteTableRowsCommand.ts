@@ -27,7 +27,6 @@ export interface BatchDeleteTableRowsCommandInput extends BatchDeleteTableRowsRe
 export interface BatchDeleteTableRowsCommandOutput extends BatchDeleteTableRowsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The BatchDeleteTableRows API allows you to delete one or more rows from a table in a workbook.
  *             You need to specify the ids of the rows that you want to delete from the table.
@@ -95,6 +94,7 @@ export interface BatchDeleteTableRowsCommandOutput extends BatchDeleteTableRowsR
  * @throws {@link HoneycodeServiceException}
  * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
+ * @public
  */
 export class BatchDeleteTableRowsCommand extends $Command
   .classBuilder<

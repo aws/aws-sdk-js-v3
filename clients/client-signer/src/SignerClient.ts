@@ -330,7 +330,6 @@ export type SignerClientResolvedConfigType = __SmithyResolvedConfiguration<__Htt
 export interface SignerClientResolvedConfig extends SignerClientResolvedConfigType {}
 
 /**
- * @public
  * <p>AWS Signer is a fully managed code-signing service to help you ensure the trust and
  * 			integrity of your code. </p>
  * 		       <p>Signer supports the following applications:</p>
@@ -349,6 +348,7 @@ export interface SignerClientResolvedConfig extends SignerClientResolvedConfigTy
  * 			integrity.</p>
  * 		       <p>For more information about Signer, see the <a href="https://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html">AWS Signer Developer
  * 			Guide</a>.</p>
+ * @public
  */
 export class SignerClient extends __Client<
   __HttpHandlerOptions,

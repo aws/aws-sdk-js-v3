@@ -27,7 +27,6 @@ export interface DeleteExportCommandInput extends DeleteExportRequest {}
 export interface DeleteExportCommandOutput extends DeleteExportResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing data export.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface DeleteExportCommandOutput extends DeleteExportResponse, __Metad
  * @throws {@link BCMDataExportsServiceException}
  * <p>Base exception class for all service exceptions from BCMDataExports service.</p>
  *
+ * @public
  */
 export class DeleteExportCommand extends $Command
   .classBuilder<

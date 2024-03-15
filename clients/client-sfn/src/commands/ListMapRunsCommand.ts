@@ -27,7 +27,6 @@ export interface ListMapRunsCommandInput extends ListMapRunsInput {}
 export interface ListMapRunsCommandOutput extends ListMapRunsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all Map Runs that were started by a given state machine execution. Use this API action to obtain Map Run ARNs, and then call <code>DescribeMapRun</code> to obtain more information, if needed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface ListMapRunsCommandOutput extends ListMapRunsOutput, __MetadataB
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * @public
  */
 export class ListMapRunsCommand extends $Command
   .classBuilder<

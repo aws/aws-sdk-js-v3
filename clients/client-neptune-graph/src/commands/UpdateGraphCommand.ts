@@ -27,7 +27,6 @@ export interface UpdateGraphCommandInput extends UpdateGraphInput {}
 export interface UpdateGraphCommandOutput extends UpdateGraphOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the configuration of a specified Neptune Analytics graph</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface UpdateGraphCommandOutput extends UpdateGraphOutput, __MetadataB
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ * @public
  */
 export class UpdateGraphCommand extends $Command
   .classBuilder<

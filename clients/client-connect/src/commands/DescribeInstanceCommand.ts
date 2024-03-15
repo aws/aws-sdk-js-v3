@@ -31,7 +31,6 @@ export interface DescribeInstanceCommandInput extends DescribeInstanceRequest {}
 export interface DescribeInstanceCommandOutput extends DescribeInstanceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Returns the current state of the specified instance identifier. It tracks the instance while
  *    it is being created and returns an error status, if applicable. </p>
@@ -90,6 +89,7 @@ export interface DescribeInstanceCommandOutput extends DescribeInstanceResponse,
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DescribeInstanceCommand extends $Command
   .classBuilder<

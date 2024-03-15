@@ -31,9 +31,6 @@ export interface UpdateNetworkProfileCommandInput extends UpdateNetworkProfileRe
 export interface UpdateNetworkProfileCommandOutput extends UpdateNetworkProfileResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Updates a network profile by the network profile ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +79,8 @@ export interface UpdateNetworkProfileCommandOutput extends UpdateNetworkProfileR
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class UpdateNetworkProfileCommand extends $Command
   .classBuilder<

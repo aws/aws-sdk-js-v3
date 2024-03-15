@@ -27,7 +27,6 @@ export interface DeleteWirelessDeviceCommandInput extends DeleteWirelessDeviceRe
 export interface DeleteWirelessDeviceCommandOutput extends DeleteWirelessDeviceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a wireless device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DeleteWirelessDeviceCommandOutput extends DeleteWirelessDeviceR
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class DeleteWirelessDeviceCommand extends $Command
   .classBuilder<

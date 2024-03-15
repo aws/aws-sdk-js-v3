@@ -27,7 +27,6 @@ export interface ListDevEndpointsCommandInput extends ListDevEndpointsRequest {}
 export interface ListDevEndpointsCommandOutput extends ListDevEndpointsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the names of all <code>DevEndpoint</code> resources in this Amazon Web Services account, or the
  *       resources with the specified tag. This operation allows you to see which resources are
  *       available in your account, and their names.</p>
@@ -79,6 +78,7 @@ export interface ListDevEndpointsCommandOutput extends ListDevEndpointsResponse,
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class ListDevEndpointsCommand extends $Command
   .classBuilder<

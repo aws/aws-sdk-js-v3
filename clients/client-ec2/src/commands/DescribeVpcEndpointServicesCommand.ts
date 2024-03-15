@@ -27,7 +27,6 @@ export interface DescribeVpcEndpointServicesCommandInput extends DescribeVpcEndp
 export interface DescribeVpcEndpointServicesCommandOutput extends DescribeVpcEndpointServicesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes available services to which you can create a VPC endpoint.</p>
  *          <p>When the service provider and the consumer have different accounts in multiple
  *             Availability Zones, and the consumer views the VPC endpoint service information, the
@@ -116,6 +115,7 @@ export interface DescribeVpcEndpointServicesCommandOutput extends DescribeVpcEnd
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeVpcEndpointServicesCommand extends $Command
   .classBuilder<

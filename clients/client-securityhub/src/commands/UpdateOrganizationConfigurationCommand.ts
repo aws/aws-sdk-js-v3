@@ -32,7 +32,6 @@ export interface UpdateOrganizationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the configuration of your organization in Security Hub. Only the
  *          Security Hub administrator account can invoke this operation.</p>
  * @example
@@ -88,6 +87,7 @@ export interface UpdateOrganizationConfigurationCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To update organization configuration
  * ```javascript
  * // This operation updates the way your organization is configured in Security Hub. Only a Security Hub administrator account can invoke this operation.

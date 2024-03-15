@@ -27,7 +27,6 @@ export interface BatchGetDeploymentGroupsCommandInput extends BatchGetDeployment
 export interface BatchGetDeploymentGroupsCommandOutput extends BatchGetDeploymentGroupsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about one or more deployment groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -246,6 +245,7 @@ export interface BatchGetDeploymentGroupsCommandOutput extends BatchGetDeploymen
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
  */
 export class BatchGetDeploymentGroupsCommand extends $Command
   .classBuilder<

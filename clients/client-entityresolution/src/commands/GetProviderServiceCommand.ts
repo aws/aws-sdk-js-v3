@@ -27,7 +27,6 @@ export interface GetProviderServiceCommandInput extends GetProviderServiceInput 
 export interface GetProviderServiceCommandOutput extends GetProviderServiceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the <code>ProviderService</code> of a given name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface GetProviderServiceCommandOutput extends GetProviderServiceOutpu
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ * @public
  */
 export class GetProviderServiceCommand extends $Command
   .classBuilder<

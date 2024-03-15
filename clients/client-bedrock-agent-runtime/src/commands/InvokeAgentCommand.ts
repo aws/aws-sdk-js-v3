@@ -36,7 +36,6 @@ export interface InvokeAgentCommandInput extends InvokeAgentRequest {}
 export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sends a prompt for the agent to process and respond to.</p>
  *          <note>
  *             <p>The CLI doesn't support <code>InvokeAgent</code>.</p>
@@ -341,6 +340,7 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * @throws {@link BedrockAgentRuntimeServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgentRuntime service.</p>
  *
+ * @public
  */
 export class InvokeAgentCommand extends $Command
   .classBuilder<

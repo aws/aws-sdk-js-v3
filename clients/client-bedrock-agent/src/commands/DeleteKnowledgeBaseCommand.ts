@@ -27,7 +27,6 @@ export interface DeleteKnowledgeBaseCommandInput extends DeleteKnowledgeBaseRequ
 export interface DeleteKnowledgeBaseCommandOutput extends DeleteKnowledgeBaseResponse, __MetadataBearer {}
 
 /**
- * @public
  * Delete an existing knowledge base
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DeleteKnowledgeBaseCommandOutput extends DeleteKnowledgeBaseRes
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ * @public
  */
 export class DeleteKnowledgeBaseCommand extends $Command
   .classBuilder<

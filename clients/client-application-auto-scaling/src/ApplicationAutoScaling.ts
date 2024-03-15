@@ -293,7 +293,6 @@ export interface ApplicationAutoScaling {
 }
 
 /**
- * @public
  * <p>With Application Auto Scaling, you can configure automatic scaling for the following
  *       resources:</p>
  *          <ul>
@@ -371,6 +370,7 @@ export interface ApplicationAutoScaling {
  *           and scheduled scaling.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class ApplicationAutoScaling extends ApplicationAutoScalingClient implements ApplicationAutoScaling {}
 createAggregatedClient(commands, ApplicationAutoScaling);

@@ -27,7 +27,6 @@ export interface CreateReplicationJobCommandInput extends CreateReplicationJobRe
 export interface CreateReplicationJobCommandOutput extends CreateReplicationJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a replication job. The replication job schedules periodic replication runs
  *             to replicate your server to Amazon Web Services. Each replication run creates an Amazon Machine Image
  *             (AMI).</p>
@@ -94,6 +93,7 @@ export interface CreateReplicationJobCommandOutput extends CreateReplicationJobR
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ * @public
  */
 export class CreateReplicationJobCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface DeleteResourcePolicyStatementCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a policy statement from a resource policy. If you delete the
  *          last statement from a policy, the policy is deleted. If you specify a
  *          statement ID that doesn't exist in the policy, or if the bot or bot
@@ -84,6 +83,7 @@ export interface DeleteResourcePolicyStatementCommandOutput
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class DeleteResourcePolicyStatementCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetResourceSharesCommandInput extends GetResourceSharesRequest 
 export interface GetResourceSharesCommandOutput extends GetResourceSharesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves details about the resource shares that you own or that are shared with you.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -113,6 +112,7 @@ export interface GetResourceSharesCommandOutput extends GetResourceSharesRespons
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * @public
  */
 export class GetResourceSharesCommand extends $Command
   .classBuilder<

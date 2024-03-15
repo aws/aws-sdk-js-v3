@@ -31,7 +31,6 @@ export interface PutActionInteractionsCommandInput extends PutActionInteractions
 export interface PutActionInteractionsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Records action interaction event data. An <i>action interaction</i> event is an interaction between a user and an <i>action</i>.
  *       For example, a user taking an action, such a enrolling in a membership program or downloading your app.</p>
  *          <p>
@@ -85,6 +84,7 @@ export interface PutActionInteractionsCommandOutput extends __MetadataBearer {}
  * @throws {@link PersonalizeEventsServiceException}
  * <p>Base exception class for all service exceptions from PersonalizeEvents service.</p>
  *
+ * @public
  */
 export class PutActionInteractionsCommand extends $Command
   .classBuilder<

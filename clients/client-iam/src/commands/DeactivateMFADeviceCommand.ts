@@ -27,7 +27,6 @@ export interface DeactivateMFADeviceCommandInput extends DeactivateMFADeviceRequ
 export interface DeactivateMFADeviceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deactivates the specified MFA device and removes it from association with the user
  *             name for which it was originally enabled.</p>
  *          <p>For more information about creating and working with virtual MFA devices, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Enabling a virtual
@@ -80,6 +79,7 @@ export interface DeactivateMFADeviceCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class DeactivateMFADeviceCommand extends $Command
   .classBuilder<

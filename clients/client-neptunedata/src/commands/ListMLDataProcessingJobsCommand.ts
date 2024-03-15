@@ -27,7 +27,6 @@ export interface ListMLDataProcessingJobsCommandInput extends ListMLDataProcessi
 export interface ListMLDataProcessingJobsCommandOutput extends ListMLDataProcessingJobsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of Neptune ML data processing jobs. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-dataprocessing.html#machine-learning-api-dataprocessing-list-jobs">Listing
  *       active data-processing jobs using the Neptune ML dataprocessing command</a>.</p>
  *          <p>When invoking this operation in a Neptune cluster that has IAM
@@ -96,6 +95,7 @@ export interface ListMLDataProcessingJobsCommandOutput extends ListMLDataProcess
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * @public
  */
 export class ListMLDataProcessingJobsCommand extends $Command
   .classBuilder<

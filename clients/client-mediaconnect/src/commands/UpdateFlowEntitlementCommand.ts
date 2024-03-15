@@ -27,7 +27,6 @@ export interface UpdateFlowEntitlementCommandInput extends UpdateFlowEntitlement
 export interface UpdateFlowEntitlementCommandOutput extends UpdateFlowEntitlementResponse, __MetadataBearer {}
 
 /**
- * @public
  * You can change an entitlement's description, subscribers, and encryption. If you change the subscribers, the service will remove the outputs that are are used by the subscribers that are removed.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -111,6 +110,7 @@ export interface UpdateFlowEntitlementCommandOutput extends UpdateFlowEntitlemen
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ * @public
  */
 export class UpdateFlowEntitlementCommand extends $Command
   .classBuilder<

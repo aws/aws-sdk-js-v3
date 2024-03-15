@@ -27,7 +27,6 @@ export interface DeleteJobCommandInput extends DeleteJobRequest {}
 export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a single Job by ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +62,7 @@ export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBea
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * @public
  */
 export class DeleteJobCommand extends $Command
   .classBuilder<

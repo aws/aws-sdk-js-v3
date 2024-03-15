@@ -29,7 +29,6 @@ export interface ListDocumentMetadataHistoryCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Information about approval reviews for a version of a change template in Change Manager.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface ListDocumentMetadataHistoryCommandOutput
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class ListDocumentMetadataHistoryCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface DescribeTransitGatewayPeeringAttachmentsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes your transit gateway peering attachments.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -110,6 +109,7 @@ export interface DescribeTransitGatewayPeeringAttachmentsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeTransitGatewayPeeringAttachmentsCommand extends $Command
   .classBuilder<

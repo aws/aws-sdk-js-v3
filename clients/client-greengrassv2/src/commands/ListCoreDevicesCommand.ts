@@ -27,7 +27,6 @@ export interface ListCoreDevicesCommandInput extends ListCoreDevicesRequest {}
 export interface ListCoreDevicesCommandOutput extends ListCoreDevicesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a paginated list of Greengrass core devices.</p>
  *          <note>
  *             <p>IoT Greengrass relies on individual devices to send status updates to the Amazon Web Services Cloud. If the
@@ -106,6 +105,7 @@ export interface ListCoreDevicesCommandOutput extends ListCoreDevicesResponse, _
  * @throws {@link GreengrassV2ServiceException}
  * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ * @public
  */
 export class ListCoreDevicesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface TestEventPatternCommandInput extends TestEventPatternRequest {}
 export interface TestEventPatternCommandOutput extends TestEventPatternResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Tests whether the specified event pattern matches the provided event.</p>
  *          <p>Most services in Amazon Web Services treat : or / as the same character in Amazon Resource Names (ARNs).
  *       However, EventBridge uses an exact match in event patterns and rules. Be sure to use the
@@ -66,6 +65,7 @@ export interface TestEventPatternCommandOutput extends TestEventPatternResponse,
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * @public
  */
 export class TestEventPatternCommand extends $Command
   .classBuilder<

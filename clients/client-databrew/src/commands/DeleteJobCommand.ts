@@ -27,7 +27,6 @@ export interface DeleteJobCommandInput extends DeleteJobRequest {}
 export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified DataBrew job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +63,7 @@ export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBea
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * @public
  */
 export class DeleteJobCommand extends $Command
   .classBuilder<

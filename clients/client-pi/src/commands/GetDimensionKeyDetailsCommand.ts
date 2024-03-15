@@ -27,7 +27,6 @@ export interface GetDimensionKeyDetailsCommandInput extends GetDimensionKeyDetai
 export interface GetDimensionKeyDetailsCommandOutput extends GetDimensionKeyDetailsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get the attributes of the specified dimension group for a DB instance or data source. For example, if you specify a SQL ID,
  *                 <code>GetDimensionKeyDetails</code> retrieves the full text of the dimension <code>db.sql.statement</code> associated with this ID.
  *             This operation is useful because <code>GetResourceMetrics</code> and <code>DescribeDimensionKeys</code> don't support retrieval of large
@@ -79,6 +78,7 @@ export interface GetDimensionKeyDetailsCommandOutput extends GetDimensionKeyDeta
  * @throws {@link PIServiceException}
  * <p>Base exception class for all service exceptions from PI service.</p>
  *
+ * @public
  */
 export class GetDimensionKeyDetailsCommand extends $Command
   .classBuilder<

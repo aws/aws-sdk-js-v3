@@ -31,7 +31,6 @@ export interface ListAcceleratorsCommandInput extends ListAcceleratorsRequest {}
 export interface ListAcceleratorsCommandOutput extends ListAcceleratorsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List the accelerators for an Amazon Web Services account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface ListAcceleratorsCommandOutput extends ListAcceleratorsResponse,
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class ListAcceleratorsCommand extends $Command
   .classBuilder<

@@ -35,7 +35,6 @@ export interface GetConfigurationSetEventDestinationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * Obtain information about an event destination, including the types of events it reports, the Amazon Resource Name (ARN) of the destination, and the name of the event destination.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface GetConfigurationSetEventDestinationsCommandOutput
  * @throws {@link PinpointSMSVoiceServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoice service.</p>
  *
+ * @public
  */
 export class GetConfigurationSetEventDestinationsCommand extends $Command
   .classBuilder<

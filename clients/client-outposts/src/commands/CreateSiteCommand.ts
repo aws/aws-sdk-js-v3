@@ -27,7 +27,6 @@ export interface CreateSiteCommandInput extends CreateSiteInput {}
 export interface CreateSiteCommandOutput extends CreateSiteOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p> Creates a site for an Outpost. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -136,6 +135,7 @@ export interface CreateSiteCommandOutput extends CreateSiteOutput, __MetadataBea
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ * @public
  */
 export class CreateSiteCommand extends $Command
   .classBuilder<

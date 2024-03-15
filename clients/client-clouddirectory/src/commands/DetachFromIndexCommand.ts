@@ -27,7 +27,6 @@ export interface DetachFromIndexCommandInput extends DetachFromIndexRequest {}
 export interface DetachFromIndexCommandOutput extends DetachFromIndexResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Detaches the specified object from the specified index.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface DetachFromIndexCommandOutput extends DetachFromIndexResponse, _
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class DetachFromIndexCommand extends $Command
   .classBuilder<

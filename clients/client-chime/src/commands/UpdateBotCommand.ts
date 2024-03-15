@@ -27,7 +27,6 @@ export interface UpdateBotCommandInput extends UpdateBotRequest {}
 export interface UpdateBotCommandOutput extends UpdateBotResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the status of the specified bot, such as starting or stopping the bot from running in your Amazon Chime Enterprise account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface UpdateBotCommandOutput extends UpdateBotResponse, __MetadataBea
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class UpdateBotCommand extends $Command
   .classBuilder<

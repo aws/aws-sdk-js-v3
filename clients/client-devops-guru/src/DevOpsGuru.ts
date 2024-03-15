@@ -692,7 +692,6 @@ export interface DevOpsGuru {
 }
 
 /**
- * @public
  * <p> Amazon DevOps Guru is a fully managed service that helps you identify anomalous behavior in
  * 			business critical operational applications. You specify the Amazon Web Services resources that you
  * 			want DevOps Guru to cover, then the Amazon CloudWatch metrics and Amazon Web Services CloudTrail events related to those
@@ -705,6 +704,7 @@ export interface DevOpsGuru {
  * 			insight to help you manage and track your work addressing insights. </p>
  *          <p> To learn about the DevOps Guru workflow, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/welcome.html#how-it-works">How DevOps Guru works</a>. To
  * 			learn about DevOps Guru concepts, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/concepts.html">Concepts in DevOps Guru</a>. </p>
+ * @public
  */
 export class DevOpsGuru extends DevOpsGuruClient implements DevOpsGuru {}
 createAggregatedClient(commands, DevOpsGuru);

@@ -27,7 +27,6 @@ export interface UpdateZonalShiftCommandInput extends UpdateZonalShiftRequest {}
 export interface UpdateZonalShiftCommandOutput extends ZonalShift, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update an active zonal shift in Amazon Route 53 Application Recovery Controller in your Amazon Web Services account. You can update a zonal shift to set a new expiration, or
  *    	edit or replace the comment for the zonal shift. </p>
  * @example
@@ -82,6 +81,7 @@ export interface UpdateZonalShiftCommandOutput extends ZonalShift, __MetadataBea
  * @throws {@link ARCZonalShiftServiceException}
  * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
+ * @public
  */
 export class UpdateZonalShiftCommand extends $Command
   .classBuilder<

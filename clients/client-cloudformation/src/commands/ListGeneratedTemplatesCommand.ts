@@ -27,7 +27,6 @@ export interface ListGeneratedTemplatesCommandInput extends ListGeneratedTemplat
 export interface ListGeneratedTemplatesCommandOutput extends ListGeneratedTemplatesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists your generated templates in this Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface ListGeneratedTemplatesCommandOutput extends ListGeneratedTempla
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  * @example To list generated templates
  * ```javascript
  * // This example lists the generated templates.

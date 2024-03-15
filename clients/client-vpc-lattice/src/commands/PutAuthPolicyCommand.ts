@@ -27,7 +27,6 @@ export interface PutAuthPolicyCommandInput extends PutAuthPolicyRequest {}
 export interface PutAuthPolicyCommandOutput extends PutAuthPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates the auth policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface PutAuthPolicyCommandOutput extends PutAuthPolicyResponse, __Met
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class PutAuthPolicyCommand extends $Command
   .classBuilder<

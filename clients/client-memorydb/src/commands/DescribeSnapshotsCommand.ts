@@ -27,7 +27,6 @@ export interface DescribeSnapshotsCommandInput extends DescribeSnapshotsRequest 
 export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about cluster snapshots. By default, DescribeSnapshots lists all of your snapshots; it can optionally describe a single snapshot,
  *          or just the snapshots associated with a particular cluster.</p>
  * @example
@@ -109,6 +108,7 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsRespons
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * @public
  */
 export class DescribeSnapshotsCommand extends $Command
   .classBuilder<

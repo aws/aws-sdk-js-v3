@@ -27,7 +27,6 @@ export interface ImportSignalCatalogCommandInput extends ImportSignalCatalogRequ
 export interface ImportSignalCatalogCommandOutput extends ImportSignalCatalogResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Creates a signal catalog using your existing VSS formatted content from your local
  *             device. </p>
  * @example
@@ -92,6 +91,7 @@ export interface ImportSignalCatalogCommandOutput extends ImportSignalCatalogRes
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class ImportSignalCatalogCommand extends $Command
   .classBuilder<

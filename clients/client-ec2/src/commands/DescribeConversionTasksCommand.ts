@@ -31,7 +31,6 @@ export interface DescribeConversionTasksCommandInput extends DescribeConversionT
 export interface DescribeConversionTasksCommandOutput extends DescribeConversionTasksResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified conversion tasks or all your conversion tasks. For more information, see the
  *    <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/">VM Import/Export User Guide</a>.</p>
  *          <p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
@@ -116,6 +115,7 @@ export interface DescribeConversionTasksCommandOutput extends DescribeConversion
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeConversionTasksCommand extends $Command
   .classBuilder<

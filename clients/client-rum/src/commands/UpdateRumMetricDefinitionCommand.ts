@@ -27,7 +27,6 @@ export interface UpdateRumMetricDefinitionCommandInput extends UpdateRumMetricDe
 export interface UpdateRumMetricDefinitionCommandOutput extends UpdateRumMetricDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies one existing metric definition for CloudWatch RUM extended metrics. For
  *          more information about extended metrics, see <a href="https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_BatchCreateRumMetricsDefinitions.html">BatchCreateRumMetricsDefinitions</a>.</p>
  * @example
@@ -88,6 +87,7 @@ export interface UpdateRumMetricDefinitionCommandOutput extends UpdateRumMetricD
  * @throws {@link RUMServiceException}
  * <p>Base exception class for all service exceptions from RUM service.</p>
  *
+ * @public
  */
 export class UpdateRumMetricDefinitionCommand extends $Command
   .classBuilder<

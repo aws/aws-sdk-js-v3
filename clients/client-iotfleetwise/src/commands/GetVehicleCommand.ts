@@ -27,7 +27,6 @@ export interface GetVehicleCommandInput extends GetVehicleRequest {}
 export interface GetVehicleCommandOutput extends GetVehicleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Retrieves information about a vehicle. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface GetVehicleCommandOutput extends GetVehicleResponse, __MetadataB
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class GetVehicleCommand extends $Command
   .classBuilder<

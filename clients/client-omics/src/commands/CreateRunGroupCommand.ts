@@ -27,7 +27,6 @@ export interface CreateRunGroupCommandInput extends CreateRunGroupRequest {}
 export interface CreateRunGroupCommandOutput extends CreateRunGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a run group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface CreateRunGroupCommandOutput extends CreateRunGroupResponse, __M
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class CreateRunGroupCommand extends $Command
   .classBuilder<

@@ -35,7 +35,6 @@ export interface AdminSetUserPasswordCommandInput extends AdminSetUserPasswordRe
 export interface AdminSetUserPasswordCommandOutput extends AdminSetUserPasswordResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the specified user's password in a user pool as an administrator. Works on any
  *             user. </p>
  *          <p>The password can be temporary or permanent. If it is temporary, the user status enters
@@ -128,6 +127,7 @@ export interface AdminSetUserPasswordCommandOutput extends AdminSetUserPasswordR
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class AdminSetUserPasswordCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateEmailIdentityCommandInput extends CreateEmailIdentityRequ
 export interface CreateEmailIdentityCommandOutput extends CreateEmailIdentityResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Verifies an email identity for use with Amazon Pinpoint. In Amazon Pinpoint, an identity is an email
  *             address or domain that you use when you send email. Before you can use an identity to
  *             send email with Amazon Pinpoint, you first have to verify it. By verifying an address, you
@@ -94,6 +93,7 @@ export interface CreateEmailIdentityCommandOutput extends CreateEmailIdentityRes
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * @public
  */
 export class CreateEmailIdentityCommand extends $Command
   .classBuilder<

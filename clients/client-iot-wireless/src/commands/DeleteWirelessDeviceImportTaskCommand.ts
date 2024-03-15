@@ -32,7 +32,6 @@ export interface DeleteWirelessDeviceImportTaskCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete an import task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface DeleteWirelessDeviceImportTaskCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class DeleteWirelessDeviceImportTaskCommand extends $Command
   .classBuilder<

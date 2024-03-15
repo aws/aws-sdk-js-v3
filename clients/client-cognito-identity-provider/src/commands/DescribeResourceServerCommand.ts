@@ -31,7 +31,6 @@ export interface DescribeResourceServerCommandInput extends DescribeResourceServ
 export interface DescribeResourceServerCommandOutput extends DescribeResourceServerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a resource server.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface DescribeResourceServerCommandOutput extends DescribeResourceSer
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class DescribeResourceServerCommand extends $Command
   .classBuilder<

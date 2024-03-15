@@ -27,7 +27,6 @@ export interface PutRecordsCommandInput extends PutRecordsInput {}
 export interface PutRecordsCommandOutput extends PutRecordsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Writes multiple data records into a Kinesis data stream in a single call (also
  *             referred to as a <code>PutRecords</code> request). Use this operation to send data into
  *             the stream for data ingestion and processing. </p>
@@ -178,6 +177,7 @@ export interface PutRecordsCommandOutput extends PutRecordsOutput, __MetadataBea
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * @public
  */
 export class PutRecordsCommand extends $Command
   .classBuilder<

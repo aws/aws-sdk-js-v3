@@ -27,7 +27,6 @@ export interface CreateExportTaskCommandInput extends CreateExportTaskRequest {}
 export interface CreateExportTaskCommandOutput extends CreateExportTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an export task so that you can efficiently export data from a log group to an
  *       Amazon S3 bucket. When you perform a <code>CreateExportTask</code> operation, you must use
  *       credentials that have permission to write to the S3 bucket that you specify as the
@@ -98,6 +97,7 @@ export interface CreateExportTaskCommandOutput extends CreateExportTaskResponse,
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class CreateExportTaskCommand extends $Command
   .classBuilder<

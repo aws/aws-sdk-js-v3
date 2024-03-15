@@ -36,7 +36,6 @@ export interface UpdateApplicationLayerAutomaticResponseCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing Shield Advanced automatic application layer DDoS mitigation configuration for the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface UpdateApplicationLayerAutomaticResponseCommandOutput
  * @throws {@link ShieldServiceException}
  * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ * @public
  */
 export class UpdateApplicationLayerAutomaticResponseCommand extends $Command
   .classBuilder<

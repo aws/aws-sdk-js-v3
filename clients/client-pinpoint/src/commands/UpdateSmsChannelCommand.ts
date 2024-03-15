@@ -27,7 +27,6 @@ export interface UpdateSmsChannelCommandInput extends UpdateSmsChannelRequest {}
 export interface UpdateSmsChannelCommandOutput extends UpdateSmsChannelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables the SMS channel for an application or updates the status and settings of the SMS channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface UpdateSmsChannelCommandOutput extends UpdateSmsChannelResponse,
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class UpdateSmsChannelCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetOpenIDConnectProviderCommandInput extends GetOpenIDConnectPr
 export interface GetOpenIDConnectProviderCommandOutput extends GetOpenIDConnectProviderResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the specified OpenID Connect (OIDC) provider resource object
  *             in IAM.</p>
  * @example
@@ -81,6 +80,7 @@ export interface GetOpenIDConnectProviderCommandOutput extends GetOpenIDConnectP
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class GetOpenIDConnectProviderCommand extends $Command
   .classBuilder<

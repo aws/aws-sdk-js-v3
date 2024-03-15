@@ -35,7 +35,6 @@ export interface GetPublicKeyCertificateCommandInput extends GetPublicKeyCertifi
 export interface GetPublicKeyCertificateCommandOutput extends GetPublicKeyCertificateOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the public key certificate of the asymmetric key pair that exists within Amazon Web Services Payment Cryptography.</p>
  *          <p>Unlike the private key of an asymmetric key, which never leaves Amazon Web Services Payment Cryptography unencrypted, callers with <code>GetPublicKeyCertificate</code> permission can download the public key certificate of the asymmetric key. You can share the public key certificate to allow others to encrypt messages and verify signatures outside of Amazon Web Services Payment Cryptography</p>
  *          <p>
@@ -85,6 +84,7 @@ export interface GetPublicKeyCertificateCommandOutput extends GetPublicKeyCertif
  * @throws {@link PaymentCryptographyServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptography service.</p>
  *
+ * @public
  */
 export class GetPublicKeyCertificateCommand extends $Command
   .classBuilder<

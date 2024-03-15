@@ -35,7 +35,6 @@ export interface DeleteNamespaceCommandInput extends DeleteNamespaceRequest {}
 export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a namespace from Amazon Redshift Serverless.
  *          Before you delete the namespace, you can create a final snapshot that has all of the data within the namespace.</p>
  * @example
@@ -96,6 +95,7 @@ export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, _
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * @public
  */
 export class DeleteNamespaceCommand extends $Command
   .classBuilder<

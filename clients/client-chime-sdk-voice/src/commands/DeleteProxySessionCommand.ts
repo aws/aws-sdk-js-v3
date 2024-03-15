@@ -27,7 +27,6 @@ export interface DeleteProxySessionCommandInput extends DeleteProxySessionReques
 export interface DeleteProxySessionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified proxy session from the specified Amazon Chime SDK Voice
  *             Connector.</p>
  * @example
@@ -76,6 +75,7 @@ export interface DeleteProxySessionCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class DeleteProxySessionCommand extends $Command
   .classBuilder<

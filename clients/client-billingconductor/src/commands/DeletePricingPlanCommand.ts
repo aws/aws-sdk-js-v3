@@ -27,7 +27,6 @@ export interface DeletePricingPlanCommandInput extends DeletePricingPlanInput {}
 export interface DeletePricingPlanCommandOutput extends DeletePricingPlanOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a pricing plan. The pricing plan must not be associated with any billing groups to
  *       delete successfully.</p>
  * @example
@@ -75,6 +74,7 @@ export interface DeletePricingPlanCommandOutput extends DeletePricingPlanOutput,
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ * @public
  */
 export class DeletePricingPlanCommand extends $Command
   .classBuilder<

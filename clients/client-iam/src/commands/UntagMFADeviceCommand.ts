@@ -27,7 +27,6 @@ export interface UntagMFADeviceCommandInput extends UntagMFADeviceRequest {}
 export interface UntagMFADeviceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified tags from the IAM virtual multi-factor authentication (MFA)
  *       device. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
  *       <i>IAM User Guide</i>.</p>
@@ -74,6 +73,7 @@ export interface UntagMFADeviceCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class UntagMFADeviceCommand extends $Command
   .classBuilder<

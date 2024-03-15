@@ -27,7 +27,6 @@ export interface DeleteRedshiftIdcApplicationCommandInput extends DeleteRedshift
 export interface DeleteRedshiftIdcApplicationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Amazon Redshift IAM Identity Center application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface DeleteRedshiftIdcApplicationCommandOutput extends __MetadataBea
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DeleteRedshiftIdcApplicationCommand extends $Command
   .classBuilder<

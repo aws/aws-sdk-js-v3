@@ -6,8 +6,8 @@ import { ElastiCacheServiceException as __BaseException } from "./ElastiCacheSer
 import { ReplicationGroup } from "./models_0";
 
 /**
- * @public
  * <p>The targeted replication group is not available. </p>
+ * @public
  */
 export class ReplicationGroupAlreadyUnderMigrationFault extends __BaseException {
   readonly name: "ReplicationGroupAlreadyUnderMigrationFault" = "ReplicationGroupAlreadyUnderMigrationFault";
@@ -26,19 +26,19 @@ export class ReplicationGroupAlreadyUnderMigrationFault extends __BaseException 
 }
 
 /**
- * @public
  * <p>The endpoint from which data should be migrated.</p>
+ * @public
  */
 export interface CustomerNodeEndpoint {
   /**
-   * @public
    * <p>The address of the node endpoint</p>
+   * @public
    */
   Address?: string;
 
   /**
-   * @public
    * <p>The port of the node endpoint</p>
+   * @public
    */
   Port?: number;
 }
@@ -48,15 +48,15 @@ export interface CustomerNodeEndpoint {
  */
 export interface StartMigrationMessage {
   /**
-   * @public
    * <p>The ID of the replication group to which data should be migrated.</p>
+   * @public
    */
   ReplicationGroupId: string | undefined;
 
   /**
-   * @public
    * <p>List of endpoints from which data should be migrated. For Redis (cluster mode
    *             disabled), list should have only one element.</p>
+   * @public
    */
   CustomerNodeEndpointList: CustomerNodeEndpoint[] | undefined;
 }
@@ -66,15 +66,15 @@ export interface StartMigrationMessage {
  */
 export interface StartMigrationResponse {
   /**
-   * @public
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
+   * @public
    */
   ReplicationGroup?: ReplicationGroup;
 }
 
 /**
- * @public
  * <p>The customer has exceeded the allowed rate of API calls.</p>
+ * @public
  */
 export class APICallRateForCustomerExceededFault extends __BaseException {
   readonly name: "APICallRateForCustomerExceededFault" = "APICallRateForCustomerExceededFault";
@@ -93,10 +93,10 @@ export class APICallRateForCustomerExceededFault extends __BaseException {
 }
 
 /**
- * @public
  * <p>The node group specified by the <code>NodeGroupId</code> parameter could not be found.
  *             Please verify that the node group exists and that you spelled the
  *                 <code>NodeGroupId</code> value correctly.</p>
+ * @public
  */
 export class NodeGroupNotFoundFault extends __BaseException {
   readonly name: "NodeGroupNotFoundFault" = "NodeGroupNotFoundFault";
@@ -119,24 +119,24 @@ export class NodeGroupNotFoundFault extends __BaseException {
  */
 export interface TestFailoverMessage {
   /**
-   * @public
    * <p>The name of the replication group (console: cluster) whose automatic failover is being
    *             tested by this operation.</p>
+   * @public
    */
   ReplicationGroupId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the node group (called shard in the console) in this replication group on
    *             which automatic failover is to be tested. You may test automatic failover on up to 5
    *             node groups in any rolling 24-hour period.</p>
+   * @public
    */
   NodeGroupId: string | undefined;
 }
 
 /**
- * @public
  * <p>The <code>TestFailover</code> action is not available.</p>
+ * @public
  */
 export class TestFailoverNotAvailableFault extends __BaseException {
   readonly name: "TestFailoverNotAvailableFault" = "TestFailoverNotAvailableFault";
@@ -159,8 +159,8 @@ export class TestFailoverNotAvailableFault extends __BaseException {
  */
 export interface TestFailoverResult {
   /**
-   * @public
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
+   * @public
    */
   ReplicationGroup?: ReplicationGroup;
 }
@@ -170,15 +170,15 @@ export interface TestFailoverResult {
  */
 export interface TestMigrationMessage {
   /**
-   * @public
    * <p> The ID of the replication group to which data is to be migrated. </p>
+   * @public
    */
   ReplicationGroupId: string | undefined;
 
   /**
-   * @public
    * <p> List of endpoints from which data should be migrated. List should have only one
    *             element. </p>
+   * @public
    */
   CustomerNodeEndpointList: CustomerNodeEndpoint[] | undefined;
 }
@@ -188,8 +188,8 @@ export interface TestMigrationMessage {
  */
 export interface TestMigrationResponse {
   /**
-   * @public
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
+   * @public
    */
   ReplicationGroup?: ReplicationGroup;
 }

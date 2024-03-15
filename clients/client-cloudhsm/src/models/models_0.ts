@@ -4,20 +4,20 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { CloudHSMServiceException as __BaseException } from "./CloudHSMServiceException";
 
 /**
- * @public
  * <p>A key-value pair that identifies or specifies metadata about an AWS CloudHSM
  *       resource.</p>
+ * @public
  */
 export interface Tag {
   /**
-   * @public
    * <p>The key of the tag.</p>
+   * @public
    */
   Key: string | undefined;
 
   /**
-   * @public
    * <p>The value of the tag.</p>
+   * @public
    */
   Value: string | undefined;
 }
@@ -27,14 +27,14 @@ export interface Tag {
  */
 export interface AddTagsToResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the AWS CloudHSM resource to tag.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * @public
    * <p>One or more tags.</p>
+   * @public
    */
   TagList: Tag[] | undefined;
 }
@@ -44,22 +44,22 @@ export interface AddTagsToResourceRequest {
  */
 export interface AddTagsToResourceResponse {
   /**
-   * @public
    * <p>The status of the operation.</p>
+   * @public
    */
   Status: string | undefined;
 }
 
 /**
- * @public
  * <p>Indicates that an internal error occurred.</p>
+ * @public
  */
 export class CloudHsmInternalException extends __BaseException {
   readonly name: "CloudHsmInternalException" = "CloudHsmInternalException";
   readonly $fault: "server" = "server";
   /**
-   * @public
    * <p>Indicates if the action can be retried.</p>
+   * @public
    */
   retryable?: boolean;
 
@@ -78,15 +78,15 @@ export class CloudHsmInternalException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
+ * @public
  */
 export class CloudHsmServiceException extends __BaseException {
   readonly name: "CloudHsmServiceException" = "CloudHsmServiceException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>Indicates if the action can be retried.</p>
+   * @public
    */
   retryable?: boolean;
 
@@ -105,15 +105,15 @@ export class CloudHsmServiceException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Indicates that one or more of the request parameters are not valid.</p>
+ * @public
  */
 export class InvalidRequestException extends __BaseException {
   readonly name: "InvalidRequestException" = "InvalidRequestException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>Indicates if the action can be retried.</p>
+   * @public
    */
   retryable?: boolean;
 
@@ -146,25 +146,25 @@ export const ClientVersion = {
 export type ClientVersion = (typeof ClientVersion)[keyof typeof ClientVersion];
 
 /**
- * @public
  * <p>Contains the inputs for the <a>CreateHapgRequest</a> action.</p>
+ * @public
  */
 export interface CreateHapgRequest {
   /**
-   * @public
    * <p>The label of the new high-availability partition group.</p>
+   * @public
    */
   Label: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains the output of the <a>CreateHAPartitionGroup</a> action.</p>
+ * @public
  */
 export interface CreateHapgResponse {
   /**
-   * @public
    * <p>The ARN of the high-availability partition group.</p>
+   * @public
    */
   HapgArn?: string;
 }
@@ -183,45 +183,44 @@ export const SubscriptionType = {
 export type SubscriptionType = (typeof SubscriptionType)[keyof typeof SubscriptionType];
 
 /**
- * @public
  * <p>Contains the inputs for the <code>CreateHsm</code> operation.</p>
+ * @public
  */
 export interface CreateHsmRequest {
   /**
-   * @public
    * <p>The identifier of the subnet in your VPC in which to place the HSM.</p>
+   * @public
    */
   SubnetId: string | undefined;
 
   /**
-   * @public
    * <p>The SSH public key to install on the HSM.</p>
+   * @public
    */
   SshKey: string | undefined;
 
   /**
-   * @public
    * <p>The IP address to assign to the HSM's ENI.</p>
    *          <p>If an IP address is not specified, an IP address will be randomly chosen from the CIDR
    *       range of the subnet.</p>
+   * @public
    */
   EniIp?: string;
 
   /**
-   * @public
    * <p>The ARN of an IAM role to enable the AWS CloudHSM service to allocate an ENI on your
    *       behalf.</p>
+   * @public
    */
   IamRoleArn: string | undefined;
 
   /**
-   * @public
    * <p>The external ID from <code>IamRoleArn</code>, if present.</p>
+   * @public
    */
   ExternalId?: string;
 
   /**
-   * @public
    * <p>Specifies the type of subscription for the HSM.</p>
    *          <ul>
    *             <li>
@@ -235,111 +234,112 @@ export interface CreateHsmRequest {
    *           trial.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   SubscriptionType: SubscriptionType | undefined;
 
   /**
-   * @public
    * <p>A user-defined token to ensure idempotence. Subsequent calls to this operation with the
    *       same token will be ignored.</p>
+   * @public
    */
   ClientToken?: string;
 
   /**
-   * @public
    * <p>The IP address for the syslog monitoring server. The AWS CloudHSM service only supports one
    *       syslog monitoring server.</p>
+   * @public
    */
   SyslogIp?: string;
 }
 
 /**
- * @public
  * <p>Contains the output of the <code>CreateHsm</code> operation.</p>
+ * @public
  */
 export interface CreateHsmResponse {
   /**
-   * @public
    * <p>The ARN of the HSM.</p>
+   * @public
    */
   HsmArn?: string;
 }
 
 /**
- * @public
  * <p>Contains the inputs for the <a>CreateLunaClient</a> action.</p>
+ * @public
  */
 export interface CreateLunaClientRequest {
   /**
-   * @public
    * <p>The label for the client.</p>
+   * @public
    */
   Label?: string;
 
   /**
-   * @public
    * <p>The contents of a Base64-Encoded X.509 v3 certificate to be installed on the HSMs used
    *       by this client.</p>
+   * @public
    */
   Certificate: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains the output of the <a>CreateLunaClient</a> action.</p>
+ * @public
  */
 export interface CreateLunaClientResponse {
   /**
-   * @public
    * <p>The ARN of the client.</p>
+   * @public
    */
   ClientArn?: string;
 }
 
 /**
- * @public
  * <p>Contains the inputs for the <a>DeleteHapg</a> action.</p>
+ * @public
  */
 export interface DeleteHapgRequest {
   /**
-   * @public
    * <p>The ARN of the high-availability partition group to delete.</p>
+   * @public
    */
   HapgArn: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains the output of the <a>DeleteHapg</a> action.</p>
+ * @public
  */
 export interface DeleteHapgResponse {
   /**
-   * @public
    * <p>The status of the action.</p>
+   * @public
    */
   Status: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains the inputs for the <a>DeleteHsm</a> operation.</p>
+ * @public
  */
 export interface DeleteHsmRequest {
   /**
-   * @public
    * <p>The ARN of the HSM to delete.</p>
+   * @public
    */
   HsmArn: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains the output of the <a>DeleteHsm</a> operation.</p>
+ * @public
  */
 export interface DeleteHsmResponse {
   /**
-   * @public
    * <p>The status of the operation.</p>
+   * @public
    */
   Status: string | undefined;
 }
@@ -349,8 +349,8 @@ export interface DeleteHsmResponse {
  */
 export interface DeleteLunaClientRequest {
   /**
-   * @public
    * <p>The ARN of the client to delete.</p>
+   * @public
    */
   ClientArn: string | undefined;
 }
@@ -360,20 +360,20 @@ export interface DeleteLunaClientRequest {
  */
 export interface DeleteLunaClientResponse {
   /**
-   * @public
    * <p>The status of the action.</p>
+   * @public
    */
   Status: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains the inputs for the <a>DescribeHapg</a> action.</p>
+ * @public
  */
 export interface DescribeHapgRequest {
   /**
-   * @public
    * <p>The ARN of the high-availability partition group to describe.</p>
+   * @public
    */
   HapgArn: string | undefined;
 }
@@ -394,82 +394,82 @@ export const CloudHsmObjectState = {
 export type CloudHsmObjectState = (typeof CloudHsmObjectState)[keyof typeof CloudHsmObjectState];
 
 /**
- * @public
  * <p>Contains the output of the <a>DescribeHapg</a> action.</p>
+ * @public
  */
 export interface DescribeHapgResponse {
   /**
-   * @public
    * <p>The ARN of the high-availability partition group.</p>
+   * @public
    */
   HapgArn?: string;
 
   /**
-   * @public
    * <p>The serial number of the high-availability partition group.</p>
+   * @public
    */
   HapgSerial?: string;
 
   /**
-   * @public
    * <p></p>
+   * @public
    */
   HsmsLastActionFailed?: string[];
 
   /**
-   * @public
    * <p></p>
+   * @public
    */
   HsmsPendingDeletion?: string[];
 
   /**
-   * @public
    * <p></p>
+   * @public
    */
   HsmsPendingRegistration?: string[];
 
   /**
-   * @public
    * <p>The label for the high-availability partition group.</p>
+   * @public
    */
   Label?: string;
 
   /**
-   * @public
    * <p>The date and time the high-availability partition group was last modified.</p>
+   * @public
    */
   LastModifiedTimestamp?: string;
 
   /**
-   * @public
    * <p>The list of partition serial numbers that belong to the high-availability partition
    *       group.</p>
+   * @public
    */
   PartitionSerialList?: string[];
 
   /**
-   * @public
    * <p>The state of the high-availability partition group.</p>
+   * @public
    */
   State?: CloudHsmObjectState;
 }
 
 /**
- * @public
  * <p>Contains the inputs for the <a>DescribeHsm</a> operation.</p>
+ * @public
  */
 export interface DescribeHsmRequest {
   /**
-   * @public
    * <p>The ARN of the HSM. Either the <code>HsmArn</code> or the <code>SerialNumber</code>
    *       parameter must be specified.</p>
+   * @public
    */
   HsmArn?: string;
 
   /**
-   * @public
    * <p>The serial number of the HSM. Either the <code>HsmArn</code> or the
    *         <code>HsmSerialNumber</code> parameter must be specified.</p>
+   * @public
    */
   HsmSerialNumber?: string;
 }
@@ -494,48 +494,47 @@ export const HsmStatus = {
 export type HsmStatus = (typeof HsmStatus)[keyof typeof HsmStatus];
 
 /**
- * @public
  * <p>Contains the output of the <a>DescribeHsm</a> operation.</p>
+ * @public
  */
 export interface DescribeHsmResponse {
   /**
-   * @public
    * <p>The ARN of the HSM.</p>
+   * @public
    */
   HsmArn?: string;
 
   /**
-   * @public
    * <p>The status of the HSM.</p>
+   * @public
    */
   Status?: HsmStatus;
 
   /**
-   * @public
    * <p>Contains additional information about the status of the HSM.</p>
+   * @public
    */
   StatusDetails?: string;
 
   /**
-   * @public
    * <p>The Availability Zone that the HSM is in.</p>
+   * @public
    */
   AvailabilityZone?: string;
 
   /**
-   * @public
    * <p>The identifier of the elastic network interface (ENI) attached to the HSM.</p>
+   * @public
    */
   EniId?: string;
 
   /**
-   * @public
    * <p>The IP address assigned to the HSM's ENI.</p>
+   * @public
    */
   EniIp?: string;
 
   /**
-   * @public
    * <p>Specifies the type of subscription for the HSM.</p>
    *          <ul>
    *             <li>
@@ -549,90 +548,91 @@ export interface DescribeHsmResponse {
    *           trial.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   SubscriptionType?: SubscriptionType;
 
   /**
-   * @public
    * <p>The subscription start date.</p>
+   * @public
    */
   SubscriptionStartDate?: string;
 
   /**
-   * @public
    * <p>The subscription end date.</p>
+   * @public
    */
   SubscriptionEndDate?: string;
 
   /**
-   * @public
    * <p>The identifier of the VPC that the HSM is in.</p>
+   * @public
    */
   VpcId?: string;
 
   /**
-   * @public
    * <p>The identifier of the subnet that the HSM is in.</p>
+   * @public
    */
   SubnetId?: string;
 
   /**
-   * @public
    * <p>The ARN of the IAM role assigned to the HSM.</p>
+   * @public
    */
   IamRoleArn?: string;
 
   /**
-   * @public
    * <p>The serial number of the HSM.</p>
+   * @public
    */
   SerialNumber?: string;
 
   /**
-   * @public
    * <p>The name of the HSM vendor.</p>
+   * @public
    */
   VendorName?: string;
 
   /**
-   * @public
    * <p>The HSM model type.</p>
+   * @public
    */
   HsmType?: string;
 
   /**
-   * @public
    * <p>The HSM software version.</p>
+   * @public
    */
   SoftwareVersion?: string;
 
   /**
-   * @public
    * <p>The public SSH key.</p>
+   * @public
    */
   SshPublicKey?: string;
 
   /**
-   * @public
    * <p>The date and time that the SSH key was last updated.</p>
+   * @public
    */
   SshKeyLastUpdated?: string;
 
   /**
-   * @public
    * <p>The URI of the certificate server.</p>
+   * @public
    */
   ServerCertUri?: string;
 
   /**
-   * @public
    * <p>The date and time that the server certificate was last updated.</p>
+   * @public
    */
   ServerCertLastUpdated?: string;
 
   /**
-   * @public
    * <p>The list of partitions on the HSM.</p>
+   * @public
    */
   Partitions?: string[];
 }
@@ -642,14 +642,14 @@ export interface DescribeHsmResponse {
  */
 export interface DescribeLunaClientRequest {
   /**
-   * @public
    * <p>The ARN of the client.</p>
+   * @public
    */
   ClientArn?: string;
 
   /**
-   * @public
    * <p>The certificate fingerprint.</p>
+   * @public
    */
   CertificateFingerprint?: string;
 }
@@ -659,32 +659,32 @@ export interface DescribeLunaClientRequest {
  */
 export interface DescribeLunaClientResponse {
   /**
-   * @public
    * <p>The ARN of the client.</p>
+   * @public
    */
   ClientArn?: string;
 
   /**
-   * @public
    * <p>The certificate installed on the HSMs used by this client.</p>
+   * @public
    */
   Certificate?: string;
 
   /**
-   * @public
    * <p>The certificate fingerprint.</p>
+   * @public
    */
   CertificateFingerprint?: string;
 
   /**
-   * @public
    * <p>The date and time the client was last modified.</p>
+   * @public
    */
   LastModifiedTimestamp?: string;
 
   /**
-   * @public
    * <p>The label of the client.</p>
+   * @public
    */
   Label?: string;
 }
@@ -694,21 +694,21 @@ export interface DescribeLunaClientResponse {
  */
 export interface GetConfigRequest {
   /**
-   * @public
    * <p>The ARN of the client.</p>
+   * @public
    */
   ClientArn: string | undefined;
 
   /**
-   * @public
    * <p>The client version.</p>
+   * @public
    */
   ClientVersion: ClientVersion | undefined;
 
   /**
-   * @public
    * <p>A list of ARNs that identify the high-availability partition groups that are associated
    *       with the client.</p>
+   * @public
    */
   HapgList: string[] | undefined;
 }
@@ -718,27 +718,27 @@ export interface GetConfigRequest {
  */
 export interface GetConfigResponse {
   /**
-   * @public
    * <p>The type of credentials.</p>
+   * @public
    */
   ConfigType?: string;
 
   /**
-   * @public
    * <p>The chrystoki.conf configuration file.</p>
+   * @public
    */
   ConfigFile?: string;
 
   /**
-   * @public
    * <p>The certificate file containing the server.pem files of the HSMs.</p>
+   * @public
    */
   ConfigCred?: string;
 }
 
 /**
- * @public
  * <p>Contains the inputs for the <a>ListAvailableZones</a> action.</p>
+ * @public
  */
 export interface ListAvailableZonesRequest {}
 
@@ -747,8 +747,8 @@ export interface ListAvailableZonesRequest {}
  */
 export interface ListAvailableZonesResponse {
   /**
-   * @public
    * <p>The list of Availability Zones that have available AWS CloudHSM capacity.</p>
+   * @public
    */
   AZList?: string[];
 }
@@ -758,9 +758,9 @@ export interface ListAvailableZonesResponse {
  */
 export interface ListHapgsRequest {
   /**
-   * @public
    * <p>The <code>NextToken</code> value from a previous call to <code>ListHapgs</code>. Pass
    *       null if this is the first call.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -770,15 +770,15 @@ export interface ListHapgsRequest {
  */
 export interface ListHapgsResponse {
   /**
-   * @public
    * <p>The list of high-availability partition groups.</p>
+   * @public
    */
   HapgList: string[] | undefined;
 
   /**
-   * @public
    * <p>If not null, more results are available. Pass this value to <code>ListHapgs</code> to
    *       retrieve the next set of items.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -788,28 +788,28 @@ export interface ListHapgsResponse {
  */
 export interface ListHsmsRequest {
   /**
-   * @public
    * <p>The <code>NextToken</code> value from a previous call to <code>ListHsms</code>. Pass
    *       null if this is the first call.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>Contains the output of the <code>ListHsms</code> operation.</p>
+ * @public
  */
 export interface ListHsmsResponse {
   /**
-   * @public
    * <p>The list of ARNs that identify the HSMs.</p>
+   * @public
    */
   HsmList?: string[];
 
   /**
-   * @public
    * <p>If not null, more results are available. Pass this value to <code>ListHsms</code> to
    *       retrieve the next set of items.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -819,9 +819,9 @@ export interface ListHsmsResponse {
  */
 export interface ListLunaClientsRequest {
   /**
-   * @public
    * <p>The <code>NextToken</code> value from a previous call to <code>ListLunaClients</code>.
    *       Pass null if this is the first call.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -831,15 +831,15 @@ export interface ListLunaClientsRequest {
  */
 export interface ListLunaClientsResponse {
   /**
-   * @public
    * <p>The list of clients.</p>
+   * @public
    */
   ClientList: string[] | undefined;
 
   /**
-   * @public
    * <p>If not null, more results are available. Pass this to <code>ListLunaClients</code> to
    *       retrieve the next set of items.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -849,8 +849,8 @@ export interface ListLunaClientsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the AWS CloudHSM resource.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 }
@@ -860,8 +860,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>One or more tags.</p>
+   * @public
    */
   TagList: Tag[] | undefined;
 }
@@ -871,21 +871,21 @@ export interface ListTagsForResourceResponse {
  */
 export interface ModifyHapgRequest {
   /**
-   * @public
    * <p>The ARN of the high-availability partition group to modify.</p>
+   * @public
    */
   HapgArn: string | undefined;
 
   /**
-   * @public
    * <p>The new label for the high-availability partition group.</p>
+   * @public
    */
   Label?: string;
 
   /**
-   * @public
    * <p>The list of partition serial numbers to make members of the high-availability partition
    *       group.</p>
+   * @public
    */
   PartitionSerialList?: string[];
 }
@@ -895,67 +895,67 @@ export interface ModifyHapgRequest {
  */
 export interface ModifyHapgResponse {
   /**
-   * @public
    * <p>The ARN of the high-availability partition group.</p>
+   * @public
    */
   HapgArn?: string;
 }
 
 /**
- * @public
  * <p>Contains the inputs for the <a>ModifyHsm</a> operation.</p>
+ * @public
  */
 export interface ModifyHsmRequest {
   /**
-   * @public
    * <p>The ARN of the HSM to modify.</p>
+   * @public
    */
   HsmArn: string | undefined;
 
   /**
-   * @public
    * <p>The new identifier of the subnet that the HSM is in. The new subnet must be in the same
    *       Availability Zone as the current subnet.</p>
+   * @public
    */
   SubnetId?: string;
 
   /**
-   * @public
    * <p>The new IP address for the elastic network interface (ENI) attached to the
    *       HSM.</p>
    *          <p>If the HSM is moved to a different subnet, and an IP address is not specified, an IP
    *       address will be randomly chosen from the CIDR range of the new subnet.</p>
+   * @public
    */
   EniIp?: string;
 
   /**
-   * @public
    * <p>The new IAM role ARN.</p>
+   * @public
    */
   IamRoleArn?: string;
 
   /**
-   * @public
    * <p>The new external ID.</p>
+   * @public
    */
   ExternalId?: string;
 
   /**
-   * @public
    * <p>The new IP address for the syslog monitoring server. The AWS CloudHSM service only supports
    *       one syslog monitoring server.</p>
+   * @public
    */
   SyslogIp?: string;
 }
 
 /**
- * @public
  * <p>Contains the output of the <a>ModifyHsm</a> operation.</p>
+ * @public
  */
 export interface ModifyHsmResponse {
   /**
-   * @public
    * <p>The ARN of the HSM.</p>
+   * @public
    */
   HsmArn?: string;
 }
@@ -965,14 +965,14 @@ export interface ModifyHsmResponse {
  */
 export interface ModifyLunaClientRequest {
   /**
-   * @public
    * <p>The ARN of the client.</p>
+   * @public
    */
   ClientArn: string | undefined;
 
   /**
-   * @public
    * <p>The new certificate for the client.</p>
+   * @public
    */
   Certificate: string | undefined;
 }
@@ -982,8 +982,8 @@ export interface ModifyLunaClientRequest {
  */
 export interface ModifyLunaClientResponse {
   /**
-   * @public
    * <p>The ARN of the client.</p>
+   * @public
    */
   ClientArn?: string;
 }
@@ -993,16 +993,16 @@ export interface ModifyLunaClientResponse {
  */
 export interface RemoveTagsFromResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the AWS CloudHSM resource.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The tag key or keys to remove.</p>
    *          <p>Specify only the tag key to remove (not the value). To overwrite the value for an
    *       existing tag, use <a>AddTagsToResource</a>.</p>
+   * @public
    */
   TagKeyList: string[] | undefined;
 }
@@ -1012,8 +1012,8 @@ export interface RemoveTagsFromResourceRequest {
  */
 export interface RemoveTagsFromResourceResponse {
   /**
-   * @public
    * <p>The status of the operation.</p>
+   * @public
    */
   Status: string | undefined;
 }

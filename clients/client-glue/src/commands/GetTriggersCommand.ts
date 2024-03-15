@@ -27,7 +27,6 @@ export interface GetTriggersCommandInput extends GetTriggersRequest {}
 export interface GetTriggersCommandOutput extends GetTriggersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets all the triggers associated with a job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -110,6 +109,7 @@ export interface GetTriggersCommandOutput extends GetTriggersResponse, __Metadat
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetTriggersCommand extends $Command
   .classBuilder<

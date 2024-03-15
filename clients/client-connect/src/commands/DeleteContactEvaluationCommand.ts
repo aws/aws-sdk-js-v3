@@ -27,7 +27,6 @@ export interface DeleteContactEvaluationCommandInput extends DeleteContactEvalua
 export interface DeleteContactEvaluationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a contact evaluation in the specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface DeleteContactEvaluationCommandOutput extends __MetadataBearer {
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DeleteContactEvaluationCommand extends $Command
   .classBuilder<

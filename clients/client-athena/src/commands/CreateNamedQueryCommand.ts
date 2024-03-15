@@ -27,7 +27,6 @@ export interface CreateNamedQueryCommandInput extends CreateNamedQueryInput {}
 export interface CreateNamedQueryCommandOutput extends CreateNamedQueryOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a named query in the specified workgroup. Requires that you have access to the
  *             workgroup.</p>
  * @example
@@ -69,6 +68,7 @@ export interface CreateNamedQueryCommandOutput extends CreateNamedQueryOutput, _
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class CreateNamedQueryCommand extends $Command
   .classBuilder<

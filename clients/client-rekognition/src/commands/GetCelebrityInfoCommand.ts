@@ -27,7 +27,6 @@ export interface GetCelebrityInfoCommandInput extends GetCelebrityInfoRequest {}
 export interface GetCelebrityInfoCommandOutput extends GetCelebrityInfoResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the name and additional information about a celebrity based on their Amazon Rekognition ID.
  *       The additional information is returned as an array of URLs. If there is no additional
  *       information about the celebrity, this list is empty.</p>
@@ -87,6 +86,7 @@ export interface GetCelebrityInfoCommandOutput extends GetCelebrityInfoResponse,
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  */
 export class GetCelebrityInfoCommand extends $Command
   .classBuilder<

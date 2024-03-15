@@ -31,7 +31,6 @@ export interface DisassociateLicenseCommandInput extends DisassociateLicenseRequ
 export interface DisassociateLicenseCommandOutput extends DisassociateLicenseResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the Grafana Enterprise license from a workspace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -128,6 +127,7 @@ export interface DisassociateLicenseCommandOutput extends DisassociateLicenseRes
  * @throws {@link GrafanaServiceException}
  * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
+ * @public
  */
 export class DisassociateLicenseCommand extends $Command
   .classBuilder<

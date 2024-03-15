@@ -26,7 +26,6 @@ export interface DeleteOrganizationCommandInput {}
 export interface DeleteOrganizationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the organization. You can delete an organization only by using credentials
  *             from the management account. The organization must be empty of member accounts.</p>
  * @example
@@ -183,6 +182,7 @@ export interface DeleteOrganizationCommandOutput extends __MetadataBearer {}
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  */
 export class DeleteOrganizationCommand extends $Command
   .classBuilder<

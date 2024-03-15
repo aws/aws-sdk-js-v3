@@ -32,7 +32,6 @@ export interface CreateAttendeeCommandInput extends CreateAttendeeRequest {}
 export interface CreateAttendeeCommandOutput extends CreateAttendeeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *            Creates a new attendee for an active Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see
  *            <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
@@ -107,6 +106,7 @@ export interface CreateAttendeeCommandOutput extends CreateAttendeeResponse, __M
  * @throws {@link ChimeSDKMeetingsServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
+ * @public
  */
 export class CreateAttendeeCommand extends $Command
   .classBuilder<

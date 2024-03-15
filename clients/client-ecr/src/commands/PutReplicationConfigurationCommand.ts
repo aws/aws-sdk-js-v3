@@ -29,7 +29,6 @@ export interface PutReplicationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates the replication configuration for a registry. The existing
  *             replication configuration for a repository can be retrieved with the <a>DescribeRegistry</a> API action. The first time the
  *             PutReplicationConfiguration API is called, a service-linked IAM role is created in
@@ -111,6 +110,7 @@ export interface PutReplicationConfigurationCommandOutput
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * @public
  */
 export class PutReplicationConfigurationCommand extends $Command
   .classBuilder<

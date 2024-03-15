@@ -36,7 +36,6 @@ export interface ModifyVpcEndpointServiceConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the attributes of your VPC endpoint service configuration. You can change the
  *             Network Load Balancers or Gateway Load Balancers for your service, and you can specify whether acceptance is
  *             required for requests to connect to your endpoint service through an interface VPC
@@ -89,6 +88,7 @@ export interface ModifyVpcEndpointServiceConfigurationCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyVpcEndpointServiceConfigurationCommand extends $Command
   .classBuilder<

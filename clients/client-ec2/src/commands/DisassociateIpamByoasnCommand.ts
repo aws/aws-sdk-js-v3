@@ -27,7 +27,6 @@ export interface DisassociateIpamByoasnCommandInput extends DisassociateIpamByoa
 export interface DisassociateIpamByoasnCommandOutput extends DisassociateIpamByoasnResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Remove the association between your Autonomous System Number (ASN) and your BYOIP CIDR. You may want to use this action to disassociate an ASN from a CIDR or if you want to swap ASNs.
  *             For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoasn.html">Tutorial: Bring your ASN to IPAM</a> in the <i>Amazon VPC IPAM guide</i>.</p>
  * @example
@@ -63,6 +62,7 @@ export interface DisassociateIpamByoasnCommandOutput extends DisassociateIpamByo
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DisassociateIpamByoasnCommand extends $Command
   .classBuilder<

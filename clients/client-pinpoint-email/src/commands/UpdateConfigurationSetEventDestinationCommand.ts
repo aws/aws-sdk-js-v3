@@ -36,7 +36,6 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Update the configuration of an event destination for a configuration set.</p>
  *         <p>In Amazon Pinpoint, <i>events</i> include message sends, deliveries, opens,
  *             clicks, bounces, and complaints. <i>Event destinations</i> are places that
@@ -102,6 +101,7 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * @public
  */
 export class UpdateConfigurationSetEventDestinationCommand extends $Command
   .classBuilder<

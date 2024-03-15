@@ -689,8 +689,8 @@ export interface QueryProtocol {
 }
 
 /**
- * @public
  * A query service that sends query requests and XML responses.
+ * @public
  */
 export class QueryProtocol extends QueryProtocolClient implements QueryProtocol {}
 createAggregatedClient(commands, QueryProtocol);

@@ -27,7 +27,6 @@ export interface GetResourcePolicyCommandInput extends GetResourcePolicyInput {}
 export interface GetResourcePolicyCommandOutput extends GetResourcePolicyOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p> Gets a resource policy that is identified by its resource ARN. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,6 +60,7 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyOutput,
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * @public
  */
 export class GetResourcePolicyCommand extends $Command
   .classBuilder<

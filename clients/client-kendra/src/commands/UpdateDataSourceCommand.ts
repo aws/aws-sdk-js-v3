@@ -27,7 +27,6 @@ export interface UpdateDataSourceCommandInput extends UpdateDataSourceRequest {}
 export interface UpdateDataSourceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing Amazon Kendra data source connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -636,6 +635,7 @@ export interface UpdateDataSourceCommandOutput extends __MetadataBearer {}
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class UpdateDataSourceCommand extends $Command
   .classBuilder<

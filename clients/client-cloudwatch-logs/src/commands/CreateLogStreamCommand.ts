@@ -27,7 +27,6 @@ export interface CreateLogStreamCommandInput extends CreateLogStreamRequest {}
 export interface CreateLogStreamCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a log stream for the specified log group. A log stream is a sequence of log events
  *       that originate from a single source, such as an application instance or a resource that is
  *       being monitored.</p>
@@ -82,6 +81,7 @@ export interface CreateLogStreamCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class CreateLogStreamCommand extends $Command
   .classBuilder<

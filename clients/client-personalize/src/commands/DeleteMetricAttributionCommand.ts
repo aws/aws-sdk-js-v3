@@ -27,7 +27,6 @@ export interface DeleteMetricAttributionCommandInput extends DeleteMetricAttribu
 export interface DeleteMetricAttributionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a metric attribution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +61,7 @@ export interface DeleteMetricAttributionCommandOutput extends __MetadataBearer {
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class DeleteMetricAttributionCommand extends $Command
   .classBuilder<

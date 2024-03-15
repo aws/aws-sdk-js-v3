@@ -27,7 +27,6 @@ export interface UpdateTrailCommandInput extends UpdateTrailRequest {}
 export interface UpdateTrailCommandOutput extends UpdateTrailResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates trail settings that control what events you are logging, and how to handle log
  *          files. Changes to a trail do not require stopping the CloudTrail service. Use this
  *          action to designate an existing bucket for log delivery. If the existing bucket has
@@ -260,6 +259,7 @@ export interface UpdateTrailCommandOutput extends UpdateTrailResponse, __Metadat
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class UpdateTrailCommand extends $Command
   .classBuilder<

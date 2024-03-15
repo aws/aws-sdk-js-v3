@@ -35,7 +35,6 @@ export interface GetEc2DeepInspectionConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the activation status of Amazon Inspector deep inspection and custom paths associated with your account.
  *       </p>
  * @example
@@ -81,6 +80,7 @@ export interface GetEc2DeepInspectionConfigurationCommandOutput
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class GetEc2DeepInspectionConfigurationCommand extends $Command
   .classBuilder<

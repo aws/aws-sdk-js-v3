@@ -27,7 +27,6 @@ export interface ListLensSharesCommandInput extends ListLensSharesInput {}
 export interface ListLensSharesCommandOutput extends ListLensSharesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>List the lens shares associated with the lens.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface ListLensSharesCommandOutput extends ListLensSharesOutput, __Met
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * @public
  */
 export class ListLensSharesCommand extends $Command
   .classBuilder<

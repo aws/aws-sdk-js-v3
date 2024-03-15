@@ -27,7 +27,6 @@ export interface GetGlossaryCommandInput extends GetGlossaryInput {}
 export interface GetGlossaryCommandOutput extends GetGlossaryOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a business glossary in Amazon DataZone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface GetGlossaryCommandOutput extends GetGlossaryOutput, __MetadataB
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class GetGlossaryCommand extends $Command
   .classBuilder<

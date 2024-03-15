@@ -27,7 +27,6 @@ export interface RejectVpcPeeringConnectionCommandInput extends RejectVpcPeering
 export interface RejectVpcPeeringConnectionCommandOutput extends RejectVpcPeeringConnectionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Rejects a VPC peering connection request. The VPC peering connection must be in the
  * 				<code>pending-acceptance</code> state. Use the <a>DescribeVpcPeeringConnections</a> request
  * 			to view your outstanding VPC peering connection requests. To delete an active VPC peering
@@ -59,6 +58,7 @@ export interface RejectVpcPeeringConnectionCommandOutput extends RejectVpcPeerin
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class RejectVpcPeeringConnectionCommand extends $Command
   .classBuilder<

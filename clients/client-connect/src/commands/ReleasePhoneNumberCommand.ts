@@ -27,7 +27,6 @@ export interface ReleasePhoneNumberCommandInput extends ReleasePhoneNumberReques
 export interface ReleasePhoneNumberCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Releases a phone number previously claimed to an Amazon Connect instance or traffic distribution group. You
  *    can call this API only in the Amazon Web Services Region where the number was claimed.</p>
  *          <important>
@@ -96,6 +95,7 @@ export interface ReleasePhoneNumberCommandOutput extends __MetadataBearer {}
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class ReleasePhoneNumberCommand extends $Command
   .classBuilder<

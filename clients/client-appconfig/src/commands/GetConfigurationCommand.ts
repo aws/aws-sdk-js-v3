@@ -35,9 +35,6 @@ export type GetConfigurationCommandOutputType = Omit<Configuration, "Content"> &
 export interface GetConfigurationCommandOutput extends GetConfigurationCommandOutputType, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This API has been deprecated in favor of the GetLatestConfiguration API used in conjunction with StartConfigurationSession.
- *
  * <p>(Deprecated) Retrieves the latest deployed configuration.</p>
  *          <important>
  *             <p>Note the following important information.</p>
@@ -94,6 +91,8 @@ export interface GetConfigurationCommandOutput extends GetConfigurationCommandOu
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
+ * @deprecated This API has been deprecated in favor of the GetLatestConfiguration API used in conjunction with StartConfigurationSession.
  * @example To retrieve configuration details
  * ```javascript
  * // The following get-configuration example returns the configuration details of the example application. On subsequent calls to get-configuration, use the client-configuration-version parameter to only update the configuration of your application if the version has changed. Only updating the configuration when the version has changed avoids excess charges incurred by calling get-configuration.

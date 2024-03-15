@@ -27,7 +27,6 @@ export interface AssociateIamInstanceProfileCommandInput extends AssociateIamIns
 export interface AssociateIamInstanceProfileCommandOutput extends AssociateIamInstanceProfileResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates an IAM instance profile with a running or stopped instance. You cannot
  *             associate more than one IAM instance profile with an instance.</p>
  * @example
@@ -69,6 +68,7 @@ export interface AssociateIamInstanceProfileCommandOutput extends AssociateIamIn
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To associate an IAM instance profile with an instance
  * ```javascript
  * // This example associates an IAM instance profile named admin-role with the specified instance.

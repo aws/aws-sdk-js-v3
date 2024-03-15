@@ -27,7 +27,6 @@ export interface UpdateAnomalyMonitorCommandInput extends UpdateAnomalyMonitorRe
 export interface UpdateAnomalyMonitorCommandOutput extends UpdateAnomalyMonitorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing cost anomaly monitor. The changes made are applied going forward, and
  *       doesn't change anomalies detected in the past. </p>
  * @example
@@ -63,6 +62,7 @@ export interface UpdateAnomalyMonitorCommandOutput extends UpdateAnomalyMonitorR
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * @public
  */
 export class UpdateAnomalyMonitorCommand extends $Command
   .classBuilder<

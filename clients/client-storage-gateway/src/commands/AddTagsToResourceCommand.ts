@@ -27,7 +27,6 @@ export interface AddTagsToResourceCommandInput extends AddTagsToResourceInput {}
 export interface AddTagsToResourceCommandOutput extends AddTagsToResourceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds one or more tags to the specified resource. You use tags to add metadata to
  *          resources, which you can use to categorize these resources. For example, you can categorize
  *          resources by purpose, owner, environment, or team. Each tag consists of a key and a value,
@@ -91,6 +90,7 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceOutput,
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To add tags to resource
  * ```javascript
  * // Adds one or more tags to the specified resource.

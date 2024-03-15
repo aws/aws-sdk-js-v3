@@ -27,7 +27,6 @@ export interface DescribeDhcpOptionsCommandInput extends DescribeDhcpOptionsRequ
 export interface DescribeDhcpOptionsCommandOutput extends DescribeDhcpOptionsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes one or more of your DHCP options sets.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP options sets</a> in the
  * 				<i>Amazon VPC User Guide</i>.</p>
@@ -92,6 +91,7 @@ export interface DescribeDhcpOptionsCommandOutput extends DescribeDhcpOptionsRes
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To describe a DHCP options set
  * ```javascript
  * // This example describes the specified DHCP options set.

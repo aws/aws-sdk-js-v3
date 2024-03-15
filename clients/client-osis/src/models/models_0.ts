@@ -4,8 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { OSISServiceException as __BaseException } from "./OSISServiceException";
 
 /**
- * @public
  * <p>You don't have permissions to access the resource.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -24,102 +24,102 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Options that specify the configuration of a persistent buffer.
  *    To configure how OpenSearch Ingestion encrypts this data, set the EncryptionAtRestOptions.</p>
+ * @public
  */
 export interface BufferOptions {
   /**
-   * @public
    * <p>Whether persistent buffering should be enabled.</p>
+   * @public
    */
   PersistentBufferEnabled: boolean | undefined;
 }
 
 /**
- * @public
  * <p>Options to control how OpenSearch encrypts all data-at-rest.</p>
+ * @public
  */
 export interface EncryptionAtRestOptions {
   /**
-   * @public
    * <p>The ARN of the KMS key used to encrypt data-at-rest in OpenSearch Ingestion.
    *    By default, data is encrypted using an AWS owned key.</p>
+   * @public
    */
   KmsKeyArn: string | undefined;
 }
 
 /**
- * @public
  * <p>The destination for OpenSearch Ingestion logs sent to Amazon CloudWatch.</p>
+ * @public
  */
 export interface CloudWatchLogDestination {
   /**
-   * @public
    * <p>The name of the CloudWatch Logs group to send pipeline logs to. You can specify an existing
    *    log group or create a new one. For example,
    *     <code>/aws/OpenSearchService/IngestionService/my-pipeline</code>.</p>
+   * @public
    */
   LogGroup: string | undefined;
 }
 
 /**
- * @public
  * <p>Container for the values required to configure logging for the pipeline. If you don't
  *    specify these values, OpenSearch Ingestion will not publish logs from your application to
  *    CloudWatch Logs.</p>
+ * @public
  */
 export interface LogPublishingOptions {
   /**
-   * @public
    * <p>Whether logs should be published.</p>
+   * @public
    */
   IsLoggingEnabled?: boolean;
 
   /**
-   * @public
    * <p>The destination for OpenSearch Ingestion logs sent to Amazon CloudWatch Logs. This
    *    parameter is required if <code>IsLoggingEnabled</code> is set to <code>true</code>.</p>
+   * @public
    */
   CloudWatchLogDestination?: CloudWatchLogDestination;
 }
 
 /**
- * @public
  * <p>A tag (key-value pair) for an OpenSearch Ingestion pipeline.</p>
+ * @public
  */
 export interface Tag {
   /**
-   * @public
    * <p>The tag key. Tag keys must be unique for the pipeline to which they are attached.</p>
+   * @public
    */
   Key: string | undefined;
 
   /**
-   * @public
    * <p>The value assigned to the corresponding tag key. Tag values can be null and don't have to
    *    be unique in a tag set. For example, you can have a key value pair in a tag set of
    *    <code>project : Trinity</code> and <code>cost-center : Trinity</code>
    *          </p>
+   * @public
    */
   Value: string | undefined;
 }
 
 /**
- * @public
  * <p>Options that specify the subnets and security groups for an OpenSearch Ingestion
  *    VPC endpoint.</p>
+ * @public
  */
 export interface VpcOptions {
   /**
-   * @public
    * <p>A list of subnet IDs associated with the VPC endpoint.</p>
+   * @public
    */
   SubnetIds: string[] | undefined;
 
   /**
-   * @public
    * <p>A list of security groups associated with the VPC endpoint.</p>
+   * @public
    */
   SecurityGroupIds?: string[];
 }
@@ -129,60 +129,60 @@ export interface VpcOptions {
  */
 export interface CreatePipelineRequest {
   /**
-   * @public
    * <p>The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines
    *    owned by an account within an Amazon Web Services Region.</p>
+   * @public
    */
   PipelineName: string | undefined;
 
   /**
-   * @public
    * <p>The minimum pipeline capacity, in Ingestion Compute Units (ICUs).</p>
+   * @public
    */
   MinUnits: number | undefined;
 
   /**
-   * @public
    * <p>The maximum pipeline capacity, in Ingestion Compute Units (ICUs).</p>
+   * @public
    */
   MaxUnits: number | undefined;
 
   /**
-   * @public
    * <p>The pipeline configuration in YAML format. The command accepts the pipeline configuration as
    *    a string or within a .yaml file. If you provide the configuration as a string, each new line must
    *    be escaped with <code>\n</code>.</p>
+   * @public
    */
   PipelineConfigurationBody: string | undefined;
 
   /**
-   * @public
    * <p>Key-value pairs to configure log publishing.</p>
+   * @public
    */
   LogPublishingOptions?: LogPublishingOptions;
 
   /**
-   * @public
    * <p>Container for the values required to configure VPC access for the pipeline. If you don't specify
    *    these values, OpenSearch Ingestion creates the pipeline with a public endpoint.</p>
+   * @public
    */
   VpcOptions?: VpcOptions;
 
   /**
-   * @public
    * <p>Key-value pairs to configure persistent buffering for the pipeline.</p>
+   * @public
    */
   BufferOptions?: BufferOptions;
 
   /**
-   * @public
    * <p>Key-value pairs to configure encryption for data that is written to a persistent buffer.</p>
+   * @public
    */
   EncryptionAtRestOptions?: EncryptionAtRestOptions;
 
   /**
-   * @public
    * <p>List of tags to add to the pipeline upon creation.</p>
+   * @public
    */
   Tags?: Tag[];
 }
@@ -201,19 +201,19 @@ export const VpcEndpointServiceName = {
 export type VpcEndpointServiceName = (typeof VpcEndpointServiceName)[keyof typeof VpcEndpointServiceName];
 
 /**
- * @public
  * <p>A container for information about VPC endpoints that were created to other services</p>
+ * @public
  */
 export interface ServiceVpcEndpoint {
   /**
-   * @public
    * <p>The name of the service for which a VPC endpoint was created.</p>
+   * @public
    */
   ServiceName?: VpcEndpointServiceName;
 
   /**
-   * @public
    * <p>The ID of the VPC endpoint that was created.</p>
+   * @public
    */
   VpcEndpointId?: string;
 }
@@ -241,142 +241,142 @@ export const PipelineStatus = {
 export type PipelineStatus = (typeof PipelineStatus)[keyof typeof PipelineStatus];
 
 /**
- * @public
  * <p>Information about a pipeline's current status.</p>
+ * @public
  */
 export interface PipelineStatusReason {
   /**
-   * @public
    * <p>A description of why a pipeline has a certain status.</p>
+   * @public
    */
   Description?: string;
 }
 
 /**
- * @public
  * <p>An OpenSearch Ingestion-managed VPC endpoint that will access one or more
  *    pipelines.</p>
+ * @public
  */
 export interface VpcEndpoint {
   /**
-   * @public
    * <p>The unique identifier of the endpoint.</p>
+   * @public
    */
   VpcEndpointId?: string;
 
   /**
-   * @public
    * <p>The ID for your VPC. Amazon Web Services PrivateLink generates this value when you create a
    *    VPC.</p>
+   * @public
    */
   VpcId?: string;
 
   /**
-   * @public
    * <p>Information about the VPC, including associated subnets and security groups.</p>
+   * @public
    */
   VpcOptions?: VpcOptions;
 }
 
 /**
- * @public
  * <p>Information about an existing OpenSearch Ingestion pipeline.</p>
+ * @public
  */
 export interface Pipeline {
   /**
-   * @public
    * <p>The name of the pipeline.</p>
+   * @public
    */
   PipelineName?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
+   * @public
    */
   PipelineArn?: string;
 
   /**
-   * @public
    * <p>The minimum pipeline capacity, in Ingestion Compute Units (ICUs).</p>
+   * @public
    */
   MinUnits?: number;
 
   /**
-   * @public
    * <p>The maximum pipeline capacity, in Ingestion Compute Units (ICUs).</p>
+   * @public
    */
   MaxUnits?: number;
 
   /**
-   * @public
    * <p>The current status of the pipeline.</p>
+   * @public
    */
   Status?: PipelineStatus;
 
   /**
-   * @public
    * <p>The reason for the current status of the pipeline.</p>
+   * @public
    */
   StatusReason?: PipelineStatusReason;
 
   /**
-   * @public
    * <p>The Data Prepper pipeline configuration in YAML format.</p>
+   * @public
    */
   PipelineConfigurationBody?: string;
 
   /**
-   * @public
    * <p>The date and time when the pipeline was created.</p>
+   * @public
    */
   CreatedAt?: Date;
 
   /**
-   * @public
    * <p>The date and time when the pipeline was last updated.</p>
+   * @public
    */
   LastUpdatedAt?: Date;
 
   /**
-   * @public
    * <p>The ingestion endpoints for the pipeline, which you can send data to.</p>
+   * @public
    */
   IngestEndpointUrls?: string[];
 
   /**
-   * @public
    * <p>Key-value pairs that represent log publishing settings.</p>
+   * @public
    */
   LogPublishingOptions?: LogPublishingOptions;
 
   /**
-   * @public
    * <p>The VPC interface endpoints that have access to the pipeline.</p>
+   * @public
    */
   VpcEndpoints?: VpcEndpoint[];
 
   /**
-   * @public
    * <p>Options that specify the configuration of a persistent buffer.
    *    To configure how OpenSearch Ingestion encrypts this data, set the EncryptionAtRestOptions.</p>
+   * @public
    */
   BufferOptions?: BufferOptions;
 
   /**
-   * @public
    * <p>Options to control how OpenSearch encrypts all data-at-rest.</p>
+   * @public
    */
   EncryptionAtRestOptions?: EncryptionAtRestOptions;
 
   /**
-   * @public
    * <p>A list of VPC endpoints that OpenSearch Ingestion has created to other AWS services.</p>
+   * @public
    */
   ServiceVpcEndpoints?: ServiceVpcEndpoint[];
 
   /**
-   * @public
    * <p>A list of tags associated with the given pipeline.</p>
+   * @public
    */
   Tags?: Tag[];
 }
@@ -386,16 +386,16 @@ export interface Pipeline {
  */
 export interface CreatePipelineResponse {
   /**
-   * @public
    * <p>Container for information about the created pipeline.</p>
+   * @public
    */
   Pipeline?: Pipeline;
 }
 
 /**
- * @public
  * <p>The request failed because of an unknown error, exception, or failure (the failure is
  *    internal to the service).</p>
+ * @public
  */
 export class InternalException extends __BaseException {
   readonly name: "InternalException" = "InternalException";
@@ -414,8 +414,8 @@ export class InternalException extends __BaseException {
 }
 
 /**
- * @public
  * <p>You attempted to create more than the allowed number of tags.</p>
+ * @public
  */
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
@@ -434,8 +434,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>You attempted to create a resource that already exists.</p>
+ * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
   readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
@@ -454,8 +454,8 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
- * @public
  * <p>You attempted to access or delete a resource that does not exist.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -474,8 +474,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>An exception for missing or invalid input fields.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -494,8 +494,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The client attempted to remove a resource that is currently in use.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -518,8 +518,8 @@ export class ConflictException extends __BaseException {
  */
 export interface DeletePipelineRequest {
   /**
-   * @public
    * <p>The name of the pipeline to delete.</p>
+   * @public
    */
   PipelineName: string | undefined;
 }
@@ -534,8 +534,8 @@ export interface DeletePipelineResponse {}
  */
 export interface GetPipelineRequest {
   /**
-   * @public
    * <p>The name of the pipeline to get information about.</p>
+   * @public
    */
   PipelineName: string | undefined;
 }
@@ -545,8 +545,8 @@ export interface GetPipelineRequest {
  */
 export interface GetPipelineResponse {
   /**
-   * @public
    * <p>Detailed information about the requested pipeline.</p>
+   * @public
    */
   Pipeline?: Pipeline;
 }
@@ -556,26 +556,26 @@ export interface GetPipelineResponse {
  */
 export interface GetPipelineBlueprintRequest {
   /**
-   * @public
    * <p>The name of the blueprint to retrieve.</p>
+   * @public
    */
   BlueprintName: string | undefined;
 }
 
 /**
- * @public
  * <p>Container for information about an OpenSearch Ingestion blueprint.</p>
+ * @public
  */
 export interface PipelineBlueprint {
   /**
-   * @public
    * <p>The name of the blueprint.</p>
+   * @public
    */
   BlueprintName?: string;
 
   /**
-   * @public
    * <p>The YAML configuration of the blueprint.</p>
+   * @public
    */
   PipelineConfigurationBody?: string;
 }
@@ -585,8 +585,8 @@ export interface PipelineBlueprint {
  */
 export interface GetPipelineBlueprintResponse {
   /**
-   * @public
    * <p>The requested blueprint in YAML format.</p>
+   * @public
    */
   Blueprint?: PipelineBlueprint;
 }
@@ -596,8 +596,8 @@ export interface GetPipelineBlueprintResponse {
  */
 export interface GetPipelineChangeProgressRequest {
   /**
-   * @public
    * <p>The name of the pipeline.</p>
+   * @public
    */
   PipelineName: string | undefined;
 }
@@ -620,31 +620,31 @@ export type ChangeProgressStageStatuses =
   (typeof ChangeProgressStageStatuses)[keyof typeof ChangeProgressStageStatuses];
 
 /**
- * @public
  * <p>Progress details for a specific stage of a pipeline configuration change.</p>
+ * @public
  */
 export interface ChangeProgressStage {
   /**
-   * @public
    * <p>The name of the stage.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The current status of the stage that the change is in.</p>
+   * @public
    */
   Status?: ChangeProgressStageStatuses;
 
   /**
-   * @public
    * <p>A description of the stage.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The most recent updated timestamp of the stage.</p>
+   * @public
    */
   LastUpdatedAt?: Date;
 }
@@ -666,31 +666,31 @@ export const ChangeProgressStatuses = {
 export type ChangeProgressStatuses = (typeof ChangeProgressStatuses)[keyof typeof ChangeProgressStatuses];
 
 /**
- * @public
  * <p>The progress details of a pipeline configuration change.</p>
+ * @public
  */
 export interface ChangeProgressStatus {
   /**
-   * @public
    * <p>The time at which the configuration change is made on the pipeline.</p>
+   * @public
    */
   StartTime?: Date;
 
   /**
-   * @public
    * <p>The overall status of the pipeline configuration change.</p>
+   * @public
    */
   Status?: ChangeProgressStatuses;
 
   /**
-   * @public
    * <p>The total number of stages required for the pipeline configuration change.</p>
+   * @public
    */
   TotalNumberOfStages?: number;
 
   /**
-   * @public
    * <p>Information about the stages that the pipeline is going through to perform the configuration change.</p>
+   * @public
    */
   ChangeProgressStages?: ChangeProgressStage[];
 }
@@ -700,15 +700,15 @@ export interface ChangeProgressStatus {
  */
 export interface GetPipelineChangeProgressResponse {
   /**
-   * @public
    * <p>The current status of the change happening on the pipeline.</p>
+   * @public
    */
   ChangeProgressStatuses?: ChangeProgressStatus[];
 }
 
 /**
- * @public
  * <p>An invalid pagination token provided in the request.</p>
+ * @public
  */
 export class InvalidPaginationTokenException extends __BaseException {
   readonly name: "InvalidPaginationTokenException" = "InvalidPaginationTokenException";
@@ -732,13 +732,13 @@ export class InvalidPaginationTokenException extends __BaseException {
 export interface ListPipelineBlueprintsRequest {}
 
 /**
- * @public
  * <p>A summary of an OpenSearch Ingestion blueprint.</p>
+ * @public
  */
 export interface PipelineBlueprintSummary {
   /**
-   * @public
    * <p>The name of the blueprint.</p>
+   * @public
    */
   BlueprintName?: string;
 }
@@ -748,8 +748,8 @@ export interface PipelineBlueprintSummary {
  */
 export interface ListPipelineBlueprintsResponse {
   /**
-   * @public
    * <p>A list of available blueprints for Data Prepper.</p>
+   * @public
    */
   Blueprints?: PipelineBlueprintSummary[];
 }
@@ -759,77 +759,77 @@ export interface ListPipelineBlueprintsResponse {
  */
 export interface ListPipelinesRequest {
   /**
-   * @public
    * <p>An optional parameter that specifies the maximum number of results to return. You can use
    *    <code>nextToken</code> to get the next page of results.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>If your initial <code>ListPipelines</code> operation returns a <code>nextToken</code>, you
    *    can include the returned <code>nextToken</code> in subsequent <code>ListPipelines</code>
    *    operations, which returns results in the next page.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>Summary information for an OpenSearch Ingestion pipeline.</p>
+ * @public
  */
 export interface PipelineSummary {
   /**
-   * @public
    * <p>The current status of the pipeline.</p>
+   * @public
    */
   Status?: PipelineStatus;
 
   /**
-   * @public
    * <p>Information about a pipeline's current status.</p>
+   * @public
    */
   StatusReason?: PipelineStatusReason;
 
   /**
-   * @public
    * <p>The name of the pipeline.</p>
+   * @public
    */
   PipelineName?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
+   * @public
    */
   PipelineArn?: string;
 
   /**
-   * @public
    * <p>The minimum pipeline capacity, in Ingestion Compute Units (ICUs).</p>
+   * @public
    */
   MinUnits?: number;
 
   /**
-   * @public
    * <p>The maximum pipeline capacity, in Ingestion Compute Units (ICUs).</p>
+   * @public
    */
   MaxUnits?: number;
 
   /**
-   * @public
    * <p>The date and time when the pipeline was created.</p>
+   * @public
    */
   CreatedAt?: Date;
 
   /**
-   * @public
    * <p>The date and time when the pipeline was last updated.</p>
+   * @public
    */
   LastUpdatedAt?: Date;
 
   /**
-   * @public
    * <p>A list of tags associated with the given pipeline.</p>
+   * @public
    */
   Tags?: Tag[];
 }
@@ -839,16 +839,16 @@ export interface PipelineSummary {
  */
 export interface ListPipelinesResponse {
   /**
-   * @public
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
    *    <code>nextToken</code> is a unique pagination token for each page. Make the call again using
    *    the returned token to retrieve the next page.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>A list of all existing Data Prepper pipelines.</p>
+   * @public
    */
   Pipelines?: PipelineSummary[];
 }
@@ -858,8 +858,8 @@ export interface ListPipelinesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the pipeline to retrieve tags for.</p>
+   * @public
    */
   Arn: string | undefined;
 }
@@ -869,8 +869,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>A list of tags associated with the given pipeline.</p>
+   * @public
    */
   Tags?: Tag[];
 }
@@ -880,8 +880,8 @@ export interface ListTagsForResourceResponse {
  */
 export interface StartPipelineRequest {
   /**
-   * @public
    * <p>The name of the pipeline to start.</p>
+   * @public
    */
   PipelineName: string | undefined;
 }
@@ -891,8 +891,8 @@ export interface StartPipelineRequest {
  */
 export interface StartPipelineResponse {
   /**
-   * @public
    * <p>Information about an existing OpenSearch Ingestion pipeline.</p>
+   * @public
    */
   Pipeline?: Pipeline;
 }
@@ -902,8 +902,8 @@ export interface StartPipelineResponse {
  */
 export interface StopPipelineRequest {
   /**
-   * @public
    * <p>The name of the pipeline to stop.</p>
+   * @public
    */
   PipelineName: string | undefined;
 }
@@ -913,8 +913,8 @@ export interface StopPipelineRequest {
  */
 export interface StopPipelineResponse {
   /**
-   * @public
    * <p>Information about an existing OpenSearch Ingestion pipeline.</p>
+   * @public
    */
   Pipeline?: Pipeline;
 }
@@ -924,14 +924,14 @@ export interface StopPipelineResponse {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the pipeline to tag.</p>
+   * @public
    */
   Arn: string | undefined;
 
   /**
-   * @public
    * <p>The list of key-value tags to add to the pipeline.</p>
+   * @public
    */
   Tags: Tag[] | undefined;
 }
@@ -946,14 +946,14 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the pipeline to remove tags from.</p>
+   * @public
    */
   Arn: string | undefined;
 
   /**
-   * @public
    * <p>The tag keys to remove.</p>
+   * @public
    */
   TagKeys: string[] | undefined;
 }
@@ -968,46 +968,46 @@ export interface UntagResourceResponse {}
  */
 export interface UpdatePipelineRequest {
   /**
-   * @public
    * <p>The name of the pipeline to update.</p>
+   * @public
    */
   PipelineName: string | undefined;
 
   /**
-   * @public
    * <p>The minimum pipeline capacity, in Ingestion Compute Units (ICUs).</p>
+   * @public
    */
   MinUnits?: number;
 
   /**
-   * @public
    * <p>The maximum pipeline capacity, in Ingestion Compute Units (ICUs)</p>
+   * @public
    */
   MaxUnits?: number;
 
   /**
-   * @public
    * <p>The pipeline configuration in YAML format. The command accepts the pipeline configuration as
    *    a string or within a .yaml file. If you provide the configuration as a string, each new line must
    *    be escaped with <code>\n</code>.</p>
+   * @public
    */
   PipelineConfigurationBody?: string;
 
   /**
-   * @public
    * <p>Key-value pairs to configure log publishing.</p>
+   * @public
    */
   LogPublishingOptions?: LogPublishingOptions;
 
   /**
-   * @public
    * <p>Key-value pairs to configure persistent buffering for the pipeline.</p>
+   * @public
    */
   BufferOptions?: BufferOptions;
 
   /**
-   * @public
    * <p>Key-value pairs to configure encryption for data that is written to a persistent buffer.</p>
+   * @public
    */
   EncryptionAtRestOptions?: EncryptionAtRestOptions;
 }
@@ -1017,8 +1017,8 @@ export interface UpdatePipelineRequest {
  */
 export interface UpdatePipelineResponse {
   /**
-   * @public
    * <p>Container for information about the updated pipeline.</p>
+   * @public
    */
   Pipeline?: Pipeline;
 }
@@ -1028,23 +1028,23 @@ export interface UpdatePipelineResponse {
  */
 export interface ValidatePipelineRequest {
   /**
-   * @public
    * <p>The pipeline configuration in YAML format. The command accepts the pipeline configuration as
    *    a string or within a .yaml file. If you provide the configuration as a string, each new line must
    *    be escaped with <code>\n</code>.</p>
+   * @public
    */
   PipelineConfigurationBody: string | undefined;
 }
 
 /**
- * @public
  * <p>A validation message associated with a <code>ValidatePipeline</code> request in OpenSearch
  *    Ingestion.</p>
+ * @public
  */
 export interface ValidationMessage {
   /**
-   * @public
    * <p>The validation message.</p>
+   * @public
    */
   Message?: string;
 }
@@ -1054,14 +1054,14 @@ export interface ValidationMessage {
  */
 export interface ValidatePipelineResponse {
   /**
-   * @public
    * <p>A boolean indicating whether or not the pipeline configuration is valid.</p>
+   * @public
    */
   isValid?: boolean;
 
   /**
-   * @public
    * <p>A list of errors if the configuration is invalid.</p>
+   * @public
    */
   Errors?: ValidationMessage[];
 }

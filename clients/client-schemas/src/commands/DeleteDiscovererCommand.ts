@@ -27,7 +27,6 @@ export interface DeleteDiscovererCommandInput extends DeleteDiscovererRequest {}
 export interface DeleteDiscovererCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a discoverer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface DeleteDiscovererCommandOutput extends __MetadataBearer {}
  * @throws {@link SchemasServiceException}
  * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ * @public
  */
 export class DeleteDiscovererCommand extends $Command
   .classBuilder<

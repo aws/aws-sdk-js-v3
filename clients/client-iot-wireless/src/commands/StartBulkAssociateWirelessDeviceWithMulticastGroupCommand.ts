@@ -36,7 +36,6 @@ export interface StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a bulk association of all qualifying wireless devices with a multicast
  *             group.</p>
  * @example
@@ -85,6 +84,7 @@ export interface StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class StartBulkAssociateWirelessDeviceWithMulticastGroupCommand extends $Command
   .classBuilder<

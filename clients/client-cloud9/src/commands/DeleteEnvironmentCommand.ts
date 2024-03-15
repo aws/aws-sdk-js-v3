@@ -27,7 +27,6 @@ export interface DeleteEnvironmentCommandInput extends DeleteEnvironmentRequest 
 export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Cloud9 development environment. If an Amazon EC2 instance is connected to the
  *       environment, also terminates the instance.</p>
  * @example
@@ -75,6 +74,7 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentResult,
  * @throws {@link Cloud9ServiceException}
  * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
+ * @public
  * @example DeleteEnvironment
  * ```javascript
  * //

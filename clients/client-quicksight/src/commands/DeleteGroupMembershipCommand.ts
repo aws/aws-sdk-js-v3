@@ -27,7 +27,6 @@ export interface DeleteGroupMembershipCommandInput extends DeleteGroupMembership
 export interface DeleteGroupMembershipCommandOutput extends DeleteGroupMembershipResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a user from a group so that the user is no longer a member of the group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface DeleteGroupMembershipCommandOutput extends DeleteGroupMembershi
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DeleteGroupMembershipCommand extends $Command
   .classBuilder<

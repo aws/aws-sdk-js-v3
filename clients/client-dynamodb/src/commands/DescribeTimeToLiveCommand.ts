@@ -27,7 +27,6 @@ export interface DescribeTimeToLiveCommandInput extends DescribeTimeToLiveInput 
 export interface DescribeTimeToLiveCommandOutput extends DescribeTimeToLiveOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gives a description of the Time to Live (TTL) status on the specified table. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface DescribeTimeToLiveCommandOutput extends DescribeTimeToLiveOutpu
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  */
 export class DescribeTimeToLiveCommand extends $Command
   .classBuilder<

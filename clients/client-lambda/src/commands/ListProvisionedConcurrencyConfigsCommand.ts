@@ -35,7 +35,6 @@ export interface ListProvisionedConcurrencyConfigsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of provisioned concurrency configurations for a function.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface ListProvisionedConcurrencyConfigsCommandOutput
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class ListProvisionedConcurrencyConfigsCommand extends $Command
   .classBuilder<

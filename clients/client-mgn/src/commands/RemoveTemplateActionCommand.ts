@@ -27,7 +27,6 @@ export interface RemoveTemplateActionCommandInput extends RemoveTemplateActionRe
 export interface RemoveTemplateActionCommandOutput extends RemoveTemplateActionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Remove template post migration custom action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +62,7 @@ export interface RemoveTemplateActionCommandOutput extends RemoveTemplateActionR
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * @public
  */
 export class RemoveTemplateActionCommand extends $Command
   .classBuilder<

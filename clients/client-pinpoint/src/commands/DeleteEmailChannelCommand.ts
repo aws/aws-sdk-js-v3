@@ -27,7 +27,6 @@ export interface DeleteEmailChannelCommandInput extends DeleteEmailChannelReques
 export interface DeleteEmailChannelCommandOutput extends DeleteEmailChannelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables the email channel for an application and deletes any existing settings for the channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface DeleteEmailChannelCommandOutput extends DeleteEmailChannelRespo
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class DeleteEmailChannelCommand extends $Command
   .classBuilder<

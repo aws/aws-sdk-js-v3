@@ -27,7 +27,6 @@ export interface GetDevEnvironmentCommandInput extends GetDevEnvironmentRequest 
 export interface GetDevEnvironmentCommandOutput extends GetDevEnvironmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a Dev Environment for a source repository in a project. Dev Environments are specific to the user who creates them.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface GetDevEnvironmentCommandOutput extends GetDevEnvironmentRespons
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ * @public
  */
 export class GetDevEnvironmentCommand extends $Command
   .classBuilder<

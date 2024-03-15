@@ -27,7 +27,6 @@ export interface DescribeAccountAttributesCommandInput extends DescribeAccountAt
 export interface DescribeAccountAttributesCommandOutput extends AccountAttributeList, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of attributes attached to an account</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface DescribeAccountAttributesCommandOutput extends AccountAttribute
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DescribeAccountAttributesCommand extends $Command
   .classBuilder<

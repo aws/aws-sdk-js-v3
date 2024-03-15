@@ -27,7 +27,6 @@ export interface DescribeAlarmCommandInput extends DescribeAlarmRequest {}
 export interface DescribeAlarmCommandOutput extends DescribeAlarmResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about an alarm.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -113,6 +112,7 @@ export interface DescribeAlarmCommandOutput extends DescribeAlarmResponse, __Met
  * @throws {@link IoTEventsDataServiceException}
  * <p>Base exception class for all service exceptions from IoTEventsData service.</p>
  *
+ * @public
  */
 export class DescribeAlarmCommand extends $Command
   .classBuilder<

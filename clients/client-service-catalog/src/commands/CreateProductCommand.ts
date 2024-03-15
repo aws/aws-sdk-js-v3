@@ -27,7 +27,6 @@ export interface CreateProductCommandInput extends CreateProductInput {}
 export interface CreateProductCommandOutput extends CreateProductOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a product.</p>
  *          <p>A delegated admin is authorized to invoke this command.</p>
  *          <p>The user or role that performs this operation must have the
@@ -158,6 +157,7 @@ export interface CreateProductCommandOutput extends CreateProductOutput, __Metad
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class CreateProductCommand extends $Command
   .classBuilder<

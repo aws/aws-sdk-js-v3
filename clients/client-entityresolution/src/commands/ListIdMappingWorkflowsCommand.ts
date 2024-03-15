@@ -27,7 +27,6 @@ export interface ListIdMappingWorkflowsCommandInput extends ListIdMappingWorkflo
 export interface ListIdMappingWorkflowsCommandOutput extends ListIdMappingWorkflowsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all the <code>IdMappingWorkflows</code> that have been created for an
  *             Amazon Web Services account.</p>
  * @example
@@ -85,6 +84,7 @@ export interface ListIdMappingWorkflowsCommandOutput extends ListIdMappingWorkfl
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ * @public
  */
 export class ListIdMappingWorkflowsCommand extends $Command
   .classBuilder<

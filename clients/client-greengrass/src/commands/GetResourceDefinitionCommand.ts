@@ -27,7 +27,6 @@ export interface GetResourceDefinitionCommandInput extends GetResourceDefinition
 export interface GetResourceDefinitionCommandOutput extends GetResourceDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * Retrieves information about a resource definition, including its creation time and latest version.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface GetResourceDefinitionCommandOutput extends GetResourceDefinitio
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class GetResourceDefinitionCommand extends $Command
   .classBuilder<

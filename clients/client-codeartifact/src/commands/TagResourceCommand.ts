@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds or updates tags for a resource in CodeArtifact.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface TagResourceCommandOutput extends TagResourceResult, __MetadataB
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

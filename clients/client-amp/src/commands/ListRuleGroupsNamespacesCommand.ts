@@ -27,7 +27,6 @@ export interface ListRuleGroupsNamespacesCommandInput extends ListRuleGroupsName
 export interface ListRuleGroupsNamespacesCommandOutput extends ListRuleGroupsNamespacesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of rule groups namespaces in a workspace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface ListRuleGroupsNamespacesCommandOutput extends ListRuleGroupsNam
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ * @public
  */
 export class ListRuleGroupsNamespacesCommand extends $Command
   .classBuilder<

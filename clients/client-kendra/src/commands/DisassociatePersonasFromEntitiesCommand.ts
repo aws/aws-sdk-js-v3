@@ -32,7 +32,6 @@ export interface DisassociatePersonasFromEntitiesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specific permissions of users or groups in your IAM Identity Center
  *             identity source with access to your Amazon Kendra experience. You can create an Amazon Kendra
  *             experience such as a search application. For more information on creating a
@@ -93,6 +92,7 @@ export interface DisassociatePersonasFromEntitiesCommandOutput
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class DisassociatePersonasFromEntitiesCommand extends $Command
   .classBuilder<

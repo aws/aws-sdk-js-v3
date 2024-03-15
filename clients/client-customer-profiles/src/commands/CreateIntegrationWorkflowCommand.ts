@@ -31,7 +31,6 @@ export interface CreateIntegrationWorkflowCommandInput extends CreateIntegration
 export interface CreateIntegrationWorkflowCommandOutput extends CreateIntegrationWorkflowResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  * 	Creates an integration workflow. An integration workflow is an async process which ingests historic data and sets up an integration for ongoing updates. The supported Amazon AppFlow sources are Salesforce, ServiceNow, and Marketo.
  * 	</p>
@@ -158,6 +157,7 @@ export interface CreateIntegrationWorkflowCommandOutput extends CreateIntegratio
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * @public
  */
 export class CreateIntegrationWorkflowCommand extends $Command
   .classBuilder<

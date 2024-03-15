@@ -27,7 +27,6 @@ export interface CancelVariantImportJobCommandInput extends CancelVariantImportR
 export interface CancelVariantImportJobCommandOutput extends CancelVariantImportResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels a variant import job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface CancelVariantImportJobCommandOutput extends CancelVariantImport
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class CancelVariantImportJobCommand extends $Command
   .classBuilder<

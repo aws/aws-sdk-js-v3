@@ -27,7 +27,6 @@ export interface GetApnsVoipChannelCommandInput extends GetApnsVoipChannelReques
 export interface GetApnsVoipChannelCommandOutput extends GetApnsVoipChannelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the status and settings of the APNs VoIP channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface GetApnsVoipChannelCommandOutput extends GetApnsVoipChannelRespo
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class GetApnsVoipChannelCommand extends $Command
   .classBuilder<

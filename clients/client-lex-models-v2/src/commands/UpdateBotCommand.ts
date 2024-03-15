@@ -27,7 +27,6 @@ export interface UpdateBotCommandInput extends UpdateBotRequest {}
 export interface UpdateBotCommandOutput extends UpdateBotResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the configuration of an existing bot. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -117,6 +116,7 @@ export interface UpdateBotCommandOutput extends UpdateBotResponse, __MetadataBea
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class UpdateBotCommand extends $Command
   .classBuilder<

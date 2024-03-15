@@ -28,7 +28,6 @@ export interface GetBucketVersioningCommandInput extends GetBucketVersioningRequ
 export interface GetBucketVersioningCommandOutput extends GetBucketVersioningResult, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation returns the versioning state
  *             for
@@ -95,6 +94,7 @@ export interface GetBucketVersioningCommandOutput extends GetBucketVersioningRes
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class GetBucketVersioningCommand extends $Command
   .classBuilder<

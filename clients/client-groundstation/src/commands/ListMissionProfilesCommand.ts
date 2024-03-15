@@ -27,7 +27,6 @@ export interface ListMissionProfilesCommandInput extends ListMissionProfilesRequ
 export interface ListMissionProfilesCommandOutput extends ListMissionProfilesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of mission profiles.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface ListMissionProfilesCommandOutput extends ListMissionProfilesRes
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ * @public
  */
 export class ListMissionProfilesCommand extends $Command
   .classBuilder<

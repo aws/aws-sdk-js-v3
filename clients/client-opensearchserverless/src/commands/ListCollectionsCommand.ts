@@ -31,7 +31,6 @@ export interface ListCollectionsCommandInput extends ListCollectionsRequest {}
 export interface ListCollectionsCommandOutput extends ListCollectionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all OpenSearch Serverless collections. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html">Creating and
  *                 managing Amazon OpenSearch Serverless collections</a>.</p>
  *          <note>
@@ -84,6 +83,7 @@ export interface ListCollectionsCommandOutput extends ListCollectionsResponse, _
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ * @public
  */
 export class ListCollectionsCommand extends $Command
   .classBuilder<

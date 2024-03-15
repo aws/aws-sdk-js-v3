@@ -27,7 +27,6 @@ export interface StartCostEstimationCommandInput extends StartCostEstimationRequ
 export interface StartCostEstimationCommandOutput extends StartCostEstimationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts the creation of an estimate of the monthly cost to analyze your Amazon Web Services
  * 			resources.</p>
  * @example
@@ -91,6 +90,7 @@ export interface StartCostEstimationCommandOutput extends StartCostEstimationRes
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ * @public
  */
 export class StartCostEstimationCommand extends $Command
   .classBuilder<

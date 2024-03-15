@@ -27,7 +27,6 @@ export interface ListPermissionVersionsCommandInput extends ListPermissionVersio
 export interface ListPermissionVersionsCommandOutput extends ListPermissionVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the available versions of the specified RAM permission.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface ListPermissionVersionsCommandOutput extends ListPermissionVersi
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * @public
  */
 export class ListPermissionVersionsCommand extends $Command
   .classBuilder<

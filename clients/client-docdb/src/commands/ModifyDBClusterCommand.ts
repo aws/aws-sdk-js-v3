@@ -27,7 +27,6 @@ export interface ModifyDBClusterCommandInput extends ModifyDBClusterMessage {}
 export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies a setting for an Amazon DocumentDB cluster. You can change one or more database
  *             configuration parameters by specifying these parameters and the new values in the
  *             request. </p>
@@ -177,6 +176,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class ModifyDBClusterCommand extends $Command
   .classBuilder<

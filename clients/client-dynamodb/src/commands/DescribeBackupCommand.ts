@@ -27,7 +27,6 @@ export interface DescribeBackupCommandInput extends DescribeBackupInput {}
 export interface DescribeBackupCommandOutput extends DescribeBackupOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes an existing backup of a table.</p>
  *          <p>You can call <code>DescribeBackup</code> at a maximum rate of 10 times per
  *             second.</p>
@@ -148,6 +147,7 @@ export interface DescribeBackupCommandOutput extends DescribeBackupOutput, __Met
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  */
 export class DescribeBackupCommand extends $Command
   .classBuilder<

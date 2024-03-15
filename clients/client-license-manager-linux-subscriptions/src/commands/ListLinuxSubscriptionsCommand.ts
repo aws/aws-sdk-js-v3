@@ -31,7 +31,6 @@ export interface ListLinuxSubscriptionsCommandInput extends ListLinuxSubscriptio
 export interface ListLinuxSubscriptionsCommandOutput extends ListLinuxSubscriptionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the Linux subscriptions that have been discovered. If you have linked your
  *       organization, the returned results will include data aggregated across your accounts in
  *       Organizations.</p>
@@ -87,6 +86,7 @@ export interface ListLinuxSubscriptionsCommandOutput extends ListLinuxSubscripti
  * @throws {@link LicenseManagerLinuxSubscriptionsServiceException}
  * <p>Base exception class for all service exceptions from LicenseManagerLinuxSubscriptions service.</p>
  *
+ * @public
  */
 export class ListLinuxSubscriptionsCommand extends $Command
   .classBuilder<

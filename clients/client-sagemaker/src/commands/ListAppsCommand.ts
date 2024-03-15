@@ -27,7 +27,6 @@ export interface ListAppsCommandInput extends ListAppsRequest {}
 export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists apps.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBeare
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListAppsCommand extends $Command
   .classBuilder<

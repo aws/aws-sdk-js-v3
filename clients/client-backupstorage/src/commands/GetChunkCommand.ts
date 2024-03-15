@@ -29,7 +29,6 @@ export interface GetChunkCommandOutput extends Omit<GetChunkOutput, "Data">, __M
 }
 
 /**
- * @public
  * Gets the specified object's chunk.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface GetChunkCommandOutput extends Omit<GetChunkOutput, "Data">, __M
  * @throws {@link BackupStorageServiceException}
  * <p>Base exception class for all service exceptions from BackupStorage service.</p>
  *
+ * @public
  */
 export class GetChunkCommand extends $Command
   .classBuilder<

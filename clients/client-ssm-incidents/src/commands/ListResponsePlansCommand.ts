@@ -27,7 +27,6 @@ export interface ListResponsePlansCommandInput extends ListResponsePlansInput {}
 export interface ListResponsePlansCommandOutput extends ListResponsePlansOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all response plans in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface ListResponsePlansCommandOutput extends ListResponsePlansOutput,
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ * @public
  */
 export class ListResponsePlansCommand extends $Command
   .classBuilder<

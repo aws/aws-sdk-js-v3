@@ -35,7 +35,6 @@ export interface UpdateIdentitySourceCommandInput extends UpdateIdentitySourceIn
 export interface UpdateIdentitySourceCommandOutput extends UpdateIdentitySourceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified identity source to use a new identity provider (IdP) source, or to change
  *             the mapping of identities from the IdP to a different principal entity type.</p>
  *          <note>
@@ -183,6 +182,7 @@ export interface UpdateIdentitySourceCommandOutput extends UpdateIdentitySourceO
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ * @public
  */
 export class UpdateIdentitySourceCommand extends $Command
   .classBuilder<

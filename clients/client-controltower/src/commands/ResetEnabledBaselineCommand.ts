@@ -27,7 +27,6 @@ export interface ResetEnabledBaselineCommandInput extends ResetEnabledBaselineIn
 export interface ResetEnabledBaselineCommandOutput extends ResetEnabledBaselineOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Re-enables an <code>EnabledBaseline</code> resource. For example, this API can re-apply the existing <code>Baseline</code> after a new member account is moved to the target OU.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface ResetEnabledBaselineCommandOutput extends ResetEnabledBaselineO
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ * @public
  */
 export class ResetEnabledBaselineCommand extends $Command
   .classBuilder<

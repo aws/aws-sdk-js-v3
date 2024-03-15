@@ -27,7 +27,6 @@ export interface DescribeBotVersionCommandInput extends DescribeBotVersionReques
 export interface DescribeBotVersionCommandOutput extends DescribeBotVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides metadata about a version of a bot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -104,6 +103,7 @@ export interface DescribeBotVersionCommandOutput extends DescribeBotVersionRespo
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class DescribeBotVersionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DisassociatePricingRulesCommandInput extends DisassociatePricin
 export interface DisassociatePricingRulesCommandOutput extends DisassociatePricingRulesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Disassociates a list of pricing rules from a pricing plan.
  *     </p>
@@ -83,6 +82,7 @@ export interface DisassociatePricingRulesCommandOutput extends DisassociatePrici
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ * @public
  */
 export class DisassociatePricingRulesCommand extends $Command
   .classBuilder<

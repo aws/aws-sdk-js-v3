@@ -27,7 +27,6 @@ export interface ListRoleMembershipsCommandInput extends ListRoleMembershipsRequ
 export interface ListRoleMembershipsCommandOutput extends ListRoleMembershipsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all groups that are associated with a role.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface ListRoleMembershipsCommandOutput extends ListRoleMembershipsRes
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class ListRoleMembershipsCommand extends $Command
   .classBuilder<

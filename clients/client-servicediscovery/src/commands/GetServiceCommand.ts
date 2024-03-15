@@ -27,7 +27,6 @@ export interface GetServiceCommandInput extends GetServiceRequest {}
 export interface GetServiceCommandOutput extends GetServiceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the settings for a specified service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface GetServiceCommandOutput extends GetServiceResponse, __MetadataB
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
+ * @public
  * @example GetService Example
  * ```javascript
  * // This example gets the settings for a specified service.

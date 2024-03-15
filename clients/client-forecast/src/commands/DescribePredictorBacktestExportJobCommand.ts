@@ -35,7 +35,6 @@ export interface DescribePredictorBacktestExportJobCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a predictor backtest export job created using the <a>CreatePredictorBacktestExportJob</a> operation.</p>
  *          <p>In addition to listing the properties provided by the user in the
  *                 <code>CreatePredictorBacktestExportJob</code> request, this operation lists the
@@ -109,6 +108,7 @@ export interface DescribePredictorBacktestExportJobCommandOutput
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class DescribePredictorBacktestExportJobCommand extends $Command
   .classBuilder<

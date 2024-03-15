@@ -27,7 +27,6 @@ export interface ListImagesCommandInput extends ListImagesRequest {}
 export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the images in your account and their properties. The list can be filtered by
  *         creation time or modified time, and whether the image name contains a specified string.</p>
  * @example
@@ -76,6 +75,7 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListImagesCommand extends $Command
   .classBuilder<

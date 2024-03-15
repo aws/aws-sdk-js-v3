@@ -27,7 +27,6 @@ export interface RunTaskCommandInput extends RunTaskRequest {}
 export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a new task using the specified task definition.</p>
  *          <p>You can allow Amazon ECS to place tasks for you, or you can customize how Amazon ECS places
  * 			tasks using placement constraints and placement strategies. For more information, see
@@ -421,6 +420,7 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  * @example To run a task on your default cluster
  * ```javascript
  * // This example runs the specified task definition on your default cluster.

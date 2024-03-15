@@ -27,7 +27,6 @@ export interface UpdateGameServerCommandInput extends UpdateGameServerInput {}
 export interface UpdateGameServerCommandOutput extends UpdateGameServerOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
  *          </p>
@@ -121,6 +120,7 @@ export interface UpdateGameServerCommandOutput extends UpdateGameServerOutput, _
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class UpdateGameServerCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface UpdateBudgetActionCommandInput extends UpdateBudgetActionReques
 export interface UpdateBudgetActionCommandOutput extends UpdateBudgetActionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Updates a budget action.
  *       </p>
@@ -217,6 +216,7 @@ export interface UpdateBudgetActionCommandOutput extends UpdateBudgetActionRespo
  * @throws {@link BudgetsServiceException}
  * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
+ * @public
  */
 export class UpdateBudgetActionCommand extends $Command
   .classBuilder<

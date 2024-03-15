@@ -35,7 +35,6 @@ export interface DescribeChannelCommandInput extends DescribeChannelRequest {}
 export interface DescribeChannelCommandOutput extends DescribeChannelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the full details of a channel in an Amazon Chime
  *          <code>AppInstance</code>.</p>
  *          <note>
@@ -111,6 +110,7 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class DescribeChannelCommand extends $Command
   .classBuilder<

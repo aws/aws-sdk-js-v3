@@ -27,7 +27,6 @@ export interface StartTestSetGenerationCommandInput extends StartTestSetGenerati
 export interface StartTestSetGenerationCommandOutput extends StartTestSetGenerationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The action to start the generation of test set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -126,6 +125,7 @@ export interface StartTestSetGenerationCommandOutput extends StartTestSetGenerat
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class StartTestSetGenerationCommand extends $Command
   .classBuilder<

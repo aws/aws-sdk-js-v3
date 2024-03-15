@@ -27,7 +27,6 @@ export interface GetExternalModelsCommandInput extends GetExternalModelsRequest 
 export interface GetExternalModelsCommandOutput extends GetExternalModelsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the details for one or more Amazon SageMaker models that have been imported into the
  *          service. This is a paginated API. If you provide a null <code>maxResults</code>, this
  *          actions retrieves a maximum of 10 records per page. If you provide a
@@ -104,6 +103,7 @@ export interface GetExternalModelsCommandOutput extends GetExternalModelsResult,
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class GetExternalModelsCommand extends $Command
   .classBuilder<

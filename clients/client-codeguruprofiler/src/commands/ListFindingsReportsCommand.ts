@@ -27,7 +27,6 @@ export interface ListFindingsReportsCommandInput extends ListFindingsReportsRequ
 export interface ListFindingsReportsCommandOutput extends ListFindingsReportsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List the available reports for a given profiling group and time range.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface ListFindingsReportsCommandOutput extends ListFindingsReportsRes
  * @throws {@link CodeGuruProfilerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
+ * @public
  */
 export class ListFindingsReportsCommand extends $Command
   .classBuilder<

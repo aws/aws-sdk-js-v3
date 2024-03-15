@@ -36,7 +36,6 @@ export interface ListSnapshotCopyConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of snapshot copy configurations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface ListSnapshotCopyConfigurationsCommandOutput
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * @public
  */
 export class ListSnapshotCopyConfigurationsCommand extends $Command
   .classBuilder<

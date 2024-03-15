@@ -27,7 +27,6 @@ export interface ListKeyPoliciesCommandInput extends ListKeyPoliciesRequest {}
 export interface ListKeyPoliciesCommandOutput extends ListKeyPoliciesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the names of the key policies that are attached to a KMS key. This operation is
  *       designed to get policy names that you can use in a <a>GetKeyPolicy</a> operation.
  *       However, the only valid policy name is <code>default</code>. </p>
@@ -121,6 +120,7 @@ export interface ListKeyPoliciesCommandOutput extends ListKeyPoliciesResponse, _
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To list key policies for a KMS key
  * ```javascript
  * // The following example lists key policies for the specified KMS key.

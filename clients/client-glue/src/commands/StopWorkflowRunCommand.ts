@@ -27,7 +27,6 @@ export interface StopWorkflowRunCommandInput extends StopWorkflowRunRequest {}
 export interface StopWorkflowRunCommandOutput extends StopWorkflowRunResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops the execution of the specified workflow run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface StopWorkflowRunCommandOutput extends StopWorkflowRunResponse, _
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class StopWorkflowRunCommand extends $Command
   .classBuilder<

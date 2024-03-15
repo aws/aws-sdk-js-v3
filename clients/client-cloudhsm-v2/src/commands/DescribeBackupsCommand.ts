@@ -27,7 +27,6 @@ export interface DescribeBackupsCommandInput extends DescribeBackupsRequest {}
 export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about backups of AWS CloudHSM clusters.</p>
  *          <p>This is a paginated operation, which means that each response might contain only a
  *       subset of all the backups. When the response contains only a subset of backups, it includes a
@@ -108,6 +107,7 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * @throws {@link CloudHSMV2ServiceException}
  * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
+ * @public
  */
 export class DescribeBackupsCommand extends $Command
   .classBuilder<

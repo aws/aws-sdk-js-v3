@@ -27,7 +27,6 @@ export interface ListThingPrincipalsCommandInput extends ListThingPrincipalsRequ
 export interface ListThingPrincipalsCommandOutput extends ListThingPrincipalsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the principals associated with the specified thing. A principal can be X.509
  * 			certificates, IAM users, groups, and roles, Amazon Cognito identities or federated
  * 			identities.</p>
@@ -81,6 +80,7 @@ export interface ListThingPrincipalsCommandOutput extends ListThingPrincipalsRes
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListThingPrincipalsCommand extends $Command
   .classBuilder<

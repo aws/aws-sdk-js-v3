@@ -35,7 +35,6 @@ export interface ListSensitivityInspectionTemplatesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a subset of information about the sensitivity inspection template for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface ListSensitivityInspectionTemplatesCommandOutput
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class ListSensitivityInspectionTemplatesCommand extends $Command
   .classBuilder<

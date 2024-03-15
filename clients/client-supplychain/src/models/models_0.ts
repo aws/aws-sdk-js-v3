@@ -4,8 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { SupplyChainServiceException as __BaseException } from "./SupplyChainServiceException";
 
 /**
- * @public
  * <p>You do not have the required privileges to perform this action.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -41,44 +41,44 @@ export const ConfigurationJobStatus = {
 export type ConfigurationJobStatus = (typeof ConfigurationJobStatus)[keyof typeof ConfigurationJobStatus];
 
 /**
- * @public
  * <p>The BillOfMaterialsImportJob details.</p>
+ * @public
  */
 export interface BillOfMaterialsImportJob {
   /**
-   * @public
    * <p>The BillOfMaterialsImportJob instanceId.</p>
+   * @public
    */
   instanceId: string | undefined;
 
   /**
-   * @public
    * <p>The BillOfMaterialsImportJob jobId.</p>
+   * @public
    */
   jobId: string | undefined;
 
   /**
-   * @public
    * <p>The BillOfMaterialsImportJob ConfigurationJobStatus.</p>
+   * @public
    */
   status: ConfigurationJobStatus | undefined;
 
   /**
-   * @public
    * <p>The S3 URI from which the CSV is read.</p>
+   * @public
    */
   s3uri: string | undefined;
 
   /**
-   * @public
    * <p>When the BillOfMaterialsImportJob has reached a terminal state, there will be a message.</p>
+   * @public
    */
   message?: string;
 }
 
 /**
- * @public
  * <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -97,44 +97,44 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request parameters for CreateBillOfMaterialsImportJob.</p>
+ * @public
  */
 export interface CreateBillOfMaterialsImportJobRequest {
   /**
-   * @public
    * <p>The AWS Supply Chain instance identifier.</p>
+   * @public
    */
   instanceId: string | undefined;
 
   /**
-   * @public
    * <p>The S3 URI of the CSV file to be imported. The bucket must grant permissions for AWS Supply Chain to read the file.</p>
+   * @public
    */
   s3uri: string | undefined;
 
   /**
-   * @public
    * <p>An idempotency token.</p>
+   * @public
    */
   clientToken?: string;
 }
 
 /**
- * @public
  * <p>The response parameters of CreateBillOfMaterialsImportJob.</p>
+ * @public
  */
 export interface CreateBillOfMaterialsImportJobResponse {
   /**
-   * @public
    * <p>The new BillOfMaterialsImportJob identifier.</p>
+   * @public
    */
   jobId: string | undefined;
 }
 
 /**
- * @public
  * <p>Unexpected error during processing of request.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -154,8 +154,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Request references a resource which does not exist.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -174,8 +174,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Request would cause a service quota to be exceeded.</p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
@@ -194,8 +194,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Request was denied due to request throttling.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -217,8 +217,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The input does not satisfy the constraints specified by an AWS service.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -237,31 +237,31 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request parameters for GetBillOfMaterialsImportJob.</p>
+ * @public
  */
 export interface GetBillOfMaterialsImportJobRequest {
   /**
-   * @public
    * <p>The AWS Supply Chain instance identifier.</p>
+   * @public
    */
   instanceId: string | undefined;
 
   /**
-   * @public
    * <p>The BillOfMaterialsImportJob identifier.</p>
+   * @public
    */
   jobId: string | undefined;
 }
 
 /**
- * @public
  * <p>The response parameters for GetBillOfMaterialsImportJob.</p>
+ * @public
  */
 export interface GetBillOfMaterialsImportJobResponse {
   /**
-   * @public
    * <p>The BillOfMaterialsImportJob.</p>
+   * @public
    */
   job: BillOfMaterialsImportJob | undefined;
 }

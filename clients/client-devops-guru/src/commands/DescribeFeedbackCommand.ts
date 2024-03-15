@@ -27,7 +27,6 @@ export interface DescribeFeedbackCommandInput extends DescribeFeedbackRequest {}
 export interface DescribeFeedbackCommandOutput extends DescribeFeedbackResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns the most recent feedback submitted in the current Amazon Web Services account and Region.
  * 		</p>
  * @example
@@ -78,6 +77,7 @@ export interface DescribeFeedbackCommandOutput extends DescribeFeedbackResponse,
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ * @public
  */
 export class DescribeFeedbackCommand extends $Command
   .classBuilder<

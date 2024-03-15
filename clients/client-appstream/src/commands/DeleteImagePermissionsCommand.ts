@@ -27,7 +27,6 @@ export interface DeleteImagePermissionsCommandInput extends DeleteImagePermissio
 export interface DeleteImagePermissionsCommandOutput extends DeleteImagePermissionsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes permissions for the specified private image. After you delete permissions for an image, AWS accounts to which you previously granted these permissions can no longer use the image.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -60,6 +59,7 @@ export interface DeleteImagePermissionsCommandOutput extends DeleteImagePermissi
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class DeleteImagePermissionsCommand extends $Command
   .classBuilder<

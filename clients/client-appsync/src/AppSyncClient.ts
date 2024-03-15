@@ -492,9 +492,9 @@ export type AppSyncClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
 export interface AppSyncClientResolvedConfig extends AppSyncClientResolvedConfigType {}
 
 /**
- * @public
  * <p>AppSync provides API actions for creating and interacting with data sources using GraphQL
  *          from your application.</p>
+ * @public
  */
 export class AppSyncClient extends __Client<
   __HttpHandlerOptions,

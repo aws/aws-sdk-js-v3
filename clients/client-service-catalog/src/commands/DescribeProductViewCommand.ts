@@ -27,7 +27,6 @@ export interface DescribeProductViewCommandInput extends DescribeProductViewInpu
 export interface DescribeProductViewCommandOutput extends DescribeProductViewOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the specified product.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface DescribeProductViewCommandOutput extends DescribeProductViewOut
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class DescribeProductViewCommand extends $Command
   .classBuilder<

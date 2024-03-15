@@ -27,7 +27,6 @@ export interface DeleteDocumentCommandInput extends DeleteDocumentRequest {}
 export interface DeleteDocumentCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Permanently deletes the specified document and its associated metadata.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface DeleteDocumentCommandOutput extends __MetadataBearer {}
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class DeleteDocumentCommand extends $Command
   .classBuilder<

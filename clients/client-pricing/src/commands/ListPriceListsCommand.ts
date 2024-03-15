@@ -27,7 +27,6 @@ export interface ListPriceListsCommandInput extends ListPriceListsRequest {}
 export interface ListPriceListsCommandOutput extends ListPriceListsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             <i>
  *                <b>This feature is in preview release and is subject to change. Your use of Amazon Web Services Price List API is subject to the Beta Service Participation terms of the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a> (Section 1.10).</b>
@@ -103,6 +102,7 @@ export interface ListPriceListsCommandOutput extends ListPriceListsResponse, __M
  * @throws {@link PricingServiceException}
  * <p>Base exception class for all service exceptions from Pricing service.</p>
  *
+ * @public
  */
 export class ListPriceListsCommand extends $Command
   .classBuilder<

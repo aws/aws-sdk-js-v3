@@ -27,7 +27,6 @@ export interface AssociateTrialComponentCommandInput extends AssociateTrialCompo
 export interface AssociateTrialComponentCommandOutput extends AssociateTrialComponentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a trial component with a trial. A trial component can be associated with
  *       multiple trials. To disassociate a trial component from a trial, call the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DisassociateTrialComponent.html">DisassociateTrialComponent</a> API.</p>
  * @example
@@ -65,6 +64,7 @@ export interface AssociateTrialComponentCommandOutput extends AssociateTrialComp
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class AssociateTrialComponentCommand extends $Command
   .classBuilder<

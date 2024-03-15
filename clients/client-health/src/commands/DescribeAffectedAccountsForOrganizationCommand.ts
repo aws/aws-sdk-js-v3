@@ -36,7 +36,6 @@ export interface DescribeAffectedAccountsForOrganizationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of accounts in the organization from Organizations that are affected by the
  *          provided event. For more information about the different types of Health events, see
  *             <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html">Event</a>. </p>
@@ -81,6 +80,7 @@ export interface DescribeAffectedAccountsForOrganizationCommandOutput
  * @throws {@link HealthServiceException}
  * <p>Base exception class for all service exceptions from Health service.</p>
  *
+ * @public
  */
 export class DescribeAffectedAccountsForOrganizationCommand extends $Command
   .classBuilder<

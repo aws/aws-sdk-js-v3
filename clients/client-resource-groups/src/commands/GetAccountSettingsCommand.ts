@@ -27,7 +27,6 @@ export interface GetAccountSettingsCommandInput {}
 export interface GetAccountSettingsCommandOutput extends GetAccountSettingsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the current status of optional features in Resource Groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsOutpu
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ * @public
  */
 export class GetAccountSettingsCommand extends $Command
   .classBuilder<

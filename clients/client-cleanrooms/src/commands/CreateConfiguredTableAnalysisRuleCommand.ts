@@ -32,7 +32,6 @@ export interface CreateConfiguredTableAnalysisRuleCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new analysis rule for a configured table. Currently, only one analysis rule
  *          can be created for a given configured table.</p>
  * @example
@@ -206,6 +205,7 @@ export interface CreateConfiguredTableAnalysisRuleCommandOutput
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class CreateConfiguredTableAnalysisRuleCommand extends $Command
   .classBuilder<

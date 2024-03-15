@@ -27,7 +27,6 @@ export interface DeleteMitigationActionCommandInput extends DeleteMitigationActi
 export interface DeleteMitigationActionCommandOutput extends DeleteMitigationActionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a defined mitigation action from your Amazon Web Services accounts.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteMitigationAction</a> action.</p>
  * @example
@@ -63,6 +62,7 @@ export interface DeleteMitigationActionCommandOutput extends DeleteMitigationAct
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DeleteMitigationActionCommand extends $Command
   .classBuilder<

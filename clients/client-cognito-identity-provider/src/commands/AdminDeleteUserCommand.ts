@@ -31,7 +31,6 @@ export interface AdminDeleteUserCommandInput extends AdminDeleteUserRequest {}
 export interface AdminDeleteUserCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a user as an administrator. Works on any user.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
@@ -99,6 +98,7 @@ export interface AdminDeleteUserCommandOutput extends __MetadataBearer {}
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class AdminDeleteUserCommand extends $Command
   .classBuilder<

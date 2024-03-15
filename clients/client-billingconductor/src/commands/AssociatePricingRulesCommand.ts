@@ -27,7 +27,6 @@ export interface AssociatePricingRulesCommandInput extends AssociatePricingRules
 export interface AssociatePricingRulesCommandOutput extends AssociatePricingRulesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Connects an array of <code>PricingRuleArns</code> to a defined <code>PricingPlan</code>.
  *       The maximum number <code>PricingRuleArn</code> that can be associated in one call is 30. </p>
  * @example
@@ -86,6 +85,7 @@ export interface AssociatePricingRulesCommandOutput extends AssociatePricingRule
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ * @public
  */
 export class AssociatePricingRulesCommand extends $Command
   .classBuilder<

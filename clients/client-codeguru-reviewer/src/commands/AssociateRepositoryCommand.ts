@@ -27,7 +27,6 @@ export interface AssociateRepositoryCommandInput extends AssociateRepositoryRequ
 export interface AssociateRepositoryCommandOutput extends AssociateRepositoryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use to associate an Amazon Web Services CodeCommit repository or a repository managed by Amazon Web Services
  *          CodeStar Connections with Amazon CodeGuru Reviewer. When you associate a repository, CodeGuru Reviewer reviews
  *          source code changes in the repository's pull requests and provides automatic
@@ -142,6 +141,7 @@ export interface AssociateRepositoryCommandOutput extends AssociateRepositoryRes
  * @throws {@link CodeGuruReviewerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruReviewer service.</p>
  *
+ * @public
  */
 export class AssociateRepositoryCommand extends $Command
   .classBuilder<

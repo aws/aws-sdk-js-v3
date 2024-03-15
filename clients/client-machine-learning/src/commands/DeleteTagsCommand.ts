@@ -27,7 +27,6 @@ export interface DeleteTagsCommandInput extends DeleteTagsInput {}
 export interface DeleteTagsCommandOutput extends DeleteTagsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified tags associated with an ML object. After this operation is complete, you can't recover deleted tags.</p>
  * 		       <p>If you specify a tag that doesn't exist, Amazon ML ignores it.</p>
  * @example
@@ -72,6 +71,7 @@ export interface DeleteTagsCommandOutput extends DeleteTagsOutput, __MetadataBea
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * @public
  */
 export class DeleteTagsCommand extends $Command
   .classBuilder<

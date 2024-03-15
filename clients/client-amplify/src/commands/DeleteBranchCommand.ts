@@ -27,7 +27,6 @@ export interface DeleteBranchCommandInput extends DeleteBranchRequest {}
 export interface DeleteBranchCommandOutput extends DeleteBranchResult, __MetadataBearer {}
 
 /**
- * @public
  * <p> Deletes a branch for an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -110,6 +109,7 @@ export interface DeleteBranchCommandOutput extends DeleteBranchResult, __Metadat
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ * @public
  */
 export class DeleteBranchCommand extends $Command
   .classBuilder<

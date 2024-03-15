@@ -480,7 +480,6 @@ export type TranscribeClientResolvedConfigType = __SmithyResolvedConfiguration<_
 export interface TranscribeClientResolvedConfig extends TranscribeClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Amazon Transcribe offers three main types of batch transcription: <b>Standard</b>, <b>Medical</b>, and
  *                 <b>Call Analytics</b>.</p>
  *          <ul>
@@ -503,6 +502,7 @@ export interface TranscribeClientResolvedConfig extends TranscribeClientResolved
  *                     insight into customer service calls, use this option. Refer to  for details.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class TranscribeClient extends __Client<
   __HttpHandlerOptions,

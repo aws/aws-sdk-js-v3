@@ -27,7 +27,6 @@ export interface GetCoreNetworkPolicyCommandInput extends GetCoreNetworkPolicyRe
 export interface GetCoreNetworkPolicyCommandOutput extends GetCoreNetworkPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns details about a core network policy. You can get details about your current live policy or any previous policy version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface GetCoreNetworkPolicyCommandOutput extends GetCoreNetworkPolicyR
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class GetCoreNetworkPolicyCommand extends $Command
   .classBuilder<

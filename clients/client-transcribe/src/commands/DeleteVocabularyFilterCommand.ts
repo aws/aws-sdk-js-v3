@@ -27,7 +27,6 @@ export interface DeleteVocabularyFilterCommandInput extends DeleteVocabularyFilt
 export interface DeleteVocabularyFilterCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a custom vocabulary filter. To use this operation, specify the name of the
  *             custom vocabulary filter you want to delete using <code>VocabularyFilterName</code>.
  *             Custom vocabulary filter names are case sensitive.</p>
@@ -73,6 +72,7 @@ export interface DeleteVocabularyFilterCommandOutput extends __MetadataBearer {}
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * @public
  */
 export class DeleteVocabularyFilterCommand extends $Command
   .classBuilder<

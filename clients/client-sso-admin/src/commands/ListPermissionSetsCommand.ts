@@ -27,7 +27,6 @@ export interface ListPermissionSetsCommandInput extends ListPermissionSetsReques
 export interface ListPermissionSetsCommandOutput extends ListPermissionSetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the <a>PermissionSet</a>s in an IAM Identity Center instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface ListPermissionSetsCommandOutput extends ListPermissionSetsRespo
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class ListPermissionSetsCommand extends $Command
   .classBuilder<

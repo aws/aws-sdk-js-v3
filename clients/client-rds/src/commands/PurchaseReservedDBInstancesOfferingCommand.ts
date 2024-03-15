@@ -35,7 +35,6 @@ export interface PurchaseReservedDBInstancesOfferingCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Purchases a reserved DB instance offering.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface PurchaseReservedDBInstancesOfferingCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To purchase a reserved DB instance
  * ```javascript
  * // The following example shows how to buy the reserved DB instance offering from the previous example.

@@ -27,7 +27,6 @@ export interface GetShardIteratorCommandInput extends GetShardIteratorInput {}
 export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a shard iterator. A shard iterator provides information
  *       about how to retrieve the stream records from within a shard.  Use
  *       the shard iterator in a subsequent
@@ -87,6 +86,7 @@ export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, _
  * @throws {@link DynamoDBStreamsServiceException}
  * <p>Base exception class for all service exceptions from DynamoDBStreams service.</p>
  *
+ * @public
  * @example To obtain a shard iterator for the provided stream ARN and shard ID
  * ```javascript
  * // The following example returns a shard iterator for the provided stream ARN and shard ID.

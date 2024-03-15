@@ -27,7 +27,6 @@ export interface IssueCertificateCommandInput extends IssueCertificateRequest {}
 export interface IssueCertificateCommandOutput extends IssueCertificateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Uses your private certificate authority (CA), or one that has been shared with you, to
  * 			issue a client certificate. This action returns the Amazon Resource Name (ARN) of the
  * 			certificate. You can retrieve the certificate by calling the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificate.html">GetCertificate</a> action and
@@ -197,6 +196,7 @@ export interface IssueCertificateCommandOutput extends IssueCertificateResponse,
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ * @public
  */
 export class IssueCertificateCommand extends $Command
   .classBuilder<

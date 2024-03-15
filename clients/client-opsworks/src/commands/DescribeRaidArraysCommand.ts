@@ -27,7 +27,6 @@ export interface DescribeRaidArraysCommandInput extends DescribeRaidArraysReques
 export interface DescribeRaidArraysCommandOutput extends DescribeRaidArraysResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describe an instance's RAID arrays.</p>
  *          <note>
  *             <p>This call accepts only one resource-identifying parameter.</p>
@@ -89,6 +88,7 @@ export interface DescribeRaidArraysCommandOutput extends DescribeRaidArraysResul
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class DescribeRaidArraysCommand extends $Command
   .classBuilder<

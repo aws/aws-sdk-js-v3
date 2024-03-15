@@ -27,7 +27,6 @@ export interface StartReplayCommandInput extends StartReplayRequest {}
 export interface StartReplayCommandOutput extends StartReplayResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts the specified replay. Events are not necessarily replayed in the exact same order
  *       that they were added to the archive. A replay processes events to replay based on the time in
  *       the event, and replays them using 1 minute intervals. If you specify an
@@ -92,6 +91,7 @@ export interface StartReplayCommandOutput extends StartReplayResponse, __Metadat
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * @public
  */
 export class StartReplayCommand extends $Command
   .classBuilder<

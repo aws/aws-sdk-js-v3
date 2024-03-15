@@ -27,7 +27,6 @@ export interface DescribeResourcePolicyCommandInput extends DescribeResourcePoli
 export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a resource policy that you created in a <a>PutResourcePolicy</a> request. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ * @public
  */
 export class DescribeResourcePolicyCommand extends $Command
   .classBuilder<

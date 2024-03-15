@@ -32,7 +32,6 @@ export interface DescribeRecommendationFeedbackCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the customer feedback for a CodeGuru Reviewer recommendation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface DescribeRecommendationFeedbackCommandOutput
  * @throws {@link CodeGuruReviewerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruReviewer service.</p>
  *
+ * @public
  */
 export class DescribeRecommendationFeedbackCommand extends $Command
   .classBuilder<

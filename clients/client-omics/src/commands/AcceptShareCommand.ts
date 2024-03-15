@@ -27,7 +27,6 @@ export interface AcceptShareCommandInput extends AcceptShareRequest {}
 export interface AcceptShareCommandOutput extends AcceptShareResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  * Accepts a share for an analytics store.
  * </p>
@@ -78,6 +77,7 @@ export interface AcceptShareCommandOutput extends AcceptShareResponse, __Metadat
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class AcceptShareCommand extends $Command
   .classBuilder<

@@ -39,7 +39,6 @@ export interface StartBatchDeleteConfigurationTaskCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *         Takes a list of configurationId as input and starts an asynchronous deletion
  *         task to remove the configurationItems. Returns a unique deletion task identifier.
@@ -95,6 +94,7 @@ export interface StartBatchDeleteConfigurationTaskCommandOutput
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ * @public
  */
 export class StartBatchDeleteConfigurationTaskCommand extends $Command
   .classBuilder<

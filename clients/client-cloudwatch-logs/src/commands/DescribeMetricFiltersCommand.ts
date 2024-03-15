@@ -27,7 +27,6 @@ export interface DescribeMetricFiltersCommandInput extends DescribeMetricFilters
 export interface DescribeMetricFiltersCommandOutput extends DescribeMetricFiltersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the specified metric filters. You can list all of the metric filters or filter
  *       the results by log name, prefix, metric name, or metric namespace. The results are
  *       ASCII-sorted by filter name.</p>
@@ -91,6 +90,7 @@ export interface DescribeMetricFiltersCommandOutput extends DescribeMetricFilter
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class DescribeMetricFiltersCommand extends $Command
   .classBuilder<

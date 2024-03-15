@@ -27,7 +27,6 @@ export interface ResetInstanceAttributeCommandInput extends ResetInstanceAttribu
 export interface ResetInstanceAttributeCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Resets an attribute of an instance to its default value. To reset the
  *                 <code>kernel</code> or <code>ramdisk</code>, the instance must be in a stopped
  *             state. To reset the <code>sourceDestCheck</code>, the instance can be either running or
@@ -63,6 +62,7 @@ export interface ResetInstanceAttributeCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To reset the sourceDestCheck attribute
  * ```javascript
  * // This example resets the sourceDestCheck attribute for the specified instance.

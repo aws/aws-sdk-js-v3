@@ -32,7 +32,6 @@ export interface DescribeApplicationAssignmentCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a direct assignment of a user or group to an application. If the user doesn’t have a direct assignment to the application,
  *             the user may still have access to the application through a group. Therefore, don’t use this API to test access to an application for a user.
  *             Instead use <a>ListApplicationAssignmentsForPrincipal</a>.</p>
@@ -83,6 +82,7 @@ export interface DescribeApplicationAssignmentCommandOutput
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class DescribeApplicationAssignmentCommand extends $Command
   .classBuilder<

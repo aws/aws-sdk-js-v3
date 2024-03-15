@@ -27,7 +27,6 @@ export interface DeleteContainerServiceCommandInput extends DeleteContainerServi
 export interface DeleteContainerServiceCommandOutput extends DeleteContainerServiceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes your Amazon Lightsail container service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface DeleteContainerServiceCommandOutput extends DeleteContainerServ
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class DeleteContainerServiceCommand extends $Command
   .classBuilder<

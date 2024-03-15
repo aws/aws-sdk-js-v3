@@ -27,7 +27,6 @@ export interface CreateCustomDBEngineVersionCommandInput extends CreateCustomDBE
 export interface CreateCustomDBEngineVersionCommandOutput extends DBEngineVersion, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a custom DB engine version (CEV).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -166,6 +165,7 @@ export interface CreateCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  */
 export class CreateCustomDBEngineVersionCommand extends $Command
   .classBuilder<

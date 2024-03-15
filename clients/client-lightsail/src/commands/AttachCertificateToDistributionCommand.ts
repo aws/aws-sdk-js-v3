@@ -32,7 +32,6 @@ export interface AttachCertificateToDistributionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches an SSL/TLS certificate to your Amazon Lightsail content delivery network (CDN)
  *       distribution.</p>
  *          <p>After the certificate is attached, your distribution accepts HTTPS traffic for all of the
@@ -115,6 +114,7 @@ export interface AttachCertificateToDistributionCommandOutput
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class AttachCertificateToDistributionCommand extends $Command
   .classBuilder<

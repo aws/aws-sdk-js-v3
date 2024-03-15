@@ -31,9 +31,6 @@ export interface GetVoiceConnectorProxyCommandInput extends GetVoiceConnectorPro
 export interface GetVoiceConnectorProxyCommandOutput extends GetVoiceConnectorProxyResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by GetVoiceConnectorProxy in the Amazon Chime SDK Voice Namespace
- *
  * <p>Gets the proxy configuration details for the specified Amazon Chime Voice Connector.</p>
  *          <important>
  *             <p>
@@ -96,6 +93,8 @@ export interface GetVoiceConnectorProxyCommandOutput extends GetVoiceConnectorPr
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by GetVoiceConnectorProxy in the Amazon Chime SDK Voice Namespace
  */
 export class GetVoiceConnectorProxyCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeUserProfileCommandInput extends DescribeUserProfileRequ
 export interface DescribeUserProfileCommandOutput extends DescribeUserProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a user profile. For more information, see <code>CreateUserProfile</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -228,6 +227,7 @@ export interface DescribeUserProfileCommandOutput extends DescribeUserProfileRes
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeUserProfileCommand extends $Command
   .classBuilder<

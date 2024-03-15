@@ -25,7 +25,6 @@ export interface DocumentTypeAsMapValueCommandInput extends DocumentTypeAsMapVal
 export interface DocumentTypeAsMapValueCommandOutput extends DocumentTypeAsMapValueInputOutput, __MetadataBearer {}
 
 /**
- * @public
  * This example serializes documents as the value of maps.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -57,6 +56,7 @@ export interface DocumentTypeAsMapValueCommandOutput extends DocumentTypeAsMapVa
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ * @public
  */
 export class DocumentTypeAsMapValueCommand extends $Command
   .classBuilder<

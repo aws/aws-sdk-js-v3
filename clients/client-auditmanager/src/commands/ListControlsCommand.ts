@@ -27,7 +27,6 @@ export interface ListControlsCommandInput extends ListControlsRequest {}
 export interface ListControlsCommandOutput extends ListControlsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns a list of controls from Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface ListControlsCommandOutput extends ListControlsResponse, __Metad
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class ListControlsCommand extends $Command
   .classBuilder<

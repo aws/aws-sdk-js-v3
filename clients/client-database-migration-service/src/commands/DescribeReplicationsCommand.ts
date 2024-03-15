@@ -31,7 +31,6 @@ export interface DescribeReplicationsCommandInput extends DescribeReplicationsMe
 export interface DescribeReplicationsCommandOutput extends DescribeReplicationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides details on replication progress by returning status information for one or more
  *          provisioned DMS Serverless replications.</p>
  * @example
@@ -116,6 +115,7 @@ export interface DescribeReplicationsCommandOutput extends DescribeReplicationsR
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class DescribeReplicationsCommand extends $Command
   .classBuilder<

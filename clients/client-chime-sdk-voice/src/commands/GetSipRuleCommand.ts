@@ -27,7 +27,6 @@ export interface GetSipRuleCommandInput extends GetSipRuleRequest {}
 export interface GetSipRuleCommandOutput extends GetSipRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the details of a SIP rule, such as the rule ID, name, triggers, and
  *          target endpoints.</p>
  * @example
@@ -92,6 +91,7 @@ export interface GetSipRuleCommandOutput extends GetSipRuleResponse, __MetadataB
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class GetSipRuleCommand extends $Command
   .classBuilder<

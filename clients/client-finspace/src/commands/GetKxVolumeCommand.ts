@@ -27,7 +27,6 @@ export interface GetKxVolumeCommandInput extends GetKxVolumeRequest {}
 export interface GetKxVolumeCommandOutput extends GetKxVolumeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  * Retrieves the information about the volume. </p>
  * @example
@@ -102,6 +101,7 @@ export interface GetKxVolumeCommandOutput extends GetKxVolumeResponse, __Metadat
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class GetKxVolumeCommand extends $Command
   .classBuilder<

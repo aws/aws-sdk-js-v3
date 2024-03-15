@@ -27,7 +27,6 @@ export interface StopDevEnvironmentCommandInput extends StopDevEnvironmentReques
 export interface StopDevEnvironmentCommandOutput extends StopDevEnvironmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Pauses a specified Dev Environment and places it in a non-running state. Stopped Dev Environments do not consume compute minutes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface StopDevEnvironmentCommandOutput extends StopDevEnvironmentRespo
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ * @public
  */
 export class StopDevEnvironmentCommand extends $Command
   .classBuilder<

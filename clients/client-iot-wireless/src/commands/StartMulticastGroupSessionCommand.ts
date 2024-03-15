@@ -27,7 +27,6 @@ export interface StartMulticastGroupSessionCommandInput extends StartMulticastGr
 export interface StartMulticastGroupSessionCommandOutput extends StartMulticastGroupSessionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a multicast group session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface StartMulticastGroupSessionCommandOutput extends StartMulticastG
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class StartMulticastGroupSessionCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface ListDistributionsCommandInput extends ListDistributionsRequest 
 export interface ListDistributionsCommandOutput extends ListDistributionsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>List CloudFront distributions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -360,6 +359,7 @@ export interface ListDistributionsCommandOutput extends ListDistributionsResult,
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class ListDistributionsCommand extends $Command
   .classBuilder<

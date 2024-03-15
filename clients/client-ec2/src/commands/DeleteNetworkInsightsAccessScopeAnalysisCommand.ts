@@ -36,7 +36,6 @@ export interface DeleteNetworkInsightsAccessScopeAnalysisCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified Network Access Scope analysis.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface DeleteNetworkInsightsAccessScopeAnalysisCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DeleteNetworkInsightsAccessScopeAnalysisCommand extends $Command
   .classBuilder<

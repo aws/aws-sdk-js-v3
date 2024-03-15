@@ -27,7 +27,6 @@ export interface DeleteExplainabilityExportCommandInput extends DeleteExplainabi
 export interface DeleteExplainabilityExportCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Explainability export.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +63,7 @@ export interface DeleteExplainabilityExportCommandOutput extends __MetadataBeare
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class DeleteExplainabilityExportCommand extends $Command
   .classBuilder<

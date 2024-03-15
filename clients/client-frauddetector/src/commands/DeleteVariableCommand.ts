@@ -27,7 +27,6 @@ export interface DeleteVariableCommandInput extends DeleteVariableRequest {}
 export interface DeleteVariableCommandOutput extends DeleteVariableResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a variable.</p>
  *          <p>You can't delete variables that are included in an event type in Amazon Fraud Detector.</p>
  *          <p>Amazon Fraud Detector automatically deletes model output variables and SageMaker model output variables when you delete the model. You can't delete these variables manually.</p>
@@ -71,6 +70,7 @@ export interface DeleteVariableCommandOutput extends DeleteVariableResult, __Met
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class DeleteVariableCommand extends $Command
   .classBuilder<

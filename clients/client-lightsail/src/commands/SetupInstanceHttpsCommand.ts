@@ -31,7 +31,6 @@ export interface SetupInstanceHttpsCommandInput extends SetupInstanceHttpsReques
 export interface SetupInstanceHttpsCommandOutput extends SetupInstanceHttpsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an SSL/TLS certificate that secures traffic for your website. After the
  *       certificate is created, it is installed on the specified Lightsail instance.</p>
  *          <p>If you provide more than one domain name in the request, at least one name must be less than or equal to 63 characters in length.</p>
@@ -107,6 +106,7 @@ export interface SetupInstanceHttpsCommandOutput extends SetupInstanceHttpsResul
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class SetupInstanceHttpsCommand extends $Command
   .classBuilder<

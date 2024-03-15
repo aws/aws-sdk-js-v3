@@ -4,8 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { VerifiedPermissionsServiceException as __BaseException } from "./VerifiedPermissionsServiceException";
 
 /**
- * @public
  * <p>You don't have sufficient access to perform this action.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -24,7 +24,6 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Contains information about an action for a request for which an authorization decision
  *             is made.</p>
  *          <p>This data type is used as a request parameter to the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a>, <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_BatchIsAuthorized.html">BatchIsAuthorized</a>, and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a>
@@ -32,23 +31,23 @@ export class AccessDeniedException extends __BaseException {
  *          <p>Example: <code>\{ "actionId": "&lt;action name&gt;", "actionType": "Action"
  *             \}</code>
  *          </p>
+ * @public
  */
 export interface ActionIdentifier {
   /**
-   * @public
    * <p>The type of an action.</p>
+   * @public
    */
   actionType: string | undefined;
 
   /**
-   * @public
    * <p>The ID of an action.</p>
+   * @public
    */
   actionId: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains the identifier of an entity, including its ID and type.</p>
  *          <p>This data type is used as a request parameter for <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a> operation, and as a
  *             response parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreatePolicy.html">CreatePolicy</a>, <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_GetPolicy.html">GetPolicy</a>, and
@@ -56,22 +55,23 @@ export interface ActionIdentifier {
  *          <p>Example:
  *                     <code>\{"entityId":"<i>string</i>","entityType":"<i>string</i>"\}</code>
  *          </p>
+ * @public
  */
 export interface EntityIdentifier {
   /**
-   * @public
    * <p>The type of an entity.</p>
    *          <p>Example: <code>"entityType":"<i>typeName</i>"</code>
    *          </p>
+   * @public
    */
   entityType: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of an entity.</p>
    *          <p>
    *             <code>"entityId":"<i>identifier</i>"</code>
    *          </p>
+   * @public
    */
   entityId: string | undefined;
 }
@@ -91,40 +91,40 @@ export const Decision = {
 export type Decision = (typeof Decision)[keyof typeof Decision];
 
 /**
- * @public
  * <p>Contains information about one of the policies that determined an authorization
  *             decision.</p>
  *          <p>This data type is used as an element in a response parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a>, <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_BatchIsAuthorized.html">BatchIsAuthorized</a>, and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a>
  *             operations.</p>
  *          <p>Example: <code>"determiningPolicies":[\{"policyId":"SPEXAMPLEabcdefg111111"\}]</code>
  *          </p>
+ * @public
  */
 export interface DeterminingPolicyItem {
   /**
-   * @public
    * <p>The Id of a policy that determined to an authorization decision.</p>
    *          <p>Example: <code>"policyId":"SPEXAMPLEabcdefg111111"</code>
    *          </p>
+   * @public
    */
   policyId: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains a description of an evaluation error.</p>
  *          <p>This data type is a response parameter of the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a>, <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_BatchIsAuthorized.html">BatchIsAuthorized</a>, and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a> operations.</p>
+ * @public
  */
 export interface EvaluationErrorItem {
   /**
-   * @public
    * <p>The error description.</p>
+   * @public
    */
   errorDescription: string | undefined;
 }
 
 /**
- * @public
  * <p>The request failed because of an internal error. Try your request again later</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -161,21 +161,21 @@ export const ResourceType = {
 export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
- * @public
  * <p>The request failed because it references a resource that doesn't exist.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The unique ID of the resource referenced in the failed request.</p>
+   * @public
    */
   resourceId: string | undefined;
 
   /**
-   * @public
    * <p>The resource type of the resource referenced in the failed request.</p>
+   * @public
    */
   resourceType: ResourceType | undefined;
 
@@ -195,8 +195,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request failed because it exceeded a throttling quota.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -205,14 +205,14 @@ export class ThrottlingException extends __BaseException {
     throttling: true,
   };
   /**
-   * @public
    * <p>The code for the Amazon Web Service that owns the quota.</p>
+   * @public
    */
   serviceCode?: string;
 
   /**
-   * @public
    * <p>The quota code recognized by the Amazon Web Services Service Quotas service.</p>
+   * @public
    */
   quotaCode?: string;
 
@@ -232,25 +232,24 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Details about a field that failed policy validation.</p>
+ * @public
  */
 export interface ValidationExceptionField {
   /**
-   * @public
    * <p>The path to the specific element that Verified Permissions found to be not valid.</p>
+   * @public
    */
   path: string | undefined;
 
   /**
-   * @public
    * <p>Describes the policy validation error.</p>
+   * @public
    */
   message: string | undefined;
 }
 
 /**
- * @public
  * <p>The request failed because one or more input parameters don't satisfy their constraint
  *             requirements. The output is provided as a list of fields and a reason for each field that
  *             isn't valid.</p>
@@ -333,13 +332,14 @@ export interface ValidationExceptionField {
  *                     period character.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The list of fields that aren't valid.</p>
+   * @public
    */
   fieldList?: ValidationExceptionField[];
 
@@ -358,7 +358,6 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The configuration for an identity source that represents a connection to an Amazon Cognito user pool used
  *             as an identity provider for Verified Permissions.</p>
  *          <p>This data type is used as a field that is part of an <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_Configuration.html">Configuration</a> structure that is
@@ -366,30 +365,30 @@ export class ValidationException extends __BaseException {
  *          <p>Example:<code>"CognitoUserPoolConfiguration":\{"UserPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","ClientIds":
  *                 ["a1b2c3d4e5f6g7h8i9j0kalbmc"]\}</code>
  *          </p>
+ * @public
  */
 export interface CognitoUserPoolConfiguration {
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the Amazon Cognito user pool that contains the identities to be
    *             authorized.</p>
    *          <p>Example: <code>"UserPoolArn":
    *                 "arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5"</code>
    *          </p>
+   * @public
    */
   userPoolArn: string | undefined;
 
   /**
-   * @public
    * <p>The unique application client IDs that are associated with the specified Amazon Cognito user
    *             pool.</p>
    *          <p>Example: <code>"ClientIds": ["&amp;ExampleCogClientId;"]</code>
    *          </p>
+   * @public
    */
   clientIds?: string[];
 }
 
 /**
- * @public
  * <p>The configuration for an identity source that represents a connection to an Amazon Cognito user pool used
  *             as an identity provider for Verified Permissions.</p>
  *          <p>This data type is used as a field that is part of an <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ConfigurationDetail.html">ConfigurationDetail</a> structure that is
@@ -397,40 +396,40 @@ export interface CognitoUserPoolConfiguration {
  *          <p>Example:<code>"CognitoUserPoolConfiguration":\{"UserPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","ClientIds":
  *             ["a1b2c3d4e5f6g7h8i9j0kalbmc"]\}</code>
  *          </p>
+ * @public
  */
 export interface CognitoUserPoolConfigurationDetail {
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the Amazon Cognito user pool that contains the identities to be
    *             authorized.</p>
    *          <p>Example: <code>"userPoolArn":
    *             "arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5"</code>
    *          </p>
+   * @public
    */
   userPoolArn: string | undefined;
 
   /**
-   * @public
    * <p>The unique application client IDs that are associated with the specified Amazon Cognito user
    *             pool.</p>
    *          <p>Example: <code>"clientIds": ["&amp;ExampleCogClientId;"]</code>
    *          </p>
+   * @public
    */
   clientIds: string[] | undefined;
 
   /**
-   * @public
    * <p>The OpenID Connect (OIDC) <code>issuer</code> ID of the Amazon Cognito user pool that contains the identities to be
    *             authorized.</p>
    *          <p>Example: <code>"issuer":
    *             "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_1a2b3c4d5"</code>
    *          </p>
+   * @public
    */
   issuer: string | undefined;
 }
 
 /**
- * @public
  * <p>The configuration for an identity source that represents a connection to an Amazon Cognito user pool used
  *             as an identity provider for Verified Permissions.</p>
  *          <p>This data type is used as a field that is part of the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ConfigurationItem.html">ConfigurationItem</a> structure that is
@@ -438,40 +437,40 @@ export interface CognitoUserPoolConfigurationDetail {
  *          <p>Example:<code>"CognitoUserPoolConfiguration":\{"UserPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","ClientIds":
  *             ["a1b2c3d4e5f6g7h8i9j0kalbmc"]\}</code>
  *          </p>
+ * @public
  */
 export interface CognitoUserPoolConfigurationItem {
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the Amazon Cognito user pool that contains the identities to be
    *             authorized.</p>
    *          <p>Example: <code>"userPoolArn":
    *             "arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5"</code>
    *          </p>
+   * @public
    */
   userPoolArn: string | undefined;
 
   /**
-   * @public
    * <p>The unique application client IDs that are associated with the specified Amazon Cognito user
    *             pool.</p>
    *          <p>Example: <code>"clientIds": ["&amp;ExampleCogClientId;"]</code>
    *          </p>
+   * @public
    */
   clientIds: string[] | undefined;
 
   /**
-   * @public
    * <p>The OpenID Connect (OIDC) <code>issuer</code> ID of the Amazon Cognito user pool that contains the identities to be
    *             authorized.</p>
    *          <p>Example: <code>"issuer":
    *             "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_1a2b3c4d5"</code>
    *          </p>
+   * @public
    */
   issuer: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains configuration information used when creating a new identity source.</p>
  *          <note>
  *             <p>At this time, the only valid member of this structure is a Amazon Cognito user pool
@@ -481,6 +480,7 @@ export interface CognitoUserPoolConfigurationItem {
  *          </note>
  *          <p>This data type is used as a request parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html">CreateIdentitySource</a>
  *             operation.</p>
+ * @public
  */
 export type Configuration = Configuration.CognitoUserPoolConfigurationMember | Configuration.$UnknownMember;
 
@@ -489,7 +489,6 @@ export type Configuration = Configuration.CognitoUserPoolConfigurationMember | C
  */
 export namespace Configuration {
   /**
-   * @public
    * <p>Contains configuration details of a Amazon Cognito user pool that Verified Permissions can use as a source of
    *             authenticated identities as entities. It specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of a Amazon Cognito user pool
    *             and one or more application client IDs.</p>
@@ -497,6 +496,7 @@ export namespace Configuration {
    *                 <code>"configuration":\{"cognitoUserPoolConfiguration":\{"userPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","clientIds":
    *                 ["a1b2c3d4e5f6g7h8i9j0kalbmc"]\}\}</code>
    *          </p>
+   * @public
    */
   export interface CognitoUserPoolConfigurationMember {
     cognitoUserPoolConfiguration: CognitoUserPoolConfiguration;
@@ -524,10 +524,10 @@ export namespace Configuration {
 }
 
 /**
- * @public
  * <p>Contains configuration information about an identity source.</p>
  *          <p>This data type is a response parameter to the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_GetIdentitySource.html">GetIdentitySource</a>
  *             operation.</p>
+ * @public
  */
 export type ConfigurationDetail =
   | ConfigurationDetail.CognitoUserPoolConfigurationMember
@@ -538,7 +538,6 @@ export type ConfigurationDetail =
  */
 export namespace ConfigurationDetail {
   /**
-   * @public
    * <p>Contains configuration details of a Amazon Cognito user pool that Verified Permissions can use as a source of
    *             authenticated identities as entities. It specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of a Amazon Cognito user pool
    *             and one or more application client IDs.</p>
@@ -546,6 +545,7 @@ export namespace ConfigurationDetail {
    *             <code>"configuration":\{"cognitoUserPoolConfiguration":\{"userPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","clientIds":
    *                 ["a1b2c3d4e5f6g7h8i9j0kalbmc"]\}\}</code>
    *          </p>
+   * @public
    */
   export interface CognitoUserPoolConfigurationMember {
     cognitoUserPoolConfiguration: CognitoUserPoolConfigurationDetail;
@@ -573,10 +573,10 @@ export namespace ConfigurationDetail {
 }
 
 /**
- * @public
  * <p>Contains configuration information about an identity source.</p>
  *          <p>This data type is a response parameter to the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListIdentitySources.html">ListIdentitySources</a>
  *             operation.</p>
+ * @public
  */
 export type ConfigurationItem = ConfigurationItem.CognitoUserPoolConfigurationMember | ConfigurationItem.$UnknownMember;
 
@@ -585,7 +585,6 @@ export type ConfigurationItem = ConfigurationItem.CognitoUserPoolConfigurationMe
  */
 export namespace ConfigurationItem {
   /**
-   * @public
    * <p>Contains configuration details of a Amazon Cognito user pool that Verified Permissions can use as a source of
    *             authenticated identities as entities. It specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of a Amazon Cognito user pool
    *             and one or more application client IDs.</p>
@@ -593,6 +592,7 @@ export namespace ConfigurationItem {
    *             <code>"configuration":\{"cognitoUserPoolConfiguration":\{"userPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","clientIds":
    *                 ["a1b2c3d4e5f6g7h8i9j0kalbmc"]\}\}</code>
    *          </p>
+   * @public
    */
   export interface CognitoUserPoolConfigurationMember {
     cognitoUserPoolConfiguration: CognitoUserPoolConfigurationItem;
@@ -620,34 +620,34 @@ export namespace ConfigurationItem {
 }
 
 /**
- * @public
  * <p>Contains information about a resource conflict.</p>
+ * @public
  */
 export interface ResourceConflict {
   /**
-   * @public
    * <p>The unique identifier of the resource involved in a conflict.</p>
+   * @public
    */
   resourceId: string | undefined;
 
   /**
-   * @public
    * <p>The type of the resource involved in a conflict.</p>
+   * @public
    */
   resourceType: ResourceType | undefined;
 }
 
 /**
- * @public
  * <p>The request failed because another request to modify a resource occurred at the
  *             same.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The list of resources referenced with this failed request.</p>
+   * @public
    */
   resources: ResourceConflict[] | undefined;
 
@@ -670,7 +670,6 @@ export class ConflictException extends __BaseException {
  */
 export interface CreateIdentitySourceInput {
   /**
-   * @public
    * <p>Specifies a unique, case-sensitive ID that you provide to
    *              ensure the idempotency of the request. This lets you safely retry the request without
    *              accidentally performing the same operation a second time. Passing the same value to a
@@ -685,19 +684,19 @@ export interface CreateIdentitySourceInput {
    *          <p>Verified Permissions recognizes a <code>ClientToken</code> for eight hours. After eight hours,
    *              the next request with the same parameters performs the operation again regardless of
    *              the value of <code>ClientToken</code>.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>Specifies the ID of the policy store in which you want to store this identity source. Only policies and
    *             requests made using this policy store can reference identities from the identity provider
    *             configured in the new identity source.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the details required to communicate with the identity provider (IdP)
    *             associated with this identity source.</p>
    *          <note>
@@ -706,13 +705,14 @@ export interface CreateIdentitySourceInput {
    *             <p>You must specify a <code>UserPoolArn</code>, and optionally, a
    *                     <code>ClientId</code>.</p>
    *          </note>
+   * @public
    */
   configuration: Configuration | undefined;
 
   /**
-   * @public
    * <p>Specifies the namespace and data type of the principals generated for identities
    *             authenticated by the new identity source.</p>
+   * @public
    */
   principalEntityType?: string;
 }
@@ -722,58 +722,58 @@ export interface CreateIdentitySourceInput {
  */
 export interface CreateIdentitySourceOutput {
   /**
-   * @public
    * <p>The date and time the identity source was originally created.</p>
+   * @public
    */
   createdDate: Date | undefined;
 
   /**
-   * @public
    * <p>The unique ID of the new identity source.</p>
+   * @public
    */
   identitySourceId: string | undefined;
 
   /**
-   * @public
    * <p>The date and time the identity source was most recently updated.</p>
+   * @public
    */
   lastUpdatedDate: Date | undefined;
 
   /**
-   * @public
    * <p>The ID of the policy store that contains the identity source.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 }
 
 /**
- * @public
  * <p>The request failed because it would cause a service quota to be exceeded.</p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The unique ID of the resource referenced in the failed request.</p>
+   * @public
    */
   resourceId?: string;
 
   /**
-   * @public
    * <p>The resource type of the resource referenced in the failed request.</p>
+   * @public
    */
   resourceType: ResourceType | undefined;
 
   /**
-   * @public
    * <p>The code for the Amazon Web Service that owns the quota.</p>
+   * @public
    */
   serviceCode?: string;
 
   /**
-   * @public
    * <p>The quota code recognized by the Amazon Web Services Service Quotas service.</p>
+   * @public
    */
   quotaCode?: string;
 
@@ -795,61 +795,61 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Contains information about a static policy.</p>
  *          <p>This data type is used as a field that is part of the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_PolicyDefinitionDetail.html">PolicyDefinitionDetail</a>
  *             type.</p>
+ * @public
  */
 export interface StaticPolicyDefinition {
   /**
-   * @public
    * <p>The description of the static policy.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The policy content of the static policy, written in the Cedar policy language.</p>
+   * @public
    */
   statement: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains information about a policy created by instantiating a policy template.</p>
+ * @public
  */
 export interface TemplateLinkedPolicyDefinition {
   /**
-   * @public
    * <p>The unique identifier of the policy template used to create this policy.</p>
+   * @public
    */
   policyTemplateId: string | undefined;
 
   /**
-   * @public
    * <p>The principal associated with this template-linked policy. Verified Permissions substitutes this principal for the
    *                 <code>?principal</code> placeholder in the policy template when it evaluates an authorization
    *             request.</p>
+   * @public
    */
   principal?: EntityIdentifier;
 
   /**
-   * @public
    * <p>The resource associated with this template-linked policy. Verified Permissions substitutes this resource for the
    *                 <code>?resource</code> placeholder in the policy template when it evaluates an authorization
    *             request.</p>
+   * @public
    */
   resource?: EntityIdentifier;
 }
 
 /**
- * @public
  * <p>A structure that contains the details for a Cedar policy definition. It includes the
  *             policy type, a description, and a policy body. This is a top level data type used to
  *             create a policy.</p>
  *          <p>This data type is used as a request parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreatePolicy.html">CreatePolicy</a> operation. This
  *             structure must always have either an <code>static</code> or a <code>templateLinked</code>
  *             element.</p>
+ * @public
  */
 export type PolicyDefinition =
   | PolicyDefinition.StaticMember
@@ -861,9 +861,9 @@ export type PolicyDefinition =
  */
 export namespace PolicyDefinition {
   /**
-   * @public
    * <p>A structure that describes a static policy. An static policy doesn't use a template or allow
    *             placeholders for entities.</p>
+   * @public
    */
   export interface StaticMember {
     static: StaticPolicyDefinition;
@@ -872,11 +872,11 @@ export namespace PolicyDefinition {
   }
 
   /**
-   * @public
    * <p>A structure that describes a policy that was instantiated from a template. The
    *             template can specify placeholders for <code>principal</code> and <code>resource</code>.
    *             When you use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreatePolicy.html">CreatePolicy</a> to create a policy from a template, you specify the exact
    *             principal and resource to use for the instantiated policy.</p>
+   * @public
    */
   export interface TemplateLinkedMember {
     static?: never;
@@ -911,7 +911,6 @@ export namespace PolicyDefinition {
  */
 export interface CreatePolicyInput {
   /**
-   * @public
    * <p>Specifies a unique, case-sensitive ID that you provide to
    *              ensure the idempotency of the request. This lets you safely retry the request without
    *              accidentally performing the same operation a second time. Passing the same value to a
@@ -926,21 +925,22 @@ export interface CreatePolicyInput {
    *          <p>Verified Permissions recognizes a <code>ClientToken</code> for eight hours. After eight hours,
    *              the next request with the same parameters performs the operation again regardless of
    *              the value of <code>ClientToken</code>.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>Specifies the <code>PolicyStoreId</code> of the policy store you want to store the policy
    *             in.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * @public
    * <p>A structure that specifies the policy type and content to use for the new policy. You
    *             must include either a static or a templateLinked element. The policy content must be written
    *             in the Cedar policy language.</p>
+   * @public
    */
   definition: PolicyDefinition | undefined;
 }
@@ -964,46 +964,46 @@ export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];
  */
 export interface CreatePolicyOutput {
   /**
-   * @public
    * <p>The ID of the policy store that contains the new policy.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The unique ID of the new policy.</p>
+   * @public
    */
   policyId: string | undefined;
 
   /**
-   * @public
    * <p>The policy type of the new policy.</p>
+   * @public
    */
   policyType: PolicyType | undefined;
 
   /**
-   * @public
    * <p>The principal specified in the new policy's scope. This response element isn't present
    *             when <code>principal</code> isn't specified in the policy content.</p>
+   * @public
    */
   principal?: EntityIdentifier;
 
   /**
-   * @public
    * <p>The resource specified in the new policy's scope. This response element isn't present
    *             when the <code>resource</code> isn't specified in the policy content.</p>
+   * @public
    */
   resource?: EntityIdentifier;
 
   /**
-   * @public
    * <p>The date and time the policy was originally created.</p>
+   * @public
    */
   createdDate: Date | undefined;
 
   /**
-   * @public
    * <p>The date and time the policy was last updated.</p>
+   * @public
    */
   lastUpdatedDate: Date | undefined;
 }
@@ -1023,15 +1023,14 @@ export const ValidationMode = {
 export type ValidationMode = (typeof ValidationMode)[keyof typeof ValidationMode];
 
 /**
- * @public
  * <p>A structure that contains Cedar policy validation settings for the policy store. The
  *             validation mode determines which validation failures that Cedar considers serious
  *             enough to block acceptance of a new or edited static policy or policy template. </p>
  *          <p>This data type is used as a request parameter in the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreatePolicyStore.html">CreatePolicyStore</a> and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore.html">UpdatePolicyStore</a> operations.</p>
+ * @public
  */
 export interface ValidationSettings {
   /**
-   * @public
    * <p>The validation mode currently configured for this policy store. The valid values are:</p>
    *          <ul>
    *             <li>
@@ -1053,6 +1052,7 @@ export interface ValidationSettings {
    *                 all static policies and policy templates because there is no schema to validate against. </p>
    *             <p>To submit a static policy or policy template without a schema, you must turn off validation.</p>
    *          </important>
+   * @public
    */
   mode: ValidationMode | undefined;
 }
@@ -1062,7 +1062,6 @@ export interface ValidationSettings {
  */
 export interface CreatePolicyStoreInput {
   /**
-   * @public
    * <p>Specifies a unique, case-sensitive ID that you provide to
    *              ensure the idempotency of the request. This lets you safely retry the request without
    *              accidentally performing the same operation a second time. Passing the same value to a
@@ -1077,11 +1076,11 @@ export interface CreatePolicyStoreInput {
    *          <p>Verified Permissions recognizes a <code>ClientToken</code> for eight hours. After eight hours,
    *              the next request with the same parameters performs the operation again regardless of
    *              the value of <code>ClientToken</code>.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>Specifies the validation setting for this policy store.</p>
    *          <p>Currently, the only valid and required value is <code>Mode</code>.</p>
    *          <important>
@@ -1090,13 +1089,14 @@ export interface CreatePolicyStoreInput {
    *                 to fail validation, and Verified Permissions rejects the policy. You can turn off validation by
    *                 using the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore">UpdatePolicyStore</a>. Then, when you have a schema defined, use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore">UpdatePolicyStore</a> again to turn validation back on.</p>
    *          </important>
+   * @public
    */
   validationSettings: ValidationSettings | undefined;
 
   /**
-   * @public
    * <p>Descriptive text that you can provide to help with identification
    *             of the current policy store.</p>
+   * @public
    */
   description?: string;
 }
@@ -1106,26 +1106,26 @@ export interface CreatePolicyStoreInput {
  */
 export interface CreatePolicyStoreOutput {
   /**
-   * @public
    * <p>The unique ID of the new policy store.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the new policy store.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The date and time the policy store was originally created.</p>
+   * @public
    */
   createdDate: Date | undefined;
 
   /**
-   * @public
    * <p>The date and time the policy store was last updated.</p>
+   * @public
    */
   lastUpdatedDate: Date | undefined;
 }
@@ -1135,7 +1135,6 @@ export interface CreatePolicyStoreOutput {
  */
 export interface CreatePolicyTemplateInput {
   /**
-   * @public
    * <p>Specifies a unique, case-sensitive ID that you provide to
    *              ensure the idempotency of the request. This lets you safely retry the request without
    *              accidentally performing the same operation a second time. Passing the same value to a
@@ -1150,25 +1149,26 @@ export interface CreatePolicyTemplateInput {
    *          <p>Verified Permissions recognizes a <code>ClientToken</code> for eight hours. After eight hours,
    *              the next request with the same parameters performs the operation again regardless of
    *              the value of <code>ClientToken</code>.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>The ID of the policy store in which to create the policy template.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * @public
    * <p>Specifies a description for the policy template.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>Specifies the content that you want to use for the new policy template, written in the Cedar
    *             policy language.</p>
+   * @public
    */
   statement: string | undefined;
 }
@@ -1178,26 +1178,26 @@ export interface CreatePolicyTemplateInput {
  */
 export interface CreatePolicyTemplateOutput {
   /**
-   * @public
    * <p>The ID of the policy store that contains the policy template.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The unique ID of the new policy template.</p>
+   * @public
    */
   policyTemplateId: string | undefined;
 
   /**
-   * @public
    * <p>The date and time the policy template was originally created.</p>
+   * @public
    */
   createdDate: Date | undefined;
 
   /**
-   * @public
    * <p>The date and time the policy template was most recently updated.</p>
+   * @public
    */
   lastUpdatedDate: Date | undefined;
 }
@@ -1207,14 +1207,14 @@ export interface CreatePolicyTemplateOutput {
  */
 export interface DeleteIdentitySourceInput {
   /**
-   * @public
    * <p>Specifies the ID of the policy store that contains the identity source that you want to delete.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the ID of the identity source that you want to delete.</p>
+   * @public
    */
   identitySourceId: string | undefined;
 }
@@ -1229,14 +1229,14 @@ export interface DeleteIdentitySourceOutput {}
  */
 export interface DeletePolicyInput {
   /**
-   * @public
    * <p>Specifies the ID of the policy store that contains the policy that you want to delete.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the ID of the policy that you want to delete.</p>
+   * @public
    */
   policyId: string | undefined;
 }
@@ -1251,8 +1251,8 @@ export interface DeletePolicyOutput {}
  */
 export interface DeletePolicyStoreInput {
   /**
-   * @public
    * <p>Specifies the ID of the policy store that you want to delete.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 }
@@ -1267,14 +1267,14 @@ export interface DeletePolicyStoreOutput {}
  */
 export interface DeletePolicyTemplateInput {
   /**
-   * @public
    * <p>Specifies the ID of the policy store that contains the policy template that you want to delete.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the ID of the policy template that you want to delete.</p>
+   * @public
    */
   policyTemplateId: string | undefined;
 }
@@ -1285,11 +1285,11 @@ export interface DeletePolicyTemplateInput {
 export interface DeletePolicyTemplateOutput {}
 
 /**
- * @public
  * <p>Contains information about a principal or resource that can be referenced in a Cedar
  *             policy.</p>
  *          <p>This data type is used as part of the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_PolicyFilter.html">PolicyFilter</a> structure that is
  *             used as a request parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicies.html">ListPolicies</a> operation..</p>
+ * @public
  */
 export type EntityReference =
   | EntityReference.IdentifierMember
@@ -1301,10 +1301,10 @@ export type EntityReference =
  */
 export namespace EntityReference {
   /**
-   * @public
    * <p>Used to indicate that a principal or resource is not specified. This can be used to
    *             search for policies that are not associated with a specific principal or
    *             resource.</p>
+   * @public
    */
   export interface UnspecifiedMember {
     unspecified: boolean;
@@ -1313,9 +1313,9 @@ export namespace EntityReference {
   }
 
   /**
-   * @public
    * <p>The identifier of the entity. It can consist of either an EntityType and EntityId, a
    *             principal, or a resource.</p>
+   * @public
    */
   export interface IdentifierMember {
     unspecified?: never;
@@ -1350,14 +1350,14 @@ export namespace EntityReference {
  */
 export interface GetIdentitySourceInput {
   /**
-   * @public
    * <p>Specifies the ID of the policy store that contains the identity source you want information about.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the ID of the identity source you want information about.</p>
+   * @public
    */
   identitySourceId: string | undefined;
 }
@@ -1376,34 +1376,32 @@ export const OpenIdIssuer = {
 export type OpenIdIssuer = (typeof OpenIdIssuer)[keyof typeof OpenIdIssuer];
 
 /**
- * @public
- * @deprecated This shape has been replaced by ConfigurationDetail
- *
  * <p>A structure that contains configuration of the identity source.</p>
  *          <p>This data type was a response parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_GetIdentitySource.html">GetIdentitySource</a>
  *             operation. Replaced by <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ConfigurationDetail.html">ConfigurationDetail</a>.</p>
+ * @public
+ * @deprecated This shape has been replaced by ConfigurationDetail
  */
 export interface IdentitySourceDetails {
   /**
-   * @public
    * @deprecated
    *
    * <p>The application client IDs associated with the specified Amazon Cognito user pool that are
    *             enabled for this identity source.</p>
+   * @public
    */
   clientIds?: string[];
 
   /**
-   * @public
    * @deprecated
    *
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the Amazon Cognito user pool whose identities are accessible to this Verified Permissions
    *             policy store.</p>
+   * @public
    */
   userPoolArn?: string;
 
   /**
-   * @public
    * @deprecated
    *
    * <p>The well-known URL that points to this user pool's OIDC discovery endpoint. This is a
@@ -1413,15 +1411,16 @@ export interface IdentitySourceDetails {
    *          <p>
    *             <code>https://cognito-idp.<i>&lt;region&gt;</i>.amazonaws.com/<i>&lt;user-pool-id&gt;</i>/.well-known/openid-configuration</code>
    *          </p>
+   * @public
    */
   discoveryUrl?: string;
 
   /**
-   * @public
    * @deprecated
    *
    * <p>A string that identifies the type of OIDC service represented by this identity source. </p>
    *          <p>At this time, the only valid value is <code>cognito</code>.</p>
+   * @public
    */
   openIdIssuer?: OpenIdIssuer;
 }
@@ -1431,47 +1430,47 @@ export interface IdentitySourceDetails {
  */
 export interface GetIdentitySourceOutput {
   /**
-   * @public
    * <p>The date and time that the identity source was originally created.</p>
+   * @public
    */
   createdDate: Date | undefined;
 
   /**
-   * @public
    * @deprecated
    *
    * <p>A structure that describes the configuration of the identity source.</p>
+   * @public
    */
   details?: IdentitySourceDetails;
 
   /**
-   * @public
    * <p>The ID of the identity source.</p>
+   * @public
    */
   identitySourceId: string | undefined;
 
   /**
-   * @public
    * <p>The date and time that the identity source was most recently updated.</p>
+   * @public
    */
   lastUpdatedDate: Date | undefined;
 
   /**
-   * @public
    * <p>The ID of the policy store that contains the identity source.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The data type of principals generated for identities authenticated by this
    *             identity source.</p>
+   * @public
    */
   principalEntityType: string | undefined;
 
   /**
-   * @public
    * <p>Contains configuration information about an identity source.</p>
+   * @public
    */
   configuration?: ConfigurationDetail;
 }
@@ -1481,73 +1480,73 @@ export interface GetIdentitySourceOutput {
  */
 export interface GetPolicyInput {
   /**
-   * @public
    * <p>Specifies the ID of the policy store that contains the policy that you want information
    *             about.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the ID of the policy you want information about.</p>
+   * @public
    */
   policyId: string | undefined;
 }
 
 /**
- * @public
  * <p>A structure that contains details about a static policy. It includes the description and
  *             policy body.</p>
  *          <p>This data type is used within a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_PolicyDefinition.html">PolicyDefinition</a> structure as
  *             part of a request parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreatePolicy.html">CreatePolicy</a> operation.</p>
+ * @public
  */
 export interface StaticPolicyDefinitionDetail {
   /**
-   * @public
    * <p>A description of the static policy.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The content of the static policy written in the Cedar policy language.</p>
+   * @public
    */
   statement: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains information about a policy that was created by instantiating a policy template. </p>
+ * @public
  */
 export interface TemplateLinkedPolicyDefinitionDetail {
   /**
-   * @public
    * <p>The unique identifier of the policy template used to create this policy.</p>
+   * @public
    */
   policyTemplateId: string | undefined;
 
   /**
-   * @public
    * <p>The principal associated with this template-linked policy. Verified Permissions substitutes this principal for the
    *                 <code>?principal</code> placeholder in the policy template when it evaluates an authorization
    *             request.</p>
+   * @public
    */
   principal?: EntityIdentifier;
 
   /**
-   * @public
    * <p>The resource associated with this template-linked policy. Verified Permissions substitutes this resource for the
    *                 <code>?resource</code> placeholder in the policy template when it evaluates an authorization
    *             request.</p>
+   * @public
    */
   resource?: EntityIdentifier;
 }
 
 /**
- * @public
  * <p>A structure that describes a policy definition. It must always have either an
  *                 <code>static</code> or a <code>templateLinked</code> element.</p>
  *          <p>This data type is used as a response parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_GetPolicy.html">GetPolicy</a> operation.</p>
+ * @public
  */
 export type PolicyDefinitionDetail =
   | PolicyDefinitionDetail.StaticMember
@@ -1559,8 +1558,8 @@ export type PolicyDefinitionDetail =
  */
 export namespace PolicyDefinitionDetail {
   /**
-   * @public
    * <p>Information about a static policy that wasn't created with a policy template.</p>
+   * @public
    */
   export interface StaticMember {
     static: StaticPolicyDefinitionDetail;
@@ -1569,8 +1568,8 @@ export namespace PolicyDefinitionDetail {
   }
 
   /**
-   * @public
    * <p>Information about a template-linked policy that was created by instantiating a policy template.</p>
+   * @public
    */
   export interface TemplateLinkedMember {
     static?: never;
@@ -1605,52 +1604,52 @@ export namespace PolicyDefinitionDetail {
  */
 export interface GetPolicyOutput {
   /**
-   * @public
    * <p>The ID of the policy store that contains the policy that you want information about.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The unique ID of the policy that you want information about.</p>
+   * @public
    */
   policyId: string | undefined;
 
   /**
-   * @public
    * <p>The type of the policy.</p>
+   * @public
    */
   policyType: PolicyType | undefined;
 
   /**
-   * @public
    * <p>The principal specified in the policy's scope. This element isn't included in the
    *             response when <code>Principal</code> isn't present in the policy content.</p>
+   * @public
    */
   principal?: EntityIdentifier;
 
   /**
-   * @public
    * <p>The resource specified in the policy's scope. This element isn't included in the
    *             response when <code>Resource</code> isn't present in the policy content.</p>
+   * @public
    */
   resource?: EntityIdentifier;
 
   /**
-   * @public
    * <p>The definition of the requested policy.</p>
+   * @public
    */
   definition: PolicyDefinitionDetail | undefined;
 
   /**
-   * @public
    * <p>The date and time that the policy was originally created.</p>
+   * @public
    */
   createdDate: Date | undefined;
 
   /**
-   * @public
    * <p>The date and time that the policy was last updated.</p>
+   * @public
    */
   lastUpdatedDate: Date | undefined;
 }
@@ -1660,8 +1659,8 @@ export interface GetPolicyOutput {
  */
 export interface GetPolicyStoreInput {
   /**
-   * @public
    * <p>Specifies the ID of the policy store that you want information about.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 }
@@ -1671,39 +1670,39 @@ export interface GetPolicyStoreInput {
  */
 export interface GetPolicyStoreOutput {
   /**
-   * @public
    * <p>The ID of the policy store;</p>
+   * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the policy store.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The current validation settings for the policy store.</p>
+   * @public
    */
   validationSettings: ValidationSettings | undefined;
 
   /**
-   * @public
    * <p>The date and time that the policy store was originally created.</p>
+   * @public
    */
   createdDate: Date | undefined;
 
   /**
-   * @public
    * <p>The date and time that the policy store was last updated.</p>
+   * @public
    */
   lastUpdatedDate: Date | undefined;
 
   /**
-   * @public
    * <p>Descriptive text that you can provide to help with identification
    *             of the current policy store.</p>
+   * @public
    */
   description?: string;
 }
@@ -1713,15 +1712,15 @@ export interface GetPolicyStoreOutput {
  */
 export interface GetPolicyTemplateInput {
   /**
-   * @public
    * <p>Specifies the ID of the policy store that contains the policy template that you want information
    *             about.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the ID of the policy template that you want information about.</p>
+   * @public
    */
   policyTemplateId: string | undefined;
 }
@@ -1731,38 +1730,38 @@ export interface GetPolicyTemplateInput {
  */
 export interface GetPolicyTemplateOutput {
   /**
-   * @public
    * <p>The ID of the policy store that contains the policy template.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the policy template.</p>
+   * @public
    */
   policyTemplateId: string | undefined;
 
   /**
-   * @public
    * <p>The description of the policy template.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The content of the body of the policy template written in the Cedar policy language.</p>
+   * @public
    */
   statement: string | undefined;
 
   /**
-   * @public
    * <p>The date and time that the policy template was originally created.</p>
+   * @public
    */
   createdDate: Date | undefined;
 
   /**
-   * @public
    * <p>The date and time that the policy template was most recently updated.</p>
+   * @public
    */
   lastUpdatedDate: Date | undefined;
 }
@@ -1772,8 +1771,8 @@ export interface GetPolicyTemplateOutput {
  */
 export interface GetSchemaInput {
   /**
-   * @public
    * <p>Specifies the ID of the policy store that contains the schema.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 }
@@ -1783,48 +1782,48 @@ export interface GetSchemaInput {
  */
 export interface GetSchemaOutput {
   /**
-   * @public
    * <p>The ID of the policy store that contains the schema.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The body of the schema, written in Cedar schema JSON.</p>
+   * @public
    */
   schema: string | undefined;
 
   /**
-   * @public
    * <p>The date and time that the schema was originally created.</p>
+   * @public
    */
   createdDate: Date | undefined;
 
   /**
-   * @public
    * <p>The date and time that the schema was most recently updated.</p>
+   * @public
    */
   lastUpdatedDate: Date | undefined;
 
   /**
-   * @public
    * <p>The namespaces of the entities referenced by this schema.</p>
+   * @public
    */
   namespaces?: string[];
 }
 
 /**
- * @public
  * <p>A structure that defines characteristics of an identity source that you can use to
  *             filter.</p>
  *          <p>This data type is a request parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListIdentityStores.html">ListIdentityStores</a>
  *             operation.</p>
+ * @public
  */
 export interface IdentitySourceFilter {
   /**
-   * @public
    * <p>The Cedar entity type of the principals returned by the identity provider (IdP)
    *             associated with this identity source.</p>
+   * @public
    */
   principalEntityType?: string;
 }
@@ -1834,23 +1833,22 @@ export interface IdentitySourceFilter {
  */
 export interface ListIdentitySourcesInput {
   /**
-   * @public
    * <p>Specifies the ID of the policy store that contains the identity sources that you want to list.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * @public
    * <p>Specifies that you want to receive the next page of results. Valid
    *              only if you received a <code>NextToken</code> response in the previous request. If you
    *              did, it indicates that more output is available. Set this parameter to the value
    *              provided by the previous call's <code>NextToken</code> response to request the
    *              next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Specifies the total number of results that you want included in each
    *              response. If additional items exist beyond the number you specify, the
    *              <code>NextToken</code> response element is returned with a value (not null). Include the
@@ -1861,45 +1859,44 @@ export interface ListIdentitySourcesInput {
    *              results.</p>
    *          <p>If you do not specify this parameter, the operation defaults to 10 identity sources per response.
    *             You can specify a maximum of 200 identity sources per response.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>Specifies characteristics of an identity source that you can use to limit the output to matching
    *             identity sources.</p>
+   * @public
    */
   filters?: IdentitySourceFilter[];
 }
 
 /**
- * @public
- * @deprecated This shape has been replaced by ConfigurationItem
- *
  * <p>A structure that contains configuration of the identity source.</p>
  *          <p>This data type was a response parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListIdentitySources.html">ListIdentitySources</a>
  *             operation. Replaced by <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ConfigurationItem.html">ConfigurationItem</a>.</p>
+ * @public
+ * @deprecated This shape has been replaced by ConfigurationItem
  */
 export interface IdentitySourceItemDetails {
   /**
-   * @public
    * @deprecated
    *
    * <p>The application client IDs associated with the specified Amazon Cognito user pool that are
    *             enabled for this identity source.</p>
+   * @public
    */
   clientIds?: string[];
 
   /**
-   * @public
    * @deprecated
    *
    * <p>The Amazon Cognito user pool whose identities are accessible to this Verified Permissions policy store.</p>
+   * @public
    */
   userPoolArn?: string;
 
   /**
-   * @public
    * @deprecated
    *
    * <p>The well-known URL that points to this user pool's OIDC discovery endpoint. This is a
@@ -1909,69 +1906,70 @@ export interface IdentitySourceItemDetails {
    *          <p>
    *             <code>https://cognito-idp.<i>&lt;region&gt;</i>.amazonaws.com/<i>&lt;user-pool-id&gt;</i>/.well-known/openid-configuration</code>
    *          </p>
+   * @public
    */
   discoveryUrl?: string;
 
   /**
-   * @public
    * @deprecated
    *
    * <p>A string that identifies the type of OIDC service represented by this identity source. </p>
    *          <p>At this time, the only valid value is <code>cognito</code>.</p>
+   * @public
    */
   openIdIssuer?: OpenIdIssuer;
 }
 
 /**
- * @public
  * <p>A structure that defines an identity source.</p>
  *          <p>This data type is a response parameter to the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListIdentitySources.html">ListIdentitySources</a>
  *             operation.</p>
+ * @public
  */
 export interface IdentitySourceItem {
   /**
-   * @public
    * <p>The date and time the identity source was originally created.</p>
+   * @public
    */
   createdDate: Date | undefined;
 
   /**
-   * @public
    * @deprecated
    *
    * <p>A structure that contains the details of the associated identity provider
    *             (IdP).</p>
+   * @public
    */
   details?: IdentitySourceItemDetails;
 
   /**
-   * @public
    * <p>The unique identifier of the identity source.</p>
+   * @public
    */
   identitySourceId: string | undefined;
 
   /**
-   * @public
    * <p>The date and time the identity source was most recently updated.</p>
+   * @public
    */
   lastUpdatedDate: Date | undefined;
 
   /**
-   * @public
    * <p>The identifier of the policy store that contains the identity source.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The Cedar entity type of the principals returned from the IdP associated with this
    *             identity source.</p>
+   * @public
    */
   principalEntityType: string | undefined;
 
   /**
-   * @public
    * <p>Contains configuration information about an identity source.</p>
+   * @public
    */
   configuration?: ConfigurationItem;
 }
@@ -1981,43 +1979,42 @@ export interface IdentitySourceItem {
  */
 export interface ListIdentitySourcesOutput {
   /**
-   * @public
    * <p>If present, this value indicates that more output is available than
    *              is included in the current response. Use this value in the <code>NextToken</code>
    *              request parameter in a subsequent call to the operation to get the next part of the
    *              output. You should repeat this until the <code>NextToken</code> response element comes
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The list of identity sources stored in the specified policy store.</p>
+   * @public
    */
   identitySources: IdentitySourceItem[] | undefined;
 }
 
 /**
- * @public
  * <p>Contains configuration details of a Amazon Cognito user pool for use with an identity source.</p>
+ * @public
  */
 export interface UpdateCognitoUserPoolConfiguration {
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the Amazon Cognito user pool associated with this identity source.</p>
+   * @public
    */
   userPoolArn: string | undefined;
 
   /**
-   * @public
    * <p>The client ID of an app client that is configured for the specified Amazon Cognito user
    *             pool.</p>
+   * @public
    */
   clientIds?: string[];
 }
 
 /**
- * @public
  * <p>Contains an updated configuration to replace the configuration in an existing
  *             identity source.</p>
  *          <note>
@@ -2026,6 +2023,7 @@ export interface UpdateCognitoUserPoolConfiguration {
  *             <p>You must specify a <code>userPoolArn</code>, and optionally, a
  *                     <code>ClientId</code>.</p>
  *          </note>
+ * @public
  */
 export type UpdateConfiguration =
   | UpdateConfiguration.CognitoUserPoolConfigurationMember
@@ -2036,8 +2034,8 @@ export type UpdateConfiguration =
  */
 export namespace UpdateConfiguration {
   /**
-   * @public
    * <p>Contains configuration details of a Amazon Cognito user pool.</p>
+   * @public
    */
   export interface CognitoUserPoolConfigurationMember {
     cognitoUserPoolConfiguration: UpdateCognitoUserPoolConfiguration;
@@ -2069,19 +2067,18 @@ export namespace UpdateConfiguration {
  */
 export interface UpdateIdentitySourceInput {
   /**
-   * @public
    * <p>Specifies the ID of the policy store that contains the identity source that you want to update.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the ID of the identity source that you want to update.</p>
+   * @public
    */
   identitySourceId: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the details required to communicate with the identity provider (IdP)
    *             associated with this identity source.</p>
    *          <note>
@@ -2090,13 +2087,14 @@ export interface UpdateIdentitySourceInput {
    *             <p>You must specify a <code>userPoolArn</code>, and optionally, a
    *                     <code>ClientId</code>.</p>
    *          </note>
+   * @public
    */
   updateConfiguration: UpdateConfiguration | undefined;
 
   /**
-   * @public
    * <p>Specifies the data type of principals generated for identities authenticated by the
    *             identity source.</p>
+   * @public
    */
   principalEntityType?: string;
 }
@@ -2106,26 +2104,26 @@ export interface UpdateIdentitySourceInput {
  */
 export interface UpdateIdentitySourceOutput {
   /**
-   * @public
    * <p>The date and time that the updated identity source was originally created.</p>
+   * @public
    */
   createdDate: Date | undefined;
 
   /**
-   * @public
    * <p>The ID of the updated identity source.</p>
+   * @public
    */
   identitySourceId: string | undefined;
 
   /**
-   * @public
    * <p>The date and time that the identity source was most recently updated.</p>
+   * @public
    */
   lastUpdatedDate: Date | undefined;
 
   /**
-   * @public
    * <p>The ID of the policy store that contains the updated identity source.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 }
@@ -2135,27 +2133,27 @@ export interface UpdateIdentitySourceOutput {
  */
 export interface IsAuthorizedOutput {
   /**
-   * @public
    * <p>An authorization decision that indicates if the authorization request should be
    *             allowed or denied.</p>
+   * @public
    */
   decision: Decision | undefined;
 
   /**
-   * @public
    * <p>The list of determining policies used to make the authorization decision. For example,
    *             if there are two matching policies, where one is a forbid and the other is a permit,
    *             then the forbid policy will be the determining policy. In the case of multiple matching
    *             permit policies then there would be multiple determining policies. In the case that no
    *             policies match, and hence the response is DENY, there would be no determining
    *             policies.</p>
+   * @public
    */
   determiningPolicies: DeterminingPolicyItem[] | undefined;
 
   /**
-   * @public
    * <p>Errors that occurred while making an authorization decision, for example, a policy
    *             references an Entity or entity Attribute that does not exist in the slice.</p>
+   * @public
    */
   errors: EvaluationErrorItem[] | undefined;
 }
@@ -2165,59 +2163,59 @@ export interface IsAuthorizedOutput {
  */
 export interface IsAuthorizedWithTokenOutput {
   /**
-   * @public
    * <p>An authorization decision that indicates if the authorization request should be
    *             allowed or denied.</p>
+   * @public
    */
   decision: Decision | undefined;
 
   /**
-   * @public
    * <p>The list of determining policies used to make the authorization decision. For example,
    *             if there are multiple matching policies, where at least one is a forbid policy, then
    *             because forbid always overrides permit the forbid policies are the determining policies.
    *             If all matching policies are permit policies, then those policies are the determining
    *             policies. When no policies match and the response is the default DENY, there are no
    *             determining policies.</p>
+   * @public
    */
   determiningPolicies: DeterminingPolicyItem[] | undefined;
 
   /**
-   * @public
    * <p>Errors that occurred while making an authorization decision. For example, a policy
    *             references an entity or entity attribute that does not exist in the slice.</p>
+   * @public
    */
   errors: EvaluationErrorItem[] | undefined;
 }
 
 /**
- * @public
  * <p>Contains information about a filter to refine policies returned in a query.</p>
  *          <p>This data type is used as a response parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicies.html">ListPolicies</a> operation.</p>
+ * @public
  */
 export interface PolicyFilter {
   /**
-   * @public
    * <p>Filters the output to only policies that reference the specified principal.</p>
+   * @public
    */
   principal?: EntityReference;
 
   /**
-   * @public
    * <p>Filters the output to only policies that reference the specified resource.</p>
+   * @public
    */
   resource?: EntityReference;
 
   /**
-   * @public
    * <p>Filters the output to only policies of the specified type.</p>
+   * @public
    */
   policyType?: PolicyType;
 
   /**
-   * @public
    * <p>Filters the output to only template-linked policies that were instantiated from the specified
    *             policy template.</p>
+   * @public
    */
   policyTemplateId?: string;
 }
@@ -2227,23 +2225,22 @@ export interface PolicyFilter {
  */
 export interface ListPoliciesInput {
   /**
-   * @public
    * <p>Specifies the ID of the policy store you want to list policies from.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * @public
    * <p>Specifies that you want to receive the next page of results. Valid
    *              only if you received a <code>NextToken</code> response in the previous request. If you
    *              did, it indicates that more output is available. Set this parameter to the value
    *              provided by the previous call's <code>NextToken</code> response to request the
    *              next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Specifies the total number of results that you want included in each
    *              response. If additional items exist beyond the number you specify, the
    *              <code>NextToken</code> response element is returned with a value (not null). Include the
@@ -2254,69 +2251,70 @@ export interface ListPoliciesInput {
    *              results.</p>
    *          <p>If you do not specify this parameter, the operation defaults to 10 policies per
    *             response. You can specify a maximum of 50 policies per response.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>Specifies a filter that limits the response to only policies that match the specified
    *             criteria. For example, you list only the policies that reference a specified
    *             principal.</p>
+   * @public
    */
   filter?: PolicyFilter;
 }
 
 /**
- * @public
  * <p>A structure that contains details about a static policy. It includes the description and
  *             policy statement.</p>
  *          <p>This data type is used within a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_PolicyDefinition.html">PolicyDefinition</a> structure as
  *             part of a request parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreatePolicy.html">CreatePolicy</a> operation.</p>
+ * @public
  */
 export interface StaticPolicyDefinitionItem {
   /**
-   * @public
    * <p>A description of the static policy.</p>
+   * @public
    */
   description?: string;
 }
 
 /**
- * @public
  * <p>Contains information about a policy created by instantiating a policy template. </p>
  *          <p>This </p>
+ * @public
  */
 export interface TemplateLinkedPolicyDefinitionItem {
   /**
-   * @public
    * <p>The unique identifier of the policy template used to create this policy.</p>
+   * @public
    */
   policyTemplateId: string | undefined;
 
   /**
-   * @public
    * <p>The principal associated with this template-linked policy. Verified Permissions substitutes this principal for the
    *                 <code>?principal</code> placeholder in the policy template when it evaluates an authorization
    *             request.</p>
+   * @public
    */
   principal?: EntityIdentifier;
 
   /**
-   * @public
    * <p>The resource associated with this template-linked policy. Verified Permissions substitutes this resource for the
    *                 <code>?resource</code> placeholder in the policy template when it evaluates an authorization
    *             request.</p>
+   * @public
    */
   resource?: EntityIdentifier;
 }
 
 /**
- * @public
  * <p>A structure that describes a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_PolicyDefinintion.html">PolicyDefinintion</a>. It will
  *             always have either an <code>StaticPolicy</code> or a <code>TemplateLinkedPolicy</code>
  *             element.</p>
  *          <p>This data type is used as a response parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreatePolicy.html">CreatePolicy</a> and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicies.html">ListPolicies</a>
  *             operations. </p>
+ * @public
  */
 export type PolicyDefinitionItem =
   | PolicyDefinitionItem.StaticMember
@@ -2328,8 +2326,8 @@ export type PolicyDefinitionItem =
  */
 export namespace PolicyDefinitionItem {
   /**
-   * @public
    * <p>Information about a static policy that wasn't created with a policy template.</p>
+   * @public
    */
   export interface StaticMember {
     static: StaticPolicyDefinitionItem;
@@ -2338,8 +2336,8 @@ export namespace PolicyDefinitionItem {
   }
 
   /**
-   * @public
    * <p>Information about a template-linked policy that was created by instantiating a policy template.</p>
+   * @public
    */
   export interface TemplateLinkedMember {
     static?: never;
@@ -2370,26 +2368,25 @@ export namespace PolicyDefinitionItem {
 }
 
 /**
- * @public
  * <p>Contains information about a policy.</p>
  *          <p>This data type is used as a response parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicies.html">ListPolicies</a> operation.</p>
+ * @public
  */
 export interface PolicyItem {
   /**
-   * @public
    * <p>The identifier of the PolicyStore where the policy you want information about is
    *             stored.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the policy you want information about.</p>
+   * @public
    */
   policyId: string | undefined;
 
   /**
-   * @public
    * <p>The type of the policy. This is one of the following values:</p>
    *          <ul>
    *             <li>
@@ -2403,36 +2400,37 @@ export interface PolicyItem {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   policyType: PolicyType | undefined;
 
   /**
-   * @public
    * <p>The principal associated with the policy.</p>
+   * @public
    */
   principal?: EntityIdentifier;
 
   /**
-   * @public
    * <p>The resource associated with the policy.</p>
+   * @public
    */
   resource?: EntityIdentifier;
 
   /**
-   * @public
    * <p>The policy definition of an item in the list of policies returned.</p>
+   * @public
    */
   definition: PolicyDefinitionItem | undefined;
 
   /**
-   * @public
    * <p>The date and time the policy was created.</p>
+   * @public
    */
   createdDate: Date | undefined;
 
   /**
-   * @public
    * <p>The date and time the policy was most recently updated.</p>
+   * @public
    */
   lastUpdatedDate: Date | undefined;
 }
@@ -2442,18 +2440,18 @@ export interface PolicyItem {
  */
 export interface ListPoliciesOutput {
   /**
-   * @public
    * <p>If present, this value indicates that more output is available than
    *              is included in the current response. Use this value in the <code>NextToken</code>
    *              request parameter in a subsequent call to the operation to get the next part of the
    *              output. You should repeat this until the <code>NextToken</code> response element comes
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Lists all policies that are available in the specified policy store.</p>
+   * @public
    */
   policies: PolicyItem[] | undefined;
 }
@@ -2463,17 +2461,16 @@ export interface ListPoliciesOutput {
  */
 export interface ListPolicyStoresInput {
   /**
-   * @public
    * <p>Specifies that you want to receive the next page of results. Valid
    *              only if you received a <code>NextToken</code> response in the previous request. If you
    *              did, it indicates that more output is available. Set this parameter to the value
    *              provided by the previous call's <code>NextToken</code> response to request the
    *              next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Specifies the total number of results that you want included in each
    *              response. If additional items exist beyond the number you specify, the
    *              <code>NextToken</code> response element is returned with a value (not null). Include the
@@ -2484,45 +2481,46 @@ export interface ListPolicyStoresInput {
    *              results.</p>
    *          <p>If you do not specify this parameter, the operation defaults to 10 policy stores per response.
    *             You can specify a maximum of 50 policy stores per response.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Contains information about a policy store.</p>
  *          <p>This data type is used as a response parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyStores.html">ListPolicyStores</a>
  *             operation.</p>
+ * @public
  */
 export interface PolicyStoreItem {
   /**
-   * @public
    * <p>The unique identifier of the policy store.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the policy store.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The date and time the policy was created.</p>
+   * @public
    */
   createdDate: Date | undefined;
 
   /**
-   * @public
    * <p>The date and time the policy store was most recently updated.</p>
+   * @public
    */
   lastUpdatedDate?: Date;
 
   /**
-   * @public
    * <p>Descriptive text that you can provide to help with identification
    *             of the current policy store.</p>
+   * @public
    */
   description?: string;
 }
@@ -2532,18 +2530,18 @@ export interface PolicyStoreItem {
  */
 export interface ListPolicyStoresOutput {
   /**
-   * @public
    * <p>If present, this value indicates that more output is available than
    *              is included in the current response. Use this value in the <code>NextToken</code>
    *              request parameter in a subsequent call to the operation to get the next part of the
    *              output. You should repeat this until the <code>NextToken</code> response element comes
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The list of policy stores in the account.</p>
+   * @public
    */
   policyStores: PolicyStoreItem[] | undefined;
 }
@@ -2553,23 +2551,22 @@ export interface ListPolicyStoresOutput {
  */
 export interface ListPolicyTemplatesInput {
   /**
-   * @public
    * <p>Specifies the ID of the policy store that contains the policy templates you want to list.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * @public
    * <p>Specifies that you want to receive the next page of results. Valid
    *              only if you received a <code>NextToken</code> response in the previous request. If you
    *              did, it indicates that more output is available. Set this parameter to the value
    *              provided by the previous call's <code>NextToken</code> response to request the
    *              next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Specifies the total number of results that you want included in each
    *              response. If additional items exist beyond the number you specify, the
    *              <code>NextToken</code> response element is returned with a value (not null). Include the
@@ -2580,44 +2577,45 @@ export interface ListPolicyTemplatesInput {
    *              results.</p>
    *          <p>If you do not specify this parameter, the operation defaults to 10 policy templates per response.
    *             You can specify a maximum of 50 policy templates per response.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Contains details about a policy template</p>
  *          <p>This data type is used as a response parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicyTemplates.html">ListPolicyTemplates</a>
  *             operation.</p>
+ * @public
  */
 export interface PolicyTemplateItem {
   /**
-   * @public
    * <p>The unique identifier of the policy store that contains the template.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of the policy template.</p>
+   * @public
    */
   policyTemplateId: string | undefined;
 
   /**
-   * @public
    * <p>The description attached to the policy template.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The date and time that the policy template was created.</p>
+   * @public
    */
   createdDate: Date | undefined;
 
   /**
-   * @public
    * <p>The date and time that the policy template was most recently updated.</p>
+   * @public
    */
   lastUpdatedDate: Date | undefined;
 }
@@ -2627,35 +2625,34 @@ export interface PolicyTemplateItem {
  */
 export interface ListPolicyTemplatesOutput {
   /**
-   * @public
    * <p>If present, this value indicates that more output is available than
    *              is included in the current response. Use this value in the <code>NextToken</code>
    *              request parameter in a subsequent call to the operation to get the next part of the
    *              output. You should repeat this until the <code>NextToken</code> response element comes
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The list of the policy templates in the specified policy store.</p>
+   * @public
    */
   policyTemplates: PolicyTemplateItem[] | undefined;
 }
 
 /**
- * @public
  * <p>Contains information about an update to a static policy.</p>
+ * @public
  */
 export interface UpdateStaticPolicyDefinition {
   /**
-   * @public
    * <p>Specifies the description to be added to or replaced on the static policy.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>Specifies the Cedar policy language text to be added to or replaced on the static policy.</p>
    *          <important>
    *             <p>You can change only the following elements from the original content:</p>
@@ -2686,14 +2683,15 @@ export interface UpdateStaticPolicyDefinition {
    *                </li>
    *             </ul>
    *          </important>
+   * @public
    */
   statement: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains information about updates to be applied to a policy.</p>
  *          <p>This data type is used as a request parameter in the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicy.html">UpdatePolicy</a> operation.</p>
+ * @public
  */
 export type UpdatePolicyDefinition = UpdatePolicyDefinition.StaticMember | UpdatePolicyDefinition.$UnknownMember;
 
@@ -2702,8 +2700,8 @@ export type UpdatePolicyDefinition = UpdatePolicyDefinition.StaticMember | Updat
  */
 export namespace UpdatePolicyDefinition {
   /**
-   * @public
    * <p>Contains details about the updates to be applied to a static policy.</p>
+   * @public
    */
   export interface StaticMember {
     static: UpdateStaticPolicyDefinition;
@@ -2734,20 +2732,19 @@ export namespace UpdatePolicyDefinition {
  */
 export interface UpdatePolicyInput {
   /**
-   * @public
    * <p>Specifies the ID of the policy store that contains the policy that you want to update.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the ID of the policy that you want to update. To find this value, you can
    *             use <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListPolicies.html">ListPolicies</a>.</p>
+   * @public
    */
   policyId: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the updated policy content that you want to replace on the specified policy.
    *             The content must be valid Cedar policy language text.</p>
    *          <p>You can change only the following elements from the policy definition:</p>
@@ -2776,6 +2773,7 @@ export interface UpdatePolicyInput {
    *                <p>The <code>resource</code> referenced by the policy.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   definition: UpdatePolicyDefinition | undefined;
 }
@@ -2785,46 +2783,46 @@ export interface UpdatePolicyInput {
  */
 export interface UpdatePolicyOutput {
   /**
-   * @public
    * <p>The ID of the policy store that contains the policy that was updated.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the policy that was updated.</p>
+   * @public
    */
   policyId: string | undefined;
 
   /**
-   * @public
    * <p>The type of the policy that was updated.</p>
+   * @public
    */
   policyType: PolicyType | undefined;
 
   /**
-   * @public
    * <p>The principal specified in the policy's scope. This element isn't included in the
    *             response when <code>Principal</code> isn't present in the policy content.</p>
+   * @public
    */
   principal?: EntityIdentifier;
 
   /**
-   * @public
    * <p>The resource specified in the policy's scope. This element isn't included in the
    *             response when <code>Resource</code> isn't present in the policy content.</p>
+   * @public
    */
   resource?: EntityIdentifier;
 
   /**
-   * @public
    * <p>The date and time that the policy was originally created.</p>
+   * @public
    */
   createdDate: Date | undefined;
 
   /**
-   * @public
    * <p>The date and time that the policy was most recently updated.</p>
+   * @public
    */
   lastUpdatedDate: Date | undefined;
 }
@@ -2834,25 +2832,24 @@ export interface UpdatePolicyOutput {
  */
 export interface UpdatePolicyTemplateInput {
   /**
-   * @public
    * <p>Specifies the ID of the policy store that contains the policy template that you want to update.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the ID of the policy template that you want to update.</p>
+   * @public
    */
   policyTemplateId: string | undefined;
 
   /**
-   * @public
    * <p>Specifies a new description to apply to the policy template.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>Specifies new statement content written in Cedar policy language to replace the
    *             current body of the policy template.</p>
    *          <p>You can change only the following elements of the policy body:</p>
@@ -2877,6 +2874,7 @@ export interface UpdatePolicyTemplateInput {
    *                <p>The <code>resource</code> referenced by the policy template.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   statement: string | undefined;
 }
@@ -2886,36 +2884,36 @@ export interface UpdatePolicyTemplateInput {
  */
 export interface UpdatePolicyTemplateOutput {
   /**
-   * @public
    * <p>The ID of the policy store that contains the updated policy template.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the updated policy template.</p>
+   * @public
    */
   policyTemplateId: string | undefined;
 
   /**
-   * @public
    * <p>The date and time that the policy template was originally created.</p>
+   * @public
    */
   createdDate: Date | undefined;
 
   /**
-   * @public
    * <p>The date and time that the policy template was most recently updated.</p>
+   * @public
    */
   lastUpdatedDate: Date | undefined;
 }
 
 /**
- * @public
  * <p>Contains a list of principal types, resource types, and actions that can be specified
  *             in policies stored in the same policy store. If the validation mode for the policy store is set to
  *                 <code>STRICT</code>, then policies that can't be validated by this schema are
  *             rejected by Verified Permissions and can't be stored in the policy store.</p>
+ * @public
  */
 export type SchemaDefinition = SchemaDefinition.CedarJsonMember | SchemaDefinition.$UnknownMember;
 
@@ -2924,10 +2922,10 @@ export type SchemaDefinition = SchemaDefinition.CedarJsonMember | SchemaDefiniti
  */
 export namespace SchemaDefinition {
   /**
-   * @public
    * <p>A JSON string representation of the schema supported by applications that use this
    *             policy store. For more information, see <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html">Policy store schema</a> in the
    *                 <i>Amazon Verified Permissions User Guide</i>.</p>
+   * @public
    */
   export interface CedarJsonMember {
     cedarJson: string;
@@ -2958,15 +2956,15 @@ export namespace SchemaDefinition {
  */
 export interface PutSchemaInput {
   /**
-   * @public
    * <p>Specifies the ID of the policy store in which to place the schema.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the definition of the schema to be stored. The schema definition must be
    *             written in Cedar schema JSON.</p>
+   * @public
    */
   definition: SchemaDefinition | undefined;
 }
@@ -2976,26 +2974,26 @@ export interface PutSchemaInput {
  */
 export interface PutSchemaOutput {
   /**
-   * @public
    * <p>The unique ID of the policy store that contains the schema.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * @public
    * <p>Identifies the namespaces of the entities referenced by this schema.</p>
+   * @public
    */
   namespaces: string[] | undefined;
 
   /**
-   * @public
    * <p>The date and time that the schema was originally created.</p>
+   * @public
    */
   createdDate: Date | undefined;
 
   /**
-   * @public
    * <p>The date and time that the schema was last updated.</p>
+   * @public
    */
   lastUpdatedDate: Date | undefined;
 }
@@ -3005,22 +3003,22 @@ export interface PutSchemaOutput {
  */
 export interface UpdatePolicyStoreInput {
   /**
-   * @public
    * <p>Specifies the ID of the policy store that you want to update</p>
+   * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * @public
    * <p>A structure that defines the validation settings that want to enable for the
    *             policy store.</p>
+   * @public
    */
   validationSettings: ValidationSettings | undefined;
 
   /**
-   * @public
    * <p>Descriptive text that you can provide to help with identification
    *             of the current policy store.</p>
+   * @public
    */
   description?: string;
 }
@@ -3030,38 +3028,38 @@ export interface UpdatePolicyStoreInput {
  */
 export interface UpdatePolicyStoreOutput {
   /**
-   * @public
    * <p>The ID of the updated policy store.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the updated policy store.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The date and time that the policy store was originally created.</p>
+   * @public
    */
   createdDate: Date | undefined;
 
   /**
-   * @public
    * <p>The date and time that the policy store was most recently updated.</p>
+   * @public
    */
   lastUpdatedDate: Date | undefined;
 }
 
 /**
- * @public
  * <p>The value of an attribute.</p>
  *          <p>Contains information about the runtime context for a request for which an
  *             authorization decision is made. </p>
  *          <p>This data type is used as a member of the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ContextDefinition.html">ContextDefinition</a> structure
  *             which is uses as a request parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a>, <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_BatchIsAuthorized.html">BatchIsAuthorized</a>, and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a>
  *             operations.</p>
+ * @public
  */
 export type AttributeValue =
   | AttributeValue.BooleanMember
@@ -3077,11 +3075,11 @@ export type AttributeValue =
  */
 export namespace AttributeValue {
   /**
-   * @public
    * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#boolean">Boolean</a>
    *             type.</p>
    *          <p>Example: <code>\{"boolean": true\}</code>
    *          </p>
+   * @public
    */
   export interface BooleanMember {
     boolean: boolean;
@@ -3094,11 +3092,11 @@ export namespace AttributeValue {
   }
 
   /**
-   * @public
    * <p>An attribute value of type <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_EntityIdentifier.html">EntityIdentifier</a>.</p>
    *          <p>Example: <code>"entityIdentifier": \{ "entityId": "&lt;id&gt;", "entityType":
    *                 "&lt;entity type&gt;"\}</code>
    *          </p>
+   * @public
    */
   export interface EntityIdentifierMember {
     boolean?: never;
@@ -3111,10 +3109,10 @@ export namespace AttributeValue {
   }
 
   /**
-   * @public
    * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#long">Long</a> type.</p>
    *          <p>Example: <code>\{"long": 0\}</code>
    *          </p>
+   * @public
    */
   export interface LongMember {
     boolean?: never;
@@ -3127,11 +3125,11 @@ export namespace AttributeValue {
   }
 
   /**
-   * @public
    * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#string">String</a>
    *             type.</p>
    *          <p>Example: <code>\{"string": "abc"\}</code>
    *          </p>
+   * @public
    */
   export interface StringMember {
     boolean?: never;
@@ -3144,10 +3142,10 @@ export namespace AttributeValue {
   }
 
   /**
-   * @public
    * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#set">Set</a> type.</p>
    *          <p>Example: <code>\{"set": [ \{\} ] \}</code>
    *          </p>
+   * @public
    */
   export interface SetMember {
     boolean?: never;
@@ -3160,11 +3158,11 @@ export namespace AttributeValue {
   }
 
   /**
-   * @public
    * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#record">Record</a>
    *             type.</p>
    *          <p>Example: <code>\{"record": \{ "keyName": \{\} \} \}</code>
    *          </p>
+   * @public
    */
   export interface RecordMember {
     boolean?: never;
@@ -3211,7 +3209,6 @@ export namespace AttributeValue {
 }
 
 /**
- * @public
  * <p>Contains additional details about the context of the request. Verified Permissions evaluates this
  *             information in an authorization request as part of the <code>when</code> and
  *                 <code>unless</code> clauses in a policy.</p>
@@ -3220,6 +3217,7 @@ export namespace AttributeValue {
  *          <p>Example:
  *                 <code>"context":\{"contextMap":\{"&lt;KeyName1&gt;":\{"boolean":true\},"&lt;KeyName2&gt;":\{"long":1234\}\}\}</code>
  *          </p>
+ * @public
  */
 export type ContextDefinition = ContextDefinition.ContextMapMember | ContextDefinition.$UnknownMember;
 
@@ -3228,13 +3226,13 @@ export type ContextDefinition = ContextDefinition.ContextMapMember | ContextDefi
  */
 export namespace ContextDefinition {
   /**
-   * @public
    * <p>An list of attributes that are needed to successfully evaluate an authorization
    *             request. Each attribute in this array must include a map of a data type and its
    *             value.</p>
    *          <p>Example:
    *                 <code>"contextMap":\{"&lt;KeyName1&gt;":\{"boolean":true\},"&lt;KeyName2&gt;":\{"long":1234\}\}</code>
    *          </p>
+   * @public
    */
   export interface ContextMapMember {
     contextMap: Record<string, AttributeValue>;
@@ -3261,7 +3259,6 @@ export namespace ContextDefinition {
 }
 
 /**
- * @public
  * <p>Contains information about an entity that can be referenced in a Cedar
  *             policy.</p>
  *          <p>This data type is used as one of the fields in the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_EntitiesDefinition.html">EntitiesDefinition</a>
@@ -3271,105 +3268,106 @@ export namespace ContextDefinition {
  *                 "attributes": \{\}, "parents": [ \{ "entityType": "Album", "entityId": "alice_folder" \}
  *                 ] \}</code>
  *          </p>
+ * @public
  */
 export interface EntityItem {
   /**
-   * @public
    * <p>The identifier of the entity.</p>
+   * @public
    */
   identifier: EntityIdentifier | undefined;
 
   /**
-   * @public
    * <p>A list of attributes for the entity.</p>
+   * @public
    */
   attributes?: Record<string, AttributeValue>;
 
   /**
-   * @public
    * <p>The parents in the hierarchy that contains the entity.</p>
+   * @public
    */
   parents?: EntityIdentifier[];
 }
 
 /**
- * @public
  * <p>An authorization request that you include in a <code>BatchIsAuthorized</code> API
  *             request.</p>
+ * @public
  */
 export interface BatchIsAuthorizedInputItem {
   /**
-   * @public
    * <p>Specifies the principal for which the authorization decision is to be made.</p>
+   * @public
    */
   principal?: EntityIdentifier;
 
   /**
-   * @public
    * <p>Specifies the requested action to be authorized. For example, is the principal
    *             authorized to perform this action on the resource?</p>
+   * @public
    */
   action?: ActionIdentifier;
 
   /**
-   * @public
    * <p>Specifies the resource for which the authorization decision is to be made.</p>
+   * @public
    */
   resource?: EntityIdentifier;
 
   /**
-   * @public
    * <p>Specifies additional context that can be used to make more granular authorization
    *             decisions.</p>
+   * @public
    */
   context?: ContextDefinition;
 }
 
 /**
- * @public
  * <p>The decision, based on policy evaluation, from an individual authorization request in
  *             a <code>BatchIsAuthorized</code> API request.</p>
+ * @public
  */
 export interface BatchIsAuthorizedOutputItem {
   /**
-   * @public
    * <p>The authorization request that initiated the decision.</p>
+   * @public
    */
   request: BatchIsAuthorizedInputItem | undefined;
 
   /**
-   * @public
    * <p>An authorization decision that indicates if the authorization request should be
    *             allowed or denied.</p>
+   * @public
    */
   decision: Decision | undefined;
 
   /**
-   * @public
    * <p>The list of determining policies used to make the authorization decision. For example,
    *             if there are two matching policies, where one is a forbid and the other is a permit,
    *             then the forbid policy will be the determining policy. In the case of multiple matching
    *             permit policies then there would be multiple determining policies. In the case that no
    *             policies match, and hence the response is DENY, there would be no determining
    *             policies.</p>
+   * @public
    */
   determiningPolicies: DeterminingPolicyItem[] | undefined;
 
   /**
-   * @public
    * <p>Errors that occurred while making an authorization decision, for example, a policy
    *             references an Entity or entity Attribute that does not exist in the slice.</p>
+   * @public
    */
   errors: EvaluationErrorItem[] | undefined;
 }
 
 /**
- * @public
  * <p>Contains the list of entities to be considered during an authorization request. This
  *             includes all principals, resources, and actions required to successfully evaluate the
  *             request.</p>
  *          <p>This data type is used as a field in the response parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a>
  *             and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a> operations.</p>
+ * @public
  */
 export type EntitiesDefinition = EntitiesDefinition.EntityListMember | EntitiesDefinition.$UnknownMember;
 
@@ -3378,10 +3376,10 @@ export type EntitiesDefinition = EntitiesDefinition.EntityListMember | EntitiesD
  */
 export namespace EntitiesDefinition {
   /**
-   * @public
    * <p>An array of entities that are needed to successfully evaluate an authorization
    *             request. Each entity in this array must include an identifier for the entity, the
    *             attributes of the entity, and a list of any parent entities.</p>
+   * @public
    */
   export interface EntityListMember {
     entityList: EntityItem[];
@@ -3412,9 +3410,9 @@ export namespace EntitiesDefinition {
  */
 export interface BatchIsAuthorizedOutput {
   /**
-   * @public
    * <p>A series of <code>Allow</code> or <code>Deny</code> decisions for each request, and
    *             the policies that produced them.</p>
+   * @public
    */
   results: BatchIsAuthorizedOutputItem[] | undefined;
 }
@@ -3424,46 +3422,46 @@ export interface BatchIsAuthorizedOutput {
  */
 export interface IsAuthorizedInput {
   /**
-   * @public
    * <p>Specifies the ID of the policy store. Policies in this policy store will be used to make an
    *             authorization decision for the input.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the principal for which the authorization decision is to be made.</p>
+   * @public
    */
   principal?: EntityIdentifier;
 
   /**
-   * @public
    * <p>Specifies the requested action to be authorized. For example, is the principal
    *             authorized to perform this action on the resource?</p>
+   * @public
    */
   action?: ActionIdentifier;
 
   /**
-   * @public
    * <p>Specifies the resource for which the authorization decision is to be made.</p>
+   * @public
    */
   resource?: EntityIdentifier;
 
   /**
-   * @public
    * <p>Specifies additional context that can be used to make more granular authorization
    *             decisions.</p>
+   * @public
    */
   context?: ContextDefinition;
 
   /**
-   * @public
    * <p>Specifies the list of resources and principals and their associated attributes that
    *             Verified Permissions can examine when evaluating the policies. </p>
    *          <note>
    *             <p>You can include only principal and resource entities in this parameter; you can't
    *                 include actions. You must specify actions in the schema.</p>
    *          </note>
+   * @public
    */
   entities?: EntitiesDefinition;
 }
@@ -3473,57 +3471,56 @@ export interface IsAuthorizedInput {
  */
 export interface IsAuthorizedWithTokenInput {
   /**
-   * @public
    * <p>Specifies the ID of the policy store. Policies in this policy store will be used to make an
    *             authorization decision for the input.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * @public
    * <p>Specifies an identity token for the principal to be authorized. This token is provided
    *             to you by the identity provider (IdP) associated with the specified identity source. You must
    *             specify either an <code>accessToken</code>, an <code>identityToken</code>, or
    *             both.</p>
    *          <p>Must be an ID token. Verified Permissions returns an error if the <code>token_use</code> claim in the
    *             submitted token isn't <code>id</code>.</p>
+   * @public
    */
   identityToken?: string;
 
   /**
-   * @public
    * <p>Specifies an access token for the principal to be authorized. This token is provided
    *             to you by the identity provider (IdP) associated with the specified identity source. You must
    *             specify either an <code>accessToken</code>, an <code>identityToken</code>, or
    *             both.</p>
    *          <p>Must be an access token. Verified Permissions returns an error if the <code>token_use</code> claim in
    *             the submitted token isn't <code>access</code>.</p>
+   * @public
    */
   accessToken?: string;
 
   /**
-   * @public
    * <p>Specifies the requested action to be authorized. Is the specified principal authorized
    *             to perform this action on the specified resource.</p>
+   * @public
    */
   action?: ActionIdentifier;
 
   /**
-   * @public
    * <p>Specifies the resource for which the authorization decision is made. For example, is
    *             the principal allowed to perform the action on the resource?</p>
+   * @public
    */
   resource?: EntityIdentifier;
 
   /**
-   * @public
    * <p>Specifies additional context that can be used to make more granular authorization
    *             decisions.</p>
+   * @public
    */
   context?: ContextDefinition;
 
   /**
-   * @public
    * <p>Specifies the list of resources and their associated attributes that Verified Permissions can examine
    *             when evaluating the policies. </p>
    *          <note>
@@ -3544,6 +3541,7 @@ export interface IsAuthorizedWithTokenInput {
    *                </li>
    *             </ul>
    *          </note>
+   * @public
    */
   entities?: EntitiesDefinition;
 }
@@ -3553,26 +3551,26 @@ export interface IsAuthorizedWithTokenInput {
  */
 export interface BatchIsAuthorizedInput {
   /**
-   * @public
    * <p>Specifies the ID of the policy store. Policies in this policy store will be used to make the
    *             authorization decisions for the input.</p>
+   * @public
    */
   policyStoreId: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the list of resources and principals and their associated attributes that
    *             Verified Permissions can examine when evaluating the policies. </p>
    *          <note>
    *             <p>You can include only principal and resource entities in this parameter; you can't
    *                 include actions. You must specify actions in the schema.</p>
    *          </note>
+   * @public
    */
   entities?: EntitiesDefinition;
 
   /**
-   * @public
    * <p>An array of up to 30 requests that you want Verified Permissions to evaluate.</p>
+   * @public
    */
   requests: BatchIsAuthorizedInputItem[] | undefined;
 }

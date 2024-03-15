@@ -27,7 +27,6 @@ export interface ListRobotApplicationsCommandInput extends ListRobotApplications
 export interface ListRobotApplicationsCommandOutput extends ListRobotApplicationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of robot application. You can optionally provide filters to retrieve
  *          specific robot applications.</p>
  * @example
@@ -88,6 +87,7 @@ export interface ListRobotApplicationsCommandOutput extends ListRobotApplication
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ * @public
  */
 export class ListRobotApplicationsCommand extends $Command
   .classBuilder<

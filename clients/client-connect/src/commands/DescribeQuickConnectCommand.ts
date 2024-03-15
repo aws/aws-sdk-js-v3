@@ -27,7 +27,6 @@ export interface DescribeQuickConnectCommandInput extends DescribeQuickConnectRe
 export interface DescribeQuickConnectCommandOutput extends DescribeQuickConnectResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the quick connect.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface DescribeQuickConnectCommandOutput extends DescribeQuickConnectR
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DescribeQuickConnectCommand extends $Command
   .classBuilder<

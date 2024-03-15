@@ -36,7 +36,6 @@ export interface DescribeAppInstanceUserEndpointCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the full details of an <code>AppInstanceUserEndpoint</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface DescribeAppInstanceUserEndpointCommandOutput
  * @throws {@link ChimeSDKIdentityServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
+ * @public
  */
 export class DescribeAppInstanceUserEndpointCommand extends $Command
   .classBuilder<

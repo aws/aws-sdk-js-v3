@@ -27,7 +27,6 @@ export interface StartDataSourceSyncJobCommandInput extends StartDataSourceSyncJ
 export interface StartDataSourceSyncJobCommandOutput extends StartDataSourceSyncJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a data source connector synchronization job. If a synchronization job is
  *             already in progress, Amazon Q returns a <code>ConflictException</code>.</p>
  * @example
@@ -85,6 +84,7 @@ export interface StartDataSourceSyncJobCommandOutput extends StartDataSourceSync
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ * @public
  */
 export class StartDataSourceSyncJobCommand extends $Command
   .classBuilder<

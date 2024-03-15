@@ -27,7 +27,6 @@ export interface ListFiltersCommandInput extends ListFiltersRequest {}
 export interface ListFiltersCommandOutput extends ListFiltersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the filters associated with your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -216,6 +215,7 @@ export interface ListFiltersCommandOutput extends ListFiltersResponse, __Metadat
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class ListFiltersCommand extends $Command
   .classBuilder<

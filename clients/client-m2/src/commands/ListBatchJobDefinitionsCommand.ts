@@ -27,7 +27,6 @@ export interface ListBatchJobDefinitionsCommandInput extends ListBatchJobDefinit
 export interface ListBatchJobDefinitionsCommandOutput extends ListBatchJobDefinitionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the available batch job definitions based on the batch job resources uploaded
  *          during the application creation. You can use the batch job definitions in the list to start
  *          a batch job.</p>
@@ -86,6 +85,7 @@ export interface ListBatchJobDefinitionsCommandOutput extends ListBatchJobDefini
  * @throws {@link M2ServiceException}
  * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ * @public
  */
 export class ListBatchJobDefinitionsCommand extends $Command
   .classBuilder<

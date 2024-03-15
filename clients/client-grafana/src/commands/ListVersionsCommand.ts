@@ -27,7 +27,6 @@ export interface ListVersionsCommandInput extends ListVersionsRequest {}
 export interface ListVersionsCommandOutput extends ListVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists available versions of Grafana. These are available when calling
  *             <code>CreateWorkspace</code>. Optionally, include a workspace to list the versions
  *             to which it can be upgraded.</p>
@@ -77,6 +76,7 @@ export interface ListVersionsCommandOutput extends ListVersionsResponse, __Metad
  * @throws {@link GrafanaServiceException}
  * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
+ * @public
  */
 export class ListVersionsCommand extends $Command
   .classBuilder<

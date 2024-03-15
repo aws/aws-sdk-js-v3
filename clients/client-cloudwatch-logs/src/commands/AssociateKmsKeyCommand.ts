@@ -27,7 +27,6 @@ export interface AssociateKmsKeyCommandInput extends AssociateKmsKeyRequest {}
 export interface AssociateKmsKeyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates the specified KMS key with either one log group in the account, or with all stored
  *       CloudWatch Logs query insights results in the account.</p>
  *          <p>When you use <code>AssociateKmsKey</code>, you specify either the <code>logGroupName</code> parameter
@@ -110,6 +109,7 @@ export interface AssociateKmsKeyCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class AssociateKmsKeyCommand extends $Command
   .classBuilder<

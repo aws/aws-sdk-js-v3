@@ -27,7 +27,6 @@ export interface UpdateAgentStatusCommandInput extends UpdateAgentStatusRequest 
 export interface UpdateAgentStatusCommandOutput extends UpdateAgentStatusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p> For use by AWS Ground Station Agent and shouldn't be called directly.</p>
  *          </note>
@@ -85,6 +84,7 @@ export interface UpdateAgentStatusCommandOutput extends UpdateAgentStatusRespons
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ * @public
  */
 export class UpdateAgentStatusCommand extends $Command
   .classBuilder<

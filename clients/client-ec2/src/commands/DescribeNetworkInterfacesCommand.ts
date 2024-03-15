@@ -27,7 +27,6 @@ export interface DescribeNetworkInterfacesCommandInput extends DescribeNetworkIn
 export interface DescribeNetworkInterfacesCommandOutput extends DescribeNetworkInterfacesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes one or more of your network interfaces.</p>
  *          <p>If you have a large number of network interfaces, the operation fails unless
  *            you use pagination or one of the following filters: <code>group-id</code>,
@@ -168,6 +167,7 @@ export interface DescribeNetworkInterfacesCommandOutput extends DescribeNetworkI
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To describe a network interface
  * ```javascript
  * //

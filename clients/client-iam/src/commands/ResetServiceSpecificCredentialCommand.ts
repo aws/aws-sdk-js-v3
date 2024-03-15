@@ -36,7 +36,6 @@ export interface ResetServiceSpecificCredentialCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Resets the password for a service-specific credential. The new password is Amazon Web Services
  *             generated and cryptographically strong. It cannot be configured by the user. Resetting
  *             the password immediately invalidates the previous password associated with this
@@ -80,6 +79,7 @@ export interface ResetServiceSpecificCredentialCommandOutput
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class ResetServiceSpecificCredentialCommand extends $Command
   .classBuilder<

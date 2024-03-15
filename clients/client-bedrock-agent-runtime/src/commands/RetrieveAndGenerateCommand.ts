@@ -36,7 +36,6 @@ export interface RetrieveAndGenerateCommandInput extends RetrieveAndGenerateRequ
 export interface RetrieveAndGenerateCommandOutput extends RetrieveAndGenerateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Queries a knowledge base and generates responses based on the retrieved results. The response cites up to five sources but only selects the ones that are relevant to the query.</p>
  *          <note>
  *             <p>The <code>numberOfResults</code> field is currently unsupported for <code>RetrieveAndGenerate</code>. Don't include it in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_KnowledgeBaseVectorSearchConfiguration.html">vectorSearchConfiguration</a> object.</p>
@@ -142,6 +141,7 @@ export interface RetrieveAndGenerateCommandOutput extends RetrieveAndGenerateRes
  * @throws {@link BedrockAgentRuntimeServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgentRuntime service.</p>
  *
+ * @public
  */
 export class RetrieveAndGenerateCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface CreateFunctionCommandInput extends CreateFunctionRequest {}
 export interface CreateFunctionCommandOutput extends FunctionConfiguration, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Lambda function. To create a function, you need a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html">deployment package</a> and an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role">execution role</a>. The
  *       deployment package is a .zip file archive or container image that contains your function code. The execution role
  *       grants the function permission to use Amazon Web Services, such as Amazon CloudWatch Logs for log
@@ -299,6 +298,7 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class CreateFunctionCommand extends $Command
   .classBuilder<

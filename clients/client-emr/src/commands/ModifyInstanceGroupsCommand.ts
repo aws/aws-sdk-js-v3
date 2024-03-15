@@ -27,7 +27,6 @@ export interface ModifyInstanceGroupsCommandInput extends ModifyInstanceGroupsIn
 export interface ModifyInstanceGroupsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>ModifyInstanceGroups modifies the number of nodes and configuration settings of an
  *          instance group. The input parameters include the new target instance count for the group
  *          and the instance group ID. The call will either succeed or fail atomically.</p>
@@ -98,6 +97,7 @@ export interface ModifyInstanceGroupsCommandOutput extends __MetadataBearer {}
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class ModifyInstanceGroupsCommand extends $Command
   .classBuilder<

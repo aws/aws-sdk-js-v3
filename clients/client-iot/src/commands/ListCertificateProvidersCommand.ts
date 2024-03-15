@@ -27,7 +27,6 @@ export interface ListCertificateProvidersCommandInput extends ListCertificatePro
 export interface ListCertificateProvidersCommandOutput extends ListCertificateProvidersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all your certificate providers in your Amazon Web Services account.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListCertificateProviders</a> action.
  *       </p>
@@ -79,6 +78,7 @@ export interface ListCertificateProvidersCommandOutput extends ListCertificatePr
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListCertificateProvidersCommand extends $Command
   .classBuilder<

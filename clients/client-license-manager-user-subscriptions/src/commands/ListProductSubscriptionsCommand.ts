@@ -31,7 +31,6 @@ export interface ListProductSubscriptionsCommandInput extends ListProductSubscri
 export interface ListProductSubscriptionsCommandOutput extends ListProductSubscriptionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the user-based subscription products available from an identity provider.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -111,6 +110,7 @@ export interface ListProductSubscriptionsCommandOutput extends ListProductSubscr
  * @throws {@link LicenseManagerUserSubscriptionsServiceException}
  * <p>Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.</p>
  *
+ * @public
  */
 export class ListProductSubscriptionsCommand extends $Command
   .classBuilder<

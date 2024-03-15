@@ -34,7 +34,6 @@ export interface NotifyObjectCompleteCommandInput extends Omit<NotifyObjectCompl
 export interface NotifyObjectCompleteCommandOutput extends NotifyObjectCompleteOutput, __MetadataBearer {}
 
 /**
- * @public
  * Complete upload
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface NotifyObjectCompleteCommandOutput extends NotifyObjectCompleteO
  * @throws {@link BackupStorageServiceException}
  * <p>Base exception class for all service exceptions from BackupStorage service.</p>
  *
+ * @public
  */
 export class NotifyObjectCompleteCommand extends $Command
   .classBuilder<

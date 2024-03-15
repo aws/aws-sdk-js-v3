@@ -27,7 +27,6 @@ export interface ListUsersCommandInput extends ListUsersRequest {}
 export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides summary information about the users for the specified Amazon Connect
  *    instance.</p>
  * @example
@@ -82,6 +81,7 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class ListUsersCommand extends $Command
   .classBuilder<

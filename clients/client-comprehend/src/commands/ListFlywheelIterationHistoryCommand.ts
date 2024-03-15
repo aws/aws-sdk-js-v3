@@ -32,7 +32,6 @@ export interface ListFlywheelIterationHistoryCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Information about the history of a flywheel iteration.
  *       For more information about flywheels, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
  *       Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
@@ -109,6 +108,7 @@ export interface ListFlywheelIterationHistoryCommandOutput
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class ListFlywheelIterationHistoryCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface GetProvisionedProductOutputsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>This API takes either a <code>ProvisonedProductId</code> or a <code>ProvisionedProductName</code>, along with a list of one or more output keys, and responds with the key/value pairs of those outputs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface GetProvisionedProductOutputsCommandOutput
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class GetProvisionedProductOutputsCommand extends $Command
   .classBuilder<

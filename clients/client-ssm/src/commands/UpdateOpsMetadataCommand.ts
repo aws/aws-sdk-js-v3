@@ -27,7 +27,6 @@ export interface UpdateOpsMetadataCommandInput extends UpdateOpsMetadataRequest 
 export interface UpdateOpsMetadataCommandOutput extends UpdateOpsMetadataResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Amazon Web Services Systems Manager calls this API operation when you edit OpsMetadata in Application Manager.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface UpdateOpsMetadataCommandOutput extends UpdateOpsMetadataResult,
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class UpdateOpsMetadataCommand extends $Command
   .classBuilder<

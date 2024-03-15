@@ -32,7 +32,6 @@ export interface ConfirmTransitVirtualInterfaceCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Accepts ownership of a transit virtual interface created by another Amazon Web Services account.</p>
  *          <p> After the owner of the transit virtual interface makes this call, the specified transit virtual interface is created and made available to handle traffic.</p>
  * @example
@@ -68,6 +67,7 @@ export interface ConfirmTransitVirtualInterfaceCommandOutput
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class ConfirmTransitVirtualInterfaceCommand extends $Command
   .classBuilder<

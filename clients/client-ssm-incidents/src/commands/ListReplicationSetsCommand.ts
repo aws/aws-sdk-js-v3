@@ -27,7 +27,6 @@ export interface ListReplicationSetsCommandInput extends ListReplicationSetsInpu
 export interface ListReplicationSetsCommandOutput extends ListReplicationSetsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists details about the replication set configured in your account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface ListReplicationSetsCommandOutput extends ListReplicationSetsOut
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ * @public
  */
 export class ListReplicationSetsCommand extends $Command
   .classBuilder<

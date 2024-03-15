@@ -39,7 +39,6 @@ export type GetMapSpritesCommandOutputType = Omit<GetMapSpritesResponse, "Blob">
 export interface GetMapSpritesCommandOutput extends GetMapSpritesCommandOutputType, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the sprite sheet corresponding to a map resource. The sprite sheet is a PNG
  *             image paired with a JSON document describing the offsets of individual icons that will
  *             be displayed on a rendered map.</p>
@@ -89,6 +88,7 @@ export interface GetMapSpritesCommandOutput extends GetMapSpritesCommandOutputTy
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class GetMapSpritesCommand extends $Command
   .classBuilder<

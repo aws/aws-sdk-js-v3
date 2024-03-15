@@ -27,7 +27,6 @@ export interface UpdateSMBLocalGroupsCommandInput extends UpdateSMBLocalGroupsIn
 export interface UpdateSMBLocalGroupsCommandOutput extends UpdateSMBLocalGroupsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the list of Active Directory users and groups that have special permissions for
  *          SMB file shares on the gateway.</p>
  * @example
@@ -69,6 +68,7 @@ export interface UpdateSMBLocalGroupsCommandOutput extends UpdateSMBLocalGroupsO
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  */
 export class UpdateSMBLocalGroupsCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface ListResourceSharePermissionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the RAM permissions that are associated with a resource share.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -108,6 +107,7 @@ export interface ListResourceSharePermissionsCommandOutput
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * @public
  */
 export class ListResourceSharePermissionsCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface GetPlatformApplicationAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the attributes of the platform application object for the supported push
  *             notification services, such as APNS and GCM (Firebase Cloud Messaging). For more
  *             information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
@@ -77,6 +76,7 @@ export interface GetPlatformApplicationAttributesCommandOutput
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * @public
  */
 export class GetPlatformApplicationAttributesCommand extends $Command
   .classBuilder<

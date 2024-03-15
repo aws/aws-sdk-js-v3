@@ -36,7 +36,6 @@ export interface GetRecoveryGroupReadinessSummaryCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Displays a summary of information about a recovery group's readiness status. Includes the readiness checks for resources in the recovery group and the readiness status of each one.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface GetRecoveryGroupReadinessSummaryCommandOutput
  * @throws {@link Route53RecoveryReadinessServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
+ * @public
  */
 export class GetRecoveryGroupReadinessSummaryCommand extends $Command
   .classBuilder<

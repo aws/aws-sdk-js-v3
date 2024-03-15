@@ -27,7 +27,6 @@ export interface CreateBackendConfigCommandInput extends CreateBackendConfigRequ
 export interface CreateBackendConfigCommandOutput extends CreateBackendConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a config object for a backend.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface CreateBackendConfigCommandOutput extends CreateBackendConfigRes
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ * @public
  */
 export class CreateBackendConfigCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteRepositoryCommandInput extends DeleteRepositoryRequest {}
 export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a repository in a public registry. If the repository contains images, you must
  *          either manually delete all images in the repository or use the <code>force</code> option.
  *          This option deletes all images on your behalf before deleting the repository.</p>
@@ -83,6 +82,7 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResponse,
  * @throws {@link ECRPUBLICServiceException}
  * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
+ * @public
  */
 export class DeleteRepositoryCommand extends $Command
   .classBuilder<

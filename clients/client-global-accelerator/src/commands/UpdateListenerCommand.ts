@@ -31,7 +31,6 @@ export interface UpdateListenerCommandInput extends UpdateListenerRequest {}
 export interface UpdateListenerCommandOutput extends UpdateListenerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update a listener. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface UpdateListenerCommandOutput extends UpdateListenerResponse, __M
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class UpdateListenerCommand extends $Command
   .classBuilder<

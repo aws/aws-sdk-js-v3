@@ -31,7 +31,6 @@ export interface StopHumanLoopCommandInput extends StopHumanLoopRequest {}
 export interface StopHumanLoopCommandOutput extends StopHumanLoopResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops the specified human loop.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface StopHumanLoopCommandOutput extends StopHumanLoopResponse, __Met
  * @throws {@link SageMakerA2IRuntimeServiceException}
  * <p>Base exception class for all service exceptions from SageMakerA2IRuntime service.</p>
  *
+ * @public
  */
 export class StopHumanLoopCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateFieldCommandInput extends UpdateFieldRequest {}
 export interface UpdateFieldCommandOutput extends UpdateFieldResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the properties of an existing field. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface UpdateFieldCommandOutput extends UpdateFieldResponse, __Metadat
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ * @public
  */
 export class UpdateFieldCommand extends $Command
   .classBuilder<

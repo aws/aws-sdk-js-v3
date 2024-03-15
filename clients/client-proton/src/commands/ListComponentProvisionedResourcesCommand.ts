@@ -32,7 +32,6 @@ export interface ListComponentProvisionedResourcesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>List provisioned resources for a component with details.</p>
  *          <p>For more information about components, see
  *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
@@ -86,6 +85,7 @@ export interface ListComponentProvisionedResourcesCommandOutput
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class ListComponentProvisionedResourcesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteUserHierarchyGroupCommandInput extends DeleteUserHierarch
 export interface DeleteUserHierarchyGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing user hierarchy group. It must not be associated with any agents or have
  *    any active child groups.</p>
  * @example
@@ -73,6 +72,7 @@ export interface DeleteUserHierarchyGroupCommandOutput extends __MetadataBearer 
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DeleteUserHierarchyGroupCommand extends $Command
   .classBuilder<

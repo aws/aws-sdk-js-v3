@@ -27,7 +27,6 @@ export interface ListAppsCommandInput extends ListAppsRequest {}
 export interface ListAppsCommandOutput extends ListAppsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the existing Amplify apps. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -124,6 +123,7 @@ export interface ListAppsCommandOutput extends ListAppsResult, __MetadataBearer 
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ * @public
  */
 export class ListAppsCommand extends $Command
   .classBuilder<

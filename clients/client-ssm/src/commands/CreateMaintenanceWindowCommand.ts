@@ -31,7 +31,6 @@ export interface CreateMaintenanceWindowCommandInput extends CreateMaintenanceWi
 export interface CreateMaintenanceWindowCommandOutput extends CreateMaintenanceWindowResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new maintenance window.</p>
  *          <note>
  *             <p>The value you specify for <code>Duration</code> determines the specific end time for the
@@ -96,6 +95,7 @@ export interface CreateMaintenanceWindowCommandOutput extends CreateMaintenanceW
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class CreateMaintenanceWindowCommand extends $Command
   .classBuilder<

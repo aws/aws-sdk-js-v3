@@ -27,7 +27,6 @@ export interface GetListsMetadataCommandInput extends GetListsMetadataRequest {}
 export interface GetListsMetadataCommandOutput extends GetListsMetadataResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *            Gets the metadata of either all the lists under the account or the specified list.
  *         </p>
@@ -84,6 +83,7 @@ export interface GetListsMetadataCommandOutput extends GetListsMetadataResult, _
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class GetListsMetadataCommand extends $Command
   .classBuilder<

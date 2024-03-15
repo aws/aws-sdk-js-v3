@@ -27,7 +27,6 @@ export interface DeleteRecoveryPointCommandInput extends DeleteRecoveryPointInpu
 export interface DeleteRecoveryPointCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the recovery point specified by a recovery point ID.</p>
  *          <p>If the recovery point ID belongs to a continuous backup, calling this endpoint deletes
  *          the existing continuous backup and stops future continuous backup.</p>
@@ -87,6 +86,7 @@ export interface DeleteRecoveryPointCommandOutput extends __MetadataBearer {}
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class DeleteRecoveryPointCommand extends $Command
   .classBuilder<

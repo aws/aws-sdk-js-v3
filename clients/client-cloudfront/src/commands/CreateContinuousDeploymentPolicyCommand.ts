@@ -32,7 +32,6 @@ export interface CreateContinuousDeploymentPolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a continuous deployment policy that distributes traffic for a custom domain
  * 			name to two different CloudFront distributions.</p>
  *          <p>To use a continuous deployment policy, first use <code>CopyDistribution</code> to
@@ -138,6 +137,7 @@ export interface CreateContinuousDeploymentPolicyCommandOutput
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class CreateContinuousDeploymentPolicyCommand extends $Command
   .classBuilder<

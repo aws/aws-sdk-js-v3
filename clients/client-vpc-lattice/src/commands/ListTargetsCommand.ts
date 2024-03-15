@@ -27,7 +27,6 @@ export interface ListTargetsCommandInput extends ListTargetsRequest {}
 export interface ListTargetsCommandOutput extends ListTargetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the targets for the target group. By default, all targets are included. You can use
  *    this API to check the health status of targets. You can also ﬁlter the results by target. </p>
  * @example
@@ -88,6 +87,7 @@ export interface ListTargetsCommandOutput extends ListTargetsResponse, __Metadat
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class ListTargetsCommand extends $Command
   .classBuilder<

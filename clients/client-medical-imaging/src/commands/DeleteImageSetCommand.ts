@@ -27,7 +27,6 @@ export interface DeleteImageSetCommandInput extends DeleteImageSetRequest {}
 export interface DeleteImageSetCommandOutput extends DeleteImageSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete an image set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface DeleteImageSetCommandOutput extends DeleteImageSetResponse, __M
  * @throws {@link MedicalImagingServiceException}
  * <p>Base exception class for all service exceptions from MedicalImaging service.</p>
  *
+ * @public
  */
 export class DeleteImageSetCommand extends $Command
   .classBuilder<

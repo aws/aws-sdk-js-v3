@@ -36,7 +36,6 @@ export interface DescribeLoadBalancerPolicyTypesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified load balancer policy types or all load balancer policy types.</p>
  *          <p>The description of each type indicates how it can be used. For example,
  *            some policies can be used only with layer 7 listeners,
@@ -90,6 +89,7 @@ export interface DescribeLoadBalancerPolicyTypesCommandOutput
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * @public
  * @example To describe a load balancer policy type defined by Elastic Load Balancing
  * ```javascript
  * // This example describes the specified load balancer policy type.

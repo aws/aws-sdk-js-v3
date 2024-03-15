@@ -27,7 +27,6 @@ export interface DeleteLifecycleHookCommandInput extends DeleteLifecycleHookType
 export interface DeleteLifecycleHookCommandOutput extends DeleteLifecycleHookAnswer, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified lifecycle hook.</p>
  *          <p>If there are any outstanding lifecycle actions, they are completed first
  *                 (<code>ABANDON</code> for launching instances, <code>CONTINUE</code> for terminating
@@ -61,6 +60,7 @@ export interface DeleteLifecycleHookCommandOutput extends DeleteLifecycleHookAns
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To delete a lifecycle hook
  * ```javascript
  * // This example deletes the specified lifecycle hook.

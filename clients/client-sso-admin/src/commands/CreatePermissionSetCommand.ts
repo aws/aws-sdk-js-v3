@@ -27,7 +27,6 @@ export interface CreatePermissionSetCommandInput extends CreatePermissionSetRequ
 export interface CreatePermissionSetCommandOutput extends CreatePermissionSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a permission set within a specified IAM Identity Center instance.</p>
  *          <note>
  *             <p>To grant users and groups access to Amazon Web Services account resources, use <code>
@@ -104,6 +103,7 @@ export interface CreatePermissionSetCommandOutput extends CreatePermissionSetRes
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class CreatePermissionSetCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface StopTriggerCommandInput extends StopTriggerRequest {}
 export interface StopTriggerCommandOutput extends StopTriggerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a specified trigger.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface StopTriggerCommandOutput extends StopTriggerResponse, __Metadat
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class StopTriggerCommand extends $Command
   .classBuilder<

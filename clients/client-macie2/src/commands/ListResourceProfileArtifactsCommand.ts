@@ -32,7 +32,6 @@ export interface ListResourceProfileArtifactsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about objects that were selected from an S3 bucket for automated sensitive data discovery.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface ListResourceProfileArtifactsCommandOutput
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class ListResourceProfileArtifactsCommand extends $Command
   .classBuilder<

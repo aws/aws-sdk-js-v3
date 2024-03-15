@@ -1021,8 +1021,8 @@ export interface Finspace {
 }
 
 /**
- * @public
  * <p>The FinSpace management service provides the APIs for managing FinSpace environments.</p>
+ * @public
  */
 export class Finspace extends FinspaceClient implements Finspace {}
 createAggregatedClient(commands, Finspace);

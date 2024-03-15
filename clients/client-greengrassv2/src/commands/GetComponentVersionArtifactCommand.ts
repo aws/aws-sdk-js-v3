@@ -32,7 +32,6 @@ export interface GetComponentVersionArtifactCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the pre-signed URL to download a public or a Lambda component artifact. Core devices
  *       call this operation to identify the URL that they can use to download an artifact to
  *       install.</p>
@@ -80,6 +79,7 @@ export interface GetComponentVersionArtifactCommandOutput
  * @throws {@link GreengrassV2ServiceException}
  * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ * @public
  */
 export class GetComponentVersionArtifactCommand extends $Command
   .classBuilder<

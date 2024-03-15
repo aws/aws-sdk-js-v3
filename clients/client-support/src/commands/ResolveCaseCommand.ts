@@ -27,7 +27,6 @@ export interface ResolveCaseCommandInput extends ResolveCaseRequest {}
 export interface ResolveCaseCommandOutput extends ResolveCaseResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Resolves a support case. This operation takes a <code>caseId</code> and returns the
  *             initial and final state of the case.</p>
  *          <note>
@@ -77,6 +76,7 @@ export interface ResolveCaseCommandOutput extends ResolveCaseResponse, __Metadat
  * @throws {@link SupportServiceException}
  * <p>Base exception class for all service exceptions from Support service.</p>
  *
+ * @public
  */
 export class ResolveCaseCommand extends $Command
   .classBuilder<

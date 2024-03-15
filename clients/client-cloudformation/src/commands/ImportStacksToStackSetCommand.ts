@@ -27,7 +27,6 @@ export interface ImportStacksToStackSetCommandInput extends ImportStacksToStackS
 export interface ImportStacksToStackSetCommandOutput extends ImportStacksToStackSetOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Import existing stacks into a new stack sets. Use the stack import operation to import up to 10 stacks into a
  *    new stack set in the same account as the source stack or in a different administrator account and Region, by
  *    specifying the stack ID of the stack you intend to import.</p>
@@ -101,6 +100,7 @@ export interface ImportStacksToStackSetCommandOutput extends ImportStacksToStack
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class ImportStacksToStackSetCommand extends $Command
   .classBuilder<

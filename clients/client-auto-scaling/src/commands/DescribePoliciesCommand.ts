@@ -27,7 +27,6 @@ export interface DescribePoliciesCommandInput extends DescribePoliciesType {}
 export interface DescribePoliciesCommandOutput extends PoliciesType, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the scaling policies in the account and Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -224,6 +223,7 @@ export interface DescribePoliciesCommandOutput extends PoliciesType, __MetadataB
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To describe scaling policies
  * ```javascript
  * // This example describes the policies for the specified Auto Scaling group.

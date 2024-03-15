@@ -31,7 +31,6 @@ export interface GetNodeCommandInput extends GetNodeInput {}
 export interface GetNodeCommandOutput extends GetNodeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns detailed information about a node.</p>
  *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
  * @example
@@ -118,6 +117,7 @@ export interface GetNodeCommandOutput extends GetNodeOutput, __MetadataBearer {}
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ * @public
  */
 export class GetNodeCommand extends $Command
   .classBuilder<

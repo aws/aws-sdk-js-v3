@@ -30,7 +30,6 @@ export interface ListClosedWorkflowExecutionsCommandInput extends ListClosedWork
 export interface ListClosedWorkflowExecutionsCommandOutput extends WorkflowExecutionInfos, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of closed workflow executions in the specified domain that meet the
  *       filtering criteria. The results may be split into multiple pages. To retrieve subsequent
  *       pages, make the call again using the nextPageToken returned by the initial call.</p>
@@ -159,6 +158,7 @@ export interface ListClosedWorkflowExecutionsCommandOutput extends WorkflowExecu
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ * @public
  */
 export class ListClosedWorkflowExecutionsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListObjectParentsCommandInput extends ListObjectParentsRequest 
 export interface ListObjectParentsCommandOutput extends ListObjectParentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists parent objects that are associated with a given object in pagination
  *       fashion.</p>
  * @example
@@ -103,6 +102,7 @@ export interface ListObjectParentsCommandOutput extends ListObjectParentsRespons
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class ListObjectParentsCommand extends $Command
   .classBuilder<

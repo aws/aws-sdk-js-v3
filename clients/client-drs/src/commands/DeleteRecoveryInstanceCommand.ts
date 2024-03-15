@@ -27,7 +27,6 @@ export interface DeleteRecoveryInstanceCommandInput extends DeleteRecoveryInstan
 export interface DeleteRecoveryInstanceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a single Recovery Instance by ID. This deletes the Recovery Instance resource from Elastic Disaster Recovery. The Recovery Instance must be disconnected first in order to delete it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DeleteRecoveryInstanceCommandOutput extends __MetadataBearer {}
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * @public
  */
 export class DeleteRecoveryInstanceCommand extends $Command
   .classBuilder<

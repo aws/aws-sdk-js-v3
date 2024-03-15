@@ -27,7 +27,6 @@ export interface UpgradePublishedSchemaCommandInput extends UpgradePublishedSche
 export interface UpgradePublishedSchemaCommandOutput extends UpgradePublishedSchemaResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Upgrades a published schema under a new minor version revision using the current contents of <code>DevelopmentSchemaArn</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface UpgradePublishedSchemaCommandOutput extends UpgradePublishedSch
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class UpgradePublishedSchemaCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetServiceQuotaCommandInput extends GetServiceQuotaRequest {}
 export interface GetServiceQuotaCommandOutput extends GetServiceQuotaResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the applied quota value for the specified quota. For some quotas, only the
  *             default values are available. If the applied quota value is not available for a quota,
  *             the quota is not retrieved.</p>
@@ -107,6 +106,7 @@ export interface GetServiceQuotaCommandOutput extends GetServiceQuotaResponse, _
  * @throws {@link ServiceQuotasServiceException}
  * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
+ * @public
  */
 export class GetServiceQuotaCommand extends $Command
   .classBuilder<

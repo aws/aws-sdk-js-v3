@@ -27,7 +27,6 @@ export interface StopClockCommandInput extends StopClockInput {}
 export interface StopClockCommandOutput extends StopClockOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops the simulation clock.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface StopClockCommandOutput extends StopClockOutput, __MetadataBeare
  * @throws {@link SimSpaceWeaverServiceException}
  * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
+ * @public
  */
 export class StopClockCommand extends $Command
   .classBuilder<

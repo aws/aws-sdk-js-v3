@@ -27,7 +27,6 @@ export interface DeleteTopicCommandInput extends DeleteTopicInput {}
 export interface DeleteTopicCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a topic and all its subscriptions. Deleting a topic might prevent some
  *             messages previously sent to the topic from being delivered to subscribers. This action
  *             is idempotent, so deleting a topic that does not exist does not result in an
@@ -84,6 +83,7 @@ export interface DeleteTopicCommandOutput extends __MetadataBearer {}
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * @public
  */
 export class DeleteTopicCommand extends $Command
   .classBuilder<

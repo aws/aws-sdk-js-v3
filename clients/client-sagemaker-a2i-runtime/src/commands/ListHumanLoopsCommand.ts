@@ -31,7 +31,6 @@ export interface ListHumanLoopsCommandInput extends ListHumanLoopsRequest {}
 export interface ListHumanLoopsCommandOutput extends ListHumanLoopsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about human loops, given the specified parameters. If a human loop was deleted, it will not be included.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface ListHumanLoopsCommandOutput extends ListHumanLoopsResponse, __M
  * @throws {@link SageMakerA2IRuntimeServiceException}
  * <p>Base exception class for all service exceptions from SageMakerA2IRuntime service.</p>
  *
+ * @public
  */
 export class ListHumanLoopsCommand extends $Command
   .classBuilder<

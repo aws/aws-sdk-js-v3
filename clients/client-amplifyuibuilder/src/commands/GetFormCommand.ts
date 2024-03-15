@@ -27,7 +27,6 @@ export interface GetFormCommandInput extends GetFormRequest {}
 export interface GetFormCommandOutput extends GetFormResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an existing form for an Amplify app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -222,6 +221,7 @@ export interface GetFormCommandOutput extends GetFormResponse, __MetadataBearer 
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ * @public
  */
 export class GetFormCommand extends $Command
   .classBuilder<

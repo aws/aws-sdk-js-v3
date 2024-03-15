@@ -29,7 +29,6 @@ export interface ListStorageLensGroupsCommandInput extends ListStorageLensGroups
 export interface ListStorageLensGroupsCommandOutput extends ListStorageLensGroupsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  * Lists all the Storage Lens groups in the specified home Region.
  * </p>
@@ -72,6 +71,7 @@ export interface ListStorageLensGroupsCommandOutput extends ListStorageLensGroup
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class ListStorageLensGroupsCommand extends $Command
   .classBuilder<

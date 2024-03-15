@@ -27,7 +27,6 @@ export interface CreateLensShareCommandInput extends CreateLensShareInput {}
 export interface CreateLensShareCommandOutput extends CreateLensShareOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a lens share.</p>
  *          <p>The owner of a lens can share it with other Amazon Web Services accounts, users, an organization,
  *             and organizational units (OUs) in the same Amazon Web Services Region.
@@ -98,6 +97,7 @@ export interface CreateLensShareCommandOutput extends CreateLensShareOutput, __M
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * @public
  */
 export class CreateLensShareCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeMountTargetsCommandInput extends DescribeMountTargetsRe
 export interface DescribeMountTargetsCommandOutput extends DescribeMountTargetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the descriptions of all the current mount targets, or a specific mount target,
  *       for a file system. When requesting all of the current mount targets, the order of mount
  *       targets returned in the response is unspecified.</p>
@@ -99,6 +98,7 @@ export interface DescribeMountTargetsCommandOutput extends DescribeMountTargetsR
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * @public
  * @example To describe the mount targets for a file system
  * ```javascript
  * // This operation describes all of a file system's mount targets.

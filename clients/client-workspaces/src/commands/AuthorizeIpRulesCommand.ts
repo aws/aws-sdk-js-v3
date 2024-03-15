@@ -27,7 +27,6 @@ export interface AuthorizeIpRulesCommandInput extends AuthorizeIpRulesRequest {}
 export interface AuthorizeIpRulesCommandOutput extends AuthorizeIpRulesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds one or more rules to the specified IP access control group.</p>
  *          <p>This action gives users permission to access their WorkSpaces from the CIDR address
  *          ranges specified in the rules.</p>
@@ -76,6 +75,7 @@ export interface AuthorizeIpRulesCommandOutput extends AuthorizeIpRulesResult, _
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class AuthorizeIpRulesCommand extends $Command
   .classBuilder<

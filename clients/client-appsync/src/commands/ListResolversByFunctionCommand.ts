@@ -27,7 +27,6 @@ export interface ListResolversByFunctionCommandInput extends ListResolversByFunc
 export interface ListResolversByFunctionCommandOutput extends ListResolversByFunctionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List the resolvers that are associated with a specific function.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -107,6 +106,7 @@ export interface ListResolversByFunctionCommandOutput extends ListResolversByFun
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class ListResolversByFunctionCommand extends $Command
   .classBuilder<

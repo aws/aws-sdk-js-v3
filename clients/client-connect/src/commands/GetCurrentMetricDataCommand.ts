@@ -27,7 +27,6 @@ export interface GetCurrentMetricDataCommandInput extends GetCurrentMetricDataRe
 export interface GetCurrentMetricDataCommandOutput extends GetCurrentMetricDataResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the real-time metric data from the specified Amazon Connect instance.</p>
  *          <p>For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html">Real-time Metrics
  *     Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
@@ -130,6 +129,7 @@ export interface GetCurrentMetricDataCommandOutput extends GetCurrentMetricDataR
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class GetCurrentMetricDataCommand extends $Command
   .classBuilder<

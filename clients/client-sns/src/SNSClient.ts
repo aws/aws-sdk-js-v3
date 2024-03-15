@@ -444,7 +444,6 @@ export type SNSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
 export interface SNSClientResolvedConfig extends SNSClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>Amazon Simple Notification Service</fullname>
  *          <p>Amazon Simple Notification Service (Amazon SNS) is a web service that enables you
  *             to build distributed web-enabled applications. Applications can use Amazon SNS to easily push
@@ -458,6 +457,7 @@ export interface SNSClientResolvedConfig extends SNSClientResolvedConfigType {}
  *             language. The SDKs contain functionality that automatically takes care of tasks such as:
  *             cryptographically signing your service requests, retrying requests, and handling error
  *             responses. For a list of available SDKs, go to <a href="http://aws.amazon.com/tools/">Tools for Amazon Web Services</a>. </p>
+ * @public
  */
 export class SNSClient extends __Client<
   __HttpHandlerOptions,

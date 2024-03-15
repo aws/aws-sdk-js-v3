@@ -43,7 +43,6 @@ export interface RecognizeUtteranceCommandOutput
 }
 
 /**
- * @public
  * <p>Sends user input to Amazon Lex V2. You can send text or speech. Clients use
  *          this API to send text and audio requests to Amazon Lex V2 at runtime. Amazon Lex V2
  *          interprets the user input using the machine learning model built for
@@ -174,6 +173,7 @@ export interface RecognizeUtteranceCommandOutput
  * @throws {@link LexRuntimeV2ServiceException}
  * <p>Base exception class for all service exceptions from LexRuntimeV2 service.</p>
  *
+ * @public
  */
 export class RecognizeUtteranceCommand extends $Command
   .classBuilder<

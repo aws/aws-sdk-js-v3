@@ -27,7 +27,6 @@ export interface UpdateModelManifestCommandInput extends UpdateModelManifestRequ
 export interface UpdateModelManifestCommandOutput extends UpdateModelManifestResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Updates a vehicle model (model manifest). If created vehicles are associated with a
  *             vehicle model, it can't be updated.</p>
  * @example
@@ -87,6 +86,7 @@ export interface UpdateModelManifestCommandOutput extends UpdateModelManifestRes
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class UpdateModelManifestCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeAvailablePatchesCommandInput extends DescribeAvailableP
 export interface DescribeAvailablePatchesCommandOutput extends DescribeAvailablePatchesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all patches eligible to be included in a patch baseline.</p>
  *          <note>
  *             <p>Currently, <code>DescribeAvailablePatches</code> supports only the Amazon Linux 1, Amazon
@@ -104,6 +103,7 @@ export interface DescribeAvailablePatchesCommandOutput extends DescribeAvailable
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DescribeAvailablePatchesCommand extends $Command
   .classBuilder<

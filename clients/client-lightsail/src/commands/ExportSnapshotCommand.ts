@@ -27,7 +27,6 @@ export interface ExportSnapshotCommandInput extends ExportSnapshotRequest {}
 export interface ExportSnapshotCommandOutput extends ExportSnapshotResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Exports an Amazon Lightsail instance or block storage disk snapshot to Amazon Elastic Compute Cloud (Amazon EC2).
  *       This operation results in an export snapshot record that can be used with the <code>create
  *         cloud formation stack</code> operation to create new Amazon EC2 instances.</p>
@@ -117,6 +116,7 @@ export interface ExportSnapshotCommandOutput extends ExportSnapshotResult, __Met
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class ExportSnapshotCommand extends $Command
   .classBuilder<

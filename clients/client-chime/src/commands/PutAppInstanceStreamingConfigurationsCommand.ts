@@ -38,9 +38,6 @@ export interface PutAppInstanceStreamingConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by PutAppInstanceStreamingConfigurations in the Amazon Chime SDK Messaging Namespace
- *
  * <p>The data streaming configurations of an <code>AppInstance</code>.</p>
  *          <important>
  *             <p>
@@ -107,6 +104,8 @@ export interface PutAppInstanceStreamingConfigurationsCommandOutput
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by PutAppInstanceStreamingConfigurations in the Amazon Chime SDK Messaging Namespace
  */
 export class PutAppInstanceStreamingConfigurationsCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCom
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Deletes a local gateway route table virtual interface group association.
  *       </p>
@@ -81,6 +80,7 @@ export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCom
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand extends $Command
   .classBuilder<

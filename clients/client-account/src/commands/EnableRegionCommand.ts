@@ -27,7 +27,6 @@ export interface EnableRegionCommandInput extends EnableRegionRequest {}
 export interface EnableRegionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables (opts-in) a particular Region for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface EnableRegionCommandOutput extends __MetadataBearer {}
  * @throws {@link AccountServiceException}
  * <p>Base exception class for all service exceptions from Account service.</p>
  *
+ * @public
  */
 export class EnableRegionCommand extends $Command
   .classBuilder<

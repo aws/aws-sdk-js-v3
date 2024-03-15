@@ -32,9 +32,6 @@ export interface ListChannelMessagesCommandInput extends ListChannelMessagesRequ
 export interface ListChannelMessagesCommandOutput extends ListChannelMessagesResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by ListChannelMessages in the Amazon Chime SDK Messaging Namespace
- *
  * <p>List all the messages in a channel. Returns a paginated list of
  *             <code>ChannelMessages</code>. By default, sorted by creation timestamp in descending
  *          order.</p>
@@ -120,6 +117,8 @@ export interface ListChannelMessagesCommandOutput extends ListChannelMessagesRes
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by ListChannelMessages in the Amazon Chime SDK Messaging Namespace
  */
 export class ListChannelMessagesCommand extends $Command
   .classBuilder<

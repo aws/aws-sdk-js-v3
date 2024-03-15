@@ -31,9 +31,6 @@ export interface UpdatePermissionGroupCommandInput extends UpdatePermissionGroup
 export interface UpdatePermissionGroupCommandOutput extends UpdatePermissionGroupResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This method will be discontinued.
- *
  * <p>Modifies the details of a permission group. You cannot modify a <code>permissionGroupID</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +83,8 @@ export interface UpdatePermissionGroupCommandOutput extends UpdatePermissionGrou
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ * @public
+ * @deprecated This method will be discontinued.
  */
 export class UpdatePermissionGroupCommand extends $Command
   .classBuilder<

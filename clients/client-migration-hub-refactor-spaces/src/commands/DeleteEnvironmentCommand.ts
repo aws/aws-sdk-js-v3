@@ -31,7 +31,6 @@ export interface DeleteEnvironmentCommandInput extends DeleteEnvironmentRequest 
 export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Amazon Web Services Migration Hub Refactor Spaces environment. Before you can delete an environment, you must first
  *       delete any applications and services within the environment.</p>
  * @example
@@ -83,6 +82,7 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentRespons
  * @throws {@link MigrationHubRefactorSpacesServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
+ * @public
  */
 export class DeleteEnvironmentCommand extends $Command
   .classBuilder<

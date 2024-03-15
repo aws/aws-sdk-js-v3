@@ -27,7 +27,6 @@ export interface StartExperimentCommandInput extends StartExperimentRequest {}
 export interface StartExperimentCommandOutput extends StartExperimentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts running an experiment from the specified experiment template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -155,6 +154,7 @@ export interface StartExperimentCommandOutput extends StartExperimentResponse, _
  * @throws {@link FisServiceException}
  * <p>Base exception class for all service exceptions from Fis service.</p>
  *
+ * @public
  */
 export class StartExperimentCommand extends $Command
   .classBuilder<

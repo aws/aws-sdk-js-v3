@@ -32,7 +32,6 @@ export interface AssociateServiceRoleToAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * Associates a role with your account. AWS IoT Greengrass will use the role to access your Lambda functions and AWS IoT resources. This is necessary for deployments to succeed. The role must have at least minimum permissions in the policy ''AWSGreengrassResourceAccessRolePolicy''.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface AssociateServiceRoleToAccountCommandOutput
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class AssociateServiceRoleToAccountCommand extends $Command
   .classBuilder<

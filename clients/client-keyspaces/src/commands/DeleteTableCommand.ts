@@ -27,7 +27,6 @@ export interface DeleteTableCommandInput extends DeleteTableRequest {}
 export interface DeleteTableCommandOutput extends DeleteTableResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The <code>DeleteTable</code> operation deletes a table and all of its data. After a <code>DeleteTable</code> request is received,
  *          the specified table is in the <code>DELETING</code> state until Amazon Keyspaces completes the deletion. If the table
  *          is in the <code>ACTIVE</code> state, you can delete it. If a table is either in the <code>CREATING</code> or <code>UPDATING</code> states, then
@@ -79,6 +78,7 @@ export interface DeleteTableCommandOutput extends DeleteTableResponse, __Metadat
  * @throws {@link KeyspacesServiceException}
  * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
+ * @public
  */
 export class DeleteTableCommand extends $Command
   .classBuilder<

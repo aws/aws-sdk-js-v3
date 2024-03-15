@@ -27,7 +27,6 @@ export interface DeleteCustomModelCommandInput extends DeleteCustomModelRequest 
 export interface DeleteCustomModelCommandOutput extends DeleteCustomModelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a custom model that you created earlier. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the Bedrock User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface DeleteCustomModelCommandOutput extends DeleteCustomModelRespons
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ * @public
  */
 export class DeleteCustomModelCommand extends $Command
   .classBuilder<

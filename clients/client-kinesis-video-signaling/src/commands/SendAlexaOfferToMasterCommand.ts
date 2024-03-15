@@ -31,7 +31,6 @@ export interface SendAlexaOfferToMasterCommandInput extends SendAlexaOfferToMast
 export interface SendAlexaOfferToMasterCommandOutput extends SendAlexaOfferToMasterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This API allows you to connect WebRTC-enabled devices with Alexa display devices. When
  *             invoked, it sends the Alexa Session Description Protocol (SDP) offer to the master peer.
  *             The offer is delivered as soon as the master is connected to the specified signaling
@@ -79,6 +78,7 @@ export interface SendAlexaOfferToMasterCommandOutput extends SendAlexaOfferToMas
  * @throws {@link KinesisVideoSignalingServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideoSignaling service.</p>
  *
+ * @public
  */
 export class SendAlexaOfferToMasterCommand extends $Command
   .classBuilder<

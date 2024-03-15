@@ -27,7 +27,6 @@ export interface DescribeDataSourcesCommandInput extends DescribeDataSourcesInpu
 export interface DescribeDataSourcesCommandOutput extends DescribeDataSourcesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of <code>DataSource</code> that match the search criteria in the request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -110,6 +109,7 @@ export interface DescribeDataSourcesCommandOutput extends DescribeDataSourcesOut
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * @public
  */
 export class DescribeDataSourcesCommand extends $Command
   .classBuilder<

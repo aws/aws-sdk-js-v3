@@ -27,7 +27,6 @@ export interface UpdateDefaultBranchCommandInput extends UpdateDefaultBranchInpu
 export interface UpdateDefaultBranchCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets or changes the default branch name for the specified repository.</p>
  *          <note>
  *             <p>If you use this operation to change the default branch name to the current default branch name, a success message is returned even though the default branch did not change.</p>
@@ -95,6 +94,7 @@ export interface UpdateDefaultBranchCommandOutput extends __MetadataBearer {}
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class UpdateDefaultBranchCommand extends $Command
   .classBuilder<

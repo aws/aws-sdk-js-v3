@@ -27,7 +27,6 @@ export interface ImportKeyPairCommandInput extends ImportKeyPairRequest {}
 export interface ImportKeyPairCommandOutput extends ImportKeyPairResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Imports the public key from an RSA or ED25519 key pair that you created with a third-party tool.
  *         Compare this with <a>CreateKeyPair</a>, in which Amazon Web Services creates the key pair and gives the keys to you
  *         (Amazon Web Services keeps a copy of the public key). With ImportKeyPair, you create the key pair and give Amazon Web Services just the public key.
@@ -81,6 +80,7 @@ export interface ImportKeyPairCommandOutput extends ImportKeyPairResult, __Metad
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ImportKeyPairCommand extends $Command
   .classBuilder<

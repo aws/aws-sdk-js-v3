@@ -27,7 +27,6 @@ export interface UpdateOutpostCommandInput extends UpdateOutpostInput {}
 export interface UpdateOutpostCommandOutput extends UpdateOutpostOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p> Updates an Outpost. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface UpdateOutpostCommandOutput extends UpdateOutpostOutput, __Metad
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ * @public
  */
 export class UpdateOutpostCommand extends $Command
   .classBuilder<

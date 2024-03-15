@@ -31,7 +31,6 @@ export interface CreateProjectCommandInput extends CreateProjectRequest {}
 export interface CreateProjectCommandOutput extends CreateProjectResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an empty project with a placement template. A project contains zero or more
  *       placements that adhere to the placement template defined in the project.</p>
  * @example
@@ -84,6 +83,7 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  * @throws {@link IoT1ClickProjectsServiceException}
  * <p>Base exception class for all service exceptions from IoT1ClickProjects service.</p>
  *
+ * @public
  */
 export class CreateProjectCommand extends $Command
   .classBuilder<

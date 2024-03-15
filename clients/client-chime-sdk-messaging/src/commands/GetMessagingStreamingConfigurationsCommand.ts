@@ -39,7 +39,6 @@ export interface GetMessagingStreamingConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the data streaming configuration for an <code>AppInstance</code>. For more information, see
  *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
  * @example
@@ -94,6 +93,7 @@ export interface GetMessagingStreamingConfigurationsCommandOutput
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class GetMessagingStreamingConfigurationsCommand extends $Command
   .classBuilder<

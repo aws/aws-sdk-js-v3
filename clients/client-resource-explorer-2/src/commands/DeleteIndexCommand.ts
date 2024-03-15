@@ -31,7 +31,6 @@ export interface DeleteIndexCommandInput extends DeleteIndexInput {}
 export interface DeleteIndexCommandOutput extends DeleteIndexOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified index and turns off Amazon Web Services Resource Explorer in the specified Amazon Web Services Region.
  *             When you delete an index, Resource Explorer stops discovering and indexing resources in that
  *             Region. Resource Explorer also deletes all views in that Region. These actions occur as
@@ -93,6 +92,7 @@ export interface DeleteIndexCommandOutput extends DeleteIndexOutput, __MetadataB
  * @throws {@link ResourceExplorer2ServiceException}
  * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
+ * @public
  */
 export class DeleteIndexCommand extends $Command
   .classBuilder<

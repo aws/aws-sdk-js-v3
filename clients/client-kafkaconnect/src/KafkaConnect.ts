@@ -353,8 +353,8 @@ export interface KafkaConnect {
 }
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export class KafkaConnect extends KafkaConnectClient implements KafkaConnect {}
 createAggregatedClient(commands, KafkaConnect);

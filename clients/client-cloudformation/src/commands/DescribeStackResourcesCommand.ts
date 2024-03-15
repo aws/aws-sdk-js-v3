@@ -27,7 +27,6 @@ export interface DescribeStackResourcesCommandInput extends DescribeStackResourc
 export interface DescribeStackResourcesCommandOutput extends DescribeStackResourcesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns Amazon Web Services resource descriptions for running and deleted stacks. If <code>StackName</code> is
  *    specified, all the associated resources that are part of the stack are returned. If <code>PhysicalResourceId</code>
  *    is specified, the associated resources of the stack that the resource belongs to are returned.</p>
@@ -92,6 +91,7 @@ export interface DescribeStackResourcesCommandOutput extends DescribeStackResour
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class DescribeStackResourcesCommand extends $Command
   .classBuilder<

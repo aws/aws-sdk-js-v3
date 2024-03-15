@@ -36,7 +36,6 @@ export interface DescribeReservedInstancesModificationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the modifications made to your Reserved Instances. If no parameter is specified, information about all your Reserved Instances modification requests is returned. If a modification ID is specified, only information about the specific modification is returned.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
  *          <note>
@@ -109,6 +108,7 @@ export interface DescribeReservedInstancesModificationsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeReservedInstancesModificationsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateAppImageConfigCommandInput extends CreateAppImageConfigRe
 export interface CreateAppImageConfigCommandOutput extends CreateAppImageConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a configuration for running a SageMaker image as a KernelGateway app. The
  *          configuration specifies the Amazon Elastic File System storage volume on the image, and a list of the
  *          kernels in the image.</p>
@@ -97,6 +96,7 @@ export interface CreateAppImageConfigCommandOutput extends CreateAppImageConfigR
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateAppImageConfigCommand extends $Command
   .classBuilder<

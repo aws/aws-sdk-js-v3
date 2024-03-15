@@ -358,7 +358,6 @@ export interface CognitoSync {
 }
 
 /**
- * @public
  * <fullname>Amazon Cognito Sync</fullname>
  *       <p>Amazon Cognito Sync provides an AWS service and client library that enable cross-device syncing of
  *          application-related user data. High-level client libraries are available for both iOS and
@@ -372,6 +371,7 @@ export interface CognitoSync {
  *          to make API calls using credentials retrieved with <a href="http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/Welcome.html">Amazon Cognito Identity service</a>.</p>
  *       <p>If you want to use Cognito Sync in an Android or iOS application, you will probably want to
  *          make API calls via the AWS Mobile SDK. To learn more, see the <a href="http://docs.aws.amazon.com/mobile/sdkforandroid/developerguide/cognito-sync.html">Developer Guide for Android</a> and the <a href="http://docs.aws.amazon.com/mobile/sdkforios/developerguide/cognito-sync.html">Developer Guide for iOS</a>.</p>
+ * @public
  */
 export class CognitoSync extends CognitoSyncClient implements CognitoSync {}
 createAggregatedClient(commands, CognitoSync);

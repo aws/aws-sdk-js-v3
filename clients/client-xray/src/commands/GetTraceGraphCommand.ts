@@ -27,7 +27,6 @@ export interface GetTraceGraphCommandInput extends GetTraceGraphRequest {}
 export interface GetTraceGraphCommandOutput extends GetTraceGraphResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a service graph for one or more specific trace IDs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -148,6 +147,7 @@ export interface GetTraceGraphCommandOutput extends GetTraceGraphResult, __Metad
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ * @public
  */
 export class GetTraceGraphCommand extends $Command
   .classBuilder<

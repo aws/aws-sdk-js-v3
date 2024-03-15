@@ -24,7 +24,6 @@ export interface QLDBSession {
 }
 
 /**
- * @public
  * <p>The transactional data APIs for Amazon QLDB</p>
  *          <note>
  *             <p>Instead of interacting directly with this API, we recommend using the QLDB driver
@@ -46,6 +45,7 @@ export interface QLDBSession {
  *                </li>
  *             </ul>
  *          </note>
+ * @public
  */
 export class QLDBSession extends QLDBSessionClient implements QLDBSession {}
 createAggregatedClient(commands, QLDBSession);

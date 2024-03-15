@@ -27,7 +27,6 @@ export interface DescribeBotAliasCommandInput extends DescribeBotAliasRequest {}
 export interface DescribeBotAliasCommandOutput extends DescribeBotAliasResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get information about a specific bot alias.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -136,6 +135,7 @@ export interface DescribeBotAliasCommandOutput extends DescribeBotAliasResponse,
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class DescribeBotAliasCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateClusterSnapshotCommandInput extends CreateClusterSnapshot
 export interface CreateClusterSnapshotCommandOutput extends CreateClusterSnapshotResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a manual snapshot of the specified cluster. The cluster must be in the
  *                 <code>available</code> state. </p>
  *          <p>
@@ -142,6 +141,7 @@ export interface CreateClusterSnapshotCommandOutput extends CreateClusterSnapsho
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class CreateClusterSnapshotCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListSchemaVersionsCommandInput extends ListSchemaVersionsInput 
 export interface ListSchemaVersionsCommandOutput extends ListSchemaVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of schema versions that you have created, with minimal information. Schema versions in Deleted status will not be included in the results. Empty results will be returned if there are no schema versions available.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface ListSchemaVersionsCommandOutput extends ListSchemaVersionsRespo
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class ListSchemaVersionsCommand extends $Command
   .classBuilder<

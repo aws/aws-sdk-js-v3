@@ -31,7 +31,6 @@ export interface GetRecommendationCommandInput extends GetRecommendationRequest 
 export interface GetRecommendationCommandOutput extends GetRecommendationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get a specific Recommendation</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -109,6 +108,7 @@ export interface GetRecommendationCommandOutput extends GetRecommendationRespons
  * @throws {@link TrustedAdvisorServiceException}
  * <p>Base exception class for all service exceptions from TrustedAdvisor service.</p>
  *
+ * @public
  */
 export class GetRecommendationCommand extends $Command
   .classBuilder<

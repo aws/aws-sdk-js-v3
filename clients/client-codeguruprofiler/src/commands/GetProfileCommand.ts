@@ -35,7 +35,6 @@ export type GetProfileCommandOutputType = Omit<GetProfileResponse, "profile"> & 
 export interface GetProfileCommandOutput extends GetProfileCommandOutputType, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Gets the aggregated profile of a profiling group for a specified time range.
  *          Amazon CodeGuru Profiler collects posted agent profiles for a profiling group
@@ -153,6 +152,7 @@ export interface GetProfileCommandOutput extends GetProfileCommandOutputType, __
  * @throws {@link CodeGuruProfilerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
+ * @public
  */
 export class GetProfileCommand extends $Command
   .classBuilder<

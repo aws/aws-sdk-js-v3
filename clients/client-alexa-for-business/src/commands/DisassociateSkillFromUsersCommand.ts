@@ -27,9 +27,6 @@ export interface DisassociateSkillFromUsersCommandInput extends DisassociateSkil
 export interface DisassociateSkillFromUsersCommandOutput extends DisassociateSkillFromUsersResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Makes a private skill unavailable for enrolled users and prevents them from enabling it
  *          on their devices.</p>
  * @example
@@ -62,6 +59,8 @@ export interface DisassociateSkillFromUsersCommandOutput extends DisassociateSki
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class DisassociateSkillFromUsersCommand extends $Command
   .classBuilder<

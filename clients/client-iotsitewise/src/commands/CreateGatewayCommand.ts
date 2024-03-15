@@ -27,7 +27,6 @@ export interface CreateGatewayCommandInput extends CreateGatewayRequest {}
 export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a gateway, which is a virtual or edge device that delivers industrial data streams
  *       from local servers to IoT SiteWise. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gateway-connector.html">Ingesting data using a gateway</a> in the
  *         <i>IoT SiteWise User Guide</i>.</p>
@@ -91,6 +90,7 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class CreateGatewayCommand extends $Command
   .classBuilder<

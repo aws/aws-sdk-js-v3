@@ -32,7 +32,6 @@ export interface ExchangeCodeForTokenCommandInput extends ExchangeCodeForTokenRe
 export interface ExchangeCodeForTokenCommandOutput extends ExchangeCodeForTokenResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This is for internal use.</p>
  *          </note>
@@ -73,6 +72,7 @@ export interface ExchangeCodeForTokenCommandOutput extends ExchangeCodeForTokenR
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ * @public
  */
 export class ExchangeCodeForTokenCommand extends $Command
   .classBuilder<

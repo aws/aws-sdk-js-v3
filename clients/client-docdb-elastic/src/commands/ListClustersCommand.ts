@@ -27,7 +27,6 @@ export interface ListClustersCommandInput extends ListClustersInput {}
 export interface ListClustersCommandOutput extends ListClustersOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about provisioned Amazon DocumentDB elastic clusters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface ListClustersCommandOutput extends ListClustersOutput, __Metadat
  * @throws {@link DocDBElasticServiceException}
  * <p>Base exception class for all service exceptions from DocDBElastic service.</p>
  *
+ * @public
  */
 export class ListClustersCommand extends $Command
   .classBuilder<

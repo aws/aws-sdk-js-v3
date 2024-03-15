@@ -28,7 +28,6 @@ export interface SendMessageCommandInput extends SendMessageRequest {}
 export interface SendMessageCommandOutput extends SendMessageResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delivers a message to the specified queue.</p>
  *          <important>
  *             <p>A message can include only XML, JSON, and unformatted text. The following Unicode
@@ -170,6 +169,7 @@ export interface SendMessageCommandOutput extends SendMessageResult, __MetadataB
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ * @public
  */
 export class SendMessageCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListIncidentFindingsCommandInput extends ListIncidentFindingsIn
 export interface ListIncidentFindingsCommandOutput extends ListIncidentFindingsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of the IDs of findings, plus their last modified times, that have been
  *       identified for a specified incident. A finding represents a recent application environment
  *       change made by an CloudFormation stack creation or update or an CodeDeploy
@@ -83,6 +82,7 @@ export interface ListIncidentFindingsCommandOutput extends ListIncidentFindingsO
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ * @public
  */
 export class ListIncidentFindingsCommand extends $Command
   .classBuilder<

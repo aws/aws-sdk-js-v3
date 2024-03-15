@@ -31,7 +31,6 @@ export interface DeleteHostCommandInput extends DeleteHostInput {}
 export interface DeleteHostCommandOutput extends DeleteHostOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>The host to be deleted. Before you delete a host, all connections associated to the host must be deleted.</p>
  *          <note>
  *             <p>A host cannot be deleted if it is in the VPC_CONFIG_INITIALIZING or VPC_CONFIG_DELETING state.</p>
@@ -66,6 +65,7 @@ export interface DeleteHostCommandOutput extends DeleteHostOutput, __MetadataBea
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ * @public
  */
 export class DeleteHostCommand extends $Command
   .classBuilder<

@@ -363,9 +363,9 @@ export type MachineLearningClientResolvedConfigType = __SmithyResolvedConfigurat
 export interface MachineLearningClientResolvedConfig extends MachineLearningClientResolvedConfigType {}
 
 /**
- * @public
  * Definition of the public APIs
  * 		exposed by Amazon Machine Learning
+ * @public
  */
 export class MachineLearningClient extends __Client<
   __HttpHandlerOptions,

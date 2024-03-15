@@ -27,7 +27,6 @@ export interface GetDeviceInstanceCommandInput extends GetDeviceInstanceRequest 
 export interface GetDeviceInstanceCommandOutput extends GetDeviceInstanceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a device instance that belongs to a private device fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface GetDeviceInstanceCommandOutput extends GetDeviceInstanceResult,
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  */
 export class GetDeviceInstanceCommand extends $Command
   .classBuilder<

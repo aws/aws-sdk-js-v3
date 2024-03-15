@@ -27,7 +27,6 @@ export interface DescribeCacheClustersCommandInput extends DescribeCacheClusters
 export interface DescribeCacheClustersCommandOutput extends CacheClusterMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about all provisioned clusters if no cluster identifier is
  *             specified, or about a specific cache cluster if a cluster identifier is supplied.</p>
  *          <p>By default, abbreviated information about the clusters is returned. You can use the
@@ -197,6 +196,7 @@ export interface DescribeCacheClustersCommandOutput extends CacheClusterMessage,
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  * @example DescribeCacheClusters
  * ```javascript
  * // Lists the details for up to 50 cache clusters.

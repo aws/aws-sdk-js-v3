@@ -27,7 +27,6 @@ export interface DeleteDataQualityRulesetCommandInput extends DeleteDataQualityR
 export interface DeleteDataQualityRulesetCommandOutput extends DeleteDataQualityRulesetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a data quality ruleset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface DeleteDataQualityRulesetCommandOutput extends DeleteDataQuality
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class DeleteDataQualityRulesetCommand extends $Command
   .classBuilder<

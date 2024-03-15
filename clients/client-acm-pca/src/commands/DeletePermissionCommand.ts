@@ -27,7 +27,6 @@ export interface DeletePermissionCommandInput extends DeletePermissionRequest {}
 export interface DeletePermissionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Revokes permissions on a private CA granted to the Certificate Manager (ACM) service principal
  * 			(acm.amazonaws.com). </p>
  *          <p>These permissions allow ACM to issue and renew ACM certificates that reside in the
@@ -97,6 +96,7 @@ export interface DeletePermissionCommandOutput extends __MetadataBearer {}
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ * @public
  */
 export class DeletePermissionCommand extends $Command
   .classBuilder<

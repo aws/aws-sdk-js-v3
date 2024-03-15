@@ -27,7 +27,6 @@ export interface UpdateTrustAnchorCommandInput extends UpdateTrustAnchorRequest 
 export interface UpdateTrustAnchorCommandOutput extends TrustAnchorDetailResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a trust anchor. You establish trust between IAM Roles Anywhere
  *          and your certificate authority (CA) by configuring a trust anchor. You can define a trust
  *          anchor as a reference to an Private Certificate Authority (Private CA) or by uploading a
@@ -104,6 +103,7 @@ export interface UpdateTrustAnchorCommandOutput extends TrustAnchorDetailRespons
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ * @public
  */
 export class UpdateTrustAnchorCommand extends $Command
   .classBuilder<

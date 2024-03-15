@@ -30,7 +30,6 @@ export interface DeleteHyperParameterTuningJobCommandInput extends DeleteHyperPa
 export interface DeleteHyperParameterTuningJobCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a hyperparameter tuning job. The <code>DeleteHyperParameterTuningJob</code>
  *             API deletes only the tuning job entry that was created in SageMaker when you called the
  *                 <code>CreateHyperParameterTuningJob</code> API. It does not delete training jobs,
@@ -59,6 +58,7 @@ export interface DeleteHyperParameterTuningJobCommandOutput extends __MetadataBe
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteHyperParameterTuningJobCommand extends $Command
   .classBuilder<

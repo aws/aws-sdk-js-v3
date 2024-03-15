@@ -36,7 +36,6 @@ export interface UpdatePipelineNotificationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>With the UpdatePipelineNotifications operation, you can update Amazon Simple Notification Service (Amazon SNS) notifications for a pipeline.</p>
  *         <p>When you update notifications for a pipeline, Elastic Transcoder returns the values that you specified in the request.</p>
  * @example
@@ -131,6 +130,7 @@ export interface UpdatePipelineNotificationsCommandOutput
  * @throws {@link ElasticTranscoderServiceException}
  * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
+ * @public
  */
 export class UpdatePipelineNotificationsCommand extends $Command
   .classBuilder<

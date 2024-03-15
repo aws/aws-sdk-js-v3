@@ -32,7 +32,6 @@ export interface AssociateAgentKnowledgeBaseCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * Associate a Knowledge Base to an existing Amazon Bedrock Agent
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface AssociateAgentKnowledgeBaseCommandOutput
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ * @public
  */
 export class AssociateAgentKnowledgeBaseCommand extends $Command
   .classBuilder<

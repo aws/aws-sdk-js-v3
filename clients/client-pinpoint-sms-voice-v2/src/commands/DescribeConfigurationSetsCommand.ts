@@ -31,7 +31,6 @@ export interface DescribeConfigurationSetsCommandInput extends DescribeConfigura
 export interface DescribeConfigurationSetsCommandOutput extends DescribeConfigurationSetsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified configuration sets or all in your account.</p>
  *          <p>If you specify configuration set names, the output includes information for only the
  *             specified configuration sets. If you specify filters, the output includes information
@@ -124,6 +123,7 @@ export interface DescribeConfigurationSetsCommandOutput extends DescribeConfigur
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class DescribeConfigurationSetsCommand extends $Command
   .classBuilder<

@@ -33,7 +33,6 @@ export interface DescribeSpotInstanceRequestsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified Spot Instance requests.</p>
  *          <p>You can use <code>DescribeSpotInstanceRequests</code> to find a running Spot Instance by
  *             examining the response. If the status of the Spot Instance is <code>fulfilled</code>, the
@@ -225,6 +224,7 @@ export interface DescribeSpotInstanceRequestsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To describe a Spot Instance request
  * ```javascript
  * // This example describes the specified Spot Instance request.

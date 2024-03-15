@@ -30,7 +30,6 @@ export interface DeleteFunctionCodeSigningConfigCommandInput extends DeleteFunct
 export interface DeleteFunctionCodeSigningConfigCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the code signing configuration from the function.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DeleteFunctionCodeSigningConfigCommandOutput extends __Metadata
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class DeleteFunctionCodeSigningConfigCommand extends $Command
   .classBuilder<

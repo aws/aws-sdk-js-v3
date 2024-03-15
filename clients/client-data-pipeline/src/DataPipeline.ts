@@ -381,7 +381,6 @@ export interface DataPipeline {
 }
 
 /**
- * @public
  * <p>AWS Data Pipeline configures and manages a data-driven workflow called a pipeline. AWS Data Pipeline
  *             handles the details of scheduling and ensuring that data dependencies are met so that your application
  *             can focus on processing the data.</p>
@@ -399,6 +398,7 @@ export interface DataPipeline {
  *            the data from one format to another, is contained within the task runner. The task runner performs
  *            the task assigned to it by the web service, reporting progress to the web service as it does so.
  *            When the task is done, the task runner reports the final success or failure of the task to the web service.</p>
+ * @public
  */
 export class DataPipeline extends DataPipelineClient implements DataPipeline {}
 createAggregatedClient(commands, DataPipeline);

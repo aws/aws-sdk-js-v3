@@ -27,7 +27,6 @@ export interface ListLifecycleExecutionsCommandInput extends ListLifecycleExecut
 export interface ListLifecycleExecutionsCommandOutput extends ListLifecycleExecutionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get the lifecycle runtime history for the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface ListLifecycleExecutionsCommandOutput extends ListLifecycleExecu
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class ListLifecycleExecutionsCommand extends $Command
   .classBuilder<

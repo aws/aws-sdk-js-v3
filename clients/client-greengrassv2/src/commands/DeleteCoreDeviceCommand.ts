@@ -27,7 +27,6 @@ export interface DeleteCoreDeviceCommandInput extends DeleteCoreDeviceRequest {}
 export interface DeleteCoreDeviceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a Greengrass core device, which is an IoT thing. This operation removes the core
  *       device from the list of core devices. This operation doesn't delete the IoT thing. For more
  *       information about how to delete the IoT thing, see <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_DeleteThing.html">DeleteThing</a> in the
@@ -77,6 +76,7 @@ export interface DeleteCoreDeviceCommandOutput extends __MetadataBearer {}
  * @throws {@link GreengrassV2ServiceException}
  * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ * @public
  */
 export class DeleteCoreDeviceCommand extends $Command
   .classBuilder<

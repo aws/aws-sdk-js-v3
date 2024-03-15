@@ -27,7 +27,6 @@ export interface GetEmailIdentityPoliciesCommandInput extends GetEmailIdentityPo
 export interface GetEmailIdentityPoliciesCommandOutput extends GetEmailIdentityPoliciesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the requested sending authorization policies for the given identity (an email
  *             address or a domain). The policies are returned as a map of policy names to policy
  *             contents. You can retrieve a maximum of 20 policies at a time.</p>
@@ -77,6 +76,7 @@ export interface GetEmailIdentityPoliciesCommandOutput extends GetEmailIdentityP
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class GetEmailIdentityPoliciesCommand extends $Command
   .classBuilder<

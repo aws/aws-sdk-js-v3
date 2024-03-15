@@ -27,7 +27,6 @@ export interface CreateTrainingDatasetCommandInput extends CreateTrainingDataset
 export interface CreateTrainingDatasetCommandOutput extends CreateTrainingDatasetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Defines the information necessary to create a training dataset, or seed audience. In Clean Rooms ML, the <code>TrainingDataset</code> is metadata that points to a Glue table, which is read only during <code>AudienceModel</code> creation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface CreateTrainingDatasetCommandOutput extends CreateTrainingDatase
  * @throws {@link CleanRoomsMLServiceException}
  * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
+ * @public
  */
 export class CreateTrainingDatasetCommand extends $Command
   .classBuilder<

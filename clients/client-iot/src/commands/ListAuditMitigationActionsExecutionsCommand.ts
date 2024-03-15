@@ -35,7 +35,6 @@ export interface ListAuditMitigationActionsExecutionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the status of audit mitigation action tasks that were
  *       executed.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListAuditMitigationActionsExecutions</a> action.</p>
@@ -91,6 +90,7 @@ export interface ListAuditMitigationActionsExecutionsCommandOutput
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListAuditMitigationActionsExecutionsCommand extends $Command
   .classBuilder<

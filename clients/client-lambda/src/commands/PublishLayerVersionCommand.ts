@@ -31,7 +31,6 @@ export interface PublishLayerVersionCommandInput extends PublishLayerVersionRequ
 export interface PublishLayerVersionCommandOutput extends PublishLayerVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
  *         layer</a> from a ZIP archive. Each time you call <code>PublishLayerVersion</code> with the same
  *       layer name, a new version is created.</p>
@@ -109,6 +108,7 @@ export interface PublishLayerVersionCommandOutput extends PublishLayerVersionRes
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class PublishLayerVersionCommand extends $Command
   .classBuilder<

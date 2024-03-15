@@ -28,7 +28,6 @@ export interface CreateStorageLensGroupCommandInput extends CreateStorageLensGro
 export interface CreateStorageLensGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p> Creates a new S3 Storage Lens group and associates it with the specified Amazon Web Services account ID. An
  *          S3 Storage Lens group is a custom grouping of objects based on prefix, suffix, object tags,
  *          object size, object age, or a combination of these filters. For each Storage Lens group
@@ -142,6 +141,7 @@ export interface CreateStorageLensGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class CreateStorageLensGroupCommand extends $Command
   .classBuilder<

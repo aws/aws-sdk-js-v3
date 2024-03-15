@@ -6,8 +6,8 @@ import { DocumentType as __DocumentType } from "@smithy/types";
 import { IoTTwinMakerServiceException as __BaseException } from "./IoTTwinMakerServiceException";
 
 /**
- * @public
  * <p>Access is denied.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -26,63 +26,63 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>An object that uniquely identifies an entity property.</p>
+ * @public
  */
 export interface EntityPropertyReference {
   /**
-   * @public
    * <p>The name of the component.</p>
+   * @public
    */
   componentName?: string;
 
   /**
-   * @public
    * <p>This string specifies the path to the composite component, starting from the top-level component.</p>
+   * @public
    */
   componentPath?: string;
 
   /**
-   * @public
    * <p>A mapping of external IDs to property names. External IDs uniquely identify properties
    *          from external data stores.</p>
+   * @public
    */
   externalIdProperty?: Record<string, string>;
 
   /**
-   * @public
    * <p>The ID of the entity.</p>
+   * @public
    */
   entityId?: string;
 
   /**
-   * @public
    * <p>The name of the property.</p>
+   * @public
    */
   propertyName: string | undefined;
 }
 
 /**
- * @public
  * <p>A value that associates a component and an entity.</p>
+ * @public
  */
 export interface RelationshipValue {
   /**
-   * @public
    * <p>The ID of the target entity associated with this relationship value.</p>
+   * @public
    */
   targetEntityId?: string;
 
   /**
-   * @public
    * <p>The name of the target component associated with the relationship value.</p>
+   * @public
    */
   targetComponentName?: string;
 }
 
 /**
- * @public
  * <p>An unexpected error has occurred.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -101,8 +101,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The resource wasn't found.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -121,8 +121,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The rate exceeds the limit.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -141,8 +141,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Failed</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -165,38 +165,38 @@ export class ValidationException extends __BaseException {
  */
 export interface CancelMetadataTransferJobRequest {
   /**
-   * @public
    * <p>The metadata transfer job Id.</p>
+   * @public
    */
   metadataTransferJobId: string | undefined;
 }
 
 /**
- * @public
  * <p>The metadata transfer job's progress.</p>
+ * @public
  */
 export interface MetadataTransferJobProgress {
   /**
-   * @public
    * <p>The total count. [of what]</p>
+   * @public
    */
   totalCount?: number;
 
   /**
-   * @public
    * <p>The succeeded count.</p>
+   * @public
    */
   succeededCount?: number;
 
   /**
-   * @public
    * <p>The skipped count.</p>
+   * @public
    */
   skippedCount?: number;
 
   /**
-   * @public
    * <p>The failed count.</p>
+   * @public
    */
   failedCount?: number;
 }
@@ -222,19 +222,19 @@ export const ErrorCode = {
 export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
 
 /**
- * @public
  * <p>The error details.</p>
+ * @public
  */
 export interface ErrorDetails {
   /**
-   * @public
    * <p>The error code.</p>
+   * @public
    */
   code?: ErrorCode;
 
   /**
-   * @public
    * <p>The error message.</p>
+   * @public
    */
   message?: string;
 }
@@ -259,25 +259,25 @@ export const MetadataTransferJobState = {
 export type MetadataTransferJobState = (typeof MetadataTransferJobState)[keyof typeof MetadataTransferJobState];
 
 /**
- * @public
  * <p>The metadata transfer job status.</p>
+ * @public
  */
 export interface MetadataTransferJobStatus {
   /**
-   * @public
    * <p>The metadata transfer job state.</p>
+   * @public
    */
   state?: MetadataTransferJobState;
 
   /**
-   * @public
    * <p>The metadata transfer job error.</p>
+   * @public
    */
   error?: ErrorDetails;
 
   /**
-   * @public
    * <p>The queued position.</p>
+   * @public
    */
   queuedPosition?: number;
 }
@@ -287,39 +287,39 @@ export interface MetadataTransferJobStatus {
  */
 export interface CancelMetadataTransferJobResponse {
   /**
-   * @public
    * <p>The metadata transfer job Id.</p>
+   * @public
    */
   metadataTransferJobId: string | undefined;
 
   /**
-   * @public
    * <p>The metadata transfer job ARN.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>Used to update the DateTime property.</p>
+   * @public
    */
   updateDateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The metadata transfer job's status.</p>
+   * @public
    */
   status: MetadataTransferJobStatus | undefined;
 
   /**
-   * @public
    * <p>The metadata transfer job's progress.</p>
+   * @public
    */
   progress?: MetadataTransferJobProgress;
 }
 
 /**
- * @public
  * <p>A conflict occurred.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -338,44 +338,44 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * @public
  * <p>An object that sets information about the composite component types of a component type.</p>
+ * @public
  */
 export interface CompositeComponentTypeRequest {
   /**
-   * @public
    * <p>This is the <code>componentTypeId</code> that the <code>compositeComponentType</code> refers to.</p>
+   * @public
    */
   componentTypeId?: string;
 }
 
 /**
- * @public
  * <p>The Lambda function.</p>
+ * @public
  */
 export interface LambdaFunction {
   /**
-   * @public
    * <p>The ARN of the Lambda function.</p>
+   * @public
    */
   arn: string | undefined;
 }
 
 /**
- * @public
  * <p>The data connector.</p>
+ * @public
  */
 export interface DataConnector {
   /**
-   * @public
    * <p>The Lambda function associated with this data connector.</p>
+   * @public
    */
   lambda?: LambdaFunction;
 
   /**
-   * @public
    * <p>A Boolean value that specifies whether the data connector is native to IoT
    *          TwinMaker.</p>
+   * @public
    */
   isNative?: boolean;
 }
@@ -395,43 +395,43 @@ export const Scope = {
 export type Scope = (typeof Scope)[keyof typeof Scope];
 
 /**
- * @public
  * <p>The function request body.</p>
+ * @public
  */
 export interface FunctionRequest {
   /**
-   * @public
    * <p>The required properties of the function.</p>
+   * @public
    */
   requiredProperties?: string[];
 
   /**
-   * @public
    * <p>The scope of the function.</p>
+   * @public
    */
   scope?: Scope;
 
   /**
-   * @public
    * <p>The data connector.</p>
+   * @public
    */
   implementedBy?: DataConnector;
 }
 
 /**
- * @public
  * <p>An object that specifies a relationship with another component type.</p>
+ * @public
  */
 export interface Relationship {
   /**
-   * @public
    * <p>The ID of the target component type associated with this relationship.</p>
+   * @public
    */
   targetComponentTypeId?: string;
 
   /**
-   * @public
    * <p>The type of the relationship.</p>
+   * @public
    */
   relationshipType?: string;
 }
@@ -470,19 +470,19 @@ export const GroupType = {
 export type GroupType = (typeof GroupType)[keyof typeof GroupType];
 
 /**
- * @public
  * <p/>
+ * @public
  */
 export interface PropertyGroupRequest {
   /**
-   * @public
    * <p>The group type.</p>
+   * @public
    */
   groupType?: GroupType;
 
   /**
-   * @public
    * <p>The names of properties.</p>
+   * @public
    */
   propertyNames?: string[];
 }
@@ -509,27 +509,27 @@ export type State = (typeof State)[keyof typeof State];
  */
 export interface CreateComponentTypeResponse {
   /**
-   * @public
    * <p>The ARN of the component type.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The date and time when the entity was created.</p>
+   * @public
    */
   creationDateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The current state of the component type.</p>
+   * @public
    */
   state: State | undefined;
 }
 
 /**
- * @public
  * <p>The service quota was exceeded.</p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
@@ -578,25 +578,25 @@ export const PropertyGroupUpdateType = {
 export type PropertyGroupUpdateType = (typeof PropertyGroupUpdateType)[keyof typeof PropertyGroupUpdateType];
 
 /**
- * @public
  * <p>The component property group request.</p>
+ * @public
  */
 export interface ComponentPropertyGroupRequest {
   /**
-   * @public
    * <p>The group type.</p>
+   * @public
    */
   groupType?: GroupType;
 
   /**
-   * @public
    * <p>The property names.</p>
+   * @public
    */
   propertyNames?: string[];
 
   /**
-   * @public
    * <p>The update type.</p>
+   * @public
    */
   updateType?: PropertyGroupUpdateType;
 }
@@ -606,50 +606,50 @@ export interface ComponentPropertyGroupRequest {
  */
 export interface CreateEntityResponse {
   /**
-   * @public
    * <p>The ID of the entity.</p>
+   * @public
    */
   entityId: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the entity.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The date and time when the entity was created.</p>
+   * @public
    */
   creationDateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The current state of the entity.</p>
+   * @public
    */
   state: State | undefined;
 }
 
 /**
- * @public
  * <p>The metadata transfer job AWS IoT TwinMaker destination configuration.</p>
+ * @public
  */
 export interface IotTwinMakerDestinationConfiguration {
   /**
-   * @public
    * <p>The IoT TwinMaker workspace.</p>
+   * @public
    */
   workspace: string | undefined;
 }
 
 /**
- * @public
  * <p>The S3 destination configuration.</p>
+ * @public
  */
 export interface S3DestinationConfiguration {
   /**
-   * @public
    * <p>The S3 destination configuration location.</p>
+   * @public
    */
   location: string | undefined;
 }
@@ -670,92 +670,92 @@ export const DestinationType = {
 export type DestinationType = (typeof DestinationType)[keyof typeof DestinationType];
 
 /**
- * @public
  * <p>The [link to action] metadata transfer job destination configuration.</p>
+ * @public
  */
 export interface DestinationConfiguration {
   /**
-   * @public
    * <p>The destination type.</p>
+   * @public
    */
   type: DestinationType | undefined;
 
   /**
-   * @public
    * <p>The metadata transfer job S3 configuration. [need to add S3 entity]</p>
+   * @public
    */
   s3Configuration?: S3DestinationConfiguration;
 
   /**
-   * @public
    * <p>The metadata transfer job Amazon Web Services IoT TwinMaker configuration.</p>
+   * @public
    */
   iotTwinMakerConfiguration?: IotTwinMakerDestinationConfiguration;
 }
 
 /**
- * @public
  * <p>Filter by asset. [TwinMaker asset]</p>
+ * @public
  */
 export interface FilterByAsset {
   /**
-   * @public
    * <p>Filter by asset Id.</p>
+   * @public
    */
   assetId?: string;
 
   /**
-   * @public
    * <p>The external-Id property of an asset. </p>
+   * @public
    */
   assetExternalId?: string;
 
   /**
-   * @public
    * <p>Includes sub-assets.[need description hekp for this]</p>
+   * @public
    */
   includeOffspring?: boolean;
 
   /**
-   * @public
    * <p>Boolean to include the asset model.</p>
+   * @public
    */
   includeAssetModel?: boolean;
 }
 
 /**
- * @public
  * <p>Filter by asset model.</p>
+ * @public
  */
 export interface FilterByAssetModel {
   /**
-   * @public
    * <p>The asset model Id.</p>
+   * @public
    */
   assetModelId?: string;
 
   /**
-   * @public
    * <p>The external-Id property of an asset model.</p>
+   * @public
    */
   assetModelExternalId?: string;
 
   /**
-   * @public
    * <p>Include asset offspring. [need desc.]</p>
+   * @public
    */
   includeOffspring?: boolean;
 
   /**
-   * @public
    * <p>Bolean to include assets.</p>
+   * @public
    */
   includeAssets?: boolean;
 }
 
 /**
- * @public
  * <p>The AWS IoT SiteWise soucre configuration filter.[need held with desc here]</p>
+ * @public
  */
 export type IotSiteWiseSourceConfigurationFilter =
   | IotSiteWiseSourceConfigurationFilter.FilterByAssetMember
@@ -767,8 +767,8 @@ export type IotSiteWiseSourceConfigurationFilter =
  */
 export namespace IotSiteWiseSourceConfigurationFilter {
   /**
-   * @public
    * <p>Filter by asset model.</p>
+   * @public
    */
   export interface FilterByAssetModelMember {
     filterByAssetModel: FilterByAssetModel;
@@ -777,8 +777,8 @@ export namespace IotSiteWiseSourceConfigurationFilter {
   }
 
   /**
-   * @public
    * <p>Filter by asset.</p>
+   * @public
    */
   export interface FilterByAssetMember {
     filterByAssetModel?: never;
@@ -809,44 +809,44 @@ export namespace IotSiteWiseSourceConfigurationFilter {
 }
 
 /**
- * @public
  * <p>The metadata transfer job AWS IoT SiteWise source configuration.</p>
+ * @public
  */
 export interface IotSiteWiseSourceConfiguration {
   /**
-   * @public
    * <p>The AWS IoT SiteWise soucre configuration filters.</p>
+   * @public
    */
   filters?: IotSiteWiseSourceConfigurationFilter[];
 }
 
 /**
- * @public
  * <p>Filter by component type.</p>
+ * @public
  */
 export interface FilterByComponentType {
   /**
-   * @public
    * <p>The component type Id.</p>
+   * @public
    */
   componentTypeId: string | undefined;
 }
 
 /**
- * @public
  * <p>Vilter by entity.</p>
+ * @public
  */
 export interface FilterByEntity {
   /**
-   * @public
    * <p>The entity Id.</p>
+   * @public
    */
   entityId: string | undefined;
 }
 
 /**
- * @public
  * <p>The metadata transfer job AWS IoT TwinMaker source configuration filter.</p>
+ * @public
  */
 export type IotTwinMakerSourceConfigurationFilter =
   | IotTwinMakerSourceConfigurationFilter.FilterByComponentTypeMember
@@ -858,8 +858,8 @@ export type IotTwinMakerSourceConfigurationFilter =
  */
 export namespace IotTwinMakerSourceConfigurationFilter {
   /**
-   * @public
    * <p>Filter by component type.</p>
+   * @public
    */
   export interface FilterByComponentTypeMember {
     filterByComponentType: FilterByComponentType;
@@ -868,8 +868,8 @@ export namespace IotTwinMakerSourceConfigurationFilter {
   }
 
   /**
-   * @public
    * <p>Filter by entity.</p>
+   * @public
    */
   export interface FilterByEntityMember {
     filterByComponentType?: never;
@@ -900,31 +900,31 @@ export namespace IotTwinMakerSourceConfigurationFilter {
 }
 
 /**
- * @public
  * <p>The metadata transfer job AWS IoT TwinMaker source configuration.</p>
+ * @public
  */
 export interface IotTwinMakerSourceConfiguration {
   /**
-   * @public
    * <p>The IoT TwinMaker workspace.</p>
+   * @public
    */
   workspace: string | undefined;
 
   /**
-   * @public
    * <p>The metadata transfer job AWS IoT TwinMaker source configuration filters.</p>
+   * @public
    */
   filters?: IotTwinMakerSourceConfigurationFilter[];
 }
 
 /**
- * @public
  * <p>The S3 destination source configuration.</p>
+ * @public
  */
 export interface S3SourceConfiguration {
   /**
-   * @public
    * <p>The S3 destination source configuration location.</p>
+   * @public
    */
   location: string | undefined;
 }
@@ -945,31 +945,31 @@ export const SourceType = {
 export type SourceType = (typeof SourceType)[keyof typeof SourceType];
 
 /**
- * @public
  * <p>The source configuration.</p>
+ * @public
  */
 export interface SourceConfiguration {
   /**
-   * @public
    * <p>The source configuration type.</p>
+   * @public
    */
   type: SourceType | undefined;
 
   /**
-   * @public
    * <p>The source configuration S3 configuration.</p>
+   * @public
    */
   s3Configuration?: S3SourceConfiguration;
 
   /**
-   * @public
    * <p>The source configuration IoT SiteWise configuration.</p>
+   * @public
    */
   iotSiteWiseConfiguration?: IotSiteWiseSourceConfiguration;
 
   /**
-   * @public
    * <p>The source configuration IoT TwinMaker configuration.</p>
+   * @public
    */
   iotTwinMakerConfiguration?: IotTwinMakerSourceConfiguration;
 }
@@ -979,26 +979,26 @@ export interface SourceConfiguration {
  */
 export interface CreateMetadataTransferJobRequest {
   /**
-   * @public
    * <p>The metadata transfer job Id.</p>
+   * @public
    */
   metadataTransferJobId?: string;
 
   /**
-   * @public
    * <p>The metadata transfer job description.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The metadata transfer job sources.</p>
+   * @public
    */
   sources: SourceConfiguration[] | undefined;
 
   /**
-   * @public
    * <p>The metadata transfer job destination.</p>
+   * @public
    */
   destination: DestinationConfiguration | undefined;
 }
@@ -1008,26 +1008,26 @@ export interface CreateMetadataTransferJobRequest {
  */
 export interface CreateMetadataTransferJobResponse {
   /**
-   * @public
    * <p>The metadata transfer job Id.</p>
+   * @public
    */
   metadataTransferJobId: string | undefined;
 
   /**
-   * @public
    * <p>The metadata transfer job ARN.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The The metadata transfer job creation DateTime property.</p>
+   * @public
    */
   creationDateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The metadata transfer job response status.</p>
+   * @public
    */
   status: MetadataTransferJobStatus | undefined;
 }
@@ -1037,44 +1037,44 @@ export interface CreateMetadataTransferJobResponse {
  */
 export interface CreateSceneRequest {
   /**
-   * @public
    * <p>The ID of the workspace that contains the scene.</p>
+   * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the scene.</p>
+   * @public
    */
   sceneId: string | undefined;
 
   /**
-   * @public
    * <p>The relative path that specifies the location of the content definition file.</p>
+   * @public
    */
   contentLocation: string | undefined;
 
   /**
-   * @public
    * <p>The description for this scene.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>A list of capabilities that the scene uses to render itself.</p>
+   * @public
    */
   capabilities?: string[];
 
   /**
-   * @public
    * <p>Metadata that you can use to manage the scene.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The request metadata.</p>
+   * @public
    */
   sceneMetadata?: Record<string, string>;
 }
@@ -1084,14 +1084,14 @@ export interface CreateSceneRequest {
  */
 export interface CreateSceneResponse {
   /**
-   * @public
    * <p>The ARN of the scene.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The date and time when the scene was created.</p>
+   * @public
    */
   creationDateTime: Date | undefined;
 }
@@ -1101,30 +1101,30 @@ export interface CreateSceneResponse {
  */
 export interface CreateSyncJobRequest {
   /**
-   * @public
    * <p>The workspace ID.</p>
+   * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * @public
    * <p>The sync source.</p>
    *          <note>
    *             <p>Currently the only supported syncSoource is <code>SITEWISE </code>.</p>
    *          </note>
+   * @public
    */
   syncSource: string | undefined;
 
   /**
-   * @public
    * <p>The SyncJob IAM role. This IAM role is used by the SyncJob to read from the syncSource,
    *          and create, update, or delete the corresponding resources.</p>
+   * @public
    */
   syncRole: string | undefined;
 
   /**
-   * @public
    * <p>The SyncJob tags.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1151,20 +1151,20 @@ export type SyncJobState = (typeof SyncJobState)[keyof typeof SyncJobState];
  */
 export interface CreateSyncJobResponse {
   /**
-   * @public
    * <p>The SyncJob ARN.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The date and time for the SyncJob creation.</p>
+   * @public
    */
   creationDateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The SyncJob response state.</p>
+   * @public
    */
   state: SyncJobState | undefined;
 }
@@ -1174,33 +1174,33 @@ export interface CreateSyncJobResponse {
  */
 export interface CreateWorkspaceRequest {
   /**
-   * @public
    * <p>The ID of the workspace.</p>
+   * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * @public
    * <p>The description of the workspace.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The ARN of the S3 bucket where resources associated with the workspace are
    *          stored.</p>
+   * @public
    */
   s3Location?: string;
 
   /**
-   * @public
    * <p>The ARN of the execution role associated with the workspace.</p>
+   * @public
    */
   role?: string;
 
   /**
-   * @public
    * <p>Metadata that you can use to manage the workspace</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1210,14 +1210,14 @@ export interface CreateWorkspaceRequest {
  */
 export interface CreateWorkspaceResponse {
   /**
-   * @public
    * <p>The ARN of the workspace.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The date and time when the workspace was created.</p>
+   * @public
    */
   creationDateTime: Date | undefined;
 }
@@ -1227,14 +1227,14 @@ export interface CreateWorkspaceResponse {
  */
 export interface DeleteComponentTypeRequest {
   /**
-   * @public
    * <p>The ID of the workspace that contains the component type.</p>
+   * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the component type to delete.</p>
+   * @public
    */
   componentTypeId: string | undefined;
 }
@@ -1244,8 +1244,8 @@ export interface DeleteComponentTypeRequest {
  */
 export interface DeleteComponentTypeResponse {
   /**
-   * @public
    * <p>The current state of the component type to be deleted.</p>
+   * @public
    */
   state: State | undefined;
 }
@@ -1255,20 +1255,20 @@ export interface DeleteComponentTypeResponse {
  */
 export interface DeleteEntityRequest {
   /**
-   * @public
    * <p>The ID of the workspace that contains the entity to delete.</p>
+   * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the entity to delete.</p>
+   * @public
    */
   entityId: string | undefined;
 
   /**
-   * @public
    * <p>A Boolean value that specifies whether the operation deletes child entities.</p>
+   * @public
    */
   isRecursive?: boolean;
 }
@@ -1278,8 +1278,8 @@ export interface DeleteEntityRequest {
  */
 export interface DeleteEntityResponse {
   /**
-   * @public
    * <p>The current state of the deleted entity.</p>
+   * @public
    */
   state: State | undefined;
 }
@@ -1289,14 +1289,14 @@ export interface DeleteEntityResponse {
  */
 export interface DeleteSceneRequest {
   /**
-   * @public
    * <p>The ID of the workspace.</p>
+   * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the scene to delete.</p>
+   * @public
    */
   sceneId: string | undefined;
 }
@@ -1311,17 +1311,17 @@ export interface DeleteSceneResponse {}
  */
 export interface DeleteSyncJobRequest {
   /**
-   * @public
    * <p>The workspace ID.</p>
+   * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * @public
    * <p>The sync source.</p>
    *          <note>
    *             <p>Currently the only supported syncSource is <code>SITEWISE </code>.</p>
    *          </note>
+   * @public
    */
   syncSource: string | undefined;
 }
@@ -1331,8 +1331,8 @@ export interface DeleteSyncJobRequest {
  */
 export interface DeleteSyncJobResponse {
   /**
-   * @public
    * <p>The SyncJob response state.</p>
+   * @public
    */
   state: SyncJobState | undefined;
 }
@@ -1342,8 +1342,8 @@ export interface DeleteSyncJobResponse {
  */
 export interface DeleteWorkspaceRequest {
   /**
-   * @public
    * <p>The ID of the workspace to delete.</p>
+   * @public
    */
   workspaceId: string | undefined;
 }
@@ -1353,8 +1353,8 @@ export interface DeleteWorkspaceRequest {
  */
 export interface DeleteWorkspaceResponse {
   /**
-   * @public
    * <p>The string that specifies the delete result for the workspace.</p>
+   * @public
    */
   message?: string;
 }
@@ -1364,26 +1364,26 @@ export interface DeleteWorkspaceResponse {
  */
 export interface ExecuteQueryRequest {
   /**
-   * @public
    * <p>The ID of the workspace.</p>
+   * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * @public
    * <p>The query statement.</p>
+   * @public
    */
   queryStatement: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of results to return at one time. The default is 50.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The string that specifies the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1404,31 +1404,31 @@ export const ColumnType = {
 export type ColumnType = (typeof ColumnType)[keyof typeof ColumnType];
 
 /**
- * @public
  * <p>A description of the column in the query results.</p>
+ * @public
  */
 export interface ColumnDescription {
   /**
-   * @public
    * <p>The name of the column description.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The type of the column description.</p>
+   * @public
    */
   type?: ColumnType;
 }
 
 /**
- * @public
  * <p>Represents a single row in the query results.</p>
+ * @public
  */
 export interface Row {
   /**
-   * @public
    * <p>The data in a row of query results.</p>
+   * @public
    */
   rowData?: __DocumentType[];
 }
@@ -1438,27 +1438,27 @@ export interface Row {
  */
 export interface ExecuteQueryResponse {
   /**
-   * @public
    * <p>A list of ColumnDescription objects.</p>
+   * @public
    */
   columnDescriptions?: ColumnDescription[];
 
   /**
-   * @public
    * <p>Represents a single row in the query results.</p>
+   * @public
    */
   rows?: Row[];
 
   /**
-   * @public
    * <p>The string that specifies the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>The query timeout exception.</p>
+ * @public
  */
 export class QueryTimeoutException extends __BaseException {
   readonly name: "QueryTimeoutException" = "QueryTimeoutException";
@@ -1482,106 +1482,106 @@ export class QueryTimeoutException extends __BaseException {
  */
 export interface GetComponentTypeRequest {
   /**
-   * @public
    * <p>The ID of the workspace that contains the component type.</p>
+   * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the component type.</p>
+   * @public
    */
   componentTypeId: string | undefined;
 }
 
 /**
- * @public
  * <p>An object that returns information about the composite component types of a component type.</p>
+ * @public
  */
 export interface CompositeComponentTypeResponse {
   /**
-   * @public
    * <p>This is the <code>componentTypeId</code> that this <code>compositeComponentType</code> refers to.</p>
+   * @public
    */
   componentTypeId?: string;
 
   /**
-   * @public
    * <p>This boolean indicates whether this <code>compositeComponentType</code> is inherited from its parent.</p>
+   * @public
    */
   isInherited?: boolean;
 }
 
 /**
- * @public
  * <p>The function response.</p>
+ * @public
  */
 export interface FunctionResponse {
   /**
-   * @public
    * <p>The required properties of the function.</p>
+   * @public
    */
   requiredProperties?: string[];
 
   /**
-   * @public
    * <p>The scope of the function.</p>
+   * @public
    */
   scope?: Scope;
 
   /**
-   * @public
    * <p>The data connector.</p>
+   * @public
    */
   implementedBy?: DataConnector;
 
   /**
-   * @public
    * <p>Indicates whether this function is inherited.</p>
+   * @public
    */
   isInherited?: boolean;
 }
 
 /**
- * @public
  * <p>The property group response</p>
+ * @public
  */
 export interface PropertyGroupResponse {
   /**
-   * @public
    * <p>The group types.</p>
+   * @public
    */
   groupType: GroupType | undefined;
 
   /**
-   * @public
    * <p>The names of properties.</p>
+   * @public
    */
   propertyNames: string[] | undefined;
 
   /**
-   * @public
    * <p>A Boolean value that specifies whether the property group is inherited from a parent
    *          entity</p>
+   * @public
    */
   isInherited: boolean | undefined;
 }
 
 /**
- * @public
  * <p>An object that represents the status of an entity, component, component type, or
  *          workspace.</p>
+ * @public
  */
 export interface Status {
   /**
-   * @public
    * <p>The current state of the entity, component, component type, or workspace.</p>
+   * @public
    */
   state?: State;
 
   /**
-   * @public
    * <p>The error message.</p>
+   * @public
    */
   error?: ErrorDetails;
 }
@@ -1591,93 +1591,93 @@ export interface Status {
  */
 export interface GetEntityRequest {
   /**
-   * @public
    * <p>The ID of the workspace.</p>
+   * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the entity.</p>
+   * @public
    */
   entityId: string | undefined;
 }
 
 /**
- * @public
  * <p>The component property group response.</p>
+ * @public
  */
 export interface ComponentPropertyGroupResponse {
   /**
-   * @public
    * <p>The group type.</p>
+   * @public
    */
   groupType: GroupType | undefined;
 
   /**
-   * @public
    * <p>The names of properties</p>
+   * @public
    */
   propertyNames: string[] | undefined;
 
   /**
-   * @public
    * <p>A Boolean value that specifies whether the property group is inherited from a parent
    *          entity</p>
+   * @public
    */
   isInherited: boolean | undefined;
 }
 
 /**
- * @public
  * <p>An object that returns information about a component summary.</p>
+ * @public
  */
 export interface ComponentSummary {
   /**
-   * @public
    * <p>The name of the component.</p>
+   * @public
    */
   componentName: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the component type.</p>
+   * @public
    */
   componentTypeId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the property definition set in the request.</p>
+   * @public
    */
   definedIn?: string;
 
   /**
-   * @public
    * <p>The description of the component request.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The property groups.</p>
+   * @public
    */
   propertyGroups?: Record<string, ComponentPropertyGroupResponse>;
 
   /**
-   * @public
    * <p>The status of the component type.</p>
+   * @public
    */
   status: Status | undefined;
 
   /**
-   * @public
    * <p>The <code>syncSource</code> of the sync job, if this entity was created by a sync job.</p>
+   * @public
    */
   syncSource?: string;
 
   /**
-   * @public
    * <p>This string specifies the path to the composite component, starting from the top-level component.</p>
+   * @public
    */
   componentPath?: string;
 }
@@ -1687,8 +1687,8 @@ export interface ComponentSummary {
  */
 export interface GetMetadataTransferJobRequest {
   /**
-   * @public
    * <p>The metadata transfer job Id.</p>
+   * @public
    */
   metadataTransferJobId: string | undefined;
 }
@@ -1698,68 +1698,68 @@ export interface GetMetadataTransferJobRequest {
  */
 export interface GetMetadataTransferJobResponse {
   /**
-   * @public
    * <p>The metadata transfer job Id.</p>
+   * @public
    */
   metadataTransferJobId: string | undefined;
 
   /**
-   * @public
    * <p>The metadata transfer job ARN.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The metadata transfer job description.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The metadata transfer job's sources.</p>
+   * @public
    */
   sources: SourceConfiguration[] | undefined;
 
   /**
-   * @public
    * <p>The metadata transfer job's destination.</p>
+   * @public
    */
   destination: DestinationConfiguration | undefined;
 
   /**
-   * @public
    * <p>The metadata transfer job's role.</p>
+   * @public
    */
   metadataTransferJobRole: string | undefined;
 
   /**
-   * @public
    * <p>The metadata transfer job's report URL.</p>
+   * @public
    */
   reportUrl?: string;
 
   /**
-   * @public
    * <p>The metadata transfer job's creation DateTime property.</p>
+   * @public
    */
   creationDateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The metadata transfer job's update DateTime property.</p>
+   * @public
    */
   updateDateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The metadata transfer job's status.</p>
+   * @public
    */
   status: MetadataTransferJobStatus | undefined;
 
   /**
-   * @public
    * <p>The metadata transfer job's progress.</p>
+   * @public
    */
   progress?: MetadataTransferJobProgress;
 }
@@ -1786,19 +1786,19 @@ export const PricingTier = {
 export type PricingTier = (typeof PricingTier)[keyof typeof PricingTier];
 
 /**
- * @public
  * <p>Information about the pricing bundle.</p>
+ * @public
  */
 export interface BundleInformation {
   /**
-   * @public
    * <p>The bundle names.</p>
+   * @public
    */
   bundleNames: string[] | undefined;
 
   /**
-   * @public
    * <p>The pricing tier.</p>
+   * @public
    */
   pricingTier?: PricingTier;
 }
@@ -1836,43 +1836,43 @@ export const UpdateReason = {
 export type UpdateReason = (typeof UpdateReason)[keyof typeof UpdateReason];
 
 /**
- * @public
  * <p>The pricing plan.</p>
+ * @public
  */
 export interface PricingPlan {
   /**
-   * @public
    * <p>The billable entity count.</p>
+   * @public
    */
   billableEntityCount?: number;
 
   /**
-   * @public
    * <p>The pricing plan's bundle information.</p>
+   * @public
    */
   bundleInformation?: BundleInformation;
 
   /**
-   * @public
    * <p>The effective date and time of the pricing plan.</p>
+   * @public
    */
   effectiveDateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The pricing mode.</p>
+   * @public
    */
   pricingMode: PricingMode | undefined;
 
   /**
-   * @public
    * <p>The set date and time for updating a pricing plan.</p>
+   * @public
    */
   updateDateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The update reason for changing a pricing plan.</p>
+   * @public
    */
   updateReason: UpdateReason | undefined;
 }
@@ -1882,21 +1882,21 @@ export interface PricingPlan {
  */
 export interface GetPricingPlanResponse {
   /**
-   * @public
    * <p>The chosen pricing plan for the current billing cycle.</p>
+   * @public
    */
   currentPricingPlan: PricingPlan | undefined;
 
   /**
-   * @public
    * <p>The pending pricing plan.</p>
+   * @public
    */
   pendingPricingPlan?: PricingPlan;
 }
 
 /**
- * @public
  * <p>The connector failed.</p>
+ * @public
  */
 export class ConnectorFailureException extends __BaseException {
   readonly name: "ConnectorFailureException" = "ConnectorFailureException";
@@ -1915,8 +1915,8 @@ export class ConnectorFailureException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The connector timed out.</p>
+ * @public
  */
 export class ConnectorTimeoutException extends __BaseException {
   readonly name: "ConnectorTimeoutException" = "ConnectorTimeoutException";
@@ -1949,20 +1949,20 @@ export const Order = {
 export type Order = (typeof Order)[keyof typeof Order];
 
 /**
- * @public
  * <p>Filter criteria that orders the return output. It can be sorted in ascending or
  *          descending order.</p>
+ * @public
  */
 export interface OrderBy {
   /**
-   * @public
    * <p>The set order that filters results.</p>
+   * @public
    */
   order?: Order;
 
   /**
-   * @public
    * <p>The property name.</p>
+   * @public
    */
   propertyName: string | undefined;
 }
@@ -1981,19 +1981,19 @@ export const InterpolationType = {
 export type InterpolationType = (typeof InterpolationType)[keyof typeof InterpolationType];
 
 /**
- * @public
  * <p>An object that specifies how to interpolate data in a list.</p>
+ * @public
  */
 export interface InterpolationParameters {
   /**
-   * @public
    * <p>The interpolation type.</p>
+   * @public
    */
   interpolationType?: InterpolationType;
 
   /**
-   * @public
    * <p>The interpolation time interval in seconds.</p>
+   * @public
    */
   intervalInSeconds?: number;
 }
@@ -2017,14 +2017,14 @@ export type OrderByTime = (typeof OrderByTime)[keyof typeof OrderByTime];
  */
 export interface GetSceneRequest {
   /**
-   * @public
    * <p>The ID of the workspace that contains the scene.</p>
+   * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the scene.</p>
+   * @public
    */
   sceneId: string | undefined;
 }
@@ -2043,19 +2043,19 @@ export const SceneErrorCode = {
 export type SceneErrorCode = (typeof SceneErrorCode)[keyof typeof SceneErrorCode];
 
 /**
- * @public
  * <p>The scene error.</p>
+ * @public
  */
 export interface SceneError {
   /**
-   * @public
    * <p>The SceneError code.</p>
+   * @public
    */
   code?: SceneErrorCode;
 
   /**
-   * @public
    * <p>The SceneError message.</p>
+   * @public
    */
   message?: string;
 }
@@ -2065,68 +2065,68 @@ export interface SceneError {
  */
 export interface GetSceneResponse {
   /**
-   * @public
    * <p>The ID of the workspace that contains the scene.</p>
+   * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the scene.</p>
+   * @public
    */
   sceneId: string | undefined;
 
   /**
-   * @public
    * <p>The relative path that specifies the location of the content definition file.</p>
+   * @public
    */
   contentLocation: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the scene.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The date and time when the scene was created.</p>
+   * @public
    */
   creationDateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The date and time when the scene was last updated.</p>
+   * @public
    */
   updateDateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The description of the scene.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>A list of capabilities that the scene uses to render.</p>
+   * @public
    */
   capabilities?: string[];
 
   /**
-   * @public
    * <p>The response metadata.</p>
+   * @public
    */
   sceneMetadata?: Record<string, string>;
 
   /**
-   * @public
    * <p>The generated scene metadata.</p>
+   * @public
    */
   generatedSceneMetadata?: Record<string, string>;
 
   /**
-   * @public
    * <p>The SceneResponse error.</p>
+   * @public
    */
   error?: SceneError;
 }
@@ -2136,35 +2136,35 @@ export interface GetSceneResponse {
  */
 export interface GetSyncJobRequest {
   /**
-   * @public
    * <p>The sync source.</p>
    *          <note>
    *             <p>Currently the only supported syncSource is <code>SITEWISE </code>.</p>
    *          </note>
+   * @public
    */
   syncSource: string | undefined;
 
   /**
-   * @public
    * <p>The workspace ID.</p>
+   * @public
    */
   workspaceId?: string;
 }
 
 /**
- * @public
  * <p>The SyncJob status.</p>
+ * @public
  */
 export interface SyncJobStatus {
   /**
-   * @public
    * <p>The SyncJob status state.</p>
+   * @public
    */
   state?: SyncJobState;
 
   /**
-   * @public
    * <p>The SyncJob error.</p>
+   * @public
    */
   error?: ErrorDetails;
 }
@@ -2174,47 +2174,47 @@ export interface SyncJobStatus {
  */
 export interface GetSyncJobResponse {
   /**
-   * @public
    * <p>The sync job ARN.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the workspace that contains the sync job.</p>
+   * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * @public
    * <p>The sync soucre.</p>
    *          <note>
    *             <p>Currently the only supported syncSource is <code>SITEWISE </code>.</p>
    *          </note>
+   * @public
    */
   syncSource: string | undefined;
 
   /**
-   * @public
    * <p>The sync IAM role.</p>
+   * @public
    */
   syncRole: string | undefined;
 
   /**
-   * @public
    * <p>The SyncJob response status.</p>
+   * @public
    */
   status: SyncJobStatus | undefined;
 
   /**
-   * @public
    * <p>The creation date and time.</p>
+   * @public
    */
   creationDateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The update date and time.</p>
+   * @public
    */
   updateDateTime: Date | undefined;
 }
@@ -2224,8 +2224,8 @@ export interface GetSyncJobResponse {
  */
 export interface GetWorkspaceRequest {
   /**
-   * @public
    * <p>The ID of the workspace.</p>
+   * @public
    */
   workspaceId: string | undefined;
 }
@@ -2235,51 +2235,51 @@ export interface GetWorkspaceRequest {
  */
 export interface GetWorkspaceResponse {
   /**
-   * @public
    * <p>The ID of the workspace.</p>
+   * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the workspace.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The description of the workspace.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>A list of services that are linked to the workspace.</p>
+   * @public
    */
   linkedServices?: string[];
 
   /**
-   * @public
    * <p>The ARN of the S3 bucket where resources associated with the workspace are
    *          stored.</p>
+   * @public
    */
   s3Location?: string;
 
   /**
-   * @public
    * <p>The ARN of the execution role associated with the workspace.</p>
+   * @public
    */
   role?: string;
 
   /**
-   * @public
    * <p>The date and time when the workspace was created.</p>
+   * @public
    */
   creationDateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The date and time when the workspace was last updated.</p>
+   * @public
    */
   updateDateTime: Date | undefined;
 }
@@ -2289,32 +2289,32 @@ export interface GetWorkspaceResponse {
  */
 export interface ListComponentsRequest {
   /**
-   * @public
    * <p>The workspace ID.</p>
+   * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * @public
    * <p>The ID for the entity whose metadata (component/properties) is returned by the operation.</p>
+   * @public
    */
   entityId: string | undefined;
 
   /**
-   * @public
    * <p>This string specifies the path to the composite component, starting from the top-level component.</p>
+   * @public
    */
   componentPath?: string;
 
   /**
-   * @public
    * <p>The maximum number of results returned at one time. The default is 25.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The string that specifies the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2324,24 +2324,24 @@ export interface ListComponentsRequest {
  */
 export interface ListComponentsResponse {
   /**
-   * @public
    * <p>A list of objects that contain information about the components.</p>
+   * @public
    */
   componentSummaries: ComponentSummary[] | undefined;
 
   /**
-   * @public
    * <p>The string that specifies the next page of component results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>An object that filters items in a list of component types.</p>
  *          <note>
  *             <p>Only one object is accepted as a valid input.</p>
  *          </note>
+ * @public
  */
 export type ListComponentTypesFilter =
   | ListComponentTypesFilter.ExtendsFromMember
@@ -2354,8 +2354,8 @@ export type ListComponentTypesFilter =
  */
 export namespace ListComponentTypesFilter {
   /**
-   * @public
    * <p>The component type that the component types in the list extend.</p>
+   * @public
    */
   export interface ExtendsFromMember {
     extendsFrom: string;
@@ -2365,8 +2365,8 @@ export namespace ListComponentTypesFilter {
   }
 
   /**
-   * @public
    * <p>The namespace to which the component types in the list belong.</p>
+   * @public
    */
   export interface NamespaceMember {
     extendsFrom?: never;
@@ -2376,9 +2376,9 @@ export namespace ListComponentTypesFilter {
   }
 
   /**
-   * @public
    * <p>A Boolean value that specifies whether the component types in the list are
    *          abstract.</p>
+   * @public
    */
   export interface IsAbstractMember {
     extendsFrom?: never;
@@ -2417,75 +2417,75 @@ export namespace ListComponentTypesFilter {
  */
 export interface ListComponentTypesRequest {
   /**
-   * @public
    * <p>The ID of the workspace.</p>
+   * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * @public
    * <p>A list of objects that filter the request.</p>
+   * @public
    */
   filters?: ListComponentTypesFilter[];
 
   /**
-   * @public
    * <p>The string that specifies the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return at one time. The default is 25.</p>
    *          <p>Valid Range: Minimum value of 1. Maximum value of 250.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>An object that contains information about a component type.</p>
+ * @public
  */
 export interface ComponentTypeSummary {
   /**
-   * @public
    * <p>The ARN of the component type.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the component type.</p>
+   * @public
    */
   componentTypeId: string | undefined;
 
   /**
-   * @public
    * <p>The date and time when the component type was created.</p>
+   * @public
    */
   creationDateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The date and time when the component type was last updated.</p>
+   * @public
    */
   updateDateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The description of the component type.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The current status of the component type.</p>
+   * @public
    */
   status?: Status;
 
   /**
-   * @public
    * <p>The component type name.</p>
+   * @public
    */
   componentTypeName?: string;
 }
@@ -2495,33 +2495,33 @@ export interface ComponentTypeSummary {
  */
 export interface ListComponentTypesResponse {
   /**
-   * @public
    * <p>The ID of the workspace.</p>
+   * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * @public
    * <p>A list of objects that contain information about the component types.</p>
+   * @public
    */
   componentTypeSummaries: ComponentTypeSummary[] | undefined;
 
   /**
-   * @public
    * <p>The string that specifies the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Specifies the maximum number of results to display.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>An object that filters items in a list of entities.</p>
+ * @public
  */
 export type ListEntitiesFilter =
   | ListEntitiesFilter.ComponentTypeIdMember
@@ -2534,8 +2534,8 @@ export type ListEntitiesFilter =
  */
 export namespace ListEntitiesFilter {
   /**
-   * @public
    * <p>The parent of the entities in the list.</p>
+   * @public
    */
   export interface ParentEntityIdMember {
     parentEntityId: string;
@@ -2545,8 +2545,8 @@ export namespace ListEntitiesFilter {
   }
 
   /**
-   * @public
    * <p>The ID of the component type in the entities in the list.</p>
+   * @public
    */
   export interface ComponentTypeIdMember {
     parentEntityId?: never;
@@ -2556,9 +2556,9 @@ export namespace ListEntitiesFilter {
   }
 
   /**
-   * @public
    * <p>The external-Id property of a component. The external-Id property is the primary key of
    *          an external storage system.</p>
+   * @public
    */
   export interface ExternalIdMember {
     parentEntityId?: never;
@@ -2597,90 +2597,90 @@ export namespace ListEntitiesFilter {
  */
 export interface ListEntitiesRequest {
   /**
-   * @public
    * <p>The ID of the workspace.</p>
+   * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * @public
    * <p>A list of objects that filter the request.</p>
    *          <note>
    *             <p>Only one object is accepted as a valid input.</p>
    *          </note>
+   * @public
    */
   filters?: ListEntitiesFilter[];
 
   /**
-   * @public
    * <p>The maximum number of results to return at one time. The default is 25.</p>
    *          <p>Valid Range: Minimum value of 1. Maximum value of 250.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The string that specifies the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>An object that contains information about an entity.</p>
+ * @public
  */
 export interface EntitySummary {
   /**
-   * @public
    * <p>The ID of the entity.</p>
+   * @public
    */
   entityId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the entity.</p>
+   * @public
    */
   entityName: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the entity.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the parent entity.</p>
+   * @public
    */
   parentEntityId?: string;
 
   /**
-   * @public
    * <p>The current status of the entity.</p>
+   * @public
    */
   status: Status | undefined;
 
   /**
-   * @public
    * <p>The description of the entity.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>An <b>eventual</b> Boolean value that specifies whether the entity has child entities or not.</p>
+   * @public
    */
   hasChildEntities?: boolean;
 
   /**
-   * @public
    * <p>The date and time when the entity was created.</p>
+   * @public
    */
   creationDateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The last date and time when the entity was updated.</p>
+   * @public
    */
   updateDateTime: Date | undefined;
 }
@@ -2690,21 +2690,21 @@ export interface EntitySummary {
  */
 export interface ListEntitiesResponse {
   /**
-   * @public
    * <p>A list of objects that contain information about the entities.</p>
+   * @public
    */
   entitySummaries?: EntitySummary[];
 
   /**
-   * @public
    * <p>The string that specifies the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>The ListMetadataTransferJobs filter.</p>
+ * @public
  */
 export type ListMetadataTransferJobsFilter =
   | ListMetadataTransferJobsFilter.StateMember
@@ -2716,8 +2716,8 @@ export type ListMetadataTransferJobsFilter =
  */
 export namespace ListMetadataTransferJobsFilter {
   /**
-   * @public
    * <p>The workspace Id.</p>
+   * @public
    */
   export interface WorkspaceIdMember {
     workspaceId: string;
@@ -2726,8 +2726,8 @@ export namespace ListMetadataTransferJobsFilter {
   }
 
   /**
-   * @public
    * <p>The filter state.</p>
+   * @public
    */
   export interface StateMember {
     workspaceId?: never;
@@ -2762,74 +2762,74 @@ export namespace ListMetadataTransferJobsFilter {
  */
 export interface ListMetadataTransferJobsRequest {
   /**
-   * @public
    * <p>The metadata transfer job's source type.</p>
+   * @public
    */
   sourceType: SourceType | undefined;
 
   /**
-   * @public
    * <p>The metadata transfer job's destination type.</p>
+   * @public
    */
   destinationType: DestinationType | undefined;
 
   /**
-   * @public
    * <p>An object that filters metadata transfer jobs.</p>
+   * @public
    */
   filters?: ListMetadataTransferJobsFilter[];
 
   /**
-   * @public
    * <p>The string that specifies the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return at one time.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>The metadata transfer job summary.</p>
+ * @public
  */
 export interface MetadataTransferJobSummary {
   /**
-   * @public
    * <p>The metadata transfer job summary Id.</p>
+   * @public
    */
   metadataTransferJobId: string | undefined;
 
   /**
-   * @public
    * <p>The metadata transfer job summary ARN.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The metadata transfer job summary creation DateTime object.</p>
+   * @public
    */
   creationDateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The metadata transfer job summary update DateTime object</p>
+   * @public
    */
   updateDateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The metadata transfer job summary status.</p>
+   * @public
    */
   status: MetadataTransferJobStatus | undefined;
 
   /**
-   * @public
    * <p>The metadata transfer job summary progess.</p>
+   * @public
    */
   progress?: MetadataTransferJobProgress;
 }
@@ -2839,14 +2839,14 @@ export interface MetadataTransferJobSummary {
  */
 export interface ListMetadataTransferJobsResponse {
   /**
-   * @public
    * <p>The metadata transfer job summaries.</p>
+   * @public
    */
   metadataTransferJobSummaries: MetadataTransferJobSummary[] | undefined;
 
   /**
-   * @public
    * <p>The string that specifies the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2856,38 +2856,38 @@ export interface ListMetadataTransferJobsResponse {
  */
 export interface ListPropertiesRequest {
   /**
-   * @public
    * <p>The workspace ID.</p>
+   * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the component whose properties are returned by the operation.</p>
+   * @public
    */
   componentName?: string;
 
   /**
-   * @public
    * <p>This string specifies the path to the composite component, starting from the top-level component.</p>
+   * @public
    */
   componentPath?: string;
 
   /**
-   * @public
    * <p>The ID for the entity whose metadata (component/properties) is returned by the operation.</p>
+   * @public
    */
   entityId: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of results returned at one time. The default is 25.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The string that specifies the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2897,62 +2897,62 @@ export interface ListPropertiesRequest {
  */
 export interface ListScenesRequest {
   /**
-   * @public
    * <p>The ID of the workspace that contains the scenes.</p>
+   * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the maximum number of results to display.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The string that specifies the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>An object that contains information about a scene.</p>
+ * @public
  */
 export interface SceneSummary {
   /**
-   * @public
    * <p>The ID of the scene.</p>
+   * @public
    */
   sceneId: string | undefined;
 
   /**
-   * @public
    * <p>The relative path that specifies the location of the content definition file.</p>
+   * @public
    */
   contentLocation: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the scene.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The date and time when the scene was created.</p>
+   * @public
    */
   creationDateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The date and time when the scene was last updated.</p>
+   * @public
    */
   updateDateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The scene description.</p>
+   * @public
    */
   description?: string;
 }
@@ -2962,14 +2962,14 @@ export interface SceneSummary {
  */
 export interface ListScenesResponse {
   /**
-   * @public
    * <p>A list of objects that contain information about the scenes.</p>
+   * @public
    */
   sceneSummaries?: SceneSummary[];
 
   /**
-   * @public
    * <p>The string that specifies the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2979,63 +2979,63 @@ export interface ListScenesResponse {
  */
 export interface ListSyncJobsRequest {
   /**
-   * @public
    * <p>The ID of the workspace that contains the sync job.</p>
+   * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of results to return at one time. The default is 50.</p>
    *          <p>Valid Range: Minimum value of 0. Maximum value of 200.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The string that specifies the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>The SyncJob summary.</p>
+ * @public
  */
 export interface SyncJobSummary {
   /**
-   * @public
    * <p>The SyncJob summary ARN.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>The ID of the workspace that contains the sync job.</p>
+   * @public
    */
   workspaceId?: string;
 
   /**
-   * @public
    * <p>The sync source.</p>
+   * @public
    */
   syncSource?: string;
 
   /**
-   * @public
    * <p>The SyncJob summaries status.</p>
+   * @public
    */
   status?: SyncJobStatus;
 
   /**
-   * @public
    * <p>The creation date and time.</p>
+   * @public
    */
   creationDateTime?: Date;
 
   /**
-   * @public
    * <p>The update date and time.</p>
+   * @public
    */
   updateDateTime?: Date;
 }
@@ -3045,14 +3045,14 @@ export interface SyncJobSummary {
  */
 export interface ListSyncJobsResponse {
   /**
-   * @public
    * <p>The listed SyncJob summaries.</p>
+   * @public
    */
   syncJobSummaries?: SyncJobSummary[];
 
   /**
-   * @public
    * <p>The string that specifies the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -3089,8 +3089,8 @@ export const SyncResourceState = {
 export type SyncResourceState = (typeof SyncResourceState)[keyof typeof SyncResourceState];
 
 /**
- * @public
  * <p>The sync resource filter.</p>
+ * @public
  */
 export type SyncResourceFilter =
   | SyncResourceFilter.ExternalIdMember
@@ -3104,8 +3104,8 @@ export type SyncResourceFilter =
  */
 export namespace SyncResourceFilter {
   /**
-   * @public
    * <p>The sync resource filter's state.</p>
+   * @public
    */
   export interface StateMember {
     state: SyncResourceState;
@@ -3116,8 +3116,8 @@ export namespace SyncResourceFilter {
   }
 
   /**
-   * @public
    * <p>The sync resource filter resource type</p>
+   * @public
    */
   export interface ResourceTypeMember {
     state?: never;
@@ -3128,8 +3128,8 @@ export namespace SyncResourceFilter {
   }
 
   /**
-   * @public
    * <p>The sync resource filter resource ID.</p>
+   * @public
    */
   export interface ResourceIdMember {
     state?: never;
@@ -3140,8 +3140,8 @@ export namespace SyncResourceFilter {
   }
 
   /**
-   * @public
    * <p>The external ID.</p>
+   * @public
    */
   export interface ExternalIdMember {
     state?: never;
@@ -3184,22 +3184,21 @@ export namespace SyncResourceFilter {
  */
 export interface ListSyncResourcesRequest {
   /**
-   * @public
    * <p>The ID of the workspace that contains the sync job.</p>
+   * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * @public
    * <p>The sync source.</p>
    *          <note>
    *             <p>Currently the only supported syncSource is <code>SITEWISE </code>.</p>
    *          </note>
+   * @public
    */
   syncSource: string | undefined;
 
   /**
-   * @public
    * <p>A list of objects that filter the request.</p>
    *          <p>The following filter combinations are supported:</p>
    *          <ul>
@@ -3213,73 +3212,74 @@ export interface ListSyncResourcesRequest {
    *                <p>Filter with ResourceType and ExternalId</p>
    *             </li>
    *          </ul>
+   * @public
    */
   filters?: SyncResourceFilter[];
 
   /**
-   * @public
    * <p>The maximum number of results to return at one time. The default is 50.</p>
    *          <p>Valid Range: Minimum value of 0. Maximum value of 200.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The string that specifies the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>The sync resource status.</p>
+ * @public
  */
 export interface SyncResourceStatus {
   /**
-   * @public
    * <p>The sync resource status state.</p>
+   * @public
    */
   state?: SyncResourceState;
 
   /**
-   * @public
    * <p>The status error.</p>
+   * @public
    */
   error?: ErrorDetails;
 }
 
 /**
- * @public
  * <p>The sync resource summary.</p>
+ * @public
  */
 export interface SyncResourceSummary {
   /**
-   * @public
    * <p>The resource type.</p>
+   * @public
    */
   resourceType?: SyncResourceType;
 
   /**
-   * @public
    * <p>The external ID.</p>
+   * @public
    */
   externalId?: string;
 
   /**
-   * @public
    * <p>The resource ID.</p>
+   * @public
    */
   resourceId?: string;
 
   /**
-   * @public
    * <p>The sync resource summary status.</p>
+   * @public
    */
   status?: SyncResourceStatus;
 
   /**
-   * @public
    * <p>The update date and time.</p>
+   * @public
    */
   updateDateTime?: Date;
 }
@@ -3289,14 +3289,14 @@ export interface SyncResourceSummary {
  */
 export interface ListSyncResourcesResponse {
   /**
-   * @public
    * <p>The sync resources.</p>
+   * @public
    */
   syncResources?: SyncResourceSummary[];
 
   /**
-   * @public
    * <p>The string that specifies the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -3306,21 +3306,21 @@ export interface ListSyncResourcesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The ARN of the resource.</p>
+   * @public
    */
   resourceARN: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of results to return at one time. The default is 25.</p>
    *          <p>Valid Range: Minimum value of 1. Maximum value of 250.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The string that specifies the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -3330,14 +3330,14 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>Metadata that you can use to manage a resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The string that specifies the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -3347,57 +3347,57 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListWorkspacesRequest {
   /**
-   * @public
    * <p>The maximum number of results to return at one time. The default is 25.</p>
    *          <p>Valid Range: Minimum value of 1. Maximum value of 250.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The string that specifies the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>An object that contains information about a workspace.</p>
+ * @public
  */
 export interface WorkspaceSummary {
   /**
-   * @public
    * <p>The ID of the workspace.</p>
+   * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the workspace.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The description of the workspace.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>A list of services that are linked to the workspace.</p>
+   * @public
    */
   linkedServices?: string[];
 
   /**
-   * @public
    * <p>The date and time when the workspace was created.</p>
+   * @public
    */
   creationDateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The date and time when the workspace was last updated.</p>
+   * @public
    */
   updateDateTime: Date | undefined;
 }
@@ -3407,14 +3407,14 @@ export interface WorkspaceSummary {
  */
 export interface ListWorkspacesResponse {
   /**
-   * @public
    * <p>A list of objects that contain information about the workspaces.</p>
+   * @public
    */
   workspaceSummaries?: WorkspaceSummary[];
 
   /**
-   * @public
    * <p>The string that specifies the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -3424,14 +3424,14 @@ export interface ListWorkspacesResponse {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>The ARN of the resource.</p>
+   * @public
    */
   resourceARN: string | undefined;
 
   /**
-   * @public
    * <p>Metadata to add to this resource.</p>
+   * @public
    */
   tags: Record<string, string> | undefined;
 }
@@ -3442,8 +3442,8 @@ export interface TagResourceRequest {
 export interface TagResourceResponse {}
 
 /**
- * @public
  * <p>The number of tags exceeds the limit.</p>
+ * @public
  */
 export class TooManyTagsException extends __BaseException {
   readonly name: "TooManyTagsException" = "TooManyTagsException";
@@ -3466,15 +3466,15 @@ export class TooManyTagsException extends __BaseException {
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>The ARN of the resource.</p>
+   * @public
    */
   resourceARN: string | undefined;
 
   /**
-   * @public
    * <p>A list of tag key names to remove from the resource. You don't specify the value. Both
    *          the key and its associated value are removed.</p>
+   * @public
    */
   tagKeys: string[] | undefined;
 }
@@ -3489,26 +3489,26 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateComponentTypeResponse {
   /**
-   * @public
    * <p>The ID of the workspace that contains the component type.</p>
+   * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the component type.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the component type.</p>
+   * @public
    */
   componentTypeId: string | undefined;
 
   /**
-   * @public
    * <p>The current state of the component type.</p>
+   * @public
    */
   state: State | undefined;
 }
@@ -3543,19 +3543,19 @@ export const ParentEntityUpdateType = {
 export type ParentEntityUpdateType = (typeof ParentEntityUpdateType)[keyof typeof ParentEntityUpdateType];
 
 /**
- * @public
  * <p>The parent entity update request.</p>
+ * @public
  */
 export interface ParentEntityUpdateRequest {
   /**
-   * @public
    * <p>The type of the update.</p>
+   * @public
    */
   updateType: ParentEntityUpdateType | undefined;
 
   /**
-   * @public
    * <p>The ID of the parent entity.</p>
+   * @public
    */
   parentEntityId?: string;
 }
@@ -3565,14 +3565,14 @@ export interface ParentEntityUpdateRequest {
  */
 export interface UpdateEntityResponse {
   /**
-   * @public
    * <p>The date and time when the entity was last updated.</p>
+   * @public
    */
   updateDateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The current state of the entity update.</p>
+   * @public
    */
   state: State | undefined;
 }
@@ -3582,14 +3582,14 @@ export interface UpdateEntityResponse {
  */
 export interface UpdatePricingPlanRequest {
   /**
-   * @public
    * <p>The pricing mode.</p>
+   * @public
    */
   pricingMode: PricingMode | undefined;
 
   /**
-   * @public
    * <p>The bundle names.</p>
+   * @public
    */
   bundleNames?: string[];
 }
@@ -3599,14 +3599,14 @@ export interface UpdatePricingPlanRequest {
  */
 export interface UpdatePricingPlanResponse {
   /**
-   * @public
    * <p>Update the current pricing plan.</p>
+   * @public
    */
   currentPricingPlan: PricingPlan | undefined;
 
   /**
-   * @public
    * <p>Update the pending pricing plan.</p>
+   * @public
    */
   pendingPricingPlan?: PricingPlan;
 }
@@ -3616,38 +3616,38 @@ export interface UpdatePricingPlanResponse {
  */
 export interface UpdateSceneRequest {
   /**
-   * @public
    * <p>The ID of the workspace that contains the scene.</p>
+   * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the scene.</p>
+   * @public
    */
   sceneId: string | undefined;
 
   /**
-   * @public
    * <p>The relative path that specifies the location of the content definition file.</p>
+   * @public
    */
   contentLocation?: string;
 
   /**
-   * @public
    * <p>The description of this scene.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>A list of capabilities that the scene uses to render.</p>
+   * @public
    */
   capabilities?: string[];
 
   /**
-   * @public
    * <p>The scene metadata.</p>
+   * @public
    */
   sceneMetadata?: Record<string, string>;
 }
@@ -3657,8 +3657,8 @@ export interface UpdateSceneRequest {
  */
 export interface UpdateSceneResponse {
   /**
-   * @public
    * <p>The date and time when the scene was last updated.</p>
+   * @public
    */
   updateDateTime: Date | undefined;
 }
@@ -3668,27 +3668,27 @@ export interface UpdateSceneResponse {
  */
 export interface UpdateWorkspaceRequest {
   /**
-   * @public
    * <p>The ID of the workspace.</p>
+   * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * @public
    * <p>The description of the workspace.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The ARN of the execution role associated with the workspace.</p>
+   * @public
    */
   role?: string;
 
   /**
-   * @public
    * <p>The ARN of the S3 bucket where resources associated with the workspace are
    *          stored.</p>
+   * @public
    */
   s3Location?: string;
 }
@@ -3698,135 +3698,134 @@ export interface UpdateWorkspaceRequest {
  */
 export interface UpdateWorkspaceResponse {
   /**
-   * @public
    * <p>The date and time of the current update.</p>
+   * @public
    */
   updateDateTime: Date | undefined;
 }
 
 /**
- * @public
  * <p>An object that specifies a value for a property.</p>
+ * @public
  */
 export interface DataValue {
   /**
-   * @public
    * <p>A Boolean value.</p>
+   * @public
    */
   booleanValue?: boolean;
 
   /**
-   * @public
    * <p>A double value.</p>
+   * @public
    */
   doubleValue?: number;
 
   /**
-   * @public
    * <p>An integer value.</p>
+   * @public
    */
   integerValue?: number;
 
   /**
-   * @public
    * <p>A long value.</p>
+   * @public
    */
   longValue?: number;
 
   /**
-   * @public
    * <p>A string value.</p>
+   * @public
    */
   stringValue?: string;
 
   /**
-   * @public
    * <p>A list of multiple values.</p>
+   * @public
    */
   listValue?: DataValue[];
 
   /**
-   * @public
    * <p>An object that maps strings to multiple <code>DataValue</code> objects.</p>
+   * @public
    */
   mapValue?: Record<string, DataValue>;
 
   /**
-   * @public
    * <p>A value that relates a component to another component.</p>
+   * @public
    */
   relationshipValue?: RelationshipValue;
 
   /**
-   * @public
    * <p>An expression that produces the value.</p>
+   * @public
    */
   expression?: string;
 }
 
 /**
- * @public
  * <p>An object that filters items returned by a property request.</p>
+ * @public
  */
 export interface PropertyFilter {
   /**
-   * @public
    * <p>The property name associated with this property filter.</p>
+   * @public
    */
   propertyName?: string;
 
   /**
-   * @public
    * <p>The operator associated with this property filter.</p>
+   * @public
    */
   operator?: string;
 
   /**
-   * @public
    * <p>The value associated with this property filter.</p>
+   * @public
    */
   value?: DataValue;
 }
 
 /**
- * @public
  * <p>The latest value of the property.</p>
+ * @public
  */
 export interface PropertyLatestValue {
   /**
-   * @public
    * <p>An object that specifies information about a property.</p>
+   * @public
    */
   propertyReference: EntityPropertyReference | undefined;
 
   /**
-   * @public
    * <p>The value of the property.</p>
+   * @public
    */
   propertyValue?: DataValue;
 }
 
 /**
- * @public
  * <p>An object that contains information about a value for a time series property.</p>
+ * @public
  */
 export interface PropertyValue {
   /**
-   * @public
    * @deprecated
    *
    * <p>The timestamp of a value for a time series property.</p>
+   * @public
    */
   timestamp?: Date;
 
   /**
-   * @public
    * <p>An object that specifies a value for a time series property.</p>
+   * @public
    */
   value: DataValue | undefined;
 
   /**
-   * @public
    * <p>ISO8601 DateTime of a value for a time series property.</p>
    *          <p>The time for when the property value was recorded in ISO 8601 format:
    *             <i>YYYY-MM-DDThh:mm:ss[.SSSSSSSSS][Z/±HH:mm]</i>.</p>
@@ -3871,42 +3870,43 @@ export interface PropertyValue {
    *          </ul>
    *          <p>
    *             <i>Required sub-fields</i>: YYYY-MM-DDThh:mm:ss and [Z/±HH:mm]</p>
+   * @public
    */
   time?: string;
 }
 
 /**
- * @public
  * <p>An object that specifies the data type of a property.</p>
+ * @public
  */
 export interface DataType {
   /**
-   * @public
    * <p>The underlying type of the data type.</p>
+   * @public
    */
   type: Type | undefined;
 
   /**
-   * @public
    * <p>The nested type in the data type.</p>
+   * @public
    */
   nestedType?: DataType;
 
   /**
-   * @public
    * <p>The allowed values for this data type.</p>
+   * @public
    */
   allowedValues?: DataValue[];
 
   /**
-   * @public
    * <p>The unit of measure used in this data type.</p>
+   * @public
    */
   unitOfMeasure?: string;
 
   /**
-   * @public
    * <p>A relationship that associates a component with another component.</p>
+   * @public
    */
   relationship?: Relationship;
 }
@@ -3916,186 +3916,186 @@ export interface DataType {
  */
 export interface GetPropertyValueHistoryRequest {
   /**
-   * @public
    * <p>The ID of the workspace.</p>
+   * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the entity.</p>
+   * @public
    */
   entityId?: string;
 
   /**
-   * @public
    * <p>The name of the component.</p>
+   * @public
    */
   componentName?: string;
 
   /**
-   * @public
    * <p>This string specifies the path to the composite component, starting from the top-level component.</p>
+   * @public
    */
   componentPath?: string;
 
   /**
-   * @public
    * <p>The ID of the component type.</p>
+   * @public
    */
   componentTypeId?: string;
 
   /**
-   * @public
    * <p>A list of properties whose value histories the request retrieves.</p>
+   * @public
    */
   selectedProperties: string[] | undefined;
 
   /**
-   * @public
    * <p>A list of objects that filter the property value history request.</p>
+   * @public
    */
   propertyFilters?: PropertyFilter[];
 
   /**
-   * @public
    * @deprecated
    *
    * <p>The date and time of the earliest property value to return.</p>
+   * @public
    */
   startDateTime?: Date;
 
   /**
-   * @public
    * @deprecated
    *
    * <p>The date and time of the latest property value to return.</p>
+   * @public
    */
   endDateTime?: Date;
 
   /**
-   * @public
    * <p>An object that specifies the interpolation type and the interval over which to
    *          interpolate data.</p>
+   * @public
    */
   interpolation?: InterpolationParameters;
 
   /**
-   * @public
    * <p>The string that specifies the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return at one time. The default is 25.</p>
    *          <p>Valid Range: Minimum value of 1. Maximum value of 250.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The time direction to use in the result order.</p>
+   * @public
    */
   orderByTime?: OrderByTime;
 
   /**
-   * @public
    * <p>The ISO8601 DateTime of the earliest property value to return.</p>
    *          <p>For more information about the ISO8601 DateTime format, see the data type <a href="https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_PropertyValue.html">PropertyValue</a>.</p>
+   * @public
    */
   startTime?: string;
 
   /**
-   * @public
    * <p>The ISO8601 DateTime of the latest property value to return.</p>
    *          <p>For more information about the ISO8601 DateTime format, see the data type <a href="https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_PropertyValue.html">PropertyValue</a>.</p>
+   * @public
    */
   endTime?: string;
 }
 
 /**
- * @public
  * <p>An object that specifies information about time series property values. This object is
  *          used and consumed by the <a href="https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_BatchPutPropertyValues.html">BatchPutPropertyValues</a> action.</p>
+ * @public
  */
 export interface PropertyValueEntry {
   /**
-   * @public
    * <p>An object that contains information about the entity that has the property.</p>
+   * @public
    */
   entityPropertyReference: EntityPropertyReference | undefined;
 
   /**
-   * @public
    * <p>A list of objects that specify time series property values.</p>
+   * @public
    */
   propertyValues?: PropertyValue[];
 }
 
 /**
- * @public
  * <p>The history of values for a time series property.</p>
+ * @public
  */
 export interface PropertyValueHistory {
   /**
-   * @public
    * <p>An object that uniquely identifies an entity property.</p>
+   * @public
    */
   entityPropertyReference: EntityPropertyReference | undefined;
 
   /**
-   * @public
    * <p>A list of objects that contain information about the values in the history of a time
    *          series property.</p>
+   * @public
    */
   values?: PropertyValue[];
 }
 
 /**
- * @public
  * <p>The tabular conditions.</p>
+ * @public
  */
 export interface TabularConditions {
   /**
-   * @public
    * <p>Filter criteria that orders the output. It can be sorted in ascending or descending
    *          order.</p>
+   * @public
    */
   orderBy?: OrderBy[];
 
   /**
-   * @public
    * <p>You can filter the request using various logical operators and a key-value format. For
    *          example:</p>
    *          <p>
    *             <code>\{"key": "serverType", "value": "webServer"\}</code>
    *          </p>
+   * @public
    */
   propertyFilters?: PropertyFilter[];
 }
 
 /**
- * @public
  * <p>An error returned by the <code>BatchPutProperty</code> action.</p>
+ * @public
  */
 export interface BatchPutPropertyError {
   /**
-   * @public
    * <p>The error code.</p>
+   * @public
    */
   errorCode: string | undefined;
 
   /**
-   * @public
    * <p>The error message.</p>
+   * @public
    */
   errorMessage: string | undefined;
 
   /**
-   * @public
    * <p>An object that contains information about errors returned by the
    *             <code>BatchPutProperty</code> action.</p>
+   * @public
    */
   entry: PropertyValueEntry | undefined;
 }
@@ -4105,63 +4105,63 @@ export interface BatchPutPropertyError {
  */
 export interface GetPropertyValueRequest {
   /**
-   * @public
    * <p>The name of the component whose property values the operation returns.</p>
+   * @public
    */
   componentName?: string;
 
   /**
-   * @public
    * <p>This string specifies the path to the composite component, starting from the top-level component.</p>
+   * @public
    */
   componentPath?: string;
 
   /**
-   * @public
    * <p>The ID of the component type whose property values the operation returns.</p>
+   * @public
    */
   componentTypeId?: string;
 
   /**
-   * @public
    * <p>The ID of the entity whose property values the operation returns.</p>
+   * @public
    */
   entityId?: string;
 
   /**
-   * @public
    * <p>The properties whose values the operation returns.</p>
+   * @public
    */
   selectedProperties: string[] | undefined;
 
   /**
-   * @public
    * <p>The ID of the workspace whose values the operation returns.</p>
+   * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of results to return at one time. The default is 25.</p>
    *          <p>Valid Range: Minimum value of 1. Maximum value of 250.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The string that specifies the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The property group name.</p>
+   * @public
    */
   propertyGroupName?: string;
 
   /**
-   * @public
    * <p>The tabular conditions.</p>
+   * @public
    */
   tabularConditions?: TabularConditions;
 }
@@ -4171,15 +4171,15 @@ export interface GetPropertyValueRequest {
  */
 export interface BatchPutPropertyValuesRequest {
   /**
-   * @public
    * <p>The ID of the workspace that contains the properties to set.</p>
+   * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * @public
    * <p>An object that maps strings to the property value entries to set. Each string in the
    *          mapping must be unique to this object.</p>
+   * @public
    */
   entries: PropertyValueEntry[] | undefined;
 }
@@ -4189,160 +4189,160 @@ export interface BatchPutPropertyValuesRequest {
  */
 export interface GetPropertyValueHistoryResponse {
   /**
-   * @public
    * <p>An object that maps strings to the property definitions in the component type. Each
    *          string in the mapping must be unique to this object.</p>
+   * @public
    */
   propertyValues: PropertyValueHistory[] | undefined;
 
   /**
-   * @public
    * <p>The string that specifies the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>An object that contains information about errors returned by the
  *             <code>BatchPutProperty</code> action.</p>
+ * @public
  */
 export interface BatchPutPropertyErrorEntry {
   /**
-   * @public
    * <p>A list of objects that contain information about errors returned by the
    *             <code>BatchPutProperty</code> action.</p>
+   * @public
    */
   errors: BatchPutPropertyError[] | undefined;
 }
 
 /**
- * @public
  * <p>An object that sets information about a property.</p>
+ * @public
  */
 export interface PropertyDefinitionRequest {
   /**
-   * @public
    * <p>An object that contains information about the data type.</p>
+   * @public
    */
   dataType?: DataType;
 
   /**
-   * @public
    * <p>A Boolean value that specifies whether the property is required.</p>
+   * @public
    */
   isRequiredInEntity?: boolean;
 
   /**
-   * @public
    * <p>A Boolean value that specifies whether the property ID comes from an external data
    *          store.</p>
+   * @public
    */
   isExternalId?: boolean;
 
   /**
-   * @public
    * <p>A Boolean value that specifies whether the property is stored externally.</p>
+   * @public
    */
   isStoredExternally?: boolean;
 
   /**
-   * @public
    * <p>A Boolean value that specifies whether the property consists of time series data.</p>
+   * @public
    */
   isTimeSeries?: boolean;
 
   /**
-   * @public
    * <p>An object that contains the default value.</p>
+   * @public
    */
   defaultValue?: DataValue;
 
   /**
-   * @public
    * <p>A mapping that specifies configuration information about the property. Use this field to
    *          specify information that you read from and write to an external source.</p>
+   * @public
    */
   configuration?: Record<string, string>;
 
   /**
-   * @public
    * <p>A friendly name for the property.</p>
+   * @public
    */
   displayName?: string;
 }
 
 /**
- * @public
  * <p>An object that contains response data from a property definition request.</p>
+ * @public
  */
 export interface PropertyDefinitionResponse {
   /**
-   * @public
    * <p>An object that contains information about the data type.</p>
+   * @public
    */
   dataType: DataType | undefined;
 
   /**
-   * @public
    * <p>A Boolean value that specifies whether the property consists of time series data.</p>
+   * @public
    */
   isTimeSeries: boolean | undefined;
 
   /**
-   * @public
    * <p>A Boolean value that specifies whether the property is required in an entity.</p>
+   * @public
    */
   isRequiredInEntity: boolean | undefined;
 
   /**
-   * @public
    * <p>A Boolean value that specifies whether the property ID comes from an external data
    *          store.</p>
+   * @public
    */
   isExternalId: boolean | undefined;
 
   /**
-   * @public
    * <p>A Boolean value that specifies whether the property is stored externally.</p>
+   * @public
    */
   isStoredExternally: boolean | undefined;
 
   /**
-   * @public
    * <p>A Boolean value that specifies whether the property definition is imported from an
    *          external data store.</p>
+   * @public
    */
   isImported: boolean | undefined;
 
   /**
-   * @public
    * <p>A Boolean value that specifies whether the property definition can be updated.</p>
+   * @public
    */
   isFinal: boolean | undefined;
 
   /**
-   * @public
    * <p>A Boolean value that specifies whether the property definition is inherited from a
    *          parent entity.</p>
+   * @public
    */
   isInherited: boolean | undefined;
 
   /**
-   * @public
    * <p>An object that contains the default value.</p>
+   * @public
    */
   defaultValue?: DataValue;
 
   /**
-   * @public
    * <p>A mapping that specifies configuration information about the property.</p>
+   * @public
    */
   configuration?: Record<string, string>;
 
   /**
-   * @public
    * <p>A friendly name for the property.</p>
+   * @public
    */
   displayName?: string;
 }
@@ -4352,8 +4352,8 @@ export interface PropertyDefinitionResponse {
  */
 export interface BatchPutPropertyValuesResponse {
   /**
-   * @public
    * <p>Entries that caused errors in the batch put operation.</p>
+   * @public
    */
   errorEntries: BatchPutPropertyErrorEntry[] | undefined;
 }
@@ -4363,21 +4363,21 @@ export interface BatchPutPropertyValuesResponse {
  */
 export interface GetPropertyValueResponse {
   /**
-   * @public
    * <p>An object that maps strings to the properties and latest property values in the
    *          response. Each string in the mapping must be unique to this object.</p>
+   * @public
    */
   propertyValues?: Record<string, PropertyLatestValue>;
 
   /**
-   * @public
    * <p>The string that specifies the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A table of property values.</p>
+   * @public
    */
   tabularPropertyValues?: Record<string, DataValue>[][];
 }
@@ -4387,72 +4387,72 @@ export interface GetPropertyValueResponse {
  */
 export interface CreateComponentTypeRequest {
   /**
-   * @public
    * <p>The ID of the workspace that contains the component type.</p>
+   * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * @public
    * <p>A Boolean value that specifies whether an entity can have more than one component of
    *          this type.</p>
+   * @public
    */
   isSingleton?: boolean;
 
   /**
-   * @public
    * <p>The ID of the component type.</p>
+   * @public
    */
   componentTypeId: string | undefined;
 
   /**
-   * @public
    * <p>The description of the component type.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>An object that maps strings to the property definitions in the component type. Each
    *          string in the mapping must be unique to this object.</p>
+   * @public
    */
   propertyDefinitions?: Record<string, PropertyDefinitionRequest>;
 
   /**
-   * @public
    * <p>Specifies the parent component type to extend.</p>
+   * @public
    */
   extendsFrom?: string[];
 
   /**
-   * @public
    * <p>An object that maps strings to the functions in the component type. Each string in the
    *          mapping must be unique to this object.</p>
+   * @public
    */
   functions?: Record<string, FunctionRequest>;
 
   /**
-   * @public
    * <p>Metadata that you can use to manage the component type.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p/>
+   * @public
    */
   propertyGroups?: Record<string, PropertyGroupRequest>;
 
   /**
-   * @public
    * <p>A friendly name for the component type.</p>
+   * @public
    */
   componentTypeName?: string;
 
   /**
-   * @public
    * <p>This is an object that maps strings to <code>compositeComponentTypes</code> of the <code>componentType</code>.
    *           <code>CompositeComponentType</code> is referenced by <code>componentTypeId</code>.</p>
+   * @public
    */
   compositeComponentTypes?: Record<string, CompositeComponentTypeRequest>;
 }
@@ -4462,109 +4462,109 @@ export interface CreateComponentTypeRequest {
  */
 export interface GetComponentTypeResponse {
   /**
-   * @public
    * <p>The ID of the workspace that contains the component type.</p>
+   * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * @public
    * <p>A Boolean value that specifies whether an entity can have more than one component of
    *          this type.</p>
+   * @public
    */
   isSingleton?: boolean;
 
   /**
-   * @public
    * <p>The ID of the component type.</p>
+   * @public
    */
   componentTypeId: string | undefined;
 
   /**
-   * @public
    * <p>The description of the component type.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>An object that maps strings to the property definitions in the component type. Each
    *          string in the mapping must be unique to this object.</p>
+   * @public
    */
   propertyDefinitions?: Record<string, PropertyDefinitionResponse>;
 
   /**
-   * @public
    * <p>The name of the parent component type that this component type extends.</p>
+   * @public
    */
   extendsFrom?: string[];
 
   /**
-   * @public
    * <p>An object that maps strings to the functions in the component type. Each string in the
    *          mapping must be unique to this object.</p>
+   * @public
    */
   functions?: Record<string, FunctionResponse>;
 
   /**
-   * @public
    * <p>The date and time when the component type was created.</p>
+   * @public
    */
   creationDateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The date and time when the component was last updated.</p>
+   * @public
    */
   updateDateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The ARN of the component type.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>A Boolean value that specifies whether the component type is abstract.</p>
+   * @public
    */
   isAbstract?: boolean;
 
   /**
-   * @public
    * <p>A Boolean value that specifies whether the component type has a schema initializer and
    *          that the schema initializer has run.</p>
+   * @public
    */
   isSchemaInitialized?: boolean;
 
   /**
-   * @public
    * <p>The current status of the component type.</p>
+   * @public
    */
   status?: Status;
 
   /**
-   * @public
    * <p>The maximum number of results to return at one time. The default is 25.</p>
    *          <p>Valid Range: Minimum value of 1. Maximum value of 250.</p>
+   * @public
    */
   propertyGroups?: Record<string, PropertyGroupResponse>;
 
   /**
-   * @public
    * <p>The syncSource of the SyncJob, if this entity was created by a SyncJob.</p>
+   * @public
    */
   syncSource?: string;
 
   /**
-   * @public
    * <p>The component type name.</p>
+   * @public
    */
   componentTypeName?: string;
 
   /**
-   * @public
    * <p>This is an object that maps strings to <code>compositeComponentTypes</code> of the <code>componentType</code>. <code>CompositeComponentType</code> is referenced by <code>componentTypeId</code>.</p>
+   * @public
    */
   compositeComponentTypes?: Record<string, CompositeComponentTypeResponse>;
 }
@@ -4574,344 +4574,344 @@ export interface GetComponentTypeResponse {
  */
 export interface UpdateComponentTypeRequest {
   /**
-   * @public
    * <p>The ID of the workspace.</p>
+   * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * @public
    * <p>A Boolean value that specifies whether an entity can have more than one component of
    *          this type.</p>
+   * @public
    */
   isSingleton?: boolean;
 
   /**
-   * @public
    * <p>The ID of the component type.</p>
+   * @public
    */
   componentTypeId: string | undefined;
 
   /**
-   * @public
    * <p>The description of the component type.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>An object that maps strings to the property definitions in the component type. Each
    *          string in the mapping must be unique to this object.</p>
+   * @public
    */
   propertyDefinitions?: Record<string, PropertyDefinitionRequest>;
 
   /**
-   * @public
    * <p>Specifies the component type that this component type extends.</p>
+   * @public
    */
   extendsFrom?: string[];
 
   /**
-   * @public
    * <p>An object that maps strings to the functions in the component type. Each string in the
    *          mapping must be unique to this object.</p>
+   * @public
    */
   functions?: Record<string, FunctionRequest>;
 
   /**
-   * @public
    * <p>The property groups.</p>
+   * @public
    */
   propertyGroups?: Record<string, PropertyGroupRequest>;
 
   /**
-   * @public
    * <p>The component type name.</p>
+   * @public
    */
   componentTypeName?: string;
 
   /**
-   * @public
    * <p>This is an object that maps strings to <code>compositeComponentTypes</code> of the <code>componentType</code>.
    *           <code>CompositeComponentType</code> is referenced by <code>componentTypeId</code>.</p>
+   * @public
    */
   compositeComponentTypes?: Record<string, CompositeComponentTypeRequest>;
 }
 
 /**
- * @public
  * <p>An object that sets information about a property.</p>
+ * @public
  */
 export interface PropertyRequest {
   /**
-   * @public
    * <p>An object that specifies information about a property.</p>
+   * @public
    */
   definition?: PropertyDefinitionRequest;
 
   /**
-   * @public
    * <p>The value of the property.</p>
+   * @public
    */
   value?: DataValue;
 
   /**
-   * @public
    * <p>The update type of the update property request.</p>
+   * @public
    */
   updateType?: PropertyUpdateType;
 }
 
 /**
- * @public
  * <p>An object that contains information about a property response.</p>
+ * @public
  */
 export interface PropertyResponse {
   /**
-   * @public
    * <p>An object that specifies information about a property.</p>
+   * @public
    */
   definition?: PropertyDefinitionResponse;
 
   /**
-   * @public
    * <p>The value of the property.</p>
+   * @public
    */
   value?: DataValue;
 
   /**
-   * @public
    * <p>This flag notes whether all values of a list or map type property are returned in the API response. The maximum number of values per property returned is 50.</p>
+   * @public
    */
   areAllPropertyValuesReturned?: boolean;
 }
 
 /**
- * @public
  * <p>This is an object that contains the information of a property.</p>
+ * @public
  */
 export interface PropertySummary {
   /**
-   * @public
    * <p>This is the schema for the property.</p>
+   * @public
    */
   definition?: PropertyDefinitionResponse;
 
   /**
-   * @public
    * <p>This is the name of the property.</p>
+   * @public
    */
   propertyName: string | undefined;
 
   /**
-   * @public
    * <p>This is the value for the property.</p>
+   * @public
    */
   value?: DataValue;
 
   /**
-   * @public
    * <p>This flag notes whether all values of a list or map type property are returned in the API
    *           response. The maximum number of values per property returned is 50.</p>
+   * @public
    */
   areAllPropertyValuesReturned?: boolean;
 }
 
 /**
- * @public
  * <p>An object that sets information about a component type create or update request.</p>
+ * @public
  */
 export interface ComponentRequest {
   /**
-   * @public
    * <p>The description of the component request.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The ID of the component type.</p>
+   * @public
    */
   componentTypeId?: string;
 
   /**
-   * @public
    * <p>An object that maps strings to the properties to set in the component type. Each string
    *          in the mapping must be unique to this object.</p>
+   * @public
    */
   properties?: Record<string, PropertyRequest>;
 
   /**
-   * @public
    * <p>The property groups.</p>
+   * @public
    */
   propertyGroups?: Record<string, ComponentPropertyGroupRequest>;
 }
 
 /**
- * @public
  * <p>An object that returns information about a component type create or update
  *          request.</p>
+ * @public
  */
 export interface ComponentResponse {
   /**
-   * @public
    * <p>The name of the component.</p>
+   * @public
    */
   componentName?: string;
 
   /**
-   * @public
    * <p>The description of the component type.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The ID of the component type.</p>
+   * @public
    */
   componentTypeId?: string;
 
   /**
-   * @public
    * <p>The status of the component type.</p>
+   * @public
    */
   status?: Status;
 
   /**
-   * @public
    * <p>The name of the property definition set in the request.</p>
+   * @public
    */
   definedIn?: string;
 
   /**
-   * @public
    * <p>An object that maps strings to the properties to set in the component type. Each string
    *          in the mapping must be unique to this object.</p>
+   * @public
    */
   properties?: Record<string, PropertyResponse>;
 
   /**
-   * @public
    * <p>The property groups.</p>
+   * @public
    */
   propertyGroups?: Record<string, ComponentPropertyGroupResponse>;
 
   /**
-   * @public
    * <p>The syncSource of the sync job, if this entity was created by a sync job.</p>
+   * @public
    */
   syncSource?: string;
 
   /**
-   * @public
    * <p>This flag notes whether all properties of the component are returned in the API response.
    *           The maximum number of properties returned is 800.</p>
+   * @public
    */
   areAllPropertiesReturned?: boolean;
 
   /**
-   * @public
    * <p>This lists objects that contain information about the <code>compositeComponents</code>.</p>
+   * @public
    */
   compositeComponents?: Record<string, ComponentSummary>;
 
   /**
-   * @public
    * <p>This flag notes whether all <code>compositeComponents</code> are returned in the API
    *           response.</p>
+   * @public
    */
   areAllCompositeComponentsReturned?: boolean;
 }
 
 /**
- * @public
  * <p>The component update request.</p>
+ * @public
  */
 export interface ComponentUpdateRequest {
   /**
-   * @public
    * <p>The update type of the component update request.</p>
+   * @public
    */
   updateType?: ComponentUpdateType;
 
   /**
-   * @public
    * <p>The description of the component type.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The ID of the component type.</p>
+   * @public
    */
   componentTypeId?: string;
 
   /**
-   * @public
    * <p>An object that maps strings to the properties to set in the component type update. Each
    *          string in the mapping must be unique to this object.</p>
+   * @public
    */
   propertyUpdates?: Record<string, PropertyRequest>;
 
   /**
-   * @public
    * <p>The property group updates.</p>
+   * @public
    */
   propertyGroupUpdates?: Record<string, ComponentPropertyGroupRequest>;
 }
 
 /**
- * @public
  * <p>An object that sets information about the composite component update request.</p>
+ * @public
  */
 export interface CompositeComponentRequest {
   /**
-   * @public
    * <p>The description of the component type.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>This is an object that maps strings to the properties to set in the component type. Each string in
    *           the mapping must be unique to this object.</p>
+   * @public
    */
   properties?: Record<string, PropertyRequest>;
 
   /**
-   * @public
    * <p>The property groups.</p>
+   * @public
    */
   propertyGroups?: Record<string, ComponentPropertyGroupRequest>;
 }
 
 /**
- * @public
  * <p>An object that sets information about the composite component update request.</p>
+ * @public
  */
 export interface CompositeComponentUpdateRequest {
   /**
-   * @public
    * <p>The update type of the component update request.</p>
+   * @public
    */
   updateType?: ComponentUpdateType;
 
   /**
-   * @public
    * <p>The description of the component type.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>An object that maps strings to the properties to set in the component type update. Each string in the mapping must be unique to this object.</p>
+   * @public
    */
   propertyUpdates?: Record<string, PropertyRequest>;
 
   /**
-   * @public
    * <p>The property group updates.</p>
+   * @public
    */
   propertyGroupUpdates?: Record<string, ComponentPropertyGroupRequest>;
 }
@@ -4921,14 +4921,14 @@ export interface CompositeComponentUpdateRequest {
  */
 export interface ListPropertiesResponse {
   /**
-   * @public
    * <p>A list of objects that contain information about the properties.</p>
+   * @public
    */
   propertySummaries: PropertySummary[] | undefined;
 
   /**
-   * @public
    * <p>The string that specifies the next page of property results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -4938,81 +4938,81 @@ export interface ListPropertiesResponse {
  */
 export interface GetEntityResponse {
   /**
-   * @public
    * <p>The ID of the entity.</p>
+   * @public
    */
   entityId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the entity.</p>
+   * @public
    */
   entityName: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the entity.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The current status of the entity.</p>
+   * @public
    */
   status: Status | undefined;
 
   /**
-   * @public
    * <p>The ID of the workspace.</p>
+   * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * @public
    * <p>The description of the entity.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>An object that maps strings to the components in the entity. Each string in the mapping
    *          must be unique to this object.</p>
+   * @public
    */
   components?: Record<string, ComponentResponse>;
 
   /**
-   * @public
    * <p>The ID of the parent entity for this entity.</p>
+   * @public
    */
   parentEntityId: string | undefined;
 
   /**
-   * @public
    * <p>A Boolean value that specifies whether the entity has associated child entities.</p>
+   * @public
    */
   hasChildEntities: boolean | undefined;
 
   /**
-   * @public
    * <p>The date and time when the entity was created.</p>
+   * @public
    */
   creationDateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The date and time when the entity was last updated.</p>
+   * @public
    */
   updateDateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The syncSource of the sync job, if this entity was created by a sync job.</p>
+   * @public
    */
   syncSource?: string;
 
   /**
-   * @public
    * <p>This flag notes whether all components are returned in the API response. The maximum number of components returned is 30.</p>
+   * @public
    */
   areAllComponentsReturned?: boolean;
 }
@@ -5022,52 +5022,52 @@ export interface GetEntityResponse {
  */
 export interface CreateEntityRequest {
   /**
-   * @public
    * <p>The ID of the workspace that contains the entity.</p>
+   * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the entity.</p>
+   * @public
    */
   entityId?: string;
 
   /**
-   * @public
    * <p>The name of the entity.</p>
+   * @public
    */
   entityName: string | undefined;
 
   /**
-   * @public
    * <p>The description of the entity.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>An object that maps strings to the components in the entity. Each string in the mapping
    *          must be unique to this object.</p>
+   * @public
    */
   components?: Record<string, ComponentRequest>;
 
   /**
-   * @public
    * <p>This is an object that maps strings to <code>compositeComponent</code> updates in the request.
    *           Each key of the map represents the <code>componentPath</code> of the <code>compositeComponent</code>.</p>
+   * @public
    */
   compositeComponents?: Record<string, CompositeComponentRequest>;
 
   /**
-   * @public
    * <p>The ID of the entity's parent entity.</p>
+   * @public
    */
   parentEntityId?: string;
 
   /**
-   * @public
    * <p>Metadata that you can use to manage the entity.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -5077,46 +5077,46 @@ export interface CreateEntityRequest {
  */
 export interface UpdateEntityRequest {
   /**
-   * @public
    * <p>The ID of the workspace that contains the entity.</p>
+   * @public
    */
   workspaceId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the entity.</p>
+   * @public
    */
   entityId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the entity.</p>
+   * @public
    */
   entityName?: string;
 
   /**
-   * @public
    * <p>The description of the entity.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>An object that maps strings to the component updates in the request. Each string in the
    *          mapping must be unique to this object.</p>
+   * @public
    */
   componentUpdates?: Record<string, ComponentUpdateRequest>;
 
   /**
-   * @public
    * <p>This is an object that maps strings to <code>compositeComponent</code> updates in the request. Each key
    *           of the map represents the <code>componentPath</code> of the <code>compositeComponent</code>.</p>
+   * @public
    */
   compositeComponentUpdates?: Record<string, CompositeComponentUpdateRequest>;
 
   /**
-   * @public
    * <p>An object that describes the update request for a parent entity.</p>
+   * @public
    */
   parentEntityUpdate?: ParentEntityUpdateRequest;
 }

@@ -30,7 +30,6 @@ export interface DeleteOrganizationConformancePackCommandInput extends DeleteOrg
 export interface DeleteOrganizationConformancePackCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified organization conformance pack and all of the Config rules and remediation actions from
  * 			all member accounts in that organization. </p>
  *          <p> Only a management account or a delegated administrator account can delete an organization conformance pack.
@@ -113,6 +112,7 @@ export interface DeleteOrganizationConformancePackCommandOutput extends __Metada
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class DeleteOrganizationConformancePackCommand extends $Command
   .classBuilder<

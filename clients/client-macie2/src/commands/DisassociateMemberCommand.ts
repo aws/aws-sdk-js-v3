@@ -27,7 +27,6 @@ export interface DisassociateMemberCommandInput extends DisassociateMemberReques
 export interface DisassociateMemberCommandOutput extends DisassociateMemberResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates an Amazon Macie administrator account from a member account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DisassociateMemberCommandOutput extends DisassociateMemberRespo
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class DisassociateMemberCommand extends $Command
   .classBuilder<

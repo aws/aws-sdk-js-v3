@@ -27,7 +27,6 @@ export interface GetWorkflowRunPropertiesCommandInput extends GetWorkflowRunProp
 export interface GetWorkflowRunPropertiesCommandOutput extends GetWorkflowRunPropertiesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the workflow run properties which were set during the run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface GetWorkflowRunPropertiesCommandOutput extends GetWorkflowRunPro
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetWorkflowRunPropertiesCommand extends $Command
   .classBuilder<

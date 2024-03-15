@@ -27,7 +27,6 @@ export interface SearchRoutingProfilesCommandInput extends SearchRoutingProfiles
 export interface SearchRoutingProfilesCommandOutput extends SearchRoutingProfilesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Searches routing profiles in an Amazon Connect instance, with optional filtering.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -145,6 +144,7 @@ export interface SearchRoutingProfilesCommandOutput extends SearchRoutingProfile
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class SearchRoutingProfilesCommand extends $Command
   .classBuilder<

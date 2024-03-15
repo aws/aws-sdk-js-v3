@@ -27,7 +27,6 @@ export interface GetGlobalSettingsCommandInput {}
 export interface GetGlobalSettingsCommandOutput extends GetGlobalSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves global settings for the administrator's AWS account, such as Amazon Chime Business
  *             Calling and Amazon Chime Voice Connector settings.</p>
  * @example
@@ -77,6 +76,7 @@ export interface GetGlobalSettingsCommandOutput extends GetGlobalSettingsRespons
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class GetGlobalSettingsCommand extends $Command
   .classBuilder<

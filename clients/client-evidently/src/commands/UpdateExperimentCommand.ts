@@ -27,7 +27,6 @@ export interface UpdateExperimentCommandInput extends UpdateExperimentRequest {}
 export interface UpdateExperimentCommandOutput extends UpdateExperimentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an Evidently experiment. </p>
  *          <p>Don't use this operation to update an experiment's tag. Instead, use
  *       <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_TagResource.html">TagResource</a>. </p>
@@ -151,6 +150,7 @@ export interface UpdateExperimentCommandOutput extends UpdateExperimentResponse,
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ * @public
  */
 export class UpdateExperimentCommand extends $Command
   .classBuilder<

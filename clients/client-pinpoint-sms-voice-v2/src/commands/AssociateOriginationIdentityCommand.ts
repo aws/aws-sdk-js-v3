@@ -36,7 +36,6 @@ export interface AssociateOriginationIdentityCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates the specified origination identity with a pool.</p>
  *          <p>If the origination identity is a phone number and is already associated with another
  *             pool, an error is returned. A sender ID can be associated with multiple pools.</p>
@@ -102,6 +101,7 @@ export interface AssociateOriginationIdentityCommandOutput
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class AssociateOriginationIdentityCommand extends $Command
   .classBuilder<

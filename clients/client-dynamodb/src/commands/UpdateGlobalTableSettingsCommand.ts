@@ -27,7 +27,6 @@ export interface UpdateGlobalTableSettingsCommandInput extends UpdateGlobalTable
 export interface UpdateGlobalTableSettingsCommandOutput extends UpdateGlobalTableSettingsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates settings for a global table.</p>
  *          <important>
  *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
@@ -261,6 +260,7 @@ export interface UpdateGlobalTableSettingsCommandOutput extends UpdateGlobalTabl
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  */
 export class UpdateGlobalTableSettingsCommand extends $Command
   .classBuilder<

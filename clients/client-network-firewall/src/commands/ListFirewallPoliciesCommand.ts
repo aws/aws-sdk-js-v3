@@ -27,7 +27,6 @@ export interface ListFirewallPoliciesCommandInput extends ListFirewallPoliciesRe
 export interface ListFirewallPoliciesCommandOutput extends ListFirewallPoliciesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the metadata for the firewall policies that you have defined. Depending on
  *          your setting for max results and the number of firewall policies, a single call might not
  *          return the full list. </p>
@@ -87,6 +86,7 @@ export interface ListFirewallPoliciesCommandOutput extends ListFirewallPoliciesR
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ * @public
  */
 export class ListFirewallPoliciesCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface ListCalculatedAttributeDefinitionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists calculated attribute definitions for Customer Profiles</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface ListCalculatedAttributeDefinitionsCommandOutput
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * @public
  */
 export class ListCalculatedAttributeDefinitionsCommand extends $Command
   .classBuilder<

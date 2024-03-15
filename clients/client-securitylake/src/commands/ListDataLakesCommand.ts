@@ -27,7 +27,6 @@ export interface ListDataLakesCommandInput extends ListDataLakesRequest {}
 export interface ListDataLakesCommandOutput extends ListDataLakesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the Amazon Security Lake configuration object for the specified Amazon Web Services Regions. You can use this operation to determine whether
  *          Security Lake is enabled for a Region.</p>
  * @example
@@ -118,6 +117,7 @@ export interface ListDataLakesCommandOutput extends ListDataLakesResponse, __Met
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ * @public
  */
 export class ListDataLakesCommand extends $Command
   .classBuilder<

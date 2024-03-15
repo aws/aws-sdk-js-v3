@@ -29,7 +29,6 @@ export interface DescribeInstanceEventWindowsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified event windows or all event windows.</p>
  *          <p>If you specify event window IDs, the output includes information for only the specified
  *          event windows. If you specify filters, the output includes information for only those event
@@ -114,6 +113,7 @@ export interface DescribeInstanceEventWindowsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeInstanceEventWindowsCommand extends $Command
   .classBuilder<

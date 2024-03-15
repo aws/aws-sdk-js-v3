@@ -27,7 +27,6 @@ export interface DeleteAuthPolicyCommandInput extends DeleteAuthPolicyRequest {}
 export interface DeleteAuthPolicyCommandOutput extends DeleteAuthPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified auth policy. If an auth is set to <code>Amazon Web Services_IAM</code>
  *    and the auth policy is deleted, all requests will be denied by default. If you are trying to
  *    remove the auth policy completely, you must set the auth_type to <code>NONE</code>. If auth is
@@ -72,6 +71,7 @@ export interface DeleteAuthPolicyCommandOutput extends DeleteAuthPolicyResponse,
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class DeleteAuthPolicyCommand extends $Command
   .classBuilder<

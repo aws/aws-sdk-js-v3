@@ -27,7 +27,6 @@ export interface ListLanguagesCommandInput extends ListLanguagesRequest {}
 export interface ListLanguagesCommandOutput extends ListLanguagesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a list of languages (RFC-5646 codes and names) that Amazon Translate supports.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface ListLanguagesCommandOutput extends ListLanguagesResponse, __Met
  * @throws {@link TranslateServiceException}
  * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ * @public
  */
 export class ListLanguagesCommand extends $Command
   .classBuilder<

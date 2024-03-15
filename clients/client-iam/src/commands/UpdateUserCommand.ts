@@ -27,7 +27,6 @@ export interface UpdateUserCommandInput extends UpdateUserRequest {}
 export interface UpdateUserCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the name and/or the path of the specified IAM user.</p>
  *          <important>
  *             <p> You should understand the implications of changing an IAM user's path or
@@ -93,6 +92,7 @@ export interface UpdateUserCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To change an IAM user's name
  * ```javascript
  * // The following command changes the name of the IAM user Bob to Robert. It does not change the user's path.

@@ -32,7 +32,6 @@ export interface CreatePodIdentityAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an EKS Pod Identity association between a service account in an Amazon EKS cluster and an IAM role
  *             with <i>EKS Pod Identity</i>. Use EKS Pod Identity to give temporary IAM credentials to
  *             pods and the credentials are rotated automatically.</p>
@@ -111,6 +110,7 @@ export interface CreatePodIdentityAssociationCommandOutput
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class CreatePodIdentityAssociationCommand extends $Command
   .classBuilder<

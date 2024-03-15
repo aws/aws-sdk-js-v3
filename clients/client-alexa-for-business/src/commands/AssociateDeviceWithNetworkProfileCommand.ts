@@ -35,9 +35,6 @@ export interface AssociateDeviceWithNetworkProfileCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Associates a device with the specified network profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +70,8 @@ export interface AssociateDeviceWithNetworkProfileCommandOutput
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class AssociateDeviceWithNetworkProfileCommand extends $Command
   .classBuilder<

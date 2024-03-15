@@ -27,7 +27,6 @@ export interface ConfigureAgentCommandInput extends ConfigureAgentRequest {}
 export interface ConfigureAgentCommandOutput extends ConfigureAgentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *           Used by profiler agents to report their current state and to receive remote
  *           configuration updates. For example, <code>ConfigureAgent</code> can be used
@@ -81,6 +80,7 @@ export interface ConfigureAgentCommandOutput extends ConfigureAgentResponse, __M
  * @throws {@link CodeGuruProfilerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
+ * @public
  */
 export class ConfigureAgentCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateTopicRefreshScheduleCommandInput extends CreateTopicRefre
 export interface CreateTopicRefreshScheduleCommandOutput extends CreateTopicRefreshScheduleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a topic refresh schedule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface CreateTopicRefreshScheduleCommandOutput extends CreateTopicRefr
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class CreateTopicRefreshScheduleCommand extends $Command
   .classBuilder<

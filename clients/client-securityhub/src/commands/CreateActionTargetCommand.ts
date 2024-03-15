@@ -27,7 +27,6 @@ export interface CreateActionTargetCommandInput extends CreateActionTargetReques
 export interface CreateActionTargetCommandOutput extends CreateActionTargetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a custom action target in Security Hub.</p>
  *          <p>You can use custom actions on findings and insights in Security Hub to trigger target actions
  *          in Amazon CloudWatch Events.</p>
@@ -76,6 +75,7 @@ export interface CreateActionTargetCommandOutput extends CreateActionTargetRespo
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To create a custom action target
  * ```javascript
  * // The following example creates a custom action target in Security Hub. Custom actions on findings and insights automatically trigger actions in Amazon CloudWatch Events.

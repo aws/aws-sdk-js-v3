@@ -27,7 +27,6 @@ export interface DescribeTaskCommandInput extends DescribeTaskRequest {}
 export interface DescribeTaskCommandOutput extends DescribeTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides information about an DataSync transfer task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -147,6 +146,7 @@ export interface DescribeTaskCommandOutput extends DescribeTaskResponse, __Metad
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class DescribeTaskCommand extends $Command
   .classBuilder<

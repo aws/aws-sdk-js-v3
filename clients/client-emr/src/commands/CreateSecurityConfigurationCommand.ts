@@ -27,7 +27,6 @@ export interface CreateSecurityConfigurationCommandInput extends CreateSecurityC
 export interface CreateSecurityConfigurationCommandOutput extends CreateSecurityConfigurationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a security configuration, which is stored in the service and can be specified
  *          when a cluster is created.</p>
  * @example
@@ -65,6 +64,7 @@ export interface CreateSecurityConfigurationCommandOutput extends CreateSecurity
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class CreateSecurityConfigurationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListTableColumnsCommandInput extends ListTableColumnsRequest {}
 export interface ListTableColumnsCommandOutput extends ListTableColumnsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The ListTableColumns API allows you to retrieve a list of all the columns in a table in a workbook.
  *         </p>
@@ -93,6 +92,7 @@ export interface ListTableColumnsCommandOutput extends ListTableColumnsResult, _
  * @throws {@link HoneycodeServiceException}
  * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
+ * @public
  */
 export class ListTableColumnsCommand extends $Command
   .classBuilder<

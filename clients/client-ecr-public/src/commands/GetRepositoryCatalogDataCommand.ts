@@ -27,7 +27,6 @@ export interface GetRepositoryCatalogDataCommandInput extends GetRepositoryCatal
 export interface GetRepositoryCatalogDataCommandOutput extends GetRepositoryCatalogDataResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieve catalog metadata for a repository in a public registry. This metadata is
  *          displayed publicly in the Amazon ECR Public Gallery.</p>
  * @example
@@ -86,6 +85,7 @@ export interface GetRepositoryCatalogDataCommandOutput extends GetRepositoryCata
  * @throws {@link ECRPUBLICServiceException}
  * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
+ * @public
  */
 export class GetRepositoryCatalogDataCommand extends $Command
   .classBuilder<

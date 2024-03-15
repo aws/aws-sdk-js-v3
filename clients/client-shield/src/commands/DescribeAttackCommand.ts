@@ -27,7 +27,6 @@ export interface DescribeAttackCommandInput extends DescribeAttackRequest {}
 export interface DescribeAttackCommandOutput extends DescribeAttackResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the details of a DDoS attack. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -117,6 +116,7 @@ export interface DescribeAttackCommandOutput extends DescribeAttackResponse, __M
  * @throws {@link ShieldServiceException}
  * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ * @public
  */
 export class DescribeAttackCommand extends $Command
   .classBuilder<

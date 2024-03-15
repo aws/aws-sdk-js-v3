@@ -31,7 +31,6 @@ export interface DeleteRepositoryLinkCommandInput extends DeleteRepositoryLinkIn
 export interface DeleteRepositoryLinkCommandOutput extends DeleteRepositoryLinkOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the association between your connection and a specified external Git repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface DeleteRepositoryLinkCommandOutput extends DeleteRepositoryLinkO
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ * @public
  */
 export class DeleteRepositoryLinkCommand extends $Command
   .classBuilder<

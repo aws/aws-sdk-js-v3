@@ -27,7 +27,6 @@ export interface ListReceiptFiltersCommandInput extends ListReceiptFiltersReques
 export interface ListReceiptFiltersCommandOutput extends ListReceiptFiltersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the IP address filters associated with your Amazon Web Services account in the current
  *             Amazon Web Services Region.</p>
  *          <p>For information about managing IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-ip-filtering-console-walkthrough.html">Amazon SES
@@ -65,6 +64,7 @@ export interface ListReceiptFiltersCommandOutput extends ListReceiptFiltersRespo
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example ListReceiptFilters
  * ```javascript
  * // The following example lists the IP address filters that are associated with an AWS account:

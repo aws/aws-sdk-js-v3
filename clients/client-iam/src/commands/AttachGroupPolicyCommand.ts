@@ -27,7 +27,6 @@ export interface AttachGroupPolicyCommandInput extends AttachGroupPolicyRequest 
 export interface AttachGroupPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches the specified managed policy to the specified IAM group.</p>
  *          <p>You use this operation to attach a managed policy to a group. To embed an inline
  *             policy in a group, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_PutGroupPolicy.html">
@@ -83,6 +82,7 @@ export interface AttachGroupPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To attach a managed policy to an IAM group
  * ```javascript
  * // The following command attaches the AWS managed policy named ReadOnlyAccess to the IAM group named Finance.

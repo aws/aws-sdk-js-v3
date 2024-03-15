@@ -32,7 +32,6 @@ export interface GetTimeSeriesServiceStatisticsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Get an aggregation of service statistics defined by a specific time
  *             range.</p>
  * @example
@@ -118,6 +117,7 @@ export interface GetTimeSeriesServiceStatisticsCommandOutput
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ * @public
  */
 export class GetTimeSeriesServiceStatisticsCommand extends $Command
   .classBuilder<

@@ -31,9 +31,6 @@ export interface CreateChannelCommandInput extends CreateChannelRequest {}
 export interface CreateChannelCommandOutput extends CreateChannelResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by CreateChannel in the Amazon Chime SDK Messaging Namespace
- *
  * <p>Creates a channel to which you can add users and send messages.</p>
  *          <p>
  *             <b>Restriction</b>: You can't change a channel's
@@ -113,6 +110,8 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by CreateChannel in the Amazon Chime SDK Messaging Namespace
  */
 export class CreateChannelCommand extends $Command
   .classBuilder<

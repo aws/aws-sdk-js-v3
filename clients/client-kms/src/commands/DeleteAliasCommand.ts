@@ -27,7 +27,6 @@ export interface DeleteAliasCommandInput extends DeleteAliasRequest {}
 export interface DeleteAliasCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified alias. </p>
  *          <note>
  *             <p>Adding, deleting, or updating an alias can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
@@ -135,6 +134,7 @@ export interface DeleteAliasCommandOutput extends __MetadataBearer {}
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To delete an alias
  * ```javascript
  * // The following example deletes the specified alias.

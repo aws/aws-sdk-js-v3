@@ -35,7 +35,6 @@ export interface DeregisterOrganizationDelegatedAdminCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes CloudTrail delegated administrator permissions from a member account in
  *          an organization.</p>
  * @example
@@ -106,6 +105,7 @@ export interface DeregisterOrganizationDelegatedAdminCommandOutput
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class DeregisterOrganizationDelegatedAdminCommand extends $Command
   .classBuilder<

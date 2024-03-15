@@ -27,7 +27,6 @@ export interface DeleteEventsConfigurationCommandInput extends DeleteEventsConfi
 export interface DeleteEventsConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the events configuration that allows a bot to receive outgoing events.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface DeleteEventsConfigurationCommandOutput extends __MetadataBearer
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class DeleteEventsConfigurationCommand extends $Command
   .classBuilder<

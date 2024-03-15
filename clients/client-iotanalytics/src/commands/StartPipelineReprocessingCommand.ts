@@ -27,7 +27,6 @@ export interface StartPipelineReprocessingCommandInput extends StartPipelineRepr
 export interface StartPipelineReprocessingCommandOutput extends StartPipelineReprocessingResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts the reprocessing of raw message data through the pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface StartPipelineReprocessingCommandOutput extends StartPipelineRep
  * @throws {@link IoTAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
+ * @public
  */
 export class StartPipelineReprocessingCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface GetLatestAssessmentIdCommandInput extends GetLatestAssessmentId
 export interface GetLatestAssessmentIdCommandOutput extends GetLatestAssessmentIdResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieve the latest ID of a specific assessment task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface GetLatestAssessmentIdCommandOutput extends GetLatestAssessmentI
  * @throws {@link MigrationHubStrategyServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ * @public
  */
 export class GetLatestAssessmentIdCommand extends $Command
   .classBuilder<

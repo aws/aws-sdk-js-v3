@@ -27,7 +27,6 @@ export interface DeregisterApplicationCommandInput extends DeregisterApplication
 export interface DeregisterApplicationCommandOutput extends DeregisterApplicationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deregister an SAP application with AWS Systems Manager for SAP. This action does not
  *          aﬀect the existing setup of your SAP workloads on Amazon EC2.</p>
  * @example
@@ -63,6 +62,7 @@ export interface DeregisterApplicationCommandOutput extends DeregisterApplicatio
  * @throws {@link SsmSapServiceException}
  * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
+ * @public
  */
 export class DeregisterApplicationCommand extends $Command
   .classBuilder<

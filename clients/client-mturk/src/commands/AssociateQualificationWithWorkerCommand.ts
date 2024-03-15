@@ -32,7 +32,6 @@ export interface AssociateQualificationWithWorkerCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The <code>AssociateQualificationWithWorker</code> operation gives a Worker a
  *             Qualification. <code>AssociateQualificationWithWorker</code> does not require that the Worker
@@ -87,6 +86,7 @@ export interface AssociateQualificationWithWorkerCommandOutput
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * @public
  */
 export class AssociateQualificationWithWorkerCommand extends $Command
   .classBuilder<

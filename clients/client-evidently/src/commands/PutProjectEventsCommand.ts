@@ -27,7 +27,6 @@ export interface PutProjectEventsCommandInput extends PutProjectEventsRequest {}
 export interface PutProjectEventsCommandOutput extends PutProjectEventsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sends performance events to Evidently. These events can be used to evaluate a launch or
  *       an experiment.</p>
  * @example
@@ -82,6 +81,7 @@ export interface PutProjectEventsCommandOutput extends PutProjectEventsResponse,
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ * @public
  */
 export class PutProjectEventsCommand extends $Command
   .classBuilder<

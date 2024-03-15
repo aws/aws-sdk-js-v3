@@ -32,7 +32,6 @@ export interface UpdateStudioCommandInput extends UpdateStudioRequest {}
 export interface UpdateStudioCommandOutput extends UpdateStudioResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update a Studio resource.</p>
  *         <p>Currently, this operation only supports updating the displayName of your
  *             studio.</p>
@@ -112,6 +111,7 @@ export interface UpdateStudioCommandOutput extends UpdateStudioResponse, __Metad
  * @throws {@link NimbleServiceException}
  * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
+ * @public
  */
 export class UpdateStudioCommand extends $Command
   .classBuilder<

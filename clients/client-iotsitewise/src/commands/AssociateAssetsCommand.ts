@@ -27,7 +27,6 @@ export interface AssociateAssetsCommandInput extends AssociateAssetsRequest {}
 export interface AssociateAssetsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a child asset with the given parent asset through a hierarchy defined in the
  *       parent asset's model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/add-associated-assets.html">Associating assets</a> in the
  *         <i>IoT SiteWise User Guide</i>.</p>
@@ -87,6 +86,7 @@ export interface AssociateAssetsCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class AssociateAssetsCommand extends $Command
   .classBuilder<

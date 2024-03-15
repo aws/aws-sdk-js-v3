@@ -27,7 +27,6 @@ export interface ListEnabledBaselinesCommandInput extends ListEnabledBaselinesIn
 export interface ListEnabledBaselinesCommandOutput extends ListEnabledBaselinesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of summaries describing <code>EnabledBaseline</code> resources. You can filter the list by the corresponding <code>Baseline</code> or <code>Target</code> of the <code>EnabledBaseline</code> resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface ListEnabledBaselinesCommandOutput extends ListEnabledBaselinesO
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ * @public
  */
 export class ListEnabledBaselinesCommand extends $Command
   .classBuilder<

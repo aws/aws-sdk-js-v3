@@ -27,7 +27,6 @@ export interface GetChangeTokenStatusCommandInput extends GetChangeTokenStatusRe
 export interface GetChangeTokenStatusCommandOutput extends GetChangeTokenStatusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -85,6 +84,7 @@ export interface GetChangeTokenStatusCommandOutput extends GetChangeTokenStatusR
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
+ * @public
  * @example To get the change token status
  * ```javascript
  * // The following example returns the status of a change token with the ID abcd12f2-46da-4fdb-b8d5-fbd4c466928f.

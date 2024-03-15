@@ -30,7 +30,6 @@ export interface ListBillingGroupCostReportsCommandInput extends ListBillingGrou
 export interface ListBillingGroupCostReportsCommandOutput extends ListBillingGroupCostReportsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>A paginated call to retrieve a summary report of actual Amazon Web Services charges and the calculated
  *       Amazon Web Services charges based on the associated pricing plan of a billing group.</p>
  * @example
@@ -95,6 +94,7 @@ export interface ListBillingGroupCostReportsCommandOutput extends ListBillingGro
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ * @public
  */
 export class ListBillingGroupCostReportsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateSmsTemplateCommandInput extends UpdateSmsTemplateRequest 
 export interface UpdateSmsTemplateCommandOutput extends UpdateSmsTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing message template for messages that are sent through the SMS channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface UpdateSmsTemplateCommandOutput extends UpdateSmsTemplateRespons
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class UpdateSmsTemplateCommand extends $Command
   .classBuilder<

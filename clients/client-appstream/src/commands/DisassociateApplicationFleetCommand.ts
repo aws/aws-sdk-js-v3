@@ -32,7 +32,6 @@ export interface DisassociateApplicationFleetCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates the specified application from the fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DisassociateApplicationFleetCommandOutput
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class DisassociateApplicationFleetCommand extends $Command
   .classBuilder<

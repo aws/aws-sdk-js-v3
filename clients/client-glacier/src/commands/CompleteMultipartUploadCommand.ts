@@ -27,7 +27,6 @@ export interface CompleteMultipartUploadCommandInput extends CompleteMultipartUp
 export interface CompleteMultipartUploadCommandOutput extends ArchiveCreationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>You call this operation to inform Amazon S3 Glacier (Glacier) that all the archive parts have been
  *          uploaded and that Glacier can now assemble the archive from the uploaded parts.
  *          After assembling and saving the archive to the vault, Glacier returns the URI path
@@ -111,6 +110,7 @@ export interface CompleteMultipartUploadCommandOutput extends ArchiveCreationOut
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * @public
  * @example To complete a multipart upload
  * ```javascript
  * // The example completes a multipart upload for a 3 MiB archive.

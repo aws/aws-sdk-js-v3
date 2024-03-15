@@ -32,7 +32,6 @@ export interface ListPodIdentityAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>List the EKS Pod Identity associations in a cluster. You can filter the list by the namespace that the
  *             association is in or the service account that the association uses.</p>
  * @example
@@ -90,6 +89,7 @@ export interface ListPodIdentityAssociationsCommandOutput
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class ListPodIdentityAssociationsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateChannelCommandInput extends UpdateChannelRequest {}
 export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a channel's configuration. Live channels cannot be updated. You must stop the
  *       ongoing stream, update the channel, and restart the stream for the changes to take
  *       effect.</p>
@@ -95,6 +94,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ * @public
  */
 export class UpdateChannelCommand extends $Command
   .classBuilder<

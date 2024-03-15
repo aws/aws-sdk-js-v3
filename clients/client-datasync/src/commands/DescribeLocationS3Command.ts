@@ -27,7 +27,6 @@ export interface DescribeLocationS3CommandInput extends DescribeLocationS3Reques
 export interface DescribeLocationS3CommandOutput extends DescribeLocationS3Response, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides details about how an DataSync transfer location for an S3 bucket
  *       is configured.</p>
  * @example
@@ -72,6 +71,7 @@ export interface DescribeLocationS3CommandOutput extends DescribeLocationS3Respo
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class DescribeLocationS3Command extends $Command
   .classBuilder<

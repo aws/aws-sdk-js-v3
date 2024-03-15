@@ -27,7 +27,6 @@ export interface DescribeRulesetCommandInput extends DescribeRulesetRequest {}
 export interface DescribeRulesetCommandOutput extends DescribeRulesetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves detailed information about the ruleset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface DescribeRulesetCommandOutput extends DescribeRulesetResponse, _
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * @public
  */
 export class DescribeRulesetCommand extends $Command
   .classBuilder<

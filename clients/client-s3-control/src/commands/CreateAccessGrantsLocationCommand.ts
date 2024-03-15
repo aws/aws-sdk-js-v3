@@ -29,7 +29,6 @@ export interface CreateAccessGrantsLocationCommandInput extends CreateAccessGran
 export interface CreateAccessGrantsLocationCommandOutput extends CreateAccessGrantsLocationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>The S3 data location that you would like to register in your S3 Access Grants instance. Your S3 data must be in the same Region as your S3 Access Grants instance. The location can be one of the following: </p>
  *          <ul>
  *             <li>
@@ -95,6 +94,7 @@ export interface CreateAccessGrantsLocationCommandOutput extends CreateAccessGra
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class CreateAccessGrantsLocationCommand extends $Command
   .classBuilder<

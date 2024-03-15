@@ -27,7 +27,6 @@ export interface GetContactPolicyCommandInput extends GetContactPolicyRequest {}
 export interface GetContactPolicyCommandOutput extends GetContactPolicyResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the resource policies attached to the specified contact or escalation
  *          plan.</p>
  * @example
@@ -73,6 +72,7 @@ export interface GetContactPolicyCommandOutput extends GetContactPolicyResult, _
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ * @public
  */
 export class GetContactPolicyCommand extends $Command
   .classBuilder<

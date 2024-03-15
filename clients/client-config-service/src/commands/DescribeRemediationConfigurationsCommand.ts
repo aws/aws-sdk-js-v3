@@ -35,7 +35,6 @@ export interface DescribeRemediationConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the details of one or more remediation configurations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface DescribeRemediationConfigurationsCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class DescribeRemediationConfigurationsCommand extends $Command
   .classBuilder<

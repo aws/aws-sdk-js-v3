@@ -31,7 +31,6 @@ export interface GetRandomPasswordCommandInput extends GetRandomPasswordRequest 
 export interface GetRandomPasswordCommandOutput extends GetRandomPasswordResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Generates a random password. We recommend that you specify the
  *       maximum length and include every character type that the system you are generating a password
  *       for can support. By default, Secrets Manager uses uppercase and lowercase letters, numbers, and the following characters in passwords: <code>!\"#$%&'()*+,-./:;<=>?@[\\]^_`\{|\}~</code>
@@ -100,6 +99,7 @@ export interface GetRandomPasswordCommandOutput extends GetRandomPasswordRespons
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
+ * @public
  * @example To generate a random password
  * ```javascript
  * // The following example shows how to request a randomly generated password. This example includes the optional flags to require spaces and at least one character of each included type. It specifies a length of 20 characters.

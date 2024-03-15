@@ -27,7 +27,6 @@ export interface CreateBackendEnvironmentCommandInput extends CreateBackendEnvir
 export interface CreateBackendEnvironmentCommandOutput extends CreateBackendEnvironmentResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new backend environment for an Amplify app. </p>
  *          <p>This API is available only to Amplify Gen 1 applications where the
  *             backend is created using Amplify Studio or the Amplify
@@ -86,6 +85,7 @@ export interface CreateBackendEnvironmentCommandOutput extends CreateBackendEnvi
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ * @public
  */
 export class CreateBackendEnvironmentCommand extends $Command
   .classBuilder<

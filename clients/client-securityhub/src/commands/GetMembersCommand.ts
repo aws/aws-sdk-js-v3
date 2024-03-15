@@ -27,7 +27,6 @@ export interface GetMembersCommandInput extends GetMembersRequest {}
 export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the details for the Security Hub member accounts for the specified account IDs.</p>
  *          <p>An administrator account can be either the delegated Security Hub administrator account for an
  *          organization or an administrator account that enabled Security Hub manually.</p>
@@ -94,6 +93,7 @@ export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataB
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To get member account details
  * ```javascript
  * // The following example returns details for the Security Hub member accounts with the specified AWS account IDs. An administrator account may be the delegated Security Hub administrator account for an organization or an administrator account that enabled Security Hub manually. The Security Hub administrator must call this operation.

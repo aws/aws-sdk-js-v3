@@ -27,7 +27,6 @@ export interface ListNotebookSessionsCommandInput extends ListNotebookSessionsRe
 export interface ListNotebookSessionsCommandOutput extends ListNotebookSessionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists, in descending order, the sessions that have been created in a notebook that are
  *             in an active state like <code>CREATING</code>, <code>CREATED</code>, <code>IDLE</code>
  *             or <code>BUSY</code>. Newer sessions are listed first; older sessions are listed
@@ -77,6 +76,7 @@ export interface ListNotebookSessionsCommandOutput extends ListNotebookSessionsR
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class ListNotebookSessionsCommand extends $Command
   .classBuilder<

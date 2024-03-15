@@ -27,7 +27,6 @@ export interface RestoreEventDataStoreCommandInput extends RestoreEventDataStore
 export interface RestoreEventDataStoreCommandOutput extends RestoreEventDataStoreResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Restores a deleted event data store specified by <code>EventDataStore</code>, which
  *          accepts an event data store ARN. You can only restore a deleted event data store within the
  *          seven-day wait period after deletion. Restoring an event data store can take several
@@ -143,6 +142,7 @@ export interface RestoreEventDataStoreCommandOutput extends RestoreEventDataStor
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class RestoreEventDataStoreCommand extends $Command
   .classBuilder<

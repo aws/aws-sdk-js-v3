@@ -27,7 +27,6 @@ export interface PutEventTypeCommandInput extends PutEventTypeRequest {}
 export interface PutEventTypeCommandOutput extends PutEventTypeResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates an event type. An event is a business activity that is evaluated for fraud risk. With Amazon Fraud Detector, you generate fraud predictions for events. An event type defines the structure for an event sent to Amazon Fraud Detector. This includes the variables sent as part of the event, the entity performing the event (such as a customer), and the labels that classify the event. Example event types include online payment transactions, account registrations, and authentications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface PutEventTypeCommandOutput extends PutEventTypeResult, __Metadat
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class PutEventTypeCommand extends $Command
   .classBuilder<

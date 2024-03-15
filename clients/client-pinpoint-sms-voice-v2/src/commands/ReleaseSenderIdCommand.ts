@@ -31,7 +31,6 @@ export interface ReleaseSenderIdCommandInput extends ReleaseSenderIdRequest {}
 export interface ReleaseSenderIdCommandOutput extends ReleaseSenderIdResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Releases an existing sender ID in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface ReleaseSenderIdCommandOutput extends ReleaseSenderIdResult, __M
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class ReleaseSenderIdCommand extends $Command
   .classBuilder<

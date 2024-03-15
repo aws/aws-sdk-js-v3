@@ -27,7 +27,6 @@ export interface DescribeCacheParameterGroupsCommandInput extends DescribeCacheP
 export interface DescribeCacheParameterGroupsCommandOutput extends CacheParameterGroupsMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of cache parameter group descriptions. If a cache parameter group name
  *             is specified, the list contains only the descriptions for that group.</p>
  * @example
@@ -77,6 +76,7 @@ export interface DescribeCacheParameterGroupsCommandOutput extends CacheParamete
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  * @example DescribeCacheParameterGroups
  * ```javascript
  * // Returns a list of cache parameter group descriptions. If a cache parameter group name is specified, the list contains only the descriptions for that group.

@@ -27,7 +27,6 @@ export interface GetCallAnalyticsCategoryCommandInput extends GetCallAnalyticsCa
 export interface GetCallAnalyticsCategoryCommandOutput extends GetCallAnalyticsCategoryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides information about the specified Call Analytics category.</p>
  *          <p>To get a list of your Call Analytics categories, use the  operation.</p>
  * @example
@@ -155,6 +154,7 @@ export interface GetCallAnalyticsCategoryCommandOutput extends GetCallAnalyticsC
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * @public
  */
 export class GetCallAnalyticsCategoryCommand extends $Command
   .classBuilder<

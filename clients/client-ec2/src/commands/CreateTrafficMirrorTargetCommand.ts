@@ -27,7 +27,6 @@ export interface CreateTrafficMirrorTargetCommandInput extends CreateTrafficMirr
 export interface CreateTrafficMirrorTargetCommandOutput extends CreateTrafficMirrorTargetResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a target for your Traffic Mirror session.</p>
  *          <p>A Traffic Mirror target is the destination for mirrored traffic. The Traffic Mirror source and
  *          the Traffic Mirror target (monitoring appliances) can be in the same VPC, or in
@@ -91,6 +90,7 @@ export interface CreateTrafficMirrorTargetCommandOutput extends CreateTrafficMir
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateTrafficMirrorTargetCommand extends $Command
   .classBuilder<

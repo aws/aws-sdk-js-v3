@@ -31,7 +31,6 @@ export interface DeleteLoadBalancerListenersCommandInput extends DeleteLoadBalan
 export interface DeleteLoadBalancerListenersCommandOutput extends DeleteLoadBalancerListenerOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified listeners from the specified load balancer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +62,7 @@ export interface DeleteLoadBalancerListenersCommandOutput extends DeleteLoadBala
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * @public
  * @example To delete a listener from your load balancer
  * ```javascript
  * // This example deletes the listener for the specified port from the specified load balancer.

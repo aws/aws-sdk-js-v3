@@ -31,7 +31,6 @@ export interface ListResourceRequestsCommandInput extends ListResourceRequestsIn
 export interface ListResourceRequestsCommandOutput extends ListResourceRequestsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns existing resource operation requests. This includes requests of all status types.
  *       For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-list">Listing active resource operation requests</a> in the
  *         <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
@@ -87,6 +86,7 @@ export interface ListResourceRequestsCommandOutput extends ListResourceRequestsO
  * @throws {@link CloudControlServiceException}
  * <p>Base exception class for all service exceptions from CloudControl service.</p>
  *
+ * @public
  */
 export class ListResourceRequestsCommand extends $Command
   .classBuilder<

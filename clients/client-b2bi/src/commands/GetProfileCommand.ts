@@ -27,7 +27,6 @@ export interface GetProfileCommandInput extends GetProfileRequest {}
 export interface GetProfileCommandOutput extends GetProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the details for the profile specified by the profile ID. A profile is the mechanism used to create the concept of
  *    a private network.</p>
  * @example
@@ -80,6 +79,7 @@ export interface GetProfileCommandOutput extends GetProfileResponse, __MetadataB
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
+ * @public
  * @example Sample GetProfile call
  * ```javascript
  * //

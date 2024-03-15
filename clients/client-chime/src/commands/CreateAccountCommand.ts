@@ -27,7 +27,6 @@ export interface CreateAccountCommandInput extends CreateAccountRequest {}
 export interface CreateAccountCommandOutput extends CreateAccountResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon Chime account under the administrator's AWS account. Only <code>Team</code>
  *             account types are currently supported for this action. For more information about different account types, see
  *     <a href="https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">Managing Your Amazon Chime Accounts</a> in the <i>Amazon Chime
@@ -95,6 +94,7 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class CreateAccountCommand extends $Command
   .classBuilder<

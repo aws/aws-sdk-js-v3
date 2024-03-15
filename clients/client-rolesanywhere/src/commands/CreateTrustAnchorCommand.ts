@@ -31,7 +31,6 @@ export interface CreateTrustAnchorCommandInput extends CreateTrustAnchorRequest 
 export interface CreateTrustAnchorCommandOutput extends TrustAnchorDetailResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a trust anchor to establish trust between IAM Roles Anywhere and
  *          your certificate authority (CA). You can define a trust anchor as a reference to an Private Certificate Authority (Private CA) or by uploading a CA certificate. Your Amazon Web Services workloads can authenticate with the trust anchor using certificates issued by
  *          the CA in exchange for temporary Amazon Web Services credentials.</p>
@@ -116,6 +115,7 @@ export interface CreateTrustAnchorCommandOutput extends TrustAnchorDetailRespons
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ * @public
  */
 export class CreateTrustAnchorCommand extends $Command
   .classBuilder<

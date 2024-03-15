@@ -27,7 +27,6 @@ export interface GetBucketsCommandInput extends GetBucketsRequest {}
 export interface GetBucketsCommandOutput extends GetBucketsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about one or more Amazon Lightsail buckets. The information returned
  *       includes the synchronization status of the Amazon Simple Storage Service (Amazon S3)
  *       account-level block public access feature for your Lightsail buckets.</p>
@@ -135,6 +134,7 @@ export interface GetBucketsCommandOutput extends GetBucketsResult, __MetadataBea
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetBucketsCommand extends $Command
   .classBuilder<

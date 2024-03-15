@@ -27,7 +27,6 @@ export interface DisassociateApplicationsCommandInput extends DisassociateApplic
 export interface DisassociateApplicationsCommandOutput extends DisassociateApplicationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociate applications from wave.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface DisassociateApplicationsCommandOutput extends DisassociateAppli
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * @public
  */
 export class DisassociateApplicationsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface QueryWhatIfForecastCommandInput extends QueryWhatIfForecastRequ
 export interface QueryWhatIfForecastCommandOutput extends QueryWhatIfForecastResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a what-if forecast.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface QueryWhatIfForecastCommandOutput extends QueryWhatIfForecastRes
  * @throws {@link ForecastqueryServiceException}
  * <p>Base exception class for all service exceptions from Forecastquery service.</p>
  *
+ * @public
  */
 export class QueryWhatIfForecastCommand extends $Command
   .classBuilder<

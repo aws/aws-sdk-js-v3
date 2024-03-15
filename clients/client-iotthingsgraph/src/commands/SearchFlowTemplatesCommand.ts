@@ -27,9 +27,6 @@ export interface SearchFlowTemplatesCommandInput extends SearchFlowTemplatesRequ
 export interface SearchFlowTemplatesCommandOutput extends SearchFlowTemplatesResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated since: 2022-08-30
- *
  * <p>Searches for summary information about workflows.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +80,8 @@ export interface SearchFlowTemplatesCommandOutput extends SearchFlowTemplatesRes
  * @throws {@link IoTThingsGraphServiceException}
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ * @public
+ * @deprecated since: 2022-08-30
  */
 export class SearchFlowTemplatesCommand extends $Command
   .classBuilder<

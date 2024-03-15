@@ -32,7 +32,6 @@ export interface CreateSiteCommandInput extends CreateSiteRequest {}
 export interface CreateSiteCommandOutput extends CreateSiteResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new site in a global network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -112,6 +111,7 @@ export interface CreateSiteCommandOutput extends CreateSiteResponse, __MetadataB
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class CreateSiteCommand extends $Command
   .classBuilder<

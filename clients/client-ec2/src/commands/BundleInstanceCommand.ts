@@ -32,7 +32,6 @@ export interface BundleInstanceCommandInput extends BundleInstanceRequest {}
 export interface BundleInstanceCommandOutput extends BundleInstanceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Bundles an Amazon instance store-backed Windows instance.</p>
  *          <p>During bundling, only the root device volume (C:\) is bundled. Data on other instance store volumes is not preserved.</p>
  *          <note>
@@ -94,6 +93,7 @@ export interface BundleInstanceCommandOutput extends BundleInstanceResult, __Met
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class BundleInstanceCommand extends $Command
   .classBuilder<

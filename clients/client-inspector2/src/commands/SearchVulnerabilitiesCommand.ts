@@ -27,7 +27,6 @@ export interface SearchVulnerabilitiesCommandInput extends SearchVulnerabilities
 export interface SearchVulnerabilitiesCommandOutput extends SearchVulnerabilitiesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists Amazon Inspector coverage details for a specific vulnerability.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -126,6 +125,7 @@ export interface SearchVulnerabilitiesCommandOutput extends SearchVulnerabilitie
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class SearchVulnerabilitiesCommand extends $Command
   .classBuilder<

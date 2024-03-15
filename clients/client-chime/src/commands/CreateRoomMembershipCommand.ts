@@ -31,7 +31,6 @@ export interface CreateRoomMembershipCommandInput extends CreateRoomMembershipRe
 export interface CreateRoomMembershipCommandOutput extends CreateRoomMembershipResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a member to a chat room in an Amazon Chime Enterprise account. A member can be either a user or a bot. The member role designates whether the member is a chat room administrator or a general chat room member.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface CreateRoomMembershipCommandOutput extends CreateRoomMembershipR
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class CreateRoomMembershipCommand extends $Command
   .classBuilder<

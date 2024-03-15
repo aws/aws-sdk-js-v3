@@ -27,7 +27,6 @@ export interface ListApplicationsCommandInput extends ListApplicationsRequest {}
 export interface ListApplicationsCommandOutput extends ListApplicationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is in preview release and subject to change.</p>
  *          <p>Lists applications in the account.</p>
  * @example
@@ -79,6 +78,7 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * @throws {@link AppIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
+ * @public
  * @example To list applications in the account
  * ```javascript
  * // The following lists application summary in the account.

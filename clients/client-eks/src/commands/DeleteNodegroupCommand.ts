@@ -27,7 +27,6 @@ export interface DeleteNodegroupCommandInput extends DeleteNodegroupRequest {}
 export interface DeleteNodegroupCommandOutput extends DeleteNodegroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a managed node group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -148,6 +147,7 @@ export interface DeleteNodegroupCommandOutput extends DeleteNodegroupResponse, _
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class DeleteNodegroupCommand extends $Command
   .classBuilder<

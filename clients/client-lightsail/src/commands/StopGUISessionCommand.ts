@@ -27,7 +27,6 @@ export interface StopGUISessionCommandInput extends StopGUISessionRequest {}
 export interface StopGUISessionCommandOutput extends StopGUISessionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Terminates a web-based NICE DCV session that’s used to access a virtual computer’s
  *       operating system or application. The session will close and any unsaved data will be
  *       lost.</p>
@@ -98,6 +97,7 @@ export interface StopGUISessionCommandOutput extends StopGUISessionResult, __Met
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class StopGUISessionCommand extends $Command
   .classBuilder<

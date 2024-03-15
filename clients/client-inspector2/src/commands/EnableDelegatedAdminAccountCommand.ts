@@ -32,7 +32,6 @@ export interface EnableDelegatedAdminAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables the Amazon Inspector delegated administrator for your Organizations organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface EnableDelegatedAdminAccountCommandOutput
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class EnableDelegatedAdminAccountCommand extends $Command
   .classBuilder<

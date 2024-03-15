@@ -27,7 +27,6 @@ export interface DescribeGroupCommandInput extends DescribeGroupRequest {}
 export interface DescribeGroupCommandOutput extends DescribeGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the data available for the group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface DescribeGroupCommandOutput extends DescribeGroupResponse, __Met
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class DescribeGroupCommand extends $Command
   .classBuilder<

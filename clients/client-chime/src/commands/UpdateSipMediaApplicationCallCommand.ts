@@ -36,9 +36,6 @@ export interface UpdateSipMediaApplicationCallCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by UpdateSipMediaApplicationCall in the Amazon Chime SDK Voice Namespace
- *
  * <p>Invokes the AWS Lambda function associated with the SIP media application and transaction ID in an update request.
  *          The Lambda function can then return a new set of actions.</p>
  *          <important>
@@ -104,6 +101,8 @@ export interface UpdateSipMediaApplicationCallCommandOutput
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by UpdateSipMediaApplicationCall in the Amazon Chime SDK Voice Namespace
  */
 export class UpdateSipMediaApplicationCallCommand extends $Command
   .classBuilder<

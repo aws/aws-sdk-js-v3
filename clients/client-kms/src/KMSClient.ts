@@ -444,7 +444,6 @@ export type KMSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
 export interface KMSClientResolvedConfig extends KMSClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>Key Management Service</fullname>
  *          <p>Key Management Service (KMS) is an encryption and key management web service. This guide describes
  *       the KMS operations that you can call programmatically. For general information about KMS,
@@ -540,6 +539,7 @@ export interface KMSClientResolvedConfig extends KMSClientResolvedConfigType {}
  *                </p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class KMSClient extends __Client<
   __HttpHandlerOptions,

@@ -27,7 +27,6 @@ export interface DeleteMultiplexProgramCommandInput extends DeleteMultiplexProgr
 export interface DeleteMultiplexProgramCommandOutput extends DeleteMultiplexProgramResponse, __MetadataBearer {}
 
 /**
- * @public
  * Delete a program from a multiplex.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -126,6 +125,7 @@ export interface DeleteMultiplexProgramCommandOutput extends DeleteMultiplexProg
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class DeleteMultiplexProgramCommand extends $Command
   .classBuilder<

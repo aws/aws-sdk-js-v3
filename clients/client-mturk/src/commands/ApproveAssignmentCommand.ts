@@ -27,7 +27,6 @@ export interface ApproveAssignmentCommandInput extends ApproveAssignmentRequest 
 export interface ApproveAssignmentCommandOutput extends ApproveAssignmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The <code>ApproveAssignment</code> operation approves the results of a completed assignment.
  *         </p>
@@ -90,6 +89,7 @@ export interface ApproveAssignmentCommandOutput extends ApproveAssignmentRespons
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * @public
  */
 export class ApproveAssignmentCommand extends $Command
   .classBuilder<

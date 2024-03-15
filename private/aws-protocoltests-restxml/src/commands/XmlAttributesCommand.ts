@@ -25,7 +25,6 @@ export interface XmlAttributesCommandInput extends XmlAttributesRequest {}
 export interface XmlAttributesCommandOutput extends XmlAttributesResponse, __MetadataBearer {}
 
 /**
- * @public
  * This example serializes an XML attributes on synthesized document.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -55,6 +54,7 @@ export interface XmlAttributesCommandOutput extends XmlAttributesResponse, __Met
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ * @public
  */
 export class XmlAttributesCommand extends $Command
   .classBuilder<

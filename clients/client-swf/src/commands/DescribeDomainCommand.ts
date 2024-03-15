@@ -27,7 +27,6 @@ export interface DescribeDomainCommandInput extends DescribeDomainInput {}
 export interface DescribeDomainCommandOutput extends DomainDetail, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the specified domain, including description and
  *       status.</p>
  *          <p>
@@ -93,6 +92,7 @@ export interface DescribeDomainCommandOutput extends DomainDetail, __MetadataBea
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ * @public
  */
 export class DescribeDomainCommand extends $Command
   .classBuilder<

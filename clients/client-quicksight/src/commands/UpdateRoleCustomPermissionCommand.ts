@@ -27,7 +27,6 @@ export interface UpdateRoleCustomPermissionCommandInput extends UpdateRoleCustom
 export interface UpdateRoleCustomPermissionCommandOutput extends UpdateRoleCustomPermissionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the custom permissions that are associated with a role.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface UpdateRoleCustomPermissionCommandOutput extends UpdateRoleCusto
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class UpdateRoleCustomPermissionCommand extends $Command
   .classBuilder<

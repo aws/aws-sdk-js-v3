@@ -913,7 +913,6 @@ export interface KMS {
 }
 
 /**
- * @public
  * <fullname>Key Management Service</fullname>
  *          <p>Key Management Service (KMS) is an encryption and key management web service. This guide describes
  *       the KMS operations that you can call programmatically. For general information about KMS,
@@ -1009,6 +1008,7 @@ export interface KMS {
  *                </p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class KMS extends KMSClient implements KMS {}
 createAggregatedClient(commands, KMS);

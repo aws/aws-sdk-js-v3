@@ -32,7 +32,6 @@ export interface ListAggregateDiscoveredResourcesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Accepts a resource type and returns a list of resource identifiers that are aggregated for a specific resource type across accounts and regions.
  * 			A resource identifier includes the resource type, ID, (if available) the custom resource name, source account, and source region.
  * 			You can narrow the results to include only resources that have specific resource IDs, or a resource name, or source account ID, or source region.</p>
@@ -97,6 +96,7 @@ export interface ListAggregateDiscoveredResourcesCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class ListAggregateDiscoveredResourcesCommand extends $Command
   .classBuilder<

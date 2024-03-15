@@ -27,7 +27,6 @@ export interface UpdateCodeSigningConfigCommandInput extends UpdateCodeSigningCo
 export interface UpdateCodeSigningConfigCommandOutput extends UpdateCodeSigningConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update the code signing configuration. Changes to the code signing configuration take effect the next time a
  *       user tries to deploy a code package to the function. </p>
  * @example
@@ -87,6 +86,7 @@ export interface UpdateCodeSigningConfigCommandOutput extends UpdateCodeSigningC
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class UpdateCodeSigningConfigCommand extends $Command
   .classBuilder<

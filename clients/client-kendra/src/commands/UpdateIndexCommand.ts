@@ -27,7 +27,6 @@ export interface UpdateIndexCommandInput extends UpdateIndexRequest {}
 export interface UpdateIndexCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing Amazon Kendra index.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -132,6 +131,7 @@ export interface UpdateIndexCommandOutput extends __MetadataBearer {}
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class UpdateIndexCommand extends $Command
   .classBuilder<

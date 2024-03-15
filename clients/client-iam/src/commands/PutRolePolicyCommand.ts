@@ -27,7 +27,6 @@ export interface PutRolePolicyCommandInput extends PutRolePolicyRequest {}
 export interface PutRolePolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds or updates an inline policy document that is embedded in the specified IAM
  *             role.</p>
  *          <p>When you embed an inline policy in a role, the inline policy is used as part of the
@@ -105,6 +104,7 @@ export interface PutRolePolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To attach a permissions policy to an IAM role
  * ```javascript
  * // The following command adds a permissions policy to the role named Test-Role.

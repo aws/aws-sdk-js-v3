@@ -27,7 +27,6 @@ export interface CreateTagsCommandInput extends CreateTagsRequest {}
 export interface CreateTagsCommandOutput extends CreateTagsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates the specified tags for the specified WorkSpaces resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface CreateTagsCommandOutput extends CreateTagsResult, __MetadataBea
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class CreateTagsCommand extends $Command
   .classBuilder<

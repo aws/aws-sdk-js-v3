@@ -31,7 +31,6 @@ export interface ListEnvironmentsCommandInput extends ListEnvironmentsInput {}
 export interface ListEnvironmentsCommandOutput extends ListEnvironmentsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>List environments with detail data summaries.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsOutput, _
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class ListEnvironmentsCommand extends $Command
   .classBuilder<

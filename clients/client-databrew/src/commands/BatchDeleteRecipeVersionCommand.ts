@@ -27,7 +27,6 @@ export interface BatchDeleteRecipeVersionCommandInput extends BatchDeleteRecipeV
 export interface BatchDeleteRecipeVersionCommandOutput extends BatchDeleteRecipeVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes one or more versions of a recipe at a time.</p>
  *          <p>The entire request will be rejected if:</p>
  *          <ul>
@@ -112,6 +111,7 @@ export interface BatchDeleteRecipeVersionCommandOutput extends BatchDeleteRecipe
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * @public
  */
 export class BatchDeleteRecipeVersionCommand extends $Command
   .classBuilder<

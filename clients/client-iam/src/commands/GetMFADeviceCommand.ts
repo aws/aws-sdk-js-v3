@@ -27,7 +27,6 @@ export interface GetMFADeviceCommandInput extends GetMFADeviceRequest {}
 export interface GetMFADeviceCommandOutput extends GetMFADeviceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about an MFA device for a specified user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface GetMFADeviceCommandOutput extends GetMFADeviceResponse, __Metad
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class GetMFADeviceCommand extends $Command
   .classBuilder<

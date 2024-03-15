@@ -32,7 +32,6 @@ export interface UpdateColumnStatisticsForTableCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates table statistics of columns.</p>
  *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>UpdateTable</code>.</p>
  * @example
@@ -195,6 +194,7 @@ export interface UpdateColumnStatisticsForTableCommandOutput
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class UpdateColumnStatisticsForTableCommand extends $Command
   .classBuilder<

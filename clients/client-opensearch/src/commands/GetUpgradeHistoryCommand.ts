@@ -27,7 +27,6 @@ export interface GetUpgradeHistoryCommandInput extends GetUpgradeHistoryRequest 
 export interface GetUpgradeHistoryCommandOutput extends GetUpgradeHistoryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the complete history of the last 10 upgrades performed on an Amazon OpenSearch
  *    Service domain.</p>
  * @example
@@ -90,6 +89,7 @@ export interface GetUpgradeHistoryCommandOutput extends GetUpgradeHistoryRespons
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class GetUpgradeHistoryCommand extends $Command
   .classBuilder<

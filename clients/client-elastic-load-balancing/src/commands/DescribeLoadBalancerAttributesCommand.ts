@@ -36,7 +36,6 @@ export interface DescribeLoadBalancerAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the attributes for the specified load balancer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface DescribeLoadBalancerAttributesCommandOutput
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * @public
  * @example To describe the attributes of a load balancer
  * ```javascript
  * // This example describes the attributes of the specified load balancer.

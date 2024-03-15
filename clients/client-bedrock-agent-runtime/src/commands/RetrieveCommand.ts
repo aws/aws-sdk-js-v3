@@ -36,7 +36,6 @@ export interface RetrieveCommandInput extends RetrieveRequest {}
 export interface RetrieveCommandOutput extends RetrieveResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Queries a knowledge base and retrieves information from it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -115,6 +114,7 @@ export interface RetrieveCommandOutput extends RetrieveResponse, __MetadataBeare
  * @throws {@link BedrockAgentRuntimeServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgentRuntime service.</p>
  *
+ * @public
  */
 export class RetrieveCommand extends $Command
   .classBuilder<

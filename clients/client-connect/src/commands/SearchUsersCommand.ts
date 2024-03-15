@@ -27,7 +27,6 @@ export interface SearchUsersCommandInput extends SearchUsersRequest {}
 export interface SearchUsersCommandOutput extends SearchUsersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Searches users in an Amazon Connect instance, with optional filtering. </p>
  *          <note>
  *             <p>
@@ -155,6 +154,7 @@ export interface SearchUsersCommandOutput extends SearchUsersResponse, __Metadat
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class SearchUsersCommand extends $Command
   .classBuilder<

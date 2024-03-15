@@ -35,7 +35,6 @@ export interface ListEnvironmentsCommandInput extends ListEnvironmentsRequest {}
 export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of environments.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -108,6 +107,7 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse,
  * @throws {@link WorkSpacesThinClientServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesThinClient service.</p>
  *
+ * @public
  */
 export class ListEnvironmentsCommand extends $Command
   .classBuilder<

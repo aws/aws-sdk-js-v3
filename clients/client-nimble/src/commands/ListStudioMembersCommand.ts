@@ -27,7 +27,6 @@ export interface ListStudioMembersCommandInput extends ListStudioMembersRequest 
 export interface ListStudioMembersCommandOutput extends ListStudioMembersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get all users in a given studio membership.</p>
  *         <note>
  *             <p>
@@ -93,6 +92,7 @@ export interface ListStudioMembersCommandOutput extends ListStudioMembersRespons
  * @throws {@link NimbleServiceException}
  * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
+ * @public
  */
 export class ListStudioMembersCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface ListChannelBansCommandInput extends ListChannelBansRequest {}
 export interface ListChannelBansCommandOutput extends ListChannelBansResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the users and bots banned from a particular channel.</p>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
@@ -99,6 +98,7 @@ export interface ListChannelBansCommandOutput extends ListChannelBansResponse, _
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class ListChannelBansCommand extends $Command
   .classBuilder<

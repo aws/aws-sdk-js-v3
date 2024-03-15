@@ -31,7 +31,6 @@ export interface DeleteWorkspaceCommandInput extends DeleteWorkspaceRequest {}
 export interface DeleteWorkspaceCommandOutput extends DeleteWorkspaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Amazon Managed Grafana workspace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -130,6 +129,7 @@ export interface DeleteWorkspaceCommandOutput extends DeleteWorkspaceResponse, _
  * @throws {@link GrafanaServiceException}
  * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
+ * @public
  */
 export class DeleteWorkspaceCommand extends $Command
   .classBuilder<

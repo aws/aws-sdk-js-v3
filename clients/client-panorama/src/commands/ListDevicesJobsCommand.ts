@@ -27,7 +27,6 @@ export interface ListDevicesJobsCommandInput extends ListDevicesJobsRequest {}
 export interface ListDevicesJobsCommandOutput extends ListDevicesJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface ListDevicesJobsCommandOutput extends ListDevicesJobsResponse, _
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ * @public
  */
 export class ListDevicesJobsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface AddRoleToInstanceProfileCommandInput extends AddRoleToInstanceP
 export interface AddRoleToInstanceProfileCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds the specified IAM role to the specified instance profile. An instance profile
  *             can contain only one role, and this quota cannot be increased. You can remove the
  *             existing role and then add a different role to an instance profile. You must then wait
@@ -89,6 +88,7 @@ export interface AddRoleToInstanceProfileCommandOutput extends __MetadataBearer 
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To add a role to an instance profile
  * ```javascript
  * // The following command adds the role named S3Access to the instance profile named Webserver:

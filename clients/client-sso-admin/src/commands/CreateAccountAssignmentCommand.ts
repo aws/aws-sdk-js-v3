@@ -27,7 +27,6 @@ export interface CreateAccountAssignmentCommandInput extends CreateAccountAssign
 export interface CreateAccountAssignmentCommandOutput extends CreateAccountAssignmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Assigns access to a principal for a specified Amazon Web Services account using a specified
  *             permission set.</p>
  *          <note>
@@ -118,6 +117,7 @@ export interface CreateAccountAssignmentCommandOutput extends CreateAccountAssig
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class CreateAccountAssignmentCommand extends $Command
   .classBuilder<

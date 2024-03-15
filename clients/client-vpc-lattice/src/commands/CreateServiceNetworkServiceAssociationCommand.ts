@@ -36,7 +36,6 @@ export interface CreateServiceNetworkServiceAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a service with a service network.</p>
  *          <p>You can't use this operation if the service and service network are already associated or if
  *    there is a disassociation or deletion in progress. If the association fails, you can retry the
@@ -107,6 +106,7 @@ export interface CreateServiceNetworkServiceAssociationCommandOutput
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class CreateServiceNetworkServiceAssociationCommand extends $Command
   .classBuilder<

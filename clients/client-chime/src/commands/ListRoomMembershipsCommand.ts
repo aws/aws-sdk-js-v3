@@ -31,7 +31,6 @@ export interface ListRoomMembershipsCommandInput extends ListRoomMembershipsRequ
 export interface ListRoomMembershipsCommandOutput extends ListRoomMembershipsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the membership details for the specified room in an Amazon Chime Enterprise account,
  *             such as the members' IDs, email addresses, and names.</p>
  * @example
@@ -99,6 +98,7 @@ export interface ListRoomMembershipsCommandOutput extends ListRoomMembershipsRes
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class ListRoomMembershipsCommand extends $Command
   .classBuilder<

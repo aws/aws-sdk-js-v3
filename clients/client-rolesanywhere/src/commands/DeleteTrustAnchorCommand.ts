@@ -27,7 +27,6 @@ export interface DeleteTrustAnchorCommandInput extends ScalarTrustAnchorRequest 
 export interface DeleteTrustAnchorCommandOutput extends TrustAnchorDetailResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a trust anchor.</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -88,6 +87,7 @@ export interface DeleteTrustAnchorCommandOutput extends TrustAnchorDetailRespons
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ * @public
  */
 export class DeleteTrustAnchorCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListEventSourceMappingsCommandInput extends ListEventSourceMapp
 export interface ListEventSourceMappingsCommandOutput extends ListEventSourceMappingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists event source mappings. Specify an <code>EventSourceArn</code> to show only event source mappings for a
  *       single event source.</p>
  * @example
@@ -142,6 +141,7 @@ export interface ListEventSourceMappingsCommandOutput extends ListEventSourceMap
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class ListEventSourceMappingsCommand extends $Command
   .classBuilder<

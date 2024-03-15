@@ -31,7 +31,6 @@ export interface GetDeviceIdentifierCommandInput extends GetDeviceIdentifierRequ
 export interface GetDeviceIdentifierCommandOutput extends GetDeviceIdentifierResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the specified device identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface GetDeviceIdentifierCommandOutput extends GetDeviceIdentifierRes
  * @throws {@link PrivateNetworksServiceException}
  * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
+ * @public
  */
 export class GetDeviceIdentifierCommand extends $Command
   .classBuilder<

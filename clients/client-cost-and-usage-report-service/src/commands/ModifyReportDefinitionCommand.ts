@@ -31,7 +31,6 @@ export interface ModifyReportDefinitionCommandInput extends ModifyReportDefiniti
 export interface ModifyReportDefinitionCommandOutput extends ModifyReportDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows you to programmatically update your report preferences.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface ModifyReportDefinitionCommandOutput extends ModifyReportDefinit
  * @throws {@link CostAndUsageReportServiceServiceException}
  * <p>Base exception class for all service exceptions from CostAndUsageReportService service.</p>
  *
+ * @public
  */
 export class ModifyReportDefinitionCommand extends $Command
   .classBuilder<

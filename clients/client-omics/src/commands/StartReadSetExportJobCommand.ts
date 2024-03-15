@@ -27,7 +27,6 @@ export interface StartReadSetExportJobCommandInput extends StartReadSetExportJob
 export interface StartReadSetExportJobCommandOutput extends StartReadSetExportJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Exports a read set to Amazon S3.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface StartReadSetExportJobCommandOutput extends StartReadSetExportJo
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class StartReadSetExportJobCommand extends $Command
   .classBuilder<

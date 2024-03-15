@@ -27,7 +27,6 @@ export interface ListPackagesCommandInput extends ListPackagesRequest {}
 export interface ListPackagesCommandOutput extends ListPackagesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of packages.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface ListPackagesCommandOutput extends ListPackagesResponse, __Metad
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ * @public
  */
 export class ListPackagesCommand extends $Command
   .classBuilder<

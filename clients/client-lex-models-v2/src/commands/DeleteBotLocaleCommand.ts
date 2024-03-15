@@ -27,7 +27,6 @@ export interface DeleteBotLocaleCommandInput extends DeleteBotLocaleRequest {}
 export interface DeleteBotLocaleCommandOutput extends DeleteBotLocaleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a locale from a bot.</p>
  *          <p>When you delete a locale, all intents, slots, and slot types defined
  *          for the locale are also deleted.</p>
@@ -87,6 +86,7 @@ export interface DeleteBotLocaleCommandOutput extends DeleteBotLocaleResponse, _
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class DeleteBotLocaleCommand extends $Command
   .classBuilder<

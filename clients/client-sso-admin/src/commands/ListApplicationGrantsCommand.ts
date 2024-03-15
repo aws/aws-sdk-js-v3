@@ -27,7 +27,6 @@ export interface ListApplicationGrantsCommandInput extends ListApplicationGrants
 export interface ListApplicationGrantsCommandOutput extends ListApplicationGrantsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List the grants associated with an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface ListApplicationGrantsCommandOutput extends ListApplicationGrant
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class ListApplicationGrantsCommand extends $Command
   .classBuilder<

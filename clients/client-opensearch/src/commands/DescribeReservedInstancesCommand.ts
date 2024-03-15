@@ -27,7 +27,6 @@ export interface DescribeReservedInstancesCommandInput extends DescribeReservedI
 export interface DescribeReservedInstancesCommandOutput extends DescribeReservedInstancesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the Amazon OpenSearch Service instances that you have reserved in a given Region.
  *    For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ri.html">Reserved Instances in Amazon OpenSearch
  *     Service</a>.</p>
@@ -94,6 +93,7 @@ export interface DescribeReservedInstancesCommandOutput extends DescribeReserved
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class DescribeReservedInstancesCommand extends $Command
   .classBuilder<

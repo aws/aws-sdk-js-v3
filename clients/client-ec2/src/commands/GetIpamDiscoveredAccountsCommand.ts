@@ -27,7 +27,6 @@ export interface GetIpamDiscoveredAccountsCommandInput extends GetIpamDiscovered
 export interface GetIpamDiscoveredAccountsCommandOutput extends GetIpamDiscoveredAccountsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets IPAM discovered accounts. A discovered account is an Amazon Web Services account that is monitored under a resource discovery. If you have integrated IPAM with Amazon Web Services Organizations, all accounts in the organization are discovered accounts. Only the IPAM account can get all discovered accounts in the organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface GetIpamDiscoveredAccountsCommandOutput extends GetIpamDiscovere
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class GetIpamDiscoveredAccountsCommand extends $Command
   .classBuilder<

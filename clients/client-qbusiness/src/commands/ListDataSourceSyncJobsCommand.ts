@@ -27,7 +27,6 @@ export interface ListDataSourceSyncJobsCommandInput extends ListDataSourceSyncJo
 export interface ListDataSourceSyncJobsCommandOutput extends ListDataSourceSyncJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get information about an Amazon Q data source connector synchronization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface ListDataSourceSyncJobsCommandOutput extends ListDataSourceSyncJ
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ * @public
  */
 export class ListDataSourceSyncJobsCommand extends $Command
   .classBuilder<

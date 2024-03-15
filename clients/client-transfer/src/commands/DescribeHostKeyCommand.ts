@@ -27,7 +27,6 @@ export interface DescribeHostKeyCommandInput extends DescribeHostKeyRequest {}
 export interface DescribeHostKeyCommandOutput extends DescribeHostKeyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the details of the host key that's specified by the <code>HostKeyId</code> and <code>ServerId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface DescribeHostKeyCommandOutput extends DescribeHostKeyResponse, _
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class DescribeHostKeyCommand extends $Command
   .classBuilder<

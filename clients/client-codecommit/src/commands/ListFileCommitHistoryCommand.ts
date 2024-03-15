@@ -28,7 +28,6 @@ export interface ListFileCommitHistoryCommandInput extends ListFileCommitHistory
 export interface ListFileCommitHistoryCommandOutput extends ListFileCommitHistoryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of commits and changes to a specified file.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -136,6 +135,7 @@ export interface ListFileCommitHistoryCommandOutput extends ListFileCommitHistor
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class ListFileCommitHistoryCommand extends $Command
   .classBuilder<

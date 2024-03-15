@@ -31,7 +31,6 @@ export interface RestoreTableFromSnapshotCommandInput extends RestoreTableFromSn
 export interface RestoreTableFromSnapshotCommandOutput extends RestoreTableFromSnapshotResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Restores a table from a snapshot to your Amazon Redshift Serverless instance. You can't use this operation to
  *          restore tables with <a href="https://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_data.html#t_Sorting_data-interleaved">interleaved sort keys</a>.</p>
  * @example
@@ -98,6 +97,7 @@ export interface RestoreTableFromSnapshotCommandOutput extends RestoreTableFromS
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * @public
  */
 export class RestoreTableFromSnapshotCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface RejectGrantCommandInput extends RejectGrantRequest {}
 export interface RejectGrantCommandOutput extends RejectGrantResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Rejects the specified grant.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface RejectGrantCommandOutput extends RejectGrantResponse, __Metadat
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * @public
  */
 export class RejectGrantCommand extends $Command
   .classBuilder<

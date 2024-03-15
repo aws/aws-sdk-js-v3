@@ -27,7 +27,6 @@ export interface DescribeFlowCommandInput extends DescribeFlowRequest {}
 export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __MetadataBearer {}
 
 /**
- * @public
  * Displays the details of a flow. The response includes the flow ARN, name, and Availability Zone, as well as details about the source, outputs, and entitlements.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -349,6 +348,7 @@ export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __Metad
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ * @public
  */
 export class DescribeFlowCommand extends $Command
   .classBuilder<

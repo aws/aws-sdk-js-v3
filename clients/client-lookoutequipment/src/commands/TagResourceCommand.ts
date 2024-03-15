@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a given tag to a resource in your account. A tag is a key-value pair which
  *          can be added to an Amazon Lookout for Equipment resource as metadata. Tags can be used for organizing your
  *          resources as well as helping you to search and filter by tag. Multiple tags can be added to
@@ -85,6 +84,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

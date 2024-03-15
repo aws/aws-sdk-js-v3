@@ -27,7 +27,6 @@ export interface GetLinkAssociationsCommandInput extends GetLinkAssociationsRequ
 export interface GetLinkAssociationsCommandOutput extends GetLinkAssociationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the link associations for a device or a link. Either the device ID or the link ID
  *             must be specified.</p>
  * @example
@@ -83,6 +82,7 @@ export interface GetLinkAssociationsCommandOutput extends GetLinkAssociationsRes
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class GetLinkAssociationsCommand extends $Command
   .classBuilder<

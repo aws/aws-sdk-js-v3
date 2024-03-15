@@ -27,7 +27,6 @@ export interface UpdateItemCommandInput extends UpdateItemInput {}
 export interface UpdateItemCommandOutput extends UpdateItemOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Edits an existing item's attributes, or adds a new item to the table if it does not
  *             already exist. You can put, delete, or add attribute values. You can also perform a
  *             conditional update on an existing item (insert a new attribute name-value pair if it
@@ -243,6 +242,7 @@ export interface UpdateItemCommandOutput extends UpdateItemOutput, __MetadataBea
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  * @example To update an item in a table
  * ```javascript
  * // This example updates an item in the Music table. It adds a new attribute (Year) and modifies the AlbumTitle attribute.  All of the attributes in the item, as they appear after the update, are returned in the response.

@@ -34,7 +34,6 @@ export interface PostAgentProfileCommandInput extends PostAgentProfileCommandInp
 export interface PostAgentProfileCommandOutput extends PostAgentProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Submits profiling data to an aggregated profile of a profiling group. To get an
  *          aggregated profile that is created with this profiling data, use
@@ -81,6 +80,7 @@ export interface PostAgentProfileCommandOutput extends PostAgentProfileResponse,
  * @throws {@link CodeGuruProfilerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
+ * @public
  */
 export class PostAgentProfileCommand extends $Command
   .classBuilder<

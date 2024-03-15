@@ -32,7 +32,6 @@ export interface DescribePullThroughCacheRulesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the pull through cache rules for a registry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface DescribePullThroughCacheRulesCommandOutput
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * @public
  */
 export class DescribePullThroughCacheRulesCommand extends $Command
   .classBuilder<

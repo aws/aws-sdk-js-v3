@@ -27,7 +27,6 @@ export interface ListContactListsCommandInput extends ListContactListsRequest {}
 export interface ListContactListsCommandOutput extends ListContactListsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all of the contact lists available.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface ListContactListsCommandOutput extends ListContactListsResponse,
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class ListContactListsCommand extends $Command
   .classBuilder<

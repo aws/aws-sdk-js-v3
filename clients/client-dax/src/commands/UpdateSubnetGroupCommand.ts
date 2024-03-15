@@ -27,7 +27,6 @@ export interface UpdateSubnetGroupCommandInput extends UpdateSubnetGroupRequest 
 export interface UpdateSubnetGroupCommandOutput extends UpdateSubnetGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies an existing subnet group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface UpdateSubnetGroupCommandOutput extends UpdateSubnetGroupRespons
  * @throws {@link DAXServiceException}
  * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ * @public
  */
 export class UpdateSubnetGroupCommand extends $Command
   .classBuilder<

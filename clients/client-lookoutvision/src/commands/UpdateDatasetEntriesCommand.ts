@@ -27,7 +27,6 @@ export interface UpdateDatasetEntriesCommandInput extends UpdateDatasetEntriesRe
 export interface UpdateDatasetEntriesCommandOutput extends UpdateDatasetEntriesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds or updates one or more JSON Line entries in a dataset. A JSON Line includes information about an image
  *          used for training or testing an Amazon Lookout for Vision model.</p>
  *          <p>To update an existing JSON Line, use the <code>source-ref</code> field to identify the JSON Line. The JSON line
@@ -91,6 +90,7 @@ export interface UpdateDatasetEntriesCommandOutput extends UpdateDatasetEntriesR
  * @throws {@link LookoutVisionServiceException}
  * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
+ * @public
  */
 export class UpdateDatasetEntriesCommand extends $Command
   .classBuilder<

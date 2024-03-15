@@ -27,7 +27,6 @@ export interface PutRestoreValidationResultCommandInput extends PutRestoreValida
 export interface PutRestoreValidationResultCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>This request allows you to send your independent self-run
  *          restore test validation results.
  *          <code>RestoreJobId</code> and <code>ValidationStatus</code>
@@ -76,6 +75,7 @@ export interface PutRestoreValidationResultCommandOutput extends __MetadataBeare
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class PutRestoreValidationResultCommand extends $Command
   .classBuilder<

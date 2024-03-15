@@ -27,7 +27,6 @@ export interface CreatePlacementGroupCommandInput extends CreatePlacementGroupRe
 export interface CreatePlacementGroupCommandOutput extends CreatePlacementGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a placement group in which to launch instances. The strategy of the placement
  *             group determines how the instances are organized within the group. </p>
  *          <p>A <code>cluster</code> placement group is a logical grouping of instances within a
@@ -93,6 +92,7 @@ export interface CreatePlacementGroupCommandOutput extends CreatePlacementGroupR
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To create a placement group
  * ```javascript
  * // This example creates a placement group with the specified name.

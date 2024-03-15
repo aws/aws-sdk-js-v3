@@ -32,7 +32,6 @@ export interface DescribeTerminationPolicyTypesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the termination policies supported by Amazon EC2 Auto Scaling.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html">Work with
  *                 Amazon EC2 Auto Scaling termination policies</a> in the
@@ -67,6 +66,7 @@ export interface DescribeTerminationPolicyTypesCommandOutput
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To describe termination policy types
  * ```javascript
  * // This example describes the available termination policy types.

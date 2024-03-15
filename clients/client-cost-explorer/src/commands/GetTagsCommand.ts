@@ -27,7 +27,6 @@ export interface GetTagsCommandInput extends GetTagsRequest {}
 export interface GetTagsCommandOutput extends GetTagsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Queries for available tag keys and tag values for a specified period. You can search
  *       the tag values for an arbitrary string. </p>
  * @example
@@ -157,6 +156,7 @@ export interface GetTagsCommandOutput extends GetTagsResponse, __MetadataBearer 
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * @public
  */
 export class GetTagsCommand extends $Command
   .classBuilder<

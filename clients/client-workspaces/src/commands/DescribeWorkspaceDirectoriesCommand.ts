@@ -32,7 +32,6 @@ export interface DescribeWorkspaceDirectoriesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the available directories that are registered with Amazon WorkSpaces.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -124,6 +123,7 @@ export interface DescribeWorkspaceDirectoriesCommandOutput
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class DescribeWorkspaceDirectoriesCommand extends $Command
   .classBuilder<

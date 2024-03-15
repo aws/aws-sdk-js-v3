@@ -27,7 +27,6 @@ export interface DescribeFirewallPolicyCommandInput extends DescribeFirewallPoli
 export interface DescribeFirewallPolicyCommandOutput extends DescribeFirewallPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the data objects for the specified firewall policy. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -157,6 +156,7 @@ export interface DescribeFirewallPolicyCommandOutput extends DescribeFirewallPol
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ * @public
  */
 export class DescribeFirewallPolicyCommand extends $Command
   .classBuilder<

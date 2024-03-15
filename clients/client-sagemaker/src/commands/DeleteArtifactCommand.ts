@@ -27,7 +27,6 @@ export interface DeleteArtifactCommandInput extends DeleteArtifactRequest {}
 export interface DeleteArtifactCommandOutput extends DeleteArtifactResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an artifact. Either <code>ArtifactArn</code> or <code>Source</code> must be
  *         specified.</p>
  * @example
@@ -68,6 +67,7 @@ export interface DeleteArtifactCommandOutput extends DeleteArtifactResponse, __M
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteArtifactCommand extends $Command
   .classBuilder<

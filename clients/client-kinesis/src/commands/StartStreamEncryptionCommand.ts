@@ -27,7 +27,6 @@ export interface StartStreamEncryptionCommandInput extends StartStreamEncryption
 export interface StartStreamEncryptionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables or updates server-side encryption using an Amazon Web Services KMS key for a
  *             specified stream. </p>
  *          <note>
@@ -123,6 +122,7 @@ export interface StartStreamEncryptionCommandOutput extends __MetadataBearer {}
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * @public
  */
 export class StartStreamEncryptionCommand extends $Command
   .classBuilder<

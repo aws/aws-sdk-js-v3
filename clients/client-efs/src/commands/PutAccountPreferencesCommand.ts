@@ -27,7 +27,6 @@ export interface PutAccountPreferencesCommandInput extends PutAccountPreferences
 export interface PutAccountPreferencesCommandOutput extends PutAccountPreferencesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use this operation to set the account preference in the current Amazon Web Services Region
  *       to use long 17 character (63 bit) or short 8 character (32 bit) resource IDs for new
  *       EFS file system and mount target resources. All existing resource IDs are not
@@ -76,6 +75,7 @@ export interface PutAccountPreferencesCommandOutput extends PutAccountPreference
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * @public
  */
 export class PutAccountPreferencesCommand extends $Command
   .classBuilder<

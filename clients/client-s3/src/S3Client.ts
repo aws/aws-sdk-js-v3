@@ -759,8 +759,8 @@ export type S3ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHan
 export interface S3ClientResolvedConfig extends S3ClientResolvedConfigType {}
 
 /**
- * @public
  * <p></p>
+ * @public
  */
 export class S3Client extends __Client<
   __HttpHandlerOptions,

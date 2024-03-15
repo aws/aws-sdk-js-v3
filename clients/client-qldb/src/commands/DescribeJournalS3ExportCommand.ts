@@ -27,7 +27,6 @@ export interface DescribeJournalS3ExportCommandInput extends DescribeJournalS3Ex
 export interface DescribeJournalS3ExportCommandOutput extends DescribeJournalS3ExportResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a journal export job, including the ledger name, export ID,
  *          creation time, current status, and the parameters of the original export creation
  *          request.</p>
@@ -84,6 +83,7 @@ export interface DescribeJournalS3ExportCommandOutput extends DescribeJournalS3E
  * @throws {@link QLDBServiceException}
  * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
+ * @public
  */
 export class DescribeJournalS3ExportCommand extends $Command
   .classBuilder<

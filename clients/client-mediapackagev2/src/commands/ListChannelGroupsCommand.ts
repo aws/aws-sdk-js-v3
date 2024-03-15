@@ -27,7 +27,6 @@ export interface ListChannelGroupsCommandInput extends ListChannelGroupsRequest 
 export interface ListChannelGroupsCommandOutput extends ListChannelGroupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves all channel groups that are configured in AWS Elemental MediaPackage, including the channels and origin endpoints that are associated with it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface ListChannelGroupsCommandOutput extends ListChannelGroupsRespons
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
+ * @public
  */
 export class ListChannelGroupsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeVirtualServiceCommandInput extends DescribeVirtualServi
 export interface DescribeVirtualServiceCommandOutput extends DescribeVirtualServiceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes an existing virtual service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface DescribeVirtualServiceCommandOutput extends DescribeVirtualServ
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ * @public
  */
 export class DescribeVirtualServiceCommand extends $Command
   .classBuilder<

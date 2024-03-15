@@ -27,7 +27,6 @@ export interface ListRuleNamesByTargetCommandInput extends ListRuleNamesByTarget
 export interface ListRuleNamesByTargetCommandOutput extends ListRuleNamesByTargetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the rules for the specified target. You can see which of the rules in Amazon
  *       EventBridge can invoke a specific target in your account.</p>
  * @example
@@ -68,6 +67,7 @@ export interface ListRuleNamesByTargetCommandOutput extends ListRuleNamesByTarge
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ * @public
  */
 export class ListRuleNamesByTargetCommand extends $Command
   .classBuilder<

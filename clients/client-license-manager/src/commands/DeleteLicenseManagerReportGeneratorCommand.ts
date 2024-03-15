@@ -35,7 +35,6 @@ export interface DeleteLicenseManagerReportGeneratorCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified report generator.</p>
  *          <p>This action deletes the report generator, which stops it from generating future reports.
  *          The action cannot be reversed. It has no effect on the previous reports from this generator.</p>
@@ -88,6 +87,7 @@ export interface DeleteLicenseManagerReportGeneratorCommandOutput
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * @public
  */
 export class DeleteLicenseManagerReportGeneratorCommand extends $Command
   .classBuilder<

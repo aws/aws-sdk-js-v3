@@ -31,7 +31,6 @@ export interface GetMigrationCommandInput extends GetMigrationRequest {}
 export interface GetMigrationCommandOutput extends GetMigrationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides details about an ongoing or complete migration from an
  *       Amazon Lex V1 bot to an Amazon Lex V2 bot. Use this operation to view the migration
  *       alerts and warnings related to the migration.</p>
@@ -96,6 +95,7 @@ export interface GetMigrationCommandOutput extends GetMigrationResponse, __Metad
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * @public
  */
 export class GetMigrationCommand extends $Command
   .classBuilder<

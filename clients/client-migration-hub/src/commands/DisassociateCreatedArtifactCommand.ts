@@ -27,7 +27,6 @@ export interface DisassociateCreatedArtifactCommandInput extends DisassociateCre
 export interface DisassociateCreatedArtifactCommandOutput extends DisassociateCreatedArtifactResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates a created artifact of an AWS resource with a migration task performed by a
  *          migration tool that was previously associated. This API has the following traits:</p>
  *          <ul>
@@ -106,6 +105,7 @@ export interface DisassociateCreatedArtifactCommandOutput extends DisassociateCr
  * @throws {@link MigrationHubServiceException}
  * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
+ * @public
  */
 export class DisassociateCreatedArtifactCommand extends $Command
   .classBuilder<

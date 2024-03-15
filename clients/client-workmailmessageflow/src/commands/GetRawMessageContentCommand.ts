@@ -39,7 +39,6 @@ export interface GetRawMessageContentCommandOutput
 }
 
 /**
- * @public
  * <p>Retrieves the raw content of an in-transit email message, in MIME format.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface GetRawMessageContentCommandOutput
  * @throws {@link WorkMailMessageFlowServiceException}
  * <p>Base exception class for all service exceptions from WorkMailMessageFlow service.</p>
  *
+ * @public
  */
 export class GetRawMessageContentCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeExperimentCommandInput extends DescribeExperimentReques
 export interface DescribeExperimentCommandOutput extends DescribeExperimentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a list of an experiment's properties.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface DescribeExperimentCommandOutput extends DescribeExperimentRespo
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeExperimentCommand extends $Command
   .classBuilder<

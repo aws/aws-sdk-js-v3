@@ -30,7 +30,6 @@ export interface DeleteVoiceConnectorOriginationCommandInput extends DeleteVoice
 export interface DeleteVoiceConnectorOriginationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the origination settings for the specified Amazon Chime SDK Voice Connector. </p>
  *          <note>
  *             <p>If emergency calling is configured for the Voice Connector, it must be
@@ -81,6 +80,7 @@ export interface DeleteVoiceConnectorOriginationCommandOutput extends __Metadata
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class DeleteVoiceConnectorOriginationCommand extends $Command
   .classBuilder<

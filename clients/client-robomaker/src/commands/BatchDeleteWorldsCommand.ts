@@ -27,7 +27,6 @@ export interface BatchDeleteWorldsCommandInput extends BatchDeleteWorldsRequest 
 export interface BatchDeleteWorldsCommandOutput extends BatchDeleteWorldsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes one or more worlds in a batch operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface BatchDeleteWorldsCommandOutput extends BatchDeleteWorldsRespons
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ * @public
  */
 export class BatchDeleteWorldsCommand extends $Command
   .classBuilder<

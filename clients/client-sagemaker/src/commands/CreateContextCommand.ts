@@ -27,7 +27,6 @@ export interface CreateContextCommandInput extends CreateContextRequest {}
 export interface CreateContextCommandOutput extends CreateContextResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a <i>context</i>. A context is a lineage tracking entity that
  *         represents a logical grouping of other tracking or experiment entities. Some examples are
  *         an endpoint and a model package. For more information, see
@@ -79,6 +78,7 @@ export interface CreateContextCommandOutput extends CreateContextResponse, __Met
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateContextCommand extends $Command
   .classBuilder<

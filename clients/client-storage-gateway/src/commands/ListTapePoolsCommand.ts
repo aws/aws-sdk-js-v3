@@ -27,7 +27,6 @@ export interface ListTapePoolsCommandInput extends ListTapePoolsInput {}
 export interface ListTapePoolsCommandOutput extends ListTapePoolsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists custom tape pools. You specify custom tape pools to list by specifying one or more
  *          custom tape pool Amazon Resource Names (ARNs). If you don't specify a custom tape pool ARN,
  *          the operation lists all custom tape pools.</p>
@@ -84,6 +83,7 @@ export interface ListTapePoolsCommandOutput extends ListTapePoolsOutput, __Metad
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  */
 export class ListTapePoolsCommand extends $Command
   .classBuilder<

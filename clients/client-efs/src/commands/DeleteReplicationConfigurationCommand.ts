@@ -30,7 +30,6 @@ export interface DeleteReplicationConfigurationCommandInput extends DeleteReplic
 export interface DeleteReplicationConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a replication configuration. Deleting a replication configuration ends the
  *       replication process. After a replication configuration is deleted, the destination file system
  *       becomes <code>Writeable</code> and its replication overwrite protection is re-enabled. For
@@ -76,6 +75,7 @@ export interface DeleteReplicationConfigurationCommandOutput extends __MetadataB
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * @public
  */
 export class DeleteReplicationConfigurationCommand extends $Command
   .classBuilder<

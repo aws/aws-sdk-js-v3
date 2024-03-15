@@ -36,7 +36,6 @@ export interface DescribeVpcEndpointServicePermissionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the principals (service consumers) that are permitted to discover your VPC
  *             endpoint service.</p>
  * @example
@@ -90,6 +89,7 @@ export interface DescribeVpcEndpointServicePermissionsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeVpcEndpointServicePermissionsCommand extends $Command
   .classBuilder<

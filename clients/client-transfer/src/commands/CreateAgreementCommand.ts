@@ -27,7 +27,6 @@ export interface CreateAgreementCommandInput extends CreateAgreementRequest {}
 export interface CreateAgreementCommandOutput extends CreateAgreementResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an agreement. An agreement is a bilateral trading partner agreement, or partnership,
  *       between an Transfer Family server and an AS2 process. The agreement defines the file and message
  *       transfer relationship between the server and the AS2 process. To define an agreement, Transfer Family
@@ -91,6 +90,7 @@ export interface CreateAgreementCommandOutput extends CreateAgreementResponse, _
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class CreateAgreementCommand extends $Command
   .classBuilder<

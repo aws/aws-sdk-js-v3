@@ -27,7 +27,6 @@ export interface UpdateGameSessionQueueCommandInput extends UpdateGameSessionQue
 export interface UpdateGameSessionQueueCommandOutput extends UpdateGameSessionQueueOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the configuration of a game session queue, which determines how the queue
  *             processes new game session requests. To update settings, specify the queue name to be
  *             updated and provide the new settings. When updating destinations, provide a complete
@@ -136,6 +135,7 @@ export interface UpdateGameSessionQueueCommandOutput extends UpdateGameSessionQu
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class UpdateGameSessionQueueCommand extends $Command
   .classBuilder<

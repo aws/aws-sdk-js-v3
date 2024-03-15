@@ -27,7 +27,6 @@ export interface StopNotebookInstanceCommandInput extends StopNotebookInstanceIn
 export interface StopNotebookInstanceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Terminates the ML compute instance. Before terminating the instance, SageMaker
  *             disconnects the ML storage volume from it. SageMaker preserves the ML storage volume. SageMaker
  *             stops charging you for the ML compute instance when you call
@@ -61,6 +60,7 @@ export interface StopNotebookInstanceCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class StopNotebookInstanceCommand extends $Command
   .classBuilder<

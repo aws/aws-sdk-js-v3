@@ -28,7 +28,6 @@ export interface CreateAccessPointCommandInput extends CreateAccessPointRequest 
 export interface CreateAccessPointCommandOutput extends CreateAccessPointResult, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -102,6 +101,7 @@ export interface CreateAccessPointCommandOutput extends CreateAccessPointResult,
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class CreateAccessPointCommand extends $Command
   .classBuilder<

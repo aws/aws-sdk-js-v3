@@ -27,7 +27,6 @@ export interface StartAssessmentRunCommandInput extends StartAssessmentRunReques
 export interface StartAssessmentRunCommandOutput extends StartAssessmentRunResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts the assessment run specified by the ARN of the assessment template. For this
  *          API to function properly, you must not exceed the limit of running up to 500 concurrent
  *          agents per AWS account.</p>
@@ -87,6 +86,7 @@ export interface StartAssessmentRunCommandOutput extends StartAssessmentRunRespo
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * @public
  * @example Start assessment run
  * ```javascript
  * // Starts the assessment run specified by the ARN of the assessment template. For this API to function properly, you must not exceed the limit of running up to 500 concurrent agents per AWS account.

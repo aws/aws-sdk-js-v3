@@ -31,7 +31,6 @@ export interface ListSafetyRulesCommandInput extends ListSafetyRulesRequest {}
 export interface ListSafetyRulesCommandOutput extends ListSafetyRulesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List the safety rules (the assertion rules and gating rules) that you've defined for the routing controls in a control panel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -115,6 +114,7 @@ export interface ListSafetyRulesCommandOutput extends ListSafetyRulesResponse, _
  * @throws {@link Route53RecoveryControlConfigServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
+ * @public
  */
 export class ListSafetyRulesCommand extends $Command
   .classBuilder<

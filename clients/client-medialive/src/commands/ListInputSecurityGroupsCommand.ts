@@ -27,7 +27,6 @@ export interface ListInputSecurityGroupsCommandInput extends ListInputSecurityGr
 export interface ListInputSecurityGroupsCommandOutput extends ListInputSecurityGroupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * Produces a list of Input Security Groups for an account
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface ListInputSecurityGroupsCommandOutput extends ListInputSecurityG
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class ListInputSecurityGroupsCommand extends $Command
   .classBuilder<

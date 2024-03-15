@@ -27,7 +27,6 @@ export interface GetSessionCommandInput extends GetSessionRequest {}
 export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns session information for a specified bot, alias, and
  *          user.</p>
  *          <p>For example, you can use this operation to retrieve session
@@ -210,6 +209,7 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * @throws {@link LexRuntimeV2ServiceException}
  * <p>Base exception class for all service exceptions from LexRuntimeV2 service.</p>
  *
+ * @public
  */
 export class GetSessionCommand extends $Command
   .classBuilder<

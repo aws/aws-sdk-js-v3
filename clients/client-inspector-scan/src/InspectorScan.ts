@@ -23,8 +23,8 @@ export interface InspectorScan {
 }
 
 /**
- * @public
  * <p>Amazon Inspector Scan is a vulnerability discovery service that scans a provided Software Bill of Materials (SBOM) for security vulnerabilities.</p>
+ * @public
  */
 export class InspectorScan extends InspectorScanClient implements InspectorScan {}
 createAggregatedClient(commands, InspectorScan);

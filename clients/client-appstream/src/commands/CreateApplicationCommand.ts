@@ -27,7 +27,6 @@ export interface CreateApplicationCommandInput extends CreateApplicationRequest 
 export interface CreateApplicationCommandOutput extends CreateApplicationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an application.</p>
  *          <p>Applications are an Amazon AppStream 2.0 resource that stores the details about how to
  *             launch applications on Elastic fleet streaming instances. An application consists of the
@@ -120,6 +119,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationResult,
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class CreateApplicationCommand extends $Command
   .classBuilder<

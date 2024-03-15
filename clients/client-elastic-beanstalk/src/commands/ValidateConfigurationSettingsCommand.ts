@@ -32,7 +32,6 @@ export interface ValidateConfigurationSettingsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Takes a set of configuration settings and either a configuration template or
  *       environment, and determines whether those values are valid.</p>
  *          <p>This action returns a list of messages indicating any errors or warnings associated
@@ -87,6 +86,7 @@ export interface ValidateConfigurationSettingsCommandOutput
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  * @example To validate configuration settings
  * ```javascript
  * // The following operation validates a CloudWatch custom metrics config document:

@@ -27,7 +27,6 @@ export interface DeleteServiceCommandInput extends DeleteServiceRequest {}
 export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a service. A service can't be deleted if it's associated with a service network. If
  *    you delete a service, all resources related to the service, such as the resource policy, auth
  *    policy, listeners, listener rules, and access log subscriptions, are also deleted. For more
@@ -82,6 +81,7 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class DeleteServiceCommand extends $Command
   .classBuilder<

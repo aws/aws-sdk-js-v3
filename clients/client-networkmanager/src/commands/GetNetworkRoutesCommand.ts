@@ -27,7 +27,6 @@ export interface GetNetworkRoutesCommandInput extends GetNetworkRoutesRequest {}
 export interface GetNetworkRoutesCommandOutput extends GetNetworkRoutesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the network routes of the specified global network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -129,6 +128,7 @@ export interface GetNetworkRoutesCommandOutput extends GetNetworkRoutesResponse,
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class GetNetworkRoutesCommand extends $Command
   .classBuilder<

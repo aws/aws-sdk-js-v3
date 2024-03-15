@@ -27,7 +27,6 @@ export interface RegisterJobDefinitionCommandInput extends RegisterJobDefinition
 export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers an Batch job definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -504,6 +503,7 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ * @public
  * @example To register a job definition
  * ```javascript
  * // This example registers a job definition for a simple container job.

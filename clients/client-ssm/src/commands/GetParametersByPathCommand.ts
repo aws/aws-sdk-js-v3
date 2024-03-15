@@ -31,7 +31,6 @@ export interface GetParametersByPathCommandInput extends GetParametersByPathRequ
 export interface GetParametersByPathCommandOutput extends GetParametersByPathResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieve information about one or more parameters in a specific hierarchy. </p>
  *          <p>Request results are returned on a best-effort basis. If you specify <code>MaxResults</code>
  *    in the request, the response includes information up to the limit specified. The number of items
@@ -110,6 +109,7 @@ export interface GetParametersByPathCommandOutput extends GetParametersByPathRes
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class GetParametersByPathCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListSinksCommandInput extends ListSinksInput {}
 export interface ListSinksCommandOutput extends ListSinksOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use this operation in a monitoring account to return the list of sinks created in that account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface ListSinksCommandOutput extends ListSinksOutput, __MetadataBeare
  * @throws {@link OAMServiceException}
  * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ * @public
  */
 export class ListSinksCommand extends $Command
   .classBuilder<

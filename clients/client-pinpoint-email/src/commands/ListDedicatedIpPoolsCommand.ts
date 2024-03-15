@@ -27,7 +27,6 @@ export interface ListDedicatedIpPoolsCommandInput extends ListDedicatedIpPoolsRe
 export interface ListDedicatedIpPoolsCommandOutput extends ListDedicatedIpPoolsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List all of the dedicated IP pools that exist in your Amazon Pinpoint account in the current
  *             AWS Region.</p>
  * @example
@@ -66,6 +65,7 @@ export interface ListDedicatedIpPoolsCommandOutput extends ListDedicatedIpPoolsR
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * @public
  */
 export class ListDedicatedIpPoolsCommand extends $Command
   .classBuilder<

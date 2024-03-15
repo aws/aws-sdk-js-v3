@@ -36,7 +36,6 @@ export interface DescribeDefaultEncryptionConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the default encryption configuration for the Amazon Web Services account in
  *       the default or specified Region. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html">Key management</a> in the
  *         <i>IoT SiteWise User Guide</i>.</p>
@@ -85,6 +84,7 @@ export interface DescribeDefaultEncryptionConfigurationCommandOutput
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class DescribeDefaultEncryptionConfigurationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateThemeCommandInput extends CreateThemeRequest {}
 export interface CreateThemeCommandOutput extends CreateThemeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a theme.</p>
  *          <p>A <i>theme</i> is set of configuration options for color and layout.
  * 			Themes apply to analyses and dashboards. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using
@@ -162,6 +161,7 @@ export interface CreateThemeCommandOutput extends CreateThemeResponse, __Metadat
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class CreateThemeCommand extends $Command
   .classBuilder<

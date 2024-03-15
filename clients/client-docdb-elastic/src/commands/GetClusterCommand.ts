@@ -27,7 +27,6 @@ export interface GetClusterCommandInput extends GetClusterInput {}
 export interface GetClusterCommandOutput extends GetClusterOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a specific elastic cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface GetClusterCommandOutput extends GetClusterOutput, __MetadataBea
  * @throws {@link DocDBElasticServiceException}
  * <p>Base exception class for all service exceptions from DocDBElastic service.</p>
  *
+ * @public
  */
 export class GetClusterCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ModifyCacheSubnetGroupCommandInput extends ModifyCacheSubnetGro
 export interface ModifyCacheSubnetGroupCommandOutput extends ModifyCacheSubnetGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies an existing cache subnet group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface ModifyCacheSubnetGroupCommandOutput extends ModifyCacheSubnetGr
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  * @example ModifyCacheSubnetGroup
  * ```javascript
  * // Modifies an existing ElastiCache subnet group.

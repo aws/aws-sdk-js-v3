@@ -27,7 +27,6 @@ export interface ListAccountPermissionsCommandInput extends ListAccountPermissio
 export interface ListAccountPermissionsCommandOutput extends ListAccountPermissionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the permissions an account has to configure Amazon Inspector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface ListAccountPermissionsCommandOutput extends ListAccountPermissi
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class ListAccountPermissionsCommand extends $Command
   .classBuilder<

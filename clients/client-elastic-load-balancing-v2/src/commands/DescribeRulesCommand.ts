@@ -31,7 +31,6 @@ export interface DescribeRulesCommandInput extends DescribeRulesInput {}
 export interface DescribeRulesCommandOutput extends DescribeRulesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified rules or the rules for the specified listener. You must specify
  *       either a listener or one or more rules.</p>
  * @example
@@ -181,6 +180,7 @@ export interface DescribeRulesCommandOutput extends DescribeRulesOutput, __Metad
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  * @example To describe a rule
  * ```javascript
  * // This example describes the specified rule.

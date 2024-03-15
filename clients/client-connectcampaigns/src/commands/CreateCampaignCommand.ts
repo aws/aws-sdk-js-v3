@@ -27,7 +27,6 @@ export interface CreateCampaignCommandInput extends CreateCampaignRequest {}
 export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __MetadataBearer {}
 
 /**
- * @public
  * Creates a campaign for the specified Amazon Connect account. This API is idempotent.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -105,6 +104,7 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  * @throws {@link ConnectCampaignsServiceException}
  * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
+ * @public
  */
 export class CreateCampaignCommand extends $Command
   .classBuilder<

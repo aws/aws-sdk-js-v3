@@ -30,7 +30,6 @@ export interface CreateDataflowEndpointGroupCommandInput extends CreateDataflowE
 export interface CreateDataflowEndpointGroupCommandOutput extends DataflowEndpointGroupIdResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a <code>DataflowEndpoint</code> group containing the specified list of <code>DataflowEndpoint</code> objects.</p>
  *          <p>The <code>name</code> field in each endpoint is used in your mission profile <code>DataflowEndpointConfig</code>
  *          to specify which endpoints to use during a contact.</p>
@@ -123,6 +122,7 @@ export interface CreateDataflowEndpointGroupCommandOutput extends DataflowEndpoi
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ * @public
  */
 export class CreateDataflowEndpointGroupCommand extends $Command
   .classBuilder<

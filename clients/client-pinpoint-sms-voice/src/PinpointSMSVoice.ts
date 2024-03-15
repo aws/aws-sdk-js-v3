@@ -197,8 +197,8 @@ export interface PinpointSMSVoice {
 }
 
 /**
- * @public
  * Pinpoint SMS and Voice Messaging public facing APIs
+ * @public
  */
 export class PinpointSMSVoice extends PinpointSMSVoiceClient implements PinpointSMSVoice {}
 createAggregatedClient(commands, PinpointSMSVoice);

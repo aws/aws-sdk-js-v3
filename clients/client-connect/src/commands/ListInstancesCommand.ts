@@ -31,7 +31,6 @@ export interface ListInstancesCommandInput extends ListInstancesRequest {}
 export interface ListInstancesCommandOutput extends ListInstancesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Return a list of instances which are in active state, creation-in-progress state, and failed
  *    state. Instances that aren't successfully created (they are in a failed state) are returned only
@@ -83,6 +82,7 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class ListInstancesCommand extends $Command
   .classBuilder<

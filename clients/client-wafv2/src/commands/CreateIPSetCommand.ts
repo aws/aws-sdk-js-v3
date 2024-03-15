@@ -27,7 +27,6 @@ export interface CreateIPSetCommandInput extends CreateIPSetRequest {}
 export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an <a>IPSet</a>, which you use to identify web requests that
  *          originate from specific IP addresses or ranges of IP addresses. For example, if you're
  *          receiving a lot of requests from a ranges of IP addresses, you can configure WAF to
@@ -126,6 +125,7 @@ export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __Metadat
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class CreateIPSetCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceInput {}
 export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds one or more tags to an Athena resource. A tag is a label that you
  *             assign to a resource. Each tag consists of a key and an optional value, both of which
  *             you define. For example, you can use tags to categorize Athena workgroups,
@@ -80,6 +79,7 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

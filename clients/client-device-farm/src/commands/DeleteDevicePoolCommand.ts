@@ -27,7 +27,6 @@ export interface DeleteDevicePoolCommandInput extends DeleteDevicePoolRequest {}
 export interface DeleteDevicePoolCommandOutput extends DeleteDevicePoolResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a device pool given the pool ARN. Does not allow deletion of curated pools
  *             owned by the system.</p>
  * @example
@@ -66,6 +65,7 @@ export interface DeleteDevicePoolCommandOutput extends DeleteDevicePoolResult, _
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To delete a device pool
  * ```javascript
  * // The following example deletes a specific device pool.

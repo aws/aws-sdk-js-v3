@@ -27,7 +27,6 @@ export interface UpdateTransformerCommandInput extends UpdateTransformerRequest 
 export interface UpdateTransformerCommandOutput extends UpdateTransformerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified parameters for a transformer. A transformer
  *    describes how to process the incoming EDI documents and extract the necessary
  *    information to the output file.</p>
@@ -103,6 +102,7 @@ export interface UpdateTransformerCommandOutput extends UpdateTransformerRespons
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
+ * @public
  * @example Sample UpdateTransformer call
  * ```javascript
  * //

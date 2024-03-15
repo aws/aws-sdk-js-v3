@@ -27,7 +27,6 @@ export interface AttachRolePolicyCommandInput extends AttachRolePolicyRequest {}
 export interface AttachRolePolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches the specified managed policy to the specified IAM role. When you attach a
  *             managed policy to a role, the managed policy becomes part of the role's permission
  *             (access) policy.</p>
@@ -100,6 +99,7 @@ export interface AttachRolePolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To attach a managed policy to an IAM role
  * ```javascript
  * // The following command attaches the AWS managed policy named ReadOnlyAccess to the IAM role named ReadOnlyRole.

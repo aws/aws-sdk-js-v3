@@ -27,7 +27,6 @@ export interface UpdateComputeEnvironmentCommandInput extends UpdateComputeEnvir
 export interface UpdateComputeEnvironmentCommandOutput extends UpdateComputeEnvironmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an Batch compute environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -108,6 +107,7 @@ export interface UpdateComputeEnvironmentCommandOutput extends UpdateComputeEnvi
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ * @public
  * @example To update a compute environment
  * ```javascript
  * // This example disables the P2OnDemand compute environment so it can be deleted.

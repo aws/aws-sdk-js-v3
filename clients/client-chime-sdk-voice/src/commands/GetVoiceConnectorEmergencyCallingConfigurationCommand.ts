@@ -37,7 +37,6 @@ export interface GetVoiceConnectorEmergencyCallingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the emergency calling configuration details for the specified Voice Connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface GetVoiceConnectorEmergencyCallingConfigurationCommandOutput
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class GetVoiceConnectorEmergencyCallingConfigurationCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface DescribeWatchlistCommandInput extends DescribeWatchlistRequest 
 export interface DescribeWatchlistCommandOutput extends DescribeWatchlistResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified watchlist.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface DescribeWatchlistCommandOutput extends DescribeWatchlistRespons
  * @throws {@link VoiceIDServiceException}
  * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
+ * @public
  */
 export class DescribeWatchlistCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListApplicationVersionsCommandInput extends ListApplicationVers
 export interface ListApplicationVersionsCommandOutput extends ListApplicationVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the application versions for a specific application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface ListApplicationVersionsCommandOutput extends ListApplicationVer
  * @throws {@link M2ServiceException}
  * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ * @public
  */
 export class ListApplicationVersionsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateApiKeyCommandInput extends CreateApiKeyRequest {}
 export interface CreateApiKeyCommandOutput extends CreateApiKeyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a unique key that you can distribute to clients who invoke your API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface CreateApiKeyCommandOutput extends CreateApiKeyResponse, __Metad
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class CreateApiKeyCommand extends $Command
   .classBuilder<

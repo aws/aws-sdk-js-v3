@@ -27,7 +27,6 @@ export interface UpdateDomainContactPrivacyCommandInput extends UpdateDomainCont
 export interface UpdateDomainContactPrivacyCommandOutput extends UpdateDomainContactPrivacyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation updates the specified domain contact's privacy setting. When privacy
  * 			protection is enabled, your contact information is replaced with contact information for
  * 			the registrar or with the phrase "REDACTED FOR PRIVACY", or "On behalf of <domain
@@ -100,6 +99,7 @@ export interface UpdateDomainContactPrivacyCommandOutput extends UpdateDomainCon
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * @public
  */
 export class UpdateDomainContactPrivacyCommand extends $Command
   .classBuilder<

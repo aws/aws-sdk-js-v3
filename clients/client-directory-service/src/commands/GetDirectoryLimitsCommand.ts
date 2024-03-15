@@ -27,7 +27,6 @@ export interface GetDirectoryLimitsCommandInput extends GetDirectoryLimitsReques
 export interface GetDirectoryLimitsCommandOutput extends GetDirectoryLimitsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Obtains directory limit information for the current Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface GetDirectoryLimitsCommandOutput extends GetDirectoryLimitsResul
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class GetDirectoryLimitsCommand extends $Command
   .classBuilder<

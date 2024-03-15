@@ -27,7 +27,6 @@ export interface DeleteDirectoryCommandInput extends DeleteDirectoryRequest {}
 export interface DeleteDirectoryCommandOutput extends DeleteDirectoryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a directory. Only disabled directories can be deleted. A deleted directory cannot be undone. Exercise extreme
  *         caution
  *         when deleting directories.</p>
@@ -86,6 +85,7 @@ export interface DeleteDirectoryCommandOutput extends DeleteDirectoryResponse, _
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class DeleteDirectoryCommand extends $Command
   .classBuilder<

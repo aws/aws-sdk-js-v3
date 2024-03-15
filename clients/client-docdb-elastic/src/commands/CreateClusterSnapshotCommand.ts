@@ -27,7 +27,6 @@ export interface CreateClusterSnapshotCommandInput extends CreateClusterSnapshot
 export interface CreateClusterSnapshotCommandOutput extends CreateClusterSnapshotOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a snapshot of an elastic cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface CreateClusterSnapshotCommandOutput extends CreateClusterSnapsho
  * @throws {@link DocDBElasticServiceException}
  * <p>Base exception class for all service exceptions from DocDBElastic service.</p>
  *
+ * @public
  */
 export class CreateClusterSnapshotCommand extends $Command
   .classBuilder<

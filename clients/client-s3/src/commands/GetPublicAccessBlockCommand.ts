@@ -27,7 +27,6 @@ export interface GetPublicAccessBlockCommandInput extends GetPublicAccessBlockRe
 export interface GetPublicAccessBlockCommandOutput extends GetPublicAccessBlockOutput, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -100,6 +99,7 @@ export interface GetPublicAccessBlockCommandOutput extends GetPublicAccessBlockO
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  */
 export class GetPublicAccessBlockCommand extends $Command
   .classBuilder<

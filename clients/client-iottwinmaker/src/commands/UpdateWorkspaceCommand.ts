@@ -27,7 +27,6 @@ export interface UpdateWorkspaceCommandInput extends UpdateWorkspaceRequest {}
 export interface UpdateWorkspaceCommandOutput extends UpdateWorkspaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a workspace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface UpdateWorkspaceCommandOutput extends UpdateWorkspaceResponse, _
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ * @public
  */
 export class UpdateWorkspaceCommand extends $Command
   .classBuilder<

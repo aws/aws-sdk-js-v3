@@ -32,7 +32,6 @@ export interface BatchDetectEntitiesCommandInput extends BatchDetectEntitiesRequ
 export interface BatchDetectEntitiesCommandOutput extends BatchDetectEntitiesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Inspects the text of a batch of documents for named entities and returns information
  *       about them. For more information about named entities, see
  *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html">Entities</a> in the Comprehend Developer Guide.
@@ -118,6 +117,7 @@ export interface BatchDetectEntitiesCommandOutput extends BatchDetectEntitiesRes
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class BatchDetectEntitiesCommand extends $Command
   .classBuilder<

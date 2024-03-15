@@ -36,7 +36,6 @@ export interface StartSavingsPlansPurchaseRecommendationGenerationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Requests a Savings Plans recommendation generation. This enables you to calculate a fresh
  *       set of Savings Plans recommendations that takes your latest usage data and current Savings
  *       Plans inventory into account. You can refresh Savings Plans recommendations up to three times
@@ -85,6 +84,7 @@ export interface StartSavingsPlansPurchaseRecommendationGenerationCommandOutput
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * @public
  */
 export class StartSavingsPlansPurchaseRecommendationGenerationCommand extends $Command
   .classBuilder<

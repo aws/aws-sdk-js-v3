@@ -27,7 +27,6 @@ export interface CreateAutoMLJobV2CommandInput extends CreateAutoMLJobV2Request 
 export interface CreateAutoMLJobV2CommandOutput extends CreateAutoMLJobV2Response, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Autopilot job also referred to as Autopilot experiment or AutoML job V2.</p>
  *          <note>
  *             <p>
@@ -213,6 +212,7 @@ export interface CreateAutoMLJobV2CommandOutput extends CreateAutoMLJobV2Respons
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateAutoMLJobV2Command extends $Command
   .classBuilder<

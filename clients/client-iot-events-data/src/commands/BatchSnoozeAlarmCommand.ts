@@ -27,7 +27,6 @@ export interface BatchSnoozeAlarmCommandInput extends BatchSnoozeAlarmRequest {}
 export interface BatchSnoozeAlarmCommandOutput extends BatchSnoozeAlarmResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes one or more alarms to the snooze mode. The alarms change to the
  *         <code>SNOOZE_DISABLED</code> state after you set them to the snooze mode.</p>
  * @example
@@ -82,6 +81,7 @@ export interface BatchSnoozeAlarmCommandOutput extends BatchSnoozeAlarmResponse,
  * @throws {@link IoTEventsDataServiceException}
  * <p>Base exception class for all service exceptions from IoTEventsData service.</p>
  *
+ * @public
  */
 export class BatchSnoozeAlarmCommand extends $Command
   .classBuilder<

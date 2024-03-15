@@ -27,7 +27,6 @@ export interface SetIdentityPoolRolesCommandInput extends SetIdentityPoolRolesIn
 export interface SetIdentityPoolRolesCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the roles for an identity pool. These roles are used when making calls to <a>GetCredentialsForIdentity</a> action.</p>
  *          <p>You must use AWS Developer credentials to call this API.</p>
  * @example
@@ -96,6 +95,7 @@ export interface SetIdentityPoolRolesCommandOutput extends __MetadataBearer {}
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ * @public
  */
 export class SetIdentityPoolRolesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ResetAuthorizersCacheCommandInput extends ResetAuthorizersCache
 export interface ResetAuthorizersCacheCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Resets all authorizer cache entries on a stage. Supported only for HTTP APIs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -60,6 +59,7 @@ export interface ResetAuthorizersCacheCommandOutput extends __MetadataBearer {}
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ * @public
  */
 export class ResetAuthorizersCacheCommand extends $Command
   .classBuilder<

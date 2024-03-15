@@ -27,7 +27,6 @@ export interface CreateLogAnomalyDetectorCommandInput extends CreateLogAnomalyDe
 export interface CreateLogAnomalyDetectorCommandOutput extends CreateLogAnomalyDetectorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an <i>anomaly detector</i> that regularly scans one or more
  *         log groups and look for patterns
  *       and anomalies in the logs.</p>
@@ -111,6 +110,7 @@ export interface CreateLogAnomalyDetectorCommandOutput extends CreateLogAnomalyD
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class CreateLogAnomalyDetectorCommand extends $Command
   .classBuilder<

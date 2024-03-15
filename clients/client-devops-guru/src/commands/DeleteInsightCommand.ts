@@ -27,7 +27,6 @@ export interface DeleteInsightCommandInput extends DeleteInsightRequest {}
 export interface DeleteInsightCommandOutput extends DeleteInsightResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the insight along with the associated anomalies, events and recommendations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface DeleteInsightCommandOutput extends DeleteInsightResponse, __Met
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ * @public
  */
 export class DeleteInsightCommand extends $Command
   .classBuilder<

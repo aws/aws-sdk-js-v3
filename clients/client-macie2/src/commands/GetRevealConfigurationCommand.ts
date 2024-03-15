@@ -27,7 +27,6 @@ export interface GetRevealConfigurationCommandInput extends GetRevealConfigurati
 export interface GetRevealConfigurationCommandOutput extends GetRevealConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the status and configuration settings for retrieving occurrences of sensitive data reported by findings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface GetRevealConfigurationCommandOutput extends GetRevealConfigurat
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class GetRevealConfigurationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateDataIntegrationCommandInput extends CreateDataIntegration
 export interface CreateDataIntegrationCommandOutput extends CreateDataIntegrationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates and persists a DataIntegration resource.</p>
  *          <note>
  *             <p>You cannot create a DataIntegration association for a DataIntegration that has been
@@ -138,6 +137,7 @@ export interface CreateDataIntegrationCommandOutput extends CreateDataIntegratio
  * @throws {@link AppIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
+ * @public
  */
 export class CreateDataIntegrationCommand extends $Command
   .classBuilder<

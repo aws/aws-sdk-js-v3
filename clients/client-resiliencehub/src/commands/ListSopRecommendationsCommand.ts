@@ -27,7 +27,6 @@ export interface ListSopRecommendationsCommandInput extends ListSopRecommendatio
 export interface ListSopRecommendationsCommandOutput extends ListSopRecommendationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the standard operating procedure (SOP) recommendations for the Resilience Hub
  *       applications.</p>
  * @example
@@ -104,6 +103,7 @@ export interface ListSopRecommendationsCommandOutput extends ListSopRecommendati
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class ListSopRecommendationsCommand extends $Command
   .classBuilder<

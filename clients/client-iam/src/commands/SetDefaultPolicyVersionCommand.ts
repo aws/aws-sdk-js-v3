@@ -27,7 +27,6 @@ export interface SetDefaultPolicyVersionCommandInput extends SetDefaultPolicyVer
 export interface SetDefaultPolicyVersionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the specified version of the specified policy as the policy's default (operative)
  *             version.</p>
  *          <p>This operation affects all users, groups, and roles that the policy is attached to. To
@@ -75,6 +74,7 @@ export interface SetDefaultPolicyVersionCommandOutput extends __MetadataBearer {
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class SetDefaultPolicyVersionCommand extends $Command
   .classBuilder<

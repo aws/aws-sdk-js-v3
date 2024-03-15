@@ -31,7 +31,6 @@ export interface CreatePoolCommandInput extends CreatePoolRequest {}
 export interface CreatePoolCommandOutput extends CreatePoolResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new pool and associates the specified origination identity to the pool. A
  *             pool can include one or more phone numbers and SenderIds that are associated with your
  *                 Amazon Web Services account.</p>
@@ -121,6 +120,7 @@ export interface CreatePoolCommandOutput extends CreatePoolResult, __MetadataBea
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class CreatePoolCommand extends $Command
   .classBuilder<

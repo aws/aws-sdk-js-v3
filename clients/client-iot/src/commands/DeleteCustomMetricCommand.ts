@@ -27,7 +27,6 @@ export interface DeleteCustomMetricCommandInput extends DeleteCustomMetricReques
 export interface DeleteCustomMetricCommandOutput extends DeleteCustomMetricResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Deletes a Device Defender detect custom metric.
  *     </p>
@@ -73,6 +72,7 @@ export interface DeleteCustomMetricCommandOutput extends DeleteCustomMetricRespo
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DeleteCustomMetricCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteFaqCommandInput extends DeleteFaqRequest {}
 export interface DeleteFaqCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes an FAQ from an index.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface DeleteFaqCommandOutput extends __MetadataBearer {}
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class DeleteFaqCommand extends $Command
   .classBuilder<

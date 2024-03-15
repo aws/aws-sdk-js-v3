@@ -37,7 +37,6 @@ export interface GetVoiceConnectorStreamingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the streaming configuration details for the specified Amazon Chime SDK
  *          Voice Connector. Shows whether media streaming is enabled for sending to Amazon
  *          Kinesis. It also shows the retention period, in hours, for the Amazon Kinesis data.</p>
@@ -100,6 +99,7 @@ export interface GetVoiceConnectorStreamingConfigurationCommandOutput
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class GetVoiceConnectorStreamingConfigurationCommand extends $Command
   .classBuilder<

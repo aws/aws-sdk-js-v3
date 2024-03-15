@@ -27,7 +27,6 @@ export interface ListVehiclesCommandInput extends ListVehiclesRequest {}
 export interface ListVehiclesCommandOutput extends ListVehiclesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Retrieves a list of summaries of created vehicles. </p>
  *          <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the request to return more results.</p>
@@ -85,6 +84,7 @@ export interface ListVehiclesCommandOutput extends ListVehiclesResponse, __Metad
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class ListVehiclesCommand extends $Command
   .classBuilder<

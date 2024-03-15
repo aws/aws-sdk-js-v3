@@ -27,7 +27,6 @@ export interface DescribeDomainCommandInput extends DescribeDomainRequest {}
 export interface DescribeDomainCommandOutput extends DescribeDomainResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Returns a
  *       <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DomainDescription.html">DomainDescription</a>
@@ -93,6 +92,7 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResult, __Met
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * @public
  */
 export class DescribeDomainCommand extends $Command
   .classBuilder<

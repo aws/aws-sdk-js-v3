@@ -31,7 +31,6 @@ export interface ListPluginsCommandInput extends ListPluginsRequest {}
 export interface ListPluginsCommandOutput extends ListPluginsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List AWS Migration Hub Orchestrator plugins.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface ListPluginsCommandOutput extends ListPluginsResponse, __Metadat
  * @throws {@link MigrationHubOrchestratorServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
+ * @public
  */
 export class ListPluginsCommand extends $Command
   .classBuilder<

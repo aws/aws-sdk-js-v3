@@ -27,7 +27,6 @@ export interface ListSnapshotsInRecycleBinCommandInput extends ListSnapshotsInRe
 export interface ListSnapshotsInRecycleBinCommandOutput extends ListSnapshotsInRecycleBinResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists one or more snapshots that are currently in the Recycle Bin.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface ListSnapshotsInRecycleBinCommandOutput extends ListSnapshotsInR
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ListSnapshotsInRecycleBinCommand extends $Command
   .classBuilder<

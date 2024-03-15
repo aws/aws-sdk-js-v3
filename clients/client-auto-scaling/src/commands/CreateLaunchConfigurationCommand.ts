@@ -27,7 +27,6 @@ export interface CreateLaunchConfigurationCommandInput extends CreateLaunchConfi
 export interface CreateLaunchConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a launch configuration.</p>
  *          <p>If you exceed your maximum limit of launch configurations, the call fails. To query
  *             this limit, call the <a>DescribeAccountLimits</a> API. For information about
@@ -121,6 +120,7 @@ export interface CreateLaunchConfigurationCommandOutput extends __MetadataBearer
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To create a launch configuration
  * ```javascript
  * // This example creates a launch configuration.

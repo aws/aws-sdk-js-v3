@@ -27,7 +27,6 @@ export interface StartAutomationExecutionCommandInput extends StartAutomationExe
 export interface StartAutomationExecutionCommandOutput extends StartAutomationExecutionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Initiates execution of an Automation runbook.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -142,6 +141,7 @@ export interface StartAutomationExecutionCommandOutput extends StartAutomationEx
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class StartAutomationExecutionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface TagCertificateAuthorityCommandInput extends TagCertificateAutho
 export interface TagCertificateAuthorityCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds one or more tags to your private CA. Tags are labels that you can use to identify
  * 			and organize your Amazon Web Services resources. Each tag consists of a key and an optional value. You
  * 			specify the private CA on input by its Amazon Resource Name (ARN). You specify the tag
@@ -92,6 +91,7 @@ export interface TagCertificateAuthorityCommandOutput extends __MetadataBearer {
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ * @public
  */
 export class TagCertificateAuthorityCommand extends $Command
   .classBuilder<

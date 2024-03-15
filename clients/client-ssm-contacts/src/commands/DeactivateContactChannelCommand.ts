@@ -27,7 +27,6 @@ export interface DeactivateContactChannelCommandInput extends DeactivateContactC
 export interface DeactivateContactChannelCommandOutput extends DeactivateContactChannelResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>To no longer receive Incident Manager engagements to a contact channel, you can deactivate
  *          the channel.</p>
  * @example
@@ -70,6 +69,7 @@ export interface DeactivateContactChannelCommandOutput extends DeactivateContact
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ * @public
  */
 export class DeactivateContactChannelCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetDomainMaintenanceStatusCommandInput extends GetDomainMainten
 export interface GetDomainMaintenanceStatusCommandOutput extends GetDomainMaintenanceStatusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The status of the maintenance action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface GetDomainMaintenanceStatusCommandOutput extends GetDomainMainte
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class GetDomainMaintenanceStatusCommand extends $Command
   .classBuilder<

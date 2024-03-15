@@ -27,7 +27,6 @@ export interface CreateCapacityProviderCommandInput extends CreateCapacityProvid
 export interface CreateCapacityProviderCommandOutput extends CreateCapacityProviderResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new capacity provider. Capacity providers are associated with an Amazon ECS
  * 			cluster and are used in capacity provider strategies to facilitate cluster auto
  * 			scaling.</p>
@@ -125,6 +124,7 @@ export interface CreateCapacityProviderCommandOutput extends CreateCapacityProvi
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  */
 export class CreateCapacityProviderCommand extends $Command
   .classBuilder<

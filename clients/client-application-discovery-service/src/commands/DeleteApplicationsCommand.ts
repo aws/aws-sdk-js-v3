@@ -31,7 +31,6 @@ export interface DeleteApplicationsCommandInput extends DeleteApplicationsReques
 export interface DeleteApplicationsCommandOutput extends DeleteApplicationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a list of applications and their associations with configuration
  *       items.</p>
  * @example
@@ -77,6 +76,7 @@ export interface DeleteApplicationsCommandOutput extends DeleteApplicationsRespo
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ * @public
  */
 export class DeleteApplicationsCommand extends $Command
   .classBuilder<

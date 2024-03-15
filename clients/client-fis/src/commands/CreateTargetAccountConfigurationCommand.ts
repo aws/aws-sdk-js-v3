@@ -32,7 +32,6 @@ export interface CreateTargetAccountConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a target account configuration for the experiment template. A target account configuration
  *       is required when <code>accountTargeting</code> of <code>experimentOptions</code> is set to <code>multi-account</code>.
  *       For more information, see <a href="https://docs.aws.amazon.com/fis/latest/userguide/experiment-options.html">experiment options</a>
@@ -84,6 +83,7 @@ export interface CreateTargetAccountConfigurationCommandOutput
  * @throws {@link FisServiceException}
  * <p>Base exception class for all service exceptions from Fis service.</p>
  *
+ * @public
  */
 export class CreateTargetAccountConfigurationCommand extends $Command
   .classBuilder<

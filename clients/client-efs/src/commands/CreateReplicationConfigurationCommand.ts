@@ -32,7 +32,6 @@ export interface CreateReplicationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a replication configuration that replicates an existing EFS file system
  *       to a new, read-only file system. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-replication.html">Amazon EFS replication</a> in the
  *           <i>Amazon EFS User Guide</i>. The replication configuration
@@ -210,6 +209,7 @@ export interface CreateReplicationConfigurationCommandOutput
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * @public
  */
 export class CreateReplicationConfigurationCommand extends $Command
   .classBuilder<

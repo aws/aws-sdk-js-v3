@@ -27,7 +27,6 @@ export interface ListCidrBlocksCommandInput extends ListCidrBlocksRequest {}
 export interface ListCidrBlocksCommandOutput extends ListCidrBlocksResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a paginated list of location objects and their CIDR blocks.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface ListCidrBlocksCommandOutput extends ListCidrBlocksResponse, __M
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class ListCidrBlocksCommand extends $Command
   .classBuilder<

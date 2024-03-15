@@ -27,7 +27,6 @@ export interface ListUsersCommandInput extends ListUsersRequest {}
 export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns metadata of the User such as <code>UserID</code> in the specified collection.
  *       Anonymous User (to reserve faces without any identity) is not returned as part of this
  *       request. The results are sorted by system generated primary key ID. If the response is
@@ -90,6 +89,7 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example ListUsers
  * ```javascript
  * // Returns metadata of the User such as UserID in the specified collection.

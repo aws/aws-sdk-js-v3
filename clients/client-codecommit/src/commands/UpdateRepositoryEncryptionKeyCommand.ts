@@ -32,7 +32,6 @@ export interface UpdateRepositoryEncryptionKeyCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the Key Management Service encryption key used to encrypt and decrypt a CodeCommit repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface UpdateRepositoryEncryptionKeyCommandOutput
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class UpdateRepositoryEncryptionKeyCommand extends $Command
   .classBuilder<

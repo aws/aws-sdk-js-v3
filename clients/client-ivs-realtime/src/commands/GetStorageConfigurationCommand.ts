@@ -27,7 +27,6 @@ export interface GetStorageConfigurationCommandInput extends GetStorageConfigura
 export interface GetStorageConfigurationCommandOutput extends GetStorageConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the storage configuration for the specified ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface GetStorageConfigurationCommandOutput extends GetStorageConfigur
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ * @public
  */
 export class GetStorageConfigurationCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface CreateMatchmakingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Defines a new matchmaking configuration for use with FlexMatch. Whether your are using
  *             FlexMatch with Amazon GameLift hosting or as a standalone matchmaking service, the matchmaking
  *             configuration sets out rules for matching players and forming teams. If you're also
@@ -159,6 +158,7 @@ export interface CreateMatchmakingConfigurationCommandOutput
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class CreateMatchmakingConfigurationCommand extends $Command
   .classBuilder<

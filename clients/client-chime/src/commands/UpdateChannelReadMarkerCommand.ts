@@ -27,9 +27,6 @@ export interface UpdateChannelReadMarkerCommandInput extends UpdateChannelReadMa
 export interface UpdateChannelReadMarkerCommandOutput extends UpdateChannelReadMarkerResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by UpdateChannelReadMarker in the Amazon Chime SDK Messaging Namespace
- *
  * <p>The details of the time when a user last read messages in a channel.</p>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
@@ -92,6 +89,8 @@ export interface UpdateChannelReadMarkerCommandOutput extends UpdateChannelReadM
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by UpdateChannelReadMarker in the Amazon Chime SDK Messaging Namespace
  */
 export class UpdateChannelReadMarkerCommand extends $Command
   .classBuilder<

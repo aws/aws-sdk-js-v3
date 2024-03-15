@@ -27,7 +27,6 @@ export interface DescribeRecipeCommandInput extends DescribeRecipeRequest {}
 export interface DescribeRecipeCommandOutput extends DescribeRecipeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a recipe.</p>
  *          <p>A recipe contains three items:</p>
  *          <ul>
@@ -89,6 +88,7 @@ export interface DescribeRecipeCommandOutput extends DescribeRecipeResponse, __M
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class DescribeRecipeCommand extends $Command
   .classBuilder<

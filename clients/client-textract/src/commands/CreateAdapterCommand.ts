@@ -27,7 +27,6 @@ export interface CreateAdapterCommandInput extends CreateAdapterRequest {}
 export interface CreateAdapterCommandOutput extends CreateAdapterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an adapter, which can be fine-tuned for enhanced performance on user provided
  *          documents. Takes an AdapterName and FeatureType. Currently the only supported feature type
  *          is <code>QUERIES</code>. You can also provide a Description, Tags, and a
@@ -110,6 +109,7 @@ export interface CreateAdapterCommandOutput extends CreateAdapterResponse, __Met
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ * @public
  */
 export class CreateAdapterCommand extends $Command
   .classBuilder<

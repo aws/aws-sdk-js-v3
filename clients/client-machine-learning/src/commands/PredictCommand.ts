@@ -28,7 +28,6 @@ export interface PredictCommandInput extends PredictInput {}
 export interface PredictCommandOutput extends PredictOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Generates a prediction for the observation using the specified <code>ML Model</code>.</p>
  *         <p>
  *             <b>Note:</b> Not all response parameters will be populated. Whether a
@@ -87,6 +86,7 @@ export interface PredictCommandOutput extends PredictOutput, __MetadataBearer {}
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * @public
  */
 export class PredictCommand extends $Command
   .classBuilder<

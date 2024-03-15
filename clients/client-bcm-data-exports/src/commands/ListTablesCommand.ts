@@ -27,7 +27,6 @@ export interface ListTablesCommandInput extends ListTablesRequest {}
 export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all available tables in data exports.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataB
  * @throws {@link BCMDataExportsServiceException}
  * <p>Base exception class for all service exceptions from BCMDataExports service.</p>
  *
+ * @public
  */
 export class ListTablesCommand extends $Command
   .classBuilder<

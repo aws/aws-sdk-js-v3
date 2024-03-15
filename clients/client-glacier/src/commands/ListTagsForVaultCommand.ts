@@ -27,7 +27,6 @@ export interface ListTagsForVaultCommandInput extends ListTagsForVaultInput {}
 export interface ListTagsForVaultCommandOutput extends ListTagsForVaultOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation lists all the tags attached to a vault. The operation returns an empty
  *          map if there are no tags. For more information about tags, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html">Tagging Amazon S3 Glacier
  *          Resources</a>.</p>
@@ -73,6 +72,7 @@ export interface ListTagsForVaultCommandOutput extends ListTagsForVaultOutput, _
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * @public
  * @example To list the tags for a vault
  * ```javascript
  * // The example lists all the tags attached to the vault examplevault.

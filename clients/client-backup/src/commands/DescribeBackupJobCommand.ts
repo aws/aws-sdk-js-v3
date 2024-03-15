@@ -27,7 +27,6 @@ export interface DescribeBackupJobCommandInput extends DescribeBackupJobInput {}
 export interface DescribeBackupJobCommandOutput extends DescribeBackupJobOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns backup job details for the specified <code>BackupJobId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface DescribeBackupJobCommandOutput extends DescribeBackupJobOutput,
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class DescribeBackupJobCommand extends $Command
   .classBuilder<

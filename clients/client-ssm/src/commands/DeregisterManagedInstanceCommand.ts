@@ -27,7 +27,6 @@ export interface DeregisterManagedInstanceCommandInput extends DeregisterManaged
 export interface DeregisterManagedInstanceCommandOutput extends DeregisterManagedInstanceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the server or virtual machine from the list of registered servers. You can
  *    reregister the node again at any time. If you don't plan to use Run Command on the server, we
  *    suggest uninstalling SSM Agent first.</p>
@@ -78,6 +77,7 @@ export interface DeregisterManagedInstanceCommandOutput extends DeregisterManage
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DeregisterManagedInstanceCommand extends $Command
   .classBuilder<

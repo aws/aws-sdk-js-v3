@@ -27,7 +27,6 @@ export interface GetMatchingWorkflowCommandInput extends GetMatchingWorkflowInpu
 export interface GetMatchingWorkflowCommandOutput extends GetMatchingWorkflowOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the <code>MatchingWorkflow</code> with a given name, if it exists.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -131,6 +130,7 @@ export interface GetMatchingWorkflowCommandOutput extends GetMatchingWorkflowOut
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ * @public
  */
 export class GetMatchingWorkflowCommand extends $Command
   .classBuilder<

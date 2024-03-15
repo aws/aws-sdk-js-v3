@@ -27,7 +27,6 @@ export interface ListTagsForResourcesCommandInput extends ListTagsForResourcesRe
 export interface ListTagsForResourcesCommandOutput extends ListTagsForResourcesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists tags for up to 10 health checks or hosted zones.</p>
  *          <p>For information about using tags for cost allocation, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation
  * 				Tags</a> in the <i>Billing and Cost Management User Guide</i>.</p>
@@ -90,6 +89,7 @@ export interface ListTagsForResourcesCommandOutput extends ListTagsForResourcesR
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class ListTagsForResourcesCommand extends $Command
   .classBuilder<

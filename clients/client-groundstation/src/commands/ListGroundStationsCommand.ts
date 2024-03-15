@@ -27,7 +27,6 @@ export interface ListGroundStationsCommandInput extends ListGroundStationsReques
 export interface ListGroundStationsCommandOutput extends ListGroundStationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of ground stations. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface ListGroundStationsCommandOutput extends ListGroundStationsRespo
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ * @public
  */
 export class ListGroundStationsCommand extends $Command
   .classBuilder<

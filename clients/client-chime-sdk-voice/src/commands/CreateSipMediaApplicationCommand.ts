@@ -32,7 +32,6 @@ export interface CreateSipMediaApplicationCommandInput extends CreateSipMediaApp
 export interface CreateSipMediaApplicationCommandOutput extends CreateSipMediaApplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a SIP media application. For more information about SIP media applications, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/ag/manage-sip-applications.html">Managing SIP media applications
  *            and rules</a> in the <i>Amazon Chime SDK Administrator Guide</i>.</p>
  * @example
@@ -112,6 +111,7 @@ export interface CreateSipMediaApplicationCommandOutput extends CreateSipMediaAp
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class CreateSipMediaApplicationCommand extends $Command
   .classBuilder<

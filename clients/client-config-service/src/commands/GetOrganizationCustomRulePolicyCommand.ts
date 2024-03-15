@@ -32,7 +32,6 @@ export interface GetOrganizationCustomRulePolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the policy definition containing the logic for your organization Config Custom Policy rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface GetOrganizationCustomRulePolicyCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class GetOrganizationCustomRulePolicyCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface StartSigningJobCommandInput extends StartSigningJobRequest {}
 export interface StartSigningJobCommandOutput extends StartSigningJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Initiates a signing job to be performed on the code provided. Signing jobs are
  * 			viewable by the <code>ListSigningJobs</code> operation for two years after they are
  * 			performed. Note the following requirements: </p>
@@ -116,6 +115,7 @@ export interface StartSigningJobCommandOutput extends StartSigningJobResponse, _
  * @throws {@link SignerServiceException}
  * <p>Base exception class for all service exceptions from Signer service.</p>
  *
+ * @public
  */
 export class StartSigningJobCommand extends $Command
   .classBuilder<

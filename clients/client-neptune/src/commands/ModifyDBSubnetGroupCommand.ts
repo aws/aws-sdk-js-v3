@@ -27,7 +27,6 @@ export interface ModifyDBSubnetGroupCommandInput extends ModifyDBSubnetGroupMess
 export interface ModifyDBSubnetGroupCommandOutput extends ModifyDBSubnetGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies an existing DB subnet group. DB subnet groups must contain at least one subnet in
  *       at least two AZs in the Amazon Region.</p>
  * @example
@@ -94,6 +93,7 @@ export interface ModifyDBSubnetGroupCommandOutput extends ModifyDBSubnetGroupRes
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class ModifyDBSubnetGroupCommand extends $Command
   .classBuilder<

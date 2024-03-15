@@ -27,7 +27,6 @@ export interface PutAccountPolicyCommandInput extends PutAccountPolicyRequest {}
 export interface PutAccountPolicyCommandOutput extends PutAccountPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an account-level data protection policy or subscription filter policy that applies to all log groups
  *       or a subset of log groups in the account.</p>
  *          <p>
@@ -139,6 +138,7 @@ export interface PutAccountPolicyCommandOutput extends PutAccountPolicyResponse,
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class PutAccountPolicyCommand extends $Command
   .classBuilder<

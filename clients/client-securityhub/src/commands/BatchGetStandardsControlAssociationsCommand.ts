@@ -35,7 +35,6 @@ export interface BatchGetStandardsControlAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          For a batch of security controls and standards, identifies whether each control is currently enabled or disabled in a standard.
  *       </p>
@@ -111,6 +110,7 @@ export interface BatchGetStandardsControlAssociationsCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To get enablement status of a batch of controls
  * ```javascript
  * // The following example retrieves the enablement status of the specified controls in the specified standards.

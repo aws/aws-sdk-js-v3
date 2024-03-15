@@ -27,9 +27,6 @@ export interface ResolveRoomCommandInput extends ResolveRoomRequest {}
 export interface ResolveRoomCommandOutput extends ResolveRoomResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Determines the details for the room from which a skill request was invoked. This
  *          operation is used by skill developers.</p>
  *          <p>To query ResolveRoom from an Alexa skill, the skill ID needs to be authorized. When
@@ -74,6 +71,8 @@ export interface ResolveRoomCommandOutput extends ResolveRoomResponse, __Metadat
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class ResolveRoomCommand extends $Command
   .classBuilder<

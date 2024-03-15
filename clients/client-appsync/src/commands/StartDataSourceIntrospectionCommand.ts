@@ -32,7 +32,6 @@ export interface StartDataSourceIntrospectionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new introspection. Returns the <code>introspectionId</code> of the new introspection after its
  *          creation. </p>
  * @example
@@ -80,6 +79,7 @@ export interface StartDataSourceIntrospectionCommandOutput
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class StartDataSourceIntrospectionCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface BatchGetRumMetricDefinitionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the list of metrics and dimensions that a RUM app monitor is sending to a single destination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface BatchGetRumMetricDefinitionsCommandOutput
  * @throws {@link RUMServiceException}
  * <p>Base exception class for all service exceptions from RUM service.</p>
  *
+ * @public
  */
 export class BatchGetRumMetricDefinitionsCommand extends $Command
   .classBuilder<

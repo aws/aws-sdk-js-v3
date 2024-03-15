@@ -27,7 +27,6 @@ export interface CancelPipelineReprocessingCommandInput extends CancelPipelineRe
 export interface CancelPipelineReprocessingCommandOutput extends CancelPipelineReprocessingResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels the reprocessing of data through the pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface CancelPipelineReprocessingCommandOutput extends CancelPipelineR
  * @throws {@link IoTAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
+ * @public
  */
 export class CancelPipelineReprocessingCommand extends $Command
   .classBuilder<

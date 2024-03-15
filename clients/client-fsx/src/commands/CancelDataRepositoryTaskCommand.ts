@@ -27,7 +27,6 @@ export interface CancelDataRepositoryTaskCommandInput extends CancelDataReposito
 export interface CancelDataRepositoryTaskCommandOutput extends CancelDataRepositoryTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels an existing Amazon FSx for Lustre data repository task if that task is in either the
  *             <code>PENDING</code> or <code>EXECUTING</code> state. When you cancel am export task, Amazon FSx
  *             does the following.</p>
@@ -86,6 +85,7 @@ export interface CancelDataRepositoryTaskCommandOutput extends CancelDataReposit
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  */
 export class CancelDataRepositoryTaskCommand extends $Command
   .classBuilder<

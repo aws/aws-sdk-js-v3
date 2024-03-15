@@ -27,7 +27,6 @@ export interface ListDatabasesCommandInput extends ListDatabasesRequest {}
 export interface ListDatabasesCommandOutput extends ListDatabasesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List the databases in a cluster.
  *       A token is returned to page through the database list.
  *       Depending on the authorization method, use one of the
@@ -109,6 +108,7 @@ export interface ListDatabasesCommandOutput extends ListDatabasesResponse, __Met
  * @throws {@link RedshiftDataServiceException}
  * <p>Base exception class for all service exceptions from RedshiftData service.</p>
  *
+ * @public
  */
 export class ListDatabasesCommand extends $Command
   .classBuilder<

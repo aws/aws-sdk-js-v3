@@ -32,7 +32,6 @@ export interface CreatePackagingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * Creates a new MediaPackage VOD PackagingConfiguration resource.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -344,6 +343,7 @@ export interface CreatePackagingConfigurationCommandOutput
  * @throws {@link MediaPackageVodServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageVod service.</p>
  *
+ * @public
  */
 export class CreatePackagingConfigurationCommand extends $Command
   .classBuilder<

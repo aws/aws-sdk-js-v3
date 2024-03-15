@@ -27,7 +27,6 @@ export interface DeleteRunCommandInput extends DeleteRunRequest {}
 export interface DeleteRunCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a workflow run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface DeleteRunCommandOutput extends __MetadataBearer {}
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class DeleteRunCommand extends $Command
   .classBuilder<

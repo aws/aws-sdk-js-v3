@@ -4,8 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { SnowDeviceManagementServiceException as __BaseException } from "./SnowDeviceManagementServiceException";
 
 /**
- * @public
  * <p>You don't have sufficient access to perform this action.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -44,9 +44,9 @@ export type AttachmentStatus = (typeof AttachmentStatus)[keyof typeof Attachment
  */
 export interface CancelTaskInput {
   /**
-   * @public
    * <p>The ID of the task that you are attempting to cancel. You can retrieve a task ID by using
    *       the <code>ListTasks</code> operation.</p>
+   * @public
    */
   taskId: string | undefined;
 }
@@ -56,15 +56,15 @@ export interface CancelTaskInput {
  */
 export interface CancelTaskOutput {
   /**
-   * @public
    * <p>The ID of the task that you are attempting to cancel.</p>
+   * @public
    */
   taskId?: string;
 }
 
 /**
- * @public
  * <p>An unexpected error occurred while processing the request.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -84,8 +84,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request references a resource that doesn't exist.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -104,8 +104,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request was denied due to request throttling.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -127,8 +127,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -147,56 +147,56 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The physical capacity of the Amazon Web Services Snow Family device. </p>
+ * @public
  */
 export interface Capacity {
   /**
-   * @public
    * <p>The name of the type of capacity, such as memory.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The unit of measure for the type of capacity.</p>
+   * @public
    */
   unit?: string;
 
   /**
-   * @public
    * <p>The total capacity on the device.</p>
+   * @public
    */
   total?: number;
 
   /**
-   * @public
    * <p>The amount of capacity used on the device.</p>
+   * @public
    */
   used?: number;
 
   /**
-   * @public
    * <p>The amount of capacity available for use on the device.</p>
+   * @public
    */
   available?: number;
 }
 
 /**
- * @public
  * <p>A structure used to reboot the device.</p>
+ * @public
  */
 export interface Reboot {}
 
 /**
- * @public
  * <p>A structure used to unlock a device.</p>
+ * @public
  */
 export interface Unlock {}
 
 /**
- * @public
  * <p>The command given to the device to execute.</p>
+ * @public
  */
 export type Command = Command.RebootMember | Command.UnlockMember | Command.$UnknownMember;
 
@@ -205,8 +205,8 @@ export type Command = Command.RebootMember | Command.UnlockMember | Command.$Unk
  */
 export namespace Command {
   /**
-   * @public
    * <p>Unlocks the device.</p>
+   * @public
    */
   export interface UnlockMember {
     unlock: Unlock;
@@ -215,8 +215,8 @@ export namespace Command {
   }
 
   /**
-   * @public
    * <p>Reboots the device.</p>
+   * @public
    */
   export interface RebootMember {
     unlock?: never;
@@ -247,19 +247,19 @@ export namespace Command {
 }
 
 /**
- * @public
  * <p>The options for how a device's CPU is configured.</p>
+ * @public
  */
 export interface CpuOptions {
   /**
-   * @public
    * <p>The number of cores that the CPU can use.</p>
+   * @public
    */
   coreCount?: number;
 
   /**
-   * @public
    * <p>The number of threads per core in the CPU.</p>
+   * @public
    */
   threadsPerCore?: number;
 }
@@ -269,33 +269,33 @@ export interface CpuOptions {
  */
 export interface CreateTaskInput {
   /**
-   * @public
    * <p>A list of managed device IDs.</p>
+   * @public
    */
   targets: string[] | undefined;
 
   /**
-   * @public
    * <p>The task to be performed. Only one task is executed on a device at a time.</p>
+   * @public
    */
   command: Command | undefined;
 
   /**
-   * @public
    * <p>A description of the task and its targets.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>Optional metadata that you assign to a resource. You can use tags to categorize a resource
    *       in different ways, such as by purpose, owner, or environment. </p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>A token ensuring that the action is called only once with the specified details.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -305,21 +305,21 @@ export interface CreateTaskInput {
  */
 export interface CreateTaskOutput {
   /**
-   * @public
    * <p>The ID of the task that you created.</p>
+   * @public
    */
   taskId?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the task that you created.</p>
+   * @public
    */
   taskArn?: string;
 }
 
 /**
- * @public
  * <p>The request would cause a service quota to be exceeded.</p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
@@ -342,8 +342,8 @@ export class ServiceQuotaExceededException extends __BaseException {
  */
 export interface DescribeDeviceInput {
   /**
-   * @public
    * <p>The ID of the device that you are checking the information of.</p>
+   * @public
    */
   managedDeviceId: string | undefined;
 }
@@ -395,76 +395,76 @@ export const PhysicalConnectorType = {
 export type PhysicalConnectorType = (typeof PhysicalConnectorType)[keyof typeof PhysicalConnectorType];
 
 /**
- * @public
  * <p>The details about the physical network interface for the device.</p>
+ * @public
  */
 export interface PhysicalNetworkInterface {
   /**
-   * @public
    * <p>The physical network interface ID.</p>
+   * @public
    */
   physicalNetworkInterfaceId?: string;
 
   /**
-   * @public
    * <p>The
    *       physical
    *       connector type.</p>
+   * @public
    */
   physicalConnectorType?: PhysicalConnectorType;
 
   /**
-   * @public
    * <p>A value that describes whether the IP address is dynamic or persistent.</p>
+   * @public
    */
   ipAddressAssignment?: IpAddressAssignment;
 
   /**
-   * @public
    * <p>The IP address of the device.</p>
+   * @public
    */
   ipAddress?: string;
 
   /**
-   * @public
    * <p>The netmask used to divide the IP address into subnets.</p>
+   * @public
    */
   netmask?: string;
 
   /**
-   * @public
    * <p>The default gateway of the device.</p>
+   * @public
    */
   defaultGateway?: string;
 
   /**
-   * @public
    * <p>The MAC address of the device.</p>
+   * @public
    */
   macAddress?: string;
 }
 
 /**
- * @public
  * <p>Information about the software on the device.</p>
+ * @public
  */
 export interface SoftwareInformation {
   /**
-   * @public
    * <p>The version of the software currently installed on the device.</p>
+   * @public
    */
   installedVersion?: string;
 
   /**
-   * @public
    * <p>The version of the software being installed on the device.</p>
+   * @public
    */
   installingVersion?: string;
 
   /**
-   * @public
    * <p>The state of the software that is installed or that is being installed on the
    *       device.</p>
+   * @public
    */
   installState?: string;
 }
@@ -474,71 +474,71 @@ export interface SoftwareInformation {
  */
 export interface DescribeDeviceOutput {
   /**
-   * @public
    * <p>When the device last contacted the Amazon Web Services Cloud. Indicates that the device is
    *       online.</p>
+   * @public
    */
   lastReachedOutAt?: Date;
 
   /**
-   * @public
    * <p>When the device last pushed an update to the Amazon Web Services Cloud. Indicates when the device cache
    *       was refreshed.</p>
+   * @public
    */
   lastUpdatedAt?: Date;
 
   /**
-   * @public
    * <p>Optional metadata that you assign to a resource. You can use tags to categorize a resource
    *       in different ways, such as by purpose, owner, or environment. </p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The ID of the device that you checked the information for.</p>
+   * @public
    */
   managedDeviceId?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the device.</p>
+   * @public
    */
   managedDeviceArn?: string;
 
   /**
-   * @public
    * <p>The type of Amazon Web Services Snow Family device.</p>
+   * @public
    */
   deviceType?: string;
 
   /**
-   * @public
    * <p>The ID of the job used when ordering the device.</p>
+   * @public
    */
   associatedWithJob?: string;
 
   /**
-   * @public
    * <p>The current state of the device.</p>
+   * @public
    */
   deviceState?: UnlockState;
 
   /**
-   * @public
    * <p>The network interfaces available on the device.</p>
+   * @public
    */
   physicalNetworkInterfaces?: PhysicalNetworkInterface[];
 
   /**
-   * @public
    * <p>The hardware specifications of the device. </p>
+   * @public
    */
   deviceCapacities?: Capacity[];
 
   /**
-   * @public
    * <p>The software installed on the device.</p>
+   * @public
    */
   software?: SoftwareInformation;
 }
@@ -548,82 +548,82 @@ export interface DescribeDeviceOutput {
  */
 export interface DescribeDeviceEc2Input {
   /**
-   * @public
    * <p>The ID of the managed device.</p>
+   * @public
    */
   managedDeviceId: string | undefined;
 
   /**
-   * @public
    * <p>A list of instance IDs associated with the managed device.</p>
+   * @public
    */
   instanceIds: string[] | undefined;
 }
 
 /**
- * @public
  * <p>Describes a parameter used to set up an Amazon Elastic Block Store (Amazon EBS) volume
  *       in a block device mapping.</p>
+ * @public
  */
 export interface EbsInstanceBlockDevice {
   /**
-   * @public
    * <p>When the attachment was initiated.</p>
+   * @public
    */
   attachTime?: Date;
 
   /**
-   * @public
    * <p>A value that indicates whether the volume is deleted on instance termination.</p>
+   * @public
    */
   deleteOnTermination?: boolean;
 
   /**
-   * @public
    * <p>The attachment state.</p>
+   * @public
    */
   status?: AttachmentStatus;
 
   /**
-   * @public
    * <p>The ID of the Amazon EBS volume.</p>
+   * @public
    */
   volumeId?: string;
 }
 
 /**
- * @public
  * <p>The description of a block device mapping.</p>
+ * @public
  */
 export interface InstanceBlockDeviceMapping {
   /**
-   * @public
    * <p>The block device name.</p>
+   * @public
    */
   deviceName?: string;
 
   /**
-   * @public
    * <p>The parameters used to automatically set up Amazon Elastic Block Store (Amazon EBS)
    *       volumes when the instance is launched. </p>
+   * @public
    */
   ebs?: EbsInstanceBlockDevice;
 }
 
 /**
- * @public
  * <p>Information about the device's security group.</p>
+ * @public
  */
 export interface SecurityGroupIdentifier {
   /**
-   * @public
    * <p>The security group ID.</p>
+   * @public
    */
   groupId?: string;
 
   /**
-   * @public
    * <p>The security group name.</p>
+   * @public
    */
   groupName?: string;
 }
@@ -647,12 +647,11 @@ export const InstanceStateName = {
 export type InstanceStateName = (typeof InstanceStateName)[keyof typeof InstanceStateName];
 
 /**
- * @public
  * <p>The description of the current state of an instance.</p>
+ * @public
  */
 export interface InstanceState {
   /**
-   * @public
    * <p>The state of the instance as a 16-bit unsigned integer. </p>
    *          <p>The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values
    *       between 256 and 65,535. These numerical values are used for internal purposes and should be
@@ -695,119 +694,120 @@ export interface InstanceState {
    *          </ul>
    *          <p>You can ignore the high byte value by zeroing out all of the bits above 2^8 or 256 in
    *       decimal. </p>
+   * @public
    */
   code?: number;
 
   /**
-   * @public
    * <p>The current
    *       state
    *       of the instance.</p>
+   * @public
    */
   name?: InstanceStateName;
 }
 
 /**
- * @public
  * <p>The description of an
  *       instance.
  *       Currently, Amazon EC2 instances are the only supported instance type.</p>
+ * @public
  */
 export interface Instance {
   /**
-   * @public
    * <p>The ID of the AMI used to launch the instance.</p>
+   * @public
    */
   imageId?: string;
 
   /**
-   * @public
    * <p>The Amazon Machine Image (AMI) launch index, which you can use to find this instance in
    *       the launch group. </p>
+   * @public
    */
   amiLaunchIndex?: number;
 
   /**
-   * @public
    * <p>The ID of the instance.</p>
+   * @public
    */
   instanceId?: string;
 
   /**
-   * @public
    * <p>The description of the current state of an instance.</p>
+   * @public
    */
   state?: InstanceState;
 
   /**
-   * @public
    * <p>The instance type.</p>
+   * @public
    */
   instanceType?: string;
 
   /**
-   * @public
    * <p>The private IPv4 address assigned to the instance.</p>
+   * @public
    */
   privateIpAddress?: string;
 
   /**
-   * @public
    * <p>The public IPv4 address assigned to the instance.</p>
+   * @public
    */
   publicIpAddress?: string;
 
   /**
-   * @public
    * <p>When the instance was created.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>When the instance was last updated.</p>
+   * @public
    */
   updatedAt?: Date;
 
   /**
-   * @public
    * <p>Any block device mapping entries for the instance.</p>
+   * @public
    */
   blockDeviceMappings?: InstanceBlockDeviceMapping[];
 
   /**
-   * @public
    * <p>The security groups for the instance.</p>
+   * @public
    */
   securityGroups?: SecurityGroupIdentifier[];
 
   /**
-   * @public
    * <p>The CPU options for the instance.</p>
+   * @public
    */
   cpuOptions?: CpuOptions;
 
   /**
-   * @public
    * <p>The device name of the root device volume (for example, <code>/dev/sda1</code>). </p>
+   * @public
    */
   rootDeviceName?: string;
 }
 
 /**
- * @public
  * <p>The details about the instance.</p>
+ * @public
  */
 export interface InstanceSummary {
   /**
-   * @public
    * <p>A structure containing details about the instance.</p>
+   * @public
    */
   instance?: Instance;
 
   /**
-   * @public
    * <p>When the instance summary was last updated.</p>
+   * @public
    */
   lastUpdatedAt?: Date;
 }
@@ -817,8 +817,8 @@ export interface InstanceSummary {
  */
 export interface DescribeDeviceEc2Output {
   /**
-   * @public
    * <p>A list of structures containing information about each instance. </p>
+   * @public
    */
   instances?: InstanceSummary[];
 }
@@ -828,14 +828,14 @@ export interface DescribeDeviceEc2Output {
  */
 export interface DescribeExecutionInput {
   /**
-   * @public
    * <p>The ID of the task that the action is describing.</p>
+   * @public
    */
   taskId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the managed device.</p>
+   * @public
    */
   managedDeviceId: string | undefined;
 }
@@ -864,38 +864,38 @@ export type ExecutionState = (typeof ExecutionState)[keyof typeof ExecutionState
  */
 export interface DescribeExecutionOutput {
   /**
-   * @public
    * <p>The ID of the task being executed on the device.</p>
+   * @public
    */
   taskId?: string;
 
   /**
-   * @public
    * <p>The ID of the execution.</p>
+   * @public
    */
   executionId?: string;
 
   /**
-   * @public
    * <p>The ID of the managed device that the task is being executed on.</p>
+   * @public
    */
   managedDeviceId?: string;
 
   /**
-   * @public
    * <p>The current state of the execution.</p>
+   * @public
    */
   state?: ExecutionState;
 
   /**
-   * @public
    * <p>When the execution began.</p>
+   * @public
    */
   startedAt?: Date;
 
   /**
-   * @public
    * <p>When the status of the execution was last updated.</p>
+   * @public
    */
   lastUpdatedAt?: Date;
 }
@@ -905,8 +905,8 @@ export interface DescribeExecutionOutput {
  */
 export interface DescribeTaskInput {
   /**
-   * @public
    * <p>The ID of the task to be described.</p>
+   * @public
    */
   taskId: string | undefined;
 }
@@ -931,88 +931,88 @@ export type TaskState = (typeof TaskState)[keyof typeof TaskState];
  */
 export interface DescribeTaskOutput {
   /**
-   * @public
    * <p>The ID of the task.</p>
+   * @public
    */
   taskId?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the task.</p>
+   * @public
    */
   taskArn?: string;
 
   /**
-   * @public
    * <p>The managed devices that the task was sent to.</p>
+   * @public
    */
   targets?: string[];
 
   /**
-   * @public
    * <p>The current state of the task.</p>
+   * @public
    */
   state?: TaskState;
 
   /**
-   * @public
    * <p>When the <code>CreateTask</code> operation was called.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>When the state of the task was last updated.</p>
+   * @public
    */
   lastUpdatedAt?: Date;
 
   /**
-   * @public
    * <p>When the task was completed.</p>
+   * @public
    */
   completedAt?: Date;
 
   /**
-   * @public
    * <p>The description provided of the task and managed devices.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>Optional metadata that you assign to a resource. You can use tags to categorize a resource
    *       in different ways, such as by purpose, owner, or environment.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
 
 /**
- * @public
  * <p>Identifying information about the device.</p>
+ * @public
  */
 export interface DeviceSummary {
   /**
-   * @public
    * <p>The ID of the device.</p>
+   * @public
    */
   managedDeviceId?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the device.</p>
+   * @public
    */
   managedDeviceArn?: string;
 
   /**
-   * @public
    * <p>The ID of the job used to order the device.</p>
+   * @public
    */
   associatedWithJob?: string;
 
   /**
-   * @public
    * <p>Optional metadata that you assign to a resource. You can use tags to categorize a resource
    *       in different ways, such as by purpose, owner, or environment.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1022,56 +1022,56 @@ export interface DeviceSummary {
  */
 export interface ListExecutionsInput {
   /**
-   * @public
    * <p>The ID of the task.</p>
+   * @public
    */
   taskId: string | undefined;
 
   /**
-   * @public
    * <p>A structure used to filter the tasks by their current state.</p>
+   * @public
    */
   state?: ExecutionState;
 
   /**
-   * @public
    * <p>The maximum number of tasks to list per page.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>A pagination token to continue to the next page of tasks.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>The summary of a task execution on a specified device.</p>
+ * @public
  */
 export interface ExecutionSummary {
   /**
-   * @public
    * <p>The ID of the task.</p>
+   * @public
    */
   taskId?: string;
 
   /**
-   * @public
    * <p>The ID of the execution.</p>
+   * @public
    */
   executionId?: string;
 
   /**
-   * @public
    * <p>The ID of the managed device that the task is being executed on.</p>
+   * @public
    */
   managedDeviceId?: string;
 
   /**
-   * @public
    * <p>The state of the execution.</p>
+   * @public
    */
   state?: ExecutionState;
 }
@@ -1081,15 +1081,15 @@ export interface ExecutionSummary {
  */
 export interface ListExecutionsOutput {
   /**
-   * @public
    * <p>A list of executions. Each execution contains the task ID, the device that the task is
    *       executing on, the execution ID, and the status of the execution.</p>
+   * @public
    */
   executions?: ExecutionSummary[];
 
   /**
-   * @public
    * <p>A pagination token to continue to the next page of executions.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1099,50 +1099,50 @@ export interface ListExecutionsOutput {
  */
 export interface ListDeviceResourcesInput {
   /**
-   * @public
    * <p>The ID of the managed device that you are listing the resources of.</p>
+   * @public
    */
   managedDeviceId: string | undefined;
 
   /**
-   * @public
    * <p>A structure used to filter the results by type of resource.</p>
+   * @public
    */
   type?: string;
 
   /**
-   * @public
    * <p>The maximum number of resources per page.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>A pagination token to continue to the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>A summary of a resource available on the device.</p>
+ * @public
  */
 export interface ResourceSummary {
   /**
-   * @public
    * <p>The resource type.</p>
+   * @public
    */
   resourceType: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>The ID of the resource.</p>
+   * @public
    */
   id?: string;
 }
@@ -1152,14 +1152,14 @@ export interface ResourceSummary {
  */
 export interface ListDeviceResourcesOutput {
   /**
-   * @public
    * <p>A structure defining the resource's type, Amazon Resource Name (ARN), and ID.</p>
+   * @public
    */
   resources?: ResourceSummary[];
 
   /**
-   * @public
    * <p>A pagination token to continue to the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1169,20 +1169,20 @@ export interface ListDeviceResourcesOutput {
  */
 export interface ListDevicesInput {
   /**
-   * @public
    * <p>The ID of the job used to order the device.</p>
+   * @public
    */
   jobId?: string;
 
   /**
-   * @public
    * <p>The maximum number of devices to list per page.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>A pagination token to continue to the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1192,14 +1192,14 @@ export interface ListDevicesInput {
  */
 export interface ListDevicesOutput {
   /**
-   * @public
    * <p>A list of device structures that contain information about the device.</p>
+   * @public
    */
   devices?: DeviceSummary[];
 
   /**
-   * @public
    * <p>A pagination token to continue to the next page of devices.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1209,8 +1209,8 @@ export interface ListDevicesOutput {
  */
 export interface ListTagsForResourceInput {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the device or task.</p>
+   * @public
    */
   resourceArn: string | undefined;
 }
@@ -1220,8 +1220,8 @@ export interface ListTagsForResourceInput {
  */
 export interface ListTagsForResourceOutput {
   /**
-   * @public
    * <p>The list of tags for the device or task.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1231,51 +1231,51 @@ export interface ListTagsForResourceOutput {
  */
 export interface ListTasksInput {
   /**
-   * @public
    * <p>A structure used to filter the list of tasks.</p>
+   * @public
    */
   state?: TaskState;
 
   /**
-   * @public
    * <p>The maximum number of tasks per page.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>A pagination token to continue to the next page of tasks.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>Information about the task assigned to one or many devices.</p>
+ * @public
  */
 export interface TaskSummary {
   /**
-   * @public
    * <p>The task ID.</p>
+   * @public
    */
   taskId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the task.</p>
+   * @public
    */
   taskArn?: string;
 
   /**
-   * @public
    * <p>The state of the task assigned to one or many devices.</p>
+   * @public
    */
   state?: TaskState;
 
   /**
-   * @public
    * <p>Optional metadata that you assign to a resource. You can use tags to categorize a resource
    *       in different ways, such as by purpose, owner, or environment.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1285,14 +1285,14 @@ export interface TaskSummary {
  */
 export interface ListTasksOutput {
   /**
-   * @public
    * <p>A list of task structures containing details about each task.</p>
+   * @public
    */
   tasks?: TaskSummary[];
 
   /**
-   * @public
    * <p>A pagination token to continue to the next page of tasks.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1302,15 +1302,15 @@ export interface ListTasksOutput {
  */
 export interface TagResourceInput {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the device or task.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>Optional metadata that you assign to a resource. You can use tags to categorize a resource
    *       in different ways, such as by purpose, owner, or environment.</p>
+   * @public
    */
   tags: Record<string, string> | undefined;
 }
@@ -1320,15 +1320,15 @@ export interface TagResourceInput {
  */
 export interface UntagResourceInput {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the device or task.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>Optional metadata that you assign to a resource. You can use tags to categorize a resource
    *       in different ways, such as by purpose, owner, or environment.</p>
+   * @public
    */
   tagKeys: string[] | undefined;
 }

@@ -27,7 +27,6 @@ export interface DescribeDBInstancesCommandInput extends DescribeDBInstancesMess
 export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about provisioned Amazon DocumentDB instances. This API supports pagination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -161,6 +160,7 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class DescribeDBInstancesCommand extends $Command
   .classBuilder<

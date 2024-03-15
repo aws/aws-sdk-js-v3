@@ -36,7 +36,6 @@ export interface DisassociateEnclaveCertificateIamRoleCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates an IAM role from an Certificate Manager (ACM) certificate. Disassociating an IAM role
  * 			from an ACM certificate removes the Amazon S3 object that contains the certificate, certificate chain, and
  * 			encrypted private key from the Amazon S3 bucket. It also revokes the IAM role's permission to use the
@@ -70,6 +69,7 @@ export interface DisassociateEnclaveCertificateIamRoleCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DisassociateEnclaveCertificateIamRoleCommand extends $Command
   .classBuilder<

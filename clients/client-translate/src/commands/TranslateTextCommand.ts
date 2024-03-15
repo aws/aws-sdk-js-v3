@@ -27,7 +27,6 @@ export interface TranslateTextCommandInput extends TranslateTextRequest {}
 export interface TranslateTextCommandOutput extends TranslateTextResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Translates input text from the source language to the target language. For a list of
  *       available languages and language codes, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>.</p>
  * @example
@@ -118,6 +117,7 @@ export interface TranslateTextCommandOutput extends TranslateTextResponse, __Met
  * @throws {@link TranslateServiceException}
  * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ * @public
  */
 export class TranslateTextCommand extends $Command
   .classBuilder<

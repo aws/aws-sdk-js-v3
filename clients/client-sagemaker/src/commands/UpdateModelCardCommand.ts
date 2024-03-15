@@ -31,7 +31,6 @@ export interface UpdateModelCardCommandInput extends UpdateModelCardRequest {}
 export interface UpdateModelCardCommandOutput extends UpdateModelCardResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update an Amazon SageMaker Model Card.</p>
  *          <important>
  *             <p>You cannot update both model card content and model card status in a single call.</p>
@@ -75,6 +74,7 @@ export interface UpdateModelCardCommandOutput extends UpdateModelCardResponse, _
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class UpdateModelCardCommand extends $Command
   .classBuilder<

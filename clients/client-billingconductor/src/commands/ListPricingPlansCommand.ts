@@ -31,7 +31,6 @@ export interface ListPricingPlansCommandInput extends ListPricingPlansInput {}
 export interface ListPricingPlansCommandOutput extends ListPricingPlansOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>A paginated call to get pricing plans for the given billing period. If you don't provide a billing period, the current billing period is used.
  *     </p>
  * @example
@@ -93,6 +92,7 @@ export interface ListPricingPlansCommandOutput extends ListPricingPlansOutput, _
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ * @public
  */
 export class ListPricingPlansCommand extends $Command
   .classBuilder<

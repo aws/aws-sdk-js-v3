@@ -27,7 +27,6 @@ export interface ListFHIRExportJobsCommandInput extends ListFHIRExportJobsReques
 export interface ListFHIRExportJobsCommandOutput extends ListFHIRExportJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Lists all FHIR export jobs associated with an account and their statuses.
  *          </p>
@@ -96,6 +95,7 @@ export interface ListFHIRExportJobsCommandOutput extends ListFHIRExportJobsRespo
  * @throws {@link HealthLakeServiceException}
  * <p>Base exception class for all service exceptions from HealthLake service.</p>
  *
+ * @public
  */
 export class ListFHIRExportJobsCommand extends $Command
   .classBuilder<

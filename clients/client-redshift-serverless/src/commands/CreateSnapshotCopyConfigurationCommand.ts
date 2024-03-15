@@ -36,7 +36,6 @@ export interface CreateSnapshotCopyConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a snapshot copy configuration that lets you copy snapshots to another Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface CreateSnapshotCopyConfigurationCommandOutput
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * @public
  */
 export class CreateSnapshotCopyConfigurationCommand extends $Command
   .classBuilder<

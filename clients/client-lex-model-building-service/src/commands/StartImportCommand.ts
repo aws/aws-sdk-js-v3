@@ -31,7 +31,6 @@ export interface StartImportCommandInput extends StartImportRequest {}
 export interface StartImportCommandOutput extends StartImportResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a job to import a resource to Amazon Lex.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * @public
  */
 export class StartImportCommand extends $Command
   .classBuilder<

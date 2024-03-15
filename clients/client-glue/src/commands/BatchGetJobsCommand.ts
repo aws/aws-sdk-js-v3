@@ -28,7 +28,6 @@ export interface BatchGetJobsCommandInput extends BatchGetJobsRequest {}
 export interface BatchGetJobsCommandOutput extends BatchGetJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of resource metadata for a given list of job names. After calling the <code>ListJobs</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.
  * </p>
  * @example
@@ -1146,6 +1145,7 @@ export interface BatchGetJobsCommandOutput extends BatchGetJobsResponse, __Metad
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class BatchGetJobsCommand extends $Command
   .classBuilder<

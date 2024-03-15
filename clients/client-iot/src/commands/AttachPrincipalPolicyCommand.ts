@@ -27,9 +27,6 @@ export interface AttachPrincipalPolicyCommandInput extends AttachPrincipalPolicy
 export interface AttachPrincipalPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
- * @deprecated
- *
  * <p>Attaches the specified policy to the specified principal (certificate or other
  *          credential).</p>
  *          <p>
@@ -82,6 +79,8 @@ export interface AttachPrincipalPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
+ * @deprecated
  */
 export class AttachPrincipalPolicyCommand extends $Command
   .classBuilder<

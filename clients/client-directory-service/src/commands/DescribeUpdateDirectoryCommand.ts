@@ -27,7 +27,6 @@ export interface DescribeUpdateDirectoryCommandInput extends DescribeUpdateDirec
 export interface DescribeUpdateDirectoryCommandOutput extends DescribeUpdateDirectoryResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Describes the updates of a directory for a particular update type.
  *     </p>
@@ -98,6 +97,7 @@ export interface DescribeUpdateDirectoryCommandOutput extends DescribeUpdateDire
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class DescribeUpdateDirectoryCommand extends $Command
   .classBuilder<

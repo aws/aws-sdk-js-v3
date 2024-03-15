@@ -27,7 +27,6 @@ export interface ManageSparqlStatisticsCommandInput extends ManageSparqlStatisti
 export interface ManageSparqlStatisticsCommandOutput extends ManageSparqlStatisticsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Manages the generation and use of RDF graph statistics.</p>
  *          <p>When invoking this operation in a Neptune cluster that has IAM
  *       authentication enabled, the IAM user or role making the request must
@@ -101,6 +100,7 @@ export interface ManageSparqlStatisticsCommandOutput extends ManageSparqlStatist
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * @public
  */
 export class ManageSparqlStatisticsCommand extends $Command
   .classBuilder<

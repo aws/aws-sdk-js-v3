@@ -27,7 +27,6 @@ export interface CreateFpgaImageCommandInput extends CreateFpgaImageRequest {}
 export interface CreateFpgaImageCommandOutput extends CreateFpgaImageResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon FPGA Image (AFI) from the specified design checkpoint (DCP).</p>
  *          <p>The create operation is asynchronous. To verify that the AFI is ready for use,
  *          check the output logs.</p>
@@ -83,6 +82,7 @@ export interface CreateFpgaImageCommandOutput extends CreateFpgaImageResult, __M
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateFpgaImageCommand extends $Command
   .classBuilder<

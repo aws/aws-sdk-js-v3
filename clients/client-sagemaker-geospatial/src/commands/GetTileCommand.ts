@@ -33,7 +33,6 @@ export interface GetTileCommandOutput extends Omit<GetTileOutput, "BinaryFile">,
 }
 
 /**
- * @public
  * <p>Gets a web mercator tile for the given Earth Observation job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface GetTileCommandOutput extends Omit<GetTileOutput, "BinaryFile">,
  * @throws {@link SageMakerGeospatialServiceException}
  * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
+ * @public
  */
 export class GetTileCommand extends $Command
   .classBuilder<

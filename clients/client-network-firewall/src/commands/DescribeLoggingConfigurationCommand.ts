@@ -32,7 +32,6 @@ export interface DescribeLoggingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the logging configuration for the specified firewall. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface DescribeLoggingConfigurationCommandOutput
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ * @public
  */
 export class DescribeLoggingConfigurationCommand extends $Command
   .classBuilder<

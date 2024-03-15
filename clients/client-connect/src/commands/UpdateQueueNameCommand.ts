@@ -27,7 +27,6 @@ export interface UpdateQueueNameCommandInput extends UpdateQueueNameRequest {}
 export interface UpdateQueueNameCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Updates the name and description of a queue. At least <code>Name</code> or <code>Description</code> must be provided.</p>
  * @example
@@ -75,6 +74,7 @@ export interface UpdateQueueNameCommandOutput extends __MetadataBearer {}
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UpdateQueueNameCommand extends $Command
   .classBuilder<

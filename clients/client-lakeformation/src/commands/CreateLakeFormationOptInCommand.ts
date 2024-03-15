@@ -27,7 +27,6 @@ export interface CreateLakeFormationOptInCommandInput extends CreateLakeFormatio
 export interface CreateLakeFormationOptInCommandOutput extends CreateLakeFormationOptInResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enforce Lake Formation permissions for the given databases, tables, and principals.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -128,6 +127,7 @@ export interface CreateLakeFormationOptInCommandOutput extends CreateLakeFormati
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class CreateLakeFormationOptInCommand extends $Command
   .classBuilder<

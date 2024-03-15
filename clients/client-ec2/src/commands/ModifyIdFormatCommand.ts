@@ -27,7 +27,6 @@ export interface ModifyIdFormatCommandInput extends ModifyIdFormatRequest {}
 export interface ModifyIdFormatCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the ID format for the specified resource on a per-Region basis. You can
  *             specify that resources should receive longer IDs (17-character IDs) when they are
  *             created.</p>
@@ -77,6 +76,7 @@ export interface ModifyIdFormatCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyIdFormatCommand extends $Command
   .classBuilder<

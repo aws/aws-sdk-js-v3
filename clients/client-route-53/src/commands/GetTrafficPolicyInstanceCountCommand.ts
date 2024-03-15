@@ -32,7 +32,6 @@ export interface GetTrafficPolicyInstanceCountCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the number of traffic policy instances that are associated with the current
  * 				Amazon Web Services account.</p>
  * @example
@@ -59,6 +58,7 @@ export interface GetTrafficPolicyInstanceCountCommandOutput
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class GetTrafficPolicyInstanceCountCommand extends $Command
   .classBuilder<

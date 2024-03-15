@@ -27,7 +27,6 @@ export interface DeleteFirewallRuleCommandInput extends DeleteFirewallRuleReques
 export interface DeleteFirewallRuleCommandOutput extends DeleteFirewallRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified firewall rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface DeleteFirewallRuleCommandOutput extends DeleteFirewallRuleRespo
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class DeleteFirewallRuleCommand extends $Command
   .classBuilder<

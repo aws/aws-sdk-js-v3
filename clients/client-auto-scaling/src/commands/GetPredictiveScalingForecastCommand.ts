@@ -29,7 +29,6 @@ export interface GetPredictiveScalingForecastCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the forecast data for a predictive scaling policy.</p>
  *          <p>Load forecasts are predictions of the hourly load values using historical load data
  *             from CloudWatch and an analysis of historical trends. Capacity forecasts are represented as
@@ -177,6 +176,7 @@ export interface GetPredictiveScalingForecastCommandOutput
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  */
 export class GetPredictiveScalingForecastCommand extends $Command
   .classBuilder<

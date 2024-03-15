@@ -27,7 +27,6 @@ export interface CreateInterconnectCommandInput extends CreateInterconnectReques
 export interface CreateInterconnectCommandOutput extends Interconnect, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an interconnect between an Direct Connect Partner's network and a specific Direct Connect location.</p>
  *          <p>An interconnect is a connection that is capable of hosting other connections. The
  *       Direct Connect Partner can use an interconnect to provide Direct Connect hosted
@@ -111,6 +110,7 @@ export interface CreateInterconnectCommandOutput extends Interconnect, __Metadat
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class CreateInterconnectCommand extends $Command
   .classBuilder<

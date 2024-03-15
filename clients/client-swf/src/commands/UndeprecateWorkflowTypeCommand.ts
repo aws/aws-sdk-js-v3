@@ -27,7 +27,6 @@ export interface UndeprecateWorkflowTypeCommandInput extends UndeprecateWorkflow
 export interface UndeprecateWorkflowTypeCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Undeprecates a previously deprecated <i>workflow type</i>. After a workflow type has
  *       been undeprecated, you can create new executions of that type. </p>
  *          <note>
@@ -107,6 +106,7 @@ export interface UndeprecateWorkflowTypeCommandOutput extends __MetadataBearer {
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ * @public
  */
 export class UndeprecateWorkflowTypeCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface ListUsersCommandInput extends ListUsersRequest {}
 export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the users that belong to the specified Amazon Chime account. You can specify an email
  *             address to list only the user that the email address belongs to.</p>
  * @example
@@ -106,6 +105,7 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class ListUsersCommand extends $Command
   .classBuilder<

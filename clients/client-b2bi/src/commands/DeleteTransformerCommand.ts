@@ -27,7 +27,6 @@ export interface DeleteTransformerCommandInput extends DeleteTransformerRequest 
 export interface DeleteTransformerCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified transformer. A transformer
  *    describes how to process the incoming EDI documents and extract the necessary
  *    information to the output file.</p>
@@ -73,6 +72,7 @@ export interface DeleteTransformerCommandOutput extends __MetadataBearer {}
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
+ * @public
  * @example Sample DeleteTransformer call
  * ```javascript
  * //

@@ -32,7 +32,6 @@ export interface DescribeAccountSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Use the DescribeAccountSubscription operation to receive a description of an Amazon QuickSight account's subscription. A successful API call returns an <code>AccountInfo</code> object that includes an account's name, subscription status, authentication type, edition, and notification email address.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface DescribeAccountSubscriptionCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DescribeAccountSubscriptionCommand extends $Command
   .classBuilder<

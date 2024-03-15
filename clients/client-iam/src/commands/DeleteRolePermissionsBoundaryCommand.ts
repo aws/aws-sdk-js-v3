@@ -30,7 +30,6 @@ export interface DeleteRolePermissionsBoundaryCommandInput extends DeleteRolePer
 export interface DeleteRolePermissionsBoundaryCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the permissions boundary for the specified IAM role. </p>
  *          <p>You cannot set the boundary for a service-linked role.</p>
  *          <important>
@@ -76,6 +75,7 @@ export interface DeleteRolePermissionsBoundaryCommandOutput extends __MetadataBe
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class DeleteRolePermissionsBoundaryCommand extends $Command
   .classBuilder<

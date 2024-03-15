@@ -31,7 +31,6 @@ export interface DescribeSpendLimitsCommandInput extends DescribeSpendLimitsRequ
 export interface DescribeSpendLimitsCommandOutput extends DescribeSpendLimitsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the current Amazon Pinpoint monthly spend limits for sending voice and
  *             text messages.</p>
  *          <p>When you establish an Amazon Web Services account, the account has initial monthly
@@ -89,6 +88,7 @@ export interface DescribeSpendLimitsCommandOutput extends DescribeSpendLimitsRes
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class DescribeSpendLimitsCommand extends $Command
   .classBuilder<

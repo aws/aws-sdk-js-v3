@@ -40,43 +40,43 @@ export const SummaryChecksumAlgorithm = {
 export type SummaryChecksumAlgorithm = (typeof SummaryChecksumAlgorithm)[keyof typeof SummaryChecksumAlgorithm];
 
 /**
- * @public
  * Object
+ * @public
  */
 export interface BackupObject {
   /**
-   * @public
    * Object name
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * Number of chunks in object
+   * @public
    */
   ChunksCount?: number;
 
   /**
-   * @public
    * Metadata string associated with the Object
+   * @public
    */
   MetadataString?: string;
 
   /**
-   * @public
    * Object checksum
+   * @public
    */
   ObjectChecksum: string | undefined;
 
   /**
-   * @public
    * Checksum algorithm
+   * @public
    */
   ObjectChecksumAlgorithm: SummaryChecksumAlgorithm | undefined;
 
   /**
-   * @public
    * Object token
+   * @public
    */
   ObjectToken: string | undefined;
 }
@@ -95,37 +95,37 @@ export const DataChecksumAlgorithm = {
 export type DataChecksumAlgorithm = (typeof DataChecksumAlgorithm)[keyof typeof DataChecksumAlgorithm];
 
 /**
- * @public
  * Chunk
+ * @public
  */
 export interface Chunk {
   /**
-   * @public
    * Chunk index
+   * @public
    */
   Index: number | undefined;
 
   /**
-   * @public
    * Chunk length
+   * @public
    */
   Length: number | undefined;
 
   /**
-   * @public
    * Chunk checksum
+   * @public
    */
   Checksum: string | undefined;
 
   /**
-   * @public
    * Checksum algorithm
+   * @public
    */
   ChecksumAlgorithm: DataChecksumAlgorithm | undefined;
 
   /**
-   * @public
    * Chunk token
+   * @public
    */
   ChunkToken: string | undefined;
 }
@@ -135,22 +135,22 @@ export interface Chunk {
  */
 export interface DeleteObjectInput {
   /**
-   * @public
    * Backup job Id for the in-progress backup.
+   * @public
    */
   BackupJobId: string | undefined;
 
   /**
-   * @public
    * The name of the Object.
+   * @public
    */
   ObjectName: string | undefined;
 }
 
 /**
- * @public
  * Non-retryable exception, indicates client error (wrong argument passed to API).
  *     See exception message for details.
+ * @public
  */
 export class IllegalArgumentException extends __BaseException {
   readonly name: "IllegalArgumentException" = "IllegalArgumentException";
@@ -171,8 +171,8 @@ export class IllegalArgumentException extends __BaseException {
 }
 
 /**
- * @public
  * Non-retryable exception. Attempted to make an operation on non-existing or expired resource.
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -193,8 +193,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * Retryable exception. In general indicates internal failure that can be fixed by retry.
+ * @public
  */
 export class RetryableException extends __BaseException {
   readonly name: "RetryableException" = "RetryableException";
@@ -215,8 +215,8 @@ export class RetryableException extends __BaseException {
 }
 
 /**
- * @public
  * Deprecated. To be removed from the model.
+ * @public
  */
 export class ServiceInternalException extends __BaseException {
   readonly name: "ServiceInternalException" = "ServiceInternalException";
@@ -237,8 +237,8 @@ export class ServiceInternalException extends __BaseException {
 }
 
 /**
- * @public
  * Retryable exception, indicates internal server error.
+ * @public
  */
 export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
@@ -259,8 +259,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * @public
  * Increased rate over throttling limits. Can be retried with exponential backoff.
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -285,14 +285,14 @@ export class ThrottlingException extends __BaseException {
  */
 export interface GetChunkInput {
   /**
-   * @public
    * Storage job id
+   * @public
    */
   StorageJobId: string | undefined;
 
   /**
-   * @public
    * Chunk token
+   * @public
    */
   ChunkToken: string | undefined;
 }
@@ -302,33 +302,33 @@ export interface GetChunkInput {
  */
 export interface GetChunkOutput {
   /**
-   * @public
    * Chunk data
+   * @public
    */
   Data: StreamingBlobTypes | undefined;
 
   /**
-   * @public
    * Data length
+   * @public
    */
   Length: number | undefined;
 
   /**
-   * @public
    * Data checksum
+   * @public
    */
   Checksum: string | undefined;
 
   /**
-   * @public
    * Checksum algorithm
+   * @public
    */
   ChecksumAlgorithm: DataChecksumAlgorithm | undefined;
 }
 
 /**
- * @public
  * Non-retryable exception. Indicates the KMS key usage is incorrect. See exception message for details.
+ * @public
  */
 export class KMSInvalidKeyUsageException extends __BaseException {
   readonly name: "KMSInvalidKeyUsageException" = "KMSInvalidKeyUsageException";
@@ -353,14 +353,14 @@ export class KMSInvalidKeyUsageException extends __BaseException {
  */
 export interface GetObjectMetadataInput {
   /**
-   * @public
    * Backup job id for the in-progress backup.
+   * @public
    */
   StorageJobId: string | undefined;
 
   /**
-   * @public
    * Object token.
+   * @public
    */
   ObjectToken: string | undefined;
 }
@@ -370,32 +370,32 @@ export interface GetObjectMetadataInput {
  */
 export interface GetObjectMetadataOutput {
   /**
-   * @public
    * Metadata string.
+   * @public
    */
   MetadataString?: string;
 
   /**
-   * @public
    * Metadata blob.
+   * @public
    */
   MetadataBlob?: StreamingBlobTypes;
 
   /**
-   * @public
    * The size of MetadataBlob.
+   * @public
    */
   MetadataBlobLength?: number;
 
   /**
-   * @public
    * MetadataBlob checksum.
+   * @public
    */
   MetadataBlobChecksum?: string;
 
   /**
-   * @public
    * Checksum algorithm.
+   * @public
    */
   MetadataBlobChecksumAlgorithm?: DataChecksumAlgorithm;
 }
@@ -405,26 +405,26 @@ export interface GetObjectMetadataOutput {
  */
 export interface ListChunksInput {
   /**
-   * @public
    * Storage job id
+   * @public
    */
   StorageJobId: string | undefined;
 
   /**
-   * @public
    * Object token
+   * @public
    */
   ObjectToken: string | undefined;
 
   /**
-   * @public
    * Maximum number of chunks
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * Pagination token
+   * @public
    */
   NextToken?: string;
 }
@@ -434,14 +434,14 @@ export interface ListChunksInput {
  */
 export interface ListChunksOutput {
   /**
-   * @public
    * List of chunks
+   * @public
    */
   ChunkList: Chunk[] | undefined;
 
   /**
-   * @public
    * Pagination token
+   * @public
    */
   NextToken?: string;
 }
@@ -451,44 +451,44 @@ export interface ListChunksOutput {
  */
 export interface ListObjectsInput {
   /**
-   * @public
    * Storage job id
+   * @public
    */
   StorageJobId: string | undefined;
 
   /**
-   * @public
    * Optional, specifies the starting Object name to list from. Ignored if NextToken is not NULL
+   * @public
    */
   StartingObjectName?: string;
 
   /**
-   * @public
    * Optional, specifies the starting Object prefix to list from. Ignored if NextToken is not NULL
+   * @public
    */
   StartingObjectPrefix?: string;
 
   /**
-   * @public
    * Maximum objects count
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * Pagination token
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * (Optional) Created before filter
+   * @public
    */
   CreatedBefore?: Date;
 
   /**
-   * @public
    * (Optional) Created after filter
+   * @public
    */
   CreatedAfter?: Date;
 }
@@ -498,14 +498,14 @@ export interface ListObjectsInput {
  */
 export interface ListObjectsOutput {
   /**
-   * @public
    * Object list
+   * @public
    */
   ObjectList: BackupObject[] | undefined;
 
   /**
-   * @public
    * Pagination token
+   * @public
    */
   NextToken?: string;
 }
@@ -515,56 +515,56 @@ export interface ListObjectsOutput {
  */
 export interface NotifyObjectCompleteInput {
   /**
-   * @public
    * Backup job Id for the in-progress backup
+   * @public
    */
   BackupJobId: string | undefined;
 
   /**
-   * @public
    * Upload Id for the in-progress upload
+   * @public
    */
   UploadId: string | undefined;
 
   /**
-   * @public
    * Object checksum
+   * @public
    */
   ObjectChecksum: string | undefined;
 
   /**
-   * @public
    * Checksum algorithm
+   * @public
    */
   ObjectChecksumAlgorithm: SummaryChecksumAlgorithm | undefined;
 
   /**
-   * @public
    * Optional metadata associated with an Object. Maximum string length is 256 bytes.
+   * @public
    */
   MetadataString?: string;
 
   /**
-   * @public
    * Optional metadata associated with an Object. Maximum length is 4MB.
+   * @public
    */
   MetadataBlob?: StreamingBlobTypes;
 
   /**
-   * @public
    * The size of MetadataBlob.
+   * @public
    */
   MetadataBlobLength?: number;
 
   /**
-   * @public
    * Checksum of MetadataBlob.
+   * @public
    */
   MetadataBlobChecksum?: string;
 
   /**
-   * @public
    * Checksum algorithm.
+   * @public
    */
   MetadataBlobChecksumAlgorithm?: DataChecksumAlgorithm;
 }
@@ -574,21 +574,21 @@ export interface NotifyObjectCompleteInput {
  */
 export interface NotifyObjectCompleteOutput {
   /**
-   * @public
    * Object checksum
+   * @public
    */
   ObjectChecksum: string | undefined;
 
   /**
-   * @public
    * Checksum algorithm
+   * @public
    */
   ObjectChecksumAlgorithm: SummaryChecksumAlgorithm | undefined;
 }
 
 /**
- * @public
  * Retryalble exception. Indicated issues while reading an input stream due to the networking issues or connection drop on the client side.
+ * @public
  */
 export class NotReadableInputStreamException extends __BaseException {
   readonly name: "NotReadableInputStreamException" = "NotReadableInputStreamException";
@@ -613,44 +613,44 @@ export class NotReadableInputStreamException extends __BaseException {
  */
 export interface PutChunkInput {
   /**
-   * @public
    * Backup job Id for the in-progress backup.
+   * @public
    */
   BackupJobId: string | undefined;
 
   /**
-   * @public
    * Upload Id for the in-progress upload.
+   * @public
    */
   UploadId: string | undefined;
 
   /**
-   * @public
    * Describes this chunk's position relative to the other chunks
+   * @public
    */
   ChunkIndex: number | undefined;
 
   /**
-   * @public
    * Data to be uploaded
+   * @public
    */
   Data: StreamingBlobTypes | undefined;
 
   /**
-   * @public
    * Data length
+   * @public
    */
   Length: number | undefined;
 
   /**
-   * @public
    * Data checksum
+   * @public
    */
   Checksum: string | undefined;
 
   /**
-   * @public
    * Checksum algorithm
+   * @public
    */
   ChecksumAlgorithm: DataChecksumAlgorithm | undefined;
 }
@@ -660,14 +660,14 @@ export interface PutChunkInput {
  */
 export interface PutChunkOutput {
   /**
-   * @public
    * Chunk checksum
+   * @public
    */
   ChunkChecksum: string | undefined;
 
   /**
-   * @public
    * Checksum algorithm
+   * @public
    */
   ChunkChecksumAlgorithm: DataChecksumAlgorithm | undefined;
 }
@@ -677,62 +677,62 @@ export interface PutChunkOutput {
  */
 export interface PutObjectInput {
   /**
-   * @public
    * Backup job Id for the in-progress backup.
+   * @public
    */
   BackupJobId: string | undefined;
 
   /**
-   * @public
    * The name of the Object to be uploaded.
+   * @public
    */
   ObjectName: string | undefined;
 
   /**
-   * @public
    * Store user defined metadata like backup checksum, disk ids, restore metadata etc.
+   * @public
    */
   MetadataString?: string;
 
   /**
-   * @public
    * Inline chunk data to be uploaded.
+   * @public
    */
   InlineChunk?: StreamingBlobTypes;
 
   /**
-   * @public
    * Length of the inline chunk data.
+   * @public
    */
   InlineChunkLength?: number;
 
   /**
-   * @public
    * Inline chunk checksum
+   * @public
    */
   InlineChunkChecksum?: string;
 
   /**
-   * @public
    * Inline chunk checksum algorithm
+   * @public
    */
   InlineChunkChecksumAlgorithm?: string;
 
   /**
-   * @public
    * object checksum
+   * @public
    */
   ObjectChecksum?: string;
 
   /**
-   * @public
    * object checksum algorithm
+   * @public
    */
   ObjectChecksumAlgorithm?: SummaryChecksumAlgorithm;
 
   /**
-   * @public
    * Throw an exception if Object name is already exist.
+   * @public
    */
   ThrowOnDuplicate?: boolean;
 }
@@ -742,48 +742,48 @@ export interface PutObjectInput {
  */
 export interface PutObjectOutput {
   /**
-   * @public
    * Inline chunk checksum
+   * @public
    */
   InlineChunkChecksum: string | undefined;
 
   /**
-   * @public
    * Inline chunk checksum algorithm
+   * @public
    */
   InlineChunkChecksumAlgorithm: DataChecksumAlgorithm | undefined;
 
   /**
-   * @public
    * object checksum
+   * @public
    */
   ObjectChecksum: string | undefined;
 
   /**
-   * @public
    * object checksum algorithm
+   * @public
    */
   ObjectChecksumAlgorithm: SummaryChecksumAlgorithm | undefined;
 }
 
 /**
- * @public
  * Non-retryable exception. Attempted to create already existing object or chunk.
  *     This message contains a checksum of already presented data.
+ * @public
  */
 export class DataAlreadyExistsException extends __BaseException {
   readonly name: "DataAlreadyExistsException" = "DataAlreadyExistsException";
   readonly $fault: "client" = "client";
   Message?: string;
   /**
-   * @public
    * Data checksum used
+   * @public
    */
   Checksum?: string;
 
   /**
-   * @public
    * Checksum algorithm used
+   * @public
    */
   ChecksumAlgorithm?: string;
   /**
@@ -807,20 +807,20 @@ export class DataAlreadyExistsException extends __BaseException {
  */
 export interface StartObjectInput {
   /**
-   * @public
    * Backup job Id for the in-progress backup
+   * @public
    */
   BackupJobId: string | undefined;
 
   /**
-   * @public
    * Name for the object.
+   * @public
    */
   ObjectName: string | undefined;
 
   /**
-   * @public
    * Throw an exception if Object name is already exist.
+   * @public
    */
   ThrowOnDuplicate?: boolean;
 }
@@ -830,8 +830,8 @@ export interface StartObjectInput {
  */
 export interface StartObjectOutput {
   /**
-   * @public
    * Upload Id for a given upload.
+   * @public
    */
   UploadId: string | undefined;
 }

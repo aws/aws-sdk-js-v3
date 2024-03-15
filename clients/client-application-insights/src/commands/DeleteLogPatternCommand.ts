@@ -31,7 +31,6 @@ export interface DeleteLogPatternCommandInput extends DeleteLogPatternRequest {}
 export interface DeleteLogPatternCommandOutput extends DeleteLogPatternResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified log pattern from a <code>LogPatternSet</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface DeleteLogPatternCommandOutput extends DeleteLogPatternResponse,
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ * @public
  */
 export class DeleteLogPatternCommand extends $Command
   .classBuilder<

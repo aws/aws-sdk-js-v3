@@ -31,7 +31,6 @@ export interface DescribePackagesCommandInput extends DescribePackagesRequest {}
 export interface DescribePackagesCommandOutput extends DescribePackagesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes all packages available to Amazon ES. Includes options for filtering, limiting the number of results, and pagination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface DescribePackagesCommandOutput extends DescribePackagesResponse,
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * @public
  */
 export class DescribePackagesCommand extends $Command
   .classBuilder<

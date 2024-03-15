@@ -27,7 +27,6 @@ export interface DescribeCopyJobCommandInput extends DescribeCopyJobInput {}
 export interface DescribeCopyJobCommandOutput extends DescribeCopyJobOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns metadata associated with creating a copy of a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface DescribeCopyJobCommandOutput extends DescribeCopyJobOutput, __M
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class DescribeCopyJobCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateThemePermissionsCommandInput extends UpdateThemePermissio
 export interface UpdateThemePermissionsCommandOutput extends UpdateThemePermissionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the resource permissions for a theme. Permissions apply to the action to grant or
  * 			revoke permissions on, for example <code>"quicksight:DescribeTheme"</code>.</p>
  *          <p>Theme permissions apply in groupings. Valid groupings include the following for the three
@@ -203,6 +202,7 @@ export interface UpdateThemePermissionsCommandOutput extends UpdateThemePermissi
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class UpdateThemePermissionsCommand extends $Command
   .classBuilder<

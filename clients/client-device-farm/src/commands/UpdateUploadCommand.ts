@@ -27,7 +27,6 @@ export interface UpdateUploadCommandInput extends UpdateUploadRequest {}
 export interface UpdateUploadCommandOutput extends UpdateUploadResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an uploaded test spec.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface UpdateUploadCommandOutput extends UpdateUploadResult, __Metadat
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  */
 export class UpdateUploadCommand extends $Command
   .classBuilder<

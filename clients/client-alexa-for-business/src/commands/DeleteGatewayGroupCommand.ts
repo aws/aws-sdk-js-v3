@@ -27,9 +27,6 @@ export interface DeleteGatewayGroupCommandInput extends DeleteGatewayGroupReques
 export interface DeleteGatewayGroupCommandOutput extends DeleteGatewayGroupResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Deletes a gateway group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -58,6 +55,8 @@ export interface DeleteGatewayGroupCommandOutput extends DeleteGatewayGroupRespo
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class DeleteGatewayGroupCommand extends $Command
   .classBuilder<

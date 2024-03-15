@@ -27,7 +27,6 @@ export interface CreateServiceCommandInput extends CreateServiceRequest {}
 export interface CreateServiceCommandOutput extends CreateServiceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a service. A service is any software application that can run on instances
  *    containers, or serverless functions within an account or virtual private cloud (VPC).</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/services.html">Services</a> in the
@@ -98,6 +97,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class CreateServiceCommand extends $Command
   .classBuilder<

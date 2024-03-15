@@ -27,7 +27,6 @@ export interface DeleteDataSetCommandInput extends DeleteDataSetRequest {}
 export interface DeleteDataSetCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation deletes a data set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface DeleteDataSetCommandOutput extends __MetadataBearer {}
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ * @public
  */
 export class DeleteDataSetCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetDataLakeSettingsCommandInput extends GetDataLakeSettingsRequ
 export interface GetDataLakeSettingsCommandOutput extends GetDataLakeSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the list of the data lake administrators of a Lake Formation-managed data lake. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -111,6 +110,7 @@ export interface GetDataLakeSettingsCommandOutput extends GetDataLakeSettingsRes
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class GetDataLakeSettingsCommand extends $Command
   .classBuilder<

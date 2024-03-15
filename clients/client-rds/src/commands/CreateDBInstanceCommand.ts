@@ -27,7 +27,6 @@ export interface CreateDBInstanceCommandInput extends CreateDBInstanceMessage {}
 export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new DB instance.</p>
  *          <p>The new DB instance can be an RDS DB instance, or it can be a DB instance in an Aurora DB cluster.
  *            For an Aurora DB cluster, you can call this operation multiple times to add more than one DB instance
@@ -445,6 +444,7 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To create a DB instance
  * ```javascript
  * // The following example uses the required options to launch a new DB instance.

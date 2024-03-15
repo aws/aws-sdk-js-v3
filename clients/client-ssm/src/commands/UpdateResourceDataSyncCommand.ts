@@ -27,7 +27,6 @@ export interface UpdateResourceDataSyncCommandInput extends UpdateResourceDataSy
 export interface UpdateResourceDataSyncCommandOutput extends UpdateResourceDataSyncResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update a resource data sync. After you create a resource data sync for a Region, you can't
  *    change the account options for that sync. For example, if you create a sync in the us-east-2
  *    (Ohio) Region and you choose the <code>Include only the current account</code> option, you can't
@@ -92,6 +91,7 @@ export interface UpdateResourceDataSyncCommandOutput extends UpdateResourceDataS
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class UpdateResourceDataSyncCommand extends $Command
   .classBuilder<

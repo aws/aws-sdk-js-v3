@@ -32,7 +32,6 @@ export interface GetWirelessGatewayCertificateCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the ID of the certificate that is currently associated with a wireless
  *             gateway.</p>
  * @example
@@ -77,6 +76,7 @@ export interface GetWirelessGatewayCertificateCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class GetWirelessGatewayCertificateCommand extends $Command
   .classBuilder<

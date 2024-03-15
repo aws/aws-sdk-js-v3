@@ -27,7 +27,6 @@ export interface StartChangeRequestExecutionCommandInput extends StartChangeRequ
 export interface StartChangeRequestExecutionCommandOutput extends StartChangeRequestExecutionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a change request for Change Manager. The Automation runbooks specified in the
  *    change request run only after all required approvals for the change request have been
  *    received.</p>
@@ -151,6 +150,7 @@ export interface StartChangeRequestExecutionCommandOutput extends StartChangeReq
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class StartChangeRequestExecutionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeAutoScalingInstancesCommandInput extends DescribeAutoSc
 export interface DescribeAutoScalingInstancesCommandOutput extends AutoScalingInstancesType, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the Auto Scaling instances in the account and Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface DescribeAutoScalingInstancesCommandOutput extends AutoScalingIn
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To describe one or more Auto Scaling instances
  * ```javascript
  * // This example describes the specified Auto Scaling instance.

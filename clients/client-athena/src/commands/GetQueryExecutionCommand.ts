@@ -27,7 +27,6 @@ export interface GetQueryExecutionCommandInput extends GetQueryExecutionInput {}
 export interface GetQueryExecutionCommandOutput extends GetQueryExecutionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a single execution of a query if you have access to the
  *             workgroup in which the query ran. Each time a query executes, information about the
  *             query execution is saved with a unique ID.</p>
@@ -129,6 +128,7 @@ export interface GetQueryExecutionCommandOutput extends GetQueryExecutionOutput,
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class GetQueryExecutionCommand extends $Command
   .classBuilder<

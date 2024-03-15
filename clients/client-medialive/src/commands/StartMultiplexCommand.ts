@@ -27,7 +27,6 @@ export interface StartMultiplexCommandInput extends StartMultiplexRequest {}
 export interface StartMultiplexCommandOutput extends StartMultiplexResponse, __MetadataBearer {}
 
 /**
- * @public
  * Start (run) the multiplex. Starting the multiplex does not start the channels. You must explicitly start each channel.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface StartMultiplexCommandOutput extends StartMultiplexResponse, __M
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class StartMultiplexCommand extends $Command
   .classBuilder<

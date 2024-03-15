@@ -27,7 +27,6 @@ export interface DeleteTrustedTokenIssuerCommandInput extends DeleteTrustedToken
 export interface DeleteTrustedTokenIssuerCommandOutput extends DeleteTrustedTokenIssuerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a trusted token issuer configuration from an instance of IAM Identity Center.</p>
  *          <note>
  *             <p>Deleting this trusted token issuer configuration will cause users to lose access to any applications that are configured to use the trusted token issuer.</p>
@@ -79,6 +78,7 @@ export interface DeleteTrustedTokenIssuerCommandOutput extends DeleteTrustedToke
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class DeleteTrustedTokenIssuerCommand extends $Command
   .classBuilder<

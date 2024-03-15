@@ -27,7 +27,6 @@ export interface DescribeFleetEventsCommandInput extends DescribeFleetEventsInpu
 export interface DescribeFleetEventsCommandOutput extends DescribeFleetEventsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves entries from a fleet's event log. Fleet events are initiated by changes in
  *             status, such as during fleet creation and termination, changes in capacity, etc. If a
  *             fleet has multiple locations, events are also initiated by changes to status and
@@ -97,6 +96,7 @@ export interface DescribeFleetEventsCommandOutput extends DescribeFleetEventsOut
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DescribeFleetEventsCommand extends $Command
   .classBuilder<

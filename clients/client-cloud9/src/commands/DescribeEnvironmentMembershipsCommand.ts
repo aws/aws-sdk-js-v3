@@ -32,7 +32,6 @@ export interface DescribeEnvironmentMembershipsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about environment members for an Cloud9 development environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface DescribeEnvironmentMembershipsCommandOutput
  * @throws {@link Cloud9ServiceException}
  * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
+ * @public
  * @example DescribeEnvironmentMemberships1
  * ```javascript
  * // The following example gets information about all of the environment members for the specified development environment.

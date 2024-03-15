@@ -27,7 +27,6 @@ export interface ListPermissionsCommandInput extends ListPermissionsRequest {}
 export interface ListPermissionsCommandOutput extends ListPermissionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the users and groups who have the Grafana <code>Admin</code> and
  *                 <code>Editor</code> roles in this workspace. If you use this operation without
  *             specifying <code>userId</code> or <code>groupId</code>, the operation returns the roles
@@ -89,6 +88,7 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * @throws {@link GrafanaServiceException}
  * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
+ * @public
  */
 export class ListPermissionsCommand extends $Command
   .classBuilder<

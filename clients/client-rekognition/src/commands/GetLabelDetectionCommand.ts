@@ -27,7 +27,6 @@ export interface GetLabelDetectionCommandInput extends GetLabelDetectionRequest 
 export interface GetLabelDetectionCommandOutput extends GetLabelDetectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the label detection results of a Amazon Rekognition Video analysis started by <a>StartLabelDetection</a>.  </p>
  *          <p>The label detection operation is started by a call to <a>StartLabelDetection</a> which returns a job identifier (<code>JobId</code>). When
  *       the label detection operation finishes, Amazon Rekognition publishes a completion status to the
@@ -221,6 +220,7 @@ export interface GetLabelDetectionCommandOutput extends GetLabelDetectionRespons
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  */
 export class GetLabelDetectionCommand extends $Command
   .classBuilder<

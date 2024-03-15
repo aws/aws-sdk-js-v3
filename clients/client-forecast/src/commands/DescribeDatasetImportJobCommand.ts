@@ -27,7 +27,6 @@ export interface DescribeDatasetImportJobCommandInput extends DescribeDatasetImp
 export interface DescribeDatasetImportJobCommandOutput extends DescribeDatasetImportJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a dataset import job created using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a>
  *       operation.</p>
  *          <p>In addition to listing the parameters provided in the <code>CreateDatasetImportJob</code>
@@ -134,6 +133,7 @@ export interface DescribeDatasetImportJobCommandOutput extends DescribeDatasetIm
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class DescribeDatasetImportJobCommand extends $Command
   .classBuilder<

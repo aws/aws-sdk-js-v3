@@ -31,7 +31,6 @@ export interface ModifyMigrationProjectCommandInput extends ModifyMigrationProje
 export interface ModifyMigrationProjectCommandOutput extends ModifyMigrationProjectResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the specified migration project using the provided parameters.</p>
  *          <note>
  *             <p>The migration project must be closed before you can modify it.</p>
@@ -129,6 +128,7 @@ export interface ModifyMigrationProjectCommandOutput extends ModifyMigrationProj
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Modify Migration Project
  * ```javascript
  * // Modifies the specified migration project using the provided parameters.

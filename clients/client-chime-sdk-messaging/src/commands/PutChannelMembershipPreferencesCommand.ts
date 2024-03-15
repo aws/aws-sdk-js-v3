@@ -41,7 +41,6 @@ export interface PutChannelMembershipPreferencesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the membership preferences of an <code>AppInstanceUser</code> or <code>AppInstanceBot</code>
  *          for the specified channel. The user or bot must be a member of the channel. Only the user or bot who owns the
  *          membership can set preferences. Users or bots in the <code>AppInstanceAdmin</code> and channel moderator roles can't set
@@ -118,6 +117,7 @@ export interface PutChannelMembershipPreferencesCommandOutput
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class PutChannelMembershipPreferencesCommand extends $Command
   .classBuilder<

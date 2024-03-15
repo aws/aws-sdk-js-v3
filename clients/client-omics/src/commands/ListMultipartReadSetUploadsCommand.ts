@@ -32,7 +32,6 @@ export interface ListMultipartReadSetUploadsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Lists multipart read set uploads and for in progress uploads. Once the upload is completed, a read set is created and the upload will no longer be returned in the respone.
  *     </p>
@@ -107,6 +106,7 @@ export interface ListMultipartReadSetUploadsCommandOutput
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class ListMultipartReadSetUploadsCommand extends $Command
   .classBuilder<

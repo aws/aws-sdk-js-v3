@@ -27,9 +27,6 @@ export interface UntagMeetingCommandInput extends UntagMeetingRequest {}
 export interface UntagMeetingCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Use UntagResource in the Amazon Chime SDK Meetings Namespace.
- *
  * <p>Untags the specified tags from the specified Amazon Chime SDK meeting.</p>
  *          <important>
  *             <p>
@@ -86,6 +83,8 @@ export interface UntagMeetingCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Use UntagResource in the Amazon Chime SDK Meetings Namespace.
  */
 export class UntagMeetingCommand extends $Command
   .classBuilder<

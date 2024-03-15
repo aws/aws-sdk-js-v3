@@ -35,7 +35,6 @@ export interface AuthorizeClusterSecurityGroupIngressCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds an inbound (ingress) rule to an Amazon Redshift security group. Depending on whether
  *             the application accessing your cluster is running on the Internet or an Amazon EC2
  *             instance, you can authorize inbound access to either a Classless Interdomain Routing
@@ -129,6 +128,7 @@ export interface AuthorizeClusterSecurityGroupIngressCommandOutput
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class AuthorizeClusterSecurityGroupIngressCommand extends $Command
   .classBuilder<

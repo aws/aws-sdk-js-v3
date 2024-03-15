@@ -27,7 +27,6 @@ export interface DescribeInterconnectsCommandInput extends DescribeInterconnects
 export interface DescribeInterconnectsCommandOutput extends Interconnects, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the interconnects owned by the Amazon Web Services account or only the specified interconnect.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface DescribeInterconnectsCommandOutput extends Interconnects, __Met
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class DescribeInterconnectsCommand extends $Command
   .classBuilder<

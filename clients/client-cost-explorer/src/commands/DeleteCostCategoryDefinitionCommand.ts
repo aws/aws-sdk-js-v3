@@ -32,7 +32,6 @@ export interface DeleteCostCategoryDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a Cost Category. Expenses from this month going forward will no longer be
  *       categorized with this Cost Category.</p>
  * @example
@@ -68,6 +67,7 @@ export interface DeleteCostCategoryDefinitionCommandOutput
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * @public
  */
 export class DeleteCostCategoryDefinitionCommand extends $Command
   .classBuilder<

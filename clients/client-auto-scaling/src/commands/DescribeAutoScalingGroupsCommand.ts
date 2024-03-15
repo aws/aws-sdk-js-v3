@@ -27,7 +27,6 @@ export interface DescribeAutoScalingGroupsCommandInput extends AutoScalingGroupN
 export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroupsType, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the Auto Scaling groups in the account and Region.</p>
  *          <p>If you specify Auto Scaling group names, the output includes information for only the
  *             specified Auto Scaling groups. If you specify filters, the output includes information for only
@@ -269,6 +268,7 @@ export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroup
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To describe an Auto Scaling group
  * ```javascript
  * // This example describes the specified Auto Scaling group.

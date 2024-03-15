@@ -35,7 +35,6 @@ export interface UpdateServiceNetworkVpcAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the service network and VPC association. Once you add a security group, it cannot be
  *    removed.</p>
  * @example
@@ -93,6 +92,7 @@ export interface UpdateServiceNetworkVpcAssociationCommandOutput
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class UpdateServiceNetworkVpcAssociationCommand extends $Command
   .classBuilder<

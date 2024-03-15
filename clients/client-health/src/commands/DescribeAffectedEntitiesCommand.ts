@@ -27,7 +27,6 @@ export interface DescribeAffectedEntitiesCommandInput extends DescribeAffectedEn
 export interface DescribeAffectedEntitiesCommandOutput extends DescribeAffectedEntitiesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of entities that have been affected by the specified events, based on the
  *          specified filter criteria. Entities can refer to individual customer resources, groups of
  *          customer resources, or any other construct, depending on the Amazon Web Service. Events that
@@ -118,6 +117,7 @@ export interface DescribeAffectedEntitiesCommandOutput extends DescribeAffectedE
  * @throws {@link HealthServiceException}
  * <p>Base exception class for all service exceptions from Health service.</p>
  *
+ * @public
  */
 export class DescribeAffectedEntitiesCommand extends $Command
   .classBuilder<

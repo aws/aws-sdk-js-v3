@@ -27,7 +27,6 @@ export interface DescribeEventsCommandInput extends DescribeEventsMessage {}
 export interface DescribeEventsCommandOutput extends EventDescriptionsMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns list of event descriptions matching criteria up to the last 6 weeks.</p>
  *          <note>
  *             <p>This action returns the most recent 1,000 events from the specified
@@ -83,6 +82,7 @@ export interface DescribeEventsCommandOutput extends EventDescriptionsMessage, _
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  * @example To view events for an environment
  * ```javascript
  * // The following operation retrieves events for an environment named my-env:

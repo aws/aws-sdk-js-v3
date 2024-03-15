@@ -27,7 +27,6 @@ export interface ListGraphsCommandInput extends ListGraphsInput {}
 export interface ListGraphsCommandOutput extends ListGraphsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists available Neptune Analytics graphs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface ListGraphsCommandOutput extends ListGraphsOutput, __MetadataBea
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ * @public
  */
 export class ListGraphsCommand extends $Command
   .classBuilder<

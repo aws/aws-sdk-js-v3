@@ -27,7 +27,6 @@ export interface CreateVirtualClusterCommandInput extends CreateVirtualClusterRe
 export interface CreateVirtualClusterCommandOutput extends CreateVirtualClusterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a virtual cluster. Virtual cluster is a managed entity on Amazon EMR on EKS. You can create, describe, list and delete virtual clusters. They do not consume any
  *          additional resource in your system. A single virtual cluster maps to a single Kubernetes
  *          namespace. Given this relationship, you can model virtual clusters the same way you model
@@ -82,6 +81,7 @@ export interface CreateVirtualClusterCommandOutput extends CreateVirtualClusterR
  * @throws {@link EMRContainersServiceException}
  * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
+ * @public
  */
 export class CreateVirtualClusterCommand extends $Command
   .classBuilder<

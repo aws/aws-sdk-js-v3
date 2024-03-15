@@ -27,7 +27,6 @@ export interface CreateTransformerCommandInput extends CreateTransformerRequest 
 export interface CreateTransformerCommandOutput extends CreateTransformerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a transformer. A transformer
  *    describes how to process the incoming EDI documents and extract the necessary
  *    information to the output file.</p>
@@ -107,6 +106,7 @@ export interface CreateTransformerCommandOutput extends CreateTransformerRespons
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
+ * @public
  * @example Sample CreateTransformer call
  * ```javascript
  * //

@@ -27,7 +27,6 @@ export interface AssociateVirtualInterfaceCommandInput extends AssociateVirtualI
 export interface AssociateVirtualInterfaceCommandOutput extends VirtualInterface, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a virtual interface with a specified link aggregation group (LAG) or
  *       connection. Connectivity to Amazon Web Services is temporarily interrupted as the virtual interface is
  *       being migrated. If the target connection or LAG has an associated virtual interface with
@@ -118,6 +117,7 @@ export interface AssociateVirtualInterfaceCommandOutput extends VirtualInterface
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class AssociateVirtualInterfaceCommand extends $Command
   .classBuilder<

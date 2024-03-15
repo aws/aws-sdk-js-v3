@@ -31,7 +31,6 @@ export interface ListSyncConfigurationsCommandInput extends ListSyncConfiguratio
 export interface ListSyncConfigurationsCommandOutput extends ListSyncConfigurationsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of sync configurations for a specified repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface ListSyncConfigurationsCommandOutput extends ListSyncConfigurati
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ * @public
  */
 export class ListSyncConfigurationsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface RestoreImageFromRecycleBinCommandInput extends RestoreImageFrom
 export interface RestoreImageFromRecycleBinCommandOutput extends RestoreImageFromRecycleBinResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Restores an AMI from the Recycle Bin. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle Bin</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,6 +55,7 @@ export interface RestoreImageFromRecycleBinCommandOutput extends RestoreImageFro
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class RestoreImageFromRecycleBinCommand extends $Command
   .classBuilder<

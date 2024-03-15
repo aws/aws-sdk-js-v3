@@ -31,7 +31,6 @@ export interface GetMaintenanceWindowCommandInput extends GetMaintenanceWindowRe
 export interface GetMaintenanceWindowCommandOutput extends GetMaintenanceWindowResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a maintenance window.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface GetMaintenanceWindowCommandOutput extends GetMaintenanceWindowR
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class GetMaintenanceWindowCommand extends $Command
   .classBuilder<

@@ -318,7 +318,6 @@ export type OpsWorksCMClientResolvedConfigType = __SmithyResolvedConfiguration<_
 export interface OpsWorksCMClientResolvedConfig extends OpsWorksCMClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>AWS OpsWorks CM</fullname>
  *          <p>AWS OpsWorks for configuration management (CM) is a service that runs and manages
  *       configuration management servers. You can use AWS OpsWorks CM to create and manage AWS
@@ -407,6 +406,7 @@ export interface OpsWorksCMClientResolvedConfig extends OpsWorksCMClientResolved
  *             <b>Throttling limits</b>
  *          </p>
  *          <p>All API operations allow for five requests per second with a burst of 10 requests per second.</p>
+ * @public
  */
 export class OpsWorksCMClient extends __Client<
   __HttpHandlerOptions,

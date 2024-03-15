@@ -27,7 +27,6 @@ export interface ListConnectionsCommandInput extends ListConnectionsRequest {}
 export interface ListConnectionsCommandOutput extends ListConnectionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of connections from the account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface ListConnectionsCommandOutput extends ListConnectionsResponse, _
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ * @public
  */
 export class ListConnectionsCommand extends $Command
   .classBuilder<

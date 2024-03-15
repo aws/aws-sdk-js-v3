@@ -35,7 +35,6 @@ export interface PutConfigurationSetDeliveryOptionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Associate a configuration set with a dedicated IP pool. You can use dedicated IP pools
  *             to create groups of dedicated IP addresses for sending specific types of email.</p>
  * @example
@@ -73,6 +72,7 @@ export interface PutConfigurationSetDeliveryOptionsCommandOutput
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class PutConfigurationSetDeliveryOptionsCommand extends $Command
   .classBuilder<

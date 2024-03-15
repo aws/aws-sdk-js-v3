@@ -27,7 +27,6 @@ export interface CreateReplicationSetCommandInput extends CreateReplicationSetIn
 export interface CreateReplicationSetCommandOutput extends CreateReplicationSetOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>A replication set replicates and encrypts your data to the provided Regions with the
  *       provided KMS key. </p>
  * @example
@@ -84,6 +83,7 @@ export interface CreateReplicationSetCommandOutput extends CreateReplicationSetO
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ * @public
  */
 export class CreateReplicationSetCommand extends $Command
   .classBuilder<

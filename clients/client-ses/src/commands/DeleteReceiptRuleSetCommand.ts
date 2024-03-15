@@ -27,7 +27,6 @@ export interface DeleteReceiptRuleSetCommandInput extends DeleteReceiptRuleSetRe
 export interface DeleteReceiptRuleSetCommandOutput extends DeleteReceiptRuleSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified receipt rule set and all of the receipt rules it
  *             contains.</p>
  *          <note>
@@ -63,6 +62,7 @@ export interface DeleteReceiptRuleSetCommandOutput extends DeleteReceiptRuleSetR
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example DeleteReceiptRuleSet
  * ```javascript
  * // The following example deletes a receipt rule set:

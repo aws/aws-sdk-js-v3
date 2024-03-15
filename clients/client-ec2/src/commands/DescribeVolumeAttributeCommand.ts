@@ -27,7 +27,6 @@ export interface DescribeVolumeAttributeCommandInput extends DescribeVolumeAttri
 export interface DescribeVolumeAttributeCommandOutput extends DescribeVolumeAttributeResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified attribute of the specified volume. You can specify only one
  *       attribute at a time.</p>
  *          <p>For more information about EBS volumes, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes.html">Amazon EBS volumes</a> in the <i>Amazon EBS User Guide</i>.</p>
@@ -68,6 +67,7 @@ export interface DescribeVolumeAttributeCommandOutput extends DescribeVolumeAttr
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To describe a volume attribute
  * ```javascript
  * // This example describes the ``autoEnableIo`` attribute of the volume with the ID ``vol-049df61146c4d7901``.

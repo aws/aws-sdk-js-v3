@@ -27,7 +27,6 @@ export interface DeleteReplicationGroupCommandInput extends DeleteReplicationGro
 export interface DeleteReplicationGroupCommandOutput extends DeleteReplicationGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing replication group. By default, this operation deletes the entire
  *             replication group, including the primary/primaries and all of the read replicas. If the
  *             replication group has only one primary, you can optionally delete only the read
@@ -219,6 +218,7 @@ export interface DeleteReplicationGroupCommandOutput extends DeleteReplicationGr
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  * @example DeleteReplicationGroup
  * ```javascript
  * // Deletes the Amazon ElastiCache replication group my-redis-rg.

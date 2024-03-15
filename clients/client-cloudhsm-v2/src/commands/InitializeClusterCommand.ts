@@ -27,7 +27,6 @@ export interface InitializeClusterCommandInput extends InitializeClusterRequest 
 export interface InitializeClusterCommandOutput extends InitializeClusterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Claims an AWS CloudHSM cluster by submitting the cluster certificate issued by your
  *       issuing certificate authority (CA) and the CA's root certificate. Before you can claim a
  *       cluster, you must sign the cluster's certificate signing request (CSR) with your issuing CA.
@@ -79,6 +78,7 @@ export interface InitializeClusterCommandOutput extends InitializeClusterRespons
  * @throws {@link CloudHSMV2ServiceException}
  * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
+ * @public
  */
 export class InitializeClusterCommand extends $Command
   .classBuilder<

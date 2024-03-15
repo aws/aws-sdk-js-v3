@@ -32,7 +32,6 @@ export interface ListAllowedNodeTypeModificationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all available node types that you can scale your Redis cluster's or replication
  *             group's current node type.</p>
  *          <p>When you use the <code>ModifyCacheCluster</code> or
@@ -83,6 +82,7 @@ export interface ListAllowedNodeTypeModificationsCommandOutput
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  * @example ListAllowedNodeTypeModifications
  * ```javascript
  * // Lists all available node types that you can scale your Redis cluster's or replication group's current node type up to.

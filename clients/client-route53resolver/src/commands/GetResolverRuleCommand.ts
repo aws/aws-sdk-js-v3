@@ -27,7 +27,6 @@ export interface GetResolverRuleCommandInput extends GetResolverRuleRequest {}
 export interface GetResolverRuleCommandOutput extends GetResolverRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a specified Resolver rule, such as the domain name that the rule forwards DNS queries for and the ID of the
  * 			outbound Resolver endpoint that the rule is associated with.</p>
  * @example
@@ -90,6 +89,7 @@ export interface GetResolverRuleCommandOutput extends GetResolverRuleResponse, _
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class GetResolverRuleCommand extends $Command
   .classBuilder<

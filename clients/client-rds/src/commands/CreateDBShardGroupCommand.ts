@@ -27,7 +27,6 @@ export interface CreateDBShardGroupCommandInput extends CreateDBShardGroupMessag
 export interface CreateDBShardGroupCommandOutput extends DBShardGroup, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new DB shard group for Aurora Limitless Database. You must enable Aurora Limitless Database to create a DB shard group.</p>
  *          <p>Valid for: Aurora DB clusters only</p>
  * @example
@@ -90,6 +89,7 @@ export interface CreateDBShardGroupCommandOutput extends DBShardGroup, __Metadat
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  */
 export class CreateDBShardGroupCommand extends $Command
   .classBuilder<

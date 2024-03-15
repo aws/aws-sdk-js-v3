@@ -30,7 +30,6 @@ export interface AssociateExternalConnectionCommandInput extends AssociateExtern
 export interface AssociateExternalConnectionCommandOutput extends AssociateExternalConnectionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds an existing external connection to a repository. One external connection is allowed
  *       per repository.</p>
  *          <note>
@@ -118,6 +117,7 @@ export interface AssociateExternalConnectionCommandOutput extends AssociateExter
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * @public
  */
 export class AssociateExternalConnectionCommand extends $Command
   .classBuilder<

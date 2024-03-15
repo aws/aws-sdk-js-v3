@@ -35,7 +35,6 @@ export interface PutConfigurationSetSendingOptionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Enable or disable email sending for messages that use a particular configuration set
  *             in a specific AWS Region.</p>
  * @example
@@ -72,6 +71,7 @@ export interface PutConfigurationSetSendingOptionsCommandOutput
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * @public
  */
 export class PutConfigurationSetSendingOptionsCommand extends $Command
   .classBuilder<

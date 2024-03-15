@@ -27,7 +27,6 @@ export interface DescribeVoicesCommandInput extends DescribeVoicesInput {}
 export interface DescribeVoicesCommandOutput extends DescribeVoicesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the list of voices that are available for use when
  *       requesting speech synthesis. Each voice speaks a specified language, is
  *       either male or female, and is identified by an ID, which is the ASCII
@@ -95,6 +94,7 @@ export interface DescribeVoicesCommandOutput extends DescribeVoicesOutput, __Met
  * @throws {@link PollyServiceException}
  * <p>Base exception class for all service exceptions from Polly service.</p>
  *
+ * @public
  * @example To describe available voices
  * ```javascript
  * // Returns the list of voices that are available for use when requesting speech synthesis. Displayed languages are those within the specified language code. If no language code is specified, voices for all available languages are displayed.

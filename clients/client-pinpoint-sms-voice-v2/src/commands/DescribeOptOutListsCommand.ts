@@ -31,7 +31,6 @@ export interface DescribeOptOutListsCommandInput extends DescribeOptOutListsRequ
 export interface DescribeOptOutListsCommandOutput extends DescribeOptOutListsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified opt-out list or all opt-out lists in your account.</p>
  *          <p>If you specify opt-out list names, the output includes information for only the
  *             specified opt-out lists. Opt-out lists include only those that meet the filter criteria.
@@ -93,6 +92,7 @@ export interface DescribeOptOutListsCommandOutput extends DescribeOptOutListsRes
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class DescribeOptOutListsCommand extends $Command
   .classBuilder<

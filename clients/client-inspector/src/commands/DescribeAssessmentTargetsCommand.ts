@@ -27,7 +27,6 @@ export interface DescribeAssessmentTargetsCommandInput extends DescribeAssessmen
 export interface DescribeAssessmentTargetsCommandOutput extends DescribeAssessmentTargetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the assessment targets that are specified by the ARNs of the assessment
  *          targets.</p>
  * @example
@@ -79,6 +78,7 @@ export interface DescribeAssessmentTargetsCommandOutput extends DescribeAssessme
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * @public
  * @example Describte assessment targets
  * ```javascript
  * // Describes the assessment targets that are specified by the ARNs of the assessment targets.

@@ -27,7 +27,6 @@ export interface PutWarmPoolCommandInput extends PutWarmPoolType {}
 export interface PutWarmPoolCommandOutput extends PutWarmPoolAnswer, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates a warm pool for the specified Auto Scaling group. A warm pool is a pool of
  *             pre-initialized EC2 instances that sits alongside the Auto Scaling group. Whenever your
  *             application needs to scale out, the Auto Scaling group can draw on the warm pool to meet its new
@@ -78,6 +77,7 @@ export interface PutWarmPoolCommandOutput extends PutWarmPoolAnswer, __MetadataB
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To create a warm pool for an Auto Scaling group
  * ```javascript
  * // This example creates a warm pool for the specified Auto Scaling group.

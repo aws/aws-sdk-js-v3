@@ -4,10 +4,10 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { MobileServiceException as __BaseException } from "./MobileServiceException";
 
 /**
- * @public
  * <p>
  *             Account Action is required in order to continue the request.
  *         </p>
+ * @public
  */
 export class AccountActionRequiredException extends __BaseException {
   readonly name: "AccountActionRequiredException" = "AccountActionRequiredException";
@@ -26,11 +26,11 @@ export class AccountActionRequiredException extends __BaseException {
 }
 
 /**
- * @public
  * <p>
  *             The request cannot be processed because some parameter is not valid or the project
  *             state prevents the operation from being performed.
  *         </p>
+ * @public
  */
 export class BadRequestException extends __BaseException {
   readonly name: "BadRequestException" = "BadRequestException";
@@ -49,92 +49,92 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * @public
  * <p>
  *             Request structure used to request a project be created.
  *         </p>
+ * @public
  */
 export interface CreateProjectRequest {
   /**
-   * @public
    * <p>
    *             Name of the project.
    *         </p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>
    *             Default region where project resources should be created.
    *         </p>
+   * @public
    */
   region?: string;
 
   /**
-   * @public
    * <p>
    *             ZIP or YAML file which contains configuration settings to be used when creating
    *             the project. This may be the contents of the file downloaded from the URL provided
    *             in an export project operation.
    *         </p>
+   * @public
    */
   contents?: Uint8Array;
 
   /**
-   * @public
    * <p>
    *             Unique identifier for an exported snapshot of project configuration. This
    *             snapshot identifier is included in the share URL when a project is exported.
    *         </p>
+   * @public
    */
   snapshotId?: string;
 }
 
 /**
- * @public
  * <p>
  *             Information about an instance of an AWS resource associated with a project.
  *         </p>
+ * @public
  */
 export interface Resource {
   /**
-   * @public
    * <p>
    *             Simplified name for type of AWS resource (e.g., bucket is an Amazon S3 bucket).
    *         </p>
+   * @public
    */
   type?: string;
 
   /**
-   * @public
    * <p>
    *             Name of the AWS resource (e.g., for an Amazon S3 bucket this is the name of the bucket).
    *         </p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>
    *             AWS resource name which uniquely identifies the resource in AWS systems.
    *         </p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>
    *             Identifies which feature in AWS Mobile Hub is associated with this AWS resource.
    *         </p>
+   * @public
    */
   feature?: string;
 
   /**
-   * @public
    * <p>
    *             Key-value attribute pairs.
    *         </p>
+   * @public
    */
   attributes?: Record<string, string>;
 }
@@ -155,99 +155,99 @@ export const ProjectState = {
 export type ProjectState = (typeof ProjectState)[keyof typeof ProjectState];
 
 /**
- * @public
  * <p>
  *             Detailed information about an AWS Mobile Hub project.
  *         </p>
+ * @public
  */
 export interface ProjectDetails {
   /**
-   * @public
    * <p>
    *             Name of the project.
    *         </p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>
    *             Unique project identifier.
    *         </p>
+   * @public
    */
   projectId?: string;
 
   /**
-   * @public
    * <p>
    *             Default region to use for AWS resource creation in the AWS Mobile Hub project.
    *         </p>
+   * @public
    */
   region?: string;
 
   /**
-   * @public
    * <p>
    *             Synchronization state for a project.
    *         </p>
+   * @public
    */
   state?: ProjectState;
 
   /**
-   * @public
    * <p>
    *             Date the project was created.
    *         </p>
+   * @public
    */
   createdDate?: Date;
 
   /**
-   * @public
    * <p>
    *             Date of the last modification of the project.
    *         </p>
+   * @public
    */
   lastUpdatedDate?: Date;
 
   /**
-   * @public
    * <p>
    *             Website URL for this project in the AWS Mobile Hub console.
    *         </p>
+   * @public
    */
   consoleUrl?: string;
 
   /**
-   * @public
    * <p>
    *             List of AWS resources associated with a project.
    *         </p>
+   * @public
    */
   resources?: Resource[];
 }
 
 /**
- * @public
  * <p>
  *             Result structure used in response to a request to create a project.
  *         </p>
+ * @public
  */
 export interface CreateProjectResult {
   /**
-   * @public
    * <p>
    *             Detailed information about the created AWS Mobile Hub project.
    *         </p>
+   * @public
    */
   details?: ProjectDetails;
 }
 
 /**
- * @public
  * <p>
  *             The service has encountered an unexpected error condition which prevents it from
  *             servicing the request.
  *         </p>
+ * @public
  */
 export class InternalFailureException extends __BaseException {
   readonly name: "InternalFailureException" = "InternalFailureException";
@@ -266,22 +266,22 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
- * @public
  * <p>
  *             There are too many AWS Mobile Hub projects in the account or the account has
  *             exceeded the maximum number of resources in some AWS service. You should create
  *             another sub-account using AWS Organizations or remove some resources and retry
  *             your request.
  *         </p>
+ * @public
  */
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>
    *             The Exception Error Message.
    *         </p>
+   * @public
    */
   retryAfterSeconds?: string;
 
@@ -300,10 +300,10 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>
  *             No entity can be found with the specified identifier.
  *         </p>
+ * @public
  */
 export class NotFoundException extends __BaseException {
   readonly name: "NotFoundException" = "NotFoundException";
@@ -322,20 +322,20 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>
  *             The service is temporarily unavailable. The request should be retried after some
  *             time delay.
  *         </p>
+ * @public
  */
 export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
   readonly $fault: "server" = "server";
   /**
-   * @public
    * <p>
    *             The Exception Error Message.
    *         </p>
+   * @public
    */
   retryAfterSeconds?: string;
 
@@ -354,20 +354,20 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * @public
  * <p>
  *             Too many requests have been received for this AWS account in too short a time. The
  *             request should be retried after some time delay.
  *         </p>
+ * @public
  */
 export class TooManyRequestsException extends __BaseException {
   readonly name: "TooManyRequestsException" = "TooManyRequestsException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>
    *             The Exception Error Message.
    *         </p>
+   * @public
    */
   retryAfterSeconds?: string;
 
@@ -386,10 +386,10 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * @public
  * <p>
  *             Credentials of the caller are insufficient to authorize the request.
  *         </p>
+ * @public
  */
 export class UnauthorizedException extends __BaseException {
   readonly name: "UnauthorizedException" = "UnauthorizedException";
@@ -408,58 +408,58 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>
  *             Request structure used to request a project be deleted.
  *         </p>
+ * @public
  */
 export interface DeleteProjectRequest {
   /**
-   * @public
    * <p>
    *             Unique project identifier.
    *         </p>
+   * @public
    */
   projectId: string | undefined;
 }
 
 /**
- * @public
  * <p>
  *             Result structure used in response to request to delete a project.
  *         </p>
+ * @public
  */
 export interface DeleteProjectResult {
   /**
-   * @public
    * <p>
    *             Resources which were deleted.
    *         </p>
+   * @public
    */
   deletedResources?: Resource[];
 
   /**
-   * @public
    * <p>
    *             Resources which were not deleted, due to a risk of losing potentially
    *             important data or files.
    *         </p>
+   * @public
    */
   orphanedResources?: Resource[];
 }
 
 /**
- * @public
  * <p>
  *             Request structure to request the details of a specific bundle.
  *         </p>
+ * @public
  */
 export interface DescribeBundleRequest {
   /**
-   * @public
    * <p>
    *             Unique bundle identifier.
    *         </p>
+   * @public
    */
   bundleId: string | undefined;
 }
@@ -484,203 +484,202 @@ export const Platform = {
 export type Platform = (typeof Platform)[keyof typeof Platform];
 
 /**
- * @public
  * <p>
  *             The details of the bundle.
  *         </p>
+ * @public
  */
 export interface BundleDetails {
   /**
-   * @public
    * <p>
    *             Unique bundle identifier.
    *         </p>
+   * @public
    */
   bundleId?: string;
 
   /**
-   * @public
    * <p>
    *             Title of the download bundle.
    *         </p>
+   * @public
    */
   title?: string;
 
   /**
-   * @public
    * <p>
    *             Version of the download bundle.
    *         </p>
+   * @public
    */
   version?: string;
 
   /**
-   * @public
    * <p>
    *             Description of the download bundle.
    *         </p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>
    *             Icon for the download bundle.
    *         </p>
+   * @public
    */
   iconUrl?: string;
 
   /**
-   * @public
    * <p>
    *             Developer desktop or mobile app or website platforms.
    *         </p>
+   * @public
    */
   availablePlatforms?: Platform[];
 }
 
 /**
- * @public
  * <p>
  *             Result structure contains the details of the bundle.
  *         </p>
+ * @public
  */
 export interface DescribeBundleResult {
   /**
-   * @public
    * <p>
    *             The details of the bundle.
    *         </p>
+   * @public
    */
   details?: BundleDetails;
 }
 
 /**
- * @public
  * <p>
  *             Request structure used to request details about a project.
  *         </p>
+ * @public
  */
 export interface DescribeProjectRequest {
   /**
-   * @public
    * <p>
    *             Unique project identifier.
    *         </p>
+   * @public
    */
   projectId: string | undefined;
 
   /**
-   * @public
    * <p>
    *             If set to true, causes AWS Mobile Hub to synchronize information from other services, e.g., update state of AWS CloudFormation stacks in the AWS Mobile Hub project.
    *         </p>
+   * @public
    */
   syncFromResources?: boolean;
 }
 
 /**
- * @public
  * <p>
  *             Result structure used for requests of project details.
  *         </p>
+ * @public
  */
 export interface DescribeProjectResult {
   /**
-   * @public
    * <p>
    *             Detailed information about an AWS Mobile Hub project.
    *         </p>
+   * @public
    */
   details?: ProjectDetails;
 }
 
 /**
- * @public
  * <p>
  *             Request structure used to request generation of custom SDK and tool packages
  *             required to integrate mobile web or app clients with backed AWS resources.
  *         </p>
+ * @public
  */
 export interface ExportBundleRequest {
   /**
-   * @public
    * <p>
    *             Unique bundle identifier.
    *         </p>
+   * @public
    */
   bundleId: string | undefined;
 
   /**
-   * @public
    * <p>
    *             Unique project identifier.
    *         </p>
+   * @public
    */
   projectId?: string;
 
   /**
-   * @public
    * <p>
    *             Developer desktop or target application platform.
    *         </p>
+   * @public
    */
   platform?: Platform;
 }
 
 /**
- * @public
  * <p>
  *             Result structure which contains link to download custom-generated SDK and
  *             tool packages used to integrate mobile web or app clients with backed
  *             AWS resources.
  *         </p>
+ * @public
  */
 export interface ExportBundleResult {
   /**
-   * @public
    * <p>
    *             URL which contains the custom-generated SDK and tool packages used
    *             to integrate the client mobile app or web app with the AWS resources
    *             created by the AWS Mobile Hub project.
    *         </p>
+   * @public
    */
   downloadUrl?: string;
 }
 
 /**
- * @public
  * <p>
  *             Request structure used in requests to export project configuration details.
  *         </p>
+ * @public
  */
 export interface ExportProjectRequest {
   /**
-   * @public
    * <p>
    *             Unique project identifier.
    *         </p>
+   * @public
    */
   projectId: string | undefined;
 }
 
 /**
- * @public
  * <p>
  *             Result structure used for requests to export project configuration details.
  *         </p>
+ * @public
  */
 export interface ExportProjectResult {
   /**
-   * @public
    * <p>
    *             URL which can be used to download the exported project configuation file(s).
    *         </p>
+   * @public
    */
   downloadUrl?: string;
 
   /**
-   * @public
    * <p>
    *             URL which can be shared to allow other AWS users to create their own project
    *             in AWS Mobile Hub with the same configuration as the specified project. This
@@ -689,184 +688,185 @@ export interface ExportProjectResult {
    *             configuration, then you will need to create and share a new snapshot by calling
    *             this method again.
    *         </p>
+   * @public
    */
   shareUrl?: string;
 
   /**
-   * @public
    * <p>
    *             Unique identifier for the exported snapshot of the project configuration. This
    *             snapshot identifier is included in the share URL.
    *         </p>
+   * @public
    */
   snapshotId?: string;
 }
 
 /**
- * @public
  * <p>
  *             Request structure to request all available bundles.
  *         </p>
+ * @public
  */
 export interface ListBundlesRequest {
   /**
-   * @public
    * <p>
    *             Maximum number of records to list in a single response.
    *         </p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>
    *             Pagination token. Set to null to start listing bundles from start.
    *             If non-null pagination token is returned in a result, then pass its
    *             value in here in another request to list more bundles.
    *         </p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>
  *             Result structure contains a list of all available bundles with details.
  *         </p>
+ * @public
  */
 export interface ListBundlesResult {
   /**
-   * @public
    * <p>
    *             A list of bundles.
    *         </p>
+   * @public
    */
   bundleList?: BundleDetails[];
 
   /**
-   * @public
    * <p>
    *             Pagination token. If non-null pagination token is returned in a result,
    *             then pass its value in another request to fetch more entries.
    *         </p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>
  *             Request structure used to request projects list in AWS Mobile Hub.
  *         </p>
+ * @public
  */
 export interface ListProjectsRequest {
   /**
-   * @public
    * <p>
    *             Maximum number of records to list in a single response.
    *         </p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>
    *             Pagination token. Set to null to start listing projects from start.
    *             If non-null pagination token is returned in a result, then pass its
    *             value in here in another request to list more projects.
    *         </p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>
  *             Summary information about an AWS Mobile Hub project.
  *         </p>
+ * @public
  */
 export interface ProjectSummary {
   /**
-   * @public
    * <p>
    *             Name of the project.
    *         </p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>
    *             Unique project identifier.
    *         </p>
+   * @public
    */
   projectId?: string;
 }
 
 /**
- * @public
  * <p>
  *             Result structure used for requests to list projects in AWS Mobile Hub.
  *         </p>
+ * @public
  */
 export interface ListProjectsResult {
   /**
-   * @public
    * <p>
    *             List of projects.
    *         </p>
+   * @public
    */
   projects?: ProjectSummary[];
 
   /**
-   * @public
    * <p>
    *             Pagination token. Set to null to start listing records from start.
    *             If non-null pagination token is returned in a result, then pass its
    *             value in here in another request to list more entries.
    *         </p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>
  *             Request structure used for requests to update project configuration.
  *         </p>
+ * @public
  */
 export interface UpdateProjectRequest {
   /**
-   * @public
    * <p>
    *             ZIP or YAML file which contains project configuration to be updated. This should
    *             be the contents of the file downloaded from the URL provided in an export project
    *             operation.
    *         </p>
+   * @public
    */
   contents?: Uint8Array;
 
   /**
-   * @public
    * <p>
    *             Unique project identifier.
    *         </p>
+   * @public
    */
   projectId: string | undefined;
 }
 
 /**
- * @public
  * <p>
  *             Result structure used for requests to updated project configuration.
  *         </p>
+ * @public
  */
 export interface UpdateProjectResult {
   /**
-   * @public
    * <p>
    *             Detailed information about the updated AWS Mobile Hub project.
    *         </p>
+   * @public
    */
   details?: ProjectDetails;
 }

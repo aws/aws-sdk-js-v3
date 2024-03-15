@@ -27,7 +27,6 @@ export interface DeleteDatabaseCommandInput extends DeleteDatabaseRequest {}
 export interface DeleteDatabaseCommandOutput extends DeleteDatabaseResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a specified database from a Data Catalog.</p>
  *          <note>
  *             <p>After completing this operation, you no longer have access to the tables (and all table
@@ -81,6 +80,7 @@ export interface DeleteDatabaseCommandOutput extends DeleteDatabaseResponse, __M
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class DeleteDatabaseCommand extends $Command
   .classBuilder<

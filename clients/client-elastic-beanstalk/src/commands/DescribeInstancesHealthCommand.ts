@@ -27,7 +27,6 @@ export interface DescribeInstancesHealthCommandInput extends DescribeInstancesHe
 export interface DescribeInstancesHealthCommandOutput extends DescribeInstancesHealthResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves detailed information about the health of instances in your AWS Elastic
  *       Beanstalk. This operation requires <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced.html">enhanced health
  *       reporting</a>.</p>
@@ -124,6 +123,7 @@ export interface DescribeInstancesHealthCommandOutput extends DescribeInstancesH
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  * @example To view environment health
  * ```javascript
  * // The following operation retrieves health information for instances in an environment named my-env:

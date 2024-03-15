@@ -27,7 +27,6 @@ export interface GetMatchesCommandInput extends GetMatchesRequest {}
 export interface GetMatchesCommandOutput extends GetMatchesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Before calling this API, use <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateDomain.html">CreateDomain</a> or
  *             <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateDomain.html">UpdateDomain</a> to
  *          enable identity resolution: set <code>Matching</code> to true.</p>
@@ -127,6 +126,7 @@ export interface GetMatchesCommandOutput extends GetMatchesResponse, __MetadataB
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * @public
  */
 export class GetMatchesCommand extends $Command
   .classBuilder<

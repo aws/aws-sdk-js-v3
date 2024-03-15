@@ -27,7 +27,6 @@ export interface ListIngestionDestinationsCommandInput extends ListIngestionDest
 export interface ListIngestionDestinationsCommandOutput extends ListIngestionDestinationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all ingestion destinations configured for an ingestion.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface ListIngestionDestinationsCommandOutput extends ListIngestionDes
  * @throws {@link AppFabricServiceException}
  * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
+ * @public
  */
 export class ListIngestionDestinationsCommand extends $Command
   .classBuilder<

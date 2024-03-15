@@ -31,7 +31,6 @@ export interface CreateReplicationConfigCommandInput extends CreateReplicationCo
 export interface CreateReplicationConfigCommandOutput extends CreateReplicationConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a configuration that you can later provide to configure and start an DMS Serverless
  *          replication. You can also provide options to validate the configuration inputs before you start the
  *          replication.</p>
@@ -137,6 +136,7 @@ export interface CreateReplicationConfigCommandOutput extends CreateReplicationC
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class CreateReplicationConfigCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface RemovePermissionCommandInput extends RemovePermissionRequest {}
 export interface RemovePermissionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Revokes any permissions in the queue policy that matches the specified
  *                 <code>Label</code> parameter.</p>
  *          <note>
@@ -103,6 +102,7 @@ export interface RemovePermissionCommandOutput extends __MetadataBearer {}
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ * @public
  */
 export class RemovePermissionCommand extends $Command
   .classBuilder<

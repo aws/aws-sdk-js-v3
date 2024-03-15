@@ -27,7 +27,6 @@ export interface UpdateProfileCommandInput extends UpdateProfileRequest {}
 export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates some of the parameters for an existing profile. Provide the <code>ProfileId</code>
  *       for the profile that you want to update, along with the new values for the parameters to
  *       update.</p>
@@ -76,6 +75,7 @@ export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __Met
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class UpdateProfileCommand extends $Command
   .classBuilder<

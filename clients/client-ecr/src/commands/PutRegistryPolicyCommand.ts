@@ -27,7 +27,6 @@ export interface PutRegistryPolicyCommandInput extends PutRegistryPolicyRequest 
 export interface PutRegistryPolicyCommandOutput extends PutRegistryPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates the permissions policy for your registry.</p>
  *          <p>A registry policy is used to specify permissions for another Amazon Web Services account and is used
  *             when configuring cross-account replication. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html">Registry permissions</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
@@ -68,6 +67,7 @@ export interface PutRegistryPolicyCommandOutput extends PutRegistryPolicyRespons
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * @public
  */
 export class PutRegistryPolicyCommand extends $Command
   .classBuilder<

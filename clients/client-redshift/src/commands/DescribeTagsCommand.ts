@@ -27,7 +27,6 @@ export interface DescribeTagsCommandInput extends DescribeTagsMessage {}
 export interface DescribeTagsCommandOutput extends TaggedResourceListMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of tags. You can return tags from a specific resource by specifying
  *             an ARN, or you can return all tags for a given type of resource, such as clusters,
  *             snapshots, and so on.</p>
@@ -104,6 +103,7 @@ export interface DescribeTagsCommandOutput extends TaggedResourceListMessage, __
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DescribeTagsCommand extends $Command
   .classBuilder<

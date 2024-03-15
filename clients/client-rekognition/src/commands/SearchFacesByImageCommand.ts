@@ -27,7 +27,6 @@ export interface SearchFacesByImageCommandInput extends SearchFacesByImageReques
 export interface SearchFacesByImageCommandOutput extends SearchFacesByImageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>For a given input image, first detects the largest face in the image, and then searches
  *       the specified collection for matching faces. The operation compares the features of the input
  *       face with faces in the specified collection. </p>
@@ -160,6 +159,7 @@ export interface SearchFacesByImageCommandOutput extends SearchFacesByImageRespo
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example To search for faces matching a supplied image
  * ```javascript
  * // This operation searches for faces in a Rekognition collection that match the largest face in an S3 bucket stored image.

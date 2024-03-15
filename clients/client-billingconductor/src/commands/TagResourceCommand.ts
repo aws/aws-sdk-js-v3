@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Associates the specified tags to a resource with the specified <code>resourceArn</code>.
  *       If existing tags on a resource are not specified in the request parameters, they are not
  *       changed. </p>
@@ -77,6 +76,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeCachediSCSIVolumesCommandInput extends DescribeCachediS
 export interface DescribeCachediSCSIVolumesCommandOutput extends DescribeCachediSCSIVolumesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a description of the gateway volumes specified in the request. This operation is
  *          only supported in the cached volume gateway types.</p>
  *          <p>The list of gateway volumes in the request must be from one gateway. In the response,
@@ -91,6 +90,7 @@ export interface DescribeCachediSCSIVolumesCommandOutput extends DescribeCachedi
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To describe gateway cached iSCSI volumes
  * ```javascript
  * // Returns a description of the gateway cached iSCSI volumes specified in the request.

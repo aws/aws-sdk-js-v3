@@ -294,9 +294,9 @@ export type CloudHSMV2ClientResolvedConfigType = __SmithyResolvedConfiguration<_
 export interface CloudHSMV2ClientResolvedConfig extends CloudHSMV2ClientResolvedConfigType {}
 
 /**
- * @public
  * <p>For more information about AWS CloudHSM, see <a href="http://aws.amazon.com/cloudhsm/">AWS CloudHSM</a> and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
  *       CloudHSM User Guide</a>.</p>
+ * @public
  */
 export class CloudHSMV2Client extends __Client<
   __HttpHandlerOptions,

@@ -32,7 +32,6 @@ export interface DescribeSpeakerCommandInput extends DescribeSpeakerRequest {}
 export interface DescribeSpeakerCommandOutput extends DescribeSpeakerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified speaker.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface DescribeSpeakerCommandOutput extends DescribeSpeakerResponse, _
  * @throws {@link VoiceIDServiceException}
  * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
+ * @public
  */
 export class DescribeSpeakerCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface StartUserImportJobCommandInput extends StartUserImportJobReques
 export interface StartUserImportJobCommandOutput extends StartUserImportJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts the user import.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface StartUserImportJobCommandOutput extends StartUserImportJobRespo
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class StartUserImportJobCommand extends $Command
   .classBuilder<

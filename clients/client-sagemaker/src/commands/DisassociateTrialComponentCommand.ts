@@ -27,7 +27,6 @@ export interface DisassociateTrialComponentCommandInput extends DisassociateTria
 export interface DisassociateTrialComponentCommandOutput extends DisassociateTrialComponentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates a trial component from a trial. This doesn't effect other trials the
  *       component is associated with. Before you can delete a component, you must disassociate the
  *       component from all trials it is associated with. To associate a trial component with a trial,
@@ -65,6 +64,7 @@ export interface DisassociateTrialComponentCommandOutput extends DisassociateTri
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DisassociateTrialComponentCommand extends $Command
   .classBuilder<

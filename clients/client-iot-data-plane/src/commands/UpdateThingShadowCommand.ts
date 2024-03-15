@@ -42,7 +42,6 @@ export type UpdateThingShadowCommandOutputType = Omit<UpdateThingShadowResponse,
 export interface UpdateThingShadowCommandOutput extends UpdateThingShadowCommandOutputType, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the shadow for the specified thing.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateThingShadow</a> action.</p>
  *          <p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html">UpdateThingShadow</a> in the
@@ -102,6 +101,7 @@ export interface UpdateThingShadowCommandOutput extends UpdateThingShadowCommand
  * @throws {@link IoTDataPlaneServiceException}
  * <p>Base exception class for all service exceptions from IoTDataPlane service.</p>
  *
+ * @public
  */
 export class UpdateThingShadowCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DisassociateMembershipCommandInput extends DisassociateMembersh
 export interface DisassociateMembershipCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the member account from the specified behavior graph. This operation can only be
  *          called by an invited member account that has the <code>ENABLED</code> status.</p>
  *          <p>
@@ -75,6 +74,7 @@ export interface DisassociateMembershipCommandOutput extends __MetadataBearer {}
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ * @public
  */
 export class DisassociateMembershipCommand extends $Command
   .classBuilder<

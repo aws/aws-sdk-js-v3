@@ -27,7 +27,6 @@ export interface StopApplicationCommandInput extends StopApplicationRequest {}
 export interface StopApplicationCommandOutput extends StopApplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a specified application and releases initial capacity if configured. All scheduled
  *          and running jobs must be completed or cancelled before stopping an application.</p>
  * @example
@@ -64,6 +63,7 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  * @throws {@link EMRServerlessServiceException}
  * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
+ * @public
  */
 export class StopApplicationCommand extends $Command
   .classBuilder<

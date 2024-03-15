@@ -27,7 +27,6 @@ export interface DeleteCrlCommandInput extends ScalarCrlRequest {}
 export interface DeleteCrlCommandOutput extends CrlDetailResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a certificate revocation list (CRL).</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -74,6 +73,7 @@ export interface DeleteCrlCommandOutput extends CrlDetailResponse, __MetadataBea
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ * @public
  */
 export class DeleteCrlCommand extends $Command
   .classBuilder<

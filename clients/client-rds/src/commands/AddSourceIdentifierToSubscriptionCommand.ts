@@ -32,7 +32,6 @@ export interface AddSourceIdentifierToSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a source identifier to an existing RDS event notification subscription.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface AddSourceIdentifierToSubscriptionCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To add a source identifier to a subscription
  * ```javascript
  * // The following example adds another source identifier to an existing subscription.

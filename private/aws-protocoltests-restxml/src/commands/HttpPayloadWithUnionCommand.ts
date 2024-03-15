@@ -25,7 +25,6 @@ export interface HttpPayloadWithUnionCommandInput extends HttpPayloadWithUnionIn
 export interface HttpPayloadWithUnionCommandOutput extends HttpPayloadWithUnionInputOutput, __MetadataBearer {}
 
 /**
- * @public
  * This example serializes a union in the payload.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -57,6 +56,7 @@ export interface HttpPayloadWithUnionCommandOutput extends HttpPayloadWithUnionI
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ * @public
  */
 export class HttpPayloadWithUnionCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface UpdateDestinationCommandInput extends UpdateDestinationInput {}
 export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified destination of the specified delivery stream.</p>
  *          <p>Use this operation to change the destination type (for example, to replace the Amazon
  *          S3 destination with Amazon Redshift) or change the parameters associated with a destination
@@ -484,6 +483,7 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput,
  * @throws {@link FirehoseServiceException}
  * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
+ * @public
  */
 export class UpdateDestinationCommand extends $Command
   .classBuilder<

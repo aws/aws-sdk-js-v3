@@ -32,7 +32,6 @@ export interface DescribeOrganizationConfigRulesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of organization Config rules. </p>
  *          <note>
  *             <p>When you specify the limit and the next token, you receive a paginated response.</p>
@@ -169,6 +168,7 @@ export interface DescribeOrganizationConfigRulesCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class DescribeOrganizationConfigRulesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateActiveModelVersionCommandInput extends UpdateActiveModelV
 export interface UpdateActiveModelVersionCommandOutput extends UpdateActiveModelVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the active model version for a given machine learning model.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface UpdateActiveModelVersionCommandOutput extends UpdateActiveModel
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  */
 export class UpdateActiveModelVersionCommand extends $Command
   .classBuilder<

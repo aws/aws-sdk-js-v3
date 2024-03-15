@@ -27,7 +27,6 @@ export interface DeleteTagOptionCommandInput extends DeleteTagOptionInput {}
 export interface DeleteTagOptionCommandOutput extends DeleteTagOptionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified TagOption.</p>
  *          <p>You cannot delete a TagOption if it is associated with a product or portfolio.</p>
  * @example
@@ -65,6 +64,7 @@ export interface DeleteTagOptionCommandOutput extends DeleteTagOptionOutput, __M
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class DeleteTagOptionCommand extends $Command
   .classBuilder<

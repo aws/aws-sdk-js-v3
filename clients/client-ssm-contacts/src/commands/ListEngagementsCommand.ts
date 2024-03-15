@@ -27,7 +27,6 @@ export interface ListEngagementsCommandInput extends ListEngagementsRequest {}
 export interface ListEngagementsCommandOutput extends ListEngagementsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all engagements that have happened in an incident.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface ListEngagementsCommandOutput extends ListEngagementsResult, __M
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ * @public
  */
 export class ListEngagementsCommand extends $Command
   .classBuilder<

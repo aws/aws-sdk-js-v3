@@ -27,7 +27,6 @@ export interface ListExtensionAssociationsCommandInput extends ListExtensionAsso
 export interface ListExtensionAssociationsCommandOutput extends ExtensionAssociations, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all AppConfig extension associations in the account. For more
  *          information about extensions and associations, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Extending
  *             workflows</a> in the <i>AppConfig User Guide</i>.</p>
@@ -74,6 +73,7 @@ export interface ListExtensionAssociationsCommandOutput extends ExtensionAssocia
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  */
 export class ListExtensionAssociationsCommand extends $Command
   .classBuilder<

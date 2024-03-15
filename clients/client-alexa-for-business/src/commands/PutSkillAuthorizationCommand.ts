@@ -31,9 +31,6 @@ export interface PutSkillAuthorizationCommandInput extends PutSkillAuthorization
 export interface PutSkillAuthorizationCommandOutput extends PutSkillAuthorizationResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Links a user's account to a third-party skill provider. If this API operation is
  *          called by an assumed IAM role, the skill being linked must be a private skill. Also, the
  *          skill must be owned by the AWS account that assumed the IAM role.</p>
@@ -71,6 +68,8 @@ export interface PutSkillAuthorizationCommandOutput extends PutSkillAuthorizatio
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class PutSkillAuthorizationCommand extends $Command
   .classBuilder<

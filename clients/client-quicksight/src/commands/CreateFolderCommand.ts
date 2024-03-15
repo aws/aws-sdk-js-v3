@@ -27,7 +27,6 @@ export interface CreateFolderCommandInput extends CreateFolderRequest {}
 export interface CreateFolderCommandOutput extends CreateFolderResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an empty shared folder.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -110,6 +109,7 @@ export interface CreateFolderCommandOutput extends CreateFolderResponse, __Metad
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class CreateFolderCommand extends $Command
   .classBuilder<

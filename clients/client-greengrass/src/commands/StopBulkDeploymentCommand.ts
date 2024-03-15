@@ -27,7 +27,6 @@ export interface StopBulkDeploymentCommandInput extends StopBulkDeploymentReques
 export interface StopBulkDeploymentCommandOutput extends StopBulkDeploymentResponse, __MetadataBearer {}
 
 /**
- * @public
  * Stops the execution of a bulk deployment. This action returns a status of ''Stopping'' until the deployment is stopped. You cannot start a new bulk deployment while a previous deployment is in the ''Stopping'' state. This action doesn't rollback completed deployments or cancel pending deployments.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,6 +55,7 @@ export interface StopBulkDeploymentCommandOutput extends StopBulkDeploymentRespo
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class StopBulkDeploymentCommand extends $Command
   .classBuilder<

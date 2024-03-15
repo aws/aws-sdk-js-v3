@@ -27,7 +27,6 @@ export interface CancelSpotInstanceRequestsCommandInput extends CancelSpotInstan
 export interface CancelSpotInstanceRequestsCommandOutput extends CancelSpotInstanceRequestsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels one or more Spot Instance requests.</p>
  *          <important>
  *             <p>Canceling a Spot Instance request does not terminate running Spot Instances
@@ -67,6 +66,7 @@ export interface CancelSpotInstanceRequestsCommandOutput extends CancelSpotInsta
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To cancel Spot Instance requests
  * ```javascript
  * // This example cancels a Spot Instance request.

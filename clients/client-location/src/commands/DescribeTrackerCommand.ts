@@ -27,7 +27,6 @@ export interface DescribeTrackerCommandInput extends DescribeTrackerRequest {}
 export interface DescribeTrackerCommandOutput extends DescribeTrackerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the tracker resource details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface DescribeTrackerCommandOutput extends DescribeTrackerResponse, _
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class DescribeTrackerCommand extends $Command
   .classBuilder<

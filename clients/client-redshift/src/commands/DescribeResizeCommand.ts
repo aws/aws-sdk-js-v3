@@ -28,7 +28,6 @@ export interface DescribeResizeCommandInput extends DescribeResizeMessage {}
 export interface DescribeResizeCommandOutput extends ResizeProgressMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the last resize operation for the specified cluster. If
  *             no resize operation has ever been initiated for the specified cluster, a <code>HTTP
  *                 404</code> error is returned. If a resize operation was initiated and completed, the
@@ -92,6 +91,7 @@ export interface DescribeResizeCommandOutput extends ResizeProgressMessage, __Me
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DescribeResizeCommand extends $Command
   .classBuilder<

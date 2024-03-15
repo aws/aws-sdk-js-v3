@@ -31,7 +31,6 @@ export interface DeleteWorkgroupCommandInput extends DeleteWorkgroupRequest {}
 export interface DeleteWorkgroupCommandOutput extends DeleteWorkgroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a workgroup.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -121,6 +120,7 @@ export interface DeleteWorkgroupCommandOutput extends DeleteWorkgroupResponse, _
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * @public
  */
 export class DeleteWorkgroupCommand extends $Command
   .classBuilder<

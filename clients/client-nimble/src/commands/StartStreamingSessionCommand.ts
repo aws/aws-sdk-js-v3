@@ -27,7 +27,6 @@ export interface StartStreamingSessionCommandInput extends StartStreamingSession
 export interface StartStreamingSessionCommandOutput extends StartStreamingSessionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Transitions sessions from the <code>STOPPED</code> state into the <code>READY</code>
  *             state. The <code>START_IN_PROGRESS</code> state is the intermediate state between the
  *                 <code>STOPPED</code> and <code>READY</code> states.</p>
@@ -118,6 +117,7 @@ export interface StartStreamingSessionCommandOutput extends StartStreamingSessio
  * @throws {@link NimbleServiceException}
  * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
+ * @public
  */
 export class StartStreamingSessionCommand extends $Command
   .classBuilder<

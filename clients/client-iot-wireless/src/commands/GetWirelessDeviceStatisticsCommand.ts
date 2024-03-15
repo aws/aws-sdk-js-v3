@@ -32,7 +32,6 @@ export interface GetWirelessDeviceStatisticsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets operating information about a wireless device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface GetWirelessDeviceStatisticsCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class GetWirelessDeviceStatisticsCommand extends $Command
   .classBuilder<

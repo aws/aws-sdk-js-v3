@@ -37,7 +37,6 @@ export interface GetRelationalDatabaseMasterUserPasswordCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the current, previous, or pending versions of the master user password for a
  *       Lightsail database.</p>
  *          <p>The <code>GetRelationalDatabaseMasterUserPassword</code> operation supports tag-based
@@ -101,6 +100,7 @@ export interface GetRelationalDatabaseMasterUserPasswordCommandOutput
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetRelationalDatabaseMasterUserPasswordCommand extends $Command
   .classBuilder<

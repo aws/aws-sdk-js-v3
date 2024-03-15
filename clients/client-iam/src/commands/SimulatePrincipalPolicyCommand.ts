@@ -27,7 +27,6 @@ export interface SimulatePrincipalPolicyCommandInput extends SimulatePrincipalPo
 export interface SimulatePrincipalPolicyCommandOutput extends SimulatePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Simulate how a set of IAM policies attached to an IAM entity works with a list of
  *             API operations and Amazon Web Services resources to determine the policies' effective permissions. The
  *             entity can be an IAM user, group, or role. If you specify a user, then the simulation
@@ -189,6 +188,7 @@ export interface SimulatePrincipalPolicyCommandOutput extends SimulatePolicyResp
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class SimulatePrincipalPolicyCommand extends $Command
   .classBuilder<

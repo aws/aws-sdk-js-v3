@@ -27,7 +27,6 @@ export interface CreateLogSubscriptionCommandInput extends CreateLogSubscription
 export interface CreateLogSubscriptionCommandOutput extends CreateLogSubscriptionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a subscription to forward real-time Directory Service domain controller security
  *       logs to the specified Amazon CloudWatch log group in your Amazon Web Services account.</p>
  * @example
@@ -73,6 +72,7 @@ export interface CreateLogSubscriptionCommandOutput extends CreateLogSubscriptio
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class CreateLogSubscriptionCommand extends $Command
   .classBuilder<

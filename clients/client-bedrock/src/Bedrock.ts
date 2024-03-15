@@ -457,8 +457,8 @@ export interface Bedrock {
 }
 
 /**
- * @public
  * <p>Describes the API operations for creating and managing Amazon Bedrock models.</p>
+ * @public
  */
 export class Bedrock extends BedrockClient implements Bedrock {}
 createAggregatedClient(commands, Bedrock);

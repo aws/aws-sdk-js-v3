@@ -27,9 +27,6 @@ export interface GetRoomSkillParameterCommandInput extends GetRoomSkillParameter
 export interface GetRoomSkillParameterCommandOutput extends GetRoomSkillParameterResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Gets room skill parameter details by room, skill, and parameter key ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +62,8 @@ export interface GetRoomSkillParameterCommandOutput extends GetRoomSkillParamete
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class GetRoomSkillParameterCommand extends $Command
   .classBuilder<

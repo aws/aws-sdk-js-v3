@@ -32,7 +32,6 @@ export interface DescribeRemediationExceptionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the details of one or more remediation exceptions. A detailed view of a remediation exception for a set of resources that includes an explanation of an exception and the time when the exception will be deleted.
  * 			When you specify the limit and the next token, you receive a paginated response. </p>
  *          <note>
@@ -93,6 +92,7 @@ export interface DescribeRemediationExceptionsCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class DescribeRemediationExceptionsCommand extends $Command
   .classBuilder<

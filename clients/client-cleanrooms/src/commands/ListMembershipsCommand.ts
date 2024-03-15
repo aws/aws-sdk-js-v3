@@ -27,7 +27,6 @@ export interface ListMembershipsCommandInput extends ListMembershipsInput {}
 export interface ListMembershipsCommandOutput extends ListMembershipsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all memberships resources within the caller's account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface ListMembershipsCommandOutput extends ListMembershipsOutput, __M
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class ListMembershipsCommand extends $Command
   .classBuilder<

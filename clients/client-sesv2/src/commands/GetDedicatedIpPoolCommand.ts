@@ -27,7 +27,6 @@ export interface GetDedicatedIpPoolCommandInput extends GetDedicatedIpPoolReques
 export interface GetDedicatedIpPoolCommandOutput extends GetDedicatedIpPoolResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieve information about the dedicated pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface GetDedicatedIpPoolCommandOutput extends GetDedicatedIpPoolRespo
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class GetDedicatedIpPoolCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeregisterResourceCommandInput extends DeregisterResourceReques
 export interface DeregisterResourceCommandOutput extends DeregisterResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deregisters the resource as managed by the Data Catalog.</p>
  *          <p>When you deregister a path, Lake Formation removes the path from the inline policy attached to your service-linked role.</p>
  * @example
@@ -66,6 +65,7 @@ export interface DeregisterResourceCommandOutput extends DeregisterResourceRespo
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class DeregisterResourceCommand extends $Command
   .classBuilder<

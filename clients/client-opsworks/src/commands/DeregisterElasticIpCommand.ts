@@ -27,7 +27,6 @@ export interface DeregisterElasticIpCommandInput extends DeregisterElasticIpRequ
 export interface DeregisterElasticIpCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deregisters a specified Elastic IP address. The address can then be registered by another
  *       stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource Management</a>.</p>
  *          <p>
@@ -65,6 +64,7 @@ export interface DeregisterElasticIpCommandOutput extends __MetadataBearer {}
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class DeregisterElasticIpCommand extends $Command
   .classBuilder<

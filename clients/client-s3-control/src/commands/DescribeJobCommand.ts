@@ -28,7 +28,6 @@ export interface DescribeJobCommandInput extends DescribeJobRequest {}
 export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the configuration parameters and status for a Batch Operations job. For more
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html">S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <dl>
@@ -301,6 +300,7 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class DescribeJobCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListCertificatesByCACommandInput extends ListCertificatesByCARe
 export interface ListCertificatesByCACommandOutput extends ListCertificatesByCAResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List the device certificates signed by the specified CA certificate.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListCertificatesByCA</a> action.</p>
  * @example
@@ -83,6 +82,7 @@ export interface ListCertificatesByCACommandOutput extends ListCertificatesByCAR
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListCertificatesByCACommand extends $Command
   .classBuilder<

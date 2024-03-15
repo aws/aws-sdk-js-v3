@@ -3100,7 +3100,6 @@ export interface SSM {
 }
 
 /**
- * @public
  * <p>Amazon Web Services Systems Manager is the operations hub for your Amazon Web Services applications and resources and a secure
  *    end-to-end management solution for hybrid cloud environments that enables safe and secure
  *    operations at scale.</p>
@@ -3137,6 +3136,7 @@ export interface SSM {
  *                   </i>.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class SSM extends SSMClient implements SSM {}
 createAggregatedClient(commands, SSM);

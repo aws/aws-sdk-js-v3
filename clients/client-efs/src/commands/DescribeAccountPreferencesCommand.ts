@@ -27,7 +27,6 @@ export interface DescribeAccountPreferencesCommandInput extends DescribeAccountP
 export interface DescribeAccountPreferencesCommandOutput extends DescribeAccountPreferencesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the account preferences settings for the Amazon Web Services account associated with the user making the request, in the current Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface DescribeAccountPreferencesCommandOutput extends DescribeAccount
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * @public
  */
 export class DescribeAccountPreferencesCommand extends $Command
   .classBuilder<

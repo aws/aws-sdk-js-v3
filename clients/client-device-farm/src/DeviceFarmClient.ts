@@ -573,7 +573,6 @@ export type DeviceFarmClientResolvedConfigType = __SmithyResolvedConfiguration<_
 export interface DeviceFarmClientResolvedConfig extends DeviceFarmClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Welcome to the AWS Device Farm API documentation, which contains APIs for:</p>
  *         <ul>
  *             <li>
@@ -589,6 +588,7 @@ export interface DeviceFarmClientResolvedConfig extends DeviceFarmClientResolved
  *                     devices in the cloud. For more information, see the <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/">Device Farm Developer Guide</a>.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class DeviceFarmClient extends __Client<
   __HttpHandlerOptions,

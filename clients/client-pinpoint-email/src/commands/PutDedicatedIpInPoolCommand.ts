@@ -27,7 +27,6 @@ export interface PutDedicatedIpInPoolCommandInput extends PutDedicatedIpInPoolRe
 export interface PutDedicatedIpInPoolCommandOutput extends PutDedicatedIpInPoolResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Move a dedicated IP address to an existing dedicated IP pool.</p>
  *         <note>
  *             <p>The dedicated IP address that you specify must already exist, and must be
@@ -72,6 +71,7 @@ export interface PutDedicatedIpInPoolCommandOutput extends PutDedicatedIpInPoolR
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * @public
  */
 export class PutDedicatedIpInPoolCommand extends $Command
   .classBuilder<

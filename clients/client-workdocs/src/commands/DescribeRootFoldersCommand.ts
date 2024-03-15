@@ -32,7 +32,6 @@ export interface DescribeRootFoldersCommandInput extends DescribeRootFoldersRequ
 export interface DescribeRootFoldersCommandOutput extends DescribeRootFoldersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the current user's special folders; the <code>RootFolder</code> and the
  *                 <code>RecycleBin</code>. <code>RootFolder</code> is the root of user's files and
  *             folders and <code>RecycleBin</code> is the root of recycled items. This is not a valid
@@ -104,6 +103,7 @@ export interface DescribeRootFoldersCommandOutput extends DescribeRootFoldersRes
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class DescribeRootFoldersCommand extends $Command
   .classBuilder<

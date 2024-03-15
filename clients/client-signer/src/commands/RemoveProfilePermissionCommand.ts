@@ -27,7 +27,6 @@ export interface RemoveProfilePermissionCommandInput extends RemoveProfilePermis
 export interface RemoveProfilePermissionCommandOutput extends RemoveProfilePermissionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes cross-account permissions from a signing profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface RemoveProfilePermissionCommandOutput extends RemoveProfilePermi
  * @throws {@link SignerServiceException}
  * <p>Base exception class for all service exceptions from Signer service.</p>
  *
+ * @public
  */
 export class RemoveProfilePermissionCommand extends $Command
   .classBuilder<

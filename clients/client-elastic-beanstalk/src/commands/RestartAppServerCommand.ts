@@ -27,7 +27,6 @@ export interface RestartAppServerCommandInput extends RestartAppServerMessage {}
 export interface RestartAppServerCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Causes the environment to restart the application container server running on each
  *       Amazon EC2 instance.</p>
  * @example
@@ -55,6 +54,7 @@ export interface RestartAppServerCommandOutput extends __MetadataBearer {}
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  * @example To restart application servers
  * ```javascript
  * // The following operation restarts application servers on all instances in an environment named my-env:

@@ -27,7 +27,6 @@ export interface GetStudioSessionMappingCommandInput extends GetStudioSessionMap
 export interface GetStudioSessionMappingCommandOutput extends GetStudioSessionMappingOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Fetches mapping details for the specified Amazon EMR Studio and identity (user
  *          or group).</p>
  * @example
@@ -74,6 +73,7 @@ export interface GetStudioSessionMappingCommandOutput extends GetStudioSessionMa
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class GetStudioSessionMappingCommand extends $Command
   .classBuilder<

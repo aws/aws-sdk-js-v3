@@ -243,8 +243,8 @@ export interface SnowDeviceManagement {
 }
 
 /**
- * @public
  * <p>Amazon Web Services Snow Device Management documentation.</p>
+ * @public
  */
 export class SnowDeviceManagement extends SnowDeviceManagementClient implements SnowDeviceManagement {}
 createAggregatedClient(commands, SnowDeviceManagement);

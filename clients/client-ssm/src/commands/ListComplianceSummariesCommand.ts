@@ -27,7 +27,6 @@ export interface ListComplianceSummariesCommandInput extends ListComplianceSumma
 export interface ListComplianceSummariesCommandOutput extends ListComplianceSummariesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a summary count of compliant and non-compliant resources for a compliance type. For
  *    example, this call can return State Manager associations, patches, or custom compliance types
  *    according to the filter criteria that you specify.</p>
@@ -103,6 +102,7 @@ export interface ListComplianceSummariesCommandOutput extends ListComplianceSumm
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class ListComplianceSummariesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateResourceCommandInput extends UpdateResourceRequest {}
 export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates data for the resource. To have the latest information, it must be preceded by
  *          a <a>DescribeResource</a> call. The dataset in the request should be the one
  *          expected when performing another <code>DescribeResource</code> call.</p>
@@ -109,6 +108,7 @@ export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __M
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class UpdateResourceCommand extends $Command
   .classBuilder<

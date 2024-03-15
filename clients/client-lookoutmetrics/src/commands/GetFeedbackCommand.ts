@@ -27,7 +27,6 @@ export interface GetFeedbackCommandInput extends GetFeedbackRequest {}
 export interface GetFeedbackCommandOutput extends GetFeedbackResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get feedback for an anomaly group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface GetFeedbackCommandOutput extends GetFeedbackResponse, __Metadat
  * @throws {@link LookoutMetricsServiceException}
  * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
+ * @public
  */
 export class GetFeedbackCommand extends $Command
   .classBuilder<

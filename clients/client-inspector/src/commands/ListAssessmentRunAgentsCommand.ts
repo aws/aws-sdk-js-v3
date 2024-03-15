@@ -27,7 +27,6 @@ export interface ListAssessmentRunAgentsCommandInput extends ListAssessmentRunAg
 export interface ListAssessmentRunAgentsCommandOutput extends ListAssessmentRunAgentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the agents of the assessment runs that are specified by the ARNs of the
  *          assessment runs.</p>
  * @example
@@ -97,6 +96,7 @@ export interface ListAssessmentRunAgentsCommandOutput extends ListAssessmentRunA
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * @public
  * @example List assessment run agents
  * ```javascript
  * // Lists the agents of the assessment runs that are specified by the ARNs of the assessment runs.

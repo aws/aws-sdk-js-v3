@@ -27,7 +27,6 @@ export interface PutGatewayResponseCommandInput extends PutGatewayResponseReques
 export interface PutGatewayResponseCommandOutput extends GatewayResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a customization of a GatewayResponse of a specified response type and status code on the given RestApi.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface PutGatewayResponseCommandOutput extends GatewayResponse, __Meta
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class PutGatewayResponseCommand extends $Command
   .classBuilder<

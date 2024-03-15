@@ -27,7 +27,6 @@ export interface DeleteRotationOverrideCommandInput extends DeleteRotationOverri
 export interface DeleteRotationOverrideCommandOutput extends DeleteRotationOverrideResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing override for an on-call rotation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface DeleteRotationOverrideCommandOutput extends DeleteRotationOverr
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ * @public
  */
 export class DeleteRotationOverrideCommand extends $Command
   .classBuilder<

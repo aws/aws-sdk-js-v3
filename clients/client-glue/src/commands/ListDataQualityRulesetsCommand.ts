@@ -27,7 +27,6 @@ export interface ListDataQualityRulesetsCommandInput extends ListDataQualityRule
 export interface ListDataQualityRulesetsCommandOutput extends ListDataQualityRulesetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a paginated list of rulesets for the specified list of Glue tables.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface ListDataQualityRulesetsCommandOutput extends ListDataQualityRul
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class ListDataQualityRulesetsCommand extends $Command
   .classBuilder<

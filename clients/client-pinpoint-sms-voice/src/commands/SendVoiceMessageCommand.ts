@@ -27,7 +27,6 @@ export interface SendVoiceMessageCommandInput extends SendVoiceMessageRequest {}
 export interface SendVoiceMessageCommandOutput extends SendVoiceMessageResponse, __MetadataBearer {}
 
 /**
- * @public
  * Create a new voice message and send it to a recipient's phone number.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface SendVoiceMessageCommandOutput extends SendVoiceMessageResponse,
  * @throws {@link PinpointSMSVoiceServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoice service.</p>
  *
+ * @public
  */
 export class SendVoiceMessageCommand extends $Command
   .classBuilder<

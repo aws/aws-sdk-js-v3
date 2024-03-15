@@ -27,7 +27,6 @@ export interface UpdateShardCountCommandInput extends UpdateShardCountInput {}
 export interface UpdateShardCountCommandOutput extends UpdateShardCountOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the shard count of the specified stream to the specified number of shards.
  *             This API is only supported for the data streams with the provisioned capacity
  *             mode.</p>
@@ -137,6 +136,7 @@ export interface UpdateShardCountCommandOutput extends UpdateShardCountOutput, _
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * @public
  */
 export class UpdateShardCountCommand extends $Command
   .classBuilder<

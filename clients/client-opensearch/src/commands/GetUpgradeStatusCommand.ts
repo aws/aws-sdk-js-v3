@@ -27,7 +27,6 @@ export interface GetUpgradeStatusCommandInput extends GetUpgradeStatusRequest {}
 export interface GetUpgradeStatusCommandOutput extends GetUpgradeStatusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the most recent status of the last upgrade or upgrade eligibility check performed on
  *    an Amazon OpenSearch Service domain.</p>
  * @example
@@ -73,6 +72,7 @@ export interface GetUpgradeStatusCommandOutput extends GetUpgradeStatusResponse,
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class GetUpgradeStatusCommand extends $Command
   .classBuilder<

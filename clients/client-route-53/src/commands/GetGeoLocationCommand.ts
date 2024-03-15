@@ -27,7 +27,6 @@ export interface GetGeoLocationCommandInput extends GetGeoLocationRequest {}
 export interface GetGeoLocationCommandOutput extends GetGeoLocationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about whether a specified geographic location is supported for Amazon
  * 			Route 53 geolocation resource record sets.</p>
  *          <p>Route 53 does not perform authorization for this API because it retrieves information
@@ -97,6 +96,7 @@ export interface GetGeoLocationCommandOutput extends GetGeoLocationResponse, __M
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class GetGeoLocationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateFindingAggregatorCommandInput extends CreateFindingAggreg
 export interface CreateFindingAggregatorCommandOutput extends CreateFindingAggregatorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Used to enable finding aggregation. Must be called from the aggregation Region.</p>
  *          <p>For more details about cross-Region replication, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/finding-aggregation.html">Configuring finding aggregation</a> in the <i>Security Hub User Guide</i>.
  *       </p>
@@ -82,6 +81,7 @@ export interface CreateFindingAggregatorCommandOutput extends CreateFindingAggre
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To enable cross-Region aggregation
  * ```javascript
  * // The following example creates a finding aggregator. This is required to enable cross-Region aggregation.

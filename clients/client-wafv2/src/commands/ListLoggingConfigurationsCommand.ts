@@ -27,7 +27,6 @@ export interface ListLoggingConfigurationsCommandInput extends ListLoggingConfig
 export interface ListLoggingConfigurationsCommandOutput extends ListLoggingConfigurationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves an array of your <a>LoggingConfiguration</a> objects.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -173,6 +172,7 @@ export interface ListLoggingConfigurationsCommandOutput extends ListLoggingConfi
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class ListLoggingConfigurationsCommand extends $Command
   .classBuilder<

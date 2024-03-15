@@ -27,7 +27,6 @@ export interface ListConfigurationSetsCommandInput extends ListConfigurationSets
 export interface ListConfigurationSetsCommandOutput extends ListConfigurationSetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List all of the configuration sets associated with your account in the current
  *             region.</p>
  *          <p>
@@ -71,6 +70,7 @@ export interface ListConfigurationSetsCommandOutput extends ListConfigurationSet
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class ListConfigurationSetsCommand extends $Command
   .classBuilder<

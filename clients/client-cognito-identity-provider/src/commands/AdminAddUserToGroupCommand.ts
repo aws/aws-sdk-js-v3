@@ -31,7 +31,6 @@ export interface AdminAddUserToGroupCommandInput extends AdminAddUserToGroupRequ
 export interface AdminAddUserToGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a user to a group. A user who is in a group can present a preferred-role claim to
  *             an identity pool, and populates a <code>cognito:groups</code> claim to their access and
  *             identity tokens.</p>
@@ -102,6 +101,7 @@ export interface AdminAddUserToGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class AdminAddUserToGroupCommand extends $Command
   .classBuilder<

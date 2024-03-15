@@ -27,7 +27,6 @@ export interface ListConflictingAliasesCommandInput extends ListConflictingAlias
 export interface ListConflictingAliasesCommandOutput extends ListConflictingAliasesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of aliases (also called CNAMEs or alternate domain names) that conflict or
  * 			overlap with the provided alias, and the associated CloudFront distributions and Amazon Web Services
  * 			accounts for each conflicting alias. In the returned list, the distribution and account
@@ -97,6 +96,7 @@ export interface ListConflictingAliasesCommandOutput extends ListConflictingAlia
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class ListConflictingAliasesCommand extends $Command
   .classBuilder<

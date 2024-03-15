@@ -27,7 +27,6 @@ export interface CreateDataLakeCommandInput extends CreateDataLakeRequest {}
 export interface CreateDataLakeCommandOutput extends CreateDataLakeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Initializes an Amazon Security Lake instance with the provided (or default) configuration. You
  *          can enable Security Lake in Amazon Web Services Regions with customized settings before enabling
  *          log collection in Regions. To specify particular Regions, configure these Regions using the
@@ -159,6 +158,7 @@ export interface CreateDataLakeCommandOutput extends CreateDataLakeResponse, __M
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ * @public
  */
 export class CreateDataLakeCommand extends $Command
   .classBuilder<

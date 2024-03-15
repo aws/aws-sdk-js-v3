@@ -27,7 +27,6 @@ export interface ListOperationsCommandInput extends ListOperationsInput {}
 export interface ListOperationsCommandOutput extends ListOperationsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the operations performed by AWS Systems Manager for SAP.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface ListOperationsCommandOutput extends ListOperationsOutput, __Met
  * @throws {@link SsmSapServiceException}
  * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
+ * @public
  */
 export class ListOperationsCommand extends $Command
   .classBuilder<

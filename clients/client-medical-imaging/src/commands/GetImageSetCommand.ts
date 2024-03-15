@@ -27,7 +27,6 @@ export interface GetImageSetCommandInput extends GetImageSetRequest {}
 export interface GetImageSetCommandOutput extends GetImageSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get image set properties.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface GetImageSetCommandOutput extends GetImageSetResponse, __Metadat
  * @throws {@link MedicalImagingServiceException}
  * <p>Base exception class for all service exceptions from MedicalImaging service.</p>
  *
+ * @public
  */
 export class GetImageSetCommand extends $Command
   .classBuilder<

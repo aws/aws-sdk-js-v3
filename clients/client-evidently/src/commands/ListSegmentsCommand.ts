@@ -27,7 +27,6 @@ export interface ListSegmentsCommandInput extends ListSegmentsRequest {}
 export interface ListSegmentsCommandOutput extends ListSegmentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of audience segments that you have created in your account in this Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface ListSegmentsCommandOutput extends ListSegmentsResponse, __Metad
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ * @public
  */
 export class ListSegmentsCommand extends $Command
   .classBuilder<

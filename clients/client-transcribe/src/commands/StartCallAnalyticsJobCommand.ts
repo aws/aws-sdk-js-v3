@@ -27,7 +27,6 @@ export interface StartCallAnalyticsJobCommandInput extends StartCallAnalyticsJob
 export interface StartCallAnalyticsJobCommandOutput extends StartCallAnalyticsJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Transcribes the audio from a customer service call and applies any additional Request
  *             Parameters you choose to include in your request.</p>
  *          <p>In addition to many standard transcription features, Call Analytics provides you with
@@ -214,6 +213,7 @@ export interface StartCallAnalyticsJobCommandOutput extends StartCallAnalyticsJo
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * @public
  */
 export class StartCallAnalyticsJobCommand extends $Command
   .classBuilder<

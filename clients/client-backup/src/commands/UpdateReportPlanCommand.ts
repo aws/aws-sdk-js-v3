@@ -27,7 +27,6 @@ export interface UpdateReportPlanCommandInput extends UpdateReportPlanInput {}
 export interface UpdateReportPlanCommandOutput extends UpdateReportPlanOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing report plan identified by its <code>ReportPlanName</code> with the
  *          input document in JSON format.</p>
  * @example
@@ -100,6 +99,7 @@ export interface UpdateReportPlanCommandOutput extends UpdateReportPlanOutput, _
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class UpdateReportPlanCommand extends $Command
   .classBuilder<

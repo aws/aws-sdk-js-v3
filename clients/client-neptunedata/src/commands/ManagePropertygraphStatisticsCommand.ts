@@ -32,7 +32,6 @@ export interface ManagePropertygraphStatisticsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Manages the generation and use of property graph statistics.</p>
  *          <p>When invoking this operation in a Neptune cluster that has IAM
  *       authentication enabled, the IAM user or role making the request must
@@ -106,6 +105,7 @@ export interface ManagePropertygraphStatisticsCommandOutput
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * @public
  */
 export class ManagePropertygraphStatisticsCommand extends $Command
   .classBuilder<

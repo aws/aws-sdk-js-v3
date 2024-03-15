@@ -32,7 +32,6 @@ export interface ValidateSecurityProfileBehaviorsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Validates a Device Defender security profile behaviors specification.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ValidateSecurityProfileBehaviors</a> action.</p>
  * @example
@@ -114,6 +113,7 @@ export interface ValidateSecurityProfileBehaviorsCommandOutput
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ValidateSecurityProfileBehaviorsCommand extends $Command
   .classBuilder<

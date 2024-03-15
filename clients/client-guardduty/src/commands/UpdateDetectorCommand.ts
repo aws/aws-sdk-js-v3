@@ -27,7 +27,6 @@ export interface UpdateDetectorCommandInput extends UpdateDetectorRequest {}
 export interface UpdateDetectorCommandOutput extends UpdateDetectorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the GuardDuty detector specified by the detector ID.</p>
  *          <p>Specifying both EKS Runtime Monitoring (<code>EKS_RUNTIME_MONITORING</code>)
  *       and Runtime Monitoring (<code>RUNTIME_MONITORING</code>) will cause an error.
@@ -96,6 +95,7 @@ export interface UpdateDetectorCommandOutput extends UpdateDetectorResponse, __M
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class UpdateDetectorCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface CreateAssessmentFrameworkCommandInput extends CreateAssessmentF
 export interface CreateAssessmentFrameworkCommandOutput extends CreateAssessmentFrameworkResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Creates a custom framework in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -152,6 +151,7 @@ export interface CreateAssessmentFrameworkCommandOutput extends CreateAssessment
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class CreateAssessmentFrameworkCommand extends $Command
   .classBuilder<

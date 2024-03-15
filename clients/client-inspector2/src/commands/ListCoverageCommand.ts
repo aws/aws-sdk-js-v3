@@ -27,7 +27,6 @@ export interface ListCoverageCommandInput extends ListCoverageRequest {}
 export interface ListCoverageCommandOutput extends ListCoverageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists coverage details for you environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -171,6 +170,7 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class ListCoverageCommand extends $Command
   .classBuilder<

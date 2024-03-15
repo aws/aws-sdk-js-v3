@@ -27,7 +27,6 @@ export interface ListOpsItemRelatedItemsCommandInput extends ListOpsItemRelatedI
 export interface ListOpsItemRelatedItemsCommandOutput extends ListOpsItemRelatedItemsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all related-item resources associated with a Systems Manager OpsCenter OpsItem. OpsCenter is a
  *    capability of Amazon Web Services Systems Manager.</p>
  * @example
@@ -91,6 +90,7 @@ export interface ListOpsItemRelatedItemsCommandOutput extends ListOpsItemRelated
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class ListOpsItemRelatedItemsCommand extends $Command
   .classBuilder<

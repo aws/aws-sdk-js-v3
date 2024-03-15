@@ -27,7 +27,6 @@ export interface DisassociateResourceShareCommandInput extends DisassociateResou
 export interface DisassociateResourceShareCommandOutput extends DisassociateResourceShareResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified principals or resources from participating in the specified
  *             resource share.</p>
  * @example
@@ -116,6 +115,7 @@ export interface DisassociateResourceShareCommandOutput extends DisassociateReso
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * @public
  */
 export class DisassociateResourceShareCommand extends $Command
   .classBuilder<

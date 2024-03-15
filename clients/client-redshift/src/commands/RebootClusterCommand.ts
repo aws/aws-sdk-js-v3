@@ -27,7 +27,6 @@ export interface RebootClusterCommandInput extends RebootClusterMessage {}
 export interface RebootClusterCommandOutput extends RebootClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Reboots a cluster. This action is taken as soon as possible. It results in a
  *             momentary outage to the cluster, during which the cluster status is set to
  *                 <code>rebooting</code>. A cluster event is created when the reboot is completed. Any
@@ -257,6 +256,7 @@ export interface RebootClusterCommandOutput extends RebootClusterResult, __Metad
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class RebootClusterCommand extends $Command
   .classBuilder<

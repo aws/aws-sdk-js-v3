@@ -32,7 +32,6 @@ export interface DisableImportFindingsForProductCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables the integration of the specified product with Security Hub. After the integration is
  *          disabled, findings from that product are no longer sent to Security Hub.</p>
  * @example
@@ -76,6 +75,7 @@ export interface DisableImportFindingsForProductCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To end a Security Hub integration
  * ```javascript
  * // The following example ends an integration between Security Hub and the specified product that sends findings to Security Hub. After the integration ends, the product no longer sends findings to Security  Hub.

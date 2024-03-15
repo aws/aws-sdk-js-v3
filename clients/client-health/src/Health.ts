@@ -337,7 +337,6 @@ export interface Health {
 }
 
 /**
- * @public
  * <fullname>Health</fullname>
  *          <p>The Health API provides access to the Health information that appears in the
  *             <a href="https://health.aws.amazon.com/health/home">Health Dashboard</a>. You can use
@@ -381,6 +380,7 @@ export interface Health {
  *                </li>
  *             </ul>
  *          </note>
+ * @public
  */
 export class Health extends HealthClient implements Health {}
 createAggregatedClient(commands, Health);

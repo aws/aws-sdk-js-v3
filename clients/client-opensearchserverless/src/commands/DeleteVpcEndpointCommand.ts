@@ -31,7 +31,6 @@ export interface DeleteVpcEndpointCommandInput extends DeleteVpcEndpointRequest 
 export interface DeleteVpcEndpointCommandOutput extends DeleteVpcEndpointResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an OpenSearch Serverless-managed interface endpoint. For more information, see
  *             <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html">Access Amazon OpenSearch Serverless using an interface endpoint</a>.</p>
  * @example
@@ -80,6 +79,7 @@ export interface DeleteVpcEndpointCommandOutput extends DeleteVpcEndpointRespons
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ * @public
  */
 export class DeleteVpcEndpointCommand extends $Command
   .classBuilder<

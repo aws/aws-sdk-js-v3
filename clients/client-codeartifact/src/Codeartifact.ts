@@ -830,7 +830,6 @@ export interface Codeartifact {
 }
 
 /**
- * @public
  * <p> CodeArtifact is a fully managed artifact repository compatible with language-native
  *       package managers and build tools such as npm, Apache Maven, pip, and dotnet. You can use CodeArtifact to
  *       share packages with development teams and pull packages. Packages can be pulled from both
@@ -1105,6 +1104,7 @@ export interface Codeartifact {
  *                   <code>UpdateRepository</code>: Updates the properties of a repository.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class Codeartifact extends CodeartifactClient implements Codeartifact {}
 createAggregatedClient(commands, Codeartifact);

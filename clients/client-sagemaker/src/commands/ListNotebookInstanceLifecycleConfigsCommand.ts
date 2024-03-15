@@ -35,7 +35,6 @@ export interface ListNotebookInstanceLifecycleConfigsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists notebook instance lifestyle configurations created with the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateNotebookInstanceLifecycleConfig.html">CreateNotebookInstanceLifecycleConfig</a> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface ListNotebookInstanceLifecycleConfigsCommandOutput
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListNotebookInstanceLifecycleConfigsCommand extends $Command
   .classBuilder<

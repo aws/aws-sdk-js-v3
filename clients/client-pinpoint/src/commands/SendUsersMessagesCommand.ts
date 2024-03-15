@@ -27,7 +27,6 @@ export interface SendUsersMessagesCommandInput extends SendUsersMessagesRequest 
 export interface SendUsersMessagesCommandOutput extends SendUsersMessagesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates and sends a message to a list of users.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -287,6 +286,7 @@ export interface SendUsersMessagesCommandOutput extends SendUsersMessagesRespons
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class SendUsersMessagesCommand extends $Command
   .classBuilder<

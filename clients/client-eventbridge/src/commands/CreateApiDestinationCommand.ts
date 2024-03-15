@@ -27,7 +27,6 @@ export interface CreateApiDestinationCommandInput extends CreateApiDestinationRe
 export interface CreateApiDestinationCommandOutput extends CreateApiDestinationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an API destination, which is an HTTP invocation endpoint configured as a target
  *       for events.</p>
  *          <p>API destinations do not support private destinations, such as interface VPC endpoints.</p>
@@ -79,6 +78,7 @@ export interface CreateApiDestinationCommandOutput extends CreateApiDestinationR
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * @public
  */
 export class CreateApiDestinationCommand extends $Command
   .classBuilder<

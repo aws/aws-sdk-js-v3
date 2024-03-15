@@ -27,7 +27,6 @@ export interface CreateAliasCommandInput extends CreateAliasRequest {}
 export interface CreateAliasCommandOutput extends CreateAliasResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an alias for a directory and assigns the alias to the directory. The alias is used
  *          to construct the access URL for the directory, such as
  *             <code>http://<alias>.awsapps.com</code>.</p>
@@ -77,6 +76,7 @@ export interface CreateAliasCommandOutput extends CreateAliasResult, __MetadataB
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class CreateAliasCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetFoundationModelCommandInput extends GetFoundationModelReques
 export interface GetFoundationModelCommandOutput extends GetFoundationModelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get details about a Amazon Bedrock foundation model.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface GetFoundationModelCommandOutput extends GetFoundationModelRespo
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ * @public
  */
 export class GetFoundationModelCommand extends $Command
   .classBuilder<

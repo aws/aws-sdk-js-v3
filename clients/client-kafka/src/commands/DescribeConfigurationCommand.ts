@@ -27,7 +27,6 @@ export interface DescribeConfigurationCommandInput extends DescribeConfiguration
 export interface DescribeConfigurationCommandOutput extends DescribeConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a description of this MSK configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface DescribeConfigurationCommandOutput extends DescribeConfiguratio
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ * @public
  */
 export class DescribeConfigurationCommand extends $Command
   .classBuilder<

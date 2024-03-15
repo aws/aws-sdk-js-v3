@@ -27,7 +27,6 @@ export interface CreateBatchSegmentJobCommandInput extends CreateBatchSegmentJob
 export interface CreateBatchSegmentJobCommandOutput extends CreateBatchSegmentJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a batch segment job. The operation can handle up to 50 million records and the
  *       input file must be in JSON format. For more information, see
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/recommendations-batch.html">Getting batch recommendations and user segments</a>.</p>
@@ -97,6 +96,7 @@ export interface CreateBatchSegmentJobCommandOutput extends CreateBatchSegmentJo
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class CreateBatchSegmentJobCommand extends $Command
   .classBuilder<

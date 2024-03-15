@@ -31,7 +31,6 @@ export interface AssociateChannelFlowCommandInput extends AssociateChannelFlowRe
 export interface AssociateChannelFlowCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a channel flow with a channel. Once associated, all messages to that channel go through channel flow processors. To stop processing, use the
  *          <code>DisassociateChannelFlow</code> API.</p>
  *          <note>
@@ -91,6 +90,7 @@ export interface AssociateChannelFlowCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class AssociateChannelFlowCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface StartVariantImportJobCommandInput extends StartVariantImportReq
 export interface StartVariantImportJobCommandOutput extends StartVariantImportResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a variant import job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface StartVariantImportJobCommandOutput extends StartVariantImportRe
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class StartVariantImportJobCommand extends $Command
   .classBuilder<

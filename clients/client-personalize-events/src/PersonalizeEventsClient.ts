@@ -264,10 +264,10 @@ export type PersonalizeEventsClientResolvedConfigType = __SmithyResolvedConfigur
 export interface PersonalizeEventsClientResolvedConfig extends PersonalizeEventsClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Amazon Personalize can consume real-time user event data, such as <i>stream</i> or <i>click</i> data, and use
  *       it for model training either alone or combined with historical data. For more information see
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/recording-item-interaction-events.html">Recording item interaction events</a>.</p>
+ * @public
  */
 export class PersonalizeEventsClient extends __Client<
   __HttpHandlerOptions,

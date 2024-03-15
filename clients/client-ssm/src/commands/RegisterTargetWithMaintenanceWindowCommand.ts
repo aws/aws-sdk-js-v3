@@ -36,7 +36,6 @@ export interface RegisterTargetWithMaintenanceWindowCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers a target with a maintenance window.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface RegisterTargetWithMaintenanceWindowCommandOutput
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class RegisterTargetWithMaintenanceWindowCommand extends $Command
   .classBuilder<

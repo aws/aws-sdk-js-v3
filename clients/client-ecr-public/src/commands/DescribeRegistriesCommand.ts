@@ -27,7 +27,6 @@ export interface DescribeRegistriesCommandInput extends DescribeRegistriesReques
 export interface DescribeRegistriesCommandOutput extends DescribeRegistriesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns details for a public registry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface DescribeRegistriesCommandOutput extends DescribeRegistriesRespo
  * @throws {@link ECRPUBLICServiceException}
  * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
+ * @public
  */
 export class DescribeRegistriesCommand extends $Command
   .classBuilder<

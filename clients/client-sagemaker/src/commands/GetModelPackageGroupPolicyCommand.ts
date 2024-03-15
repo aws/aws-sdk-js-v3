@@ -27,7 +27,6 @@ export interface GetModelPackageGroupPolicyCommandInput extends GetModelPackageG
 export interface GetModelPackageGroupPolicyCommandOutput extends GetModelPackageGroupPolicyOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a resource policy that manages access for a model group. For information about
  *             resource policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html">Identity-based
  *                 policies and resource-based policies</a> in the <i>Amazon Web Services Identity and
@@ -58,6 +57,7 @@ export interface GetModelPackageGroupPolicyCommandOutput extends GetModelPackage
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class GetModelPackageGroupPolicyCommand extends $Command
   .classBuilder<

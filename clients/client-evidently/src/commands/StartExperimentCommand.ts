@@ -27,7 +27,6 @@ export interface StartExperimentCommandInput extends StartExperimentRequest {}
 export interface StartExperimentCommandOutput extends StartExperimentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an existing experiment. To create an experiment,
  *         use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateExperiment.html">CreateExperiment</a>.</p>
  * @example
@@ -76,6 +75,7 @@ export interface StartExperimentCommandOutput extends StartExperimentResponse, _
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ * @public
  */
 export class StartExperimentCommand extends $Command
   .classBuilder<

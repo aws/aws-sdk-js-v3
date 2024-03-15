@@ -27,7 +27,6 @@ export interface PutFunctionConcurrencyCommandInput extends PutFunctionConcurren
 export interface PutFunctionConcurrencyCommandOutput extends Concurrency, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the maximum number of simultaneous executions for a function, and reserves capacity for that concurrency
  *       level.</p>
  *          <p>Concurrency settings apply to the function as a whole, including all published versions and the unpublished
@@ -79,6 +78,7 @@ export interface PutFunctionConcurrencyCommandOutput extends Concurrency, __Meta
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class PutFunctionConcurrencyCommand extends $Command
   .classBuilder<

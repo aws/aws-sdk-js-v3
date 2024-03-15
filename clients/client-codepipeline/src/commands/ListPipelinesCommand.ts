@@ -27,7 +27,6 @@ export interface ListPipelinesCommandInput extends ListPipelinesInput {}
 export interface ListPipelinesCommandOutput extends ListPipelinesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a summary of all of the pipelines associated with your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface ListPipelinesCommandOutput extends ListPipelinesOutput, __Metad
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * @public
  */
 export class ListPipelinesCommand extends $Command
   .classBuilder<

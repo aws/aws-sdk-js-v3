@@ -27,7 +27,6 @@ export interface GetRepositoryEndpointCommandInput extends GetRepositoryEndpoint
 export interface GetRepositoryEndpointCommandOutput extends GetRepositoryEndpointResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Returns the endpoint of a repository for a specific package format. A repository has one endpoint for each
  *       package format:
@@ -106,6 +105,7 @@ export interface GetRepositoryEndpointCommandOutput extends GetRepositoryEndpoin
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * @public
  */
 export class GetRepositoryEndpointCommand extends $Command
   .classBuilder<

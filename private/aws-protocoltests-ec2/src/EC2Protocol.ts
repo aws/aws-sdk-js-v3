@@ -529,8 +529,8 @@ export interface EC2Protocol {
 }
 
 /**
- * @public
  * An EC2 query service that sends query requests and XML responses.
+ * @public
  */
 export class EC2Protocol extends EC2ProtocolClient implements EC2Protocol {}
 createAggregatedClient(commands, EC2Protocol);

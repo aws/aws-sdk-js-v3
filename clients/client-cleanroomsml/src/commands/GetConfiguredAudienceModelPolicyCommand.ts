@@ -32,7 +32,6 @@ export interface GetConfiguredAudienceModelPolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a configured audience model policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface GetConfiguredAudienceModelPolicyCommandOutput
  * @throws {@link CleanRoomsMLServiceException}
  * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
+ * @public
  */
 export class GetConfiguredAudienceModelPolicyCommand extends $Command
   .classBuilder<

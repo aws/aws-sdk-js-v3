@@ -27,7 +27,6 @@ export interface ListDataCellsFilterCommandInput extends ListDataCellsFilterRequ
 export interface ListDataCellsFilterCommandOutput extends ListDataCellsFilterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the data cell filters on a table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface ListDataCellsFilterCommandOutput extends ListDataCellsFilterRes
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class ListDataCellsFilterCommand extends $Command
   .classBuilder<

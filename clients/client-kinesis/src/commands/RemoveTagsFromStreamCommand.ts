@@ -27,7 +27,6 @@ export interface RemoveTagsFromStreamCommandInput extends RemoveTagsFromStreamIn
 export interface RemoveTagsFromStreamCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes tags from the specified Kinesis data stream. Removed tags are deleted and
  *             cannot be recovered after this operation successfully completes.</p>
  *          <note>
@@ -87,6 +86,7 @@ export interface RemoveTagsFromStreamCommandOutput extends __MetadataBearer {}
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * @public
  */
 export class RemoveTagsFromStreamCommand extends $Command
   .classBuilder<

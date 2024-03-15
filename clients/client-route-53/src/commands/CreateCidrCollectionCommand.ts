@@ -27,7 +27,6 @@ export interface CreateCidrCollectionCommandInput extends CreateCidrCollectionRe
 export interface CreateCidrCollectionCommandOutput extends CreateCidrCollectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a CIDR collection in the current Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface CreateCidrCollectionCommandOutput extends CreateCidrCollectionR
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class CreateCidrCollectionCommand extends $Command
   .classBuilder<

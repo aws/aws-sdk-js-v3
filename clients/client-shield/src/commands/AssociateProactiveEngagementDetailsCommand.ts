@@ -35,7 +35,6 @@ export interface AssociateProactiveEngagementDetailsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Initializes proactive engagement and sets the list of contacts for the Shield Response Team (SRT) to use. You must provide at least one phone number in the emergency contact list. </p>
  *          <p>After you have initialized proactive engagement using this call, to disable or enable proactive engagement, use the calls <code>DisableProactiveEngagement</code> and <code>EnableProactiveEngagement</code>.  </p>
  *          <note>
@@ -88,6 +87,7 @@ export interface AssociateProactiveEngagementDetailsCommandOutput
  * @throws {@link ShieldServiceException}
  * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ * @public
  */
 export class AssociateProactiveEngagementDetailsCommand extends $Command
   .classBuilder<

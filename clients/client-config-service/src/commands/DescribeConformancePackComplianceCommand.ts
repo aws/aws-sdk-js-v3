@@ -35,7 +35,6 @@ export interface DescribeConformancePackComplianceCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns compliance details for each rule in that conformance pack.</p>
  *          <note>
  *             <p>You must provide exact rule names.</p>
@@ -102,6 +101,7 @@ export interface DescribeConformancePackComplianceCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class DescribeConformancePackComplianceCommand extends $Command
   .classBuilder<

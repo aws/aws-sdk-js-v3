@@ -27,7 +27,6 @@ export interface DeleteDeviceCommandInput extends DeleteDeviceRequest {}
 export interface DeleteDeviceCommandOutput extends DeleteDeviceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing device. You must first disassociate the device from any links and
  *             customer gateways.</p>
  * @example
@@ -103,6 +102,7 @@ export interface DeleteDeviceCommandOutput extends DeleteDeviceResponse, __Metad
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class DeleteDeviceCommand extends $Command
   .classBuilder<

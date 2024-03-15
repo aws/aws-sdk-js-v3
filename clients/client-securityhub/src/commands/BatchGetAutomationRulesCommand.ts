@@ -27,7 +27,6 @@ export interface BatchGetAutomationRulesCommandInput extends BatchGetAutomationR
 export interface BatchGetAutomationRulesCommandOutput extends BatchGetAutomationRulesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Retrieves a list of details for automation rules based on rule Amazon Resource Names
  *          (ARNs).
@@ -277,6 +276,7 @@ export interface BatchGetAutomationRulesCommandOutput extends BatchGetAutomation
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To update one ore more automation rules
  * ```javascript
  * // The following example updates the specified automation rules.

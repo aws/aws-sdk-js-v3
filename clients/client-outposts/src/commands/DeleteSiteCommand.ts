@@ -27,7 +27,6 @@ export interface DeleteSiteCommandInput extends DeleteSiteInput {}
 export interface DeleteSiteCommandOutput extends DeleteSiteOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified site.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DeleteSiteCommandOutput extends DeleteSiteOutput, __MetadataBea
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ * @public
  */
 export class DeleteSiteCommand extends $Command
   .classBuilder<

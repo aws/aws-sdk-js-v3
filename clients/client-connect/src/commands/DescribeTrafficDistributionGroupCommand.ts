@@ -32,7 +32,6 @@ export interface DescribeTrafficDistributionGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets details and status of a traffic distribution group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface DescribeTrafficDistributionGroupCommandOutput
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DescribeTrafficDistributionGroupCommand extends $Command
   .classBuilder<

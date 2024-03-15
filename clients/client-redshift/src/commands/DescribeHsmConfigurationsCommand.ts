@@ -27,7 +27,6 @@ export interface DescribeHsmConfigurationsCommandInput extends DescribeHsmConfig
 export interface DescribeHsmConfigurationsCommandOutput extends HsmConfigurationMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the specified Amazon Redshift HSM configuration. If no
  *             configuration ID is specified, returns information about all the HSM configurations
  *             owned by your Amazon Web Services account.</p>
@@ -93,6 +92,7 @@ export interface DescribeHsmConfigurationsCommandOutput extends HsmConfiguration
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DescribeHsmConfigurationsCommand extends $Command
   .classBuilder<

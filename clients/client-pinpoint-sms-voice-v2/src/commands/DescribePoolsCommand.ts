@@ -31,7 +31,6 @@ export interface DescribePoolsCommandInput extends DescribePoolsRequest {}
 export interface DescribePoolsCommandOutput extends DescribePoolsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the specified pools or all pools associated with your Amazon Web Services
  *             account.</p>
  *          <p>If you specify pool IDs, the output includes information for only the specified pools.
@@ -114,6 +113,7 @@ export interface DescribePoolsCommandOutput extends DescribePoolsResult, __Metad
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class DescribePoolsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ResetDBParameterGroupCommandInput extends ResetDBParameterGroup
 export interface ResetDBParameterGroupCommandOutput extends DBParameterGroupNameMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the parameters of a DB parameter group to the engine/system default value.
  *             To reset specific parameters, provide a list of the following:
  *                 <code>ParameterName</code> and <code>ApplyMethod</code>. To reset the entire DB
@@ -90,6 +89,7 @@ export interface ResetDBParameterGroupCommandOutput extends DBParameterGroupName
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To reset all parameters to their default values
  * ```javascript
  * // The following example resets all parameter values in a customer-created DB parameter group to their default values.

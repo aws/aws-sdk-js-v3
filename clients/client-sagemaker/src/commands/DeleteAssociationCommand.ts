@@ -27,7 +27,6 @@ export interface DeleteAssociationCommandInput extends DeleteAssociationRequest 
 export interface DeleteAssociationCommandOutput extends DeleteAssociationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an association.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -60,6 +59,7 @@ export interface DeleteAssociationCommandOutput extends DeleteAssociationRespons
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteAssociationCommand extends $Command
   .classBuilder<

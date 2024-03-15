@@ -37,7 +37,6 @@ export interface ExecuteGremlinExplainQueryCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Executes a Gremlin Explain query.</p>
  *          <p>Amazon Neptune has added a Gremlin feature named <code>explain</code>
  *       that provides is a self-service tool for understanding the execution
@@ -165,6 +164,7 @@ export interface ExecuteGremlinExplainQueryCommandOutput
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * @public
  */
 export class ExecuteGremlinExplainQueryCommand extends $Command
   .classBuilder<

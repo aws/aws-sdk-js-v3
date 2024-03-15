@@ -27,7 +27,6 @@ export interface RemoveTagsCommandInput extends RemoveTagsRequest {}
 export interface RemoveTagsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified set of tags from an Amazon OpenSearch Service domain. For more
  *    information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains.html#managedomains-awsresorcetagging"> Tagging Amazon OpenSearch Service domains</a>.</p>
  * @example
@@ -66,6 +65,7 @@ export interface RemoveTagsCommandOutput extends __MetadataBearer {}
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class RemoveTagsCommand extends $Command
   .classBuilder<

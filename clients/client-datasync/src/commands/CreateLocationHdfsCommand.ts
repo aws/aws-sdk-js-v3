@@ -27,7 +27,6 @@ export interface CreateLocationHdfsCommandInput extends CreateLocationHdfsReques
 export interface CreateLocationHdfsCommandOutput extends CreateLocationHdfsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a transfer <i>location</i> for a Hadoop Distributed File System
  *       (HDFS). DataSync can use this location as a source or destination for
  *       transferring data.</p>
@@ -94,6 +93,7 @@ export interface CreateLocationHdfsCommandOutput extends CreateLocationHdfsRespo
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class CreateLocationHdfsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeMonitorCommandInput extends DescribeMonitorRequest {}
 export interface DescribeMonitorCommandOutput extends DescribeMonitorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a monitor resource. In addition to listing the properties provided in the <a>CreateMonitor</a> request, this operation lists the following properties:</p>
  *          <ul>
  *             <li>
@@ -119,6 +118,7 @@ export interface DescribeMonitorCommandOutput extends DescribeMonitorResponse, _
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class DescribeMonitorCommand extends $Command
   .classBuilder<

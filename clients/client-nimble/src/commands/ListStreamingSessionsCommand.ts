@@ -27,7 +27,6 @@ export interface ListStreamingSessionsCommandInput extends ListStreamingSessions
 export interface ListStreamingSessionsCommandOutput extends ListStreamingSessionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the streaming sessions in a studio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -120,6 +119,7 @@ export interface ListStreamingSessionsCommandOutput extends ListStreamingSession
  * @throws {@link NimbleServiceException}
  * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
+ * @public
  */
 export class ListStreamingSessionsCommand extends $Command
   .classBuilder<

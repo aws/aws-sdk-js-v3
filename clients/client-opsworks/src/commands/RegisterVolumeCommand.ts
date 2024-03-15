@@ -27,7 +27,6 @@ export interface RegisterVolumeCommandInput extends RegisterVolumeRequest {}
 export interface RegisterVolumeCommandOutput extends RegisterVolumeResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers an Amazon EBS volume with a specified stack. A volume can be registered with only one
  *       stack at a time. If the volume is already registered, you must first deregister it by calling
  *         <a>DeregisterVolume</a>. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource Management</a>.</p>
@@ -69,6 +68,7 @@ export interface RegisterVolumeCommandOutput extends RegisterVolumeResult, __Met
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class RegisterVolumeCommand extends $Command
   .classBuilder<

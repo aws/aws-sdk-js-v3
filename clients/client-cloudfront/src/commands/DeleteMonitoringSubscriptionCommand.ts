@@ -32,7 +32,6 @@ export interface DeleteMonitoringSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables additional CloudWatch metrics for the specified CloudFront
  * 			distribution.</p>
  * @example
@@ -71,6 +70,7 @@ export interface DeleteMonitoringSubscriptionCommandOutput
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class DeleteMonitoringSubscriptionCommand extends $Command
   .classBuilder<

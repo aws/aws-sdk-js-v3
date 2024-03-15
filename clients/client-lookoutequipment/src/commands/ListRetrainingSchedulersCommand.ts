@@ -27,7 +27,6 @@ export interface ListRetrainingSchedulersCommandInput extends ListRetrainingSche
 export interface ListRetrainingSchedulersCommandOutput extends ListRetrainingSchedulersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all retraining schedulers in your account, filtering by model name prefix and
  *          status. </p>
  * @example
@@ -84,6 +83,7 @@ export interface ListRetrainingSchedulersCommandOutput extends ListRetrainingSch
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  * @example Listing retraining schedulers
  * ```javascript
  * //

@@ -27,7 +27,6 @@ export interface UpdateProjectCommandInput extends UpdateProjectRequest {}
 export interface UpdateProjectCommandOutput extends UpdateProjectResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the specified project name, given the project ARN and a new
  *             name.</p>
  * @example
@@ -93,6 +92,7 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResult, __Metad
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To update a device pool
  * ```javascript
  * // The following example updates the specified project with a new name.

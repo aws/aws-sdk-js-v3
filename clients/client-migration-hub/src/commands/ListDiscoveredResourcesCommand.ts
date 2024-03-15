@@ -27,7 +27,6 @@ export interface ListDiscoveredResourcesCommandInput extends ListDiscoveredResou
 export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredResourcesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists discovered resources associated with the given <code>MigrationTask</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredReso
  * @throws {@link MigrationHubServiceException}
  * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
+ * @public
  */
 export class ListDiscoveredResourcesCommand extends $Command
   .classBuilder<

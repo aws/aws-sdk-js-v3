@@ -31,7 +31,6 @@ export interface AttachLoadBalancerToSubnetsCommandInput extends AttachLoadBalan
 export interface AttachLoadBalancerToSubnetsCommandOutput extends AttachLoadBalancerToSubnetsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds one or more subnets to the set of configured subnets for the specified load balancer.</p>
  *         <p>The load balancer evenly distributes requests across all registered subnets.
  *             For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-manage-subnets.html">Add or Remove Subnets for Your Load Balancer in a VPC</a>
@@ -79,6 +78,7 @@ export interface AttachLoadBalancerToSubnetsCommandOutput extends AttachLoadBala
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * @public
  * @example To attach subnets to a load balancer
  * ```javascript
  * // This example adds the specified subnet to the set of configured subnets for the specified load balancer.

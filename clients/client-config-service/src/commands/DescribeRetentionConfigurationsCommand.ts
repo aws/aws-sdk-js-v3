@@ -32,7 +32,6 @@ export interface DescribeRetentionConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the details of one or more retention configurations. If
  * 			the retention configuration name is not specified, this action
  * 			returns the details for all the retention configurations for that
@@ -88,6 +87,7 @@ export interface DescribeRetentionConfigurationsCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class DescribeRetentionConfigurationsCommand extends $Command
   .classBuilder<

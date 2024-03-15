@@ -36,7 +36,6 @@ export interface DisableTransitGatewayRouteTablePropagationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables the specified resource attachment from propagating routes to the specified
  *          propagation route table.</p>
  * @example
@@ -75,6 +74,7 @@ export interface DisableTransitGatewayRouteTablePropagationCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DisableTransitGatewayRouteTablePropagationCommand extends $Command
   .classBuilder<

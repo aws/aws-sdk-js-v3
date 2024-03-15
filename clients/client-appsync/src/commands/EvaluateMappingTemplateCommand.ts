@@ -27,7 +27,6 @@ export interface EvaluateMappingTemplateCommandInput extends EvaluateMappingTemp
 export interface EvaluateMappingTemplateCommandOutput extends EvaluateMappingTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Evaluates a given template and returns the response. The mapping template can be a request or response
  *          template.</p>
  *          <p>Request templates take the incoming request after a GraphQL operation is parsed and convert it into a
@@ -77,6 +76,7 @@ export interface EvaluateMappingTemplateCommandOutput extends EvaluateMappingTem
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class EvaluateMappingTemplateCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface GetVoiceProfileDomainCommandInput extends GetVoiceProfileDomain
 export interface GetVoiceProfileDomainCommandOutput extends GetVoiceProfileDomainResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the details of the specified voice profile domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface GetVoiceProfileDomainCommandOutput extends GetVoiceProfileDomai
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class GetVoiceProfileDomainCommand extends $Command
   .classBuilder<

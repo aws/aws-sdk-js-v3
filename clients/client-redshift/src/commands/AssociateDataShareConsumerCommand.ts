@@ -27,7 +27,6 @@ export interface AssociateDataShareConsumerCommandInput extends AssociateDataSha
 export interface AssociateDataShareConsumerCommandOutput extends DataShare, __MetadataBearer {}
 
 /**
- * @public
  * <p>From a datashare consumer account, associates a datashare with the
  *             account (AssociateEntireAccount) or the specified namespace (ConsumerArn). If you make this association, the consumer
  *             can consume the datashare.</p>
@@ -81,6 +80,7 @@ export interface AssociateDataShareConsumerCommandOutput extends DataShare, __Me
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class AssociateDataShareConsumerCommand extends $Command
   .classBuilder<

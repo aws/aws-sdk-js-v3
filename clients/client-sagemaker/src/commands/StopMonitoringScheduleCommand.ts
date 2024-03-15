@@ -27,7 +27,6 @@ export interface StopMonitoringScheduleCommandInput extends StopMonitoringSchedu
 export interface StopMonitoringScheduleCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a previously started monitoring schedule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,6 +55,7 @@ export interface StopMonitoringScheduleCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class StopMonitoringScheduleCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateReceiptRuleSetCommandInput extends CreateReceiptRuleSetRe
 export interface CreateReceiptRuleSetCommandOutput extends CreateReceiptRuleSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an empty receipt rule set.</p>
  *          <p>For information about setting up receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-concepts.html#receiving-email-concepts-rules">Amazon SES Developer Guide</a>.</p>
  *          <p>You can execute this operation no more than once per second.</p>
@@ -63,6 +62,7 @@ export interface CreateReceiptRuleSetCommandOutput extends CreateReceiptRuleSetR
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example CreateReceiptRuleSet
  * ```javascript
  * // The following example creates an empty receipt rule set:

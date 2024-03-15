@@ -27,7 +27,6 @@ export interface ListCheckDetailsCommandInput extends ListCheckDetailsInput {}
 export interface ListCheckDetailsCommandOutput extends ListCheckDetailsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>List of Trusted Advisor check details by account related to the workload.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface ListCheckDetailsCommandOutput extends ListCheckDetailsOutput, _
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * @public
  */
 export class ListCheckDetailsCommand extends $Command
   .classBuilder<

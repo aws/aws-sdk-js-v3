@@ -27,7 +27,6 @@ export interface DescribePackagingGroupCommandInput extends DescribePackagingGro
 export interface DescribePackagingGroupCommandOutput extends DescribePackagingGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * Returns a description of a MediaPackage VOD PackagingGroup resource.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface DescribePackagingGroupCommandOutput extends DescribePackagingGr
  * @throws {@link MediaPackageVodServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageVod service.</p>
  *
+ * @public
  */
 export class DescribePackagingGroupCommand extends $Command
   .classBuilder<

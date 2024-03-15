@@ -27,7 +27,6 @@ export interface CreateModelPackageCommandInput extends CreateModelPackageInput 
 export interface CreateModelPackageCommandOutput extends CreateModelPackageOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a model package that you can use to create SageMaker models or list on Amazon Web Services
  *             Marketplace, or a versioned model that is part of a model group. Buyers can subscribe to
  *             model packages listed on Amazon Web Services Marketplace to create models in SageMaker.</p>
@@ -326,6 +325,7 @@ export interface CreateModelPackageCommandOutput extends CreateModelPackageOutpu
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateModelPackageCommand extends $Command
   .classBuilder<

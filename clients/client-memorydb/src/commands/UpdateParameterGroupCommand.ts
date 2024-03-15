@@ -27,7 +27,6 @@ export interface UpdateParameterGroupCommandInput extends UpdateParameterGroupRe
 export interface UpdateParameterGroupCommandOutput extends UpdateParameterGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the parameters of a parameter group. You can modify up to 20 parameters in a single request by submitting a list parameter name and value pairs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface UpdateParameterGroupCommandOutput extends UpdateParameterGroupR
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * @public
  */
 export class UpdateParameterGroupCommand extends $Command
   .classBuilder<

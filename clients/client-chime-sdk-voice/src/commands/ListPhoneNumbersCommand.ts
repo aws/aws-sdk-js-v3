@@ -31,7 +31,6 @@ export interface ListPhoneNumbersCommandInput extends ListPhoneNumbersRequest {}
 export interface ListPhoneNumbersCommandOutput extends ListPhoneNumbersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the phone numbers for the specified Amazon Chime SDK account,
  *          Amazon Chime SDK user, Amazon Chime SDK Voice Connector, or Amazon Chime SDK Voice
  *          Connector group.</p>
@@ -119,6 +118,7 @@ export interface ListPhoneNumbersCommandOutput extends ListPhoneNumbersResponse,
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class ListPhoneNumbersCommand extends $Command
   .classBuilder<

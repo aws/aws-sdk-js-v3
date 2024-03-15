@@ -27,7 +27,6 @@ export interface DeleteAccessCommandInput extends DeleteAccessRequest {}
 export interface DeleteAccessCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows you to delete the access specified in the <code>ServerID</code> and
  *       <code>ExternalID</code> parameters.</p>
  * @example
@@ -68,6 +67,7 @@ export interface DeleteAccessCommandOutput extends __MetadataBearer {}
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class DeleteAccessCommand extends $Command
   .classBuilder<

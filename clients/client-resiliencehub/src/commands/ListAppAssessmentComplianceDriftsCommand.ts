@@ -35,7 +35,6 @@ export interface ListAppAssessmentComplianceDriftsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>List of compliance drifts that were detected while running an assessment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -120,6 +119,7 @@ export interface ListAppAssessmentComplianceDriftsCommandOutput
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class ListAppAssessmentComplianceDriftsCommand extends $Command
   .classBuilder<

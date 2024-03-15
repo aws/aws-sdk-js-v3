@@ -27,7 +27,6 @@ export interface CreateFacetCommandInput extends CreateFacetRequest {}
 export interface CreateFacetCommandOutput extends CreateFacetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new <a>Facet</a> in a schema. Facet creation is allowed only
  *       in development or applied schemas.</p>
  * @example
@@ -118,6 +117,7 @@ export interface CreateFacetCommandOutput extends CreateFacetResponse, __Metadat
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class CreateFacetCommand extends $Command
   .classBuilder<

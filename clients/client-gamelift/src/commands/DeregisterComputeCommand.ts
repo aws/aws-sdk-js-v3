@@ -27,7 +27,6 @@ export interface DeregisterComputeCommandInput extends DeregisterComputeInput {}
 export interface DeregisterComputeCommandOutput extends DeregisterComputeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a compute resource from an Amazon GameLift Anywhere fleet. Deregistered computes can no
  *             longer host game sessions through Amazon GameLift.</p>
  * @example
@@ -69,6 +68,7 @@ export interface DeregisterComputeCommandOutput extends DeregisterComputeOutput,
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DeregisterComputeCommand extends $Command
   .classBuilder<

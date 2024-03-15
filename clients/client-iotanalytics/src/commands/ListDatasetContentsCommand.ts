@@ -27,7 +27,6 @@ export interface ListDatasetContentsCommandInput extends ListDatasetContentsRequ
 export interface ListDatasetContentsCommandOutput extends ListDatasetContentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists information about dataset contents that have been created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface ListDatasetContentsCommandOutput extends ListDatasetContentsRes
  * @throws {@link IoTAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
+ * @public
  */
 export class ListDatasetContentsCommand extends $Command
   .classBuilder<

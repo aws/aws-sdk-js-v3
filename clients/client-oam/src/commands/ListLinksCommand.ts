@@ -27,7 +27,6 @@ export interface ListLinksCommandInput extends ListLinksInput {}
 export interface ListLinksCommandOutput extends ListLinksOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use this operation in a source account to return a list of links to monitoring account sinks that
  *             this source account has.</p>
  *          <p>To find a list of links for one monitoring account sink, use <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListAttachedLinks.html">ListAttachedLinks</a> from within the monitoring account.</p>
@@ -78,6 +77,7 @@ export interface ListLinksCommandOutput extends ListLinksOutput, __MetadataBeare
  * @throws {@link OAMServiceException}
  * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ * @public
  */
 export class ListLinksCommand extends $Command
   .classBuilder<

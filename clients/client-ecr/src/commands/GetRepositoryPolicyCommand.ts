@@ -27,7 +27,6 @@ export interface GetRepositoryPolicyCommandInput extends GetRepositoryPolicyRequ
 export interface GetRepositoryPolicyCommandOutput extends GetRepositoryPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the repository policy for the specified repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface GetRepositoryPolicyCommandOutput extends GetRepositoryPolicyRes
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * @public
  * @example To get the current policy for a repository
  * ```javascript
  * // This example obtains the repository policy for the repository named ubuntu.

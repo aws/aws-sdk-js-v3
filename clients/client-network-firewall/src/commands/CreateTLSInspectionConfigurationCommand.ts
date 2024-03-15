@@ -32,7 +32,6 @@ export interface CreateTLSInspectionConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Network Firewall TLS inspection configuration. A TLS inspection configuration contains Certificate Manager certificate associations between and the scope configurations that Network Firewall uses to decrypt and re-encrypt traffic traveling through your firewall.</p>
  *          <p>After you create a TLS inspection configuration, you can associate it with a new firewall policy.</p>
  *          <p>To update the settings for a TLS inspection configuration, use <a>UpdateTLSInspectionConfiguration</a>.</p>
@@ -187,6 +186,7 @@ export interface CreateTLSInspectionConfigurationCommandOutput
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ * @public
  */
 export class CreateTLSInspectionConfigurationCommand extends $Command
   .classBuilder<

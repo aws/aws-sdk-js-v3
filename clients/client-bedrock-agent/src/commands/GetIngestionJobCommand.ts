@@ -27,7 +27,6 @@ export interface GetIngestionJobCommandInput extends GetIngestionJobRequest {}
 export interface GetIngestionJobCommandOutput extends GetIngestionJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * Get an ingestion job
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface GetIngestionJobCommandOutput extends GetIngestionJobResponse, _
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ * @public
  */
 export class GetIngestionJobCommand extends $Command
   .classBuilder<

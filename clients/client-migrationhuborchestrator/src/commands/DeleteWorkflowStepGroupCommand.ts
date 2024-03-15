@@ -31,7 +31,6 @@ export interface DeleteWorkflowStepGroupCommandInput extends DeleteWorkflowStepG
 export interface DeleteWorkflowStepGroupCommandOutput extends DeleteWorkflowStepGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete a step group in a migration workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface DeleteWorkflowStepGroupCommandOutput extends DeleteWorkflowStep
  * @throws {@link MigrationHubOrchestratorServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
+ * @public
  */
 export class DeleteWorkflowStepGroupCommand extends $Command
   .classBuilder<

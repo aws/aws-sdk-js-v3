@@ -27,7 +27,6 @@ export interface UpdateRadiusCommandInput extends UpdateRadiusRequest {}
 export interface UpdateRadiusCommandOutput extends UpdateRadiusResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the Remote Authentication Dial In User Service (RADIUS) server information
  *          for an AD Connector or Microsoft AD directory.</p>
  * @example
@@ -78,6 +77,7 @@ export interface UpdateRadiusCommandOutput extends UpdateRadiusResult, __Metadat
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class UpdateRadiusCommand extends $Command
   .classBuilder<

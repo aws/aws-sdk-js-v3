@@ -27,7 +27,6 @@ export interface GetAnalyzedResourceCommandInput extends GetAnalyzedResourceRequ
 export interface GetAnalyzedResourceCommandOutput extends GetAnalyzedResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about a resource that was analyzed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface GetAnalyzedResourceCommandOutput extends GetAnalyzedResourceRes
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ * @public
  */
 export class GetAnalyzedResourceCommand extends $Command
   .classBuilder<

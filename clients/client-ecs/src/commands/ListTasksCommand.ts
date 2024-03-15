@@ -27,7 +27,6 @@ export interface ListTasksCommandInput extends ListTasksRequest {}
 export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of tasks. You can filter the results by cluster, task definition
  * 			family, container instance, launch type, what IAM principal started the task, or by
  * 			the desired status of the task.</p>
@@ -88,6 +87,7 @@ export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBea
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  * @example To list the tasks in a cluster
  * ```javascript
  * // This example lists all of the tasks in a cluster.

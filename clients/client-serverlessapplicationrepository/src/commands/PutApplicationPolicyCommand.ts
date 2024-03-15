@@ -31,7 +31,6 @@ export interface PutApplicationPolicyCommandInput extends PutApplicationPolicyRe
 export interface PutApplicationPolicyCommandOutput extends PutApplicationPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the permission policy for an application. For the list of actions supported for this operation, see
  *  <a href="https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions">Application
  *  Permissions</a>
@@ -104,6 +103,7 @@ export interface PutApplicationPolicyCommandOutput extends PutApplicationPolicyR
  * @throws {@link ServerlessApplicationRepositoryServiceException}
  * <p>Base exception class for all service exceptions from ServerlessApplicationRepository service.</p>
  *
+ * @public
  */
 export class PutApplicationPolicyCommand extends $Command
   .classBuilder<

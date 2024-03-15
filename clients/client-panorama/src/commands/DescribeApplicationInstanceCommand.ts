@@ -32,7 +32,6 @@ export interface DescribeApplicationInstanceCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about an application instance on a device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface DescribeApplicationInstanceCommandOutput
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ * @public
  */
 export class DescribeApplicationInstanceCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateStageCommandInput extends CreateStageRequest {}
 export interface CreateStageCommandOutput extends Stage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new Stage resource that references a pre-existing Deployment for the API. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -137,6 +136,7 @@ export interface CreateStageCommandOutput extends Stage, __MetadataBearer {}
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class CreateStageCommand extends $Command
   .classBuilder<

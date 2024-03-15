@@ -27,7 +27,6 @@ export interface ReverseReplicationCommandInput extends ReverseReplicationReques
 export interface ReverseReplicationCommandOutput extends ReverseReplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Start replication to origin / target region - applies only to protected instances that originated in EC2.
  *             For recovery instances on target region - starts replication back to origin region.
  *             For failback instances on origin region - starts replication to target region to re-protect them.
@@ -79,6 +78,7 @@ export interface ReverseReplicationCommandOutput extends ReverseReplicationRespo
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * @public
  */
 export class ReverseReplicationCommand extends $Command
   .classBuilder<

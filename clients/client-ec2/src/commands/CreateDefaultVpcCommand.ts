@@ -27,7 +27,6 @@ export interface CreateDefaultVpcCommandInput extends CreateDefaultVpcRequest {}
 export interface CreateDefaultVpcCommandOutput extends CreateDefaultVpcResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a default VPC with a size <code>/16</code> IPv4 CIDR block and a default subnet
  * 			in each Availability Zone. For more information about the components of a default VPC,
  * 			see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html">Default VPCs</a>
@@ -97,6 +96,7 @@ export interface CreateDefaultVpcCommandOutput extends CreateDefaultVpcResult, _
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateDefaultVpcCommand extends $Command
   .classBuilder<

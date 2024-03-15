@@ -27,7 +27,6 @@ export interface DeleteProfileShareCommandInput extends DeleteProfileShareInput 
 export interface DeleteProfileShareCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete a profile share.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface DeleteProfileShareCommandOutput extends __MetadataBearer {}
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * @public
  */
 export class DeleteProfileShareCommand extends $Command
   .classBuilder<

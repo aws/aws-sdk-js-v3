@@ -27,7 +27,6 @@ export interface DescribeEphemerisCommandInput extends DescribeEphemerisRequest 
 export interface DescribeEphemerisCommandOutput extends DescribeEphemerisResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes an existing ephemeris.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface DescribeEphemerisCommandOutput extends DescribeEphemerisRespons
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ * @public
  */
 export class DescribeEphemerisCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface PutComplianceItemsCommandInput extends PutComplianceItemsReques
 export interface PutComplianceItemsCommandOutput extends PutComplianceItemsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers a compliance type and other compliance details on a designated resource. This
  *    operation lets you register custom compliance details with a resource. This call overwrites
  *    existing compliance information on the resource, so you must provide a full list of compliance
@@ -153,6 +152,7 @@ export interface PutComplianceItemsCommandOutput extends PutComplianceItemsResul
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class PutComplianceItemsCommand extends $Command
   .classBuilder<

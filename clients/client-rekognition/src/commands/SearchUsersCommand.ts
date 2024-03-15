@@ -27,7 +27,6 @@ export interface SearchUsersCommandInput extends SearchUsersRequest {}
 export interface SearchUsersCommandOutput extends SearchUsersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Searches for UserIDs within a collection based on a <code>FaceId</code> or
  *         <code>UserId</code>. This API can be used to find the closest UserID (with a highest
  *       similarity) to associate a face. The request must be provided with either <code>FaceId</code>
@@ -99,6 +98,7 @@ export interface SearchUsersCommandOutput extends SearchUsersResponse, __Metadat
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example SearchUsers
  * ```javascript
  * // Searches for UserIDs within a collection based on a FaceId or UserId.

@@ -31,7 +31,6 @@ export interface CreateMeetingDialOutCommandInput extends CreateMeetingDialOutRe
 export interface CreateMeetingDialOutCommandOutput extends CreateMeetingDialOutResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Uses the join token and call metadata in a meeting request (From number, To number, and so forth) to initiate an outbound call to a public
  *     switched telephone network (PSTN) and join them into a Chime meeting. Also ensures that the From number belongs to the customer.</p>
  *          <p>To play welcome audio or implement an interactive voice response (IVR), use the
@@ -94,6 +93,7 @@ export interface CreateMeetingDialOutCommandOutput extends CreateMeetingDialOutR
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class CreateMeetingDialOutCommand extends $Command
   .classBuilder<

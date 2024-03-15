@@ -27,7 +27,6 @@ export interface ModifyLocalGatewayRouteCommandInput extends ModifyLocalGatewayR
 export interface ModifyLocalGatewayRouteCommandOutput extends ModifyLocalGatewayRouteResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the specified local gateway route.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface ModifyLocalGatewayRouteCommandOutput extends ModifyLocalGateway
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyLocalGatewayRouteCommand extends $Command
   .classBuilder<

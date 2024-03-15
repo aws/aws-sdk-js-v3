@@ -27,7 +27,6 @@ export interface GetDomainNameCommandInput extends GetDomainNameRequest {}
 export interface GetDomainNameCommandOutput extends GetDomainNameResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a custom <code>DomainName</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface GetDomainNameCommandOutput extends GetDomainNameResponse, __Met
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class GetDomainNameCommand extends $Command
   .classBuilder<

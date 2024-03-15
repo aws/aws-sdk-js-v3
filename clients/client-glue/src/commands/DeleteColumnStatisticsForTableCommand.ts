@@ -32,7 +32,6 @@ export interface DeleteColumnStatisticsForTableCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves table statistics of columns.</p>
  *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>DeleteTable</code>.</p>
  * @example
@@ -77,6 +76,7 @@ export interface DeleteColumnStatisticsForTableCommandOutput
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class DeleteColumnStatisticsForTableCommand extends $Command
   .classBuilder<

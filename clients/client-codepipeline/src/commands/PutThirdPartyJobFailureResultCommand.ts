@@ -30,7 +30,6 @@ export interface PutThirdPartyJobFailureResultCommandInput extends PutThirdParty
 export interface PutThirdPartyJobFailureResultCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Represents the failure of a third party job as returned to the pipeline by a job
  *             worker. Used for partner actions only.</p>
  * @example
@@ -75,6 +74,7 @@ export interface PutThirdPartyJobFailureResultCommandOutput extends __MetadataBe
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * @public
  */
 export class PutThirdPartyJobFailureResultCommand extends $Command
   .classBuilder<

@@ -32,9 +32,6 @@ export interface UpdateSipMediaApplicationCommandInput extends UpdateSipMediaApp
 export interface UpdateSipMediaApplicationCommandOutput extends UpdateSipMediaApplicationResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by UpdateSipMediaApplication in the Amazon Chime SDK Voice Namespace
- *
  * <p>Updates the details of the specified SIP media application.</p>
  *          <important>
  *             <p>
@@ -111,6 +108,8 @@ export interface UpdateSipMediaApplicationCommandOutput extends UpdateSipMediaAp
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by UpdateSipMediaApplication in the Amazon Chime SDK Voice Namespace
  */
 export class UpdateSipMediaApplicationCommand extends $Command
   .classBuilder<

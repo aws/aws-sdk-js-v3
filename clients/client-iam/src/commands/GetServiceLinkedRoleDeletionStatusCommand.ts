@@ -35,7 +35,6 @@ export interface GetServiceLinkedRoleDeletionStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the status of your service-linked role deletion. After you use <a>DeleteServiceLinkedRole</a> to submit a service-linked role for deletion,
  *             you can use the <code>DeletionTaskId</code> parameter in
  *                 <code>GetServiceLinkedRoleDeletionStatus</code> to check the status of the deletion.
@@ -90,6 +89,7 @@ export interface GetServiceLinkedRoleDeletionStatusCommandOutput
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class GetServiceLinkedRoleDeletionStatusCommand extends $Command
   .classBuilder<

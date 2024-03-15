@@ -27,7 +27,6 @@ export interface GetWorkflowCommandInput extends GetWorkflowRequest {}
 export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get a workflow resource object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -104,6 +103,7 @@ export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __Metadat
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class GetWorkflowCommand extends $Command
   .classBuilder<

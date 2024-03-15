@@ -27,7 +27,6 @@ export interface DetectProtectiveEquipmentCommandInput extends DetectProtectiveE
 export interface DetectProtectiveEquipmentCommandOutput extends DetectProtectiveEquipmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Detects Personal Protective Equipment (PPE) worn by people detected in an image. Amazon Rekognition can detect the
  *          following types of PPE.</p>
  *          <ul>
@@ -178,6 +177,7 @@ export interface DetectProtectiveEquipmentCommandOutput extends DetectProtective
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  */
 export class DetectProtectiveEquipmentCommand extends $Command
   .classBuilder<

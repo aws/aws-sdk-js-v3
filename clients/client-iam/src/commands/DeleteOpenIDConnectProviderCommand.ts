@@ -27,7 +27,6 @@ export interface DeleteOpenIDConnectProviderCommandInput extends DeleteOpenIDCon
 export interface DeleteOpenIDConnectProviderCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an OpenID Connect identity provider (IdP) resource object in IAM.</p>
  *          <p>Deleting an IAM OIDC provider resource does not update any roles that reference the
  *             provider as a principal in their trust policies. Any attempt to assume a role that
@@ -70,6 +69,7 @@ export interface DeleteOpenIDConnectProviderCommandOutput extends __MetadataBear
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class DeleteOpenIDConnectProviderCommand extends $Command
   .classBuilder<

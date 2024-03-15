@@ -27,7 +27,6 @@ export interface StopAppBlockBuilderCommandInput extends StopAppBlockBuilderRequ
 export interface StopAppBlockBuilderCommandOutput extends StopAppBlockBuilderResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops an app block builder.</p>
  *          <p>Stopping an app block builder terminates the instance, and the instance state is not
  *             persisted.</p>
@@ -102,6 +101,7 @@ export interface StopAppBlockBuilderCommandOutput extends StopAppBlockBuilderRes
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class StopAppBlockBuilderCommand extends $Command
   .classBuilder<

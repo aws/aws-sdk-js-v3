@@ -27,7 +27,6 @@ export interface ListPublicKeysCommandInput extends ListPublicKeysRequest {}
 export interface ListPublicKeysCommandOutput extends ListPublicKeysResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns all public keys whose private keys were used to sign the digest files within the
  *          specified time range. The public key is needed to validate digest files that were signed
  *          with its corresponding private key.</p>
@@ -86,6 +85,7 @@ export interface ListPublicKeysCommandOutput extends ListPublicKeysResponse, __M
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class ListPublicKeysCommand extends $Command
   .classBuilder<

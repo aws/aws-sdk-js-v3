@@ -27,7 +27,6 @@ export interface CreateHITCommandInput extends CreateHITRequest {}
 export interface CreateHITCommandOutput extends CreateHITResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The <code>CreateHIT</code> operation creates a new Human Intelligence Task (HIT).
  *             The new HIT is made available for Workers to find and accept on the Amazon Mechanical
  *             Turk website. </p>
@@ -187,6 +186,7 @@ export interface CreateHITCommandOutput extends CreateHITResponse, __MetadataBea
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * @public
  */
 export class CreateHITCommand extends $Command
   .classBuilder<

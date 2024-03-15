@@ -31,7 +31,6 @@ export interface ModifyTargetGroupAttributesCommandInput extends ModifyTargetGro
 export interface ModifyTargetGroupAttributesCommandOutput extends ModifyTargetGroupAttributesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the specified attributes of the specified target group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface ModifyTargetGroupAttributesCommandOutput extends ModifyTargetGr
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  * @example To modify the deregistration delay timeout
  * ```javascript
  * // This example sets the deregistration delay timeout to the specified value for the specified target group.

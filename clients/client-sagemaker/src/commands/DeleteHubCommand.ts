@@ -27,7 +27,6 @@ export interface DeleteHubCommandInput extends DeleteHubRequest {}
 export interface DeleteHubCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete a hub.</p>
  *          <note>
  *             <p>Hub APIs are only callable through SageMaker Studio.</p>
@@ -62,6 +61,7 @@ export interface DeleteHubCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteHubCommand extends $Command
   .classBuilder<

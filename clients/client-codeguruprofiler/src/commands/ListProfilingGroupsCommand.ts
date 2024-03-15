@@ -27,7 +27,6 @@ export interface ListProfilingGroupsCommandInput extends ListProfilingGroupsRequ
 export interface ListProfilingGroupsCommandOutput extends ListProfilingGroupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Returns a list of profiling groups. The profiling groups are returned as
  *          <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html">
@@ -95,6 +94,7 @@ export interface ListProfilingGroupsCommandOutput extends ListProfilingGroupsRes
  * @throws {@link CodeGuruProfilerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
+ * @public
  */
 export class ListProfilingGroupsCommand extends $Command
   .classBuilder<

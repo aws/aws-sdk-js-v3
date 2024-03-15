@@ -32,7 +32,6 @@ export interface UpdateEndpointWeightsAndCapacitiesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates variant weight of one or more variants associated with an existing
  *             endpoint, or capacity of one variant associated with an existing endpoint. When it
  *             receives the request, SageMaker sets the endpoint status to <code>Updating</code>. After
@@ -79,6 +78,7 @@ export interface UpdateEndpointWeightsAndCapacitiesCommandOutput
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class UpdateEndpointWeightsAndCapacitiesCommand extends $Command
   .classBuilder<

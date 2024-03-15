@@ -31,7 +31,6 @@ export interface ListSoftwareSetsCommandInput extends ListSoftwareSetsRequest {}
 export interface ListSoftwareSetsCommandOutput extends ListSoftwareSetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of software sets.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface ListSoftwareSetsCommandOutput extends ListSoftwareSetsResponse,
  * @throws {@link WorkSpacesThinClientServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesThinClient service.</p>
  *
+ * @public
  */
 export class ListSoftwareSetsCommand extends $Command
   .classBuilder<

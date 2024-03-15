@@ -32,7 +32,6 @@ export interface GetComplianceDetailsByResourceCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the evaluation results for the specified Amazon Web Services resource.
  * 			The results indicate which Config rules were used to evaluate
  * 			the resource, when each rule was last invoked, and whether the resource
@@ -92,6 +91,7 @@ export interface GetComplianceDetailsByResourceCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class GetComplianceDetailsByResourceCommand extends $Command
   .classBuilder<

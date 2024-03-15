@@ -27,7 +27,6 @@ export interface ListInvitationsCommandInput extends ListInvitationsRequest {}
 export interface ListInvitationsCommandOutput extends ListInvitationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all Security Hub membership invitations that were sent to the current Amazon Web Services account.</p>
  *          <p>This operation is only used by accounts that are managed by invitation.
  *          Accounts that are managed using the integration with Organizations do not receive invitations.</p>
@@ -80,6 +79,7 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To list membership invitations to calling account
  * ```javascript
  * // The following example returns a list of Security Hub member invitations sent to the calling AWS account. Only accounts that are invited manually use this operation. It's not for use by accounts that are managed through AWS Organizations.

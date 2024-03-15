@@ -27,7 +27,6 @@ export interface DeregisterGatewayInstanceCommandInput extends DeregisterGateway
 export interface DeregisterGatewayInstanceCommandOutput extends DeregisterGatewayInstanceResponse, __MetadataBearer {}
 
 /**
- * @public
  * Deregisters an instance. Before you deregister an instance, all bridges running on the instance must be stopped. If you want to deregister an instance without stopping the bridges, you must use the --force option.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface DeregisterGatewayInstanceCommandOutput extends DeregisterGatewa
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ * @public
  */
 export class DeregisterGatewayInstanceCommand extends $Command
   .classBuilder<

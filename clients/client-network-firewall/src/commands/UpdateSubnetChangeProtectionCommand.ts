@@ -32,7 +32,6 @@ export interface UpdateSubnetChangeProtectionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p></p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface UpdateSubnetChangeProtectionCommandOutput
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ * @public
  */
 export class UpdateSubnetChangeProtectionCommand extends $Command
   .classBuilder<

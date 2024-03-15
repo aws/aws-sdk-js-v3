@@ -27,7 +27,6 @@ export interface DeleteJobQueueCommandInput extends DeleteJobQueueRequest {}
 export interface DeleteJobQueueCommandOutput extends DeleteJobQueueResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified job queue. You must first disable submissions for a queue with the
  *         <a>UpdateJobQueue</a> operation. All jobs in the queue are eventually terminated
  *       when you delete a job queue. The jobs are terminated at a rate of about 16 jobs each
@@ -66,6 +65,7 @@ export interface DeleteJobQueueCommandOutput extends DeleteJobQueueResponse, __M
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ * @public
  * @example To delete a job queue
  * ```javascript
  * // This example deletes the GPGPU job queue.

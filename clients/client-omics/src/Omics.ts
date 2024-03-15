@@ -1692,9 +1692,9 @@ export interface Omics {
 }
 
 /**
- * @public
  * <p>This is the <i>AWS HealthOmics API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/omics/latest/dev/">What is AWS HealthOmics?</a> in the
  *       <i>AWS HealthOmics User Guide</i>.</p>
+ * @public
  */
 export class Omics extends OmicsClient implements Omics {}
 createAggregatedClient(commands, Omics);

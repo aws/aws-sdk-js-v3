@@ -27,7 +27,6 @@ export interface DescribeBucketsCommandInput extends DescribeBucketsRequest {}
 export interface DescribeBucketsCommandOutput extends DescribeBucketsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves (queries) statistical data and other information about one or more S3 buckets that Amazon Macie monitors and analyzes for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -187,6 +186,7 @@ export interface DescribeBucketsCommandOutput extends DescribeBucketsResponse, _
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class DescribeBucketsCommand extends $Command
   .classBuilder<

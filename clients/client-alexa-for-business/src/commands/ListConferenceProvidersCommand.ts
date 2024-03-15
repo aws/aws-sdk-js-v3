@@ -27,9 +27,6 @@ export interface ListConferenceProvidersCommandInput extends ListConferenceProvi
 export interface ListConferenceProvidersCommandOutput extends ListConferenceProvidersResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Lists conference providers under a specific AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +75,8 @@ export interface ListConferenceProvidersCommandOutput extends ListConferenceProv
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class ListConferenceProvidersCommand extends $Command
   .classBuilder<

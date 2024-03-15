@@ -27,7 +27,6 @@ export interface ListDetectorsCommandInput extends ListDetectorsRequest {}
 export interface ListDetectorsCommandOutput extends ListDetectorsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists detectors (the instances of a detector model).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface ListDetectorsCommandOutput extends ListDetectorsResponse, __Met
  * @throws {@link IoTEventsDataServiceException}
  * <p>Base exception class for all service exceptions from IoTEventsData service.</p>
  *
+ * @public
  */
 export class ListDetectorsCommand extends $Command
   .classBuilder<

@@ -29,7 +29,6 @@ export interface GetOrganizationsAccessReportCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the service last accessed data report for Organizations that was previously
  *             generated using the <code>
  *                <a>GenerateOrganizationsAccessReport</a>
@@ -102,6 +101,7 @@ export interface GetOrganizationsAccessReportCommandOutput
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To get details from a previously generated organizational unit report
  * ```javascript
  * // The following operation gets details about the report with the job ID: examplea-1234-b567-cde8-90fg123abcd4

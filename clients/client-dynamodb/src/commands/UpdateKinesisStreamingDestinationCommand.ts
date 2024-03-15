@@ -32,7 +32,6 @@ export interface UpdateKinesisStreamingDestinationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>The command to update the Kinesis stream destination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface UpdateKinesisStreamingDestinationCommandOutput
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  */
 export class UpdateKinesisStreamingDestinationCommand extends $Command
   .classBuilder<

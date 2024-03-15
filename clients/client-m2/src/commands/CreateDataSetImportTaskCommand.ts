@@ -27,7 +27,6 @@ export interface CreateDataSetImportTaskCommandInput extends CreateDataSetImport
 export interface CreateDataSetImportTaskCommandOutput extends CreateDataSetImportTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a data set import task for a specific application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -131,6 +130,7 @@ export interface CreateDataSetImportTaskCommandOutput extends CreateDataSetImpor
  * @throws {@link M2ServiceException}
  * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ * @public
  */
 export class CreateDataSetImportTaskCommand extends $Command
   .classBuilder<

@@ -25,7 +25,6 @@ export interface FlattenedXmlMapCommandInput {}
 export interface FlattenedXmlMapCommandOutput extends FlattenedXmlMapOutput, __MetadataBearer {}
 
 /**
- * @public
  * Flattened maps
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,6 +52,7 @@ export interface FlattenedXmlMapCommandOutput extends FlattenedXmlMapOutput, __M
  * @throws {@link QueryProtocolServiceException}
  * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
+ * @public
  */
 export class FlattenedXmlMapCommand extends $Command
   .classBuilder<

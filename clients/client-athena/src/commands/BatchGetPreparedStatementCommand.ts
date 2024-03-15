@@ -27,7 +27,6 @@ export interface BatchGetPreparedStatementCommandInput extends BatchGetPreparedS
 export interface BatchGetPreparedStatementCommandOutput extends BatchGetPreparedStatementOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the details of a single prepared statement or a list of up to 256 prepared
  *             statements for the array of prepared statement names that you provide. Requires you to
  *             have access to the workgroup to which the prepared statements belong. If a prepared
@@ -85,6 +84,7 @@ export interface BatchGetPreparedStatementCommandOutput extends BatchGetPrepared
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class BatchGetPreparedStatementCommand extends $Command
   .classBuilder<

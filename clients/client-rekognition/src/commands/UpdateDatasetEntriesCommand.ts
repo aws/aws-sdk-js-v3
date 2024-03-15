@@ -27,7 +27,6 @@ export interface UpdateDatasetEntriesCommandInput extends UpdateDatasetEntriesRe
 export interface UpdateDatasetEntriesCommandOutput extends UpdateDatasetEntriesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation applies only to Amazon Rekognition Custom Labels.</p>
  *          </note>
@@ -110,6 +109,7 @@ export interface UpdateDatasetEntriesCommandOutput extends UpdateDatasetEntriesR
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example To-add dataset entries to an Amazon Rekognition Custom Labels dataset
  * ```javascript
  * // Adds dataset entries to an Amazon Rekognition Custom Labels dataset.

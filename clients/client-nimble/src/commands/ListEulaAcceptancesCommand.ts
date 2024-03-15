@@ -27,7 +27,6 @@ export interface ListEulaAcceptancesCommandInput extends ListEulaAcceptancesRequ
 export interface ListEulaAcceptancesCommandOutput extends ListEulaAcceptancesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List EULA acceptances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface ListEulaAcceptancesCommandOutput extends ListEulaAcceptancesRes
  * @throws {@link NimbleServiceException}
  * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
+ * @public
  */
 export class ListEulaAcceptancesCommand extends $Command
   .classBuilder<

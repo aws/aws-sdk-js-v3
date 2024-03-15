@@ -27,7 +27,6 @@ export interface GetDirectoryCommandInput extends GetDirectoryRequest {}
 export interface GetDirectoryCommandOutput extends GetDirectoryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves metadata about a directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface GetDirectoryCommandOutput extends GetDirectoryResponse, __Metad
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class GetDirectoryCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListFindingsCommandInput extends ListFindingsRequest {}
 export interface ListFindingsCommandOutput extends ListFindingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a subset of information about one or more findings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class ListFindingsCommand extends $Command
   .classBuilder<

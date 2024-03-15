@@ -27,7 +27,6 @@ export interface UpdateBasePathMappingCommandInput extends UpdateBasePathMapping
 export interface UpdateBasePathMappingCommandOutput extends BasePathMapping, __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes information about the BasePathMapping resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface UpdateBasePathMappingCommandOutput extends BasePathMapping, __M
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class UpdateBasePathMappingCommand extends $Command
   .classBuilder<

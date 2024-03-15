@@ -27,7 +27,6 @@ export interface TransferInputDeviceCommandInput extends TransferInputDeviceRequ
 export interface TransferInputDeviceCommandOutput extends TransferInputDeviceResponse, __MetadataBearer {}
 
 /**
- * @public
  * Start an input device transfer to another AWS account. After you make the request, the other account must accept or reject the transfer.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface TransferInputDeviceCommandOutput extends TransferInputDeviceRes
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class TransferInputDeviceCommand extends $Command
   .classBuilder<

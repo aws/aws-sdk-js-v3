@@ -27,7 +27,6 @@ export interface BatchDeleteClusterSnapshotsCommandInput extends BatchDeleteClus
 export interface BatchDeleteClusterSnapshotsCommandOutput extends BatchDeleteClusterSnapshotsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a set of cluster snapshots.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface BatchDeleteClusterSnapshotsCommandOutput extends BatchDeleteClu
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class BatchDeleteClusterSnapshotsCommand extends $Command
   .classBuilder<

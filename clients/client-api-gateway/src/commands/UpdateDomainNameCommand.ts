@@ -27,7 +27,6 @@ export interface UpdateDomainNameCommandInput extends UpdateDomainNameRequest {}
 export interface UpdateDomainNameCommandOutput extends DomainName, __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes information about the DomainName resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -112,6 +111,7 @@ export interface UpdateDomainNameCommandOutput extends DomainName, __MetadataBea
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class UpdateDomainNameCommand extends $Command
   .classBuilder<

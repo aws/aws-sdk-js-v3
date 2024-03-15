@@ -27,7 +27,6 @@ export interface DescribeTestCasesCommandInput extends DescribeTestCasesInput {}
 export interface DescribeTestCasesCommandOutput extends DescribeTestCasesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Returns a list of details about test cases for a report.
  *     </p>
@@ -81,6 +80,7 @@ export interface DescribeTestCasesCommandOutput extends DescribeTestCasesOutput,
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * @public
  */
 export class DescribeTestCasesCommand extends $Command
   .classBuilder<

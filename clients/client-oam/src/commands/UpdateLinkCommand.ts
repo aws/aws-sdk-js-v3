@@ -27,7 +27,6 @@ export interface UpdateLinkCommandInput extends UpdateLinkInput {}
 export interface UpdateLinkCommandOutput extends UpdateLinkOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use this operation to change what types of data are shared from a source account to its linked
  *             monitoring account sink. You can't change the sink or change the monitoring account with this operation.</p>
  *          <p>To update the list of tags associated with the sink, use
@@ -83,6 +82,7 @@ export interface UpdateLinkCommandOutput extends UpdateLinkOutput, __MetadataBea
  * @throws {@link OAMServiceException}
  * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ * @public
  */
 export class UpdateLinkCommand extends $Command
   .classBuilder<

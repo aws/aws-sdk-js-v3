@@ -27,7 +27,6 @@ export interface CreateLFTagCommandInput extends CreateLFTagRequest {}
 export interface CreateLFTagCommandOutput extends CreateLFTagResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an LF-tag with the specified name and values.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface CreateLFTagCommandOutput extends CreateLFTagResponse, __Metadat
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class CreateLFTagCommand extends $Command
   .classBuilder<

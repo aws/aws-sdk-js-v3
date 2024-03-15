@@ -36,7 +36,6 @@ export interface GetCollaborationAnalysisTemplateCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves an analysis template within a collaboration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface GetCollaborationAnalysisTemplateCommandOutput
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class GetCollaborationAnalysisTemplateCommand extends $Command
   .classBuilder<

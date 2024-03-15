@@ -27,7 +27,6 @@ export interface ModifyReplicationGroupCommandInput extends ModifyReplicationGro
 export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the settings for a replication group. This is limited to Redis 7 and newer.</p>
  *          <ul>
  *             <li>
@@ -293,6 +292,7 @@ export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGr
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  * @example ModifyReplicationGroup
  * ```javascript
  * //

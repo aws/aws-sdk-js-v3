@@ -31,7 +31,6 @@ export interface UpdateServiceSettingsCommandInput extends UpdateServiceSettings
 export interface UpdateServiceSettingsCommandOutput extends UpdateServiceSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the service settings for Linux subscriptions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface UpdateServiceSettingsCommandOutput extends UpdateServiceSetting
  * @throws {@link LicenseManagerLinuxSubscriptionsServiceException}
  * <p>Base exception class for all service exceptions from LicenseManagerLinuxSubscriptions service.</p>
  *
+ * @public
  */
 export class UpdateServiceSettingsCommand extends $Command
   .classBuilder<

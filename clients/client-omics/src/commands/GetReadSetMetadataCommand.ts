@@ -27,7 +27,6 @@ export interface GetReadSetMetadataCommandInput extends GetReadSetMetadataReques
 export interface GetReadSetMetadataCommandOutput extends GetReadSetMetadataResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets details about a read set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -114,6 +113,7 @@ export interface GetReadSetMetadataCommandOutput extends GetReadSetMetadataRespo
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class GetReadSetMetadataCommand extends $Command
   .classBuilder<

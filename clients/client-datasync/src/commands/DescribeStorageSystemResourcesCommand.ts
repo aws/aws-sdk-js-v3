@@ -32,7 +32,6 @@ export interface DescribeStorageSystemResourcesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information that DataSync Discovery collects about resources in your on-premises storage
  *       system.</p>
  * @example
@@ -196,6 +195,7 @@ export interface DescribeStorageSystemResourcesCommandOutput
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class DescribeStorageSystemResourcesCommand extends $Command
   .classBuilder<

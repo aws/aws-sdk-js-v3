@@ -27,7 +27,6 @@ export interface ListDiscoveredResourcesCommandInput extends ListDiscoveredResou
 export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredResourcesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an array of resources in the organization's accounts that are available to be associated with a resource set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredReso
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * @public
  */
 export class ListDiscoveredResourcesCommand extends $Command
   .classBuilder<

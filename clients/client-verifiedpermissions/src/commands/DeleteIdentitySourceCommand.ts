@@ -31,7 +31,6 @@ export interface DeleteIdentitySourceCommandInput extends DeleteIdentitySourceIn
 export interface DeleteIdentitySourceCommandOutput extends DeleteIdentitySourceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an identity source that references an identity provider (IdP) such as Amazon Cognito. After
  *             you delete the identity source, you can no longer use tokens for identities from that identity source to
  *             represent principals in authorization queries made using <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a>.
@@ -161,6 +160,7 @@ export interface DeleteIdentitySourceCommandOutput extends DeleteIdentitySourceO
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ * @public
  */
 export class DeleteIdentitySourceCommand extends $Command
   .classBuilder<

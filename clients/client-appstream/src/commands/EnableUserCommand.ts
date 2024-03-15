@@ -27,7 +27,6 @@ export interface EnableUserCommandInput extends EnableUserRequest {}
 export interface EnableUserCommandOutput extends EnableUserResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables a user in the user pool. After being enabled, users can sign in to AppStream 2.0 and open applications from the stacks to which they are assigned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -60,6 +59,7 @@ export interface EnableUserCommandOutput extends EnableUserResult, __MetadataBea
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class EnableUserCommand extends $Command
   .classBuilder<

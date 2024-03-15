@@ -34,7 +34,6 @@ export interface GetReplicationConfigurationCommandInput extends GetReplicationC
 export interface GetReplicationConfigurationCommandOutput extends ReplicationConfiguration, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a ReplicationConfiguration, filtered by Source Server ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -114,6 +113,7 @@ export interface GetReplicationConfigurationCommandOutput extends ReplicationCon
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * @public
  */
 export class GetReplicationConfigurationCommand extends $Command
   .classBuilder<

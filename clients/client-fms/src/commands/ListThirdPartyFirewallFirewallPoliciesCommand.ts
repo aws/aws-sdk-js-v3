@@ -36,7 +36,6 @@ export interface ListThirdPartyFirewallFirewallPoliciesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of all of the third-party firewall policies that are associated with the third-party firewall administrator's account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface ListThirdPartyFirewallFirewallPoliciesCommandOutput
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * @public
  */
 export class ListThirdPartyFirewallFirewallPoliciesCommand extends $Command
   .classBuilder<

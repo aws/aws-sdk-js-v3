@@ -27,7 +27,6 @@ export interface ListLambdaFunctionsCommandInput extends ListLambdaFunctionsRequ
 export interface ListLambdaFunctionsCommandOutput extends ListLambdaFunctionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Returns a paginated list of all Lambda functions that display in the dropdown options in the
  *    relevant flow blocks.</p>
@@ -77,6 +76,7 @@ export interface ListLambdaFunctionsCommandOutput extends ListLambdaFunctionsRes
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class ListLambdaFunctionsCommand extends $Command
   .classBuilder<

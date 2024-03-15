@@ -32,7 +32,6 @@ export interface ListAppVersionResourceMappingsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists how the resources in an application version are mapped/sourced from. Mappings can be
  *       physical resource identifiers, CloudFormation stacks, resource-groups, or an application registry
  *       app.</p>
@@ -100,6 +99,7 @@ export interface ListAppVersionResourceMappingsCommandOutput
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class ListAppVersionResourceMappingsCommand extends $Command
   .classBuilder<

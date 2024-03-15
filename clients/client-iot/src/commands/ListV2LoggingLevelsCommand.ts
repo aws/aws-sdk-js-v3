@@ -27,7 +27,6 @@ export interface ListV2LoggingLevelsCommandInput extends ListV2LoggingLevelsRequ
 export interface ListV2LoggingLevelsCommandOutput extends ListV2LoggingLevelsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists logging levels.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListV2LoggingLevels</a> action.</p>
  * @example
@@ -79,6 +78,7 @@ export interface ListV2LoggingLevelsCommandOutput extends ListV2LoggingLevelsRes
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListV2LoggingLevelsCommand extends $Command
   .classBuilder<

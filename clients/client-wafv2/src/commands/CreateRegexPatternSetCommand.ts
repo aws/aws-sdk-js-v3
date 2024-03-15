@@ -27,7 +27,6 @@ export interface CreateRegexPatternSetCommandInput extends CreateRegexPatternSet
 export interface CreateRegexPatternSetCommandOutput extends CreateRegexPatternSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a <a>RegexPatternSet</a>, which you reference in a <a>RegexPatternSetReferenceStatement</a>, to have WAF inspect a web request
  *          component for the specified patterns.</p>
  * @example
@@ -125,6 +124,7 @@ export interface CreateRegexPatternSetCommandOutput extends CreateRegexPatternSe
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class CreateRegexPatternSetCommand extends $Command
   .classBuilder<

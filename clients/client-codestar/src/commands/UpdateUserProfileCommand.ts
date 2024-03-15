@@ -32,7 +32,6 @@ export interface UpdateUserProfileCommandInput extends UpdateUserProfileRequest 
 export interface UpdateUserProfileCommandOutput extends UpdateUserProfileResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a user's profile in AWS CodeStar. The user profile is not project-specific.
  *       Information in the user profile is displayed wherever the user's information appears to other
  *       users in AWS CodeStar. </p>
@@ -76,6 +75,7 @@ export interface UpdateUserProfileCommandOutput extends UpdateUserProfileResult,
  * @throws {@link CodeStarServiceException}
  * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
+ * @public
  */
 export class UpdateUserProfileCommand extends $Command
   .classBuilder<

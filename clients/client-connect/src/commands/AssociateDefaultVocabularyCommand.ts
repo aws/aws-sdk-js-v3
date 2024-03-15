@@ -27,7 +27,6 @@ export interface AssociateDefaultVocabularyCommandInput extends AssociateDefault
 export interface AssociateDefaultVocabularyCommandOutput extends AssociateDefaultVocabularyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates an existing vocabulary as the default. Contact Lens for Amazon Connect uses the vocabulary in post-call
  *    and real-time analysis sessions for the given language.</p>
  * @example
@@ -71,6 +70,7 @@ export interface AssociateDefaultVocabularyCommandOutput extends AssociateDefaul
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class AssociateDefaultVocabularyCommand extends $Command
   .classBuilder<

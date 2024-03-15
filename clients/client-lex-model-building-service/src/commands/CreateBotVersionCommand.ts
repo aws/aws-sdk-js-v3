@@ -31,7 +31,6 @@ export interface CreateBotVersionCommandInput extends CreateBotVersionRequest {}
 export interface CreateBotVersionCommandOutput extends CreateBotVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new version of the bot based on the <code>$LATEST</code>
  *       version. If the <code>$LATEST</code> version of this resource hasn't
  *       changed since you created the last version, Amazon Lex doesn't create a new
@@ -136,6 +135,7 @@ export interface CreateBotVersionCommandOutput extends CreateBotVersionResponse,
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * @public
  */
 export class CreateBotVersionCommand extends $Command
   .classBuilder<

@@ -26,7 +26,6 @@ export interface DeleteResourcePolicyCommandInput {}
 export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the resource policy from your organization.</p>
  *          <p>You can only call this operation from the organization's management account.</p>
  * @example
@@ -279,6 +278,7 @@ export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  */
 export class DeleteResourcePolicyCommand extends $Command
   .classBuilder<

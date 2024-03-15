@@ -36,7 +36,6 @@ export interface DescribeOrganizationResourceCollectionHealthCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides an overview of your system's health. If additional member accounts are part
  * 			of your organization, you can filter those accounts using the <code>AccountIds</code>
  * 			field.</p>
@@ -132,6 +131,7 @@ export interface DescribeOrganizationResourceCollectionHealthCommandOutput
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ * @public
  */
 export class DescribeOrganizationResourceCollectionHealthCommand extends $Command
   .classBuilder<

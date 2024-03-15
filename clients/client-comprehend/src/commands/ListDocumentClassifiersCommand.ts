@@ -31,7 +31,6 @@ export interface ListDocumentClassifiersCommandInput extends ListDocumentClassif
 export interface ListDocumentClassifiersCommandOutput extends ListDocumentClassifiersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of the document classifiers that you have created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -156,6 +155,7 @@ export interface ListDocumentClassifiersCommandOutput extends ListDocumentClassi
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class ListDocumentClassifiersCommand extends $Command
   .classBuilder<

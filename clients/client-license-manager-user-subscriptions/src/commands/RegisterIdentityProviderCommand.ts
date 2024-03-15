@@ -31,7 +31,6 @@ export interface RegisterIdentityProviderCommandInput extends RegisterIdentityPr
 export interface RegisterIdentityProviderCommandOutput extends RegisterIdentityProviderResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers an identity provider for user-based subscriptions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -107,6 +106,7 @@ export interface RegisterIdentityProviderCommandOutput extends RegisterIdentityP
  * @throws {@link LicenseManagerUserSubscriptionsServiceException}
  * <p>Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.</p>
  *
+ * @public
  */
 export class RegisterIdentityProviderCommand extends $Command
   .classBuilder<

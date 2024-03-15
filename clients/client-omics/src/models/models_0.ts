@@ -10,18 +10,18 @@ import { OmicsServiceException as __BaseException } from "./OmicsServiceExceptio
  */
 export interface AbortMultipartReadSetUploadRequest {
   /**
-   * @public
    * <p>
    *       The sequence store ID for the store involved in the multipart upload.
    *     </p>
+   * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>
    *       The ID for the multipart upload.
    *     </p>
+   * @public
    */
   uploadId: string | undefined;
 }
@@ -32,8 +32,8 @@ export interface AbortMultipartReadSetUploadRequest {
 export interface AbortMultipartReadSetUploadResponse {}
 
 /**
- * @public
  * <p>You do not have sufficient access to perform this action.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -52,8 +52,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>An unexpected error occurred. Try the request again.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -73,10 +73,10 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>
  *       The operation is not supported by Amazon Omics, or the API does not exist.
  *     </p>
+ * @public
  */
 export class NotSupportedOperationException extends __BaseException {
   readonly name: "NotSupportedOperationException" = "NotSupportedOperationException";
@@ -95,8 +95,8 @@ export class NotSupportedOperationException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request timed out.</p>
+ * @public
  */
 export class RequestTimeoutException extends __BaseException {
   readonly name: "RequestTimeoutException" = "RequestTimeoutException";
@@ -115,8 +115,8 @@ export class RequestTimeoutException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The target resource was not found in the current Region.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -135,8 +135,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request exceeds a service quota.</p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
@@ -155,8 +155,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request was denied due to request throttling.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -178,8 +178,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -215,10 +215,10 @@ export type Accelerators = (typeof Accelerators)[keyof typeof Accelerators];
  */
 export interface AcceptShareRequest {
   /**
-   * @public
    * <p>
    * The ID for a share offer for analytics store data.
    * </p>
+   * @public
    */
   shareId: string | undefined;
 }
@@ -264,17 +264,17 @@ export type ShareStatus = (typeof ShareStatus)[keyof typeof ShareStatus];
  */
 export interface AcceptShareResponse {
   /**
-   * @public
    * <p>
    * The status of an analytics store share.
    * </p>
+   * @public
    */
   status?: ShareStatus;
 }
 
 /**
- * @public
  * <p>The request cannot be applied to the target resource in its current state.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -312,61 +312,61 @@ export const ReadSetActivationJobStatus = {
 export type ReadSetActivationJobStatus = (typeof ReadSetActivationJobStatus)[keyof typeof ReadSetActivationJobStatus];
 
 /**
- * @public
  * <p>A read set activation job filter.</p>
+ * @public
  */
 export interface ActivateReadSetFilter {
   /**
-   * @public
    * <p>The filter's status.</p>
+   * @public
    */
   status?: ReadSetActivationJobStatus;
 
   /**
-   * @public
    * <p>The filter's start date.</p>
+   * @public
    */
   createdAfter?: Date;
 
   /**
-   * @public
    * <p>The filter's end date.</p>
+   * @public
    */
   createdBefore?: Date;
 }
 
 /**
- * @public
  * <p>A read set activation job.</p>
+ * @public
  */
 export interface ActivateReadSetJobItem {
   /**
-   * @public
    * <p>The job's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The job's sequence store ID.</p>
+   * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The job's status.</p>
+   * @public
    */
   status: ReadSetActivationJobStatus | undefined;
 
   /**
-   * @public
    * <p>When the job was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>When the job completed.</p>
+   * @public
    */
   completionTime?: Date;
 }
@@ -389,25 +389,25 @@ export type ReadSetActivationJobItemStatus =
   (typeof ReadSetActivationJobItemStatus)[keyof typeof ReadSetActivationJobItemStatus];
 
 /**
- * @public
  * <p>A source for a read set activation job.</p>
+ * @public
  */
 export interface ActivateReadSetSourceItem {
   /**
-   * @public
    * <p>The source's read set ID.</p>
+   * @public
    */
   readSetId: string | undefined;
 
   /**
-   * @public
    * <p>The source's status.</p>
+   * @public
    */
   status: ReadSetActivationJobItemStatus | undefined;
 
   /**
-   * @public
    * <p>The source's status message.</p>
+   * @public
    */
   statusMessage?: string;
 }
@@ -449,31 +449,31 @@ export const JobStatus = {
 export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
 
 /**
- * @public
  * <p>Details about an imported annotation item.</p>
+ * @public
  */
 export interface AnnotationImportItemDetail {
   /**
-   * @public
    * <p>The source file's location in Amazon S3.</p>
+   * @public
    */
   source: string | undefined;
 
   /**
-   * @public
    * <p>The item's job status.</p>
+   * @public
    */
   jobStatus: JobStatus | undefined;
 }
 
 /**
- * @public
  * <p>A source for an annotation import job.</p>
+ * @public
  */
 export interface AnnotationImportItemSource {
   /**
-   * @public
    * <p>The source file's location in Amazon S3.</p>
+   * @public
    */
   source: string | undefined;
 }
@@ -483,8 +483,8 @@ export interface AnnotationImportItemSource {
  */
 export interface CancelAnnotationImportRequest {
   /**
-   * @public
    * <p>The job's ID.</p>
+   * @public
    */
   jobId: string | undefined;
 }
@@ -499,105 +499,105 @@ export interface CancelAnnotationImportResponse {}
  */
 export interface GetAnnotationImportRequest {
   /**
-   * @public
    * <p>The job's ID.</p>
+   * @public
    */
   jobId: string | undefined;
 }
 
 /**
- * @public
  * <p>Read options for an annotation import job.</p>
+ * @public
  */
 export interface ReadOptions {
   /**
-   * @public
    * <p>The file's field separator.</p>
+   * @public
    */
   sep?: string;
 
   /**
-   * @public
    * <p>The file's encoding.</p>
+   * @public
    */
   encoding?: string;
 
   /**
-   * @public
    * <p>The file's quote character.</p>
+   * @public
    */
   quote?: string;
 
   /**
-   * @public
    * <p>Whether all values need to be quoted, or just those that contain quotes.</p>
+   * @public
    */
   quoteAll?: boolean;
 
   /**
-   * @public
    * <p>A character for escaping quotes in the file.</p>
+   * @public
    */
   escape?: string;
 
   /**
-   * @public
    * <p>Whether quotes need to be escaped in the file.</p>
+   * @public
    */
   escapeQuotes?: boolean;
 
   /**
-   * @public
    * <p>The file's comment character.</p>
+   * @public
    */
   comment?: string;
 
   /**
-   * @public
    * <p>Whether the file has a header row.</p>
+   * @public
    */
   header?: boolean;
 
   /**
-   * @public
    * <p>A line separator for the file.</p>
+   * @public
    */
   lineSep?: string;
 }
 
 /**
- * @public
  * <p>Formatting options for a TSV file.</p>
+ * @public
  */
 export interface TsvOptions {
   /**
-   * @public
    * <p>The file's read options.</p>
+   * @public
    */
   readOptions?: ReadOptions;
 }
 
 /**
- * @public
  * <p>Formatting options for a VCF file.</p>
+ * @public
  */
 export interface VcfOptions {
   /**
-   * @public
    * <p>The file's ignore qual field setting.</p>
+   * @public
    */
   ignoreQualField?: boolean;
 
   /**
-   * @public
    * <p>The file's ignore filter field setting.</p>
+   * @public
    */
   ignoreFilterField?: boolean;
 }
 
 /**
- * @public
  * <p>Formatting options for a file.</p>
+ * @public
  */
 export type FormatOptions =
   | FormatOptions.TsvOptionsMember
@@ -609,8 +609,8 @@ export type FormatOptions =
  */
 export namespace FormatOptions {
   /**
-   * @public
    * <p>Options for a TSV file.</p>
+   * @public
    */
   export interface TsvOptionsMember {
     tsvOptions: TsvOptions;
@@ -619,8 +619,8 @@ export namespace FormatOptions {
   }
 
   /**
-   * @public
    * <p>Options for a VCF file.</p>
+   * @public
    */
   export interface VcfOptionsMember {
     tsvOptions?: never;
@@ -655,102 +655,102 @@ export namespace FormatOptions {
  */
 export interface GetAnnotationImportResponse {
   /**
-   * @public
    * <p>The job's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The job's destination annotation store.</p>
+   * @public
    */
   destinationName: string | undefined;
 
   /**
-   * @public
    * <p>
    * The name of the annotation store version.
    * </p>
+   * @public
    */
   versionName: string | undefined;
 
   /**
-   * @public
    * <p>The job's service role ARN.</p>
+   * @public
    */
   roleArn: string | undefined;
 
   /**
-   * @public
    * <p>The job's status.</p>
+   * @public
    */
   status: JobStatus | undefined;
 
   /**
-   * @public
    * <p>The job's status message.</p>
+   * @public
    */
   statusMessage: string | undefined;
 
   /**
-   * @public
    * <p>When the job was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>When the job was updated.</p>
+   * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * @public
    * <p>When the job completed.</p>
+   * @public
    */
   completionTime: Date | undefined;
 
   /**
-   * @public
    * <p>The job's imported items.</p>
+   * @public
    */
   items: AnnotationImportItemDetail[] | undefined;
 
   /**
-   * @public
    * <p>The job's left normalization setting.</p>
+   * @public
    */
   runLeftNormalization: boolean | undefined;
 
   /**
-   * @public
    * <p>Formatting options for a file.</p>
+   * @public
    */
   formatOptions: FormatOptions | undefined;
 
   /**
-   * @public
    * <p>
    *       The annotation schema generated by the parsed annotation data.
    *     </p>
+   * @public
    */
   annotationFields?: Record<string, string>;
 }
 
 /**
- * @public
  * <p>A filter for annotation import jobs.</p>
+ * @public
  */
 export interface ListAnnotationImportJobsFilter {
   /**
-   * @public
    * <p>A status to filter on.</p>
+   * @public
    */
   status?: JobStatus;
 
   /**
-   * @public
    * <p>A store name to filter on.</p>
+   * @public
    */
   storeName?: string;
 }
@@ -760,96 +760,96 @@ export interface ListAnnotationImportJobsFilter {
  */
 export interface ListAnnotationImportJobsRequest {
   /**
-   * @public
    * <p>The maximum number of jobs to return in one page of results.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>IDs of annotation import jobs to retrieve.</p>
+   * @public
    */
   ids?: string[];
 
   /**
-   * @public
    * <p>Specifies the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A filter to apply to the list.</p>
+   * @public
    */
   filter?: ListAnnotationImportJobsFilter;
 }
 
 /**
- * @public
  * <p>An annotation import job.</p>
+ * @public
  */
 export interface AnnotationImportJobItem {
   /**
-   * @public
    * <p>The job's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The job's destination annotation store.</p>
+   * @public
    */
   destinationName: string | undefined;
 
   /**
-   * @public
    * <p>
    * The name of the annotation store version.
    * </p>
+   * @public
    */
   versionName: string | undefined;
 
   /**
-   * @public
    * <p>The job's service role ARN.</p>
+   * @public
    */
   roleArn: string | undefined;
 
   /**
-   * @public
    * <p>The job's status.</p>
+   * @public
    */
   status: JobStatus | undefined;
 
   /**
-   * @public
    * <p>When the job was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>When the job was updated.</p>
+   * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * @public
    * <p>When the job completed.</p>
+   * @public
    */
   completionTime?: Date;
 
   /**
-   * @public
    * <p>The job's left normalization setting.</p>
+   * @public
    */
   runLeftNormalization?: boolean;
 
   /**
-   * @public
    * <p>
    *       The annotation schema generated by the parsed annotation data.
    *     </p>
+   * @public
    */
   annotationFields?: Record<string, string>;
 }
@@ -859,14 +859,14 @@ export interface AnnotationImportJobItem {
  */
 export interface ListAnnotationImportJobsResponse {
   /**
-   * @public
    * <p>A list of jobs.</p>
+   * @public
    */
   annotationImportJobs?: AnnotationImportJobItem[];
 
   /**
-   * @public
    * <p>Specifies the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -876,48 +876,48 @@ export interface ListAnnotationImportJobsResponse {
  */
 export interface StartAnnotationImportRequest {
   /**
-   * @public
    * <p>A destination annotation store for the job.</p>
+   * @public
    */
   destinationName: string | undefined;
 
   /**
-   * @public
    * <p>A service role for the job.</p>
+   * @public
    */
   roleArn: string | undefined;
 
   /**
-   * @public
    * <p>Items to import.</p>
+   * @public
    */
   items: AnnotationImportItemSource[] | undefined;
 
   /**
-   * @public
    * <p>
    * The name of the annotation store version.
    * </p>
+   * @public
    */
   versionName?: string;
 
   /**
-   * @public
    * <p>Formatting options for the annotation file.</p>
+   * @public
    */
   formatOptions?: FormatOptions;
 
   /**
-   * @public
    * <p>The job's left normalization setting.</p>
+   * @public
    */
   runLeftNormalization?: boolean;
 
   /**
-   * @public
    * <p>
    *       The annotation schema generated by the parsed annotation data.
    *     </p>
+   * @public
    */
   annotationFields?: Record<string, string>;
 }
@@ -927,15 +927,15 @@ export interface StartAnnotationImportRequest {
  */
 export interface StartAnnotationImportResponse {
   /**
-   * @public
    * <p>The job's ID.</p>
+   * @public
    */
   jobId: string | undefined;
 }
 
 /**
- * @public
  * <p>A genome reference.</p>
+ * @public
  */
 export type ReferenceItem = ReferenceItem.ReferenceArnMember | ReferenceItem.$UnknownMember;
 
@@ -944,8 +944,8 @@ export type ReferenceItem = ReferenceItem.ReferenceArnMember | ReferenceItem.$Un
  */
 export namespace ReferenceItem {
   /**
-   * @public
    * <p>The reference's ARN.</p>
+   * @public
    */
   export interface ReferenceArnMember {
     referenceArn: string;
@@ -988,19 +988,19 @@ export const EncryptionType = {
 export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
 
 /**
- * @public
  * <p>Server-side encryption (SSE) settings for a store.</p>
+ * @public
  */
 export interface SseConfig {
   /**
-   * @public
    * <p>The encryption type.</p>
+   * @public
    */
   type: EncryptionType | undefined;
 
   /**
-   * @public
    * <p>An encryption key ARN.</p>
+   * @public
    */
   keyArn?: string;
 }
@@ -1124,32 +1124,32 @@ export const SchemaValueType = {
 export type SchemaValueType = (typeof SchemaValueType)[keyof typeof SchemaValueType];
 
 /**
- * @public
  * <p>File settings for a TSV store.</p>
+ * @public
  */
 export interface TsvStoreOptions {
   /**
-   * @public
    * <p>The store's annotation type.</p>
+   * @public
    */
   annotationType?: AnnotationType;
 
   /**
-   * @public
    * <p>The store's header key to column name mapping.</p>
+   * @public
    */
   formatToHeader?: Partial<Record<FormatToHeaderKey, string>>;
 
   /**
-   * @public
    * <p>The store's schema.</p>
+   * @public
    */
   schema?: Record<string, SchemaValueType>[];
 }
 
 /**
- * @public
  * <p>Settings for a store.</p>
+ * @public
  */
 export type StoreOptions = StoreOptions.TsvStoreOptionsMember | StoreOptions.$UnknownMember;
 
@@ -1158,8 +1158,8 @@ export type StoreOptions = StoreOptions.TsvStoreOptionsMember | StoreOptions.$Un
  */
 export namespace StoreOptions {
   /**
-   * @public
    * <p>File settings for a TSV store.</p>
+   * @public
    */
   export interface TsvStoreOptionsMember {
     tsvStoreOptions: TsvStoreOptions;
@@ -1190,52 +1190,52 @@ export namespace StoreOptions {
  */
 export interface CreateAnnotationStoreRequest {
   /**
-   * @public
    * <p>The genome reference for the store's annotations.</p>
+   * @public
    */
   reference?: ReferenceItem;
 
   /**
-   * @public
    * <p>A name for the store.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>A description for the store.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>Tags for the store.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>
    * The name given to an annotation store version to distinguish it from other versions.
    * </p>
+   * @public
    */
   versionName?: string;
 
   /**
-   * @public
    * <p>Server-side encryption (SSE) settings for the store.</p>
+   * @public
    */
   sseConfig?: SseConfig;
 
   /**
-   * @public
    * <p>The annotation file format of the store.</p>
+   * @public
    */
   storeFormat: StoreFormat | undefined;
 
   /**
-   * @public
    * <p>File parsing options for the annotation store.</p>
+   * @public
    */
   storeOptions?: StoreOptions;
 }
@@ -1277,52 +1277,52 @@ export type StoreStatus = (typeof StoreStatus)[keyof typeof StoreStatus];
  */
 export interface CreateAnnotationStoreResponse {
   /**
-   * @public
    * <p>The store's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The store's genome reference. Required for all stores except TSV format with generic annotations.</p>
+   * @public
    */
   reference?: ReferenceItem;
 
   /**
-   * @public
    * <p>The annotation file format of the store.</p>
+   * @public
    */
   storeFormat?: StoreFormat;
 
   /**
-   * @public
    * <p>The store's file parsing options.</p>
+   * @public
    */
   storeOptions?: StoreOptions;
 
   /**
-   * @public
    * <p>The store's status.</p>
+   * @public
    */
   status: StoreStatus | undefined;
 
   /**
-   * @public
    * <p>The store's name.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>
    * The name given to an annotation store version to distinguish it from other versions.
    * </p>
+   * @public
    */
   versionName: string | undefined;
 
   /**
-   * @public
    * <p>When the store was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 }
@@ -1332,14 +1332,14 @@ export interface CreateAnnotationStoreResponse {
  */
 export interface DeleteAnnotationStoreRequest {
   /**
-   * @public
    * <p>The store's name.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Whether to force deletion.</p>
+   * @public
    */
   force?: boolean;
 }
@@ -1349,8 +1349,8 @@ export interface DeleteAnnotationStoreRequest {
  */
 export interface DeleteAnnotationStoreResponse {
   /**
-   * @public
    * <p>The store's status.</p>
+   * @public
    */
   status: StoreStatus | undefined;
 }
@@ -1360,8 +1360,8 @@ export interface DeleteAnnotationStoreResponse {
  */
 export interface GetAnnotationStoreRequest {
   /**
-   * @public
    * <p>The store's name.</p>
+   * @public
    */
   name: string | undefined;
 }
@@ -1371,106 +1371,106 @@ export interface GetAnnotationStoreRequest {
  */
 export interface GetAnnotationStoreResponse {
   /**
-   * @public
    * <p>The store's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The store's genome reference.</p>
+   * @public
    */
   reference: ReferenceItem | undefined;
 
   /**
-   * @public
    * <p>The store's status.</p>
+   * @public
    */
   status: StoreStatus | undefined;
 
   /**
-   * @public
    * <p>The store's ARN.</p>
+   * @public
    */
   storeArn: string | undefined;
 
   /**
-   * @public
    * <p>The store's name.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The store's description.</p>
+   * @public
    */
   description: string | undefined;
 
   /**
-   * @public
    * <p>The store's server-side encryption (SSE) settings.</p>
+   * @public
    */
   sseConfig: SseConfig | undefined;
 
   /**
-   * @public
    * <p>When the store was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>When the store was updated.</p>
+   * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The store's tags.</p>
+   * @public
    */
   tags: Record<string, string> | undefined;
 
   /**
-   * @public
    * <p>The store's parsing options.</p>
+   * @public
    */
   storeOptions?: StoreOptions;
 
   /**
-   * @public
    * <p>The store's annotation file format.</p>
+   * @public
    */
   storeFormat?: StoreFormat;
 
   /**
-   * @public
    * <p>A status message.</p>
+   * @public
    */
   statusMessage: string | undefined;
 
   /**
-   * @public
    * <p>The store's size in bytes.</p>
+   * @public
    */
   storeSizeBytes: number | undefined;
 
   /**
-   * @public
    * <p>
    * An integer indicating how many versions of an annotation store exist.
    * </p>
+   * @public
    */
   numVersions: number | undefined;
 }
 
 /**
- * @public
  * <p>A filter for annotation stores.</p>
+ * @public
  */
 export interface ListAnnotationStoresFilter {
   /**
-   * @public
    * <p>A status to filter on.</p>
+   * @public
    */
   status?: StoreStatus;
 }
@@ -1480,104 +1480,104 @@ export interface ListAnnotationStoresFilter {
  */
 export interface ListAnnotationStoresRequest {
   /**
-   * @public
    * <p>IDs of stores to list.</p>
+   * @public
    */
   ids?: string[];
 
   /**
-   * @public
    * <p>The maximum number of stores to return in one page of results.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A filter to apply to the list.</p>
+   * @public
    */
   filter?: ListAnnotationStoresFilter;
 }
 
 /**
- * @public
  * <p>An annotation store.</p>
+ * @public
  */
 export interface AnnotationStoreItem {
   /**
-   * @public
    * <p>The store's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The store's genome reference.</p>
+   * @public
    */
   reference: ReferenceItem | undefined;
 
   /**
-   * @public
    * <p>The store's status.</p>
+   * @public
    */
   status: StoreStatus | undefined;
 
   /**
-   * @public
    * <p>The store's ARN.</p>
+   * @public
    */
   storeArn: string | undefined;
 
   /**
-   * @public
    * <p>The store's name.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The store's file format.</p>
+   * @public
    */
   storeFormat: StoreFormat | undefined;
 
   /**
-   * @public
    * <p>The store's description.</p>
+   * @public
    */
   description: string | undefined;
 
   /**
-   * @public
    * <p>The store's server-side encryption (SSE) settings.</p>
+   * @public
    */
   sseConfig: SseConfig | undefined;
 
   /**
-   * @public
    * <p>The store's creation time.</p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>When the store was updated.</p>
+   * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The store's status message.</p>
+   * @public
    */
   statusMessage: string | undefined;
 
   /**
-   * @public
    * <p>The store's size in bytes.</p>
+   * @public
    */
   storeSizeBytes: number | undefined;
 }
@@ -1587,14 +1587,14 @@ export interface AnnotationStoreItem {
  */
 export interface ListAnnotationStoresResponse {
   /**
-   * @public
    * <p>A list of stores.</p>
+   * @public
    */
   annotationStores?: AnnotationStoreItem[];
 
   /**
-   * @public
    * <p>A pagination token that's included if more results are available.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1604,14 +1604,14 @@ export interface ListAnnotationStoresResponse {
  */
 export interface UpdateAnnotationStoreRequest {
   /**
-   * @public
    * <p>A name for the store.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>A description for the store.</p>
+   * @public
    */
   description?: string;
 }
@@ -1621,97 +1621,97 @@ export interface UpdateAnnotationStoreRequest {
  */
 export interface UpdateAnnotationStoreResponse {
   /**
-   * @public
    * <p>The store's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The store's genome reference.</p>
+   * @public
    */
   reference: ReferenceItem | undefined;
 
   /**
-   * @public
    * <p>The store's status.</p>
+   * @public
    */
   status: StoreStatus | undefined;
 
   /**
-   * @public
    * <p>The store's name.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The store's description.</p>
+   * @public
    */
   description: string | undefined;
 
   /**
-   * @public
    * <p>When the store was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>When the store was updated.</p>
+   * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * @public
    * <p>Parsing options for the store.</p>
+   * @public
    */
   storeOptions?: StoreOptions;
 
   /**
-   * @public
    * <p>The annotation file format of the store.</p>
+   * @public
    */
   storeFormat?: StoreFormat;
 }
 
 /**
- * @public
  * <p>
  * The options for a TSV file.
  * </p>
+ * @public
  */
 export interface TsvVersionOptions {
   /**
-   * @public
    * <p>
    * The store version's annotation type.
    * </p>
+   * @public
    */
   annotationType?: AnnotationType;
 
   /**
-   * @public
    * <p>
    * The annotation store version's header key to column name mapping.
    * </p>
+   * @public
    */
   formatToHeader?: Partial<Record<FormatToHeaderKey, string>>;
 
   /**
-   * @public
    * <p>
    * The TSV schema for an annotation store version.
    * </p>
+   * @public
    */
   schema?: Record<string, SchemaValueType>[];
 }
 
 /**
- * @public
  * <p>
  * The  options for an annotation store version.
  * </p>
+ * @public
  */
 export type VersionOptions = VersionOptions.TsvVersionOptionsMember | VersionOptions.$UnknownMember;
 
@@ -1720,10 +1720,10 @@ export type VersionOptions = VersionOptions.TsvVersionOptionsMember | VersionOpt
  */
 export namespace VersionOptions {
   /**
-   * @public
    * <p>
    * File settings for a version of a TSV store.
    * </p>
+   * @public
    */
   export interface TsvVersionOptionsMember {
     tsvVersionOptions: TsvVersionOptions;
@@ -1754,42 +1754,42 @@ export namespace VersionOptions {
  */
 export interface CreateAnnotationStoreVersionRequest {
   /**
-   * @public
    * <p>
    * The name of an annotation store version from which versions are being created.
    * </p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>
    * The name given to an annotation store version to distinguish it from other versions.
    * </p>
+   * @public
    */
   versionName: string | undefined;
 
   /**
-   * @public
    * <p>
    * The description of an annotation store version.
    * </p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>
    * The options for an annotation store version.
    * </p>
+   * @public
    */
   versionOptions?: VersionOptions;
 
   /**
-   * @public
    * <p>
    * Any tags added to annotation store version.
    * </p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1831,58 +1831,58 @@ export type VersionStatus = (typeof VersionStatus)[keyof typeof VersionStatus];
  */
 export interface CreateAnnotationStoreVersionResponse {
   /**
-   * @public
    * <p>
    * A generated ID for the annotation store
    * </p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>
    * The name given to an annotation store version to distinguish it from other versions.
    * </p>
+   * @public
    */
   versionName: string | undefined;
 
   /**
-   * @public
    * <p>
    * The ID for the annotation store from which new versions are being created.
    * </p>
+   * @public
    */
   storeId: string | undefined;
 
   /**
-   * @public
    * <p>
    * The options for an annotation store version.
    * </p>
+   * @public
    */
   versionOptions?: VersionOptions;
 
   /**
-   * @public
    * <p>
    * The name given to an annotation store version to distinguish it from other versions.
    * </p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>
    * The status of a annotation store version.
    * </p>
+   * @public
    */
   status: VersionStatus | undefined;
 
   /**
-   * @public
    * <p>
    * The time stamp for the creation of an annotation store version.
    * </p>
+   * @public
    */
   creationTime: Date | undefined;
 }
@@ -1892,50 +1892,50 @@ export interface CreateAnnotationStoreVersionResponse {
  */
 export interface DeleteAnnotationStoreVersionsRequest {
   /**
-   * @public
    * <p>
    * The name of the annotation store from which versions are being deleted.
    * </p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>
    * The versions of an annotation store to be deleted.
    * </p>
+   * @public
    */
   versions: string[] | undefined;
 
   /**
-   * @public
    * <p>
    * Forces the deletion of an annotation store version when imports are in-progress..
    * </p>
+   * @public
    */
   force?: boolean;
 }
 
 /**
- * @public
  * <p>
  * The error preventing deletion of the annotation store version.
  * </p>
+ * @public
  */
 export interface VersionDeleteError {
   /**
-   * @public
    * <p>
    * The name given to an annotation store version.
    * </p>
+   * @public
    */
   versionName: string | undefined;
 
   /**
-   * @public
    * <p>
    * The message explaining the error in annotation store deletion.
    * </p>
+   * @public
    */
   message: string | undefined;
 }
@@ -1945,10 +1945,10 @@ export interface VersionDeleteError {
  */
 export interface DeleteAnnotationStoreVersionsResponse {
   /**
-   * @public
    * <p>
    * Any errors that occur when attempting to delete an annotation store version.
    * </p>
+   * @public
    */
   errors?: VersionDeleteError[];
 }
@@ -1958,18 +1958,18 @@ export interface DeleteAnnotationStoreVersionsResponse {
  */
 export interface GetAnnotationStoreVersionRequest {
   /**
-   * @public
    * <p>
    * The name given to an annotation store version to distinguish it from others.
    * </p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>
    * The name given to an annotation store version to distinguish it from others.
    * </p>
+   * @public
    */
   versionName: string | undefined;
 }
@@ -1979,122 +1979,122 @@ export interface GetAnnotationStoreVersionRequest {
  */
 export interface GetAnnotationStoreVersionResponse {
   /**
-   * @public
    * <p>
    * The store ID for annotation store version.
    * </p>
+   * @public
    */
   storeId: string | undefined;
 
   /**
-   * @public
    * <p>
    * The annotation store version ID.
    * </p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>
    * The status of an annotation store version.
    * </p>
+   * @public
    */
   status: VersionStatus | undefined;
 
   /**
-   * @public
    * <p>
    * The Arn for the annotation store.
    * </p>
+   * @public
    */
   versionArn: string | undefined;
 
   /**
-   * @public
    * <p>
    * The name of the annotation store.
    * </p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>
    * The name given to an annotation store version to distinguish it from others.
    * </p>
+   * @public
    */
   versionName: string | undefined;
 
   /**
-   * @public
    * <p>
    * The description for an annotation store version.
    * </p>
+   * @public
    */
   description: string | undefined;
 
   /**
-   * @public
    * <p>
    * The time stamp for when an annotation store version was created.
    * </p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>
    * The time stamp for when an annotation store version was updated.
    * </p>
+   * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * @public
    * <p>
    * Any tags associated with an annotation store version.
    * </p>
+   * @public
    */
   tags: Record<string, string> | undefined;
 
   /**
-   * @public
    * <p>
    * The options for an annotation store version.
    * </p>
+   * @public
    */
   versionOptions?: VersionOptions;
 
   /**
-   * @public
    * <p>
    * The status of an annotation store version.
    * </p>
+   * @public
    */
   statusMessage: string | undefined;
 
   /**
-   * @public
    * <p>
    * The size of the annotation store version in Bytes.
    * </p>
+   * @public
    */
   versionSizeBytes: number | undefined;
 }
 
 /**
- * @public
  * <p>
  * Use filters to focus the returned annotation store versions on a specific parameter, such as the status of the annotation store.
  * </p>
+ * @public
  */
 export interface ListAnnotationStoreVersionsFilter {
   /**
-   * @public
    * <p>
    * The status of an annotation store version.
    * </p>
+   * @public
    */
   status?: VersionStatus;
 }
@@ -2104,130 +2104,130 @@ export interface ListAnnotationStoreVersionsFilter {
  */
 export interface ListAnnotationStoreVersionsRequest {
   /**
-   * @public
    * <p>
    * The name of an annotation store.
    * </p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>
    * The maximum number of annotation store versions to return in one page of results.
    * </p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>
    * Specifies the pagination token from a previous request to retrieve the next page of results.
    * </p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>
    * A filter to apply to the list of annotation store versions.
    * </p>
+   * @public
    */
   filter?: ListAnnotationStoreVersionsFilter;
 }
 
 /**
- * @public
  * <p>
  * Annotation store versions.
  * </p>
+ * @public
  */
 export interface AnnotationStoreVersionItem {
   /**
-   * @public
    * <p>
    * The store ID for an annotation store version.
    * </p>
+   * @public
    */
   storeId: string | undefined;
 
   /**
-   * @public
    * <p>
    * The annotation store version ID.
    * </p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>
    * The status of an annotation store version.
    * </p>
+   * @public
    */
   status: VersionStatus | undefined;
 
   /**
-   * @public
    * <p>
    * The Arn for an annotation store version.
    * </p>
+   * @public
    */
   versionArn: string | undefined;
 
   /**
-   * @public
    * <p>
    * A name given to an annotation store version to distinguish it from others.
    * </p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>
    * The name of an annotation store version.
    * </p>
+   * @public
    */
   versionName: string | undefined;
 
   /**
-   * @public
    * <p>
    * The description of an annotation store version.
    * </p>
+   * @public
    */
   description: string | undefined;
 
   /**
-   * @public
    * <p>
    * The time stamp for when an annotation store version was created.
    * </p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>
    * The time stamp for when an annotation store version was updated.
    * </p>
+   * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * @public
    * <p>
    * The status of an annotation store version.
    * </p>
+   * @public
    */
   statusMessage: string | undefined;
 
   /**
-   * @public
    * <p>
    * The size of an annotation store version in Bytes.
    * </p>
+   * @public
    */
   versionSizeBytes: number | undefined;
 }
@@ -2237,18 +2237,18 @@ export interface AnnotationStoreVersionItem {
  */
 export interface ListAnnotationStoreVersionsResponse {
   /**
-   * @public
    * <p>
    * Lists all versions of an annotation store.
    * </p>
+   * @public
    */
   annotationStoreVersions?: AnnotationStoreVersionItem[];
 
   /**
-   * @public
    * <p>
    * Specifies the pagination token from a previous request to retrieve the next page of results.
    * </p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2258,26 +2258,26 @@ export interface ListAnnotationStoreVersionsResponse {
  */
 export interface UpdateAnnotationStoreVersionRequest {
   /**
-   * @public
    * <p>
    * The name of an annotation store.
    * </p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>
    * The name of an annotation store version.
    * </p>
+   * @public
    */
   versionName: string | undefined;
 
   /**
-   * @public
    * <p>
    * The description of an annotation store.
    * </p>
+   * @public
    */
   description?: string;
 }
@@ -2287,65 +2287,65 @@ export interface UpdateAnnotationStoreVersionRequest {
  */
 export interface UpdateAnnotationStoreVersionResponse {
   /**
-   * @public
    * <p>
    * The annotation store ID.
    * </p>
+   * @public
    */
   storeId: string | undefined;
 
   /**
-   * @public
    * <p>
    * The annotation store version ID.
    * </p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>
    * The status of an annotation store version.
    * </p>
+   * @public
    */
   status: VersionStatus | undefined;
 
   /**
-   * @public
    * <p>
    * The name of an annotation store.
    * </p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>
    * The name of an annotation store version. </p>
+   * @public
    */
   versionName: string | undefined;
 
   /**
-   * @public
    * <p>
    * The description of an annotation store version.
    * </p>
+   * @public
    */
   description: string | undefined;
 
   /**
-   * @public
    * <p>
    * The time stamp for when an annotation store version was created.
    * </p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>
    * The time stamp for when an annotation store version was updated.
    * </p>
+   * @public
    */
   updateTime: Date | undefined;
 }
@@ -2355,38 +2355,38 @@ export interface UpdateAnnotationStoreVersionResponse {
  */
 export interface BatchDeleteReadSetRequest {
   /**
-   * @public
    * <p>The read sets' IDs.</p>
+   * @public
    */
   ids: string[] | undefined;
 
   /**
-   * @public
    * <p>The read sets' sequence store ID.</p>
+   * @public
    */
   sequenceStoreId: string | undefined;
 }
 
 /**
- * @public
  * <p>An error from a batch read set operation.</p>
+ * @public
  */
 export interface ReadSetBatchError {
   /**
-   * @public
    * <p>The error's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The error's code.</p>
+   * @public
    */
   code: string | undefined;
 
   /**
-   * @public
    * <p>The error's message.</p>
+   * @public
    */
   message: string | undefined;
 }
@@ -2396,8 +2396,8 @@ export interface ReadSetBatchError {
  */
 export interface BatchDeleteReadSetResponse {
   /**
-   * @public
    * <p>Errors returned by individual delete operations.</p>
+   * @public
    */
   errors?: ReadSetBatchError[];
 }
@@ -2407,8 +2407,8 @@ export interface BatchDeleteReadSetResponse {
  */
 export interface CancelRunRequest {
   /**
-   * @public
    * <p>The run's ID.</p>
+   * @public
    */
   id: string | undefined;
 }
@@ -2418,8 +2418,8 @@ export interface CancelRunRequest {
  */
 export interface CancelVariantImportRequest {
   /**
-   * @public
    * <p>The job's ID.</p>
+   * @public
    */
   jobId: string | undefined;
 }
@@ -2444,33 +2444,33 @@ export const ReadSetPartSource = {
 export type ReadSetPartSource = (typeof ReadSetPartSource)[keyof typeof ReadSetPartSource];
 
 /**
- * @public
  * <p>
  *       Part of the response to the CompleteReadSetUpload API, including metadata.
  *     </p>
+ * @public
  */
 export interface CompleteReadSetUploadPartListItem {
   /**
-   * @public
    * <p>
    *       A number identifying the part in a read set upload.
    *     </p>
+   * @public
    */
   partNumber: number | undefined;
 
   /**
-   * @public
    * <p>
    *       The source file of the part being uploaded.
    *     </p>
+   * @public
    */
   partSource: ReadSetPartSource | undefined;
 
   /**
-   * @public
    * <p>
    *       A unique identifier used to confirm that parts are being added to the correct upload.
    *     </p>
+   * @public
    */
   checksum: string | undefined;
 }
@@ -2480,26 +2480,26 @@ export interface CompleteReadSetUploadPartListItem {
  */
 export interface CompleteMultipartReadSetUploadRequest {
   /**
-   * @public
    * <p>
    *       The sequence store ID for the store involved in the multipart upload.
    *     </p>
+   * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>
    *       The ID for the multipart upload.
    *     </p>
+   * @public
    */
   uploadId: string | undefined;
 
   /**
-   * @public
    * <p>
    *       The individual uploads or parts of a multipart upload.
    *     </p>
+   * @public
    */
   parts: CompleteReadSetUploadPartListItem[] | undefined;
 }
@@ -2509,10 +2509,10 @@ export interface CompleteMultipartReadSetUploadRequest {
  */
 export interface CompleteMultipartReadSetUploadResponse {
   /**
-   * @public
    * <p>
    *       The read set ID created for an uploaded read set.
    *     </p>
+   * @public
    */
   readSetId: string | undefined;
 }
@@ -2538,82 +2538,82 @@ export type FileType = (typeof FileType)[keyof typeof FileType];
  */
 export interface CreateMultipartReadSetUploadRequest {
   /**
-   * @public
    * <p>
    *       The sequence store ID for the store that is the destination of the multipart uploads.
    *     </p>
+   * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>
    *       An idempotency token that can be used to avoid triggering multiple multipart uploads.
    *     </p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>
    *       The type of file being uploaded.
    *     </p>
+   * @public
    */
   sourceFileType: FileType | undefined;
 
   /**
-   * @public
    * <p>
    *       The source's subject ID.
    *     </p>
+   * @public
    */
   subjectId: string | undefined;
 
   /**
-   * @public
    * <p>
    *       The source's sample ID.
    *     </p>
+   * @public
    */
   sampleId: string | undefined;
 
   /**
-   * @public
    * <p>
    *       Where the source originated.
    *     </p>
+   * @public
    */
   generatedFrom?: string;
 
   /**
-   * @public
    * <p>
    *       The ARN of the reference.
    *     </p>
+   * @public
    */
   referenceArn?: string;
 
   /**
-   * @public
    * <p>
    *       The name of the read set.
    *     </p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>
    *       The description of the read set.
    *     </p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>
    *       Any tags to add to the read set.
    *     </p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -2623,90 +2623,90 @@ export interface CreateMultipartReadSetUploadRequest {
  */
 export interface CreateMultipartReadSetUploadResponse {
   /**
-   * @public
    * <p>
    *       The sequence store ID for the store that the read set will be created in.
    *     </p>
+   * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>
    *       he ID for the initiated multipart upload.
    *     </p>
+   * @public
    */
   uploadId: string | undefined;
 
   /**
-   * @public
    * <p>
    *       The file type of the read set source.
    *     </p>
+   * @public
    */
   sourceFileType: FileType | undefined;
 
   /**
-   * @public
    * <p>
    *       The source's subject ID.
    *     </p>
+   * @public
    */
   subjectId: string | undefined;
 
   /**
-   * @public
    * <p>
    *       The source's sample ID.
    *     </p>
+   * @public
    */
   sampleId: string | undefined;
 
   /**
-   * @public
    * <p>
    *       The source of the read set.
    *     </p>
+   * @public
    */
   generatedFrom?: string;
 
   /**
-   * @public
    * <p>
    *       The read set source's reference ARN.
    *     </p>
+   * @public
    */
   referenceArn: string | undefined;
 
   /**
-   * @public
    * <p>
    *       The name of the read set.
    *     </p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>
    *       The description of the read set.
    *     </p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>
    *       The tags to add to the read set.
    *     </p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>
    *       The creation time of the multipart upload.
    *     </p>
+   * @public
    */
   creationTime: Date | undefined;
 }
@@ -2716,32 +2716,32 @@ export interface CreateMultipartReadSetUploadResponse {
  */
 export interface CreateReferenceStoreRequest {
   /**
-   * @public
    * <p>A name for the store.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>A description for the store.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>Server-side encryption (SSE) settings for the store.</p>
+   * @public
    */
   sseConfig?: SseConfig;
 
   /**
-   * @public
    * <p>Tags for the store.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>To ensure that requests don't run multiple times, specify a unique token for each request.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -2751,38 +2751,38 @@ export interface CreateReferenceStoreRequest {
  */
 export interface CreateReferenceStoreResponse {
   /**
-   * @public
    * <p>The store's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The store's ARN.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The store's name.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The store's description.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The store's SSE settings.</p>
+   * @public
    */
   sseConfig?: SseConfig;
 
   /**
-   * @public
    * <p>When the store was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 }
@@ -2792,46 +2792,46 @@ export interface CreateReferenceStoreResponse {
  */
 export interface CreateRunGroupRequest {
   /**
-   * @public
    * <p>A name for the group.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The maximum number of CPUs to use in the group.</p>
+   * @public
    */
   maxCpus?: number;
 
   /**
-   * @public
    * <p>The maximum number of concurrent runs for the group.</p>
+   * @public
    */
   maxRuns?: number;
 
   /**
-   * @public
    * <p>A maximum run time for the group in minutes.</p>
+   * @public
    */
   maxDuration?: number;
 
   /**
-   * @public
    * <p>Tags for the group.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>To ensure that requests don't run multiple times, specify a unique ID for each request.</p>
+   * @public
    */
   requestId?: string;
 
   /**
-   * @public
    * <p>
    *       The maximum GPUs that can be used by a run group.
    *     </p>
+   * @public
    */
   maxGpus?: number;
 }
@@ -2841,20 +2841,20 @@ export interface CreateRunGroupRequest {
  */
 export interface CreateRunGroupResponse {
   /**
-   * @public
    * <p>The group's ARN.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>The group's ID.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>Tags for the run group.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -2864,40 +2864,40 @@ export interface CreateRunGroupResponse {
  */
 export interface CreateSequenceStoreRequest {
   /**
-   * @public
    * <p>A name for the store.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>A description for the store.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>Server-side encryption (SSE) settings for the store.</p>
+   * @public
    */
   sseConfig?: SseConfig;
 
   /**
-   * @public
    * <p>Tags for the store.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>To ensure that requests don't run multiple times, specify a unique token for each request.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>
    *       An S3 location that is used to store files that have failed a direct upload.
    *     </p>
+   * @public
    */
   fallbackLocation?: string;
 }
@@ -2907,46 +2907,46 @@ export interface CreateSequenceStoreRequest {
  */
 export interface CreateSequenceStoreResponse {
   /**
-   * @public
    * <p>The store's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The store's ARN.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The store's name.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The store's description.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The store's SSE settings.</p>
+   * @public
    */
   sseConfig?: SseConfig;
 
   /**
-   * @public
    * <p>When the store was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>
    *       An S3 location that is used to store files that have failed a direct upload.
    *     </p>
+   * @public
    */
   fallbackLocation?: string;
 }
@@ -2956,26 +2956,26 @@ export interface CreateSequenceStoreResponse {
  */
 export interface CreateShareRequest {
   /**
-   * @public
    * <p>
    *       The resource ARN for the analytics store to be shared.
    *     </p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>
    *       The principal subscriber is the account being given access to the analytics store data through the share offer.
    *     </p>
+   * @public
    */
   principalSubscriber: string | undefined;
 
   /**
-   * @public
    * <p>
    *       A name given to the share.
    *     </p>
+   * @public
    */
   shareName?: string;
 }
@@ -2985,26 +2985,26 @@ export interface CreateShareRequest {
  */
 export interface CreateShareResponse {
   /**
-   * @public
    * <p>
    *       An ID generated for the share.
    *     </p>
+   * @public
    */
   shareId?: string;
 
   /**
-   * @public
    * <p>
    *       The status of a share.
    *     </p>
+   * @public
    */
   status?: ShareStatus;
 
   /**
-   * @public
    * <p>
    *       A name given to the share.
    *     </p>
+   * @public
    */
   shareName?: string;
 }
@@ -3014,32 +3014,32 @@ export interface CreateShareResponse {
  */
 export interface CreateVariantStoreRequest {
   /**
-   * @public
    * <p>The genome reference for the store's variants.</p>
+   * @public
    */
   reference: ReferenceItem | undefined;
 
   /**
-   * @public
    * <p>A name for the store.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>A description for the store.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>Tags for the store.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>Server-side encryption (SSE) settings for the store.</p>
+   * @public
    */
   sseConfig?: SseConfig;
 }
@@ -3049,32 +3049,32 @@ export interface CreateVariantStoreRequest {
  */
 export interface CreateVariantStoreResponse {
   /**
-   * @public
    * <p>The store's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The store's genome reference.</p>
+   * @public
    */
   reference?: ReferenceItem;
 
   /**
-   * @public
    * <p>The store's status.</p>
+   * @public
    */
   status: StoreStatus | undefined;
 
   /**
-   * @public
    * <p>The store's name.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>When the store was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 }
@@ -3095,19 +3095,19 @@ export const WorkflowEngine = {
 export type WorkflowEngine = (typeof WorkflowEngine)[keyof typeof WorkflowEngine];
 
 /**
- * @public
  * <p>A workflow parameter.</p>
+ * @public
  */
 export interface WorkflowParameter {
   /**
-   * @public
    * <p>The parameter's description.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>Whether the parameter is optional.</p>
+   * @public
    */
   optional?: boolean;
 }
@@ -3117,70 +3117,70 @@ export interface WorkflowParameter {
  */
 export interface CreateWorkflowRequest {
   /**
-   * @public
    * <p>A name for the workflow.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>A description for the workflow.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>An engine for the workflow.</p>
+   * @public
    */
   engine?: WorkflowEngine;
 
   /**
-   * @public
    * <p>A ZIP archive for the workflow.</p>
+   * @public
    */
   definitionZip?: Uint8Array;
 
   /**
-   * @public
    * <p>The URI of a definition for the workflow.</p>
+   * @public
    */
   definitionUri?: string;
 
   /**
-   * @public
    * <p>The path of the main definition file for the workflow.</p>
+   * @public
    */
   main?: string;
 
   /**
-   * @public
    * <p>A parameter template for the workflow.</p>
+   * @public
    */
   parameterTemplate?: Record<string, WorkflowParameter>;
 
   /**
-   * @public
    * <p>A storage capacity for the workflow in gibibytes.</p>
+   * @public
    */
   storageCapacity?: number;
 
   /**
-   * @public
    * <p>Tags for the workflow.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>To ensure that requests don't run multiple times, specify a unique ID for each request.</p>
+   * @public
    */
   requestId?: string;
 
   /**
-   * @public
    * <p>
    *       The computational accelerator specified to run the workflow.
    *     </p>
+   * @public
    */
   accelerators?: Accelerators;
 }
@@ -3208,26 +3208,26 @@ export type WorkflowStatus = (typeof WorkflowStatus)[keyof typeof WorkflowStatus
  */
 export interface CreateWorkflowResponse {
   /**
-   * @public
    * <p>The workflow's ARN.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>The workflow's ID.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The workflow's status.</p>
+   * @public
    */
   status?: WorkflowStatus;
 
   /**
-   * @public
    * <p>The workflow's tags.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -3251,14 +3251,14 @@ export type CreationType = (typeof CreationType)[keyof typeof CreationType];
  */
 export interface DeleteReferenceRequest {
   /**
-   * @public
    * <p>The reference's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The reference's store ID.</p>
+   * @public
    */
   referenceStoreId: string | undefined;
 }
@@ -3273,8 +3273,8 @@ export interface DeleteReferenceResponse {}
  */
 export interface DeleteReferenceStoreRequest {
   /**
-   * @public
    * <p>The store's ID.</p>
+   * @public
    */
   id: string | undefined;
 }
@@ -3289,8 +3289,8 @@ export interface DeleteReferenceStoreResponse {}
  */
 export interface DeleteRunRequest {
   /**
-   * @public
    * <p>The run's ID.</p>
+   * @public
    */
   id: string | undefined;
 }
@@ -3300,8 +3300,8 @@ export interface DeleteRunRequest {
  */
 export interface DeleteRunGroupRequest {
   /**
-   * @public
    * <p>The run group's ID.</p>
+   * @public
    */
   id: string | undefined;
 }
@@ -3311,8 +3311,8 @@ export interface DeleteRunGroupRequest {
  */
 export interface DeleteSequenceStoreRequest {
   /**
-   * @public
    * <p>The sequence store's ID.</p>
+   * @public
    */
   id: string | undefined;
 }
@@ -3327,10 +3327,10 @@ export interface DeleteSequenceStoreResponse {}
  */
 export interface DeleteShareRequest {
   /**
-   * @public
    * <p>
    *       The ID for the share request to be deleted.
    *     </p>
+   * @public
    */
   shareId: string | undefined;
 }
@@ -3340,10 +3340,10 @@ export interface DeleteShareRequest {
  */
 export interface DeleteShareResponse {
   /**
-   * @public
    * <p>
    *       The status of the share being deleted.
    *     </p>
+   * @public
    */
   status?: ShareStatus;
 }
@@ -3353,14 +3353,14 @@ export interface DeleteShareResponse {
  */
 export interface DeleteVariantStoreRequest {
   /**
-   * @public
    * <p>The store's name.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Whether to force deletion.</p>
+   * @public
    */
   force?: boolean;
 }
@@ -3370,8 +3370,8 @@ export interface DeleteVariantStoreRequest {
  */
 export interface DeleteVariantStoreResponse {
   /**
-   * @public
    * <p>The store's status.</p>
+   * @public
    */
   status: StoreStatus | undefined;
 }
@@ -3381,8 +3381,8 @@ export interface DeleteVariantStoreResponse {
  */
 export interface DeleteWorkflowRequest {
   /**
-   * @public
    * <p>The workflow's ID.</p>
+   * @public
    */
   id: string | undefined;
 }
@@ -3403,44 +3403,44 @@ export const ETagAlgorithm = {
 export type ETagAlgorithm = (typeof ETagAlgorithm)[keyof typeof ETagAlgorithm];
 
 /**
- * @public
  * <p>
  *       The entity tag (ETag) is a hash of the object representing its semantic content.
  *     </p>
+ * @public
  */
 export interface ETag {
   /**
-   * @public
    * <p>
    *       The algorithm used to calculate the read set’s ETag(s). </p>
+   * @public
    */
   algorithm?: ETagAlgorithm;
 
   /**
-   * @public
    * <p>
    *       The ETag hash calculated on Source1 of the read set.
    *     </p>
+   * @public
    */
   source1?: string;
 
   /**
-   * @public
    * <p>
    *       The ETag hash calculated on Source2 of the read set.
    *     </p>
+   * @public
    */
   source2?: string;
 }
 
 /**
- * @public
  * <p>A read set.</p>
+ * @public
  */
 export interface ExportReadSet {
   /**
-   * @public
    * <p>The set's ID.</p>
+   * @public
    */
   readSetId: string | undefined;
 }
@@ -3462,25 +3462,25 @@ export const ReadSetExportJobItemStatus = {
 export type ReadSetExportJobItemStatus = (typeof ReadSetExportJobItemStatus)[keyof typeof ReadSetExportJobItemStatus];
 
 /**
- * @public
  * <p>Details about a read set.</p>
+ * @public
  */
 export interface ExportReadSetDetail {
   /**
-   * @public
    * <p>The set's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The set's status.</p>
+   * @public
    */
   status: ReadSetExportJobItemStatus | undefined;
 
   /**
-   * @public
    * <p>The set's status message.</p>
+   * @public
    */
   statusMessage?: string;
 }
@@ -3505,115 +3505,115 @@ export const ReadSetExportJobStatus = {
 export type ReadSetExportJobStatus = (typeof ReadSetExportJobStatus)[keyof typeof ReadSetExportJobStatus];
 
 /**
- * @public
  * <p>An read set export job filter.</p>
+ * @public
  */
 export interface ExportReadSetFilter {
   /**
-   * @public
    * <p>A status to filter on.</p>
+   * @public
    */
   status?: ReadSetExportJobStatus;
 
   /**
-   * @public
    * <p>The filter's start date.</p>
+   * @public
    */
   createdAfter?: Date;
 
   /**
-   * @public
    * <p>The filter's end date.</p>
+   * @public
    */
   createdBefore?: Date;
 }
 
 /**
- * @public
  * <p>Details about a read set export job.</p>
+ * @public
  */
 export interface ExportReadSetJobDetail {
   /**
-   * @public
    * <p>The job's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The job's sequence store ID.</p>
+   * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The job's destination in Amazon S3.</p>
+   * @public
    */
   destination: string | undefined;
 
   /**
-   * @public
    * <p>The job's status.</p>
+   * @public
    */
   status: ReadSetExportJobStatus | undefined;
 
   /**
-   * @public
    * <p>When the job was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>When the job completed.</p>
+   * @public
    */
   completionTime?: Date;
 }
 
 /**
- * @public
  * <p>Details about a file.</p>
+ * @public
  */
 export interface FileInformation {
   /**
-   * @public
    * <p>The file's total parts.</p>
+   * @public
    */
   totalParts?: number;
 
   /**
-   * @public
    * <p>The file's part size.</p>
+   * @public
    */
   partSize?: number;
 
   /**
-   * @public
    * <p>The file's content length.</p>
+   * @public
    */
   contentLength?: number;
 }
 
 /**
- * @public
  * <p>
  * Use filters to focus the returned annotation store versions on a specific parameter, such as the status of the annotation store.
  * </p>
+ * @public
  */
 export interface Filter {
   /**
-   * @public
    * <p>
    * The Amazon Resource Number (Arn) for an analytics store.
    * </p>
+   * @public
    */
   resourceArns?: string[];
 
   /**
-   * @public
    * <p>
    * The status of an annotation store version.
    * </p>
+   * @public
    */
   status?: ShareStatus[];
 }
@@ -3638,26 +3638,26 @@ export type ReadSetFile = (typeof ReadSetFile)[keyof typeof ReadSetFile];
  */
 export interface GetReadSetRequest {
   /**
-   * @public
    * <p>The read set's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The read set's sequence store ID.</p>
+   * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The file to retrieve.</p>
+   * @public
    */
   file?: ReadSetFile;
 
   /**
-   * @public
    * <p>The part number to retrieve.</p>
+   * @public
    */
   partNumber: number | undefined;
 }
@@ -3667,15 +3667,15 @@ export interface GetReadSetRequest {
  */
 export interface GetReadSetResponse {
   /**
-   * @public
    * <p>The read set file payload.</p>
+   * @public
    */
   payload?: StreamingBlobTypes;
 }
 
 /**
- * @public
  * <p>The ranges specified in the request are not valid.</p>
+ * @public
  */
 export class RangeNotSatisfiableException extends __BaseException {
   readonly name: "RangeNotSatisfiableException" = "RangeNotSatisfiableException";
@@ -3699,14 +3699,14 @@ export class RangeNotSatisfiableException extends __BaseException {
  */
 export interface GetReadSetActivationJobRequest {
   /**
-   * @public
    * <p>The job's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The job's sequence store ID.</p>
+   * @public
    */
   sequenceStoreId: string | undefined;
 }
@@ -3716,44 +3716,44 @@ export interface GetReadSetActivationJobRequest {
  */
 export interface GetReadSetActivationJobResponse {
   /**
-   * @public
    * <p>The job's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The job's sequence store ID.</p>
+   * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The job's status.</p>
+   * @public
    */
   status: ReadSetActivationJobStatus | undefined;
 
   /**
-   * @public
    * <p>The job's status message.</p>
+   * @public
    */
   statusMessage?: string;
 
   /**
-   * @public
    * <p>When the job was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>When the job completed.</p>
+   * @public
    */
   completionTime?: Date;
 
   /**
-   * @public
    * <p>The job's source files.</p>
+   * @public
    */
   sources?: ActivateReadSetSourceItem[];
 }
@@ -3763,14 +3763,14 @@ export interface GetReadSetActivationJobResponse {
  */
 export interface GetReadSetExportJobRequest {
   /**
-   * @public
    * <p>The job's sequence store ID.</p>
+   * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The job's ID.</p>
+   * @public
    */
   id: string | undefined;
 }
@@ -3780,50 +3780,50 @@ export interface GetReadSetExportJobRequest {
  */
 export interface GetReadSetExportJobResponse {
   /**
-   * @public
    * <p>The job's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The job's sequence store ID.</p>
+   * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The job's destination in Amazon S3.</p>
+   * @public
    */
   destination: string | undefined;
 
   /**
-   * @public
    * <p>The job's status.</p>
+   * @public
    */
   status: ReadSetExportJobStatus | undefined;
 
   /**
-   * @public
    * <p>The job's status message.</p>
+   * @public
    */
   statusMessage?: string;
 
   /**
-   * @public
    * <p>When the job was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>When the job completed.</p>
+   * @public
    */
   completionTime?: Date;
 
   /**
-   * @public
    * <p>The job's read sets.</p>
+   * @public
    */
   readSets?: ExportReadSetDetail[];
 }
@@ -3833,32 +3833,32 @@ export interface GetReadSetExportJobResponse {
  */
 export interface GetReadSetImportJobRequest {
   /**
-   * @public
    * <p>The job's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The job's sequence store ID.</p>
+   * @public
    */
   sequenceStoreId: string | undefined;
 }
 
 /**
- * @public
  * <p>Source files for a sequence.</p>
+ * @public
  */
 export interface SourceFiles {
   /**
-   * @public
    * <p>The location of the first file in Amazon S3.</p>
+   * @public
    */
   source1: string | undefined;
 
   /**
-   * @public
    * <p>The location of the second file in Amazon S3.</p>
+   * @public
    */
   source2?: string;
 }
@@ -3880,73 +3880,73 @@ export const ReadSetImportJobItemStatus = {
 export type ReadSetImportJobItemStatus = (typeof ReadSetImportJobItemStatus)[keyof typeof ReadSetImportJobItemStatus];
 
 /**
- * @public
  * <p>A source for an import read set job.</p>
+ * @public
  */
 export interface ImportReadSetSourceItem {
   /**
-   * @public
    * <p>The source files' location in Amazon S3.</p>
+   * @public
    */
   sourceFiles: SourceFiles | undefined;
 
   /**
-   * @public
    * <p>The source's file type.</p>
+   * @public
    */
   sourceFileType: FileType | undefined;
 
   /**
-   * @public
    * <p>The source's status.</p>
+   * @public
    */
   status: ReadSetImportJobItemStatus | undefined;
 
   /**
-   * @public
    * <p>The source's status message.</p>
+   * @public
    */
   statusMessage?: string;
 
   /**
-   * @public
    * <p>The source's subject ID.</p>
+   * @public
    */
   subjectId: string | undefined;
 
   /**
-   * @public
    * <p>The source's sample ID.</p>
+   * @public
    */
   sampleId: string | undefined;
 
   /**
-   * @public
    * <p>Where the source originated.</p>
+   * @public
    */
   generatedFrom?: string;
 
   /**
-   * @public
    * <p>The source's genome reference ARN.</p>
+   * @public
    */
   referenceArn?: string;
 
   /**
-   * @public
    * <p>The source's name.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The source's description.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The source's tags.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -3975,50 +3975,50 @@ export type ReadSetImportJobStatus = (typeof ReadSetImportJobStatus)[keyof typeo
  */
 export interface GetReadSetImportJobResponse {
   /**
-   * @public
    * <p>The job's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The job's sequence store ID.</p>
+   * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The job's service role ARN.</p>
+   * @public
    */
   roleArn: string | undefined;
 
   /**
-   * @public
    * <p>The job's status.</p>
+   * @public
    */
   status: ReadSetImportJobStatus | undefined;
 
   /**
-   * @public
    * <p>The job's status message.</p>
+   * @public
    */
   statusMessage?: string;
 
   /**
-   * @public
    * <p>When the job was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>When the job completed.</p>
+   * @public
    */
   completionTime?: Date;
 
   /**
-   * @public
    * <p>The job's source files.</p>
+   * @public
    */
   sources: ImportReadSetSourceItem[] | undefined;
 }
@@ -4028,68 +4028,68 @@ export interface GetReadSetImportJobResponse {
  */
 export interface GetReadSetMetadataRequest {
   /**
-   * @public
    * <p>The read set's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The read set's sequence store ID.</p>
+   * @public
    */
   sequenceStoreId: string | undefined;
 }
 
 /**
- * @public
  * <p>Files in a read set.</p>
+ * @public
  */
 export interface ReadSetFiles {
   /**
-   * @public
    * <p>The location of the first file in Amazon S3.</p>
+   * @public
    */
   source1?: FileInformation;
 
   /**
-   * @public
    * <p>The location of the second file in Amazon S3.</p>
+   * @public
    */
   source2?: FileInformation;
 
   /**
-   * @public
    * <p>The files' index.</p>
+   * @public
    */
   index?: FileInformation;
 }
 
 /**
- * @public
  * <p>Details about a sequence.</p>
+ * @public
  */
 export interface SequenceInformation {
   /**
-   * @public
    * <p>The sequence's total read count.</p>
+   * @public
    */
   totalReadCount?: number;
 
   /**
-   * @public
    * <p>The sequence's total base count.</p>
+   * @public
    */
   totalBaseCount?: number;
 
   /**
-   * @public
    * <p>Where the sequence originated.</p>
+   * @public
    */
   generatedFrom?: string;
 
   /**
-   * @public
    * <p>The sequence's alignment setting.</p>
+   * @public
    */
   alignment?: string;
 }
@@ -4118,104 +4118,104 @@ export type ReadSetStatus = (typeof ReadSetStatus)[keyof typeof ReadSetStatus];
  */
 export interface GetReadSetMetadataResponse {
   /**
-   * @public
    * <p>The read set's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The read set's ARN.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The read set's sequence store ID.</p>
+   * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The read set's subject ID.</p>
+   * @public
    */
   subjectId?: string;
 
   /**
-   * @public
    * <p>The read set's sample ID.</p>
+   * @public
    */
   sampleId?: string;
 
   /**
-   * @public
    * <p>The read set's status.</p>
+   * @public
    */
   status: ReadSetStatus | undefined;
 
   /**
-   * @public
    * <p>The read set's name.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The read set's description.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The read set's file type.</p>
+   * @public
    */
   fileType: FileType | undefined;
 
   /**
-   * @public
    * <p>When the read set was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>The read set's sequence information.</p>
+   * @public
    */
   sequenceInformation?: SequenceInformation;
 
   /**
-   * @public
    * <p>The read set's genome reference ARN.</p>
+   * @public
    */
   referenceArn?: string;
 
   /**
-   * @public
    * <p>The read set's files.</p>
+   * @public
    */
   files?: ReadSetFiles;
 
   /**
-   * @public
    * <p>
    *       The status message for a read set. It provides more detail as to why the read set has a status.
    *     </p>
+   * @public
    */
   statusMessage?: string;
 
   /**
-   * @public
    * <p>
    *       The creation type of the read set.
    *     </p>
+   * @public
    */
   creationType?: CreationType;
 
   /**
-   * @public
    * <p>
    *       The entity tag (ETag) is a hash of the object meant to represent its semantic content.
    *     </p>
+   * @public
    */
   etag?: ETag;
 }
@@ -4239,32 +4239,32 @@ export type ReferenceFile = (typeof ReferenceFile)[keyof typeof ReferenceFile];
  */
 export interface GetReferenceRequest {
   /**
-   * @public
    * <p>The reference's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The reference's store ID.</p>
+   * @public
    */
   referenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The range to retrieve.</p>
+   * @public
    */
   range?: string;
 
   /**
-   * @public
    * <p>The part number to retrieve.</p>
+   * @public
    */
   partNumber: number | undefined;
 
   /**
-   * @public
    * <p>The file to retrieve.</p>
+   * @public
    */
   file?: ReferenceFile;
 }
@@ -4274,8 +4274,8 @@ export interface GetReferenceRequest {
  */
 export interface GetReferenceResponse {
   /**
-   * @public
    * <p>The reference file payload.</p>
+   * @public
    */
   payload?: StreamingBlobTypes;
 }
@@ -4285,14 +4285,14 @@ export interface GetReferenceResponse {
  */
 export interface GetReferenceImportJobRequest {
   /**
-   * @public
    * <p>The job's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The job's reference store ID.</p>
+   * @public
    */
   referenceStoreId: string | undefined;
 }
@@ -4315,43 +4315,43 @@ export type ReferenceImportJobItemStatus =
   (typeof ReferenceImportJobItemStatus)[keyof typeof ReferenceImportJobItemStatus];
 
 /**
- * @public
  * <p>An genome reference source.</p>
+ * @public
  */
 export interface ImportReferenceSourceItem {
   /**
-   * @public
    * <p>The source file's location in Amazon S3.</p>
+   * @public
    */
   sourceFile?: string;
 
   /**
-   * @public
    * <p>The source's status.</p>
+   * @public
    */
   status: ReferenceImportJobItemStatus | undefined;
 
   /**
-   * @public
    * <p>The source's status message.</p>
+   * @public
    */
   statusMessage?: string;
 
   /**
-   * @public
    * <p>The source's name.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The source's description.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The source's tags.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -4380,50 +4380,50 @@ export type ReferenceImportJobStatus = (typeof ReferenceImportJobStatus)[keyof t
  */
 export interface GetReferenceImportJobResponse {
   /**
-   * @public
    * <p>The job's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The job's reference store ID.</p>
+   * @public
    */
   referenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The job's service role ARN.</p>
+   * @public
    */
   roleArn: string | undefined;
 
   /**
-   * @public
    * <p>The job's status.</p>
+   * @public
    */
   status: ReferenceImportJobStatus | undefined;
 
   /**
-   * @public
    * <p>The job's status message.</p>
+   * @public
    */
   statusMessage?: string;
 
   /**
-   * @public
    * <p>When the job was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>When the job completed.</p>
+   * @public
    */
   completionTime?: Date;
 
   /**
-   * @public
    * <p>The job's source files.</p>
+   * @public
    */
   sources: ImportReferenceSourceItem[] | undefined;
 }
@@ -4433,32 +4433,32 @@ export interface GetReferenceImportJobResponse {
  */
 export interface GetReferenceMetadataRequest {
   /**
-   * @public
    * <p>The reference's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The reference's reference store ID.</p>
+   * @public
    */
   referenceStoreId: string | undefined;
 }
 
 /**
- * @public
  * <p>A set of genome reference files.</p>
+ * @public
  */
 export interface ReferenceFiles {
   /**
-   * @public
    * <p>The source file's location in Amazon S3.</p>
+   * @public
    */
   source?: FileInformation;
 
   /**
-   * @public
    * <p>The files' index.</p>
+   * @public
    */
   index?: FileInformation;
 }
@@ -4483,62 +4483,62 @@ export type ReferenceStatus = (typeof ReferenceStatus)[keyof typeof ReferenceSta
  */
 export interface GetReferenceMetadataResponse {
   /**
-   * @public
    * <p>The reference's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The reference's ARN.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The reference's reference store ID.</p>
+   * @public
    */
   referenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The reference's MD5 checksum.</p>
+   * @public
    */
   md5: string | undefined;
 
   /**
-   * @public
    * <p>The reference's status.</p>
+   * @public
    */
   status?: ReferenceStatus;
 
   /**
-   * @public
    * <p>The reference's name.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The reference's description.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>When the reference was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>When the reference was updated.</p>
+   * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The reference's files.</p>
+   * @public
    */
   files?: ReferenceFiles;
 }
@@ -4548,8 +4548,8 @@ export interface GetReferenceMetadataResponse {
  */
 export interface GetReferenceStoreRequest {
   /**
-   * @public
    * <p>The store's ID.</p>
+   * @public
    */
   id: string | undefined;
 }
@@ -4559,38 +4559,38 @@ export interface GetReferenceStoreRequest {
  */
 export interface GetReferenceStoreResponse {
   /**
-   * @public
    * <p>The store's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The store's ARN.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The store's name.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The store's description.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The store's server-side encryption (SSE) settings.</p>
+   * @public
    */
   sseConfig?: SseConfig;
 
   /**
-   * @public
    * <p>When the store was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 }
@@ -4613,14 +4613,14 @@ export type RunExport = (typeof RunExport)[keyof typeof RunExport];
  */
 export interface GetRunRequest {
   /**
-   * @public
    * <p>The run's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The run's export format.</p>
+   * @public
    */
   export?: RunExport[];
 }
@@ -4642,25 +4642,25 @@ export const RunLogLevel = {
 export type RunLogLevel = (typeof RunLogLevel)[keyof typeof RunLogLevel];
 
 /**
- * @public
  * <p>
  *       The URI for the run log.
  *     </p>
+ * @public
  */
 export interface RunLogLocation {
   /**
-   * @public
    * <p>
    *       The log stream ARN for the engine log.
    *     </p>
+   * @public
    */
   engineLogStream?: string;
 
   /**
-   * @public
    * <p>
    *       The log stream ARN for the run log.
    *     </p>
+   * @public
    */
   runLogStream?: string;
 }
@@ -4718,186 +4718,186 @@ export type WorkflowType = (typeof WorkflowType)[keyof typeof WorkflowType];
  */
 export interface GetRunResponse {
   /**
-   * @public
    * <p>The run's ARN.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>The run's ID.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The run's status.</p>
+   * @public
    */
   status?: RunStatus;
 
   /**
-   * @public
    * <p>The run's workflow ID.</p>
+   * @public
    */
   workflowId?: string;
 
   /**
-   * @public
    * <p>The run's workflow type.</p>
+   * @public
    */
   workflowType?: WorkflowType;
 
   /**
-   * @public
    * <p>The run's ID.</p>
+   * @public
    */
   runId?: string;
 
   /**
-   * @public
    * <p>The run's service role ARN.</p>
+   * @public
    */
   roleArn?: string;
 
   /**
-   * @public
    * <p>The run's name.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The run's group ID.</p>
+   * @public
    */
   runGroupId?: string;
 
   /**
-   * @public
    * <p>The run's priority.</p>
+   * @public
    */
   priority?: number;
 
   /**
-   * @public
    * <p>The run's definition.</p>
+   * @public
    */
   definition?: string;
 
   /**
-   * @public
    * <p>The run's digest.</p>
+   * @public
    */
   digest?: string;
 
   /**
-   * @public
    * <p>The run's parameters.</p>
+   * @public
    */
   parameters?: __DocumentType;
 
   /**
-   * @public
    * <p>The run's storage capacity in gigabytes.</p>
+   * @public
    */
   storageCapacity?: number;
 
   /**
-   * @public
    * <p>The run's output URI.</p>
+   * @public
    */
   outputUri?: string;
 
   /**
-   * @public
    * <p>The run's log level.</p>
+   * @public
    */
   logLevel?: RunLogLevel;
 
   /**
-   * @public
    * <p>The run's resource digests.</p>
+   * @public
    */
   resourceDigests?: Record<string, string>;
 
   /**
-   * @public
    * <p>Who started the run.</p>
+   * @public
    */
   startedBy?: string;
 
   /**
-   * @public
    * <p>When the run was created.</p>
+   * @public
    */
   creationTime?: Date;
 
   /**
-   * @public
    * <p>When the run started.</p>
+   * @public
    */
   startTime?: Date;
 
   /**
-   * @public
    * <p>The run's stop time.</p>
+   * @public
    */
   stopTime?: Date;
 
   /**
-   * @public
    * <p>The run's status message.</p>
+   * @public
    */
   statusMessage?: string;
 
   /**
-   * @public
    * <p>The run's tags.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>
    *       The computational accelerator used to run the workflow.
    *     </p>
+   * @public
    */
   accelerators?: Accelerators;
 
   /**
-   * @public
    * <p>The run's retention mode.</p>
+   * @public
    */
   retentionMode?: RunRetentionMode;
 
   /**
-   * @public
    * <p>
    *       The reason a run has failed.
    *     </p>
+   * @public
    */
   failureReason?: string;
 
   /**
-   * @public
    * <p>
    *       The location of the run log.
    *     </p>
+   * @public
    */
   logLocation?: RunLogLocation;
 
   /**
-   * @public
    * <p>
    *       The universally unique identifier for a run.
    *     </p>
+   * @public
    */
   uuid?: string;
 
   /**
-   * @public
    * <p>
    *       The destination for workflow outputs.
    *     </p>
+   * @public
    */
   runOutputUri?: string;
 }
@@ -4907,8 +4907,8 @@ export interface GetRunResponse {
  */
 export interface GetRunGroupRequest {
   /**
-   * @public
    * <p>The group's ID.</p>
+   * @public
    */
   id: string | undefined;
 }
@@ -4918,58 +4918,58 @@ export interface GetRunGroupRequest {
  */
 export interface GetRunGroupResponse {
   /**
-   * @public
    * <p>The group's ARN.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>The group's ID.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The group's name.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The group's maximum number of CPUs to use.</p>
+   * @public
    */
   maxCpus?: number;
 
   /**
-   * @public
    * <p>The maximum number of concurrent runs for the group.</p>
+   * @public
    */
   maxRuns?: number;
 
   /**
-   * @public
    * <p>The group's maximum run time in minutes.</p>
+   * @public
    */
   maxDuration?: number;
 
   /**
-   * @public
    * <p>When the group was created.</p>
+   * @public
    */
   creationTime?: Date;
 
   /**
-   * @public
    * <p>The group's tags.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>
    *       The maximum GPUs that can be used by a run group.
    *     </p>
+   * @public
    */
   maxGpus?: number;
 }
@@ -4979,14 +4979,14 @@ export interface GetRunGroupResponse {
  */
 export interface GetRunTaskRequest {
   /**
-   * @public
    * <p>The workflow run ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The task's ID.</p>
+   * @public
    */
   taskId: string | undefined;
 }
@@ -5015,86 +5015,86 @@ export type TaskStatus = (typeof TaskStatus)[keyof typeof TaskStatus];
  */
 export interface GetRunTaskResponse {
   /**
-   * @public
    * <p>The task's ID.</p>
+   * @public
    */
   taskId?: string;
 
   /**
-   * @public
    * <p>The task's status.</p>
+   * @public
    */
   status?: TaskStatus;
 
   /**
-   * @public
    * <p>The task's name.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The task's CPU usage.</p>
+   * @public
    */
   cpus?: number;
 
   /**
-   * @public
    * <p>The task's memory use in gigabytes.</p>
+   * @public
    */
   memory?: number;
 
   /**
-   * @public
    * <p>When the task was created.</p>
+   * @public
    */
   creationTime?: Date;
 
   /**
-   * @public
    * <p>The task's start time.</p>
+   * @public
    */
   startTime?: Date;
 
   /**
-   * @public
    * <p>The task's stop time.</p>
+   * @public
    */
   stopTime?: Date;
 
   /**
-   * @public
    * <p>The task's status message.</p>
+   * @public
    */
   statusMessage?: string;
 
   /**
-   * @public
    * <p>The task's log stream.</p>
+   * @public
    */
   logStream?: string;
 
   /**
-   * @public
    * <p>
    *       The number of Graphics Processing Units (GPU) specified in the task.
    *     </p>
+   * @public
    */
   gpus?: number;
 
   /**
-   * @public
    * <p>
    *       The instance type for a task.
    *     </p>
+   * @public
    */
   instanceType?: string;
 
   /**
-   * @public
    * <p>
    *       The reason a task has failed.
    *     </p>
+   * @public
    */
   failureReason?: string;
 }
@@ -5104,8 +5104,8 @@ export interface GetRunTaskResponse {
  */
 export interface GetSequenceStoreRequest {
   /**
-   * @public
    * <p>The store's ID.</p>
+   * @public
    */
   id: string | undefined;
 }
@@ -5115,46 +5115,46 @@ export interface GetSequenceStoreRequest {
  */
 export interface GetSequenceStoreResponse {
   /**
-   * @public
    * <p>The store's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The store's ARN.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The store's name.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The store's description.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The store's server-side encryption (SSE) settings.</p>
+   * @public
    */
   sseConfig?: SseConfig;
 
   /**
-   * @public
    * <p>When the store was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>
    *       An S3 location that is used to store files that have failed a direct upload.
    *     </p>
+   * @public
    */
   fallbackLocation?: string;
 }
@@ -5164,90 +5164,90 @@ export interface GetSequenceStoreResponse {
  */
 export interface GetShareRequest {
   /**
-   * @public
    * <p>
    *       The generated ID for a share.
    *     </p>
+   * @public
    */
   shareId: string | undefined;
 }
 
 /**
- * @public
  * <p>
  *       The details of a share.
  *     </p>
+ * @public
  */
 export interface ShareDetails {
   /**
-   * @public
    * <p>
    *       The ID for a share offer for an analytics store .
    *     </p>
+   * @public
    */
   shareId?: string;
 
   /**
-   * @public
    * <p>
    *       The resource Arn of the analytics store being shared.
    *     </p>
+   * @public
    */
   resourceArn?: string;
 
   /**
-   * @public
    * <p>
    *       The principal subscriber is the account the analytics store data is being shared with.
    *     </p>
+   * @public
    */
   principalSubscriber?: string;
 
   /**
-   * @public
    * <p>
    *       The account ID for the data owner. The owner creates the share offer.
    *     </p>
+   * @public
    */
   ownerId?: string;
 
   /**
-   * @public
    * <p>
    *       The status of a share.
    *     </p>
+   * @public
    */
   status?: ShareStatus;
 
   /**
-   * @public
    * <p>
    *       The status message for a share. It provides more details on the status of the share.
    *     </p>
+   * @public
    */
   statusMessage?: string;
 
   /**
-   * @public
    * <p>
    *       The name of the share.
    *     </p>
+   * @public
    */
   shareName?: string;
 
   /**
-   * @public
    * <p>
    *       The timestamp for when the share was created.
    *     </p>
+   * @public
    */
   creationTime?: Date;
 
   /**
-   * @public
    * <p>
    *       The timestamp of the share update.
    *     </p>
+   * @public
    */
   updateTime?: Date;
 }
@@ -5257,10 +5257,10 @@ export interface ShareDetails {
  */
 export interface GetShareResponse {
   /**
-   * @public
    * <p>
    *       An analytic store share details object. contains status, resourceArn, ownerId, etc.
    *     </p>
+   * @public
    */
   share?: ShareDetails;
 }
@@ -5270,32 +5270,32 @@ export interface GetShareResponse {
  */
 export interface GetVariantImportRequest {
   /**
-   * @public
    * <p>The job's ID.</p>
+   * @public
    */
   jobId: string | undefined;
 }
 
 /**
- * @public
  * <p>Details about an imported variant item.</p>
+ * @public
  */
 export interface VariantImportItemDetail {
   /**
-   * @public
    * <p>The source file's location in Amazon S3.</p>
+   * @public
    */
   source: string | undefined;
 
   /**
-   * @public
    * <p>The item's job status.</p>
+   * @public
    */
   jobStatus: JobStatus | undefined;
 
   /**
-   * @public
    * <p> A message that provides additional context about a job </p>
+   * @public
    */
   statusMessage?: string;
 }
@@ -5305,70 +5305,70 @@ export interface VariantImportItemDetail {
  */
 export interface GetVariantImportResponse {
   /**
-   * @public
    * <p>The job's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The job's destination variant store.</p>
+   * @public
    */
   destinationName: string | undefined;
 
   /**
-   * @public
    * <p>The job's service role ARN.</p>
+   * @public
    */
   roleArn: string | undefined;
 
   /**
-   * @public
    * <p>The job's status.</p>
+   * @public
    */
   status: JobStatus | undefined;
 
   /**
-   * @public
    * <p>The job's status message.</p>
+   * @public
    */
   statusMessage: string | undefined;
 
   /**
-   * @public
    * <p>When the job was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>When the job was updated.</p>
+   * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * @public
    * <p>When the job completed.</p>
+   * @public
    */
   completionTime?: Date;
 
   /**
-   * @public
    * <p>The job's items.</p>
+   * @public
    */
   items: VariantImportItemDetail[] | undefined;
 
   /**
-   * @public
    * <p>The job's left normalization setting.</p>
+   * @public
    */
   runLeftNormalization: boolean | undefined;
 
   /**
-   * @public
    * <p>
    *       The annotation schema generated by the parsed annotation data.
    *     </p>
+   * @public
    */
   annotationFields?: Record<string, string>;
 }
@@ -5378,8 +5378,8 @@ export interface GetVariantImportResponse {
  */
 export interface GetVariantStoreRequest {
   /**
-   * @public
    * <p>The store's name.</p>
+   * @public
    */
   name: string | undefined;
 }
@@ -5389,74 +5389,74 @@ export interface GetVariantStoreRequest {
  */
 export interface GetVariantStoreResponse {
   /**
-   * @public
    * <p>The store's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The store's genome reference.</p>
+   * @public
    */
   reference: ReferenceItem | undefined;
 
   /**
-   * @public
    * <p>The store's status.</p>
+   * @public
    */
   status: StoreStatus | undefined;
 
   /**
-   * @public
    * <p>The store's ARN.</p>
+   * @public
    */
   storeArn: string | undefined;
 
   /**
-   * @public
    * <p>The store's name.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The store's description.</p>
+   * @public
    */
   description: string | undefined;
 
   /**
-   * @public
    * <p>The store's server-side encryption (SSE) settings.</p>
+   * @public
    */
   sseConfig: SseConfig | undefined;
 
   /**
-   * @public
    * <p>When the store was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>When the store was updated.</p>
+   * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The store's tags.</p>
+   * @public
    */
   tags: Record<string, string> | undefined;
 
   /**
-   * @public
    * <p>The store's status message.</p>
+   * @public
    */
   statusMessage: string | undefined;
 
   /**
-   * @public
    * <p>The store's size in bytes.</p>
+   * @public
    */
   storeSizeBytes: number | undefined;
 }
@@ -5479,20 +5479,20 @@ export type WorkflowExport = (typeof WorkflowExport)[keyof typeof WorkflowExport
  */
 export interface GetWorkflowRequest {
   /**
-   * @public
    * <p>The workflow's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The workflow's type.</p>
+   * @public
    */
   type?: WorkflowType;
 
   /**
-   * @public
    * <p>The export format for the workflow.</p>
+   * @public
    */
   export?: WorkflowExport[];
 }
@@ -5502,239 +5502,239 @@ export interface GetWorkflowRequest {
  */
 export interface GetWorkflowResponse {
   /**
-   * @public
    * <p>The workflow's ARN.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>The workflow's ID.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The workflow's status.</p>
+   * @public
    */
   status?: WorkflowStatus;
 
   /**
-   * @public
    * <p>The workflow's type.</p>
+   * @public
    */
   type?: WorkflowType;
 
   /**
-   * @public
    * <p>The workflow's name.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The workflow's description.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The workflow's engine.</p>
+   * @public
    */
   engine?: WorkflowEngine;
 
   /**
-   * @public
    * <p>The workflow's definition.</p>
+   * @public
    */
   definition?: string;
 
   /**
-   * @public
    * <p>The path of the main definition file for the workflow.</p>
+   * @public
    */
   main?: string;
 
   /**
-   * @public
    * <p>The workflow's digest.</p>
+   * @public
    */
   digest?: string;
 
   /**
-   * @public
    * <p>The workflow's parameter template.</p>
+   * @public
    */
   parameterTemplate?: Record<string, WorkflowParameter>;
 
   /**
-   * @public
    * <p>The workflow's storage capacity in gigabytes.</p>
+   * @public
    */
   storageCapacity?: number;
 
   /**
-   * @public
    * <p>When the workflow was created.</p>
+   * @public
    */
   creationTime?: Date;
 
   /**
-   * @public
    * <p>The workflow's status message.</p>
+   * @public
    */
   statusMessage?: string;
 
   /**
-   * @public
    * <p>The workflow's tags.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>
    *       Gets metadata for workflow.
    *     </p>
+   * @public
    */
   metadata?: Record<string, string>;
 
   /**
-   * @public
    * <p>
    *       The computational accelerator specified to run the workflow. </p>
+   * @public
    */
   accelerators?: Accelerators;
 }
 
 /**
- * @public
  * <p>A filter for import read set jobs.</p>
+ * @public
  */
 export interface ImportReadSetFilter {
   /**
-   * @public
    * <p>A status to filter on.</p>
+   * @public
    */
   status?: ReadSetImportJobStatus;
 
   /**
-   * @public
    * <p>The filter's start date.</p>
+   * @public
    */
   createdAfter?: Date;
 
   /**
-   * @public
    * <p>The filter's end date.</p>
+   * @public
    */
   createdBefore?: Date;
 }
 
 /**
- * @public
  * <p>An import read set job.</p>
+ * @public
  */
 export interface ImportReadSetJobItem {
   /**
-   * @public
    * <p>The job's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The job's sequence store ID.</p>
+   * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The job's service role ARN.</p>
+   * @public
    */
   roleArn: string | undefined;
 
   /**
-   * @public
    * <p>The job's status.</p>
+   * @public
    */
   status: ReadSetImportJobStatus | undefined;
 
   /**
-   * @public
    * <p>When the job was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>When the job completed.</p>
+   * @public
    */
   completionTime?: Date;
 }
 
 /**
- * @public
  * <p>A filter for import references.</p>
+ * @public
  */
 export interface ImportReferenceFilter {
   /**
-   * @public
    * <p>A status to filter on.</p>
+   * @public
    */
   status?: ReferenceImportJobStatus;
 
   /**
-   * @public
    * <p>The filter's start date.</p>
+   * @public
    */
   createdAfter?: Date;
 
   /**
-   * @public
    * <p>The filter's end date.</p>
+   * @public
    */
   createdBefore?: Date;
 }
 
 /**
- * @public
  * <p>An import reference job.</p>
+ * @public
  */
 export interface ImportReferenceJobItem {
   /**
-   * @public
    * <p>The job's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The job's reference store ID.</p>
+   * @public
    */
   referenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The job's service role ARN.</p>
+   * @public
    */
   roleArn: string | undefined;
 
   /**
-   * @public
    * <p>The job's status.</p>
+   * @public
    */
   status: ReferenceImportJobStatus | undefined;
 
   /**
-   * @public
    * <p>When the job was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>When the job completed.</p>
+   * @public
    */
   completionTime?: Date;
 }
@@ -5744,122 +5744,122 @@ export interface ImportReferenceJobItem {
  */
 export interface ListMultipartReadSetUploadsRequest {
   /**
-   * @public
    * <p>
    *       The Sequence Store ID used for the multipart uploads.
    *     </p>
+   * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>
    *       The maximum number of multipart uploads returned in a page.
    *     </p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>
    *       Next token returned in the response of a previous ListMultipartReadSetUploads call. Used to get the next page of results.
    *     </p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>
  *       Part of the response to ListMultipartReadSetUploads, excluding completed and aborted multipart uploads.
  *     </p>
+ * @public
  */
 export interface MultipartReadSetUploadListItem {
   /**
-   * @public
    * <p>
    *       The sequence store ID used for the multipart upload.
    *     </p>
+   * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>
    *       The ID for the initiated multipart upload.
    *     </p>
+   * @public
    */
   uploadId: string | undefined;
 
   /**
-   * @public
    * <p>
    *       The type of file the read set originated from.
    *     </p>
+   * @public
    */
   sourceFileType: FileType | undefined;
 
   /**
-   * @public
    * <p>
    *       The read set source's subject ID.
    *     </p>
+   * @public
    */
   subjectId: string | undefined;
 
   /**
-   * @public
    * <p>
    *       The read set source's sample ID.
    *     </p>
+   * @public
    */
   sampleId: string | undefined;
 
   /**
-   * @public
    * <p>
    *       The source of an uploaded part.
    *     </p>
+   * @public
    */
   generatedFrom: string | undefined;
 
   /**
-   * @public
    * <p>
    *       The source's reference ARN.
    *     </p>
+   * @public
    */
   referenceArn: string | undefined;
 
   /**
-   * @public
    * <p>
    *       The name of a read set.
    *     </p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>
    *       The description of a read set.
    *     </p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>
    *       Any tags you wish to add to a read set.
    *     </p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>
    *       The time stamp for when a direct upload was created.
    *     </p>
+   * @public
    */
   creationTime: Date | undefined;
 }
@@ -5869,18 +5869,18 @@ export interface MultipartReadSetUploadListItem {
  */
 export interface ListMultipartReadSetUploadsResponse {
   /**
-   * @public
    * <p>
    *       Next token returned in the response of a previous ListMultipartReadSetUploads call. Used to get the next page of results.
    *     </p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>
    *       An array of multipart uploads.
    *     </p>
+   * @public
    */
   uploads?: MultipartReadSetUploadListItem[];
 }
@@ -5890,26 +5890,26 @@ export interface ListMultipartReadSetUploadsResponse {
  */
 export interface ListReadSetActivationJobsRequest {
   /**
-   * @public
    * <p>The read set's sequence store ID.</p>
+   * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of read set activation jobs to return in one page of results.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A filter to apply to the list.</p>
+   * @public
    */
   filter?: ActivateReadSetFilter;
 }
@@ -5919,14 +5919,14 @@ export interface ListReadSetActivationJobsRequest {
  */
 export interface ListReadSetActivationJobsResponse {
   /**
-   * @public
    * <p>A pagination token that's included if more results are available.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A list of jobs.</p>
+   * @public
    */
   activationJobs?: ActivateReadSetJobItem[];
 }
@@ -5936,26 +5936,26 @@ export interface ListReadSetActivationJobsResponse {
  */
 export interface ListReadSetExportJobsRequest {
   /**
-   * @public
    * <p>The jobs' sequence store ID.</p>
+   * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of jobs to return in one page of results.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A filter to apply to the list.</p>
+   * @public
    */
   filter?: ExportReadSetFilter;
 }
@@ -5965,14 +5965,14 @@ export interface ListReadSetExportJobsRequest {
  */
 export interface ListReadSetExportJobsResponse {
   /**
-   * @public
    * <p>A pagination token that's included if more results are available.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A list of jobs.</p>
+   * @public
    */
   exportJobs?: ExportReadSetJobDetail[];
 }
@@ -5982,26 +5982,26 @@ export interface ListReadSetExportJobsResponse {
  */
 export interface ListReadSetImportJobsRequest {
   /**
-   * @public
    * <p>The maximum number of jobs to return in one page of results.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The jobs' sequence store ID.</p>
+   * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>A filter to apply to the list.</p>
+   * @public
    */
   filter?: ImportReadSetFilter;
 }
@@ -6011,82 +6011,82 @@ export interface ListReadSetImportJobsRequest {
  */
 export interface ListReadSetImportJobsResponse {
   /**
-   * @public
    * <p>A pagination token that's included if more results are available.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A list of jobs.</p>
+   * @public
    */
   importJobs?: ImportReadSetJobItem[];
 }
 
 /**
- * @public
  * <p>A filter for read sets.</p>
+ * @public
  */
 export interface ReadSetFilter {
   /**
-   * @public
    * <p>A name to filter on.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>A status to filter on.</p>
+   * @public
    */
   status?: ReadSetStatus;
 
   /**
-   * @public
    * <p>A genome reference ARN to filter on.</p>
+   * @public
    */
   referenceArn?: string;
 
   /**
-   * @public
    * <p>The filter's start date.</p>
+   * @public
    */
   createdAfter?: Date;
 
   /**
-   * @public
    * <p>The filter's end date.</p>
+   * @public
    */
   createdBefore?: Date;
 
   /**
-   * @public
    * <p>
    *       The read set source's sample ID.
    *     </p>
+   * @public
    */
   sampleId?: string;
 
   /**
-   * @public
    * <p>
    *       The read set source's subject ID.
    *     </p>
+   * @public
    */
   subjectId?: string;
 
   /**
-   * @public
    * <p>
    *       Where the source originated.
    *     </p>
+   * @public
    */
   generatedFrom?: string;
 
   /**
-   * @public
    * <p>
    *       The creation type of the read set.
    *     </p>
+   * @public
    */
   creationType?: CreationType;
 }
@@ -6096,128 +6096,128 @@ export interface ReadSetFilter {
  */
 export interface ListReadSetsRequest {
   /**
-   * @public
    * <p>The jobs' sequence store ID.</p>
+   * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of read sets to return in one page of results.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A filter to apply to the list.</p>
+   * @public
    */
   filter?: ReadSetFilter;
 }
 
 /**
- * @public
  * <p>A read set.</p>
+ * @public
  */
 export interface ReadSetListItem {
   /**
-   * @public
    * <p>The read set's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The read set's ARN.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The read set's sequence store ID.</p>
+   * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The read set's subject ID.</p>
+   * @public
    */
   subjectId?: string;
 
   /**
-   * @public
    * <p>The read set's sample ID.</p>
+   * @public
    */
   sampleId?: string;
 
   /**
-   * @public
    * <p>The read set's status.</p>
+   * @public
    */
   status: ReadSetStatus | undefined;
 
   /**
-   * @public
    * <p>The read set's name.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The read set's description.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The read set's genome reference ARN.</p>
+   * @public
    */
   referenceArn?: string;
 
   /**
-   * @public
    * <p>The read set's file type.</p>
+   * @public
    */
   fileType: FileType | undefined;
 
   /**
-   * @public
    * <p>Details about a sequence.</p>
+   * @public
    */
   sequenceInformation?: SequenceInformation;
 
   /**
-   * @public
    * <p>When the read set was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>
    *       The status for a read set. It provides more detail as to why the read set has a status.
    *     </p>
+   * @public
    */
   statusMessage?: string;
 
   /**
-   * @public
    * <p>
    *       The creation type of the read set.
    *     </p>
+   * @public
    */
   creationType?: CreationType;
 
   /**
-   * @public
    * <p>
    *       The entity tag (ETag) is a hash of the object representing  its semantic content.
    *     </p>
+   * @public
    */
   etag?: ETag;
 }
@@ -6227,38 +6227,38 @@ export interface ReadSetListItem {
  */
 export interface ListReadSetsResponse {
   /**
-   * @public
    * <p>A pagination token that's included if more results are available.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A list of read sets.</p>
+   * @public
    */
   readSets: ReadSetListItem[] | undefined;
 }
 
 /**
- * @public
  * <p>
  *       Filter settings that select for read set upload parts of interest.
  *     </p>
+ * @public
  */
 export interface ReadSetUploadPartListFilter {
   /**
-   * @public
    * <p>
    *       Filters for read set uploads after a specified time.
    *     </p>
+   * @public
    */
   createdAfter?: Date;
 
   /**
-   * @public
    * <p>
    *       Filters for read set part uploads before a specified time.
    *     </p>
+   * @public
    */
   createdBefore?: Date;
 }
@@ -6268,106 +6268,106 @@ export interface ReadSetUploadPartListFilter {
  */
 export interface ListReadSetUploadPartsRequest {
   /**
-   * @public
    * <p>
    *       The Sequence Store ID used for the multipart uploads.
    *     </p>
+   * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>
    *       The ID for the initiated multipart upload.
    *     </p>
+   * @public
    */
   uploadId: string | undefined;
 
   /**
-   * @public
    * <p>
    *       The source file for the upload part.
    *     </p>
+   * @public
    */
   partSource: ReadSetPartSource | undefined;
 
   /**
-   * @public
    * <p>
    *       The maximum number of read set upload parts returned in a page.
    *     </p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>
    *       Next token returned in the response of a previous ListReadSetUploadPartsRequest call. Used to get the next page of results.
    *     </p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>
    *       Attributes used to filter for a specific subset of read set part uploads.
    *     </p>
+   * @public
    */
   filter?: ReadSetUploadPartListFilter;
 }
 
 /**
- * @public
  * <p>
  *       The metadata of a single part of a file that was added to a multipart upload. A list of these parts is returned in the response to the ListReadSetUploadParts API.
  *     </p>
+ * @public
  */
 export interface ReadSetUploadPartListItem {
   /**
-   * @public
    * <p>
    *       The number identifying the part in an upload.
    *     </p>
+   * @public
    */
   partNumber: number | undefined;
 
   /**
-   * @public
    * <p>
    *       The size of the the part in an upload.
    *     </p>
+   * @public
    */
   partSize: number | undefined;
 
   /**
-   * @public
    * <p>
    *       The origin of the part being direct uploaded.
    *     </p>
+   * @public
    */
   partSource: ReadSetPartSource | undefined;
 
   /**
-   * @public
    * <p>
    *       A unique identifier used to confirm that parts are being added to the correct upload.
    *     </p>
+   * @public
    */
   checksum: string | undefined;
 
   /**
-   * @public
    * <p>
    *       The time stamp for when a direct upload was created.
    *     </p>
+   * @public
    */
   creationTime?: Date;
 
   /**
-   * @public
    * <p>
    *       The time stamp for the most recent update to an uploaded part.
    *     </p>
+   * @public
    */
   lastUpdatedTime?: Date;
 }
@@ -6377,18 +6377,18 @@ export interface ReadSetUploadPartListItem {
  */
 export interface ListReadSetUploadPartsResponse {
   /**
-   * @public
    * <p>
    *       Next token returned in the response of a previous ListReadSetUploadParts call. Used to get the next page of results.
    *     </p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>
    *       An array of upload parts.
    *     </p>
+   * @public
    */
   parts?: ReadSetUploadPartListItem[];
 }
@@ -6398,26 +6398,26 @@ export interface ListReadSetUploadPartsResponse {
  */
 export interface ListReferenceImportJobsRequest {
   /**
-   * @public
    * <p>The maximum number of jobs to return in one page of results.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The job's reference store ID.</p>
+   * @public
    */
   referenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>A filter to apply to the list.</p>
+   * @public
    */
   filter?: ImportReferenceFilter;
 }
@@ -6427,44 +6427,44 @@ export interface ListReferenceImportJobsRequest {
  */
 export interface ListReferenceImportJobsResponse {
   /**
-   * @public
    * <p>A pagination token that's included if more results are available.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A lis of jobs.</p>
+   * @public
    */
   importJobs?: ImportReferenceJobItem[];
 }
 
 /**
- * @public
  * <p>A filter for references.</p>
+ * @public
  */
 export interface ReferenceFilter {
   /**
-   * @public
    * <p>A name to filter on.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>An MD5 checksum to filter on.</p>
+   * @public
    */
   md5?: string;
 
   /**
-   * @public
    * <p>The filter's start date.</p>
+   * @public
    */
   createdAfter?: Date;
 
   /**
-   * @public
    * <p>The filter's end date.</p>
+   * @public
    */
   createdBefore?: Date;
 }
@@ -6474,86 +6474,86 @@ export interface ReferenceFilter {
  */
 export interface ListReferencesRequest {
   /**
-   * @public
    * <p>The references' reference store ID.</p>
+   * @public
    */
   referenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of references to return in one page of results.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A filter to apply to the list.</p>
+   * @public
    */
   filter?: ReferenceFilter;
 }
 
 /**
- * @public
  * <p>A genome reference.</p>
+ * @public
  */
 export interface ReferenceListItem {
   /**
-   * @public
    * <p>The reference's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The reference's ARN.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The reference's store ID.</p>
+   * @public
    */
   referenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The reference's MD5 checksum.</p>
+   * @public
    */
   md5: string | undefined;
 
   /**
-   * @public
    * <p>The reference's status.</p>
+   * @public
    */
   status?: ReferenceStatus;
 
   /**
-   * @public
    * <p>The reference's name.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The reference's description.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>When the reference was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>When the reference was updated.</p>
+   * @public
    */
   updateTime: Date | undefined;
 }
@@ -6563,38 +6563,38 @@ export interface ReferenceListItem {
  */
 export interface ListReferencesResponse {
   /**
-   * @public
    * <p>A pagination token that's included if more results are available.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A list of references.</p>
+   * @public
    */
   references: ReferenceListItem[] | undefined;
 }
 
 /**
- * @public
  * <p>A filter for reference stores.</p>
+ * @public
  */
 export interface ReferenceStoreFilter {
   /**
-   * @public
    * <p>The name to filter on.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The filter's start date.</p>
+   * @public
    */
   createdAfter?: Date;
 
   /**
-   * @public
    * <p>The filter's end date.</p>
+   * @public
    */
   createdBefore?: Date;
 }
@@ -6604,62 +6604,62 @@ export interface ReferenceStoreFilter {
  */
 export interface ListReferenceStoresRequest {
   /**
-   * @public
    * <p>The maximum number of stores to return in one page of results.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A filter to apply to the list.</p>
+   * @public
    */
   filter?: ReferenceStoreFilter;
 }
 
 /**
- * @public
  * <p>Details about a reference store.</p>
+ * @public
  */
 export interface ReferenceStoreDetail {
   /**
-   * @public
    * <p>The store's ARN.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The store's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The store's name.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The store's description.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The store's server-side encryption (SSE) settings.</p>
+   * @public
    */
   sseConfig?: SseConfig;
 
   /**
-   * @public
    * <p>When the store was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 }
@@ -6669,14 +6669,14 @@ export interface ReferenceStoreDetail {
  */
 export interface ListReferenceStoresResponse {
   /**
-   * @public
    * <p>A pagination token that's included if more results are available.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A list of reference stores.</p>
+   * @public
    */
   referenceStores: ReferenceStoreDetail[] | undefined;
 }
@@ -6686,76 +6686,76 @@ export interface ListReferenceStoresResponse {
  */
 export interface ListRunGroupsRequest {
   /**
-   * @public
    * <p>The run groups' name.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
    */
   startingToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of run groups to return in one page of results.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>A run group.</p>
+ * @public
  */
 export interface RunGroupListItem {
   /**
-   * @public
    * <p>The group's ARN.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>The group's ID.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The group's name.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The group's maximum CPU count setting.</p>
+   * @public
    */
   maxCpus?: number;
 
   /**
-   * @public
    * <p>The group's maximum concurrent run setting.</p>
+   * @public
    */
   maxRuns?: number;
 
   /**
-   * @public
    * <p>The group's maximum duration setting in minutes.</p>
+   * @public
    */
   maxDuration?: number;
 
   /**
-   * @public
    * <p>When the group was created.</p>
+   * @public
    */
   creationTime?: Date;
 
   /**
-   * @public
    * <p>
    *       The maximum GPUs that can be used by a run group.
    *     </p>
+   * @public
    */
   maxGpus?: number;
 }
@@ -6765,14 +6765,14 @@ export interface RunGroupListItem {
  */
 export interface ListRunGroupsResponse {
   /**
-   * @public
    * <p>A list of groups.</p>
+   * @public
    */
   items?: RunGroupListItem[];
 
   /**
-   * @public
    * <p>A pagination token that's included if more results are available.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -6782,100 +6782,100 @@ export interface ListRunGroupsResponse {
  */
 export interface ListRunsRequest {
   /**
-   * @public
    * <p>Filter the list by run name.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Filter the list by run group ID.</p>
+   * @public
    */
   runGroupId?: string;
 
   /**
-   * @public
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
    */
   startingToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of runs to return in one page of results.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>
    *       The status of a run.
    *     </p>
+   * @public
    */
   status?: RunStatus;
 }
 
 /**
- * @public
  * <p>A workflow run.</p>
+ * @public
  */
 export interface RunListItem {
   /**
-   * @public
    * <p>The run's ARN.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>The run's ID.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The run's status.</p>
+   * @public
    */
   status?: RunStatus;
 
   /**
-   * @public
    * <p>The run's workflow ID.</p>
+   * @public
    */
   workflowId?: string;
 
   /**
-   * @public
    * <p>The run's name.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The run's priority.</p>
+   * @public
    */
   priority?: number;
 
   /**
-   * @public
    * <p>The run's storage capacity.</p>
+   * @public
    */
   storageCapacity?: number;
 
   /**
-   * @public
    * <p>When the run was created.</p>
+   * @public
    */
   creationTime?: Date;
 
   /**
-   * @public
    * <p>When the run started.</p>
+   * @public
    */
   startTime?: Date;
 
   /**
-   * @public
    * <p>When the run stopped.</p>
+   * @public
    */
   stopTime?: Date;
 }
@@ -6885,14 +6885,14 @@ export interface RunListItem {
  */
 export interface ListRunsResponse {
   /**
-   * @public
    * <p>A list of runs.</p>
+   * @public
    */
   items?: RunListItem[];
 
   /**
-   * @public
    * <p>A pagination token that's included if more results are available.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -6902,96 +6902,96 @@ export interface ListRunsResponse {
  */
 export interface ListRunTasksRequest {
   /**
-   * @public
    * <p>The run's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>Filter the list by status.</p>
+   * @public
    */
   status?: TaskStatus;
 
   /**
-   * @public
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
    */
   startingToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of run tasks to return in one page of results.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>A workflow run task.</p>
+ * @public
  */
 export interface TaskListItem {
   /**
-   * @public
    * <p>The task's ID.</p>
+   * @public
    */
   taskId?: string;
 
   /**
-   * @public
    * <p>The task's status.</p>
+   * @public
    */
   status?: TaskStatus;
 
   /**
-   * @public
    * <p>The task's name.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The task's CPU count.</p>
+   * @public
    */
   cpus?: number;
 
   /**
-   * @public
    * <p>The task's memory use in gigabyes.</p>
+   * @public
    */
   memory?: number;
 
   /**
-   * @public
    * <p>When the task was created.</p>
+   * @public
    */
   creationTime?: Date;
 
   /**
-   * @public
    * <p>When the task started.</p>
+   * @public
    */
   startTime?: Date;
 
   /**
-   * @public
    * <p>When the task stopped.</p>
+   * @public
    */
   stopTime?: Date;
 
   /**
-   * @public
    * <p>
    *       The number of Graphics Processing Units (GPU) specified for the task.
    *     </p>
+   * @public
    */
   gpus?: number;
 
   /**
-   * @public
    * <p>
    *       The instance type for a task.
    *     </p>
+   * @public
    */
   instanceType?: string;
 }
@@ -7001,38 +7001,38 @@ export interface TaskListItem {
  */
 export interface ListRunTasksResponse {
   /**
-   * @public
    * <p>A list of tasks.</p>
+   * @public
    */
   items?: TaskListItem[];
 
   /**
-   * @public
    * <p>A pagination token that's included if more results are available.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>A filter for a sequence store.</p>
+ * @public
  */
 export interface SequenceStoreFilter {
   /**
-   * @public
    * <p>A name to filter on.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The filter's start date.</p>
+   * @public
    */
   createdAfter?: Date;
 
   /**
-   * @public
    * <p>The filter's end date.</p>
+   * @public
    */
   createdBefore?: Date;
 }
@@ -7042,70 +7042,70 @@ export interface SequenceStoreFilter {
  */
 export interface ListSequenceStoresRequest {
   /**
-   * @public
    * <p>The maximum number of stores to return in one page of results.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A filter to apply to the list.</p>
+   * @public
    */
   filter?: SequenceStoreFilter;
 }
 
 /**
- * @public
  * <p>Details about a sequence store.</p>
+ * @public
  */
 export interface SequenceStoreDetail {
   /**
-   * @public
    * <p>The store's ARN.</p>
+   * @public
    */
   arn: string | undefined;
 
   /**
-   * @public
    * <p>The store's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The store's name.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The store's description.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The store's server-side encryption (SSE) settings.</p>
+   * @public
    */
   sseConfig?: SseConfig;
 
   /**
-   * @public
    * <p>When the store was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>
    *       An S3 location that is used to store files that have failed a direct upload.
    *     </p>
+   * @public
    */
   fallbackLocation?: string;
 }
@@ -7115,14 +7115,14 @@ export interface SequenceStoreDetail {
  */
 export interface ListSequenceStoresResponse {
   /**
-   * @public
    * <p>A pagination token that's included if more results are available.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A list of sequence stores.</p>
+   * @public
    */
   sequenceStores: SequenceStoreDetail[] | undefined;
 }
@@ -7152,34 +7152,34 @@ export type ResourceOwner = (typeof ResourceOwner)[keyof typeof ResourceOwner];
  */
 export interface ListSharesRequest {
   /**
-   * @public
    * <p>
    *       The account that owns the analytics store shared.
    *     </p>
+   * @public
    */
   resourceOwner: ResourceOwner | undefined;
 
   /**
-   * @public
    * <p>
    *       Attributes used to filter for a specific subset of shares.
    *     </p>
+   * @public
    */
   filter?: Filter;
 
   /**
-   * @public
    * <p>
    *       Next token returned in the response of a previous ListReadSetUploadPartsRequest call. Used to get the next page of results.
    *     </p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>
    *       The maximum number of shares to return in one page of results.
    *     </p>
+   * @public
    */
   maxResults?: number;
 }
@@ -7189,18 +7189,18 @@ export interface ListSharesRequest {
  */
 export interface ListSharesResponse {
   /**
-   * @public
    * <p>
    *       The shares available and their meta details.
    *     </p>
+   * @public
    */
   shares: ShareDetails[] | undefined;
 
   /**
-   * @public
    * <p>
    * Next token returned in the response of a previous ListSharesResponse call. Used to get the next page of results.
    * </p>
+   * @public
    */
   nextToken?: string;
 }
@@ -7210,8 +7210,8 @@ export interface ListSharesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The resource's ARN.</p>
+   * @public
    */
   resourceArn: string | undefined;
 }
@@ -7221,26 +7221,26 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>A list of tags.</p>
+   * @public
    */
   tags: Record<string, string> | undefined;
 }
 
 /**
- * @public
  * <p>A filter for variant import jobs.</p>
+ * @public
  */
 export interface ListVariantImportJobsFilter {
   /**
-   * @public
    * <p>A status to filter on.</p>
+   * @public
    */
   status?: JobStatus;
 
   /**
-   * @public
    * <p>A store name to filter on.</p>
+   * @public
    */
   storeName?: string;
 }
@@ -7250,88 +7250,88 @@ export interface ListVariantImportJobsFilter {
  */
 export interface ListVariantImportJobsRequest {
   /**
-   * @public
    * <p>The maximum number of import jobs to return in one page of results.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>A list of job IDs.</p>
+   * @public
    */
   ids?: string[];
 
   /**
-   * @public
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A filter to apply to the list.</p>
+   * @public
    */
   filter?: ListVariantImportJobsFilter;
 }
 
 /**
- * @public
  * <p>A variant import job.</p>
+ * @public
  */
 export interface VariantImportJobItem {
   /**
-   * @public
    * <p>The job's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The job's destination variant store.</p>
+   * @public
    */
   destinationName: string | undefined;
 
   /**
-   * @public
    * <p>The job's service role ARN.</p>
+   * @public
    */
   roleArn: string | undefined;
 
   /**
-   * @public
    * <p>The job's status.</p>
+   * @public
    */
   status: JobStatus | undefined;
 
   /**
-   * @public
    * <p>When the job was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>When the job was updated.</p>
+   * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * @public
    * <p>When the job completed.</p>
+   * @public
    */
   completionTime?: Date;
 
   /**
-   * @public
    * <p>The job's left normalization setting.</p>
+   * @public
    */
   runLeftNormalization?: boolean;
 
   /**
-   * @public
    * <p>
    *       The annotation schema generated by the parsed annotation data.
    *     </p>
+   * @public
    */
   annotationFields?: Record<string, string>;
 }
@@ -7341,26 +7341,26 @@ export interface VariantImportJobItem {
  */
 export interface ListVariantImportJobsResponse {
   /**
-   * @public
    * <p>A list of jobs.</p>
+   * @public
    */
   variantImportJobs?: VariantImportJobItem[];
 
   /**
-   * @public
    * <p>A pagination token that's included if more results are available.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>A filter for variant stores.</p>
+ * @public
  */
 export interface ListVariantStoresFilter {
   /**
-   * @public
    * <p>A status to filter on.</p>
+   * @public
    */
   status?: StoreStatus;
 }
@@ -7370,98 +7370,98 @@ export interface ListVariantStoresFilter {
  */
 export interface ListVariantStoresRequest {
   /**
-   * @public
    * <p>The maximum number of stores to return in one page of results.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>A list of store IDs.</p>
+   * @public
    */
   ids?: string[];
 
   /**
-   * @public
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A filter to apply to the list.</p>
+   * @public
    */
   filter?: ListVariantStoresFilter;
 }
 
 /**
- * @public
  * <p>A variant store.</p>
+ * @public
  */
 export interface VariantStoreItem {
   /**
-   * @public
    * <p>The store's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The store's genome reference.</p>
+   * @public
    */
   reference: ReferenceItem | undefined;
 
   /**
-   * @public
    * <p>The store's status.</p>
+   * @public
    */
   status: StoreStatus | undefined;
 
   /**
-   * @public
    * <p>The store's ARN.</p>
+   * @public
    */
   storeArn: string | undefined;
 
   /**
-   * @public
    * <p>The store's name.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The store's description.</p>
+   * @public
    */
   description: string | undefined;
 
   /**
-   * @public
    * <p>The store's server-side encryption (SSE) settings.</p>
+   * @public
    */
   sseConfig: SseConfig | undefined;
 
   /**
-   * @public
    * <p>When the store was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>When the store was updated.</p>
+   * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * @public
    * <p>The store's status message.</p>
+   * @public
    */
   statusMessage: string | undefined;
 
   /**
-   * @public
    * <p>The store's size in bytes.</p>
+   * @public
    */
   storeSizeBytes: number | undefined;
 }
@@ -7471,14 +7471,14 @@ export interface VariantStoreItem {
  */
 export interface ListVariantStoresResponse {
   /**
-   * @public
    * <p>A list of variant stores.</p>
+   * @public
    */
   variantStores?: VariantStoreItem[];
 
   /**
-   * @public
    * <p>A pagination token that's included if more results are available.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -7488,82 +7488,82 @@ export interface ListVariantStoresResponse {
  */
 export interface ListWorkflowsRequest {
   /**
-   * @public
    * <p>The workflows' type.</p>
+   * @public
    */
   type?: WorkflowType;
 
   /**
-   * @public
    * <p>The workflows' name.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
    */
   startingToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of workflows to return in one page of results.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>A workflow.</p>
+ * @public
  */
 export interface WorkflowListItem {
   /**
-   * @public
    * <p>The workflow's ARN.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>The workflow's ID.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The workflow's name.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The workflow's status.</p>
+   * @public
    */
   status?: WorkflowStatus;
 
   /**
-   * @public
    * <p>The workflow's type.</p>
+   * @public
    */
   type?: WorkflowType;
 
   /**
-   * @public
    * <p>The workflow's digest.</p>
+   * @public
    */
   digest?: string;
 
   /**
-   * @public
    * <p>When the workflow was created.</p>
+   * @public
    */
   creationTime?: Date;
 
   /**
-   * @public
    * <p>
    *       Any metadata available for workflow. The information listed may vary depending on the workflow, and there may also be no metadata to return.
    *     </p>
+   * @public
    */
   metadata?: Record<string, string>;
 }
@@ -7573,44 +7573,44 @@ export interface WorkflowListItem {
  */
 export interface ListWorkflowsResponse {
   /**
-   * @public
    * <p>The workflows' items.</p>
+   * @public
    */
   items?: WorkflowListItem[];
 
   /**
-   * @public
    * <p>A pagination token that's included if more results are available.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>A source for a reference import job.</p>
+ * @public
  */
 export interface StartReferenceImportJobSourceItem {
   /**
-   * @public
    * <p>The source file's location in Amazon S3.</p>
+   * @public
    */
   sourceFile: string | undefined;
 
   /**
-   * @public
    * <p>The source's name.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The source's description.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The source's tags.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -7620,26 +7620,26 @@ export interface StartReferenceImportJobSourceItem {
  */
 export interface StartReferenceImportJobRequest {
   /**
-   * @public
    * <p>The job's reference store ID.</p>
+   * @public
    */
   referenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>A service role for the job.</p>
+   * @public
    */
   roleArn: string | undefined;
 
   /**
-   * @public
    * <p>To ensure that jobs don't run multiple times, specify a unique token for each job.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>The job's source files.</p>
+   * @public
    */
   sources: StartReferenceImportJobSourceItem[] | undefined;
 }
@@ -7649,32 +7649,32 @@ export interface StartReferenceImportJobRequest {
  */
 export interface StartReferenceImportJobResponse {
   /**
-   * @public
    * <p>The job's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The job's reference store ID.</p>
+   * @public
    */
   referenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The job's service role ARN.</p>
+   * @public
    */
   roleArn: string | undefined;
 
   /**
-   * @public
    * <p>The job's status.</p>
+   * @public
    */
   status: ReferenceImportJobStatus | undefined;
 
   /**
-   * @public
    * <p>When the job was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 }
@@ -7684,40 +7684,40 @@ export interface StartReferenceImportJobResponse {
  */
 export interface UpdateRunGroupRequest {
   /**
-   * @public
    * <p>The group's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>A name for the group.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The maximum number of CPUs to use.</p>
+   * @public
    */
   maxCpus?: number;
 
   /**
-   * @public
    * <p>The maximum number of concurrent runs for the group.</p>
+   * @public
    */
   maxRuns?: number;
 
   /**
-   * @public
    * <p>A maximum run time for the group in minutes.</p>
+   * @public
    */
   maxDuration?: number;
 
   /**
-   * @public
    * <p>
    *       The maximum GPUs that can be used by a run group.
    *     </p>
+   * @public
    */
   maxGpus?: number;
 }
@@ -7727,86 +7727,86 @@ export interface UpdateRunGroupRequest {
  */
 export interface StartRunRequest {
   /**
-   * @public
    * <p>The run's workflow ID.</p>
+   * @public
    */
   workflowId?: string;
 
   /**
-   * @public
    * <p>The run's workflow type.</p>
+   * @public
    */
   workflowType?: WorkflowType;
 
   /**
-   * @public
    * <p>The ID of a run to duplicate.</p>
+   * @public
    */
   runId?: string;
 
   /**
-   * @public
    * <p>A service role for the run.</p>
+   * @public
    */
   roleArn: string | undefined;
 
   /**
-   * @public
    * <p>A name for the run.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The run's group ID.</p>
+   * @public
    */
   runGroupId?: string;
 
   /**
-   * @public
    * <p>A priority for the run.</p>
+   * @public
    */
   priority?: number;
 
   /**
-   * @public
    * <p>Parameters for the run.</p>
+   * @public
    */
   parameters?: __DocumentType;
 
   /**
-   * @public
    * <p>A storage capacity for the run in gigabytes.</p>
+   * @public
    */
   storageCapacity?: number;
 
   /**
-   * @public
    * <p>An output URI for the run.</p>
+   * @public
    */
   outputUri?: string;
 
   /**
-   * @public
    * <p>A log level for the run.</p>
+   * @public
    */
   logLevel?: RunLogLevel;
 
   /**
-   * @public
    * <p>Tags for the run.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>To ensure that requests don't run multiple times, specify a unique ID for each request.</p>
+   * @public
    */
   requestId?: string;
 
   /**
-   * @public
    * <p>The retention mode for the run.</p>
+   * @public
    */
   retentionMode?: RunRetentionMode;
 }
@@ -7816,54 +7816,54 @@ export interface StartRunRequest {
  */
 export interface StartRunResponse {
   /**
-   * @public
    * <p>The run's ARN.</p>
+   * @public
    */
   arn?: string;
 
   /**
-   * @public
    * <p>The run's ID.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The run's status.</p>
+   * @public
    */
   status?: RunStatus;
 
   /**
-   * @public
    * <p>The run's tags.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>
    *       The universally unique identifier for a run.
    *     </p>
+   * @public
    */
   uuid?: string;
 
   /**
-   * @public
    * <p>
    *       The destination for workflow outputs.
    *     </p>
+   * @public
    */
   runOutputUri?: string;
 }
 
 /**
- * @public
  * <p>A source for a read set activation job.</p>
+ * @public
  */
 export interface StartReadSetActivationJobSourceItem {
   /**
-   * @public
    * <p>The source's read set ID.</p>
+   * @public
    */
   readSetId: string | undefined;
 }
@@ -7873,20 +7873,20 @@ export interface StartReadSetActivationJobSourceItem {
  */
 export interface StartReadSetActivationJobRequest {
   /**
-   * @public
    * <p>The read set's sequence store ID.</p>
+   * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>To ensure that jobs don't run multiple times, specify a unique token for each job.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>The job's source files.</p>
+   * @public
    */
   sources: StartReadSetActivationJobSourceItem[] | undefined;
 }
@@ -7896,26 +7896,26 @@ export interface StartReadSetActivationJobRequest {
  */
 export interface StartReadSetActivationJobResponse {
   /**
-   * @public
    * <p>The job's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The read set's sequence store ID.</p>
+   * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The job's status.</p>
+   * @public
    */
   status: ReadSetActivationJobStatus | undefined;
 
   /**
-   * @public
    * <p>When the job was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 }
@@ -7925,32 +7925,32 @@ export interface StartReadSetActivationJobResponse {
  */
 export interface StartReadSetExportJobRequest {
   /**
-   * @public
    * <p>The read set's sequence store ID.</p>
+   * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>A location for exported files in Amazon S3.</p>
+   * @public
    */
   destination: string | undefined;
 
   /**
-   * @public
    * <p>A service role for the job.</p>
+   * @public
    */
   roleArn: string | undefined;
 
   /**
-   * @public
    * <p>To ensure that jobs don't run multiple times, specify a unique token for each job.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>The job's source files.</p>
+   * @public
    */
   sources: ExportReadSet[] | undefined;
 }
@@ -7960,92 +7960,92 @@ export interface StartReadSetExportJobRequest {
  */
 export interface StartReadSetExportJobResponse {
   /**
-   * @public
    * <p>The job's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The read set's sequence store ID.</p>
+   * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The job's output location.</p>
+   * @public
    */
   destination: string | undefined;
 
   /**
-   * @public
    * <p>The job's status.</p>
+   * @public
    */
   status: ReadSetExportJobStatus | undefined;
 
   /**
-   * @public
    * <p>When the job was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 }
 
 /**
- * @public
  * <p>A source for a read set import job.</p>
+ * @public
  */
 export interface StartReadSetImportJobSourceItem {
   /**
-   * @public
    * <p>The source files' location in Amazon S3.</p>
+   * @public
    */
   sourceFiles: SourceFiles | undefined;
 
   /**
-   * @public
    * <p>The source's file type.</p>
+   * @public
    */
   sourceFileType: FileType | undefined;
 
   /**
-   * @public
    * <p>The source's subject ID.</p>
+   * @public
    */
   subjectId: string | undefined;
 
   /**
-   * @public
    * <p>The source's sample ID.</p>
+   * @public
    */
   sampleId: string | undefined;
 
   /**
-   * @public
    * <p>Where the source originated.</p>
+   * @public
    */
   generatedFrom?: string;
 
   /**
-   * @public
    * <p>The source's reference ARN.</p>
+   * @public
    */
   referenceArn?: string;
 
   /**
-   * @public
    * <p>The source's name.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The source's description.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The source's tags.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -8055,26 +8055,26 @@ export interface StartReadSetImportJobSourceItem {
  */
 export interface StartReadSetImportJobRequest {
   /**
-   * @public
    * <p>The read set's sequence store ID.</p>
+   * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>A service role for the job.</p>
+   * @public
    */
   roleArn: string | undefined;
 
   /**
-   * @public
    * <p>To ensure that jobs don't run multiple times, specify a unique token for each job.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>The job's source files.</p>
+   * @public
    */
   sources: StartReadSetImportJobSourceItem[] | undefined;
 }
@@ -8084,32 +8084,32 @@ export interface StartReadSetImportJobRequest {
  */
 export interface StartReadSetImportJobResponse {
   /**
-   * @public
    * <p>The job's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The read set's sequence store ID.</p>
+   * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>The job's service role ARN.</p>
+   * @public
    */
   roleArn: string | undefined;
 
   /**
-   * @public
    * <p>The job's status.</p>
+   * @public
    */
   status: ReadSetImportJobStatus | undefined;
 
   /**
-   * @public
    * <p>When the job was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 }
@@ -8119,42 +8119,42 @@ export interface StartReadSetImportJobResponse {
  */
 export interface UploadReadSetPartRequest {
   /**
-   * @public
    * <p>
    *       The Sequence Store ID used for the multipart upload.
    *     </p>
+   * @public
    */
   sequenceStoreId: string | undefined;
 
   /**
-   * @public
    * <p>
    *       The ID for the initiated multipart upload.
    *     </p>
+   * @public
    */
   uploadId: string | undefined;
 
   /**
-   * @public
    * <p>
    *       The source file for an upload part.
    *     </p>
+   * @public
    */
   partSource: ReadSetPartSource | undefined;
 
   /**
-   * @public
    * <p>
    *       The number of the part being uploaded.
    *     </p>
+   * @public
    */
   partNumber: number | undefined;
 
   /**
-   * @public
    * <p>
    *       The read set data to upload for a part.
    *     </p>
+   * @public
    */
   payload: StreamingBlobTypes | undefined;
 }
@@ -8164,10 +8164,10 @@ export interface UploadReadSetPartRequest {
  */
 export interface UploadReadSetPartResponse {
   /**
-   * @public
    * <p>
    *       An identifier used to confirm that parts are being added to the intended upload.
    *     </p>
+   * @public
    */
   checksum: string | undefined;
 }
@@ -8177,14 +8177,14 @@ export interface UploadReadSetPartResponse {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>The resource's ARN.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>Tags for the resource.</p>
+   * @public
    */
   tags: Record<string, string> | undefined;
 }
@@ -8199,14 +8199,14 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>The resource's ARN.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>Keys of tags to remove.</p>
+   * @public
    */
   tagKeys: string[] | undefined;
 }
@@ -8217,13 +8217,13 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 /**
- * @public
  * <p>A imported variant item's source.</p>
+ * @public
  */
 export interface VariantImportItemSource {
   /**
-   * @public
    * <p>The source file's location in Amazon S3.</p>
+   * @public
    */
   source: string | undefined;
 }
@@ -8233,34 +8233,34 @@ export interface VariantImportItemSource {
  */
 export interface StartVariantImportRequest {
   /**
-   * @public
    * <p>The destination variant store for the job.</p>
+   * @public
    */
   destinationName: string | undefined;
 
   /**
-   * @public
    * <p>A service role for the job.</p>
+   * @public
    */
   roleArn: string | undefined;
 
   /**
-   * @public
    * <p>Items to import.</p>
+   * @public
    */
   items: VariantImportItemSource[] | undefined;
 
   /**
-   * @public
    * <p>The job's left normalization setting.</p>
+   * @public
    */
   runLeftNormalization?: boolean;
 
   /**
-   * @public
    * <p>
    *       The annotation schema generated by the parsed annotation data.
    *     </p>
+   * @public
    */
   annotationFields?: Record<string, string>;
 }
@@ -8270,8 +8270,8 @@ export interface StartVariantImportRequest {
  */
 export interface StartVariantImportResponse {
   /**
-   * @public
    * <p>The job's ID.</p>
+   * @public
    */
   jobId: string | undefined;
 }
@@ -8281,14 +8281,14 @@ export interface StartVariantImportResponse {
  */
 export interface UpdateVariantStoreRequest {
   /**
-   * @public
    * <p>A name for the store.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>A description for the store.</p>
+   * @public
    */
   description?: string;
 }
@@ -8298,44 +8298,44 @@ export interface UpdateVariantStoreRequest {
  */
 export interface UpdateVariantStoreResponse {
   /**
-   * @public
    * <p>The store's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The store's genome reference.</p>
+   * @public
    */
   reference: ReferenceItem | undefined;
 
   /**
-   * @public
    * <p>The store's status.</p>
+   * @public
    */
   status: StoreStatus | undefined;
 
   /**
-   * @public
    * <p>The store's name.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The store's description.</p>
+   * @public
    */
   description: string | undefined;
 
   /**
-   * @public
    * <p>When the store was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>When the store was updated.</p>
+   * @public
    */
   updateTime: Date | undefined;
 }
@@ -8345,20 +8345,20 @@ export interface UpdateVariantStoreResponse {
  */
 export interface UpdateWorkflowRequest {
   /**
-   * @public
    * <p>The workflow's ID.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>A name for the workflow.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>A description for the workflow.</p>
+   * @public
    */
   description?: string;
 }

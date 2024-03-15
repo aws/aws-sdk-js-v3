@@ -27,7 +27,6 @@ export interface CreateAgentCommandInput extends CreateAgentRequest {}
 export interface CreateAgentCommandOutput extends CreateAgentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Activates an DataSync agent that you've deployed in your storage
  *       environment. The activation process associates the agent with your Amazon Web Services account.</p>
  *          <p>If you haven't deployed an agent yet, see the following topics to learn more:</p>
@@ -94,6 +93,7 @@ export interface CreateAgentCommandOutput extends CreateAgentResponse, __Metadat
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class CreateAgentCommand extends $Command
   .classBuilder<

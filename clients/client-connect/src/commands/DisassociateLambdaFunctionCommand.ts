@@ -27,7 +27,6 @@ export interface DisassociateLambdaFunctionCommandInput extends DisassociateLamb
 export interface DisassociateLambdaFunctionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Remove the Lambda function from the dropdown options available in the relevant
  *    flow blocks.</p>
@@ -71,6 +70,7 @@ export interface DisassociateLambdaFunctionCommandOutput extends __MetadataBeare
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DisassociateLambdaFunctionCommand extends $Command
   .classBuilder<

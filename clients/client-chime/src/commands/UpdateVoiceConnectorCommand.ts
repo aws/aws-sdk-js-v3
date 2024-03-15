@@ -27,9 +27,6 @@ export interface UpdateVoiceConnectorCommandInput extends UpdateVoiceConnectorRe
 export interface UpdateVoiceConnectorCommandOutput extends UpdateVoiceConnectorResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by UpdateVoiceConnector in the Amazon Chime SDK Voice Namespace
- *
  * <p>Updates details for the specified Amazon Chime Voice Connector.</p>
  *          <important>
  *             <p>
@@ -96,6 +93,8 @@ export interface UpdateVoiceConnectorCommandOutput extends UpdateVoiceConnectorR
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by UpdateVoiceConnector in the Amazon Chime SDK Voice Namespace
  */
 export class UpdateVoiceConnectorCommand extends $Command
   .classBuilder<

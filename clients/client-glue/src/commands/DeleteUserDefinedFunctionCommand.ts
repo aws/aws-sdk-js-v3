@@ -27,7 +27,6 @@ export interface DeleteUserDefinedFunctionCommandInput extends DeleteUserDefined
 export interface DeleteUserDefinedFunctionCommandOutput extends DeleteUserDefinedFunctionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing function definition from the Data Catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface DeleteUserDefinedFunctionCommandOutput extends DeleteUserDefine
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class DeleteUserDefinedFunctionCommand extends $Command
   .classBuilder<

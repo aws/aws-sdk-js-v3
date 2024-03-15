@@ -27,7 +27,6 @@ export interface UpdateAnomalyDetectorCommandInput extends UpdateAnomalyDetector
 export interface UpdateAnomalyDetectorCommandOutput extends UpdateAnomalyDetectorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a detector. After activation, you can only change a detector's ingestion delay and description.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface UpdateAnomalyDetectorCommandOutput extends UpdateAnomalyDetecto
  * @throws {@link LookoutMetricsServiceException}
  * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
+ * @public
  */
 export class UpdateAnomalyDetectorCommand extends $Command
   .classBuilder<

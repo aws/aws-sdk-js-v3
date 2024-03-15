@@ -27,7 +27,6 @@ export interface GetSavingsPlansCoverageCommandInput extends GetSavingsPlansCove
 export interface GetSavingsPlansCoverageCommandOutput extends GetSavingsPlansCoverageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the Savings Plans covered for your account. This enables you to see how much of
  *       your cost is covered by a Savings Plan. An organization’s management account can see the
  *       coverage of the associated member accounts. This supports dimensions, Cost Categories, and
@@ -195,6 +194,7 @@ export interface GetSavingsPlansCoverageCommandOutput extends GetSavingsPlansCov
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * @public
  */
 export class GetSavingsPlansCoverageCommand extends $Command
   .classBuilder<

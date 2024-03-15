@@ -27,7 +27,6 @@ export interface UpdatePhoneNumberCommandInput extends UpdatePhoneNumberRequest 
 export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates your claimed phone number from its current Amazon Connect instance or traffic distribution group to
  *    another Amazon Connect instance or traffic distribution group in the same Amazon Web Services Region.</p>
  *          <important>
@@ -90,6 +89,7 @@ export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberRespons
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UpdatePhoneNumberCommand extends $Command
   .classBuilder<

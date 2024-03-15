@@ -27,7 +27,6 @@ export interface GetCompatibleKafkaVersionsCommandInput extends GetCompatibleKaf
 export interface GetCompatibleKafkaVersionsCommandOutput extends GetCompatibleKafkaVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the Apache Kafka versions to which you can update the MSK cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface GetCompatibleKafkaVersionsCommandOutput extends GetCompatibleKa
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ * @public
  */
 export class GetCompatibleKafkaVersionsCommand extends $Command
   .classBuilder<

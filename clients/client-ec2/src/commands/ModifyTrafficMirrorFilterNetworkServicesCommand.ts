@@ -36,7 +36,6 @@ export interface ModifyTrafficMirrorFilterNetworkServicesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows or restricts mirroring network services.</p>
  *          <p> By default, Amazon DNS network services are not eligible for Traffic Mirror. Use <code>AddNetworkServices</code> to add network services to a Traffic Mirror filter. When a network service is added to the Traffic Mirror filter, all traffic related to that network service will be mirrored.
  *          When you no longer want to mirror network services, use <code>RemoveNetworkServices</code> to remove the network services from the Traffic Mirror filter.
@@ -128,6 +127,7 @@ export interface ModifyTrafficMirrorFilterNetworkServicesCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyTrafficMirrorFilterNetworkServicesCommand extends $Command
   .classBuilder<

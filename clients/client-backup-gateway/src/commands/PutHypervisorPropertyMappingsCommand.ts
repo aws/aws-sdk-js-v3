@@ -32,7 +32,6 @@ export interface PutHypervisorPropertyMappingsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>This action sets the property mappings for the specified hypervisor.
  *       A hypervisor property mapping displays the relationship of entity properties
  *       available from the on-premises hypervisor to the properties available in Amazon Web Services.</p>
@@ -90,6 +89,7 @@ export interface PutHypervisorPropertyMappingsCommandOutput
  * @throws {@link BackupGatewayServiceException}
  * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
+ * @public
  */
 export class PutHypervisorPropertyMappingsCommand extends $Command
   .classBuilder<

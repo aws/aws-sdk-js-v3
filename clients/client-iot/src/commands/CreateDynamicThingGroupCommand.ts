@@ -27,7 +27,6 @@ export interface CreateDynamicThingGroupCommandInput extends CreateDynamicThingG
 export interface CreateDynamicThingGroupCommandOutput extends CreateDynamicThingGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a dynamic thing group.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateDynamicThingGroup</a> action.</p>
  * @example
@@ -100,6 +99,7 @@ export interface CreateDynamicThingGroupCommandOutput extends CreateDynamicThing
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class CreateDynamicThingGroupCommand extends $Command
   .classBuilder<

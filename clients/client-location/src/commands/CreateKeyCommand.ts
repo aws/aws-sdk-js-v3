@@ -27,7 +27,6 @@ export interface CreateKeyCommandInput extends CreateKeyRequest {}
 export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an API key resource in your Amazon Web Services account, which lets you grant
  *             actions for Amazon Location resources to the API key bearer.</p>
  *          <note>
@@ -99,6 +98,7 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class CreateKeyCommand extends $Command
   .classBuilder<

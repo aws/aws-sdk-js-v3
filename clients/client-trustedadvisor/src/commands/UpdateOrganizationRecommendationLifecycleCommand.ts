@@ -34,7 +34,6 @@ export interface UpdateOrganizationRecommendationLifecycleCommandInput
 export interface UpdateOrganizationRecommendationLifecycleCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Update the lifecyle of a Recommendation within an Organization. This API only supports prioritized
  *             recommendations.
  *         </p>
@@ -83,6 +82,7 @@ export interface UpdateOrganizationRecommendationLifecycleCommandOutput extends 
  * @throws {@link TrustedAdvisorServiceException}
  * <p>Base exception class for all service exceptions from TrustedAdvisor service.</p>
  *
+ * @public
  */
 export class UpdateOrganizationRecommendationLifecycleCommand extends $Command
   .classBuilder<

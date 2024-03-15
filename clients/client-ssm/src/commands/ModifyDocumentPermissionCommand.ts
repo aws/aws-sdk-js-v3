@@ -27,7 +27,6 @@ export interface ModifyDocumentPermissionCommandInput extends ModifyDocumentPerm
 export interface ModifyDocumentPermissionCommandOutput extends ModifyDocumentPermissionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Shares a Amazon Web Services Systems Manager document (SSM document)publicly or privately. If you share a document
  *    privately, you must specify the Amazon Web Services user IDs for those people who can use the document. If
  *    you share a document publicly, you must specify <i>All</i> as the account
@@ -85,6 +84,7 @@ export interface ModifyDocumentPermissionCommandOutput extends ModifyDocumentPer
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class ModifyDocumentPermissionCommand extends $Command
   .classBuilder<

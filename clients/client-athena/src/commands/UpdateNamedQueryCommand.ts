@@ -27,7 +27,6 @@ export interface UpdateNamedQueryCommandInput extends UpdateNamedQueryInput {}
 export interface UpdateNamedQueryCommandOutput extends UpdateNamedQueryOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a <a>NamedQuery</a> object. The database or workgroup cannot be
  *             updated.</p>
  * @example
@@ -65,6 +64,7 @@ export interface UpdateNamedQueryCommandOutput extends UpdateNamedQueryOutput, _
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class UpdateNamedQueryCommand extends $Command
   .classBuilder<

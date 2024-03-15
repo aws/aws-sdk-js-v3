@@ -27,7 +27,6 @@ export interface ListDatabasesCommandInput extends ListDatabasesInput {}
 export interface ListDatabasesCommandOutput extends ListDatabasesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the SAP HANA databases of an application registered with AWS Systems Manager for
  *          SAP.</p>
  * @example
@@ -80,6 +79,7 @@ export interface ListDatabasesCommandOutput extends ListDatabasesOutput, __Metad
  * @throws {@link SsmSapServiceException}
  * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
+ * @public
  */
 export class ListDatabasesCommand extends $Command
   .classBuilder<

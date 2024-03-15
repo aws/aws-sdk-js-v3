@@ -21,15 +21,15 @@ export type AdditionalConstraintsElement =
   (typeof AdditionalConstraintsElement)[keyof typeof AdditionalConstraintsElement];
 
 /**
- * @public
  * <p>An error returned if a request is not formed properly.</p>
+ * @public
  */
 export class BadRequestException extends __BaseException {
   readonly name: "BadRequestException" = "BadRequestException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>An error message to inform that the request failed.</p>
+   * @public
    */
   Message?: string;
   /**
@@ -47,25 +47,25 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request body for CloneBackend.</p>
+ * @public
  */
 export interface CloneBackendRequest {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the destination backend environment to be created.</p>
+   * @public
    */
   TargetEnvironmentName: string | undefined;
 }
@@ -75,52 +75,52 @@ export interface CloneBackendRequest {
  */
 export interface CloneBackendResponse {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId?: string;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName?: string;
 
   /**
-   * @public
    * <p>If the request fails, this error is returned.</p>
+   * @public
    */
   Error?: string;
 
   /**
-   * @public
    * <p>The ID for the job.</p>
+   * @public
    */
   JobId?: string;
 
   /**
-   * @public
    * <p>The name of the operation.</p>
+   * @public
    */
   Operation?: string;
 
   /**
-   * @public
    * <p>The current status of the request.</p>
+   * @public
    */
   Status?: string;
 }
 
 /**
- * @public
  * <p>An error returned if there's a temporary issue with the service.</p>
+ * @public
  */
 export class GatewayTimeoutException extends __BaseException {
   readonly name: "GatewayTimeoutException" = "GatewayTimeoutException";
   readonly $fault: "server" = "server";
   /**
-   * @public
    * <p>An error message to inform that the request failed.</p>
+   * @public
    */
   Message?: string;
   /**
@@ -138,21 +138,21 @@ export class GatewayTimeoutException extends __BaseException {
 }
 
 /**
- * @public
  * <p>An error returned when a specific resource type is not found.</p>
+ * @public
  */
 export class NotFoundException extends __BaseException {
   readonly name: "NotFoundException" = "NotFoundException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>An error message to inform that the request has failed.</p>
+   * @public
    */
   Message?: string;
 
   /**
-   * @public
    * <p>The type of resource that is not found.</p>
+   * @public
    */
   ResourceType?: string;
   /**
@@ -171,21 +171,21 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+ * @public
  */
 export class TooManyRequestsException extends __BaseException {
   readonly name: "TooManyRequestsException" = "TooManyRequestsException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The type of limit that was exceeded.</p>
+   * @public
    */
   LimitType?: string;
 
   /**
-   * @public
    * <p>An error message to inform that the request has failed.</p>
+   * @public
    */
   Message?: string;
   /**
@@ -204,43 +204,43 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Defines the resource configuration for the data model in your Amplify project.</p>
+ * @public
  */
 export interface ResourceConfig {}
 
 /**
- * @public
  * <p>The request body for CreateBackend.</p>
+ * @public
  */
 export interface CreateBackendRequest {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the app.</p>
+   * @public
    */
   AppName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName: string | undefined;
 
   /**
-   * @public
    * <p>The resource configuration for creating a backend.</p>
+   * @public
    */
   ResourceConfig?: ResourceConfig;
 
   /**
-   * @public
    * <p>The name of the resource.</p>
+   * @public
    */
   ResourceName?: string;
 }
@@ -250,38 +250,38 @@ export interface CreateBackendRequest {
  */
 export interface CreateBackendResponse {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId?: string;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName?: string;
 
   /**
-   * @public
    * <p>If the request fails, this error is returned.</p>
+   * @public
    */
   Error?: string;
 
   /**
-   * @public
    * <p>The ID for the job.</p>
+   * @public
    */
   JobId?: string;
 
   /**
-   * @public
    * <p>The name of the operation.</p>
+   * @public
    */
   Operation?: string;
 
   /**
-   * @public
    * <p>The current status of the request.</p>
+   * @public
    */
   Status?: string;
 }
@@ -303,73 +303,73 @@ export const Mode = {
 export type Mode = (typeof Mode)[keyof typeof Mode];
 
 /**
- * @public
  * <p>The authentication settings for accessing provisioned data models in your Amplify project.</p>
+ * @public
  */
 export interface BackendAPIAppSyncAuthSettings {
   /**
-   * @public
    * <p>The Amazon Cognito user pool ID, if Amazon Cognito was used as an authentication setting to access your data models.</p>
+   * @public
    */
   CognitoUserPoolId?: string;
 
   /**
-   * @public
    * <p>The API key description for API_KEY, if it was used as an authentication mechanism to access your data models.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The API key expiration time for API_KEY, if it was used as an authentication mechanism to access your data models.</p>
+   * @public
    */
   ExpirationTime?: number;
 
   /**
-   * @public
    * <p>The expiry time for the OpenID authentication mechanism.</p>
+   * @public
    */
   OpenIDAuthTTL?: string;
 
   /**
-   * @public
    * <p>The clientID for openID, if openID was used as an authentication setting to access your data models.</p>
+   * @public
    */
   OpenIDClientId?: string;
 
   /**
-   * @public
    * <p>The expiry time for the OpenID authentication mechanism.</p>
+   * @public
    */
   OpenIDIatTTL?: string;
 
   /**
-   * @public
    * <p>The openID issuer URL, if openID was used as an authentication setting to access your data models.</p>
+   * @public
    */
   OpenIDIssueURL?: string;
 
   /**
-   * @public
    * <p>The OpenID provider name, if OpenID was used as an authentication mechanism to access your data models.</p>
+   * @public
    */
   OpenIDProviderName?: string;
 }
 
 /**
- * @public
  * <p>Describes the auth types for your configured data models.</p>
+ * @public
  */
 export interface BackendAPIAuthType {
   /**
-   * @public
    * <p>Describes the authentication mode.</p>
+   * @public
    */
   Mode?: Mode;
 
   /**
-   * @public
    * <p>Describes settings for the authentication mode.</p>
+   * @public
    */
   Settings?: BackendAPIAppSyncAuthSettings;
 }
@@ -391,85 +391,85 @@ export const ResolutionStrategy = {
 export type ResolutionStrategy = (typeof ResolutionStrategy)[keyof typeof ResolutionStrategy];
 
 /**
- * @public
  * <p>Describes the conflict resolution configuration for your data model configured in your Amplify project.</p>
+ * @public
  */
 export interface BackendAPIConflictResolution {
   /**
-   * @public
    * <p>The strategy for conflict resolution.</p>
+   * @public
    */
   ResolutionStrategy?: ResolutionStrategy;
 }
 
 /**
- * @public
  * <p>The resource config for the data model, configured as a part of the Amplify project.</p>
+ * @public
  */
 export interface BackendAPIResourceConfig {
   /**
-   * @public
    * <p>Additional authentication methods used to interact with your data models.</p>
+   * @public
    */
   AdditionalAuthTypes?: BackendAPIAuthType[];
 
   /**
-   * @public
    * <p>The API name used to interact with the data model, configured as a part of your Amplify project.</p>
+   * @public
    */
   ApiName?: string;
 
   /**
-   * @public
    * <p>The conflict resolution strategy for your data stored in the data models.</p>
+   * @public
    */
   ConflictResolution?: BackendAPIConflictResolution;
 
   /**
-   * @public
    * <p>The default authentication type for interacting with the configured data models in your Amplify project.</p>
+   * @public
    */
   DefaultAuthType?: BackendAPIAuthType;
 
   /**
-   * @public
    * <p>The service used to provision and interact with the data model.</p>
+   * @public
    */
   Service?: string;
 
   /**
-   * @public
    * <p>The definition of the data model in the annotated transform of the GraphQL schema.</p>
+   * @public
    */
   TransformSchema?: string;
 }
 
 /**
- * @public
  * <p>The request body for CreateBackendAPI.</p>
+ * @public
  */
 export interface CreateBackendAPIRequest {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName: string | undefined;
 
   /**
-   * @public
    * <p>The resource configuration for this request.</p>
+   * @public
    */
   ResourceConfig: BackendAPIResourceConfig | undefined;
 
   /**
-   * @public
    * <p>The name of this resource.</p>
+   * @public
    */
   ResourceName: string | undefined;
 }
@@ -479,38 +479,38 @@ export interface CreateBackendAPIRequest {
  */
 export interface CreateBackendAPIResponse {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId?: string;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName?: string;
 
   /**
-   * @public
    * <p>If the request fails, this error is returned.</p>
+   * @public
    */
   Error?: string;
 
   /**
-   * @public
    * <p>The ID for the job.</p>
+   * @public
    */
   JobId?: string;
 
   /**
-   * @public
    * <p>The name of the operation.</p>
+   * @public
    */
   Operation?: string;
 
   /**
-   * @public
    * <p>The current status of the request.</p>
+   * @public
    */
   Status?: string;
 }
@@ -530,19 +530,19 @@ export const AuthResources = {
 export type AuthResources = (typeof AuthResources)[keyof typeof AuthResources];
 
 /**
- * @public
  * <p>Describes authorization configurations for the auth resources, configured as a part of your Amplify project.</p>
+ * @public
  */
 export interface CreateBackendAuthIdentityPoolConfig {
   /**
-   * @public
    * <p>Name of the Amazon Cognito identity pool used for authorization.</p>
+   * @public
    */
   IdentityPoolName: string | undefined;
 
   /**
-   * @public
    * <p>Set to true or false based on whether you want to enable guest authorization to your Amplify app.</p>
+   * @public
    */
   UnauthenticatedLogin: boolean | undefined;
 }
@@ -575,55 +575,55 @@ export const DeliveryMethod = {
 export type DeliveryMethod = (typeof DeliveryMethod)[keyof typeof DeliveryMethod];
 
 /**
- * @public
  * <p>The configuration for the email sent when an app user forgets their password.</p>
+ * @public
  */
 export interface EmailSettings {
   /**
-   * @public
    * <p>The contents of the email message.</p>
+   * @public
    */
   EmailMessage?: string;
 
   /**
-   * @public
    * <p>The contents of the subject line of the email message.</p>
+   * @public
    */
   EmailSubject?: string;
 }
 
 /**
- * @public
  * <p>SMS settings for authentication.</p>
+ * @public
  */
 export interface SmsSettings {
   /**
-   * @public
    * <p>The contents of the SMS message.</p>
+   * @public
    */
   SmsMessage?: string;
 }
 
 /**
- * @public
  * <p><b>(DEPRECATED)</b> Describes the forgot password policy for authenticating into the Amplify app.</p>
+ * @public
  */
 export interface CreateBackendAuthForgotPasswordConfig {
   /**
-   * @public
    * <p><b>(DEPRECATED)</b> Describes which mode to use (either SMS or email) to deliver messages to app users who want to recover their password.</p>
+   * @public
    */
   DeliveryMethod: DeliveryMethod | undefined;
 
   /**
-   * @public
    * <p><b>(DEPRECATED)</b> The configuration for the email sent when an app user forgets their password.</p>
+   * @public
    */
   EmailSettings?: EmailSettings;
 
   /**
-   * @public
    * <p><b>(DEPRECATED)</b> The configuration for the SMS message sent when an app user forgets their password.</p>
+   * @public
    */
   SmsSettings?: SmsSettings;
 }
@@ -658,37 +658,37 @@ export const MfaTypesElement = {
 export type MfaTypesElement = (typeof MfaTypesElement)[keyof typeof MfaTypesElement];
 
 /**
- * @public
  * <p>The settings of your MFA configuration for the backend of your Amplify project.</p>
+ * @public
  */
 export interface Settings {
   /**
-   * @public
    * <p>The supported MFA types.</p>
+   * @public
    */
   MfaTypes?: MfaTypesElement[];
 
   /**
-   * @public
    * <p>The body of the SMS message.</p>
+   * @public
    */
   SmsMessage?: string;
 }
 
 /**
- * @public
  * <p>Describes whether to apply multi-factor authentication policies for your Amazon Cognito user pool configured as a part of your Amplify project.</p>
+ * @public
  */
 export interface CreateBackendAuthMFAConfig {
   /**
-   * @public
    * <p>Describes whether MFA should be [ON, OFF, or OPTIONAL] for authentication in your Amplify project.</p>
+   * @public
    */
   MFAMode: MFAMode | undefined;
 
   /**
-   * @public
    * <p>Describes the configuration settings and methods for your Amplify app users to use MFA.</p>
+   * @public
    */
   Settings?: Settings;
 }
@@ -725,139 +725,139 @@ export const OAuthScopesElement = {
 export type OAuthScopesElement = (typeof OAuthScopesElement)[keyof typeof OAuthScopesElement];
 
 /**
- * @public
  * <p>Describes third-party social federation configurations for allowing your app users to sign in using OAuth.</p>
+ * @public
  */
 export interface BackendAuthSocialProviderConfig {
   /**
-   * @public
    * <p>Describes the client_id, which can be obtained from the third-party social federation provider.</p>
+   * @public
    */
   ClientId?: string;
 
   /**
-   * @public
    * <p>Describes the client_secret, which can be obtained from third-party social federation providers.</p>
+   * @public
    */
   ClientSecret?: string;
 }
 
 /**
- * @public
  * <p>Describes Apple social federation configurations for allowing your app users to sign in using OAuth.</p>
+ * @public
  */
 export interface BackendAuthAppleProviderConfig {
   /**
-   * @public
    * <p>Describes the client_id (also called Services ID) that comes from Apple.</p>
+   * @public
    */
   ClientId?: string;
 
   /**
-   * @public
    * <p>Describes the key_id that comes from Apple.</p>
+   * @public
    */
   KeyId?: string;
 
   /**
-   * @public
    * <p>Describes the private_key that comes from Apple.</p>
+   * @public
    */
   PrivateKey?: string;
 
   /**
-   * @public
    * <p>Describes the team_id that comes from Apple.</p>
+   * @public
    */
   TeamId?: string;
 }
 
 /**
- * @public
  * <p>The settings for using the social identity providers for access to your Amplify app.</p>
+ * @public
  */
 export interface SocialProviderSettings {
   /**
-   * @public
    * <p>Describes third-party social federation configurations for allowing your app users to sign in using OAuth.</p>
+   * @public
    */
   Facebook?: BackendAuthSocialProviderConfig;
 
   /**
-   * @public
    * <p>Describes third-party social federation configurations for allowing your app users to sign in using OAuth.</p>
+   * @public
    */
   Google?: BackendAuthSocialProviderConfig;
 
   /**
-   * @public
    * <p>Describes third-party social federation configurations for allowing your app users to sign in using OAuth.</p>
+   * @public
    */
   LoginWithAmazon?: BackendAuthSocialProviderConfig;
 
   /**
-   * @public
    * <p>Describes Apple social federation configurations for allowing your app users to sign in using OAuth.</p>
+   * @public
    */
   SignInWithApple?: BackendAuthAppleProviderConfig;
 }
 
 /**
- * @public
  * <p>Creates the OAuth configuration for your Amplify project.</p>
+ * @public
  */
 export interface CreateBackendAuthOAuthConfig {
   /**
-   * @public
    * <p>The domain prefix for your Amplify app.</p>
+   * @public
    */
   DomainPrefix?: string;
 
   /**
-   * @public
    * <p>The OAuth grant type that you use to allow app users to authenticate from your Amplify app.</p>
+   * @public
    */
   OAuthGrantType: OAuthGrantType | undefined;
 
   /**
-   * @public
    * <p>List of OAuth-related flows used to allow your app users to authenticate from your Amplify app.</p>
+   * @public
    */
   OAuthScopes: OAuthScopesElement[] | undefined;
 
   /**
-   * @public
    * <p>The redirected URI for signing in to your Amplify app.</p>
+   * @public
    */
   RedirectSignInURIs: string[] | undefined;
 
   /**
-   * @public
    * <p>Redirect URLs that OAuth uses when a user signs out of an Amplify app.</p>
+   * @public
    */
   RedirectSignOutURIs: string[] | undefined;
 
   /**
-   * @public
    * <p>The settings for using social providers to access your Amplify app.</p>
+   * @public
    */
   SocialProviderSettings?: SocialProviderSettings;
 }
 
 /**
- * @public
  * <p>The password policy configuration for the backend to your Amplify project.</p>
+ * @public
  */
 export interface CreateBackendAuthPasswordPolicyConfig {
   /**
-   * @public
    * <p>Additional constraints for the password used to access the backend of your Amplify project.</p>
+   * @public
    */
   AdditionalConstraints?: AdditionalConstraintsElement[];
 
   /**
-   * @public
    * <p>The minimum length of the password used to access the backend of your Amplify project.</p>
+   * @public
    */
   MinimumLength: number | undefined;
 }
@@ -909,139 +909,139 @@ export const SignInMethod = {
 export type SignInMethod = (typeof SignInMethod)[keyof typeof SignInMethod];
 
 /**
- * @public
  * <p>Creates an email or SMS verification message for the auth resource configured for your Amplify project.</p>
+ * @public
  */
 export interface CreateBackendAuthVerificationMessageConfig {
   /**
-   * @public
    * <p>The type of verification message to send.</p>
+   * @public
    */
   DeliveryMethod: DeliveryMethod | undefined;
 
   /**
-   * @public
    * <p>The settings for the email message.</p>
+   * @public
    */
   EmailSettings?: EmailSettings;
 
   /**
-   * @public
    * <p>The settings for the SMS message.</p>
+   * @public
    */
   SmsSettings?: SmsSettings;
 }
 
 /**
- * @public
  * <p>Describes the Amazon Cognito user pool configuration for the auth resource to be configured for your Amplify project.</p>
+ * @public
  */
 export interface CreateBackendAuthUserPoolConfig {
   /**
-   * @public
    * <p><b>(DEPRECATED)</b> Describes the forgotten password policy for your Amazon Cognito user pool, configured as a part of your Amplify project.</p>
+   * @public
    */
   ForgotPassword?: CreateBackendAuthForgotPasswordConfig;
 
   /**
-   * @public
    * <p>Describes whether to apply multi-factor authentication policies for your Amazon Cognito user pool configured as a part of your Amplify project.</p>
+   * @public
    */
   Mfa?: CreateBackendAuthMFAConfig;
 
   /**
-   * @public
    * <p>Describes the OAuth policy and rules for your Amazon Cognito user pool, configured as a part of your Amplify project.</p>
+   * @public
    */
   OAuth?: CreateBackendAuthOAuthConfig;
 
   /**
-   * @public
    * <p>Describes the password policy for your Amazon Cognito user pool, configured as a part of your Amplify project.</p>
+   * @public
    */
   PasswordPolicy?: CreateBackendAuthPasswordPolicyConfig;
 
   /**
-   * @public
    * <p>The required attributes to sign up new users in the user pool.</p>
+   * @public
    */
   RequiredSignUpAttributes: RequiredSignUpAttributesElement[] | undefined;
 
   /**
-   * @public
    * <p>Describes the sign-in methods that your Amplify app users use to log in using the Amazon Cognito user pool, configured as a part of your Amplify project.</p>
+   * @public
    */
   SignInMethod: SignInMethod | undefined;
 
   /**
-   * @public
    * <p>The Amazon Cognito user pool name.</p>
+   * @public
    */
   UserPoolName: string | undefined;
 
   /**
-   * @public
    * <p>Describes the email or SMS verification message for your Amazon Cognito user pool, configured as a part of your Amplify project.</p>
+   * @public
    */
   VerificationMessage?: CreateBackendAuthVerificationMessageConfig;
 }
 
 /**
- * @public
  * <p>Defines the resource configuration when creating an auth resource in your Amplify project.</p>
+ * @public
  */
 export interface CreateBackendAuthResourceConfig {
   /**
-   * @public
    * <p>Defines whether you want to configure only authentication or both authentication and authorization settings.</p>
+   * @public
    */
   AuthResources: AuthResources | undefined;
 
   /**
-   * @public
    * <p>Describes the authorization configuration for the Amazon Cognito identity pool, provisioned as a part of your auth resource in the Amplify project.</p>
+   * @public
    */
   IdentityPoolConfigs?: CreateBackendAuthIdentityPoolConfig;
 
   /**
-   * @public
    * <p>Defines the service name to use when configuring an authentication resource in your Amplify project.</p>
+   * @public
    */
   Service: Service | undefined;
 
   /**
-   * @public
    * <p>Describes authentication configuration for the Amazon Cognito user pool, provisioned as a part of your auth resource in the Amplify project.</p>
+   * @public
    */
   UserPoolConfigs: CreateBackendAuthUserPoolConfig | undefined;
 }
 
 /**
- * @public
  * <p>The request body for CreateBackendAuth.</p>
+ * @public
  */
 export interface CreateBackendAuthRequest {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName: string | undefined;
 
   /**
-   * @public
    * <p>The resource configuration for this request object.</p>
+   * @public
    */
   ResourceConfig: CreateBackendAuthResourceConfig | undefined;
 
   /**
-   * @public
    * <p>The name of this resource.</p>
+   * @public
    */
   ResourceName: string | undefined;
 }
@@ -1051,56 +1051,56 @@ export interface CreateBackendAuthRequest {
  */
 export interface CreateBackendAuthResponse {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId?: string;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName?: string;
 
   /**
-   * @public
    * <p>If the request fails, this error is returned.</p>
+   * @public
    */
   Error?: string;
 
   /**
-   * @public
    * <p>The ID for the job.</p>
+   * @public
    */
   JobId?: string;
 
   /**
-   * @public
    * <p>The name of the operation.</p>
+   * @public
    */
   Operation?: string;
 
   /**
-   * @public
    * <p>The current status of the request.</p>
+   * @public
    */
   Status?: string;
 }
 
 /**
- * @public
  * <p>The request body for CreateBackendConfig.</p>
+ * @public
  */
 export interface CreateBackendConfigRequest {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId: string | undefined;
 
   /**
-   * @public
    * <p>The app ID for the backend manager.</p>
+   * @public
    */
   BackendManagerAppId?: string;
 }
@@ -1110,26 +1110,26 @@ export interface CreateBackendConfigRequest {
  */
 export interface CreateBackendConfigResponse {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId?: string;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName?: string;
 
   /**
-   * @public
    * <p>The ID for the job.</p>
+   * @public
    */
   JobId?: string;
 
   /**
-   * @public
    * <p>The current status of the request.</p>
+   * @public
    */
   Status?: string;
 }
@@ -1165,19 +1165,19 @@ export const UnAuthenticatedElement = {
 export type UnAuthenticatedElement = (typeof UnAuthenticatedElement)[keyof typeof UnAuthenticatedElement];
 
 /**
- * @public
  * <p>Describes the read, write, and delete permissions users have against your storage S3 bucket.</p>
+ * @public
  */
 export interface BackendStoragePermissions {
   /**
-   * @public
    * <p>Lists all authenticated user read, write, and delete permissions for your S3 bucket.</p>
+   * @public
    */
   Authenticated: AuthenticatedElement[] | undefined;
 
   /**
-   * @public
    * <p>Lists all unauthenticated user read, write, and delete permissions for your S3 bucket.</p>
+   * @public
    */
   UnAuthenticated?: UnAuthenticatedElement[];
 }
@@ -1196,55 +1196,55 @@ export const ServiceName = {
 export type ServiceName = (typeof ServiceName)[keyof typeof ServiceName];
 
 /**
- * @public
  * <p>The resource configuration for creating backend storage.</p>
+ * @public
  */
 export interface CreateBackendStorageResourceConfig {
   /**
-   * @public
    * <p>The name of the S3 bucket.</p>
+   * @public
    */
   BucketName?: string;
 
   /**
-   * @public
    * <p>The authorization configuration for the storage S3 bucket.</p>
+   * @public
    */
   Permissions: BackendStoragePermissions | undefined;
 
   /**
-   * @public
    * <p>The name of the storage service.</p>
+   * @public
    */
   ServiceName: ServiceName | undefined;
 }
 
 /**
- * @public
  * <p>The request body for CreateBackendStorage.</p>
+ * @public
  */
 export interface CreateBackendStorageRequest {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName: string | undefined;
 
   /**
-   * @public
    * <p>The resource configuration for creating backend storage.</p>
+   * @public
    */
   ResourceConfig: CreateBackendStorageResourceConfig | undefined;
 
   /**
-   * @public
    * <p>The name of the storage resource.</p>
+   * @public
    */
   ResourceName: string | undefined;
 }
@@ -1254,26 +1254,26 @@ export interface CreateBackendStorageRequest {
  */
 export interface CreateBackendStorageResponse {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId?: string;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName?: string;
 
   /**
-   * @public
    * <p>The ID for the job.</p>
+   * @public
    */
   JobId?: string;
 
   /**
-   * @public
    * <p>The current status of the request.</p>
+   * @public
    */
   Status?: string;
 }
@@ -1283,8 +1283,8 @@ export interface CreateBackendStorageResponse {
  */
 export interface CreateTokenRequest {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId: string | undefined;
 }
@@ -1294,26 +1294,26 @@ export interface CreateTokenRequest {
  */
 export interface CreateTokenResponse {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId?: string;
 
   /**
-   * @public
    * <p>One-time challenge code for authenticating into the Amplify Admin UI.</p>
+   * @public
    */
   ChallengeCode?: string;
 
   /**
-   * @public
    * <p>A unique ID provided when creating a new challenge token.</p>
+   * @public
    */
   SessionId?: string;
 
   /**
-   * @public
    * <p>The expiry time for the one-time generated token code.</p>
+   * @public
    */
   Ttl?: string;
 }
@@ -1323,14 +1323,14 @@ export interface CreateTokenResponse {
  */
 export interface DeleteBackendRequest {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName: string | undefined;
 }
@@ -1340,68 +1340,68 @@ export interface DeleteBackendRequest {
  */
 export interface DeleteBackendResponse {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId?: string;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName?: string;
 
   /**
-   * @public
    * <p>If the request fails, this error is returned.</p>
+   * @public
    */
   Error?: string;
 
   /**
-   * @public
    * <p>The ID for the job.</p>
+   * @public
    */
   JobId?: string;
 
   /**
-   * @public
    * <p>The name of the operation.</p>
+   * @public
    */
   Operation?: string;
 
   /**
-   * @public
    * <p>The current status of the request.</p>
+   * @public
    */
   Status?: string;
 }
 
 /**
- * @public
  * <p>The request body for DeleteBackendAPI.</p>
+ * @public
  */
 export interface DeleteBackendAPIRequest {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName: string | undefined;
 
   /**
-   * @public
    * <p>Defines the resource configuration for the data model in your Amplify project.</p>
+   * @public
    */
   ResourceConfig?: BackendAPIResourceConfig;
 
   /**
-   * @public
    * <p>The name of this resource.</p>
+   * @public
    */
   ResourceName: string | undefined;
 }
@@ -1411,62 +1411,62 @@ export interface DeleteBackendAPIRequest {
  */
 export interface DeleteBackendAPIResponse {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId?: string;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName?: string;
 
   /**
-   * @public
    * <p>If the request fails, this error is returned.</p>
+   * @public
    */
   Error?: string;
 
   /**
-   * @public
    * <p>The ID for the job.</p>
+   * @public
    */
   JobId?: string;
 
   /**
-   * @public
    * <p>The name of the operation.</p>
+   * @public
    */
   Operation?: string;
 
   /**
-   * @public
    * <p>The current status of the request.</p>
+   * @public
    */
   Status?: string;
 }
 
 /**
- * @public
  * <p>The request body for DeleteBackendAuth.</p>
+ * @public
  */
 export interface DeleteBackendAuthRequest {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName: string | undefined;
 
   /**
-   * @public
    * <p>The name of this resource.</p>
+   * @public
    */
   ResourceName: string | undefined;
 }
@@ -1476,68 +1476,68 @@ export interface DeleteBackendAuthRequest {
  */
 export interface DeleteBackendAuthResponse {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId?: string;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName?: string;
 
   /**
-   * @public
    * <p>If the request fails, this error is returned.</p>
+   * @public
    */
   Error?: string;
 
   /**
-   * @public
    * <p>The ID for the job.</p>
+   * @public
    */
   JobId?: string;
 
   /**
-   * @public
    * <p>The name of the operation.</p>
+   * @public
    */
   Operation?: string;
 
   /**
-   * @public
    * <p>The current status of the request.</p>
+   * @public
    */
   Status?: string;
 }
 
 /**
- * @public
  * <p>The request body for DeleteBackendStorage.</p>
+ * @public
  */
 export interface DeleteBackendStorageRequest {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the storage resource.</p>
+   * @public
    */
   ResourceName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the storage service.</p>
+   * @public
    */
   ServiceName: ServiceName | undefined;
 }
@@ -1547,26 +1547,26 @@ export interface DeleteBackendStorageRequest {
  */
 export interface DeleteBackendStorageResponse {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId?: string;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName?: string;
 
   /**
-   * @public
    * <p>The ID for the job.</p>
+   * @public
    */
   JobId?: string;
 
   /**
-   * @public
    * <p>The current status of the request.</p>
+   * @public
    */
   Status?: string;
 }
@@ -1576,14 +1576,14 @@ export interface DeleteBackendStorageResponse {
  */
 export interface DeleteTokenRequest {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId: string | undefined;
 
   /**
-   * @public
    * <p>The session ID.</p>
+   * @public
    */
   SessionId: string | undefined;
 }
@@ -1593,32 +1593,32 @@ export interface DeleteTokenRequest {
  */
 export interface DeleteTokenResponse {
   /**
-   * @public
    * <p>Indicates whether the request succeeded or failed.</p>
+   * @public
    */
   IsSuccess?: boolean;
 }
 
 /**
- * @public
  * <p>The request body for GenerateBackendAPIModels.</p>
+ * @public
  */
 export interface GenerateBackendAPIModelsRequest {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName: string | undefined;
 
   /**
-   * @public
    * <p>The name of this resource.</p>
+   * @public
    */
   ResourceName: string | undefined;
 }
@@ -1628,56 +1628,56 @@ export interface GenerateBackendAPIModelsRequest {
  */
 export interface GenerateBackendAPIModelsResponse {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId?: string;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName?: string;
 
   /**
-   * @public
    * <p>If the request fails, this error is returned.</p>
+   * @public
    */
   Error?: string;
 
   /**
-   * @public
    * <p>The ID for the job.</p>
+   * @public
    */
   JobId?: string;
 
   /**
-   * @public
    * <p>The name of the operation.</p>
+   * @public
    */
   Operation?: string;
 
   /**
-   * @public
    * <p>The current status of the request.</p>
+   * @public
    */
   Status?: string;
 }
 
 /**
- * @public
  * <p>The request body for GetBackend.</p>
+ * @public
  */
 export interface GetBackendRequest {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName?: string;
 }
@@ -1687,74 +1687,74 @@ export interface GetBackendRequest {
  */
 export interface GetBackendResponse {
   /**
-   * @public
    * <p>A stringified version of the cli.json file for your Amplify project.</p>
+   * @public
    */
   AmplifyFeatureFlags?: string;
 
   /**
-   * @public
    * <p>A stringified version of the current configs for your Amplify project.</p>
+   * @public
    */
   AmplifyMetaConfig?: string;
 
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId?: string;
 
   /**
-   * @public
    * <p>The name of the app.</p>
+   * @public
    */
   AppName?: string;
 
   /**
-   * @public
    * <p>A list of backend environments in an array.</p>
+   * @public
    */
   BackendEnvironmentList?: string[];
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName?: string;
 
   /**
-   * @public
    * <p>If the request failed, this is the returned error.</p>
+   * @public
    */
   Error?: string;
 }
 
 /**
- * @public
  * <p>The request body for GetBackendAPI.</p>
+ * @public
  */
 export interface GetBackendAPIRequest {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName: string | undefined;
 
   /**
-   * @public
    * <p>Defines the resource configuration for the data model in your Amplify project.</p>
+   * @public
    */
   ResourceConfig?: BackendAPIResourceConfig;
 
   /**
-   * @public
    * <p>The name of this resource.</p>
+   * @public
    */
   ResourceName: string | undefined;
 }
@@ -1764,56 +1764,56 @@ export interface GetBackendAPIRequest {
  */
 export interface GetBackendAPIResponse {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId?: string;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName?: string;
 
   /**
-   * @public
    * <p>If the request fails, this error is returned.</p>
+   * @public
    */
   Error?: string;
 
   /**
-   * @public
    * <p>The resource configuration for this response object.</p>
+   * @public
    */
   ResourceConfig?: BackendAPIResourceConfig;
 
   /**
-   * @public
    * <p>The name of this resource.</p>
+   * @public
    */
   ResourceName?: string;
 }
 
 /**
- * @public
  * <p>The request body for GetBackendAPIModels.</p>
+ * @public
  */
 export interface GetBackendAPIModelsRequest {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName: string | undefined;
 
   /**
-   * @public
    * <p>The name of this resource.</p>
+   * @public
    */
   ResourceName: string | undefined;
 }
@@ -1837,44 +1837,44 @@ export type Status = (typeof Status)[keyof typeof Status];
  */
 export interface GetBackendAPIModelsResponse {
   /**
-   * @public
    * <p>Stringified JSON of the datastore model.</p>
+   * @public
    */
   Models?: string;
 
   /**
-   * @public
    * <p>The current status of the request.</p>
+   * @public
    */
   Status?: Status;
 
   /**
-   * @public
    * <p>Stringified JSON of the model introspection schema for an existing backend API resource.</p>
+   * @public
    */
   ModelIntrospectionSchema?: string;
 }
 
 /**
- * @public
  * <p>The request body for GetBackendAuth.</p>
+ * @public
  */
 export interface GetBackendAuthRequest {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName: string | undefined;
 
   /**
-   * @public
    * <p>The name of this resource.</p>
+   * @public
    */
   ResourceName: string | undefined;
 }
@@ -1884,32 +1884,32 @@ export interface GetBackendAuthRequest {
  */
 export interface GetBackendAuthResponse {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId?: string;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName?: string;
 
   /**
-   * @public
    * <p>If the request fails, this error is returned.</p>
+   * @public
    */
   Error?: string;
 
   /**
-   * @public
    * <p>The resource configuration for authorization requests to the backend of your Amplify project.</p>
+   * @public
    */
   ResourceConfig?: CreateBackendAuthResourceConfig;
 
   /**
-   * @public
    * <p>The name of this resource.</p>
+   * @public
    */
   ResourceName?: string;
 }
@@ -1919,20 +1919,20 @@ export interface GetBackendAuthResponse {
  */
 export interface GetBackendJobRequest {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName: string | undefined;
 
   /**
-   * @public
    * <p>The ID for the job.</p>
+   * @public
    */
   JobId: string | undefined;
 }
@@ -1942,104 +1942,104 @@ export interface GetBackendJobRequest {
  */
 export interface GetBackendJobResponse {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId?: string;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName?: string;
 
   /**
-   * @public
    * <p>The time when the job was created.</p>
+   * @public
    */
   CreateTime?: string;
 
   /**
-   * @public
    * <p>If the request fails, this error is returned.</p>
+   * @public
    */
   Error?: string;
 
   /**
-   * @public
    * <p>The ID for the job.</p>
+   * @public
    */
   JobId?: string;
 
   /**
-   * @public
    * <p>The name of the operation.</p>
+   * @public
    */
   Operation?: string;
 
   /**
-   * @public
    * <p>The current status of the request.</p>
+   * @public
    */
   Status?: string;
 
   /**
-   * @public
    * <p>The time when the job was last updated.</p>
+   * @public
    */
   UpdateTime?: string;
 }
 
 /**
- * @public
  * <p>The request body for GetBackendStorage.</p>
+ * @public
  */
 export interface GetBackendStorageRequest {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the storage resource.</p>
+   * @public
    */
   ResourceName: string | undefined;
 }
 
 /**
- * @public
  * <p>The details for a backend storage resource.</p>
+ * @public
  */
 export interface GetBackendStorageResourceConfig {
   /**
-   * @public
    * <p>The name of the S3 bucket.</p>
+   * @public
    */
   BucketName?: string;
 
   /**
-   * @public
    * <p>Returns True if the storage resource has been imported.</p>
+   * @public
    */
   Imported: boolean | undefined;
 
   /**
-   * @public
    * <p>The authorization configuration for the storage S3 bucket.</p>
+   * @public
    */
   Permissions?: BackendStoragePermissions;
 
   /**
-   * @public
    * <p>The name of the storage service.</p>
+   * @public
    */
   ServiceName: ServiceName | undefined;
 }
@@ -2049,26 +2049,26 @@ export interface GetBackendStorageResourceConfig {
  */
 export interface GetBackendStorageResponse {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId?: string;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName?: string;
 
   /**
-   * @public
    * <p>The resource configuration for the backend storage resource.</p>
+   * @public
    */
   ResourceConfig?: GetBackendStorageResourceConfig;
 
   /**
-   * @public
    * <p>The name of the storage resource.</p>
+   * @public
    */
   ResourceName?: string;
 }
@@ -2078,14 +2078,14 @@ export interface GetBackendStorageResponse {
  */
 export interface GetTokenRequest {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId: string | undefined;
 
   /**
-   * @public
    * <p>The session ID.</p>
+   * @public
    */
   SessionId: string | undefined;
 }
@@ -2095,68 +2095,68 @@ export interface GetTokenRequest {
  */
 export interface GetTokenResponse {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId?: string;
 
   /**
-   * @public
    * <p>The one-time challenge code for authenticating into the Amplify Admin UI.</p>
+   * @public
    */
   ChallengeCode?: string;
 
   /**
-   * @public
    * <p>A unique ID provided when creating a new challenge token.</p>
+   * @public
    */
   SessionId?: string;
 
   /**
-   * @public
    * <p>The expiry time for the one-time generated token code.</p>
+   * @public
    */
   Ttl?: string;
 }
 
 /**
- * @public
  * <p>The request body for ImportBackendAuth.</p>
+ * @public
  */
 export interface ImportBackendAuthRequest {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the Amazon Cognito identity pool.</p>
+   * @public
    */
   IdentityPoolId?: string;
 
   /**
-   * @public
    * <p>The ID of the Amazon Cognito native client.</p>
+   * @public
    */
   NativeClientId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the Amazon Cognito user pool.</p>
+   * @public
    */
   UserPoolId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the Amazon Cognito web client.</p>
+   * @public
    */
   WebClientId: string | undefined;
 }
@@ -2166,68 +2166,68 @@ export interface ImportBackendAuthRequest {
  */
 export interface ImportBackendAuthResponse {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId?: string;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName?: string;
 
   /**
-   * @public
    * <p>If the request fails, this error is returned.</p>
+   * @public
    */
   Error?: string;
 
   /**
-   * @public
    * <p>The ID for the job.</p>
+   * @public
    */
   JobId?: string;
 
   /**
-   * @public
    * <p>The name of the operation.</p>
+   * @public
    */
   Operation?: string;
 
   /**
-   * @public
    * <p>The current status of the request.</p>
+   * @public
    */
   Status?: string;
 }
 
 /**
- * @public
  * <p>The request body for ImportBackendStorage.</p>
+ * @public
  */
 export interface ImportBackendStorageRequest {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the S3 bucket.</p>
+   * @public
    */
   BucketName?: string;
 
   /**
-   * @public
    * <p>The name of the storage service.</p>
+   * @public
    */
   ServiceName: ServiceName | undefined;
 }
@@ -2237,128 +2237,128 @@ export interface ImportBackendStorageRequest {
  */
 export interface ImportBackendStorageResponse {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId?: string;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName?: string;
 
   /**
-   * @public
    * <p>The ID for the job.</p>
+   * @public
    */
   JobId?: string;
 
   /**
-   * @public
    * <p>The current status of the request.</p>
+   * @public
    */
   Status?: string;
 }
 
 /**
- * @public
  * <p>The request body for ListBackendJobs.</p>
+ * @public
  */
 export interface ListBackendJobsRequest {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName: string | undefined;
 
   /**
-   * @public
    * <p>The ID for the job.</p>
+   * @public
    */
   JobId?: string;
 
   /**
-   * @public
    * <p>The maximum number of results that you want in the response.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Filters the list of response objects to include only those with the specified operation name.</p>
+   * @public
    */
   Operation?: string;
 
   /**
-   * @public
    * <p>Filters the list of response objects to include only those with the specified status.</p>
+   * @public
    */
   Status?: string;
 }
 
 /**
- * @public
  * <p>The response object for this operation.</p>
+ * @public
  */
 export interface BackendJobRespObj {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName: string | undefined;
 
   /**
-   * @public
    * <p>The time when the job was created.</p>
+   * @public
    */
   CreateTime?: string;
 
   /**
-   * @public
    * <p>If the request fails, this error is returned.</p>
+   * @public
    */
   Error?: string;
 
   /**
-   * @public
    * <p>The ID for the job.</p>
+   * @public
    */
   JobId?: string;
 
   /**
-   * @public
    * <p>The name of the operation.</p>
+   * @public
    */
   Operation?: string;
 
   /**
-   * @public
    * <p>The current status of the request.</p>
+   * @public
    */
   Status?: string;
 
   /**
-   * @public
    * <p>The time when the job was last updated.</p>
+   * @public
    */
   UpdateTime?: string;
 }
@@ -2368,44 +2368,44 @@ export interface BackendJobRespObj {
  */
 export interface ListBackendJobsResponse {
   /**
-   * @public
    * <p>An array of jobs and their properties.</p>
+   * @public
    */
   Jobs?: BackendJobRespObj[];
 
   /**
-   * @public
    * <p>The token for the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>The request body for S3Buckets.</p>
+ * @public
  */
 export interface ListS3BucketsRequest {
   /**
-   * @public
    * <p>Reserved for future use.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>Describes the metadata of the S3 bucket.</p>
+ * @public
  */
 export interface S3BucketInfo {
   /**
-   * @public
    * <p>The creation date of the S3 bucket.</p>
+   * @public
    */
   CreationDate?: string;
 
   /**
-   * @public
    * <p>The name of the S3 bucket.</p>
+   * @public
    */
   Name?: string;
 }
@@ -2415,32 +2415,32 @@ export interface S3BucketInfo {
  */
 export interface ListS3BucketsResponse {
   /**
-   * @public
    * <p>The list of S3 buckets.</p>
+   * @public
    */
   Buckets?: S3BucketInfo[];
 
   /**
-   * @public
    * <p>Reserved for future use.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>The request body for RemoveAllBackends.</p>
+ * @public
  */
 export interface RemoveAllBackendsRequest {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId: string | undefined;
 
   /**
-   * @public
    * <p>Cleans up the Amplify Console app if this value is set to true.</p>
+   * @public
    */
   CleanAmplifyApp?: boolean;
 }
@@ -2450,32 +2450,32 @@ export interface RemoveAllBackendsRequest {
  */
 export interface RemoveAllBackendsResponse {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId?: string;
 
   /**
-   * @public
    * <p>If the request fails, this error is returned.</p>
+   * @public
    */
   Error?: string;
 
   /**
-   * @public
    * <p>The ID for the job.</p>
+   * @public
    */
   JobId?: string;
 
   /**
-   * @public
    * <p>The name of the operation.</p>
+   * @public
    */
   Operation?: string;
 
   /**
-   * @public
    * <p>The current status of the request.</p>
+   * @public
    */
   Status?: string;
 }
@@ -2485,8 +2485,8 @@ export interface RemoveAllBackendsResponse {
  */
 export interface RemoveBackendConfigRequest {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId: string | undefined;
 }
@@ -2496,38 +2496,38 @@ export interface RemoveBackendConfigRequest {
  */
 export interface RemoveBackendConfigResponse {
   /**
-   * @public
    * <p>If the request fails, this error is returned.</p>
+   * @public
    */
   Error?: string;
 }
 
 /**
- * @public
  * <p>The request body for UpdateBackendAPI.</p>
+ * @public
  */
 export interface UpdateBackendAPIRequest {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName: string | undefined;
 
   /**
-   * @public
    * <p>Defines the resource configuration for the data model in your Amplify project.</p>
+   * @public
    */
   ResourceConfig?: BackendAPIResourceConfig;
 
   /**
-   * @public
    * <p>The name of this resource.</p>
+   * @public
    */
   ResourceName: string | undefined;
 }
@@ -2537,272 +2537,272 @@ export interface UpdateBackendAPIRequest {
  */
 export interface UpdateBackendAPIResponse {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId?: string;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName?: string;
 
   /**
-   * @public
    * <p>If the request fails, this error is returned.</p>
+   * @public
    */
   Error?: string;
 
   /**
-   * @public
    * <p>The ID for the job.</p>
+   * @public
    */
   JobId?: string;
 
   /**
-   * @public
    * <p>The name of the operation.</p>
+   * @public
    */
   Operation?: string;
 
   /**
-   * @public
    * <p>The current status of the request.</p>
+   * @public
    */
   Status?: string;
 }
 
 /**
- * @public
  * <p>Describes the authorization configuration for the Amazon Cognito identity pool, provisioned as a part of your auth resource in the Amplify project.</p>
+ * @public
  */
 export interface UpdateBackendAuthIdentityPoolConfig {
   /**
-   * @public
    * <p>A boolean value that can be set to allow or disallow guest-level authorization into your Amplify app.</p>
+   * @public
    */
   UnauthenticatedLogin?: boolean;
 }
 
 /**
- * @public
  * <p><b>(DEPRECATED)</b> Describes the forgot password policy for authenticating into the Amplify app.</p>
+ * @public
  */
 export interface UpdateBackendAuthForgotPasswordConfig {
   /**
-   * @public
    * <p><b>(DEPRECATED)</b> Describes which mode to use (either SMS or email) to deliver messages to app users that want to recover their password.</p>
+   * @public
    */
   DeliveryMethod?: DeliveryMethod;
 
   /**
-   * @public
    * <p><b>(DEPRECATED)</b> The configuration for the email sent when an app user forgets their password.</p>
+   * @public
    */
   EmailSettings?: EmailSettings;
 
   /**
-   * @public
    * <p><b>(DEPRECATED)</b> The configuration for the SMS message sent when an Amplify app user forgets their password.</p>
+   * @public
    */
   SmsSettings?: SmsSettings;
 }
 
 /**
- * @public
  * <p>Updates the multi-factor authentication (MFA) configuration for the backend of your Amplify project.</p>
+ * @public
  */
 export interface UpdateBackendAuthMFAConfig {
   /**
-   * @public
    * <p>The MFA mode for the backend of your Amplify project.</p>
+   * @public
    */
   MFAMode?: MFAMode;
 
   /**
-   * @public
    * <p>The settings of your MFA configuration for the backend of your Amplify project.</p>
+   * @public
    */
   Settings?: Settings;
 }
 
 /**
- * @public
  * <p>The OAuth configurations for authenticating users into your Amplify app.</p>
+ * @public
  */
 export interface UpdateBackendAuthOAuthConfig {
   /**
-   * @public
    * <p>The Amazon Cognito domain prefix used to create a hosted UI for authentication.</p>
+   * @public
    */
   DomainPrefix?: string;
 
   /**
-   * @public
    * <p>The OAuth grant type to allow app users to authenticate from your Amplify app.</p>
+   * @public
    */
   OAuthGrantType?: OAuthGrantType;
 
   /**
-   * @public
    * <p>The list of OAuth-related flows that can allow users to authenticate from your Amplify app.</p>
+   * @public
    */
   OAuthScopes?: OAuthScopesElement[];
 
   /**
-   * @public
    * <p>Redirect URLs that OAuth uses when a user signs in to an Amplify app.</p>
+   * @public
    */
   RedirectSignInURIs?: string[];
 
   /**
-   * @public
    * <p>Redirect URLs that OAuth uses when a user signs out of an Amplify app.</p>
+   * @public
    */
   RedirectSignOutURIs?: string[];
 
   /**
-   * @public
    * <p>Describes third-party social federation configurations for allowing your users to sign in with OAuth.</p>
+   * @public
    */
   SocialProviderSettings?: SocialProviderSettings;
 }
 
 /**
- * @public
  * <p>Describes the password policy for your Amazon Cognito user pool configured as a part of your Amplify project.</p>
+ * @public
  */
 export interface UpdateBackendAuthPasswordPolicyConfig {
   /**
-   * @public
    * <p>Describes additional constraints on password requirements to sign in to the auth resource, configured as a part of your Amplify project.</p>
+   * @public
    */
   AdditionalConstraints?: AdditionalConstraintsElement[];
 
   /**
-   * @public
    * <p>Describes the minimum length of the password required to sign in to the auth resource, configured as a part of your Amplify project.</p>
+   * @public
    */
   MinimumLength?: number;
 }
 
 /**
- * @public
  * <p>Updates the configuration of the email or SMS message for the auth resource configured for your Amplify project.</p>
+ * @public
  */
 export interface UpdateBackendAuthVerificationMessageConfig {
   /**
-   * @public
    * <p>The type of verification message to send.</p>
+   * @public
    */
   DeliveryMethod: DeliveryMethod | undefined;
 
   /**
-   * @public
    * <p>The settings for the email message.</p>
+   * @public
    */
   EmailSettings?: EmailSettings;
 
   /**
-   * @public
    * <p>The settings for the SMS message.</p>
+   * @public
    */
   SmsSettings?: SmsSettings;
 }
 
 /**
- * @public
  * <p>Describes the Amazon Cognito user pool configuration for the authorization resource to be configured for your Amplify project on an update.</p>
+ * @public
  */
 export interface UpdateBackendAuthUserPoolConfig {
   /**
-   * @public
    * <p><b>(DEPRECATED)</b> Describes the forgot password policy for your Amazon Cognito user pool, configured as a part of your Amplify project.</p>
+   * @public
    */
   ForgotPassword?: UpdateBackendAuthForgotPasswordConfig;
 
   /**
-   * @public
    * <p>Describes whether to apply multi-factor authentication policies for your Amazon Cognito user pool configured as a part of your Amplify project.</p>
+   * @public
    */
   Mfa?: UpdateBackendAuthMFAConfig;
 
   /**
-   * @public
    * <p>Describes the OAuth policy and rules for your Amazon Cognito user pool, configured as a part of your Amplify project.</p>
+   * @public
    */
   OAuth?: UpdateBackendAuthOAuthConfig;
 
   /**
-   * @public
    * <p>Describes the password policy for your Amazon Cognito user pool, configured as a part of your Amplify project.</p>
+   * @public
    */
   PasswordPolicy?: UpdateBackendAuthPasswordPolicyConfig;
 
   /**
-   * @public
    * <p>Describes the email or SMS verification message for your Amazon Cognito user pool, configured as a part of your Amplify project.</p>
+   * @public
    */
   VerificationMessage?: UpdateBackendAuthVerificationMessageConfig;
 }
 
 /**
- * @public
  * <p>Defines the resource configuration when updating an authentication resource in your Amplify project.</p>
+ * @public
  */
 export interface UpdateBackendAuthResourceConfig {
   /**
-   * @public
    * <p>Defines the service name to use when configuring an authentication resource in your Amplify project.</p>
+   * @public
    */
   AuthResources: AuthResources | undefined;
 
   /**
-   * @public
    * <p>Describes the authorization configuration for the Amazon Cognito identity pool, provisioned as a part of your auth resource in the Amplify project.</p>
+   * @public
    */
   IdentityPoolConfigs?: UpdateBackendAuthIdentityPoolConfig;
 
   /**
-   * @public
    * <p>Defines the service name to use when configuring an authentication resource in your Amplify project.</p>
+   * @public
    */
   Service: Service | undefined;
 
   /**
-   * @public
    * <p>Describes the authentication configuration for the Amazon Cognito user pool, provisioned as a part of your auth resource in the Amplify project.</p>
+   * @public
    */
   UserPoolConfigs: UpdateBackendAuthUserPoolConfig | undefined;
 }
 
 /**
- * @public
  * <p>The request body for UpdateBackendAuth.</p>
+ * @public
  */
 export interface UpdateBackendAuthRequest {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName: string | undefined;
 
   /**
-   * @public
    * <p>The resource configuration for this request object.</p>
+   * @public
    */
   ResourceConfig: UpdateBackendAuthResourceConfig | undefined;
 
   /**
-   * @public
    * <p>The name of this resource.</p>
+   * @public
    */
   ResourceName: string | undefined;
 }
@@ -2812,86 +2812,86 @@ export interface UpdateBackendAuthRequest {
  */
 export interface UpdateBackendAuthResponse {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId?: string;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName?: string;
 
   /**
-   * @public
    * <p>If the request fails, this error is returned.</p>
+   * @public
    */
   Error?: string;
 
   /**
-   * @public
    * <p>The ID for the job.</p>
+   * @public
    */
   JobId?: string;
 
   /**
-   * @public
    * <p>The name of the operation.</p>
+   * @public
    */
   Operation?: string;
 
   /**
-   * @public
    * <p>The current status of the request.</p>
+   * @public
    */
   Status?: string;
 }
 
 /**
- * @public
  * <p>The request object for this operation.</p>
+ * @public
  */
 export interface LoginAuthConfigReqObj {
   /**
-   * @public
    * <p>The Amazon Cognito identity pool ID used for the Amplify Admin UI login authorization.</p>
+   * @public
    */
   AwsCognitoIdentityPoolId?: string;
 
   /**
-   * @public
    * <p>The AWS Region for the Amplify Admin UI login.</p>
+   * @public
    */
   AwsCognitoRegion?: string;
 
   /**
-   * @public
    * <p>The Amazon Cognito user pool ID used for Amplify Admin UI login authentication.</p>
+   * @public
    */
   AwsUserPoolsId?: string;
 
   /**
-   * @public
    * <p>The web client ID for the Amazon Cognito user pools.</p>
+   * @public
    */
   AwsUserPoolsWebClientId?: string;
 }
 
 /**
- * @public
  * <p>The request body for UpdateBackendConfig.</p>
+ * @public
  */
 export interface UpdateBackendConfigRequest {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId: string | undefined;
 
   /**
-   * @public
    * <p>Describes the Amazon Cognito configuration for Admin UI access.</p>
+   * @public
    */
   LoginAuthConfig?: LoginAuthConfigReqObj;
 }
@@ -2901,62 +2901,62 @@ export interface UpdateBackendConfigRequest {
  */
 export interface UpdateBackendConfigResponse {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId?: string;
 
   /**
-   * @public
    * <p>The app ID for the backend manager.</p>
+   * @public
    */
   BackendManagerAppId?: string;
 
   /**
-   * @public
    * <p>If the request fails, this error is returned.</p>
+   * @public
    */
   Error?: string;
 
   /**
-   * @public
    * <p>Describes the Amazon Cognito configurations for the Admin UI auth resource to log in with.</p>
+   * @public
    */
   LoginAuthConfig?: LoginAuthConfigReqObj;
 }
 
 /**
- * @public
  * <p>The request body for GetBackendJob.</p>
+ * @public
  */
 export interface UpdateBackendJobRequest {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName: string | undefined;
 
   /**
-   * @public
    * <p>The ID for the job.</p>
+   * @public
    */
   JobId: string | undefined;
 
   /**
-   * @public
    * <p>Filters the list of response objects to include only those with the specified operation name.</p>
+   * @public
    */
   Operation?: string;
 
   /**
-   * @public
    * <p>Filters the list of response objects to include only those with the specified status.</p>
+   * @public
    */
   Status?: string;
 }
@@ -2966,98 +2966,98 @@ export interface UpdateBackendJobRequest {
  */
 export interface UpdateBackendJobResponse {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId?: string;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName?: string;
 
   /**
-   * @public
    * <p>The time when the job was created.</p>
+   * @public
    */
   CreateTime?: string;
 
   /**
-   * @public
    * <p>If the request fails, this error is returned.</p>
+   * @public
    */
   Error?: string;
 
   /**
-   * @public
    * <p>The ID for the job.</p>
+   * @public
    */
   JobId?: string;
 
   /**
-   * @public
    * <p>The name of the operation.</p>
+   * @public
    */
   Operation?: string;
 
   /**
-   * @public
    * <p>The current status of the request.</p>
+   * @public
    */
   Status?: string;
 
   /**
-   * @public
    * <p>The time when the job was last updated.</p>
+   * @public
    */
   UpdateTime?: string;
 }
 
 /**
- * @public
  * <p>The resource configuration for updating backend storage.</p>
+ * @public
  */
 export interface UpdateBackendStorageResourceConfig {
   /**
-   * @public
    * <p>The authorization configuration for the storage S3 bucket.</p>
+   * @public
    */
   Permissions: BackendStoragePermissions | undefined;
 
   /**
-   * @public
    * <p>The name of the storage service.</p>
+   * @public
    */
   ServiceName: ServiceName | undefined;
 }
 
 /**
- * @public
  * <p>The request body for UpdateBackendStorage.</p>
+ * @public
  */
 export interface UpdateBackendStorageRequest {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName: string | undefined;
 
   /**
-   * @public
    * <p>The resource configuration for updating backend storage.</p>
+   * @public
    */
   ResourceConfig: UpdateBackendStorageResourceConfig | undefined;
 
   /**
-   * @public
    * <p>The name of the storage resource.</p>
+   * @public
    */
   ResourceName: string | undefined;
 }
@@ -3067,26 +3067,26 @@ export interface UpdateBackendStorageRequest {
  */
 export interface UpdateBackendStorageResponse {
   /**
-   * @public
    * <p>The app ID.</p>
+   * @public
    */
   AppId?: string;
 
   /**
-   * @public
    * <p>The name of the backend environment.</p>
+   * @public
    */
   BackendEnvironmentName?: string;
 
   /**
-   * @public
    * <p>The ID for the job.</p>
+   * @public
    */
   JobId?: string;
 
   /**
-   * @public
    * <p>The current status of the request.</p>
+   * @public
    */
   Status?: string;
 }

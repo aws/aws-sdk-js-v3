@@ -27,7 +27,6 @@ export interface CreateDecoderManifestCommandInput extends CreateDecoderManifest
 export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifestResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates the decoder manifest associated with a model manifest. To create a decoder
  *             manifest, the following must be true:</p>
  *          <ul>
@@ -202,6 +201,7 @@ export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifes
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class CreateDecoderManifestCommand extends $Command
   .classBuilder<

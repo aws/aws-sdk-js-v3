@@ -27,7 +27,6 @@ export interface ListIndicatorsCommandInput extends ListIndicatorsRequest {}
 export interface ListIndicatorsCommandOutput extends ListIndicatorsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the indicators from an investigation. You can use the information from the indicators to determine if an IAM user and/or IAM role is involved in an unusual activity that could indicate malicious behavior and its impact.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -126,6 +125,7 @@ export interface ListIndicatorsCommandOutput extends ListIndicatorsResponse, __M
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ * @public
  */
 export class ListIndicatorsCommand extends $Command
   .classBuilder<

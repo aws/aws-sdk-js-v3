@@ -31,7 +31,6 @@ export interface UpdateSnapshotCommandInput extends UpdateSnapshotRequest {}
 export interface UpdateSnapshotCommandOutput extends UpdateSnapshotResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the name of an Amazon FSx for OpenZFS snapshot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -624,6 +623,7 @@ export interface UpdateSnapshotCommandOutput extends UpdateSnapshotResponse, __M
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  */
 export class UpdateSnapshotCommand extends $Command
   .classBuilder<

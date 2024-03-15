@@ -27,7 +27,6 @@ export interface AcceptPageCommandInput extends AcceptPageRequest {}
 export interface AcceptPageCommandOutput extends AcceptPageResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Used to acknowledge an engagement to a contact channel during an incident.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface AcceptPageCommandOutput extends AcceptPageResult, __MetadataBea
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ * @public
  */
 export class AcceptPageCommand extends $Command
   .classBuilder<

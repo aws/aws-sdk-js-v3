@@ -27,7 +27,6 @@ export interface StartSentimentDetectionJobCommandInput extends StartSentimentDe
 export interface StartSentimentDetectionJobCommandOutput extends StartSentimentDetectionJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an asynchronous sentiment detection job for a collection of documents. Use the
  *          operation to track the status of a
  *       job.</p>
@@ -114,6 +113,7 @@ export interface StartSentimentDetectionJobCommandOutput extends StartSentimentD
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class StartSentimentDetectionJobCommand extends $Command
   .classBuilder<

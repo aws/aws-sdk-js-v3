@@ -27,7 +27,6 @@ export interface DeleteAlertCommandInput extends DeleteAlertRequest {}
 export interface DeleteAlertCommandOutput extends DeleteAlertResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an alert.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface DeleteAlertCommandOutput extends DeleteAlertResponse, __Metadat
  * @throws {@link LookoutMetricsServiceException}
  * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
+ * @public
  */
 export class DeleteAlertCommand extends $Command
   .classBuilder<

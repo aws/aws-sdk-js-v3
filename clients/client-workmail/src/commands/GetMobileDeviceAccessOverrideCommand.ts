@@ -32,7 +32,6 @@ export interface GetMobileDeviceAccessOverrideCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the mobile device access override for the given WorkMail organization, user, and device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface GetMobileDeviceAccessOverrideCommandOutput
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class GetMobileDeviceAccessOverrideCommand extends $Command
   .classBuilder<

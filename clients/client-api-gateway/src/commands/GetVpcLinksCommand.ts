@@ -27,7 +27,6 @@ export interface GetVpcLinksCommandInput extends GetVpcLinksRequest {}
 export interface GetVpcLinksCommandOutput extends VpcLinks, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the VpcLinks collection under the caller's account in a selected region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface GetVpcLinksCommandOutput extends VpcLinks, __MetadataBearer {}
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class GetVpcLinksCommand extends $Command
   .classBuilder<

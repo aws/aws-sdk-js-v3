@@ -27,7 +27,6 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ResourceTags, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the list of key-value tags assigned to the resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface ListTagsForResourceCommandOutput extends ResourceTags, __Metada
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  * @example To list the tags of an application
  * ```javascript
  * // The following list-tags-for-resource example lists the tags of a specified application.

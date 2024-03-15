@@ -826,7 +826,6 @@ export interface SWF {
 }
 
 /**
- * @public
  * <fullname>Amazon Simple Workflow Service</fullname>
  *          <p>The Amazon Simple Workflow Service (Amazon SWF) makes it easy to build applications that use Amazon's cloud to
  *       coordinate work across distributed components. In Amazon SWF, a <i>task</i>
@@ -840,6 +839,7 @@ export interface SWF {
  *       programming model, see the <i>
  *                <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/">Amazon SWF Developer Guide</a>
  *             </i>.</p>
+ * @public
  */
 export class SWF extends SWFClient implements SWF {}
 createAggregatedClient(commands, SWF);

@@ -27,7 +27,6 @@ export interface AcknowledgeThirdPartyJobCommandInput extends AcknowledgeThirdPa
 export interface AcknowledgeThirdPartyJobCommandOutput extends AcknowledgeThirdPartyJobOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Confirms a job worker has received the specified job. Used for partner actions
  *             only.</p>
  * @example
@@ -70,6 +69,7 @@ export interface AcknowledgeThirdPartyJobCommandOutput extends AcknowledgeThirdP
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * @public
  */
 export class AcknowledgeThirdPartyJobCommand extends $Command
   .classBuilder<

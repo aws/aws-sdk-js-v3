@@ -27,7 +27,6 @@ export interface ListStateMachineAliasesCommandInput extends ListStateMachineAli
 export interface ListStateMachineAliasesCommandOutput extends ListStateMachineAliasesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html">aliases</a> for a specified state machine ARN. Results are sorted by time, with the most recently created aliases listed first. </p>
  *          <p>To list aliases that reference a state machine <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html">version</a>, you can specify the version ARN in the <code>stateMachineArn</code> parameter.</p>
  *          <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
@@ -106,6 +105,7 @@ export interface ListStateMachineAliasesCommandOutput extends ListStateMachineAl
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * @public
  */
 export class ListStateMachineAliasesCommand extends $Command
   .classBuilder<

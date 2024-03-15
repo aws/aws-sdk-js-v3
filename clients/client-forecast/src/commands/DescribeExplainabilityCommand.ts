@@ -27,7 +27,6 @@ export interface DescribeExplainabilityCommandInput extends DescribeExplainabili
 export interface DescribeExplainabilityCommandOutput extends DescribeExplainabilityResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes an Explainability resource created using the <a>CreateExplainability</a> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface DescribeExplainabilityCommandOutput extends DescribeExplainabil
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class DescribeExplainabilityCommand extends $Command
   .classBuilder<

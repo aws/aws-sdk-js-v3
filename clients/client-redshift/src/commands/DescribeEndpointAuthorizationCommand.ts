@@ -30,7 +30,6 @@ export interface DescribeEndpointAuthorizationCommandInput extends DescribeEndpo
 export interface DescribeEndpointAuthorizationCommandOutput extends EndpointAuthorizationList, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes an endpoint authorization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface DescribeEndpointAuthorizationCommandOutput extends EndpointAuth
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DescribeEndpointAuthorizationCommand extends $Command
   .classBuilder<

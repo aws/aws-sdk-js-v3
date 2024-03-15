@@ -27,7 +27,6 @@ export interface DeleteMessageBatchCommandInput extends DeleteMessageBatchReques
 export interface DeleteMessageBatchCommandOutput extends DeleteMessageBatchResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes up to ten messages from the specified queue. This is a batch version of
  *                     <code>
  *                <a>DeleteMessage</a>.</code> The result of the action on each
@@ -125,6 +124,7 @@ export interface DeleteMessageBatchCommandOutput extends DeleteMessageBatchResul
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ * @public
  */
 export class DeleteMessageBatchCommand extends $Command
   .classBuilder<

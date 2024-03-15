@@ -27,7 +27,6 @@ export interface AddTagsToCertificateCommandInput extends AddTagsToCertificateRe
 export interface AddTagsToCertificateCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds one or more tags to an ACM certificate. Tags are labels that you can use to
  *       identify and organize your Amazon Web Services resources. Each tag consists of a <code>key</code> and an
  *       optional <code>value</code>. You specify the certificate on input by its Amazon Resource Name
@@ -95,6 +94,7 @@ export interface AddTagsToCertificateCommandOutput extends __MetadataBearer {}
  * @throws {@link ACMServiceException}
  * <p>Base exception class for all service exceptions from ACM service.</p>
  *
+ * @public
  */
 export class AddTagsToCertificateCommand extends $Command
   .classBuilder<

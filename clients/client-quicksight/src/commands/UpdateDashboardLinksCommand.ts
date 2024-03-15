@@ -27,7 +27,6 @@ export interface UpdateDashboardLinksCommandInput extends UpdateDashboardLinksRe
 export interface UpdateDashboardLinksCommandOutput extends UpdateDashboardLinksResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the linked analyses on a dashboard.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface UpdateDashboardLinksCommandOutput extends UpdateDashboardLinksR
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class UpdateDashboardLinksCommand extends $Command
   .classBuilder<

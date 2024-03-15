@@ -27,7 +27,6 @@ export interface UpdateProjectCommandInput extends UpdateProjectRequest {}
 export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the description of an existing project.</p>
  *          <p>To create a new project, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateProject.html">CreateProject</a>.</p>
  *          <p>Don't use this operation to update the data storage options of a project. Instead, use
@@ -109,6 +108,7 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __Met
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ * @public
  */
 export class UpdateProjectCommand extends $Command
   .classBuilder<

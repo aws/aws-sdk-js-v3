@@ -32,7 +32,6 @@ export interface DeleteMobileDeviceAccessOverrideCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the mobile device access override for the given WorkMail organization, user, and device.</p>
  *          <note>
  *             <p>Deleting already deleted and non-existing overrides does not produce an error. In those cases, the service sends back an HTTP 200 response with an empty HTTP body.</p>
@@ -78,6 +77,7 @@ export interface DeleteMobileDeviceAccessOverrideCommandOutput
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class DeleteMobileDeviceAccessOverrideCommand extends $Command
   .classBuilder<

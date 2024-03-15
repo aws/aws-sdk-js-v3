@@ -27,7 +27,6 @@ export interface ExportTableToPointInTimeCommandInput extends ExportTableToPoint
 export interface ExportTableToPointInTimeCommandOutput extends ExportTableToPointInTimeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Exports table data to an S3 bucket. The table must have point in time recovery
  *             enabled, and you can export data from any time within the point in time recovery
  *             window.</p>
@@ -130,6 +129,7 @@ export interface ExportTableToPointInTimeCommandOutput extends ExportTableToPoin
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  */
 export class ExportTableToPointInTimeCommand extends $Command
   .classBuilder<

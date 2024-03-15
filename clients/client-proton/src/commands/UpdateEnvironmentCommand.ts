@@ -32,7 +32,6 @@ export interface UpdateEnvironmentCommandInput extends UpdateEnvironmentInput {}
 export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update an environment.</p>
  *          <p>If the environment is associated with an environment account connection, <i>don't</i> update or include the
  *         <code>protonServiceRoleArn</code> and <code>provisioningRepository</code> parameter to update or connect to an environment account connection.</p>
@@ -167,6 +166,7 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class UpdateEnvironmentCommand extends $Command
   .classBuilder<

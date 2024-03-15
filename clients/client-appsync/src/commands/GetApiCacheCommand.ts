@@ -27,7 +27,6 @@ export interface GetApiCacheCommandInput extends GetApiCacheRequest {}
 export interface GetApiCacheCommandOutput extends GetApiCacheResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves an <code>ApiCache</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface GetApiCacheCommandOutput extends GetApiCacheResponse, __Metadat
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class GetApiCacheCommand extends $Command
   .classBuilder<

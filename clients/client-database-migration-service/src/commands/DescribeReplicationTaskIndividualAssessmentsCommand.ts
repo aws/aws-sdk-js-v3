@@ -40,7 +40,6 @@ export interface DescribeReplicationTaskIndividualAssessmentsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a paginated list of individual assessments based on filter settings.</p>
  *          <p>These filter settings can specify a combination of premigration assessment runs,
  *          migration tasks, and assessment status values.</p>
@@ -91,6 +90,7 @@ export interface DescribeReplicationTaskIndividualAssessmentsCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class DescribeReplicationTaskIndividualAssessmentsCommand extends $Command
   .classBuilder<

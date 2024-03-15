@@ -27,7 +27,6 @@ export interface DescribeUserCommandInput extends DescribeUserRequest {}
 export interface DescribeUserCommandOutput extends DescribeUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the user assigned to the specific file transfer protocol-enabled server, as
  *       identified by its <code>ServerId</code> property.</p>
  *          <p>The response from this call returns the properties of the user associated with the
@@ -107,6 +106,7 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class DescribeUserCommand extends $Command
   .classBuilder<

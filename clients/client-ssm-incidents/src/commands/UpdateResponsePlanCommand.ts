@@ -27,7 +27,6 @@ export interface UpdateResponsePlanCommandInput extends UpdateResponsePlanInput 
 export interface UpdateResponsePlanCommandOutput extends UpdateResponsePlanOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified response plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -127,6 +126,7 @@ export interface UpdateResponsePlanCommandOutput extends UpdateResponsePlanOutpu
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ * @public
  */
 export class UpdateResponsePlanCommand extends $Command
   .classBuilder<

@@ -154,7 +154,6 @@ export interface Rbin {
 }
 
 /**
- * @public
  * <p>This is the <i>Recycle Bin API Reference</i>. This documentation provides
  *       descriptions and syntax for each of the actions and data types in Recycle Bin.</p>
  *          <p>Recycle Bin is a resource recovery feature that enables you to restore accidentally
@@ -167,6 +166,7 @@ export interface Rbin {
  *       is permanently deleted from the Recycle Bin and is no longer available for recovery. For more
  *       information about Recycle Bin, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">
  *         Recycle Bin</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * @public
  */
 export class Rbin extends RbinClient implements Rbin {}
 createAggregatedClient(commands, Rbin);

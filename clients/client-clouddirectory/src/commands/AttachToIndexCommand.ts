@@ -27,7 +27,6 @@ export interface AttachToIndexCommandInput extends AttachToIndexRequest {}
 export interface AttachToIndexCommandOutput extends AttachToIndexResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches the specified object to the specified index.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface AttachToIndexCommandOutput extends AttachToIndexResponse, __Met
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class AttachToIndexCommand extends $Command
   .classBuilder<

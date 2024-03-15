@@ -32,7 +32,6 @@ export interface GetEffectivePermissionsForPathCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the Lake Formation permissions for a specified table or database resource located
  *       at a path in Amazon S3. <code>GetEffectivePermissionsForPath</code> will not return databases and tables if the catalog is encrypted.</p>
  * @example
@@ -151,6 +150,7 @@ export interface GetEffectivePermissionsForPathCommandOutput
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class GetEffectivePermissionsForPathCommand extends $Command
   .classBuilder<

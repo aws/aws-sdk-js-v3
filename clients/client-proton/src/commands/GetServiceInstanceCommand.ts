@@ -31,7 +31,6 @@ export interface GetServiceInstanceCommandInput extends GetServiceInstanceInput 
 export interface GetServiceInstanceCommandOutput extends GetServiceInstanceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get detailed data for a service instance. A service instance is an instantiation of
  *       service template and it runs in a specific environment.</p>
  * @example
@@ -93,6 +92,7 @@ export interface GetServiceInstanceCommandOutput extends GetServiceInstanceOutpu
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class GetServiceInstanceCommand extends $Command
   .classBuilder<

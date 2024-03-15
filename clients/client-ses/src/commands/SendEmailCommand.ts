@@ -27,7 +27,6 @@ export interface SendEmailCommandInput extends SendEmailRequest {}
 export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Composes an email message and immediately queues it for sending. To send email using
  *             this operation, your message must meet the following requirements:</p>
  *          <ul>
@@ -158,6 +157,7 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example SendEmail
  * ```javascript
  * // The following example sends a formatted email:

@@ -29,9 +29,6 @@ export interface ListBusinessReportSchedulesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Lists the details of the schedules that a user configured. A download URL of the report associated with each schedule is returned every time this action is called. A new download URL is returned each time, and is valid for 24 hours.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +82,8 @@ export interface ListBusinessReportSchedulesCommandOutput
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class ListBusinessReportSchedulesCommand extends $Command
   .classBuilder<

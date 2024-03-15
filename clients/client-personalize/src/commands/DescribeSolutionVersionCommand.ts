@@ -27,7 +27,6 @@ export interface DescribeSolutionVersionCommandInput extends DescribeSolutionVer
 export interface DescribeSolutionVersionCommandOutput extends DescribeSolutionVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a specific version of a solution. For more information on solutions, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>
  *          </p>
  * @example
@@ -143,6 +142,7 @@ export interface DescribeSolutionVersionCommandOutput extends DescribeSolutionVe
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class DescribeSolutionVersionCommand extends $Command
   .classBuilder<

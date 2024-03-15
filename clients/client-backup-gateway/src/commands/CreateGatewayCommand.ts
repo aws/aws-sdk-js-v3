@@ -27,7 +27,6 @@ export interface CreateGatewayCommandInput extends CreateGatewayInput {}
 export interface CreateGatewayCommandOutput extends CreateGatewayOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a backup gateway. After you create a gateway, you can associate it with a server
  *       using the <code>AssociateGatewayToServer</code> operation.</p>
  * @example
@@ -74,6 +73,7 @@ export interface CreateGatewayCommandOutput extends CreateGatewayOutput, __Metad
  * @throws {@link BackupGatewayServiceException}
  * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
+ * @public
  */
 export class CreateGatewayCommand extends $Command
   .classBuilder<

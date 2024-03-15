@@ -31,7 +31,6 @@ export interface DescribeSpotFleetRequestsCommandInput extends DescribeSpotFleet
 export interface DescribeSpotFleetRequestsCommandOutput extends DescribeSpotFleetRequestsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes your Spot Fleet requests.</p>
  *          <p>Spot Fleet requests are deleted 48 hours after they are canceled and their instances
  *             are terminated.</p>
@@ -405,6 +404,7 @@ export interface DescribeSpotFleetRequestsCommandOutput extends DescribeSpotFlee
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To describe a Spot fleet request
  * ```javascript
  * // This example describes the specified Spot fleet request.

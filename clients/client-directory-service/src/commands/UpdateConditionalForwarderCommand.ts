@@ -27,7 +27,6 @@ export interface UpdateConditionalForwarderCommandInput extends UpdateConditiona
 export interface UpdateConditionalForwarderCommandOutput extends UpdateConditionalForwarderResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a conditional forwarder that has been set up for your Amazon Web Services
  *       directory.</p>
  * @example
@@ -76,6 +75,7 @@ export interface UpdateConditionalForwarderCommandOutput extends UpdateCondition
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class UpdateConditionalForwarderCommand extends $Command
   .classBuilder<

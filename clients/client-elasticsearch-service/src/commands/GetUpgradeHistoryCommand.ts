@@ -31,7 +31,6 @@ export interface GetUpgradeHistoryCommandInput extends GetUpgradeHistoryRequest 
 export interface GetUpgradeHistoryCommandOutput extends GetUpgradeHistoryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the complete history of the last 10 upgrades that were performed on the domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface GetUpgradeHistoryCommandOutput extends GetUpgradeHistoryRespons
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * @public
  */
 export class GetUpgradeHistoryCommand extends $Command
   .classBuilder<

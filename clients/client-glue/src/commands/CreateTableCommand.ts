@@ -27,7 +27,6 @@ export interface CreateTableCommandInput extends CreateTableRequest {}
 export interface CreateTableCommandOutput extends CreateTableResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new table definition in the Data Catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -180,6 +179,7 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class CreateTableCommand extends $Command
   .classBuilder<

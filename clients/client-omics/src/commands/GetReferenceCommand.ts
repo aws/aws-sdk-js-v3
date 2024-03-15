@@ -29,7 +29,6 @@ export interface GetReferenceCommandOutput extends Omit<GetReferenceResponse, "p
 }
 
 /**
- * @public
  * <p>Gets a reference file.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface GetReferenceCommandOutput extends Omit<GetReferenceResponse, "p
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class GetReferenceCommand extends $Command
   .classBuilder<

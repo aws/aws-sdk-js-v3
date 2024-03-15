@@ -27,7 +27,6 @@ export interface GetOperationsForResourceCommandInput extends GetOperationsForRe
 export interface GetOperationsForResourceCommandOutput extends GetOperationsForResourceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets operations for a specific resource (an instance or a static IP).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface GetOperationsForResourceCommandOutput extends GetOperationsForR
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetOperationsForResourceCommand extends $Command
   .classBuilder<

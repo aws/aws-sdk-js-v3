@@ -27,7 +27,6 @@ export interface FlushStageAuthorizersCacheCommandInput extends FlushStageAuthor
 export interface FlushStageAuthorizersCacheCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Flushes all authorizer cache entries on a stage.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface FlushStageAuthorizersCacheCommandOutput extends __MetadataBeare
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class FlushStageAuthorizersCacheCommand extends $Command
   .classBuilder<

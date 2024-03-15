@@ -27,7 +27,6 @@ export interface DisassociateMemberCommandInput extends DisassociateMemberReques
 export interface DisassociateMemberCommandOutput extends DisassociateMemberResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates a member account from an Amazon Inspector delegated administrator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DisassociateMemberCommandOutput extends DisassociateMemberRespo
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class DisassociateMemberCommand extends $Command
   .classBuilder<

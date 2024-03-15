@@ -27,7 +27,6 @@ export interface ListOfferingPromotionsCommandInput extends ListOfferingPromotio
 export interface ListOfferingPromotionsCommandOutput extends ListOfferingPromotionsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of offering promotions. Each offering promotion record contains the ID and description
  *             of the promotion. The API returns a <code>NotEligible</code> error if the caller is not permitted to invoke
  *             the operation. Contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a> if you must be able to invoke this operation.</p>
@@ -79,6 +78,7 @@ export interface ListOfferingPromotionsCommandOutput extends ListOfferingPromoti
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  */
 export class ListOfferingPromotionsCommand extends $Command
   .classBuilder<

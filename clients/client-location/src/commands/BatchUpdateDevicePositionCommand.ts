@@ -31,7 +31,6 @@ export interface BatchUpdateDevicePositionCommandInput extends BatchUpdateDevice
 export interface BatchUpdateDevicePositionCommandOutput extends BatchUpdateDevicePositionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Uploads position update data for one or more devices to a tracker resource (up to
  *            10 devices per batch). Amazon Location uses the data when it reports the last known device
  *            position and position history. Amazon Location retains location data for 30 days.</p>
@@ -121,6 +120,7 @@ export interface BatchUpdateDevicePositionCommandOutput extends BatchUpdateDevic
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class BatchUpdateDevicePositionCommand extends $Command
   .classBuilder<

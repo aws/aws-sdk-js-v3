@@ -318,9 +318,9 @@ export type MediaStoreClientResolvedConfigType = __SmithyResolvedConfiguration<_
 export interface MediaStoreClientResolvedConfig extends MediaStoreClientResolvedConfigType {}
 
 /**
- * @public
  * <p>An AWS Elemental MediaStore container is a namespace that holds folders and objects.
  *          You use a container endpoint to create, read, and delete objects. </p>
+ * @public
  */
 export class MediaStoreClient extends __Client<
   __HttpHandlerOptions,

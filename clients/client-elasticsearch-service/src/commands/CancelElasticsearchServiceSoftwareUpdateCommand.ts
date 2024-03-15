@@ -40,7 +40,6 @@ export interface CancelElasticsearchServiceSoftwareUpdateCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels a scheduled service software update for an Amazon ES domain. You can only perform this operation before the <code>AutomatedUpdateDate</code> and when the <code>UpdateStatus</code> is in the <code>PENDING_UPDATE</code> state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface CancelElasticsearchServiceSoftwareUpdateCommandOutput
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * @public
  */
 export class CancelElasticsearchServiceSoftwareUpdateCommand extends $Command
   .classBuilder<

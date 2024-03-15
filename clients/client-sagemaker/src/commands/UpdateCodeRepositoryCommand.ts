@@ -27,7 +27,6 @@ export interface UpdateCodeRepositoryCommandInput extends UpdateCodeRepositoryIn
 export interface UpdateCodeRepositoryCommandOutput extends UpdateCodeRepositoryOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified Git repository with the specified values.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +61,7 @@ export interface UpdateCodeRepositoryCommandOutput extends UpdateCodeRepositoryO
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class UpdateCodeRepositoryCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteConnectionAliasCommandInput extends DeleteConnectionAlias
 export interface DeleteConnectionAliasCommandOutput extends DeleteConnectionAliasResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified connection alias. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html">
  *             Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
  *          <important>
@@ -86,6 +85,7 @@ export interface DeleteConnectionAliasCommandOutput extends DeleteConnectionAlia
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class DeleteConnectionAliasCommand extends $Command
   .classBuilder<

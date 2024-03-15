@@ -31,7 +31,6 @@ export interface UpdateFleetPortSettingsCommandInput extends UpdateFleetPortSett
 export interface UpdateFleetPortSettingsCommandOutput extends UpdateFleetPortSettingsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates permissions that allow inbound traffic to connect to game sessions that are
  *             being hosted on instances in the fleet. </p>
  *          <p>To update settings, specify the fleet ID to be updated and specify the changes to be
@@ -122,6 +121,7 @@ export interface UpdateFleetPortSettingsCommandOutput extends UpdateFleetPortSet
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class UpdateFleetPortSettingsCommand extends $Command
   .classBuilder<

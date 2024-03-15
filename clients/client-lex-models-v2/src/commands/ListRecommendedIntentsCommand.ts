@@ -27,7 +27,6 @@ export interface ListRecommendedIntentsCommandInput extends ListRecommendedInten
 export interface ListRecommendedIntentsCommandOutput extends ListRecommendedIntentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of recommended intents provided by the bot
  *          recommendation that you can use in your bot. Intents in the
  *          response are ordered by relevance.</p>
@@ -92,6 +91,7 @@ export interface ListRecommendedIntentsCommandOutput extends ListRecommendedInte
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class ListRecommendedIntentsCommand extends $Command
   .classBuilder<

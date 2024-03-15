@@ -32,7 +32,6 @@ export interface ModifyDBClusterSnapshotAttributeCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds an attribute and values to, or removes an attribute and values from, a manual DB
  *       cluster snapshot.</p>
  *          <p>To share a manual DB cluster snapshot with other Amazon accounts, specify
@@ -101,6 +100,7 @@ export interface ModifyDBClusterSnapshotAttributeCommandOutput
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class ModifyDBClusterSnapshotAttributeCommand extends $Command
   .classBuilder<

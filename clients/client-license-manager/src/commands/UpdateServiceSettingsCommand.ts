@@ -27,7 +27,6 @@ export interface UpdateServiceSettingsCommandInput extends UpdateServiceSettings
 export interface UpdateServiceSettingsCommandOutput extends UpdateServiceSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates License Manager settings for the current Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface UpdateServiceSettingsCommandOutput extends UpdateServiceSetting
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * @public
  */
 export class UpdateServiceSettingsCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface StartStudioSSOConfigurationRepairCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Repairs the IAM Identity Center configuration for a given studio.</p>
  *         <p>If the studio has a valid IAM Identity Center configuration currently associated with
  *             it, this operation will fail with a validation error.</p>
@@ -117,6 +116,7 @@ export interface StartStudioSSOConfigurationRepairCommandOutput
  * @throws {@link NimbleServiceException}
  * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
+ * @public
  */
 export class StartStudioSSOConfigurationRepairCommand extends $Command
   .classBuilder<

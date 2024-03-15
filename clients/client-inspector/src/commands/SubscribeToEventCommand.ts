@@ -27,7 +27,6 @@ export interface SubscribeToEventCommandInput extends SubscribeToEventRequest {}
 export interface SubscribeToEventCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables the process of sending Amazon Simple Notification Service (SNS) notifications
  *          about a specified event to a specified SNS topic.</p>
  * @example
@@ -77,6 +76,7 @@ export interface SubscribeToEventCommandOutput extends __MetadataBearer {}
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * @public
  * @example Subscribe to event
  * ```javascript
  * // Enables the process of sending Amazon Simple Notification Service (SNS) notifications about a specified event to a specified SNS topic.

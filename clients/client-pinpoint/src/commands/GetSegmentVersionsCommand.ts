@@ -27,7 +27,6 @@ export interface GetSegmentVersionsCommandInput extends GetSegmentVersionsReques
 export interface GetSegmentVersionsCommandOutput extends GetSegmentVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the configuration, dimension, and other settings for all the versions of a specific segment that's associated with an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -236,6 +235,7 @@ export interface GetSegmentVersionsCommandOutput extends GetSegmentVersionsRespo
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class GetSegmentVersionsCommand extends $Command
   .classBuilder<

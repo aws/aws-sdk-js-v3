@@ -27,7 +27,6 @@ export interface DeleteTableOptimizerCommandInput extends DeleteTableOptimizerRe
 export interface DeleteTableOptimizerCommandOutput extends DeleteTableOptimizerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an optimizer and all associated metadata for a table. The optimization will no longer be performed on the table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DeleteTableOptimizerCommandOutput extends DeleteTableOptimizerR
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class DeleteTableOptimizerCommand extends $Command
   .classBuilder<

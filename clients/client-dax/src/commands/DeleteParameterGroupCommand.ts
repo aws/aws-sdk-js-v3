@@ -27,7 +27,6 @@ export interface DeleteParameterGroupCommandInput extends DeleteParameterGroupRe
 export interface DeleteParameterGroupCommandOutput extends DeleteParameterGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified parameter group. You cannot delete a parameter group if it is
  *             associated with any DAX clusters.</p>
  * @example
@@ -71,6 +70,7 @@ export interface DeleteParameterGroupCommandOutput extends DeleteParameterGroupR
  * @throws {@link DAXServiceException}
  * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ * @public
  */
 export class DeleteParameterGroupCommand extends $Command
   .classBuilder<

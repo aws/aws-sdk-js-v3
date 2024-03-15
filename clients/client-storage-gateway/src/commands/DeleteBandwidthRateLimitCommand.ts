@@ -27,7 +27,6 @@ export interface DeleteBandwidthRateLimitCommandInput extends DeleteBandwidthRat
 export interface DeleteBandwidthRateLimitCommandOutput extends DeleteBandwidthRateLimitOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the bandwidth rate limits of a gateway. You can delete either the upload and
  *          download bandwidth rate limit, or you can delete both. If you delete only one of the
  *          limits, the other limit remains unchanged. To specify which gateway to work with, use the
@@ -68,6 +67,7 @@ export interface DeleteBandwidthRateLimitCommandOutput extends DeleteBandwidthRa
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To delete bandwidth rate limits of gateway
  * ```javascript
  * // Deletes the bandwidth rate limits of a gateway; either the upload or download limit, or both.

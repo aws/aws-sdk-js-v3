@@ -27,7 +27,6 @@ export interface DeleteUserPolicyCommandInput extends DeleteUserPolicyRequest {}
 export interface DeleteUserPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified inline policy that is embedded in the specified IAM
  *             user.</p>
  *          <p>A user can also have managed policies attached to it. To detach a managed policy from
@@ -71,6 +70,7 @@ export interface DeleteUserPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To remove a policy from an IAM user
  * ```javascript
  * // The following delete-user-policy command removes the specified policy from the IAM user named Juan:

@@ -27,7 +27,6 @@ export interface DescribeAccountAttributesCommandInput extends DescribeAccountAt
 export interface DescribeAccountAttributesCommandOutput extends DescribeAccountAttributesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes attributes of your Amazon Web Services account. The following are the supported account attributes:</p>
  *          <ul>
  *             <li>
@@ -102,6 +101,7 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To describe a single attribute for your AWS account
  * ```javascript
  * // This example describes the supported-platforms attribute for your AWS account.

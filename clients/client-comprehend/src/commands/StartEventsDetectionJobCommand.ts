@@ -27,7 +27,6 @@ export interface StartEventsDetectionJobCommandInput extends StartEventsDetectio
 export interface StartEventsDetectionJobCommandOutput extends StartEventsDetectionJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an asynchronous event detection job for a collection of documents.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface StartEventsDetectionJobCommandOutput extends StartEventsDetecti
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class StartEventsDetectionJobCommand extends $Command
   .classBuilder<

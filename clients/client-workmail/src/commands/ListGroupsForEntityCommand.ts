@@ -27,7 +27,6 @@ export interface ListGroupsForEntityCommandInput extends ListGroupsForEntityRequ
 export interface ListGroupsForEntityCommandOutput extends ListGroupsForEntityResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns all the groups to which an entity belongs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface ListGroupsForEntityCommandOutput extends ListGroupsForEntityRes
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class ListGroupsForEntityCommand extends $Command
   .classBuilder<

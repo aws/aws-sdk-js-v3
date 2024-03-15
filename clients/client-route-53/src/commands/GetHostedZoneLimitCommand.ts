@@ -28,7 +28,6 @@ export interface GetHostedZoneLimitCommandInput extends GetHostedZoneLimitReques
 export interface GetHostedZoneLimitCommandOutput extends GetHostedZoneLimitResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the specified limit for a specified hosted zone, for example, the maximum number
  * 			of records that you can create in the hosted zone. </p>
  *          <p>For the default limit, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the
@@ -74,6 +73,7 @@ export interface GetHostedZoneLimitCommandOutput extends GetHostedZoneLimitRespo
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class GetHostedZoneLimitCommand extends $Command
   .classBuilder<

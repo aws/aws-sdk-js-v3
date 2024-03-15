@@ -31,7 +31,6 @@ export interface DescribeLocationFsxOntapCommandInput extends DescribeLocationFs
 export interface DescribeLocationFsxOntapCommandOutput extends DescribeLocationFsxOntapResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides details about how an DataSync transfer location for an Amazon FSx for NetApp ONTAP file system is configured.</p>
  *          <note>
  *             <p>If your location uses SMB, the <code>DescribeLocationFsxOntap</code> operation doesn't
@@ -92,6 +91,7 @@ export interface DescribeLocationFsxOntapCommandOutput extends DescribeLocationF
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class DescribeLocationFsxOntapCommand extends $Command
   .classBuilder<

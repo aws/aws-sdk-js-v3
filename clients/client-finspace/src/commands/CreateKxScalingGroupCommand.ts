@@ -27,7 +27,6 @@ export interface CreateKxScalingGroupCommandInput extends CreateKxScalingGroupRe
 export interface CreateKxScalingGroupCommandOutput extends CreateKxScalingGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new scaling group. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface CreateKxScalingGroupCommandOutput extends CreateKxScalingGroupR
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class CreateKxScalingGroupCommand extends $Command
   .classBuilder<

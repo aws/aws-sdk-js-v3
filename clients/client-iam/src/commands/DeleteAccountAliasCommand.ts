@@ -27,7 +27,6 @@ export interface DeleteAccountAliasCommandInput extends DeleteAccountAliasReques
 export interface DeleteAccountAliasCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p> Deletes the specified Amazon Web Services account alias. For information about using an Amazon Web Services
  *             account alias, see <a href="https://docs.aws.amazon.com/signin/latest/userguide/CreateAccountAlias.html">Creating, deleting, and
  *                 listing an Amazon Web Services account alias</a> in the <i>Amazon Web Services Sign-In User
@@ -72,6 +71,7 @@ export interface DeleteAccountAliasCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To delete an account alias
  * ```javascript
  * // The following command removes the alias mycompany from the current AWS account:

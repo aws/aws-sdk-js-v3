@@ -31,7 +31,6 @@ export interface GetServiceTemplateVersionCommandInput extends GetServiceTemplat
 export interface GetServiceTemplateVersionCommandOutput extends GetServiceTemplateVersionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get detailed data for a major or minor version of a service template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface GetServiceTemplateVersionCommandOutput extends GetServiceTempla
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class GetServiceTemplateVersionCommand extends $Command
   .classBuilder<

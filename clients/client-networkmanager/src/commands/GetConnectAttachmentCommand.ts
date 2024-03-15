@@ -27,7 +27,6 @@ export interface GetConnectAttachmentCommandInput extends GetConnectAttachmentRe
 export interface GetConnectAttachmentCommandOutput extends GetConnectAttachmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a core network Connect attachment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -105,6 +104,7 @@ export interface GetConnectAttachmentCommandOutput extends GetConnectAttachmentR
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class GetConnectAttachmentCommand extends $Command
   .classBuilder<

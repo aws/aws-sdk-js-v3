@@ -27,7 +27,6 @@ export interface GetScheduleGroupCommandInput extends GetScheduleGroupInput {}
 export interface GetScheduleGroupCommandOutput extends GetScheduleGroupOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the specified schedule group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface GetScheduleGroupCommandOutput extends GetScheduleGroupOutput, _
  * @throws {@link SchedulerServiceException}
  * <p>Base exception class for all service exceptions from Scheduler service.</p>
  *
+ * @public
  */
 export class GetScheduleGroupCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeletePipelineCommandInput extends DeletePipelineInput {}
 export interface DeletePipelineCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +58,7 @@ export interface DeletePipelineCommandOutput extends __MetadataBearer {}
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * @public
  */
 export class DeletePipelineCommand extends $Command
   .classBuilder<

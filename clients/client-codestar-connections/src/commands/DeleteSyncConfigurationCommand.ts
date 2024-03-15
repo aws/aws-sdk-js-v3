@@ -31,7 +31,6 @@ export interface DeleteSyncConfigurationCommandInput extends DeleteSyncConfigura
 export interface DeleteSyncConfigurationCommandOutput extends DeleteSyncConfigurationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the sync configuration for a specified repository and connection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface DeleteSyncConfigurationCommandOutput extends DeleteSyncConfigur
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ * @public
  */
 export class DeleteSyncConfigurationCommand extends $Command
   .classBuilder<

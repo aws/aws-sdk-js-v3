@@ -27,7 +27,6 @@ export interface StartBgpFailoverTestCommandInput extends StartBgpFailoverTestRe
 export interface StartBgpFailoverTestCommandOutput extends StartBgpFailoverTestResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts the virtual interface failover test that verifies your configuration meets your resiliency requirements by placing the BGP peering session in the DOWN state. You can then send traffic to verify that there are no outages.</p>
  *          <p>You can run the test on public, private, transit, and hosted virtual interfaces.</p>
  *          <p>You can use <a href="https://docs.aws.amazon.com/directconnect/latest/APIReference/API_ListVirtualInterfaceTestHistory.html">ListVirtualInterfaceTestHistory</a> to view the virtual interface test history.</p>
@@ -79,6 +78,7 @@ export interface StartBgpFailoverTestCommandOutput extends StartBgpFailoverTestR
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class StartBgpFailoverTestCommand extends $Command
   .classBuilder<

@@ -34,7 +34,6 @@ export interface CompleteMultipartUploadCommandInput extends CompleteMultipartUp
 export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartUploadOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Completes a multipart upload by assembling previously uploaded parts.</p>
  *          <p>You first initiate the multipart upload and then upload all parts using the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>
  *          operation or the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html">UploadPartCopy</a>
@@ -252,6 +251,7 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example To complete multipart upload
  * ```javascript
  * // The following example completes a multipart upload.

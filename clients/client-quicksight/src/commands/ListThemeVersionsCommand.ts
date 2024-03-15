@@ -27,7 +27,6 @@ export interface ListThemeVersionsCommandInput extends ListThemeVersionsRequest 
 export interface ListThemeVersionsCommandOutput extends ListThemeVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the versions of the themes in the current Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface ListThemeVersionsCommandOutput extends ListThemeVersionsRespons
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class ListThemeVersionsCommand extends $Command
   .classBuilder<

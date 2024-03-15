@@ -27,7 +27,6 @@ export interface ListAllowedNodeTypeUpdatesCommandInput extends ListAllowedNodeT
 export interface ListAllowedNodeTypeUpdatesCommandOutput extends ListAllowedNodeTypeUpdatesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all available node types that you can scale to from your cluster's current node type.
  *
  *          When you use the UpdateCluster operation to scale your cluster, the value of the NodeType parameter must be one of the node types returned by this operation.</p>
@@ -74,6 +73,7 @@ export interface ListAllowedNodeTypeUpdatesCommandOutput extends ListAllowedNode
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * @public
  */
 export class ListAllowedNodeTypeUpdatesCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface NotifyRecommendationsReceivedCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified recommendations from the specified assistant's queue of newly
  *       available recommendations. You can use this API in conjunction with <a href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetRecommendations.html">GetRecommendations</a> and a <code>waitTimeSeconds</code> input for long-polling
  *       behavior and avoiding duplicate recommendations.</p>
@@ -83,6 +82,7 @@ export interface NotifyRecommendationsReceivedCommandOutput
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ * @public
  */
 export class NotifyRecommendationsReceivedCommand extends $Command
   .classBuilder<

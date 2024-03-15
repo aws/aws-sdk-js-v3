@@ -27,7 +27,6 @@ export interface ListVocabulariesCommandInput extends ListVocabulariesRequest {}
 export interface ListVocabulariesCommandOutput extends ListVocabulariesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a list of custom vocabularies that match the specified criteria. If no
  *             criteria are specified, all custom vocabularies are returned.</p>
  *          <p>To get detailed information about a specific custom vocabulary, use the  operation.</p>
@@ -83,6 +82,7 @@ export interface ListVocabulariesCommandOutput extends ListVocabulariesResponse,
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * @public
  */
 export class ListVocabulariesCommand extends $Command
   .classBuilder<

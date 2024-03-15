@@ -36,7 +36,6 @@ export interface DeleteConfigurationSetTrackingOptionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an association between a configuration set and a custom domain for open and
  *             click event tracking.</p>
  *          <p>By default, images and links used for tracking open and click events are hosted on
@@ -77,6 +76,7 @@ export interface DeleteConfigurationSetTrackingOptionsCommandOutput
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  */
 export class DeleteConfigurationSetTrackingOptionsCommand extends $Command
   .classBuilder<

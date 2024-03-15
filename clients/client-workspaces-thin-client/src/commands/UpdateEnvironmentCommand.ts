@@ -36,7 +36,6 @@ export interface UpdateEnvironmentCommandInput extends UpdateEnvironmentRequest 
 export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -125,6 +124,7 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentRespons
  * @throws {@link WorkSpacesThinClientServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesThinClient service.</p>
  *
+ * @public
  */
 export class UpdateEnvironmentCommand extends $Command
   .classBuilder<

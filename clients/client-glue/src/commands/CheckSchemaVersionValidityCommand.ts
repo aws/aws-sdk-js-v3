@@ -27,7 +27,6 @@ export interface CheckSchemaVersionValidityCommandInput extends CheckSchemaVersi
 export interface CheckSchemaVersionValidityCommandOutput extends CheckSchemaVersionValidityResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Validates the supplied schema. This call has no side effects, it simply validates using the supplied schema using <code>DataFormat</code> as the format. Since it does not take a schema set name, no compatibility checks are performed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface CheckSchemaVersionValidityCommandOutput extends CheckSchemaVers
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class CheckSchemaVersionValidityCommand extends $Command
   .classBuilder<

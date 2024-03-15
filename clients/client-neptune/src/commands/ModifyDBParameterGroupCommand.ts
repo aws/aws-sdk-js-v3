@@ -27,7 +27,6 @@ export interface ModifyDBParameterGroupCommandInput extends ModifyDBParameterGro
 export interface ModifyDBParameterGroupCommandOutput extends DBParameterGroupNameMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the parameters of a DB parameter group. To modify more than one parameter,
  *       submit a list of the following: <code>ParameterName</code>, <code>ParameterValue</code>, and
  *       <code>ApplyMethod</code>. A maximum of 20 parameters can be modified in a single request.</p>
@@ -97,6 +96,7 @@ export interface ModifyDBParameterGroupCommandOutput extends DBParameterGroupNam
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class ModifyDBParameterGroupCommand extends $Command
   .classBuilder<

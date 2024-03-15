@@ -27,7 +27,6 @@ export interface DeleteMaintenanceWindowCommandInput extends DeleteMaintenanceWi
 export interface DeleteMaintenanceWindowCommandOutput extends DeleteMaintenanceWindowResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a maintenance window.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -58,6 +57,7 @@ export interface DeleteMaintenanceWindowCommandOutput extends DeleteMaintenanceW
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DeleteMaintenanceWindowCommand extends $Command
   .classBuilder<

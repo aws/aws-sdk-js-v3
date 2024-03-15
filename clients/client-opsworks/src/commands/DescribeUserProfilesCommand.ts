@@ -27,7 +27,6 @@ export interface DescribeUserProfilesCommandInput extends DescribeUserProfilesRe
 export interface DescribeUserProfilesCommandOutput extends DescribeUserProfilesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describe specified users.</p>
  *          <p>
  *             <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy
@@ -75,6 +74,7 @@ export interface DescribeUserProfilesCommandOutput extends DescribeUserProfilesR
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class DescribeUserProfilesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeConnectorCommandInput extends DescribeConnectorRequest 
 export interface DescribeConnectorCommandOutput extends DescribeConnectorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the connector that's identified by the <code>ConnectorId.</code>
  *          </p>
  * @example
@@ -101,6 +100,7 @@ export interface DescribeConnectorCommandOutput extends DescribeConnectorRespons
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class DescribeConnectorCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListVolumeInitiatorsCommandInput extends ListVolumeInitiatorsIn
 export interface ListVolumeInitiatorsCommandOutput extends ListVolumeInitiatorsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists iSCSI initiators that are connected to a volume. You can use this operation to
  *          determine whether a volume is being used or not. This operation is only supported in the
  *          cached volume and stored volume gateway types.</p>
@@ -67,6 +66,7 @@ export interface ListVolumeInitiatorsCommandOutput extends ListVolumeInitiatorsO
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  */
 export class ListVolumeInitiatorsCommand extends $Command
   .classBuilder<

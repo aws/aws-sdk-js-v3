@@ -35,7 +35,6 @@ export interface DisassociateResourceSharePermissionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a managed permission from a resource share. Permission changes take effect immediately. You can
  *             remove a managed permission from a resource share only if there are currently no resources of the relevant
  *             resource type currently attached to the resource share.</p>
@@ -95,6 +94,7 @@ export interface DisassociateResourceSharePermissionCommandOutput
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * @public
  */
 export class DisassociateResourceSharePermissionCommand extends $Command
   .classBuilder<

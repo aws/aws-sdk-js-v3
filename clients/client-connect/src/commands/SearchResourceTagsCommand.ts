@@ -27,7 +27,6 @@ export interface SearchResourceTagsCommandInput extends SearchResourceTagsReques
 export interface SearchResourceTagsCommandOutput extends SearchResourceTagsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Searches tags used in an Amazon Connect instance using optional search criteria.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface SearchResourceTagsCommandOutput extends SearchResourceTagsRespo
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class SearchResourceTagsCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface ActivateUserCommandInput extends ActivateUserRequest {}
 export interface ActivateUserCommandOutput extends ActivateUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Activates the specified user. Only active users can access Amazon
  *             WorkDocs.</p>
  * @example
@@ -101,6 +100,7 @@ export interface ActivateUserCommandOutput extends ActivateUserResponse, __Metad
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class ActivateUserCommand extends $Command
   .classBuilder<

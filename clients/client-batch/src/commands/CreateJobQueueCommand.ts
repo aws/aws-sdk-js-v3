@@ -27,7 +27,6 @@ export interface CreateJobQueueCommandInput extends CreateJobQueueRequest {}
 export interface CreateJobQueueCommandOutput extends CreateJobQueueResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Batch job queue. When you create a job queue, you associate one or more
  *       compute environments to the queue and assign an order of preference for the compute
  *       environments.</p>
@@ -90,6 +89,7 @@ export interface CreateJobQueueCommandOutput extends CreateJobQueueResponse, __M
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ * @public
  * @example To create a job queue with a single compute environment
  * ```javascript
  * // This example creates a job queue called LowPriority that uses the M4Spot compute environment.

@@ -597,8 +597,8 @@ export interface FinspaceData {
 }
 
 /**
- * @public
  * <p> The FinSpace APIs let you take actions inside the FinSpace.</p>
+ * @public
  */
 export class FinspaceData extends FinspaceDataClient implements FinspaceData {}
 createAggregatedClient(commands, FinspaceData);

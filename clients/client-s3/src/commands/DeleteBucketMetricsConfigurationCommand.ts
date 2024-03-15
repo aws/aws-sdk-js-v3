@@ -30,7 +30,6 @@ export interface DeleteBucketMetricsConfigurationCommandInput extends DeleteBuck
 export interface DeleteBucketMetricsConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -94,6 +93,7 @@ export interface DeleteBucketMetricsConfigurationCommandOutput extends __Metadat
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  */
 export class DeleteBucketMetricsConfigurationCommand extends $Command
   .classBuilder<

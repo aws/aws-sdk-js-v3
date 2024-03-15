@@ -32,7 +32,6 @@ export interface CreateFieldLevelEncryptionProfileCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a field-level encryption profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -131,6 +130,7 @@ export interface CreateFieldLevelEncryptionProfileCommandOutput
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class CreateFieldLevelEncryptionProfileCommand extends $Command
   .classBuilder<

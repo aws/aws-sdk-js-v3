@@ -27,7 +27,6 @@ export interface DeleteQueueCommandInput extends DeleteQueueRequest {}
 export interface DeleteQueueCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the queue specified by the <code>QueueUrl</code>, regardless of the queue's
  *             contents.</p>
  *          <important>
@@ -103,6 +102,7 @@ export interface DeleteQueueCommandOutput extends __MetadataBearer {}
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ * @public
  */
 export class DeleteQueueCommand extends $Command
   .classBuilder<

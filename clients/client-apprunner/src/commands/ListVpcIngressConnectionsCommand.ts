@@ -27,7 +27,6 @@ export interface ListVpcIngressConnectionsCommandInput extends ListVpcIngressCon
 export interface ListVpcIngressConnectionsCommandOutput extends ListVpcIngressConnectionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Return a list of App Runner VPC Ingress Connections in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface ListVpcIngressConnectionsCommandOutput extends ListVpcIngressCo
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ * @public
  */
 export class ListVpcIngressConnectionsCommand extends $Command
   .classBuilder<

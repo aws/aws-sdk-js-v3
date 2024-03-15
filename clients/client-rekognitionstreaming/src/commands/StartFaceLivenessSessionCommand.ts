@@ -38,7 +38,6 @@ export interface StartFaceLivenessSessionCommandInput extends StartFaceLivenessS
 export interface StartFaceLivenessSessionCommandOutput extends StartFaceLivenessSessionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a Face Liveness video stream and liveness detection process for a given
  *       session.</p>
  *          <p>Requires <code>sessionId</code>, <code>ChallengeVersions</code>, <code>VideoWidth</code>,
@@ -217,6 +216,7 @@ export interface StartFaceLivenessSessionCommandOutput extends StartFaceLiveness
  * @throws {@link RekognitionStreamingServiceException}
  * <p>Base exception class for all service exceptions from RekognitionStreaming service.</p>
  *
+ * @public
  */
 export class StartFaceLivenessSessionCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface DeleteSlackWorkspaceAuthorizationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * Deletes the Slack workspace authorization that allows channels to be configured in that workspace. This requires all configured channels in the workspace to be deleted.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +63,7 @@ export interface DeleteSlackWorkspaceAuthorizationCommandOutput
  * @throws {@link ChatbotServiceException}
  * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
+ * @public
  */
 export class DeleteSlackWorkspaceAuthorizationCommand extends $Command
   .classBuilder<

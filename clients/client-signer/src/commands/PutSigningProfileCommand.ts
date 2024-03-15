@@ -27,7 +27,6 @@ export interface PutSigningProfileCommandInput extends PutSigningProfileRequest 
 export interface PutSigningProfileCommandOutput extends PutSigningProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a signing profile. A signing profile is a code-signing template that can be used to
  * 			carry out a pre-defined signing job.
  * 			</p>
@@ -96,6 +95,7 @@ export interface PutSigningProfileCommandOutput extends PutSigningProfileRespons
  * @throws {@link SignerServiceException}
  * <p>Base exception class for all service exceptions from Signer service.</p>
  *
+ * @public
  */
 export class PutSigningProfileCommand extends $Command
   .classBuilder<

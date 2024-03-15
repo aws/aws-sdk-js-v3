@@ -32,7 +32,6 @@ export interface CreateDataRepositoryAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon FSx for Lustre data repository association (DRA). A data
  *             repository association is a link between a directory on the file system and
  *             an Amazon S3 bucket or prefix. You can have a maximum of 8 data repository
@@ -168,6 +167,7 @@ export interface CreateDataRepositoryAssociationCommandOutput
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  */
 export class CreateDataRepositoryAssociationCommand extends $Command
   .classBuilder<

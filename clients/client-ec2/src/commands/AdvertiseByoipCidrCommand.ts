@@ -27,7 +27,6 @@ export interface AdvertiseByoipCidrCommandInput extends AdvertiseByoipCidrReques
 export interface AdvertiseByoipCidrCommandOutput extends AdvertiseByoipCidrResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Advertises an IPv4 or IPv6 address range that is provisioned for use with your Amazon Web Services resources through
  *          bring your own IP addresses (BYOIP).</p>
  *          <p>You can perform this operation at most once every 10 seconds, even if you specify different
@@ -82,6 +81,7 @@ export interface AdvertiseByoipCidrCommandOutput extends AdvertiseByoipCidrResul
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class AdvertiseByoipCidrCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface CreateCustomDomainAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Used to create a custom domain name for a cluster. Properties include the custom domain name, the
  *             cluster the custom domain is associated with, and the certificate Amazon Resource Name (ARN).</p>
  * @example
@@ -76,6 +75,7 @@ export interface CreateCustomDomainAssociationCommandOutput
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class CreateCustomDomainAssociationCommand extends $Command
   .classBuilder<

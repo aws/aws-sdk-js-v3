@@ -27,7 +27,6 @@ export interface StopFleetActionsCommandInput extends StopFleetActionsInput {}
 export interface StopFleetActionsCommandOutput extends StopFleetActionsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Suspends certain types of activity in a fleet location. Currently, this operation is
  *             used to stop auto-scaling activity. For multi-location fleets, fleet actions are managed
  *             separately for each location. </p>
@@ -103,6 +102,7 @@ export interface StopFleetActionsCommandOutput extends StopFleetActionsOutput, _
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class StopFleetActionsCommand extends $Command
   .classBuilder<

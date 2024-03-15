@@ -27,7 +27,6 @@ export interface DeleteEventStreamCommandInput extends DeleteEventStreamRequest 
 export interface DeleteEventStreamCommandOutput extends DeleteEventStreamResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the event stream for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface DeleteEventStreamCommandOutput extends DeleteEventStreamRespons
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class DeleteEventStreamCommand extends $Command
   .classBuilder<

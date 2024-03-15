@@ -27,7 +27,6 @@ export interface DeleteCachePolicyCommandInput extends DeleteCachePolicyRequest 
 export interface DeleteCachePolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a cache policy.</p>
  *          <p>You cannot delete a cache policy if it's attached to a cache behavior. First update
  * 			your distributions to remove the cache policy from all cache behaviors, then delete the
@@ -80,6 +79,7 @@ export interface DeleteCachePolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class DeleteCachePolicyCommand extends $Command
   .classBuilder<

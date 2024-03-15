@@ -27,7 +27,6 @@ export interface DetectCustomLabelsCommandInput extends DetectCustomLabelsReques
 export interface DetectCustomLabelsCommandOutput extends DetectCustomLabelsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation applies only to Amazon Rekognition Custom Labels.</p>
  *          </note>
@@ -164,6 +163,7 @@ export interface DetectCustomLabelsCommandOutput extends DetectCustomLabelsRespo
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example To detect custom labels in an image with an Amazon Rekognition Custom Labels model
  * ```javascript
  * // Detects custom labels in an image with an Amazon Rekognition Custom Labels model

@@ -27,7 +27,6 @@ export interface ListRegionsCommandInput extends ListRegionsRequest {}
 export interface ListRegionsCommandOutput extends ListRegionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the Regions for a given account and their respective opt-in statuses.
  *             Optionally, this list can be filtered by the <code>region-opt-status-contains</code>
  *             parameter. </p>
@@ -83,6 +82,7 @@ export interface ListRegionsCommandOutput extends ListRegionsResponse, __Metadat
  * @throws {@link AccountServiceException}
  * <p>Base exception class for all service exceptions from Account service.</p>
  *
+ * @public
  */
 export class ListRegionsCommand extends $Command
   .classBuilder<

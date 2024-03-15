@@ -27,7 +27,6 @@ export interface ListJobTemplatesCommandInput extends ListJobTemplatesRequest {}
 export interface ListJobTemplatesCommandOutput extends ListJobTemplatesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of job templates.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListJobTemplates</a> action.</p>
  * @example
@@ -74,6 +73,7 @@ export interface ListJobTemplatesCommandOutput extends ListJobTemplatesResponse,
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListJobTemplatesCommand extends $Command
   .classBuilder<

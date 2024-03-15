@@ -32,7 +32,6 @@ export interface DetectTargetedSentimentCommandInput extends DetectTargetedSenti
 export interface DetectTargetedSentimentCommandOutput extends DetectTargetedSentimentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Inspects the input text and returns a sentiment analysis for each entity identified in the text.</p>
  *          <p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
  * @example
@@ -101,6 +100,7 @@ export interface DetectTargetedSentimentCommandOutput extends DetectTargetedSent
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class DetectTargetedSentimentCommand extends $Command
   .classBuilder<

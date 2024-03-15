@@ -27,7 +27,6 @@ export interface DeleteServicePrincipalNameCommandInput extends DeleteServicePri
 export interface DeleteServicePrincipalNameCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the service principal name (SPN) used by a connector to authenticate with your
  *          Active Directory.</p>
  * @example
@@ -77,6 +76,7 @@ export interface DeleteServicePrincipalNameCommandOutput extends __MetadataBeare
  * @throws {@link PcaConnectorAdServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ * @public
  */
 export class DeleteServicePrincipalNameCommand extends $Command
   .classBuilder<

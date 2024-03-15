@@ -31,7 +31,6 @@ export interface CreateBackupVaultCommandInput extends CreateBackupVaultInput {}
 export interface CreateBackupVaultCommandOutput extends CreateBackupVaultOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a logical container where backups are stored. A <code>CreateBackupVault</code>
  *          request includes a name, optionally one or more resource tags, an encryption key, and a
  *          request ID.</p>
@@ -89,6 +88,7 @@ export interface CreateBackupVaultCommandOutput extends CreateBackupVaultOutput,
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class CreateBackupVaultCommand extends $Command
   .classBuilder<

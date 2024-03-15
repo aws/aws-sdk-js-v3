@@ -27,7 +27,6 @@ export interface StopBackupJobCommandInput extends StopBackupJobInput {}
 export interface StopBackupJobCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Attempts to cancel a job to create a one-time backup of a resource.</p>
  *          <p>This action is not supported for the following services:
  *          Amazon FSx for Windows File Server, Amazon FSx for Lustre, FSx for ONTAP
@@ -74,6 +73,7 @@ export interface StopBackupJobCommandOutput extends __MetadataBearer {}
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class StopBackupJobCommand extends $Command
   .classBuilder<

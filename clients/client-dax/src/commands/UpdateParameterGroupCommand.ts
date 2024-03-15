@@ -27,7 +27,6 @@ export interface UpdateParameterGroupCommandInput extends UpdateParameterGroupRe
 export interface UpdateParameterGroupCommandOutput extends UpdateParameterGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the parameters of a parameter group. You can modify up to 20
  *             parameters in a single request by submitting a list parameter name and value
  *             pairs.</p>
@@ -81,6 +80,7 @@ export interface UpdateParameterGroupCommandOutput extends UpdateParameterGroupR
  * @throws {@link DAXServiceException}
  * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ * @public
  */
 export class UpdateParameterGroupCommand extends $Command
   .classBuilder<

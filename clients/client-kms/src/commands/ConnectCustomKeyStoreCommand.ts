@@ -27,7 +27,6 @@ export interface ConnectCustomKeyStoreCommandInput extends ConnectCustomKeyStore
 export interface ConnectCustomKeyStoreCommandOutput extends ConnectCustomKeyStoreResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Connects or reconnects a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> to its backing key store. For an CloudHSM key
  *       store, <code>ConnectCustomKeyStore</code> connects the key store to its associated CloudHSM
  *       cluster. For an external key store, <code>ConnectCustomKeyStore</code> connects the key store
@@ -226,6 +225,7 @@ export interface ConnectCustomKeyStoreCommandOutput extends ConnectCustomKeyStor
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To connect a custom key store
  * ```javascript
  * // This example connects an AWS KMS custom key store to its backing key store. For an AWS CloudHSM key store, it connects the key store to its AWS CloudHSM cluster. For an external key store, it connects the key store to the external key store proxy that communicates with your external key manager. This operation does not return any data. To verify that the custom key store is connected, use the <code>DescribeCustomKeyStores</code> operation.

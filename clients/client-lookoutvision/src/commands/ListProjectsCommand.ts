@@ -27,7 +27,6 @@ export interface ListProjectsCommandInput extends ListProjectsRequest {}
 export interface ListProjectsCommandOutput extends ListProjectsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the Amazon Lookout for Vision projects in your AWS account that are in the AWS Region in
  *       which you call <code>ListProjects</code>.</p>
  *          <p>The <code>ListProjects</code> operation is eventually consistent.
@@ -88,6 +87,7 @@ export interface ListProjectsCommandOutput extends ListProjectsResponse, __Metad
  * @throws {@link LookoutVisionServiceException}
  * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
+ * @public
  */
 export class ListProjectsCommand extends $Command
   .classBuilder<

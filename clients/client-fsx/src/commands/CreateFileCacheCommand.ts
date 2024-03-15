@@ -27,7 +27,6 @@ export interface CreateFileCacheCommandInput extends CreateFileCacheRequest {}
 export interface CreateFileCacheCommandOutput extends CreateFileCacheResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new Amazon File Cache resource.</p>
  *          <p>You can use this operation with a client request token in the request that
  *             Amazon File Cache uses to ensure idempotent creation.
@@ -186,6 +185,7 @@ export interface CreateFileCacheCommandOutput extends CreateFileCacheResponse, _
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  */
 export class CreateFileCacheCommand extends $Command
   .classBuilder<

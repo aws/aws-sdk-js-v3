@@ -27,7 +27,6 @@ export interface StartSchemaExtensionCommandInput extends StartSchemaExtensionRe
 export interface StartSchemaExtensionCommandOutput extends StartSchemaExtensionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Applies a schema extension to a Microsoft AD directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface StartSchemaExtensionCommandOutput extends StartSchemaExtensionR
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class StartSchemaExtensionCommand extends $Command
   .classBuilder<

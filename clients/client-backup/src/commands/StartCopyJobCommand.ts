@@ -27,7 +27,6 @@ export interface StartCopyJobCommandInput extends StartCopyJobInput {}
 export interface StartCopyJobCommandOutput extends StartCopyJobOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a job to create a one-time copy of the specified resource.</p>
  *          <p>Does not support continuous backups.</p>
  * @example
@@ -88,6 +87,7 @@ export interface StartCopyJobCommandOutput extends StartCopyJobOutput, __Metadat
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class StartCopyJobCommand extends $Command
   .classBuilder<

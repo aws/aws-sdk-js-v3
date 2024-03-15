@@ -28,7 +28,6 @@ export interface GetClusterCredentialsWithIAMCommandInput extends GetClusterCred
 export interface GetClusterCredentialsWithIAMCommandOutput extends ClusterExtendedCredentials, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a database user name and temporary password with temporary authorization to
  *             log in to an Amazon Redshift database.
  *             The database user is mapped 1:1 to the source Identity and Access Management (IAM) identity.
@@ -78,6 +77,7 @@ export interface GetClusterCredentialsWithIAMCommandOutput extends ClusterExtend
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class GetClusterCredentialsWithIAMCommand extends $Command
   .classBuilder<

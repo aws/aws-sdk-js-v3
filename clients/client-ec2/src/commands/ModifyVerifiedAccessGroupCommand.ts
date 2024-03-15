@@ -27,7 +27,6 @@ export interface ModifyVerifiedAccessGroupCommandInput extends ModifyVerifiedAcc
 export interface ModifyVerifiedAccessGroupCommandOutput extends ModifyVerifiedAccessGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the specified Amazon Web Services Verified Access group configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface ModifyVerifiedAccessGroupCommandOutput extends ModifyVerifiedAc
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyVerifiedAccessGroupCommand extends $Command
   .classBuilder<

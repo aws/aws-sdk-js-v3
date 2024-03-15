@@ -4,10 +4,10 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { ResiliencehubServiceException as __BaseException } from "./ResiliencehubServiceException";
 
 /**
- * @public
  * <p>You don't have permissions to perform the requested operation. The user or role that is
  *       making the request must have at least one IAM permissions policy attached that grants the
  *       required permissions.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -58,19 +58,18 @@ export const PhysicalIdentifierType = {
 export type PhysicalIdentifierType = (typeof PhysicalIdentifierType)[keyof typeof PhysicalIdentifierType];
 
 /**
- * @public
  * <p>Defines a physical resource identifier.</p>
+ * @public
  */
 export interface PhysicalResourceId {
   /**
-   * @public
    * <p>Identifier
    *       of the physical resource.</p>
+   * @public
    */
   identifier: string | undefined;
 
   /**
-   * @public
    * <p>Specifies the type of physical resource identifier.</p>
    *          <dl>
    *             <dt>Arn</dt>
@@ -208,60 +207,60 @@ export interface PhysicalResourceId {
    *                </ul>
    *             </dd>
    *          </dl>
+   * @public
    */
   type: PhysicalIdentifierType | undefined;
 
   /**
-   * @public
    * <p>The Amazon Web Services Region that the physical resource is located in.</p>
+   * @public
    */
   awsRegion?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services account that owns the physical resource.</p>
+   * @public
    */
   awsAccountId?: string;
 }
 
 /**
- * @public
  * <p>Defines a resource mapping.</p>
+ * @public
  */
 export interface ResourceMapping {
   /**
-   * @public
    * <p>Name
    *       of the resource that
    *       the
    *       resource is mapped to.</p>
+   * @public
    */
   resourceName?: string;
 
   /**
-   * @public
    * <p>The name of the CloudFormation stack this resource is mapped to.</p>
+   * @public
    */
   logicalStackName?: string;
 
   /**
-   * @public
    * <p>The name of the application this resource is mapped to.</p>
+   * @public
    */
   appRegistryAppName?: string;
 
   /**
-   * @public
    * <p>Name
    *       of the resource group
    *       that
    *       the
    *       resource is mapped to.</p>
+   * @public
    */
   resourceGroupName?: string;
 
   /**
-   * @public
    * <p>Specifies the type of resource mapping.</p>
    *          <dl>
    *             <dt>AppRegistryApp</dt>
@@ -285,28 +284,29 @@ export interface ResourceMapping {
    *             contained in the <code>resourceGroupName</code> property.</p>
    *             </dd>
    *          </dl>
+   * @public
    */
   mappingType: ResourceMappingType | undefined;
 
   /**
-   * @public
    * <p>Identifier
    *       of the physical resource.</p>
+   * @public
    */
   physicalResourceId: PhysicalResourceId | undefined;
 
   /**
-   * @public
    * <p> The short name of the Terraform source. </p>
+   * @public
    */
   terraformSourceName?: string;
 
   /**
-   * @public
    * <p>Name of the Amazon Elastic Kubernetes Service cluster and namespace this resource belongs to.</p>
    *          <note>
    *             <p>This parameter accepts values in "eks-cluster/namespace" format.</p>
    *          </note>
+   * @public
    */
   eksSourceName?: string;
 }
@@ -316,22 +316,22 @@ export interface ResourceMapping {
  */
 export interface AddDraftAppVersionResourceMappingsRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>Mappings used to map logical resources from the template to physical resources. You can
    *       use the mapping type <code>CFN_STACK</code> if the application template uses
    *       a logical stack name. Or you can map individual resources by using the mapping type
    *       <code>RESOURCE</code>. We recommend using the mapping type <code>CFN_STACK</code> if the
    *       application is backed by a CloudFormation stack.</p>
+   * @public
    */
   resourceMappings: ResourceMapping[] | undefined;
 }
@@ -341,49 +341,49 @@ export interface AddDraftAppVersionResourceMappingsRequest {
  */
 export interface AddDraftAppVersionResourceMappingsResponse {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>The version of the application.</p>
+   * @public
    */
   appVersion: string | undefined;
 
   /**
-   * @public
    * <p>List of sources that are used to map a logical resource from the template to a physical
    *       resource. You can use sources such as CloudFormation, Terraform state files,
    *       AppRegistry applications, or Amazon EKS.</p>
+   * @public
    */
   resourceMappings: ResourceMapping[] | undefined;
 }
 
 /**
- * @public
  * <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs
  *       when the previous write did not have time to propagate to the host serving the current
  *       request. A retry (with appropriate backoff logic) is the recommended response to this
  *       exception.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The identifier of the resource that the exception applies to.</p>
+   * @public
    */
   resourceId?: string;
 
   /**
-   * @public
    * <p>The type of the resource that the exception applies to.</p>
+   * @public
    */
   resourceType?: string;
 
@@ -403,9 +403,9 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * @public
  * <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -424,21 +424,21 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>This exception occurs when the specified resource could not be found.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The identifier of the resource that the exception applies to.</p>
+   * @public
    */
   resourceId?: string;
 
   /**
-   * @public
    * <p>The type of the resource that the exception applies to.</p>
+   * @public
    */
   resourceType?: string;
 
@@ -458,15 +458,15 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The number of seconds to wait before retrying the operation.</p>
+   * @public
    */
   retryAfterSeconds?: number;
 
@@ -485,8 +485,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>This exception occurs when a request is not valid.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -521,44 +521,44 @@ export type ExcludeRecommendationReason =
   (typeof ExcludeRecommendationReason)[keyof typeof ExcludeRecommendationReason];
 
 /**
- * @public
  * <p>Defines a recommendation.</p>
+ * @public
  */
 export interface RecommendationItem {
   /**
-   * @public
    * <p>Identifier of the resource.</p>
+   * @public
    */
   resourceId?: string;
 
   /**
-   * @public
    * <p>Identifier
    *       of the target account.</p>
+   * @public
    */
   targetAccountId?: string;
 
   /**
-   * @public
    * <p>The target region.</p>
+   * @public
    */
   targetRegion?: string;
 
   /**
-   * @public
    * <p>Specifies if the recommendation has already been implemented.</p>
+   * @public
    */
   alreadyImplemented?: boolean;
 
   /**
-   * @public
    * <p>Indicates if an operational recommendation item is excluded.</p>
+   * @public
    */
   excluded?: boolean;
 
   /**
-   * @public
    * <p>Indicates the reason for excluding an operational recommendation.</p>
+   * @public
    */
   excludeReason?: ExcludeRecommendationReason;
 }
@@ -597,74 +597,74 @@ export const AlarmType = {
 export type AlarmType = (typeof AlarmType)[keyof typeof AlarmType];
 
 /**
- * @public
  * <p>Defines a recommendation for a CloudWatch alarm.</p>
+ * @public
  */
 export interface AlarmRecommendation {
   /**
-   * @public
    * <p>Identifier
    *       of the alarm recommendation.</p>
+   * @public
    */
   recommendationId: string | undefined;
 
   /**
-   * @public
    * <p>Reference
    *       identifier of the alarm recommendation.</p>
+   * @public
    */
   referenceId: string | undefined;
 
   /**
-   * @public
    * <p>Name of the alarm recommendation.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Description of the alarm recommendation.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>Type of alarm recommendation.</p>
+   * @public
    */
   type: AlarmType | undefined;
 
   /**
-   * @public
    * @deprecated
    *
    * <p>Application Component name for the CloudWatch alarm
    *       recommendation. This
    *       name is saved as the first item in the <code>appComponentNames</code>
    *       list.</p>
+   * @public
    */
   appComponentName?: string;
 
   /**
-   * @public
    * <p>List of CloudWatch alarm recommendations.</p>
+   * @public
    */
   items?: RecommendationItem[];
 
   /**
-   * @public
    * <p>The prerequisite for the alarm recommendation.</p>
+   * @public
    */
   prerequisite?: string;
 
   /**
-   * @public
    * <p>List of Application Component names for the CloudWatch alarm recommendation.</p>
+   * @public
    */
   appComponentNames?: string[];
 
   /**
-   * @public
    * <p>Status of the recommended Amazon CloudWatch alarm.</p>
+   * @public
    */
   recommendationStatus?: RecommendationStatus;
 }
@@ -729,36 +729,36 @@ export const EventType = {
 export type EventType = (typeof EventType)[keyof typeof EventType];
 
 /**
- * @public
  * <p>Indicates an event you would like to subscribe and get notification for. Currently,
  *         Resilience Hub
  *       supports
  *       notifications only for <b>Drift detected</b> and <b>Scheduled assessment failure</b> events.</p>
+ * @public
  */
 export interface EventSubscription {
   /**
-   * @public
    * <p>Unique name to identify an event subscription.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The type of event you would like to subscribe and get notification for. Currently, Resilience Hub
    *       supports
    *       notifications only for <b>Drift detected</b>
    *         (<code>DriftDetected</code>) and <b>Scheduled assessment
    *         failure</b> (<code>ScheduledAssessmentFailure</code>) events.</p>
+   * @public
    */
   eventType: EventType | undefined;
 
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Amazon Simple Notification Service topic. The format for this ARN is: <code>arn:partition:sns:region:account:topic-name</code>.
    *       For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   snsTopicArn?: string;
 }
@@ -778,21 +778,20 @@ export const PermissionModelType = {
 export type PermissionModelType = (typeof PermissionModelType)[keyof typeof PermissionModelType];
 
 /**
- * @public
  * <p>Defines the roles and credentials that Resilience Hub would use while creating the
  *       application, importing its resources, and running an assessment.</p>
+ * @public
  */
 export interface PermissionModel {
   /**
-   * @public
    * <p>Defines how Resilience Hub scans your resources. It can scan for the resources by
    *       using a pre-existing role in your Amazon Web Services account, or by using the credentials of
    *       the current IAM user.</p>
+   * @public
    */
   type: PermissionModelType | undefined;
 
   /**
-   * @public
    * <p>Existing Amazon Web Services
    *       IAM role name in the primary Amazon Web Services account that will be assumed by
    *         Resilience Hub Service Principle to obtain a read-only access to your application
@@ -807,11 +806,11 @@ export interface PermissionModel {
    *                </li>
    *             </ul>
    *          </note>
+   * @public
    */
   invokerRoleName?: string;
 
   /**
-   * @public
    * <p>Defines a list of role Amazon Resource Names (ARNs) to be used in other accounts. These
    *       ARNs are used for querying purposes while importing resources and assessing your
    *       application.</p>
@@ -828,6 +827,7 @@ export interface PermissionModel {
    *                </li>
    *             </ul>
    *          </note>
+   * @public
    */
   crossAccountRoleArns?: string[];
 }
@@ -847,140 +847,140 @@ export const AppStatusType = {
 export type AppStatusType = (typeof AppStatusType)[keyof typeof AppStatusType];
 
 /**
- * @public
  * <p>Defines an Resilience Hub application.</p>
+ * @public
  */
 export interface App {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>Name
    *       for the application.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Optional
    *       description for an
    *       application.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   policyArn?: string;
 
   /**
-   * @public
    * <p>Date
    *       and time when the app was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>Status of the application.</p>
+   * @public
    */
   status?: AppStatusType;
 
   /**
-   * @public
    * <p>Current
    *       status of compliance for the resiliency policy.</p>
+   * @public
    */
   complianceStatus?: AppComplianceStatusType;
 
   /**
-   * @public
    * <p>Date
    *       and time the most recent compliance evaluation.</p>
+   * @public
    */
   lastAppComplianceEvaluationTime?: Date;
 
   /**
-   * @public
    * <p>Current
    *       resiliency score for the application.</p>
+   * @public
    */
   resiliencyScore?: number;
 
   /**
-   * @public
    * <p>Date
    *       and time the most recent resiliency score evaluation.</p>
+   * @public
    */
   lastResiliencyScoreEvaluationTime?: Date;
 
   /**
-   * @public
    * <p>Tags assigned to the resource. A tag is a label that you assign to an Amazon Web Services resource.
    * Each tag consists of a key/value pair.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>Assessment
    *       execution schedule with 'Daily' or 'Disabled' values. </p>
+   * @public
    */
   assessmentSchedule?: AppAssessmentScheduleType;
 
   /**
-   * @public
    * <p>Defines the roles and credentials that Resilience Hub would use while creating the
    *       application, importing its resources, and running an assessment.</p>
+   * @public
    */
   permissionModel?: PermissionModel;
 
   /**
-   * @public
    * <p>The list of events you would like to subscribe and get notification for. Currently,
    *         Resilience Hub supports notifications only for <b>Drift
    *         detected</b> and <b>Scheduled assessment failure</b>
    *       events.</p>
+   * @public
    */
   eventSubscriptions?: EventSubscription[];
 
   /**
-   * @public
    * <p>Indicates if compliance drifts (deviations) were detected while running an assessment for
    *       your application.</p>
+   * @public
    */
   driftStatus?: AppDriftStatusType;
 
   /**
-   * @public
    * <p>Indicates the last time
    *       that
    *       a drift was evaluated.</p>
+   * @public
    */
   lastDriftEvaluationTime?: Date;
 
   /**
-   * @public
    * <p>Recovery Time Objective (RTO) in seconds.</p>
+   * @public
    */
   rtoInSecs?: number;
 
   /**
-   * @public
    * <p>Recovery Point Objective (RPO) in seconds.</p>
+   * @public
    */
   rpoInSecs?: number;
 }
@@ -1032,72 +1032,72 @@ export const ComplianceStatus = {
 export type ComplianceStatus = (typeof ComplianceStatus)[keyof typeof ComplianceStatus];
 
 /**
- * @public
  * <p>Defines the compliance against the resiliency policy for a disruption.</p>
+ * @public
  */
 export interface DisruptionCompliance {
   /**
-   * @public
    * <p>The Recovery Time Objective (RTO) that is achievable, in seconds</p>
+   * @public
    */
   achievableRtoInSecs?: number;
 
   /**
-   * @public
    * <p>The current RTO, in seconds.</p>
+   * @public
    */
   currentRtoInSecs?: number;
 
   /**
-   * @public
    * <p>Reference
    *       identifier of the RTO.</p>
+   * @public
    */
   rtoReferenceId?: string;
 
   /**
-   * @public
    * <p>The RTO description.</p>
+   * @public
    */
   rtoDescription?: string;
 
   /**
-   * @public
    * <p>The current RPO, in seconds.</p>
+   * @public
    */
   currentRpoInSecs?: number;
 
   /**
-   * @public
    * <p>Reference
    *       identifier of
    *       the
    *       RPO
    *       .</p>
+   * @public
    */
   rpoReferenceId?: string;
 
   /**
-   * @public
    * <p>The RPO description.</p>
+   * @public
    */
   rpoDescription?: string;
 
   /**
-   * @public
    * <p>The current status of compliance for the resiliency policy.</p>
+   * @public
    */
   complianceStatus: ComplianceStatus | undefined;
 
   /**
-   * @public
    * <p>The Recovery Point Objective (RPO) that is achievable, in seconds.</p>
+   * @public
    */
   achievableRpoInSecs?: number;
 
   /**
-   * @public
    * <p>The disruption compliance message.</p>
+   * @public
    */
   message?: string;
 }
@@ -1119,25 +1119,25 @@ export const CostFrequency = {
 export type CostFrequency = (typeof CostFrequency)[keyof typeof CostFrequency];
 
 /**
- * @public
  * <p>Defines a cost object.</p>
+ * @public
  */
 export interface Cost {
   /**
-   * @public
    * <p>The cost amount.</p>
+   * @public
    */
   amount: number | undefined;
 
   /**
-   * @public
    * <p>The cost currency, for example <code>USD</code>.</p>
+   * @public
    */
   currency: string | undefined;
 
   /**
-   * @public
    * <p>The cost frequency.</p>
+   * @public
    */
   frequency: CostFrequency | undefined;
 }
@@ -1203,19 +1203,19 @@ export const EstimatedCostTier = {
 export type EstimatedCostTier = (typeof EstimatedCostTier)[keyof typeof EstimatedCostTier];
 
 /**
- * @public
  * <p>Defines a failure policy.</p>
+ * @public
  */
 export interface FailurePolicy {
   /**
-   * @public
    * <p>Recovery Time Objective (RTO) in seconds.</p>
+   * @public
    */
   rtoInSecs: number | undefined;
 
   /**
-   * @public
    * <p>Recovery Point Objective (RPO) in seconds.</p>
+   * @public
    */
   rpoInSecs: number | undefined;
 }
@@ -1239,7 +1239,6 @@ export const ResiliencyPolicyTier = {
 export type ResiliencyPolicyTier = (typeof ResiliencyPolicyTier)[keyof typeof ResiliencyPolicyTier];
 
 /**
- * @public
  * <p>Defines a resiliency policy.</p>
  *          <note>
  *             <p>Resilience Hub allows you to provide a value of zero for <code>rtoInSecs</code> and <code>rpoInSecs</code> of your resiliency policy. But, while assessing
@@ -1247,67 +1246,68 @@ export type ResiliencyPolicyTier = (typeof ResiliencyPolicyTier)[keyof typeof Re
  *         if you provide value zero for <code>rtoInSecs</code> and <code>rpoInSecs</code>, the estimated workload RTO and estimated
  *         workload RPO result will be near zero and the <b>Compliance status</b> for your application will be set to <b>Policy breached</b>.</p>
  *          </note>
+ * @public
  */
 export interface ResiliencyPolicy {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   policyArn?: string;
 
   /**
-   * @public
    * <p>The name of the policy</p>
+   * @public
    */
   policyName?: string;
 
   /**
-   * @public
    * <p>The description for the policy.</p>
+   * @public
    */
   policyDescription?: string;
 
   /**
-   * @public
    * <p>Specifies a high-level geographical location constraint for where your resilience policy
    *       data can be stored.</p>
+   * @public
    */
   dataLocationConstraint?: DataLocationConstraint;
 
   /**
-   * @public
    * <p>The tier for this resiliency policy, ranging from the highest severity
    *         (<code>MissionCritical</code>) to lowest (<code>NonCritical</code>).</p>
+   * @public
    */
   tier?: ResiliencyPolicyTier;
 
   /**
-   * @public
    * <p>Specifies the estimated cost tier of the resiliency policy.</p>
+   * @public
    */
   estimatedCostTier?: EstimatedCostTier;
 
   /**
-   * @public
    * <p>The resiliency policy.</p>
+   * @public
    */
   policy?: Partial<Record<DisruptionType, FailurePolicy>>;
 
   /**
-   * @public
    * <p>Date
    *       and time when the resiliency policy was created.</p>
+   * @public
    */
   creationTime?: Date;
 
   /**
-   * @public
    * <p>Tags assigned to the resource. A tag is a label that you assign to an Amazon Web Services resource.
    * Each tag consists of a key/value pair.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1329,30 +1329,29 @@ export const ResiliencyScoreType = {
 export type ResiliencyScoreType = (typeof ResiliencyScoreType)[keyof typeof ResiliencyScoreType];
 
 /**
- * @public
  * <p>Resiliency score of each scoring component. For more information about scoring component,
  *       see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/calculate-score.html">Calculating resiliency
  *       score</a>.</p>
+ * @public
  */
 export interface ScoringComponentResiliencyScore {
   /**
-   * @public
    * <p>Resiliency score of your application.</p>
+   * @public
    */
   score?: number;
 
   /**
-   * @public
    * <p>Maximum
    *       possible score that can be obtained for the scoring component. If the <code>Possible
    *         score</code> is 20 points, it indicates the maximum possible score you can achieve for your
    *       application when you run a new assessment after implementing all the Resilience Hub
    *       recommendations.</p>
+   * @public
    */
   possibleScore?: number;
 
   /**
-   * @public
    * <p>Number
    *       of issues that must be resolved to obtain the maximum possible score for the scoring
    *       component. For SOPs, alarms, and FIS experiments, these are the number of
@@ -1361,342 +1360,342 @@ export interface ScoringComponentResiliencyScore {
    *          <p>For example, if the <code>Outstanding count</code> for Resilience Hub recommended Amazon CloudWatch
    *       alarms is 5, it indicates that 5 Amazon CloudWatch alarms must be fixed to achieve the
    *       maximum possible score.</p>
+   * @public
    */
   outstandingCount?: number;
 
   /**
-   * @public
    * <p>Number
    *       of recommendations that were excluded from the assessment.</p>
    *          <p>For example, if the <code>Excluded count</code> for Resilience Hub recommended Amazon CloudWatch alarms
    *       is 7, it indicates that 7 Amazon CloudWatch alarms are excluded from the assessment.</p>
+   * @public
    */
   excludedCount?: number;
 }
 
 /**
- * @public
  * <p>The overall resiliency score, returned as an object that includes the disruption score and
  *       outage score.</p>
+ * @public
  */
 export interface ResiliencyScore {
   /**
-   * @public
    * <p>The outage score for a valid key.</p>
+   * @public
    */
   score: number | undefined;
 
   /**
-   * @public
    * <p>The disruption score for a valid key.</p>
+   * @public
    */
   disruptionScore: Partial<Record<DisruptionType, number>> | undefined;
 
   /**
-   * @public
    * <p>The score generated by Resilience Hub for the scoring component after running an assessment.</p>
    *          <p>For example, if the <code>score</code> is 25 points, it indicates the overall score of
    *       your application generated by Resilience Hub after running an assessment.</p>
+   * @public
    */
   componentScore?: Partial<Record<ResiliencyScoreType, ScoringComponentResiliencyScore>>;
 }
 
 /**
- * @public
  * <p> Defines application resource errors. </p>
+ * @public
  */
 export interface ResourceError {
   /**
-   * @public
    * <p>Identifier
    *       of the
    *       logical resource. </p>
+   * @public
    */
   logicalResourceId?: string;
 
   /**
-   * @public
    * <p>Identifier
    *       of the physical resource. </p>
+   * @public
    */
   physicalResourceId?: string;
 
   /**
-   * @public
    * <p> This is the error message. </p>
+   * @public
    */
   reason?: string;
 }
 
 /**
- * @public
  * <p> A list of errors retrieving an application's resources. </p>
+ * @public
  */
 export interface ResourceErrorsDetails {
   /**
-   * @public
    * <p> A list of errors retrieving an application's resources. </p>
+   * @public
    */
   resourceErrors?: ResourceError[];
 
   /**
-   * @public
    * <p> This indicates if there are more errors not listed in the resourceErrors list. </p>
+   * @public
    */
   hasMoreErrors?: boolean;
 }
 
 /**
- * @public
  * <p>Defines an application assessment.</p>
+ * @public
  */
 export interface AppAssessment {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn?: string;
 
   /**
-   * @public
    * <p>Version of an application.</p>
+   * @public
    */
   appVersion?: string;
 
   /**
-   * @public
    * <p>The entity that invoked the assessment.</p>
+   * @public
    */
   invoker: AssessmentInvoker | undefined;
 
   /**
-   * @public
    * <p>Cost for the application.</p>
+   * @public
    */
   cost?: Cost;
 
   /**
-   * @public
    * <p>Current resiliency score for an application.</p>
+   * @public
    */
   resiliencyScore?: ResiliencyScore;
 
   /**
-   * @public
    * <p>Application
    *       compliance against the resiliency policy.</p>
+   * @public
    */
   compliance?: Partial<Record<DisruptionType, DisruptionCompliance>>;
 
   /**
-   * @public
    * <p>Current status of the compliance for the resiliency policy.</p>
+   * @public
    */
   complianceStatus?: ComplianceStatus;
 
   /**
-   * @public
    * <p>Current status of the assessment for the resiliency policy.</p>
+   * @public
    */
   assessmentStatus: AssessmentStatus | undefined;
 
   /**
-   * @public
    * <p>Starting time for the action.</p>
+   * @public
    */
   startTime?: Date;
 
   /**
-   * @public
    * <p>End time for the action.</p>
+   * @public
    */
   endTime?: Date;
 
   /**
-   * @public
    * <p>Error or warning message from the assessment execution</p>
+   * @public
    */
   message?: string;
 
   /**
-   * @public
    * <p>Name of the assessment.</p>
+   * @public
    */
   assessmentName?: string;
 
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   assessmentArn: string | undefined;
 
   /**
-   * @public
    * <p>Resiliency policy of an application.</p>
+   * @public
    */
   policy?: ResiliencyPolicy;
 
   /**
-   * @public
    * <p>Tags assigned to the resource. A tag is a label that you assign to an Amazon Web Services resource.
    * Each tag consists of a key/value pair.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p> A resource error object containing a list of errors retrieving an application's
    *       resources. </p>
+   * @public
    */
   resourceErrorsDetails?: ResourceErrorsDetails;
 
   /**
-   * @public
    * <p>Version name of the published application.</p>
+   * @public
    */
   versionName?: string;
 
   /**
-   * @public
    * <p>Indicates if compliance drifts (deviations) were detected while running an assessment for
    *       your application.</p>
+   * @public
    */
   driftStatus?: DriftStatus;
 }
 
 /**
- * @public
  * <p>Defines an application assessment summary.</p>
+ * @public
  */
 export interface AppAssessmentSummary {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn?: string;
 
   /**
-   * @public
    * <p>Version of an application.</p>
+   * @public
    */
   appVersion?: string;
 
   /**
-   * @public
    * <p>Current status of the assessment for the resiliency policy.</p>
+   * @public
    */
   assessmentStatus: AssessmentStatus | undefined;
 
   /**
-   * @public
    * <p>Entity that invoked the assessment.</p>
+   * @public
    */
   invoker?: AssessmentInvoker;
 
   /**
-   * @public
    * <p>Starting time for the action.</p>
+   * @public
    */
   startTime?: Date;
 
   /**
-   * @public
    * <p>End time for the action.</p>
+   * @public
    */
   endTime?: Date;
 
   /**
-   * @public
    * <p>Message from the assessment run.</p>
+   * @public
    */
   message?: string;
 
   /**
-   * @public
    * <p>Name of the assessment.</p>
+   * @public
    */
   assessmentName?: string;
 
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   assessmentArn: string | undefined;
 
   /**
-   * @public
    * <p>TCurrent status of compliance for the resiliency policy.</p>
+   * @public
    */
   complianceStatus?: ComplianceStatus;
 
   /**
-   * @public
    * <p>Cost for an application.</p>
+   * @public
    */
   cost?: Cost;
 
   /**
-   * @public
    * <p>Current resiliency score for the application.</p>
+   * @public
    */
   resiliencyScore?: number;
 
   /**
-   * @public
    * <p>Name of an application version.</p>
+   * @public
    */
   versionName?: string;
 
   /**
-   * @public
    * <p>Indicates if compliance drifts (deviations) were detected while running an assessment for
    *       your application.</p>
+   * @public
    */
   driftStatus?: DriftStatus;
 }
 
 /**
- * @public
  * <p>Defines an Application Component.</p>
+ * @public
  */
 export interface AppComponent {
   /**
-   * @public
    * <p>Name of the Application Component.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The type of Application Component.</p>
+   * @public
    */
   type: string | undefined;
 
   /**
-   * @public
    * <p>Identifier
    *       of the Application Component.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>Additional configuration parameters for an Resilience Hub application. If you want to implement <code>additionalInfo</code> through the Resilience Hub console rather than using an API call, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/app-config-param.html">Configure the application configuration parameters</a>.</p>
    *          <note>
    *             <p>Currently, this parameter accepts a key-value mapping (in a string format) of only one failover region and one associated account.</p>
@@ -1705,307 +1704,308 @@ export interface AppComponent {
    *             <p>Value: <code>"[\{"region":"&lt;REGION&gt;", "accounts":[\{"id":"&lt;ACCOUNT_ID&gt;"\}]\}]"</code>
    *             </p>
    *          </note>
+   * @public
    */
   additionalInfo?: Record<string, string[]>;
 }
 
 /**
- * @public
  * <p>Defines the compliance of an Application Component against the resiliency policy.</p>
+ * @public
  */
 export interface AppComponentCompliance {
   /**
-   * @public
    * <p>The cost for the application.</p>
+   * @public
    */
   cost?: Cost;
 
   /**
-   * @public
    * <p>Name of the Application Component.</p>
+   * @public
    */
   appComponentName?: string;
 
   /**
-   * @public
    * <p>The compliance of the Application Component against the resiliency policy.</p>
+   * @public
    */
   compliance?: Partial<Record<DisruptionType, DisruptionCompliance>>;
 
   /**
-   * @public
    * <p>The compliance message.</p>
+   * @public
    */
   message?: string;
 
   /**
-   * @public
    * <p>Status of the action.</p>
+   * @public
    */
   status?: ComplianceStatus;
 
   /**
-   * @public
    * <p>The current resiliency score for the application.</p>
+   * @public
    */
   resiliencyScore?: ResiliencyScore;
 }
 
 /**
- * @public
  * <p>The input source of the namespace that is located on your Amazon Elastic Kubernetes Service
  *       cluster.</p>
+ * @public
  */
 export interface EksSourceClusterNamespace {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Amazon Elastic Kubernetes Service cluster. The format for this ARN is:
    * arn:<code>aws</code>:eks:<code>region</code>:<code>account-id</code>:cluster/<code>cluster-name</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   eksClusterArn: string | undefined;
 
   /**
-   * @public
    * <p>Name of the namespace that is located on your Amazon Elastic Kubernetes Service cluster.</p>
+   * @public
    */
   namespace: string | undefined;
 }
 
 /**
- * @public
  * <p> The Terraform s3 state file you need to import. </p>
+ * @public
  */
 export interface TerraformSource {
   /**
-   * @public
    * <p> The URL of the Terraform s3 state file you need to import. </p>
+   * @public
    */
   s3StateFileUrl: string | undefined;
 }
 
 /**
- * @public
  * <p>The list of Resilience Hub application input sources.</p>
+ * @public
  */
 export interface AppInputSource {
   /**
-   * @public
    * <p>The name of the input source.</p>
+   * @public
    */
   sourceName?: string;
 
   /**
-   * @public
    * <p>The resource type of the input source.</p>
+   * @public
    */
   importType: ResourceMappingType | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the input source. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   sourceArn?: string;
 
   /**
-   * @public
    * <p>The name of the Terraform s3 state ﬁle.</p>
+   * @public
    */
   terraformSource?: TerraformSource;
 
   /**
-   * @public
    * <p>The number of resources.</p>
+   * @public
    */
   resourceCount?: number;
 
   /**
-   * @public
    * <p>The namespace on your Amazon Elastic Kubernetes Service cluster.</p>
+   * @public
    */
   eksSourceClusterNamespace?: EksSourceClusterNamespace;
 }
 
 /**
- * @public
  * <p>Defines an application summary.</p>
+ * @public
  */
 export interface AppSummary {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the application.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The optional description for an app.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>Date
    *       and time when the app was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>The current status of compliance for the resiliency policy.</p>
+   * @public
    */
   complianceStatus?: AppComplianceStatusType;
 
   /**
-   * @public
    * <p>The current resiliency score for the application.</p>
+   * @public
    */
   resiliencyScore?: number;
 
   /**
-   * @public
    * <p> Assessment execution schedule with 'Daily' or 'Disabled' values. </p>
+   * @public
    */
   assessmentSchedule?: AppAssessmentScheduleType;
 
   /**
-   * @public
    * <p>Status of the application.</p>
+   * @public
    */
   status?: AppStatusType;
 
   /**
-   * @public
    * <p>Indicates if compliance drifts (deviations) were detected while running an assessment for
    *       your application.</p>
+   * @public
    */
   driftStatus?: AppDriftStatusType;
 
   /**
-   * @public
    * <p>Date
    *       and time of the most recent compliance evaluation.</p>
+   * @public
    */
   lastAppComplianceEvaluationTime?: Date;
 
   /**
-   * @public
    * <p>Recovery Time Objective (RTO) in seconds.</p>
+   * @public
    */
   rtoInSecs?: number;
 
   /**
-   * @public
    * <p>Recovery Point Objective (RPO) in seconds.</p>
+   * @public
    */
   rpoInSecs?: number;
 }
 
 /**
- * @public
  * <p>Version of an application.</p>
+ * @public
  */
 export interface AppVersionSummary {
   /**
-   * @public
    * <p>Version of an application.</p>
+   * @public
    */
   appVersion: string | undefined;
 
   /**
-   * @public
    * <p>Identifier of the application version.</p>
+   * @public
    */
   identifier?: number;
 
   /**
-   * @public
    * <p>Creation time of the application version.</p>
+   * @public
    */
   creationTime?: Date;
 
   /**
-   * @public
    * <p>Name of the application version.</p>
+   * @public
    */
   versionName?: string;
 }
 
 /**
- * @public
  * <p>Defines the operational recommendation item that needs a status update.</p>
+ * @public
  */
 export interface UpdateRecommendationStatusItem {
   /**
-   * @public
    * <p>Resource identifier of the operational recommendation item.</p>
+   * @public
    */
   resourceId?: string;
 
   /**
-   * @public
    * <p>Identifier of the target Amazon Web Services account.</p>
+   * @public
    */
   targetAccountId?: string;
 
   /**
-   * @public
    * <p>Identifier of the target Amazon Web Services Region.</p>
+   * @public
    */
   targetRegion?: string;
 }
 
 /**
- * @public
  * <p>Defines the operational recommendation item that is to be included or excluded.</p>
+ * @public
  */
 export interface UpdateRecommendationStatusRequestEntry {
   /**
-   * @public
    * <p>An identifier for an entry in this batch that is used to communicate the result.</p>
    *          <note>
    *             <p>The <code>entryId</code>s of a batch request need to be unique within a request.</p>
    *          </note>
+   * @public
    */
   entryId: string | undefined;
 
   /**
-   * @public
    * <p>Reference identifier of the operational recommendation item.</p>
+   * @public
    */
   referenceId: string | undefined;
 
   /**
-   * @public
    * <p>The operational recommendation item.</p>
+   * @public
    */
   item: UpdateRecommendationStatusItem | undefined;
 
   /**
-   * @public
    * <p>Indicates if the operational recommendation needs to be excluded. If set to True, the
    *       operational recommendation will be excluded.</p>
+   * @public
    */
   excluded: boolean | undefined;
 
   /**
-   * @public
    * <p>Indicates the reason for excluding an operational recommendation.</p>
+   * @public
    */
   excludeReason?: ExcludeRecommendationReason;
 }
@@ -2015,82 +2015,82 @@ export interface UpdateRecommendationStatusRequestEntry {
  */
 export interface BatchUpdateRecommendationStatusRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>Defines the list of operational recommendations that need to be included or excluded.</p>
+   * @public
    */
   requestEntries: UpdateRecommendationStatusRequestEntry[] | undefined;
 }
 
 /**
- * @public
  * <p>List
  *       of operational recommendations that did not get included or excluded.</p>
+ * @public
  */
 export interface BatchUpdateRecommendationStatusFailedEntry {
   /**
-   * @public
    * <p>An identifier of an entry in this batch that is used to communicate the result.</p>
    *          <note>
    *             <p>The <code>entryId</code>s of a batch request need to be unique within a request.</p>
    *          </note>
+   * @public
    */
   entryId: string | undefined;
 
   /**
-   * @public
    * <p>Indicates the error that occurred while excluding an operational recommendation.</p>
+   * @public
    */
   errorMessage: string | undefined;
 }
 
 /**
- * @public
  * <p>List
  *       of operational recommendations that were successfully included or excluded.</p>
+ * @public
  */
 export interface BatchUpdateRecommendationStatusSuccessfulEntry {
   /**
-   * @public
    * <p>An identifier for an entry in this batch that is used to communicate the result.</p>
    *          <note>
    *             <p>The <code>entryId</code>s of a batch request need to be unique within a request.</p>
    *          </note>
+   * @public
    */
   entryId: string | undefined;
 
   /**
-   * @public
    * <p>Reference identifier of the operational recommendation.</p>
+   * @public
    */
   referenceId: string | undefined;
 
   /**
-   * @public
    * <p>The operational recommendation item.</p>
+   * @public
    */
   item: UpdateRecommendationStatusItem | undefined;
 
   /**
-   * @public
    * <p>Indicates
    *       if
    *       the operational recommendation was successfully excluded.</p>
+   * @public
    */
   excluded: boolean | undefined;
 
   /**
-   * @public
    * <p>Indicates the reason for excluding an operational recommendation.</p>
+   * @public
    */
   excludeReason?: ExcludeRecommendationReason;
 }
@@ -2100,24 +2100,24 @@ export interface BatchUpdateRecommendationStatusSuccessfulEntry {
  */
 export interface BatchUpdateRecommendationStatusResponse {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>A list of items that were included or excluded.</p>
+   * @public
    */
   successfulEntries: BatchUpdateRecommendationStatusSuccessfulEntry[] | undefined;
 
   /**
-   * @public
    * <p>A list of items with error details about each item, which could not be included or excluded.</p>
+   * @public
    */
   failedEntries: BatchUpdateRecommendationStatusFailedEntry[] | undefined;
 }
@@ -2127,59 +2127,59 @@ export interface BatchUpdateRecommendationStatusResponse {
  */
 export interface CreateAppRequest {
   /**
-   * @public
    * <p>Name of the application.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The optional description for an app.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   policyArn?: string;
 
   /**
-   * @public
    * <p>Tags assigned to the resource. A tag is a label that you assign to an Amazon Web Services resource.
    * Each tag consists of a key/value pair.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>Used for an idempotency token. A client token is a unique, case-sensitive string of up to 64 ASCII characters.
    * You should not reuse the same client token for other API requests.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>
    *       Assessment execution schedule with 'Daily' or 'Disabled' values.
    *     </p>
+   * @public
    */
   assessmentSchedule?: AppAssessmentScheduleType;
 
   /**
-   * @public
    * <p>Defines the roles and credentials that Resilience Hub would use while creating the
    *       application, importing its resources, and running an assessment.</p>
+   * @public
    */
   permissionModel?: PermissionModel;
 
   /**
-   * @public
    * <p>The list of events you would like to subscribe and get notification for. Currently, Resilience Hub supports only <b>Drift detected</b> and <b>Scheduled assessment failure</b> events notification.</p>
+   * @public
    */
   eventSubscriptions?: EventSubscription[];
 }
@@ -2189,17 +2189,17 @@ export interface CreateAppRequest {
  */
 export interface CreateAppResponse {
   /**
-   * @public
    * <p>The created application returned as an object with details including compliance status,
    *       creation time, description, resiliency score, and more.</p>
+   * @public
    */
   app: App | undefined;
 }
 
 /**
- * @public
  * <p>This exception occurs when you have exceeded your service quota. To perform the requested action, remove some of the
  *       relevant resources, or use Service Quotas to request a service quota increase.</p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
@@ -2222,43 +2222,43 @@ export class ServiceQuotaExceededException extends __BaseException {
  */
 export interface CreateAppVersionAppComponentRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>Identifier of the Application Component.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>Name of the Application Component.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Type of Application Component. For more information about the types of Application Component, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/AppComponent.grouping.html">Grouping resources in an AppComponent</a>.</p>
+   * @public
    */
   type: string | undefined;
 
   /**
-   * @public
    * <p>Currently, there is no supported additional information for Application Components.</p>
+   * @public
    */
   additionalInfo?: Record<string, string[]>;
 
   /**
-   * @public
    * <p>Used for an idempotency token. A client token is a unique, case-sensitive string of up to 64 ASCII characters.
    * You should not reuse the same client token for other API requests.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -2268,64 +2268,64 @@ export interface CreateAppVersionAppComponentRequest {
  */
 export interface CreateAppVersionAppComponentResponse {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>Resilience Hub application version.</p>
+   * @public
    */
   appVersion: string | undefined;
 
   /**
-   * @public
    * <p>List of Application Components that belong to this resource.</p>
+   * @public
    */
   appComponent?: AppComponent;
 }
 
 /**
- * @public
  * <p>Defines a logical resource identifier.</p>
+ * @public
  */
 export interface LogicalResourceId {
   /**
-   * @public
    * <p>Identifier
    *       of the resource.</p>
+   * @public
    */
   identifier: string | undefined;
 
   /**
-   * @public
    * <p>The name of the CloudFormation stack this resource belongs to.</p>
+   * @public
    */
   logicalStackName?: string;
 
   /**
-   * @public
    * <p>The name of the resource group that this resource belongs to.</p>
+   * @public
    */
   resourceGroupName?: string;
 
   /**
-   * @public
    * <p> The name of the Terraform S3 state file this resource belongs to. </p>
+   * @public
    */
   terraformSourceName?: string;
 
   /**
-   * @public
    * <p>Name of the Amazon Elastic Kubernetes Service cluster and namespace this resource belongs to.</p>
    *          <note>
    *             <p>This parameter accepts values in "eks-cluster/namespace" format.</p>
    *          </note>
+   * @public
    */
   eksSourceName?: string;
 }
@@ -2335,67 +2335,67 @@ export interface LogicalResourceId {
  */
 export interface CreateAppVersionResourceRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>Name of the resource.</p>
+   * @public
    */
   resourceName?: string;
 
   /**
-   * @public
    * <p>Logical identifier of the resource.</p>
+   * @public
    */
   logicalResourceId: LogicalResourceId | undefined;
 
   /**
-   * @public
    * <p>Physical identifier of the resource.</p>
+   * @public
    */
   physicalResourceId: string | undefined;
 
   /**
-   * @public
    * <p>Amazon Web Services region that owns the physical resource.</p>
+   * @public
    */
   awsRegion?: string;
 
   /**
-   * @public
    * <p>Amazon Web Services account that owns the physical resource.</p>
+   * @public
    */
   awsAccountId?: string;
 
   /**
-   * @public
    * <p>Type of resource.</p>
+   * @public
    */
   resourceType: string | undefined;
 
   /**
-   * @public
    * <p>List of Application Components that this resource belongs to. If an Application Component is not part of the Resilience Hub application, it will be added.</p>
+   * @public
    */
   appComponents: string[] | undefined;
 
   /**
-   * @public
    * <p>Currently, there is no supported additional information for resources.</p>
+   * @public
    */
   additionalInfo?: Record<string, string[]>;
 
   /**
-   * @public
    * <p>Used for an idempotency token. A client token is a unique, case-sensitive string of up to 64 ASCII characters.
    * You should not reuse the same client token for other API requests.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -2415,46 +2415,45 @@ export const ResourceSourceType = {
 export type ResourceSourceType = (typeof ResourceSourceType)[keyof typeof ResourceSourceType];
 
 /**
- * @public
  * <p>Defines a physical resource. A physical resource is a resource that exists in your
  *       account. It can be identified using an Amazon Resource Name (ARN) or an Resilience Hub-native identifier. </p>
+ * @public
  */
 export interface PhysicalResource {
   /**
-   * @public
    * <p>The name of the resource.</p>
+   * @public
    */
   resourceName?: string;
 
   /**
-   * @public
    * <p>Logical
    *       identifier of the resource.</p>
+   * @public
    */
   logicalResourceId: LogicalResourceId | undefined;
 
   /**
-   * @public
    * <p>Identifier
    *       of the physical
    *       resource.</p>
+   * @public
    */
   physicalResourceId: PhysicalResourceId | undefined;
 
   /**
-   * @public
    * <p>The type of resource.</p>
+   * @public
    */
   resourceType: string | undefined;
 
   /**
-   * @public
    * <p>The application components that belong to this resource.</p>
+   * @public
    */
   appComponents?: AppComponent[];
 
   /**
-   * @public
    * <p>Additional configuration parameters for an Resilience Hub application. If you want to implement <code>additionalInfo</code> through the Resilience Hub console rather than using an API call, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/app-config-param.html">Configure the application configuration parameters</a>.</p>
    *          <note>
    *             <p>Currently, this parameter accepts a key-value mapping (in a string format) of only one failover region and one associated account.</p>
@@ -2463,24 +2462,25 @@ export interface PhysicalResource {
    *             <p>Value: <code>"[\{"region":"&lt;REGION&gt;", "accounts":[\{"id":"&lt;ACCOUNT_ID&gt;"\}]\}]"</code>
    *             </p>
    *          </note>
+   * @public
    */
   additionalInfo?: Record<string, string[]>;
 
   /**
-   * @public
    * <p>Indicates if a resource is included or excluded from the assessment.</p>
+   * @public
    */
   excluded?: boolean;
 
   /**
-   * @public
    * <p>Type of input source.</p>
+   * @public
    */
   sourceType?: ResourceSourceType;
 
   /**
-   * @public
    * <p>Name of the parent resource.</p>
+   * @public
    */
   parentResourceName?: string;
 }
@@ -2490,24 +2490,24 @@ export interface PhysicalResource {
  */
 export interface CreateAppVersionResourceResponse {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>Resilience Hub application version.</p>
+   * @public
    */
   appVersion: string | undefined;
 
   /**
-   * @public
    * <p>Defines a physical resource. A physical resource is a resource that exists in your account. It can be identified using an Amazon Resource Name (ARN) or a Resilience Hub-native identifier.</p>
+   * @public
    */
   physicalResource?: PhysicalResource;
 }
@@ -2546,13 +2546,12 @@ export type RenderRecommendationType = (typeof RenderRecommendationType)[keyof t
  */
 export interface CreateRecommendationTemplateRequest {
   /**
-   * @public
    * <p>Identifiers for the recommendations used to create a recommendation template.</p>
+   * @public
    */
   recommendationIds?: string[];
 
   /**
-   * @public
    * <p>The format for the recommendation template.</p>
    *          <dl>
    *             <dt>CfnJson</dt>
@@ -2564,11 +2563,11 @@ export interface CreateRecommendationTemplateRequest {
    *                <p>The template is CloudFormation YAML.</p>
    *             </dd>
    *          </dl>
+   * @public
    */
   format?: TemplateFormat;
 
   /**
-   * @public
    * <p>An array of strings that specify the recommendation template type or types.</p>
    *          <dl>
    *             <dt>Alarm</dt>
@@ -2584,42 +2583,43 @@ export interface CreateRecommendationTemplateRequest {
    *                <p>The template is a <a>TestRecommendation</a> template.</p>
    *             </dd>
    *          </dl>
+   * @public
    */
   recommendationTypes?: RenderRecommendationType[];
 
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   assessmentArn: string | undefined;
 
   /**
-   * @public
    * <p>The name for the recommendation template.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Used for an idempotency token. A client token is a unique, case-sensitive string of up to 64 ASCII characters.
    * You should not reuse the same client token for other API requests.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>Tags assigned to the resource. A tag is a label that you assign to an Amazon Web Services resource.
    * Each tag consists of a key/value pair.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The name of the Amazon S3 bucket that will contain the recommendation template.</p>
+   * @public
    */
   bucketName?: string;
 }
@@ -2642,62 +2642,61 @@ export type RecommendationTemplateStatus =
   (typeof RecommendationTemplateStatus)[keyof typeof RecommendationTemplateStatus];
 
 /**
- * @public
  * <p>The location of the Amazon S3 bucket.</p>
+ * @public
  */
 export interface S3Location {
   /**
-   * @public
    * <p>The name of the Amazon S3 bucket.</p>
+   * @public
    */
   bucket?: string;
 
   /**
-   * @public
    * <p>The prefix for the Amazon S3 bucket.</p>
+   * @public
    */
   prefix?: string;
 }
 
 /**
- * @public
  * <p>Defines a recommendation template created with the <a>CreateRecommendationTemplate</a> action.</p>
+ * @public
  */
 export interface RecommendationTemplate {
   /**
-   * @public
    * <p>The file location of the template.</p>
+   * @public
    */
   templatesLocation?: S3Location;
 
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   assessmentArn: string | undefined;
 
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn?: string;
 
   /**
-   * @public
    * <p>Identifiers for the recommendations used in the recommendation template.</p>
+   * @public
    */
   recommendationIds?: string[];
 
   /**
-   * @public
    * <p>An array of strings that specify the recommendation template type or types.</p>
    *          <dl>
    *             <dt>Alarm</dt>
@@ -2713,11 +2712,11 @@ export interface RecommendationTemplate {
    *                <p>The template is a <a>TestRecommendation</a> template.</p>
    *             </dd>
    *          </dl>
+   * @public
    */
   recommendationTypes: RenderRecommendationType[] | undefined;
 
   /**
-   * @public
    * <p>Format of the recommendation template.</p>
    *          <dl>
    *             <dt>CfnJson</dt>
@@ -2729,55 +2728,56 @@ export interface RecommendationTemplate {
    *                <p>The template is CloudFormation YAML.</p>
    *             </dd>
    *          </dl>
+   * @public
    */
   format: TemplateFormat | undefined;
 
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) for the recommendation template.</p>
+   * @public
    */
   recommendationTemplateArn: string | undefined;
 
   /**
-   * @public
    * <p>Message for the recommendation template.</p>
+   * @public
    */
   message?: string;
 
   /**
-   * @public
    * <p>Status of the action.</p>
+   * @public
    */
   status: RecommendationTemplateStatus | undefined;
 
   /**
-   * @public
    * <p>Name for the recommendation template.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The start time for the action.</p>
+   * @public
    */
   startTime?: Date;
 
   /**
-   * @public
    * <p>The end time for the action.</p>
+   * @public
    */
   endTime?: Date;
 
   /**
-   * @public
    * <p>Tags assigned to the resource. A tag is a label that you assign to an Amazon Web Services resource.
    * Each tag consists of a key/value pair.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>Indicates if replacements are needed.</p>
+   * @public
    */
   needsReplacements?: boolean;
 }
@@ -2787,9 +2787,9 @@ export interface RecommendationTemplate {
  */
 export interface CreateRecommendationTemplateResponse {
   /**
-   * @public
    * <p>The newly created recommendation template, returned as an object. This object includes the
    *       template's name, format, status, tags, Amazon S3 bucket location, and more.</p>
+   * @public
    */
   recommendationTemplate?: RecommendationTemplate;
 }
@@ -2799,49 +2799,49 @@ export interface CreateRecommendationTemplateResponse {
  */
 export interface CreateResiliencyPolicyRequest {
   /**
-   * @public
    * <p>The name of the policy</p>
+   * @public
    */
   policyName: string | undefined;
 
   /**
-   * @public
    * <p>The description for the policy.</p>
+   * @public
    */
   policyDescription?: string;
 
   /**
-   * @public
    * <p>Specifies a high-level geographical location constraint for where your resilience policy
    *       data can be stored.</p>
+   * @public
    */
   dataLocationConstraint?: DataLocationConstraint;
 
   /**
-   * @public
    * <p>The tier for this resiliency policy, ranging from the highest severity
    *         (<code>MissionCritical</code>) to lowest (<code>NonCritical</code>).</p>
+   * @public
    */
   tier: ResiliencyPolicyTier | undefined;
 
   /**
-   * @public
    * <p>The type of resiliency policy to be created, including the recovery time objective (RTO)
    *       and recovery point objective (RPO) in seconds.</p>
+   * @public
    */
   policy: Partial<Record<DisruptionType, FailurePolicy>> | undefined;
 
   /**
-   * @public
    * <p>Used for an idempotency token. A client token is a unique, case-sensitive string of up to 64 ASCII characters.
    * You should not reuse the same client token for other API requests.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>Tags assigned to the resource. A tag is a label that you assign to an Amazon Web Services resource.
    * Each tag consists of a key/value pair.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -2851,9 +2851,9 @@ export interface CreateResiliencyPolicyRequest {
  */
 export interface CreateResiliencyPolicyResponse {
   /**
-   * @public
    * <p>The type of resiliency policy that was created, including the recovery time objective
    *       (RTO) and recovery point objective (RPO) in seconds.</p>
+   * @public
    */
   policy: ResiliencyPolicy | undefined;
 }
@@ -2863,25 +2863,25 @@ export interface CreateResiliencyPolicyResponse {
  */
 export interface DeleteAppRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>A boolean option to force the deletion of an Resilience Hub application. </p>
+   * @public
    */
   forceDelete?: boolean;
 
   /**
-   * @public
    * <p>Used for an idempotency token. A client token is a unique, case-sensitive string of up to 64 ASCII characters.
    * You should not reuse the same client token for other API requests.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -2891,12 +2891,12 @@ export interface DeleteAppRequest {
  */
 export interface DeleteAppResponse {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 }
@@ -2906,19 +2906,19 @@ export interface DeleteAppResponse {
  */
 export interface DeleteAppAssessmentRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   assessmentArn: string | undefined;
 
   /**
-   * @public
    * <p>Used for an idempotency token. A client token is a unique, case-sensitive string of up to 64 ASCII characters.
    * You should not reuse the same client token for other API requests.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -2928,18 +2928,18 @@ export interface DeleteAppAssessmentRequest {
  */
 export interface DeleteAppAssessmentResponse {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   assessmentArn: string | undefined;
 
   /**
-   * @public
    * <p>The current status of the assessment for the resiliency policy.</p>
+   * @public
    */
   assessmentStatus: AssessmentStatus | undefined;
 }
@@ -2949,41 +2949,41 @@ export interface DeleteAppAssessmentResponse {
  */
 export interface DeleteAppInputSourceRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the imported resource you want to remove from the
    *       Resilience Hub application. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   sourceArn?: string;
 
   /**
-   * @public
    * <p>The imported Terraform s3 state ﬁle you want to remove from the Resilience Hub application.</p>
+   * @public
    */
   terraformSource?: TerraformSource;
 
   /**
-   * @public
    * <p>Used for an idempotency token. A client token is a unique, case-sensitive string of up to 64 ASCII characters.
    * You should not reuse the same client token for other API requests.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>The namespace on your Amazon Elastic Kubernetes Service cluster that you want to delete from the Resilience Hub application.</p>
+   * @public
    */
   eksSourceClusterNamespace?: EksSourceClusterNamespace;
 }
@@ -2993,18 +2993,18 @@ export interface DeleteAppInputSourceRequest {
  */
 export interface DeleteAppInputSourceResponse {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn?: string;
 
   /**
-   * @public
    * <p>Name of the input source from where the application resource is imported from.</p>
+   * @public
    */
   appInputSource?: AppInputSource;
 }
@@ -3014,25 +3014,25 @@ export interface DeleteAppInputSourceResponse {
  */
 export interface DeleteAppVersionAppComponentRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>Identifier of the Application Component.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>Used for an idempotency token. A client token is a unique, case-sensitive string of up to 64 ASCII characters.
    * You should not reuse the same client token for other API requests.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -3042,24 +3042,24 @@ export interface DeleteAppVersionAppComponentRequest {
  */
 export interface DeleteAppVersionAppComponentResponse {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>Resilience Hub application version.</p>
+   * @public
    */
   appVersion: string | undefined;
 
   /**
-   * @public
    * <p>List of Application Components that belong to this resource.</p>
+   * @public
    */
   appComponent?: AppComponent;
 }
@@ -3069,49 +3069,49 @@ export interface DeleteAppVersionAppComponentResponse {
  */
 export interface DeleteAppVersionResourceRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>Name of the resource.</p>
+   * @public
    */
   resourceName?: string;
 
   /**
-   * @public
    * <p>Logical identifier of the resource.</p>
+   * @public
    */
   logicalResourceId?: LogicalResourceId;
 
   /**
-   * @public
    * <p>Physical identifier of the resource.</p>
+   * @public
    */
   physicalResourceId?: string;
 
   /**
-   * @public
    * <p>Amazon Web Services region that owns the physical resource.</p>
+   * @public
    */
   awsRegion?: string;
 
   /**
-   * @public
    * <p>Amazon Web Services account that owns the physical resource.</p>
+   * @public
    */
   awsAccountId?: string;
 
   /**
-   * @public
    * <p>Used for an idempotency token. A client token is a unique, case-sensitive string of up to 64 ASCII characters.
    * You should not reuse the same client token for other API requests.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -3121,24 +3121,24 @@ export interface DeleteAppVersionResourceRequest {
  */
 export interface DeleteAppVersionResourceResponse {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>Resilience Hub application version.</p>
+   * @public
    */
   appVersion: string | undefined;
 
   /**
-   * @public
    * <p>Defines a physical resource. A physical resource is a resource that exists in your account. It can be identified using an Amazon Resource Name (ARN) or a Resilience Hub-native identifier.</p>
+   * @public
    */
   physicalResource?: PhysicalResource;
 }
@@ -3148,15 +3148,15 @@ export interface DeleteAppVersionResourceResponse {
  */
 export interface DeleteRecommendationTemplateRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) for a recommendation template.</p>
+   * @public
    */
   recommendationTemplateArn: string | undefined;
 
   /**
-   * @public
    * <p>Used for an idempotency token. A client token is a unique, case-sensitive string of up to 64 ASCII characters.
    * You should not reuse the same client token for other API requests.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -3166,14 +3166,14 @@ export interface DeleteRecommendationTemplateRequest {
  */
 export interface DeleteRecommendationTemplateResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) for a recommendation template.</p>
+   * @public
    */
   recommendationTemplateArn: string | undefined;
 
   /**
-   * @public
    * <p>Status of the action.</p>
+   * @public
    */
   status: RecommendationTemplateStatus | undefined;
 }
@@ -3183,19 +3183,19 @@ export interface DeleteRecommendationTemplateResponse {
  */
 export interface DeleteResiliencyPolicyRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   policyArn: string | undefined;
 
   /**
-   * @public
    * <p>Used for an idempotency token. A client token is a unique, case-sensitive string of up to 64 ASCII characters.
    * You should not reuse the same client token for other API requests.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -3205,12 +3205,12 @@ export interface DeleteResiliencyPolicyRequest {
  */
 export interface DeleteResiliencyPolicyResponse {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   policyArn: string | undefined;
 }
@@ -3220,12 +3220,12 @@ export interface DeleteResiliencyPolicyResponse {
  */
 export interface DescribeAppRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 }
@@ -3235,9 +3235,9 @@ export interface DescribeAppRequest {
  */
 export interface DescribeAppResponse {
   /**
-   * @public
    * <p>The specified application, returned as an object with details including compliance status,
    *       creation time, description, resiliency score, and more.</p>
+   * @public
    */
   app: App | undefined;
 }
@@ -3247,12 +3247,12 @@ export interface DescribeAppResponse {
  */
 export interface DescribeAppAssessmentRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   assessmentArn: string | undefined;
 }
@@ -3262,10 +3262,10 @@ export interface DescribeAppAssessmentRequest {
  */
 export interface DescribeAppAssessmentResponse {
   /**
-   * @public
    * <p>The assessment for an Resilience Hub application, returned as an object. This object
    *       includes Amazon Resource Names (ARNs), compliance information, compliance status, cost,
    *       messages, resiliency scores, and more.</p>
+   * @public
    */
   assessment: AppAssessment | undefined;
 }
@@ -3275,18 +3275,18 @@ export interface DescribeAppAssessmentResponse {
  */
 export interface DescribeAppVersionRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>Resilience Hub application version.</p>
+   * @public
    */
   appVersion: string | undefined;
 }
@@ -3296,27 +3296,27 @@ export interface DescribeAppVersionRequest {
  */
 export interface DescribeAppVersionResponse {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>Resilience Hub application version.</p>
+   * @public
    */
   appVersion: string | undefined;
 
   /**
-   * @public
    * <p>Additional configuration parameters for an Resilience Hub application. If you want to implement <code>additionalInfo</code> through the Resilience Hub console rather than using an API call, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/app-config-param.html">Configure the application configuration parameters</a>.</p>
    *          <note>
    *             <p>Currently, this parameter supports only failover region and account.</p>
    *          </note>
+   * @public
    */
   additionalInfo?: Record<string, string[]>;
 }
@@ -3326,24 +3326,24 @@ export interface DescribeAppVersionResponse {
  */
 export interface DescribeAppVersionAppComponentRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>Resilience Hub application version.</p>
+   * @public
    */
   appVersion: string | undefined;
 
   /**
-   * @public
    * <p>Identifier of the Application Component.</p>
+   * @public
    */
   id: string | undefined;
 }
@@ -3353,24 +3353,24 @@ export interface DescribeAppVersionAppComponentRequest {
  */
 export interface DescribeAppVersionAppComponentResponse {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>Resilience Hub application version.</p>
+   * @public
    */
   appVersion: string | undefined;
 
   /**
-   * @public
    * <p>List of Application Components that belong to this resource.</p>
+   * @public
    */
   appComponent?: AppComponent;
 }
@@ -3380,48 +3380,48 @@ export interface DescribeAppVersionAppComponentResponse {
  */
 export interface DescribeAppVersionResourceRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>Resilience Hub application version.</p>
+   * @public
    */
   appVersion: string | undefined;
 
   /**
-   * @public
    * <p>Name of the resource.</p>
+   * @public
    */
   resourceName?: string;
 
   /**
-   * @public
    * <p>Logical identifier of the resource.</p>
+   * @public
    */
   logicalResourceId?: LogicalResourceId;
 
   /**
-   * @public
    * <p>Physical identifier of the resource.</p>
+   * @public
    */
   physicalResourceId?: string;
 
   /**
-   * @public
    * <p>Amazon Web Services region that owns the physical resource.</p>
+   * @public
    */
   awsRegion?: string;
 
   /**
-   * @public
    * <p>Amazon Web Services account that owns the physical resource.</p>
+   * @public
    */
   awsAccountId?: string;
 }
@@ -3431,24 +3431,24 @@ export interface DescribeAppVersionResourceRequest {
  */
 export interface DescribeAppVersionResourceResponse {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>Resilience Hub application version.</p>
+   * @public
    */
   appVersion: string | undefined;
 
   /**
-   * @public
    * <p>Defines a physical resource. A physical resource is a resource that exists in your account. It can be identified using an Amazon Resource Name (ARN) or a Resilience Hub-native identifier.</p>
+   * @public
    */
   physicalResource?: PhysicalResource;
 }
@@ -3458,24 +3458,24 @@ export interface DescribeAppVersionResourceResponse {
  */
 export interface DescribeAppVersionResourcesResolutionStatusRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>The version of the application.</p>
+   * @public
    */
   appVersion: string | undefined;
 
   /**
-   * @public
    * <p>The identifier for a specific resolution.</p>
+   * @public
    */
   resolutionId?: string;
 }
@@ -3502,36 +3502,36 @@ export type ResourceResolutionStatusType =
  */
 export interface DescribeAppVersionResourcesResolutionStatusResponse {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>The version of the application.</p>
+   * @public
    */
   appVersion: string | undefined;
 
   /**
-   * @public
    * <p>The identifier for a specific resolution.</p>
+   * @public
    */
   resolutionId: string | undefined;
 
   /**
-   * @public
    * <p>Status of the action.</p>
+   * @public
    */
   status: ResourceResolutionStatusType | undefined;
 
   /**
-   * @public
    * <p>The returned error message for the request.</p>
+   * @public
    */
   errorMessage?: string;
 }
@@ -3541,18 +3541,18 @@ export interface DescribeAppVersionResourcesResolutionStatusResponse {
  */
 export interface DescribeAppVersionTemplateRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>The version of the application.</p>
+   * @public
    */
   appVersion: string | undefined;
 }
@@ -3562,23 +3562,22 @@ export interface DescribeAppVersionTemplateRequest {
  */
 export interface DescribeAppVersionTemplateResponse {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>The version of the application.</p>
+   * @public
    */
   appVersion: string | undefined;
 
   /**
-   * @public
    * <p>A JSON string that provides information about your application structure. To learn more
    *       about the <code>appTemplateBody</code> template, see the sample template provided in the
    *       <i>Examples</i> section.</p>
@@ -3839,6 +3838,7 @@ export interface DescribeAppVersionTemplateResponse {
    *                </note>
    *             </li>
    *          </ul>
+   * @public
    */
   appTemplateBody: string | undefined;
 }
@@ -3848,12 +3848,12 @@ export interface DescribeAppVersionTemplateResponse {
  */
 export interface DescribeDraftAppVersionResourcesImportStatusRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 }
@@ -3879,36 +3879,36 @@ export type ResourceImportStatusType = (typeof ResourceImportStatusType)[keyof t
  */
 export interface DescribeDraftAppVersionResourcesImportStatusResponse {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>The version of the application.</p>
+   * @public
    */
   appVersion: string | undefined;
 
   /**
-   * @public
    * <p>Status of the action.</p>
+   * @public
    */
   status: ResourceImportStatusType | undefined;
 
   /**
-   * @public
    * <p>The time when the status last changed.</p>
+   * @public
    */
   statusChangeTime: Date | undefined;
 
   /**
-   * @public
    * <p>The returned error message for the request.</p>
+   * @public
    */
   errorMessage?: string;
 }
@@ -3918,12 +3918,12 @@ export interface DescribeDraftAppVersionResourcesImportStatusResponse {
  */
 export interface DescribeResiliencyPolicyRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   policyArn: string | undefined;
 }
@@ -3933,32 +3933,32 @@ export interface DescribeResiliencyPolicyRequest {
  */
 export interface DescribeResiliencyPolicyResponse {
   /**
-   * @public
    * <p>Information about the specific resiliency policy, returned as an object. This object
    *       includes creation time, data location constraints, its name, description, tags, the recovery
    *       time objective (RTO) and recovery point objective (RPO) in seconds, and more.</p>
+   * @public
    */
   policy: ResiliencyPolicy | undefined;
 }
 
 /**
- * @public
  * <p>The input source of the Amazon Elastic Kubernetes Service cluster.</p>
+ * @public
  */
 export interface EksSource {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Amazon Elastic Kubernetes Service cluster. The format for this ARN is:
    * arn:<code>aws</code>:eks:<code>region</code>:<code>account-id</code>:cluster/<code>cluster-name</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   eksClusterArn: string | undefined;
 
   /**
-   * @public
    * <p>The list of namespaces located on your Amazon Elastic Kubernetes Service cluster.</p>
+   * @public
    */
   namespaces: string[] | undefined;
 }
@@ -3982,37 +3982,37 @@ export type ResourceImportStrategyType = (typeof ResourceImportStrategyType)[key
  */
 export interface ImportResourcesToDraftAppVersionRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Names (ARNs) for the resources.</p>
+   * @public
    */
   sourceArns?: string[];
 
   /**
-   * @public
    * <p> A list of terraform file s3 URLs you need to import. </p>
+   * @public
    */
   terraformSources?: TerraformSource[];
 
   /**
-   * @public
    * <p>The import strategy you would like to set to import resources into Resilience Hub
    *       application.</p>
+   * @public
    */
   importStrategy?: ResourceImportStrategyType;
 
   /**
-   * @public
    * <p>The input sources of the Amazon Elastic Kubernetes Service resources you need to import.</p>
+   * @public
    */
   eksSources?: EksSource[];
 }
@@ -4022,44 +4022,44 @@ export interface ImportResourcesToDraftAppVersionRequest {
  */
 export interface ImportResourcesToDraftAppVersionResponse {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>The version of the application.</p>
+   * @public
    */
   appVersion: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Names (ARNs) for the resources you have imported.</p>
+   * @public
    */
   sourceArns?: string[];
 
   /**
-   * @public
    * <p>Status of the action.</p>
+   * @public
    */
   status: ResourceImportStatusType | undefined;
 
   /**
-   * @public
    * <p>
    *       A list of terraform file s3 URLs you have imported.
    *     </p>
+   * @public
    */
   terraformSources?: TerraformSource[];
 
   /**
-   * @public
    * <p>The input sources of the Amazon Elastic Kubernetes Service resources you have imported.</p>
+   * @public
    */
   eksSources?: EksSource[];
 }
@@ -4069,25 +4069,25 @@ export interface ImportResourcesToDraftAppVersionResponse {
  */
 export interface ListAlarmRecommendationsRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   assessmentArn: string | undefined;
 
   /**
-   * @public
    * <p>Null, or the token from a previous call to get the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Maximum number of results to include in the response. If more results exist than the specified
    * <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -4097,16 +4097,16 @@ export interface ListAlarmRecommendationsRequest {
  */
 export interface ListAlarmRecommendationsResponse {
   /**
-   * @public
    * <p>The alarm recommendations for an Resilience Hub application, returned as an object. This
    *       object includes Application Component names, descriptions, information about whether a
    *       recommendation has already been implemented or not, prerequisites, and more.</p>
+   * @public
    */
   alarmRecommendations: AlarmRecommendation[] | undefined;
 
   /**
-   * @public
    * <p>Token for the next set of results, or null if there are no more results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -4116,24 +4116,24 @@ export interface ListAlarmRecommendationsResponse {
  */
 export interface ListAppAssessmentComplianceDriftsRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   assessmentArn: string | undefined;
 
   /**
-   * @public
    * <p>Indicates the unique token number of the next application to be checked for compliance and regulatory requirements from the list of applications.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Indicates the maximum number of applications requested.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -4165,74 +4165,73 @@ export const DriftType = {
 export type DriftType = (typeof DriftType)[keyof typeof DriftType];
 
 /**
- * @public
  * <p>Indicates
  *       the compliance drifts (recovery time objective (RTO) and recovery point
  *       objective (RPO)) that
  *       were detected for an assessed entity.</p>
+ * @public
  */
 export interface ComplianceDrift {
   /**
-   * @public
    * <p>Identifier of an entity in which drift was detected. For compliance drift, the entity ID
    *       can be either application ID or the AppComponent ID.</p>
+   * @public
    */
   entityId?: string;
 
   /**
-   * @public
    * <p>The type of entity in which drift was detected. For compliance drifts, Resilience Hub supports <code>AWS::ResilienceHub::AppComponent</code> and
    *         <code>AWS::ResilienceHub::Application</code>.</p>
+   * @public
    */
   entityType?: string;
 
   /**
-   * @public
    * <p>The type of drift detected. Currently, Resilience Hub supports only <b>ApplicationCompliance</b> drift type.</p>
+   * @public
    */
   driftType?: DriftType;
 
   /**
-   * @public
    * <p>Identifier
    *       of your application.</p>
+   * @public
    */
   appId?: string;
 
   /**
-   * @public
    * <p>Published version of your application on which drift was detected.</p>
+   * @public
    */
   appVersion?: string;
 
   /**
-   * @public
    * <p>Assessment identifier of a previous assessment of the same application version. Resilience Hub uses the previous assessment (associated with the reference identifier) to
    *       compare the compliance with the current assessment to identify drifts.</p>
+   * @public
    */
   expectedReferenceId?: string;
 
   /**
-   * @public
    * <p>The expected compliance value of an entity.</p>
+   * @public
    */
   expectedValue?: Partial<Record<DisruptionType, DisruptionCompliance>>;
 
   /**
-   * @public
    * <p>Assessment identifier that is associated with this drift item.</p>
+   * @public
    */
   actualReferenceId?: string;
 
   /**
-   * @public
    * <p>Actual
    *       compliance value of the entity.</p>
+   * @public
    */
   actualValue?: Partial<Record<DisruptionType, DisruptionCompliance>>;
 
   /**
-   * @public
    * <p>Difference
    *       type between actual and expected
    *       recovery
@@ -4243,6 +4242,7 @@ export interface ComplianceDrift {
    *       time
    *       objective
    *       (RTO) values. Currently, Resilience Hub supports only <b>NotEqual</b> difference type.</p>
+   * @public
    */
   diffType?: DifferenceType;
 }
@@ -4252,14 +4252,14 @@ export interface ComplianceDrift {
  */
 export interface ListAppAssessmentComplianceDriftsResponse {
   /**
-   * @public
    * <p>Indicates compliance drifts (recovery time objective (RTO) and recovery point objective (RPO)) detected for an assessed entity.</p>
+   * @public
    */
   complianceDrifts: ComplianceDrift[] | undefined;
 
   /**
-   * @public
    * <p>Token number of the next application to be checked for compliance and regulatory requirements from the list of applications.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -4269,57 +4269,57 @@ export interface ListAppAssessmentComplianceDriftsResponse {
  */
 export interface ListAppAssessmentsRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn?: string;
 
   /**
-   * @public
    * <p>The name for the assessment.</p>
+   * @public
    */
   assessmentName?: string;
 
   /**
-   * @public
    * <p>The current status of the assessment for the resiliency policy.</p>
+   * @public
    */
   assessmentStatus?: AssessmentStatus[];
 
   /**
-   * @public
    * <p>The current status of compliance for the resiliency policy.</p>
+   * @public
    */
   complianceStatus?: ComplianceStatus;
 
   /**
-   * @public
    * <p>Specifies the entity that invoked a specific assessment, either a <code>User</code> or the
    *         <code>System</code>.</p>
+   * @public
    */
   invoker?: AssessmentInvoker;
 
   /**
-   * @public
    * <p>The default is to sort by ascending <b>startTime</b>.
    * To sort by descending <b>startTime</b>, set reverseOrder to <code>true</code>.</p>
+   * @public
    */
   reverseOrder?: boolean;
 
   /**
-   * @public
    * <p>Null, or the token from a previous call to get the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Maximum number of results to include in the response. If more results exist than the specified
    * <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -4329,16 +4329,16 @@ export interface ListAppAssessmentsRequest {
  */
 export interface ListAppAssessmentsResponse {
   /**
-   * @public
    * <p>Token for the next set of results, or null if there are no more results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The summaries for the specified assessments, returned as an object. This object includes
    *       application versions, associated Amazon Resource Numbers (ARNs), cost, messages, resiliency
    *       scores, and more.</p>
+   * @public
    */
   assessmentSummaries: AppAssessmentSummary[] | undefined;
 }
@@ -4348,25 +4348,25 @@ export interface ListAppAssessmentsResponse {
  */
 export interface ListAppComponentCompliancesRequest {
   /**
-   * @public
    * <p>Null, or the token from a previous call to get the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Maximum number of results to include in the response. If more results exist than the specified
    * <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   assessmentArn: string | undefined;
 }
@@ -4376,16 +4376,16 @@ export interface ListAppComponentCompliancesRequest {
  */
 export interface ListAppComponentCompliancesResponse {
   /**
-   * @public
    * <p>The compliances for an Resilience Hub Application Component, returned as an object. This
    *       object contains the names of the Application Components, compliances, costs, resiliency scores, outage scores, and
    *       more.</p>
+   * @public
    */
   componentCompliances: AppComponentCompliance[] | undefined;
 
   /**
-   * @public
    * <p>Token for the next set of results, or null if there are no more results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -4395,25 +4395,25 @@ export interface ListAppComponentCompliancesResponse {
  */
 export interface ListAppComponentRecommendationsRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   assessmentArn: string | undefined;
 
   /**
-   * @public
    * <p>Null, or the token from a previous call to get the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Maximum number of results to include in the response. If more results exist than the specified
    * <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -4455,108 +4455,108 @@ export type ConfigRecommendationOptimizationType =
   (typeof ConfigRecommendationOptimizationType)[keyof typeof ConfigRecommendationOptimizationType];
 
 /**
- * @public
  * <p>Defines a disruption compliance recommendation.</p>
+ * @public
  */
 export interface RecommendationDisruptionCompliance {
   /**
-   * @public
    * <p>The expected compliance status after applying the recommended configuration change.</p>
+   * @public
    */
   expectedComplianceStatus: ComplianceStatus | undefined;
 
   /**
-   * @public
    * <p>The expected RTO after applying the recommended configuration change.</p>
+   * @public
    */
   expectedRtoInSecs?: number;
 
   /**
-   * @public
    * <p>The expected Recovery Time Objective (RTO) description after applying the recommended
    *       configuration change.</p>
+   * @public
    */
   expectedRtoDescription?: string;
 
   /**
-   * @public
    * <p>The expected RPO after applying the recommended configuration change.</p>
+   * @public
    */
   expectedRpoInSecs?: number;
 
   /**
-   * @public
    * <p>The expected Recovery Point Objective (RPO) description after applying the recommended
    *       configuration change.</p>
+   * @public
    */
   expectedRpoDescription?: string;
 }
 
 /**
- * @public
  * <p>Defines a recommendation configuration.</p>
+ * @public
  */
 export interface ConfigRecommendation {
   /**
-   * @public
    * <p>The cost for the application.</p>
+   * @public
    */
   cost?: Cost;
 
   /**
-   * @public
    * <p>Name of the Application Component.</p>
+   * @public
    */
   appComponentName?: string;
 
   /**
-   * @public
    * <p>The current compliance against the resiliency policy before applying the configuration
    *       change.</p>
+   * @public
    */
   compliance?: Partial<Record<DisruptionType, DisruptionCompliance>>;
 
   /**
-   * @public
    * <p>The expected compliance against the resiliency policy after applying the configuration
    *       change.</p>
+   * @public
    */
   recommendationCompliance?: Partial<Record<DisruptionType, RecommendationDisruptionCompliance>>;
 
   /**
-   * @public
    * <p>The type of optimization.</p>
+   * @public
    */
   optimizationType: ConfigRecommendationOptimizationType | undefined;
 
   /**
-   * @public
    * <p>The name of the recommendation configuration.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The optional description for an app.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>List of the suggested configuration changes.</p>
+   * @public
    */
   suggestedChanges?: string[];
 
   /**
-   * @public
    * <p>The architecture type.</p>
+   * @public
    */
   haArchitecture?: HaArchitecture;
 
   /**
-   * @public
    * <p>Reference
    *       identifier for the recommendation configuration.</p>
+   * @public
    */
   referenceId: string | undefined;
 }
@@ -4578,27 +4578,27 @@ export type RecommendationComplianceStatus =
   (typeof RecommendationComplianceStatus)[keyof typeof RecommendationComplianceStatus];
 
 /**
- * @public
  * <p>Defines recommendations for an Resilience Hub Application Component, returned as an
  *       object. This object contains component names, configuration recommendations, and
  *       recommendation statuses.</p>
+ * @public
  */
 export interface ComponentRecommendation {
   /**
-   * @public
    * <p>Name of the Application Component.</p>
+   * @public
    */
   appComponentName: string | undefined;
 
   /**
-   * @public
    * <p>Status of the recommendation.</p>
+   * @public
    */
   recommendationStatus: RecommendationComplianceStatus | undefined;
 
   /**
-   * @public
    * <p>List of recommendations.</p>
+   * @public
    */
   configRecommendations: ConfigRecommendation[] | undefined;
 }
@@ -4608,16 +4608,16 @@ export interface ComponentRecommendation {
  */
 export interface ListAppComponentRecommendationsResponse {
   /**
-   * @public
    * <p>The recommendations for an Resilience Hub Application Component, returned as an object. This
    *       object contains the names of the Application Components, configuration recommendations, and recommendation
    *       statuses.</p>
+   * @public
    */
   componentRecommendations: ComponentRecommendation[] | undefined;
 
   /**
-   * @public
    * <p>Token for the next set of results, or null if there are no more results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -4627,30 +4627,30 @@ export interface ListAppComponentRecommendationsResponse {
  */
 export interface ListAppInputSourcesRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>Resilience Hub application version.</p>
+   * @public
    */
   appVersion: string | undefined;
 
   /**
-   * @public
    * <p>Null, or the token from a previous call to get the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Maximum number of input sources to be displayed per Resilience Hub application.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -4660,14 +4660,14 @@ export interface ListAppInputSourcesRequest {
  */
 export interface ListAppInputSourcesResponse {
   /**
-   * @public
    * <p>The list of Resilience Hub application input sources.</p>
+   * @public
    */
   appInputSources: AppInputSource[] | undefined;
 
   /**
-   * @public
    * <p>Token for the next set of results, or null if there are no more results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -4677,49 +4677,49 @@ export interface ListAppInputSourcesResponse {
  */
 export interface ListAppsRequest {
   /**
-   * @public
    * <p>Null, or the token from a previous call to get the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Maximum number of results to include in the response. If more results exist than the specified
    * <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The name for the one of the listed applications.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn?: string;
 
   /**
-   * @public
    * <p>Indicates the lower limit of the range that is used to filter applications based on their last assessment times.</p>
+   * @public
    */
   fromLastAssessmentTime?: Date;
 
   /**
-   * @public
    * <p>Indicates the upper limit of the range that is used to filter the applications based on their last assessment times.</p>
+   * @public
    */
   toLastAssessmentTime?: Date;
 
   /**
-   * @public
    * <p>The application list is sorted based on the values of <code>lastAppComplianceEvaluationTime</code> field. By default, application list is sorted in ascending order. To sort the appliation list in descending order, set this field to <code>True</code>.</p>
+   * @public
    */
   reverseOrder?: boolean;
 }
@@ -4729,14 +4729,14 @@ export interface ListAppsRequest {
  */
 export interface ListAppsResponse {
   /**
-   * @public
    * <p>Summaries for the Resilience Hub application.</p>
+   * @public
    */
   appSummaries: AppSummary[] | undefined;
 
   /**
-   * @public
    * <p>Token for the next set of results, or null if there are no more results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -4746,30 +4746,30 @@ export interface ListAppsResponse {
  */
 export interface ListAppVersionAppComponentsRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>Version of the Application Component.</p>
+   * @public
    */
   appVersion: string | undefined;
 
   /**
-   * @public
    * <p>Null, or the token from a previous call to get the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Maximum number of Application Components to be displayed per Resilience Hub application version.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -4779,30 +4779,30 @@ export interface ListAppVersionAppComponentsRequest {
  */
 export interface ListAppVersionAppComponentsResponse {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>Resilience Hub application version.</p>
+   * @public
    */
   appVersion: string | undefined;
 
   /**
-   * @public
    * <p>Defines an Application Component.</p>
+   * @public
    */
   appComponents?: AppComponent[];
 
   /**
-   * @public
    * <p>Token for the next set of results, or null if there are no more results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -4812,31 +4812,31 @@ export interface ListAppVersionAppComponentsResponse {
  */
 export interface ListAppVersionResourceMappingsRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>The version of the application.</p>
+   * @public
    */
   appVersion: string | undefined;
 
   /**
-   * @public
    * <p>Null, or the token from a previous call to get the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Maximum number of results to include in the response. If more results exist than the specified
    * <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -4846,18 +4846,18 @@ export interface ListAppVersionResourceMappingsRequest {
  */
 export interface ListAppVersionResourceMappingsResponse {
   /**
-   * @public
    * <p>Mappings used to map logical resources from the template to physical resources. You can
    *       use the mapping type <code>CFN_STACK</code> if the application template uses
    *       a logical stack name. Or you can map individual resources by using the mapping type
    *       <code>RESOURCE</code>. We recommend using the mapping type <code>CFN_STACK</code> if the
    *       application is backed by a CloudFormation stack.</p>
+   * @public
    */
   resourceMappings: ResourceMapping[] | undefined;
 
   /**
-   * @public
    * <p>Token for the next set of results, or null if there are no more results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -4867,37 +4867,37 @@ export interface ListAppVersionResourceMappingsResponse {
  */
 export interface ListAppVersionResourcesRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>The version of the application.</p>
+   * @public
    */
   appVersion: string | undefined;
 
   /**
-   * @public
    * <p>The identifier for a specific resolution.</p>
+   * @public
    */
   resolutionId?: string;
 
   /**
-   * @public
    * <p>Null, or the token from a previous call to get the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Maximum number of results to include in the response. If more results exist than the specified
    * <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -4907,20 +4907,20 @@ export interface ListAppVersionResourcesRequest {
  */
 export interface ListAppVersionResourcesResponse {
   /**
-   * @public
    * <p>The physical resources in the application version.</p>
+   * @public
    */
   physicalResources: PhysicalResource[] | undefined;
 
   /**
-   * @public
    * <p>The ID for a specific resolution.</p>
+   * @public
    */
   resolutionId: string | undefined;
 
   /**
-   * @public
    * <p>Token for the next set of results, or null if there are no more results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -4930,37 +4930,37 @@ export interface ListAppVersionResourcesResponse {
  */
 export interface ListAppVersionsRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>Null, or the token from a previous call to get the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Maximum number of results to include in the response. If more results exist than the specified
    * <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>Lower limit of the time range to filter the application versions.</p>
+   * @public
    */
   startTime?: Date;
 
   /**
-   * @public
    * <p>Upper limit of the time range to filter the application versions.</p>
+   * @public
    */
   endTime?: Date;
 }
@@ -4970,14 +4970,14 @@ export interface ListAppVersionsRequest {
  */
 export interface ListAppVersionsResponse {
   /**
-   * @public
    * <p>The version of the application.</p>
+   * @public
    */
   appVersions: AppVersionSummary[] | undefined;
 
   /**
-   * @public
    * <p>Token for the next set of results, or null if there are no more results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -4987,50 +4987,50 @@ export interface ListAppVersionsResponse {
  */
 export interface ListRecommendationTemplatesRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   assessmentArn: string | undefined;
 
   /**
-   * @public
    * <p>The default is to sort by ascending <b>startTime</b>.
    * To sort by descending <b>startTime</b>, set reverseOrder to <code>true</code>.</p>
+   * @public
    */
   reverseOrder?: boolean;
 
   /**
-   * @public
    * <p>Status of the action.</p>
+   * @public
    */
   status?: RecommendationTemplateStatus[];
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) for a recommendation template.</p>
+   * @public
    */
   recommendationTemplateArn?: string;
 
   /**
-   * @public
    * <p>The name for one of the listed recommendation templates.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Null, or the token from a previous call to get the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Maximum number of results to include in the response. If more results exist than the specified
    * <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -5040,14 +5040,14 @@ export interface ListRecommendationTemplatesRequest {
  */
 export interface ListRecommendationTemplatesResponse {
   /**
-   * @public
    * <p>Token for the next set of results, or null if there are no more results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The recommendation templates for the Resilience Hub applications.</p>
+   * @public
    */
   recommendationTemplates?: RecommendationTemplate[];
 }
@@ -5057,21 +5057,21 @@ export interface ListRecommendationTemplatesResponse {
  */
 export interface ListResiliencyPoliciesRequest {
   /**
-   * @public
    * <p>The name of the policy</p>
+   * @public
    */
   policyName?: string;
 
   /**
-   * @public
    * <p>Null, or the token from a previous call to get the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Maximum number of results to include in the response. If more results exist than the specified
    * <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -5081,14 +5081,14 @@ export interface ListResiliencyPoliciesRequest {
  */
 export interface ListResiliencyPoliciesResponse {
   /**
-   * @public
    * <p>The resiliency policies for the Resilience Hub applications.</p>
+   * @public
    */
   resiliencyPolicies: ResiliencyPolicy[] | undefined;
 
   /**
-   * @public
    * <p>Token for the next set of results, or null if there are no more results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -5098,25 +5098,25 @@ export interface ListResiliencyPoliciesResponse {
  */
 export interface ListSopRecommendationsRequest {
   /**
-   * @public
    * <p>Null, or the token from a previous call to get the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Maximum number of results to include in the response. If more results exist than the specified
    * <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   assessmentArn: string | undefined;
 }
@@ -5135,62 +5135,62 @@ export const SopServiceType = {
 export type SopServiceType = (typeof SopServiceType)[keyof typeof SopServiceType];
 
 /**
- * @public
  * <p>Defines a standard operating procedure (SOP) recommendation.</p>
+ * @public
  */
 export interface SopRecommendation {
   /**
-   * @public
    * <p>The service type.</p>
+   * @public
    */
   serviceType: SopServiceType | undefined;
 
   /**
-   * @public
    * <p>Name of the Application Component.</p>
+   * @public
    */
   appComponentName?: string;
 
   /**
-   * @public
    * <p>Description of the SOP recommendation.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>Identifier for the SOP recommendation.</p>
+   * @public
    */
   recommendationId: string | undefined;
 
   /**
-   * @public
    * <p>Name of the SOP recommendation.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The recommendation items.</p>
+   * @public
    */
   items?: RecommendationItem[];
 
   /**
-   * @public
    * <p>Reference
    *       identifier for the SOP recommendation.</p>
+   * @public
    */
   referenceId: string | undefined;
 
   /**
-   * @public
    * <p>Prerequisite for the SOP recommendation.</p>
+   * @public
    */
   prerequisite?: string;
 
   /**
-   * @public
    * <p>Status of the recommended standard operating procedure.</p>
+   * @public
    */
   recommendationStatus?: RecommendationStatus;
 }
@@ -5200,15 +5200,15 @@ export interface SopRecommendation {
  */
 export interface ListSopRecommendationsResponse {
   /**
-   * @public
    * <p>Token for the next set of results, or null if there are no more results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The standard operating procedure (SOP) recommendations for the Resilience Hub
    *       applications.</p>
+   * @public
    */
   sopRecommendations: SopRecommendation[] | undefined;
 }
@@ -5218,15 +5218,15 @@ export interface ListSopRecommendationsResponse {
  */
 export interface ListSuggestedResiliencyPoliciesRequest {
   /**
-   * @public
    * <p>Null, or the token from a previous call to get the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Maximum number of results to include in the response. If more results exist than the specified
    * <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -5236,14 +5236,14 @@ export interface ListSuggestedResiliencyPoliciesRequest {
  */
 export interface ListSuggestedResiliencyPoliciesResponse {
   /**
-   * @public
    * <p>The suggested resiliency policies for the Resilience Hub applications.</p>
+   * @public
    */
   resiliencyPolicies: ResiliencyPolicy[] | undefined;
 
   /**
-   * @public
    * <p>Token for the next set of results, or null if there are no more results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -5253,9 +5253,9 @@ export interface ListSuggestedResiliencyPoliciesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) for a specific resource in your Resilience Hub
    *       application.</p>
+   * @public
    */
   resourceArn: string | undefined;
 }
@@ -5265,9 +5265,9 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>Tags assigned to the resource. A tag is a label that you assign to an Amazon Web Services resource.
    * Each tag consists of a key/value pair.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -5277,25 +5277,25 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListTestRecommendationsRequest {
   /**
-   * @public
    * <p>Null, or the token from a previous call to get the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Maximum number of results to include in the response. If more results exist than the specified
    * <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   assessmentArn: string | undefined;
 }
@@ -5332,81 +5332,81 @@ export const TestType = {
 export type TestType = (typeof TestType)[keyof typeof TestType];
 
 /**
- * @public
  * <p>Defines a test recommendation.</p>
+ * @public
  */
 export interface TestRecommendation {
   /**
-   * @public
    * <p>Identifier for the test recommendation.</p>
+   * @public
    */
   recommendationId?: string;
 
   /**
-   * @public
    * <p>Reference
    *       identifier for the test recommendation.</p>
+   * @public
    */
   referenceId: string | undefined;
 
   /**
-   * @public
    * <p>Name of the Application Component.</p>
+   * @public
    */
   appComponentName?: string;
 
   /**
-   * @public
    * <p>Name of the test recommendation.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Intent of the test recommendation.</p>
+   * @public
    */
   intent?: string;
 
   /**
-   * @public
    * <p>Level of risk for this test recommendation.</p>
+   * @public
    */
   risk?: TestRisk;
 
   /**
-   * @public
    * <p>Type of test recommendation.</p>
+   * @public
    */
   type?: TestType;
 
   /**
-   * @public
    * <p>Description for the test recommendation.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The test recommendation items.</p>
+   * @public
    */
   items?: RecommendationItem[];
 
   /**
-   * @public
    * <p>Prerequisite of the test recommendation.</p>
+   * @public
    */
   prerequisite?: string;
 
   /**
-   * @public
    * <p> A list of recommended alarms that are used in the test and must be exported before or
    *       with the test. </p>
+   * @public
    */
   dependsOnAlarms?: string[];
 
   /**
-   * @public
    * <p>Status of the recommended test.</p>
+   * @public
    */
   recommendationStatus?: RecommendationStatus;
 }
@@ -5416,14 +5416,14 @@ export interface TestRecommendation {
  */
 export interface ListTestRecommendationsResponse {
   /**
-   * @public
    * <p>Token for the next set of results, or null if there are no more results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The test recommendations for the Resilience Hub application.</p>
+   * @public
    */
   testRecommendations: TestRecommendation[] | undefined;
 }
@@ -5433,70 +5433,70 @@ export interface ListTestRecommendationsResponse {
  */
 export interface ListUnsupportedAppVersionResourcesRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>The version of the application.</p>
+   * @public
    */
   appVersion: string | undefined;
 
   /**
-   * @public
    * <p>The identifier for a specific resolution.</p>
+   * @public
    */
   resolutionId?: string;
 
   /**
-   * @public
    * <p>Null, or the token from a previous call to get the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Maximum number of results to include in the response. If more results exist than the specified
    * <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * @public
    */
   maxResults?: number;
 }
 
 /**
- * @public
  * <p>Defines a resource that is not supported by Resilience Hub.</p>
+ * @public
  */
 export interface UnsupportedResource {
   /**
-   * @public
    * <p>Logical
    *       resource identifier for the unsupported resource.</p>
+   * @public
    */
   logicalResourceId: LogicalResourceId | undefined;
 
   /**
-   * @public
    * <p>Physical
    *       resource identifier for the unsupported resource.</p>
+   * @public
    */
   physicalResourceId: PhysicalResourceId | undefined;
 
   /**
-   * @public
    * <p>The type of resource.</p>
+   * @public
    */
   resourceType: string | undefined;
 
   /**
-   * @public
    * <p>The status of the
    *       unsupported resource.</p>
+   * @public
    */
   unsupportedResourceStatus?: string;
 }
@@ -5506,20 +5506,20 @@ export interface UnsupportedResource {
  */
 export interface ListUnsupportedAppVersionResourcesResponse {
   /**
-   * @public
    * <p>The unsupported resources for the application.</p>
+   * @public
    */
   unsupportedResources: UnsupportedResource[] | undefined;
 
   /**
-   * @public
    * <p>The identifier for a specific resolution.</p>
+   * @public
    */
   resolutionId: string | undefined;
 
   /**
-   * @public
    * <p>Token for the next set of results, or null if there are no more results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -5529,18 +5529,18 @@ export interface ListUnsupportedAppVersionResourcesResponse {
  */
 export interface PublishAppVersionRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>Name of the application version.</p>
+   * @public
    */
   versionName?: string;
 }
@@ -5550,30 +5550,30 @@ export interface PublishAppVersionRequest {
  */
 export interface PublishAppVersionResponse {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>The version of the application.</p>
+   * @public
    */
   appVersion?: string;
 
   /**
-   * @public
    * <p>Identifier of the application version.</p>
+   * @public
    */
   identifier?: number;
 
   /**
-   * @public
    * <p>Name of the application version.</p>
+   * @public
    */
   versionName?: string;
 }
@@ -5583,17 +5583,16 @@ export interface PublishAppVersionResponse {
  */
 export interface PutDraftAppVersionTemplateRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>A JSON string that provides information about your application structure. To learn more
    *       about the <code>appTemplateBody</code> template, see the sample template provided in the
    *         <i>Examples</i> section.</p>
@@ -5854,6 +5853,7 @@ export interface PutDraftAppVersionTemplateRequest {
    *                </note>
    *             </li>
    *          </ul>
+   * @public
    */
   appTemplateBody: string | undefined;
 }
@@ -5863,18 +5863,18 @@ export interface PutDraftAppVersionTemplateRequest {
  */
 export interface PutDraftAppVersionTemplateResponse {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn?: string;
 
   /**
-   * @public
    * <p>The version of the application.</p>
+   * @public
    */
   appVersion?: string;
 }
@@ -5884,51 +5884,51 @@ export interface PutDraftAppVersionTemplateResponse {
  */
 export interface RemoveDraftAppVersionResourceMappingsRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>The names of the resources you want to remove from the resource mappings.</p>
+   * @public
    */
   resourceNames?: string[];
 
   /**
-   * @public
    * <p>The names of the CloudFormation stacks you want to remove from the resource mappings.</p>
+   * @public
    */
   logicalStackNames?: string[];
 
   /**
-   * @public
    * <p>The names of the registered applications you want to remove from the resource mappings.</p>
+   * @public
    */
   appRegistryAppNames?: string[];
 
   /**
-   * @public
    * <p>The names of the resource groups you want to remove from the resource mappings.</p>
+   * @public
    */
   resourceGroupNames?: string[];
 
   /**
-   * @public
    * <p>The names of the Terraform sources you want to remove from the resource mappings.</p>
+   * @public
    */
   terraformSourceNames?: string[];
 
   /**
-   * @public
    * <p>The names of the Amazon Elastic Kubernetes Service clusters and namespaces you want to remove from the resource mappings.</p>
    *          <note>
    *             <p>This parameter accepts values in "eks-cluster/namespace" format.</p>
    *          </note>
+   * @public
    */
   eksSourceNames?: string[];
 }
@@ -5938,18 +5938,18 @@ export interface RemoveDraftAppVersionResourceMappingsRequest {
  */
 export interface RemoveDraftAppVersionResourceMappingsResponse {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn?: string;
 
   /**
-   * @public
    * <p>The version of the application.</p>
+   * @public
    */
   appVersion?: string;
 }
@@ -5959,18 +5959,18 @@ export interface RemoveDraftAppVersionResourceMappingsResponse {
  */
 export interface ResolveAppVersionResourcesRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>The version of the application.</p>
+   * @public
    */
   appVersion: string | undefined;
 }
@@ -5980,30 +5980,30 @@ export interface ResolveAppVersionResourcesRequest {
  */
 export interface ResolveAppVersionResourcesResponse {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>The version of the application.</p>
+   * @public
    */
   appVersion: string | undefined;
 
   /**
-   * @public
    * <p>The identifier for a specific resolution.</p>
+   * @public
    */
   resolutionId: string | undefined;
 
   /**
-   * @public
    * <p>Status of the action.</p>
+   * @public
    */
   status: ResourceResolutionStatusType | undefined;
 }
@@ -6013,38 +6013,38 @@ export interface ResolveAppVersionResourcesResponse {
  */
 export interface StartAppAssessmentRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>The version of the application.</p>
+   * @public
    */
   appVersion: string | undefined;
 
   /**
-   * @public
    * <p>The name for the assessment.</p>
+   * @public
    */
   assessmentName: string | undefined;
 
   /**
-   * @public
    * <p>Used for an idempotency token. A client token is a unique, case-sensitive string of up to 64 ASCII characters.
    * You should not reuse the same client token for other API requests.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>Tags assigned to the resource. A tag is a label that you assign to an Amazon Web Services resource.
    * Each tag consists of a key/value pair.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -6054,8 +6054,8 @@ export interface StartAppAssessmentRequest {
  */
 export interface StartAppAssessmentResponse {
   /**
-   * @public
    * <p>The assessment created.</p>
+   * @public
    */
   assessment: AppAssessment | undefined;
 }
@@ -6065,14 +6065,14 @@ export interface StartAppAssessmentResponse {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the resource. </p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The tags to assign to the resource. Each tag consists of a key/value pair.</p>
+   * @public
    */
   tags: Record<string, string> | undefined;
 }
@@ -6087,14 +6087,14 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the resource. </p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The keys of the tags you want to remove.</p>
+   * @public
    */
   tagKeys: string[] | undefined;
 }
@@ -6109,59 +6109,59 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateAppRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>The optional description for an app.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   policyArn?: string;
 
   /**
-   * @public
    * <p>Specifies if the resiliency policy ARN should be cleared.</p>
+   * @public
    */
   clearResiliencyPolicyArn?: boolean;
 
   /**
-   * @public
    * <p>
    *       Assessment execution schedule with 'Daily' or 'Disabled' values.
    *     </p>
+   * @public
    */
   assessmentSchedule?: AppAssessmentScheduleType;
 
   /**
-   * @public
    * <p>Defines the roles and credentials that Resilience Hub would use while creating
    *       an
    *       application, importing its resources, and running an assessment.</p>
+   * @public
    */
   permissionModel?: PermissionModel;
 
   /**
-   * @public
    * <p>The list of events you would like to subscribe and get notification for.
    *       Currently, Resilience Hub supports notifications only for <b>Drift
    *         detected</b> and <b>Scheduled assessment failure</b>
    *       events.</p>
+   * @public
    */
   eventSubscriptions?: EventSubscription[];
 }
@@ -6171,9 +6171,9 @@ export interface UpdateAppRequest {
  */
 export interface UpdateAppResponse {
   /**
-   * @public
    * <p>The specified application, returned as an object with details including compliance status,
    *       creation time, description, resiliency score, and more.</p>
+   * @public
    */
   app: App | undefined;
 }
@@ -6183,17 +6183,16 @@ export interface UpdateAppResponse {
  */
 export interface UpdateAppVersionRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>Additional configuration parameters for an Resilience Hub application. If you want to implement <code>additionalInfo</code> through the Resilience Hub console rather than using an API call, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/app-config-param.html">Configure the application configuration parameters</a>.</p>
    *          <note>
    *             <p>Currently, this parameter accepts a key-value mapping (in a string format) of only one failover region and one associated account.</p>
@@ -6202,6 +6201,7 @@ export interface UpdateAppVersionRequest {
    *             <p>Value: <code>"[\{"region":"&lt;REGION&gt;", "accounts":[\{"id":"&lt;ACCOUNT_ID&gt;"\}]\}]"</code>
    *             </p>
    *          </note>
+   * @public
    */
   additionalInfo?: Record<string, string[]>;
 }
@@ -6211,27 +6211,27 @@ export interface UpdateAppVersionRequest {
  */
 export interface UpdateAppVersionResponse {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>Resilience Hub application version.</p>
+   * @public
    */
   appVersion: string | undefined;
 
   /**
-   * @public
    * <p>Additional configuration parameters for an Resilience Hub application. If you want to implement <code>additionalInfo</code> through the Resilience Hub console rather than using an API call, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/app-config-param.html">Configure the application configuration parameters</a>.</p>
    *          <note>
    *             <p>Currently, this parameter supports only failover region and account.</p>
    *          </note>
+   * @public
    */
   additionalInfo?: Record<string, string[]>;
 }
@@ -6241,36 +6241,36 @@ export interface UpdateAppVersionResponse {
  */
 export interface UpdateAppVersionAppComponentRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>Identifier of the Application Component.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>Name of the Application Component.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>Type of Application Component. For more information about the types of Application Component, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/AppComponent.grouping.html">Grouping resources in an AppComponent</a>.</p>
+   * @public
    */
   type?: string;
 
   /**
-   * @public
    * <p>Currently, there is no supported additional information for Application Components.</p>
+   * @public
    */
   additionalInfo?: Record<string, string[]>;
 }
@@ -6280,24 +6280,24 @@ export interface UpdateAppVersionAppComponentRequest {
  */
 export interface UpdateAppVersionAppComponentResponse {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>Resilience Hub application version.</p>
+   * @public
    */
   appVersion: string | undefined;
 
   /**
-   * @public
    * <p>List of Application Components that belong to this resource.</p>
+   * @public
    */
   appComponent?: AppComponent;
 }
@@ -6307,69 +6307,69 @@ export interface UpdateAppVersionAppComponentResponse {
  */
 export interface UpdateAppVersionResourceRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>Name of the resource.</p>
+   * @public
    */
   resourceName?: string;
 
   /**
-   * @public
    * <p>Logical identifier of the resource.</p>
+   * @public
    */
   logicalResourceId?: LogicalResourceId;
 
   /**
-   * @public
    * <p>Physical identifier of the resource.</p>
+   * @public
    */
   physicalResourceId?: string;
 
   /**
-   * @public
    * <p>Amazon Web Services region that owns the physical resource.</p>
+   * @public
    */
   awsRegion?: string;
 
   /**
-   * @public
    * <p>Amazon Web Services account that owns the physical resource.</p>
+   * @public
    */
   awsAccountId?: string;
 
   /**
-   * @public
    * <p>Type of resource.</p>
+   * @public
    */
   resourceType?: string;
 
   /**
-   * @public
    * <p>List of Application Components that this resource belongs to. If an Application Component is not part of the Resilience Hub application, it will be added.</p>
+   * @public
    */
   appComponents?: string[];
 
   /**
-   * @public
    * <p>Currently, there is no supported additional information for resources.</p>
+   * @public
    */
   additionalInfo?: Record<string, string[]>;
 
   /**
-   * @public
    * <p>Indicates if a resource is excluded from an Resilience Hub application.</p>
    *          <note>
    *             <p>You can exclude only imported resources from an Resilience Hub application.</p>
    *          </note>
+   * @public
    */
   excluded?: boolean;
 }
@@ -6379,24 +6379,24 @@ export interface UpdateAppVersionResourceRequest {
  */
 export interface UpdateAppVersionResourceResponse {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   appArn: string | undefined;
 
   /**
-   * @public
    * <p>Resilience Hub application version.</p>
+   * @public
    */
   appVersion: string | undefined;
 
   /**
-   * @public
    * <p>Defines a physical resource. A physical resource is a resource that exists in your account. It can be identified using an Amazon Resource Name (ARN) or a Resilience Hub-native identifier.</p>
+   * @public
    */
   physicalResource?: PhysicalResource;
 }
@@ -6406,45 +6406,45 @@ export interface UpdateAppVersionResourceResponse {
  */
 export interface UpdateResiliencyPolicyRequest {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is:
    * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>Amazon Web Services General Reference</i> guide.</p>
+   * @public
    */
   policyArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the policy</p>
+   * @public
    */
   policyName?: string;
 
   /**
-   * @public
    * <p>The description for the policy.</p>
+   * @public
    */
   policyDescription?: string;
 
   /**
-   * @public
    * <p>Specifies a high-level geographical location constraint for where your resilience policy
    *       data can be stored.</p>
+   * @public
    */
   dataLocationConstraint?: DataLocationConstraint;
 
   /**
-   * @public
    * <p>The tier for this resiliency policy, ranging from the highest severity
    *         (<code>MissionCritical</code>) to lowest (<code>NonCritical</code>).</p>
+   * @public
    */
   tier?: ResiliencyPolicyTier;
 
   /**
-   * @public
    * <p>The type of resiliency policy to be created, including the recovery time objective (RTO)
    *       and recovery point objective (RPO) in seconds.</p>
+   * @public
    */
   policy?: Partial<Record<DisruptionType, FailurePolicy>>;
 }
@@ -6454,9 +6454,9 @@ export interface UpdateResiliencyPolicyRequest {
  */
 export interface UpdateResiliencyPolicyResponse {
   /**
-   * @public
    * <p>The type of resiliency policy that was updated, including the recovery time objective
    *       (RTO) and recovery point objective (RPO) in seconds.</p>
+   * @public
    */
   policy: ResiliencyPolicy | undefined;
 }

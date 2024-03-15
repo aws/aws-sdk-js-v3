@@ -27,7 +27,6 @@ export interface UpdateLayoutCommandInput extends UpdateLayoutRequest {}
 export interface UpdateLayoutCommandOutput extends UpdateLayoutResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the attributes of an existing layout.</p>
  *          <p>If the action is successful, the service sends back an HTTP 200 response with an empty
  *       HTTP body.</p>
@@ -121,6 +120,7 @@ export interface UpdateLayoutCommandOutput extends UpdateLayoutResponse, __Metad
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ * @public
  */
 export class UpdateLayoutCommand extends $Command
   .classBuilder<

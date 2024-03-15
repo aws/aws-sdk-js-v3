@@ -27,7 +27,6 @@ export interface CreateScriptCommandInput extends CreateScriptRequest {}
 export interface CreateScriptCommandOutput extends CreateScriptResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Transforms a directed acyclic graph (DAG) into code.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface CreateScriptCommandOutput extends CreateScriptResponse, __Metad
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class CreateScriptCommand extends $Command
   .classBuilder<

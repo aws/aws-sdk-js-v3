@@ -27,7 +27,6 @@ export interface UpdateGeneratedTemplateCommandInput extends UpdateGeneratedTemp
 export interface UpdateGeneratedTemplateCommandOutput extends UpdateGeneratedTemplateOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a generated template. This can be used to change the name, add and remove resources, refresh resources,
  *    and change the <code>DeletionPolicy</code> and <code>UpdateReplacePolicy</code> settings. You can check the status of
  *    the update to the generated template using the <code>DescribeGeneratedTemplate</code> API action.</p>
@@ -86,6 +85,7 @@ export interface UpdateGeneratedTemplateCommandOutput extends UpdateGeneratedTem
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  * @example To update a generated template's name
  * ```javascript
  * // This example updates a generated template with a new name.

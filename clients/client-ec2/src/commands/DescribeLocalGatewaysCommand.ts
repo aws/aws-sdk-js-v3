@@ -27,7 +27,6 @@ export interface DescribeLocalGatewaysCommandInput extends DescribeLocalGateways
 export interface DescribeLocalGatewaysCommandOutput extends DescribeLocalGatewaysResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes one or more local gateways. By default, all local gateways are described.
  *         Alternatively, you can filter the results.</p>
  * @example
@@ -83,6 +82,7 @@ export interface DescribeLocalGatewaysCommandOutput extends DescribeLocalGateway
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeLocalGatewaysCommand extends $Command
   .classBuilder<

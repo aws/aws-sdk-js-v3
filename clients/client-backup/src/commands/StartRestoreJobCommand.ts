@@ -31,7 +31,6 @@ export interface StartRestoreJobCommandInput extends StartRestoreJobInput {}
 export interface StartRestoreJobCommandOutput extends StartRestoreJobOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Recovers the saved resource identified by an Amazon Resource Name (ARN).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface StartRestoreJobCommandOutput extends StartRestoreJobOutput, __M
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class StartRestoreJobCommand extends $Command
   .classBuilder<

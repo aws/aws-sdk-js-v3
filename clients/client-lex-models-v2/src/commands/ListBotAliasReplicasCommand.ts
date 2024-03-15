@@ -27,7 +27,6 @@ export interface ListBotAliasReplicasCommandInput extends ListBotAliasReplicasRe
 export interface ListBotAliasReplicasCommandOutput extends ListBotAliasReplicasResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The action to list the replicated bots created from the source bot alias.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface ListBotAliasReplicasCommandOutput extends ListBotAliasReplicasR
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class ListBotAliasReplicasCommand extends $Command
   .classBuilder<

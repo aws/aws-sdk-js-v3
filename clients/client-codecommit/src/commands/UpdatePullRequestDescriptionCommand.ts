@@ -32,7 +32,6 @@ export interface UpdatePullRequestDescriptionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Replaces the contents of the description of a pull request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -118,6 +117,7 @@ export interface UpdatePullRequestDescriptionCommandOutput
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class UpdatePullRequestDescriptionCommand extends $Command
   .classBuilder<

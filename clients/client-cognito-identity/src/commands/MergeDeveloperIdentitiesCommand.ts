@@ -27,7 +27,6 @@ export interface MergeDeveloperIdentitiesCommandInput extends MergeDeveloperIden
 export interface MergeDeveloperIdentitiesCommandOutput extends MergeDeveloperIdentitiesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Merges two users having different <code>IdentityId</code>s, existing in the same
  *          identity pool, and identified by the same developer provider. You can use this action to
  *          request that discrete users be merged and identified as a single user in the Cognito
@@ -90,6 +89,7 @@ export interface MergeDeveloperIdentitiesCommandOutput extends MergeDeveloperIde
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ * @public
  */
 export class MergeDeveloperIdentitiesCommand extends $Command
   .classBuilder<

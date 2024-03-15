@@ -31,7 +31,6 @@ export interface GetImportCommandInput extends GetImportRequest {}
 export interface GetImportCommandOutput extends GetImportResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about an import job started with the
  *         <code>StartImport</code> operation.</p>
  * @example
@@ -83,6 +82,7 @@ export interface GetImportCommandOutput extends GetImportResponse, __MetadataBea
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * @public
  */
 export class GetImportCommand extends $Command
   .classBuilder<

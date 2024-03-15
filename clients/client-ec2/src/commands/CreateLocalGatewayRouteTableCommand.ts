@@ -29,7 +29,6 @@ export interface CreateLocalGatewayRouteTableCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Creates a local gateway route table.
  *       </p>
@@ -90,6 +89,7 @@ export interface CreateLocalGatewayRouteTableCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateLocalGatewayRouteTableCommand extends $Command
   .classBuilder<

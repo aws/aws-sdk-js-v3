@@ -36,7 +36,6 @@ export interface DeleteInstanceAccessControlAttributeConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables the attributes-based access control (ABAC) feature for the specified IAM Identity Center
  *             instance and deletes all of the attribute mappings that have been configured. Once
  *             deleted, any attributes that are received from an identity source and any custom
@@ -88,6 +87,7 @@ export interface DeleteInstanceAccessControlAttributeConfigurationCommandOutput
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class DeleteInstanceAccessControlAttributeConfigurationCommand extends $Command
   .classBuilder<

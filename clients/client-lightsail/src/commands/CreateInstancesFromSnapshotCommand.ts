@@ -27,7 +27,6 @@ export interface CreateInstancesFromSnapshotCommandInput extends CreateInstances
 export interface CreateInstancesFromSnapshotCommandOutput extends CreateInstancesFromSnapshotResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates one or more new instances from a manual or automatic snapshot of an
  *       instance.</p>
  *          <p>The <code>create instances from snapshot</code> operation supports tag-based access
@@ -144,6 +143,7 @@ export interface CreateInstancesFromSnapshotCommandOutput extends CreateInstance
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class CreateInstancesFromSnapshotCommand extends $Command
   .classBuilder<

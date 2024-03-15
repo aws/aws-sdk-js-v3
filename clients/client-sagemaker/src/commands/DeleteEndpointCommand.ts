@@ -27,7 +27,6 @@ export interface DeleteEndpointCommandInput extends DeleteEndpointInput {}
 export interface DeleteEndpointCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an endpoint. SageMaker frees up all of the resources that were deployed when the
  *             endpoint was created. </p>
  *          <p>SageMaker retires any custom KMS key grants associated with the endpoint, meaning you don't
@@ -63,6 +62,7 @@ export interface DeleteEndpointCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteEndpointCommand extends $Command
   .classBuilder<

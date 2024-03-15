@@ -32,7 +32,6 @@ export interface CreatePhoneNumberOrderCommandInput extends CreatePhoneNumberOrd
 export interface CreatePhoneNumberOrderCommandOutput extends CreatePhoneNumberOrderResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an order for phone numbers to be provisioned. For numbers outside the U.S., you must use the Amazon Chime SDK SIP media application dial-in product type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface CreatePhoneNumberOrderCommandOutput extends CreatePhoneNumberOr
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class CreatePhoneNumberOrderCommand extends $Command
   .classBuilder<

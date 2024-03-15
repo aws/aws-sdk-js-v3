@@ -27,7 +27,6 @@ export interface DeleteInstanceProfileCommandInput extends DeleteInstanceProfile
 export interface DeleteInstanceProfileCommandOutput extends DeleteInstanceProfileResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a profile that can be applied to one or more private device instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface DeleteInstanceProfileCommandOutput extends DeleteInstanceProfil
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  */
 export class DeleteInstanceProfileCommand extends $Command
   .classBuilder<

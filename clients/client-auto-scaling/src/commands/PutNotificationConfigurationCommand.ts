@@ -27,7 +27,6 @@ export interface PutNotificationConfigurationCommandInput extends PutNotificatio
 export interface PutNotificationConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Configures an Auto Scaling group to send notifications when specified events take place.
  *             Subscribers to the specified topic can have messages delivered to an endpoint such as a
  *             web server or an email address.</p>
@@ -78,6 +77,7 @@ export interface PutNotificationConfigurationCommandOutput extends __MetadataBea
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To add an Auto Scaling notification
  * ```javascript
  * // This example adds the specified notification to the specified Auto Scaling group.

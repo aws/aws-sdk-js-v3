@@ -27,7 +27,6 @@ export interface DescribeTrafficSourcesCommandInput extends DescribeTrafficSourc
 export interface DescribeTrafficSourcesCommandOutput extends DescribeTrafficSourcesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the traffic sources for the specified Auto Scaling group.</p>
  *          <p>You can optionally provide a traffic source type. If you provide a traffic source
  *             type, then the results only include that traffic source type.</p>
@@ -77,6 +76,7 @@ export interface DescribeTrafficSourcesCommandOutput extends DescribeTrafficSour
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To describe the target groups for an Auto Scaling group
  * ```javascript
  * // This example describes the target groups attached to the specified Auto Scaling group.

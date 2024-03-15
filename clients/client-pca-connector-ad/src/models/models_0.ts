@@ -18,123 +18,123 @@ export const AccessRight = {
 export type AccessRight = (typeof AccessRight)[keyof typeof AccessRight];
 
 /**
- * @public
  * <p> Allow or deny permissions for an Active Directory group to enroll or autoenroll certificates for a
  *          template.</p>
+ * @public
  */
 export interface AccessRights {
   /**
-   * @public
    * <p>Allow or deny an Active Directory group from enrolling certificates issued against a
    *          template.</p>
+   * @public
    */
   Enroll?: AccessRight;
 
   /**
-   * @public
    * <p>Allow or deny an Active Directory group from autoenrolling certificates issued against a template.
    *          The Active Directory group must be allowed to enroll to allow autoenrollment</p>
+   * @public
    */
   AutoEnroll?: AccessRight;
 }
 
 /**
- * @public
  * <p> An access control entry allows or denies Active Directory groups based on their security
  *          identifiers (SIDs) from enrolling and/or autoenrolling with the template.</p>
+ * @public
  */
 export interface AccessControlEntry {
   /**
-   * @public
    * <p>Name of the Active Directory group. This name does not need to match the group name in Active Directory.</p>
+   * @public
    */
   GroupDisplayName?: string;
 
   /**
-   * @public
    * <p>Security identifier (SID) of the group object from Active Directory. The SID starts with
    *          "S-".</p>
+   * @public
    */
   GroupSecurityIdentifier?: string;
 
   /**
-   * @public
    * <p>Permissions to allow or deny an Active Directory group to enroll or autoenroll certificates issued
    *          against a template.</p>
+   * @public
    */
   AccessRights?: AccessRights;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>.</p>
+   * @public
    */
   TemplateArn?: string;
 
   /**
-   * @public
    * <p>The date and time that the Access Control Entry was created.</p>
+   * @public
    */
   CreatedAt?: Date;
 
   /**
-   * @public
    * <p>The date and time that the Access Control Entry was updated.</p>
+   * @public
    */
   UpdatedAt?: Date;
 }
 
 /**
- * @public
  * <p>Summary of group access control entries that allow or deny Active Directory groups based on their
  *          security identifiers (SIDs) from enrolling and/or autofenrolling with the template.</p>
+ * @public
  */
 export interface AccessControlEntrySummary {
   /**
-   * @public
    * <p>Name of the Active Directory group. This name does not need to match the group name in Active Directory.</p>
+   * @public
    */
   GroupDisplayName?: string;
 
   /**
-   * @public
    * <p>Security identifier (SID) of the group object from Active Directory. The SID starts with
    *          "S-".</p>
+   * @public
    */
   GroupSecurityIdentifier?: string;
 
   /**
-   * @public
    * <p>Allow or deny an Active Directory group from enrolling and autoenrolling certificates issued against
    *          a template.</p>
+   * @public
    */
   AccessRights?: AccessRights;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>. </p>
+   * @public
    */
   TemplateArn?: string;
 
   /**
-   * @public
    * <p>The date and time that the Access Control Entry was created.</p>
+   * @public
    */
   CreatedAt?: Date;
 
   /**
-   * @public
    * <p>The date and time that the Access Control Entry was updated.</p>
+   * @public
    */
   UpdatedAt?: Date;
 }
 
 /**
- * @public
  * <p>You can receive this error if you attempt to create a resource share when you don't have
  *          the required permissions. This can be caused by insufficient permissions in policies
  *          attached to your Amazon Web Services Identity and Access Management (IAM) principal. It can also happen
  *          because of restrictions in place from an Amazon Web Services Organizations service control policy (SCP)
  *          that affects your Amazon Web Services account. </p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -234,8 +234,8 @@ export const ApplicationPolicyType = {
 export type ApplicationPolicyType = (typeof ApplicationPolicyType)[keyof typeof ApplicationPolicyType];
 
 /**
- * @public
  * <p>Application policies describe what the certificate can be used for.</p>
+ * @public
  */
 export type ApplicationPolicy =
   | ApplicationPolicy.PolicyObjectIdentifierMember
@@ -247,8 +247,8 @@ export type ApplicationPolicy =
  */
 export namespace ApplicationPolicy {
   /**
-   * @public
    * <p>The type of application policy</p>
+   * @public
    */
   export interface PolicyTypeMember {
     PolicyType: ApplicationPolicyType;
@@ -257,8 +257,8 @@ export namespace ApplicationPolicy {
   }
 
   /**
-   * @public
    * <p>The object identifier (OID) of an application policy.</p>
+   * @public
    */
   export interface PolicyObjectIdentifierMember {
     PolicyType?: never;
@@ -289,19 +289,19 @@ export namespace ApplicationPolicy {
 }
 
 /**
- * @public
  * <p>Application policies describe what the certificate can be used for.</p>
+ * @public
  */
 export interface ApplicationPolicies {
   /**
-   * @public
    * <p>Marks the application policy extension as critical.</p>
+   * @public
    */
   Critical?: boolean;
 
   /**
-   * @public
    * <p>Application policies describe what the certificate can be used for.</p>
+   * @public
    */
   Policies: ApplicationPolicy[] | undefined;
 }
@@ -324,7 +324,6 @@ export const ValidityPeriodType = {
 export type ValidityPeriodType = (typeof ValidityPeriodType)[keyof typeof ValidityPeriodType];
 
 /**
- * @public
  * <p>Information describing the end of the validity period of the certificate. This parameter
  *          sets the “Not After” date for the certificate. Certificate validity is the period of time
  *          during which a certificate is valid. Validity can be expressed as an explicit date and time
@@ -333,23 +332,23 @@ export type ValidityPeriodType = (typeof ValidityPeriodType)[keyof typeof Validi
  *          when ValidityNotBefore is also specified. For example, if Validity is set to 20 days in the
  *          future, the certificate will expire 20 days from issuance time regardless of the
  *          ValidityNotBefore value. </p>
+ * @public
  */
 export interface ValidityPeriod {
   /**
-   * @public
    * <p>The unit of time. You can select hours, days, weeks, months, and years.</p>
+   * @public
    */
   PeriodType: ValidityPeriodType | undefined;
 
   /**
-   * @public
    * <p>The numeric value for the validity period.</p>
+   * @public
    */
   Period: number | undefined;
 }
 
 /**
- * @public
  * <p>Information describing the end of the validity period of the certificate. This parameter
  *          sets the “Not After” date for the certificate. Certificate validity is the period of time
  *          during which a certificate is valid. Validity can be expressed as an explicit date and time
@@ -358,10 +357,10 @@ export interface ValidityPeriod {
  *          ValidityNotBefore is also specified. For example, if Validity is set to 20 days in the
  *          future, the certificate will expire 20 days from issuance time regardless of the
  *          ValidityNotBefore value.</p>
+ * @public
  */
 export interface CertificateValidity {
   /**
-   * @public
    * <p>Information describing the end of the validity period of the certificate. This parameter
    *          sets the “Not After” date for the certificate. Certificate validity is the period of time
    *          during which a certificate is valid. Validity can be expressed as an explicit date and time
@@ -370,13 +369,14 @@ export interface CertificateValidity {
    *          ValidityNotBefore is also specified. For example, if Validity is set to 20 days in the
    *          future, the certificate will expire 20 days from issuance time regardless of the
    *          ValidityNotBefore value.</p>
+   * @public
    */
   ValidityPeriod: ValidityPeriod | undefined;
 
   /**
-   * @public
    * <p>Renewal period is the period of time before certificate expiration when a new
    *          certificate will be requested.</p>
+   * @public
    */
   RenewalPeriod: ValidityPeriod | undefined;
 }
@@ -432,23 +432,23 @@ export const ClientCompatibilityV4 = {
 export type ClientCompatibilityV4 = (typeof ClientCompatibilityV4)[keyof typeof ClientCompatibilityV4];
 
 /**
- * @public
  * <p>This request cannot be completed for one of the following reasons because the requested
  *          resource was being concurrently modified by another request.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
-   * @public
    * <p>The identifier of the Amazon Web Services resource.</p>
+   * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * @public
    * <p>The resource type, which can be one of <code>Connector</code>, <code>Template</code>, <code>TemplateGroupAccessControlEntry</code>, <code>ServicePrincipalName</code>, or <code>DirectoryRegistration</code>.</p>
+   * @public
    */
   ResourceType: string | undefined;
   /**
@@ -504,139 +504,139 @@ export const ConnectorStatusReason = {
 export type ConnectorStatusReason = (typeof ConnectorStatusReason)[keyof typeof ConnectorStatusReason];
 
 /**
- * @public
  * <p>Information about your VPC and security groups used with the connector.</p>
+ * @public
  */
 export interface VpcInformation {
   /**
-   * @public
    * <p>The security groups used with the connector. You can use a maximum of 4 security groups
    *          with a connector.</p>
+   * @public
    */
   SecurityGroupIds: string[] | undefined;
 }
 
 /**
- * @public
  * <p>Amazon Web Services Private CA Connector for Active Directory is a service that links your Active Directory with Amazon Web Services Private CA. The connector brokers the
  *          exchange of certificates from Amazon Web Services Private CA to domain-joined users and machines managed with
  *          Active Directory.</p>
+ * @public
  */
 export interface Connector {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html">CreateConnector</a>. </p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the certificate authority being used. </p>
+   * @public
    */
   CertificateAuthorityArn?: string;
 
   /**
-   * @public
    * <p>Certificate enrollment endpoint for Active Directory domain-joined objects reach out to when
    *          requesting certificates.</p>
+   * @public
    */
   CertificateEnrollmentPolicyServerEndpoint?: string;
 
   /**
-   * @public
    * <p>The identifier of the Active Directory.</p>
+   * @public
    */
   DirectoryId?: string;
 
   /**
-   * @public
    * <p>Information of the VPC and security group(s) used with the connector.</p>
+   * @public
    */
   VpcInformation?: VpcInformation;
 
   /**
-   * @public
    * <p>Status of the connector. Status can be creating, active, deleting, or failed.</p>
+   * @public
    */
   Status?: ConnectorStatus;
 
   /**
-   * @public
    * <p>Additional information about the connector status if the status is failed.</p>
+   * @public
    */
   StatusReason?: ConnectorStatusReason;
 
   /**
-   * @public
    * <p>The date and time that the connector was created.</p>
+   * @public
    */
   CreatedAt?: Date;
 
   /**
-   * @public
    * <p>The date and time that the connector was updated.</p>
+   * @public
    */
   UpdatedAt?: Date;
 }
 
 /**
- * @public
  * <p>Summary description of the Amazon Web Services Private CA AD connectors belonging to an Amazon Web Services
  *          account.</p>
+ * @public
  */
 export interface ConnectorSummary {
   /**
-   * @public
    * <p> The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html">CreateConnector</a>.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the certificate authority being used.</p>
+   * @public
    */
   CertificateAuthorityArn?: string;
 
   /**
-   * @public
    * <p>Certificate enrollment endpoint for Active Directory domain-joined objects to request
    *          certificates.</p>
+   * @public
    */
   CertificateEnrollmentPolicyServerEndpoint?: string;
 
   /**
-   * @public
    * <p>The identifier of the Active Directory.</p>
+   * @public
    */
   DirectoryId?: string;
 
   /**
-   * @public
    * <p>Information of the VPC and security group(s) used with the connector.</p>
+   * @public
    */
   VpcInformation?: VpcInformation;
 
   /**
-   * @public
    * <p>Status of the connector. Status can be creating, active, deleting, or failed.</p>
+   * @public
    */
   Status?: ConnectorStatus;
 
   /**
-   * @public
    * <p>Additional information about the connector status if the status is failed.</p>
+   * @public
    */
   StatusReason?: ConnectorStatusReason;
 
   /**
-   * @public
    * <p>The date and time that the connector was created.</p>
+   * @public
    */
   CreatedAt?: Date;
 
   /**
-   * @public
    * <p>The date and time that the connector was updated.</p>
+   * @public
    */
   UpdatedAt?: Date;
 }
@@ -646,32 +646,32 @@ export interface ConnectorSummary {
  */
 export interface CreateConnectorRequest {
   /**
-   * @public
    * <p>The identifier of the Active Directory.</p>
+   * @public
    */
   DirectoryId: string | undefined;
 
   /**
-   * @public
    * <p> The Amazon Resource Name (ARN) of the certificate authority being used.</p>
+   * @public
    */
   CertificateAuthorityArn: string | undefined;
 
   /**
-   * @public
    * <p>Security group IDs that describe the inbound and outbound rules.</p>
+   * @public
    */
   VpcInformation: VpcInformation | undefined;
 
   /**
-   * @public
    * <p>Idempotency token.</p>
+   * @public
    */
   ClientToken?: string;
 
   /**
-   * @public
    * <p>Metadata assigned to a connector consisting of a key-value pair.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -681,16 +681,16 @@ export interface CreateConnectorRequest {
  */
 export interface CreateConnectorResponse {
   /**
-   * @public
    * <p>If successful, the Amazon Resource Name (ARN) of the connector for Active Directory.</p>
+   * @public
    */
   ConnectorArn?: string;
 }
 
 /**
- * @public
  * <p>The request processing has failed because of an unknown error, exception or failure with
  *          an internal server. </p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -712,23 +712,23 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The operation tried to access a nonexistent resource. The resource might not be
  *          specified correctly, or its status might not be ACTIVE.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
-   * @public
    * <p>The identifier of the Amazon Web Services resource.</p>
+   * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * @public
    * <p>The resource type, which can be one of <code>Connector</code>, <code>Template</code>, <code>TemplateGroupAccessControlEntry</code>, <code>ServicePrincipalName</code>, or <code>DirectoryRegistration</code>.</p>
+   * @public
    */
   ResourceType: string | undefined;
   /**
@@ -748,34 +748,34 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Request would cause a service quota to be exceeded.</p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
-   * @public
    * <p>The identifier of the Amazon Web Services resource.</p>
+   * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * @public
    * <p>The resource type, which can be one of <code>Connector</code>, <code>Template</code>, <code>TemplateGroupAccessControlEntry</code>, <code>ServicePrincipalName</code>, or <code>DirectoryRegistration</code>.</p>
+   * @public
    */
   ResourceType: string | undefined;
 
   /**
-   * @public
    * <p>Identifies the originating service.</p>
+   * @public
    */
   ServiceCode: string | undefined;
 
   /**
-   * @public
    * <p>The code associated with the service quota.</p>
+   * @public
    */
   QuotaCode: string | undefined;
   /**
@@ -797,8 +797,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The limit on the number of requests per second was exceeded. </p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -808,14 +808,14 @@ export class ThrottlingException extends __BaseException {
   };
   Message: string | undefined;
   /**
-   * @public
    * <p>Identifies the originating service.</p>
+   * @public
    */
   ServiceCode?: string;
 
   /**
-   * @public
    * <p>The code associated with the quota.</p>
+   * @public
    */
   QuotaCode?: string;
   /**
@@ -855,18 +855,18 @@ export const ValidationExceptionReason = {
 export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
- * @public
  * <p>An input validation error occurred. For example, invalid characters in a template name,
  *          or if a pagination token is invalid. </p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
-   * @public
    * <p>The reason for the validation error. This won't be return for every
    *          validation exception.</p>
+   * @public
    */
   Reason?: ValidationExceptionReason;
   /**
@@ -889,8 +889,8 @@ export class ValidationException extends __BaseException {
  */
 export interface DeleteConnectorRequest {
   /**
-   * @public
    * <p> The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html">CreateConnector</a>.</p>
+   * @public
    */
   ConnectorArn: string | undefined;
 }
@@ -900,8 +900,8 @@ export interface DeleteConnectorRequest {
  */
 export interface GetConnectorRequest {
   /**
-   * @public
    * <p> The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html">CreateConnector</a>.</p>
+   * @public
    */
   ConnectorArn: string | undefined;
 }
@@ -911,8 +911,8 @@ export interface GetConnectorRequest {
  */
 export interface GetConnectorResponse {
   /**
-   * @public
    * <p>A structure that contains information about your connector.</p>
+   * @public
    */
   Connector?: Connector;
 }
@@ -922,20 +922,20 @@ export interface GetConnectorResponse {
  */
 export interface ListConnectorsRequest {
   /**
-   * @public
    * <p>Use this parameter when paginating results to specify the maximum number of items to
    *          return in the response on each page. If additional items exist beyond the number you
    *          specify, the <code>NextToken</code> element is sent in the response. Use this
    *             <code>NextToken</code> value in a subsequent request to retrieve additional
    *          items.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>Use this parameter when paginating results in a subsequent request after you receive a
    *          response with truncated results. Set it to the value of the <code>NextToken</code>
    *          parameter from the response you just received.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -945,16 +945,16 @@ export interface ListConnectorsRequest {
  */
 export interface ListConnectorsResponse {
   /**
-   * @public
    * <p>Summary information about each connector you have created.</p>
+   * @public
    */
   Connectors?: ConnectorSummary[];
 
   /**
-   * @public
    * <p>Use this parameter when paginating results in a subsequent request after you receive a
    *          response with truncated results. Set it to the value of the NextToken parameter from the
    *          response you just received.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -964,20 +964,20 @@ export interface ListConnectorsResponse {
  */
 export interface CreateDirectoryRegistrationRequest {
   /**
-   * @public
    * <p> The identifier of the Active Directory.</p>
+   * @public
    */
   DirectoryId: string | undefined;
 
   /**
-   * @public
    * <p>Idempotency token.</p>
+   * @public
    */
   ClientToken?: string;
 
   /**
-   * @public
    * <p>Metadata assigned to a directory registration consisting of a key-value pair.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -987,8 +987,8 @@ export interface CreateDirectoryRegistrationRequest {
  */
 export interface CreateDirectoryRegistrationResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html">CreateDirectoryRegistration</a>.</p>
+   * @public
    */
   DirectoryRegistrationArn?: string;
 }
@@ -998,161 +998,161 @@ export interface CreateDirectoryRegistrationResponse {
  */
 export interface CreateServicePrincipalNameRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html">CreateDirectoryRegistration</a>.</p>
+   * @public
    */
   DirectoryRegistrationArn: string | undefined;
 
   /**
-   * @public
    * <p> The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html">CreateConnector</a>.</p>
+   * @public
    */
   ConnectorArn: string | undefined;
 
   /**
-   * @public
    * <p>Idempotency token.</p>
+   * @public
    */
   ClientToken?: string;
 }
 
 /**
- * @public
  * <p>Template configurations for v2 template schema.</p>
+ * @public
  */
 export interface EnrollmentFlagsV2 {
   /**
-   * @public
    * <p>Include symmetric algorithms allowed by the subject.</p>
+   * @public
    */
   IncludeSymmetricAlgorithms?: boolean;
 
   /**
-   * @public
    * <p>Require user interaction when the subject is enrolled and the private key associated
    *          with the certificate is used.</p>
+   * @public
    */
   UserInteractionRequired?: boolean;
 
   /**
-   * @public
    * <p>Delete expired or revoked certificates instead of archiving them.</p>
+   * @public
    */
   RemoveInvalidCertificateFromPersonalStore?: boolean;
 
   /**
-   * @public
    * <p>This flag instructs the CA to not include the security extension
    *          szOID_NTDS_CA_SECURITY_EXT (OID:1.3.6.1.4.1.311.25.2), as specified in [MS-WCCE] sections
    *          2.2.2.7.7.4 and 3.2.2.6.2.1.4.5.9, in the issued certificate. This addresses a Windows
    *          Kerberos elevation-of-privilege vulnerability.</p>
+   * @public
    */
   NoSecurityExtension?: boolean;
 
   /**
-   * @public
    * <p>Allow renewal using the same key.</p>
+   * @public
    */
   EnableKeyReuseOnNtTokenKeysetStorageFull?: boolean;
 }
 
 /**
- * @public
  * <p>The key usage flags represent the purpose (e.g., encipherment, signature) of the key
  *          contained in the certificate.</p>
+ * @public
  */
 export interface KeyUsageFlags {
   /**
-   * @public
    * <p>The digitalSignature is asserted when the subject public key is used for verifying
    *          digital signatures.</p>
+   * @public
    */
   DigitalSignature?: boolean;
 
   /**
-   * @public
    * <p>NonRepudiation is asserted when the subject public key is used to verify digital
    *          signatures.</p>
+   * @public
    */
   NonRepudiation?: boolean;
 
   /**
-   * @public
    * <p>KeyEncipherment is asserted when the subject public key is used for enciphering private
    *          or secret keys, i.e., for key transport.</p>
+   * @public
    */
   KeyEncipherment?: boolean;
 
   /**
-   * @public
    * <p>DataEncipherment is asserted when the subject public key is used for directly
    *          enciphering raw user data without the use of an intermediate symmetric cipher.</p>
+   * @public
    */
   DataEncipherment?: boolean;
 
   /**
-   * @public
    * <p>KeyAgreement is asserted when the subject public key is used for key agreement.</p>
+   * @public
    */
   KeyAgreement?: boolean;
 }
 
 /**
- * @public
  * <p>The key usage extension defines the purpose (e.g., encipherment, signature) of the key
  *          contained in the certificate.</p>
+ * @public
  */
 export interface KeyUsage {
   /**
-   * @public
    * <p>Sets the key usage extension to critical.</p>
+   * @public
    */
   Critical?: boolean;
 
   /**
-   * @public
    * <p>The key usage flags represent the purpose (e.g., encipherment, signature) of the key
    *          contained in the certificate.</p>
+   * @public
    */
   UsageFlags: KeyUsageFlags | undefined;
 }
 
 /**
- * @public
  * <p>Certificate extensions for v2 template schema</p>
+ * @public
  */
 export interface ExtensionsV2 {
   /**
-   * @public
    * <p>The key usage extension defines the purpose (e.g., encipherment, signature, certificate
    *          signing) of the key contained in the certificate.</p>
+   * @public
    */
   KeyUsage: KeyUsage | undefined;
 
   /**
-   * @public
    * <p>Application policies specify what the certificate is used for and its purpose. </p>
+   * @public
    */
   ApplicationPolicies?: ApplicationPolicies;
 }
 
 /**
- * @public
  * <p>General flags for v2 template schema that defines if the template is for a machine or a
  *          user and if the template can be issued using autoenrollment.</p>
+ * @public
  */
 export interface GeneralFlagsV2 {
   /**
-   * @public
    * <p>Allows certificate issuance using autoenrollment. Set to TRUE to allow
    *          autoenrollment.</p>
+   * @public
    */
   AutoEnrollment?: boolean;
 
   /**
-   * @public
    * <p>Defines if the template is for machines or users. Set to TRUE if the template is for
    *          machines. Set to FALSE if the template is for users.</p>
+   * @public
    */
   MachineType?: boolean;
 }
@@ -1172,57 +1172,56 @@ export const KeySpec = {
 export type KeySpec = (typeof KeySpec)[keyof typeof KeySpec];
 
 /**
- * @public
  * <p>Defines the attributes of the private key.</p>
+ * @public
  */
 export interface PrivateKeyAttributesV2 {
   /**
-   * @public
    * <p>Set the minimum key length of the private key.</p>
+   * @public
    */
   MinimalKeyLength: number | undefined;
 
   /**
-   * @public
    * <p>Defines the purpose of the private key. Set it to "KEY_EXCHANGE" or "SIGNATURE"
    *          value.</p>
+   * @public
    */
   KeySpec: KeySpec | undefined;
 
   /**
-   * @public
    * <p>Defines the cryptographic providers used to generate the private key.</p>
+   * @public
    */
   CryptoProviders?: string[];
 }
 
 /**
- * @public
  * <p>Private key flags for v2 templates specify the client compatibility, if the private key
  *          can be exported, and if user input is required when using a private key.</p>
+ * @public
  */
 export interface PrivateKeyFlagsV2 {
   /**
-   * @public
    * <p>Allows the private key to be exported.</p>
+   * @public
    */
   ExportableKey?: boolean;
 
   /**
-   * @public
    * <p>Require user input when using the private key for enrollment.</p>
+   * @public
    */
   StrongKeyProtectionRequired?: boolean;
 
   /**
-   * @public
    * <p>Defines the minimum client compatibility.</p>
+   * @public
    */
   ClientVersion: ClientCompatibilityV2 | undefined;
 }
 
 /**
- * @public
  * <p>Information to include in the subject name and alternate subject name of the
  *          certificate. The subject name can be common name, directory path, DNS as common name, or
  *          left blank. You can optionally include email to the subject name for user templates. If you
@@ -1230,206 +1229,207 @@ export interface PrivateKeyFlagsV2 {
  *          alternate name (SAN) can include globally unique identifier (GUID), DNS, domain DNS, email,
  *          service principal name (SPN), and user principal name (UPN). You can leave the SAN blank.
  *          If you leave the SAN blank, then you must set a subject name.</p>
+ * @public
  */
 export interface SubjectNameFlagsV2 {
   /**
-   * @public
    * <p>Include the domain DNS in the subject alternate name.</p>
+   * @public
    */
   SanRequireDomainDns?: boolean;
 
   /**
-   * @public
    * <p>Include the service principal name (SPN) in the subject alternate name.</p>
+   * @public
    */
   SanRequireSpn?: boolean;
 
   /**
-   * @public
    * <p>Include the globally unique identifier (GUID) in the subject alternate name.</p>
+   * @public
    */
   SanRequireDirectoryGuid?: boolean;
 
   /**
-   * @public
    * <p>Include the user principal name (UPN) in the subject alternate name.</p>
+   * @public
    */
   SanRequireUpn?: boolean;
 
   /**
-   * @public
    * <p>Include the subject's email in the subject alternate name.</p>
+   * @public
    */
   SanRequireEmail?: boolean;
 
   /**
-   * @public
    * <p>Include the DNS in the subject alternate name.</p>
+   * @public
    */
   SanRequireDns?: boolean;
 
   /**
-   * @public
    * <p>Include the DNS as common name in the subject name.</p>
+   * @public
    */
   RequireDnsAsCn?: boolean;
 
   /**
-   * @public
    * <p>Include the subject's email in the subject name.</p>
+   * @public
    */
   RequireEmail?: boolean;
 
   /**
-   * @public
    * <p>Include the common name in the subject name.</p>
+   * @public
    */
   RequireCommonName?: boolean;
 
   /**
-   * @public
    * <p>Include the directory path in the subject name.</p>
+   * @public
    */
   RequireDirectoryPath?: boolean;
 }
 
 /**
- * @public
  * <p>v2 template schema that uses Legacy Cryptographic Providers.</p>
+ * @public
  */
 export interface TemplateV2 {
   /**
-   * @public
    * <p>Certificate validity describes the validity and renewal periods of a certificate.</p>
+   * @public
    */
   CertificateValidity: CertificateValidity | undefined;
 
   /**
-   * @public
    * <p>List of templates in Active Directory that are superseded by this template.</p>
+   * @public
    */
   SupersededTemplates?: string[];
 
   /**
-   * @public
    * <p>Private key attributes allow you to specify the minimal key length, key spec, and
    *          cryptographic providers for the private key of a certificate for v2 templates. V2 templates
    *          allow you to use Legacy Cryptographic Service Providers.</p>
+   * @public
    */
   PrivateKeyAttributes: PrivateKeyAttributesV2 | undefined;
 
   /**
-   * @public
    * <p>Private key flags for v2 templates specify the client compatibility, if the private key
    *          can be exported, and if user input is required when using a private key. </p>
+   * @public
    */
   PrivateKeyFlags: PrivateKeyFlagsV2 | undefined;
 
   /**
-   * @public
    * <p>Enrollment flags describe the enrollment settings for certificates such as using the
    *          existing private key and deleting expired or revoked certificates.</p>
+   * @public
    */
   EnrollmentFlags: EnrollmentFlagsV2 | undefined;
 
   /**
-   * @public
    * <p>Subject name flags describe the subject name and subject alternate name that is included
    *          in a certificate.</p>
+   * @public
    */
   SubjectNameFlags: SubjectNameFlagsV2 | undefined;
 
   /**
-   * @public
    * <p>General flags describe whether the template is used for computers or users and if the
    *          template can be used with autoenrollment.</p>
+   * @public
    */
   GeneralFlags: GeneralFlagsV2 | undefined;
 
   /**
-   * @public
    * <p>Extensions describe the key usage extensions and application policies for a
    *          template.</p>
+   * @public
    */
   Extensions: ExtensionsV2 | undefined;
 }
 
 /**
- * @public
  * <p>Template configurations for v3 template schema.</p>
+ * @public
  */
 export interface EnrollmentFlagsV3 {
   /**
-   * @public
    * <p>Include symmetric algorithms allowed by the subject.</p>
+   * @public
    */
   IncludeSymmetricAlgorithms?: boolean;
 
   /**
-   * @public
    * <p>Require user interaction when the subject is enrolled and the private key associated
    *          with the certificate is used.</p>
+   * @public
    */
   UserInteractionRequired?: boolean;
 
   /**
-   * @public
    * <p>Delete expired or revoked certificates instead of archiving them.</p>
+   * @public
    */
   RemoveInvalidCertificateFromPersonalStore?: boolean;
 
   /**
-   * @public
    * <p>This flag instructs the CA to not include the security extension
    *          szOID_NTDS_CA_SECURITY_EXT (OID:1.3.6.1.4.1.311.25.2), as specified in [MS-WCCE] sections
    *          2.2.2.7.7.4 and 3.2.2.6.2.1.4.5.9, in the issued certificate. This addresses a Windows
    *          Kerberos elevation-of-privilege vulnerability.</p>
+   * @public
    */
   NoSecurityExtension?: boolean;
 
   /**
-   * @public
    * <p>Allow renewal using the same key.</p>
+   * @public
    */
   EnableKeyReuseOnNtTokenKeysetStorageFull?: boolean;
 }
 
 /**
- * @public
  * <p>Certificate extensions for v3 template schema</p>
+ * @public
  */
 export interface ExtensionsV3 {
   /**
-   * @public
    * <p>The key usage extension defines the purpose (e.g., encipherment, signature, certificate
    *          signing) of the key contained in the certificate.</p>
+   * @public
    */
   KeyUsage: KeyUsage | undefined;
 
   /**
-   * @public
    * <p>Application policies specify what the certificate is used for and its purpose.</p>
+   * @public
    */
   ApplicationPolicies?: ApplicationPolicies;
 }
 
 /**
- * @public
  * <p>General flags for v3 template schema that defines if the template is for a machine or a
  *          user and if the template can be issued using autoenrollment.</p>
+ * @public
  */
 export interface GeneralFlagsV3 {
   /**
-   * @public
    * <p>Allows certificate issuance using autoenrollment. Set to TRUE to allow
    *          autoenrollment.</p>
+   * @public
    */
   AutoEnrollment?: boolean;
 
   /**
-   * @public
    * <p>Defines if the template is for machines or users. Set to TRUE if the template is for
    *          machines. Set to FALSE if the template is for users</p>
+   * @public
    */
   MachineType?: boolean;
 }
@@ -1466,25 +1466,25 @@ export const PrivateKeyAlgorithm = {
 export type PrivateKeyAlgorithm = (typeof PrivateKeyAlgorithm)[keyof typeof PrivateKeyAlgorithm];
 
 /**
- * @public
  * <p>Specifies key usage.</p>
+ * @public
  */
 export interface KeyUsagePropertyFlags {
   /**
-   * @public
    * <p>Allows key for encryption and decryption.</p>
+   * @public
    */
   Decrypt?: boolean;
 
   /**
-   * @public
    * <p>Allows key exchange without encryption.</p>
+   * @public
    */
   KeyAgreement?: boolean;
 
   /**
-   * @public
    * <p>Allow key use for digital signature.</p>
+   * @public
    */
   Sign?: boolean;
 }
@@ -1503,10 +1503,10 @@ export const KeyUsagePropertyType = {
 export type KeyUsagePropertyType = (typeof KeyUsagePropertyType)[keyof typeof KeyUsagePropertyType];
 
 /**
- * @public
  * <p>The key usage property defines the purpose of the private key contained in the
  *          certificate. You can specify specific purposes using property flags or all by using
  *          property type ALL.</p>
+ * @public
  */
 export type KeyUsageProperty =
   | KeyUsageProperty.PropertyFlagsMember
@@ -1518,9 +1518,9 @@ export type KeyUsageProperty =
  */
 export namespace KeyUsageProperty {
   /**
-   * @public
    * <p>You can specify all key usages using property type ALL. You can use property type or
    *          property flags but not both. </p>
+   * @public
    */
   export interface PropertyTypeMember {
     PropertyType: KeyUsagePropertyType;
@@ -1529,9 +1529,9 @@ export namespace KeyUsageProperty {
   }
 
   /**
-   * @public
    * <p>You can specify key usage for encryption, key agreement, and signature. You can use
    *          property flags or property type but not both. </p>
+   * @public
    */
   export interface PropertyFlagsMember {
     PropertyType?: never;
@@ -1562,79 +1562,78 @@ export namespace KeyUsageProperty {
 }
 
 /**
- * @public
  * <p>Defines the attributes of the private key.</p>
+ * @public
  */
 export interface PrivateKeyAttributesV3 {
   /**
-   * @public
    * <p>Set the minimum key length of the private key.</p>
+   * @public
    */
   MinimalKeyLength: number | undefined;
 
   /**
-   * @public
    * <p>Defines the purpose of the private key. Set it to "KEY_EXCHANGE" or "SIGNATURE"
    *          value.</p>
+   * @public
    */
   KeySpec: KeySpec | undefined;
 
   /**
-   * @public
    * <p>Defines the cryptographic providers used to generate the private key.</p>
+   * @public
    */
   CryptoProviders?: string[];
 
   /**
-   * @public
    * <p>The key usage property defines the purpose of the private key contained in the
    *          certificate. You can specify specific purposes using property flags or all by using
    *          property type ALL.</p>
+   * @public
    */
   KeyUsageProperty: KeyUsageProperty | undefined;
 
   /**
-   * @public
    * <p>Defines the algorithm used to generate the private key.</p>
+   * @public
    */
   Algorithm: PrivateKeyAlgorithm | undefined;
 }
 
 /**
- * @public
  * <p>Private key flags for v3 templates specify the client compatibility, if the private key
  *          can be exported, if user input is required when using a private key, and if an alternate
  *          signature algorithm should be used.</p>
+ * @public
  */
 export interface PrivateKeyFlagsV3 {
   /**
-   * @public
    * <p>Allows the private key to be exported.</p>
+   * @public
    */
   ExportableKey?: boolean;
 
   /**
-   * @public
    * <p>Requirer user input when using the private key for enrollment.</p>
+   * @public
    */
   StrongKeyProtectionRequired?: boolean;
 
   /**
-   * @public
    * <p>Reguires the PKCS #1 v2.1 signature format for certificates. You should verify that your
    *          CA, objects, and applications can accept this signature format.</p>
+   * @public
    */
   RequireAlternateSignatureAlgorithm?: boolean;
 
   /**
-   * @public
    * <p>Defines the minimum client compatibility.</p>
+   * @public
    */
   ClientVersion: ClientCompatibilityV3 | undefined;
 }
 
 /**
- * @public
  * <p>Information to include in the subject name and alternate subject name of the
  *          certificate. The subject name can be common name, directory path, DNS as common name, or
  *          left blank. You can optionally include email to the subject name for user templates. If you
@@ -1642,306 +1641,306 @@ export interface PrivateKeyFlagsV3 {
  *          alternate name (SAN) can include globally unique identifier (GUID), DNS, domain DNS, email,
  *          service principal name (SPN), and user principal name (UPN). You can leave the SAN blank.
  *          If you leave the SAN blank, then you must set a subject name.</p>
+ * @public
  */
 export interface SubjectNameFlagsV3 {
   /**
-   * @public
    * <p>Include the domain DNS in the subject alternate name.</p>
+   * @public
    */
   SanRequireDomainDns?: boolean;
 
   /**
-   * @public
    * <p>Include the service principal name (SPN) in the subject alternate name.</p>
+   * @public
    */
   SanRequireSpn?: boolean;
 
   /**
-   * @public
    * <p>Include the globally unique identifier (GUID) in the subject alternate name.</p>
+   * @public
    */
   SanRequireDirectoryGuid?: boolean;
 
   /**
-   * @public
    * <p>Include the user principal name (UPN) in the subject alternate name.</p>
+   * @public
    */
   SanRequireUpn?: boolean;
 
   /**
-   * @public
    * <p>Include the subject's email in the subject alternate name.</p>
+   * @public
    */
   SanRequireEmail?: boolean;
 
   /**
-   * @public
    * <p>Include the DNS in the subject alternate name.</p>
+   * @public
    */
   SanRequireDns?: boolean;
 
   /**
-   * @public
    * <p>Include the DNS as common name in the subject name.</p>
+   * @public
    */
   RequireDnsAsCn?: boolean;
 
   /**
-   * @public
    * <p>Include the subject's email in the subject name.</p>
+   * @public
    */
   RequireEmail?: boolean;
 
   /**
-   * @public
    * <p>Include the common name in the subject name. </p>
+   * @public
    */
   RequireCommonName?: boolean;
 
   /**
-   * @public
    * <p>Include the directory path in the subject name.</p>
+   * @public
    */
   RequireDirectoryPath?: boolean;
 }
 
 /**
- * @public
  * <p>v3 template schema that uses Key Storage Providers.</p>
+ * @public
  */
 export interface TemplateV3 {
   /**
-   * @public
    * <p>Certificate validity describes the validity and renewal periods of a certificate.</p>
+   * @public
    */
   CertificateValidity: CertificateValidity | undefined;
 
   /**
-   * @public
    * <p>List of templates in Active Directory that are superseded by this template.</p>
+   * @public
    */
   SupersededTemplates?: string[];
 
   /**
-   * @public
    * <p>Private key attributes allow you to specify the algorithm, minimal key length, key spec,
    *          key usage, and cryptographic providers for the private key of a certificate for v3
    *          templates. V3 templates allow you to use Key Storage Providers.</p>
+   * @public
    */
   PrivateKeyAttributes: PrivateKeyAttributesV3 | undefined;
 
   /**
-   * @public
    * <p>Private key flags for v3 templates specify the client compatibility, if the private key
    *          can be exported, if user input is required when using a private key, and if an alternate
    *          signature algorithm should be used.</p>
+   * @public
    */
   PrivateKeyFlags: PrivateKeyFlagsV3 | undefined;
 
   /**
-   * @public
    * <p>Enrollment flags describe the enrollment settings for certificates such as using the
    *          existing private key and deleting expired or revoked certificates.</p>
+   * @public
    */
   EnrollmentFlags: EnrollmentFlagsV3 | undefined;
 
   /**
-   * @public
    * <p>Subject name flags describe the subject name and subject alternate name that is included
    *          in a certificate.</p>
+   * @public
    */
   SubjectNameFlags: SubjectNameFlagsV3 | undefined;
 
   /**
-   * @public
    * <p>General flags describe whether the template is used for computers or users and if the
    *          template can be used with autoenrollment.</p>
+   * @public
    */
   GeneralFlags: GeneralFlagsV3 | undefined;
 
   /**
-   * @public
    * <p>Specifies the hash algorithm used to hash the private key.</p>
+   * @public
    */
   HashAlgorithm: HashAlgorithm | undefined;
 
   /**
-   * @public
    * <p>Extensions describe the key usage extensions and application policies for a
    *          template.</p>
+   * @public
    */
   Extensions: ExtensionsV3 | undefined;
 }
 
 /**
- * @public
  * <p>Template configurations for v4 template schema.</p>
+ * @public
  */
 export interface EnrollmentFlagsV4 {
   /**
-   * @public
    * <p>Include symmetric algorithms allowed by the subject.</p>
+   * @public
    */
   IncludeSymmetricAlgorithms?: boolean;
 
   /**
-   * @public
    * <p>Require user interaction when the subject is enrolled and the private key associated
    *          with the certificate is used.</p>
+   * @public
    */
   UserInteractionRequired?: boolean;
 
   /**
-   * @public
    * <p>Delete expired or revoked certificates instead of archiving them.</p>
+   * @public
    */
   RemoveInvalidCertificateFromPersonalStore?: boolean;
 
   /**
-   * @public
    * <p>This flag instructs the CA to not include the security extension
    *          szOID_NTDS_CA_SECURITY_EXT (OID:1.3.6.1.4.1.311.25.2), as specified in [MS-WCCE] sections
    *          2.2.2.7.7.4 and 3.2.2.6.2.1.4.5.9, in the issued certificate. This addresses a Windows
    *          Kerberos elevation-of-privilege vulnerability.</p>
+   * @public
    */
   NoSecurityExtension?: boolean;
 
   /**
-   * @public
    * <p>Allow renewal using the same key.</p>
+   * @public
    */
   EnableKeyReuseOnNtTokenKeysetStorageFull?: boolean;
 }
 
 /**
- * @public
  * <p>Certificate extensions for v4 template schema</p>
+ * @public
  */
 export interface ExtensionsV4 {
   /**
-   * @public
    * <p>The key usage extension defines the purpose (e.g., encipherment, signature) of the key
    *          contained in the certificate.</p>
+   * @public
    */
   KeyUsage: KeyUsage | undefined;
 
   /**
-   * @public
    * <p>Application policies specify what the certificate is used for and its purpose.</p>
+   * @public
    */
   ApplicationPolicies?: ApplicationPolicies;
 }
 
 /**
- * @public
  * <p>General flags for v4 template schema that defines if the template is for a machine or a
  *          user and if the template can be issued using autoenrollment.</p>
+ * @public
  */
 export interface GeneralFlagsV4 {
   /**
-   * @public
    * <p>Allows certificate issuance using autoenrollment. Set to TRUE to allow
    *          autoenrollment.</p>
+   * @public
    */
   AutoEnrollment?: boolean;
 
   /**
-   * @public
    * <p>Defines if the template is for machines or users. Set to TRUE if the template is for
    *          machines. Set to FALSE if the template is for users</p>
+   * @public
    */
   MachineType?: boolean;
 }
 
 /**
- * @public
  * <p>Defines the attributes of the private key.</p>
+ * @public
  */
 export interface PrivateKeyAttributesV4 {
   /**
-   * @public
    * <p>Set the minimum key length of the private key.</p>
+   * @public
    */
   MinimalKeyLength: number | undefined;
 
   /**
-   * @public
    * <p>Defines the purpose of the private key. Set it to "KEY_EXCHANGE" or "SIGNATURE"
    *          value.</p>
+   * @public
    */
   KeySpec: KeySpec | undefined;
 
   /**
-   * @public
    * <p>Defines the cryptographic providers used to generate the private key.</p>
+   * @public
    */
   CryptoProviders?: string[];
 
   /**
-   * @public
    * <p>The key usage property defines the purpose of the private key contained in the
    *          certificate. You can specify specific purposes using property flags or all by using
    *          property type ALL.</p>
+   * @public
    */
   KeyUsageProperty?: KeyUsageProperty;
 
   /**
-   * @public
    * <p>Defines the algorithm used to generate the private key.</p>
+   * @public
    */
   Algorithm?: PrivateKeyAlgorithm;
 }
 
 /**
- * @public
  * <p>Private key flags for v4 templates specify the client compatibility, if the private key
  *          can be exported, if user input is required when using a private key, if an alternate
  *          signature algorithm should be used, and if certificates are renewed using the same private
  *          key.</p>
+ * @public
  */
 export interface PrivateKeyFlagsV4 {
   /**
-   * @public
    * <p>Allows the private key to be exported.</p>
+   * @public
    */
   ExportableKey?: boolean;
 
   /**
-   * @public
    * <p>Require user input when using the private key for enrollment.</p>
+   * @public
    */
   StrongKeyProtectionRequired?: boolean;
 
   /**
-   * @public
    * <p>Requires the PKCS #1 v2.1 signature format for certificates. You should verify that your
    *          CA, objects, and applications can accept this signature format.</p>
+   * @public
    */
   RequireAlternateSignatureAlgorithm?: boolean;
 
   /**
-   * @public
    * <p>Renew certificate using the same private key.</p>
+   * @public
    */
   RequireSameKeyRenewal?: boolean;
 
   /**
-   * @public
    * <p>Specifies the cryptographic service provider category used to generate private keys. Set
    *          to TRUE to use Legacy Cryptographic Service Providers and FALSE to use Key Storage
    *          Providers.</p>
+   * @public
    */
   UseLegacyProvider?: boolean;
 
   /**
-   * @public
    * <p>Defines the minimum client compatibility.</p>
+   * @public
    */
   ClientVersion: ClientCompatibilityV4 | undefined;
 }
 
 /**
- * @public
  * <p>Information to include in the subject name and alternate subject name of the
  *          certificate. The subject name can be common name, directory path, DNS as common name, or
  *          left blank. You can optionally include email to the subject name for user templates. If you
@@ -1949,146 +1948,147 @@ export interface PrivateKeyFlagsV4 {
  *          alternate name (SAN) can include globally unique identifier (GUID), DNS, domain DNS, email,
  *          service principal name (SPN), and user principal name (UPN). You can leave the SAN blank.
  *          If you leave the SAN blank, then you must set a subject name.</p>
+ * @public
  */
 export interface SubjectNameFlagsV4 {
   /**
-   * @public
    * <p>Include the domain DNS in the subject alternate name.</p>
+   * @public
    */
   SanRequireDomainDns?: boolean;
 
   /**
-   * @public
    * <p>Include the service principal name (SPN) in the subject alternate name.</p>
+   * @public
    */
   SanRequireSpn?: boolean;
 
   /**
-   * @public
    * <p>Include the globally unique identifier (GUID) in the subject alternate name.</p>
+   * @public
    */
   SanRequireDirectoryGuid?: boolean;
 
   /**
-   * @public
    * <p>Include the user principal name (UPN) in the subject alternate name.</p>
+   * @public
    */
   SanRequireUpn?: boolean;
 
   /**
-   * @public
    * <p>Include the subject's email in the subject alternate name.</p>
+   * @public
    */
   SanRequireEmail?: boolean;
 
   /**
-   * @public
    * <p>Include the DNS in the subject alternate name.</p>
+   * @public
    */
   SanRequireDns?: boolean;
 
   /**
-   * @public
    * <p>Include the DNS as common name in the subject name.</p>
+   * @public
    */
   RequireDnsAsCn?: boolean;
 
   /**
-   * @public
    * <p>Include the subject's email in the subject name.</p>
+   * @public
    */
   RequireEmail?: boolean;
 
   /**
-   * @public
    * <p>Include the common name in the subject name.</p>
+   * @public
    */
   RequireCommonName?: boolean;
 
   /**
-   * @public
    * <p>Include the directory path in the subject name.</p>
+   * @public
    */
   RequireDirectoryPath?: boolean;
 }
 
 /**
- * @public
  * <p>v4 template schema that can use either Legacy Cryptographic Providers or Key Storage
  *          Providers.</p>
+ * @public
  */
 export interface TemplateV4 {
   /**
-   * @public
    * <p>Certificate validity describes the validity and renewal periods of a certificate.</p>
+   * @public
    */
   CertificateValidity: CertificateValidity | undefined;
 
   /**
-   * @public
    * <p>List of templates in Active Directory that are superseded by this template.</p>
+   * @public
    */
   SupersededTemplates?: string[];
 
   /**
-   * @public
    * <p>Private key attributes allow you to specify the minimal key length, key spec, key usage,
    *          and cryptographic providers for the private key of a certificate for v4 templates. V4
    *          templates allow you to use either Key Storage Providers or Legacy Cryptographic Service
    *          Providers. You specify the cryptography provider category in private key flags.</p>
+   * @public
    */
   PrivateKeyAttributes: PrivateKeyAttributesV4 | undefined;
 
   /**
-   * @public
    * <p>Private key flags for v4 templates specify the client compatibility, if the private key
    *          can be exported, if user input is required when using a private key, if an alternate
    *          signature algorithm should be used, and if certificates are renewed using the same private
    *          key.</p>
+   * @public
    */
   PrivateKeyFlags: PrivateKeyFlagsV4 | undefined;
 
   /**
-   * @public
    * <p>Enrollment flags describe the enrollment settings for certificates using the existing
    *          private key and deleting expired or revoked certificates.</p>
+   * @public
    */
   EnrollmentFlags: EnrollmentFlagsV4 | undefined;
 
   /**
-   * @public
    * <p>Subject name flags describe the subject name and subject alternate name that is included
    *          in a certificate.</p>
+   * @public
    */
   SubjectNameFlags: SubjectNameFlagsV4 | undefined;
 
   /**
-   * @public
    * <p>General flags describe whether the template is used for computers or users and if the
    *          template can be used with autoenrollment.</p>
+   * @public
    */
   GeneralFlags: GeneralFlagsV4 | undefined;
 
   /**
-   * @public
    * <p>Specifies the hash algorithm used to hash the private key. Hash algorithm can only be
    *          specified when using Key Storage Providers.</p>
+   * @public
    */
   HashAlgorithm?: HashAlgorithm;
 
   /**
-   * @public
    * <p>Extensions describe the key usage extensions and application policies for a
    *          template.</p>
+   * @public
    */
   Extensions: ExtensionsV4 | undefined;
 }
 
 /**
- * @public
  * <p>Template configuration to define the information included in certificates. Define
  *          certificate validity and renewal periods, certificate request handling and enrollment
  *          options, key usage extensions, application policies, and cryptography settings.</p>
+ * @public
  */
 export type TemplateDefinition =
   | TemplateDefinition.TemplateV2Member
@@ -2101,10 +2101,10 @@ export type TemplateDefinition =
  */
 export namespace TemplateDefinition {
   /**
-   * @public
    * <p>Template configuration to define the information included in certificates. Define
    *          certificate validity and renewal periods, certificate request handling and enrollment
    *          options, key usage extensions, application policies, and cryptography settings.</p>
+   * @public
    */
   export interface TemplateV2Member {
     TemplateV2: TemplateV2;
@@ -2114,10 +2114,10 @@ export namespace TemplateDefinition {
   }
 
   /**
-   * @public
    * <p>Template configuration to define the information included in certificates. Define
    *          certificate validity and renewal periods, certificate request handling and enrollment
    *          options, key usage extensions, application policies, and cryptography settings.</p>
+   * @public
    */
   export interface TemplateV3Member {
     TemplateV2?: never;
@@ -2127,10 +2127,10 @@ export namespace TemplateDefinition {
   }
 
   /**
-   * @public
    * <p>Template configuration to define the information included in certificates. Define
    *          certificate validity and renewal periods, certificate request handling and enrollment
    *          options, key usage extensions, application policies, and cryptography settings.</p>
+   * @public
    */
   export interface TemplateV4Member {
     TemplateV2?: never;
@@ -2169,34 +2169,34 @@ export namespace TemplateDefinition {
  */
 export interface CreateTemplateRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html">CreateConnector</a>.</p>
+   * @public
    */
   ConnectorArn: string | undefined;
 
   /**
-   * @public
    * <p>Name of the template. The template name must be unique.</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>Template configuration to define the information included in certificates. Define
    *          certificate validity and renewal periods, certificate request handling and enrollment
    *          options, key usage extensions, application policies, and cryptography settings.</p>
+   * @public
    */
   Definition: TemplateDefinition | undefined;
 
   /**
-   * @public
    * <p>Idempotency token.</p>
+   * @public
    */
   ClientToken?: string;
 
   /**
-   * @public
    * <p>Metadata assigned to a template consisting of a key-value pair.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -2206,8 +2206,8 @@ export interface CreateTemplateRequest {
  */
 export interface CreateTemplateResponse {
   /**
-   * @public
    * <p>If successful, the Amazon Resource Name (ARN) of the template.</p>
+   * @public
    */
   TemplateArn?: string;
 }
@@ -2217,34 +2217,34 @@ export interface CreateTemplateResponse {
  */
 export interface CreateTemplateGroupAccessControlEntryRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>.</p>
+   * @public
    */
   TemplateArn: string | undefined;
 
   /**
-   * @public
    * <p>Security identifier (SID) of the group object from Active Directory. The SID starts with
    *          "S-".</p>
+   * @public
    */
   GroupSecurityIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>Name of the Active Directory group. This name does not need to match the group name in Active Directory.</p>
+   * @public
    */
   GroupDisplayName: string | undefined;
 
   /**
-   * @public
    * <p> Allow or deny permissions for an Active Directory group to enroll or autoenroll certificates for a
    *          template.</p>
+   * @public
    */
   AccessRights: AccessRights | undefined;
 
   /**
-   * @public
    * <p>Idempotency token.</p>
+   * @public
    */
   ClientToken?: string;
 }
@@ -2254,8 +2254,8 @@ export interface CreateTemplateGroupAccessControlEntryRequest {
  */
 export interface DeleteDirectoryRegistrationRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html">CreateDirectoryRegistration</a>.</p>
+   * @public
    */
   DirectoryRegistrationArn: string | undefined;
 }
@@ -2265,14 +2265,14 @@ export interface DeleteDirectoryRegistrationRequest {
  */
 export interface DeleteServicePrincipalNameRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html">CreateDirectoryRegistration</a>.</p>
+   * @public
    */
   DirectoryRegistrationArn: string | undefined;
 
   /**
-   * @public
    * <p> The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html">CreateConnector</a>.</p>
+   * @public
    */
   ConnectorArn: string | undefined;
 }
@@ -2282,8 +2282,8 @@ export interface DeleteServicePrincipalNameRequest {
  */
 export interface DeleteTemplateRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>.</p>
+   * @public
    */
   TemplateArn: string | undefined;
 }
@@ -2293,15 +2293,15 @@ export interface DeleteTemplateRequest {
  */
 export interface DeleteTemplateGroupAccessControlEntryRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>.</p>
+   * @public
    */
   TemplateArn: string | undefined;
 
   /**
-   * @public
    * <p>Security identifier (SID) of the group object from Active Directory. The SID starts with
    *          "S-".</p>
+   * @public
    */
   GroupSecurityIdentifier: string | undefined;
 }
@@ -2343,90 +2343,90 @@ export type DirectoryRegistrationStatusReason =
   (typeof DirectoryRegistrationStatusReason)[keyof typeof DirectoryRegistrationStatusReason];
 
 /**
- * @public
  * <p>The directory registration represents the authorization of the connector service with a
  *          directory.</p>
+ * @public
  */
 export interface DirectoryRegistration {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called
    *          CreateDirectoryRegistration. </p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>The identifier of the Active Directory.</p>
+   * @public
    */
   DirectoryId?: string;
 
   /**
-   * @public
    * <p>Status of the directory registration.</p>
+   * @public
    */
   Status?: DirectoryRegistrationStatus;
 
   /**
-   * @public
    * <p>Additional information about the directory registration status if the status is
    *          failed.</p>
+   * @public
    */
   StatusReason?: DirectoryRegistrationStatusReason;
 
   /**
-   * @public
    * <p>The date and time that the directory registration was created.</p>
+   * @public
    */
   CreatedAt?: Date;
 
   /**
-   * @public
    * <p>The date and time that the directory registration was updated.</p>
+   * @public
    */
   UpdatedAt?: Date;
 }
 
 /**
- * @public
  * <p>The directory registration represents the authorization of the connector service with
  *          the Active Directory.</p>
+ * @public
  */
 export interface DirectoryRegistrationSummary {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html">CreateDirectoryRegistration</a>.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>The identifier of the Active Directory.</p>
+   * @public
    */
   DirectoryId?: string;
 
   /**
-   * @public
    * <p>Status of the directory registration.</p>
+   * @public
    */
   Status?: DirectoryRegistrationStatus;
 
   /**
-   * @public
    * <p>Additional information about the directory registration status if the status is
    *          failed.</p>
+   * @public
    */
   StatusReason?: DirectoryRegistrationStatusReason;
 
   /**
-   * @public
    * <p>The date and time that the directory registration was created.</p>
+   * @public
    */
   CreatedAt?: Date;
 
   /**
-   * @public
    * <p>The date and time that the directory registration was updated.</p>
+   * @public
    */
   UpdatedAt?: Date;
 }
@@ -2436,8 +2436,8 @@ export interface DirectoryRegistrationSummary {
  */
 export interface GetDirectoryRegistrationRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html">CreateDirectoryRegistration</a>.</p>
+   * @public
    */
   DirectoryRegistrationArn: string | undefined;
 }
@@ -2447,9 +2447,9 @@ export interface GetDirectoryRegistrationRequest {
  */
 export interface GetDirectoryRegistrationResponse {
   /**
-   * @public
    * <p>The directory registration represents the authorization of the connector service with a
    *          directory.</p>
+   * @public
    */
   DirectoryRegistration?: DirectoryRegistration;
 }
@@ -2459,20 +2459,20 @@ export interface GetDirectoryRegistrationResponse {
  */
 export interface ListDirectoryRegistrationsRequest {
   /**
-   * @public
    * <p>Use this parameter when paginating results to specify the maximum number of items to
    *          return in the response on each page. If additional items exist beyond the number you
    *          specify, the <code>NextToken</code> element is sent in the response. Use this
    *             <code>NextToken</code> value in a subsequent request to retrieve additional
    *          items.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>Use this parameter when paginating results in a subsequent request after you receive a
    *          response with truncated results. Set it to the value of the <code>NextToken</code>
    *          parameter from the response you just received.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -2482,16 +2482,16 @@ export interface ListDirectoryRegistrationsRequest {
  */
 export interface ListDirectoryRegistrationsResponse {
   /**
-   * @public
    * <p>Summary information about each directory registration you have created.</p>
+   * @public
    */
   DirectoryRegistrations?: DirectoryRegistrationSummary[];
 
   /**
-   * @public
    * <p>Use this parameter when paginating results in a subsequent request after you receive a
    *          response with truncated results. Set it to the value of the <code>NextToken</code>
    *          parameter from the response you just received.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -2501,14 +2501,14 @@ export interface ListDirectoryRegistrationsResponse {
  */
 export interface GetServicePrincipalNameRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html">CreateDirectoryRegistration</a>.</p>
+   * @public
    */
   DirectoryRegistrationArn: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html">CreateConnector</a>.</p>
+   * @public
    */
   ConnectorArn: string | undefined;
 }
@@ -2548,44 +2548,44 @@ export type ServicePrincipalNameStatusReason =
   (typeof ServicePrincipalNameStatusReason)[keyof typeof ServicePrincipalNameStatusReason];
 
 /**
- * @public
  * <p>The service principal name that the connector uses to authenticate with Active Directory.</p>
+ * @public
  */
 export interface ServicePrincipalName {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html">CreateDirectoryRegistration</a>.</p>
+   * @public
    */
   DirectoryRegistrationArn?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html">CreateConnector.html</a>.</p>
+   * @public
    */
   ConnectorArn?: string;
 
   /**
-   * @public
    * <p>The status of a service principal name.</p>
+   * @public
    */
   Status?: ServicePrincipalNameStatus;
 
   /**
-   * @public
    * <p>Additional information for the status of a service principal name if the status is
    *          failed.</p>
+   * @public
    */
   StatusReason?: ServicePrincipalNameStatusReason;
 
   /**
-   * @public
    * <p>The date and time that the service principal name was created.</p>
+   * @public
    */
   CreatedAt?: Date;
 
   /**
-   * @public
    * <p>The date and time that the service principal name was updated.</p>
+   * @public
    */
   UpdatedAt?: Date;
 }
@@ -2595,8 +2595,8 @@ export interface ServicePrincipalName {
  */
 export interface GetServicePrincipalNameResponse {
   /**
-   * @public
    * <p>The service principal name that the connector uses to authenticate with Active Directory.</p>
+   * @public
    */
   ServicePrincipalName?: ServicePrincipalName;
 }
@@ -2606,29 +2606,29 @@ export interface GetServicePrincipalNameResponse {
  */
 export interface GetTemplateRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>.</p>
+   * @public
    */
   TemplateArn: string | undefined;
 }
 
 /**
- * @public
  * <p>The revision version of the template. Template updates will increment the minor
  *          revision. Re-enrolling all certificate holders will increment the major revision.</p>
+ * @public
  */
 export interface TemplateRevision {
   /**
-   * @public
    * <p>The revision version of the template. Re-enrolling all certificate holders will
    *          increment the major revision.</p>
+   * @public
    */
   MajorRevision: number | undefined;
 
   /**
-   * @public
    * <p>The revision version of the template. Re-enrolling all certificate holders will
    *          increment the major revision.</p>
+   * @public
    */
   MinorRevision: number | undefined;
 }
@@ -2648,72 +2648,72 @@ export const TemplateStatus = {
 export type TemplateStatus = (typeof TemplateStatus)[keyof typeof TemplateStatus];
 
 /**
- * @public
  * <p>An Active Directory compatible certificate template. Connectors issue certificates against these
  *          templates based on the requestor's Active Directory group membership. </p>
+ * @public
  */
 export interface Template {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p> The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html">CreateConnector</a>.</p>
+   * @public
    */
   ConnectorArn?: string;
 
   /**
-   * @public
    * <p>Template configuration to define the information included in certificates. Define
    *          certificate validity and renewal periods, certificate request handling and enrollment
    *          options, key usage extensions, application policies, and cryptography settings.</p>
+   * @public
    */
   Definition?: TemplateDefinition;
 
   /**
-   * @public
    * <p>Name of the templates. Template names must be unique.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>Object identifier of a template.</p>
+   * @public
    */
   ObjectIdentifier?: string;
 
   /**
-   * @public
    * <p>The template schema version. Template schema versions can be v2, v3, or v4. The template
    *          configuration options change based on the template schema version.</p>
+   * @public
    */
   PolicySchema?: number;
 
   /**
-   * @public
    * <p>Status of the template. Status can be creating, active, deleting, or failed.</p>
+   * @public
    */
   Status?: TemplateStatus;
 
   /**
-   * @public
    * <p>The version of the template. Template updates will increment the minor revision.
    *          Re-enrolling all certificate holders will increment the major revision.</p>
+   * @public
    */
   Revision?: TemplateRevision;
 
   /**
-   * @public
    * <p>The date and time that the template was created.</p>
+   * @public
    */
   CreatedAt?: Date;
 
   /**
-   * @public
    * <p>The date and time that the template was updated.</p>
+   * @public
    */
   UpdatedAt?: Date;
 }
@@ -2723,9 +2723,9 @@ export interface Template {
  */
 export interface GetTemplateResponse {
   /**
-   * @public
    * <p>A certificate template that the connector uses to issue certificates from a private
    *          CA.</p>
+   * @public
    */
   Template?: Template;
 }
@@ -2735,15 +2735,15 @@ export interface GetTemplateResponse {
  */
 export interface GetTemplateGroupAccessControlEntryRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>.</p>
+   * @public
    */
   TemplateArn: string | undefined;
 
   /**
-   * @public
    * <p>Security identifier (SID) of the group object from Active Directory. The SID starts with
    *          "S-".</p>
+   * @public
    */
   GroupSecurityIdentifier: string | undefined;
 }
@@ -2753,9 +2753,9 @@ export interface GetTemplateGroupAccessControlEntryRequest {
  */
 export interface GetTemplateGroupAccessControlEntryResponse {
   /**
-   * @public
    * <p>An access control entry allows or denies an Active Directory group from enrolling and/or
    *          autoenrolling with a template.</p>
+   * @public
    */
   AccessControlEntry?: AccessControlEntry;
 }
@@ -2765,69 +2765,69 @@ export interface GetTemplateGroupAccessControlEntryResponse {
  */
 export interface ListServicePrincipalNamesRequest {
   /**
-   * @public
    * <p>Use this parameter when paginating results to specify the maximum number of items to
    *          return in the response on each page. If additional items exist beyond the number you
    *          specify, the <code>NextToken</code> element is sent in the response. Use this
    *             <code>NextToken</code> value in a subsequent request to retrieve additional
    *          items.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>Use this parameter when paginating results in a subsequent request after you receive a
    *          response with truncated results. Set it to the value of the <code>NextToken</code>
    *          parameter from the response you just received.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html">CreateDirectoryRegistration</a>.</p>
+   * @public
    */
   DirectoryRegistrationArn: string | undefined;
 }
 
 /**
- * @public
  * <p>The service principal name that the connector uses to authenticate with Active Directory.</p>
+ * @public
  */
 export interface ServicePrincipalNameSummary {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html">CreateDirectoryRegistration</a>.</p>
+   * @public
    */
   DirectoryRegistrationArn?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html">CreateConnector</a>.</p>
+   * @public
    */
   ConnectorArn?: string;
 
   /**
-   * @public
    * <p>The status of a service principal name.</p>
+   * @public
    */
   Status?: ServicePrincipalNameStatus;
 
   /**
-   * @public
    * <p>Additional information for the status of a service principal name if the status is
    *          failed.</p>
+   * @public
    */
   StatusReason?: ServicePrincipalNameStatusReason;
 
   /**
-   * @public
    * <p>The date and time that the service principal name was created.</p>
+   * @public
    */
   CreatedAt?: Date;
 
   /**
-   * @public
    * <p>Time when the service principal name was updated.</p>
+   * @public
    */
   UpdatedAt?: Date;
 }
@@ -2837,17 +2837,17 @@ export interface ServicePrincipalNameSummary {
  */
 export interface ListServicePrincipalNamesResponse {
   /**
-   * @public
    * <p>The service principal name, if any, that the connector uses to authenticate with
    *          Active Directory.</p>
+   * @public
    */
   ServicePrincipalNames?: ServicePrincipalNameSummary[];
 
   /**
-   * @public
    * <p>Use this parameter when paginating results in a subsequent request after you receive a
    *          response with truncated results. Set it to the value of the <code>NextToken</code>
    *          parameter from the response you just received.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -2857,8 +2857,8 @@ export interface ListServicePrincipalNamesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you created the resource. </p>
+   * @public
    */
   ResourceArn: string | undefined;
 }
@@ -2868,8 +2868,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>The tags, if any, that are associated with your resource.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -2879,26 +2879,26 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListTemplateGroupAccessControlEntriesRequest {
   /**
-   * @public
    * <p>Use this parameter when paginating results to specify the maximum number of items to
    *          return in the response on each page. If additional items exist beyond the number you
    *          specify, the <code>NextToken</code> element is sent in the response. Use this
    *             <code>NextToken</code> value in a subsequent request to retrieve additional
    *          items.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>Use this parameter when paginating results in a subsequent request after you receive a
    *          response with truncated results. Set it to the value of the <code>NextToken</code>
    *          parameter from the response you just received.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>.</p>
+   * @public
    */
   TemplateArn: string | undefined;
 }
@@ -2908,17 +2908,17 @@ export interface ListTemplateGroupAccessControlEntriesRequest {
  */
 export interface ListTemplateGroupAccessControlEntriesResponse {
   /**
-   * @public
    * <p>An access control entry grants or denies permission to an Active Directory group to enroll
    *          certificates for a template.</p>
+   * @public
    */
   AccessControlEntries?: AccessControlEntrySummary[];
 
   /**
-   * @public
    * <p>Use this parameter when paginating results in a subsequent request after you receive a
    *          response with truncated results. Set it to the value of the <code>NextToken</code>
    *          parameter from the response you just received.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -2928,97 +2928,97 @@ export interface ListTemplateGroupAccessControlEntriesResponse {
  */
 export interface ListTemplatesRequest {
   /**
-   * @public
    * <p>Use this parameter when paginating results to specify the maximum number of items to
    *          return in the response on each page. If additional items exist beyond the number you
    *          specify, the <code>NextToken</code> element is sent in the response. Use this
    *             <code>NextToken</code> value in a subsequent request to retrieve additional
    *          items.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>Use this parameter when paginating results in a subsequent request after you receive a
    *          response with truncated results. Set it to the value of the <code>NextToken</code>
    *          parameter from the response you just received.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html">CreateConnector</a>.</p>
+   * @public
    */
   ConnectorArn: string | undefined;
 }
 
 /**
- * @public
  * <p>An Active Directory compatible certificate template. Connectors issue certificates against these
  *          templates based on the requestor's Active Directory group membership.</p>
+ * @public
  */
 export interface TemplateSummary {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p> The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html">CreateConnector</a>.</p>
+   * @public
    */
   ConnectorArn?: string;
 
   /**
-   * @public
    * <p>Template configuration to define the information included in certificates. Define
    *          certificate validity and renewal periods, certificate request handling and enrollment
    *          options, key usage extensions, application policies, and cryptography settings.</p>
+   * @public
    */
   Definition?: TemplateDefinition;
 
   /**
-   * @public
    * <p>Name of the template. The template name must be unique.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>Object identifier of a template.</p>
+   * @public
    */
   ObjectIdentifier?: string;
 
   /**
-   * @public
    * <p>The template schema version. Template schema versions can be v2, v3, or v4. The template
    *          configuration options change based on the template schema version.</p>
+   * @public
    */
   PolicySchema?: number;
 
   /**
-   * @public
    * <p>Status of the template. Status can be creating, active, deleting, or failed.</p>
+   * @public
    */
   Status?: TemplateStatus;
 
   /**
-   * @public
    * <p>The revision version of the template. Template updates will increment the minor
    *          revision. Re-enrolling all certificate holders will increment the major revision.</p>
+   * @public
    */
   Revision?: TemplateRevision;
 
   /**
-   * @public
    * <p>The date and time that the template was created.</p>
+   * @public
    */
   CreatedAt?: Date;
 
   /**
-   * @public
    * <p>The date and time that the template was updated.</p>
+   * @public
    */
   UpdatedAt?: Date;
 }
@@ -3028,16 +3028,16 @@ export interface TemplateSummary {
  */
 export interface ListTemplatesResponse {
   /**
-   * @public
    * <p>Custom configuration templates used when issuing a certificate. </p>
+   * @public
    */
   Templates?: TemplateSummary[];
 
   /**
-   * @public
    * <p>Use this parameter when paginating results in a subsequent request after you receive a
    *          response with truncated results. Set it to the value of the <code>NextToken</code>
    *          parameter from the response you just received.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -3047,14 +3047,14 @@ export interface ListTemplatesResponse {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you created the resource. </p>
+   * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * @public
    * <p>Metadata assigned to a directory registration consisting of a key-value pair.</p>
+   * @public
    */
   Tags: Record<string, string> | undefined;
 }
@@ -3064,28 +3064,28 @@ export interface TagResourceRequest {
  */
 export interface UpdateTemplateGroupAccessControlEntryRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>.</p>
+   * @public
    */
   TemplateArn: string | undefined;
 
   /**
-   * @public
    * <p>Security identifier (SID) of the group object from Active Directory. The SID starts with
    *          "S-".</p>
+   * @public
    */
   GroupSecurityIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>Name of the Active Directory group. This name does not need to match the group name in Active Directory.</p>
+   * @public
    */
   GroupDisplayName?: string;
 
   /**
-   * @public
    * <p>Allow or deny permissions for an Active Directory group to enroll or autoenroll certificates for a
    *          template.</p>
+   * @public
    */
   AccessRights?: AccessRights;
 }
@@ -3095,24 +3095,24 @@ export interface UpdateTemplateGroupAccessControlEntryRequest {
  */
 export interface UpdateTemplateRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>.</p>
+   * @public
    */
   TemplateArn: string | undefined;
 
   /**
-   * @public
    * <p>Template configuration to define the information included in certificates. Define
    *          certificate validity and renewal periods, certificate request handling and enrollment
    *          options, key usage extensions, application policies, and cryptography settings.</p>
+   * @public
    */
   Definition?: TemplateDefinition;
 
   /**
-   * @public
    * <p>This setting allows the major version of a template to be increased automatically. All
    *          members of Active Directory groups that are allowed to enroll with a template will receive a new
    *          certificate issued using that template.</p>
+   * @public
    */
   ReenrollAllCertificateHolders?: boolean;
 }
@@ -3122,15 +3122,15 @@ export interface UpdateTemplateRequest {
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that was returned when you created the resource.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * @public
    * <p>Specifies a list of tag keys that you want to remove from the specified
    *          resources.</p>
+   * @public
    */
   TagKeys: string[] | undefined;
 }

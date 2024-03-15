@@ -32,7 +32,6 @@ export interface DescribeFileSystemAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the file system association information. This operation is only supported for FSx
  *          File Gateways.</p>
  * @example
@@ -98,6 +97,7 @@ export interface DescribeFileSystemAssociationsCommandOutput
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  */
 export class DescribeFileSystemAssociationsCommand extends $Command
   .classBuilder<

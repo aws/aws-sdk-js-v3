@@ -27,7 +27,6 @@ export interface CreateSubnetGroupCommandInput extends CreateSubnetGroupRequest 
 export interface CreateSubnetGroupCommandOutput extends CreateSubnetGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new subnet group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface CreateSubnetGroupCommandOutput extends CreateSubnetGroupRespons
  * @throws {@link DAXServiceException}
  * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ * @public
  */
 export class CreateSubnetGroupCommand extends $Command
   .classBuilder<

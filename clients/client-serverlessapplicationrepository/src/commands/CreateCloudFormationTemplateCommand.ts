@@ -36,7 +36,6 @@ export interface CreateCloudFormationTemplateCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an AWS CloudFormation template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface CreateCloudFormationTemplateCommandOutput
  * @throws {@link ServerlessApplicationRepositoryServiceException}
  * <p>Base exception class for all service exceptions from ServerlessApplicationRepository service.</p>
  *
+ * @public
  */
 export class CreateCloudFormationTemplateCommand extends $Command
   .classBuilder<

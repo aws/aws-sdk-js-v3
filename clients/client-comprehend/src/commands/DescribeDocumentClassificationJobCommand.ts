@@ -35,7 +35,6 @@ export interface DescribeDocumentClassificationJobCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the properties associated with a document classification job. Use this operation to
  *       get the status of a classification job.</p>
  * @example
@@ -111,6 +110,7 @@ export interface DescribeDocumentClassificationJobCommandOutput
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class DescribeDocumentClassificationJobCommand extends $Command
   .classBuilder<

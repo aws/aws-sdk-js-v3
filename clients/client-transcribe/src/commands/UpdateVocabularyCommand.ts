@@ -27,7 +27,6 @@ export interface UpdateVocabularyCommandInput extends UpdateVocabularyRequest {}
 export interface UpdateVocabularyCommandOutput extends UpdateVocabularyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing custom vocabulary with new values. This operation overwrites all
  *             existing information with your new values; you cannot append new terms onto an existing
  *             custom vocabulary.</p>
@@ -88,6 +87,7 @@ export interface UpdateVocabularyCommandOutput extends UpdateVocabularyResponse,
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * @public
  */
 export class UpdateVocabularyCommand extends $Command
   .classBuilder<

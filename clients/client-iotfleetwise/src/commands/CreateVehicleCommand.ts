@@ -27,7 +27,6 @@ export interface CreateVehicleCommandInput extends CreateVehicleRequest {}
 export interface CreateVehicleCommandOutput extends CreateVehicleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Creates a vehicle, which is an instance of a vehicle model (model manifest). Vehicles
  *             created from the same vehicle model consist of the same signals inherited from the
  *             vehicle model.</p>
@@ -99,6 +98,7 @@ export interface CreateVehicleCommandOutput extends CreateVehicleResponse, __Met
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class CreateVehicleCommand extends $Command
   .classBuilder<

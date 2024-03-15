@@ -27,7 +27,6 @@ export interface UpdateDataSetPermissionsCommandInput extends UpdateDataSetPermi
 export interface UpdateDataSetPermissionsCommandOutput extends UpdateDataSetPermissionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the permissions on a dataset.</p>
  *          <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/data-set-id</code>.</p>
  * @example
@@ -97,6 +96,7 @@ export interface UpdateDataSetPermissionsCommandOutput extends UpdateDataSetPerm
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class UpdateDataSetPermissionsCommand extends $Command
   .classBuilder<

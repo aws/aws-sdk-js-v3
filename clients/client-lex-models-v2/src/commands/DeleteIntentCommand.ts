@@ -27,7 +27,6 @@ export interface DeleteIntentCommandInput extends DeleteIntentRequest {}
 export interface DeleteIntentCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified intent.</p>
  *          <p>Deleting an intent also deletes the slots associated with the
  *          intent.</p>
@@ -83,6 +82,7 @@ export interface DeleteIntentCommandOutput extends __MetadataBearer {}
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class DeleteIntentCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateLoadBalancerAttributeCommandInput extends UpdateLoadBalan
 export interface UpdateLoadBalancerAttributeCommandOutput extends UpdateLoadBalancerAttributeResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified attribute for a load balancer. You can only update one attribute at
  *       a time.</p>
  *          <p>The <code>update load balancer attribute</code> operation supports tag-based access
@@ -109,6 +108,7 @@ export interface UpdateLoadBalancerAttributeCommandOutput extends UpdateLoadBala
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class UpdateLoadBalancerAttributeCommand extends $Command
   .classBuilder<

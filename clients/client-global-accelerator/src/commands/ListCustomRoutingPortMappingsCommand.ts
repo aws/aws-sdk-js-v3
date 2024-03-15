@@ -36,7 +36,6 @@ export interface ListCustomRoutingPortMappingsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a complete mapping from the public accelerator IP address and port to destination EC2 instance
  * 		IP addresses and ports in the virtual public cloud (VPC) subnet endpoint for a custom routing accelerator.
  * 		For each subnet endpoint that you add, Global Accelerator creates a new static port mapping for the accelerator. The port
@@ -105,6 +104,7 @@ export interface ListCustomRoutingPortMappingsCommandOutput
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class ListCustomRoutingPortMappingsCommand extends $Command
   .classBuilder<

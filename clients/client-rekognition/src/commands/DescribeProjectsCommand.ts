@@ -27,7 +27,6 @@ export interface DescribeProjectsCommandInput extends DescribeProjectsRequest {}
 export interface DescribeProjectsCommandOutput extends DescribeProjectsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about your Rekognition projects.</p>
  *          <p>This operation requires permissions to perform the <code>rekognition:DescribeProjects</code> action.</p>
  * @example
@@ -102,6 +101,7 @@ export interface DescribeProjectsCommandOutput extends DescribeProjectsResponse,
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example To describe an Amazon Rekognition Custom Labels project.
  * ```javascript
  * // Describes an Amazon Rekognition Custom Labels projects.

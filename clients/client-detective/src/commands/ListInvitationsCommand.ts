@@ -31,7 +31,6 @@ export interface ListInvitationsCommandInput extends ListInvitationsRequest {}
 export interface ListInvitationsCommandOutput extends ListInvitationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the list of open and accepted behavior graph invitations for the member
  *          account. This operation can only be called by an invited member account.</p>
  *          <p>Open invitations are invitations that the member account has not responded to.</p>
@@ -102,6 +101,7 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ * @public
  */
 export class ListInvitationsCommand extends $Command
   .classBuilder<

@@ -312,7 +312,6 @@ export type DocDBElasticClientResolvedConfigType = __SmithyResolvedConfiguration
 export interface DocDBElasticClientResolvedConfig extends DocDBElasticClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>Amazon DocumentDB elastic clusters</fullname>
  *          <p>Amazon DocumentDB elastic-clusters support workloads with millions of reads/writes per second and petabytes of storage capacity.
  *       Amazon DocumentDB elastic clusters also simplify how developers interact with Amazon DocumentDB elastic-clusters by eliminating the need to choose, manage or upgrade instances.</p>
@@ -328,6 +327,7 @@ export interface DocDBElasticClientResolvedConfig extends DocDBElasticClientReso
  *                <p>continue investing in a cloud-native, elastic, and class leading architecture for JSON workloads.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class DocDBElasticClient extends __Client<
   __HttpHandlerOptions,

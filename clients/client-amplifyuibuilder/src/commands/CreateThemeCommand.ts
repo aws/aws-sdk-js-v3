@@ -27,7 +27,6 @@ export interface CreateThemeCommandInput extends CreateThemeRequest {}
 export interface CreateThemeCommandOutput extends CreateThemeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a theme to apply to the components in an Amplify app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -122,6 +121,7 @@ export interface CreateThemeCommandOutput extends CreateThemeResponse, __Metadat
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ * @public
  */
 export class CreateThemeCommand extends $Command
   .classBuilder<

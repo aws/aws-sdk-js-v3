@@ -27,7 +27,6 @@ export interface DeletePortfolioCommandInput extends DeletePortfolioInput {}
 export interface DeletePortfolioCommandOutput extends DeletePortfolioOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified portfolio.</p>
  *          <p>You cannot delete a portfolio if it was shared with you or if it has associated
  *          products, users, constraints, or shared accounts.</p>
@@ -71,6 +70,7 @@ export interface DeletePortfolioCommandOutput extends DeletePortfolioOutput, __M
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class DeletePortfolioCommand extends $Command
   .classBuilder<

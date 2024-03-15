@@ -31,7 +31,6 @@ export interface UpdateProblemCommandInput extends UpdateProblemRequest {}
 export interface UpdateProblemCommandOutput extends UpdateProblemResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the visibility of the problem or specifies the problem as
  *          <code>RESOLVED</code>.</p>
  * @example
@@ -69,6 +68,7 @@ export interface UpdateProblemCommandOutput extends UpdateProblemResponse, __Met
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ * @public
  */
 export class UpdateProblemCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListEnvironmentsCommandInput extends ListEnvironmentsInput {}
 export interface ListEnvironmentsCommandOutput extends ListEnvironmentsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the Amazon Managed Workflows for Apache Airflow (MWAA) environments.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsOutput, _
  * @throws {@link MWAAServiceException}
  * <p>Base exception class for all service exceptions from MWAA service.</p>
  *
+ * @public
  */
 export class ListEnvironmentsCommand extends $Command
   .classBuilder<

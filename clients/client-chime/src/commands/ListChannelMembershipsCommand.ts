@@ -32,9 +32,6 @@ export interface ListChannelMembershipsCommandInput extends ListChannelMembershi
 export interface ListChannelMembershipsCommandOutput extends ListChannelMembershipsResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by ListChannelMemberships in the Amazon Chime SDK Messaging Namespace
- *
  * <p>Lists all channel memberships in a channel.</p>
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
@@ -105,6 +102,8 @@ export interface ListChannelMembershipsCommandOutput extends ListChannelMembersh
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by ListChannelMemberships in the Amazon Chime SDK Messaging Namespace
  */
 export class ListChannelMembershipsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListShareInvitationsCommandInput extends ListShareInvitationsIn
 export interface ListShareInvitationsCommandOutput extends ListShareInvitationsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>List the share invitations.</p>
  *          <p>
  *             <code>WorkloadNamePrefix</code>, <code>LensNamePrefix</code>,
@@ -94,6 +93,7 @@ export interface ListShareInvitationsCommandOutput extends ListShareInvitationsO
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * @public
  */
 export class ListShareInvitationsCommand extends $Command
   .classBuilder<

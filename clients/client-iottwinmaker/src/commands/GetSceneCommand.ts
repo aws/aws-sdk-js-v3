@@ -27,7 +27,6 @@ export interface GetSceneCommandInput extends GetSceneRequest {}
 export interface GetSceneCommandOutput extends GetSceneResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about a scene.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface GetSceneCommandOutput extends GetSceneResponse, __MetadataBeare
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ * @public
  */
 export class GetSceneCommand extends $Command
   .classBuilder<

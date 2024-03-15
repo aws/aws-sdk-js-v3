@@ -27,7 +27,6 @@ export interface AcceptMatchCommandInput extends AcceptMatchInput {}
 export interface AcceptMatchCommandOutput extends AcceptMatchOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers a player's acceptance or rejection of a proposed FlexMatch match. A
  *             matchmaking configuration may require player acceptance; if so, then matches built with
  *             that configuration cannot be completed unless all players accept the proposed match
@@ -105,6 +104,7 @@ export interface AcceptMatchCommandOutput extends AcceptMatchOutput, __MetadataB
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class AcceptMatchCommand extends $Command
   .classBuilder<

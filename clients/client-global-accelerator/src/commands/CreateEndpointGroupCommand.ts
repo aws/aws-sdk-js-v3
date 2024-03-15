@@ -31,7 +31,6 @@ export interface CreateEndpointGroupCommandInput extends CreateEndpointGroupRequ
 export interface CreateEndpointGroupCommandOutput extends CreateEndpointGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create an endpoint group for the specified listener. An endpoint group is a collection of endpoints in one Amazon Web Services
  * 			Region. A resource must be valid and active when you add it as an endpoint.</p>
  *          <p>For more information about endpoint types and requirements for endpoints that you can add
@@ -130,6 +129,7 @@ export interface CreateEndpointGroupCommandOutput extends CreateEndpointGroupRes
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class CreateEndpointGroupCommand extends $Command
   .classBuilder<

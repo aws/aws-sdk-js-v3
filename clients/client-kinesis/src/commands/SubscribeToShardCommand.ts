@@ -31,7 +31,6 @@ export interface SubscribeToShardCommandInput extends SubscribeToShardInput {}
 export interface SubscribeToShardCommandOutput extends SubscribeToShardOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation establishes an HTTP/2 connection between the consumer you specify in
  *             the <code>ConsumerARN</code> parameter and the shard you specify in the
  *                 <code>ShardId</code> parameter. After the connection is successfully established,
@@ -160,6 +159,7 @@ export interface SubscribeToShardCommandOutput extends SubscribeToShardOutput, _
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * @public
  */
 export class SubscribeToShardCommand extends $Command
   .classBuilder<

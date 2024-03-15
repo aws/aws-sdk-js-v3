@@ -32,7 +32,6 @@ export interface ListResourceProfileDetectionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the types and amount of sensitive data that Amazon Macie found in an S3 bucket.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface ListResourceProfileDetectionsCommandOutput
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class ListResourceProfileDetectionsCommand extends $Command
   .classBuilder<

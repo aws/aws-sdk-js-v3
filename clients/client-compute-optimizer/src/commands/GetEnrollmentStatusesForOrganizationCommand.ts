@@ -35,7 +35,6 @@ export interface GetEnrollmentStatusesForOrganizationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the Compute Optimizer enrollment (opt-in) status of organization member
  *             accounts, if your account is an organization management account.</p>
  *          <p>To get the enrollment status of standalone accounts, use the <a>GetEnrollmentStatus</a> action.</p>
@@ -101,6 +100,7 @@ export interface GetEnrollmentStatusesForOrganizationCommandOutput
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ * @public
  */
 export class GetEnrollmentStatusesForOrganizationCommand extends $Command
   .classBuilder<

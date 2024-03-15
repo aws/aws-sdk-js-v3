@@ -27,7 +27,6 @@ export interface GetLogAnomalyDetectorCommandInput extends GetLogAnomalyDetector
 export interface GetLogAnomalyDetectorCommandOutput extends GetLogAnomalyDetectorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the log anomaly detector that you specify.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface GetLogAnomalyDetectorCommandOutput extends GetLogAnomalyDetecto
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class GetLogAnomalyDetectorCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface CreateStreamingSessionStreamCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a streaming session stream for a streaming session.</p>
  *         <p>After invoking this API, invoke GetStreamingSessionStream with the returned streamId
  *             to poll the resource until it is in the <code>READY</code> state.</p>
@@ -102,6 +101,7 @@ export interface CreateStreamingSessionStreamCommandOutput
  * @throws {@link NimbleServiceException}
  * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
+ * @public
  */
 export class CreateStreamingSessionStreamCommand extends $Command
   .classBuilder<

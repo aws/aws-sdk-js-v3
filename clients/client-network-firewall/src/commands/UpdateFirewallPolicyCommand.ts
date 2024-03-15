@@ -27,7 +27,6 @@ export interface UpdateFirewallPolicyCommandInput extends UpdateFirewallPolicyRe
 export interface UpdateFirewallPolicyCommandOutput extends UpdateFirewallPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the properties of the specified firewall policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -167,6 +166,7 @@ export interface UpdateFirewallPolicyCommandOutput extends UpdateFirewallPolicyR
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ * @public
  */
 export class UpdateFirewallPolicyCommand extends $Command
   .classBuilder<

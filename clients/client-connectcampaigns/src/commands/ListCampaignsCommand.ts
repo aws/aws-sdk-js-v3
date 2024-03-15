@@ -27,7 +27,6 @@ export interface ListCampaignsCommandInput extends ListCampaignsRequest {}
 export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __MetadataBearer {}
 
 /**
- * @public
  * Provides summary information about the campaigns under the specified Amazon Connect account.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  * @throws {@link ConnectCampaignsServiceException}
  * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
+ * @public
  */
 export class ListCampaignsCommand extends $Command
   .classBuilder<

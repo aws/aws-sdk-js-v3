@@ -27,7 +27,6 @@ export interface ListUserProfilesCommandInput extends ListUserProfilesRequest {}
 export interface ListUserProfilesCommandOutput extends ListUserProfilesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists user profiles.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface ListUserProfilesCommandOutput extends ListUserProfilesResponse,
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListUserProfilesCommand extends $Command
   .classBuilder<

@@ -498,7 +498,6 @@ export interface ACMPCA {
 }
 
 /**
- * @public
  * <p>This is the <i>Amazon Web Services Private Certificate Authority API Reference</i>. It provides descriptions,
  * 			syntax, and usage examples for each of the actions and data types involved in creating
  * 			and managing a private certificate authority (CA) for your organization.</p>
@@ -515,6 +514,7 @@ export interface ACMPCA {
  *          <p>To see an up-to-date list of your Amazon Web Services Private CA quotas, or to request a quota increase,
  * 			log into your Amazon Web Services account and visit the <a href="https://console.aws.amazon.com/servicequotas/">Service Quotas</a>
  * 			console.</p>
+ * @public
  */
 export class ACMPCA extends ACMPCAClient implements ACMPCA {}
 createAggregatedClient(commands, ACMPCA);

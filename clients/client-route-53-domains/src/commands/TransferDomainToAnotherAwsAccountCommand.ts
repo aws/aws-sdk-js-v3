@@ -36,7 +36,6 @@ export interface TransferDomainToAnotherAwsAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Transfers a domain from the current Amazon Web Services account to another Amazon Web Services account. Note the following:</p>
  *          <ul>
  *             <li>
@@ -106,6 +105,7 @@ export interface TransferDomainToAnotherAwsAccountCommandOutput
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * @public
  */
 export class TransferDomainToAnotherAwsAccountCommand extends $Command
   .classBuilder<

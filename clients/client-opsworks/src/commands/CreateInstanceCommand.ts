@@ -27,7 +27,6 @@ export interface CreateInstanceCommandInput extends CreateInstanceRequest {}
 export interface CreateInstanceCommandOutput extends CreateInstanceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an instance in a specified stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html">Adding an
  *         Instance to a Layer</a>.</p>
  *          <p>
@@ -99,6 +98,7 @@ export interface CreateInstanceCommandOutput extends CreateInstanceResult, __Met
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class CreateInstanceCommand extends $Command
   .classBuilder<

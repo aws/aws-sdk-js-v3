@@ -27,7 +27,6 @@ export interface UpdateContactAttributesCommandInput extends UpdateContactAttrib
 export interface UpdateContactAttributesCommandOutput extends UpdateContactAttributesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates
  *    user-defined contact attributes
  *    associated with the specified contact.</p>
@@ -82,6 +81,7 @@ export interface UpdateContactAttributesCommandOutput extends UpdateContactAttri
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UpdateContactAttributesCommand extends $Command
   .classBuilder<

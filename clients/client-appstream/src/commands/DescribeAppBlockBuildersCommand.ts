@@ -27,7 +27,6 @@ export interface DescribeAppBlockBuildersCommandInput extends DescribeAppBlockBu
 export interface DescribeAppBlockBuildersCommandOutput extends DescribeAppBlockBuildersResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list that describes one or more app block builders.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -104,6 +103,7 @@ export interface DescribeAppBlockBuildersCommandOutput extends DescribeAppBlockB
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class DescribeAppBlockBuildersCommand extends $Command
   .classBuilder<

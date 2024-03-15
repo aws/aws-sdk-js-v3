@@ -27,7 +27,6 @@ export interface UngroupResourcesCommandInput extends UngroupResourcesInput {}
 export interface UngroupResourcesCommandOutput extends UngroupResourcesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified resources from the specified group. This operation works only
  *             with static groups that you populated using the <a>GroupResources</a>
  *             operation. It doesn't work with any resource groups that are automatically populated by
@@ -105,6 +104,7 @@ export interface UngroupResourcesCommandOutput extends UngroupResourcesOutput, _
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ * @public
  */
 export class UngroupResourcesCommand extends $Command
   .classBuilder<

@@ -27,9 +27,6 @@ export interface ListSmartHomeAppliancesCommandInput extends ListSmartHomeApplia
 export interface ListSmartHomeAppliancesCommandOutput extends ListSmartHomeAppliancesResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Lists all of the smart home appliances associated with a room.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +66,8 @@ export interface ListSmartHomeAppliancesCommandOutput extends ListSmartHomeAppli
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class ListSmartHomeAppliancesCommand extends $Command
   .classBuilder<

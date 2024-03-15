@@ -27,7 +27,6 @@ export interface CreateEdgeDeploymentPlanCommandInput extends CreateEdgeDeployme
 export interface CreateEdgeDeploymentPlanCommandOutput extends CreateEdgeDeploymentPlanResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an edge deployment plan, consisting of multiple stages. Each stage may have a
  *             different deployment configuration and devices.</p>
  * @example
@@ -89,6 +88,7 @@ export interface CreateEdgeDeploymentPlanCommandOutput extends CreateEdgeDeploym
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateEdgeDeploymentPlanCommand extends $Command
   .classBuilder<

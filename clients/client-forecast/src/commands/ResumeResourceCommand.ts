@@ -27,7 +27,6 @@ export interface ResumeResourceCommandInput extends ResumeResourceRequest {}
 export interface ResumeResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Resumes a stopped monitor resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface ResumeResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class ResumeResourceCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribePatchPropertiesCommandInput extends DescribePatchProper
 export interface DescribePatchPropertiesCommandOutput extends DescribePatchPropertiesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the properties of available patches organized by product, product family,
  *    classification, severity, and other properties of available patches. You can use the reported
  *    properties in the filters you specify in requests for operations such as <a>CreatePatchBaseline</a>, <a>UpdatePatchBaseline</a>, <a>DescribeAvailablePatches</a>, and <a>DescribePatchBaselines</a>.</p>
@@ -130,6 +129,7 @@ export interface DescribePatchPropertiesCommandOutput extends DescribePatchPrope
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DescribePatchPropertiesCommand extends $Command
   .classBuilder<

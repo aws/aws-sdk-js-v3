@@ -31,7 +31,6 @@ export interface DescribeIndexCommandInput extends DescribeIndexRequest {}
 export interface DescribeIndexCommandOutput extends DescribeIndexResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about an existing Amazon Kendra index.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -145,6 +144,7 @@ export interface DescribeIndexCommandOutput extends DescribeIndexResponse, __Met
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class DescribeIndexCommand extends $Command
   .classBuilder<

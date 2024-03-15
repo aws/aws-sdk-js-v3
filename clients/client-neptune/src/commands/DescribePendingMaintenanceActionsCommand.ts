@@ -32,7 +32,6 @@ export interface DescribePendingMaintenanceActionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of resources (for example, DB instances) that have at least one pending
  *       maintenance action.</p>
  * @example
@@ -89,6 +88,7 @@ export interface DescribePendingMaintenanceActionsCommandOutput
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class DescribePendingMaintenanceActionsCommand extends $Command
   .classBuilder<

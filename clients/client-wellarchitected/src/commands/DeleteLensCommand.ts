@@ -27,7 +27,6 @@ export interface DeleteLensCommandInput extends DeleteLensInput {}
 export interface DeleteLensCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete an existing lens.</p>
  *          <p>Only the owner of a lens can delete it.  After the lens is deleted,  Amazon Web Services accounts and users
  *               that you shared the lens with can continue to use it, but they will no longer be able to apply it to new workloads.
@@ -87,6 +86,7 @@ export interface DeleteLensCommandOutput extends __MetadataBearer {}
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * @public
  */
 export class DeleteLensCommand extends $Command
   .classBuilder<

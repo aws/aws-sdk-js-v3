@@ -32,7 +32,6 @@ export interface GetMicrosoftTeamsChannelConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * Get a single MS Teams Channel Configurations
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface GetMicrosoftTeamsChannelConfigurationCommandOutput
  * @throws {@link ChatbotServiceException}
  * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
+ * @public
  */
 export class GetMicrosoftTeamsChannelConfigurationCommand extends $Command
   .classBuilder<

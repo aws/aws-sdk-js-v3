@@ -27,7 +27,6 @@ export interface CreateStreamingURLCommandInput extends CreateStreamingURLReques
 export interface CreateStreamingURLCommandOutput extends CreateStreamingURLResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a temporary URL to start an AppStream 2.0 streaming session for the specified user. A streaming URL enables application streaming to be tested without user setup. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface CreateStreamingURLCommandOutput extends CreateStreamingURLResul
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class CreateStreamingURLCommand extends $Command
   .classBuilder<

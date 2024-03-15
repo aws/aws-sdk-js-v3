@@ -566,7 +566,6 @@ export interface Amp {
 }
 
 /**
- * @public
  * <p>Amazon Managed Service for Prometheus is a serverless, Prometheus-compatible monitoring service for
  *             container metrics that makes it easier to securely monitor container environments at
  *             scale. With Amazon Managed Service for Prometheus, you can use the same open-source Prometheus data
@@ -585,6 +584,7 @@ export interface Amp {
  *                     workspace.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class Amp extends AmpClient implements Amp {}
 createAggregatedClient(commands, Amp);

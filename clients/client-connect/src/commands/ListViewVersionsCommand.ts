@@ -31,7 +31,6 @@ export interface ListViewVersionsCommandInput extends ListViewVersionsRequest {}
 export interface ListViewVersionsCommandOutput extends ListViewVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns all the available versions for the specified Amazon Connect instance and view
  *    identifier.</p>
  *          <p>Results will be sorted from highest to lowest.</p>
@@ -93,6 +92,7 @@ export interface ListViewVersionsCommandOutput extends ListViewVersionsResponse,
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class ListViewVersionsCommand extends $Command
   .classBuilder<

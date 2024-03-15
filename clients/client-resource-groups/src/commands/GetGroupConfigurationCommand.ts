@@ -27,7 +27,6 @@ export interface GetGroupConfigurationCommandInput extends GetGroupConfiguration
 export interface GetGroupConfigurationCommandOutput extends GetGroupConfigurationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the service configuration associated with the specified resource group. For
  *             details about the service configuration syntax, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for Resource Groups</a>.</p>
  *          <p>
@@ -115,6 +114,7 @@ export interface GetGroupConfigurationCommandOutput extends GetGroupConfiguratio
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ * @public
  */
 export class GetGroupConfigurationCommand extends $Command
   .classBuilder<

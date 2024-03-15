@@ -27,7 +27,6 @@ export interface BatchGetWorkflowsCommandInput extends BatchGetWorkflowsRequest 
 export interface BatchGetWorkflowsCommandOutput extends BatchGetWorkflowsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of resource metadata for a given list of workflow names. After calling the <code>ListWorkflows</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -321,6 +320,7 @@ export interface BatchGetWorkflowsCommandOutput extends BatchGetWorkflowsRespons
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class BatchGetWorkflowsCommand extends $Command
   .classBuilder<

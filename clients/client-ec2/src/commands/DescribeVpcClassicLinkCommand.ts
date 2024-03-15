@@ -27,7 +27,6 @@ export interface DescribeVpcClassicLinkCommandInput extends DescribeVpcClassicLi
 export interface DescribeVpcClassicLinkCommandOutput extends DescribeVpcClassicLinkResult, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This action is deprecated.</p>
  *          </note>
@@ -80,6 +79,7 @@ export interface DescribeVpcClassicLinkCommandOutput extends DescribeVpcClassicL
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeVpcClassicLinkCommand extends $Command
   .classBuilder<

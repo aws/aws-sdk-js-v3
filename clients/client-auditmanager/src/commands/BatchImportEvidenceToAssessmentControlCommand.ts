@@ -38,7 +38,6 @@ export interface BatchImportEvidenceToAssessmentControlCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds one or more pieces of evidence to a control in an Audit Manager assessment. </p>
  *          <p>You can import manual evidence from any S3 bucket by specifying the S3 URI of the
  *          object. You can also upload a file from your browser, or enter plain text in response to a
@@ -127,6 +126,7 @@ export interface BatchImportEvidenceToAssessmentControlCommandOutput
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class BatchImportEvidenceToAssessmentControlCommand extends $Command
   .classBuilder<

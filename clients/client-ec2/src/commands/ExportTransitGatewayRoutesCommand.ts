@@ -27,7 +27,6 @@ export interface ExportTransitGatewayRoutesCommandInput extends ExportTransitGat
 export interface ExportTransitGatewayRoutesCommandOutput extends ExportTransitGatewayRoutesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Exports routes from the specified transit gateway route table to the specified S3 bucket.
  *          By default, all routes are exported. Alternatively, you can filter by CIDR range.</p>
  *          <p>The routes are saved to the specified bucket in a JSON file. For more information, see
@@ -69,6 +68,7 @@ export interface ExportTransitGatewayRoutesCommandOutput extends ExportTransitGa
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ExportTransitGatewayRoutesCommand extends $Command
   .classBuilder<

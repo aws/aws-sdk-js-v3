@@ -27,7 +27,6 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Detaches a key-value pair from a resource, as identified by its Amazon Resource Name
  *       (ARN). Resources are users, servers, roles, and other entities.</p>
  *          <p>No response is returned from this call.</p>
@@ -71,6 +70,7 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class UntagResourceCommand extends $Command
   .classBuilder<

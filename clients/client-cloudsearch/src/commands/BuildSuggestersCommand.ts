@@ -27,7 +27,6 @@ export interface BuildSuggestersCommandInput extends BuildSuggestersRequest {}
 export interface BuildSuggestersCommandOutput extends BuildSuggestersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Indexes the search suggestions. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html#configuring-suggesters">Configuring Suggesters</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface BuildSuggestersCommandOutput extends BuildSuggestersResponse, _
  * @throws {@link CloudSearchServiceException}
  * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
+ * @public
  */
 export class BuildSuggestersCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateEnvironmentCommandInput extends CreateEnvironmentRequest 
 export interface CreateEnvironmentCommandOutput extends Environment, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an environment. For each application, you define one or more environments. An
  *          environment is a deployment group of AppConfig targets, such as applications in a
  *             <code>Beta</code> or <code>Production</code> environment. You can also define
@@ -103,6 +102,7 @@ export interface CreateEnvironmentCommandOutput extends Environment, __MetadataB
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  * @example To create an environment
  * ```javascript
  * // The following create-environment example creates an AWS AppConfig environment named Example-Environment using the application you created using create-application

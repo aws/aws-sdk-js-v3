@@ -27,7 +27,6 @@ export interface PutRuleGroupsNamespaceCommandInput extends PutRuleGroupsNamespa
 export interface PutRuleGroupsNamespaceCommandOutput extends PutRuleGroupsNamespaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing rule groups namespace within a workspace. A rule groups namespace
  *             is associated with exactly one rules file. A workspace can have multiple rule groups
  *             namespaces.</p>
@@ -94,6 +93,7 @@ export interface PutRuleGroupsNamespaceCommandOutput extends PutRuleGroupsNamesp
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ * @public
  */
 export class PutRuleGroupsNamespaceCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface ModifyListenerCommandInput extends ModifyListenerInput {}
 export interface ModifyListenerCommandOutput extends ModifyListenerOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Replaces the specified properties of the specified listener. Any properties that you do
  *       not specify remain unchanged.</p>
  *          <p>Changing the protocol from HTTPS to HTTP, or from TLS to TCP, removes the security policy
@@ -285,6 +284,7 @@ export interface ModifyListenerCommandOutput extends ModifyListenerOutput, __Met
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  * @example To change the default action for a listener
  * ```javascript
  * // This example changes the default action for the specified listener.

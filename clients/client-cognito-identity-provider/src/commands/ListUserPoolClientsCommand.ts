@@ -35,7 +35,6 @@ export interface ListUserPoolClientsCommandInput extends ListUserPoolClientsRequ
 export interface ListUserPoolClientsCommandOutput extends ListUserPoolClientsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the clients that have been created for the specified user pool.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
@@ -110,6 +109,7 @@ export interface ListUserPoolClientsCommandOutput extends ListUserPoolClientsRes
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class ListUserPoolClientsCommand extends $Command
   .classBuilder<

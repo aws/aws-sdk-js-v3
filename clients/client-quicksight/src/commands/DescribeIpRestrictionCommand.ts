@@ -27,7 +27,6 @@ export interface DescribeIpRestrictionCommandInput extends DescribeIpRestriction
 export interface DescribeIpRestrictionCommandOutput extends DescribeIpRestrictionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a summary and status of IP rules.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface DescribeIpRestrictionCommandOutput extends DescribeIpRestrictio
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DescribeIpRestrictionCommand extends $Command
   .classBuilder<

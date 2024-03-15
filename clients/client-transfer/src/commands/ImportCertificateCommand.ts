@@ -31,7 +31,6 @@ export interface ImportCertificateCommandInput extends ImportCertificateRequest 
 export interface ImportCertificateCommandOutput extends ImportCertificateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Imports the signing and encryption certificates that you need to create local (AS2)
  *       profiles and partner
  *       profiles.</p>
@@ -86,6 +85,7 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class ImportCertificateCommand extends $Command
   .classBuilder<

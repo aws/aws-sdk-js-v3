@@ -27,7 +27,6 @@ export interface CancelMetadataTransferJobCommandInput extends CancelMetadataTra
 export interface CancelMetadataTransferJobCommandOutput extends CancelMetadataTransferJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels the metadata transfer job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface CancelMetadataTransferJobCommandOutput extends CancelMetadataTr
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ * @public
  */
 export class CancelMetadataTransferJobCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetDataIntegrationCommandInput extends GetDataIntegrationReques
 export interface GetDataIntegrationCommandOutput extends GetDataIntegrationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the DataIntegration.</p>
  *          <note>
  *             <p>You cannot create a DataIntegration association for a DataIntegration that has been previously associated.
@@ -105,6 +104,7 @@ export interface GetDataIntegrationCommandOutput extends GetDataIntegrationRespo
  * @throws {@link AppIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
+ * @public
  */
 export class GetDataIntegrationCommand extends $Command
   .classBuilder<

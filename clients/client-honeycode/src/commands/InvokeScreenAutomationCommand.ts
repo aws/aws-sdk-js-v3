@@ -31,7 +31,6 @@ export interface InvokeScreenAutomationCommandInput extends InvokeScreenAutomati
 export interface InvokeScreenAutomationCommandOutput extends InvokeScreenAutomationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The InvokeScreenAutomation API allows invoking an action defined in a screen in a Honeycode app.
  *             The API allows setting local variables, which can then be used in the automation being invoked.
@@ -110,6 +109,7 @@ export interface InvokeScreenAutomationCommandOutput extends InvokeScreenAutomat
  * @throws {@link HoneycodeServiceException}
  * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
+ * @public
  */
 export class InvokeScreenAutomationCommand extends $Command
   .classBuilder<

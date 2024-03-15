@@ -27,7 +27,6 @@ export interface CreateNetworkInsightsPathCommandInput extends CreateNetworkInsi
 export interface CreateNetworkInsightsPathCommandOutput extends CreateNetworkInsightsPathResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a path to analyze for reachability.</p>
  *          <p>Reachability Analyzer enables you to analyze and debug network reachability between
  *           two resources in your virtual private cloud (VPC). For more information, see the
@@ -142,6 +141,7 @@ export interface CreateNetworkInsightsPathCommandOutput extends CreateNetworkIns
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateNetworkInsightsPathCommand extends $Command
   .classBuilder<

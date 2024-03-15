@@ -25,7 +25,6 @@ export interface FlattenedXmlMapWithXmlNameCommandInput extends FlattenedXmlMapW
 export interface FlattenedXmlMapWithXmlNameCommandOutput extends FlattenedXmlMapWithXmlNameResponse, __MetadataBearer {}
 
 /**
- * @public
  * Flattened maps with @xmlName
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -57,6 +56,7 @@ export interface FlattenedXmlMapWithXmlNameCommandOutput extends FlattenedXmlMap
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ * @public
  */
 export class FlattenedXmlMapWithXmlNameCommand extends $Command
   .classBuilder<

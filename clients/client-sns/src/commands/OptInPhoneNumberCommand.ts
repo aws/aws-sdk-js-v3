@@ -31,7 +31,6 @@ export interface OptInPhoneNumberCommandInput extends OptInPhoneNumberInput {}
 export interface OptInPhoneNumberCommandOutput extends OptInPhoneNumberResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use this request to opt in a phone number that is opted out, which enables you to
  *             resume sending SMS messages to the number.</p>
  *          <p>You can opt in a phone number only once every 30 days.</p>
@@ -72,6 +71,7 @@ export interface OptInPhoneNumberCommandOutput extends OptInPhoneNumberResponse,
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * @public
  */
 export class OptInPhoneNumberCommand extends $Command
   .classBuilder<

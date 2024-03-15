@@ -27,9 +27,6 @@ export interface RevokeDomainAccessCommandInput extends RevokeDomainAccessReques
 export interface RevokeDomainAccessCommandOutput extends RevokeDomainAccessResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
- *
  * <p>Moves a domain to INACTIVE status if it was in the ACTIVE status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +68,8 @@ export interface RevokeDomainAccessCommandOutput extends RevokeDomainAccessRespo
  * @throws {@link WorkLinkServiceException}
  * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
+ * @public
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  */
 export class RevokeDomainAccessCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteConfigurationCommandInput extends DeleteConfigurationRequ
 export interface DeleteConfigurationCommandOutput extends DeleteConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an MSK Configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DeleteConfigurationCommandOutput extends DeleteConfigurationRes
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ * @public
  */
 export class DeleteConfigurationCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface CreateEventSubscriptionCommandInput extends CreateEventSubscrip
 export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscriptionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Creates an DMS event notification subscription. </p>
  *          <p>You can specify the type of source (<code>SourceType</code>) you want to be notified of,
  *          provide a list of DMS source IDs (<code>SourceIds</code>) that triggers the events, and
@@ -134,6 +133,7 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class CreateEventSubscriptionCommand extends $Command
   .classBuilder<

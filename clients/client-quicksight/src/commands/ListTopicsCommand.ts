@@ -27,7 +27,6 @@ export interface ListTopicsCommandInput extends ListTopicsRequest {}
 export interface ListTopicsCommandOutput extends ListTopicsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all of the topics within an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface ListTopicsCommandOutput extends ListTopicsResponse, __MetadataB
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class ListTopicsCommand extends $Command
   .classBuilder<

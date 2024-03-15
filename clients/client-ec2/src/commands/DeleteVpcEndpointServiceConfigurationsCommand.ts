@@ -36,7 +36,6 @@ export interface DeleteVpcEndpointServiceConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified VPC endpoint service configurations. Before you can delete
  *             an endpoint service configuration, you must reject any <code>Available</code> or
  *             <code>PendingAcceptance</code> interface endpoint connections that are attached to
@@ -78,6 +77,7 @@ export interface DeleteVpcEndpointServiceConfigurationsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DeleteVpcEndpointServiceConfigurationsCommand extends $Command
   .classBuilder<

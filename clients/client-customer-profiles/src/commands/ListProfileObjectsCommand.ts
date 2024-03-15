@@ -31,7 +31,6 @@ export interface ListProfileObjectsCommandInput extends ListProfileObjectsReques
 export interface ListProfileObjectsCommandOutput extends ListProfileObjectsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of objects associated with a profile of a given ProfileObjectType.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface ListProfileObjectsCommandOutput extends ListProfileObjectsRespo
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * @public
  */
 export class ListProfileObjectsCommand extends $Command
   .classBuilder<

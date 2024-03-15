@@ -27,7 +27,6 @@ export interface DescribeDetectorModelCommandInput extends DescribeDetectorModel
 export interface DescribeDetectorModelCommandOutput extends DescribeDetectorModelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a detector model. If the <code>version</code> parameter is not specified,
  *       information about the latest version is returned.</p>
  * @example
@@ -459,6 +458,7 @@ export interface DescribeDetectorModelCommandOutput extends DescribeDetectorMode
  * @throws {@link IoTEventsServiceException}
  * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
+ * @public
  */
 export class DescribeDetectorModelCommand extends $Command
   .classBuilder<

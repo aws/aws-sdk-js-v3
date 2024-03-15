@@ -151,8 +151,8 @@ export interface BackupStorage {
 }
 
 /**
- * @public
  * The frontend service for Cryo Storage.
+ * @public
  */
 export class BackupStorage extends BackupStorageClient implements BackupStorage {}
 createAggregatedClient(commands, BackupStorage);

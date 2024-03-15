@@ -27,7 +27,6 @@ export interface DisableSsoCommandInput extends DisableSsoRequest {}
 export interface DisableSsoCommandOutput extends DisableSsoResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables single-sign on for a directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface DisableSsoCommandOutput extends DisableSsoResult, __MetadataBea
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class DisableSsoCommand extends $Command
   .classBuilder<

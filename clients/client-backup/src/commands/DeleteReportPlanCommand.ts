@@ -27,7 +27,6 @@ export interface DeleteReportPlanCommandInput extends DeleteReportPlanInput {}
 export interface DeleteReportPlanCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the report plan specified by a report plan name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface DeleteReportPlanCommandOutput extends __MetadataBearer {}
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class DeleteReportPlanCommand extends $Command
   .classBuilder<

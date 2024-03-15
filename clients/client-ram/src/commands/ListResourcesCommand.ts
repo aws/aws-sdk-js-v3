@@ -27,7 +27,6 @@ export interface ListResourcesCommandInput extends ListResourcesRequest {}
 export interface ListResourcesCommandOutput extends ListResourcesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the resources that you added to a resource share or the resources that are shared with
  *             you.</p>
  * @example
@@ -105,6 +104,7 @@ export interface ListResourcesCommandOutput extends ListResourcesResponse, __Met
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * @public
  */
 export class ListResourcesCommand extends $Command
   .classBuilder<

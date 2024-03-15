@@ -27,7 +27,6 @@ export interface UpdateMitigationActionCommandInput extends UpdateMitigationActi
 export interface UpdateMitigationActionCommandOutput extends UpdateMitigationActionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the definition for the specified mitigation action.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateMitigationAction</a> action.</p>
  * @example
@@ -94,6 +93,7 @@ export interface UpdateMitigationActionCommandOutput extends UpdateMitigationAct
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class UpdateMitigationActionCommand extends $Command
   .classBuilder<

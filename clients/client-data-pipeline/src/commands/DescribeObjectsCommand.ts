@@ -27,7 +27,6 @@ export interface DescribeObjectsCommandInput extends DescribeObjectsInput {}
 export interface DescribeObjectsCommandOutput extends DescribeObjectsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the object definitions for a set of objects associated with the pipeline. Object definitions are composed of
  *             a set of fields that define the properties of the object.</p>
  *
@@ -144,6 +143,7 @@ export interface DescribeObjectsCommandOutput extends DescribeObjectsOutput, __M
  * @throws {@link DataPipelineServiceException}
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ * @public
  */
 export class DescribeObjectsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetStageCommandInput extends GetStageRequest {}
 export interface GetStageCommandOutput extends GetStageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information for the specified stage.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface GetStageCommandOutput extends GetStageResponse, __MetadataBeare
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ * @public
  */
 export class GetStageCommand extends $Command
   .classBuilder<

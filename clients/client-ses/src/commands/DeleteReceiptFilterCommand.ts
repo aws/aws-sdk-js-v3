@@ -27,7 +27,6 @@ export interface DeleteReceiptFilterCommandInput extends DeleteReceiptFilterRequ
 export interface DeleteReceiptFilterCommandOutput extends DeleteReceiptFilterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified IP address filter.</p>
  *          <p>For information about managing IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-ip-filtering-console-walkthrough.html">Amazon SES
  *                 Developer Guide</a>.</p>
@@ -56,6 +55,7 @@ export interface DeleteReceiptFilterCommandOutput extends DeleteReceiptFilterRes
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example DeleteReceiptFilter
  * ```javascript
  * // The following example deletes an IP address filter:

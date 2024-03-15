@@ -32,7 +32,6 @@ export interface ListResolverEndpointIpAddressesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the IP addresses for a specified Resolver endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface ListResolverEndpointIpAddressesCommandOutput
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class ListResolverEndpointIpAddressesCommand extends $Command
   .classBuilder<

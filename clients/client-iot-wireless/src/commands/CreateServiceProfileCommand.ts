@@ -27,7 +27,6 @@ export interface CreateServiceProfileCommandInput extends CreateServiceProfileRe
 export interface CreateServiceProfileCommandOutput extends CreateServiceProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new service profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface CreateServiceProfileCommandOutput extends CreateServiceProfileR
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class CreateServiceProfileCommand extends $Command
   .classBuilder<

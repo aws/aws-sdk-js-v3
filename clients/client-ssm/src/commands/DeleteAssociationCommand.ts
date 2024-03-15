@@ -27,7 +27,6 @@ export interface DeleteAssociationCommandInput extends DeleteAssociationRequest 
 export interface DeleteAssociationCommandOutput extends DeleteAssociationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates the specified Amazon Web Services Systems Manager document (SSM document) from the specified managed
  *    node. If you created the association by using the <code>Targets</code> parameter, then you must
  *    delete the association by using the association ID.</p>
@@ -93,6 +92,7 @@ export interface DeleteAssociationCommandOutput extends DeleteAssociationResult,
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DeleteAssociationCommand extends $Command
   .classBuilder<

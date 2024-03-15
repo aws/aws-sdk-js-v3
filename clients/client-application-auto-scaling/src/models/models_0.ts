@@ -19,27 +19,27 @@ export const AdjustmentType = {
 export type AdjustmentType = (typeof AdjustmentType)[keyof typeof AdjustmentType];
 
 /**
- * @public
  * <p>Represents a CloudWatch alarm associated with a scaling policy.</p>
+ * @public
  */
 export interface Alarm {
   /**
-   * @public
    * <p>The name of the alarm.</p>
+   * @public
    */
   AlarmName: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the alarm.</p>
+   * @public
    */
   AlarmARN: string | undefined;
 }
 
 /**
- * @public
  * <p>Concurrent updates caused an exception, for example, if you request an update to an
  *          Application Auto Scaling resource that already has a pending update.</p>
+ * @public
  */
 export class ConcurrentUpdateException extends __BaseException {
   readonly name: "ConcurrentUpdateException" = "ConcurrentUpdateException";
@@ -124,20 +124,19 @@ export type ServiceNamespace = (typeof ServiceNamespace)[keyof typeof ServiceNam
  */
 export interface DeleteScalingPolicyRequest {
   /**
-   * @public
    * <p>The name of the scaling policy.</p>
+   * @public
    */
   PolicyName: string | undefined;
 
   /**
-   * @public
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
+   * @public
    */
   ServiceNamespace: ServiceNamespace | undefined;
 
   /**
-   * @public
    * <p>The identifier of the resource associated with the scalable target.
    *       This string consists of the resource type and unique identifier.</p>
    *          <ul>
@@ -212,11 +211,11 @@ export interface DeleteScalingPolicyRequest {
    *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * @public
    * <p>The scalable dimension. This string consists of the service namespace, resource type, and scaling property.</p>
    *          <ul>
    *             <li>
@@ -308,6 +307,7 @@ export interface DeleteScalingPolicyRequest {
    *                   <code>sagemaker:inference-component:DesiredCopyCount</code> - The number of copies across an endpoint for a SageMaker inference component.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ScalableDimension: ScalableDimension | undefined;
 }
@@ -318,8 +318,8 @@ export interface DeleteScalingPolicyRequest {
 export interface DeleteScalingPolicyResponse {}
 
 /**
- * @public
  * <p>The service encountered an internal error.</p>
+ * @public
  */
 export class InternalServiceException extends __BaseException {
   readonly name: "InternalServiceException" = "InternalServiceException";
@@ -340,12 +340,12 @@ export class InternalServiceException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified object could not be found. For any operation that depends on the existence
  *          of a scalable target, this exception is thrown if the scalable target with the specified
  *          service namespace, resource ID, and scalable dimension does not exist. For any operation
  *          that deletes or deregisters a resource, this exception is thrown if the resource cannot be
  *          found.</p>
+ * @public
  */
 export class ObjectNotFoundException extends __BaseException {
   readonly name: "ObjectNotFoundException" = "ObjectNotFoundException";
@@ -366,9 +366,9 @@ export class ObjectNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>An exception was thrown for a validation issue. Review the available parameters for the
  *          API request.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -393,20 +393,19 @@ export class ValidationException extends __BaseException {
  */
 export interface DeleteScheduledActionRequest {
   /**
-   * @public
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
+   * @public
    */
   ServiceNamespace: ServiceNamespace | undefined;
 
   /**
-   * @public
    * <p>The name of the scheduled action.</p>
+   * @public
    */
   ScheduledActionName: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the resource associated with the scheduled action.
    *       This string consists of the resource type and unique identifier.</p>
    *          <ul>
@@ -481,11 +480,11 @@ export interface DeleteScheduledActionRequest {
    *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * @public
    * <p>The scalable dimension. This string consists of the service namespace, resource type, and scaling property.</p>
    *          <ul>
    *             <li>
@@ -577,6 +576,7 @@ export interface DeleteScheduledActionRequest {
    *                   <code>sagemaker:inference-component:DesiredCopyCount</code> - The number of copies across an endpoint for a SageMaker inference component.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ScalableDimension: ScalableDimension | undefined;
 }
@@ -591,14 +591,13 @@ export interface DeleteScheduledActionResponse {}
  */
 export interface DeregisterScalableTargetRequest {
   /**
-   * @public
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
+   * @public
    */
   ServiceNamespace: ServiceNamespace | undefined;
 
   /**
-   * @public
    * <p>The identifier of the resource associated with the scalable target.
    *       This string consists of the resource type and unique identifier.</p>
    *          <ul>
@@ -673,11 +672,11 @@ export interface DeregisterScalableTargetRequest {
    *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * @public
    * <p>The scalable dimension associated with the scalable target.
    *       This string consists of the service namespace, resource type, and scaling property.</p>
    *          <ul>
@@ -770,6 +769,7 @@ export interface DeregisterScalableTargetRequest {
    *                   <code>sagemaker:inference-component:DesiredCopyCount</code> - The number of copies across an endpoint for a SageMaker inference component.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ScalableDimension: ScalableDimension | undefined;
 }
@@ -784,14 +784,13 @@ export interface DeregisterScalableTargetResponse {}
  */
 export interface DescribeScalableTargetsRequest {
   /**
-   * @public
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
+   * @public
    */
   ServiceNamespace: ServiceNamespace | undefined;
 
   /**
-   * @public
    * <p>The identifier of the resource associated with the scalable target.
    *       This string consists of the resource type and unique identifier.</p>
    *          <ul>
@@ -866,11 +865,11 @@ export interface DescribeScalableTargetsRequest {
    *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ResourceIds?: string[];
 
   /**
-   * @public
    * <p>The scalable dimension associated with the scalable target.
    *       This string consists of the service namespace, resource type, and scaling property. If you specify a scalable dimension, you must also specify a resource ID.</p>
    *          <ul>
@@ -963,11 +962,11 @@ export interface DescribeScalableTargetsRequest {
    *                   <code>sagemaker:inference-component:DesiredCopyCount</code> - The number of copies across an endpoint for a SageMaker inference component.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ScalableDimension?: ScalableDimension;
 
   /**
-   * @public
    * <p>The maximum number of scalable targets. This value can be between 1 and
    *          50. The default value is 50.</p>
    *          <p>If this parameter is used, the operation returns up to <code>MaxResults</code> results
@@ -975,61 +974,61 @@ export interface DescribeScalableTargetsRequest {
    *          include the <code>NextToken</code> value in a subsequent call. If this parameter is not
    *          used, the operation returns up to 50 results and a
    *             <code>NextToken</code> value, if applicable.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>Specifies whether the scaling activities for a scalable target are in a suspended state.
  *       </p>
+ * @public
  */
 export interface SuspendedState {
   /**
-   * @public
    * <p>Whether scale in by a target tracking scaling policy or a step scaling policy is
    *          suspended. Set the value to <code>true</code> if you don't want Application Auto Scaling to remove capacity
    *          when a scaling policy is triggered. The default is <code>false</code>. </p>
+   * @public
    */
   DynamicScalingInSuspended?: boolean;
 
   /**
-   * @public
    * <p>Whether scale out by a target tracking scaling policy or a step scaling policy is
    *          suspended. Set the value to <code>true</code> if you don't want Application Auto Scaling to add capacity
    *          when a scaling policy is triggered. The default is <code>false</code>. </p>
+   * @public
    */
   DynamicScalingOutSuspended?: boolean;
 
   /**
-   * @public
    * <p>Whether scheduled scaling is suspended. Set the value to <code>true</code> if you don't
    *          want Application Auto Scaling to add or remove capacity by initiating scheduled actions. The default is
    *             <code>false</code>. </p>
+   * @public
    */
   ScheduledScalingSuspended?: boolean;
 }
 
 /**
- * @public
  * <p>Represents a scalable target.</p>
+ * @public
  */
 export interface ScalableTarget {
   /**
-   * @public
    * <p>The namespace of the Amazon Web Services service that provides the resource, or a
    *             <code>custom-resource</code>.</p>
+   * @public
    */
   ServiceNamespace: ServiceNamespace | undefined;
 
   /**
-   * @public
    * <p>The identifier of the resource associated with the scalable target.
    *       This string consists of the resource type and unique identifier.</p>
    *          <ul>
@@ -1104,11 +1103,11 @@ export interface ScalableTarget {
    *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * @public
    * <p>The scalable dimension associated with the scalable target.
    *       This string consists of the service namespace, resource type, and scaling property.</p>
    *          <ul>
@@ -1201,44 +1200,45 @@ export interface ScalableTarget {
    *                   <code>sagemaker:inference-component:DesiredCopyCount</code> - The number of copies across an endpoint for a SageMaker inference component.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ScalableDimension: ScalableDimension | undefined;
 
   /**
-   * @public
    * <p>The minimum value to scale to in response to a scale-in activity.</p>
+   * @public
    */
   MinCapacity: number | undefined;
 
   /**
-   * @public
    * <p>The maximum value to scale to in response to a scale-out activity.</p>
+   * @public
    */
   MaxCapacity: number | undefined;
 
   /**
-   * @public
    * <p>The ARN of an IAM role that allows Application Auto Scaling to modify the scalable target on your
    *          behalf.</p>
+   * @public
    */
   RoleARN: string | undefined;
 
   /**
-   * @public
    * <p>The Unix timestamp for when the scalable target was created.</p>
+   * @public
    */
   CreationTime: Date | undefined;
 
   /**
-   * @public
    * <p>Specifies whether the scaling activities for a scalable target are in a suspended
    *          state.</p>
+   * @public
    */
   SuspendedState?: SuspendedState;
 
   /**
-   * @public
    * <p>The ARN of the scalable target.</p>
+   * @public
    */
   ScalableTargetARN?: string;
 }
@@ -1248,22 +1248,22 @@ export interface ScalableTarget {
  */
 export interface DescribeScalableTargetsResponse {
   /**
-   * @public
    * <p>The scalable targets that match the request parameters.</p>
+   * @public
    */
   ScalableTargets?: ScalableTarget[];
 
   /**
-   * @public
    * <p>The token required to get the next set of results. This value is <code>null</code> if
    *          there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>The next token supplied was invalid.</p>
+ * @public
  */
 export class InvalidNextTokenException extends __BaseException {
   readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
@@ -1288,14 +1288,13 @@ export class InvalidNextTokenException extends __BaseException {
  */
 export interface DescribeScalingActivitiesRequest {
   /**
-   * @public
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
+   * @public
    */
   ServiceNamespace: ServiceNamespace | undefined;
 
   /**
-   * @public
    * <p>The identifier of the resource associated with the scaling activity.
    *       This string consists of the resource type and unique identifier.</p>
    *          <ul>
@@ -1370,11 +1369,11 @@ export interface DescribeScalingActivitiesRequest {
    *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ResourceId?: string;
 
   /**
-   * @public
    * <p>The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
    *       If you specify a scalable dimension, you must also specify a resource ID.</p>
    *          <ul>
@@ -1467,11 +1466,11 @@ export interface DescribeScalingActivitiesRequest {
    *                   <code>sagemaker:inference-component:DesiredCopyCount</code> - The number of copies across an endpoint for a SageMaker inference component.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ScalableDimension?: ScalableDimension;
 
   /**
-   * @public
    * <p>The maximum number of scalable targets. This value can be between 1 and
    *          50. The default value is 50.</p>
    *          <p>If this parameter is used, the operation returns up to <code>MaxResults</code> results
@@ -1479,34 +1478,34 @@ export interface DescribeScalingActivitiesRequest {
    *          include the <code>NextToken</code> value in a subsequent call. If this parameter is not
    *          used, the operation returns up to 50 results and a
    *             <code>NextToken</code> value, if applicable.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Specifies whether to include activities that aren't scaled (<i>not scaled
    *             activities</i>) in the response. Not scaled activities are activities that aren't
    *          completed or started for various reasons, such as preventing infinite scaling loops. For
    *          help interpreting the not scaled reason details in the response, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scaling-activities.html">Scaling activities for Application Auto Scaling</a>.</p>
+   * @public
    */
   IncludeNotScaledActivities?: boolean;
 }
 
 /**
- * @public
  * <p>Describes the reason for an activity that isn't scaled (<i>not scaled
  *             activity</i>), in machine-readable format. For help interpreting the not scaled
  *          reason details, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scaling-activities.html">Scaling activities for Application Auto Scaling</a>.</p>
+ * @public
  */
 export interface NotScaledReason {
   /**
-   * @public
    * <p>A code that represents the reason for not scaling.</p>
    *          <p>Valid values:</p>
    *          <ul>
@@ -1526,24 +1525,25 @@ export interface NotScaledReason {
    *                <p>AlreadyAtDesiredCapacity</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Code: string | undefined;
 
   /**
-   * @public
    * <p>The maximum capacity.</p>
+   * @public
    */
   MaxCapacity?: number;
 
   /**
-   * @public
    * <p>The minimum capacity.</p>
+   * @public
    */
   MinCapacity?: number;
 
   /**
-   * @public
    * <p>The current capacity.</p>
+   * @public
    */
   CurrentCapacity?: number;
 }
@@ -1567,25 +1567,24 @@ export const ScalingActivityStatusCode = {
 export type ScalingActivityStatusCode = (typeof ScalingActivityStatusCode)[keyof typeof ScalingActivityStatusCode];
 
 /**
- * @public
  * <p>Represents a scaling activity.</p>
+ * @public
  */
 export interface ScalingActivity {
   /**
-   * @public
    * <p>The unique identifier of the scaling activity.</p>
+   * @public
    */
   ActivityId: string | undefined;
 
   /**
-   * @public
    * <p>The namespace of the Amazon Web Services service that provides the resource, or a
    *             <code>custom-resource</code>.</p>
+   * @public
    */
   ServiceNamespace: ServiceNamespace | undefined;
 
   /**
-   * @public
    * <p>The identifier of the resource associated with the scaling activity.
    *       This string consists of the resource type and unique identifier.</p>
    *          <ul>
@@ -1660,11 +1659,11 @@ export interface ScalingActivity {
    *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * @public
    * <p>The scalable dimension. This string consists of the service namespace, resource type, and scaling property.</p>
    *          <ul>
    *             <li>
@@ -1756,55 +1755,56 @@ export interface ScalingActivity {
    *                   <code>sagemaker:inference-component:DesiredCopyCount</code> - The number of copies across an endpoint for a SageMaker inference component.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ScalableDimension: ScalableDimension | undefined;
 
   /**
-   * @public
    * <p>A simple description of what action the scaling activity intends to accomplish.</p>
+   * @public
    */
   Description: string | undefined;
 
   /**
-   * @public
    * <p>A simple description of what caused the scaling activity to happen.</p>
+   * @public
    */
   Cause: string | undefined;
 
   /**
-   * @public
    * <p>The Unix timestamp for when the scaling activity began.</p>
+   * @public
    */
   StartTime: Date | undefined;
 
   /**
-   * @public
    * <p>The Unix timestamp for when the scaling activity ended.</p>
+   * @public
    */
   EndTime?: Date;
 
   /**
-   * @public
    * <p>Indicates the status of the scaling activity.</p>
+   * @public
    */
   StatusCode: ScalingActivityStatusCode | undefined;
 
   /**
-   * @public
    * <p>A simple message about the current status of the scaling activity.</p>
+   * @public
    */
   StatusMessage?: string;
 
   /**
-   * @public
    * <p>The details about the scaling activity.</p>
+   * @public
    */
   Details?: string;
 
   /**
-   * @public
    * <p>Machine-readable data that describes the reason for a not scaled activity. Only
    *          available when <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalingActivities.html">DescribeScalingActivities</a> includes not scaled activities.</p>
+   * @public
    */
   NotScaledReasons?: NotScaledReason[];
 }
@@ -1814,15 +1814,15 @@ export interface ScalingActivity {
  */
 export interface DescribeScalingActivitiesResponse {
   /**
-   * @public
    * <p>A list of scaling activity objects.</p>
+   * @public
    */
   ScalingActivities?: ScalingActivity[];
 
   /**
-   * @public
    * <p>The token required to get the next set of results. This value is <code>null</code> if
    *          there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1832,20 +1832,19 @@ export interface DescribeScalingActivitiesResponse {
  */
 export interface DescribeScalingPoliciesRequest {
   /**
-   * @public
    * <p>The names of the scaling policies to describe.</p>
+   * @public
    */
   PolicyNames?: string[];
 
   /**
-   * @public
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
+   * @public
    */
   ServiceNamespace: ServiceNamespace | undefined;
 
   /**
-   * @public
    * <p>The identifier of the resource associated with the scaling policy.
    *       This string consists of the resource type and unique identifier.</p>
    *          <ul>
@@ -1920,11 +1919,11 @@ export interface DescribeScalingPoliciesRequest {
    *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ResourceId?: string;
 
   /**
-   * @public
    * <p>The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
    *       If you specify a scalable dimension, you must also specify a resource ID.</p>
    *          <ul>
@@ -2017,11 +2016,11 @@ export interface DescribeScalingPoliciesRequest {
    *                   <code>sagemaker:inference-component:DesiredCopyCount</code> - The number of copies across an endpoint for a SageMaker inference component.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ScalableDimension?: ScalableDimension;
 
   /**
-   * @public
    * <p>The maximum number of scalable targets. This value can be between 1 and 10. The default
    *          value is 10.</p>
    *          <p>If this parameter is used, the operation returns up to <code>MaxResults</code> results
@@ -2029,12 +2028,13 @@ export interface DescribeScalingPoliciesRequest {
    *          include the <code>NextToken</code> value in a subsequent call. If this parameter is not
    *          used, the operation returns up to 10 results and a <code>NextToken</code> value, if
    *          applicable.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -2069,7 +2069,6 @@ export const MetricAggregationType = {
 export type MetricAggregationType = (typeof MetricAggregationType)[keyof typeof MetricAggregationType];
 
 /**
- * @public
  * <p>Represents a step adjustment for a <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepScalingPolicyConfiguration.html">StepScalingPolicyConfiguration</a>. Describes an adjustment based on the difference
  *          between the value of the aggregated CloudWatch metric and the breach threshold that you've
  *          defined for the alarm. </p>
@@ -2106,66 +2105,66 @@ export type MetricAggregationType = (typeof MetricAggregationType)[keyof typeof 
  *                <p>The upper and lower bound can't be null in the same step adjustment.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export interface StepAdjustment {
   /**
-   * @public
    * <p>The lower bound for the difference between the alarm threshold and the CloudWatch metric. If
    *          the metric value is above the breach threshold, the lower bound is inclusive (the metric
    *          must be greater than or equal to the threshold plus the lower bound). Otherwise, it's
    *          exclusive (the metric must be greater than the threshold plus the lower bound). A null
    *          value indicates negative infinity.</p>
+   * @public
    */
   MetricIntervalLowerBound?: number;
 
   /**
-   * @public
    * <p>The upper bound for the difference between the alarm threshold and the CloudWatch metric. If
    *          the metric value is above the breach threshold, the upper bound is exclusive (the metric
    *          must be less than the threshold plus the upper bound). Otherwise, it's inclusive (the
    *          metric must be less than or equal to the threshold plus the upper bound). A null value
    *          indicates positive infinity.</p>
    *          <p>The upper bound must be greater than the lower bound.</p>
+   * @public
    */
   MetricIntervalUpperBound?: number;
 
   /**
-   * @public
    * <p>The amount by which to scale, based on the specified adjustment type. A positive value
    *          adds to the current capacity while a negative number removes from the current capacity. For
    *          exact capacity, you must specify a non-negative value.</p>
+   * @public
    */
   ScalingAdjustment: number | undefined;
 }
 
 /**
- * @public
  * <p>Represents a step scaling policy configuration to use with Application Auto Scaling.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html">Step scaling policies</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+ * @public
  */
 export interface StepScalingPolicyConfiguration {
   /**
-   * @public
    * <p>Specifies how the <code>ScalingAdjustment</code> value in a <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepAdjustment.html">StepAdjustment</a> is interpreted (for example, an absolute number or a
    *          percentage). The valid values are <code>ChangeInCapacity</code>,
    *          <code>ExactCapacity</code>, and <code>PercentChangeInCapacity</code>. </p>
    *          <p>
    *             <code>AdjustmentType</code> is required if you are adding a new step scaling policy
    *          configuration.</p>
+   * @public
    */
   AdjustmentType?: AdjustmentType;
 
   /**
-   * @public
    * <p>A set of adjustments that enable you to scale based on the size of the alarm
    *          breach.</p>
    *          <p>At least one step adjustment is required if you are adding a new step scaling policy
    *          configuration.</p>
+   * @public
    */
   StepAdjustments?: StepAdjustment[];
 
   /**
-   * @public
    * <p>The minimum value to scale by when the adjustment type is
    *             <code>PercentChangeInCapacity</code>. For example, suppose that you create a step
    *          scaling policy to scale out an Amazon ECS service by 25 percent and you specify a
@@ -2173,175 +2172,175 @@ export interface StepScalingPolicyConfiguration {
    *          policy is performed, 25 percent of 4 is 1. However, because you specified a
    *             <code>MinAdjustmentMagnitude</code> of 2, Application Auto Scaling scales out the service by 2
    *          tasks.</p>
+   * @public
    */
   MinAdjustmentMagnitude?: number;
 
   /**
-   * @public
    * <p>The amount of time, in seconds, to wait for a previous scaling activity to take effect. If
    *       not specified, the default value is 300. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/step-scaling-policy-overview.html#step-scaling-cooldown">Cooldown period</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+   * @public
    */
   Cooldown?: number;
 
   /**
-   * @public
    * <p>The aggregation type for the CloudWatch metrics. Valid values are <code>Minimum</code>,
    *             <code>Maximum</code>, and <code>Average</code>. If the aggregation type is null, the
    *          value is treated as <code>Average</code>.</p>
+   * @public
    */
   MetricAggregationType?: MetricAggregationType;
 }
 
 /**
- * @public
  * <p>Describes the dimension names and values associated with a metric.</p>
+ * @public
  */
 export interface MetricDimension {
   /**
-   * @public
    * <p>The name of the dimension.</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>The value of the dimension.</p>
+   * @public
    */
   Value: string | undefined;
 }
 
 /**
- * @public
  * <p>Describes the dimension of a metric.</p>
+ * @public
  */
 export interface TargetTrackingMetricDimension {
   /**
-   * @public
    * <p>The name of the dimension.</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>The value of the dimension.</p>
+   * @public
    */
   Value: string | undefined;
 }
 
 /**
- * @public
  * <p>Represents a specific metric.</p>
  *          <p>Metric is a property of the <a>TargetTrackingMetricStat</a> object.</p>
+ * @public
  */
 export interface TargetTrackingMetric {
   /**
-   * @public
    * <p>The dimensions for the metric. For the list of available dimensions, see the Amazon Web Services
    *          documentation available from the table in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html">Amazon Web Services
    *             services that publish CloudWatch metrics </a> in the <i>Amazon CloudWatch User
    *             Guide</i>. </p>
    *          <p>Conditional: If you published your metric with dimensions, you must specify the same
    *          dimensions in your scaling policy.</p>
+   * @public
    */
   Dimensions?: TargetTrackingMetricDimension[];
 
   /**
-   * @public
    * <p>The name of the metric.</p>
+   * @public
    */
   MetricName?: string;
 
   /**
-   * @public
    * <p>The namespace of the metric. For more information, see the table in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html">Amazon Web Services
    *             services that publish CloudWatch metrics </a> in the <i>Amazon CloudWatch User
    *             Guide</i>.</p>
+   * @public
    */
   Namespace?: string;
 }
 
 /**
- * @public
  * <p>This structure defines the CloudWatch metric to return, along with the statistic, period, and
  *          unit.</p>
  *          <p>For more information about the CloudWatch terminology below, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">Amazon CloudWatch
  *             concepts</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
+ * @public
  */
 export interface TargetTrackingMetricStat {
   /**
-   * @public
    * <p>The CloudWatch metric to return, including the metric name, namespace, and dimensions. To get
    *          the exact metric name, namespace, and dimensions, inspect the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html">Metric</a> object that is
    *          returned by a call to <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html">ListMetrics</a>.</p>
+   * @public
    */
   Metric: TargetTrackingMetric | undefined;
 
   /**
-   * @public
    * <p>The statistic to return. It can include any CloudWatch statistic or extended statistic. For a
    *          list of valid values, see the table in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic">Statistics</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
    *          <p>The most commonly used metric for scaling is <code>Average</code>.</p>
+   * @public
    */
   Stat: string | undefined;
 
   /**
-   * @public
    * <p>The unit to use for the returned data points. For a complete list of the units that CloudWatch
    *          supports, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">MetricDatum</a> data
    *          type in the <i>Amazon CloudWatch API Reference</i>.</p>
+   * @public
    */
   Unit?: string;
 }
 
 /**
- * @public
  * <p>The metric data to return. Also defines whether this call is returning data for one
  *          metric only, or whether it is performing a math expression on the values of returned metric
  *          statistics to create a new time series. A time series is a series of data points, each of
  *          which is associated with a timestamp.</p>
  *          <p>For more information and examples, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking-metric-math.html">Create a target tracking scaling policy for Application Auto Scaling using metric math</a> in the
  *             <i>Application Auto Scaling User Guide</i>.</p>
+ * @public
  */
 export interface TargetTrackingMetricDataQuery {
   /**
-   * @public
    * <p>The math expression to perform on the returned data, if this object is performing a math
    *          expression. This expression can use the <code>Id</code> of the other metrics to refer to
    *          those metrics, and can also use the <code>Id</code> of other expressions to use the result
    *          of those expressions. </p>
    *          <p>Conditional: Within each <code>TargetTrackingMetricDataQuery</code> object, you must
    *          specify either <code>Expression</code> or <code>MetricStat</code>, but not both.</p>
+   * @public
    */
   Expression?: string;
 
   /**
-   * @public
    * <p>A short name that identifies the object's results in the response. This name must be
    *          unique among all <code>MetricDataQuery</code> objects specified for a single scaling
    *          policy. If you are performing math expressions on this set of data, this name represents
    *          that data and can serve as a variable in the mathematical expression. The valid characters
    *          are letters, numbers, and underscores. The first character must be a lowercase letter.
    *       </p>
+   * @public
    */
   Id: string | undefined;
 
   /**
-   * @public
    * <p>A human-readable label for this metric or expression. This is especially useful if this
    *          is a math expression, so that you know what the value represents.</p>
+   * @public
    */
   Label?: string;
 
   /**
-   * @public
    * <p>Information about the metric data to return.</p>
    *          <p>Conditional: Within each <code>MetricDataQuery</code> object, you must specify either
    *             <code>Expression</code> or <code>MetricStat</code>, but not both.</p>
+   * @public
    */
   MetricStat?: TargetTrackingMetricStat;
 
   /**
-   * @public
    * <p>Indicates whether to return the timestamps and raw data values of this metric. </p>
    *          <p>If you use any math expressions, specify <code>true</code> for this value for only the
    *          final math expression that the metric specification is based on. You must specify
@@ -2350,6 +2349,7 @@ export interface TargetTrackingMetricDataQuery {
    *          <p>If you are only retrieving metrics and not performing any math expressions, do not
    *          specify anything for <code>ReturnData</code>. This sets it to its default
    *             (<code>true</code>).</p>
+   * @public
    */
   ReturnData?: boolean;
 }
@@ -2372,7 +2372,6 @@ export const MetricStatistic = {
 export type MetricStatistic = (typeof MetricStatistic)[keyof typeof MetricStatistic];
 
 /**
- * @public
  * <p>Represents a CloudWatch metric of your choosing for a target tracking scaling policy to use
  *          with Application Auto Scaling.</p>
  *          <p>For information about the available metrics for a service, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html">Amazon Web Services
@@ -2395,47 +2394,48 @@ export type MetricStatistic = (typeof MetricStatistic)[keyof typeof MetricStatis
  *          </ul>
  *          <p>For more information about the CloudWatch terminology below, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">Amazon CloudWatch
  *             concepts</a> in the <i>Amazon CloudWatch User Guide</i>. </p>
+ * @public
  */
 export interface CustomizedMetricSpecification {
   /**
-   * @public
    * <p>The name of the metric. To get the exact metric name, namespace, and dimensions, inspect
    *          the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html">Metric</a> object that's returned by a call to <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html">ListMetrics</a>.</p>
+   * @public
    */
   MetricName?: string;
 
   /**
-   * @public
    * <p>The namespace of the metric.</p>
+   * @public
    */
   Namespace?: string;
 
   /**
-   * @public
    * <p>The dimensions of the metric. </p>
    *          <p>Conditional: If you published your metric with dimensions, you must specify the same
    *          dimensions in your scaling policy.</p>
+   * @public
    */
   Dimensions?: MetricDimension[];
 
   /**
-   * @public
    * <p>The statistic of the metric.</p>
+   * @public
    */
   Statistic?: MetricStatistic;
 
   /**
-   * @public
    * <p>The unit of the metric. For a complete list of the units that CloudWatch supports, see the
    *             <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">MetricDatum</a> data
    *          type in the <i>Amazon CloudWatch API Reference</i>.</p>
+   * @public
    */
   Unit?: string;
 
   /**
-   * @public
    * <p>The metrics to include in the target tracking scaling policy, as a metric data query.
    *          This can include both raw metric and metric math expressions.</p>
+   * @public
    */
   Metrics?: TargetTrackingMetricDataQuery[];
 }
@@ -2478,24 +2478,23 @@ export const MetricType = {
 export type MetricType = (typeof MetricType)[keyof typeof MetricType];
 
 /**
- * @public
  * <p>Represents a predefined metric for a target tracking scaling policy to use with
  *          Application Auto Scaling.</p>
  *          <p>Only the Amazon Web Services that you're using send metrics to Amazon CloudWatch. To determine whether a
  *          desired metric already exists by looking up its namespace and dimension using the CloudWatch
  *          metrics dashboard in the console, follow the procedure in <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/monitoring-cloudwatch.html">Monitor your
  *             resources using CloudWatch</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+ * @public
  */
 export interface PredefinedMetricSpecification {
   /**
-   * @public
    * <p>The metric type. The <code>ALBRequestCountPerTarget</code> metric type applies only to
    *          Spot Fleets and ECS services.</p>
+   * @public
    */
   PredefinedMetricType: MetricType | undefined;
 
   /**
-   * @public
    * <p>Identifies the resource associated with the metric type. You can't specify a resource
    *          label unless the metric type is <code>ALBRequestCountPerTarget</code> and there is a target
    *          group attached to the Spot Fleet or ECS service.</p>
@@ -2517,19 +2516,19 @@ export interface PredefinedMetricSpecification {
    *          </ul>
    *          <p>To find the ARN for an Application Load Balancer, use the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html">DescribeLoadBalancers</a> API operation. To find the ARN for the target group, use
    *             the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html">DescribeTargetGroups</a> API operation.</p>
+   * @public
    */
   ResourceLabel?: string;
 }
 
 /**
- * @public
  * <p>Represents a target tracking scaling policy configuration to use with Application Auto Scaling.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html">Target tracking scaling policies</a> in the <i>Application Auto Scaling User
  *             Guide</i>.</p>
+ * @public
  */
 export interface TargetTrackingScalingPolicyConfiguration {
   /**
-   * @public
    * <p>The target value for the metric. Although this property accepts numbers of type Double,
    *          it won't accept values that are either too small or too large. Values must be in the range
    *          of -2^360 to 2^360. The value must be a valid number based on the choice of metric. For
@@ -2540,78 +2539,78 @@ export interface TargetTrackingScalingPolicyConfiguration {
    *             metric, specify the target utilization as the optimal average request count per target
    *             during any one-minute interval.</p>
    *          </note>
+   * @public
    */
   TargetValue: number | undefined;
 
   /**
-   * @public
    * <p>A predefined metric. You can specify either a predefined metric or a customized
    *          metric.</p>
+   * @public
    */
   PredefinedMetricSpecification?: PredefinedMetricSpecification;
 
   /**
-   * @public
    * <p>A customized metric. You can specify either a predefined metric or a customized
    *          metric.</p>
+   * @public
    */
   CustomizedMetricSpecification?: CustomizedMetricSpecification;
 
   /**
-   * @public
    * <p>The amount of time, in seconds, to wait for a previous scale-out activity to take effect.
    *       For more information and for default values, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/target-tracking-scaling-policy-overview.html#target-tracking-cooldown">Define cooldown periods</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+   * @public
    */
   ScaleOutCooldown?: number;
 
   /**
-   * @public
    * <p>The amount of time, in seconds, after a scale-in activity completes before another
    *       scale-in activity can start. For more information and for default values, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/target-tracking-scaling-policy-overview.html#target-tracking-cooldown">Define cooldown periods</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+   * @public
    */
   ScaleInCooldown?: number;
 
   /**
-   * @public
    * <p>Indicates whether scale in by the target tracking scaling policy is disabled. If the
    *          value is <code>true</code>, scale in is disabled and the target tracking scaling policy
    *          won't remove capacity from the scalable target. Otherwise, scale in is enabled and the
    *          target tracking scaling policy can remove capacity from the scalable target. The default
    *          value is <code>false</code>.</p>
+   * @public
    */
   DisableScaleIn?: boolean;
 }
 
 /**
- * @public
  * <p>Represents a scaling policy to use with Application Auto Scaling.</p>
  *          <p>For more information about configuring scaling policies for a specific service, see
  *             <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/integrated-services-list.html">Amazon Web Services services
  *             that you can use with Application Auto Scaling</a> in the
  *          <i>Application Auto Scaling User Guide</i>.</p>
+ * @public
  */
 export interface ScalingPolicy {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the scaling policy.</p>
+   * @public
    */
   PolicyARN: string | undefined;
 
   /**
-   * @public
    * <p>The name of the scaling policy.</p>
+   * @public
    */
   PolicyName: string | undefined;
 
   /**
-   * @public
    * <p>The namespace of the Amazon Web Services service that provides the resource, or a
    *             <code>custom-resource</code>.</p>
+   * @public
    */
   ServiceNamespace: ServiceNamespace | undefined;
 
   /**
-   * @public
    * <p>The identifier of the resource associated with the scaling policy.
    *       This string consists of the resource type and unique identifier.</p>
    *          <ul>
@@ -2686,11 +2685,11 @@ export interface ScalingPolicy {
    *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * @public
    * <p>The scalable dimension. This string consists of the service namespace, resource type, and scaling property.</p>
    *          <ul>
    *             <li>
@@ -2782,11 +2781,11 @@ export interface ScalingPolicy {
    *                   <code>sagemaker:inference-component:DesiredCopyCount</code> - The number of copies across an endpoint for a SageMaker inference component.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ScalableDimension: ScalableDimension | undefined;
 
   /**
-   * @public
    * <p>The scaling policy type.</p>
    *          <p>The following policy types are supported: </p>
    *          <p>
@@ -2794,30 +2793,31 @@ export interface ScalingPolicy {
    *          <p>
    *             <code>StepScaling</code>—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or
    *       Neptune.</p>
+   * @public
    */
   PolicyType: PolicyType | undefined;
 
   /**
-   * @public
    * <p>A step scaling policy.</p>
+   * @public
    */
   StepScalingPolicyConfiguration?: StepScalingPolicyConfiguration;
 
   /**
-   * @public
    * <p>A target tracking scaling policy.</p>
+   * @public
    */
   TargetTrackingScalingPolicyConfiguration?: TargetTrackingScalingPolicyConfiguration;
 
   /**
-   * @public
    * <p>The CloudWatch alarms associated with the scaling policy.</p>
+   * @public
    */
   Alarms?: Alarm[];
 
   /**
-   * @public
    * <p>The Unix timestamp for when the scaling policy was created.</p>
+   * @public
    */
   CreationTime: Date | undefined;
 }
@@ -2827,25 +2827,25 @@ export interface ScalingPolicy {
  */
 export interface DescribeScalingPoliciesResponse {
   /**
-   * @public
    * <p>Information about the scaling policies.</p>
+   * @public
    */
   ScalingPolicies?: ScalingPolicy[];
 
   /**
-   * @public
    * <p>The token required to get the next set of results. This value is <code>null</code> if
    *          there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>Failed access to resources caused an exception. This exception is thrown when Application Auto Scaling
  *          is unable to retrieve the alarms associated with a scaling policy due to a client error,
  *          for example, if the role ARN specified for a scalable target does not have permission to
  *          call the CloudWatch <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html">DescribeAlarms</a> on your behalf.</p>
+ * @public
  */
 export class FailedResourceAccessException extends __BaseException {
   readonly name: "FailedResourceAccessException" = "FailedResourceAccessException";
@@ -2870,20 +2870,19 @@ export class FailedResourceAccessException extends __BaseException {
  */
 export interface DescribeScheduledActionsRequest {
   /**
-   * @public
    * <p>The names of the scheduled actions to describe.</p>
+   * @public
    */
   ScheduledActionNames?: string[];
 
   /**
-   * @public
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
+   * @public
    */
   ServiceNamespace: ServiceNamespace | undefined;
 
   /**
-   * @public
    * <p>The identifier of the resource associated with the scheduled action.
    *       This string consists of the resource type and unique identifier.</p>
    *          <ul>
@@ -2958,11 +2957,11 @@ export interface DescribeScheduledActionsRequest {
    *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ResourceId?: string;
 
   /**
-   * @public
    * <p>The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
    *       If you specify a scalable dimension, you must also specify a resource ID.</p>
    *          <ul>
@@ -3055,11 +3054,11 @@ export interface DescribeScheduledActionsRequest {
    *                   <code>sagemaker:inference-component:DesiredCopyCount</code> - The number of copies across an endpoint for a SageMaker inference component.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ScalableDimension?: ScalableDimension;
 
   /**
-   * @public
    * <p>The maximum number of scheduled action results. This value can be between
    *          1 and 50. The default value is 50.</p>
    *          <p>If this parameter is used, the operation returns up to <code>MaxResults</code> results
@@ -3067,32 +3066,32 @@ export interface DescribeScheduledActionsRequest {
    *          include the <code>NextToken</code> value in a subsequent call. If this parameter is not
    *          used, the operation returns up to 50 results and a
    *             <code>NextToken</code> value, if applicable.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token for the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>Represents the minimum and maximum capacity for a scheduled action.</p>
+ * @public
  */
 export interface ScalableTargetAction {
   /**
-   * @public
    * <p>The minimum capacity.</p>
    *          <p>When the scheduled action runs, the resource will have at least this much capacity, but it
    *       might have more depending on other settings, such as the target utilization level of a target
    *       tracking scaling policy.</p>
+   * @public
    */
   MinCapacity?: number;
 
   /**
-   * @public
    * <p>The maximum capacity.</p>
    *          <p>Although you can specify a large maximum capacity, note that service quotas may impose
    *          lower limits. Each service has its own default quotas for the maximum capacity of the
@@ -3100,36 +3099,36 @@ export interface ScalableTargetAction {
    *          information, consult the documentation for that service. For information about the default
    *          quotas for each service, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html">Service endpoints and
    *             quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
    */
   MaxCapacity?: number;
 }
 
 /**
- * @public
  * <p>Represents a scheduled action.</p>
+ * @public
  */
 export interface ScheduledAction {
   /**
-   * @public
    * <p>The name of the scheduled action.</p>
+   * @public
    */
   ScheduledActionName: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the scheduled action.</p>
+   * @public
    */
   ScheduledActionARN: string | undefined;
 
   /**
-   * @public
    * <p>The namespace of the Amazon Web Services service that provides the resource, or a
    *             <code>custom-resource</code>.</p>
+   * @public
    */
   ServiceNamespace: ServiceNamespace | undefined;
 
   /**
-   * @public
    * <p>The schedule for this action. The following formats are supported:</p>
    *          <ul>
    *             <li>
@@ -3152,18 +3151,18 @@ export interface ScheduledAction {
    *          <p>For rate expressions, <i>value</i> is a positive integer and <i>unit</i> is
    *          <code>minute</code> | <code>minutes</code> | <code>hour</code> | <code>hours</code> | <code>day</code> | <code>days</code>.</p>
    *          <p>For more information and examples, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/examples-scheduled-actions.html">Example scheduled actions for Application Auto Scaling</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+   * @public
    */
   Schedule: string | undefined;
 
   /**
-   * @public
    * <p>The time zone used when referring to the date and time of a scheduled action, when the
    *          scheduled action uses an at or cron expression.</p>
+   * @public
    */
   Timezone?: string;
 
   /**
-   * @public
    * <p>The identifier of the resource associated with the scaling policy.
    *       This string consists of the resource type and unique identifier.</p>
    *          <ul>
@@ -3238,11 +3237,11 @@ export interface ScheduledAction {
    *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * @public
    * <p>The scalable dimension. This string consists of the service namespace, resource type, and scaling property.</p>
    *          <ul>
    *             <li>
@@ -3334,33 +3333,34 @@ export interface ScheduledAction {
    *                   <code>sagemaker:inference-component:DesiredCopyCount</code> - The number of copies across an endpoint for a SageMaker inference component.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ScalableDimension?: ScalableDimension;
 
   /**
-   * @public
    * <p>The date and time that the action is scheduled to begin, in UTC.</p>
+   * @public
    */
   StartTime?: Date;
 
   /**
-   * @public
    * <p>The date and time that the action is scheduled to end, in UTC.</p>
+   * @public
    */
   EndTime?: Date;
 
   /**
-   * @public
    * <p>The new minimum and maximum capacity. You can set both values or just one. At the
    *          scheduled time, if the current capacity is below the minimum capacity, Application Auto Scaling scales out
    *          to the minimum capacity. If the current capacity is above the maximum capacity, Application Auto Scaling
    *          scales in to the maximum capacity.</p>
+   * @public
    */
   ScalableTargetAction?: ScalableTargetAction;
 
   /**
-   * @public
    * <p>The date and time that the scheduled action was created.</p>
+   * @public
    */
   CreationTime: Date | undefined;
 }
@@ -3370,15 +3370,15 @@ export interface ScheduledAction {
  */
 export interface DescribeScheduledActionsResponse {
   /**
-   * @public
    * <p>Information about the scheduled actions.</p>
+   * @public
    */
   ScheduledActions?: ScheduledAction[];
 
   /**
-   * @public
    * <p>The token required to get the next set of results. This value is <code>null</code> if
    *          there are no more results to return.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -3388,12 +3388,12 @@ export interface DescribeScheduledActionsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>Specify the ARN of the scalable target.</p>
    *          <p>For example:
    *             <code>arn:aws:application-autoscaling:us-east-1:123456789012:scalable-target/1234abcd56ab78cd901ef1234567890ab123</code>
    *          </p>
    *          <p>To get the ARN for a scalable target, use <a>DescribeScalableTargets</a>.</p>
+   * @public
    */
   ResourceARN: string | undefined;
 }
@@ -3403,23 +3403,23 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>A list of tags. Each tag consists of a tag key and a tag value.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
 
 /**
- * @public
  * <p>The specified resource doesn't exist.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   Message?: string;
   /**
-   * @public
    * <p>The name of the Application Auto Scaling resource. This value is an Amazon Resource Name (ARN).</p>
+   * @public
    */
   ResourceName?: string;
   /**
@@ -3438,8 +3438,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A per-account resource limit is exceeded. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-limits.html">Application Auto Scaling service quotas</a>.</p>
+ * @public
  */
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
@@ -3464,22 +3464,21 @@ export class LimitExceededException extends __BaseException {
  */
 export interface PutScalingPolicyRequest {
   /**
-   * @public
    * <p>The name of the scaling policy.</p>
    *          <p>You cannot change the name of a scaling policy, but you can delete the original scaling
    *          policy and create a new scaling policy with the same settings and a different name.</p>
+   * @public
    */
   PolicyName: string | undefined;
 
   /**
-   * @public
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
+   * @public
    */
   ServiceNamespace: ServiceNamespace | undefined;
 
   /**
-   * @public
    * <p>The identifier of the resource associated with the scaling policy.
    *       This string consists of the resource type and unique identifier.</p>
    *          <ul>
@@ -3554,11 +3553,11 @@ export interface PutScalingPolicyRequest {
    *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * @public
    * <p>The scalable dimension. This string consists of the service namespace, resource type, and scaling property.</p>
    *          <ul>
    *             <li>
@@ -3650,11 +3649,11 @@ export interface PutScalingPolicyRequest {
    *                   <code>sagemaker:inference-component:DesiredCopyCount</code> - The number of copies across an endpoint for a SageMaker inference component.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ScalableDimension: ScalableDimension | undefined;
 
   /**
-   * @public
    * <p>The scaling policy type. This parameter is required if you are creating a scaling
    *       policy.</p>
    *          <p>The following policy types are supported: </p>
@@ -3665,23 +3664,24 @@ export interface PutScalingPolicyRequest {
    *       Neptune.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html">Target
    *         tracking scaling policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html">Step scaling policies</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+   * @public
    */
   PolicyType?: PolicyType;
 
   /**
-   * @public
    * <p>A step scaling policy.</p>
    *          <p>This parameter is required if you are creating a policy and the policy type is
    *             <code>StepScaling</code>.</p>
+   * @public
    */
   StepScalingPolicyConfiguration?: StepScalingPolicyConfiguration;
 
   /**
-   * @public
    * <p>A target tracking scaling policy. Includes support for predefined or customized
    *          metrics.</p>
    *          <p>This parameter is required if you are creating a policy and the policy type is
    *             <code>TargetTrackingScaling</code>.</p>
+   * @public
    */
   TargetTrackingScalingPolicyConfiguration?: TargetTrackingScalingPolicyConfiguration;
 }
@@ -3691,14 +3691,14 @@ export interface PutScalingPolicyRequest {
  */
 export interface PutScalingPolicyResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resulting scaling policy.</p>
+   * @public
    */
   PolicyARN: string | undefined;
 
   /**
-   * @public
    * <p>The CloudWatch alarms created for the target tracking scaling policy.</p>
+   * @public
    */
   Alarms?: Alarm[];
 }
@@ -3708,14 +3708,13 @@ export interface PutScalingPolicyResponse {
  */
 export interface PutScheduledActionRequest {
   /**
-   * @public
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
+   * @public
    */
   ServiceNamespace: ServiceNamespace | undefined;
 
   /**
-   * @public
    * <p>The schedule for this action. The following formats are supported:</p>
    *          <ul>
    *             <li>
@@ -3738,27 +3737,27 @@ export interface PutScheduledActionRequest {
    *          <p>For rate expressions, <i>value</i> is a positive integer and <i>unit</i> is
    *          <code>minute</code> | <code>minutes</code> | <code>hour</code> | <code>hours</code> | <code>day</code> | <code>days</code>.</p>
    *          <p>For more information and examples, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/examples-scheduled-actions.html">Example scheduled actions for Application Auto Scaling</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+   * @public
    */
   Schedule?: string;
 
   /**
-   * @public
    * <p>Specifies the time zone used when setting a scheduled action by using an at or cron
    *          expression. If a time zone is not provided, UTC is used by default.</p>
    *          <p>Valid values are the canonical names of the IANA time zones supported by Joda-Time (such
    *          as <code>Etc/GMT+9</code> or <code>Pacific/Tahiti</code>). For more information, see <a href="https://www.joda.org/joda-time/timezones.html">https://www.joda.org/joda-time/timezones.html</a>.</p>
+   * @public
    */
   Timezone?: string;
 
   /**
-   * @public
    * <p>The name of the scheduled action. This name must be unique among all other scheduled
    *          actions on the specified scalable target. </p>
+   * @public
    */
   ScheduledActionName: string | undefined;
 
   /**
-   * @public
    * <p>The identifier of the resource associated with the scheduled action.
    *       This string consists of the resource type and unique identifier.</p>
    *          <ul>
@@ -3833,11 +3832,11 @@ export interface PutScheduledActionRequest {
    *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * @public
    * <p>The scalable dimension. This string consists of the service namespace, resource type, and scaling property.</p>
    *          <ul>
    *             <li>
@@ -3929,27 +3928,28 @@ export interface PutScheduledActionRequest {
    *                   <code>sagemaker:inference-component:DesiredCopyCount</code> - The number of copies across an endpoint for a SageMaker inference component.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ScalableDimension: ScalableDimension | undefined;
 
   /**
-   * @public
    * <p>The date and time for this scheduled action to start, in UTC.</p>
+   * @public
    */
   StartTime?: Date;
 
   /**
-   * @public
    * <p>The date and time for the recurring schedule to end, in UTC.</p>
+   * @public
    */
   EndTime?: Date;
 
   /**
-   * @public
    * <p>The new minimum and maximum capacity. You can set both values or just one. At the
    *          scheduled time, if the current capacity is below the minimum capacity, Application Auto Scaling scales out
    *          to the minimum capacity. If the current capacity is above the maximum capacity, Application Auto Scaling
    *          scales in to the maximum capacity.</p>
+   * @public
    */
   ScalableTargetAction?: ScalableTargetAction;
 }
@@ -3964,14 +3964,13 @@ export interface PutScheduledActionResponse {}
  */
 export interface RegisterScalableTargetRequest {
   /**
-   * @public
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
+   * @public
    */
   ServiceNamespace: ServiceNamespace | undefined;
 
   /**
-   * @public
    * <p>The identifier of the resource that is associated with the scalable target.
    *       This string consists of the resource type and unique identifier.</p>
    *          <ul>
@@ -4046,11 +4045,11 @@ export interface RegisterScalableTargetRequest {
    *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * @public
    * <p>The scalable dimension associated with the scalable target.
    *       This string consists of the service namespace, resource type, and scaling property.</p>
    *          <ul>
@@ -4143,11 +4142,11 @@ export interface RegisterScalableTargetRequest {
    *                   <code>sagemaker:inference-component:DesiredCopyCount</code> - The number of copies across an endpoint for a SageMaker inference component.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   ScalableDimension: ScalableDimension | undefined;
 
   /**
-   * @public
    * <p>The minimum value that you plan to scale in to. When a scaling policy is in effect,
    *       Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to
    *       changing demand. This property is required when registering a new scalable target.</p>
@@ -4188,11 +4187,11 @@ export interface RegisterScalableTargetRequest {
    *       you are using. If you provide a value that is lower than what a resource can accept, an error
    *       occurs. In which case, the error message will provide the minimum value that the resource can
    *       accept.</p>
+   * @public
    */
   MinCapacity?: number;
 
   /**
-   * @public
    * <p>The maximum value that you plan to scale out to. When a scaling policy is in effect,
    *          Application Auto Scaling can scale out (expand) as needed to the maximum capacity limit in response to
    *          changing demand. This property is required when registering a new scalable target.</p>
@@ -4202,21 +4201,21 @@ export interface RegisterScalableTargetRequest {
    *          information, consult the documentation for that service. For information about the default
    *          quotas for each service, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html">Service endpoints and
    *             quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
    */
   MaxCapacity?: number;
 
   /**
-   * @public
    * <p>This parameter is required for services that do not support service-linked roles (such as
    *       Amazon EMR), and it must specify the ARN of an IAM role that allows Application Auto Scaling to modify the scalable
    *       target on your behalf. </p>
    *          <p>If the service supports service-linked roles, Application Auto Scaling uses a service-linked role, which
    *       it creates if it does not yet exist. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles">Application Auto Scaling IAM roles</a>.</p>
+   * @public
    */
   RoleARN?: string;
 
   /**
-   * @public
    * <p>An embedded object that contains attributes and attribute values that are used to
    *          suspend and resume automatic scaling. Setting the value of an attribute to
    *             <code>true</code> suspends the specified scaling activities. Setting it to
@@ -4240,11 +4239,11 @@ export interface RegisterScalableTargetRequest {
    *          </ul>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-suspend-resume-scaling.html">Suspending and resuming scaling</a> in the <i>Application Auto Scaling User
    *          Guide</i>.</p>
+   * @public
    */
   SuspendedState?: SuspendedState;
 
   /**
-   * @public
    * <p>Assigns one or more tags to the scalable target. Use this parameter to tag the scalable
    *          target when it is created. To tag an existing scalable target, use the <a>TagResource</a> operation.</p>
    *          <p>Each tag consists of a tag key and a tag value. Both the tag key and the tag value are
@@ -4252,6 +4251,7 @@ export interface RegisterScalableTargetRequest {
    *          key.</p>
    *          <p>Use tags to control access to a scalable target. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/resource-tagging-support.html">Tagging support
    *             for Application Auto Scaling</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -4261,8 +4261,8 @@ export interface RegisterScalableTargetRequest {
  */
 export interface RegisterScalableTargetResponse {
   /**
-   * @public
    * <p>The ARN of the scalable target.</p>
+   * @public
    */
   ScalableTargetARN?: string;
 }
@@ -4272,17 +4272,16 @@ export interface RegisterScalableTargetResponse {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>Identifies the Application Auto Scaling scalable target that you want to apply tags to.</p>
    *          <p>For example:
    *             <code>arn:aws:application-autoscaling:us-east-1:123456789012:scalable-target/1234abcd56ab78cd901ef1234567890ab123</code>
    *          </p>
    *          <p>To get the ARN for a scalable target, use <a>DescribeScalableTargets</a>.</p>
+   * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * @public
    * <p>The tags assigned to the resource. A tag is a label that you assign to an Amazon Web Services
    *          resource.</p>
    *          <p>Each tag consists of a tag key and a tag value.</p>
@@ -4292,6 +4291,7 @@ export interface TagResourceRequest {
    *          <p>For information about the rules that apply to tag keys and tag values, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">User-defined tag
    *             restrictions</a> in the <i>Amazon Web Services Billing and Cost Management User
    *             Guide</i>.</p>
+   * @public
    */
   Tags: Record<string, string> | undefined;
 }
@@ -4302,16 +4302,16 @@ export interface TagResourceRequest {
 export interface TagResourceResponse {}
 
 /**
- * @public
  * <p>The request contains too many tags. Try the request again with fewer tags.</p>
+ * @public
  */
 export class TooManyTagsException extends __BaseException {
   readonly name: "TooManyTagsException" = "TooManyTagsException";
   readonly $fault: "client" = "client";
   Message?: string;
   /**
-   * @public
    * <p>The name of the Application Auto Scaling resource. This value is an Amazon Resource Name (ARN).</p>
+   * @public
    */
   ResourceName?: string;
   /**
@@ -4334,18 +4334,18 @@ export class TooManyTagsException extends __BaseException {
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>Identifies the Application Auto Scaling scalable target from which to remove tags.</p>
    *          <p>For example:
    *             <code>arn:aws:application-autoscaling:us-east-1:123456789012:scalable-target/1234abcd56ab78cd901ef1234567890ab123</code>
    *          </p>
    *          <p>To get the ARN for a scalable target, use <a>DescribeScalableTargets</a>.</p>
+   * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * @public
    * <p>One or more tag keys. Specify only the tag keys, not the tag values.</p>
+   * @public
    */
   TagKeys: string[] | undefined;
 }

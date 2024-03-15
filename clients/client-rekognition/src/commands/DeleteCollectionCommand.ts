@@ -27,7 +27,6 @@ export interface DeleteCollectionCommandInput extends DeleteCollectionRequest {}
 export interface DeleteCollectionCommandOutput extends DeleteCollectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified collection. Note that this operation removes all faces in the
  *       collection. For an example, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/delete-collection-procedure.html">Deleting a
  *       collection</a>.</p>
@@ -79,6 +78,7 @@ export interface DeleteCollectionCommandOutput extends DeleteCollectionResponse,
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example To delete a collection
  * ```javascript
  * // This operation deletes a Rekognition collection.

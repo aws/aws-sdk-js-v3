@@ -27,7 +27,6 @@ export interface RestoreTableToPointInTimeCommandInput extends RestoreTableToPoi
 export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPointInTimeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Restores the specified table to the specified point in time within
  *                 <code>EarliestRestorableDateTime</code> and <code>LatestRestorableDateTime</code>.
  *             You can restore your table to any point in time during the last 35 days. Any number of
@@ -329,6 +328,7 @@ export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPo
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  */
 export class RestoreTableToPointInTimeCommand extends $Command
   .classBuilder<

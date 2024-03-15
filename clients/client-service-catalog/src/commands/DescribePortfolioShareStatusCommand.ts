@@ -32,7 +32,6 @@ export interface DescribePortfolioShareStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the status of the specified portfolio share operation. This API can only be called
  *          by the management account in the organization or by a delegated admin.</p>
  * @example
@@ -87,6 +86,7 @@ export interface DescribePortfolioShareStatusCommandOutput
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class DescribePortfolioShareStatusCommand extends $Command
   .classBuilder<

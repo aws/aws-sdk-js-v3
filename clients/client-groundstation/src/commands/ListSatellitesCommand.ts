@@ -27,7 +27,6 @@ export interface ListSatellitesCommandInput extends ListSatellitesRequest {}
 export interface ListSatellitesCommandOutput extends ListSatellitesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of satellites.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface ListSatellitesCommandOutput extends ListSatellitesResponse, __M
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ * @public
  */
 export class ListSatellitesCommand extends $Command
   .classBuilder<

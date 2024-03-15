@@ -31,7 +31,6 @@ export interface SendSSHPublicKeyCommandInput extends SendSSHPublicKeyRequest {}
 export interface SendSSHPublicKeyCommandOutput extends SendSSHPublicKeyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Pushes an SSH public key to the specified EC2 instance for use by the specified user.
  *             The key remains for 60 seconds. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Connect-using-EC2-Instance-Connect.html">Connect to
  *                 your Linux instance using EC2 Instance Connect</a> in the <i>Amazon EC2
@@ -90,6 +89,7 @@ export interface SendSSHPublicKeyCommandOutput extends SendSSHPublicKeyResponse,
  * @throws {@link EC2InstanceConnectServiceException}
  * <p>Base exception class for all service exceptions from EC2InstanceConnect service.</p>
  *
+ * @public
  * @example To push an SSH key to an EC2 instance
  * ```javascript
  * // The following example pushes a sample SSH public key to the EC2 instance i-abcd1234 in AZ us-west-2b for use by the instance OS user ec2-user.

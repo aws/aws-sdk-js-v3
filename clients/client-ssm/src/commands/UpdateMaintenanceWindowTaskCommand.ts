@@ -32,7 +32,6 @@ export interface UpdateMaintenanceWindowTaskCommandInput extends UpdateMaintenan
 export interface UpdateMaintenanceWindowTaskCommandOutput extends UpdateMaintenanceWindowTaskResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies a task assigned to a maintenance window. You can't change the task type, but you
  *    can change the following values:</p>
  *          <ul>
@@ -289,6 +288,7 @@ export interface UpdateMaintenanceWindowTaskCommandOutput extends UpdateMaintena
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class UpdateMaintenanceWindowTaskCommand extends $Command
   .classBuilder<

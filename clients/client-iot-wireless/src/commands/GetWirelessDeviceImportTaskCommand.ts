@@ -32,7 +32,6 @@ export interface GetWirelessDeviceImportTaskCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Get information about an import task and count of device onboarding summary
  *             information for the import task.</p>
  * @example
@@ -94,6 +93,7 @@ export interface GetWirelessDeviceImportTaskCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class GetWirelessDeviceImportTaskCommand extends $Command
   .classBuilder<

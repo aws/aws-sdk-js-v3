@@ -27,7 +27,6 @@ export interface CreateParameterGroupCommandInput extends CreateParameterGroupRe
 export interface CreateParameterGroupCommandOutput extends CreateParameterGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new MemoryDB parameter group. A parameter group is a collection of parameters and their values that are applied to all of the nodes in any cluster. For
  *          more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/parametergroups.html">Configuring engine parameters using parameter groups</a>.
  *
@@ -92,6 +91,7 @@ export interface CreateParameterGroupCommandOutput extends CreateParameterGroupR
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * @public
  */
 export class CreateParameterGroupCommand extends $Command
   .classBuilder<

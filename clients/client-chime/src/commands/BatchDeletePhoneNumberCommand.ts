@@ -27,7 +27,6 @@ export interface BatchDeletePhoneNumberCommandInput extends BatchDeletePhoneNumb
 export interface BatchDeletePhoneNumberCommandOutput extends BatchDeletePhoneNumberResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  * Moves phone numbers into the
  * <b>Deletion queue</b>. Phone numbers must be disassociated from any users or Amazon Chime Voice Connectors before they can be deleted.
@@ -91,6 +90,7 @@ export interface BatchDeletePhoneNumberCommandOutput extends BatchDeletePhoneNum
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class BatchDeletePhoneNumberCommand extends $Command
   .classBuilder<

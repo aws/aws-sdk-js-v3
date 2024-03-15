@@ -27,7 +27,6 @@ export interface DeleteSpaceCommandInput extends DeleteSpaceRequest {}
 export interface DeleteSpaceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Used to delete a space.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -60,6 +59,7 @@ export interface DeleteSpaceCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteSpaceCommand extends $Command
   .classBuilder<

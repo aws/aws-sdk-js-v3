@@ -27,7 +27,6 @@ export interface ActivateContactChannelCommandInput extends ActivateContactChann
 export interface ActivateContactChannelCommandOutput extends ActivateContactChannelResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Activates a contact's contact channel. Incident Manager can't engage a contact until the
  *          contact channel has been activated.</p>
  * @example
@@ -71,6 +70,7 @@ export interface ActivateContactChannelCommandOutput extends ActivateContactChan
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ * @public
  */
 export class ActivateContactChannelCommand extends $Command
   .classBuilder<

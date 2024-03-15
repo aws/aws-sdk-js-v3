@@ -36,7 +36,6 @@ export interface ImportClientVpnClientCertificateRevocationListCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Uploads a client certificate revocation list to the specified Client VPN endpoint. Uploading a client certificate revocation list overwrites the existing client certificate revocation list.</p>
  *          <p>Uploading a client certificate revocation list resets existing client connections.</p>
  * @example
@@ -67,6 +66,7 @@ export interface ImportClientVpnClientCertificateRevocationListCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ImportClientVpnClientCertificateRevocationListCommand extends $Command
   .classBuilder<

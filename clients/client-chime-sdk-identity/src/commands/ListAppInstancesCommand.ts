@@ -32,7 +32,6 @@ export interface ListAppInstancesCommandInput extends ListAppInstancesRequest {}
 export interface ListAppInstancesCommandOutput extends ListAppInstancesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all Amazon Chime <code>AppInstance</code>s created under a single AWS
  *          account.</p>
  * @example
@@ -87,6 +86,7 @@ export interface ListAppInstancesCommandOutput extends ListAppInstancesResponse,
  * @throws {@link ChimeSDKIdentityServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
+ * @public
  */
 export class ListAppInstancesCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface UpdateConfiguredAudienceModelAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides the details necessary to update a configured audience model association.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface UpdateConfiguredAudienceModelAssociationCommandOutput
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class UpdateConfiguredAudienceModelAssociationCommand extends $Command
   .classBuilder<

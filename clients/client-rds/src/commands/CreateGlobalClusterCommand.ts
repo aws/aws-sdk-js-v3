@@ -27,7 +27,6 @@ export interface CreateGlobalClusterCommandInput extends CreateGlobalClusterMess
 export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Aurora global database
  *         spread across multiple Amazon Web Services Regions. The global database
  *         contains a single primary cluster with read-write capability,
@@ -113,6 +112,7 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To create a global DB cluster
  * ```javascript
  * // The following example creates a new Aurora MySQL-compatible global DB cluster.

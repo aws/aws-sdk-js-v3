@@ -27,7 +27,6 @@ export interface GetApplicationRevisionCommandInput extends GetApplicationRevisi
 export interface GetApplicationRevisionCommandOutput extends GetApplicationRevisionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about an application revision.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -126,6 +125,7 @@ export interface GetApplicationRevisionCommandOutput extends GetApplicationRevis
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
  */
 export class GetApplicationRevisionCommand extends $Command
   .classBuilder<

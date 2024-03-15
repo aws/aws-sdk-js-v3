@@ -27,7 +27,6 @@ export interface SetStackPolicyCommandInput extends SetStackPolicyInput {}
 export interface SetStackPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets a stack policy for a specified stack.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -55,6 +54,7 @@ export interface SetStackPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class SetStackPolicyCommand extends $Command
   .classBuilder<

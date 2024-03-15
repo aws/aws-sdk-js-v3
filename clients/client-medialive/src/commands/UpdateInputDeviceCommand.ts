@@ -27,7 +27,6 @@ export interface UpdateInputDeviceCommandInput extends UpdateInputDeviceRequest 
 export interface UpdateInputDeviceCommandOutput extends UpdateInputDeviceResponse, __MetadataBearer {}
 
 /**
- * @public
  * Updates the parameters for the input device.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -177,6 +176,7 @@ export interface UpdateInputDeviceCommandOutput extends UpdateInputDeviceRespons
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class UpdateInputDeviceCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeInstanceAttributeCommandInput extends DescribeInstanceA
 export interface DescribeInstanceAttributeCommandOutput extends InstanceAttribute, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified attribute of the specified instance. You can specify only one
  *             attribute at a time. Valid attribute values are: <code>instanceType</code> |
  *                 <code>kernel</code> | <code>ramdisk</code> | <code>userData</code> |
@@ -124,6 +123,7 @@ export interface DescribeInstanceAttributeCommandOutput extends InstanceAttribut
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To describe the instance type
  * ```javascript
  * // This example describes the instance type of the specified instance.

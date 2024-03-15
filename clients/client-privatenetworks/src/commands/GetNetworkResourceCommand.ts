@@ -31,7 +31,6 @@ export interface GetNetworkResourceCommandInput extends GetNetworkResourceReques
 export interface GetNetworkResourceCommandOutput extends GetNetworkResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the specified network resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -124,6 +123,7 @@ export interface GetNetworkResourceCommandOutput extends GetNetworkResourceRespo
  * @throws {@link PrivateNetworksServiceException}
  * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
+ * @public
  */
 export class GetNetworkResourceCommand extends $Command
   .classBuilder<

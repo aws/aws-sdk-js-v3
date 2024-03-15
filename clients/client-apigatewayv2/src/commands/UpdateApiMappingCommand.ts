@@ -27,7 +27,6 @@ export interface UpdateApiMappingCommandInput extends UpdateApiMappingRequest {}
 export interface UpdateApiMappingCommandOutput extends UpdateApiMappingResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The API mapping.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface UpdateApiMappingCommandOutput extends UpdateApiMappingResponse,
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ * @public
  */
 export class UpdateApiMappingCommand extends $Command
   .classBuilder<

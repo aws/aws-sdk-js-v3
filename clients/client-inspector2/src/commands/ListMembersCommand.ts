@@ -27,7 +27,6 @@ export interface ListMembersCommandInput extends ListMembersRequest {}
 export interface ListMembersCommandOutput extends ListMembersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List members associated with the Amazon Inspector delegated administrator for your
  *          organization.</p>
  * @example
@@ -79,6 +78,7 @@ export interface ListMembersCommandOutput extends ListMembersResponse, __Metadat
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class ListMembersCommand extends $Command
   .classBuilder<

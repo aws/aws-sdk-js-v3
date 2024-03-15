@@ -27,7 +27,6 @@ export interface GetDashboardCommandInput extends GetDashboardInput {}
 export interface GetDashboardCommandOutput extends GetDashboardOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Displays the details of the dashboard that you specify.</p>
  *          <p>To copy an existing dashboard, use <code>GetDashboard</code>, and then use the data returned
  * 			within <code>DashboardBody</code> as the template for the new dashboard when you call <code>PutDashboard</code> to create
@@ -69,6 +68,7 @@ export interface GetDashboardCommandOutput extends GetDashboardOutput, __Metadat
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * @public
  */
 export class GetDashboardCommand extends $Command
   .classBuilder<

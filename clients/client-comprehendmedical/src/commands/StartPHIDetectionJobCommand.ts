@@ -31,7 +31,6 @@ export interface StartPHIDetectionJobCommandInput extends StartPHIDetectionJobRe
 export interface StartPHIDetectionJobCommandOutput extends StartPHIDetectionJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an asynchronous job to detect protected health information (PHI). Use the
  *         <code>DescribePHIDetectionJob</code> operation to track the status of a job.</p>
  * @example
@@ -88,6 +87,7 @@ export interface StartPHIDetectionJobCommandOutput extends StartPHIDetectionJobR
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ * @public
  */
 export class StartPHIDetectionJobCommand extends $Command
   .classBuilder<

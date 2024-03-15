@@ -32,7 +32,6 @@ export interface StartAvailabilityMonitorTestCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Start a test that verifies that the specified gateway is configured for High
  *          Availability monitoring in your host environment. This request only initiates the test and
  *          that a successful response only indicates that the test was started. It doesn't
@@ -75,6 +74,7 @@ export interface StartAvailabilityMonitorTestCommandOutput
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  */
 export class StartAvailabilityMonitorTestCommand extends $Command
   .classBuilder<

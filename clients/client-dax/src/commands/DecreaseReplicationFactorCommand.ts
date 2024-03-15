@@ -27,7 +27,6 @@ export interface DecreaseReplicationFactorCommandInput extends DecreaseReplicati
 export interface DecreaseReplicationFactorCommandOutput extends DecreaseReplicationFactorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes one or more nodes from a DAX cluster.</p>
  *         <note>
  *             <p>You cannot use <code>DecreaseReplicationFactor</code> to remove the last node in a DAX cluster. If you need to do this, use <code>DeleteCluster</code> instead.</p>
@@ -138,6 +137,7 @@ export interface DecreaseReplicationFactorCommandOutput extends DecreaseReplicat
  * @throws {@link DAXServiceException}
  * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ * @public
  */
 export class DecreaseReplicationFactorCommand extends $Command
   .classBuilder<

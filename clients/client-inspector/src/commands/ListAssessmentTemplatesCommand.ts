@@ -27,7 +27,6 @@ export interface ListAssessmentTemplatesCommandInput extends ListAssessmentTempl
 export interface ListAssessmentTemplatesCommandOutput extends ListAssessmentTemplatesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the assessment templates that correspond to the assessment targets that are
  *          specified by the ARNs of the assessment targets.</p>
  * @example
@@ -87,6 +86,7 @@ export interface ListAssessmentTemplatesCommandOutput extends ListAssessmentTemp
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * @public
  * @example List assessment templates
  * ```javascript
  * // Lists the assessment templates that correspond to the assessment targets that are specified by the ARNs of the assessment targets.

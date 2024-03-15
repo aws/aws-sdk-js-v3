@@ -27,7 +27,6 @@ export interface DeleteDBClusterEndpointCommandInput extends DeleteDBClusterEndp
 export interface DeleteDBClusterEndpointCommandOutput extends DBClusterEndpoint, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a custom endpoint and removes it from an Amazon Aurora DB cluster.</p>
  *          <note>
  *             <p>This action only applies to Aurora DB clusters.</p>
@@ -80,6 +79,7 @@ export interface DeleteDBClusterEndpointCommandOutput extends DBClusterEndpoint,
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To delete a custom DB cluster endpoint
  * ```javascript
  * // The following example deletes the specified custom DB cluster endpoint.

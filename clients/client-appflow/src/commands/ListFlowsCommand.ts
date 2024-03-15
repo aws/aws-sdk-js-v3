@@ -27,7 +27,6 @@ export interface ListFlowsCommandInput extends ListFlowsRequest {}
 export interface ListFlowsCommandOutput extends ListFlowsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Lists all of the flows associated with your account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface ListFlowsCommandOutput extends ListFlowsResponse, __MetadataBea
  * @throws {@link AppflowServiceException}
  * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ * @public
  */
 export class ListFlowsCommand extends $Command
   .classBuilder<

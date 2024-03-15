@@ -27,7 +27,6 @@ export interface DescribeViewCommandInput extends DescribeViewRequest {}
 export interface DescribeViewCommandOutput extends DescribeViewResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the view for the specified Amazon Connect instance and view identifier.</p>
  *          <p>The view identifier can be supplied as a ViewId or ARN.</p>
  *          <p>
@@ -103,6 +102,7 @@ export interface DescribeViewCommandOutput extends DescribeViewResponse, __Metad
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DescribeViewCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteAdapterVersionCommandInput extends DeleteAdapterVersionRe
 export interface DeleteAdapterVersionCommandOutput extends DeleteAdapterVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Amazon Textract adapter version. Requires that you specify both an AdapterId and a
  *          AdapterVersion. Deletes the adapter version specified by the AdapterId and the AdapterVersion.</p>
  * @example
@@ -85,6 +84,7 @@ export interface DeleteAdapterVersionCommandOutput extends DeleteAdapterVersionR
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ * @public
  */
 export class DeleteAdapterVersionCommand extends $Command
   .classBuilder<

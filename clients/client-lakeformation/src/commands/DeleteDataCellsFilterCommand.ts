@@ -27,7 +27,6 @@ export interface DeleteDataCellsFilterCommandInput extends DeleteDataCellsFilter
 export interface DeleteDataCellsFilterCommandOutput extends DeleteDataCellsFilterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a data cell filter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface DeleteDataCellsFilterCommandOutput extends DeleteDataCellsFilte
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class DeleteDataCellsFilterCommand extends $Command
   .classBuilder<

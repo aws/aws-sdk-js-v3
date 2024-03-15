@@ -27,7 +27,6 @@ export interface CreateUsagePlanCommandInput extends CreateUsagePlanRequest {}
 export interface CreateUsagePlanCommandOutput extends UsagePlan, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a usage plan with the throttle and quota limits, as well as the associated API stages, specified in the payload. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -125,6 +124,7 @@ export interface CreateUsagePlanCommandOutput extends UsagePlan, __MetadataBeare
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class CreateUsagePlanCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeAssetCommandInput extends DescribeAssetRequest {}
 export interface DescribeAssetCommandOutput extends DescribeAssetResponse, __MetadataBearer {}
 
 /**
- * @public
  * Returns a description of a MediaPackage VOD Asset resource.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface DescribeAssetCommandOutput extends DescribeAssetResponse, __Met
  * @throws {@link MediaPackageVodServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageVod service.</p>
  *
+ * @public
  */
 export class DescribeAssetCommand extends $Command
   .classBuilder<

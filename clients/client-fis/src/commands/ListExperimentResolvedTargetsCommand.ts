@@ -32,7 +32,6 @@ export interface ListExperimentResolvedTargetsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the resolved targets information of the specified experiment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface ListExperimentResolvedTargetsCommandOutput
  * @throws {@link FisServiceException}
  * <p>Base exception class for all service exceptions from Fis service.</p>
  *
+ * @public
  */
 export class ListExperimentResolvedTargetsCommand extends $Command
   .classBuilder<

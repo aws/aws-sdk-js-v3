@@ -27,7 +27,6 @@ export interface ListSourceRepositoriesCommandInput extends ListSourceRepositori
 export interface ListSourceRepositoriesCommandOutput extends ListSourceRepositoriesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of source repositories in a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface ListSourceRepositoriesCommandOutput extends ListSourceRepositor
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ * @public
  */
 export class ListSourceRepositoriesCommand extends $Command
   .classBuilder<

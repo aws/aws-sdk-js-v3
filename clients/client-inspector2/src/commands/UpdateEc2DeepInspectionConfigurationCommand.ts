@@ -35,7 +35,6 @@ export interface UpdateEc2DeepInspectionConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Activates, deactivates Amazon Inspector deep inspection, or updates custom paths for your account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface UpdateEc2DeepInspectionConfigurationCommandOutput
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class UpdateEc2DeepInspectionConfigurationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteQueuedSavingsPlanCommandInput extends DeleteQueuedSavings
 export interface DeleteQueuedSavingsPlanCommandOutput extends DeleteQueuedSavingsPlanResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the queued purchase for the specified Savings Plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface DeleteQueuedSavingsPlanCommandOutput extends DeleteQueuedSaving
  * @throws {@link SavingsplansServiceException}
  * <p>Base exception class for all service exceptions from Savingsplans service.</p>
  *
+ * @public
  */
 export class DeleteQueuedSavingsPlanCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface StartResourceScanCommandInput extends StartResourceScanRequest 
 export interface StartResourceScanCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Immediately starts a scan of the policies applied to the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface StartResourceScanCommandOutput extends __MetadataBearer {}
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ * @public
  */
 export class StartResourceScanCommand extends $Command
   .classBuilder<

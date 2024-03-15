@@ -33,21 +33,21 @@ import {
 } from "./models_0";
 
 /**
- * @public
  * <p>The tags for the resource. The metadata that you apply to a resource to help you categorize and organize them.
  * 			Each tag consists of a key and an optional value, both of which you define.
  * 			Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>
+ * @public
  */
 export interface Tag {
   /**
-   * @public
    * <p>One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.</p>
+   * @public
    */
   Key?: string;
 
   /**
-   * @public
    * <p>The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).</p>
+   * @public
    */
   Value?: string;
 }
@@ -57,23 +57,23 @@ export interface Tag {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>The tags for the resource.</p>
+   * @public
    */
   Tags?: Tag[];
 
   /**
-   * @public
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>You have reached the limit of active custom resource types in your account. There is a limit of 100,000.
  * 			Delete unused resources using <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteResourceConfig.html">DeleteResourceConfig</a>
  *             <code></code>.</p>
+ * @public
  */
 export class MaxActiveResourcesExceededException extends __BaseException {
   readonly name: "MaxActiveResourcesExceededException" = "MaxActiveResourcesExceededException";
@@ -92,10 +92,10 @@ export class MaxActiveResourcesExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Failed to add the Config rule because the account already
  * 			contains the maximum number of 150 rules. Consider deleting any
  * 			deactivated rules before you add new rules.</p>
+ * @public
  */
 export class MaxNumberOfConfigRulesExceededException extends __BaseException {
   readonly name: "MaxNumberOfConfigRulesExceededException" = "MaxNumberOfConfigRulesExceededException";
@@ -114,9 +114,9 @@ export class MaxNumberOfConfigRulesExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>You have reached the limit of the number of configuration recorders you can
  * 			create.</p>
+ * @public
  */
 export class MaxNumberOfConfigurationRecordersExceededException extends __BaseException {
   readonly name: "MaxNumberOfConfigurationRecordersExceededException" =
@@ -136,10 +136,10 @@ export class MaxNumberOfConfigurationRecordersExceededException extends __BaseEx
 }
 
 /**
- * @public
  * <p>You have reached the limit of the number of conformance packs you can create in an account. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
  *                <b>Service Limits</b>
  *             </a> in the <i>Config Developer Guide</i>.</p>
+ * @public
  */
 export class MaxNumberOfConformancePacksExceededException extends __BaseException {
   readonly name: "MaxNumberOfConformancePacksExceededException" = "MaxNumberOfConformancePacksExceededException";
@@ -158,9 +158,9 @@ export class MaxNumberOfConformancePacksExceededException extends __BaseExceptio
 }
 
 /**
- * @public
  * <p>You have reached the limit of the number of delivery channels
  * 			you can create.</p>
+ * @public
  */
 export class MaxNumberOfDeliveryChannelsExceededException extends __BaseException {
   readonly name: "MaxNumberOfDeliveryChannelsExceededException" = "MaxNumberOfDeliveryChannelsExceededException";
@@ -179,10 +179,10 @@ export class MaxNumberOfDeliveryChannelsExceededException extends __BaseExceptio
 }
 
 /**
- * @public
  * <p>You have reached the limit of the number of organization Config rules you can create. For more information, see see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
  *                <b>Service Limits</b>
  *             </a> in the <i>Config Developer Guide</i>.</p>
+ * @public
  */
 export class MaxNumberOfOrganizationConfigRulesExceededException extends __BaseException {
   readonly name: "MaxNumberOfOrganizationConfigRulesExceededException" =
@@ -202,10 +202,10 @@ export class MaxNumberOfOrganizationConfigRulesExceededException extends __BaseE
 }
 
 /**
- * @public
  * <p>You have reached the limit of the number of organization conformance packs you can create in an account. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
  *                <b>Service Limits</b>
  *             </a> in the <i>Config Developer Guide</i>.</p>
+ * @public
  */
 export class MaxNumberOfOrganizationConformancePacksExceededException extends __BaseException {
   readonly name: "MaxNumberOfOrganizationConformancePacksExceededException" =
@@ -225,8 +225,8 @@ export class MaxNumberOfOrganizationConformancePacksExceededException extends __
 }
 
 /**
- * @public
  * <p>Failed to add the retention configuration because a retention configuration with that name already exists.</p>
+ * @public
  */
 export class MaxNumberOfRetentionConfigurationsExceededException extends __BaseException {
   readonly name: "MaxNumberOfRetentionConfigurationsExceededException" =
@@ -246,9 +246,9 @@ export class MaxNumberOfRetentionConfigurationsExceededException extends __BaseE
 }
 
 /**
- * @public
  * <p>There is no delivery channel available to record
  * 			configurations.</p>
+ * @public
  */
 export class NoAvailableDeliveryChannelException extends __BaseException {
   readonly name: "NoAvailableDeliveryChannelException" = "NoAvailableDeliveryChannelException";
@@ -267,8 +267,8 @@ export class NoAvailableDeliveryChannelException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Organization is no longer available.</p>
+ * @public
  */
 export class NoAvailableOrganizationException extends __BaseException {
   readonly name: "NoAvailableOrganizationException" = "NoAvailableOrganizationException";
@@ -287,8 +287,8 @@ export class NoAvailableOrganizationException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified Amazon S3 bucket does not exist.</p>
+ * @public
  */
 export class NoSuchBucketException extends __BaseException {
   readonly name: "NoSuchBucketException" = "NoSuchBucketException";
@@ -307,8 +307,8 @@ export class NoSuchBucketException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Config resource cannot be created because your organization does not have all features enabled.</p>
+ * @public
  */
 export class OrganizationAllFeaturesNotEnabledException extends __BaseException {
   readonly name: "OrganizationAllFeaturesNotEnabledException" = "OrganizationAllFeaturesNotEnabledException";
@@ -327,8 +327,8 @@ export class OrganizationAllFeaturesNotEnabledException extends __BaseException 
 }
 
 /**
- * @public
  * <p>You have specified a template that is not valid or supported.</p>
+ * @public
  */
 export class OrganizationConformancePackTemplateValidationException extends __BaseException {
   readonly name: "OrganizationConformancePackTemplateValidationException" =
@@ -348,21 +348,20 @@ export class OrganizationConformancePackTemplateValidationException extends __Ba
 }
 
 /**
- * @public
  * <p>An
  * 			object that specifies metadata for your organization's Config Custom Policy rule. The metadata includes the runtime system in use, which accounts have
  * 			debug logging enabled, and other custom rule metadata, such as resource type, resource
  * 			ID of Amazon Web Services resource, and organization trigger types that initiate Config to evaluate Amazon Web Services resources against a rule.</p>
+ * @public
  */
 export interface OrganizationCustomPolicyRuleMetadata {
   /**
-   * @public
    * <p>The description that you provide for your organization Config Custom Policy rule.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The type of notification that initiates Config to run an evaluation for a rule.
    * 			For Config Custom Policy rules, Config supports change-initiated notification types:</p>
    *          <ul>
@@ -378,63 +377,64 @@ export interface OrganizationCustomPolicyRuleMetadata {
    * 					notification exceeds the maximum size allowed by Amazon SNS.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   OrganizationConfigRuleTriggerTypes?: OrganizationConfigRuleTriggerTypeNoSN[];
 
   /**
-   * @public
    * <p>A string, in JSON format, that is passed to your organization Config Custom Policy rule.</p>
+   * @public
    */
   InputParameters?: string;
 
   /**
-   * @public
    * <p>The maximum frequency with which Config runs evaluations for a rule. Your
    * 			Config Custom Policy rule is triggered when Config delivers
    * 			the configuration snapshot. For more information, see <a>ConfigSnapshotDeliveryProperties</a>.</p>
+   * @public
    */
   MaximumExecutionFrequency?: MaximumExecutionFrequency;
 
   /**
-   * @public
    * <p>The type of the Amazon Web Services resource that was evaluated.</p>
+   * @public
    */
   ResourceTypesScope?: string[];
 
   /**
-   * @public
    * <p>The ID of the Amazon Web Services resource that was evaluated.</p>
+   * @public
    */
   ResourceIdScope?: string;
 
   /**
-   * @public
    * <p>One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.</p>
+   * @public
    */
   TagKeyScope?: string;
 
   /**
-   * @public
    * <p>The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).</p>
+   * @public
    */
   TagValueScope?: string;
 
   /**
-   * @public
    * <p>The runtime system for your organization Config Custom Policy rules. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the <a href="https://github.com/aws-cloudformation/cloudformation-guard">Guard GitHub
    * 			Repository</a>.</p>
+   * @public
    */
   PolicyRuntime: string | undefined;
 
   /**
-   * @public
    * <p>The policy definition containing the logic for your organization Config Custom Policy rule.</p>
+   * @public
    */
   PolicyText: string | undefined;
 
   /**
-   * @public
    * <p>A list of accounts that you can enable debug logging for your organization Config Custom Policy rule. List is null when debug logging is enabled for all accounts.</p>
+   * @public
    */
   DebugLogDeliveryAccounts?: string[];
 }
@@ -444,20 +444,20 @@ export interface OrganizationCustomPolicyRuleMetadata {
  */
 export interface PutAggregationAuthorizationRequest {
   /**
-   * @public
    * <p>The 12-digit account ID of the account authorized to aggregate data.</p>
+   * @public
    */
   AuthorizedAccountId: string | undefined;
 
   /**
-   * @public
    * <p>The region authorized to collect aggregated data.</p>
+   * @public
    */
   AuthorizedAwsRegion: string | undefined;
 
   /**
-   * @public
    * <p>An array of tag object.</p>
+   * @public
    */
   Tags?: Tag[];
 }
@@ -467,10 +467,10 @@ export interface PutAggregationAuthorizationRequest {
  */
 export interface PutAggregationAuthorizationResponse {
   /**
-   * @public
    * <p>Returns an AggregationAuthorization object.
    *
    * 		</p>
+   * @public
    */
   AggregationAuthorization?: AggregationAuthorization;
 }
@@ -480,14 +480,14 @@ export interface PutAggregationAuthorizationResponse {
  */
 export interface PutConfigRuleRequest {
   /**
-   * @public
    * <p>The rule that you want to add to your account.</p>
+   * @public
    */
   ConfigRule: ConfigRule | undefined;
 
   /**
-   * @public
    * <p>An array of tag object.</p>
+   * @public
    */
   Tags?: Tag[];
 }
@@ -497,28 +497,28 @@ export interface PutConfigRuleRequest {
  */
 export interface PutConfigurationAggregatorRequest {
   /**
-   * @public
    * <p>The name of the configuration aggregator.</p>
+   * @public
    */
   ConfigurationAggregatorName: string | undefined;
 
   /**
-   * @public
    * <p>A list of AccountAggregationSource object.
    *
    * 		</p>
+   * @public
    */
   AccountAggregationSources?: AccountAggregationSource[];
 
   /**
-   * @public
    * <p>An OrganizationAggregationSource object.</p>
+   * @public
    */
   OrganizationAggregationSource?: OrganizationAggregationSource;
 
   /**
-   * @public
    * <p>An array of tag object.</p>
+   * @public
    */
   Tags?: Tag[];
 }
@@ -528,21 +528,21 @@ export interface PutConfigurationAggregatorRequest {
  */
 export interface PutConfigurationAggregatorResponse {
   /**
-   * @public
    * <p>Returns a ConfigurationAggregator object.</p>
+   * @public
    */
   ConfigurationAggregator?: ConfigurationAggregator;
 }
 
 /**
- * @public
  * <p>The input for the <a>PutConfigurationRecorder</a>
  * 			action.</p>
+ * @public
  */
 export interface PutConfigurationRecorderRequest {
   /**
-   * @public
    * <p>An object for the configuration recorder to record configuration changes for specified resource types.</p>
+   * @public
    */
   ConfigurationRecorder: ConfigurationRecorder | undefined;
 }
@@ -552,57 +552,57 @@ export interface PutConfigurationRecorderRequest {
  */
 export interface PutConformancePackRequest {
   /**
-   * @public
    * <p>The unique name of the conformance pack you want to deploy.</p>
+   * @public
    */
   ConformancePackName: string | undefined;
 
   /**
-   * @public
    * <p>The location of the file containing the template body (<code>s3://bucketname/prefix</code>). The uri must point to a conformance pack template (max size: 300 KB) that is located in an Amazon S3 bucket in the same Region as the conformance pack. </p>
    *          <note>
    *             <p>You must have access to read Amazon S3 bucket.
    * 			In addition, in order to ensure a successful deployment, the template object must not be in an <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html">archived storage class</a> if this parameter is passed.</p>
    *          </note>
+   * @public
    */
   TemplateS3Uri?: string;
 
   /**
-   * @public
    * <p>A string containing the full conformance pack template body. The structure containing the template body has a minimum length of 1 byte and a maximum length of 51,200 bytes.</p>
    *          <note>
    *             <p>You can use a YAML template with two resource types: Config rule (<code>AWS::Config::ConfigRule</code>) and remediation action (<code>AWS::Config::RemediationConfiguration</code>).</p>
    *          </note>
+   * @public
    */
   TemplateBody?: string;
 
   /**
-   * @public
    * <p>The name of the Amazon S3 bucket where Config stores conformance pack templates.</p>
    *          <note>
    *             <p>This field is optional.</p>
    *          </note>
+   * @public
    */
   DeliveryS3Bucket?: string;
 
   /**
-   * @public
    * <p>The prefix for the Amazon S3 bucket. </p>
    *          <note>
    *             <p>This field is optional.</p>
    *          </note>
+   * @public
    */
   DeliveryS3KeyPrefix?: string;
 
   /**
-   * @public
    * <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
+   * @public
    */
   ConformancePackInputParameters?: ConformancePackInputParameter[];
 
   /**
-   * @public
    * <p>An object of type <code>TemplateSSMDocumentDetails</code>, which contains the name or the Amazon Resource Name (ARN) of the Amazon Web Services Systems Manager document (SSM document) and the version of the SSM document that is used to create a conformance pack.</p>
+   * @public
    */
   TemplateSSMDocumentDetails?: TemplateSSMDocumentDetails;
 }
@@ -612,50 +612,49 @@ export interface PutConformancePackRequest {
  */
 export interface PutConformancePackResponse {
   /**
-   * @public
    * <p>ARN of the conformance pack.</p>
+   * @public
    */
   ConformancePackArn?: string;
 }
 
 /**
- * @public
  * <p>The input for the <a>PutDeliveryChannel</a>
  * 			action.</p>
+ * @public
  */
 export interface PutDeliveryChannelRequest {
   /**
-   * @public
    * <p>The configuration delivery channel object that delivers the
    * 			configuration information to an Amazon S3 bucket and to an Amazon
    * 			SNS topic.</p>
+   * @public
    */
   DeliveryChannel: DeliveryChannel | undefined;
 }
 
 /**
- * @public
  * <p></p>
+ * @public
  */
 export interface PutEvaluationsRequest {
   /**
-   * @public
    * <p>The assessments that the Lambda function performs. Each
    * 			evaluation identifies an Amazon Web Services resource and indicates whether it
    * 			complies with the Config rule that invokes the Lambda
    * 			function.</p>
+   * @public
    */
   Evaluations?: Evaluation[];
 
   /**
-   * @public
    * <p>An encrypted token that associates an evaluation with an Config rule. Identifies the rule and the event that triggered the
    * 			evaluation.</p>
+   * @public
    */
   ResultToken: string | undefined;
 
   /**
-   * @public
    * <p>Use this parameter to specify a test run for
    * 			<code>PutEvaluations</code>. You can verify whether your Lambda function will deliver evaluation results to Config. No
    * 			updates occur to your existing evaluations, and evaluation results
@@ -666,19 +665,20 @@ export interface PutEvaluationsRequest {
    * 				for the <code>ResultToken</code> parameter, but the value cannot
    * 				be null.</p>
    *          </note>
+   * @public
    */
   TestMode?: boolean;
 }
 
 /**
- * @public
  * <p></p>
+ * @public
  */
 export interface PutEvaluationsResponse {
   /**
-   * @public
    * <p>Requests that failed because of a client or server
    * 			error.</p>
+   * @public
    */
   FailedEvaluations?: Evaluation[];
 }
@@ -688,14 +688,14 @@ export interface PutEvaluationsResponse {
  */
 export interface PutExternalEvaluationRequest {
   /**
-   * @public
    * <p>The name of the Config rule.</p>
+   * @public
    */
   ConfigRuleName: string | undefined;
 
   /**
-   * @public
    * <p>An <code>ExternalEvaluation</code> object that provides details about compliance.</p>
+   * @public
    */
   ExternalEvaluation: ExternalEvaluation | undefined;
 }
@@ -710,38 +710,38 @@ export interface PutExternalEvaluationResponse {}
  */
 export interface PutOrganizationConfigRuleRequest {
   /**
-   * @public
    * <p>The name that you assign to an organization Config rule.</p>
+   * @public
    */
   OrganizationConfigRuleName: string | undefined;
 
   /**
-   * @public
    * <p>An <code>OrganizationManagedRuleMetadata</code> object. This object specifies organization
    * 			managed rule metadata such as resource type and ID of Amazon Web Services resource along with the rule identifier.
    * 			It also provides the frequency with which you want Config to run evaluations for the rule if the trigger type is periodic.</p>
+   * @public
    */
   OrganizationManagedRuleMetadata?: OrganizationManagedRuleMetadata;
 
   /**
-   * @public
    * <p>An <code>OrganizationCustomRuleMetadata</code> object. This object specifies organization custom rule metadata such as resource type,
    * 			resource ID of Amazon Web Services resource, Lambda function ARN, and organization trigger types that trigger Config to evaluate your Amazon Web Services resources against a rule.
    * 			It also provides the frequency with which you want Config to run evaluations for the rule if the trigger type is periodic.</p>
+   * @public
    */
   OrganizationCustomRuleMetadata?: OrganizationCustomRuleMetadata;
 
   /**
-   * @public
    * <p>A comma-separated list of accounts that you want to exclude from an organization Config rule.</p>
+   * @public
    */
   ExcludedAccounts?: string[];
 
   /**
-   * @public
    * <p>An <code>OrganizationCustomPolicyRuleMetadata</code> object. This object specifies metadata for your organization's Config Custom Policy rule. The metadata includes the runtime system in use, which accounts have debug
    * 			logging enabled, and other custom rule metadata, such as resource type, resource ID of
    * 			Amazon Web Services resource, and organization trigger types that initiate Config to evaluate Amazon Web Services resources against a rule.</p>
+   * @public
    */
   OrganizationCustomPolicyRuleMetadata?: OrganizationCustomPolicyRuleMetadata;
 }
@@ -751,8 +751,8 @@ export interface PutOrganizationConfigRuleRequest {
  */
 export interface PutOrganizationConfigRuleResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of an organization Config rule.</p>
+   * @public
    */
   OrganizationConfigRuleArn?: string;
 }
@@ -762,56 +762,56 @@ export interface PutOrganizationConfigRuleResponse {
  */
 export interface PutOrganizationConformancePackRequest {
   /**
-   * @public
    * <p>Name of the organization conformance pack you want to create.</p>
+   * @public
    */
   OrganizationConformancePackName: string | undefined;
 
   /**
-   * @public
    * <p>Location of file containing the template body. The uri must point to the conformance pack template
    * 			(max size: 300 KB).</p>
    *          <note>
    *             <p>You must have access to read Amazon S3 bucket.
    * 			In addition, in order to ensure a successful deployment, the template object must not be in an <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html">archived storage class</a> if this parameter is passed.</p>
    *          </note>
+   * @public
    */
   TemplateS3Uri?: string;
 
   /**
-   * @public
    * <p>A string containing full conformance pack template body. Structure containing the template body
    * 			with a minimum length of 1 byte and a maximum length of 51,200 bytes.</p>
+   * @public
    */
   TemplateBody?: string;
 
   /**
-   * @public
    * <p>The name of the Amazon S3 bucket where Config stores conformance pack templates.</p>
    *          <note>
    *             <p>This field is optional. If used, it must be prefixed with <code>awsconfigconforms</code>.</p>
    *          </note>
+   * @public
    */
   DeliveryS3Bucket?: string;
 
   /**
-   * @public
    * <p>The prefix for the Amazon S3 bucket.</p>
    *          <note>
    *             <p>This field is optional.</p>
    *          </note>
+   * @public
    */
   DeliveryS3KeyPrefix?: string;
 
   /**
-   * @public
    * <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
+   * @public
    */
   ConformancePackInputParameters?: ConformancePackInputParameter[];
 
   /**
-   * @public
    * <p>A list of Amazon Web Services accounts to be excluded from an organization conformance pack while deploying a conformance pack.</p>
+   * @public
    */
   ExcludedAccounts?: string[];
 }
@@ -821,8 +821,8 @@ export interface PutOrganizationConformancePackRequest {
  */
 export interface PutOrganizationConformancePackResponse {
   /**
-   * @public
    * <p>ARN of the organization conformance pack.</p>
+   * @public
    */
   OrganizationConformancePackArn?: string;
 }
@@ -832,8 +832,8 @@ export interface PutOrganizationConformancePackResponse {
  */
 export interface PutRemediationConfigurationsRequest {
   /**
-   * @public
    * <p>A list of remediation configuration objects.</p>
+   * @public
    */
   RemediationConfigurations: RemediationConfiguration[] | undefined;
 }
@@ -843,8 +843,8 @@ export interface PutRemediationConfigurationsRequest {
  */
 export interface PutRemediationConfigurationsResponse {
   /**
-   * @public
    * <p>Returns a list of failed remediation batch objects.</p>
+   * @public
    */
   FailedBatches?: FailedRemediationBatch[];
 }
@@ -854,26 +854,26 @@ export interface PutRemediationConfigurationsResponse {
  */
 export interface PutRemediationExceptionsRequest {
   /**
-   * @public
    * <p>The name of the Config rule for which you want to create remediation exception.</p>
+   * @public
    */
   ConfigRuleName: string | undefined;
 
   /**
-   * @public
    * <p>An exception list of resource exception keys to be processed with the current request. Config adds exception for each resource key. For example, Config adds 3 exceptions for 3 resource keys. </p>
+   * @public
    */
   ResourceKeys: RemediationExceptionResourceKey[] | undefined;
 
   /**
-   * @public
    * <p>The message contains an explanation of the exception.</p>
+   * @public
    */
   Message?: string;
 
   /**
-   * @public
    * <p>The exception is automatically deleted after the expiration date.</p>
+   * @public
    */
   ExpirationTime?: Date;
 }
@@ -883,8 +883,8 @@ export interface PutRemediationExceptionsRequest {
  */
 export interface PutRemediationExceptionsResponse {
   /**
-   * @public
    * <p>Returns a list of failed remediation exceptions batch objects. Each object in the batch consists of a list of failed items and failure messages.</p>
+   * @public
    */
   FailedBatches?: FailedRemediationExceptionBatch[];
 }
@@ -894,48 +894,48 @@ export interface PutRemediationExceptionsResponse {
  */
 export interface PutResourceConfigRequest {
   /**
-   * @public
    * <p>The type of the resource. The custom resource type must be registered with CloudFormation. </p>
    *          <note>
    *             <p>You cannot use the organization names “amzn”, “amazon”, “alexa”, “custom” with custom resource types. It is the first part of the ResourceType up to the first ::.</p>
    *          </note>
+   * @public
    */
   ResourceType: string | undefined;
 
   /**
-   * @public
    * <p>Version of the schema registered for the ResourceType in CloudFormation.</p>
+   * @public
    */
   SchemaVersionId: string | undefined;
 
   /**
-   * @public
    * <p>Unique identifier of the resource.</p>
+   * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * @public
    * <p>Name of the resource.</p>
+   * @public
    */
   ResourceName?: string;
 
   /**
-   * @public
    * <p>The configuration object of the resource in valid JSON format. It must match the schema registered with CloudFormation.</p>
    *          <note>
    *             <p>The configuration JSON must not exceed 64 KB.</p>
    *          </note>
+   * @public
    */
   Configuration: string | undefined;
 
   /**
-   * @public
    * <p>Tags associated with the resource.</p>
    *          <note>
    *             <p>This field is not to be confused with the Amazon Web Services-wide tag feature for Amazon Web Services resources.
    * 			Tags for <code>PutResourceConfig</code> are tags that you supply for the configuration items of your custom resources.</p>
    *          </note>
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -945,13 +945,13 @@ export interface PutResourceConfigRequest {
  */
 export interface PutRetentionConfigurationRequest {
   /**
-   * @public
    * <p>Number of days Config stores your historical
    * 			information.</p>
    *          <note>
    *             <p>Currently, only applicable to the configuration item
    * 				history.</p>
    *          </note>
+   * @public
    */
   RetentionPeriodInDays: number | undefined;
 }
@@ -961,8 +961,8 @@ export interface PutRetentionConfigurationRequest {
  */
 export interface PutRetentionConfigurationResponse {
   /**
-   * @public
    * <p>Returns a retention configuration object.</p>
+   * @public
    */
   RetentionConfiguration?: RetentionConfiguration;
 }
@@ -972,19 +972,19 @@ export interface PutRetentionConfigurationResponse {
  */
 export interface PutStoredQueryRequest {
   /**
-   * @public
    * <p>A list of <code>StoredQuery</code> objects.
    * 			The mandatory fields are <code>QueryName</code> and <code>Expression</code>.</p>
    *          <note>
    *             <p>When you are creating a query, you must provide a query name and an expression.
    * 			When you are updating a query, you must provide a query name but updating the description is optional.</p>
    *          </note>
+   * @public
    */
   StoredQuery: StoredQuery | undefined;
 
   /**
-   * @public
    * <p>A list of <code>Tags</code> object.</p>
+   * @public
    */
   Tags?: Tag[];
 }
@@ -994,16 +994,16 @@ export interface PutStoredQueryRequest {
  */
 export interface PutStoredQueryResponse {
   /**
-   * @public
    * <p>Amazon Resource Name (ARN) of the query.
    * 			For example, arn:partition:service:region:account-id:resource-type/resource-name/resource-id.</p>
+   * @public
    */
   QueryArn?: string;
 }
 
 /**
- * @public
  * <p>Two users are trying to modify the same query at the same time. Wait for a moment and try again.</p>
+ * @public
  */
 export class ResourceConcurrentModificationException extends __BaseException {
   readonly name: "ResourceConcurrentModificationException" = "ResourceConcurrentModificationException";
@@ -1022,11 +1022,11 @@ export class ResourceConcurrentModificationException extends __BaseException {
 }
 
 /**
- * @public
  * <p>You have reached the limit of the number of tags you can use.
  * 			For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
  *                <b>Service Limits</b>
  *             </a> in the <i>Config Developer Guide</i>.</p>
+ * @public
  */
 export class TooManyTagsException extends __BaseException {
   readonly name: "TooManyTagsException" = "TooManyTagsException";
@@ -1045,13 +1045,13 @@ export class TooManyTagsException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Details about the query.</p>
+ * @public
  */
 export interface QueryInfo {
   /**
-   * @public
    * <p>Returns a <code>FieldInfo</code> object.</p>
+   * @public
    */
   SelectFields?: FieldInfo[];
 }
@@ -1061,32 +1061,32 @@ export interface QueryInfo {
  */
 export interface SelectAggregateResourceConfigRequest {
   /**
-   * @public
    * <p>The SQL query SELECT command. </p>
+   * @public
    */
   Expression: string | undefined;
 
   /**
-   * @public
    * <p>The name of the configuration aggregator.</p>
+   * @public
    */
   ConfigurationAggregatorName: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of query results returned on each page. </p>
+   * @public
    */
   Limit?: number;
 
   /**
-   * @public
    * <p>The maximum number of query results returned on each page. Config also allows the Limit request parameter.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The nextToken string returned in a previous request that you use to request the next page of results in a paginated response. </p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1096,20 +1096,20 @@ export interface SelectAggregateResourceConfigRequest {
  */
 export interface SelectAggregateResourceConfigResponse {
   /**
-   * @public
    * <p>Returns the results for the SQL query.</p>
+   * @public
    */
   Results?: string[];
 
   /**
-   * @public
    * <p>Details about the query.</p>
+   * @public
    */
   QueryInfo?: QueryInfo;
 
   /**
-   * @public
    * <p>The nextToken string returned in a previous request that you use to request the next page of results in a paginated response. </p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1119,20 +1119,20 @@ export interface SelectAggregateResourceConfigResponse {
  */
 export interface SelectResourceConfigRequest {
   /**
-   * @public
    * <p>The SQL query <code>SELECT</code> command.</p>
+   * @public
    */
   Expression: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of query results returned on each page. </p>
+   * @public
    */
   Limit?: number;
 
   /**
-   * @public
    * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response. </p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1142,53 +1142,53 @@ export interface SelectResourceConfigRequest {
  */
 export interface SelectResourceConfigResponse {
   /**
-   * @public
    * <p>Returns the results for the SQL query.</p>
+   * @public
    */
   Results?: string[];
 
   /**
-   * @public
    * <p>Returns the <code>QueryInfo</code> object.</p>
+   * @public
    */
   QueryInfo?: QueryInfo;
 
   /**
-   * @public
    * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response. </p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p></p>
+ * @public
  */
 export interface StartConfigRulesEvaluationRequest {
   /**
-   * @public
    * <p>The list of names of Config rules that you want to run
    * 			evaluations for.</p>
+   * @public
    */
   ConfigRuleNames?: string[];
 }
 
 /**
- * @public
  * <p>The output when you start the evaluation for the specified Config rule.</p>
+ * @public
  */
 export interface StartConfigRulesEvaluationResponse {}
 
 /**
- * @public
  * <p>The input for the <a>StartConfigurationRecorder</a>
  * 			action.</p>
+ * @public
  */
 export interface StartConfigurationRecorderRequest {
   /**
-   * @public
    * <p>The name of the recorder object that records each configuration
    * 			change made to the resources.</p>
+   * @public
    */
   ConfigurationRecorderName: string | undefined;
 }
@@ -1198,14 +1198,14 @@ export interface StartConfigurationRecorderRequest {
  */
 export interface StartRemediationExecutionRequest {
   /**
-   * @public
    * <p>The list of names of Config rules that you want to run remediation execution for.</p>
+   * @public
    */
   ConfigRuleName: string | undefined;
 
   /**
-   * @public
    * <p>A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID. </p>
+   * @public
    */
   ResourceKeys: ResourceKey[] | undefined;
 }
@@ -1215,14 +1215,14 @@ export interface StartRemediationExecutionRequest {
  */
 export interface StartRemediationExecutionResponse {
   /**
-   * @public
    * <p>Returns a failure message. For example, the resource is already compliant.</p>
+   * @public
    */
   FailureMessage?: string;
 
   /**
-   * @public
    * <p>For resources that have failed to start execution, the API returns a resource key object.</p>
+   * @public
    */
   FailedItems?: ResourceKey[];
 }
@@ -1232,31 +1232,30 @@ export interface StartRemediationExecutionResponse {
  */
 export interface StartResourceEvaluationRequest {
   /**
-   * @public
    * <p>Returns a <code>ResourceDetails</code> object.</p>
+   * @public
    */
   ResourceDetails: ResourceDetails | undefined;
 
   /**
-   * @public
    * <p>Returns an <code>EvaluationContext</code> object.</p>
+   * @public
    */
   EvaluationContext?: EvaluationContext;
 
   /**
-   * @public
    * <p>The mode of an evaluation. The valid values for this API are <code>DETECTIVE</code> and <code>PROACTIVE</code>.</p>
+   * @public
    */
   EvaluationMode: EvaluationMode | undefined;
 
   /**
-   * @public
    * <p>The timeout for an evaluation. The default is 900 seconds. You cannot specify a number greater than 3600. If you specify 0, Config uses the default.</p>
+   * @public
    */
   EvaluationTimeout?: number;
 
   /**
-   * @public
    * <p>A client token is a unique, case-sensitive string of up to 64 ASCII characters.
    * 			To make an idempotent API request using one of these actions, specify a client token in the request.</p>
    *          <note>
@@ -1267,6 +1266,7 @@ export interface StartResourceEvaluationRequest {
    * 				are different, other than the Region or Availability Zone, the retry fails with an
    * 				IdempotentParameterMismatch error.</p>
    *          </note>
+   * @public
    */
   ClientToken?: string;
 }
@@ -1276,21 +1276,21 @@ export interface StartResourceEvaluationRequest {
  */
 export interface StartResourceEvaluationResponse {
   /**
-   * @public
    * <p>A
    * 			unique ResourceEvaluationId that is associated with a single execution.</p>
+   * @public
    */
   ResourceEvaluationId?: string;
 }
 
 /**
- * @public
  * <p>The input for the <a>StopConfigurationRecorder</a> action.</p>
+ * @public
  */
 export interface StopConfigurationRecorderRequest {
   /**
-   * @public
    * <p>The name of the recorder object that records each configuration change made to the resources.</p>
+   * @public
    */
   ConfigurationRecorderName: string | undefined;
 }
@@ -1300,14 +1300,14 @@ export interface StopConfigurationRecorderRequest {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the supported resources are <code>ConfigRule</code>, <code>ConfigurationAggregator</code> and <code>AggregatorAuthorization</code>.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * @public
    * <p>An array of tag object.</p>
+   * @public
    */
   Tags: Tag[] | undefined;
 }
@@ -1317,14 +1317,14 @@ export interface TagResourceRequest {
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the supported resources are <code>ConfigRule</code>, <code>ConfigurationAggregator</code> and <code>AggregatorAuthorization</code>.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The keys of the tags to be removed.</p>
+   * @public
    */
   TagKeys: string[] | undefined;
 }

@@ -31,7 +31,6 @@ export interface GetBotCommandInput extends GetBotRequest {}
 export interface GetBotCommandOutput extends GetBotResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns metadata information for a specific bot. You must provide
  *       the bot name and the bot version or alias. </p>
  *          <p> This operation requires permissions for the
@@ -119,6 +118,7 @@ export interface GetBotCommandOutput extends GetBotResponse, __MetadataBearer {}
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * @public
  * @example To get information about a bot
  * ```javascript
  * // This example shows how to get configuration information for a bot.

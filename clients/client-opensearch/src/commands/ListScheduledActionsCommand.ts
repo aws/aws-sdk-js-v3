@@ -27,7 +27,6 @@ export interface ListScheduledActionsCommandInput extends ListScheduledActionsRe
 export interface ListScheduledActionsCommandOutput extends ListScheduledActionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of configuration changes that are scheduled for a domain. These changes can
  *    be <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">service software
  *     updates</a> or <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types">blue/green
@@ -88,6 +87,7 @@ export interface ListScheduledActionsCommandOutput extends ListScheduledActionsR
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class ListScheduledActionsCommand extends $Command
   .classBuilder<

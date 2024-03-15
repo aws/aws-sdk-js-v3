@@ -27,7 +27,6 @@ export interface ListComponentVersionsCommandInput extends ListComponentVersions
 export interface ListComponentVersionsCommandOutput extends ListComponentVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a paginated list of all versions for a component. Greater versions are listed
  *       first.</p>
  * @example
@@ -82,6 +81,7 @@ export interface ListComponentVersionsCommandOutput extends ListComponentVersion
  * @throws {@link GreengrassV2ServiceException}
  * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ * @public
  */
 export class ListComponentVersionsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface SearchCommandInput extends SearchRequest {}
 export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Finds SageMaker resources that match a search query. Matching resources are returned
  *       as a list of <code>SearchRecord</code> objects in the response. You can sort the search
  *       results by any resource property in a ascending or descending order.</p>
@@ -2103,6 +2102,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class SearchCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface StartModelCommandInput extends StartModelRequest {}
 export interface StartModelCommandOutput extends StartModelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts the running of the version of an Amazon Lookout for Vision model. Starting a model takes a while
  *          to complete. To check the current state of the model, use <a>DescribeModel</a>.</p>
  *          <p>A model is ready to use when its status is <code>HOSTED</code>.</p>
@@ -92,6 +91,7 @@ export interface StartModelCommandOutput extends StartModelResponse, __MetadataB
  * @throws {@link LookoutVisionServiceException}
  * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
+ * @public
  */
 export class StartModelCommand extends $Command
   .classBuilder<

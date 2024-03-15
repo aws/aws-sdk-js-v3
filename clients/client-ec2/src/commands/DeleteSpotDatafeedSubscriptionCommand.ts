@@ -30,7 +30,6 @@ export interface DeleteSpotDatafeedSubscriptionCommandInput extends DeleteSpotDa
 export interface DeleteSpotDatafeedSubscriptionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the data feed for Spot Instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,6 +55,7 @@ export interface DeleteSpotDatafeedSubscriptionCommandOutput extends __MetadataB
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To cancel a Spot Instance data feed subscription
  * ```javascript
  * // This example deletes a Spot data feed subscription for the account.

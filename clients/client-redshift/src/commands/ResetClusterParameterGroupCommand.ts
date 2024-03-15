@@ -28,7 +28,6 @@ export interface ResetClusterParameterGroupCommandInput extends ResetClusterPara
 export interface ResetClusterParameterGroupCommandOutput extends ClusterParameterGroupNameMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets one or more parameters of the specified parameter group to their default
  *             values and sets the source values of the parameters to "engine-default". To reset the
  *             entire parameter group specify the <i>ResetAllParameters</i> parameter.
@@ -82,6 +81,7 @@ export interface ResetClusterParameterGroupCommandOutput extends ClusterParamete
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class ResetClusterParameterGroupCommand extends $Command
   .classBuilder<

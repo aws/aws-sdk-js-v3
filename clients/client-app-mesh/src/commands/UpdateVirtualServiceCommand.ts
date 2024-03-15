@@ -27,7 +27,6 @@ export interface UpdateVirtualServiceCommandInput extends UpdateVirtualServiceIn
 export interface UpdateVirtualServiceCommandOutput extends UpdateVirtualServiceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing virtual service in a specified service mesh.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -122,6 +121,7 @@ export interface UpdateVirtualServiceCommandOutput extends UpdateVirtualServiceO
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ * @public
  */
 export class UpdateVirtualServiceCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateCapacityReservationCommandInput extends CreateCapacityRes
 export interface CreateCapacityReservationCommandOutput extends CreateCapacityReservationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a capacity reservation with the specified name and number of requested data
  *             processing units.</p>
  * @example
@@ -69,6 +68,7 @@ export interface CreateCapacityReservationCommandOutput extends CreateCapacityRe
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class CreateCapacityReservationCommand extends $Command
   .classBuilder<

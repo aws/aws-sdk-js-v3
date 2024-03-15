@@ -36,7 +36,6 @@ export interface AssociateSigninDelegateGroupsWithAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates the specified sign-in delegate groups with the specified Amazon Chime account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface AssociateSigninDelegateGroupsWithAccountCommandOutput
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class AssociateSigninDelegateGroupsWithAccountCommand extends $Command
   .classBuilder<

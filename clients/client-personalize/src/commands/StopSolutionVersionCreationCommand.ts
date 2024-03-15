@@ -27,7 +27,6 @@ export interface StopSolutionVersionCreationCommandInput extends StopSolutionVer
 export interface StopSolutionVersionCreationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops creating a solution version that is in a state of CREATE_PENDING or CREATE IN_PROGRESS.
  *       </p>
  *          <p>Depending on the current state of the solution version, the solution version state changes as follows:</p>
@@ -75,6 +74,7 @@ export interface StopSolutionVersionCreationCommandOutput extends __MetadataBear
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class StopSolutionVersionCreationCommand extends $Command
   .classBuilder<

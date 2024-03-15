@@ -27,7 +27,6 @@ export interface AssignPrivateIpAddressesCommandInput extends AssignPrivateIpAdd
 export interface AssignPrivateIpAddressesCommandOutput extends AssignPrivateIpAddressesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Assigns one or more secondary private IP addresses to the specified network interface.</p>
  *          <p>You can specify one or more specific secondary IP addresses, or you can specify the number
  *             of secondary IP addresses to be automatically assigned within the subnet's CIDR block range.
@@ -89,6 +88,7 @@ export interface AssignPrivateIpAddressesCommandOutput extends AssignPrivateIpAd
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To assign a specific secondary private IP address to an interface
  * ```javascript
  * // This example assigns the specified secondary private IP address to the specified network interface.

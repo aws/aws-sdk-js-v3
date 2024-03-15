@@ -27,7 +27,6 @@ export interface StartMonitoringMemberCommandInput extends StartMonitoringMember
 export interface StartMonitoringMemberCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Sends a request to enable data ingest for a member account that has a status of
  *             <code>ACCEPTED_BUT_DISABLED</code>.</p>
  *          <p>For valid member accounts, the status is updated as follows.</p>
@@ -95,6 +94,7 @@ export interface StartMonitoringMemberCommandOutput extends __MetadataBearer {}
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ * @public
  */
 export class StartMonitoringMemberCommand extends $Command
   .classBuilder<

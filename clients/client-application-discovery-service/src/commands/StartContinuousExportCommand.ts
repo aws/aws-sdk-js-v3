@@ -31,7 +31,6 @@ export interface StartContinuousExportCommandInput extends StartContinuousExport
 export interface StartContinuousExportCommandOutput extends StartContinuousExportResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Start the continuous flow of agent's discovered data into Amazon Athena.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface StartContinuousExportCommandOutput extends StartContinuousExpor
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ * @public
  */
 export class StartContinuousExportCommand extends $Command
   .classBuilder<

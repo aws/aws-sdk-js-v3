@@ -27,7 +27,6 @@ export interface GetMemberDetectorsCommandInput extends GetMemberDetectorsReques
 export interface GetMemberDetectorsCommandOutput extends GetMemberDetectorsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes which data sources are enabled for the member account's detector.</p>
  *          <p>There might be regional differences because some data sources might not be
  *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
@@ -119,6 +118,7 @@ export interface GetMemberDetectorsCommandOutput extends GetMemberDetectorsRespo
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class GetMemberDetectorsCommand extends $Command
   .classBuilder<

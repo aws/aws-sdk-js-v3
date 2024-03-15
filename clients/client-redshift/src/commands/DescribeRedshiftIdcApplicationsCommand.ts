@@ -32,7 +32,6 @@ export interface DescribeRedshiftIdcApplicationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the Amazon Redshift IAM Identity Center applications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface DescribeRedshiftIdcApplicationsCommandOutput
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DescribeRedshiftIdcApplicationsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface SendEventCommandInput extends SendEventRequest {}
 export interface SendEventCommandOutput extends SendEventResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stores events in Amazon Fraud Detector without generating fraud predictions for those events. For example, you can use <code>SendEvent</code> to upload a historical dataset, which you can then later use to train a model.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface SendEventCommandOutput extends SendEventResult, __MetadataBeare
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class SendEventCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListJobsCommandInput extends ListJobsRequest {}
 export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation lists your jobs sorted by CreatedAt in descending order.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -230,6 +229,7 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ * @public
  */
 export class ListJobsCommand extends $Command
   .classBuilder<

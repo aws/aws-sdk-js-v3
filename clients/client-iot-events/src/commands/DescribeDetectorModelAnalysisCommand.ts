@@ -32,7 +32,6 @@ export interface DescribeDetectorModelAnalysisCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves runtime information about a detector model analysis.</p>
  *          <note>
  *             <p>After AWS IoT Events starts analyzing your detector model, you have up to 24 hours to retrieve the analysis results.</p>
@@ -78,6 +77,7 @@ export interface DescribeDetectorModelAnalysisCommandOutput
  * @throws {@link IoTEventsServiceException}
  * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
+ * @public
  */
 export class DescribeDetectorModelAnalysisCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateAppVersionResourceCommandInput extends CreateAppVersionRe
 export interface CreateAppVersionResourceCommandOutput extends CreateAppVersionResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a resource to the Resilience Hub application and assigns it to the specified
  *       Application Components. If you specify a new Application Component, Resilience Hub will automatically
  *       create the Application Component.</p>
@@ -160,6 +159,7 @@ export interface CreateAppVersionResourceCommandOutput extends CreateAppVersionR
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class CreateAppVersionResourceCommand extends $Command
   .classBuilder<

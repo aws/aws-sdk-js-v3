@@ -31,7 +31,6 @@ export interface DeleteVectorEnrichmentJobCommandInput extends DeleteVectorEnric
 export interface DeleteVectorEnrichmentJobCommandOutput extends DeleteVectorEnrichmentJobOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use this operation to delete a Vector Enrichment job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface DeleteVectorEnrichmentJobCommandOutput extends DeleteVectorEnri
  * @throws {@link SageMakerGeospatialServiceException}
  * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
+ * @public
  */
 export class DeleteVectorEnrichmentJobCommand extends $Command
   .classBuilder<

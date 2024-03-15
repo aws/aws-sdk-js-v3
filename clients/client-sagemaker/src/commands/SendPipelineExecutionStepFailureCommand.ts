@@ -32,7 +32,6 @@ export interface SendPipelineExecutionStepFailureCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Notifies the pipeline that the execution of a callback step failed, along with a
  *         message describing why. When a callback step is run, the pipeline generates a callback
  *         token and includes the token in a message sent to Amazon Simple Queue Service (Amazon SQS).</p>
@@ -75,6 +74,7 @@ export interface SendPipelineExecutionStepFailureCommandOutput
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class SendPipelineExecutionStepFailureCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListStateMachinesCommandInput extends ListStateMachinesInput {}
 export interface ListStateMachinesCommandOutput extends ListStateMachinesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the existing state machines.</p>
  *          <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
  *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
@@ -72,6 +71,7 @@ export interface ListStateMachinesCommandOutput extends ListStateMachinesOutput,
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * @public
  */
 export class ListStateMachinesCommand extends $Command
   .classBuilder<

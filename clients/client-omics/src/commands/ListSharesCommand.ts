@@ -27,7 +27,6 @@ export interface ListSharesCommandInput extends ListSharesRequest {}
 export interface ListSharesCommandOutput extends ListSharesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Lists all shares associated with an account.
  *     </p>
@@ -101,6 +100,7 @@ export interface ListSharesCommandOutput extends ListSharesResponse, __MetadataB
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class ListSharesCommand extends $Command
   .classBuilder<

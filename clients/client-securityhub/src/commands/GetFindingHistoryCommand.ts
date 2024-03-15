@@ -27,7 +27,6 @@ export interface GetFindingHistoryCommandInput extends GetFindingHistoryRequest 
 export interface GetFindingHistoryCommandOutput extends GetFindingHistoryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Returns history for a Security Hub finding in the last 90 days. The history includes changes made to any fields in
  *          the Amazon Web Services Security Finding Format (ASFF).
@@ -101,6 +100,7 @@ export interface GetFindingHistoryCommandOutput extends GetFindingHistoryRespons
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To get finding history
  * ```javascript
  * // The following example retrieves the history of the specified finding during the specified time frame. If the time frame permits, Security Hub returns finding history for the last 90 days.

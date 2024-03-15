@@ -31,7 +31,6 @@ export interface DescribeFleetPortSettingsCommandInput extends DescribeFleetPort
 export interface DescribeFleetPortSettingsCommandOutput extends DescribeFleetPortSettingsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a fleet's inbound connection permissions. Connection permissions specify the
  *             range of IP addresses and port settings that incoming traffic can use to access server
  *             processes in the fleet. Game sessions that are running on instances in the fleet must
@@ -113,6 +112,7 @@ export interface DescribeFleetPortSettingsCommandOutput extends DescribeFleetPor
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DescribeFleetPortSettingsCommand extends $Command
   .classBuilder<

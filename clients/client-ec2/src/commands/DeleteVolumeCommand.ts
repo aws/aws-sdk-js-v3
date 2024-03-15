@@ -27,7 +27,6 @@ export interface DeleteVolumeCommandInput extends DeleteVolumeRequest {}
 export interface DeleteVolumeCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified EBS volume. The volume must be in the <code>available</code> state
  *       (not attached to an instance).</p>
  *          <p>The volume can remain in the <code>deleting</code> state for several minutes.</p>
@@ -58,6 +57,7 @@ export interface DeleteVolumeCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To delete a volume
  * ```javascript
  * // This example deletes an available volume with the volume ID of ``vol-049df61146c4d7901``. If the command succeeds, no output is returned.

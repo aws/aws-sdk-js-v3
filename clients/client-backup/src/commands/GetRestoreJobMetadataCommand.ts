@@ -31,7 +31,6 @@ export interface GetRestoreJobMetadataCommandInput extends GetRestoreJobMetadata
 export interface GetRestoreJobMetadataCommandOutput extends GetRestoreJobMetadataOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This request returns the metadata for the specified restore job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface GetRestoreJobMetadataCommandOutput extends GetRestoreJobMetadat
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class GetRestoreJobMetadataCommand extends $Command
   .classBuilder<

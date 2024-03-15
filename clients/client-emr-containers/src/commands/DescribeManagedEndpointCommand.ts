@@ -31,7 +31,6 @@ export interface DescribeManagedEndpointCommandInput extends DescribeManagedEndp
 export interface DescribeManagedEndpointCommandOutput extends DescribeManagedEndpointResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Displays detailed information about a managed endpoint. A managed endpoint is a gateway
  *          that connects Amazon EMR Studio to Amazon EMR on EKS so that Amazon EMR Studio can communicate with your virtual cluster.</p>
  * @example
@@ -128,6 +127,7 @@ export interface DescribeManagedEndpointCommandOutput extends DescribeManagedEnd
  * @throws {@link EMRContainersServiceException}
  * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
+ * @public
  */
 export class DescribeManagedEndpointCommand extends $Command
   .classBuilder<

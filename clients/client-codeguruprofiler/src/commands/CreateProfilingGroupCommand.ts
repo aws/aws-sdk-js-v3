@@ -27,7 +27,6 @@ export interface CreateProfilingGroupCommandInput extends CreateProfilingGroupRe
 export interface CreateProfilingGroupCommandOutput extends CreateProfilingGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a profiling group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -104,6 +103,7 @@ export interface CreateProfilingGroupCommandOutput extends CreateProfilingGroupR
  * @throws {@link CodeGuruProfilerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
+ * @public
  */
 export class CreateProfilingGroupCommand extends $Command
   .classBuilder<

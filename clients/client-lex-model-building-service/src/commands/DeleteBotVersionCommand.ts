@@ -31,7 +31,6 @@ export interface DeleteBotVersionCommandInput extends DeleteBotVersionRequest {}
 export interface DeleteBotVersionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specific version of a bot. To delete all versions of a
  *       bot, use the <a>DeleteBot</a> operation. </p>
  *          <p>This operation requires permissions for the
@@ -98,6 +97,7 @@ export interface DeleteBotVersionCommandOutput extends __MetadataBearer {}
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * @public
  */
 export class DeleteBotVersionCommand extends $Command
   .classBuilder<

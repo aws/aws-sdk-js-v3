@@ -27,7 +27,6 @@ export interface ListQueriesCommandInput extends ListQueriesInput {}
 export interface ListQueriesCommandOutput extends ListQueriesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists active openCypher queries.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface ListQueriesCommandOutput extends ListQueriesOutput, __MetadataB
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ * @public
  */
 export class ListQueriesCommand extends $Command
   .classBuilder<

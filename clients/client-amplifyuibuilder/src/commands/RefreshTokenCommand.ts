@@ -32,7 +32,6 @@ export interface RefreshTokenCommandInput extends RefreshTokenRequest {}
 export interface RefreshTokenCommandOutput extends RefreshTokenResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This is for internal use.</p>
  *          </note>
@@ -71,6 +70,7 @@ export interface RefreshTokenCommandOutput extends RefreshTokenResponse, __Metad
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ * @public
  */
 export class RefreshTokenCommand extends $Command
   .classBuilder<

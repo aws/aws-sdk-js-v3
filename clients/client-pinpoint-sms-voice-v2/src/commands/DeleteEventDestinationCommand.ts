@@ -31,7 +31,6 @@ export interface DeleteEventDestinationCommandInput extends DeleteEventDestinati
 export interface DeleteEventDestinationCommandOutput extends DeleteEventDestinationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing event destination.</p>
  *          <p>An event destination is a location where you send response information about the
  *             messages that you send. For example, when a message is delivered successfully, you can
@@ -101,6 +100,7 @@ export interface DeleteEventDestinationCommandOutput extends DeleteEventDestinat
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class DeleteEventDestinationCommand extends $Command
   .classBuilder<

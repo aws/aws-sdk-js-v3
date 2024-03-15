@@ -32,7 +32,6 @@ export interface UpdateSipMediaApplicationCommandInput extends UpdateSipMediaApp
 export interface UpdateSipMediaApplicationCommandOutput extends UpdateSipMediaApplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the details of the specified SIP media application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface UpdateSipMediaApplicationCommandOutput extends UpdateSipMediaAp
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class UpdateSipMediaApplicationCommand extends $Command
   .classBuilder<

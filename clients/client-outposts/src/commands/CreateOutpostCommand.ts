@@ -27,7 +27,6 @@ export interface CreateOutpostCommandInput extends CreateOutpostInput {}
 export interface CreateOutpostCommandOutput extends CreateOutpostOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Outpost.</p>
  *          <p>You can specify either an Availability one or an AZ ID.</p>
  * @example
@@ -97,6 +96,7 @@ export interface CreateOutpostCommandOutput extends CreateOutpostOutput, __Metad
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ * @public
  */
 export class CreateOutpostCommand extends $Command
   .classBuilder<

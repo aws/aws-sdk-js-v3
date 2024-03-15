@@ -27,7 +27,6 @@ export interface UpdateDeletionProtectionCommandInput extends UpdateDeletionProt
 export interface UpdateDeletionProtectionCommandOutput extends UpdateDeletionProtectionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update deletion protection to either allow or deny deletion of the final Region in a
  *       replication set.</p>
  * @example
@@ -73,6 +72,7 @@ export interface UpdateDeletionProtectionCommandOutput extends UpdateDeletionPro
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ * @public
  */
 export class UpdateDeletionProtectionCommand extends $Command
   .classBuilder<

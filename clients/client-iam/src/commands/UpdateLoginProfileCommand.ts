@@ -27,7 +27,6 @@ export interface UpdateLoginProfileCommandInput extends UpdateLoginProfileReques
 export interface UpdateLoginProfileCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes the password for the specified IAM user. You can use the CLI, the Amazon Web Services
  *             API, or the <b>Users</b> page in the IAM console to change
  *             the password for any IAM user. Use <a>ChangePassword</a> to change your own
@@ -83,6 +82,7 @@ export interface UpdateLoginProfileCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To change the password for an IAM user
  * ```javascript
  * // The following command creates or changes the password for the IAM user named Bob.

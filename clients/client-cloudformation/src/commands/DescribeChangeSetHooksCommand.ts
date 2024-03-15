@@ -27,7 +27,6 @@ export interface DescribeChangeSetHooksCommandInput extends DescribeChangeSetHoo
 export interface DescribeChangeSetHooksCommandOutput extends DescribeChangeSetHooksOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns hook-related information for the change set and a list of changes that CloudFormation makes when you run the
  *    change set.</p>
  * @example
@@ -85,6 +84,7 @@ export interface DescribeChangeSetHooksCommandOutput extends DescribeChangeSetHo
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class DescribeChangeSetHooksCommand extends $Command
   .classBuilder<

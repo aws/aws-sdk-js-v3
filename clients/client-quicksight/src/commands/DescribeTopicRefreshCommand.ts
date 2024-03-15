@@ -27,7 +27,6 @@ export interface DescribeTopicRefreshCommandInput extends DescribeTopicRefreshRe
 export interface DescribeTopicRefreshCommandOutput extends DescribeTopicRefreshResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the status of a topic refresh.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface DescribeTopicRefreshCommandOutput extends DescribeTopicRefreshR
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DescribeTopicRefreshCommand extends $Command
   .classBuilder<

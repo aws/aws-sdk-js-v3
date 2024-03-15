@@ -27,7 +27,6 @@ export interface DeleteCoreDefinitionCommandInput extends DeleteCoreDefinitionRe
 export interface DeleteCoreDefinitionCommandOutput extends DeleteCoreDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * Deletes a core definition.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,6 +55,7 @@ export interface DeleteCoreDefinitionCommandOutput extends DeleteCoreDefinitionR
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class DeleteCoreDefinitionCommand extends $Command
   .classBuilder<

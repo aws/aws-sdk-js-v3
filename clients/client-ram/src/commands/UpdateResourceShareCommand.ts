@@ -27,7 +27,6 @@ export interface UpdateResourceShareCommandInput extends UpdateResourceShareRequ
 export interface UpdateResourceShareCommandOutput extends UpdateResourceShareResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies some of the properties of the specified resource share.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface UpdateResourceShareCommandOutput extends UpdateResourceShareRes
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * @public
  */
 export class UpdateResourceShareCommand extends $Command
   .classBuilder<

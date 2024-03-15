@@ -31,7 +31,6 @@ export interface DescribeTargetHealthCommandInput extends DescribeTargetHealthIn
 export interface DescribeTargetHealthCommandOutput extends DescribeTargetHealthOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the health of the specified targets or all of your targets.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface DescribeTargetHealthCommandOutput extends DescribeTargetHealthO
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  * @example To describe the health of the targets for a target group
  * ```javascript
  * // This example describes the health of the targets for the specified target group. One target is healthy but the other is not specified in an action, so it can't receive traffic from the load balancer.

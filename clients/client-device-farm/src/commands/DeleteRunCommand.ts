@@ -27,7 +27,6 @@ export interface DeleteRunCommandInput extends DeleteRunRequest {}
 export interface DeleteRunCommandOutput extends DeleteRunResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the run, given the run ARN.</p>
  *         <p> Deleting this resource does not stop an in-progress run.</p>
  * @example
@@ -66,6 +65,7 @@ export interface DeleteRunCommandOutput extends DeleteRunResult, __MetadataBeare
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To delete a run
  * ```javascript
  * // The following example deletes a specific test run.

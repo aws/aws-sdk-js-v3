@@ -36,7 +36,6 @@ export interface GetOrganizationConfigRuleDetailedStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns detailed status for each member account within an organization for a given organization Config rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -112,6 +111,7 @@ export interface GetOrganizationConfigRuleDetailedStatusCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class GetOrganizationConfigRuleDetailedStatusCommand extends $Command
   .classBuilder<

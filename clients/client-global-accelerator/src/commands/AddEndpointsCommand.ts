@@ -31,7 +31,6 @@ export interface AddEndpointsCommandInput extends AddEndpointsRequest {}
 export interface AddEndpointsCommandOutput extends AddEndpointsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Add endpoints to an endpoint group. The <code>AddEndpoints</code> API operation is the recommended option for adding endpoints. The
  * 			alternative options are to add endpoints when you create an endpoint group (with the
  * 			<a href="https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateEndpointGroup.html">CreateEndpointGroup</a> API)
@@ -113,6 +112,7 @@ export interface AddEndpointsCommandOutput extends AddEndpointsResponse, __Metad
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class AddEndpointsCommand extends $Command
   .classBuilder<

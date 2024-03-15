@@ -27,7 +27,6 @@ export interface ListEventStreamsCommandInput extends ListEventStreamsRequest {}
 export interface ListEventStreamsCommandOutput extends ListEventStreamsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all the event streams in a specific domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface ListEventStreamsCommandOutput extends ListEventStreamsResponse,
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * @public
  */
 export class ListEventStreamsCommand extends $Command
   .classBuilder<

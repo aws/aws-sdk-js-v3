@@ -27,9 +27,6 @@ export interface DeleteMeetingCommandInput extends DeleteMeetingRequest {}
 export interface DeleteMeetingCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by DeleteMeeting in the Amazon Chime SDK Meetings Namespace
- *
  * <p>Deletes the specified Amazon Chime SDK meeting. The operation deletes all attendees, disconnects all clients, and prevents new clients from
  *     joining the meeting. For more information about the Amazon Chime SDK, see
  *     <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the
@@ -86,6 +83,8 @@ export interface DeleteMeetingCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by DeleteMeeting in the Amazon Chime SDK Meetings Namespace
  */
 export class DeleteMeetingCommand extends $Command
   .classBuilder<

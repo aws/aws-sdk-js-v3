@@ -27,7 +27,6 @@ export interface NotifyAppValidationOutputCommandInput extends NotifyAppValidati
 export interface NotifyAppValidationOutputCommandOutput extends NotifyAppValidationOutputResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides information to Server Migration Service about whether application validation is successful.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface NotifyAppValidationOutputCommandOutput extends NotifyAppValidat
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ * @public
  */
 export class NotifyAppValidationOutputCommand extends $Command
   .classBuilder<

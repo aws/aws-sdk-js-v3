@@ -36,7 +36,6 @@ export interface UpdateComponentConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the monitoring configurations for the component. The configuration input
  *          parameter is an escaped JSON of the configuration and should match the schema of what is
  *          returned by <code>DescribeComponentConfigurationRecommendation</code>. </p>
@@ -81,6 +80,7 @@ export interface UpdateComponentConfigurationCommandOutput
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ * @public
  */
 export class UpdateComponentConfigurationCommand extends $Command
   .classBuilder<

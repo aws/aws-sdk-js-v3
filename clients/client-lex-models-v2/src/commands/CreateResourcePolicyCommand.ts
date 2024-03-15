@@ -27,7 +27,6 @@ export interface CreateResourcePolicyCommandInput extends CreateResourcePolicyRe
 export interface CreateResourcePolicyCommandOutput extends CreateResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new resource policy with the specified policy
  *          statements.</p>
  * @example
@@ -82,6 +81,7 @@ export interface CreateResourcePolicyCommandOutput extends CreateResourcePolicyR
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class CreateResourcePolicyCommand extends $Command
   .classBuilder<

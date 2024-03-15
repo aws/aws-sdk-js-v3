@@ -27,7 +27,6 @@ export interface UpdateSubscriberCommandInput extends UpdateSubscriberRequest {}
 export interface UpdateSubscriberCommandOutput extends UpdateSubscriberResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing subscription for the given Amazon Security Lake account ID. You can update
  *          a subscriber by changing the sources that the subscriber consumes data from.</p>
  * @example
@@ -149,6 +148,7 @@ export interface UpdateSubscriberCommandOutput extends UpdateSubscriberResponse,
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ * @public
  */
 export class UpdateSubscriberCommand extends $Command
   .classBuilder<

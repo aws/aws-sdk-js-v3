@@ -27,7 +27,6 @@ export interface StartLoaderJobCommandInput extends StartLoaderJobInput {}
 export interface StartLoaderJobCommandOutput extends StartLoaderJobOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a Neptune bulk loader job to load data from an Amazon S3
  *       bucket into a Neptune DB instance. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load.html">Using the Amazon Neptune
  *       Bulk Loader to Ingest Data</a>.</p>
@@ -121,6 +120,7 @@ export interface StartLoaderJobCommandOutput extends StartLoaderJobOutput, __Met
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * @public
  */
 export class StartLoaderJobCommand extends $Command
   .classBuilder<

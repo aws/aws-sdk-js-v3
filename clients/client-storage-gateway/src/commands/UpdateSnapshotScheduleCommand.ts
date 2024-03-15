@@ -27,7 +27,6 @@ export interface UpdateSnapshotScheduleCommandInput extends UpdateSnapshotSchedu
 export interface UpdateSnapshotScheduleCommandOutput extends UpdateSnapshotScheduleOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a snapshot schedule configured for a gateway volume. This operation is only
  *          supported in the cached volume and stored volume gateway types.</p>
  *          <p>The default snapshot schedule for volume is once every 24 hours, starting at the
@@ -79,6 +78,7 @@ export interface UpdateSnapshotScheduleCommandOutput extends UpdateSnapshotSched
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To update a volume snapshot schedule
  * ```javascript
  * // Updates a snapshot schedule configured for a gateway volume.

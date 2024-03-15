@@ -27,7 +27,6 @@ export interface DeleteImportedKeyMaterialCommandInput extends DeleteImportedKey
 export interface DeleteImportedKeyMaterialCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes key material that was previously imported. This operation makes the specified KMS
  *       key temporarily unusable. To restore the usability of the KMS key, reimport the same key
  *       material. For more information about importing key material into KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing Key Material</a>
@@ -123,6 +122,7 @@ export interface DeleteImportedKeyMaterialCommandOutput extends __MetadataBearer
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To delete imported key material
  * ```javascript
  * // The following example deletes the imported key material from the specified KMS key.

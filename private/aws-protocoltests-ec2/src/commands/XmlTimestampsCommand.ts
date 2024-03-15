@@ -25,7 +25,6 @@ export interface XmlTimestampsCommandInput {}
 export interface XmlTimestampsCommandOutput extends XmlTimestampsOutput, __MetadataBearer {}
 
 /**
- * @public
  * This tests how timestamps are serialized, including using the
  * default format of date-time and various @timestampFormat trait
  * values.
@@ -59,6 +58,7 @@ export interface XmlTimestampsCommandOutput extends XmlTimestampsOutput, __Metad
  * @throws {@link EC2ProtocolServiceException}
  * <p>Base exception class for all service exceptions from EC2Protocol service.</p>
  *
+ * @public
  */
 export class XmlTimestampsCommand extends $Command
   .classBuilder<

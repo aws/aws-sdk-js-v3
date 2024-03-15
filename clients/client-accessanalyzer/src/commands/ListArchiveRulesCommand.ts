@@ -27,7 +27,6 @@ export interface ListArchiveRulesCommandInput extends ListArchiveRulesRequest {}
 export interface ListArchiveRulesCommandOutput extends ListArchiveRulesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of archive rules created for the specified analyzer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface ListArchiveRulesCommandOutput extends ListArchiveRulesResponse,
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ * @public
  */
 export class ListArchiveRulesCommand extends $Command
   .classBuilder<

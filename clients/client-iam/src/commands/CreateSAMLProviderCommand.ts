@@ -27,7 +27,6 @@ export interface CreateSAMLProviderCommandInput extends CreateSAMLProviderReques
 export interface CreateSAMLProviderCommandOutput extends CreateSAMLProviderResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an IAM resource that describes an identity provider (IdP) that supports SAML
  *             2.0.</p>
  *          <p>The SAML provider resource that you create with this operation can be used as a
@@ -105,6 +104,7 @@ export interface CreateSAMLProviderCommandOutput extends CreateSAMLProviderRespo
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class CreateSAMLProviderCommand extends $Command
   .classBuilder<

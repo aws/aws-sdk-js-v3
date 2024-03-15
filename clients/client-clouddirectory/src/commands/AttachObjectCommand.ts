@@ -27,7 +27,6 @@ export interface AttachObjectCommandInput extends AttachObjectRequest {}
 export interface AttachObjectCommandOutput extends AttachObjectResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches an existing object to another object. An object can be accessed in two
  *       ways:</p>
  *          <ol>
@@ -109,6 +108,7 @@ export interface AttachObjectCommandOutput extends AttachObjectResponse, __Metad
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class AttachObjectCommand extends $Command
   .classBuilder<

@@ -29,7 +29,6 @@ export interface ListAccessGrantsInstancesCommandInput extends ListAccessGrantsI
 export interface ListAccessGrantsInstancesCommandOutput extends ListAccessGrantsInstancesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of S3 Access Grants instances. An S3 Access Grants instance serves as a logical grouping for your individual access grants. You can only have one S3 Access Grants instance per Region per account.</p>
  *          <dl>
  *             <dt>Permissions</dt>
@@ -73,6 +72,7 @@ export interface ListAccessGrantsInstancesCommandOutput extends ListAccessGrants
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class ListAccessGrantsInstancesCommand extends $Command
   .classBuilder<

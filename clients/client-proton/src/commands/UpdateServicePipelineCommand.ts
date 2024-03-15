@@ -32,7 +32,6 @@ export interface UpdateServicePipelineCommandInput extends UpdateServicePipeline
 export interface UpdateServicePipelineCommandOutput extends UpdateServicePipelineOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update the service pipeline.</p>
  *          <p>There are four modes for updating a service pipeline. The <code>deploymentType</code>
  *       field defines the mode.</p>
@@ -135,6 +134,7 @@ export interface UpdateServicePipelineCommandOutput extends UpdateServicePipelin
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class UpdateServicePipelineCommand extends $Command
   .classBuilder<

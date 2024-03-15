@@ -27,7 +27,6 @@ export interface UpdateCrawlerCommandInput extends UpdateCrawlerRequest {}
 export interface UpdateCrawlerCommandOutput extends UpdateCrawlerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a crawler. If a crawler is
  *       running, you must stop it using <code>StopCrawler</code> before updating
  *       it.</p>
@@ -175,6 +174,7 @@ export interface UpdateCrawlerCommandOutput extends UpdateCrawlerResponse, __Met
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class UpdateCrawlerCommand extends $Command
   .classBuilder<

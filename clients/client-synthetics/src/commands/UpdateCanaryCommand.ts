@@ -27,7 +27,6 @@ export interface UpdateCanaryCommandInput extends UpdateCanaryRequest {}
 export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the configuration of a canary that has
  *          already been created.</p>
  *          <p>You can't use this operation to update the tags of an existing canary. To
@@ -121,6 +120,7 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ * @public
  */
 export class UpdateCanaryCommand extends $Command
   .classBuilder<

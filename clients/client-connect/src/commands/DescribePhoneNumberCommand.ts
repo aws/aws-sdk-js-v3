@@ -28,7 +28,6 @@ export interface DescribePhoneNumberCommandInput extends DescribePhoneNumberRequ
 export interface DescribePhoneNumberCommandOutput extends DescribePhoneNumberResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets details and status of a phone number that’s claimed to your Amazon Connect instance
  *    or traffic distribution group.</p>
  *          <important>
@@ -99,6 +98,7 @@ export interface DescribePhoneNumberCommandOutput extends DescribePhoneNumberRes
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DescribePhoneNumberCommand extends $Command
   .classBuilder<

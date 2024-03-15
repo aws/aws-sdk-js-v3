@@ -27,7 +27,6 @@ export interface ListReceivedGrantsCommandInput extends ListReceivedGrantsReques
 export interface ListReceivedGrantsCommandOutput extends ListReceivedGrantsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists grants that are received. Received grants are grants created while specifying the
  *          recipient as this Amazon Web Services account, your organization, or an organizational unit
  *          (OU) to which this member account belongs.</p>
@@ -110,6 +109,7 @@ export interface ListReceivedGrantsCommandOutput extends ListReceivedGrantsRespo
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * @public
  */
 export class ListReceivedGrantsCommand extends $Command
   .classBuilder<

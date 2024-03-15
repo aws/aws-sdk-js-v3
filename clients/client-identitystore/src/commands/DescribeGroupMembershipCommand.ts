@@ -27,7 +27,6 @@ export interface DescribeGroupMembershipCommandInput extends DescribeGroupMember
 export interface DescribeGroupMembershipCommandOutput extends DescribeGroupMembershipResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves membership metadata and attributes from <code>MembershipId</code> in an identity store.</p>
  *          <note>
  *             <p>If you have administrator access to a member account, you can use this API from the member account.
@@ -81,6 +80,7 @@ export interface DescribeGroupMembershipCommandOutput extends DescribeGroupMembe
  * @throws {@link IdentitystoreServiceException}
  * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
+ * @public
  */
 export class DescribeGroupMembershipCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface CreateSyncConfigurationCommandInput extends CreateSyncConfigura
 export interface CreateSyncConfigurationCommandOutput extends CreateSyncConfigurationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a sync configuration which allows Amazon Web Services to sync content from a Git
  *       repository to update a specified Amazon Web Services resource. Parameters for the sync
  *       configuration are determined by the sync type.</p>
@@ -101,6 +100,7 @@ export interface CreateSyncConfigurationCommandOutput extends CreateSyncConfigur
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ * @public
  */
 export class CreateSyncConfigurationCommand extends $Command
   .classBuilder<

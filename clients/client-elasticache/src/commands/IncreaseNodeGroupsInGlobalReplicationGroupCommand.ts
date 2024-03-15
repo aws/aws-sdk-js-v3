@@ -36,7 +36,6 @@ export interface IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Increase the number of node groups in the Global datastore</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -116,6 +115,7 @@ export interface IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  */
 export class IncreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command
   .classBuilder<

@@ -35,7 +35,6 @@ export interface PutConfigurationSetSendingOptionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Enable or disable email sending for messages that use a particular configuration set
  *             in a specific Amazon Web Services Region.</p>
  * @example
@@ -72,6 +71,7 @@ export interface PutConfigurationSetSendingOptionsCommandOutput
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class PutConfigurationSetSendingOptionsCommand extends $Command
   .classBuilder<

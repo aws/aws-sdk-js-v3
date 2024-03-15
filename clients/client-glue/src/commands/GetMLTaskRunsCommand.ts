@@ -27,7 +27,6 @@ export interface GetMLTaskRunsCommandInput extends GetMLTaskRunsRequest {}
 export interface GetMLTaskRunsCommandOutput extends GetMLTaskRunsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of runs for a machine learning transform. Machine learning task runs are
  *       asynchronous tasks that Glue runs on your behalf as part of various machine learning
  *       workflows. You can get a sortable, filterable list of machine learning task runs by calling
@@ -115,6 +114,7 @@ export interface GetMLTaskRunsCommandOutput extends GetMLTaskRunsResponse, __Met
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetMLTaskRunsCommand extends $Command
   .classBuilder<

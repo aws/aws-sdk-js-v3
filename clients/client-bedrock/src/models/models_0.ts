@@ -4,8 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { BedrockServiceException as __BaseException } from "./BedrockServiceException";
 
 /**
- * @public
  * <p>The request is denied because of missing access permissions.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -34,8 +34,8 @@ export interface DeleteModelInvocationLoggingConfigurationRequest {}
 export interface DeleteModelInvocationLoggingConfigurationResponse {}
 
 /**
- * @public
  * <p>An internal server error occurred. Retry your request.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -54,8 +54,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -79,79 +79,79 @@ export class ThrottlingException extends __BaseException {
 export interface GetModelInvocationLoggingConfigurationRequest {}
 
 /**
- * @public
  * <p>S3 configuration for storing log data.</p>
+ * @public
  */
 export interface S3Config {
   /**
-   * @public
    * <p>S3 bucket name.</p>
+   * @public
    */
   bucketName: string | undefined;
 
   /**
-   * @public
    * <p>S3 prefix. </p>
+   * @public
    */
   keyPrefix?: string;
 }
 
 /**
- * @public
  * <p>CloudWatch logging configuration.</p>
+ * @public
  */
 export interface CloudWatchConfig {
   /**
-   * @public
    * <p>The log group name.</p>
+   * @public
    */
   logGroupName: string | undefined;
 
   /**
-   * @public
    * <p>The role ARN.</p>
+   * @public
    */
   roleArn: string | undefined;
 
   /**
-   * @public
    * <p>S3 configuration for delivering a large amount of data.</p>
+   * @public
    */
   largeDataDeliveryS3Config?: S3Config;
 }
 
 /**
- * @public
  * <p>Configuration fields for invokation logging.</p>
+ * @public
  */
 export interface LoggingConfig {
   /**
-   * @public
    * <p>CloudWatch logging configuration.</p>
+   * @public
    */
   cloudWatchConfig?: CloudWatchConfig;
 
   /**
-   * @public
    * <p>S3 configuration for storing log data.</p>
+   * @public
    */
   s3Config?: S3Config;
 
   /**
-   * @public
    * <p>Set to include text data in the log delivery.</p>
+   * @public
    */
   textDataDeliveryEnabled?: boolean;
 
   /**
-   * @public
    * <p>Set to include image data in the log delivery.</p>
+   * @public
    */
   imageDataDeliveryEnabled?: boolean;
 
   /**
-   * @public
    * <p>Set to include embeddings data in the log delivery.</p>
+   * @public
    */
   embeddingDataDeliveryEnabled?: boolean;
 }
@@ -161,8 +161,8 @@ export interface LoggingConfig {
  */
 export interface GetModelInvocationLoggingConfigurationResponse {
   /**
-   * @public
    * <p>The current configuration values.</p>
+   * @public
    */
   loggingConfig?: LoggingConfig;
 }
@@ -172,8 +172,8 @@ export interface GetModelInvocationLoggingConfigurationResponse {
  */
 export interface PutModelInvocationLoggingConfigurationRequest {
   /**
-   * @public
    * <p>The logging configuration values to set.</p>
+   * @public
    */
   loggingConfig: LoggingConfig | undefined;
 }
@@ -184,8 +184,8 @@ export interface PutModelInvocationLoggingConfigurationRequest {
 export interface PutModelInvocationLoggingConfigurationResponse {}
 
 /**
- * @public
  * <p>Input validation failed. Check your request parameters and retry the request.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -204,8 +204,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Error occurred because of a conflict while performing an operation.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -228,8 +228,8 @@ export class ConflictException extends __BaseException {
  */
 export interface DeleteCustomModelRequest {
   /**
-   * @public
    * <p>Name of the model to delete.</p>
+   * @public
    */
   modelIdentifier: string | undefined;
 }
@@ -240,8 +240,8 @@ export interface DeleteCustomModelRequest {
 export interface DeleteCustomModelResponse {}
 
 /**
- * @public
  * <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -264,8 +264,8 @@ export class ResourceNotFoundException extends __BaseException {
  */
 export interface GetCustomModelRequest {
   /**
-   * @public
    * <p>Name or ARN of the custom model.</p>
+   * @public
    */
   modelIdentifier: string | undefined;
 }
@@ -285,73 +285,73 @@ export const CustomizationType = {
 export type CustomizationType = (typeof CustomizationType)[keyof typeof CustomizationType];
 
 /**
- * @public
  * <p>S3 Location of the output data.</p>
+ * @public
  */
 export interface OutputDataConfig {
   /**
-   * @public
    * <p>The S3 URI where the output data is stored.</p>
+   * @public
    */
   s3Uri: string | undefined;
 }
 
 /**
- * @public
  * <p>S3 Location of the training data.</p>
+ * @public
  */
 export interface TrainingDataConfig {
   /**
-   * @public
    * <p>The S3 URI where the training data is stored.</p>
+   * @public
    */
   s3Uri: string | undefined;
 }
 
 /**
- * @public
  * <p>Metrics associated with the custom job.</p>
+ * @public
  */
 export interface TrainingMetrics {
   /**
-   * @public
    * <p>Loss metric associated with the custom job.</p>
+   * @public
    */
   trainingLoss?: number;
 }
 
 /**
- * @public
  * <p>Information about a validator.</p>
+ * @public
  */
 export interface Validator {
   /**
-   * @public
    * <p>The S3 URI where the validation data is stored.</p>
+   * @public
    */
   s3Uri: string | undefined;
 }
 
 /**
- * @public
  * <p>Array of up to 10 validators.</p>
+ * @public
  */
 export interface ValidationDataConfig {
   /**
-   * @public
    * <p>Information about the validators.</p>
+   * @public
    */
   validators: Validator[] | undefined;
 }
 
 /**
- * @public
  * <p>The metric for the validator.</p>
+ * @public
  */
 export interface ValidatorMetric {
   /**
-   * @public
    * <p>The validation loss associated with this validator.</p>
+   * @public
    */
   validationLoss?: number;
 }
@@ -361,86 +361,86 @@ export interface ValidatorMetric {
  */
 export interface GetCustomModelResponse {
   /**
-   * @public
    * <p>ARN associated with this model.</p>
+   * @public
    */
   modelArn: string | undefined;
 
   /**
-   * @public
    * <p>Model name associated with this model.</p>
+   * @public
    */
   modelName: string | undefined;
 
   /**
-   * @public
    * <p>Job name associated with this model.</p>
+   * @public
    */
   jobName?: string;
 
   /**
-   * @public
    * <p>Job ARN associated with this model.</p>
+   * @public
    */
   jobArn: string | undefined;
 
   /**
-   * @public
    * <p>ARN of the base model.</p>
+   * @public
    */
   baseModelArn: string | undefined;
 
   /**
-   * @public
    * <p>The type of model customization.</p>
+   * @public
    */
   customizationType?: CustomizationType;
 
   /**
-   * @public
    * <p>The custom model is encrypted at rest using this key.</p>
+   * @public
    */
   modelKmsKeyArn?: string;
 
   /**
-   * @public
    * <p>Hyperparameter values associated with this model.</p>
+   * @public
    */
   hyperParameters?: Record<string, string>;
 
   /**
-   * @public
    * <p>Information about the training dataset.</p>
+   * @public
    */
   trainingDataConfig: TrainingDataConfig | undefined;
 
   /**
-   * @public
    * <p>Array of up to 10 validators.</p>
+   * @public
    */
   validationDataConfig?: ValidationDataConfig;
 
   /**
-   * @public
    * <p>Output data configuration associated with this custom model.</p>
+   * @public
    */
   outputDataConfig: OutputDataConfig | undefined;
 
   /**
-   * @public
    * <p>The training metrics from the job creation.</p>
+   * @public
    */
   trainingMetrics?: TrainingMetrics;
 
   /**
-   * @public
    * <p>The validation metrics from the job creation.</p>
+   * @public
    */
   validationMetrics?: ValidatorMetric[];
 
   /**
-   * @public
    * <p>Creation time of the model.</p>
+   * @public
    */
   creationTime: Date | undefined;
 }
@@ -450,8 +450,8 @@ export interface GetCustomModelResponse {
  */
 export interface GetFoundationModelRequest {
   /**
-   * @public
    * <p>The model identifier. </p>
+   * @public
    */
   modelIdentifier: string | undefined;
 }
@@ -515,79 +515,79 @@ export type FoundationModelLifecycleStatus =
   (typeof FoundationModelLifecycleStatus)[keyof typeof FoundationModelLifecycleStatus];
 
 /**
- * @public
  * <p>Details about whether a model version is available or deprecated.</p>
+ * @public
  */
 export interface FoundationModelLifecycle {
   /**
-   * @public
    * <p>Specifies whether a model version is available (<code>ACTIVE</code>) or deprecated (<code>LEGACY</code>.</p>
+   * @public
    */
   status: FoundationModelLifecycleStatus | undefined;
 }
 
 /**
- * @public
  * <p>Information about a foundation model.</p>
+ * @public
  */
 export interface FoundationModelDetails {
   /**
-   * @public
    * <p>The model ARN.</p>
+   * @public
    */
   modelArn: string | undefined;
 
   /**
-   * @public
    * <p>The model identifier.</p>
+   * @public
    */
   modelId: string | undefined;
 
   /**
-   * @public
    * <p>The model name.</p>
+   * @public
    */
   modelName?: string;
 
   /**
-   * @public
    * <p>he model's provider name.</p>
+   * @public
    */
   providerName?: string;
 
   /**
-   * @public
    * <p>The input modalities that the model supports.</p>
+   * @public
    */
   inputModalities?: ModelModality[];
 
   /**
-   * @public
    * <p>The output modalities that the model supports.</p>
+   * @public
    */
   outputModalities?: ModelModality[];
 
   /**
-   * @public
    * <p>Indicates whether the model supports streaming.</p>
+   * @public
    */
   responseStreamingSupported?: boolean;
 
   /**
-   * @public
    * <p>The customization that the model supports.</p>
+   * @public
    */
   customizationsSupported?: ModelCustomization[];
 
   /**
-   * @public
    * <p>The inference types that the model supports.</p>
+   * @public
    */
   inferenceTypesSupported?: InferenceType[];
 
   /**
-   * @public
    * <p>Contains details about whether a model version is available or deprecated</p>
+   * @public
    */
   modelLifecycle?: FoundationModelLifecycle;
 }
@@ -597,8 +597,8 @@ export interface FoundationModelDetails {
  */
 export interface GetFoundationModelResponse {
   /**
-   * @public
    * <p>Information about the foundation model.</p>
+   * @public
    */
   modelDetails?: FoundationModelDetails;
 }
@@ -635,98 +635,98 @@ export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
  */
 export interface ListCustomModelsRequest {
   /**
-   * @public
    * <p>Return custom models created before the specified time. </p>
+   * @public
    */
   creationTimeBefore?: Date;
 
   /**
-   * @public
    * <p>Return custom models created after the specified time. </p>
+   * @public
    */
   creationTimeAfter?: Date;
 
   /**
-   * @public
    * <p>Return custom models only if the job name contains these characters.</p>
+   * @public
    */
   nameContains?: string;
 
   /**
-   * @public
    * <p>Return custom models only if the base model ARN matches this parameter.</p>
+   * @public
    */
   baseModelArnEquals?: string;
 
   /**
-   * @public
    * <p>Return custom models only if the foundation model ARN matches this parameter.</p>
+   * @public
    */
   foundationModelArnEquals?: string;
 
   /**
-   * @public
    * <p>Maximum number of results to return in the response.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>Continuation token from the previous response, for Amazon Bedrock to list the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The field to sort by in the returned list of models.</p>
+   * @public
    */
   sortBy?: SortModelsBy;
 
   /**
-   * @public
    * <p>The sort order of the results.</p>
+   * @public
    */
   sortOrder?: SortOrder;
 }
 
 /**
- * @public
  * <p>Summary information for a custom model.</p>
+ * @public
  */
 export interface CustomModelSummary {
   /**
-   * @public
    * <p>The ARN of the custom model.</p>
+   * @public
    */
   modelArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the custom model.</p>
+   * @public
    */
   modelName: string | undefined;
 
   /**
-   * @public
    * <p>Creation time of the model.</p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>The base model ARN.</p>
+   * @public
    */
   baseModelArn: string | undefined;
 
   /**
-   * @public
    * <p>The base model name.</p>
+   * @public
    */
   baseModelName: string | undefined;
 
   /**
-   * @public
    * <p>Specifies whether to carry out continued pre-training of a model or whether to fine-tune it. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a>.</p>
+   * @public
    */
   customizationType?: CustomizationType;
 }
@@ -736,14 +736,14 @@ export interface CustomModelSummary {
  */
 export interface ListCustomModelsResponse {
   /**
-   * @public
    * <p>Continuation token for the next request to list the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Model summaries.</p>
+   * @public
    */
   modelSummaries?: CustomModelSummary[];
 }
@@ -753,92 +753,92 @@ export interface ListCustomModelsResponse {
  */
 export interface ListFoundationModelsRequest {
   /**
-   * @public
    * <p>A Amazon Bedrock model provider.</p>
+   * @public
    */
   byProvider?: string;
 
   /**
-   * @public
    * <p>List by customization type.</p>
+   * @public
    */
   byCustomizationType?: ModelCustomization;
 
   /**
-   * @public
    * <p>List by output modality type.</p>
+   * @public
    */
   byOutputModality?: ModelModality;
 
   /**
-   * @public
    * <p>List by inference type.</p>
+   * @public
    */
   byInferenceType?: InferenceType;
 }
 
 /**
- * @public
  * <p>Summary information for a foundation model.</p>
+ * @public
  */
 export interface FoundationModelSummary {
   /**
-   * @public
    * <p>The ARN of the foundation model.</p>
+   * @public
    */
   modelArn: string | undefined;
 
   /**
-   * @public
    * <p>The model Id of the foundation model.</p>
+   * @public
    */
   modelId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the model.</p>
+   * @public
    */
   modelName?: string;
 
   /**
-   * @public
    * <p>The model's provider name.</p>
+   * @public
    */
   providerName?: string;
 
   /**
-   * @public
    * <p>The input modalities that the model supports.</p>
+   * @public
    */
   inputModalities?: ModelModality[];
 
   /**
-   * @public
    * <p>The output modalities that the model supports.</p>
+   * @public
    */
   outputModalities?: ModelModality[];
 
   /**
-   * @public
    * <p>Indicates whether the model supports streaming.</p>
+   * @public
    */
   responseStreamingSupported?: boolean;
 
   /**
-   * @public
    * <p>Whether the model supports fine-tuning or continual pre-training.</p>
+   * @public
    */
   customizationsSupported?: ModelCustomization[];
 
   /**
-   * @public
    * <p>The inference types that the model supports.</p>
+   * @public
    */
   inferenceTypesSupported?: InferenceType[];
 
   /**
-   * @public
    * <p>Contains details about whether a model version is available or deprecated.</p>
+   * @public
    */
   modelLifecycle?: FoundationModelLifecycle;
 }
@@ -848,8 +848,8 @@ export interface FoundationModelSummary {
  */
 export interface ListFoundationModelsResponse {
   /**
-   * @public
    * <p>A list of Amazon Bedrock foundation models.</p>
+   * @public
    */
   modelSummaries?: FoundationModelSummary[];
 }
@@ -869,19 +869,19 @@ export const CommitmentDuration = {
 export type CommitmentDuration = (typeof CommitmentDuration)[keyof typeof CommitmentDuration];
 
 /**
- * @public
  * <p>Definition of the key/value pair for a tag.</p>
+ * @public
  */
 export interface Tag {
   /**
-   * @public
    * <p>Key for the tag.</p>
+   * @public
    */
   key: string | undefined;
 
   /**
-   * @public
    * <p>Value for the tag.</p>
+   * @public
    */
   value: string | undefined;
 }
@@ -891,39 +891,39 @@ export interface Tag {
  */
 export interface CreateProvisionedModelThroughputRequest {
   /**
-   * @public
    * <p>Unique token value that you can provide. If this token matches a previous request,
    *           Amazon Bedrock ignores the request, but does not return an error.</p>
+   * @public
    */
   clientRequestToken?: string;
 
   /**
-   * @public
    * <p>Number of model units to allocate.</p>
+   * @public
    */
   modelUnits: number | undefined;
 
   /**
-   * @public
    * <p>Unique name for this provisioned throughput.</p>
+   * @public
    */
   provisionedModelName: string | undefined;
 
   /**
-   * @public
    * <p>Name or ARN of the model to associate with this provisioned throughput.</p>
+   * @public
    */
   modelId: string | undefined;
 
   /**
-   * @public
    * <p>Commitment duration requested for the provisioned throughput.</p>
+   * @public
    */
   commitmentDuration?: CommitmentDuration;
 
   /**
-   * @public
    * <p>Tags to associate with this provisioned throughput.</p>
+   * @public
    */
   tags?: Tag[];
 }
@@ -933,15 +933,15 @@ export interface CreateProvisionedModelThroughputRequest {
  */
 export interface CreateProvisionedModelThroughputResponse {
   /**
-   * @public
    * <p>The ARN for this provisioned throughput.</p>
+   * @public
    */
   provisionedModelArn: string | undefined;
 }
 
 /**
- * @public
  * <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
@@ -960,16 +960,16 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request contains more tags than can be associated with a resource (50 tags per resource).
  *          The maximum number of tags includes both existing tags and those included in your current request. </p>
+ * @public
  */
 export class TooManyTagsException extends __BaseException {
   readonly name: "TooManyTagsException" = "TooManyTagsException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The name of the resource with too many tags.</p>
+   * @public
    */
   resourceName?: string;
 
@@ -992,8 +992,8 @@ export class TooManyTagsException extends __BaseException {
  */
 export interface DeleteProvisionedModelThroughputRequest {
   /**
-   * @public
    * <p>The ARN or name of the provisioned throughput.</p>
+   * @public
    */
   provisionedModelId: string | undefined;
 }
@@ -1008,8 +1008,8 @@ export interface DeleteProvisionedModelThroughputResponse {}
  */
 export interface GetProvisionedModelThroughputRequest {
   /**
-   * @public
    * <p>The ARN or name of the provisioned throughput.</p>
+   * @public
    */
   provisionedModelId: string | undefined;
 }
@@ -1035,80 +1035,80 @@ export type ProvisionedModelStatus = (typeof ProvisionedModelStatus)[keyof typeo
  */
 export interface GetProvisionedModelThroughputResponse {
   /**
-   * @public
    * <p>The current number of model units requested to be available for this provisioned throughput.</p>
+   * @public
    */
   modelUnits: number | undefined;
 
   /**
-   * @public
    * <p>The desired number of model units that was requested to be available for this provisioned throughput.</p>
+   * @public
    */
   desiredModelUnits: number | undefined;
 
   /**
-   * @public
    * <p>The name of the provisioned throughput.</p>
+   * @public
    */
   provisionedModelName: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the provisioned throughput.</p>
+   * @public
    */
   provisionedModelArn: string | undefined;
 
   /**
-   * @public
    * <p>The ARN or name of the model associated with this provisioned throughput.</p>
+   * @public
    */
   modelArn: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the new model to asssociate with this provisioned throughput.</p>
+   * @public
    */
   desiredModelArn: string | undefined;
 
   /**
-   * @public
    * <p>ARN of the foundation model.</p>
+   * @public
    */
   foundationModelArn: string | undefined;
 
   /**
-   * @public
    * <p>Status of the provisioned throughput. </p>
+   * @public
    */
   status: ProvisionedModelStatus | undefined;
 
   /**
-   * @public
    * <p>The timestamp of the creation time for this provisioned throughput. </p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>The timestamp of the last modified time of this provisioned throughput. </p>
+   * @public
    */
   lastModifiedTime: Date | undefined;
 
   /**
-   * @public
    * <p>Failure message for any issues that the create operation encounters.</p>
+   * @public
    */
   failureMessage?: string;
 
   /**
-   * @public
    * <p>Commitment duration of the provisioned throughput.</p>
+   * @public
    */
   commitmentDuration?: CommitmentDuration;
 
   /**
-   * @public
    * <p>Commitment expiration time for the provisioned throughput.</p>
+   * @public
    */
   commitmentExpirationTime?: Date;
 }
@@ -1131,134 +1131,134 @@ export type SortByProvisionedModels = (typeof SortByProvisionedModels)[keyof typ
  */
 export interface ListProvisionedModelThroughputsRequest {
   /**
-   * @public
    * <p>Return provisioned capacities created after the specified time. </p>
+   * @public
    */
   creationTimeAfter?: Date;
 
   /**
-   * @public
    * <p>Return provisioned capacities created before the specified time. </p>
+   * @public
    */
   creationTimeBefore?: Date;
 
   /**
-   * @public
    * <p>Return the list of provisioned capacities that match the specified status.</p>
+   * @public
    */
   statusEquals?: ProvisionedModelStatus;
 
   /**
-   * @public
    * <p>Return the list of provisioned capacities where their model ARN is equal to this parameter.</p>
+   * @public
    */
   modelArnEquals?: string;
 
   /**
-   * @public
    * <p>Return the list of provisioned capacities if their name contains these characters.</p>
+   * @public
    */
   nameContains?: string;
 
   /**
-   * @public
    * <p>THe maximum number of results to return in the response.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>Continuation token from the previous response, for Amazon Bedrock to list the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The field to sort by in the returned list of provisioned capacities.</p>
+   * @public
    */
   sortBy?: SortByProvisionedModels;
 
   /**
-   * @public
    * <p>The sort order of the results.</p>
+   * @public
    */
   sortOrder?: SortOrder;
 }
 
 /**
- * @public
  * <p>Set of fields associated with a provisioned throughput.</p>
+ * @public
  */
 export interface ProvisionedModelSummary {
   /**
-   * @public
    * <p>The name of the provisioned throughput.</p>
+   * @public
    */
   provisionedModelName: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the provisioned throughput.</p>
+   * @public
    */
   provisionedModelArn: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the model associated with this provisioned throughput.</p>
+   * @public
    */
   modelArn: string | undefined;
 
   /**
-   * @public
    * <p>Desired model ARN.</p>
+   * @public
    */
   desiredModelArn: string | undefined;
 
   /**
-   * @public
    * <p>Foundation model ARN.</p>
+   * @public
    */
   foundationModelArn: string | undefined;
 
   /**
-   * @public
    * <p>The number of model units allocated.</p>
+   * @public
    */
   modelUnits: number | undefined;
 
   /**
-   * @public
    * <p>Desired model units.</p>
+   * @public
    */
   desiredModelUnits: number | undefined;
 
   /**
-   * @public
    * <p>Status of the provisioned throughput.</p>
+   * @public
    */
   status: ProvisionedModelStatus | undefined;
 
   /**
-   * @public
    * <p>Commitment duration for the provisioned throughput.</p>
+   * @public
    */
   commitmentDuration?: CommitmentDuration;
 
   /**
-   * @public
    * <p>Commitment expiration time for the provisioned throughput.</p>
+   * @public
    */
   commitmentExpirationTime?: Date;
 
   /**
-   * @public
    * <p>The time that this provisioned throughput was created. </p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>The time that this provisioned throughput was last modified. </p>
+   * @public
    */
   lastModifiedTime: Date | undefined;
 }
@@ -1268,14 +1268,14 @@ export interface ProvisionedModelSummary {
  */
 export interface ListProvisionedModelThroughputsResponse {
   /**
-   * @public
    * <p>Continuation token for the next request to list the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>List of summaries, one for each provisioned throughput in the response.</p>
+   * @public
    */
   provisionedModelSummaries?: ProvisionedModelSummary[];
 }
@@ -1285,20 +1285,20 @@ export interface ListProvisionedModelThroughputsResponse {
  */
 export interface UpdateProvisionedModelThroughputRequest {
   /**
-   * @public
    * <p>The ARN or name of the provisioned throughput to update.</p>
+   * @public
    */
   provisionedModelId: string | undefined;
 
   /**
-   * @public
    * <p>The new name for this provisioned throughput.</p>
+   * @public
    */
   desiredProvisionedModelName?: string;
 
   /**
-   * @public
    * <p>The ARN of the new model to associate with this provisioned throughput.</p>
+   * @public
    */
   desiredModelId?: string;
 }
@@ -1313,8 +1313,8 @@ export interface UpdateProvisionedModelThroughputResponse {}
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The ARN of the resource.</p>
+   * @public
    */
   resourceARN: string | undefined;
 }
@@ -1324,8 +1324,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>An array of the tags associated with this resource.</p>
+   * @public
    */
   tags?: Tag[];
 }
@@ -1335,14 +1335,14 @@ export interface ListTagsForResourceResponse {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>The ARN of the resource to tag.</p>
+   * @public
    */
   resourceARN: string | undefined;
 
   /**
-   * @public
    * <p>Tags to associate with the resource.</p>
+   * @public
    */
   tags: Tag[] | undefined;
 }
@@ -1357,14 +1357,14 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>The ARN of the resource to untag.</p>
+   * @public
    */
   resourceARN: string | undefined;
 
   /**
-   * @public
    * <p>Tag keys of the tags to remove from the resource.</p>
+   * @public
    */
   tagKeys: string[] | undefined;
 }
@@ -1375,19 +1375,19 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 /**
- * @public
  * <p>VPC configuration.</p>
+ * @public
  */
 export interface VpcConfig {
   /**
-   * @public
    * <p>VPC configuration subnets.</p>
+   * @public
    */
   subnetIds: string[] | undefined;
 
   /**
-   * @public
    * <p>VPC configuration security group Ids.</p>
+   * @public
    */
   securityGroupIds: string[] | undefined;
 }
@@ -1397,90 +1397,90 @@ export interface VpcConfig {
  */
 export interface CreateModelCustomizationJobRequest {
   /**
-   * @public
    * <p>Enter a unique name for the fine-tuning job.</p>
+   * @public
    */
   jobName: string | undefined;
 
   /**
-   * @public
    * <p>Enter a name for the custom model.</p>
+   * @public
    */
   customModelName: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon Bedrock can assume to perform tasks on your behalf.
    *          For example, during model training, Amazon Bedrock needs your permission to read input data from an S3 bucket, write model artifacts to an S3 bucket.
    *          To pass this role to Amazon Bedrock, the caller of this API must have the <code>iam:PassRole</code> permission.
    *       </p>
+   * @public
    */
   roleArn: string | undefined;
 
   /**
-   * @public
    * <p>Unique token value that you can provide. The GetModelCustomizationJob response includes the same token value.</p>
+   * @public
    */
   clientRequestToken?: string;
 
   /**
-   * @public
    * <p>Name of the base model.</p>
+   * @public
    */
   baseModelIdentifier: string | undefined;
 
   /**
-   * @public
    * <p>The customization type.</p>
+   * @public
    */
   customizationType?: CustomizationType;
 
   /**
-   * @public
    * <p>The custom model is encrypted at rest using this key.</p>
+   * @public
    */
   customModelKmsKeyId?: string;
 
   /**
-   * @public
    * <p>Assign tags to the job.</p>
+   * @public
    */
   jobTags?: Tag[];
 
   /**
-   * @public
    * <p>Assign tags to the custom model.</p>
+   * @public
    */
   customModelTags?: Tag[];
 
   /**
-   * @public
    * <p>Information about the training dataset.</p>
+   * @public
    */
   trainingDataConfig: TrainingDataConfig | undefined;
 
   /**
-   * @public
    * <p>Information about the validation dataset. </p>
+   * @public
    */
   validationDataConfig?: ValidationDataConfig;
 
   /**
-   * @public
    * <p>S3 location for the output data.</p>
+   * @public
    */
   outputDataConfig: OutputDataConfig | undefined;
 
   /**
-   * @public
    * <p>Parameters related to tuning the model.</p>
+   * @public
    */
   hyperParameters: Record<string, string> | undefined;
 
   /**
-   * @public
    * <p>VPC configuration (optional). Configuration parameters for the
    *            private Virtual Private Cloud (VPC) that contains the resources you are using for this job.</p>
+   * @public
    */
   vpcConfig?: VpcConfig;
 }
@@ -1490,8 +1490,8 @@ export interface CreateModelCustomizationJobRequest {
  */
 export interface CreateModelCustomizationJobResponse {
   /**
-   * @public
    * <p>ARN of the fine tuning job</p>
+   * @public
    */
   jobArn: string | undefined;
 }
@@ -1501,8 +1501,8 @@ export interface CreateModelCustomizationJobResponse {
  */
 export interface GetModelCustomizationJobRequest {
   /**
-   * @public
    * <p>Identifier for the customization job.</p>
+   * @public
    */
   jobIdentifier: string | undefined;
 }
@@ -1530,129 +1530,129 @@ export type ModelCustomizationJobStatus =
  */
 export interface GetModelCustomizationJobResponse {
   /**
-   * @public
    * <p>The ARN of the customization job.</p>
+   * @public
    */
   jobArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the customization job.</p>
+   * @public
    */
   jobName: string | undefined;
 
   /**
-   * @public
    * <p>The name of the output model.</p>
+   * @public
    */
   outputModelName: string | undefined;
 
   /**
-   * @public
    * <p>The ARN of the output model.</p>
+   * @public
    */
   outputModelArn?: string;
 
   /**
-   * @public
    * <p>The token that you specified in the CreateCustomizationJob request.</p>
+   * @public
    */
   clientRequestToken?: string;
 
   /**
-   * @public
    * <p>The ARN of the IAM role.</p>
+   * @public
    */
   roleArn: string | undefined;
 
   /**
-   * @public
    * <p>The status of the job. A successful job transitions from in-progress to completed when the output model is ready to use.
    *       If the job failed, the failure message contains information about why the job failed.</p>
+   * @public
    */
   status?: ModelCustomizationJobStatus;
 
   /**
-   * @public
    * <p>Information about why the job failed.</p>
+   * @public
    */
   failureMessage?: string;
 
   /**
-   * @public
    * <p>Time that the resource was created.</p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>Time that the resource was last modified.</p>
+   * @public
    */
   lastModifiedTime?: Date;
 
   /**
-   * @public
    * <p>Time that the resource transitioned to terminal state.</p>
+   * @public
    */
   endTime?: Date;
 
   /**
-   * @public
    * <p>ARN of the base model.</p>
+   * @public
    */
   baseModelArn: string | undefined;
 
   /**
-   * @public
    * <p>The hyperparameter values for the job. For information about hyperparameters for specific models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-guidelines.html">Guidelines for model customization</a>.</p>
+   * @public
    */
   hyperParameters: Record<string, string> | undefined;
 
   /**
-   * @public
    * <p>S3 Location of the training data.</p>
+   * @public
    */
   trainingDataConfig: TrainingDataConfig | undefined;
 
   /**
-   * @public
    * <p>Array of up to 10 validators.</p>
+   * @public
    */
   validationDataConfig: ValidationDataConfig | undefined;
 
   /**
-   * @public
    * <p>Output data configuration </p>
+   * @public
    */
   outputDataConfig: OutputDataConfig | undefined;
 
   /**
-   * @public
    * <p>The type of model customization.</p>
+   * @public
    */
   customizationType?: CustomizationType;
 
   /**
-   * @public
    * <p>The custom model is encrypted at rest using this key.</p>
+   * @public
    */
   outputModelKmsKeyArn?: string;
 
   /**
-   * @public
    * <p>Metrics associated with the custom job.</p>
+   * @public
    */
   trainingMetrics?: TrainingMetrics;
 
   /**
-   * @public
    * <p>The loss metric for each validator that you provided in the createjob request.</p>
+   * @public
    */
   validationMetrics?: ValidatorMetric[];
 
   /**
-   * @public
    * <p>VPC configuration for the custom model job.</p>
+   * @public
    */
   vpcConfig?: VpcConfig;
 }
@@ -1692,116 +1692,116 @@ export type FineTuningJobStatus = (typeof FineTuningJobStatus)[keyof typeof Fine
  */
 export interface ListModelCustomizationJobsRequest {
   /**
-   * @public
    * <p>Return customization jobs created after the specified time. </p>
+   * @public
    */
   creationTimeAfter?: Date;
 
   /**
-   * @public
    * <p>Return customization jobs created before the specified time. </p>
+   * @public
    */
   creationTimeBefore?: Date;
 
   /**
-   * @public
    * <p>Return customization jobs with the specified status. </p>
+   * @public
    */
   statusEquals?: FineTuningJobStatus;
 
   /**
-   * @public
    * <p>Return customization jobs only if the job name contains these characters.</p>
+   * @public
    */
   nameContains?: string;
 
   /**
-   * @public
    * <p>Maximum number of results to return in the response.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>Continuation token from the previous response, for Amazon Bedrock to list the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>The field to sort by in the returned list of jobs.</p>
+   * @public
    */
   sortBy?: SortJobsBy;
 
   /**
-   * @public
    * <p>The sort order of the results.</p>
+   * @public
    */
   sortOrder?: SortOrder;
 }
 
 /**
- * @public
  * <p>Information about one customization job</p>
+ * @public
  */
 export interface ModelCustomizationJobSummary {
   /**
-   * @public
    * <p>ARN of the customization job.</p>
+   * @public
    */
   jobArn: string | undefined;
 
   /**
-   * @public
    * <p>ARN of the base model.</p>
+   * @public
    */
   baseModelArn: string | undefined;
 
   /**
-   * @public
    * <p>Name of the customization job.</p>
+   * @public
    */
   jobName: string | undefined;
 
   /**
-   * @public
    * <p>Status of the customization job. </p>
+   * @public
    */
   status: ModelCustomizationJobStatus | undefined;
 
   /**
-   * @public
    * <p>Time that the customization job was last modified.</p>
+   * @public
    */
   lastModifiedTime?: Date;
 
   /**
-   * @public
    * <p>Creation time of the custom model. </p>
+   * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * @public
    * <p>Time that the customization job ended.</p>
+   * @public
    */
   endTime?: Date;
 
   /**
-   * @public
    * <p>ARN of the custom model.</p>
+   * @public
    */
   customModelArn?: string;
 
   /**
-   * @public
    * <p>Name of the custom model.</p>
+   * @public
    */
   customModelName?: string;
 
   /**
-   * @public
    * <p>Specifies whether to carry out continued pre-training of a model or whether to fine-tune it. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a>.</p>
+   * @public
    */
   customizationType?: CustomizationType;
 }
@@ -1811,14 +1811,14 @@ export interface ModelCustomizationJobSummary {
  */
 export interface ListModelCustomizationJobsResponse {
   /**
-   * @public
    * <p>Page continuation token to use in the next request.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Job summaries.</p>
+   * @public
    */
   modelCustomizationJobSummaries?: ModelCustomizationJobSummary[];
 }
@@ -1828,8 +1828,8 @@ export interface ListModelCustomizationJobsResponse {
  */
 export interface StopModelCustomizationJobRequest {
   /**
-   * @public
    * <p>Job identifier of the job to stop.</p>
+   * @public
    */
   jobIdentifier: string | undefined;
 }

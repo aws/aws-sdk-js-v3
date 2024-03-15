@@ -27,7 +27,6 @@ export interface GetPropertygraphSummaryCommandInput extends GetPropertygraphSum
 export interface GetPropertygraphSummaryCommandOutput extends GetPropertygraphSummaryOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a graph summary for a property graph.</p>
  *          <p>When invoking this operation in a Neptune cluster that has IAM
  *       authentication enabled, the IAM user or role making the request must
@@ -147,6 +146,7 @@ export interface GetPropertygraphSummaryCommandOutput extends GetPropertygraphSu
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * @public
  */
 export class GetPropertygraphSummaryCommand extends $Command
   .classBuilder<

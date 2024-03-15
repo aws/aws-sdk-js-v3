@@ -27,7 +27,6 @@ export interface GetAutoMergingPreviewCommandInput extends GetAutoMergingPreview
 export interface GetAutoMergingPreviewCommandOutput extends GetAutoMergingPreviewResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Tests the auto-merging settings of your Identity Resolution Job without merging your data. It randomly
  *          selects a sample of matching groups from the existing matching results, and applies the
  *          automerging settings that you provided. You can then view the number of profiles in the
@@ -97,6 +96,7 @@ export interface GetAutoMergingPreviewCommandOutput extends GetAutoMergingPrevie
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * @public
  */
 export class GetAutoMergingPreviewCommand extends $Command
   .classBuilder<

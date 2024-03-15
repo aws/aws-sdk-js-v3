@@ -27,9 +27,6 @@ export interface GetSkillGroupCommandInput extends GetSkillGroupRequest {}
 export interface GetSkillGroupCommandOutput extends GetSkillGroupResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Gets skill group details by skill group ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +61,8 @@ export interface GetSkillGroupCommandOutput extends GetSkillGroupResponse, __Met
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class GetSkillGroupCommand extends $Command
   .classBuilder<

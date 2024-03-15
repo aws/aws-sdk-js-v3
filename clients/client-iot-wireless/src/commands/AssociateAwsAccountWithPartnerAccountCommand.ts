@@ -38,7 +38,6 @@ export interface AssociateAwsAccountWithPartnerAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a partner account with your AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface AssociateAwsAccountWithPartnerAccountCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class AssociateAwsAccountWithPartnerAccountCommand extends $Command
   .classBuilder<

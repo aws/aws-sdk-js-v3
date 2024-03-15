@@ -27,7 +27,6 @@ export interface SearchOrganizationInsightsCommandInput extends SearchOrganizati
 export interface SearchOrganizationInsightsCommandOutput extends SearchOrganizationInsightsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns a list of insights in your organization. You can specify which insights are
  * 			returned by their start time, one or more statuses (<code>ONGOING</code>,
  * 				<code>CLOSED</code>, and <code>CLOSED</code>), one or more severities
@@ -189,6 +188,7 @@ export interface SearchOrganizationInsightsCommandOutput extends SearchOrganizat
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ * @public
  */
 export class SearchOrganizationInsightsCommand extends $Command
   .classBuilder<

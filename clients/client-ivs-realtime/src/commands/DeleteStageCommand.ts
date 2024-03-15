@@ -27,7 +27,6 @@ export interface DeleteStageCommandInput extends DeleteStageRequest {}
 export interface DeleteStageCommandOutput extends DeleteStageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Shuts down and deletes the specified stage (disconnecting all participants).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DeleteStageCommandOutput extends DeleteStageResponse, __Metadat
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ * @public
  */
 export class DeleteStageCommand extends $Command
   .classBuilder<

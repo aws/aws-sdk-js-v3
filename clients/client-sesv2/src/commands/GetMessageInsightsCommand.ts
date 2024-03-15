@@ -31,7 +31,6 @@ export interface GetMessageInsightsCommandInput extends GetMessageInsightsReques
 export interface GetMessageInsightsCommandOutput extends GetMessageInsightsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides information about a specific message, including the from address, the
  *             subject, the recipient address, email tags, as well as events associated with the message.</p>
  *          <p>You can execute this operation no more than once per second.</p>
@@ -101,6 +100,7 @@ export interface GetMessageInsightsCommandOutput extends GetMessageInsightsRespo
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  * @example Get Message Insights
  * ```javascript
  * // Provides information about a specific message.

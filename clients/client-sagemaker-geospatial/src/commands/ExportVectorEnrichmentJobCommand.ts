@@ -31,7 +31,6 @@ export interface ExportVectorEnrichmentJobCommandInput extends ExportVectorEnric
 export interface ExportVectorEnrichmentJobCommandOutput extends ExportVectorEnrichmentJobOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use this operation to copy results of a Vector Enrichment job to an Amazon S3 location.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface ExportVectorEnrichmentJobCommandOutput extends ExportVectorEnri
  * @throws {@link SageMakerGeospatialServiceException}
  * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
+ * @public
  */
 export class ExportVectorEnrichmentJobCommand extends $Command
   .classBuilder<

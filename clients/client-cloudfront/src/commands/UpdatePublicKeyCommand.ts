@@ -27,7 +27,6 @@ export interface UpdatePublicKeyCommandInput extends UpdatePublicKeyRequest {}
 export interface UpdatePublicKeyCommandOutput extends UpdatePublicKeyResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update public key information. Note that the only value you can change is the
  * 			comment.</p>
  * @example
@@ -95,6 +94,7 @@ export interface UpdatePublicKeyCommandOutput extends UpdatePublicKeyResult, __M
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class UpdatePublicKeyCommand extends $Command
   .classBuilder<

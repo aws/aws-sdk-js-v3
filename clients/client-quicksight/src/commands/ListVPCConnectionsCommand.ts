@@ -27,7 +27,6 @@ export interface ListVPCConnectionsCommandInput extends ListVPCConnectionsReques
 export interface ListVPCConnectionsCommandOutput extends ListVPCConnectionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all of the VPC connections in the current set Amazon Web Services Region of an
  * 				Amazon Web Services account.</p>
  * @example
@@ -112,6 +111,7 @@ export interface ListVPCConnectionsCommandOutput extends ListVPCConnectionsRespo
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class ListVPCConnectionsCommand extends $Command
   .classBuilder<

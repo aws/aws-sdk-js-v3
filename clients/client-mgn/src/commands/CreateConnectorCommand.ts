@@ -32,7 +32,6 @@ export interface CreateConnectorCommandInput extends CreateConnectorRequest {}
 export interface CreateConnectorCommandOutput extends Connector, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create Connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface CreateConnectorCommandOutput extends Connector, __MetadataBeare
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * @public
  */
 export class CreateConnectorCommand extends $Command
   .classBuilder<

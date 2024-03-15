@@ -27,7 +27,6 @@ export interface UpdateStudioSessionMappingCommandInput extends UpdateStudioSess
 export interface UpdateStudioSessionMappingCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the session policy attached to the user or group for the specified Amazon EMR Studio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +63,7 @@ export interface UpdateStudioSessionMappingCommandOutput extends __MetadataBeare
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class UpdateStudioSessionMappingCommand extends $Command
   .classBuilder<

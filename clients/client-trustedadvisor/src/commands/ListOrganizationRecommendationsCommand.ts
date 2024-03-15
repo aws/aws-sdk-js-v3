@@ -32,7 +32,6 @@ export interface ListOrganizationRecommendationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>List a filterable set of Recommendations within an Organization. This API only supports prioritized
  *             recommendations.
  *         </p>
@@ -114,6 +113,7 @@ export interface ListOrganizationRecommendationsCommandOutput
  * @throws {@link TrustedAdvisorServiceException}
  * <p>Base exception class for all service exceptions from TrustedAdvisor service.</p>
  *
+ * @public
  */
 export class ListOrganizationRecommendationsCommand extends $Command
   .classBuilder<

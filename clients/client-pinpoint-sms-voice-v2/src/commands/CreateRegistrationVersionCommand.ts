@@ -31,7 +31,6 @@ export interface CreateRegistrationVersionCommandInput extends CreateRegistratio
 export interface CreateRegistrationVersionCommandOutput extends CreateRegistrationVersionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a new version of the registration and increase the <b>VersionNumber</b>. The previous version of the registration becomes read-only.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface CreateRegistrationVersionCommandOutput extends CreateRegistrati
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class CreateRegistrationVersionCommand extends $Command
   .classBuilder<

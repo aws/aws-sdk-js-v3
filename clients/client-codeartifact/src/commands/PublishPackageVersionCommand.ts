@@ -34,7 +34,6 @@ export interface PublishPackageVersionCommandInput extends Omit<PublishPackageVe
 export interface PublishPackageVersionCommandOutput extends PublishPackageVersionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new package version containing one or more assets (or files).</p>
  *          <p>The <code>unfinished</code> flag can be used to keep the package version in the
  *         <code>Unfinished</code> state until all of its assets have been uploaded (see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/packages-overview.html#package-version-status.html#package-version-status">Package version status</a> in the <i>CodeArtifact user guide</i>). To set
@@ -126,6 +125,7 @@ export interface PublishPackageVersionCommandOutput extends PublishPackageVersio
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * @public
  */
 export class PublishPackageVersionCommand extends $Command
   .classBuilder<

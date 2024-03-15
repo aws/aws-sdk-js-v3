@@ -27,7 +27,6 @@ export interface StartTransactionCommandInput extends StartTransactionRequest {}
 export interface StartTransactionCommandOutput extends StartTransactionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a new transaction and returns its transaction ID. Transaction IDs are opaque objects that you can use to identify a transaction.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,6 +60,7 @@ export interface StartTransactionCommandOutput extends StartTransactionResponse,
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class StartTransactionCommand extends $Command
   .classBuilder<

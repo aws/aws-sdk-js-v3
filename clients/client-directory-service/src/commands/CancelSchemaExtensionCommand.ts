@@ -27,7 +27,6 @@ export interface CancelSchemaExtensionCommandInput extends CancelSchemaExtension
 export interface CancelSchemaExtensionCommandOutput extends CancelSchemaExtensionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels an in-progress schema extension to a Microsoft AD directory. Once a schema
  *       extension has started replicating to all domain controllers, the task can no longer be
  *       canceled. A schema extension can be canceled during any of the following states;
@@ -67,6 +66,7 @@ export interface CancelSchemaExtensionCommandOutput extends CancelSchemaExtensio
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class CancelSchemaExtensionCommand extends $Command
   .classBuilder<

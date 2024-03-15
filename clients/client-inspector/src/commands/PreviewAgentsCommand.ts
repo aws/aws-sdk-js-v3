@@ -27,7 +27,6 @@ export interface PreviewAgentsCommandInput extends PreviewAgentsRequest {}
 export interface PreviewAgentsCommandOutput extends PreviewAgentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Previews the agents installed on the EC2 instances that are part of the specified
  *          assessment target.</p>
  * @example
@@ -88,6 +87,7 @@ export interface PreviewAgentsCommandOutput extends PreviewAgentsResponse, __Met
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * @public
  * @example Preview agents
  * ```javascript
  * // Previews the agents installed on the EC2 instances that are part of the specified assessment target.

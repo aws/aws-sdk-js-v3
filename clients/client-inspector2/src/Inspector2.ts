@@ -1266,9 +1266,9 @@ export interface Inspector2 {
 }
 
 /**
- * @public
  * <p>Amazon Inspector is a vulnerability discovery service that automates continuous scanning for
  *          security vulnerabilities within your Amazon EC2, Amazon ECR, and Amazon Web Services Lambda environments.</p>
+ * @public
  */
 export class Inspector2 extends Inspector2Client implements Inspector2 {}
 createAggregatedClient(commands, Inspector2);

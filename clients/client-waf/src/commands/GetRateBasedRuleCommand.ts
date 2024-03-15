@@ -27,7 +27,6 @@ export interface GetRateBasedRuleCommandInput extends GetRateBasedRuleRequest {}
 export interface GetRateBasedRuleCommandOutput extends GetRateBasedRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -87,6 +86,7 @@ export interface GetRateBasedRuleCommandOutput extends GetRateBasedRuleResponse,
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
+ * @public
  */
 export class GetRateBasedRuleCommand extends $Command
   .classBuilder<

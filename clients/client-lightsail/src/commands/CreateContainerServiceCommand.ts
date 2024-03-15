@@ -27,7 +27,6 @@ export interface CreateContainerServiceCommandInput extends CreateContainerServi
 export interface CreateContainerServiceCommandOutput extends CreateContainerServiceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon Lightsail container service.</p>
  *          <p>A Lightsail container service is a compute resource to which you can deploy containers.
  *       For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-services">Container services in Amazon Lightsail</a> in the <i>Lightsail Dev
@@ -227,6 +226,7 @@ export interface CreateContainerServiceCommandOutput extends CreateContainerServ
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class CreateContainerServiceCommand extends $Command
   .classBuilder<

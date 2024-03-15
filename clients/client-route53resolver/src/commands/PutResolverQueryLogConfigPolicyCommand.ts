@@ -32,7 +32,6 @@ export interface PutResolverQueryLogConfigPolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Specifies an Amazon Web Services account that you want to share a query logging configuration with, the query logging configuration that you want to share,
  * 			and the operations that you want the account to be able to perform on the configuration.</p>
  * @example
@@ -80,6 +79,7 @@ export interface PutResolverQueryLogConfigPolicyCommandOutput
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class PutResolverQueryLogConfigPolicyCommand extends $Command
   .classBuilder<

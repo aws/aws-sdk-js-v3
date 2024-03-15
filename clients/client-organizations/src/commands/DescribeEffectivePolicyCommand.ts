@@ -27,7 +27,6 @@ export interface DescribeEffectivePolicyCommandInput extends DescribeEffectivePo
 export interface DescribeEffectivePolicyCommandOutput extends DescribeEffectivePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the contents of the effective policy for specified policy type and account.
  *             The effective policy is the aggregation of any policies of the specified type that the
  *             account inherits, plus any policy of that type that is directly attached to the
@@ -405,6 +404,7 @@ export interface DescribeEffectivePolicyCommandOutput extends DescribeEffectiveP
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  */
 export class DescribeEffectivePolicyCommand extends $Command
   .classBuilder<

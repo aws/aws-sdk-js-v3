@@ -27,7 +27,6 @@ export interface GetGeneratedTemplateCommandInput extends GetGeneratedTemplateIn
 export interface GetGeneratedTemplateCommandOutput extends GetGeneratedTemplateOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a generated template. If the template is in an <code>InProgress</code> or <code>Pending</code> status
  *    then the template returned will be the template when the template was last in a <code>Complete</code> status. If the
  *    template has not yet been in a <code>Complete</code> status then an empty template will be returned.</p>
@@ -62,6 +61,7 @@ export interface GetGeneratedTemplateCommandOutput extends GetGeneratedTemplateO
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  * @example To get a generated template in JSON format
  * ```javascript
  * // This example gets a generated template ins JSON format.

@@ -27,7 +27,6 @@ export interface PutRetentionPolicyCommandInput extends PutRetentionPolicyReques
 export interface PutRetentionPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the retention of the specified log group. With a retention policy, you can
  *       configure the number of days for which to retain log events in the specified log
  *       group.</p>
@@ -84,6 +83,7 @@ export interface PutRetentionPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class PutRetentionPolicyCommand extends $Command
   .classBuilder<

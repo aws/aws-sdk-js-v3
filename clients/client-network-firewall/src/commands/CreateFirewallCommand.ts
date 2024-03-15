@@ -27,7 +27,6 @@ export interface CreateFirewallCommandInput extends CreateFirewallRequest {}
 export interface CreateFirewallCommandOutput extends CreateFirewallResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Network Firewall <a>Firewall</a> and accompanying <a>FirewallStatus</a> for a VPC. </p>
  *          <p>The firewall defines the configuration settings for an Network Firewall firewall. The settings that you can define at creation include the firewall policy, the subnets in your VPC to use for the firewall endpoints, and any tags that are attached to the firewall Amazon Web Services resource. </p>
  *          <p>After you create a firewall, you can provide additional settings, like the logging configuration. </p>
@@ -174,6 +173,7 @@ export interface CreateFirewallCommandOutput extends CreateFirewallResponse, __M
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ * @public
  */
 export class CreateFirewallCommand extends $Command
   .classBuilder<

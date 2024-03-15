@@ -39,7 +39,6 @@ export interface DescribeMetadataModelExportsToTargetCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a paginated list of metadata model exports.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface DescribeMetadataModelExportsToTargetCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Describe Metadata Model Exports To Target
  * ```javascript
  * // Returns a paginated list of metadata model exports.

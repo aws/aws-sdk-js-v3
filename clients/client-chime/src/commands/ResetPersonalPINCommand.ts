@@ -31,7 +31,6 @@ export interface ResetPersonalPINCommandInput extends ResetPersonalPINRequest {}
 export interface ResetPersonalPINCommandOutput extends ResetPersonalPINResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Resets the personal meeting PIN for the specified user on an Amazon Chime account. Returns
  *             the <a>User</a> object with the updated personal meeting PIN.</p>
  * @example
@@ -99,6 +98,7 @@ export interface ResetPersonalPINCommandOutput extends ResetPersonalPINResponse,
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class ResetPersonalPINCommand extends $Command
   .classBuilder<

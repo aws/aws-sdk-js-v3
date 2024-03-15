@@ -30,7 +30,6 @@ export interface DeleteConnectInstanceConfigCommandInput extends DeleteConnectIn
 export interface DeleteConnectInstanceConfigCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * Deletes a connect instance config from the specified AWS account.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DeleteConnectInstanceConfigCommandOutput extends __MetadataBear
  * @throws {@link ConnectCampaignsServiceException}
  * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
+ * @public
  */
 export class DeleteConnectInstanceConfigCommand extends $Command
   .classBuilder<

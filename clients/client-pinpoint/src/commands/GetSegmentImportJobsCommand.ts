@@ -27,7 +27,6 @@ export interface GetSegmentImportJobsCommandInput extends GetSegmentImportJobsRe
 export interface GetSegmentImportJobsCommandOutput extends GetSegmentImportJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the status and settings of the import jobs for a segment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -109,6 +108,7 @@ export interface GetSegmentImportJobsCommandOutput extends GetSegmentImportJobsR
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class GetSegmentImportJobsCommand extends $Command
   .classBuilder<

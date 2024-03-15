@@ -36,7 +36,6 @@ export interface CreateRouteCommandInput extends CreateRouteRequest {}
 export interface CreateRouteCommandOutput extends CreateRouteResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon Web Services Migration Hub Refactor Spaces route. The account owner of the service resource is always the
  *       environment owner, regardless of which account creates the route. Routes target a service in
  *       the application. If an application does not have any routes, then the first route must be
@@ -197,6 +196,7 @@ export interface CreateRouteCommandOutput extends CreateRouteResponse, __Metadat
  * @throws {@link MigrationHubRefactorSpacesServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
+ * @public
  */
 export class CreateRouteCommand extends $Command
   .classBuilder<

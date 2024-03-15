@@ -27,7 +27,6 @@ export interface RestoreFromSnapshotCommandInput extends RestoreFromSnapshotRequ
 export interface RestoreFromSnapshotCommandOutput extends RestoreFromSnapshotResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Restores a directory using an existing directory snapshot.</p>
  *          <p>When you restore a directory from a snapshot, any changes made to the directory after the snapshot date are overwritten.</p>
  *          <p>This action returns as soon as the restore operation is initiated. You can monitor the
@@ -70,6 +69,7 @@ export interface RestoreFromSnapshotCommandOutput extends RestoreFromSnapshotRes
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class RestoreFromSnapshotCommand extends $Command
   .classBuilder<

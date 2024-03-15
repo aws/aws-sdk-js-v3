@@ -27,7 +27,6 @@ export interface DeleteApplicationCommandInput extends DeleteApplicationRequest 
 export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an application. Deleting an application does not delete a configuration from a
  *          host.</p>
  * @example
@@ -63,6 +62,7 @@ export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  * @example To delete an application
  * ```javascript
  * // The following delete-application example deletes the specified application.

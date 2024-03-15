@@ -32,7 +32,6 @@ export interface GetAccountAuthorizationDetailsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about all IAM users, groups, roles, and policies in your Amazon Web Services
  *             account, including their relationships to one another. Use this operation to obtain a
  *             snapshot of the configuration of IAM permissions (users, groups, roles, and policies)
@@ -227,6 +226,7 @@ export interface GetAccountAuthorizationDetailsCommandOutput
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class GetAccountAuthorizationDetailsCommand extends $Command
   .classBuilder<

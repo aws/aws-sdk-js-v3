@@ -27,7 +27,6 @@ export interface DeleteResourcesByExternalIdCommandInput extends DeleteResources
 export interface DeleteResourcesByExternalIdCommandOutput extends DeleteResourcesByExternalIdOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes resources linked to an external ID. This action only applies if you have
  *             configured blue/green deployments through CloudFormation. </p>
  *          <note>
@@ -60,6 +59,7 @@ export interface DeleteResourcesByExternalIdCommandOutput extends DeleteResource
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
  */
 export class DeleteResourcesByExternalIdCommand extends $Command
   .classBuilder<

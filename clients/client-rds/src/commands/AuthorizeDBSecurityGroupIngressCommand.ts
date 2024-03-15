@@ -32,7 +32,6 @@ export interface AuthorizeDBSecurityGroupIngressCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables ingress to a DBSecurityGroup using one of two forms of authorization. First, EC2 or VPC security
  *           groups can be added to the DBSecurityGroup if the application using the database is running on EC2 or VPC
  *           instances. Second, IP ranges are available if the application accessing your database is running on the internet.
@@ -113,6 +112,7 @@ export interface AuthorizeDBSecurityGroupIngressCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To authorize DB security group integress
  * ```javascript
  * // This example authorizes access to the specified security group by the specified CIDR block.

@@ -27,7 +27,6 @@ export interface ExportComponentsCommandInput extends ExportComponentsRequest {}
 export interface ExportComponentsCommandOutput extends ExportComponentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Exports component configurations to code that is ready to integrate into an Amplify app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -284,6 +283,7 @@ export interface ExportComponentsCommandOutput extends ExportComponentsResponse,
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ * @public
  */
 export class ExportComponentsCommand extends $Command
   .classBuilder<

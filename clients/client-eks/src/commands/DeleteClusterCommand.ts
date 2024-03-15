@@ -27,7 +27,6 @@ export interface DeleteClusterCommandInput extends DeleteClusterRequest {}
 export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Amazon EKS cluster control plane.</p>
  *          <p>If you have active services in your cluster that are associated with a load balancer,
  *             you must delete those services before deleting the cluster so that the load balancers
@@ -171,6 +170,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  * @example To delete a cluster
  * ```javascript
  * // This example command deletes a cluster named `devel` in your default region.

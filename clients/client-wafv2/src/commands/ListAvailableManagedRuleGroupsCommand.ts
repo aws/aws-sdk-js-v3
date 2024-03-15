@@ -32,7 +32,6 @@ export interface ListAvailableManagedRuleGroupsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves an array of managed rule groups that are available for you to use. This list
  *          includes all Amazon Web Services Managed Rules rule groups and all of the Amazon Web Services Marketplace managed rule groups that you're
  *          subscribed to.</p>
@@ -100,6 +99,7 @@ export interface ListAvailableManagedRuleGroupsCommandOutput
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class ListAvailableManagedRuleGroupsCommand extends $Command
   .classBuilder<

@@ -35,7 +35,6 @@ export interface UpdateInferenceComponentRuntimeConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Runtime settings for a model that is deployed with an inference component.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface UpdateInferenceComponentRuntimeConfigCommandOutput
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class UpdateInferenceComponentRuntimeConfigCommand extends $Command
   .classBuilder<

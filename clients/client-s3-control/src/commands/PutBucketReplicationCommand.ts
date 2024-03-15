@@ -29,7 +29,6 @@ export interface PutBucketReplicationCommandInput extends PutBucketReplicationRe
 export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This action creates an Amazon S3 on Outposts bucket's replication configuration. To create
  *             an S3 bucket's replication configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html">PutBucketReplication</a>
@@ -202,6 +201,7 @@ export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class PutBucketReplicationCommand extends $Command
   .classBuilder<

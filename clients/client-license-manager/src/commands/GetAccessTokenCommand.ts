@@ -27,7 +27,6 @@ export interface GetAccessTokenCommandInput extends GetAccessTokenRequest {}
 export interface GetAccessTokenCommandOutput extends GetAccessTokenResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a temporary access token to use with AssumeRoleWithWebIdentity. Access tokens
  *           are valid for one hour.</p>
  * @example
@@ -75,6 +74,7 @@ export interface GetAccessTokenCommandOutput extends GetAccessTokenResponse, __M
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * @public
  */
 export class GetAccessTokenCommand extends $Command
   .classBuilder<

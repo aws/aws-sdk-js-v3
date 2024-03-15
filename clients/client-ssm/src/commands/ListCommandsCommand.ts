@@ -27,7 +27,6 @@ export interface ListCommandsCommandInput extends ListCommandsRequest {}
 export interface ListCommandsCommandOutput extends ListCommandsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the commands requested by users of the Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -160,6 +159,7 @@ export interface ListCommandsCommandOutput extends ListCommandsResult, __Metadat
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class ListCommandsCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface StartSyncExecutionCommandInput extends StartSyncExecutionInput 
 export interface StartSyncExecutionCommandOutput extends StartSyncExecutionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a Synchronous Express state machine execution. <code>StartSyncExecution</code>
  * 			  is not available for <code>STANDARD</code> workflows.</p>
  *          <note>
@@ -113,6 +112,7 @@ export interface StartSyncExecutionCommandOutput extends StartSyncExecutionOutpu
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * @public
  */
 export class StartSyncExecutionCommand extends $Command
   .classBuilder<

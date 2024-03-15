@@ -27,7 +27,6 @@ export interface ListPermissionsCommandInput extends ListPermissionsRequest {}
 export interface ListPermissionsCommandOutput extends ListPermissionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of available RAM permissions that you can use for the supported
  *             resource types. </p>
  * @example
@@ -98,6 +97,7 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * @public
  */
 export class ListPermissionsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListWorkGroupsCommandInput extends ListWorkGroupsInput {}
 export interface ListWorkGroupsCommandOutput extends ListWorkGroupsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists available workgroups for the account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface ListWorkGroupsCommandOutput extends ListWorkGroupsOutput, __Met
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class ListWorkGroupsCommand extends $Command
   .classBuilder<

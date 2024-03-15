@@ -27,7 +27,6 @@ export interface CreatePreparedStatementCommandInput extends CreatePreparedState
 export interface CreatePreparedStatementCommandOutput extends CreatePreparedStatementOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a prepared statement for use with SQL queries in Athena.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +63,7 @@ export interface CreatePreparedStatementCommandOutput extends CreatePreparedStat
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class CreatePreparedStatementCommand extends $Command
   .classBuilder<

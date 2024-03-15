@@ -32,7 +32,6 @@ export interface UpdateAssetModelCompositeModelCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a composite model and all of the assets that were created from the model. Each asset
  *       created from the model inherits the updated asset model's property and hierarchy definitions.
  *       For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html">Updating assets and models</a> in the
@@ -207,6 +206,7 @@ export interface UpdateAssetModelCompositeModelCommandOutput
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class UpdateAssetModelCompositeModelCommand extends $Command
   .classBuilder<

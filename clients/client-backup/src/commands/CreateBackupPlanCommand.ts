@@ -31,7 +31,6 @@ export interface CreateBackupPlanCommandInput extends CreateBackupPlanInput {}
 export interface CreateBackupPlanCommandOutput extends CreateBackupPlanOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a backup plan using a backup plan name and backup rules. A backup plan is a
  *          document that contains information that Backup uses to schedule tasks that
  *          create recovery points for resources.</p>
@@ -134,6 +133,7 @@ export interface CreateBackupPlanCommandOutput extends CreateBackupPlanOutput, _
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class CreateBackupPlanCommand extends $Command
   .classBuilder<

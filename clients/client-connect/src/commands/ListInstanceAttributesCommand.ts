@@ -27,7 +27,6 @@ export interface ListInstanceAttributesCommandInput extends ListInstanceAttribut
 export interface ListInstanceAttributesCommandOutput extends ListInstanceAttributesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Returns a paginated list of all attribute types for the given instance.</p>
  * @example
@@ -79,6 +78,7 @@ export interface ListInstanceAttributesCommandOutput extends ListInstanceAttribu
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class ListInstanceAttributesCommand extends $Command
   .classBuilder<

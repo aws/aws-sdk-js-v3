@@ -27,7 +27,6 @@ export interface RemovePermissionCommandInput extends RemovePermissionRequest {}
 export interface RemovePermissionCommandOutput extends RemovePermissionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Removes permissions from a profiling group's resource-based policy that are provided
  *             using an action group. The one supported action group that can be removed is
  *                 <code>agentPermission</code> which grants <code>ConfigureAgent</code> and
@@ -84,6 +83,7 @@ export interface RemovePermissionCommandOutput extends RemovePermissionResponse,
  * @throws {@link CodeGuruProfilerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
+ * @public
  */
 export class RemovePermissionCommand extends $Command
   .classBuilder<

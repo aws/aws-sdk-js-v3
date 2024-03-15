@@ -29,7 +29,6 @@ export interface DisableImageBlockPublicAccessCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables <i>block public access for AMIs</i> at the account level in the
  *       specified Amazon Web Services Region. This removes the <i>block public access</i> restriction
  *       from your account. With the restriction removed, you can publicly share your AMIs in the
@@ -66,6 +65,7 @@ export interface DisableImageBlockPublicAccessCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DisableImageBlockPublicAccessCommand extends $Command
   .classBuilder<

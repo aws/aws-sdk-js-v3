@@ -27,7 +27,6 @@ export interface UpdatePackageConfigurationCommandInput extends UpdatePackageCon
 export interface UpdatePackageConfigurationCommandOutput extends UpdatePackageConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the software package configuration.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdatePackageConfiguration</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">iam:PassRole</a> actions.</p>
  * @example
@@ -71,6 +70,7 @@ export interface UpdatePackageConfigurationCommandOutput extends UpdatePackageCo
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class UpdatePackageConfigurationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface TerminateWorkflowExecutionCommandInput extends TerminateWorkflo
 export interface TerminateWorkflowExecutionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Records a <code>WorkflowExecutionTerminated</code> event and forces closure of the
  *       workflow execution identified by the given domain, runId, and workflowId. The child policy,
  *       registered with the workflow type or specified when starting this execution, is applied to any
@@ -103,6 +102,7 @@ export interface TerminateWorkflowExecutionCommandOutput extends __MetadataBeare
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ * @public
  */
 export class TerminateWorkflowExecutionCommand extends $Command
   .classBuilder<

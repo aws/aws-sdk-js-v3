@@ -27,7 +27,6 @@ export interface GetBranchCommandInput extends GetBranchRequest {}
 export interface GetBranchCommandOutput extends GetBranchResult, __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns a branch for an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -107,6 +106,7 @@ export interface GetBranchCommandOutput extends GetBranchResult, __MetadataBeare
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ * @public
  */
 export class GetBranchCommand extends $Command
   .classBuilder<

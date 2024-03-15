@@ -27,7 +27,6 @@ export interface ListImageSetVersionsCommandInput extends ListImageSetVersionsRe
 export interface ListImageSetVersionsCommandOutput extends ListImageSetVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List image set versions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface ListImageSetVersionsCommandOutput extends ListImageSetVersionsR
  * @throws {@link MedicalImagingServiceException}
  * <p>Base exception class for all service exceptions from MedicalImaging service.</p>
  *
+ * @public
  */
 export class ListImageSetVersionsCommand extends $Command
   .classBuilder<

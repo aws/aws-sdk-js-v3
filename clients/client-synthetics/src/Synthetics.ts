@@ -387,7 +387,6 @@ export interface Synthetics {
 }
 
 /**
- * @public
  * <fullname>Amazon CloudWatch Synthetics</fullname>
  *          <p>You can use Amazon CloudWatch Synthetics to continually monitor your services. You can
  *          create and manage <i>canaries</i>, which are modular, lightweight scripts
@@ -403,6 +402,7 @@ export interface Synthetics {
  *          <p>Before you create and manage canaries, be aware of the security considerations. For more
  *          information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/servicelens_canaries_security.html">Security
  *             Considerations for Synthetics Canaries</a>.</p>
+ * @public
  */
 export class Synthetics extends SyntheticsClient implements Synthetics {}
 createAggregatedClient(commands, Synthetics);

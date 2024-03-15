@@ -27,7 +27,6 @@ export interface CreateFlowCommandInput extends CreateFlowRequest {}
 export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataBearer {}
 
 /**
- * @public
  * Creates a new flow. The request must include one source. The request optionally can include outputs (up to 50) and entitlements (up to 50).
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -565,6 +564,7 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ * @public
  */
 export class CreateFlowCommand extends $Command
   .classBuilder<

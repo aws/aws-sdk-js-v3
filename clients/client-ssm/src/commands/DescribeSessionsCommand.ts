@@ -27,7 +27,6 @@ export interface DescribeSessionsCommandInput extends DescribeSessionsRequest {}
 export interface DescribeSessionsCommandOutput extends DescribeSessionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of all active sessions (both connected and disconnected) or terminated
  *    sessions from the past 30 days.</p>
  * @example
@@ -91,6 +90,7 @@ export interface DescribeSessionsCommandOutput extends DescribeSessionsResponse,
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DescribeSessionsCommand extends $Command
   .classBuilder<

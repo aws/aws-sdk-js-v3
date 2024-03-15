@@ -27,7 +27,6 @@ export interface ListReleaseLabelsCommandInput extends ListReleaseLabelsInput {}
 export interface ListReleaseLabelsCommandOutput extends ListReleaseLabelsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves release labels of Amazon EMR services in the Region where the API is
  *          called.</p>
  * @example
@@ -71,6 +70,7 @@ export interface ListReleaseLabelsCommandOutput extends ListReleaseLabelsOutput,
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class ListReleaseLabelsCommand extends $Command
   .classBuilder<

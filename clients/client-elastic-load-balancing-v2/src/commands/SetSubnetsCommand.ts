@@ -31,7 +31,6 @@ export interface SetSubnetsCommandInput extends SetSubnetsInput {}
 export interface SetSubnetsCommandOutput extends SetSubnetsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables the Availability Zones for the specified public subnets for the specified
  *       Application Load Balancer, Network Load Balancer or Gateway Load Balancer. The specified subnets replace the
  *       previously enabled subnets.</p>
@@ -109,6 +108,7 @@ export interface SetSubnetsCommandOutput extends SetSubnetsOutput, __MetadataBea
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  * @example To enable Availability Zones for a load balancer
  * ```javascript
  * // This example enables the Availability Zones for the specified subnets for the specified load balancer.

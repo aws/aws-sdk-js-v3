@@ -36,7 +36,6 @@ export interface AdminInitiateAuthCommandInput extends AdminInitiateAuthRequest 
 export interface AdminInitiateAuthCommandOutput extends AdminInitiateAuthResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Initiates the authentication flow, as an administrator.</p>
  *          <note>
  *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
@@ -194,6 +193,7 @@ export interface AdminInitiateAuthCommandOutput extends AdminInitiateAuthRespons
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class AdminInitiateAuthCommand extends $Command
   .classBuilder<

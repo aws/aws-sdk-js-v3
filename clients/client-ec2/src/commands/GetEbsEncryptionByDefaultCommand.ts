@@ -27,7 +27,6 @@ export interface GetEbsEncryptionByDefaultCommandInput extends GetEbsEncryptionB
 export interface GetEbsEncryptionByDefaultCommandOutput extends GetEbsEncryptionByDefaultResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes whether EBS encryption by default is enabled for your account in the current
  *       Region.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html">Amazon EBS encryption</a>
@@ -59,6 +58,7 @@ export interface GetEbsEncryptionByDefaultCommandOutput extends GetEbsEncryption
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class GetEbsEncryptionByDefaultCommand extends $Command
   .classBuilder<

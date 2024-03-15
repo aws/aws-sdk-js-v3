@@ -27,7 +27,6 @@ export interface GetCapacityReservationCommandInput extends GetCapacityReservati
 export interface GetCapacityReservationCommandOutput extends GetCapacityReservationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the capacity reservation with the specified name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface GetCapacityReservationCommandOutput extends GetCapacityReservat
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class GetCapacityReservationCommand extends $Command
   .classBuilder<

@@ -35,7 +35,6 @@ export interface ExportClientVpnClientConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Downloads the contents of the Client VPN endpoint configuration file for the specified Client VPN endpoint. The Client VPN endpoint configuration
  * 			file includes the Client VPN endpoint and certificate information clients need to establish a connection
  * 			with the Client VPN endpoint.</p>
@@ -66,6 +65,7 @@ export interface ExportClientVpnClientConfigurationCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ExportClientVpnClientConfigurationCommand extends $Command
   .classBuilder<

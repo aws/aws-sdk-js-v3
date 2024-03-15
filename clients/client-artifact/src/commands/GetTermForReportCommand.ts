@@ -27,7 +27,6 @@ export interface GetTermForReportCommandInput extends GetTermForReportRequest {}
 export interface GetTermForReportCommandOutput extends GetTermForReportResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get the Term content associated with a single report.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface GetTermForReportCommandOutput extends GetTermForReportResponse,
  * @throws {@link ArtifactServiceException}
  * <p>Base exception class for all service exceptions from Artifact service.</p>
  *
+ * @public
  */
 export class GetTermForReportCommand extends $Command
   .classBuilder<

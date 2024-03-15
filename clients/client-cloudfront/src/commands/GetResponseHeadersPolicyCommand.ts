@@ -27,7 +27,6 @@ export interface GetResponseHeadersPolicyCommandInput extends GetResponseHeaders
 export interface GetResponseHeadersPolicyCommandOutput extends GetResponseHeadersPolicyResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a response headers policy, including metadata (the policy's identifier and the
  * 			date and time when the policy was last modified).</p>
  *          <p>To get a response headers policy, you must provide the policy's identifier. If the
@@ -156,6 +155,7 @@ export interface GetResponseHeadersPolicyCommandOutput extends GetResponseHeader
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class GetResponseHeadersPolicyCommand extends $Command
   .classBuilder<

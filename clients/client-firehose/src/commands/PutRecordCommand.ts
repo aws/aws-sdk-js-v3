@@ -27,7 +27,6 @@ export interface PutRecordCommandInput extends PutRecordInput {}
 export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Writes a single data record into an Amazon Firehose delivery stream. To
  *          write multiple data records into a delivery stream, use <a>PutRecordBatch</a>.
  *          Applications using these operations are referred to as producers.</p>
@@ -116,6 +115,7 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  * @throws {@link FirehoseServiceException}
  * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
+ * @public
  */
 export class PutRecordCommand extends $Command
   .classBuilder<

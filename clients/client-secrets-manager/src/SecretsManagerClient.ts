@@ -339,7 +339,6 @@ export type SecretsManagerClientResolvedConfigType = __SmithyResolvedConfigurati
 export interface SecretsManagerClientResolvedConfig extends SecretsManagerClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>Amazon Web Services Secrets Manager</fullname>
  *          <p>Amazon Web Services Secrets Manager provides a service to enable you to store, manage, and retrieve, secrets.</p>
  *          <p>This guide provides descriptions of the Secrets Manager API. For more information about using this
@@ -366,6 +365,7 @@ export interface SecretsManagerClientResolvedConfig extends SecretsManagerClient
  *       CloudTrail, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/monitoring.html#monitoring_cloudtrail">Logging
  *         Amazon Web Services Secrets Manager Events with Amazon Web Services CloudTrail</a> in the <i>Amazon Web Services Secrets Manager User Guide</i>.
  *       To learn more about CloudTrail, including enabling it and find your log files, see the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">Amazon Web Services CloudTrail User Guide</a>.</p>
+ * @public
  */
 export class SecretsManagerClient extends __Client<
   __HttpHandlerOptions,

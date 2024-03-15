@@ -27,7 +27,6 @@ export interface UpdateDataSetCommandInput extends UpdateDataSetRequest {}
 export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation updates a data set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ * @public
  */
 export class UpdateDataSetCommand extends $Command
   .classBuilder<

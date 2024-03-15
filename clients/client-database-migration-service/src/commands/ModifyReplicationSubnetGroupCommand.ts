@@ -36,7 +36,6 @@ export interface ModifyReplicationSubnetGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the settings for the specified replication subnet group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -104,6 +103,7 @@ export interface ModifyReplicationSubnetGroupCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Modify replication subnet group
  * ```javascript
  * // Modifies the settings for the specified replication subnet group.

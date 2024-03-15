@@ -27,7 +27,6 @@ export interface DescribeOperatingSystemsCommandInput {}
 export interface DescribeOperatingSystemsCommandOutput extends DescribeOperatingSystemsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the operating systems that are supported by AWS OpsWorks Stacks.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DescribeOperatingSystemsCommandOutput extends DescribeOperating
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class DescribeOperatingSystemsCommand extends $Command
   .classBuilder<

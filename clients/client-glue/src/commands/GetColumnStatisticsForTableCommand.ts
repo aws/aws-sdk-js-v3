@@ -29,7 +29,6 @@ export interface GetColumnStatisticsForTableCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves table statistics of columns.</p>
  *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>GetTable</code>.</p>
  * @example
@@ -142,6 +141,7 @@ export interface GetColumnStatisticsForTableCommandOutput
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetColumnStatisticsForTableCommand extends $Command
   .classBuilder<

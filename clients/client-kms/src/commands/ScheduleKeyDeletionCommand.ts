@@ -27,7 +27,6 @@ export interface ScheduleKeyDeletionCommandInput extends ScheduleKeyDeletionRequ
 export interface ScheduleKeyDeletionCommandOutput extends ScheduleKeyDeletionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Schedules the deletion of a KMS key. By default, KMS applies a waiting period of 30
  *       days, but you can specify a waiting period of 7-30 days. When this operation is successful,
  *       the key state of the KMS key changes to <code>PendingDeletion</code> and the key can't be used
@@ -154,6 +153,7 @@ export interface ScheduleKeyDeletionCommandOutput extends ScheduleKeyDeletionRes
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To schedule a KMS key for deletion
  * ```javascript
  * // The following example schedules the specified KMS key for deletion.

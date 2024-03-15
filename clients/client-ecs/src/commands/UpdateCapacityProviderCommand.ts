@@ -27,7 +27,6 @@ export interface UpdateCapacityProviderCommandInput extends UpdateCapacityProvid
 export interface UpdateCapacityProviderCommandOutput extends UpdateCapacityProviderResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the parameters for a capacity provider.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface UpdateCapacityProviderCommandOutput extends UpdateCapacityProvi
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  */
 export class UpdateCapacityProviderCommand extends $Command
   .classBuilder<

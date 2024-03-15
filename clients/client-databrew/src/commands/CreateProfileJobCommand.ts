@@ -27,7 +27,6 @@ export interface CreateProfileJobCommandInput extends CreateProfileJobRequest {}
 export interface CreateProfileJobCommandOutput extends CreateProfileJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new job to analyze a dataset and create its data profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -152,6 +151,7 @@ export interface CreateProfileJobCommandOutput extends CreateProfileJobResponse,
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * @public
  */
 export class CreateProfileJobCommand extends $Command
   .classBuilder<

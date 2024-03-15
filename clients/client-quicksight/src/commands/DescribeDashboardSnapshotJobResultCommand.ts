@@ -36,7 +36,6 @@ export interface DescribeDashboardSnapshotJobResultCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the result of an existing snapshot job that has finished running.</p>
  *          <p>A finished snapshot job will return a <code>COMPLETED</code> or <code>FAILED</code> status when you poll the job with a <code>DescribeDashboardSnapshotJob</code> API call.</p>
  *          <p>If the job has not finished running, this operation returns a message that says <code>Dashboard Snapshot Job with id <SnapshotjobId> has not reached a terminal state.</code>.</p>
@@ -146,6 +145,7 @@ export interface DescribeDashboardSnapshotJobResultCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DescribeDashboardSnapshotJobResultCommand extends $Command
   .classBuilder<

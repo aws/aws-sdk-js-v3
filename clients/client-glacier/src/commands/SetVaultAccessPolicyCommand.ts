@@ -27,7 +27,6 @@ export interface SetVaultAccessPolicyCommandInput extends SetVaultAccessPolicyIn
 export interface SetVaultAccessPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation configures an access policy for a vault and will overwrite an existing
  *          policy. To configure a vault access policy, send a PUT request to the
  *             <code>access-policy</code> subresource of the vault. An access policy is specific to a
@@ -75,6 +74,7 @@ export interface SetVaultAccessPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * @public
  * @example To set the access-policy on a vault
  * ```javascript
  * // The example configures an access policy for the vault named examplevault.

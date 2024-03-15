@@ -30,7 +30,6 @@ export interface AllocatePrivateVirtualInterfaceCommandInput extends AllocatePri
 export interface AllocatePrivateVirtualInterfaceCommandOutput extends VirtualInterface, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provisions a private virtual interface to be owned by the specified Amazon Web Services account.</p>
  *          <p>Virtual interfaces created using this action must be confirmed by the owner using <a>ConfirmPrivateVirtualInterface</a>.
  *       Until then, the virtual interface is in the <code>Confirming</code> state and is not available to handle traffic.</p>
@@ -136,6 +135,7 @@ export interface AllocatePrivateVirtualInterfaceCommandOutput extends VirtualInt
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class AllocatePrivateVirtualInterfaceCommand extends $Command
   .classBuilder<

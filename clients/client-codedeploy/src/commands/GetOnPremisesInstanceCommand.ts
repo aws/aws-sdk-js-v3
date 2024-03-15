@@ -27,7 +27,6 @@ export interface GetOnPremisesInstanceCommandInput extends GetOnPremisesInstance
 export interface GetOnPremisesInstanceCommandOutput extends GetOnPremisesInstanceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p> Gets information about an on-premises instance. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface GetOnPremisesInstanceCommandOutput extends GetOnPremisesInstanc
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
  */
 export class GetOnPremisesInstanceCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface SendTextMessageCommandInput extends SendTextMessageRequest {}
 export interface SendTextMessageCommandOutput extends SendTextMessageResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new text message and sends it to a recipient's phone number.</p>
  *          <p>SMS throughput limits are measured in Message Parts per Second (MPS). Your MPS limit
  *             depends on the destination country of your messages, as well as the type of phone number
@@ -105,6 +104,7 @@ export interface SendTextMessageCommandOutput extends SendTextMessageResult, __M
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class SendTextMessageCommand extends $Command
   .classBuilder<

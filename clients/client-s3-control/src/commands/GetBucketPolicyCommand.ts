@@ -28,7 +28,6 @@ export interface GetBucketPolicyCommandInput extends GetBucketPolicyRequest {}
 export interface GetBucketPolicyCommandOutput extends GetBucketPolicyResult, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This action gets a bucket policy for an Amazon S3 on Outposts bucket. To get a policy for
  *             an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketPolicy.html">GetBucketPolicy</a> in the
@@ -97,6 +96,7 @@ export interface GetBucketPolicyCommandOutput extends GetBucketPolicyResult, __M
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class GetBucketPolicyCommand extends $Command
   .classBuilder<

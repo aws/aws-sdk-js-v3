@@ -27,7 +27,6 @@ export interface DescribeAssessmentRunsCommandInput extends DescribeAssessmentRu
 export interface DescribeAssessmentRunsCommandOutput extends DescribeAssessmentRunsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the assessment runs that are specified by the ARNs of the assessment
  *          runs.</p>
  * @example
@@ -112,6 +111,7 @@ export interface DescribeAssessmentRunsCommandOutput extends DescribeAssessmentR
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * @public
  * @example Describte assessment runs
  * ```javascript
  * // Describes the assessment runs that are specified by the ARNs of the assessment runs.

@@ -27,7 +27,6 @@ export interface GetWirelessDeviceCommandInput extends GetWirelessDeviceRequest 
 export interface GetWirelessDeviceCommandOutput extends GetWirelessDeviceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a wireless device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -150,6 +149,7 @@ export interface GetWirelessDeviceCommandOutput extends GetWirelessDeviceRespons
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class GetWirelessDeviceCommand extends $Command
   .classBuilder<

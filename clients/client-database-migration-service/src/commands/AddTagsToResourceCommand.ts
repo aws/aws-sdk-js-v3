@@ -31,7 +31,6 @@ export interface AddTagsToResourceCommandInput extends AddTagsToResourceMessage 
 export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds metadata tags to an DMS resource, including replication instance, endpoint,
  *          subnet group, and migration task. These tags can also be used with cost allocation
  *          reporting to track cost associated with DMS resources, or used in a Condition statement in
@@ -72,6 +71,7 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceRespons
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Add tags to resource
  * ```javascript
  * // Adds metadata tags to an AWS DMS resource, including replication instance, endpoint, security group, and migration task. These tags can also be used with cost allocation reporting to track cost associated with AWS DMS resources, or used in a Condition statement in an IAM policy for AWS DMS.

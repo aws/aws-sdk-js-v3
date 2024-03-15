@@ -27,7 +27,6 @@ export interface SetInstanceHealthCommandInput extends SetInstanceHealthQuery {}
 export interface SetInstanceHealthCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the health status of the specified instance.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health checks for Auto Scaling
  *                 instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -61,6 +60,7 @@ export interface SetInstanceHealthCommandOutput extends __MetadataBearer {}
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To set the health status of an instance
  * ```javascript
  * // This example sets the health status of the specified instance to Unhealthy.

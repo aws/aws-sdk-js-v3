@@ -27,7 +27,6 @@ export interface DeletePolicyCommandInput extends DeletePolicyType {}
 export interface DeletePolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified scaling policy.</p>
  *          <p>Deleting either a step scaling policy or a simple scaling policy deletes the
  *             underlying alarm action, but does not delete the alarm, even if it no longer has an
@@ -66,6 +65,7 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To delete an Auto Scaling policy
  * ```javascript
  * // This example deletes the specified Auto Scaling policy.

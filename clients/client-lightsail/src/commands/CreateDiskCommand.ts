@@ -27,7 +27,6 @@ export interface CreateDiskCommandInput extends CreateDiskRequest {}
 export interface CreateDiskCommandOutput extends CreateDiskResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a block storage disk that can be attached to an Amazon Lightsail instance in the
  *       same Availability Zone (<code>us-east-2a</code>).</p>
  *          <p>The <code>create disk</code> operation supports tag-based access control via request tags.
@@ -126,6 +125,7 @@ export interface CreateDiskCommandOutput extends CreateDiskResult, __MetadataBea
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class CreateDiskCommand extends $Command
   .classBuilder<

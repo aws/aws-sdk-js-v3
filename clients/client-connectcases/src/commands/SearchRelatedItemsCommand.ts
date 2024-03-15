@@ -27,7 +27,6 @@ export interface SearchRelatedItemsCommandInput extends SearchRelatedItemsReques
 export interface SearchRelatedItemsCommandOutput extends SearchRelatedItemsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Searches for related items that are associated with a case.</p>
  *          <note>
  *             <p>If no filters are provided, this returns all related items associated with a
@@ -114,6 +113,7 @@ export interface SearchRelatedItemsCommandOutput extends SearchRelatedItemsRespo
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ * @public
  */
 export class SearchRelatedItemsCommand extends $Command
   .classBuilder<

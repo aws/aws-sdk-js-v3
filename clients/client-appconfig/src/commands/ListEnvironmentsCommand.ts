@@ -27,7 +27,6 @@ export interface ListEnvironmentsCommandInput extends ListEnvironmentsRequest {}
 export interface ListEnvironmentsCommandOutput extends Environments, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the environments for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface ListEnvironmentsCommandOutput extends Environments, __MetadataB
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  * @example To list the available environments
  * ```javascript
  * // The following list-environments example lists the available environments in your AWS account for the specified application.

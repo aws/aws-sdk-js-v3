@@ -27,7 +27,6 @@ export interface DeleteClientVpnEndpointCommandInput extends DeleteClientVpnEndp
 export interface DeleteClientVpnEndpointCommandOutput extends DeleteClientVpnEndpointResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified Client VPN endpoint. You must disassociate all target networks before you
  * 			can delete a Client VPN endpoint.</p>
  * @example
@@ -60,6 +59,7 @@ export interface DeleteClientVpnEndpointCommandOutput extends DeleteClientVpnEnd
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DeleteClientVpnEndpointCommand extends $Command
   .classBuilder<

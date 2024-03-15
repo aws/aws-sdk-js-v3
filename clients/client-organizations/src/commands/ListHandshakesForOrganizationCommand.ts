@@ -36,7 +36,6 @@ export interface ListHandshakesForOrganizationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the handshakes that are associated with the organization that the requesting
  *             user is part of. The <code>ListHandshakesForOrganization</code> operation returns a list
  *             of handshake structures. Each structure contains details and status about a
@@ -243,6 +242,7 @@ export interface ListHandshakesForOrganizationCommandOutput
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  * @example To retrieve a list of the handshakes associated with an organization
  * ```javascript
  * // The following example shows you how to get a list of handshakes associated with the current organization:

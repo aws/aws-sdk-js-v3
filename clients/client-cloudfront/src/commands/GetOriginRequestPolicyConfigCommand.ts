@@ -32,7 +32,6 @@ export interface GetOriginRequestPolicyConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets an origin request policy configuration.</p>
  *          <p>To get an origin request policy configuration, you must provide the policy's
  * 			identifier. If the origin request policy is attached to a distribution's cache behavior,
@@ -103,6 +102,7 @@ export interface GetOriginRequestPolicyConfigCommandOutput
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class GetOriginRequestPolicyConfigCommand extends $Command
   .classBuilder<

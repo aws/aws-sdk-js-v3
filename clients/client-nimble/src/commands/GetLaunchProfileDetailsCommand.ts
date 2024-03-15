@@ -31,7 +31,6 @@ export interface GetLaunchProfileDetailsCommandInput extends GetLaunchProfileDet
 export interface GetLaunchProfileDetailsCommandOutput extends GetLaunchProfileDetailsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Launch profile details include the launch profile resource and summary information of
  *             resources that are used by, or available to, the launch profile. This includes the name
  *             and description of all studio components used by the launch profiles, and the name and
@@ -187,6 +186,7 @@ export interface GetLaunchProfileDetailsCommandOutput extends GetLaunchProfileDe
  * @throws {@link NimbleServiceException}
  * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
+ * @public
  */
 export class GetLaunchProfileDetailsCommand extends $Command
   .classBuilder<

@@ -4,19 +4,19 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { BCMDataExportsServiceException as __BaseException } from "./BCMDataExportsServiceException";
 
 /**
- * @public
  * <p>The SQL query of column selections and row filters from the data table you want.</p>
+ * @public
  */
 export interface DataQuery {
   /**
-   * @public
    * <p>The query statement.</p>
+   * @public
    */
   QueryStatement: string | undefined;
 
   /**
-   * @public
    * <p>The table configuration.</p>
+   * @public
    */
   TableConfigurations?: Record<string, Record<string, string>>;
 }
@@ -77,77 +77,77 @@ export const OverwriteOption = {
 export type OverwriteOption = (typeof OverwriteOption)[keyof typeof OverwriteOption];
 
 /**
- * @public
  * <p>The compression type, file format, and overwrite preference for the data export.</p>
+ * @public
  */
 export interface S3OutputConfigurations {
   /**
-   * @public
    * <p>The output type for the data export.</p>
+   * @public
    */
   OutputType: S3OutputType | undefined;
 
   /**
-   * @public
    * <p>The file format for the data export.</p>
+   * @public
    */
   Format: FormatOption | undefined;
 
   /**
-   * @public
    * <p>The compression type for the data export.</p>
+   * @public
    */
   Compression: CompressionOption | undefined;
 
   /**
-   * @public
    * <p>The rule to follow when generating a version of the data export file. You have the choice
    *       to overwrite the previous version or to be delivered in addition to the previous versions.
    *       Overwriting exports can save on Amazon S3 storage costs. Creating new export versions allows
    *       you to track the changes in cost and usage data over time.</p>
+   * @public
    */
   Overwrite: OverwriteOption | undefined;
 }
 
 /**
- * @public
  * <p>Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and object
  *       keys of a data exports file.</p>
+ * @public
  */
 export interface S3Destination {
   /**
-   * @public
    * <p>The name of the Amazon S3 bucket used as the destination of a data export file.</p>
+   * @public
    */
   S3Bucket: string | undefined;
 
   /**
-   * @public
    * <p>The S3 path prefix you want prepended to the name of your data export.</p>
+   * @public
    */
   S3Prefix: string | undefined;
 
   /**
-   * @public
    * <p>The S3 bucket Region.</p>
+   * @public
    */
   S3Region: string | undefined;
 
   /**
-   * @public
    * <p>The output configuration for the data export.</p>
+   * @public
    */
   S3OutputConfigurations: S3OutputConfigurations | undefined;
 }
 
 /**
- * @public
  * <p>The destinations used for data exports.</p>
+ * @public
  */
 export interface DestinationConfigurations {
   /**
-   * @public
    * <p>An object that describes the destination of the data exports file.</p>
+   * @public
    */
   S3Destination: S3Destination | undefined;
 }
@@ -166,74 +166,74 @@ export const FrequencyOption = {
 export type FrequencyOption = (typeof FrequencyOption)[keyof typeof FrequencyOption];
 
 /**
- * @public
  * <p>The cadence for Amazon Web Services to update the data export in your S3 bucket.</p>
+ * @public
  */
 export interface RefreshCadence {
   /**
-   * @public
    * <p>The frequency that data exports are updated. The export refreshes each time the source
    *       data updates, up to three times daily.</p>
+   * @public
    */
   Frequency: FrequencyOption | undefined;
 }
 
 /**
- * @public
  * <p>The details that are available for an export.</p>
+ * @public
  */
 export interface Export {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) for this export.</p>
+   * @public
    */
   ExportArn?: string;
 
   /**
-   * @public
    * <p>The name of this specific data export.</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>The description for this specific data export.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The data query for this specific data export.</p>
+   * @public
    */
   DataQuery: DataQuery | undefined;
 
   /**
-   * @public
    * <p>The destination configuration for this specific data export.</p>
+   * @public
    */
   DestinationConfigurations: DestinationConfigurations | undefined;
 
   /**
-   * @public
    * <p>The cadence for Amazon Web Services to update the export in your S3 bucket.</p>
+   * @public
    */
   RefreshCadence: RefreshCadence | undefined;
 }
 
 /**
- * @public
  * <p>The tag structure that contains a tag key and value.</p>
+ * @public
  */
 export interface ResourceTag {
   /**
-   * @public
    * <p>The key that's associated with the tag.</p>
+   * @public
    */
   Key: string | undefined;
 
   /**
-   * @public
    * <p>The value that's associated with the tag.</p>
+   * @public
    */
   Value: string | undefined;
 }
@@ -243,16 +243,16 @@ export interface ResourceTag {
  */
 export interface CreateExportRequest {
   /**
-   * @public
    * <p>The details of the export, including data query, name, description, and destination
    *       configuration.</p>
+   * @public
    */
   Export: Export | undefined;
 
   /**
-   * @public
    * <p>An optional list of tags to associate with the specified export. Each tag consists of a
    *       key and a value, and each key must be unique for the resource.</p>
+   * @public
    */
   ResourceTags?: ResourceTag[];
 }
@@ -262,16 +262,16 @@ export interface CreateExportRequest {
  */
 export interface CreateExportResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) for this export.</p>
+   * @public
    */
   ExportArn?: string;
 }
 
 /**
- * @public
  * <p>An error on the server occurred during the processing of your request. Try again
  *       later.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -292,36 +292,36 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>You've reached the limit on the number of resources you can create, or exceeded the size
  *       of an individual resource.</p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
-   * @public
    * <p>The identifier of the resource that exceeded quota.</p>
+   * @public
    */
   ResourceId?: string;
 
   /**
-   * @public
    * <p>The type of the resource that exceeded quota.</p>
+   * @public
    */
   ResourceType?: string;
 
   /**
-   * @public
    * <p>The quota code that was exceeded.</p>
+   * @public
    */
   QuotaCode: string | undefined;
 
   /**
-   * @public
    * <p>The service code that exceeded quota. It will always be
    *       “AWSBillingAndCostManagementDataExports”.</p>
+   * @public
    */
   ServiceCode: string | undefined;
   /**
@@ -343,23 +343,23 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request was denied due to request throttling.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
-   * @public
    * <p>The quota code that exceeded the throttling limit.</p>
+   * @public
    */
   QuotaCode?: string;
 
   /**
-   * @public
    * <p>The service code that exceeded the throttling limit. It will always be
    *       “AWSBillingAndCostManagementDataExports”.</p>
+   * @public
    */
   ServiceCode?: string;
   /**
@@ -379,20 +379,20 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The input failed to meet the constraints specified by the Amazon Web Services service in a
  *       specified field.</p>
+ * @public
  */
 export interface ValidationExceptionField {
   /**
-   * @public
    * <p>The field name where the invalid entry was detected.</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>A message with the reason for the validation exception error.</p>
+   * @public
    */
   Message: string | undefined;
 }
@@ -414,23 +414,23 @@ export const ValidationExceptionReason = {
 export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
- * @public
  * <p>The input fails to satisfy the constraints specified by an Amazon Web Services
  *       service.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
-   * @public
    * <p>The reason for the validation exception.</p>
+   * @public
    */
   Reason?: ValidationExceptionReason;
 
   /**
-   * @public
    * <p>The list of fields that are invalid.</p>
+   * @public
    */
   Fields?: ValidationExceptionField[];
   /**
@@ -454,8 +454,8 @@ export class ValidationException extends __BaseException {
  */
 export interface DeleteExportRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) for this export.</p>
+   * @public
    */
   ExportArn: string | undefined;
 }
@@ -465,29 +465,29 @@ export interface DeleteExportRequest {
  */
 export interface DeleteExportResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) for this export.</p>
+   * @public
    */
   ExportArn?: string;
 }
 
 /**
- * @public
  * <p>The specified Amazon Resource Name (ARN) in the request doesn't exist.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
-   * @public
    * <p>The identifier of the resource that was not found.</p>
+   * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * @public
    * <p>The type of the resource that was not found.</p>
+   * @public
    */
   ResourceType: string | undefined;
   /**
@@ -511,15 +511,15 @@ export class ResourceNotFoundException extends __BaseException {
  */
 export interface GetExecutionRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Export object that generated this specific
    *       execution.</p>
+   * @public
    */
   ExportArn: string | undefined;
 
   /**
-   * @public
    * <p>The ID for this specific execution.</p>
+   * @public
    */
   ExecutionId: string | undefined;
 }
@@ -559,37 +559,37 @@ export const ExecutionStatusReason = {
 export type ExecutionStatusReason = (typeof ExecutionStatusReason)[keyof typeof ExecutionStatusReason];
 
 /**
- * @public
  * <p>The status of the execution.</p>
+ * @public
  */
 export interface ExecutionStatus {
   /**
-   * @public
    * <p>The code for the status of the execution.</p>
+   * @public
    */
   StatusCode?: ExecutionStatusCode;
 
   /**
-   * @public
    * <p>The reason for the failed status.</p>
+   * @public
    */
   StatusReason?: ExecutionStatusReason;
 
   /**
-   * @public
    * <p>The time when the execution was created.</p>
+   * @public
    */
   CreatedAt?: Date;
 
   /**
-   * @public
    * <p>The time when the execution was completed.</p>
+   * @public
    */
   CompletedAt?: Date;
 
   /**
-   * @public
    * <p>The time when the execution was last updated.</p>
+   * @public
    */
   LastUpdatedAt?: Date;
 }
@@ -599,22 +599,22 @@ export interface ExecutionStatus {
  */
 export interface GetExecutionResponse {
   /**
-   * @public
    * <p>The ID for this specific execution.</p>
+   * @public
    */
   ExecutionId?: string;
 
   /**
-   * @public
    * <p>The export data for this specific execution. This export data is a snapshot from when the
    *       execution was generated. The data could be different from the current export data if the
    *       export was updated since the execution was generated.</p>
+   * @public
    */
   Export?: Export;
 
   /**
-   * @public
    * <p>The status of this specific execution.</p>
+   * @public
    */
   ExecutionStatus?: ExecutionStatus;
 }
@@ -624,8 +624,8 @@ export interface GetExecutionResponse {
  */
 export interface GetExportRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) for this export.</p>
+   * @public
    */
   ExportArn: string | undefined;
 }
@@ -645,37 +645,37 @@ export const ExportStatusCode = {
 export type ExportStatusCode = (typeof ExportStatusCode)[keyof typeof ExportStatusCode];
 
 /**
- * @public
  * <p>The status of the data export.</p>
+ * @public
  */
 export interface ExportStatus {
   /**
-   * @public
    * <p>The status code for the request.</p>
+   * @public
    */
   StatusCode?: ExportStatusCode;
 
   /**
-   * @public
    * <p>The description for the status code.</p>
+   * @public
    */
   StatusReason?: ExecutionStatusReason;
 
   /**
-   * @public
    * <p>The timestamp of when the export  was created.</p>
+   * @public
    */
   CreatedAt?: Date;
 
   /**
-   * @public
    * <p>The timestamp of when the export  was updated.</p>
+   * @public
    */
   LastUpdatedAt?: Date;
 
   /**
-   * @public
    * <p>The timestamp of when the export was last generated.</p>
+   * @public
    */
   LastRefreshedAt?: Date;
 }
@@ -685,14 +685,14 @@ export interface ExportStatus {
  */
 export interface GetExportResponse {
   /**
-   * @public
    * <p>The data for this specific export.</p>
+   * @public
    */
   Export?: Export;
 
   /**
-   * @public
    * <p>The status of this specific export.</p>
+   * @public
    */
   ExportStatus?: ExportStatus;
 }
@@ -702,42 +702,42 @@ export interface GetExportResponse {
  */
 export interface GetTableRequest {
   /**
-   * @public
    * <p>The name of the table.</p>
+   * @public
    */
   TableName: string | undefined;
 
   /**
-   * @public
    * <p>TableProperties are additional configurations you can provide to change the data and
    *       schema of a table. Each table can have different TableProperties. Tables are not required to
    *       have any TableProperties. Each table property has a default value that it assumes if not
    *       specified.</p>
+   * @public
    */
   TableProperties?: Record<string, string>;
 }
 
 /**
- * @public
  * <p>Includes basic information for a data column such as its description, name, and
  *       type.</p>
+ * @public
  */
 export interface Column {
   /**
-   * @public
    * <p>The column name.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The kind of data a column stores.</p>
+   * @public
    */
   Type?: string;
 
   /**
-   * @public
    * <p>The description for a column.</p>
+   * @public
    */
   Description?: string;
 }
@@ -747,29 +747,29 @@ export interface Column {
  */
 export interface GetTableResponse {
   /**
-   * @public
    * <p>The name of the table.</p>
+   * @public
    */
   TableName?: string;
 
   /**
-   * @public
    * <p>The table description.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>TableProperties are additional configurations you can provide to change the data and
    *       schema of a table. Each table can have different TableProperties. Tables are not required to
    *       have any TableProperties. Each table property has a default value that it assumes if not
    *       specified.</p>
+   * @public
    */
   TableProperties?: Record<string, string>;
 
   /**
-   * @public
    * <p>The schema of the table.</p>
+   * @public
    */
   Schema?: Column[];
 }
@@ -779,38 +779,38 @@ export interface GetTableResponse {
  */
 export interface ListExecutionsRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) for this export.</p>
+   * @public
    */
   ExportArn: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of objects that are returned for the request.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token to retrieve the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>The reference for the data export update.</p>
+ * @public
  */
 export interface ExecutionReference {
   /**
-   * @public
    * <p>The ID for this specific execution.</p>
+   * @public
    */
   ExecutionId: string | undefined;
 
   /**
-   * @public
    * <p>The status of this specific execution.</p>
+   * @public
    */
   ExecutionStatus: ExecutionStatus | undefined;
 }
@@ -820,14 +820,14 @@ export interface ExecutionReference {
  */
 export interface ListExecutionsResponse {
   /**
-   * @public
    * <p>The list of executions.</p>
+   * @public
    */
   Executions?: ExecutionReference[];
 
   /**
-   * @public
    * <p>The token to retrieve the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -837,38 +837,38 @@ export interface ListExecutionsResponse {
  */
 export interface ListExportsRequest {
   /**
-   * @public
    * <p>The maximum number of objects that are returned for the request.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token to retrieve the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>The reference details for a given export.</p>
+ * @public
  */
 export interface ExportReference {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) for this export.</p>
+   * @public
    */
   ExportArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of this specific data export.</p>
+   * @public
    */
   ExportName: string | undefined;
 
   /**
-   * @public
    * <p>The status of this specific data export.</p>
+   * @public
    */
   ExportStatus: ExportStatus | undefined;
 }
@@ -878,14 +878,14 @@ export interface ExportReference {
  */
 export interface ListExportsResponse {
   /**
-   * @public
    * <p>The details of the exports, including name and export status.</p>
+   * @public
    */
   Exports?: ExportReference[];
 
   /**
-   * @public
    * <p>The token to retrieve the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -895,68 +895,68 @@ export interface ListExportsResponse {
  */
 export interface ListTablesRequest {
   /**
-   * @public
    * <p>The token to retrieve the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of objects that are returned for the request.</p>
+   * @public
    */
   MaxResults?: number;
 }
 
 /**
- * @public
  * <p>The properties for the data export table.</p>
+ * @public
  */
 export interface TablePropertyDescription {
   /**
-   * @public
    * <p>The name of the table.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The valid values for the table.</p>
+   * @public
    */
   ValidValues?: string[];
 
   /**
-   * @public
    * <p>The default value for the table.</p>
+   * @public
    */
   DefaultValue?: string;
 
   /**
-   * @public
    * <p>The description for the table.</p>
+   * @public
    */
   Description?: string;
 }
 
 /**
- * @public
  * <p>The details for the data export table.</p>
+ * @public
  */
 export interface Table {
   /**
-   * @public
    * <p>The name of the table.</p>
+   * @public
    */
   TableName?: string;
 
   /**
-   * @public
    * <p>The description for the table.</p>
+   * @public
    */
   Description?: string;
 
   /**
-   * @public
    * <p>The properties for the table.</p>
+   * @public
    */
   TableProperties?: TablePropertyDescription[];
 }
@@ -966,14 +966,14 @@ export interface Table {
  */
 export interface ListTablesResponse {
   /**
-   * @public
    * <p>The list of tables.</p>
+   * @public
    */
   Tables?: Table[];
 
   /**
-   * @public
    * <p>The token to retrieve the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -983,20 +983,20 @@ export interface ListTablesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The unique identifier for the resource.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of objects that are returned for the request.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The token to retrieve the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1006,15 +1006,15 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>An optional list of tags to associate with the specified export. Each tag consists of a
    *       key and a value, and each key must be unique for the resource.</p>
+   * @public
    */
   ResourceTags?: ResourceTag[];
 
   /**
-   * @public
    * <p>The token to retrieve the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1024,15 +1024,15 @@ export interface ListTagsForResourceResponse {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>The unique identifier for the resource.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The tags to associate with the resource. Each tag consists of a key and a value, and each
    *       key must be unique for the resource.</p>
+   * @public
    */
   ResourceTags: ResourceTag[] | undefined;
 }
@@ -1047,14 +1047,14 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>The unique identifier for the resource.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The tag keys that are associated with the resource ARN.</p>
+   * @public
    */
   ResourceTagKeys: string[] | undefined;
 }
@@ -1069,14 +1069,14 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateExportRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) for this export.</p>
+   * @public
    */
   ExportArn: string | undefined;
 
   /**
-   * @public
    * <p>The name and query details for the export.</p>
+   * @public
    */
   Export: Export | undefined;
 }
@@ -1086,8 +1086,8 @@ export interface UpdateExportRequest {
  */
 export interface UpdateExportResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) for this export.</p>
+   * @public
    */
   ExportArn?: string;
 }

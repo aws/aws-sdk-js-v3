@@ -27,7 +27,6 @@ export interface StartPipelineExecutionCommandInput extends StartPipelineExecuti
 export interface StartPipelineExecutionCommandOutput extends StartPipelineExecutionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a pipeline execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface StartPipelineExecutionCommandOutput extends StartPipelineExecut
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class StartPipelineExecutionCommand extends $Command
   .classBuilder<

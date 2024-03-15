@@ -27,7 +27,6 @@ export interface PutScalingPolicyCommandInput extends PutScalingPolicyType {}
 export interface PutScalingPolicyCommandOutput extends PolicyARNType, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates a scaling policy for an Auto Scaling group. Scaling policies are used to
  *             scale an Auto Scaling group based on configurable metrics. If no policies are defined, the
  *             dynamic scaling and predictive scaling features are not used. </p>
@@ -222,6 +221,7 @@ export interface PutScalingPolicyCommandOutput extends PolicyARNType, __Metadata
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To add a scaling policy to an Auto Scaling group
  * ```javascript
  * // This example adds the specified policy to the specified Auto Scaling group.

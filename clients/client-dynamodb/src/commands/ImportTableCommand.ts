@@ -27,7 +27,6 @@ export interface ImportTableCommandInput extends ImportTableInput {}
 export interface ImportTableCommandOutput extends ImportTableOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p> Imports table data from an S3 bucket. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -220,6 +219,7 @@ export interface ImportTableCommandOutput extends ImportTableOutput, __MetadataB
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  */
 export class ImportTableCommand extends $Command
   .classBuilder<

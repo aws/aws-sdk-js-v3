@@ -27,7 +27,6 @@ export interface DeleteApiDestinationCommandInput extends DeleteApiDestinationRe
 export interface DeleteApiDestinationCommandOutput extends DeleteApiDestinationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified API destination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +61,7 @@ export interface DeleteApiDestinationCommandOutput extends DeleteApiDestinationR
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ * @public
  */
 export class DeleteApiDestinationCommand extends $Command
   .classBuilder<

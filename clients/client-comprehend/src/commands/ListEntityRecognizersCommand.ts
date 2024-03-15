@@ -31,7 +31,6 @@ export interface ListEntityRecognizersCommandInput extends ListEntityRecognizers
 export interface ListEntityRecognizersCommandOutput extends ListEntityRecognizersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of the properties of all entity recognizers that you created, including
  *       recognizers currently in training. Allows you to filter the list of recognizers based on
  *       criteria such as status and submission time. This call returns up to 500 entity recognizers in
@@ -165,6 +164,7 @@ export interface ListEntityRecognizersCommandOutput extends ListEntityRecognizer
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class ListEntityRecognizersCommand extends $Command
   .classBuilder<

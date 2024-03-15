@@ -27,7 +27,6 @@ export interface GetLifecyclePolicyCommandInput extends GetLifecyclePolicyInput 
 export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the object lifecycle policy that is assigned to a container.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyOutpu
  * @throws {@link MediaStoreServiceException}
  * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ * @public
  */
 export class GetLifecyclePolicyCommand extends $Command
   .classBuilder<

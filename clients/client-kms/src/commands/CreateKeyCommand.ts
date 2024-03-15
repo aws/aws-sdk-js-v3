@@ -27,7 +27,6 @@ export interface CreateKeyCommandInput extends CreateKeyRequest {}
 export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a unique customer managed <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms-keys">KMS key</a> in your Amazon Web Services account and Region.
  *       You can use a KMS key in cryptographic operations, such as encryption and signing. Some Amazon Web Services
  *       services let you use KMS keys that you create and manage to protect your service
@@ -402,6 +401,7 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To create a KMS key
  * ```javascript
  * // The following example creates a symmetric KMS key for encryption and decryption. No parameters are required for this operation.

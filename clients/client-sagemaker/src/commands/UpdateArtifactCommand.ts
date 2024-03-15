@@ -27,7 +27,6 @@ export interface UpdateArtifactCommandInput extends UpdateArtifactRequest {}
 export interface UpdateArtifactCommandOutput extends UpdateArtifactResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an artifact.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface UpdateArtifactCommandOutput extends UpdateArtifactResponse, __M
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class UpdateArtifactCommand extends $Command
   .classBuilder<

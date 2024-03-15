@@ -27,7 +27,6 @@ export interface DisassociateVehicleFleetCommandInput extends DisassociateVehicl
 export interface DisassociateVehicleFleetCommandOutput extends DisassociateVehicleFleetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes, or disassociates, a vehicle from a fleet. Disassociating a vehicle from a
  *             fleet doesn't delete the vehicle.</p>
  *          <note>
@@ -74,6 +73,7 @@ export interface DisassociateVehicleFleetCommandOutput extends DisassociateVehic
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class DisassociateVehicleFleetCommand extends $Command
   .classBuilder<

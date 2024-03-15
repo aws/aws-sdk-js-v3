@@ -27,7 +27,6 @@ export interface UpdateThemeCommandInput extends UpdateThemeRequest {}
 export interface UpdateThemeCommandOutput extends UpdateThemeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing theme.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -117,6 +116,7 @@ export interface UpdateThemeCommandOutput extends UpdateThemeResponse, __Metadat
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ * @public
  */
 export class UpdateThemeCommand extends $Command
   .classBuilder<

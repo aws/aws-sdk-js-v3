@@ -27,7 +27,6 @@ export interface CancelExportTaskCommandInput extends CancelExportTaskRequest {}
 export interface CancelExportTaskCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels the specified export task.</p>
  *          <p>The task must be in the <code>PENDING</code> or <code>RUNNING</code> state.</p>
  * @example
@@ -66,6 +65,7 @@ export interface CancelExportTaskCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class CancelExportTaskCommand extends $Command
   .classBuilder<

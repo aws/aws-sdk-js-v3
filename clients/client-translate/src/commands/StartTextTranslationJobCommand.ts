@@ -27,7 +27,6 @@ export interface StartTextTranslationJobCommandInput extends StartTextTranslatio
 export interface StartTextTranslationJobCommandOutput extends StartTextTranslationJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an asynchronous batch translation job. Use batch translation jobs to
  *       translate large volumes of text across multiple documents at once.
  *       For batch translation, you can input documents with different source languages (specify <code>auto</code>
@@ -116,6 +115,7 @@ export interface StartTextTranslationJobCommandOutput extends StartTextTranslati
  * @throws {@link TranslateServiceException}
  * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ * @public
  */
 export class StartTextTranslationJobCommand extends $Command
   .classBuilder<

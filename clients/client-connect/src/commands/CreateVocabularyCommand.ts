@@ -27,7 +27,6 @@ export interface CreateVocabularyCommandInput extends CreateVocabularyRequest {}
 export interface CreateVocabularyCommandOutput extends CreateVocabularyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a custom vocabulary associated with your Amazon Connect instance. You can set a
  *    custom vocabulary to be your default vocabulary for a given language. Contact Lens for Amazon Connect uses the default
  *    vocabulary in post-call and real-time contact analysis sessions for that language.</p>
@@ -87,6 +86,7 @@ export interface CreateVocabularyCommandOutput extends CreateVocabularyResponse,
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class CreateVocabularyCommand extends $Command
   .classBuilder<

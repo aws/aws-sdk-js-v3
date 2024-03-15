@@ -27,7 +27,6 @@ export interface GetAgentKnowledgeBaseCommandInput extends GetAgentKnowledgeBase
 export interface GetAgentKnowledgeBaseCommandOutput extends GetAgentKnowledgeBaseResponse, __MetadataBearer {}
 
 /**
- * @public
  * Gets a knowledge base associated to an existing Amazon Bedrock Agent Version
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface GetAgentKnowledgeBaseCommandOutput extends GetAgentKnowledgeBas
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ * @public
  */
 export class GetAgentKnowledgeBaseCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateCustomMetricCommandInput extends UpdateCustomMetricReques
 export interface UpdateCustomMetricCommandOutput extends UpdateCustomMetricResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a
  *       Device Defender detect custom metric. </p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateCustomMetric</a> action.</p>
@@ -75,6 +74,7 @@ export interface UpdateCustomMetricCommandOutput extends UpdateCustomMetricRespo
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class UpdateCustomMetricCommand extends $Command
   .classBuilder<

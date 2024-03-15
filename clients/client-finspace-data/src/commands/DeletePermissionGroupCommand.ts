@@ -27,9 +27,6 @@ export interface DeletePermissionGroupCommandInput extends DeletePermissionGroup
 export interface DeletePermissionGroupCommandOutput extends DeletePermissionGroupResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This method will be discontinued.
- *
  * <p>Deletes a permission group. This action is irreversible.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +77,8 @@ export interface DeletePermissionGroupCommandOutput extends DeletePermissionGrou
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ * @public
+ * @deprecated This method will be discontinued.
  */
 export class DeletePermissionGroupCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListPipelinesCommandInput extends ListPipelinesRequest {}
 export interface ListPipelinesCommandOutput extends ListPipelinesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of pipelines.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface ListPipelinesCommandOutput extends ListPipelinesResponse, __Met
  * @throws {@link IoTAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
+ * @public
  */
 export class ListPipelinesCommand extends $Command
   .classBuilder<

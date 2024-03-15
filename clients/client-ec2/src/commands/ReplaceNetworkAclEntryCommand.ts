@@ -27,7 +27,6 @@ export interface ReplaceNetworkAclEntryCommandInput extends ReplaceNetworkAclEnt
 export interface ReplaceNetworkAclEntryCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Replaces an entry (rule) in a network ACL. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html">Network ACLs</a> in the
  * 				<i>Amazon VPC User Guide</i>.</p>
  * @example
@@ -69,6 +68,7 @@ export interface ReplaceNetworkAclEntryCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To replace a network ACL entry
  * ```javascript
  * // This example replaces an entry for the specified network ACL. The new rule 100 allows ingress traffic from 203.0.113.12/24 on UDP port 53 (DNS) into any associated subnet.

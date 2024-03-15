@@ -27,7 +27,6 @@ export interface ListReviewTemplateAnswersCommandInput extends ListReviewTemplat
 export interface ListReviewTemplateAnswersCommandOutput extends ListReviewTemplateAnswersOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>List the answers of a review template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -123,6 +122,7 @@ export interface ListReviewTemplateAnswersCommandOutput extends ListReviewTempla
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * @public
  */
 export class ListReviewTemplateAnswersCommand extends $Command
   .classBuilder<

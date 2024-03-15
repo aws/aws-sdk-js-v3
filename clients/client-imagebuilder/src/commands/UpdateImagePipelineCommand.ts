@@ -27,7 +27,6 @@ export interface UpdateImagePipelineCommandInput extends UpdateImagePipelineRequ
 export interface UpdateImagePipelineCommandOutput extends UpdateImagePipelineResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an image pipeline. Image pipelines enable you to automate the creation and
  * 			distribution of images. You must specify exactly one recipe for your image, using either
  * 			a <code>containerRecipeArn</code> or an <code>imageRecipeArn</code>.</p>
@@ -135,6 +134,7 @@ export interface UpdateImagePipelineCommandOutput extends UpdateImagePipelineRes
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class UpdateImagePipelineCommand extends $Command
   .classBuilder<

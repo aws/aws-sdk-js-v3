@@ -27,7 +27,6 @@ export interface CreateLocationS3CommandInput extends CreateLocationS3Request {}
 export interface CreateLocationS3CommandOutput extends CreateLocationS3Response, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a transfer <i>location</i> for an Amazon S3 bucket. DataSync can use this location as a source or destination for transferring
  *       data.</p>
  *          <important>
@@ -94,6 +93,7 @@ export interface CreateLocationS3CommandOutput extends CreateLocationS3Response,
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class CreateLocationS3Command extends $Command
   .classBuilder<

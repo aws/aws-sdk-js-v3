@@ -1407,7 +1407,6 @@ export type ConnectClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
 export interface ConnectClientResolvedConfig extends ConnectClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Amazon Connect is a cloud-based contact center solution that you use to set up and
  *    manage a customer contact center and provide reliable customer engagement at any scale.</p>
  *          <p>Amazon Connect provides metrics and real-time reporting that enable you to optimize
@@ -1419,6 +1418,7 @@ export interface ConnectClientResolvedConfig extends ConnectClientResolvedConfig
  *     Guide</i>.</p>
  *          <p>You can connect programmatically to an Amazon Web Services service by using an endpoint. For
  *    a list of Amazon Connect endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect Endpoints</a>.</p>
+ * @public
  */
 export class ConnectClient extends __Client<
   __HttpHandlerOptions,

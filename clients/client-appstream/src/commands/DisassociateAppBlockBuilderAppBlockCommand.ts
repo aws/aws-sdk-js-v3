@@ -35,7 +35,6 @@ export interface DisassociateAppBlockBuilderAppBlockCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates a specified app block builder from a specified app block.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DisassociateAppBlockBuilderAppBlockCommandOutput
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class DisassociateAppBlockBuilderAppBlockCommand extends $Command
   .classBuilder<

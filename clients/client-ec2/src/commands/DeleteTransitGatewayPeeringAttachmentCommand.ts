@@ -36,7 +36,6 @@ export interface DeleteTransitGatewayPeeringAttachmentCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a transit gateway peering attachment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface DeleteTransitGatewayPeeringAttachmentCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DeleteTransitGatewayPeeringAttachmentCommand extends $Command
   .classBuilder<

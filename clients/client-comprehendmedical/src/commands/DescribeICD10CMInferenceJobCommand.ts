@@ -33,7 +33,6 @@ export interface DescribeICD10CMInferenceJobCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the properties associated with an InferICD10CM job. Use this operation to get the
  *       status of an inference job.</p>
  * @example
@@ -99,6 +98,7 @@ export interface DescribeICD10CMInferenceJobCommandOutput
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ * @public
  */
 export class DescribeICD10CMInferenceJobCommand extends $Command
   .classBuilder<

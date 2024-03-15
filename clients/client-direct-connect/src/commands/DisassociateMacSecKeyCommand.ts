@@ -27,7 +27,6 @@ export interface DisassociateMacSecKeyCommandInput extends DisassociateMacSecKey
 export interface DisassociateMacSecKeyCommandOutput extends DisassociateMacSecKeyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the association between a MAC Security (MACsec) security key and an Direct Connect dedicated connection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface DisassociateMacSecKeyCommandOutput extends DisassociateMacSecKe
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class DisassociateMacSecKeyCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface DeleteSubscriberCommandInput extends DeleteSubscriberRequest {}
 export interface DeleteSubscriberCommandOutput extends DeleteSubscriberResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a subscriber.</p>
  *          <important>
  *             <p>Deleting the last subscriber to a notification also deletes the notification.</p>
@@ -88,6 +87,7 @@ export interface DeleteSubscriberCommandOutput extends DeleteSubscriberResponse,
  * @throws {@link BudgetsServiceException}
  * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
+ * @public
  */
 export class DeleteSubscriberCommand extends $Command
   .classBuilder<

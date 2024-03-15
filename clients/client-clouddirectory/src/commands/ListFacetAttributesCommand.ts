@@ -27,7 +27,6 @@ export interface ListFacetAttributesCommandInput extends ListFacetAttributesRequ
 export interface ListFacetAttributesCommandOutput extends ListFacetAttributesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves attributes attached to the facet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -115,6 +114,7 @@ export interface ListFacetAttributesCommandOutput extends ListFacetAttributesRes
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class ListFacetAttributesCommand extends $Command
   .classBuilder<

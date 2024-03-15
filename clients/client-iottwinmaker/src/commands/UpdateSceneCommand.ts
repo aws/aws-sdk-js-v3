@@ -27,7 +27,6 @@ export interface UpdateSceneCommandInput extends UpdateSceneRequest {}
 export interface UpdateSceneCommandOutput extends UpdateSceneResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a scene.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface UpdateSceneCommandOutput extends UpdateSceneResponse, __Metadat
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ * @public
  */
 export class UpdateSceneCommand extends $Command
   .classBuilder<

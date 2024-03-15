@@ -27,7 +27,6 @@ export interface CreateDatasetCommandInput extends CreateDatasetRequest {}
 export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Used to create a dataset. A dataset stores data retrieved from a data store by applying a
  *         <code>queryAction</code> (a SQL query) or a <code>containerAction</code> (executing a
  *       containerized application). This operation creates the skeleton of a dataset. The dataset can
@@ -173,6 +172,7 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * @throws {@link IoTAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
+ * @public
  */
 export class CreateDatasetCommand extends $Command
   .classBuilder<

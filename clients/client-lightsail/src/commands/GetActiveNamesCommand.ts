@@ -27,7 +27,6 @@ export interface GetActiveNamesCommandInput extends GetActiveNamesRequest {}
 export interface GetActiveNamesCommandOutput extends GetActiveNamesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the names of all active (not deleted) resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface GetActiveNamesCommandOutput extends GetActiveNamesResult, __Met
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetActiveNamesCommand extends $Command
   .classBuilder<

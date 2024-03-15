@@ -27,7 +27,6 @@ export interface GetConnectorsCommandInput extends GetConnectorsRequest {}
 export interface GetConnectorsCommandOutput extends GetConnectorsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the connectors registered with the Server Migration Service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface GetConnectorsCommandOutput extends GetConnectorsResponse, __Met
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ * @public
  */
 export class GetConnectorsCommand extends $Command
   .classBuilder<

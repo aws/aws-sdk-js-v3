@@ -248,9 +248,9 @@ export interface KinesisVideoWebRTCStorageClientResolvedConfig
   extends KinesisVideoWebRTCStorageClientResolvedConfigType {}
 
 /**
- * @public
  * <p>
  *     </p>
+ * @public
  */
 export class KinesisVideoWebRTCStorageClient extends __Client<
   __HttpHandlerOptions,

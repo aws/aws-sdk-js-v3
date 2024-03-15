@@ -27,7 +27,6 @@ export interface TagUserCommandInput extends TagUserRequest {}
 export interface TagUserCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds one or more tags to an IAM user. If a tag with the same key name already exists,
  *       then that tag is overwritten with the new value.</p>
  *          <p>A tag consists of a key name and an associated value. By assigning tags to your
@@ -122,6 +121,7 @@ export interface TagUserCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To add a tag key and value to an IAM user
  * ```javascript
  * // The following example shows how to add tags to an existing user.

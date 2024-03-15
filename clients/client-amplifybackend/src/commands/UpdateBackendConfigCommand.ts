@@ -27,7 +27,6 @@ export interface UpdateBackendConfigCommandInput extends UpdateBackendConfigRequ
 export interface UpdateBackendConfigCommandOutput extends UpdateBackendConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the AWS resources required to access the Amplify Admin UI.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface UpdateBackendConfigCommandOutput extends UpdateBackendConfigRes
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ * @public
  */
 export class UpdateBackendConfigCommand extends $Command
   .classBuilder<

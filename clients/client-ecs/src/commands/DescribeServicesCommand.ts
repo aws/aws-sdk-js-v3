@@ -27,7 +27,6 @@ export interface DescribeServicesCommandInput extends DescribeServicesRequest {}
 export interface DescribeServicesCommandOutput extends DescribeServicesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified services running in your cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -349,6 +348,7 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  * @example To describe a service
  * ```javascript
  * // This example provides descriptive information about the service named ``ecs-simple-service``.

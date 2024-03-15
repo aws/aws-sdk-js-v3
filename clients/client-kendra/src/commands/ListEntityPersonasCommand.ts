@@ -27,7 +27,6 @@ export interface ListEntityPersonasCommandInput extends ListEntityPersonasReques
 export interface ListEntityPersonasCommandOutput extends ListEntityPersonasResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists specific permissions of users and groups with access to your
  *             Amazon Kendra experience.</p>
  * @example
@@ -87,6 +86,7 @@ export interface ListEntityPersonasCommandOutput extends ListEntityPersonasRespo
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class ListEntityPersonasCommand extends $Command
   .classBuilder<

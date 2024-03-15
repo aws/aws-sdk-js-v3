@@ -27,7 +27,6 @@ export interface CreateKeyValueStoreCommandInput extends CreateKeyValueStoreRequ
 export interface CreateKeyValueStoreCommandOutput extends CreateKeyValueStoreResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Specifies the Key Value Store resource to add to your account. In your account, the Key Value Store names must be unique. You can also import Key Value Store data in JSON format from an S3 bucket by providing a valid <code>ImportSource</code> that you own.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface CreateKeyValueStoreCommandOutput extends CreateKeyValueStoreRes
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  * @example To create a KeyValueStore
  * ```javascript
  * // Use the following command to create a KeyValueStore.

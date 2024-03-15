@@ -35,7 +35,6 @@ export interface DisassociateClientVpnTargetNetworkCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates a target network from the specified Client VPN endpoint. When you disassociate the
  * 			last target network from a Client VPN, the following happens:</p>
  *          <ul>
@@ -85,6 +84,7 @@ export interface DisassociateClientVpnTargetNetworkCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DisassociateClientVpnTargetNetworkCommand extends $Command
   .classBuilder<

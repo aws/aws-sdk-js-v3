@@ -27,7 +27,6 @@ export interface CreateDeviceDefinitionCommandInput extends CreateDeviceDefiniti
 export interface CreateDeviceDefinitionCommandOutput extends CreateDeviceDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * Creates a device definition. You may provide the initial version of the device definition now or use ''CreateDeviceDefinitionVersion'' at a later time.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface CreateDeviceDefinitionCommandOutput extends CreateDeviceDefinit
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class CreateDeviceDefinitionCommand extends $Command
   .classBuilder<

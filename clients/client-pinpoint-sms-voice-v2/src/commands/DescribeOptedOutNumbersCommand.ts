@@ -31,7 +31,6 @@ export interface DescribeOptedOutNumbersCommandInput extends DescribeOptedOutNum
 export interface DescribeOptedOutNumbersCommandOutput extends DescribeOptedOutNumbersResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified opted out destination numbers or all opted out destination
  *             numbers in an opt-out list.</p>
  *          <p>If you specify opted out numbers, the output includes information for only the
@@ -106,6 +105,7 @@ export interface DescribeOptedOutNumbersCommandOutput extends DescribeOptedOutNu
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class DescribeOptedOutNumbersCommand extends $Command
   .classBuilder<

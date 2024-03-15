@@ -36,7 +36,6 @@ export interface DescribeEffectivePatchesForPatchBaselineCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the current effective patches (the patch and the approval state) for the specified
  *    patch baseline. Applies to patch baselines for Windows only.</p>
  * @example
@@ -123,6 +122,7 @@ export interface DescribeEffectivePatchesForPatchBaselineCommandOutput
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DescribeEffectivePatchesForPatchBaselineCommand extends $Command
   .classBuilder<

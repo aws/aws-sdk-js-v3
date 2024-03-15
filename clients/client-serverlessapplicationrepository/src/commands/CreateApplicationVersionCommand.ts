@@ -31,7 +31,6 @@ export interface CreateApplicationVersionCommandInput extends CreateApplicationV
 export interface CreateApplicationVersionCommandOutput extends CreateApplicationVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an application version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -109,6 +108,7 @@ export interface CreateApplicationVersionCommandOutput extends CreateApplication
  * @throws {@link ServerlessApplicationRepositoryServiceException}
  * <p>Base exception class for all service exceptions from ServerlessApplicationRepository service.</p>
  *
+ * @public
  */
 export class CreateApplicationVersionCommand extends $Command
   .classBuilder<

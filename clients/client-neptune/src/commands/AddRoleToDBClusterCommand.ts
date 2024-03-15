@@ -27,7 +27,6 @@ export interface AddRoleToDBClusterCommandInput extends AddRoleToDBClusterMessag
 export interface AddRoleToDBClusterCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates an Identity and Access Management (IAM) role with an
  *       Neptune DB cluster.</p>
  * @example
@@ -69,6 +68,7 @@ export interface AddRoleToDBClusterCommandOutput extends __MetadataBearer {}
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class AddRoleToDBClusterCommand extends $Command
   .classBuilder<

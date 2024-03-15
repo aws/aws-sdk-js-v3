@@ -28,7 +28,6 @@ export interface UpdateHostedZoneCommentCommandInput extends UpdateHostedZoneCom
 export interface UpdateHostedZoneCommentCommandOutput extends UpdateHostedZoneCommentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the comment for a specified hosted zone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface UpdateHostedZoneCommentCommandOutput extends UpdateHostedZoneCo
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class UpdateHostedZoneCommentCommand extends $Command
   .classBuilder<

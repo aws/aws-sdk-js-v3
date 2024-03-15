@@ -27,7 +27,6 @@ export interface RequestEnvironmentInfoCommandInput extends RequestEnvironmentIn
 export interface RequestEnvironmentInfoCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Initiates a request to compile the specified type of information of the deployed
  *       environment.</p>
  *          <p> Setting the <code>InfoType</code> to <code>tail</code> compiles the last lines from
@@ -70,6 +69,7 @@ export interface RequestEnvironmentInfoCommandOutput extends __MetadataBearer {}
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  * @example To request tailed logs
  * ```javascript
  * // The following operation requests logs from an environment named my-env:

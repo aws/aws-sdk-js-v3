@@ -27,7 +27,6 @@ export interface GetAppliedSchemaVersionCommandInput extends GetAppliedSchemaVer
 export interface GetAppliedSchemaVersionCommandOutput extends GetAppliedSchemaVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns current applied schema version ARN, including the minor version in use.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface GetAppliedSchemaVersionCommandOutput extends GetAppliedSchemaVe
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class GetAppliedSchemaVersionCommand extends $Command
   .classBuilder<

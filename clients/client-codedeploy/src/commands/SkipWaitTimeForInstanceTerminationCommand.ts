@@ -30,9 +30,6 @@ export interface SkipWaitTimeForInstanceTerminationCommandInput extends SkipWait
 export interface SkipWaitTimeForInstanceTerminationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This operation is deprecated, use ContinueDeployment with DeploymentWaitType instead.
- *
  * <p>In a blue/green deployment, overrides any specified wait time and starts terminating
  *             instances immediately after the traffic routing is complete.</p>
  * @example
@@ -77,6 +74,8 @@ export interface SkipWaitTimeForInstanceTerminationCommandOutput extends __Metad
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
+ * @deprecated This operation is deprecated, use ContinueDeployment with DeploymentWaitType instead.
  */
 export class SkipWaitTimeForInstanceTerminationCommand extends $Command
   .classBuilder<

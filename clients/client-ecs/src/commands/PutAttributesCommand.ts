@@ -27,7 +27,6 @@ export interface PutAttributesCommandInput extends PutAttributesRequest {}
 export interface PutAttributesCommandOutput extends PutAttributesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create or update an attribute on an Amazon ECS resource. If the attribute doesn't exist,
  * 			it's created. If the attribute exists, its value is replaced with the specified value.
  * 			To delete an attribute, use <a>DeleteAttributes</a>. For more information,
@@ -90,6 +89,7 @@ export interface PutAttributesCommandOutput extends PutAttributesResponse, __Met
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  */
 export class PutAttributesCommand extends $Command
   .classBuilder<

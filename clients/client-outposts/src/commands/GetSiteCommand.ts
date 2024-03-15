@@ -27,7 +27,6 @@ export interface GetSiteCommandInput extends GetSiteInput {}
 export interface GetSiteCommandOutput extends GetSiteOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the specified Outpost site.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface GetSiteCommandOutput extends GetSiteOutput, __MetadataBearer {}
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ * @public
  */
 export class GetSiteCommand extends $Command
   .classBuilder<

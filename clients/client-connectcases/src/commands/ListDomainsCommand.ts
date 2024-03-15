@@ -27,7 +27,6 @@ export interface ListDomainsCommandInput extends ListDomainsRequest {}
 export interface ListDomainsCommandOutput extends ListDomainsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all cases domains in the Amazon Web Services account. Each list item is a condensed
  *       summary object of the domain.</p>
  * @example
@@ -77,6 +76,7 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ * @public
  */
 export class ListDomainsCommand extends $Command
   .classBuilder<

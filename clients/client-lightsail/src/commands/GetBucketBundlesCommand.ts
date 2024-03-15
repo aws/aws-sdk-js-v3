@@ -27,7 +27,6 @@ export interface GetBucketBundlesCommandInput extends GetBucketBundlesRequest {}
 export interface GetBucketBundlesCommandOutput extends GetBucketBundlesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the bundles that you can apply to a Amazon Lightsail bucket.</p>
  *          <p>The bucket bundle specifies the monthly cost, storage quota, and data transfer quota for a
  *       bucket.</p>
@@ -88,6 +87,7 @@ export interface GetBucketBundlesCommandOutput extends GetBucketBundlesResult, _
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetBucketBundlesCommand extends $Command
   .classBuilder<

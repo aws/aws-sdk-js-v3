@@ -36,7 +36,6 @@ export interface AcceptDirectConnectGatewayAssociationProposalCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Accepts a proposal request to attach a virtual private gateway or transit gateway to a Direct Connect gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface AcceptDirectConnectGatewayAssociationProposalCommandOutput
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class AcceptDirectConnectGatewayAssociationProposalCommand extends $Command
   .classBuilder<

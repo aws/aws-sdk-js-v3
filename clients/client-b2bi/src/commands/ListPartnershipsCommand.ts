@@ -27,7 +27,6 @@ export interface ListPartnershipsCommandInput extends ListPartnershipsRequest {}
 export interface ListPartnershipsCommandOutput extends ListPartnershipsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the partnerships associated with your Amazon Web Services account for your current or specified region. A partnership represents the connection between you and your trading partner. It ties
  *    together a profile and one or more trading capabilities.</p>
  * @example
@@ -86,6 +85,7 @@ export interface ListPartnershipsCommandOutput extends ListPartnershipsResponse,
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
+ * @public
  * @example Sample ListPartnerships call
  * ```javascript
  * //

@@ -32,7 +32,6 @@ export interface FailoverGlobalReplicationGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Used to failover the primary region to a secondary region. The secondary region will
  *             become primary, and all other clusters will become secondary.</p>
  * @example
@@ -102,6 +101,7 @@ export interface FailoverGlobalReplicationGroupCommandOutput
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  */
 export class FailoverGlobalReplicationGroupCommand extends $Command
   .classBuilder<

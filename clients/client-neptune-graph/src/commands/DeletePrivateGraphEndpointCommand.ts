@@ -27,7 +27,6 @@ export interface DeletePrivateGraphEndpointCommandInput extends DeletePrivateGra
 export interface DeletePrivateGraphEndpointCommandOutput extends DeletePrivateGraphEndpointOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a private graph endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface DeletePrivateGraphEndpointCommandOutput extends DeletePrivateGr
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ * @public
  */
 export class DeletePrivateGraphEndpointCommand extends $Command
   .classBuilder<

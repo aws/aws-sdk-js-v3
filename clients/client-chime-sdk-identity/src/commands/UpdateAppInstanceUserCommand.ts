@@ -31,7 +31,6 @@ export interface UpdateAppInstanceUserCommandInput extends UpdateAppInstanceUser
 export interface UpdateAppInstanceUserCommandOutput extends UpdateAppInstanceUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the details of an <code>AppInstanceUser</code>. You can update names and
  *          metadata.</p>
  * @example
@@ -87,6 +86,7 @@ export interface UpdateAppInstanceUserCommandOutput extends UpdateAppInstanceUse
  * @throws {@link ChimeSDKIdentityServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
+ * @public
  */
 export class UpdateAppInstanceUserCommand extends $Command
   .classBuilder<

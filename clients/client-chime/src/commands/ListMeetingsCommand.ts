@@ -27,9 +27,6 @@ export interface ListMeetingsCommandInput extends ListMeetingsRequest {}
 export interface ListMeetingsCommandOutput extends ListMeetingsResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated ListMeetings is not supported in the Amazon Chime SDK Meetings Namespace. Update your application to remove calls to this API.
- *
  * <p>Lists up to 100 active Amazon Chime SDK meetings.</p>
  *          <important>
  *             <p>ListMeetings is not supported in the Amazon Chime SDK Meetings Namespace. Update your application to remove calls to this API.</p>
@@ -99,6 +96,8 @@ export interface ListMeetingsCommandOutput extends ListMeetingsResponse, __Metad
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated ListMeetings is not supported in the Amazon Chime SDK Meetings Namespace. Update your application to remove calls to this API.
  */
 export class ListMeetingsCommand extends $Command
   .classBuilder<

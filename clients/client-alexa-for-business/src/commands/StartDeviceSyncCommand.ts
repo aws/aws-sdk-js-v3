@@ -27,9 +27,6 @@ export interface StartDeviceSyncCommandInput extends StartDeviceSyncRequest {}
 export interface StartDeviceSyncCommandOutput extends StartDeviceSyncResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Resets a device and its account to the known default settings. This clears all
  *          information and settings set by previous users in the following ways:</p>
  *          <ul>
@@ -83,6 +80,8 @@ export interface StartDeviceSyncCommandOutput extends StartDeviceSyncResponse, _
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class StartDeviceSyncCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateCertificateCommandInput extends CreateCertificateRequest 
 export interface CreateCertificateCommandOutput extends CreateCertificateResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an SSL/TLS certificate for an Amazon Lightsail content delivery network (CDN)
  *       distribution and a container service.</p>
  *          <p>After the certificate is valid, use the <code>AttachCertificateToDistribution</code>
@@ -192,6 +191,7 @@ export interface CreateCertificateCommandOutput extends CreateCertificateResult,
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class CreateCertificateCommand extends $Command
   .classBuilder<

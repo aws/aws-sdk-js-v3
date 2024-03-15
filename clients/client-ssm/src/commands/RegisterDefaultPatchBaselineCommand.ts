@@ -32,7 +32,6 @@ export interface RegisterDefaultPatchBaselineCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Defines the default patch baseline for the relevant operating system.</p>
  *          <p>To reset the Amazon Web Services-predefined patch baseline as the default, specify the full patch baseline
  *    Amazon Resource Name (ARN) as the baseline ID value. For example, for CentOS, specify
@@ -76,6 +75,7 @@ export interface RegisterDefaultPatchBaselineCommandOutput
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class RegisterDefaultPatchBaselineCommand extends $Command
   .classBuilder<

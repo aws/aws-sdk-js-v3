@@ -27,7 +27,6 @@ export interface UpdateDataIntegrationCommandInput extends UpdateDataIntegration
 export interface UpdateDataIntegrationCommandOutput extends UpdateDataIntegrationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the description of a DataIntegration.</p>
  *          <note>
  *             <p>You cannot create a DataIntegration association for a DataIntegration that has been previously associated.
@@ -75,6 +74,7 @@ export interface UpdateDataIntegrationCommandOutput extends UpdateDataIntegratio
  * @throws {@link AppIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
+ * @public
  */
 export class UpdateDataIntegrationCommand extends $Command
   .classBuilder<

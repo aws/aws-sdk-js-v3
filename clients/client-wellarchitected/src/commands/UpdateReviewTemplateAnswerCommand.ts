@@ -27,7 +27,6 @@ export interface UpdateReviewTemplateAnswerCommandInput extends UpdateReviewTemp
 export interface UpdateReviewTemplateAnswerCommandOutput extends UpdateReviewTemplateAnswerOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update a review template answer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -139,6 +138,7 @@ export interface UpdateReviewTemplateAnswerCommandOutput extends UpdateReviewTem
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * @public
  */
 export class UpdateReviewTemplateAnswerCommand extends $Command
   .classBuilder<

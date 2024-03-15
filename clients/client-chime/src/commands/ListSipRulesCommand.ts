@@ -27,9 +27,6 @@ export interface ListSipRulesCommandInput extends ListSipRulesRequest {}
 export interface ListSipRulesCommandOutput extends ListSipRulesResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by ListSipRules in the Amazon Chime SDK Voice Namespace
- *
  * <p>Lists the SIP rules under the administrator's AWS account.</p>
  *          <important>
  *             <p>
@@ -102,6 +99,8 @@ export interface ListSipRulesCommandOutput extends ListSipRulesResponse, __Metad
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by ListSipRules in the Amazon Chime SDK Voice Namespace
  */
 export class ListSipRulesCommand extends $Command
   .classBuilder<

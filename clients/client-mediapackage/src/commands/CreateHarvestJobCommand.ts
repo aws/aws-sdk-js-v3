@@ -27,7 +27,6 @@ export interface CreateHarvestJobCommandInput extends CreateHarvestJobRequest {}
 export interface CreateHarvestJobCommandOutput extends CreateHarvestJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * Creates a new HarvestJob record.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface CreateHarvestJobCommandOutput extends CreateHarvestJobResponse,
  * @throws {@link MediaPackageServiceException}
  * <p>Base exception class for all service exceptions from MediaPackage service.</p>
  *
+ * @public
  */
 export class CreateHarvestJobCommand extends $Command
   .classBuilder<

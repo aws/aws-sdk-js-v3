@@ -27,7 +27,6 @@ export interface DeleteGlobalClusterCommandInput extends DeleteGlobalClusterMess
 export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a global database. The primary and all secondary clusters must
  *       already be detached or deleted first.</p>
  * @example
@@ -80,6 +79,7 @@ export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterRes
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class DeleteGlobalClusterCommand extends $Command
   .classBuilder<

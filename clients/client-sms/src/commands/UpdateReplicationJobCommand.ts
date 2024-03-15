@@ -27,7 +27,6 @@ export interface UpdateReplicationJobCommandInput extends UpdateReplicationJobRe
 export interface UpdateReplicationJobCommandOutput extends UpdateReplicationJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified settings for the specified replication job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface UpdateReplicationJobCommandOutput extends UpdateReplicationJobR
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ * @public
  */
 export class UpdateReplicationJobCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface DeleteAccessPolicyCommandInput extends DeleteAccessPolicyReques
 export interface DeleteAccessPolicyCommandOutput extends DeleteAccessPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an OpenSearch Serverless access policy. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html">Data
  *                 access control for Amazon OpenSearch Serverless</a>.</p>
  * @example
@@ -75,6 +74,7 @@ export interface DeleteAccessPolicyCommandOutput extends DeleteAccessPolicyRespo
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ * @public
  */
 export class DeleteAccessPolicyCommand extends $Command
   .classBuilder<

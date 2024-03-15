@@ -27,7 +27,6 @@ export interface StartServerCommandInput extends StartServerRequest {}
 export interface StartServerCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes the state of a file transfer protocol-enabled server from <code>OFFLINE</code> to
  *         <code>ONLINE</code>. It has no impact on a server that is already <code>ONLINE</code>. An
  *         <code>ONLINE</code> server can accept and process file transfer jobs.</p>
@@ -75,6 +74,7 @@ export interface StartServerCommandOutput extends __MetadataBearer {}
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class StartServerCommand extends $Command
   .classBuilder<

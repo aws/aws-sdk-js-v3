@@ -27,7 +27,6 @@ export interface CreateTapesCommandInput extends CreateTapesInput {}
 export interface CreateTapesCommandOutput extends CreateTapesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates one or more virtual tapes. You write data to the virtual tapes and then archive
  *          the tapes. This operation is only supported in the tape gateway type.</p>
  *          <note>
@@ -84,6 +83,7 @@ export interface CreateTapesCommandOutput extends CreateTapesOutput, __MetadataB
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To create a virtual tape
  * ```javascript
  * // Creates one or more virtual tapes.

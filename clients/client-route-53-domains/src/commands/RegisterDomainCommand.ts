@@ -31,7 +31,6 @@ export interface RegisterDomainCommandInput extends RegisterDomainRequest {}
 export interface RegisterDomainCommandOutput extends RegisterDomainResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation registers a domain. For some top-level domains (TLDs), this operation
  * 			requires extra parameters.</p>
  *          <p>When you register a domain, Amazon Route 53 does the following:</p>
@@ -206,6 +205,7 @@ export interface RegisterDomainCommandOutput extends RegisterDomainResponse, __M
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * @public
  */
 export class RegisterDomainCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface SetLoadBalancerPoliciesOfListenerCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Replaces the current set of policies for the specified load balancer port with the specified set of policies.</p>
  *         <p>To enable back-end server authentication, use <a>SetLoadBalancerPoliciesForBackendServer</a>.</p>
  *         <p>For more information about setting policies, see
@@ -84,6 +83,7 @@ export interface SetLoadBalancerPoliciesOfListenerCommandOutput
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * @public
  * @example To replace the policies associated with a listener
  * ```javascript
  * // This example replaces the policies that are currently associated with the specified listener.

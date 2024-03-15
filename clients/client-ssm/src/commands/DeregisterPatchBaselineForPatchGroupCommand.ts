@@ -35,7 +35,6 @@ export interface DeregisterPatchBaselineForPatchGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a patch group from a patch baseline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface DeregisterPatchBaselineForPatchGroupCommandOutput
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DeregisterPatchBaselineForPatchGroupCommand extends $Command
   .classBuilder<

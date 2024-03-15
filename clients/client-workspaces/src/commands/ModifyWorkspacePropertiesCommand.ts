@@ -27,7 +27,6 @@ export interface ModifyWorkspacePropertiesCommandInput extends ModifyWorkspacePr
 export interface ModifyWorkspacePropertiesCommandOutput extends ModifyWorkspacePropertiesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the specified WorkSpace properties. For important information about how to
  *          modify the size of the root and user volumes, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html"> Modify a WorkSpace</a>.
  *       </p>
@@ -96,6 +95,7 @@ export interface ModifyWorkspacePropertiesCommandOutput extends ModifyWorkspaceP
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class ModifyWorkspacePropertiesCommand extends $Command
   .classBuilder<

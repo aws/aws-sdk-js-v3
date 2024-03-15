@@ -27,7 +27,6 @@ export interface StopCompilationJobCommandInput extends StopCompilationJobReques
 export interface StopCompilationJobCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a model compilation job.</p>
  *          <p> To stop a job, Amazon SageMaker sends the algorithm the SIGTERM signal. This gracefully shuts the
  *             job down. If the job hasn't stopped, it sends the SIGKILL signal.</p>
@@ -62,6 +61,7 @@ export interface StopCompilationJobCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class StopCompilationJobCommand extends $Command
   .classBuilder<

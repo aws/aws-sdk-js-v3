@@ -27,7 +27,6 @@ export interface CreateWebACLCommandInput extends CreateWebACLRequest {}
 export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a <a>WebACL</a> per the specifications provided.</p>
  *          <p> A web ACL defines a collection of rules to use to inspect and control web requests. Each rule has a statement that defines what to look for in web requests and an action that WAF applies to requests that match the statement. In the web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a web ACL with one or more Amazon Web Services resources to protect. The resources can be an Amazon CloudFront distribution, an Amazon API Gateway REST API, an Application Load Balancer, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
  * @example
@@ -1129,6 +1128,7 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class CreateWebACLCommand extends $Command
   .classBuilder<

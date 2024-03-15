@@ -27,7 +27,6 @@ export interface DescribeParameterGroupsCommandInput extends DescribeParameterGr
 export interface DescribeParameterGroupsCommandOutput extends DescribeParameterGroupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of parameter group descriptions. If a parameter group name is
  *             specified, the list will contain only the descriptions for that group.</p>
  * @example
@@ -78,6 +77,7 @@ export interface DescribeParameterGroupsCommandOutput extends DescribeParameterG
  * @throws {@link DAXServiceException}
  * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ * @public
  */
 export class DescribeParameterGroupsCommand extends $Command
   .classBuilder<

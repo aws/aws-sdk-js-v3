@@ -31,7 +31,6 @@ export interface DeleteReplicationTaskCommandInput extends DeleteReplicationTask
 export interface DeleteReplicationTaskCommandOutput extends DeleteReplicationTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified replication task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface DeleteReplicationTaskCommandOutput extends DeleteReplicationTas
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Delete Replication Task
  * ```javascript
  * // Deletes the specified replication task.

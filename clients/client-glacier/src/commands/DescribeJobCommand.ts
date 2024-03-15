@@ -27,7 +27,6 @@ export interface DescribeJobCommandInput extends DescribeJobInput {}
 export interface DescribeJobCommandOutput extends GlacierJobDescription, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation returns information about a job you previously initiated, including
  *          the job initiation date, the user who initiated the job, the job status code/message and
  *          the Amazon SNS topic to notify after Amazon S3 Glacier (Glacier) completes the job. For more information
@@ -171,6 +170,7 @@ export interface DescribeJobCommandOutput extends GlacierJobDescription, __Metad
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * @public
  * @example To get information about a previously initiated job
  * ```javascript
  * // The example returns information about the previously initiated job specified by the job ID.

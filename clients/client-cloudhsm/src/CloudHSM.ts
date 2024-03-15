@@ -367,7 +367,6 @@ export interface CloudHSM {
 }
 
 /**
- * @public
  * <fullname>AWS CloudHSM Service</fullname>
  *          <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
  *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
@@ -379,6 +378,7 @@ export interface CloudHSM {
  *       <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS CloudHSM User Guide</a>,
  *       and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS CloudHSM API
  *       Reference</a>.</p>
+ * @public
  */
 export class CloudHSM extends CloudHSMClient implements CloudHSM {}
 createAggregatedClient(commands, CloudHSM);

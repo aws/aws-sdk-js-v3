@@ -3694,7 +3694,6 @@ export interface RDS {
 }
 
 /**
- * @public
  * <fullname>Amazon Relational Database Service</fullname>
  *          <p></p>
  *          <p>Amazon Relational Database Service (Amazon RDS) is a web service that makes it easier to set up, operate, and
@@ -3748,6 +3747,7 @@ export interface RDS {
  *         <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Using_the_Query_API.html">Using the Query API</a>.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class RDS extends RDSClient implements RDS {}
 createAggregatedClient(commands, RDS);

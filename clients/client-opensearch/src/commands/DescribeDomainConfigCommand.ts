@@ -27,7 +27,6 @@ export interface DescribeDomainConfigCommandInput extends DescribeDomainConfigRe
 export interface DescribeDomainConfigCommandOutput extends DescribeDomainConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the configuration of an Amazon OpenSearch Service domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -287,6 +286,7 @@ export interface DescribeDomainConfigCommandOutput extends DescribeDomainConfigR
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class DescribeDomainConfigCommand extends $Command
   .classBuilder<

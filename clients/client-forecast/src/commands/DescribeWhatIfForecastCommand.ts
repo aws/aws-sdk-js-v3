@@ -27,7 +27,6 @@ export interface DescribeWhatIfForecastCommandInput extends DescribeWhatIfForeca
 export interface DescribeWhatIfForecastCommandOutput extends DescribeWhatIfForecastResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the what-if forecast created using the <a>CreateWhatIfForecast</a> operation.</p>
  *          <p>In addition to listing the properties provided in the <code>CreateWhatIfForecast</code> request, this operation lists the following properties:</p>
  *          <ul>
@@ -128,6 +127,7 @@ export interface DescribeWhatIfForecastCommandOutput extends DescribeWhatIfForec
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class DescribeWhatIfForecastCommand extends $Command
   .classBuilder<

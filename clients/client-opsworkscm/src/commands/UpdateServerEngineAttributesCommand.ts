@@ -36,7 +36,6 @@ export interface UpdateServerEngineAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Updates engine-specific attributes on a specified server. The server
  *       enters the <code>MODIFYING</code> state when this operation
@@ -125,6 +124,7 @@ export interface UpdateServerEngineAttributesCommandOutput
  * @throws {@link OpsWorksCMServiceException}
  * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
+ * @public
  */
 export class UpdateServerEngineAttributesCommand extends $Command
   .classBuilder<

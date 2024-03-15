@@ -27,7 +27,6 @@ export interface DisableDomainTransferLockCommandInput extends DisableDomainTran
 export interface DisableDomainTransferLockCommandOutput extends DisableDomainTransferLockResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation removes the transfer lock on the domain (specifically the
  * 				<code>clientTransferProhibited</code> status) to allow domain transfers. We
  * 			recommend you refrain from performing this action unless you intend to transfer the
@@ -79,6 +78,7 @@ export interface DisableDomainTransferLockCommandOutput extends DisableDomainTra
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * @public
  */
 export class DisableDomainTransferLockCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteUserCommandInput extends DeleteUserMessage {}
 export interface DeleteUserCommandOutput extends User, __MetadataBearer {}
 
 /**
- * @public
  * <p>For Redis engine version 6.0 onwards: Deletes a user. The user will be removed from
  *             all user groups and in turn removed from all replication groups. For more information,
  *             see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>. </p>
@@ -85,6 +84,7 @@ export interface DeleteUserCommandOutput extends User, __MetadataBearer {}
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  */
 export class DeleteUserCommand extends $Command
   .classBuilder<

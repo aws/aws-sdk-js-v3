@@ -31,7 +31,6 @@ export interface ResetUserPasswordCommandInput extends ResetUserPasswordRequest 
 export interface ResetUserPasswordCommandOutput extends ResetUserPasswordResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Resets the password for any user in your Managed Microsoft AD or Simple AD
  *       directory.</p>
  *          <p>You can reset the password for any user in your directory with the following
@@ -98,6 +97,7 @@ export interface ResetUserPasswordCommandOutput extends ResetUserPasswordResult,
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class ResetUserPasswordCommand extends $Command
   .classBuilder<

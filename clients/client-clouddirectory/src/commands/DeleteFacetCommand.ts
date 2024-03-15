@@ -27,7 +27,6 @@ export interface DeleteFacetCommandInput extends DeleteFacetRequest {}
 export interface DeleteFacetCommandOutput extends DeleteFacetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a given <a>Facet</a>. All attributes and <a>Rule</a>s
  *       that are associated with the facet will be deleted. Only development schema facets are allowed
  *       deletion.</p>
@@ -85,6 +84,7 @@ export interface DeleteFacetCommandOutput extends DeleteFacetResponse, __Metadat
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class DeleteFacetCommand extends $Command
   .classBuilder<

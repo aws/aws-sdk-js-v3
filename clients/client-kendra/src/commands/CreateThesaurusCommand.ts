@@ -27,7 +27,6 @@ export interface CreateThesaurusCommandInput extends CreateThesaurusRequest {}
 export interface CreateThesaurusCommandOutput extends CreateThesaurusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a thesaurus for an index. The thesaurus
  *       contains a list of synonyms in Solr format.</p>
  *          <p>For an example of adding a thesaurus file to an index, see
@@ -103,6 +102,7 @@ export interface CreateThesaurusCommandOutput extends CreateThesaurusResponse, _
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class CreateThesaurusCommand extends $Command
   .classBuilder<

@@ -35,7 +35,6 @@ export interface DescribePendingAggregationRequestsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all pending aggregation requests.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface DescribePendingAggregationRequestsCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class DescribePendingAggregationRequestsCommand extends $Command
   .classBuilder<

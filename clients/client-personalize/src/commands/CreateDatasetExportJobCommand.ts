@@ -27,7 +27,6 @@ export interface CreateDatasetExportJobCommandInput extends CreateDatasetExportJ
 export interface CreateDatasetExportJobCommandOutput extends CreateDatasetExportJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Creates a job that exports data from your dataset to an Amazon S3 bucket.
  *       To allow Amazon Personalize to export the training data, you must specify an
  *       service-linked IAM role that gives Amazon Personalize <code>PutObject</code>
@@ -106,6 +105,7 @@ export interface CreateDatasetExportJobCommandOutput extends CreateDatasetExport
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class CreateDatasetExportJobCommand extends $Command
   .classBuilder<

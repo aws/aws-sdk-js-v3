@@ -32,9 +32,6 @@ export interface DisassociateSkillGroupFromRoomCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Disassociates a skill group from a specified room. This disables all skills in the
  *          skill group on all devices in the room.</p>
  * @example
@@ -65,6 +62,8 @@ export interface DisassociateSkillGroupFromRoomCommandOutput
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class DisassociateSkillGroupFromRoomCommand extends $Command
   .classBuilder<

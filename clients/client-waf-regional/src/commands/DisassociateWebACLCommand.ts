@@ -27,7 +27,6 @@ export interface DisassociateWebACLCommandInput extends DisassociateWebACLReques
 export interface DisassociateWebACLCommandOutput extends DisassociateWebACLResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic Regional</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -110,6 +109,7 @@ export interface DisassociateWebACLCommandOutput extends DisassociateWebACLRespo
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
+ * @public
  */
 export class DisassociateWebACLCommand extends $Command
   .classBuilder<

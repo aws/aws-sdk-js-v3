@@ -4,8 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { MarketplaceDeploymentServiceException as __BaseException } from "./MarketplaceDeploymentServiceException";
 
 /**
- * @public
  * <p>You do not have sufficient access to perform this action.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -24,15 +24,15 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The unique identifier for the resource associated with the error.</p>
+   * @public
    */
   resourceId: string | undefined;
 
@@ -51,8 +51,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * @public
  * <p>There was an internal service exception.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -72,19 +72,19 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The shape containing the requested deployment parameter name and secretString.</p>
+ * @public
  */
 export interface DeploymentParameterInput {
   /**
-   * @public
    * <p>The desired name of the deployment parameter. This is the identifier on which deployment parameters are keyed for a given buyer and product. If this name matches an existing deployment parameter, this request will update the existing resource.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The text to encrypt and store in the secret.</p>
+   * @public
    */
   secretString: string | undefined;
 }
@@ -94,45 +94,45 @@ export interface DeploymentParameterInput {
  */
 export interface PutDeploymentParameterRequest {
   /**
-   * @public
    * <p>The catalog related to the request. Fixed value: <code>AWS Marketplace</code>
    *          </p>
+   * @public
    */
   catalog: string | undefined;
 
   /**
-   * @public
    * <p>The product for which AWS Marketplace will save secrets for the buyer’s account.</p>
+   * @public
    */
   productId: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of the agreement.</p>
+   * @public
    */
   agreementId: string | undefined;
 
   /**
-   * @public
    * <p>The deployment parameter targeted to the acceptor of an agreement for which to create the AWS Secret Manager resource.</p>
+   * @public
    */
   deploymentParameter: DeploymentParameterInput | undefined;
 
   /**
-   * @public
    * <p>A map of key-value pairs, where each pair represents a tag saved to the resource. Tags will only be applied for create operations, and they'll be ignored if the resource already exists.</p>
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The date when deployment parameters expire and are scheduled for deletion.</p>
+   * @public
    */
   expirationDate?: Date;
 
   /**
-   * @public
    * <p>The idempotency token for deployment parameters. A unique identifier for the new version.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -142,33 +142,33 @@ export interface PutDeploymentParameterRequest {
  */
 export interface PutDeploymentParameterResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) associated with the deployment parameter resource you want to create or update.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of the agreement.</p>
+   * @public
    */
   agreementId: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier of the deployment parameter.</p>
+   * @public
    */
   deploymentParameterId: string | undefined;
 
   /**
-   * @public
    * <p>A map of key-value pairs, where each pair represents a tag saved to the resource. Tags will only be applied for create operations, and they'll be ignored if the resource already exists.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
 
 /**
- * @public
  * <p>The specified resource wasn't found.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -187,8 +187,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The maximum number of requests per account has been exceeded.</p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
@@ -207,8 +207,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Too many requests.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -230,15 +230,15 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>An error occurred during validation.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The field name associated with the error.</p>
+   * @public
    */
   fieldName: string | undefined;
 
@@ -261,8 +261,8 @@ export class ValidationException extends __BaseException {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) associated with the deployment parameter resource you want to list tags on.</p>
+   * @public
    */
   resourceArn: string | undefined;
 }
@@ -272,8 +272,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>A map of key-value pairs, where each pair represents a tag present on the resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -283,14 +283,14 @@ export interface ListTagsForResourceResponse {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) associated with the resource you want to tag.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>A map of key-value pairs, where each pair represents a tag present on the resource.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -305,14 +305,14 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) associated with the resource you want to remove the tag from.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>A list of key names of tags to be removed.</p>
+   * @public
    */
   tagKeys: string[] | undefined;
 }

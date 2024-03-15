@@ -27,7 +27,6 @@ export interface DescribeTextTranslationJobCommandInput extends DescribeTextTran
 export interface DescribeTextTranslationJobCommandOutput extends DescribeTextTranslationJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the properties associated with an asynchronous batch translation job including name,
  *       ID, status, source and target languages, input/output S3 buckets, and so on.</p>
  * @example
@@ -107,6 +106,7 @@ export interface DescribeTextTranslationJobCommandOutput extends DescribeTextTra
  * @throws {@link TranslateServiceException}
  * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ * @public
  */
 export class DescribeTextTranslationJobCommand extends $Command
   .classBuilder<

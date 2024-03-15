@@ -27,7 +27,6 @@ export interface DescribeUsersCommandInput extends DescribeUsersRequest {}
 export interface DescribeUsersCommandOutput extends DescribeUsersResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list that describes one or more specified users in the user pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResult, __Metad
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class DescribeUsersCommand extends $Command
   .classBuilder<

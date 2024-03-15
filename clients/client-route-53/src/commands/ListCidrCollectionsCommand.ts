@@ -27,7 +27,6 @@ export interface ListCidrCollectionsCommandInput extends ListCidrCollectionsRequ
 export interface ListCidrCollectionsCommandOutput extends ListCidrCollectionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a paginated list of CIDR collections in the Amazon Web Services account
  * 			(metadata only).</p>
  * @example
@@ -68,6 +67,7 @@ export interface ListCidrCollectionsCommandOutput extends ListCidrCollectionsRes
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class ListCidrCollectionsCommand extends $Command
   .classBuilder<

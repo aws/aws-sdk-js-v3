@@ -31,7 +31,6 @@ export interface ListPlacementsCommandInput extends ListPlacementsRequest {}
 export interface ListPlacementsCommandOutput extends ListPlacementsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the placement(s) of a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface ListPlacementsCommandOutput extends ListPlacementsResponse, __M
  * @throws {@link IoT1ClickProjectsServiceException}
  * <p>Base exception class for all service exceptions from IoT1ClickProjects service.</p>
  *
+ * @public
  */
 export class ListPlacementsCommand extends $Command
   .classBuilder<

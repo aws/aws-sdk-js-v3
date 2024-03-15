@@ -27,7 +27,6 @@ export interface CreateRuleGroupCommandInput extends CreateRuleGroupRequest {}
 export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a <a>RuleGroup</a> per the specifications provided. </p>
  *          <p> A rule group defines a collection of rules to inspect and control web requests that you can use in a <a>WebACL</a>. When you create a rule group, you define an immutable capacity limit. If you update a rule group, you must stay within the capacity. This allows others to reuse the rule group with confidence in its capacity requirements. </p>
  * @example
@@ -1100,6 +1099,7 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class CreateRuleGroupCommand extends $Command
   .classBuilder<

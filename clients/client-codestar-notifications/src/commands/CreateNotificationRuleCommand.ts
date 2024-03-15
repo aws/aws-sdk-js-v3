@@ -35,7 +35,6 @@ export interface CreateNotificationRuleCommandInput extends CreateNotificationRu
 export interface CreateNotificationRuleCommandOutput extends CreateNotificationRuleResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a notification rule for a resource. The rule specifies the events you want
  *             notifications about and the targets (such as Chatbot topics or Chatbot clients configured for Slack) where you want to receive
  *             them.</p>
@@ -104,6 +103,7 @@ export interface CreateNotificationRuleCommandOutput extends CreateNotificationR
  * @throws {@link CodestarNotificationsServiceException}
  * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
+ * @public
  */
 export class CreateNotificationRuleCommand extends $Command
   .classBuilder<

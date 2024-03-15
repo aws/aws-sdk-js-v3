@@ -33,7 +33,6 @@ export interface SynthesizeSpeechCommandOutput extends Omit<SynthesizeSpeechOutp
 }
 
 /**
- * @public
  * <p>Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes.
  *       SSML input must be valid, well-formed SSML. Some alphabets might not be
  *       available with all the voices (for example, Cyrillic might not be read at
@@ -123,6 +122,7 @@ export interface SynthesizeSpeechCommandOutput extends Omit<SynthesizeSpeechOutp
  * @throws {@link PollyServiceException}
  * <p>Base exception class for all service exceptions from Polly service.</p>
  *
+ * @public
  * @example To synthesize speech
  * ```javascript
  * // Synthesizes plain text or SSML into a file of human-like speech.

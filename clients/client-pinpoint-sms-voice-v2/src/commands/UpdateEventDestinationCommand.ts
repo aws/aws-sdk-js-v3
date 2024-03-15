@@ -31,7 +31,6 @@ export interface UpdateEventDestinationCommandInput extends UpdateEventDestinati
 export interface UpdateEventDestinationCommandOutput extends UpdateEventDestinationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing event destination in a configuration set. You can update the
  *                 IAM role ARN for CloudWatch Logs and Kinesis Data Firehose. You can
  *             also enable or disable the event destination.</p>
@@ -123,6 +122,7 @@ export interface UpdateEventDestinationCommandOutput extends UpdateEventDestinat
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class UpdateEventDestinationCommand extends $Command
   .classBuilder<

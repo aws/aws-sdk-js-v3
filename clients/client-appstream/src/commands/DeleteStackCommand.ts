@@ -27,7 +27,6 @@ export interface DeleteStackCommandInput extends DeleteStackRequest {}
 export interface DeleteStackCommandOutput extends DeleteStackResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified stack. After the stack is deleted, the application streaming environment provided by the stack is no longer available to users. Also, any reservations made for application streaming sessions for the stack are released.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface DeleteStackCommandOutput extends DeleteStackResult, __MetadataB
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class DeleteStackCommand extends $Command
   .classBuilder<

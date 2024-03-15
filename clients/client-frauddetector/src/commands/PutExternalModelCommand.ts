@@ -27,7 +27,6 @@ export interface PutExternalModelCommandInput extends PutExternalModelRequest {}
 export interface PutExternalModelCommandOutput extends PutExternalModelResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates an Amazon SageMaker model endpoint. You can also use this action to update the configuration of the model endpoint, including the IAM role and/or the mapped variables.  </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface PutExternalModelCommandOutput extends PutExternalModelResult, _
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class PutExternalModelCommand extends $Command
   .classBuilder<

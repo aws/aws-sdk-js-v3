@@ -27,7 +27,6 @@ export interface AssociateDhcpOptionsCommandInput extends AssociateDhcpOptionsRe
 export interface AssociateDhcpOptionsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a set of DHCP options (that you've previously created) with the specified VPC, or associates no DHCP options with the VPC.</p>
  *          <p>After you associate the options with the VPC, any existing instances and all new instances that you launch in that VPC use the options. You don't need to restart or relaunch the instances. They automatically pick up the changes within a few hours, depending on how frequently the instance renews its DHCP lease. You can explicitly renew the lease using the operating system on the instance.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP options sets</a>
@@ -58,6 +57,7 @@ export interface AssociateDhcpOptionsCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To associate a DHCP options set with a VPC
  * ```javascript
  * // This example associates the specified DHCP options set with the specified VPC.

@@ -27,7 +27,6 @@ export interface PutApprovalResultCommandInput extends PutApprovalResultInput {}
 export interface PutApprovalResultCommandOutput extends PutApprovalResultOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides the response to a manual approval request to CodePipeline. Valid
  *             responses include Approved and Rejected.</p>
  * @example
@@ -81,6 +80,7 @@ export interface PutApprovalResultCommandOutput extends PutApprovalResultOutput,
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * @public
  */
 export class PutApprovalResultCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GenerateCredentialReportCommandInput {}
 export interface GenerateCredentialReportCommandOutput extends GenerateCredentialReportResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Generates a credential report for the Amazon Web Services account. For more information about the
  *             credential report, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Getting credential reports</a> in
  *             the <i>IAM User Guide</i>.</p>
@@ -64,6 +63,7 @@ export interface GenerateCredentialReportCommandOutput extends GenerateCredentia
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class GenerateCredentialReportCommand extends $Command
   .classBuilder<

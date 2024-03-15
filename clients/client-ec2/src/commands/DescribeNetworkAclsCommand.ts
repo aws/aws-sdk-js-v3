@@ -27,7 +27,6 @@ export interface DescribeNetworkAclsCommandInput extends DescribeNetworkAclsRequ
 export interface DescribeNetworkAclsCommandOutput extends DescribeNetworkAclsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes one or more of your network ACLs.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html">Network ACLs</a> in the
  * 				<i>Amazon VPC User Guide</i>.</p>
@@ -109,6 +108,7 @@ export interface DescribeNetworkAclsCommandOutput extends DescribeNetworkAclsRes
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To describe a network ACL
  * ```javascript
  * // This example describes the specified network ACL.

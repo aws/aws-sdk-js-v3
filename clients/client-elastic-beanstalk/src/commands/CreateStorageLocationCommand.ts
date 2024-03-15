@@ -27,7 +27,6 @@ export interface CreateStorageLocationCommandInput {}
 export interface CreateStorageLocationCommandOutput extends CreateStorageLocationResultMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a bucket in Amazon S3 to store application versions, logs, and other files used
  *       by Elastic Beanstalk environments. The Elastic Beanstalk console and EB CLI call this API the
  *       first time you create an environment in a region. If the storage location already exists,
@@ -67,6 +66,7 @@ export interface CreateStorageLocationCommandOutput extends CreateStorageLocatio
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  * @example To create a new environment for an application
  * ```javascript
  * // The following operation creates a new environment for version v1 of a java application named my-app:

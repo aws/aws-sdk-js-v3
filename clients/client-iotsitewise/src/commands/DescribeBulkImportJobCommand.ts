@@ -27,7 +27,6 @@ export interface DescribeBulkImportJobCommandInput extends DescribeBulkImportJob
 export interface DescribeBulkImportJobCommandOutput extends DescribeBulkImportJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about a bulk import job request. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/DescribeBulkImportJob.html">Describe
  *         a bulk import job (CLI)</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
  * @example
@@ -100,6 +99,7 @@ export interface DescribeBulkImportJobCommandOutput extends DescribeBulkImportJo
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class DescribeBulkImportJobCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface GetEnvironmentTemplateVersionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Get detailed data for a major or minor version of an environment template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface GetEnvironmentTemplateVersionCommandOutput
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class GetEnvironmentTemplateVersionCommand extends $Command
   .classBuilder<

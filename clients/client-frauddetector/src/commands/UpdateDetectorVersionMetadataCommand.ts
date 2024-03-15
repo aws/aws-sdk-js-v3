@@ -32,7 +32,6 @@ export interface UpdateDetectorVersionMetadataCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the detector version's description. You can update the metadata for any detector version (<code>DRAFT, ACTIVE,</code> or
  *                 <code>INACTIVE</code>). </p>
  * @example
@@ -76,6 +75,7 @@ export interface UpdateDetectorVersionMetadataCommandOutput
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class UpdateDetectorVersionMetadataCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteSessionCommandInput extends DeleteSessionRequest {}
 export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes session information for a specified bot, alias, and user ID. </p>
  *          <p>You can use this operation to restart a conversation with a bot.
  *          When you remove a session, the entire history of the session is removed
@@ -92,6 +91,7 @@ export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __Met
  * @throws {@link LexRuntimeV2ServiceException}
  * <p>Base exception class for all service exceptions from LexRuntimeV2 service.</p>
  *
+ * @public
  */
 export class DeleteSessionCommand extends $Command
   .classBuilder<

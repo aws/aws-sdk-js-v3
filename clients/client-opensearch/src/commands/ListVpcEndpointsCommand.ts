@@ -27,7 +27,6 @@ export interface ListVpcEndpointsCommandInput extends ListVpcEndpointsRequest {}
 export interface ListVpcEndpointsCommandOutput extends ListVpcEndpointsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves all Amazon OpenSearch Service-managed VPC endpoints in the current Amazon Web Services account and Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface ListVpcEndpointsCommandOutput extends ListVpcEndpointsResponse,
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class ListVpcEndpointsCommand extends $Command
   .classBuilder<

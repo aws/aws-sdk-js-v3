@@ -27,7 +27,6 @@ export interface DescribeTableCommandInput extends DescribeTableInput {}
 export interface DescribeTableCommandOutput extends DescribeTableOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the table, including the current status of the table, when
  *             it was created, the primary key schema, and any indexes on the table.</p>
  *          <important>
@@ -212,6 +211,7 @@ export interface DescribeTableCommandOutput extends DescribeTableOutput, __Metad
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  * @example To describe a table
  * ```javascript
  * // This example describes the Music table.

@@ -27,7 +27,6 @@ export interface GetDiskSnapshotsCommandInput extends GetDiskSnapshotsRequest {}
 export interface GetDiskSnapshotsCommandOutput extends GetDiskSnapshotsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about all block storage disk snapshots in your AWS account and
  *       region.</p>
  * @example
@@ -113,6 +112,7 @@ export interface GetDiskSnapshotsCommandOutput extends GetDiskSnapshotsResult, _
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetDiskSnapshotsCommand extends $Command
   .classBuilder<

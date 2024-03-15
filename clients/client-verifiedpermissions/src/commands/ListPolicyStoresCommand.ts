@@ -35,7 +35,6 @@ export interface ListPolicyStoresCommandInput extends ListPolicyStoresInput {}
 export interface ListPolicyStoresCommandOutput extends ListPolicyStoresOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a paginated list of all policy stores in the calling Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -166,6 +165,7 @@ export interface ListPolicyStoresCommandOutput extends ListPolicyStoresOutput, _
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ * @public
  */
 export class ListPolicyStoresCommand extends $Command
   .classBuilder<

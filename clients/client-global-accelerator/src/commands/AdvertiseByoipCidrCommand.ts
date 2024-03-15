@@ -31,7 +31,6 @@ export interface AdvertiseByoipCidrCommandInput extends AdvertiseByoipCidrReques
 export interface AdvertiseByoipCidrCommandOutput extends AdvertiseByoipCidrResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Advertises an IPv4 address range that is provisioned for use with your Amazon Web Services resources
  * 			through bring your own IP addresses (BYOIP). It can take a few minutes before traffic to
  * 			the specified addresses starts routing to Amazon Web Services because of propagation delays. </p>
@@ -90,6 +89,7 @@ export interface AdvertiseByoipCidrCommandOutput extends AdvertiseByoipCidrRespo
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class AdvertiseByoipCidrCommand extends $Command
   .classBuilder<

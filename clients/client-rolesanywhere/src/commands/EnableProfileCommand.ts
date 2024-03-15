@@ -27,7 +27,6 @@ export interface EnableProfileCommandInput extends ScalarProfileRequest {}
 export interface EnableProfileCommandOutput extends ProfileDetailResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables temporary credential requests for a profile. </p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -82,6 +81,7 @@ export interface EnableProfileCommandOutput extends ProfileDetailResponse, __Met
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ * @public
  */
 export class EnableProfileCommand extends $Command
   .classBuilder<

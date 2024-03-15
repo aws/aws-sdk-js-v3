@@ -31,7 +31,6 @@ export interface UpdateViewMetadataCommandInput extends UpdateViewMetadataReques
 export interface UpdateViewMetadataCommandOutput extends UpdateViewMetadataResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the view metadata. Note that either <code>Name</code> or <code>Description</code>
  *    must be provided.</p>
  * @example
@@ -85,6 +84,7 @@ export interface UpdateViewMetadataCommandOutput extends UpdateViewMetadataRespo
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UpdateViewMetadataCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetIdMappingWorkflowCommandInput extends GetIdMappingWorkflowIn
 export interface GetIdMappingWorkflowCommandOutput extends GetIdMappingWorkflowOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the <code>IdMappingWorkflow</code> with a given name, if it exists.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -109,6 +108,7 @@ export interface GetIdMappingWorkflowCommandOutput extends GetIdMappingWorkflowO
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ * @public
  */
 export class GetIdMappingWorkflowCommand extends $Command
   .classBuilder<

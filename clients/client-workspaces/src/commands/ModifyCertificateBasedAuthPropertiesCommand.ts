@@ -35,7 +35,6 @@ export interface ModifyCertificateBasedAuthPropertiesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the properties of the certificate-based authentication you want
  *          to use with your WorkSpaces.</p>
  * @example
@@ -81,6 +80,7 @@ export interface ModifyCertificateBasedAuthPropertiesCommandOutput
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class ModifyCertificateBasedAuthPropertiesCommand extends $Command
   .classBuilder<

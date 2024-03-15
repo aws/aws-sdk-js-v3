@@ -27,7 +27,6 @@ export interface GetCrlCommandInput extends ScalarCrlRequest {}
 export interface GetCrlCommandOutput extends CrlDetailResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a certificate revocation list (CRL).</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -71,6 +70,7 @@ export interface GetCrlCommandOutput extends CrlDetailResponse, __MetadataBearer
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ * @public
  */
 export class GetCrlCommand extends $Command
   .classBuilder<

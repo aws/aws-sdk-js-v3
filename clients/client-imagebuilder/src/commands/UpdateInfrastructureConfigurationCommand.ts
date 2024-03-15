@@ -35,7 +35,6 @@ export interface UpdateInfrastructureConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a new infrastructure configuration. An infrastructure configuration defines
  * 			the environment in which your image will be built and tested.</p>
  * @example
@@ -121,6 +120,7 @@ export interface UpdateInfrastructureConfigurationCommandOutput
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class UpdateInfrastructureConfigurationCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface DescribeRegistrationsCommandInput extends DescribeRegistrations
 export interface DescribeRegistrationsCommandOutput extends DescribeRegistrationsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the specified registrations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -104,6 +103,7 @@ export interface DescribeRegistrationsCommandOutput extends DescribeRegistration
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class DescribeRegistrationsCommand extends $Command
   .classBuilder<

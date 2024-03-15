@@ -27,7 +27,6 @@ export interface DeleteFleetCommandInput extends DeleteFleetRequest {}
 export interface DeleteFleetCommandOutput extends DeleteFleetResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +61,7 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResult, __MetadataB
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class DeleteFleetCommand extends $Command
   .classBuilder<

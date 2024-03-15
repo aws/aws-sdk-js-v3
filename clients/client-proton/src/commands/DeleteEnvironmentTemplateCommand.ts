@@ -31,7 +31,6 @@ export interface DeleteEnvironmentTemplateCommandInput extends DeleteEnvironment
 export interface DeleteEnvironmentTemplateCommandOutput extends DeleteEnvironmentTemplateOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>If no other major or minor versions of an environment template exist, delete the environment template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface DeleteEnvironmentTemplateCommandOutput extends DeleteEnvironmen
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class DeleteEnvironmentTemplateCommand extends $Command
   .classBuilder<

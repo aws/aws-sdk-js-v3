@@ -27,7 +27,6 @@ export interface AssociateApplicationFleetCommandInput extends AssociateApplicat
 export interface AssociateApplicationFleetCommandOutput extends AssociateApplicationFleetResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates the specified application with the specified fleet. This is only supported for Elastic fleets.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface AssociateApplicationFleetCommandOutput extends AssociateApplica
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class AssociateApplicationFleetCommand extends $Command
   .classBuilder<

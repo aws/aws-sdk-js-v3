@@ -27,7 +27,6 @@ export interface DescribeAdjustmentTypesCommandInput {}
 export interface DescribeAdjustmentTypesCommandOutput extends DescribeAdjustmentTypesAnswer, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the available adjustment types for step scaling and simple scaling
  *             policies.</p>
  *          <p>The following adjustment types are supported:</p>
@@ -80,6 +79,7 @@ export interface DescribeAdjustmentTypesCommandOutput extends DescribeAdjustment
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To describe the Amazon EC2 Auto Scaling adjustment types
  * ```javascript
  * // This example describes the available adjustment types.

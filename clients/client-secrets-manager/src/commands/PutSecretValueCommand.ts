@@ -31,7 +31,6 @@ export interface PutSecretValueCommandInput extends PutSecretValueRequest {}
 export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new version with a new encrypted secret value and attaches it to the secret. The
  *       version can contain a new <code>SecretString</code> value or a new <code>SecretBinary</code> value. </p>
  *          <p>We recommend you avoid calling <code>PutSecretValue</code> at a sustained rate of more than
@@ -138,6 +137,7 @@ export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __M
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
+ * @public
  * @example To store a secret value in a new version of a secret
  * ```javascript
  * // The following example shows how to create a new version of the secret. Alternatively, you can use the update-secret command.

@@ -27,7 +27,6 @@ export interface SetIdentityDkimEnabledCommandInput extends SetIdentityDkimEnabl
 export interface SetIdentityDkimEnabledCommandOutput extends SetIdentityDkimEnabledResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables or disables Easy DKIM signing of email sent from an identity. If Easy DKIM
  *             signing is enabled for a domain, then Amazon SES uses DKIM to sign all email that it sends
  *             from addresses on that domain. If Easy DKIM signing is enabled for an email address,
@@ -67,6 +66,7 @@ export interface SetIdentityDkimEnabledCommandOutput extends SetIdentityDkimEnab
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example SetIdentityDkimEnabled
  * ```javascript
  * // The following example configures Amazon SES to Easy DKIM-sign the email sent from an identity:

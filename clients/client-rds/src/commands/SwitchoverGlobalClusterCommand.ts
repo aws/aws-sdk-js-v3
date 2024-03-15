@@ -27,7 +27,6 @@ export interface SwitchoverGlobalClusterCommandInput extends SwitchoverGlobalClu
 export interface SwitchoverGlobalClusterCommandOutput extends SwitchoverGlobalClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Switches over the specified secondary DB cluster to be the new primary DB cluster in the global database cluster.
  *        Switchover operations were previously called "managed planned failovers."</p>
  *          <p>Aurora promotes the specified secondary cluster to assume full read/write capabilities and demotes the current primary cluster
@@ -106,6 +105,7 @@ export interface SwitchoverGlobalClusterCommandOutput extends SwitchoverGlobalCl
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  */
 export class SwitchoverGlobalClusterCommand extends $Command
   .classBuilder<

@@ -35,7 +35,6 @@ export interface GetDataLakeOrganizationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the configuration that will be automatically set up for accounts added to the
  *          organization after the organization has onboarded to Amazon Security Lake. This API does not take
  *          input parameters.</p>
@@ -98,6 +97,7 @@ export interface GetDataLakeOrganizationConfigurationCommandOutput
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ * @public
  */
 export class GetDataLakeOrganizationConfigurationCommand extends $Command
   .classBuilder<

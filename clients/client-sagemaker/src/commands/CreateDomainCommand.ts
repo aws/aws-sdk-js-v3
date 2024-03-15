@@ -27,7 +27,6 @@ export interface CreateDomainCommandInput extends CreateDomainRequest {}
 export interface CreateDomainCommandOutput extends CreateDomainResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a <code>Domain</code>. A domain consists of an associated Amazon Elastic File System volume, a list
  *       of authorized users, and a variety of security, application, policy, and Amazon Virtual Private Cloud (VPC)
  *       configurations. Users within a domain can share notebook files and other artifacts with each
@@ -323,6 +322,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateDomainCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeAggregateIdFormatCommandInput extends DescribeAggregate
 export interface DescribeAggregateIdFormatCommandOutput extends DescribeAggregateIdFormatResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the longer ID format settings for all resource types in a specific
  *          Region. This request is useful for performing a quick audit to determine whether a
  *          specific Region is fully opted in for longer IDs (17-character IDs).</p>
@@ -78,6 +77,7 @@ export interface DescribeAggregateIdFormatCommandOutput extends DescribeAggregat
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeAggregateIdFormatCommand extends $Command
   .classBuilder<

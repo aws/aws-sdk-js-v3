@@ -32,7 +32,6 @@ export interface TestFunctionCommandInput extends TestFunctionRequest {}
 export interface TestFunctionCommandOutput extends TestFunctionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Tests a CloudFront function.</p>
  *          <p>To test a function, you provide an <i>event object</i> that represents
  * 			an HTTP request or response that your CloudFront distribution could receive in production.
@@ -116,6 +115,7 @@ export interface TestFunctionCommandOutput extends TestFunctionResult, __Metadat
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class TestFunctionCommand extends $Command
   .classBuilder<

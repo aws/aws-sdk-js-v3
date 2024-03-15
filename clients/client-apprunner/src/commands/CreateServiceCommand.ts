@@ -32,7 +32,6 @@ export interface CreateServiceCommandInput extends CreateServiceRequest {}
 export interface CreateServiceCommandOutput extends CreateServiceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create an App Runner service. After the service is created, the action also automatically starts a deployment.</p>
  *          <p>This is an asynchronous operation. On a successful call, you can use the returned <code>OperationId</code> and the <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_ListOperations.html">ListOperations</a> call to track the operation's progress.</p>
  * @example
@@ -246,6 +245,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ * @public
  */
 export class CreateServiceCommand extends $Command
   .classBuilder<

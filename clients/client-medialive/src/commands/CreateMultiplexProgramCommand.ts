@@ -27,7 +27,6 @@ export interface CreateMultiplexProgramCommandInput extends CreateMultiplexProgr
 export interface CreateMultiplexProgramCommandOutput extends CreateMultiplexProgramResponse, __MetadataBearer {}
 
 /**
- * @public
  * Create a new program in the multiplex.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -145,6 +144,7 @@ export interface CreateMultiplexProgramCommandOutput extends CreateMultiplexProg
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class CreateMultiplexProgramCommand extends $Command
   .classBuilder<

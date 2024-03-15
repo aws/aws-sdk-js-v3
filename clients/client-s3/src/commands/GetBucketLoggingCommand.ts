@@ -27,7 +27,6 @@ export interface GetBucketLoggingCommandInput extends GetBucketLoggingRequest {}
 export interface GetBucketLoggingCommandOutput extends GetBucketLoggingOutput, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -94,6 +93,7 @@ export interface GetBucketLoggingCommandOutput extends GetBucketLoggingOutput, _
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  */
 export class GetBucketLoggingCommand extends $Command
   .classBuilder<

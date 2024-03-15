@@ -27,7 +27,6 @@ export interface StopTextTranslationJobCommandInput extends StopTextTranslationJ
 export interface StopTextTranslationJobCommandOutput extends StopTextTranslationJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops an asynchronous batch translation job that is in progress.</p>
  *          <p>If the job's state is <code>IN_PROGRESS</code>, the job will be marked for termination and
  *       put into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped,
@@ -74,6 +73,7 @@ export interface StopTextTranslationJobCommandOutput extends StopTextTranslation
  * @throws {@link TranslateServiceException}
  * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ * @public
  */
 export class StopTextTranslationJobCommand extends $Command
   .classBuilder<

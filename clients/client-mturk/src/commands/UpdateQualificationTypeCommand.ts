@@ -27,7 +27,6 @@ export interface UpdateQualificationTypeCommandInput extends UpdateQualification
 export interface UpdateQualificationTypeCommandOutput extends UpdateQualificationTypeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The
  *             <code>UpdateQualificationType</code>
@@ -115,6 +114,7 @@ export interface UpdateQualificationTypeCommandOutput extends UpdateQualificatio
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * @public
  */
 export class UpdateQualificationTypeCommand extends $Command
   .classBuilder<

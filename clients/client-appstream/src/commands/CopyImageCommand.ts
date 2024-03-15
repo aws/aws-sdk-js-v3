@@ -27,7 +27,6 @@ export interface CopyImageCommandInput extends CopyImageRequest {}
 export interface CopyImageCommandOutput extends CopyImageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Copies the image within the same region or to a new region within the same AWS account. Note that any tags you added to the image will not be copied.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface CopyImageCommandOutput extends CopyImageResponse, __MetadataBea
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class CopyImageCommand extends $Command
   .classBuilder<

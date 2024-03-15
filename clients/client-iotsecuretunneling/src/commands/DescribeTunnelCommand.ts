@@ -31,7 +31,6 @@ export interface DescribeTunnelCommandInput extends DescribeTunnelRequest {}
 export interface DescribeTunnelCommandOutput extends DescribeTunnelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a tunnel identified by the unique tunnel id.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeTunnel</a> action.</p>
  * @example
@@ -93,6 +92,7 @@ export interface DescribeTunnelCommandOutput extends DescribeTunnelResponse, __M
  * @throws {@link IoTSecureTunnelingServiceException}
  * <p>Base exception class for all service exceptions from IoTSecureTunneling service.</p>
  *
+ * @public
  */
 export class DescribeTunnelCommand extends $Command
   .classBuilder<

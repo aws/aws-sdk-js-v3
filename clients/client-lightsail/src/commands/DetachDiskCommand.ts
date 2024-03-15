@@ -27,7 +27,6 @@ export interface DetachDiskCommandInput extends DetachDiskRequest {}
 export interface DetachDiskCommandOutput extends DetachDiskResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Detaches a stopped block storage disk from a Lightsail instance. Make sure to unmount
  *       any file systems on the device within your operating system before stopping the instance and
  *       detaching the disk.</p>
@@ -108,6 +107,7 @@ export interface DetachDiskCommandOutput extends DetachDiskResult, __MetadataBea
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class DetachDiskCommand extends $Command
   .classBuilder<

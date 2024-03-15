@@ -27,7 +27,6 @@ export interface GetLogEventsCommandInput extends GetLogEventsRequest {}
 export interface GetLogEventsCommandOutput extends GetLogEventsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists log events from the specified log stream. You can list all of the log events or
  *       filter using a time range.</p>
  *          <p>By default, this operation returns as many log events as can fit in a response size of 1MB (up to 10,000 log events).
@@ -90,6 +89,7 @@ export interface GetLogEventsCommandOutput extends GetLogEventsResponse, __Metad
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class GetLogEventsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListSimulationJobsCommandInput extends ListSimulationJobsReques
 export interface ListSimulationJobsCommandOutput extends ListSimulationJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of simulation jobs. You can optionally provide filters to retrieve
  *          specific simulation jobs. </p>
  * @example
@@ -93,6 +92,7 @@ export interface ListSimulationJobsCommandOutput extends ListSimulationJobsRespo
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ * @public
  */
 export class ListSimulationJobsCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface BatchGetMembershipDatasourcesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information on the data source package history for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface BatchGetMembershipDatasourcesCommandOutput
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ * @public
  */
 export class BatchGetMembershipDatasourcesCommand extends $Command
   .classBuilder<

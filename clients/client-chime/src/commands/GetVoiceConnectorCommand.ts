@@ -27,9 +27,6 @@ export interface GetVoiceConnectorCommandInput extends GetVoiceConnectorRequest 
 export interface GetVoiceConnectorCommandOutput extends GetVoiceConnectorResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by GetVoiceConnector in the Amazon Chime SDK Voice Namespace
- *
  * <p>Retrieves details for the specified Amazon Chime Voice Connector, such as timestamps,name, outbound host, and encryption requirements.</p>
  *          <important>
  *             <p>
@@ -94,6 +91,8 @@ export interface GetVoiceConnectorCommandOutput extends GetVoiceConnectorRespons
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by GetVoiceConnector in the Amazon Chime SDK Voice Namespace
  */
 export class GetVoiceConnectorCommand extends $Command
   .classBuilder<

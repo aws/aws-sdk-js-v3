@@ -35,7 +35,6 @@ export interface ReplaceIamInstanceProfileAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Replaces an IAM instance profile for the specified running instance. You can use
  *             this action to change the IAM instance profile that's associated with an instance
  *             without having to disassociate the existing IAM instance profile first.</p>
@@ -80,6 +79,7 @@ export interface ReplaceIamInstanceProfileAssociationCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ReplaceIamInstanceProfileAssociationCommand extends $Command
   .classBuilder<

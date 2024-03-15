@@ -27,7 +27,6 @@ export interface DeleteActivationCommandInput extends DeleteActivationRequest {}
 export interface DeleteActivationCommandOutput extends DeleteActivationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an activation. You aren't required to delete an activation. If you delete an
  *    activation, you can no longer use it to register additional managed nodes. Deleting an activation
  *    doesn't de-register managed nodes. You must manually de-register managed nodes.</p>
@@ -69,6 +68,7 @@ export interface DeleteActivationCommandOutput extends DeleteActivationResult, _
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DeleteActivationCommand extends $Command
   .classBuilder<

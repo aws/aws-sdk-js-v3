@@ -27,7 +27,6 @@ export interface ListBackupSelectionsCommandInput extends ListBackupSelectionsIn
 export interface ListBackupSelectionsCommandOutput extends ListBackupSelectionsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an array containing metadata of the resources associated with the target backup
  *          plan.</p>
  * @example
@@ -81,6 +80,7 @@ export interface ListBackupSelectionsCommandOutput extends ListBackupSelectionsO
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class ListBackupSelectionsCommand extends $Command
   .classBuilder<

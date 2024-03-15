@@ -27,7 +27,6 @@ export interface CreateFrameworkCommandInput extends CreateFrameworkInput {}
 export interface CreateFrameworkCommandOutput extends CreateFrameworkOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a framework with one or more controls. A framework is a collection of controls
  *          that you can use to evaluate your backup practices. By using pre-built customizable
  *          controls to define your policies, you can evaluate whether your backup practices comply
@@ -103,6 +102,7 @@ export interface CreateFrameworkCommandOutput extends CreateFrameworkOutput, __M
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class CreateFrameworkCommand extends $Command
   .classBuilder<

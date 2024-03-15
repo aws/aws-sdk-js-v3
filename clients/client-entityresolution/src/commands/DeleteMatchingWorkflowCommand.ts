@@ -27,7 +27,6 @@ export interface DeleteMatchingWorkflowCommandInput extends DeleteMatchingWorkfl
 export interface DeleteMatchingWorkflowCommandOutput extends DeleteMatchingWorkflowOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the <code>MatchingWorkflow</code> with a given name. This operation will succeed
  *          even if a workflow with the given name does not exist.</p>
  * @example
@@ -76,6 +75,7 @@ export interface DeleteMatchingWorkflowCommandOutput extends DeleteMatchingWorkf
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ * @public
  */
 export class DeleteMatchingWorkflowCommand extends $Command
   .classBuilder<

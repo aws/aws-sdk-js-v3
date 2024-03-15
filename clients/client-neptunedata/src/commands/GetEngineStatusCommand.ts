@@ -27,7 +27,6 @@ export interface GetEngineStatusCommandInput {}
 export interface GetEngineStatusCommandOutput extends GetEngineStatusOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the status of the graph database on the host.</p>
  *          <p>When invoking this operation in a Neptune cluster that has IAM
  *       authentication enabled, the IAM user or role making the request must
@@ -105,6 +104,7 @@ export interface GetEngineStatusCommandOutput extends GetEngineStatusOutput, __M
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * @public
  */
 export class GetEngineStatusCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetAnnotationStoreVersionCommandInput extends GetAnnotationStor
 export interface GetAnnotationStoreVersionCommandOutput extends GetAnnotationStoreVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  * Retrieves the metadata for an annotation store version.
  * </p>
@@ -99,6 +98,7 @@ export interface GetAnnotationStoreVersionCommandOutput extends GetAnnotationSto
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class GetAnnotationStoreVersionCommand extends $Command
   .classBuilder<

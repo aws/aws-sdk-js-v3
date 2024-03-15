@@ -27,7 +27,6 @@ export interface DescribeBillingGroupCommandInput extends DescribeBillingGroupRe
 export interface DescribeBillingGroupCommandOutput extends DescribeBillingGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a billing group.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeBillingGroup</a> action.</p>
  * @example
@@ -77,6 +76,7 @@ export interface DescribeBillingGroupCommandOutput extends DescribeBillingGroupR
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DescribeBillingGroupCommand extends $Command
   .classBuilder<

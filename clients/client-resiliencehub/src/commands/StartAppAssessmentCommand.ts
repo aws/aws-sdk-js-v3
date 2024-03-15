@@ -32,7 +32,6 @@ export interface StartAppAssessmentCommandInput extends StartAppAssessmentReques
 export interface StartAppAssessmentCommandOutput extends StartAppAssessmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new application assessment for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -171,6 +170,7 @@ export interface StartAppAssessmentCommandOutput extends StartAppAssessmentRespo
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class StartAppAssessmentCommand extends $Command
   .classBuilder<

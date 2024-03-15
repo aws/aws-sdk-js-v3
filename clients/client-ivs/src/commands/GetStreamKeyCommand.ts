@@ -27,7 +27,6 @@ export interface GetStreamKeyCommandInput extends GetStreamKeyRequest {}
 export interface GetStreamKeyCommandOutput extends GetStreamKeyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets stream-key information for a specified ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface GetStreamKeyCommandOutput extends GetStreamKeyResponse, __Metad
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ * @public
  */
 export class GetStreamKeyCommand extends $Command
   .classBuilder<

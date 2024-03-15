@@ -27,7 +27,6 @@ export interface EnableCommandInput extends EnableRequest {}
 export interface EnableCommandOutput extends EnableResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables Amazon Inspector scans for one or more Amazon Web Services accounts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface EnableCommandOutput extends EnableResponse, __MetadataBearer {}
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class EnableCommand extends $Command
   .classBuilder<

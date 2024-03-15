@@ -27,7 +27,6 @@ export interface ListQueuesCommandInput extends ListQueuesRequest {}
 export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides information about the queues for the specified Amazon Connect instance.</p>
  *          <p>If you do not specify a <code>QueueTypes</code>
  *    parameter, both standard and agent queues are returned. This might cause an unexpected truncation
@@ -91,6 +90,7 @@ export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataB
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class ListQueuesCommand extends $Command
   .classBuilder<

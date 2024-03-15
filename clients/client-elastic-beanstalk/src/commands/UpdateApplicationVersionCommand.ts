@@ -27,7 +27,6 @@ export interface UpdateApplicationVersionCommandInput extends UpdateApplicationV
 export interface UpdateApplicationVersionCommandOutput extends ApplicationVersionDescriptionMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified application version to have the specified properties.</p>
  *          <note>
  *             <p>If a property (for example, <code>description</code>) is not provided, the value
@@ -79,6 +78,7 @@ export interface UpdateApplicationVersionCommandOutput extends ApplicationVersio
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  * @example To change an application version's description
  * ```javascript
  * // The following operation updates the description of an application version named 22a0-stage-150819_185942:

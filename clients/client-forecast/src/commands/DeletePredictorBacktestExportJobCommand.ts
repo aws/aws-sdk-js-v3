@@ -30,7 +30,6 @@ export interface DeletePredictorBacktestExportJobCommandInput extends DeletePred
 export interface DeletePredictorBacktestExportJobCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a predictor backtest export job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface DeletePredictorBacktestExportJobCommandOutput extends __Metadat
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class DeletePredictorBacktestExportJobCommand extends $Command
   .classBuilder<

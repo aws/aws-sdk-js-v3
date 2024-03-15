@@ -32,7 +32,6 @@ export interface DescribeTransitGatewayAttachmentsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes one or more attachments between resources and transit gateways. By default, all attachments are described.
  *          Alternatively, you can filter the results by attachment ID, attachment state, resource ID, or resource owner.</p>
  * @example
@@ -96,6 +95,7 @@ export interface DescribeTransitGatewayAttachmentsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeTransitGatewayAttachmentsCommand extends $Command
   .classBuilder<

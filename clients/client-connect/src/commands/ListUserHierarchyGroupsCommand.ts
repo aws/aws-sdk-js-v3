@@ -27,7 +27,6 @@ export interface ListUserHierarchyGroupsCommandInput extends ListUserHierarchyGr
 export interface ListUserHierarchyGroupsCommandOutput extends ListUserHierarchyGroupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides summary information about the hierarchy groups for the specified Amazon Connect
  *    instance.</p>
  *          <p>For more information about agent hierarchies, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/agent-hierarchy.html">Set Up Agent Hierarchies</a> in the
@@ -84,6 +83,7 @@ export interface ListUserHierarchyGroupsCommandOutput extends ListUserHierarchyG
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class ListUserHierarchyGroupsCommand extends $Command
   .classBuilder<

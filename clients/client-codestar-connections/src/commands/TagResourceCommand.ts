@@ -31,7 +31,6 @@ export interface TagResourceCommandInput extends TagResourceInput {}
 export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds to or modifies the tags of the given resource. Tags are metadata that can be used
  *       to manage a resource.</p>
  * @example
@@ -70,6 +69,7 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

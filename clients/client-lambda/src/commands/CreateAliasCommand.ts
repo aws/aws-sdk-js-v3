@@ -27,7 +27,6 @@ export interface CreateAliasCommandInput extends CreateAliasRequest {}
 export interface CreateAliasCommandOutput extends AliasConfiguration, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a> for a
  *       Lambda function version. Use aliases to provide clients with a function identifier that you can update to invoke a
  *       different version.</p>
@@ -92,6 +91,7 @@ export interface CreateAliasCommandOutput extends AliasConfiguration, __Metadata
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class CreateAliasCommand extends $Command
   .classBuilder<

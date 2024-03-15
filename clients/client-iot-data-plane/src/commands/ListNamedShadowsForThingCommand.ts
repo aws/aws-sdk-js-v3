@@ -27,7 +27,6 @@ export interface ListNamedShadowsForThingCommandInput extends ListNamedShadowsFo
 export interface ListNamedShadowsForThingCommandOutput extends ListNamedShadowsForThingResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the shadows for the specified thing.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListNamedShadowsForThing</a> action.</p>
  * @example
@@ -83,6 +82,7 @@ export interface ListNamedShadowsForThingCommandOutput extends ListNamedShadowsF
  * @throws {@link IoTDataPlaneServiceException}
  * <p>Base exception class for all service exceptions from IoTDataPlane service.</p>
  *
+ * @public
  */
 export class ListNamedShadowsForThingCommand extends $Command
   .classBuilder<

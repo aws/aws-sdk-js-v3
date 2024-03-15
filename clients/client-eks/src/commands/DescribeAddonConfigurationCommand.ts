@@ -27,7 +27,6 @@ export interface DescribeAddonConfigurationCommandInput extends DescribeAddonCon
 export interface DescribeAddonConfigurationCommandOutput extends DescribeAddonConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns configuration options.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface DescribeAddonConfigurationCommandOutput extends DescribeAddonCo
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class DescribeAddonConfigurationCommand extends $Command
   .classBuilder<

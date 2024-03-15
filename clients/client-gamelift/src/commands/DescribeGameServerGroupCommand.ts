@@ -27,7 +27,6 @@ export interface DescribeGameServerGroupCommandInput extends DescribeGameServerG
 export interface DescribeGameServerGroupCommandOutput extends DescribeGameServerGroupOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
  *          </p>
@@ -105,6 +104,7 @@ export interface DescribeGameServerGroupCommandOutput extends DescribeGameServer
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DescribeGameServerGroupCommand extends $Command
   .classBuilder<

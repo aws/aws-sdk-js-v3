@@ -35,7 +35,6 @@ export interface GetTemporaryGluePartitionCredentialsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is identical to <code>GetTemporaryTableCredentials</code> except that this is used when the target Data Catalog resource is of type Partition.  Lake Formation restricts the permission of the vended credentials with the same scope down policy which restricts access to a single Amazon S3 prefix.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface GetTemporaryGluePartitionCredentialsCommandOutput
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class GetTemporaryGluePartitionCredentialsCommand extends $Command
   .classBuilder<

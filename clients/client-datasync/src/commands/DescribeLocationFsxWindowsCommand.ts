@@ -27,7 +27,6 @@ export interface DescribeLocationFsxWindowsCommandInput extends DescribeLocation
 export interface DescribeLocationFsxWindowsCommandOutput extends DescribeLocationFsxWindowsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides details about how an DataSync transfer location for an Amazon FSx for Windows File Server file system is configured.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface DescribeLocationFsxWindowsCommandOutput extends DescribeLocatio
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class DescribeLocationFsxWindowsCommand extends $Command
   .classBuilder<

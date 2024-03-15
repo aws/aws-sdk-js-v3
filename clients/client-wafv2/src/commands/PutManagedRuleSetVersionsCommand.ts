@@ -27,7 +27,6 @@ export interface PutManagedRuleSetVersionsCommandInput extends PutManagedRuleSet
 export interface PutManagedRuleSetVersionsCommandOutput extends PutManagedRuleSetVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Defines the versions of your managed rule set that you are offering to the customers.
  *          Customers see your offerings as managed rule groups with versioning.</p>
  *          <note>
@@ -115,6 +114,7 @@ export interface PutManagedRuleSetVersionsCommandOutput extends PutManagedRuleSe
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class PutManagedRuleSetVersionsCommand extends $Command
   .classBuilder<

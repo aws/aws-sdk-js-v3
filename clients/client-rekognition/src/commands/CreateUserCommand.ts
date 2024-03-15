@@ -27,7 +27,6 @@ export interface CreateUserCommandInput extends CreateUserRequest {}
 export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new User within a collection specified by <code>CollectionId</code>. Takes
  *         <code>UserId</code> as a parameter, which is a user provided ID which should be unique
  *       within the collection. The provided <code>UserId</code> will alias the system generated UUID
@@ -95,6 +94,7 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example CreateUser
  * ```javascript
  * // Creates a new User within a collection specified by CollectionId.

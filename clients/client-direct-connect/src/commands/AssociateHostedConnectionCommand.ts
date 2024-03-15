@@ -27,7 +27,6 @@ export interface AssociateHostedConnectionCommandInput extends AssociateHostedCo
 export interface AssociateHostedConnectionCommandOutput extends Connection, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a hosted connection and its virtual interfaces with a link aggregation
  *       group (LAG) or interconnect. If the target interconnect or LAG has an existing hosted
  *       connection with a conflicting VLAN number or IP address, the operation fails. This
@@ -102,6 +101,7 @@ export interface AssociateHostedConnectionCommandOutput extends Connection, __Me
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class AssociateHostedConnectionCommand extends $Command
   .classBuilder<

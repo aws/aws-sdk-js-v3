@@ -27,7 +27,6 @@ export interface GetWorkflowRunsCommandInput extends GetWorkflowRunsRequest {}
 export interface GetWorkflowRunsCommandOutput extends GetWorkflowRunsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves metadata for all runs of a given workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -205,6 +204,7 @@ export interface GetWorkflowRunsCommandOutput extends GetWorkflowRunsResponse, _
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetWorkflowRunsCommand extends $Command
   .classBuilder<

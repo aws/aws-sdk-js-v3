@@ -27,7 +27,6 @@ export interface GetCaseEventConfigurationCommandInput extends GetCaseEventConfi
 export interface GetCaseEventConfigurationCommandOutput extends GetCaseEventConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the case event publishing configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface GetCaseEventConfigurationCommandOutput extends GetCaseEventConf
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ * @public
  */
 export class GetCaseEventConfigurationCommand extends $Command
   .classBuilder<

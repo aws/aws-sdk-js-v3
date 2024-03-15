@@ -27,7 +27,6 @@ export interface RemoveTagsFromResourceCommandInput extends RemoveTagsFromResour
 export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResourceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes one or more tags from the specified resource. This operation is supported in
  *          storage gateways of all types.</p>
  * @example
@@ -67,6 +66,7 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To remove tags from a resource
  * ```javascript
  * // Lists the iSCSI stored volumes of a gateway. Removes one or more tags from the specified resource.

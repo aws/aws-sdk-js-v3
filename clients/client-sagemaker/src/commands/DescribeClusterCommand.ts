@@ -27,7 +27,6 @@ export interface DescribeClusterCommandInput extends DescribeClusterRequest {}
 export interface DescribeClusterCommandOutput extends DescribeClusterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information of a SageMaker HyperPod cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeClusterCommand extends $Command
   .classBuilder<

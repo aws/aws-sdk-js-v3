@@ -32,7 +32,6 @@ export interface GetResolverQueryLogConfigPolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a query logging policy. A query logging policy specifies the Resolver query logging
  * 			operations and resources that you want to allow another Amazon Web Services account to be able to use.</p>
  * @example
@@ -76,6 +75,7 @@ export interface GetResolverQueryLogConfigPolicyCommandOutput
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class GetResolverQueryLogConfigPolicyCommand extends $Command
   .classBuilder<

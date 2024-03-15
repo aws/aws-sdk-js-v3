@@ -32,7 +32,6 @@ export interface ListMulticastGroupsByFuotaTaskCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>List all multicast groups associated with a fuota task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface ListMulticastGroupsByFuotaTaskCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class ListMulticastGroupsByFuotaTaskCommand extends $Command
   .classBuilder<

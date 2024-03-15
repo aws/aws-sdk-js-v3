@@ -30,7 +30,6 @@ export interface AddClientIDToOpenIDConnectProviderCommandInput extends AddClien
 export interface AddClientIDToOpenIDConnectProviderCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a new client ID (also known as audience) to the list of client IDs already
  *             registered for the specified IAM OpenID Connect (OIDC) provider resource.</p>
  *          <p>This operation is idempotent; it does not fail or return an error if you add an
@@ -76,6 +75,7 @@ export interface AddClientIDToOpenIDConnectProviderCommandOutput extends __Metad
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To add a client ID (audience) to an Open-ID Connect (OIDC) provider
  * ```javascript
  * // The following add-client-id-to-open-id-connect-provider command adds the client ID my-application-ID to the OIDC provider named server.example.com:

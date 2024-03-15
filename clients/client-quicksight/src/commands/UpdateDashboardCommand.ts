@@ -31,7 +31,6 @@ export interface UpdateDashboardCommandInput extends UpdateDashboardRequest {}
 export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a dashboard in an Amazon Web Services account.</p>
  *          <note>
  *             <p>Updating a Dashboard creates a new dashboard version but does not immediately publish
@@ -4736,6 +4735,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class UpdateDashboardCommand extends $Command
   .classBuilder<

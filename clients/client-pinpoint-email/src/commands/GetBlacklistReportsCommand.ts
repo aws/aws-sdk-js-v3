@@ -27,7 +27,6 @@ export interface GetBlacklistReportsCommandInput extends GetBlacklistReportsRequ
 export interface GetBlacklistReportsCommandOutput extends GetBlacklistReportsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieve a list of the blacklists that your dedicated IP addresses appear on.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface GetBlacklistReportsCommandOutput extends GetBlacklistReportsRes
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * @public
  */
 export class GetBlacklistReportsCommand extends $Command
   .classBuilder<

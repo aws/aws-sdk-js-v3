@@ -32,7 +32,6 @@ export interface GetFolderCommandInput extends GetFolderRequest {}
 export interface GetFolderCommandOutput extends GetFolderResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the metadata of the specified folder.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface GetFolderCommandOutput extends GetFolderResponse, __MetadataBea
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class GetFolderCommand extends $Command
   .classBuilder<

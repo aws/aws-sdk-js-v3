@@ -102,7 +102,6 @@ export interface IoTJobsDataPlane {
 }
 
 /**
- * @public
  * <p>AWS IoT Jobs is a service that allows you to define a set of jobs — remote operations that are sent to
  *          and executed on one or more devices connected to AWS IoT. For example, you can define a job that instructs a
  *          set of devices to download and install application or firmware updates, reboot, rotate certificates, or perform
@@ -114,6 +113,7 @@ export interface IoTJobsDataPlane {
  *          execution of the job by downloading the job document, performing the operations it specifies, and reporting its
  *          progress to AWS IoT. The Jobs service provides commands to track the progress of a job on a specific target and
  *          for all the targets of the job</p>
+ * @public
  */
 export class IoTJobsDataPlane extends IoTJobsDataPlaneClient implements IoTJobsDataPlane {}
 createAggregatedClient(commands, IoTJobsDataPlane);

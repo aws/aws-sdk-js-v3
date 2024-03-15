@@ -27,7 +27,6 @@ export interface DescribeFlowDefinitionCommandInput extends DescribeFlowDefiniti
 export interface DescribeFlowDefinitionCommandOutput extends DescribeFlowDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the specified flow definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface DescribeFlowDefinitionCommandOutput extends DescribeFlowDefinit
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeFlowDefinitionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListForecastExportJobsCommandInput extends ListForecastExportJo
 export interface ListForecastExportJobsCommandOutput extends ListForecastExportJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of forecast export jobs created using the <a>CreateForecastExportJob</a> operation. For each forecast export job, this operation
  *       returns a summary of its properties, including its Amazon Resource Name (ARN). To retrieve the
  *       complete set of properties, use the ARN with the <a>DescribeForecastExportJob</a>
@@ -90,6 +89,7 @@ export interface ListForecastExportJobsCommandOutput extends ListForecastExportJ
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class ListForecastExportJobsCommand extends $Command
   .classBuilder<

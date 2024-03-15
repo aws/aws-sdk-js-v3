@@ -27,7 +27,6 @@ export interface ListTemplatesCommandInput extends ListTemplatesRequest {}
 export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the email templates present in your Amazon SES account in the current
  *             Amazon Web Services Region.</p>
  *          <p>You can execute this operation no more than once per second.</p>
@@ -64,6 +63,7 @@ export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __Met
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  */
 export class ListTemplatesCommand extends $Command
   .classBuilder<

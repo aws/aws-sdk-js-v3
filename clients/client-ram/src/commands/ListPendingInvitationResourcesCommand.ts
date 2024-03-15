@@ -32,7 +32,6 @@ export interface ListPendingInvitationResourcesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the resources in a resource share that is shared with you but for which the invitation is
  *             still <code>PENDING</code>. That means that you haven't accepted or rejected the
  *             invitation and the invitation hasn't expired.</p>
@@ -111,6 +110,7 @@ export interface ListPendingInvitationResourcesCommandOutput
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * @public
  */
 export class ListPendingInvitationResourcesCommand extends $Command
   .classBuilder<

@@ -1044,8 +1044,8 @@ export interface MediaConnect {
 }
 
 /**
- * @public
  * API for AWS Elemental MediaConnect
+ * @public
  */
 export class MediaConnect extends MediaConnectClient implements MediaConnect {}
 createAggregatedClient(commands, MediaConnect);

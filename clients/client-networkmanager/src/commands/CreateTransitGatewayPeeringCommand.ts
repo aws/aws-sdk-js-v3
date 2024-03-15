@@ -32,7 +32,6 @@ export interface CreateTransitGatewayPeeringCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a transit gateway peering connection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -107,6 +106,7 @@ export interface CreateTransitGatewayPeeringCommandOutput
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class CreateTransitGatewayPeeringCommand extends $Command
   .classBuilder<

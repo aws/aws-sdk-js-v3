@@ -27,7 +27,6 @@ export interface CreateSessionCommandInput extends CreateSessionRequest {}
 export interface CreateSessionCommandOutput extends CreateSessionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a session. A session is a contextual container used for generating
  *       recommendations. Amazon Connect creates a new Wisdom session for each contact on which
  *       Wisdom is enabled.</p>
@@ -86,6 +85,7 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ * @public
  */
 export class CreateSessionCommand extends $Command
   .classBuilder<

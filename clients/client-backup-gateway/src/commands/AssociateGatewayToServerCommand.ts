@@ -27,7 +27,6 @@ export interface AssociateGatewayToServerCommandInput extends AssociateGatewayTo
 export interface AssociateGatewayToServerCommandOutput extends AssociateGatewayToServerOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a backup gateway with your server. After you complete the association process,
  *       you can back up and restore your VMs through the gateway.</p>
  * @example
@@ -70,6 +69,7 @@ export interface AssociateGatewayToServerCommandOutput extends AssociateGatewayT
  * @throws {@link BackupGatewayServiceException}
  * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
+ * @public
  */
 export class AssociateGatewayToServerCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface PublishSchemaCommandInput extends PublishSchemaRequest {}
 export interface PublishSchemaCommandOutput extends PublishSchemaResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Publishes a development schema with a major version and a recommended minor version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface PublishSchemaCommandOutput extends PublishSchemaResponse, __Met
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class PublishSchemaCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteRescoreExecutionPlanCommandInput extends DeleteRescoreExe
 export interface DeleteRescoreExecutionPlanCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a rescore execution plan. A rescore execution
  *             plan is an Amazon Kendra Intelligent Ranking resource
  *             used for provisioning the <code>Rescore</code> API.</p>
@@ -85,6 +84,7 @@ export interface DeleteRescoreExecutionPlanCommandOutput extends __MetadataBeare
  * @throws {@link KendraRankingServiceException}
  * <p>Base exception class for all service exceptions from KendraRanking service.</p>
  *
+ * @public
  */
 export class DeleteRescoreExecutionPlanCommand extends $Command
   .classBuilder<

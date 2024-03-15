@@ -32,7 +32,6 @@ export interface DescribeTimeBasedAutoScalingCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes time-based auto scaling configurations for specified instances.</p>
  *          <note>
  *             <p>You must specify at least one of the parameters.</p>
@@ -99,6 +98,7 @@ export interface DescribeTimeBasedAutoScalingCommandOutput
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class DescribeTimeBasedAutoScalingCommand extends $Command
   .classBuilder<

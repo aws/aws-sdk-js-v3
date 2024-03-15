@@ -27,7 +27,6 @@ export interface DeleteLocationCommandInput extends DeleteLocationRequest {}
 export interface DeleteLocationCommandOutput extends DeleteLocationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a transfer location resource from DataSync. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -60,6 +59,7 @@ export interface DeleteLocationCommandOutput extends DeleteLocationResponse, __M
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class DeleteLocationCommand extends $Command
   .classBuilder<

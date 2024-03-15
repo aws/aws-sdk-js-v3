@@ -27,7 +27,6 @@ export interface DeleteBackupCommandInput extends DeleteBackupRequest {}
 export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Deletes a backup. You can delete both manual and automated backups. This operation is asynchronous.
  *     </p>
@@ -72,6 +71,7 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  * @throws {@link OpsWorksCMServiceException}
  * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
+ * @public
  */
 export class DeleteBackupCommand extends $Command
   .classBuilder<

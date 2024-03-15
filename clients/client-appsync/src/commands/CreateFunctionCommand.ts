@@ -27,7 +27,6 @@ export interface CreateFunctionCommandInput extends CreateFunctionRequest {}
 export interface CreateFunctionCommandOutput extends CreateFunctionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a <code>Function</code> object.</p>
  *          <p>A function is a reusable entity. You can use multiple functions to compose the resolver logic.</p>
  * @example
@@ -114,6 +113,7 @@ export interface CreateFunctionCommandOutput extends CreateFunctionResponse, __M
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class CreateFunctionCommand extends $Command
   .classBuilder<

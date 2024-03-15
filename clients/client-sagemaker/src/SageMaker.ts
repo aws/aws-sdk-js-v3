@@ -6830,7 +6830,6 @@ export interface SageMaker {
 }
 
 /**
- * @public
  * <p>Provides APIs for creating and managing SageMaker resources. </p>
  *          <p>Other Resources:</p>
  *          <ul>
@@ -6847,6 +6846,7 @@ export interface SageMaker {
  *                </p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class SageMaker extends SageMakerClient implements SageMaker {}
 createAggregatedClient(commands, SageMaker);

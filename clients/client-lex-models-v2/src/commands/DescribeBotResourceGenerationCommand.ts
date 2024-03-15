@@ -32,7 +32,6 @@ export interface DescribeBotResourceGenerationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a request to generate a bot through natural language description, made through
  *       the <code>StartBotResource</code> API. Use the <code>generatedBotLocaleUrl</code>
  *       to retrieve the Amazon S3 object containing the bot locale configuration. You can
@@ -94,6 +93,7 @@ export interface DescribeBotResourceGenerationCommandOutput
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class DescribeBotResourceGenerationCommand extends $Command
   .classBuilder<

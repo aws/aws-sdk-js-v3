@@ -1017,7 +1017,6 @@ export interface CodeBuild {
 }
 
 /**
- * @public
  * <fullname>CodeBuild</fullname>
  *          <p>CodeBuild is a fully managed build service in the cloud. CodeBuild compiles your source code,
  *             runs unit tests, and produces artifacts that are ready to deploy. CodeBuild eliminates the
@@ -1029,6 +1028,7 @@ export interface CodeBuild {
  *                <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html">CodeBuild User
  *                     Guide</a>.</i>
  *          </p>
+ * @public
  */
 export class CodeBuild extends CodeBuildClient implements CodeBuild {}
 createAggregatedClient(commands, CodeBuild);

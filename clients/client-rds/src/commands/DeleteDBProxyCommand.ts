@@ -27,7 +27,6 @@ export interface DeleteDBProxyCommandInput extends DeleteDBProxyRequest {}
 export interface DeleteDBProxyCommandOutput extends DeleteDBProxyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing DB proxy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface DeleteDBProxyCommandOutput extends DeleteDBProxyResponse, __Met
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  */
 export class DeleteDBProxyCommand extends $Command
   .classBuilder<

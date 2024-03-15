@@ -31,7 +31,6 @@ export interface GetRestoreTestingSelectionCommandInput extends GetRestoreTestin
 export interface GetRestoreTestingSelectionCommandOutput extends GetRestoreTestingSelectionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns RestoreTestingSelection, which displays resources
  *          and elements of the restore testing plan.</p>
  * @example
@@ -95,6 +94,7 @@ export interface GetRestoreTestingSelectionCommandOutput extends GetRestoreTesti
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class GetRestoreTestingSelectionCommand extends $Command
   .classBuilder<

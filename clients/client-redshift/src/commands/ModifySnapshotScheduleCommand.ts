@@ -28,7 +28,6 @@ export interface ModifySnapshotScheduleCommandInput extends ModifySnapshotSchedu
 export interface ModifySnapshotScheduleCommandOutput extends SnapshotSchedule, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies a snapshot schedule. Any schedule associated with a cluster is modified
  *             asynchronously.</p>
  * @example
@@ -89,6 +88,7 @@ export interface ModifySnapshotScheduleCommandOutput extends SnapshotSchedule, _
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class ModifySnapshotScheduleCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetRulesCommandInput extends GetRulesRequest {}
 export interface GetRulesCommandOutput extends GetRulesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get all rules for a detector (paginated) if <code>ruleId</code> and <code>ruleVersion</code> are not specified. Gets all rules for the detector and the <code>ruleId</code> if present (paginated). Gets a specific rule if both the <code>ruleId</code> and the <code>ruleVersion</code> are specified.</p>
  *          <p>This is a paginated API. Providing null maxResults results in retrieving maximum of 100 records per page. If you provide maxResults the value must be between 50 and 100. To get the next page result, a provide a pagination token from GetRulesResult as part of your request. Null pagination token fetches the records from the beginning.</p>
  * @example
@@ -91,6 +90,7 @@ export interface GetRulesCommandOutput extends GetRulesResult, __MetadataBearer 
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class GetRulesCommand extends $Command
   .classBuilder<

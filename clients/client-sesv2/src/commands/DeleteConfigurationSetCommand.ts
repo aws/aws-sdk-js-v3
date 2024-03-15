@@ -27,7 +27,6 @@ export interface DeleteConfigurationSetCommandInput extends DeleteConfigurationS
 export interface DeleteConfigurationSetCommandOutput extends DeleteConfigurationSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete an existing configuration set.</p>
  *          <p>
  *             <i>Configuration sets</i> are groups of rules that you can apply to the
@@ -70,6 +69,7 @@ export interface DeleteConfigurationSetCommandOutput extends DeleteConfiguration
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class DeleteConfigurationSetCommand extends $Command
   .classBuilder<

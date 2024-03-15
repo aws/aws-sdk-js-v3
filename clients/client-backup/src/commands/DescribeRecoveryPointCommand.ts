@@ -27,7 +27,6 @@ export interface DescribeRecoveryPointCommandInput extends DescribeRecoveryPoint
 export interface DescribeRecoveryPointCommandOutput extends DescribeRecoveryPointOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns metadata associated with a recovery point, including ID, status, encryption, and
  *          lifecycle.</p>
  * @example
@@ -106,6 +105,7 @@ export interface DescribeRecoveryPointCommandOutput extends DescribeRecoveryPoin
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class DescribeRecoveryPointCommand extends $Command
   .classBuilder<

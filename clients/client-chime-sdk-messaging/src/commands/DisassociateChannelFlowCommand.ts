@@ -31,7 +31,6 @@ export interface DisassociateChannelFlowCommandInput extends DisassociateChannel
 export interface DisassociateChannelFlowCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates a channel flow from all its channels. Once disassociated, all messages to
  *          that channel stop going through the channel flow processor.</p>
  *          <note>
@@ -91,6 +90,7 @@ export interface DisassociateChannelFlowCommandOutput extends __MetadataBearer {
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class DisassociateChannelFlowCommand extends $Command
   .classBuilder<

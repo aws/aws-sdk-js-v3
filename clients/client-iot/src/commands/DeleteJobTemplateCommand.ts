@@ -27,7 +27,6 @@ export interface DeleteJobTemplateCommandInput extends DeleteJobTemplateRequest 
 export interface DeleteJobTemplateCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified job template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface DeleteJobTemplateCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DeleteJobTemplateCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface UpdateGroupProfileCommandInput extends UpdateGroupProfileInput 
 export interface UpdateGroupProfileCommandOutput extends UpdateGroupProfileOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified group profile in Amazon DataZone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface UpdateGroupProfileCommandOutput extends UpdateGroupProfileOutpu
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class UpdateGroupProfileCommand extends $Command
   .classBuilder<

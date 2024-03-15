@@ -27,7 +27,6 @@ export interface DeleteMonitorCommandInput extends DeleteMonitorInput {}
 export interface DeleteMonitorCommandOutput extends DeleteMonitorOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a monitor in Amazon CloudWatch Internet Monitor. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface DeleteMonitorCommandOutput extends DeleteMonitorOutput, __Metad
  * @throws {@link InternetMonitorServiceException}
  * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
+ * @public
  */
 export class DeleteMonitorCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeMergeConflictsCommandInput extends DescribeMergeConflic
 export interface DescribeMergeConflictsCommandOutput extends DescribeMergeConflictsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about one or more merge conflicts in the attempted merge of two
  *             commit specifiers using the squash or three-way merge strategy. If the merge option for
  *             the attempted merge is specified as FAST_FORWARD_MERGE, an exception is thrown.</p>
@@ -195,6 +194,7 @@ export interface DescribeMergeConflictsCommandOutput extends DescribeMergeConfli
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class DescribeMergeConflictsCommand extends $Command
   .classBuilder<

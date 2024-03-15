@@ -27,7 +27,6 @@ export interface CreateEndpointCommandInput extends CreateEndpointRequest {}
 export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a model-specific endpoint for synchronous inference for a previously trained
  *       custom model
  *       For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
@@ -98,6 +97,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class CreateEndpointCommand extends $Command
   .classBuilder<

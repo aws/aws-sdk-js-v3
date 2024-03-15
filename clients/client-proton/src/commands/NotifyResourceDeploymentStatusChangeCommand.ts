@@ -36,7 +36,6 @@ export interface NotifyResourceDeploymentStatusChangeCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Notify Proton of status changes to a provisioned resource when you use self-managed provisioning.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self">Self-managed provisioning</a> in the <i>Proton User Guide</i>.</p>
  * @example
@@ -94,6 +93,7 @@ export interface NotifyResourceDeploymentStatusChangeCommandOutput
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class NotifyResourceDeploymentStatusChangeCommand extends $Command
   .classBuilder<

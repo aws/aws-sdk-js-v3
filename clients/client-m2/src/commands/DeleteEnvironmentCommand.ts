@@ -27,7 +27,6 @@ export interface DeleteEnvironmentCommandInput extends DeleteEnvironmentRequest 
 export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specific runtime environment. The environment cannot contain deployed
  *          applications. If it does, you must delete those applications before you delete the
  *          environment.</p>
@@ -70,6 +69,7 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentRespons
  * @throws {@link M2ServiceException}
  * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ * @public
  */
 export class DeleteEnvironmentCommand extends $Command
   .classBuilder<

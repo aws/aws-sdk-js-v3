@@ -27,7 +27,6 @@ export interface CreateMonitorCommandInput extends CreateMonitorInput {}
 export interface CreateMonitorCommandOutput extends CreateMonitorOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a monitor between a source subnet and destination IP address. Within a monitor you'll create one or more probes that monitor network traffic between your source Amazon Web Services VPC subnets and your destination IP addresses. Each probe then aggregates and sends metrics to Amazon CloudWatch.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface CreateMonitorCommandOutput extends CreateMonitorOutput, __Metad
  * @throws {@link NetworkMonitorServiceException}
  * <p>Base exception class for all service exceptions from NetworkMonitor service.</p>
  *
+ * @public
  */
 export class CreateMonitorCommand extends $Command
   .classBuilder<

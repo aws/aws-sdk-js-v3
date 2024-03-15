@@ -30,7 +30,6 @@ export interface DisassociateInstanceStorageConfigCommandInput extends Disassoci
 export interface DisassociateInstanceStorageConfigCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Removes the storage type configurations for the specified resource type and association
  *    ID.</p>
@@ -75,6 +74,7 @@ export interface DisassociateInstanceStorageConfigCommandOutput extends __Metada
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DisassociateInstanceStorageConfigCommand extends $Command
   .classBuilder<

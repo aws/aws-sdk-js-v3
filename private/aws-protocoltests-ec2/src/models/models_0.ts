@@ -42,8 +42,8 @@ export interface ComplexNestedErrorData {
 }
 
 /**
- * @public
  * This error is thrown when a request is invalid.
+ * @public
  */
 export class ComplexError extends __BaseException {
   readonly name: "ComplexError" = "ComplexError";
@@ -73,8 +73,8 @@ export interface GreetingWithErrorsOutput {
 }
 
 /**
- * @public
  * This error is thrown when an invalid greeting value is provided.
+ * @public
  */
 export class InvalidGreeting extends __BaseException {
   readonly name: "InvalidGreeting" = "InvalidGreeting";
@@ -237,8 +237,8 @@ export interface XmlListsOutput {
   enumList?: FooEnum[];
   intEnumList?: IntegerEnum[];
   /**
-   * @public
    * A list of lists of strings.
+   * @public
    */
   nestedStringList?: string[][];
 

@@ -27,7 +27,6 @@ export interface GetOpenIdTokenCommandInput extends GetOpenIdTokenInput {}
 export interface GetOpenIdTokenCommandOutput extends GetOpenIdTokenResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets an OpenID token, using a known Cognito ID. This known Cognito ID is returned by
  *             <a>GetId</a>. You can optionally add additional logins for the identity.
  *          Supplying multiple logins creates an implicit link.</p>
@@ -87,6 +86,7 @@ export interface GetOpenIdTokenCommandOutput extends GetOpenIdTokenResponse, __M
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ * @public
  */
 export class GetOpenIdTokenCommand extends $Command
   .classBuilder<

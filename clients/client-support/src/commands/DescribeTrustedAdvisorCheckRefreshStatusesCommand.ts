@@ -36,7 +36,6 @@ export interface DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the refresh status of the Trusted Advisor checks that have the specified check
  *             IDs. You can get the check IDs by calling the <a>DescribeTrustedAdvisorChecks</a> operation.</p>
  *          <p>Some checks are refreshed automatically, and you can't return their refresh statuses
@@ -103,6 +102,7 @@ export interface DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput
  * @throws {@link SupportServiceException}
  * <p>Base exception class for all service exceptions from Support service.</p>
  *
+ * @public
  */
 export class DescribeTrustedAdvisorCheckRefreshStatusesCommand extends $Command
   .classBuilder<

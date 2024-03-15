@@ -27,7 +27,6 @@ export interface ValidateResourcePolicyCommandInput extends ValidateResourcePoli
 export interface ValidateResourcePolicyCommandOutput extends ValidateResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Validates that a resource policy does not grant a wide range of principals access to
  *       your secret. A resource-based policy is optional for secrets.</p>
  *          <p>The API performs three checks when validating the policy:</p>
@@ -113,6 +112,7 @@ export interface ValidateResourcePolicyCommandOutput extends ValidateResourcePol
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
+ * @public
  * @example To validate a resource-based policy to a secret
  * ```javascript
  * // The following example shows how to validate a resource-based policy to a secret.

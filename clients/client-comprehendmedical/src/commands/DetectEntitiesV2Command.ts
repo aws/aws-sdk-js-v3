@@ -31,7 +31,6 @@ export interface DetectEntitiesV2CommandInput extends DetectEntitiesV2Request {}
 export interface DetectEntitiesV2CommandOutput extends DetectEntitiesV2Response, __MetadataBearer {}
 
 /**
- * @public
  * <p>Inspects the clinical text for a variety of medical entities and returns specific
  *       information about them such as entity category, location, and confidence score on that
  *       information. Amazon Comprehend Medical only detects medical entities in English language
@@ -147,6 +146,7 @@ export interface DetectEntitiesV2CommandOutput extends DetectEntitiesV2Response,
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ * @public
  */
 export class DetectEntitiesV2Command extends $Command
   .classBuilder<

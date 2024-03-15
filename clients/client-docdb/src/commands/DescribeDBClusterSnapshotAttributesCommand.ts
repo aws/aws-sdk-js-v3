@@ -35,7 +35,6 @@ export interface DescribeDBClusterSnapshotAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of cluster snapshot attribute names and values for a manual DB
  *             cluster snapshot.</p>
  *          <p>When you share snapshots with other Amazon Web Services accounts,
@@ -80,6 +79,7 @@ export interface DescribeDBClusterSnapshotAttributesCommandOutput
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class DescribeDBClusterSnapshotAttributesCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface DescribeAgreementCommandInput extends DescribeAgreementInput {}
 export interface DescribeAgreementCommandOutput extends DescribeAgreementOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides details about an agreement, such as the proposer, acceptor, start date, and end date.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface DescribeAgreementCommandOutput extends DescribeAgreementOutput,
  * @throws {@link MarketplaceAgreementServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceAgreement service.</p>
  *
+ * @public
  */
 export class DescribeAgreementCommand extends $Command
   .classBuilder<

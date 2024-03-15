@@ -27,7 +27,6 @@ export interface DescribeAccountSettingsCommandInput extends DescribeAccountSett
 export interface DescribeAccountSettingsCommandOutput extends DescribeAccountSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the settings that were used when your Amazon QuickSight subscription was first
  *             created in this Amazon Web Services account.</p>
  * @example
@@ -86,6 +85,7 @@ export interface DescribeAccountSettingsCommandOutput extends DescribeAccountSet
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DescribeAccountSettingsCommand extends $Command
   .classBuilder<

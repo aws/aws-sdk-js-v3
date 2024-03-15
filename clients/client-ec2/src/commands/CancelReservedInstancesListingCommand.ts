@@ -32,7 +32,6 @@ export interface CancelReservedInstancesListingCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels the specified Reserved Instance listing in the Reserved Instance Marketplace.</p>
  *          <p>For more information, see
  *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a>
@@ -93,6 +92,7 @@ export interface CancelReservedInstancesListingCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CancelReservedInstancesListingCommand extends $Command
   .classBuilder<

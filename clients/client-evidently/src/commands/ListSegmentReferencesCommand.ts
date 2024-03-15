@@ -27,7 +27,6 @@ export interface ListSegmentReferencesCommandInput extends ListSegmentReferences
 export interface ListSegmentReferencesCommandOutput extends ListSegmentReferencesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use this operation to find which experiments or launches are using a specified segment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface ListSegmentReferencesCommandOutput extends ListSegmentReference
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ * @public
  */
 export class ListSegmentReferencesCommand extends $Command
   .classBuilder<

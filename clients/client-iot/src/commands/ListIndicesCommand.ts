@@ -27,7 +27,6 @@ export interface ListIndicesCommandInput extends ListIndicesRequest {}
 export interface ListIndicesCommandOutput extends ListIndicesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the search indices.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListIndices</a> action.</p>
  * @example
@@ -75,6 +74,7 @@ export interface ListIndicesCommandOutput extends ListIndicesResponse, __Metadat
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListIndicesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListTrustStoresCommandInput extends ListTrustStoresRequest {}
 export interface ListTrustStoresCommandOutput extends ListTrustStoresResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of trust stores.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface ListTrustStoresCommandOutput extends ListTrustStoresResponse, _
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * @public
  */
 export class ListTrustStoresCommand extends $Command
   .classBuilder<

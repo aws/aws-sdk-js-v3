@@ -27,7 +27,6 @@ export interface DescribePlacementGroupsCommandInput extends DescribePlacementGr
 export interface DescribePlacementGroupsCommandOutput extends DescribePlacementGroupsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified placement groups or all of your placement groups. For more
  *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the
  *                 <i>Amazon EC2 User Guide</i>.</p>
@@ -87,6 +86,7 @@ export interface DescribePlacementGroupsCommandOutput extends DescribePlacementG
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribePlacementGroupsCommand extends $Command
   .classBuilder<

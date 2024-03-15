@@ -27,7 +27,6 @@ export interface StartSchemaCreationCommandInput extends StartSchemaCreationRequ
 export interface StartSchemaCreationCommandOutput extends StartSchemaCreationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a new schema to your GraphQL API.</p>
  *          <p>This operation is asynchronous. Use  to determine when it has
  *          completed.</p>
@@ -75,6 +74,7 @@ export interface StartSchemaCreationCommandOutput extends StartSchemaCreationRes
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class StartSchemaCreationCommand extends $Command
   .classBuilder<

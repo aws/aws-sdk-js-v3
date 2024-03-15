@@ -27,7 +27,6 @@ export interface ListAnomaliesCommandInput extends ListAnomaliesRequest {}
 export interface ListAnomaliesCommandOutput extends ListAnomaliesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of anomalies that log anomaly detectors have found. For details about the structure format of
  *       each anomaly object that is returned, see the example in this section.</p>
  * @example
@@ -109,6 +108,7 @@ export interface ListAnomaliesCommandOutput extends ListAnomaliesResponse, __Met
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class ListAnomaliesCommand extends $Command
   .classBuilder<

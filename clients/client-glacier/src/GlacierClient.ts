@@ -411,7 +411,6 @@ export type GlacierClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
 export interface GlacierClientResolvedConfig extends GlacierClientResolvedConfigType {}
 
 /**
- * @public
  * <p> Amazon S3 Glacier (Glacier) is a storage solution for "cold data."</p>
  *
  *          <p>Glacier is an extremely low-cost storage service that provides secure,
@@ -450,6 +449,7 @@ export interface GlacierClientResolvedConfig extends GlacierClientResolvedConfig
  *                retrieving the job output, and deleting archives.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class GlacierClient extends __Client<
   __HttpHandlerOptions,

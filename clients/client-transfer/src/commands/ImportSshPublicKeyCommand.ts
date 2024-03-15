@@ -27,7 +27,6 @@ export interface ImportSshPublicKeyCommandInput extends ImportSshPublicKeyReques
 export interface ImportSshPublicKeyCommandOutput extends ImportSshPublicKeyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a Secure Shell (SSH) public key to a Transfer Family user identified by a
  *         <code>UserName</code> value assigned to the specific file transfer protocol-enabled server,
  *       identified by <code>ServerId</code>.</p>
@@ -82,6 +81,7 @@ export interface ImportSshPublicKeyCommandOutput extends ImportSshPublicKeyRespo
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class ImportSshPublicKeyCommand extends $Command
   .classBuilder<

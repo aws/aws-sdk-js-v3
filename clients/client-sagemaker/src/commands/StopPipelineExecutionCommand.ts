@@ -27,7 +27,6 @@ export interface StopPipelineExecutionCommandInput extends StopPipelineExecution
 export interface StopPipelineExecutionCommandOutput extends StopPipelineExecutionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a pipeline execution.</p>
  *          <p>
  *             <b>Callback Step</b>
@@ -85,6 +84,7 @@ export interface StopPipelineExecutionCommandOutput extends StopPipelineExecutio
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class StopPipelineExecutionCommand extends $Command
   .classBuilder<

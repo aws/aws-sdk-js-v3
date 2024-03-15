@@ -31,7 +31,6 @@ export interface CreatePipelineCommandInput extends CreatePipelineRequest {}
 export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The CreatePipeline operation creates a pipeline with settings that you specify.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -161,6 +160,7 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  * @throws {@link ElasticTranscoderServiceException}
  * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
+ * @public
  */
 export class CreatePipelineCommand extends $Command
   .classBuilder<

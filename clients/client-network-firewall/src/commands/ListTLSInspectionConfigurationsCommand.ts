@@ -32,7 +32,6 @@ export interface ListTLSInspectionConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the metadata for the TLS inspection configurations that you have defined. Depending on your setting for max results and the number of TLS inspection configurations, a single call might not return the full list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface ListTLSInspectionConfigurationsCommandOutput
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ * @public
  */
 export class ListTLSInspectionConfigurationsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteAgentActionGroupCommandInput extends DeleteAgentActionGro
 export interface DeleteAgentActionGroupCommandOutput extends DeleteAgentActionGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * Deletes an Action Group for existing Amazon Bedrock Agent.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DeleteAgentActionGroupCommandOutput extends DeleteAgentActionGr
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ * @public
  */
 export class DeleteAgentActionGroupCommand extends $Command
   .classBuilder<

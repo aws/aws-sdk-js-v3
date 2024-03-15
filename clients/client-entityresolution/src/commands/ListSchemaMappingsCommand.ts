@@ -27,7 +27,6 @@ export interface ListSchemaMappingsCommandInput extends ListSchemaMappingsInput 
 export interface ListSchemaMappingsCommandOutput extends ListSchemaMappingsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all the <code>SchemaMappings</code> that have been created for an
  *             Amazon Web Services account.</p>
  * @example
@@ -86,6 +85,7 @@ export interface ListSchemaMappingsCommandOutput extends ListSchemaMappingsOutpu
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ * @public
  */
 export class ListSchemaMappingsCommand extends $Command
   .classBuilder<

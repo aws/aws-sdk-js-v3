@@ -27,7 +27,6 @@ export interface UpdateRuleGroupCommandInput extends UpdateRuleGroupRequest {}
 export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the rule settings for the specified rule group. You use a rule group by
  *          reference in one or more firewall policies. When you modify a rule group, you modify all
  *          firewall policies that use the rule group. </p>
@@ -264,6 +263,7 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ * @public
  */
 export class UpdateRuleGroupCommand extends $Command
   .classBuilder<

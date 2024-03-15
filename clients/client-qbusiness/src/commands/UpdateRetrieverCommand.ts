@@ -27,7 +27,6 @@ export interface UpdateRetrieverCommandInput extends UpdateRetrieverRequest {}
 export interface UpdateRetrieverCommandOutput extends UpdateRetrieverResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the retriever used for your Amazon Q application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -112,6 +111,7 @@ export interface UpdateRetrieverCommandOutput extends UpdateRetrieverResponse, _
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ * @public
  */
 export class UpdateRetrieverCommand extends $Command
   .classBuilder<

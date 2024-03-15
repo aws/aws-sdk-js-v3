@@ -27,7 +27,6 @@ export interface StopCalculationExecutionCommandInput extends StopCalculationExe
 export interface StopCalculationExecutionCommandOutput extends StopCalculationExecutionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Requests the cancellation of a calculation. A <code>StopCalculationExecution</code>
  *             call on a calculation that is already in a terminal state (for example,
  *                 <code>STOPPED</code>, <code>FAILED</code>, or <code>COMPLETED</code>) succeeds but
@@ -75,6 +74,7 @@ export interface StopCalculationExecutionCommandOutput extends StopCalculationEx
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class StopCalculationExecutionCommand extends $Command
   .classBuilder<

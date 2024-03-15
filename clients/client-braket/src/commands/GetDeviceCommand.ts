@@ -27,7 +27,6 @@ export interface GetDeviceCommandInput extends GetDeviceRequest {}
 export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the devices available in Amazon Braket.</p>
  *          <note>
  *             <p>For backwards compatibility with older versions of BraketSchemas, OpenQASM
@@ -92,6 +91,7 @@ export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBea
  * @throws {@link BraketServiceException}
  * <p>Base exception class for all service exceptions from Braket service.</p>
  *
+ * @public
  */
 export class GetDeviceCommand extends $Command
   .classBuilder<

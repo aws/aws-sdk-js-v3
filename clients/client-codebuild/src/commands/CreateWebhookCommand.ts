@@ -27,7 +27,6 @@ export interface CreateWebhookCommandInput extends CreateWebhookInput {}
 export interface CreateWebhookCommandOutput extends CreateWebhookOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>For an existing CodeBuild build project that has its source code stored in a GitHub or
  *       Bitbucket repository, enables CodeBuild to start rebuilding the source code every time a
  *       code change is pushed to the repository.</p>
@@ -105,6 +104,7 @@ export interface CreateWebhookCommandOutput extends CreateWebhookOutput, __Metad
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * @public
  */
 export class CreateWebhookCommand extends $Command
   .classBuilder<

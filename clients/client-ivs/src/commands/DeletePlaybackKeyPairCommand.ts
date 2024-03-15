@@ -27,7 +27,6 @@ export interface DeletePlaybackKeyPairCommandInput extends DeletePlaybackKeyPair
 export interface DeletePlaybackKeyPairCommandOutput extends DeletePlaybackKeyPairResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specified authorization key pair. This invalidates future viewer tokens
  *       generated using the key pair’s <code>privateKey</code>. For more information, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html">Setting Up Private
  *         Channels</a> in the <i>Amazon IVS User Guide</i>.</p>
@@ -67,6 +66,7 @@ export interface DeletePlaybackKeyPairCommandOutput extends DeletePlaybackKeyPai
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ * @public
  */
 export class DeletePlaybackKeyPairCommand extends $Command
   .classBuilder<

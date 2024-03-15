@@ -27,7 +27,6 @@ export interface CreateTagsCommandInput extends CreateTagsRequest {}
 export interface CreateTagsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds or overwrites only the specified tags for the specified Amazon EC2 resource or
  *          resources. When you specify an existing tag key, the value is overwritten with
  *          the new value. Each resource can have a maximum of 50 tags. Each tag consists of a key and
@@ -70,6 +69,7 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To add a tag to a resource
  * ```javascript
  * // This example adds the tag Stack=production to the specified image, or overwrites an existing tag for the AMI where the tag key is Stack.

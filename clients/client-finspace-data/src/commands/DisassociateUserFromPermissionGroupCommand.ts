@@ -35,9 +35,6 @@ export interface DisassociateUserFromPermissionGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This method will be discontinued.
- *
  * <p>Removes a user from a permission group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +83,8 @@ export interface DisassociateUserFromPermissionGroupCommandOutput
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ * @public
+ * @deprecated This method will be discontinued.
  */
 export class DisassociateUserFromPermissionGroupCommand extends $Command
   .classBuilder<

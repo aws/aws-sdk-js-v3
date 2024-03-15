@@ -27,7 +27,6 @@ export interface GetSubscriptionGrantCommandInput extends GetSubscriptionGrantIn
 export interface GetSubscriptionGrantCommandOutput extends GetSubscriptionGrantOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the subscription grant in Amazon DataZone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface GetSubscriptionGrantCommandOutput extends GetSubscriptionGrantO
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class GetSubscriptionGrantCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateGrantCommandInput extends CreateGrantRequest {}
 export interface CreateGrantCommandOutput extends CreateGrantResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a grant to a KMS key. </p>
  *          <p>A <i>grant</i> is a policy instrument that allows Amazon Web Services principals to use
  *       KMS keys in cryptographic operations. It also can allow them to view a KMS key (<a>DescribeKey</a>) and create and manage grants. When authorizing access to a KMS key,
@@ -187,6 +186,7 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To create a grant
  * ```javascript
  * // The following example creates a grant that allows the specified IAM role to encrypt data with the specified KMS key.

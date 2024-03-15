@@ -27,7 +27,6 @@ export interface ListAssetsCommandInput extends ListAssetsRequest {}
 export interface ListAssetsCommandOutput extends ListAssetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a paginated list of asset summaries.</p>
  *          <p>You can use this operation to do the following:</p>
  *          <ul>
@@ -118,6 +117,7 @@ export interface ListAssetsCommandOutput extends ListAssetsResponse, __MetadataB
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class ListAssetsCommand extends $Command
   .classBuilder<

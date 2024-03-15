@@ -28,7 +28,6 @@ export interface DescribeSubnetsCommandInput extends DescribeSubnetsRequest {}
 export interface DescribeSubnetsCommandOutput extends DescribeSubnetsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes one or more of your subnets.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html">Subnets</a> in the
  * 				<i>Amazon VPC User Guide</i>.</p>
@@ -114,6 +113,7 @@ export interface DescribeSubnetsCommandOutput extends DescribeSubnetsResult, __M
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To describe the subnets for a VPC
  * ```javascript
  * // This example describes the subnets for the specified VPC.

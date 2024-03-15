@@ -27,9 +27,6 @@ export interface GetSystemTemplateCommandInput extends GetSystemTemplateRequest 
 export interface GetSystemTemplateCommandOutput extends GetSystemTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated since: 2022-08-30
- *
  * <p>Gets a system.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +79,8 @@ export interface GetSystemTemplateCommandOutput extends GetSystemTemplateRespons
  * @throws {@link IoTThingsGraphServiceException}
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ * @public
+ * @deprecated since: 2022-08-30
  */
 export class GetSystemTemplateCommand extends $Command
   .classBuilder<

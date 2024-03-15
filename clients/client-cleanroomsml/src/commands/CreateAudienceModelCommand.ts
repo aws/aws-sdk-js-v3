@@ -27,7 +27,6 @@ export interface CreateAudienceModelCommandInput extends CreateAudienceModelRequ
 export interface CreateAudienceModelCommandOutput extends CreateAudienceModelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Defines the information necessary to create an audience model. An audience model is a machine learning model that Clean Rooms ML trains to measure similarity between users. Clean Rooms ML manages training and storing the audience model. The audience model can be used in multiple calls to the <a>StartAudienceGenerationJob</a> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface CreateAudienceModelCommandOutput extends CreateAudienceModelRes
  * @throws {@link CleanRoomsMLServiceException}
  * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
+ * @public
  */
 export class CreateAudienceModelCommand extends $Command
   .classBuilder<

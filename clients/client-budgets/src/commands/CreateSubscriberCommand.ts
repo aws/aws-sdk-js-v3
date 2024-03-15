@@ -31,7 +31,6 @@ export interface CreateSubscriberCommandInput extends CreateSubscriberRequest {}
 export interface CreateSubscriberCommandOutput extends CreateSubscriberResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a subscriber. You must create the associated budget and notification before you create the subscriber.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface CreateSubscriberCommandOutput extends CreateSubscriberResponse,
  * @throws {@link BudgetsServiceException}
  * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
+ * @public
  */
 export class CreateSubscriberCommand extends $Command
   .classBuilder<

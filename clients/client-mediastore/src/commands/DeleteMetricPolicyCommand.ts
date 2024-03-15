@@ -27,7 +27,6 @@ export interface DeleteMetricPolicyCommandInput extends DeleteMetricPolicyInput 
 export interface DeleteMetricPolicyCommandOutput extends DeleteMetricPolicyOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the metric policy that is associated with the specified container. If there is no metric policy associated with the container, MediaStore doesn't send metrics to CloudWatch.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface DeleteMetricPolicyCommandOutput extends DeleteMetricPolicyOutpu
  * @throws {@link MediaStoreServiceException}
  * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ * @public
  */
 export class DeleteMetricPolicyCommand extends $Command
   .classBuilder<

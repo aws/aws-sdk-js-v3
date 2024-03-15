@@ -27,7 +27,6 @@ export interface DeleteResourceTreeCommandInput extends DeleteResourceTreeReques
 export interface DeleteResourceTreeCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an entire resource tree. This operation will delete the parent resource and
  *             its child resources.</p>
  *          <p>Child resources are resources that were created from another resource. For example,
@@ -94,6 +93,7 @@ export interface DeleteResourceTreeCommandOutput extends __MetadataBearer {}
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class DeleteResourceTreeCommand extends $Command
   .classBuilder<

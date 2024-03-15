@@ -30,7 +30,6 @@ export interface PutBackupVaultLockConfigurationCommandInput extends PutBackupVa
 export interface PutBackupVaultLockConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Applies Backup Vault Lock to a backup vault, preventing attempts to delete
  *          any recovery point stored in or created in a backup vault. Vault Lock also prevents
  *          attempts to update the lifecycle policy that controls the retention period of any recovery
@@ -88,6 +87,7 @@ export interface PutBackupVaultLockConfigurationCommandOutput extends __Metadata
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class PutBackupVaultLockConfigurationCommand extends $Command
   .classBuilder<

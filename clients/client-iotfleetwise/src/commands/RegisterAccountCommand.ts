@@ -27,7 +27,6 @@ export interface RegisterAccountCommandInput extends RegisterAccountRequest {}
 export interface RegisterAccountCommandOutput extends RegisterAccountResponse, __MetadataBearer {}
 
 /**
- * @public
  * <important>
  *             <p>This API operation contains deprecated parameters. Register your account again without the Timestream resources parameter so that Amazon Web Services IoT FleetWise can remove the Timestream metadata stored. You should then pass the data destination into the <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_CreateCampaign.html">CreateCampaign</a> API operation.</p>
  *             <p>You must delete any existing campaigns that include an empty data destination before you register your account again. For more information, see the <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_DeleteCampaign.html">DeleteCampaign</a> API operation.</p>
@@ -103,6 +102,7 @@ export interface RegisterAccountCommandOutput extends RegisterAccountResponse, _
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class RegisterAccountCommand extends $Command
   .classBuilder<

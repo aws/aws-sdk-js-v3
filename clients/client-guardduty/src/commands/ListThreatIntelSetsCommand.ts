@@ -27,7 +27,6 @@ export interface ListThreatIntelSetsCommandInput extends ListThreatIntelSetsRequ
 export interface ListThreatIntelSetsCommandOutput extends ListThreatIntelSetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the ThreatIntelSets of the GuardDuty service specified by the detector ID. If you
  *       use this operation from a member account, the ThreatIntelSets associated with the
  *       administrator account are returned.</p>
@@ -68,6 +67,7 @@ export interface ListThreatIntelSetsCommandOutput extends ListThreatIntelSetsRes
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class ListThreatIntelSetsCommand extends $Command
   .classBuilder<

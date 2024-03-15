@@ -27,7 +27,6 @@ export interface CompleteLifecycleActionCommandInput extends CompleteLifecycleAc
 export interface CompleteLifecycleActionCommandOutput extends CompleteLifecycleActionAnswer, __MetadataBearer {}
 
 /**
- * @public
  * <p>Completes the lifecycle action for the specified token or instance with the specified
  *             result.</p>
  *          <p>This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling
@@ -98,6 +97,7 @@ export interface CompleteLifecycleActionCommandOutput extends CompleteLifecycleA
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To complete the lifecycle action
  * ```javascript
  * // This example notifies Auto Scaling that the specified lifecycle action is complete so that it can finish launching or terminating the instance.

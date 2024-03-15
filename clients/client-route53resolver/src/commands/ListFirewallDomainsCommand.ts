@@ -27,7 +27,6 @@ export interface ListFirewallDomainsCommandInput extends ListFirewallDomainsRequ
 export interface ListFirewallDomainsCommandOutput extends ListFirewallDomainsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the domains that you have defined for the specified firewall domain list.  </p>
  *          <p>A single call might return only a partial list of the domains. For information, see <code>MaxResults</code>. </p>
  * @example
@@ -77,6 +76,7 @@ export interface ListFirewallDomainsCommandOutput extends ListFirewallDomainsRes
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class ListFirewallDomainsCommand extends $Command
   .classBuilder<

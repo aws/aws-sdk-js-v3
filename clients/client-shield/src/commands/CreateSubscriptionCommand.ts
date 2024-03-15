@@ -27,7 +27,6 @@ export interface CreateSubscriptionCommandInput extends CreateSubscriptionReques
 export interface CreateSubscriptionCommandOutput extends CreateSubscriptionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Activates Shield Advanced for an account.</p>
  *          <note>
  *             <p>For accounts that are members of an Organizations organization, Shield Advanced subscriptions are billed against the organization's payer account,
@@ -62,6 +61,7 @@ export interface CreateSubscriptionCommandOutput extends CreateSubscriptionRespo
  * @throws {@link ShieldServiceException}
  * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ * @public
  */
 export class CreateSubscriptionCommand extends $Command
   .classBuilder<

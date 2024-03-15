@@ -27,7 +27,6 @@ export interface DescribeCodeBindingCommandInput extends DescribeCodeBindingRequ
 export interface DescribeCodeBindingCommandOutput extends DescribeCodeBindingResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describe the code binding URI.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface DescribeCodeBindingCommandOutput extends DescribeCodeBindingRes
  * @throws {@link SchemasServiceException}
  * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ * @public
  */
 export class DescribeCodeBindingCommand extends $Command
   .classBuilder<

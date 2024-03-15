@@ -27,7 +27,6 @@ export interface GetBackendEnvironmentCommandInput extends GetBackendEnvironment
 export interface GetBackendEnvironmentCommandOutput extends GetBackendEnvironmentResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a backend environment for an Amplify app. </p>
  *          <p>This API is available only to Amplify Gen 1 applications where the
  *             backend was created using Amplify Studio or the Amplify
@@ -81,6 +80,7 @@ export interface GetBackendEnvironmentCommandOutput extends GetBackendEnvironmen
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ * @public
  */
 export class GetBackendEnvironmentCommand extends $Command
   .classBuilder<

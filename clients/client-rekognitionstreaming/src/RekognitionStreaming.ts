@@ -33,7 +33,6 @@ export interface RekognitionStreaming {
 }
 
 /**
- * @public
  * <p>A real-time video processing service based on Rekognition. This section documents the API
  *       operations for Rekognition Face Liveness.</p>
  *          <p>
@@ -56,6 +55,7 @@ export interface RekognitionStreaming {
  *                </p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class RekognitionStreaming extends RekognitionStreamingClient implements RekognitionStreaming {}
 createAggregatedClient(commands, RekognitionStreaming);

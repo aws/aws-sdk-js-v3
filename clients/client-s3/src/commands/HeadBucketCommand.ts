@@ -27,7 +27,6 @@ export interface HeadBucketCommandInput extends HeadBucketRequest {}
 export interface HeadBucketCommandOutput extends HeadBucketOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>You can use this operation to determine if a bucket exists and if you have permission to access it. The action returns a <code>200 OK</code> if the bucket exists and you have permission
  *          to access it.</p>
  *          <p>If the bucket does not exist or you do not have permission to access it, the
@@ -111,6 +110,7 @@ export interface HeadBucketCommandOutput extends HeadBucketOutput, __MetadataBea
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example To determine if bucket exists
  * ```javascript
  * // This operation checks to see if a bucket exists.

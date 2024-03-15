@@ -27,7 +27,6 @@ export interface StartVoiceToneAnalysisTaskCommandInput extends StartVoiceToneAn
 export interface StartVoiceToneAnalysisTaskCommandOutput extends StartVoiceToneAnalysisTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a voice tone analysis task. For more information about voice tone analysis, see
  *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/pstn-voice-analytics.html">Using Amazon Chime SDK voice analytics</a>
  *          in the <i>Amazon Chime SDK Developer Guide</i>.</p>
@@ -112,6 +111,7 @@ export interface StartVoiceToneAnalysisTaskCommandOutput extends StartVoiceToneA
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class StartVoiceToneAnalysisTaskCommand extends $Command
   .classBuilder<

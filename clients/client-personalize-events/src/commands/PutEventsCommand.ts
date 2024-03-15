@@ -31,7 +31,6 @@ export interface PutEventsCommandInput extends PutEventsRequest {}
 export interface PutEventsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Records item interaction event data. For more information see
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/recording-item-interaction-events.html">Recording item interaction events</a>.</p>
  * @example
@@ -80,6 +79,7 @@ export interface PutEventsCommandOutput extends __MetadataBearer {}
  * @throws {@link PersonalizeEventsServiceException}
  * <p>Base exception class for all service exceptions from PersonalizeEvents service.</p>
  *
+ * @public
  */
 export class PutEventsCommand extends $Command
   .classBuilder<

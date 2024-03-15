@@ -257,10 +257,10 @@ export type KinesisVideoSignalingClientResolvedConfigType = __SmithyResolvedConf
 export interface KinesisVideoSignalingClientResolvedConfig extends KinesisVideoSignalingClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Kinesis Video Streams Signaling Service is a intermediate service that establishes a
  *             communication channel for discovering peers, transmitting offers and answers in order to
  *             establish peer-to-peer connection in webRTC technology.</p>
+ * @public
  */
 export class KinesisVideoSignalingClient extends __Client<
   __HttpHandlerOptions,

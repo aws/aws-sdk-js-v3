@@ -27,7 +27,6 @@ export interface GetMLModelTrainingJobCommandInput extends GetMLModelTrainingJob
 export interface GetMLModelTrainingJobCommandOutput extends GetMLModelTrainingJobOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about a Neptune ML model training job. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-api-modeltraining.html">Model
  *       training using the <code>modeltraining</code> command</a>.</p>
  *          <p>When invoking this operation in a Neptune cluster that has IAM
@@ -125,6 +124,7 @@ export interface GetMLModelTrainingJobCommandOutput extends GetMLModelTrainingJo
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * @public
  */
 export class GetMLModelTrainingJobCommand extends $Command
   .classBuilder<

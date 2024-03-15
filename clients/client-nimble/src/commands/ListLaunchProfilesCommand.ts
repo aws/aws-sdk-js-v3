@@ -31,7 +31,6 @@ export interface ListLaunchProfilesCommandInput extends ListLaunchProfilesReques
 export interface ListLaunchProfilesCommandOutput extends ListLaunchProfilesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List all the launch profiles a studio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -155,6 +154,7 @@ export interface ListLaunchProfilesCommandOutput extends ListLaunchProfilesRespo
  * @throws {@link NimbleServiceException}
  * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
+ * @public
  */
 export class ListLaunchProfilesCommand extends $Command
   .classBuilder<

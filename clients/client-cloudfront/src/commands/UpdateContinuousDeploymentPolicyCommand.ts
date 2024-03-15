@@ -32,7 +32,6 @@ export interface UpdateContinuousDeploymentPolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a continuous deployment policy. You can update a continuous deployment policy
  * 			to enable or disable it, to change the percentage of traffic that it sends to the
  * 			staging distribution, or to change the staging distribution that it sends traffic
@@ -155,6 +154,7 @@ export interface UpdateContinuousDeploymentPolicyCommandOutput
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class UpdateContinuousDeploymentPolicyCommand extends $Command
   .classBuilder<

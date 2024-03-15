@@ -28,7 +28,6 @@ export interface DeleteScheduledQueryCommandInput extends DeleteScheduledQueryRe
 export interface DeleteScheduledQueryCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a given scheduled query. This is an irreversible operation. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DeleteScheduledQueryCommandOutput extends __MetadataBearer {}
  * @throws {@link TimestreamQueryServiceException}
  * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
+ * @public
  */
 export class DeleteScheduledQueryCommand extends $Command
   .classBuilder<

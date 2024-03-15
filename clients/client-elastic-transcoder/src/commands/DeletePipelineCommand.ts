@@ -31,7 +31,6 @@ export interface DeletePipelineCommandInput extends DeletePipelineRequest {}
 export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The DeletePipeline operation removes a pipeline.</p>
  *         <p> You can only delete a pipeline that has never been used or that is not currently in use
  *             (doesn't contain any active jobs). If the pipeline is currently in use,
@@ -79,6 +78,7 @@ export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __M
  * @throws {@link ElasticTranscoderServiceException}
  * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
+ * @public
  */
 export class DeletePipelineCommand extends $Command
   .classBuilder<

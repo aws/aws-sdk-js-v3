@@ -27,7 +27,6 @@ export interface DescribeBatchSegmentJobCommandInput extends DescribeBatchSegmen
 export interface DescribeBatchSegmentJobCommandOutput extends DescribeBatchSegmentJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the properties of a batch segment job including name, Amazon Resource Name (ARN),
  *       status, input and output configurations, and the ARN of the solution version used to generate
  *       segments.</p>
@@ -86,6 +85,7 @@ export interface DescribeBatchSegmentJobCommandOutput extends DescribeBatchSegme
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class DescribeBatchSegmentJobCommand extends $Command
   .classBuilder<

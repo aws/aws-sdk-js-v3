@@ -27,7 +27,6 @@ export interface DeleteDBClusterCommandInput extends DeleteDBClusterMessage {}
 export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a previously provisioned cluster. When you delete a cluster, all automated backups for that cluster are deleted and can't be recovered. Manual DB cluster snapshots of the specified cluster are not deleted.</p>
  *          <p></p>
  * @example
@@ -131,6 +130,7 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class DeleteDBClusterCommand extends $Command
   .classBuilder<

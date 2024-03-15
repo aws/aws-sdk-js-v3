@@ -27,7 +27,6 @@ export interface DescribeFleetCapacityCommandInput extends DescribeFleetCapacity
 export interface DescribeFleetCapacityCommandOutput extends DescribeFleetCapacityOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the resource capacity settings for one or more fleets. The data returned
  *             includes the current fleet capacity (number of EC2 instances), and settings that can
  *             control how capacity scaling. For fleets with remote locations, this operation retrieves
@@ -125,6 +124,7 @@ export interface DescribeFleetCapacityCommandOutput extends DescribeFleetCapacit
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DescribeFleetCapacityCommand extends $Command
   .classBuilder<

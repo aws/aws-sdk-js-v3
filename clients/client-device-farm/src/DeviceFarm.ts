@@ -1528,7 +1528,6 @@ export interface DeviceFarm {
 }
 
 /**
- * @public
  * <p>Welcome to the AWS Device Farm API documentation, which contains APIs for:</p>
  *         <ul>
  *             <li>
@@ -1544,6 +1543,7 @@ export interface DeviceFarm {
  *                     devices in the cloud. For more information, see the <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/">Device Farm Developer Guide</a>.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class DeviceFarm extends DeviceFarmClient implements DeviceFarm {}
 createAggregatedClient(commands, DeviceFarm);

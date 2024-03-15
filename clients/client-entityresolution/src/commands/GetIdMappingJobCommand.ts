@@ -27,7 +27,6 @@ export interface GetIdMappingJobCommandInput extends GetIdMappingJobInput {}
 export interface GetIdMappingJobCommandOutput extends GetIdMappingJobOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the status, metrics, and errors (if there are any) that are associated with a
  *          job.</p>
  * @example
@@ -92,6 +91,7 @@ export interface GetIdMappingJobCommandOutput extends GetIdMappingJobOutput, __M
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ * @public
  */
 export class GetIdMappingJobCommand extends $Command
   .classBuilder<

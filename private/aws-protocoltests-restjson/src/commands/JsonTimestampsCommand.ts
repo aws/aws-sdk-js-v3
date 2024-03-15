@@ -25,7 +25,6 @@ export interface JsonTimestampsCommandInput extends JsonTimestampsInputOutput {}
 export interface JsonTimestampsCommandOutput extends JsonTimestampsInputOutput, __MetadataBearer {}
 
 /**
- * @public
  * This tests how timestamps are serialized, including using the
  * default format of date-time and various @timestampFormat trait
  * values.
@@ -67,6 +66,7 @@ export interface JsonTimestampsCommandOutput extends JsonTimestampsInputOutput, 
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ * @public
  */
 export class JsonTimestampsCommand extends $Command
   .classBuilder<

@@ -29,7 +29,6 @@ export interface DeleteAccessGrantCommandInput extends DeleteAccessGrantRequest 
 export interface DeleteAccessGrantCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the access grant from the S3 Access Grants instance. You cannot undo an access grant deletion and the grantee will no longer have access to the S3 data.</p>
  *          <dl>
  *             <dt>Permissions</dt>
@@ -62,6 +61,7 @@ export interface DeleteAccessGrantCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class DeleteAccessGrantCommand extends $Command
   .classBuilder<

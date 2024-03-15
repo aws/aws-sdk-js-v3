@@ -27,7 +27,6 @@ export interface DescribeBackupVaultCommandInput extends DescribeBackupVaultInpu
 export interface DescribeBackupVaultCommandOutput extends DescribeBackupVaultOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns metadata about a backup vault specified by its name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface DescribeBackupVaultCommandOutput extends DescribeBackupVaultOut
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class DescribeBackupVaultCommand extends $Command
   .classBuilder<

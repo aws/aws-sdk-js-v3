@@ -29,7 +29,6 @@ export interface PutAggregationAuthorizationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Authorizes the aggregator account and region to collect data
  * 			from the source account and region. </p>
  *          <note>
@@ -79,6 +78,7 @@ export interface PutAggregationAuthorizationCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class PutAggregationAuthorizationCommand extends $Command
   .classBuilder<

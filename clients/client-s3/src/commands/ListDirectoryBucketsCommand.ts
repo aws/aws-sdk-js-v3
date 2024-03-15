@@ -27,7 +27,6 @@ export interface ListDirectoryBucketsCommandInput extends ListDirectoryBucketsRe
 export interface ListDirectoryBucketsCommandOutput extends ListDirectoryBucketsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all Amazon S3 directory buckets owned by the authenticated sender of the request. For more information about directory buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-overview.html">Directory buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <note>
  *             <p>
@@ -80,6 +79,7 @@ export interface ListDirectoryBucketsCommandOutput extends ListDirectoryBucketsO
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  */
 export class ListDirectoryBucketsCommand extends $Command
   .classBuilder<

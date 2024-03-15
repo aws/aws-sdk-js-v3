@@ -27,7 +27,6 @@ export interface UpdateSchemaCommandInput extends UpdateSchemaRequest {}
 export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the schema definition</p> <note><p>Inactive schemas will be deleted after two years.</p></note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __Metad
  * @throws {@link SchemasServiceException}
  * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ * @public
  */
 export class UpdateSchemaCommand extends $Command
   .classBuilder<

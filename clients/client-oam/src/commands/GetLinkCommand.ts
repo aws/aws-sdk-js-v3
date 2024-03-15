@@ -27,7 +27,6 @@ export interface GetLinkCommandInput extends GetLinkInput {}
 export interface GetLinkCommandOutput extends GetLinkOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns complete information about one link.</p>
  *          <p>To use this operation, provide the link ARN. To retrieve a list of link ARNs, use <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListLinks.html">ListLinks</a>.</p>
  * @example
@@ -78,6 +77,7 @@ export interface GetLinkCommandOutput extends GetLinkOutput, __MetadataBearer {}
  * @throws {@link OAMServiceException}
  * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ * @public
  */
 export class GetLinkCommand extends $Command
   .classBuilder<

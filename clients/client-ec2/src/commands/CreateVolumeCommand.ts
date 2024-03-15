@@ -27,7 +27,6 @@ export interface CreateVolumeCommandInput extends CreateVolumeRequest {}
 export interface CreateVolumeCommandOutput extends Volume, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an EBS volume that can be attached to an instance in the same Availability Zone.</p>
  *          <p>You can create a new empty volume or restore a volume from an EBS snapshot.
  *       Any Amazon Web Services Marketplace product codes from the snapshot are propagated to the volume.</p>
@@ -119,6 +118,7 @@ export interface CreateVolumeCommandOutput extends Volume, __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To create a new volume
  * ```javascript
  * // This example creates an 80 GiB General Purpose (SSD) volume in the Availability Zone ``us-east-1a``.

@@ -27,7 +27,6 @@ export interface DescribeGroupCommandInput extends DescribeGroupRequest {}
 export interface DescribeGroupCommandOutput extends DescribeGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an Amazon QuickSight group's description and Amazon Resource Name (ARN). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface DescribeGroupCommandOutput extends DescribeGroupResponse, __Met
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DescribeGroupCommand extends $Command
   .classBuilder<

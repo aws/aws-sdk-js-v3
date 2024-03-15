@@ -32,7 +32,6 @@ export interface CreateAssociationCommandInput extends CreateAssociationRequest 
 export interface CreateAssociationCommandOutput extends CreateAssociationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>A State Manager association defines the state that you want to maintain on your managed
  *    nodes. For example, an association can specify that anti-virus software must be installed and
  *    running on your managed nodes, or that certain ports must be closed. For static targets, the
@@ -303,6 +302,7 @@ export interface CreateAssociationCommandOutput extends CreateAssociationResult,
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class CreateAssociationCommand extends $Command
   .classBuilder<

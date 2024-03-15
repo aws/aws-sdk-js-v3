@@ -35,7 +35,6 @@ export interface CreateInferenceRecommendationsJobCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a recommendation job. You can create either an instance
  *           recommendation or load test job.</p>
  * @example
@@ -176,6 +175,7 @@ export interface CreateInferenceRecommendationsJobCommandOutput
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateInferenceRecommendationsJobCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateAliasCommandInput extends UpdateAliasRequest {}
 export interface UpdateAliasCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates an existing KMS alias with a different KMS key. Each alias is associated with
  *       only one KMS key at a time, although a KMS key can have multiple aliases. The alias and the
  *       KMS key must be in the same Amazon Web Services account and Region.</p>
@@ -155,6 +154,7 @@ export interface UpdateAliasCommandOutput extends __MetadataBearer {}
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To update an alias
  * ```javascript
  * // The following example updates the specified alias to refer to the specified KMS key.

@@ -27,7 +27,6 @@ export interface ListEventSubscriptionsCommandInput extends ListEventSubscriptio
 export interface ListEventSubscriptionsCommandOutput extends ListEventSubscriptionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the event subscriptions for the assessment template that is specified by
  *          the ARN of the assessment template. For more information, see <a>SubscribeToEvent</a> and <a>UnsubscribeFromEvent</a>.</p>
  * @example
@@ -84,6 +83,7 @@ export interface ListEventSubscriptionsCommandOutput extends ListEventSubscripti
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * @public
  * @example List event subscriptions
  * ```javascript
  * // Lists all the event subscriptions for the assessment template that is specified by the ARN of the assessment template.

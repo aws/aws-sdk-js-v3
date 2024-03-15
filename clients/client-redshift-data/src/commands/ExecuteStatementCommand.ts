@@ -27,7 +27,6 @@ export interface ExecuteStatementCommandInput extends ExecuteStatementInput {}
 export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Runs an SQL statement, which can be data manipulation language (DML) or data definition
  *       language (DDL). This statement must be a single SQL statement.
  *       Depending on the authorization
@@ -120,6 +119,7 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  * @throws {@link RedshiftDataServiceException}
  * <p>Base exception class for all service exceptions from RedshiftData service.</p>
  *
+ * @public
  */
 export class ExecuteStatementCommand extends $Command
   .classBuilder<

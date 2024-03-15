@@ -27,7 +27,6 @@ export interface AssociateAdminAccountCommandInput extends AssociateAdminAccount
 export interface AssociateAdminAccountCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets a Firewall Manager default administrator account. The Firewall Manager default administrator account can manage third-party firewalls and has full administrative scope that allows administration of all policy types, accounts, organizational units, and Regions. This account must be a member account of the organization in Organizations whose resources you want to protect.</p>
  *          <p>For information about working with Firewall Manager administrator accounts, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/fms-administrators.html">Managing Firewall Manager administrators</a> in the <i>Firewall Manager Developer Guide</i>.</p>
  * @example
@@ -77,6 +76,7 @@ export interface AssociateAdminAccountCommandOutput extends __MetadataBearer {}
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * @public
  */
 export class AssociateAdminAccountCommand extends $Command
   .classBuilder<

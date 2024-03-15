@@ -1590,7 +1590,6 @@ export interface Neptune {
 }
 
 /**
- * @public
  * <fullname>Amazon Neptune</fullname>
  *          <p>Amazon Neptune is a fast, reliable, fully-managed graph database service that makes it
  *       easy to build and run applications that work with highly connected datasets. The core of
@@ -1608,6 +1607,7 @@ export interface Neptune {
  *       parameter descriptions indicate whether a command is applied immediately, on the next instance
  *       reboot, or during the maintenance window. The reference structure is as follows, and we list
  *       following some related topics from the user guide.</p>
+ * @public
  */
 export class Neptune extends NeptuneClient implements Neptune {}
 createAggregatedClient(commands, Neptune);

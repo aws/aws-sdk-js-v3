@@ -27,7 +27,6 @@ export interface ListArtifactsCommandInput extends ListArtifactsRequest {}
 export interface ListArtifactsCommandOutput extends ListArtifactsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about artifacts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface ListArtifactsCommandOutput extends ListArtifactsResult, __Metad
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To list artifacts for a resource
  * ```javascript
  * // The following example lists screenshot artifacts for a specific run.

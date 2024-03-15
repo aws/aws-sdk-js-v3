@@ -31,7 +31,6 @@ export interface RemoveClientIDFromOpenIDConnectProviderCommandInput
 export interface RemoveClientIDFromOpenIDConnectProviderCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified client ID (also known as audience) from the list of client IDs
  *             registered for the specified IAM OpenID Connect (OIDC) provider resource
  *             object.</p>
@@ -74,6 +73,7 @@ export interface RemoveClientIDFromOpenIDConnectProviderCommandOutput extends __
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class RemoveClientIDFromOpenIDConnectProviderCommand extends $Command
   .classBuilder<

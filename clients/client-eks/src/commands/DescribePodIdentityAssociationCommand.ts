@@ -32,7 +32,6 @@ export interface DescribePodIdentityAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns descriptive information about an EKS Pod Identity association.</p>
  *          <p>This action requires the ID of the association. You can get the ID from the response to
  *             the <code>CreatePodIdentityAssocation</code> for newly created associations. Or, you can
@@ -93,6 +92,7 @@ export interface DescribePodIdentityAssociationCommandOutput
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class DescribePodIdentityAssociationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListThemesCommandInput extends ListThemesRequest {}
 export interface ListThemesCommandOutput extends ListThemesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of themes for a specified Amplify app and backend
  *       environment.</p>
  * @example
@@ -73,6 +72,7 @@ export interface ListThemesCommandOutput extends ListThemesResponse, __MetadataB
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ * @public
  */
 export class ListThemesCommand extends $Command
   .classBuilder<

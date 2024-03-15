@@ -27,7 +27,6 @@ export interface DeleteSubscriptionFilterCommandInput extends DeleteSubscription
 export interface DeleteSubscriptionFilterCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified subscription filter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface DeleteSubscriptionFilterCommandOutput extends __MetadataBearer 
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class DeleteSubscriptionFilterCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface RestoreKeyCommandInput extends RestoreKeyInput {}
 export interface RestoreKeyCommandOutput extends RestoreKeyOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels a scheduled key deletion during the waiting period. Use this operation to restore a <code>Key</code> that is scheduled for deletion.</p>
  *          <p>During the waiting period, the <code>KeyState</code> is <code>DELETE_PENDING</code> and <code>deletePendingTimestamp</code> contains the date and time after which the <code>Key</code> will be deleted.
  *          After <code>Key</code> is restored, the <code>KeyState</code> is <code>CREATE_COMPLETE</code>, and the value for <code>deletePendingTimestamp</code> is removed.</p>
@@ -136,6 +135,7 @@ export interface RestoreKeyCommandOutput extends RestoreKeyOutput, __MetadataBea
  * @throws {@link PaymentCryptographyServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptography service.</p>
  *
+ * @public
  */
 export class RestoreKeyCommand extends $Command
   .classBuilder<

@@ -25,7 +25,6 @@ export interface IgnoreQueryParamsInResponseCommandInput {}
 export interface IgnoreQueryParamsInResponseCommandOutput extends IgnoreQueryParamsInResponseOutput, __MetadataBearer {}
 
 /**
- * @public
  * This example ensures that query string bound request parameters are
  * serialized in the body of responses if the structure is used in both
  * the request and response.
@@ -53,6 +52,7 @@ export interface IgnoreQueryParamsInResponseCommandOutput extends IgnoreQueryPar
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ * @public
  */
 export class IgnoreQueryParamsInResponseCommand extends $Command
   .classBuilder<

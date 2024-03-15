@@ -27,7 +27,6 @@ export interface ListSchemasCommandInput extends ListSchemasRequest {}
 export interface ListSchemasCommandOutput extends ListSchemasResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the schemas in a database.
  *       A token is returned to page through the schema list.
  *       Depending on the authorization method, use one of the
@@ -111,6 +110,7 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  * @throws {@link RedshiftDataServiceException}
  * <p>Base exception class for all service exceptions from RedshiftData service.</p>
  *
+ * @public
  */
 export class ListSchemasCommand extends $Command
   .classBuilder<

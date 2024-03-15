@@ -27,7 +27,6 @@ export interface ListTableRowsCommandInput extends ListTableRowsRequest {}
 export interface ListTableRowsCommandOutput extends ListTableRowsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The ListTableRows API allows you to retrieve a list of all the rows in a table in a workbook.
  *         </p>
@@ -112,6 +111,7 @@ export interface ListTableRowsCommandOutput extends ListTableRowsResult, __Metad
  * @throws {@link HoneycodeServiceException}
  * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
+ * @public
  */
 export class ListTableRowsCommand extends $Command
   .classBuilder<

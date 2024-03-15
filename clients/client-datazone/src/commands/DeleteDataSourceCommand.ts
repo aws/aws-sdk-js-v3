@@ -31,7 +31,6 @@ export interface DeleteDataSourceCommandInput extends DeleteDataSourceInput {}
 export interface DeleteDataSourceCommandOutput extends DeleteDataSourceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a data source in Amazon DataZone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -165,6 +164,7 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceOutput, _
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class DeleteDataSourceCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeDBInstancesCommandInput extends DescribeDBInstancesMess
 export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes provisioned RDS instances. This API supports pagination.</p>
  *          <note>
  *             <p>This operation can also return information for Amazon Neptune DB instances and Amazon DocumentDB instances.</p>
@@ -297,6 +296,7 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To describe a DB instance
  * ```javascript
  * // The following example retrieves details about the specified DB instance.

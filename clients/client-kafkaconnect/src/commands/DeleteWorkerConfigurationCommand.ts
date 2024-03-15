@@ -27,7 +27,6 @@ export interface DeleteWorkerConfigurationCommandInput extends DeleteWorkerConfi
 export interface DeleteWorkerConfigurationCommandOutput extends DeleteWorkerConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified worker configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface DeleteWorkerConfigurationCommandOutput extends DeleteWorkerConf
  * @throws {@link KafkaConnectServiceException}
  * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
+ * @public
  */
 export class DeleteWorkerConfigurationCommand extends $Command
   .classBuilder<

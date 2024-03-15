@@ -27,7 +27,6 @@ export interface ListClusterSnapshotsCommandInput extends ListClusterSnapshotsIn
 export interface ListClusterSnapshotsCommandOutput extends ListClusterSnapshotsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about snapshots for a specified elastic cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface ListClusterSnapshotsCommandOutput extends ListClusterSnapshotsO
  * @throws {@link DocDBElasticServiceException}
  * <p>Base exception class for all service exceptions from DocDBElastic service.</p>
  *
+ * @public
  */
 export class ListClusterSnapshotsCommand extends $Command
   .classBuilder<

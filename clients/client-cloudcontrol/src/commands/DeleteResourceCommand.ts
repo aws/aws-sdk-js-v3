@@ -27,7 +27,6 @@ export interface DeleteResourceCommandInput extends DeleteResourceInput {}
 export interface DeleteResourceCommandOutput extends DeleteResourceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified resource. For details, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-delete.html">Deleting a
  *         resource</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
  *          <p>After you have initiated a resource deletion request, you can monitor the progress of your
@@ -147,6 +146,7 @@ export interface DeleteResourceCommandOutput extends DeleteResourceOutput, __Met
  * @throws {@link CloudControlServiceException}
  * <p>Base exception class for all service exceptions from CloudControl service.</p>
  *
+ * @public
  */
 export class DeleteResourceCommand extends $Command
   .classBuilder<

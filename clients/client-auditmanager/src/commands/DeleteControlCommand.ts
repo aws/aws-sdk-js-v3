@@ -27,7 +27,6 @@ export interface DeleteControlCommandInput extends DeleteControlRequest {}
 export interface DeleteControlCommandOutput extends DeleteControlResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Deletes a custom control in Audit Manager. </p>
  *          <important>
  *             <p>When you invoke this operation, the custom control is deleted from any frameworks or
@@ -73,6 +72,7 @@ export interface DeleteControlCommandOutput extends DeleteControlResponse, __Met
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class DeleteControlCommand extends $Command
   .classBuilder<

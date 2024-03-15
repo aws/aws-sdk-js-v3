@@ -3555,10 +3555,10 @@ export type EC2ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
 export interface EC2ClientResolvedConfig extends EC2ClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>Amazon Elastic Compute Cloud</fullname>
  *          <p>You can access the features of Amazon Elastic Compute Cloud (Amazon EC2) programmatically. For more information,
  *         see the <a href="https://docs.aws.amazon.com/ec2/latest/devguide">Amazon EC2 Developer Guide</a>.</p>
+ * @public
  */
 export class EC2Client extends __Client<
   __HttpHandlerOptions,

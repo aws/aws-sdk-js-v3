@@ -27,7 +27,6 @@ export interface ListCustomPluginsCommandInput extends ListCustomPluginsRequest 
 export interface ListCustomPluginsCommandOutput extends ListCustomPluginsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all of the custom plugins in this account and Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -110,6 +109,7 @@ export interface ListCustomPluginsCommandOutput extends ListCustomPluginsRespons
  * @throws {@link KafkaConnectServiceException}
  * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
+ * @public
  */
 export class ListCustomPluginsCommand extends $Command
   .classBuilder<

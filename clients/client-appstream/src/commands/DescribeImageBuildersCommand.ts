@@ -27,7 +27,6 @@ export interface DescribeImageBuildersCommandInput extends DescribeImageBuilders
 export interface DescribeImageBuildersCommandOutput extends DescribeImageBuildersResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list that describes one or more specified image builders, if the image builder names are provided. Otherwise, all image builders in the account are described.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -111,6 +110,7 @@ export interface DescribeImageBuildersCommandOutput extends DescribeImageBuilder
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class DescribeImageBuildersCommand extends $Command
   .classBuilder<

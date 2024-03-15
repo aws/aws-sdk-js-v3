@@ -31,7 +31,6 @@ export interface GetChannelMessageStatusCommandInput extends GetChannelMessageSt
 export interface GetChannelMessageStatusCommandOutput extends GetChannelMessageStatusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets message status for a specified <code>messageId</code>. Use this API to determine the intermediate status of messages going through channel flow processing. The API provides an alternative to
  *          retrieving message status if the event was not received because a client wasn't connected to a websocket. </p>
  *          <p>Messages can have any one of these statuses.</p>
@@ -118,6 +117,7 @@ export interface GetChannelMessageStatusCommandOutput extends GetChannelMessageS
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class GetChannelMessageStatusCommand extends $Command
   .classBuilder<

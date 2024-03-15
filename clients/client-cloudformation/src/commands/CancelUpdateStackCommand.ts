@@ -27,7 +27,6 @@ export interface CancelUpdateStackCommandInput extends CancelUpdateStackInput {}
 export interface CancelUpdateStackCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels an update on the specified stack. If the call completes successfully, the stack rolls back the update
  *    and reverts to the previous stack configuration.</p>
  *          <note>
@@ -61,6 +60,7 @@ export interface CancelUpdateStackCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class CancelUpdateStackCommand extends $Command
   .classBuilder<

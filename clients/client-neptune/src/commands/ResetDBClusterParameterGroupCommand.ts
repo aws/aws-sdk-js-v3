@@ -29,7 +29,6 @@ export interface ResetDBClusterParameterGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p> Modifies the parameters of a DB cluster parameter group to the default value. To reset
  *       specific parameters submit a list of the following: <code>ParameterName</code> and
  *       <code>ApplyMethod</code>. To reset the entire DB cluster parameter group, specify the
@@ -88,6 +87,7 @@ export interface ResetDBClusterParameterGroupCommandOutput
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class ResetDBClusterParameterGroupCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteDomainNameCommandInput extends DeleteDomainNameRequest {}
 export interface DeleteDomainNameCommandOutput extends DeleteDomainNameResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a custom <code>DomainName</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface DeleteDomainNameCommandOutput extends DeleteDomainNameResponse,
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class DeleteDomainNameCommand extends $Command
   .classBuilder<

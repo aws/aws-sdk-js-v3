@@ -27,7 +27,6 @@ export interface GetBackupPlanCommandInput extends GetBackupPlanInput {}
 export interface GetBackupPlanCommandOutput extends GetBackupPlanOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns <code>BackupPlan</code> details for the specified <code>BackupPlanId</code>. The
  *          details are the body of a backup plan in JSON format, in addition to plan metadata.</p>
  * @example
@@ -125,6 +124,7 @@ export interface GetBackupPlanCommandOutput extends GetBackupPlanOutput, __Metad
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class GetBackupPlanCommand extends $Command
   .classBuilder<

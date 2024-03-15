@@ -32,7 +32,6 @@ export interface GetResponseHeadersPolicyConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a response headers policy configuration.</p>
  *          <p>To get a response headers policy configuration, you must provide the policy's
  * 			identifier. If the response headers policy is attached to a distribution's cache
@@ -156,6 +155,7 @@ export interface GetResponseHeadersPolicyConfigCommandOutput
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class GetResponseHeadersPolicyConfigCommand extends $Command
   .classBuilder<

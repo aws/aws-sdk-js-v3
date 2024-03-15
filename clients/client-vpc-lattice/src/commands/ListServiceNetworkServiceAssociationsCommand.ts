@@ -36,7 +36,6 @@ export interface ListServiceNetworkServiceAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the associations between the service network and the service. You can filter the list
  *    either by service or service network. You must provide either the service network identifier or
  *    the service identifier.</p>
@@ -107,6 +106,7 @@ export interface ListServiceNetworkServiceAssociationsCommandOutput
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class ListServiceNetworkServiceAssociationsCommand extends $Command
   .classBuilder<

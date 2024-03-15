@@ -32,7 +32,6 @@ export interface DeleteAutoScalingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete an App Runner automatic scaling configuration resource. You can delete a top level auto scaling configuration, a specific revision of one, or all
  *       revisions associated with the top level configuration. You can't delete the default auto scaling configuration or a configuration that's used by one or
  *       more App Runner services.</p>
@@ -85,6 +84,7 @@ export interface DeleteAutoScalingConfigurationCommandOutput
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ * @public
  */
 export class DeleteAutoScalingConfigurationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DisableRegionCommandInput extends DisableRegionRequest {}
 export interface DisableRegionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables (opts-out) a particular Region for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DisableRegionCommandOutput extends __MetadataBearer {}
  * @throws {@link AccountServiceException}
  * <p>Base exception class for all service exceptions from Account service.</p>
  *
+ * @public
  */
 export class DisableRegionCommand extends $Command
   .classBuilder<

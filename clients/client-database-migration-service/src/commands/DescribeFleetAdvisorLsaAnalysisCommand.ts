@@ -36,7 +36,6 @@ export interface DescribeFleetAdvisorLsaAnalysisCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides descriptions of large-scale assessment (LSA) analyses produced by your Fleet
  *             Advisor collectors. </p>
  * @example
@@ -75,6 +74,7 @@ export interface DescribeFleetAdvisorLsaAnalysisCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class DescribeFleetAdvisorLsaAnalysisCommand extends $Command
   .classBuilder<

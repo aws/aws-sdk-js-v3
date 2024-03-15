@@ -27,7 +27,6 @@ export interface UpdateEventActionCommandInput extends UpdateEventActionRequest 
 export interface UpdateEventActionCommandOutput extends UpdateEventActionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation updates the event action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface UpdateEventActionCommandOutput extends UpdateEventActionRespons
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ * @public
  */
 export class UpdateEventActionCommand extends $Command
   .classBuilder<

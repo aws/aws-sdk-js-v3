@@ -31,7 +31,6 @@ export interface DeleteScalingPolicyCommandInput extends DeleteScalingPolicyRequ
 export interface DeleteScalingPolicyCommandOutput extends DeleteScalingPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified scaling policy for an Application Auto Scaling scalable target.</p>
  *          <p>Deleting a step scaling policy deletes the underlying alarm action, but does not delete
  *          the CloudWatch alarm associated with the scaling policy, even if it no longer has an associated
@@ -83,6 +82,7 @@ export interface DeleteScalingPolicyCommandOutput extends DeleteScalingPolicyRes
  * @throws {@link ApplicationAutoScalingServiceException}
  * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
+ * @public
  * @example To delete a scaling policy
  * ```javascript
  * // This example deletes a scaling policy for the Amazon ECS service called web-app, which is running in the default cluster.

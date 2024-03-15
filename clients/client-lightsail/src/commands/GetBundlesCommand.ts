@@ -27,7 +27,6 @@ export interface GetBundlesCommandInput extends GetBundlesRequest {}
 export interface GetBundlesCommandOutput extends GetBundlesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the bundles that you can apply to an Amazon Lightsail instance when you create
  *       it.</p>
  *          <p>A bundle describes the specifications of an instance, such as the monthly cost, amount of
@@ -116,6 +115,7 @@ export interface GetBundlesCommandOutput extends GetBundlesResult, __MetadataBea
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetBundlesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateApplicationInstanceCommandInput extends CreateApplication
 export interface CreateApplicationInstanceCommandOutput extends CreateApplicationInstanceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an application instance and deploys it to a device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface CreateApplicationInstanceCommandOutput extends CreateApplicatio
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ * @public
  */
 export class CreateApplicationInstanceCommand extends $Command
   .classBuilder<

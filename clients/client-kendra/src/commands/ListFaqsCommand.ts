@@ -27,7 +27,6 @@ export interface ListFaqsCommandInput extends ListFaqsRequest {}
 export interface ListFaqsCommandOutput extends ListFaqsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of FAQ lists associated with an index.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface ListFaqsCommandOutput extends ListFaqsResponse, __MetadataBeare
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class ListFaqsCommand extends $Command
   .classBuilder<

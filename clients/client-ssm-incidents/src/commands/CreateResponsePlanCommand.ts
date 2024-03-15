@@ -27,7 +27,6 @@ export interface CreateResponsePlanCommandInput extends CreateResponsePlanInput 
 export interface CreateResponsePlanCommandOutput extends CreateResponsePlanOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a response plan that automates the initial response to incidents. A response plan
  *       engages contacts, starts chat channel collaboration, and initiates runbooks at the beginning
  *       of an incident.</p>
@@ -136,6 +135,7 @@ export interface CreateResponsePlanCommandOutput extends CreateResponsePlanOutpu
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ * @public
  */
 export class CreateResponsePlanCommand extends $Command
   .classBuilder<

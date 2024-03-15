@@ -27,7 +27,6 @@ export interface UpdateGroupCommandInput extends UpdateGroupRequest {}
 export interface UpdateGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the name and/or the path of the specified IAM group.</p>
  *          <important>
  *             <p> You should understand the implications of changing a group's path or name. For
@@ -85,6 +84,7 @@ export interface UpdateGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To rename an IAM group
  * ```javascript
  * // The following command changes the name of the IAM group Test to Test-1.

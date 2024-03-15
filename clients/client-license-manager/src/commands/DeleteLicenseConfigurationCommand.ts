@@ -27,7 +27,6 @@ export interface DeleteLicenseConfigurationCommandInput extends DeleteLicenseCon
 export interface DeleteLicenseConfigurationCommandOutput extends DeleteLicenseConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified license configuration.</p>
  *          <p>You cannot delete a license configuration that is in use.</p>
  * @example
@@ -70,6 +69,7 @@ export interface DeleteLicenseConfigurationCommandOutput extends DeleteLicenseCo
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * @public
  */
 export class DeleteLicenseConfigurationCommand extends $Command
   .classBuilder<

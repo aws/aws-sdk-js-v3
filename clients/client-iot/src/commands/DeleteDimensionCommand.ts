@@ -27,7 +27,6 @@ export interface DeleteDimensionCommandInput extends DeleteDimensionRequest {}
 export interface DeleteDimensionCommandOutput extends DeleteDimensionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified dimension from your Amazon Web Services accounts.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteDimension</a> action.</p>
  * @example
@@ -63,6 +62,7 @@ export interface DeleteDimensionCommandOutput extends DeleteDimensionResponse, _
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DeleteDimensionCommand extends $Command
   .classBuilder<

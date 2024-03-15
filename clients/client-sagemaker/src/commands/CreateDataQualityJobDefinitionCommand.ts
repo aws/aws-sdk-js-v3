@@ -32,7 +32,6 @@ export interface CreateDataQualityJobDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a definition for a job that monitors data quality and drift. For information
  *          about model monitor, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html">Amazon SageMaker Model
  *          Monitor</a>.</p>
@@ -171,6 +170,7 @@ export interface CreateDataQualityJobDefinitionCommandOutput
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateDataQualityJobDefinitionCommand extends $Command
   .classBuilder<

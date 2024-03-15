@@ -31,7 +31,6 @@ export interface ListEventTypesCommandInput extends ListEventTypesRequest {}
 export interface ListEventTypesCommandOutput extends ListEventTypesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the event types available for configuring notifications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface ListEventTypesCommandOutput extends ListEventTypesResult, __Met
  * @throws {@link CodestarNotificationsServiceException}
  * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
+ * @public
  */
 export class ListEventTypesCommand extends $Command
   .classBuilder<

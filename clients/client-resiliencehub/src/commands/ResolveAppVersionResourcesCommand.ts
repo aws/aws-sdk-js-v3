@@ -27,7 +27,6 @@ export interface ResolveAppVersionResourcesCommandInput extends ResolveAppVersio
 export interface ResolveAppVersionResourcesCommandOutput extends ResolveAppVersionResourcesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Resolves the resources for an application version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface ResolveAppVersionResourcesCommandOutput extends ResolveAppVersi
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class ResolveAppVersionResourcesCommand extends $Command
   .classBuilder<

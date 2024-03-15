@@ -31,7 +31,6 @@ export interface DescribeTopicCommandInput extends DescribeTopicRequest {}
 export interface DescribeTopicCommandOutput extends DescribeTopicResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a topic.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -329,6 +328,7 @@ export interface DescribeTopicCommandOutput extends DescribeTopicResponse, __Met
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DescribeTopicCommand extends $Command
   .classBuilder<

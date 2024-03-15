@@ -813,7 +813,6 @@ export interface CloudWatch {
 }
 
 /**
- * @public
  * <p>Amazon CloudWatch monitors your Amazon Web Services (Amazon Web Services) resources and the
  * 			applications you run on Amazon Web Services in real time. You can use CloudWatch to collect and track
  * 			metrics, which are the variables you want to measure for your resources and
@@ -827,6 +826,7 @@ export interface CloudWatch {
  *          <p>In addition to monitoring the built-in metrics that come with Amazon Web Services, you can monitor
  * 			your own custom metrics. With CloudWatch, you gain system-wide visibility into resource
  * 			utilization, application performance, and operational health.</p>
+ * @public
  */
 export class CloudWatch extends CloudWatchClient implements CloudWatch {}
 createAggregatedClient(commands, CloudWatch);

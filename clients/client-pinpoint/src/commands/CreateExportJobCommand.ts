@@ -27,7 +27,6 @@ export interface CreateExportJobCommandInput extends CreateExportJobRequest {}
 export interface CreateExportJobCommandOutput extends CreateExportJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an export job for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface CreateExportJobCommandOutput extends CreateExportJobResponse, _
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class CreateExportJobCommand extends $Command
   .classBuilder<

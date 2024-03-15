@@ -27,7 +27,6 @@ export interface InitiateVaultLockCommandInput extends InitiateVaultLockInput {}
 export interface InitiateVaultLockCommandOutput extends InitiateVaultLockOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation initiates the vault locking process by doing the following:</p>
  *          <ul>
  *             <li>
@@ -106,6 +105,7 @@ export interface InitiateVaultLockCommandOutput extends InitiateVaultLockOutput,
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * @public
  * @example To initiate the vault locking process
  * ```javascript
  * // The example initiates the vault locking process for the vault named my-vault.

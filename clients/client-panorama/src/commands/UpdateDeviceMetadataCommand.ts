@@ -27,7 +27,6 @@ export interface UpdateDeviceMetadataCommandInput extends UpdateDeviceMetadataRe
 export interface UpdateDeviceMetadataCommandOutput extends UpdateDeviceMetadataResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a device's metadata.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface UpdateDeviceMetadataCommandOutput extends UpdateDeviceMetadataR
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ * @public
  */
 export class UpdateDeviceMetadataCommand extends $Command
   .classBuilder<

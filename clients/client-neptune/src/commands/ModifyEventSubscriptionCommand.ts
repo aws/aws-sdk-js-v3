@@ -27,7 +27,6 @@ export interface ModifyEventSubscriptionCommandInput extends ModifyEventSubscrip
 export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscriptionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies an existing event notification subscription. Note that you can't modify the
  *       source identifiers using this call; to change source identifiers for a subscription, use the
  *       <a>AddSourceIdentifierToSubscription</a> and <a>RemoveSourceIdentifierFromSubscription</a> calls.</p>
@@ -98,6 +97,7 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class ModifyEventSubscriptionCommand extends $Command
   .classBuilder<

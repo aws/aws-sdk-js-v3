@@ -35,7 +35,6 @@ export interface DescribeSlackChannelConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * Lists Slack Channel Configurations optionally filtered by ChatConfigurationArn
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface DescribeSlackChannelConfigurationsCommandOutput
  * @throws {@link ChatbotServiceException}
  * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
+ * @public
  */
 export class DescribeSlackChannelConfigurationsCommand extends $Command
   .classBuilder<

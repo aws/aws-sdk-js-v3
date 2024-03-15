@@ -27,7 +27,6 @@ export interface GetOriginEndpointCommandInput extends GetOriginEndpointRequest 
 export interface GetOriginEndpointCommandOutput extends GetOriginEndpointResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the specified origin endpoint that's configured in AWS Elemental MediaPackage to obtain its playback URL and to view the packaging settings that it's currently using.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -152,6 +151,7 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
+ * @public
  */
 export class GetOriginEndpointCommand extends $Command
   .classBuilder<

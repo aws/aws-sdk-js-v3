@@ -27,7 +27,6 @@ export interface DescribePortfolioSharesCommandInput extends DescribePortfolioSh
 export interface DescribePortfolioSharesCommandOutput extends DescribePortfolioSharesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a summary of each of the portfolio shares that were created for the specified portfolio.</p>
  *          <p>You can use this API to determine which accounts or organizational nodes this
  *          portfolio have been shared, whether the recipient entity has imported the share, and
@@ -77,6 +76,7 @@ export interface DescribePortfolioSharesCommandOutput extends DescribePortfolioS
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class DescribePortfolioSharesCommand extends $Command
   .classBuilder<

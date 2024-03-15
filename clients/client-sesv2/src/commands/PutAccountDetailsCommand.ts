@@ -31,7 +31,6 @@ export interface PutAccountDetailsCommandInput extends PutAccountDetailsRequest 
 export interface PutAccountDetailsCommandOutput extends PutAccountDetailsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update your Amazon SES account details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface PutAccountDetailsCommandOutput extends PutAccountDetailsRespons
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class PutAccountDetailsCommand extends $Command
   .classBuilder<

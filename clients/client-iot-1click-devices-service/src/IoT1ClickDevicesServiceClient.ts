@@ -297,10 +297,10 @@ export type IoT1ClickDevicesServiceClientResolvedConfigType = __SmithyResolvedCo
 export interface IoT1ClickDevicesServiceClientResolvedConfig extends IoT1ClickDevicesServiceClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Describes all of the AWS IoT 1-Click device-related API operations for the service.
  *  Also provides sample requests, responses, and errors for the supported web services
  *  protocols.</p>
+ * @public
  */
 export class IoT1ClickDevicesServiceClient extends __Client<
   __HttpHandlerOptions,

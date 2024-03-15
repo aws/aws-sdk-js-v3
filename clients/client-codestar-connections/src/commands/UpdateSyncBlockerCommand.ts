@@ -31,7 +31,6 @@ export interface UpdateSyncBlockerCommandInput extends UpdateSyncBlockerInput {}
 export interface UpdateSyncBlockerCommandOutput extends UpdateSyncBlockerOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows you to update the status of a sync blocker, resolving the blocker and allowing syncing to continue.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface UpdateSyncBlockerCommandOutput extends UpdateSyncBlockerOutput,
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ * @public
  */
 export class UpdateSyncBlockerCommand extends $Command
   .classBuilder<

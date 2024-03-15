@@ -27,7 +27,6 @@ export interface DeleteDeliveryChannelCommandInput extends DeleteDeliveryChannel
 export interface DeleteDeliveryChannelCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the delivery channel.</p>
  *          <p>Before you can delete the delivery channel, you must stop the
  * 			configuration recorder by using the <a>StopConfigurationRecorder</a> action.</p>
@@ -63,6 +62,7 @@ export interface DeleteDeliveryChannelCommandOutput extends __MetadataBearer {}
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class DeleteDeliveryChannelCommand extends $Command
   .classBuilder<

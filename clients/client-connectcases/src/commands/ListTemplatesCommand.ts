@@ -27,7 +27,6 @@ export interface ListTemplatesCommandInput extends ListTemplatesRequest {}
 export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all of the templates in a Cases domain. Each list item is a condensed summary
  *       object of the template. </p>
  * @example
@@ -86,6 +85,7 @@ export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __Met
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ * @public
  */
 export class ListTemplatesCommand extends $Command
   .classBuilder<

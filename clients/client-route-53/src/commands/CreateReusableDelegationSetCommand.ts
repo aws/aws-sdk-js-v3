@@ -30,7 +30,6 @@ export interface CreateReusableDelegationSetCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a delegation set (a group of four name servers) that can be reused by multiple
  * 			hosted zones that were created by the same Amazon Web Services account. </p>
  *          <p>You can also create a reusable delegation set that uses the four name servers that are
@@ -150,6 +149,7 @@ export interface CreateReusableDelegationSetCommandOutput
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class CreateReusableDelegationSetCommand extends $Command
   .classBuilder<

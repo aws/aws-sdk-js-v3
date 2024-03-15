@@ -27,7 +27,6 @@ export interface NotifyMigrationTaskStateCommandInput extends NotifyMigrationTas
 export interface NotifyMigrationTaskStateCommandOutput extends NotifyMigrationTaskStateResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Notifies Migration Hub of the current status, progress, or other detail regarding a
  *          migration task. This API has the following traits:</p>
  *          <ul>
@@ -113,6 +112,7 @@ export interface NotifyMigrationTaskStateCommandOutput extends NotifyMigrationTa
  * @throws {@link MigrationHubServiceException}
  * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
+ * @public
  */
 export class NotifyMigrationTaskStateCommand extends $Command
   .classBuilder<

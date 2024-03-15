@@ -31,7 +31,6 @@ export interface DeleteRoutingControlCommandInput extends DeleteRoutingControlRe
 export interface DeleteRoutingControlCommandOutput extends DeleteRoutingControlResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a routing control.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface DeleteRoutingControlCommandOutput extends DeleteRoutingControlR
  * @throws {@link Route53RecoveryControlConfigServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
+ * @public
  */
 export class DeleteRoutingControlCommand extends $Command
   .classBuilder<

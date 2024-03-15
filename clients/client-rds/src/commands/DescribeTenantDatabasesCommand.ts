@@ -31,7 +31,6 @@ export interface DescribeTenantDatabasesCommandInput extends DescribeTenantDatab
 export interface DescribeTenantDatabasesCommandOutput extends TenantDatabasesMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the tenant databases in a DB instance that uses the multi-tenant
  *             configuration. Only RDS for Oracle CDB instances are supported.</p>
  * @example
@@ -100,6 +99,7 @@ export interface DescribeTenantDatabasesCommandOutput extends TenantDatabasesMes
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  */
 export class DescribeTenantDatabasesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeFleetAttributesCommandInput extends DescribeFleetAttrib
 export interface DescribeFleetAttributesCommandOutput extends DescribeFleetAttributesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves core fleet-wide properties, including the computing hardware and deployment
  *             configuration for all instances in the fleet.</p>
  *          <p>This operation can be used in the following ways: </p>
@@ -143,6 +142,7 @@ export interface DescribeFleetAttributesCommandOutput extends DescribeFleetAttri
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DescribeFleetAttributesCommand extends $Command
   .classBuilder<

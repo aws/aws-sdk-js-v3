@@ -31,7 +31,6 @@ export interface CancelSubscriptionCommandInput extends CancelSubscriptionInput 
 export interface CancelSubscriptionCommandOutput extends CancelSubscriptionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels the subscription to the specified asset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -117,6 +116,7 @@ export interface CancelSubscriptionCommandOutput extends CancelSubscriptionOutpu
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class CancelSubscriptionCommand extends $Command
   .classBuilder<

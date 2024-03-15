@@ -27,7 +27,6 @@ export interface ListCollaborationsCommandInput extends ListCollaborationsInput 
 export interface ListCollaborationsCommandOutput extends ListCollaborationsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists collaborations the caller owns, is active in, or has been invited to.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface ListCollaborationsCommandOutput extends ListCollaborationsOutpu
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class ListCollaborationsCommand extends $Command
   .classBuilder<

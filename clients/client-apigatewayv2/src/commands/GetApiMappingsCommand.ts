@@ -27,7 +27,6 @@ export interface GetApiMappingsCommandInput extends GetApiMappingsRequest {}
 export interface GetApiMappingsCommandOutput extends GetApiMappingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets API mappings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface GetApiMappingsCommandOutput extends GetApiMappingsResponse, __M
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ * @public
  */
 export class GetApiMappingsCommand extends $Command
   .classBuilder<

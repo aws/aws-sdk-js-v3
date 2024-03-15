@@ -27,7 +27,6 @@ export interface CreateDBClusterEndpointCommandInput extends CreateDBClusterEndp
 export interface CreateDBClusterEndpointCommandOutput extends CreateDBClusterEndpointOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new custom endpoint and associates it with an Amazon Neptune DB cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface CreateDBClusterEndpointCommandOutput extends CreateDBClusterEnd
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class CreateDBClusterEndpointCommand extends $Command
   .classBuilder<

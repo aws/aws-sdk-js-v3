@@ -27,7 +27,6 @@ export interface GetTrafficDistributionCommandInput extends GetTrafficDistributi
 export interface GetTrafficDistributionCommandOutput extends GetTrafficDistributionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the current traffic distribution for a given traffic distribution group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface GetTrafficDistributionCommandOutput extends GetTrafficDistribut
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class GetTrafficDistributionCommand extends $Command
   .classBuilder<

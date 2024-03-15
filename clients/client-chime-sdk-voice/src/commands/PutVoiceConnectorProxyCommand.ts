@@ -32,7 +32,6 @@ export interface PutVoiceConnectorProxyCommandInput extends PutVoiceConnectorPro
 export interface PutVoiceConnectorProxyCommandOutput extends PutVoiceConnectorProxyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Puts the specified proxy configuration to the specified Amazon Chime SDK Voice Connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface PutVoiceConnectorProxyCommandOutput extends PutVoiceConnectorPr
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class PutVoiceConnectorProxyCommand extends $Command
   .classBuilder<

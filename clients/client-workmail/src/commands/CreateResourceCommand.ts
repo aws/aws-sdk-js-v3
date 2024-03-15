@@ -27,7 +27,6 @@ export interface CreateResourceCommandInput extends CreateResourceRequest {}
 export interface CreateResourceCommandOutput extends CreateResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new WorkMail resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface CreateResourceCommandOutput extends CreateResourceResponse, __M
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class CreateResourceCommand extends $Command
   .classBuilder<

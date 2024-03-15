@@ -27,7 +27,6 @@ export interface DeleteEventActionCommandInput extends DeleteEventActionRequest 
 export interface DeleteEventActionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation deletes the event action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface DeleteEventActionCommandOutput extends __MetadataBearer {}
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ * @public
  */
 export class DeleteEventActionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface StartObjectCommandInput extends StartObjectInput {}
 export interface StartObjectCommandOutput extends StartObjectOutput, __MetadataBearer {}
 
 /**
- * @public
  * Start upload containing one or many chunks.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface StartObjectCommandOutput extends StartObjectOutput, __MetadataB
  * @throws {@link BackupStorageServiceException}
  * <p>Base exception class for all service exceptions from BackupStorage service.</p>
  *
+ * @public
  */
 export class StartObjectCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetMedicalVocabularyCommandInput extends GetMedicalVocabularyRe
 export interface GetMedicalVocabularyCommandOutput extends GetMedicalVocabularyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides information about the specified custom medical vocabulary.</p>
  *          <p>To view the status of the specified custom medical vocabulary, check the
  *                 <code>VocabularyState</code> field. If the status is <code>READY</code>, your custom
@@ -83,6 +82,7 @@ export interface GetMedicalVocabularyCommandOutput extends GetMedicalVocabularyR
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * @public
  */
 export class GetMedicalVocabularyCommand extends $Command
   .classBuilder<

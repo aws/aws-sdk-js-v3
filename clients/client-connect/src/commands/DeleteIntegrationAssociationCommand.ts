@@ -30,7 +30,6 @@ export interface DeleteIntegrationAssociationCommandInput extends DeleteIntegrat
 export interface DeleteIntegrationAssociationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Amazon Web Services resource association from an Amazon Connect instance. The
  *    association must not have any use cases associated with it.</p>
  * @example
@@ -70,6 +69,7 @@ export interface DeleteIntegrationAssociationCommandOutput extends __MetadataBea
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DeleteIntegrationAssociationCommand extends $Command
   .classBuilder<

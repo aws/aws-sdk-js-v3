@@ -32,7 +32,6 @@ export interface ListEventIntegrationAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a paginated list of event integration associations in the account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface ListEventIntegrationAssociationsCommandOutput
  * @throws {@link AppIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
+ * @public
  */
 export class ListEventIntegrationAssociationsCommand extends $Command
   .classBuilder<

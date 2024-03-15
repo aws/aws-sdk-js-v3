@@ -27,7 +27,6 @@ export interface PurchaseHostReservationCommandInput extends PurchaseHostReserva
 export interface PurchaseHostReservationCommandOutput extends PurchaseHostReservationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Purchase a reservation with configurations that match those of your Dedicated Host.
  *             You must have active Dedicated Hosts in your account before you purchase a reservation.
  *             This action results in the specified reservation being purchased and charged to your
@@ -92,6 +91,7 @@ export interface PurchaseHostReservationCommandOutput extends PurchaseHostReserv
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class PurchaseHostReservationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteWorkspaceImageCommandInput extends DeleteWorkspaceImageRe
 export interface DeleteWorkspaceImageCommandOutput extends DeleteWorkspaceImageResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified image from your account. To delete an image, you must first delete
  *          any bundles that are associated with the image and unshare the image if it is shared with
  *          other accounts. </p>
@@ -64,6 +63,7 @@ export interface DeleteWorkspaceImageCommandOutput extends DeleteWorkspaceImageR
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class DeleteWorkspaceImageCommand extends $Command
   .classBuilder<

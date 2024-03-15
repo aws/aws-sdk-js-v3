@@ -36,7 +36,6 @@ export interface DescribeCertificateAuthorityAuditReportCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists information about a specific audit report created by calling the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html">CreateCertificateAuthorityAuditReport</a> action. Audit information is created
  * 			every time the certificate authority (CA) private key is used. The private key is used
  * 			when you call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html">IssueCertificate</a> action or the
@@ -82,6 +81,7 @@ export interface DescribeCertificateAuthorityAuditReportCommandOutput
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ * @public
  */
 export class DescribeCertificateAuthorityAuditReportCommand extends $Command
   .classBuilder<

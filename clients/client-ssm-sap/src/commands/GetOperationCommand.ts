@@ -27,7 +27,6 @@ export interface GetOperationCommandInput extends GetOperationInput {}
 export interface GetOperationCommandOutput extends GetOperationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the details of an operation by specifying the operation ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface GetOperationCommandOutput extends GetOperationOutput, __Metadat
  * @throws {@link SsmSapServiceException}
  * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
+ * @public
  */
 export class GetOperationCommand extends $Command
   .classBuilder<

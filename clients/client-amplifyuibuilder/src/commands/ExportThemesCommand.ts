@@ -27,7 +27,6 @@ export interface ExportThemesCommandInput extends ExportThemesRequest {}
 export interface ExportThemesCommandOutput extends ExportThemesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Exports theme configurations to code that is ready to integrate into an Amplify app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface ExportThemesCommandOutput extends ExportThemesResponse, __Metad
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ * @public
  */
 export class ExportThemesCommand extends $Command
   .classBuilder<

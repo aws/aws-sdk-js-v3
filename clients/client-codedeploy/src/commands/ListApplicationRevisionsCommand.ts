@@ -27,7 +27,6 @@ export interface ListApplicationRevisionsCommandInput extends ListApplicationRev
 export interface ListApplicationRevisionsCommandOutput extends ListApplicationRevisionsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists information about revisions for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -116,6 +115,7 @@ export interface ListApplicationRevisionsCommandOutput extends ListApplicationRe
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
  */
 export class ListApplicationRevisionsCommand extends $Command
   .classBuilder<

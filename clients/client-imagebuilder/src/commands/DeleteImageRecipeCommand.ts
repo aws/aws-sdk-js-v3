@@ -27,7 +27,6 @@ export interface DeleteImageRecipeCommandInput extends DeleteImageRecipeRequest 
 export interface DeleteImageRecipeCommandOutput extends DeleteImageRecipeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an image recipe.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface DeleteImageRecipeCommandOutput extends DeleteImageRecipeRespons
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class DeleteImageRecipeCommand extends $Command
   .classBuilder<

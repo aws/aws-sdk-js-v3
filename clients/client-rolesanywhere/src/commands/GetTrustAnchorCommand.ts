@@ -27,7 +27,6 @@ export interface GetTrustAnchorCommandInput extends ScalarTrustAnchorRequest {}
 export interface GetTrustAnchorCommandOutput extends TrustAnchorDetailResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a trust anchor.</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -91,6 +90,7 @@ export interface GetTrustAnchorCommandOutput extends TrustAnchorDetailResponse, 
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ * @public
  */
 export class GetTrustAnchorCommand extends $Command
   .classBuilder<

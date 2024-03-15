@@ -28,7 +28,6 @@ export interface HttpPrefixHeadersInResponseCommandInput extends HttpPrefixHeade
 export interface HttpPrefixHeadersInResponseCommandOutput extends HttpPrefixHeadersInResponseOutput, __MetadataBearer {}
 
 /**
- * @public
  * Clients that perform this test extract all headers from the response.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,6 +55,7 @@ export interface HttpPrefixHeadersInResponseCommandOutput extends HttpPrefixHead
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ * @public
  */
 export class HttpPrefixHeadersInResponseCommand extends $Command
   .classBuilder<

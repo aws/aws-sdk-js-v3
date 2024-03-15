@@ -27,7 +27,6 @@ export interface DescribeAccountAttributesCommandInput extends DescribeAccountAt
 export interface DescribeAccountAttributesCommandOutput extends DescribeAccountAttributesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Describes your OpsWorks-CM account attributes.
  *     </p>
@@ -64,6 +63,7 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * @throws {@link OpsWorksCMServiceException}
  * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
+ * @public
  */
 export class DescribeAccountAttributesCommand extends $Command
   .classBuilder<

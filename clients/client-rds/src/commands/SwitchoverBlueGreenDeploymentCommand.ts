@@ -32,7 +32,6 @@ export interface SwitchoverBlueGreenDeploymentCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Switches over a blue/green deployment.</p>
  *          <p>Before you switch over, production traffic is routed to the databases in the blue environment.
  *             After you switch over, production traffic is routed to the databases in the green environment.</p>
@@ -104,6 +103,7 @@ export interface SwitchoverBlueGreenDeploymentCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To switch a blue/green deployment for an RDS DB instance
  * ```javascript
  * // The following example promotes the specified green environment as the new production environment.

@@ -27,7 +27,6 @@ export interface UpdateHITTypeOfHITCommandInput extends UpdateHITTypeOfHITReques
 export interface UpdateHITTypeOfHITCommandOutput extends UpdateHITTypeOfHITResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The
  *             <code>UpdateHITTypeOfHIT</code>
@@ -67,6 +66,7 @@ export interface UpdateHITTypeOfHITCommandOutput extends UpdateHITTypeOfHITRespo
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * @public
  */
 export class UpdateHITTypeOfHITCommand extends $Command
   .classBuilder<

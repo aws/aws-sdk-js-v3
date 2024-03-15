@@ -736,7 +736,6 @@ export interface Billingconductor {
 }
 
 /**
- * @public
  * <p>Amazon Web Services Billing Conductor is a fully managed service that you can use to
  *       customize a <a href="https://docs.aws.amazon.com/billingconductor/latest/userguide/understanding-eb.html#eb-other-definitions">proforma</a> version of your billing data each month, to accurately show or chargeback
  *       your end customers. Amazon Web Services Billing Conductor doesn't change the way you're billed
@@ -750,6 +749,7 @@ export interface Billingconductor {
  *          <p>This documentation shows how you can configure Amazon Web Services Billing Conductor using its
  *       API. For more information about using the <a href="https://console.aws.amazon.com/billingconductor/">Amazon Web Services
  *         Billing Conductor</a> user interface, see the <a href="https://docs.aws.amazon.com/billingconductor/latest/userguide/what-is-billingconductor.html"> Amazon Web Services Billing Conductor User Guide</a>.</p>
+ * @public
  */
 export class Billingconductor extends BillingconductorClient implements Billingconductor {}
 createAggregatedClient(commands, Billingconductor);

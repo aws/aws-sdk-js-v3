@@ -27,7 +27,6 @@ export interface ListAssetRelationshipsCommandInput extends ListAssetRelationshi
 export interface ListAssetRelationshipsCommandOutput extends ListAssetRelationshipsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a paginated list of asset relationships for an asset. You can use this operation
  *       to identify an asset's root asset and all associated assets between that asset and its
  *       root.</p>
@@ -85,6 +84,7 @@ export interface ListAssetRelationshipsCommandOutput extends ListAssetRelationsh
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class ListAssetRelationshipsCommand extends $Command
   .classBuilder<

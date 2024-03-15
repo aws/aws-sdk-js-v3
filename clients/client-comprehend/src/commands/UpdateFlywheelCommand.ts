@@ -27,7 +27,6 @@ export interface UpdateFlywheelCommandInput extends UpdateFlywheelRequest {}
 export interface UpdateFlywheelCommandOutput extends UpdateFlywheelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update the configuration information for an existing flywheel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -125,6 +124,7 @@ export interface UpdateFlywheelCommandOutput extends UpdateFlywheelResponse, __M
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class UpdateFlywheelCommand extends $Command
   .classBuilder<

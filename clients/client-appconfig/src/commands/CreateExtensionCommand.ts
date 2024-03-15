@@ -27,7 +27,6 @@ export interface CreateExtensionCommandInput extends CreateExtensionRequest {}
 export interface CreateExtensionCommandOutput extends Extension, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an AppConfig extension. An extension augments your ability to inject
  *          logic or behavior at different points during the AppConfig workflow of creating
  *          or deploying a configuration.</p>
@@ -142,6 +141,7 @@ export interface CreateExtensionCommandOutput extends Extension, __MetadataBeare
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  */
 export class CreateExtensionCommand extends $Command
   .classBuilder<

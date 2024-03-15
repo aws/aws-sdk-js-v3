@@ -27,7 +27,6 @@ export interface ListExportErrorsCommandInput extends ListExportErrorsRequest {}
 export interface ListExportErrorsCommandOutput extends ListExportErrorsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List export errors.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface ListExportErrorsCommandOutput extends ListExportErrorsResponse,
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * @public
  */
 export class ListExportErrorsCommand extends $Command
   .classBuilder<

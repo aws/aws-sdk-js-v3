@@ -27,7 +27,6 @@ export interface DeleteLandingZoneCommandInput extends DeleteLandingZoneInput {}
 export interface DeleteLandingZoneCommandOutput extends DeleteLandingZoneOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Decommissions a landing zone. This API call starts an asynchronous operation that deletes Amazon Web Services Control Tower
  *          resources deployed in accounts managed by Amazon Web Services Control Tower.</p>
  * @example
@@ -74,6 +73,7 @@ export interface DeleteLandingZoneCommandOutput extends DeleteLandingZoneOutput,
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ * @public
  */
 export class DeleteLandingZoneCommand extends $Command
   .classBuilder<

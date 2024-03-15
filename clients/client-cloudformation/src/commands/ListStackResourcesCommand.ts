@@ -27,7 +27,6 @@ export interface ListStackResourcesCommandInput extends ListStackResourcesInput 
 export interface ListStackResourcesCommandOutput extends ListStackResourcesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns descriptions of all resources of the specified stack.</p>
  *          <p>For deleted stacks, ListStackResources returns resource information for up to 90 days after the stack has been
  *    deleted.</p>
@@ -76,6 +75,7 @@ export interface ListStackResourcesCommandOutput extends ListStackResourcesOutpu
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class ListStackResourcesCommand extends $Command
   .classBuilder<

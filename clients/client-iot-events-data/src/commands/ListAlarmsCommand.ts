@@ -27,7 +27,6 @@ export interface ListAlarmsCommandInput extends ListAlarmsRequest {}
 export interface ListAlarmsCommandOutput extends ListAlarmsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists one or more alarms. The operation returns only the metadata associated with each
  *       alarm.</p>
  * @example
@@ -83,6 +82,7 @@ export interface ListAlarmsCommandOutput extends ListAlarmsResponse, __MetadataB
  * @throws {@link IoTEventsDataServiceException}
  * <p>Base exception class for all service exceptions from IoTEventsData service.</p>
  *
+ * @public
  */
 export class ListAlarmsCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface DeregisterTargetFromMaintenanceWindowCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a target from a maintenance window.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface DeregisterTargetFromMaintenanceWindowCommandOutput
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DeregisterTargetFromMaintenanceWindowCommand extends $Command
   .classBuilder<

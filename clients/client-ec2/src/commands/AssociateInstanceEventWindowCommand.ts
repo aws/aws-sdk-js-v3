@@ -29,7 +29,6 @@ export interface AssociateInstanceEventWindowCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates one or more targets with an event window. Only one type of target (instance IDs,
  *          Dedicated Host IDs, or tags) can be specified with an event window.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html">Define event windows for scheduled
@@ -108,6 +107,7 @@ export interface AssociateInstanceEventWindowCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class AssociateInstanceEventWindowCommand extends $Command
   .classBuilder<

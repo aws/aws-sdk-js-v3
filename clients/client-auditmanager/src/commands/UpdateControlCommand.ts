@@ -32,7 +32,6 @@ export interface UpdateControlCommandInput extends UpdateControlRequest {}
 export interface UpdateControlCommandOutput extends UpdateControlResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Updates a custom control in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -126,6 +125,7 @@ export interface UpdateControlCommandOutput extends UpdateControlResponse, __Met
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class UpdateControlCommand extends $Command
   .classBuilder<

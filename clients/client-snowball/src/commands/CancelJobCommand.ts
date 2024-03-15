@@ -27,7 +27,6 @@ export interface CancelJobCommandInput extends CancelJobRequest {}
 export interface CancelJobCommandOutput extends CancelJobResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels the specified job. You can only cancel a job before its <code>JobState</code>
  *       value changes to <code>PreparingAppliance</code>. Requesting the <code>ListJobs</code> or
  *         <code>DescribeJob</code> action returns a job's <code>JobState</code> as part of the
@@ -68,6 +67,7 @@ export interface CancelJobCommandOutput extends CancelJobResult, __MetadataBeare
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * @public
  * @example To cancel a job for a Snowball device
  * ```javascript
  * // This operation cancels a job. You can only cancel a job before its JobState value changes to PreparingAppliance.

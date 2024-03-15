@@ -27,7 +27,6 @@ export interface ListBuiltInIntentsCommandInput extends ListBuiltInIntentsReques
 export interface ListBuiltInIntentsCommandOutput extends ListBuiltInIntentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of built-in intents provided by Amazon Lex that you can use
  *          in your bot. </p>
  *          <p>To use a built-in intent as a the base for your own intent, include
@@ -88,6 +87,7 @@ export interface ListBuiltInIntentsCommandOutput extends ListBuiltInIntentsRespo
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class ListBuiltInIntentsCommand extends $Command
   .classBuilder<

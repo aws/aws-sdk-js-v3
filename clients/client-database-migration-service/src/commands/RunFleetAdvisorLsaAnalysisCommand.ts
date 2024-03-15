@@ -31,7 +31,6 @@ export interface RunFleetAdvisorLsaAnalysisCommandInput {}
 export interface RunFleetAdvisorLsaAnalysisCommandOutput extends RunFleetAdvisorLsaAnalysisResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Runs large-scale assessment (LSA) analysis on every Fleet Advisor collector in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +63,7 @@ export interface RunFleetAdvisorLsaAnalysisCommandOutput extends RunFleetAdvisor
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class RunFleetAdvisorLsaAnalysisCommand extends $Command
   .classBuilder<

@@ -35,7 +35,6 @@ export interface GetObjectMetadataCommandOutput
 }
 
 /**
- * @public
  * Get metadata associated with an Object.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface GetObjectMetadataCommandOutput
  * @throws {@link BackupStorageServiceException}
  * <p>Base exception class for all service exceptions from BackupStorage service.</p>
  *
+ * @public
  */
 export class GetObjectMetadataCommand extends $Command
   .classBuilder<

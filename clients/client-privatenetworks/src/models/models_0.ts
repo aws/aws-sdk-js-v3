@@ -4,8 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { PrivateNetworksServiceException as __BaseException } from "./PrivateNetworksServiceException";
 
 /**
- * @public
  * <p>You do not have permission to perform this operation.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -28,8 +28,8 @@ export class AccessDeniedException extends __BaseException {
  */
 export interface AcknowledgeOrderReceiptRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the order.</p>
+   * @public
    */
   orderArn: string | undefined;
 }
@@ -65,22 +65,21 @@ export const CommitmentLength = {
 export type CommitmentLength = (typeof CommitmentLength)[keyof typeof CommitmentLength];
 
 /**
- * @public
  * <p>Determines the duration and renewal status of the commitment period for a radio
  *             unit.</p>
  *          <p>For pricing, see <a href="http://aws.amazon.com/private5g/pricing">Amazon Web Services Private 5G
  *                 Pricing</a>.</p>
+ * @public
  */
 export interface CommitmentConfiguration {
   /**
-   * @public
    * <p>The duration of the commitment period for the radio unit. You can choose a 60-day, 1-year, or 3-year
    *             period.</p>
+   * @public
    */
   commitmentLength: CommitmentLength | undefined;
 
   /**
-   * @public
    * <p>Determines whether the commitment period for a radio unit is set to automatically
    *             renew for an additional 1 year after your current commitment period expires.</p>
    *          <p>Set to <code>True</code>, if you want your commitment period to automatically renew.
@@ -104,6 +103,7 @@ export interface CommitmentConfiguration {
    *          </ul>
    *          <p>You cannot use the automatic-renewal option for a 60-day
    *             commitment.</p>
+   * @public
    */
   automaticRenewal: boolean | undefined;
 }
@@ -124,164 +124,164 @@ export type NetworkResourceDefinitionType =
   (typeof NetworkResourceDefinitionType)[keyof typeof NetworkResourceDefinitionType];
 
 /**
- * @public
  * <p>Details of the network resources in the order.</p>
+ * @public
  */
 export interface OrderedResourceDefinition {
   /**
-   * @public
    * <p>The type of network resource in the order.</p>
+   * @public
    */
   type: NetworkResourceDefinitionType | undefined;
 
   /**
-   * @public
    * <p>The number of network resources in the order.</p>
+   * @public
    */
   count: number | undefined;
 
   /**
-   * @public
    * <p>The duration and renewal status of the commitment period for each radio unit in the
    *             order. Does not show details if the resource type is DEVICE_IDENTIFIER.</p>
+   * @public
    */
   commitmentConfiguration?: CommitmentConfiguration;
 }
 
 /**
- * @public
  * <p>Information about an address.</p>
+ * @public
  */
 export interface Address {
   /**
-   * @public
    * <p>The city for this address.</p>
+   * @public
    */
   city: string | undefined;
 
   /**
-   * @public
    * <p>The company name for this address.</p>
+   * @public
    */
   company?: string;
 
   /**
-   * @public
    * <p>The country for this address.</p>
+   * @public
    */
   country: string | undefined;
 
   /**
-   * @public
    * <p>The recipient's name for this address.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The recipient's phone number.</p>
+   * @public
    */
   phoneNumber?: string;
 
   /**
-   * @public
    * <p>The postal code for this address.</p>
+   * @public
    */
   postalCode: string | undefined;
 
   /**
-   * @public
    * <p>The state or province for this address.</p>
+   * @public
    */
   stateOrProvince: string | undefined;
 
   /**
-   * @public
    * <p>The first line of the street address.</p>
+   * @public
    */
   street1: string | undefined;
 
   /**
-   * @public
    * <p>The second line of the street address.</p>
+   * @public
    */
   street2?: string;
 
   /**
-   * @public
    * <p>The third line of the street address.</p>
+   * @public
    */
   street3?: string;
 
   /**
-   * @public
    * <p>The recipient's email address.</p>
+   * @public
    */
   emailAddress?: string;
 }
 
 /**
- * @public
  * <p>Information about tracking a shipment.</p>
+ * @public
  */
 export interface TrackingInformation {
   /**
-   * @public
    * <p>The tracking number of the shipment.</p>
+   * @public
    */
   trackingNumber?: string;
 }
 
 /**
- * @public
  * <p>Information about an order.</p>
+ * @public
  */
 export interface Order {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the order.</p>
+   * @public
    */
   orderArn?: string;
 
   /**
-   * @public
    * <p>The shipping address of the order.</p>
+   * @public
    */
   shippingAddress?: Address;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the network associated with this order.</p>
+   * @public
    */
   networkArn?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the network site associated with this order.</p>
+   * @public
    */
   networkSiteArn?: string;
 
   /**
-   * @public
    * <p>The tracking information of the order.</p>
+   * @public
    */
   trackingInformation?: TrackingInformation[];
 
   /**
-   * @public
    * <p>The acknowledgement status of the order.</p>
+   * @public
    */
   acknowledgmentStatus?: AcknowledgmentStatus;
 
   /**
-   * @public
    * <p>The creation time of the order.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>A list of the network resources placed in the order.</p>
+   * @public
    */
   orderedResources?: OrderedResourceDefinition[];
 }
@@ -291,23 +291,23 @@ export interface Order {
  */
 export interface AcknowledgeOrderReceiptResponse {
   /**
-   * @public
    * <p>Information about the order.</p>
+   * @public
    */
   order: Order | undefined;
 }
 
 /**
- * @public
  * <p>Information about an internal error.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
   $retryable = {};
   /**
-   * @public
    * Advice to clients on when the call can be safely retried.
+   * @public
    */
   retryAfterSeconds?: number;
 
@@ -326,21 +326,21 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The resource was not found.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * Identifier of the affected resource.
+   * @public
    */
   resourceId: string | undefined;
 
   /**
-   * @public
    * Type of the affected resource.
+   * @public
    */
   resourceType: string | undefined;
 
@@ -360,19 +360,19 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Information about a field that failed validation.</p>
+ * @public
  */
 export interface ValidationExceptionField {
   /**
-   * @public
    * <p>The field name that failed validation.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The message about the validation failure.</p>
+   * @public
    */
   message: string | undefined;
 }
@@ -395,21 +395,21 @@ export const ValidationExceptionReason = {
 export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
- * @public
  * <p>The request failed validation.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * Reason the request failed validation.
+   * @public
    */
   reason: ValidationExceptionReason | undefined;
 
   /**
-   * @public
    * The list of fields that caused the error, if applicable.
+   * @public
    */
   fieldList?: ValidationExceptionField[];
 
@@ -433,16 +433,16 @@ export class ValidationException extends __BaseException {
  */
 export interface ActivateDeviceIdentifierRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the device identifier.</p>
+   * @public
    */
   deviceIdentifierArn: string | undefined;
 
   /**
-   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure
    *                 idempotency</a>.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -462,64 +462,64 @@ export const DeviceIdentifierStatus = {
 export type DeviceIdentifierStatus = (typeof DeviceIdentifierStatus)[keyof typeof DeviceIdentifierStatus];
 
 /**
- * @public
  * <p>Information about a subscriber of a device that can use a network.</p>
+ * @public
  */
 export interface DeviceIdentifier {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the device identifier.</p>
+   * @public
    */
   deviceIdentifierArn?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the traffic group to which the device identifier
    *             belongs.</p>
+   * @public
    */
   trafficGroupArn?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the network on which the device identifier
    *             appears.</p>
+   * @public
    */
   networkArn?: string;
 
   /**
-   * @public
    * <p>The International Mobile Subscriber Identity of the device identifier.</p>
+   * @public
    */
   imsi?: string;
 
   /**
-   * @public
    * <p>The Integrated Circuit Card Identifier of the device identifier.</p>
+   * @public
    */
   iccid?: string;
 
   /**
-   * @public
    * <p>The vendor of the device identifier.</p>
+   * @public
    */
   vendor?: string;
 
   /**
-   * @public
    * <p>The status of the device identifier.</p>
+   * @public
    */
   status?: DeviceIdentifierStatus;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the order used to purchase the device
    *             identifier.</p>
+   * @public
    */
   orderArn?: string;
 
   /**
-   * @public
    * <p>The creation time of this device identifier.</p>
+   * @public
    */
   createdAt?: Date;
 }
@@ -529,14 +529,14 @@ export interface DeviceIdentifier {
  */
 export interface ActivateDeviceIdentifierResponse {
   /**
-   * @public
    * <p>Information about the device identifier.</p>
+   * @public
    */
   deviceIdentifier: DeviceIdentifier | undefined;
 
   /**
-   * @public
    * <p> The tags on the device identifier. </p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -546,27 +546,26 @@ export interface ActivateDeviceIdentifierResponse {
  */
 export interface ActivateNetworkSiteRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the network site.</p>
+   * @public
    */
   networkSiteArn: string | undefined;
 
   /**
-   * @public
    * <p>The shipping address of the network site.</p>
+   * @public
    */
   shippingAddress: Address | undefined;
 
   /**
-   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure
    *                 idempotency</a>.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>Determines the duration and renewal status of the commitment period for all pending radio
    *             units.</p>
    *          <p>If you include <code>commitmentConfiguration</code> in the
@@ -587,66 +586,67 @@ export interface ActivateNetworkSiteRequest {
    *          <p>If you do not include <code>commitmentConfiguration</code> in the
    *                 <code>ActivateNetworkSiteRequest</code> action, the commitment period is set to
    *             60-days.</p>
+   * @public
    */
   commitmentConfiguration?: CommitmentConfiguration;
 }
 
 /**
- * @public
  * <p>Information about a name/value pair.</p>
+ * @public
  */
 export interface NameValuePair {
   /**
-   * @public
    * <p>The name of the pair.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The value of the pair.</p>
+   * @public
    */
   value?: string;
 }
 
 /**
- * @public
  * <p>Information about a network resource definition.</p>
+ * @public
  */
 export interface NetworkResourceDefinition {
   /**
-   * @public
    * <p>The type in the network resource definition.</p>
+   * @public
    */
   type: NetworkResourceDefinitionType | undefined;
 
   /**
-   * @public
    * <p>The options in the network resource definition.</p>
+   * @public
    */
   options?: NameValuePair[];
 
   /**
-   * @public
    * <p>The count in the network resource definition.</p>
+   * @public
    */
   count: number | undefined;
 }
 
 /**
- * @public
  * <p>Information about a site plan.</p>
+ * @public
  */
 export interface SitePlan {
   /**
-   * @public
    * <p>The resource definitions of the plan.</p>
+   * @public
    */
   resourceDefinitions?: NetworkResourceDefinition[];
 
   /**
-   * @public
    * <p>The options of the plan.</p>
+   * @public
    */
   options?: NameValuePair[];
 }
@@ -669,74 +669,74 @@ export const NetworkSiteStatus = {
 export type NetworkSiteStatus = (typeof NetworkSiteStatus)[keyof typeof NetworkSiteStatus];
 
 /**
- * @public
  * <p>Information about a network site.</p>
+ * @public
  */
 export interface NetworkSite {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the network site.</p>
+   * @public
    */
   networkSiteArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the network site.</p>
+   * @public
    */
   networkSiteName: string | undefined;
 
   /**
-   * @public
    * <p>The description of the network site.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The status of the network site.</p>
+   * @public
    */
   status: NetworkSiteStatus | undefined;
 
   /**
-   * @public
    * <p>The status reason of the network site.</p>
+   * @public
    */
   statusReason?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the network to which the network site
    *             belongs.</p>
+   * @public
    */
   networkArn: string | undefined;
 
   /**
-   * @public
    * <p>The pending plan of the network site.</p>
+   * @public
    */
   pendingPlan?: SitePlan;
 
   /**
-   * @public
    * <p>The current plan of the network site.</p>
+   * @public
    */
   currentPlan?: SitePlan;
 
   /**
-   * @public
    * <p>The creation time of the network site.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p> The parent Availability Zone for the network site. </p>
+   * @public
    */
   availabilityZone?: string;
 
   /**
-   * @public
    * <p> The parent Availability Zone ID for the network site. </p>
+   * @public
    */
   availabilityZoneId?: string;
 }
@@ -746,35 +746,35 @@ export interface NetworkSite {
  */
 export interface ActivateNetworkSiteResponse {
   /**
-   * @public
    * <p>Information about the network site.</p>
+   * @public
    */
   networkSite?: NetworkSite;
 }
 
 /**
- * @public
  * <p>Shows the duration, the date and time that the contract started and ends, and the
  *             renewal status of the commitment period for the radio unit.</p>
+ * @public
  */
 export interface CommitmentInformation {
   /**
-   * @public
    * <p>The duration and renewal status of the commitment period for the radio unit.</p>
+   * @public
    */
   commitmentConfiguration: CommitmentConfiguration | undefined;
 
   /**
-   * @public
    * <p>The date and time that the commitment period started.</p>
+   * @public
    */
   startAt?: Date;
 
   /**
-   * @public
    * <p>The date and time that the commitment period ends. If you do not cancel or renew the
    *             commitment before the expiration date, you will be billed at the 60-day-commitment
    *             rate.</p>
+   * @public
    */
   expiresOn?: Date;
 }
@@ -810,37 +810,37 @@ export const ElevationUnit = {
 export type ElevationUnit = (typeof ElevationUnit)[keyof typeof ElevationUnit];
 
 /**
- * @public
  * <p>Information about a position.</p>
+ * @public
  */
 export interface Position {
   /**
-   * @public
    * <p>The latitude of the position.</p>
+   * @public
    */
   latitude?: number;
 
   /**
-   * @public
    * <p>The longitude of the position.</p>
+   * @public
    */
   longitude?: number;
 
   /**
-   * @public
    * <p>The elevation of the equipment at this position.</p>
+   * @public
    */
   elevation?: number;
 
   /**
-   * @public
    * <p>The units used to measure the elevation of the position.</p>
+   * @public
    */
   elevationUnit?: ElevationUnit;
 
   /**
-   * @public
    * <p>The reference point from which elevation is reported.</p>
+   * @public
    */
   elevationReference?: ElevationReference;
 }
@@ -850,42 +850,42 @@ export interface Position {
  */
 export interface ConfigureAccessPointRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the network resource.</p>
+   * @public
    */
   accessPointArn: string | undefined;
 
   /**
-   * @public
    * <p>The position of the network resource.</p>
+   * @public
    */
   position?: Position;
 
   /**
-   * @public
    * <p>The CPI user name of the CPI user who is certifying the coordinates of the radio
    *             unit.</p>
+   * @public
    */
   cpiUsername?: string;
 
   /**
-   * @public
    * <p>The CPI user ID of the CPI user who is certifying the coordinates of the network
    *             resource. </p>
+   * @public
    */
   cpiUserId?: string;
 
   /**
-   * @public
    * <p>The CPI password associated with the CPI certificate in
    *             <code>cpiSecretKey</code>.</p>
+   * @public
    */
   cpiUserPassword?: string;
 
   /**
-   * @public
    * <p>A Base64 encoded string of the CPI certificate associated with the CPI user who is
    *             certifying the coordinates of the network resource. </p>
+   * @public
    */
   cpiSecretKey?: string;
 }
@@ -906,35 +906,35 @@ export const HealthStatus = {
 export type HealthStatus = (typeof HealthStatus)[keyof typeof HealthStatus];
 
 /**
- * @public
  * <p>Information about a request to return a network resource.</p>
+ * @public
  */
 export interface ReturnInformation {
   /**
-   * @public
    * <p>The shipping address.</p>
+   * @public
    */
   shippingAddress?: Address;
 
   /**
-   * @public
    * <p>The reason for the return. If the return request did not include a reason for the
    *             return, this value is null.</p>
+   * @public
    */
   returnReason?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the replacement order.</p>
+   * @public
    */
   replacementOrderArn?: string;
 
   /**
-   * @public
    * <p>The URL of the shipping label. The shipping label is available for download only if
    *             the status of the network resource is <code>PENDING_RETURN</code>. For more information,
    *             see <a href="https://docs.aws.amazon.com/private-networks/latest/userguide/radio-units.html#return-radio-unit">Return a
    *                 radio unit</a>.</p>
+   * @public
    */
   shippingLabel?: string;
 }
@@ -974,114 +974,114 @@ export const NetworkResourceType = {
 export type NetworkResourceType = (typeof NetworkResourceType)[keyof typeof NetworkResourceType];
 
 /**
- * @public
  * <p>Information about a network resource.</p>
+ * @public
  */
 export interface NetworkResource {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the network resource.</p>
+   * @public
    */
   networkResourceArn?: string;
 
   /**
-   * @public
    * <p>The description of the network resource.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The type of the network resource.</p>
+   * @public
    */
   type?: NetworkResourceType;
 
   /**
-   * @public
    * <p>The status of the network resource.</p>
+   * @public
    */
   status?: NetworkResourceStatus;
 
   /**
-   * @public
    * <p>The status reason of the network resource.</p>
+   * @public
    */
   statusReason?: string;
 
   /**
-   * @public
    * <p>The vendor of the network resource.</p>
+   * @public
    */
   vendor?: string;
 
   /**
-   * @public
    * <p>The model of the network resource.</p>
+   * @public
    */
   model?: string;
 
   /**
-   * @public
    * <p>The serial number of the network resource.</p>
+   * @public
    */
   serialNumber?: string;
 
   /**
-   * @public
    * <p>The health of the network resource.</p>
+   * @public
    */
   health?: HealthStatus;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the network on which this network resource
    *             appears.</p>
+   * @public
    */
   networkArn?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the network site on which this network resource
    *             appears.</p>
+   * @public
    */
   networkSiteArn?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the order used to purchase this network
    *             resource.</p>
+   * @public
    */
   orderArn?: string;
 
   /**
-   * @public
    * <p>The attributes of the network resource.</p>
+   * @public
    */
   attributes?: NameValuePair[];
 
   /**
-   * @public
    * <p>The position of the network resource.</p>
+   * @public
    */
   position?: Position;
 
   /**
-   * @public
    * <p>The creation time of the network resource.</p>
+   * @public
    */
   createdAt?: Date;
 
   /**
-   * @public
    * <p>Information about a request to return the network resource.</p>
+   * @public
    */
   returnInformation?: ReturnInformation;
 
   /**
-   * @public
    * <p>Information about the commitment period for the radio unit. Shows the duration, the
    *             date and time that the contract started and ends, and the renewal status of the
    *             commitment period.</p>
+   * @public
    */
   commitmentInformation?: CommitmentInformation;
 }
@@ -1091,8 +1091,8 @@ export interface NetworkResource {
  */
 export interface ConfigureAccessPointResponse {
   /**
-   * @public
    * <p>Information about the network resource.</p>
+   * @public
    */
   accessPoint: NetworkResource | undefined;
 }
@@ -1102,29 +1102,29 @@ export interface ConfigureAccessPointResponse {
  */
 export interface CreateNetworkRequest {
   /**
-   * @public
    * <p>The name of the network. You can't change the name after you create the
    *             network.</p>
+   * @public
    */
   networkName: string | undefined;
 
   /**
-   * @public
    * <p>The description of the network.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure
    *                 idempotency</a>.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p> The tags to apply to the network. </p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1147,43 +1147,43 @@ export const NetworkStatus = {
 export type NetworkStatus = (typeof NetworkStatus)[keyof typeof NetworkStatus];
 
 /**
- * @public
  * <p>Information about a network.</p>
+ * @public
  */
 export interface Network {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the network.</p>
+   * @public
    */
   networkArn: string | undefined;
 
   /**
-   * @public
    * <p>The name of the network.</p>
+   * @public
    */
   networkName: string | undefined;
 
   /**
-   * @public
    * <p>The description of the network.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The status of the network.</p>
+   * @public
    */
   status: NetworkStatus | undefined;
 
   /**
-   * @public
    * <p>The status reason of the network.</p>
+   * @public
    */
   statusReason?: string;
 
   /**
-   * @public
    * <p>The creation time of the network.</p>
+   * @public
    */
   createdAt?: Date;
 }
@@ -1193,21 +1193,21 @@ export interface Network {
  */
 export interface CreateNetworkResponse {
   /**
-   * @public
    * <p>Information about the network.</p>
+   * @public
    */
   network: Network | undefined;
 
   /**
-   * @public
    * <p> The network tags. </p>
+   * @public
    */
   tags?: Record<string, string>;
 }
 
 /**
- * @public
  * <p>The limit was exceeded.</p>
+ * @public
  */
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
@@ -1230,54 +1230,54 @@ export class LimitExceededException extends __BaseException {
  */
 export interface CreateNetworkSiteRequest {
   /**
-   * @public
    * <p>The name of the site. You can't change the name after you create the site.</p>
+   * @public
    */
   networkSiteName: string | undefined;
 
   /**
-   * @public
    * <p>The description of the site.</p>
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the network.</p>
+   * @public
    */
   networkArn: string | undefined;
 
   /**
-   * @public
    * <p>Information about the pending plan for this site.</p>
+   * @public
    */
   pendingPlan?: SitePlan;
 
   /**
-   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure
    *                 idempotency</a>.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>The Availability Zone that is the parent of this site. You can't change the
    *             Availability Zone after you create the site.</p>
+   * @public
    */
   availabilityZone?: string;
 
   /**
-   * @public
    * <p>The ID of the Availability Zone that is the parent of this site. You can't change the
    *             Availability Zone after you create the site.</p>
+   * @public
    */
   availabilityZoneId?: string;
 
   /**
-   * @public
    * <p> The tags to apply to the network site. </p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1287,14 +1287,14 @@ export interface CreateNetworkSiteRequest {
  */
 export interface CreateNetworkSiteResponse {
   /**
-   * @public
    * <p>Information about the network site.</p>
+   * @public
    */
   networkSite?: NetworkSite;
 
   /**
-   * @public
    * <p> The network site tags. </p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1304,16 +1304,16 @@ export interface CreateNetworkSiteResponse {
  */
 export interface DeactivateDeviceIdentifierRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the device identifier.</p>
+   * @public
    */
   deviceIdentifierArn: string | undefined;
 
   /**
-   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure
    *                 idempotency</a>.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -1323,8 +1323,8 @@ export interface DeactivateDeviceIdentifierRequest {
  */
 export interface DeactivateDeviceIdentifierResponse {
   /**
-   * @public
    * <p>Information about the device identifier.</p>
+   * @public
    */
   deviceIdentifier: DeviceIdentifier | undefined;
 }
@@ -1334,16 +1334,16 @@ export interface DeactivateDeviceIdentifierResponse {
  */
 export interface DeleteNetworkRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the network.</p>
+   * @public
    */
   networkArn: string | undefined;
 
   /**
-   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure
    *                 idempotency</a>.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -1353,8 +1353,8 @@ export interface DeleteNetworkRequest {
  */
 export interface DeleteNetworkResponse {
   /**
-   * @public
    * <p>Information about the network.</p>
+   * @public
    */
   network: Network | undefined;
 }
@@ -1364,16 +1364,16 @@ export interface DeleteNetworkResponse {
  */
 export interface DeleteNetworkSiteRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the network site.</p>
+   * @public
    */
   networkSiteArn: string | undefined;
 
   /**
-   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure
    *                 idempotency</a>.</p>
+   * @public
    */
   clientToken?: string;
 }
@@ -1383,8 +1383,8 @@ export interface DeleteNetworkSiteRequest {
  */
 export interface DeleteNetworkSiteResponse {
   /**
-   * @public
    * <p>Information about the network site.</p>
+   * @public
    */
   networkSite?: NetworkSite;
 }
@@ -1409,8 +1409,8 @@ export type DeviceIdentifierFilterKeys = (typeof DeviceIdentifierFilterKeys)[key
  */
 export interface GetDeviceIdentifierRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the device identifier.</p>
+   * @public
    */
   deviceIdentifierArn: string | undefined;
 }
@@ -1420,14 +1420,14 @@ export interface GetDeviceIdentifierRequest {
  */
 export interface GetDeviceIdentifierResponse {
   /**
-   * @public
    * <p>Information about the device identifier.</p>
+   * @public
    */
   deviceIdentifier?: DeviceIdentifier;
 
   /**
-   * @public
    * <p> The device identifier tags. </p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1437,8 +1437,8 @@ export interface GetDeviceIdentifierResponse {
  */
 export interface GetNetworkRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the network.</p>
+   * @public
    */
   networkArn: string | undefined;
 }
@@ -1448,14 +1448,14 @@ export interface GetNetworkRequest {
  */
 export interface GetNetworkResponse {
   /**
-   * @public
    * <p>Information about the network.</p>
+   * @public
    */
   network: Network | undefined;
 
   /**
-   * @public
    * <p> The network tags. </p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1465,8 +1465,8 @@ export interface GetNetworkResponse {
  */
 export interface GetNetworkResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the network resource.</p>
+   * @public
    */
   networkResourceArn: string | undefined;
 }
@@ -1476,14 +1476,14 @@ export interface GetNetworkResourceRequest {
  */
 export interface GetNetworkResourceResponse {
   /**
-   * @public
    * <p>Information about the network resource.</p>
+   * @public
    */
   networkResource: NetworkResource | undefined;
 
   /**
-   * @public
    * <p> The network resource tags. </p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1493,8 +1493,8 @@ export interface GetNetworkResourceResponse {
  */
 export interface GetNetworkSiteRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the network site.</p>
+   * @public
    */
   networkSiteArn: string | undefined;
 }
@@ -1504,14 +1504,14 @@ export interface GetNetworkSiteRequest {
  */
 export interface GetNetworkSiteResponse {
   /**
-   * @public
    * <p>Information about the network site.</p>
+   * @public
    */
   networkSite?: NetworkSite;
 
   /**
-   * @public
    * <p> The network site tags. </p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1521,8 +1521,8 @@ export interface GetNetworkSiteResponse {
  */
 export interface GetOrderRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the order.</p>
+   * @public
    */
   orderArn: string | undefined;
 }
@@ -1532,14 +1532,14 @@ export interface GetOrderRequest {
  */
 export interface GetOrderResponse {
   /**
-   * @public
    * <p>Information about the order.</p>
+   * @public
    */
   order: Order | undefined;
 
   /**
-   * @public
    * <p> The order tags. </p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -1549,7 +1549,6 @@ export interface GetOrderResponse {
  */
 export interface ListDeviceIdentifiersRequest {
   /**
-   * @public
    * <p>The filters.</p>
    *          <ul>
    *             <li>
@@ -1570,24 +1569,25 @@ export interface ListDeviceIdentifiersRequest {
    *          <p>Filter values are case sensitive. If you specify multiple
    *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
    *          all results that match any of the specified values.</p>
+   * @public
    */
   filters?: Partial<Record<DeviceIdentifierFilterKeys, string[]>>;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the network.</p>
+   * @public
    */
   networkArn: string | undefined;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   startToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -1597,14 +1597,14 @@ export interface ListDeviceIdentifiersRequest {
  */
 export interface ListDeviceIdentifiersResponse {
   /**
-   * @public
    * <p>Information about the device identifiers.</p>
+   * @public
    */
   deviceIdentifiers?: DeviceIdentifier[];
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1628,7 +1628,6 @@ export type NetworkResourceFilterKeys = (typeof NetworkResourceFilterKeys)[keyof
  */
 export interface ListNetworkResourcesRequest {
   /**
-   * @public
    * <p>The filters.</p>
    *          <ul>
    *             <li>
@@ -1646,24 +1645,25 @@ export interface ListNetworkResourcesRequest {
    *          <p>Filter values are case sensitive. If you specify multiple
    *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
    *          all results that match any of the specified values.</p>
+   * @public
    */
   filters?: Partial<Record<NetworkResourceFilterKeys, string[]>>;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the network.</p>
+   * @public
    */
   networkArn: string | undefined;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   startToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -1673,14 +1673,14 @@ export interface ListNetworkResourcesRequest {
  */
 export interface ListNetworkResourcesResponse {
   /**
-   * @public
    * <p>Information about network resources.</p>
+   * @public
    */
   networkResources?: NetworkResource[];
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1703,7 +1703,6 @@ export type NetworkFilterKeys = (typeof NetworkFilterKeys)[keyof typeof NetworkF
  */
 export interface ListNetworksRequest {
   /**
-   * @public
    * <p>The filters.</p>
    *          <ul>
    *             <li>
@@ -1716,18 +1715,19 @@ export interface ListNetworksRequest {
    *          <p>Filter values are case sensitive. If you specify multiple
    *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
    *          all results that match any of the specified values.</p>
+   * @public
    */
   filters?: Partial<Record<NetworkFilterKeys, string[]>>;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   startToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -1737,14 +1737,14 @@ export interface ListNetworksRequest {
  */
 export interface ListNetworksResponse {
   /**
-   * @public
    * <p>The networks.</p>
+   * @public
    */
   networks?: Network[];
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1767,7 +1767,6 @@ export type NetworkSiteFilterKeys = (typeof NetworkSiteFilterKeys)[keyof typeof 
  */
 export interface ListNetworkSitesRequest {
   /**
-   * @public
    * <p>The filters. Add filters to your request to return a more specific list of results.
    *             Use filters to match the status of the network sites.</p>
    *          <ul>
@@ -1781,24 +1780,25 @@ export interface ListNetworkSitesRequest {
    *          <p>Filter values are case sensitive. If you specify multiple
    *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
    *          all results that match any of the specified values.</p>
+   * @public
    */
   filters?: Partial<Record<NetworkSiteFilterKeys, string[]>>;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the network.</p>
+   * @public
    */
   networkArn: string | undefined;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   startToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return.</p>
+   * @public
    */
   maxResults?: number;
 }
@@ -1808,14 +1808,14 @@ export interface ListNetworkSitesRequest {
  */
 export interface ListNetworkSitesResponse {
   /**
-   * @public
    * <p>Information about the network sites.</p>
+   * @public
    */
   networkSites?: NetworkSite[];
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1839,25 +1839,24 @@ export type OrderFilterKeys = (typeof OrderFilterKeys)[keyof typeof OrderFilterK
  */
 export interface ListOrdersRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the network.</p>
+   * @public
    */
   networkArn: string | undefined;
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   startToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The filters.</p>
    *          <ul>
    *             <li>
@@ -1874,6 +1873,7 @@ export interface ListOrdersRequest {
    *          <p>Filter values are case sensitive. If you specify multiple
    *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
    *          all results that match any of the specified values.</p>
+   * @public
    */
   filters?: Partial<Record<OrderFilterKeys, string[]>>;
 }
@@ -1883,14 +1883,14 @@ export interface ListOrdersRequest {
  */
 export interface ListOrdersResponse {
   /**
-   * @public
    * <p>Information about the orders.</p>
+   * @public
    */
   orders?: Order[];
 
   /**
-   * @public
    * <p>The token for the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1900,8 +1900,8 @@ export interface ListOrdersResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
    */
   resourceArn: string | undefined;
 }
@@ -1911,15 +1911,15 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>The resource tags.</p>
+   * @public
    */
   tags?: Record<string, string>;
 }
 
 /**
- * @public
  * <p> The request was denied due to request throttling. </p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -1945,8 +1945,8 @@ export class ThrottlingException extends __BaseException {
  */
 export interface PingResponse {
   /**
-   * @public
    * <p>Information about the health of the service.</p>
+   * @public
    */
   status?: string;
 }
@@ -1971,13 +1971,12 @@ export type UpdateType = (typeof UpdateType)[keyof typeof UpdateType];
  */
 export interface StartNetworkResourceUpdateRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the network resource.</p>
+   * @public
    */
   networkResourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The update type.</p>
    *          <ul>
    *             <li>
@@ -2000,25 +1999,25 @@ export interface StartNetworkResourceUpdateRequest {
    *                   </a>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   updateType: UpdateType | undefined;
 
   /**
-   * @public
    * <p>The shipping address. If you don't provide a shipping address when replacing or
    *             returning a network resource, we use the address from the original order for the network
    *             resource.</p>
+   * @public
    */
   shippingAddress?: Address;
 
   /**
-   * @public
    * <p>The reason for the return. Providing a reason for a return is optional.</p>
+   * @public
    */
   returnReason?: string;
 
   /**
-   * @public
    * <p>Use this action to extend and automatically renew the commitment period for the radio
    *             unit. You can do the following:</p>
    *          <ul>
@@ -2049,6 +2048,7 @@ export interface StartNetworkResourceUpdateRequest {
    *          </ul>
    *          <p>For pricing, see <a href="http://aws.amazon.com/private5g/pricing">Amazon Web Services Private 5G
    *                 Pricing</a>.</p>
+   * @public
    */
   commitmentConfiguration?: CommitmentConfiguration;
 }
@@ -2058,8 +2058,8 @@ export interface StartNetworkResourceUpdateRequest {
  */
 export interface StartNetworkResourceUpdateResponse {
   /**
-   * @public
    * <p>The network resource.</p>
+   * @public
    */
   networkResource?: NetworkResource;
 }
@@ -2069,14 +2069,14 @@ export interface StartNetworkResourceUpdateResponse {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p> The Amazon Resource Name (ARN) of the resource. </p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The tags to add to the resource.</p>
+   * @public
    */
   tags: Record<string, string> | undefined;
 }
@@ -2091,14 +2091,14 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The tag keys.</p>
+   * @public
    */
   tagKeys: string[] | undefined;
 }
@@ -2113,22 +2113,22 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateNetworkSiteRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the network site.</p>
+   * @public
    */
   networkSiteArn: string | undefined;
 
   /**
-   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure
    *                 idempotency</a>.</p>
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * <p>The description.</p>
+   * @public
    */
   description?: string;
 }
@@ -2138,14 +2138,14 @@ export interface UpdateNetworkSiteRequest {
  */
 export interface UpdateNetworkSiteResponse {
   /**
-   * @public
    * <p>Information about the network site.</p>
+   * @public
    */
   networkSite?: NetworkSite;
 
   /**
-   * @public
    * <p> The network site tags. </p>
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -2155,22 +2155,22 @@ export interface UpdateNetworkSiteResponse {
  */
 export interface UpdateNetworkSitePlanRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the network site.</p>
+   * @public
    */
   networkSiteArn: string | undefined;
 
   /**
-   * @public
    * <p>The pending plan.</p>
+   * @public
    */
   pendingPlan: SitePlan | undefined;
 
   /**
-   * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure
    *                 idempotency</a>.</p>
+   * @public
    */
   clientToken?: string;
 }

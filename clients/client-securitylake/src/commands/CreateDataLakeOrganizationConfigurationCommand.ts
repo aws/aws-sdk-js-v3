@@ -36,7 +36,6 @@ export interface CreateDataLakeOrganizationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Automatically enables Amazon Security Lake for new member accounts in your organization.
  *          Security Lake is not automatically enabled for any existing member accounts in your
  *          organization.</p>
@@ -99,6 +98,7 @@ export interface CreateDataLakeOrganizationConfigurationCommandOutput
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ * @public
  */
 export class CreateDataLakeOrganizationConfigurationCommand extends $Command
   .classBuilder<

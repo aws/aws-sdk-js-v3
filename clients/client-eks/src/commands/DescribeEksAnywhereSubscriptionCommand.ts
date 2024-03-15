@@ -32,7 +32,6 @@ export interface DescribeEksAnywhereSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns descriptive information about a subscription.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface DescribeEksAnywhereSubscriptionCommandOutput
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class DescribeEksAnywhereSubscriptionCommand extends $Command
   .classBuilder<

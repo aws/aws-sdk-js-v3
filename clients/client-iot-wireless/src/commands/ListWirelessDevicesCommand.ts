@@ -28,7 +28,6 @@ export interface ListWirelessDevicesCommandInput extends ListWirelessDevicesRequ
 export interface ListWirelessDevicesCommandOutput extends ListWirelessDevicesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the wireless devices registered to your AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -104,6 +103,7 @@ export interface ListWirelessDevicesCommandOutput extends ListWirelessDevicesRes
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class ListWirelessDevicesCommand extends $Command
   .classBuilder<

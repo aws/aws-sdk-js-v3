@@ -27,7 +27,6 @@ export interface ListLakeFormationOptInsCommandInput extends ListLakeFormationOp
 export interface ListLakeFormationOptInsCommandOutput extends ListLakeFormationOptInsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieve the current list of resources and principals that are opt in to enforce Lake Formation permissions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -190,6 +189,7 @@ export interface ListLakeFormationOptInsCommandOutput extends ListLakeFormationO
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class ListLakeFormationOptInsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteInvitationsCommandInput extends DeleteInvitationsRequest 
 export interface DeleteInvitationsCommandOutput extends DeleteInvitationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes invitations received by the Amazon Web Services account to become a member account.</p>
  *          <p>A Security Hub administrator account can use this operation to delete invitations sent to one or more member accounts.</p>
  *          <p>This operation is only used to delete invitations that are sent to member accounts that aren't part of an organization.
@@ -82,6 +81,7 @@ export interface DeleteInvitationsCommandOutput extends DeleteInvitationsRespons
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To delete a custom insight
  * ```javascript
  * // The following example deletes an invitation sent by the Security Hub administrator account to a prospective member account. This operation is used only for invitations sent to accounts that aren't part of an organization. Organization accounts don't receive invitations.

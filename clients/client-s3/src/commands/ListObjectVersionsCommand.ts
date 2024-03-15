@@ -27,7 +27,6 @@ export interface ListObjectVersionsCommandInput extends ListObjectVersionsReques
 export interface ListObjectVersionsCommandOutput extends ListObjectVersionsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -153,6 +152,7 @@ export interface ListObjectVersionsCommandOutput extends ListObjectVersionsOutpu
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example To list object versions
  * ```javascript
  * // The following example return versions of an object with specific key name prefix. The request limits the number of items returned to two. If there are are more than two object version, S3 returns NextToken in the response. You can specify this token value in your next request to fetch next set of object versions.

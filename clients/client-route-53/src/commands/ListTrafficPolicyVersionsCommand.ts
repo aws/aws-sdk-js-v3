@@ -28,7 +28,6 @@ export interface ListTrafficPolicyVersionsCommandInput extends ListTrafficPolicy
 export interface ListTrafficPolicyVersionsCommandOutput extends ListTrafficPolicyVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about all of the versions for a specified traffic policy.</p>
  *          <p>Traffic policy versions are listed in numerical order by
  * 			<code>VersionNumber</code>.</p>
@@ -78,6 +77,7 @@ export interface ListTrafficPolicyVersionsCommandOutput extends ListTrafficPolic
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class ListTrafficPolicyVersionsCommand extends $Command
   .classBuilder<

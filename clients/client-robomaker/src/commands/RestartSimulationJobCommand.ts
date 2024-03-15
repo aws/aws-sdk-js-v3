@@ -27,7 +27,6 @@ export interface RestartSimulationJobCommandInput extends RestartSimulationJobRe
 export interface RestartSimulationJobCommandOutput extends RestartSimulationJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Restarts a running simulation job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface RestartSimulationJobCommandOutput extends RestartSimulationJobR
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ * @public
  */
 export class RestartSimulationJobCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreatePresetCommandInput extends CreatePresetRequest {}
 export interface CreatePresetCommandOutput extends CreatePresetResponse, __MetadataBearer {}
 
 /**
- * @public
  * Create a new preset. For information about job templates see the User Guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -1686,6 +1685,7 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  * @throws {@link MediaConvertServiceException}
  * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
+ * @public
  */
 export class CreatePresetCommand extends $Command
   .classBuilder<

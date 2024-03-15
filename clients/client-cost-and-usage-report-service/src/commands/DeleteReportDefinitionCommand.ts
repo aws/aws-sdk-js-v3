@@ -31,7 +31,6 @@ export interface DeleteReportDefinitionCommandInput extends DeleteReportDefiniti
 export interface DeleteReportDefinitionCommandOutput extends DeleteReportDefinitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified report. Any tags associated with the report are also
  *       deleted.</p>
  * @example
@@ -66,6 +65,7 @@ export interface DeleteReportDefinitionCommandOutput extends DeleteReportDefinit
  * @throws {@link CostAndUsageReportServiceServiceException}
  * <p>Base exception class for all service exceptions from CostAndUsageReportService service.</p>
  *
+ * @public
  * @example To delete the AWS Cost and Usage report named ExampleReport.
  * ```javascript
  * // The following example deletes the AWS Cost and Usage report named ExampleReport.

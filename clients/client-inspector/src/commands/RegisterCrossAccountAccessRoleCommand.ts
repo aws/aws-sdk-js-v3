@@ -30,7 +30,6 @@ export interface RegisterCrossAccountAccessRoleCommandInput extends RegisterCros
 export interface RegisterCrossAccountAccessRoleCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers the IAM role that grants Amazon Inspector access to AWS Services needed to
  *          perform security assessments.</p>
  * @example
@@ -74,6 +73,7 @@ export interface RegisterCrossAccountAccessRoleCommandOutput extends __MetadataB
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * @public
  * @example Register cross account access role
  * ```javascript
  * // Registers the IAM role that Amazon Inspector uses to list your EC2 instances at the start of the assessment run or when you call the PreviewAgents action.

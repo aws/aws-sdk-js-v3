@@ -27,7 +27,6 @@ export interface GetCampaignsCommandInput extends GetCampaignsRequest {}
 export interface GetCampaignsCommandOutput extends GetCampaignsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the status, configuration, and other settings for all the campaigns that are associated with an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -464,6 +463,7 @@ export interface GetCampaignsCommandOutput extends GetCampaignsResponse, __Metad
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class GetCampaignsCommand extends $Command
   .classBuilder<

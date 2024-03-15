@@ -27,7 +27,6 @@ export interface ListReportsCommandInput extends ListReportsInput {}
 export interface ListReportsCommandOutput extends ListReportsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Returns a list of ARNs for the reports in the current Amazon Web Services account.
  *     </p>
@@ -68,6 +67,7 @@ export interface ListReportsCommandOutput extends ListReportsOutput, __MetadataB
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * @public
  */
 export class ListReportsCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface GetRelationalDatabaseBundlesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the list of bundles that are available in Amazon Lightsail. A bundle describes the
  *       performance specifications for a database.</p>
  *          <p>You can use a bundle ID to create a new database with explicit performance
@@ -107,6 +106,7 @@ export interface GetRelationalDatabaseBundlesCommandOutput
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetRelationalDatabaseBundlesCommand extends $Command
   .classBuilder<

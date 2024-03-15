@@ -27,7 +27,6 @@ export interface GetIdentityPoolRolesCommandInput extends GetIdentityPoolRolesIn
 export interface GetIdentityPoolRolesCommandOutput extends GetIdentityPoolRolesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the roles for an identity pool.</p>
  *          <p>You must use AWS Developer credentials to call this API.</p>
  * @example
@@ -95,6 +94,7 @@ export interface GetIdentityPoolRolesCommandOutput extends GetIdentityPoolRolesR
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ * @public
  */
 export class GetIdentityPoolRolesCommand extends $Command
   .classBuilder<

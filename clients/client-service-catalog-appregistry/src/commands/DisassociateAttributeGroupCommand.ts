@@ -31,7 +31,6 @@ export interface DisassociateAttributeGroupCommandInput extends DisassociateAttr
 export interface DisassociateAttributeGroupCommandOutput extends DisassociateAttributeGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates an attribute group from an application to remove the extra attributes contained in the attribute group from the application's metadata. This operation reverts <code>AssociateAttributeGroup</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface DisassociateAttributeGroupCommandOutput extends DisassociateAtt
  * @throws {@link ServiceCatalogAppRegistryServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
+ * @public
  */
 export class DisassociateAttributeGroupCommand extends $Command
   .classBuilder<

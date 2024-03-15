@@ -27,7 +27,6 @@ export interface DeleteEvaluationCommandInput extends DeleteEvaluationInput {}
 export interface DeleteEvaluationCommandOutput extends DeleteEvaluationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Assigns the <code>DELETED</code> status to an <code>Evaluation</code>, rendering it unusable.</p>
  *
  *         <p>After invoking the <code>DeleteEvaluation</code> operation, you can use the
@@ -69,6 +68,7 @@ export interface DeleteEvaluationCommandOutput extends DeleteEvaluationOutput, _
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * @public
  */
 export class DeleteEvaluationCommand extends $Command
   .classBuilder<

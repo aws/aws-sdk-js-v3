@@ -32,7 +32,6 @@ export interface UpdateBillingGroupCommandInput extends UpdateBillingGroupInput 
 export interface UpdateBillingGroupCommandOutput extends UpdateBillingGroupOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This updates an existing billing group.
  *     </p>
  * @example
@@ -104,6 +103,7 @@ export interface UpdateBillingGroupCommandOutput extends UpdateBillingGroupOutpu
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ * @public
  */
 export class UpdateBillingGroupCommand extends $Command
   .classBuilder<

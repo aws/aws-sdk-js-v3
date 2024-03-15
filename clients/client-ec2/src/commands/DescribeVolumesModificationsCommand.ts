@@ -29,7 +29,6 @@ export interface DescribeVolumesModificationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the most recent volume modification request for the specified EBS volumes.</p>
  *          <p>If a volume has never been modified, some information in the output will be null.
  *       If a volume has been modified more than once, the output includes only the most
@@ -96,6 +95,7 @@ export interface DescribeVolumesModificationsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeVolumesModificationsCommand extends $Command
   .classBuilder<

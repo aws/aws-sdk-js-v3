@@ -27,7 +27,6 @@ export interface CreateEncoderConfigurationCommandInput extends CreateEncoderCon
 export interface CreateEncoderConfigurationCommandOutput extends CreateEncoderConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an EncoderConfiguration object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface CreateEncoderConfigurationCommandOutput extends CreateEncoderCo
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ * @public
  */
 export class CreateEncoderConfigurationCommand extends $Command
   .classBuilder<

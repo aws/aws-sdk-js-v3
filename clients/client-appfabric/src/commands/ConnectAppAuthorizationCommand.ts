@@ -31,7 +31,6 @@ export interface ConnectAppAuthorizationCommandInput extends ConnectAppAuthoriza
 export interface ConnectAppAuthorizationCommandOutput extends ConnectAppAuthorizationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Establishes a connection between Amazon Web Services AppFabric and an application, which allows AppFabric to
  *          call the APIs of the application.</p>
  * @example
@@ -91,6 +90,7 @@ export interface ConnectAppAuthorizationCommandOutput extends ConnectAppAuthoriz
  * @throws {@link AppFabricServiceException}
  * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
+ * @public
  */
 export class ConnectAppAuthorizationCommand extends $Command
   .classBuilder<

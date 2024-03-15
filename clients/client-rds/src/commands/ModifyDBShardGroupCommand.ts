@@ -28,7 +28,6 @@ export interface ModifyDBShardGroupCommandInput extends ModifyDBShardGroupMessag
 export interface ModifyDBShardGroupCommandOutput extends DBShardGroup, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the settings of an Aurora Limitless Database DB shard group. You can change one or more settings by
  *             specifying these parameters and the new values in the request.</p>
  * @example
@@ -77,6 +76,7 @@ export interface ModifyDBShardGroupCommandOutput extends DBShardGroup, __Metadat
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  */
 export class ModifyDBShardGroupCommand extends $Command
   .classBuilder<

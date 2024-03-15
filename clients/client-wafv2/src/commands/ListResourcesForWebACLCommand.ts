@@ -27,7 +27,6 @@ export interface ListResourcesForWebACLCommandInput extends ListResourcesForWebA
 export interface ListResourcesForWebACLCommandOutput extends ListResourcesForWebACLResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves an array of the Amazon Resource Names (ARNs) for the regional resources that
  *       are associated with the specified web ACL. </p>
  *          <p>For Amazon CloudFront, don't use this call. Instead, use the CloudFront call
@@ -101,6 +100,7 @@ export interface ListResourcesForWebACLCommandOutput extends ListResourcesForWeb
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class ListResourcesForWebACLCommand extends $Command
   .classBuilder<

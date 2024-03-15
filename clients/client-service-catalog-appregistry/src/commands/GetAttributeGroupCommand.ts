@@ -31,7 +31,6 @@ export interface GetAttributeGroupCommandInput extends GetAttributeGroupRequest 
 export interface GetAttributeGroupCommandOutput extends GetAttributeGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *        Retrieves an attribute group
  *        by its ARN, ID, or name.
@@ -87,6 +86,7 @@ export interface GetAttributeGroupCommandOutput extends GetAttributeGroupRespons
  * @throws {@link ServiceCatalogAppRegistryServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
+ * @public
  */
 export class GetAttributeGroupCommand extends $Command
   .classBuilder<

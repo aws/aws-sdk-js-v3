@@ -28,7 +28,6 @@ export interface RestoreObjectCommandInput extends RestoreObjectRequest {}
 export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -409,6 +408,7 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example To restore an archived object
  * ```javascript
  * // The following example restores for one day an archived copy of an object back into Amazon S3 bucket.

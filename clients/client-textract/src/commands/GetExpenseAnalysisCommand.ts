@@ -27,7 +27,6 @@ export interface GetExpenseAnalysisCommandInput extends GetExpenseAnalysisReques
 export interface GetExpenseAnalysisCommandOutput extends GetExpenseAnalysisResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the results for an Amazon Textract asynchronous operation that analyzes invoices and
  *    receipts. Amazon Textract finds contact information, items purchased, and vendor name, from input
  *    invoices and receipts.</p>
@@ -283,6 +282,7 @@ export interface GetExpenseAnalysisCommandOutput extends GetExpenseAnalysisRespo
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ * @public
  */
 export class GetExpenseAnalysisCommand extends $Command
   .classBuilder<

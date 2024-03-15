@@ -27,7 +27,6 @@ export interface DescribeKeyPairsCommandInput extends DescribeKeyPairsRequest {}
 export interface DescribeKeyPairsCommandOutput extends DescribeKeyPairsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified key pairs or all of your key pairs.</p>
  *          <p>For more information about key pairs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon EC2 key pairs</a>
  * 				in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -87,6 +86,7 @@ export interface DescribeKeyPairsCommandOutput extends DescribeKeyPairsResult, _
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To display a key pair
  * ```javascript
  * // This example displays the fingerprint for the specified key.

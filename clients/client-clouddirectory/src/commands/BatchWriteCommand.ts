@@ -27,7 +27,6 @@ export interface BatchWriteCommandInput extends BatchWriteRequest {}
 export interface BatchWriteCommandOutput extends BatchWriteResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Performs all the write operations in a batch. Either all the operations succeed or
  *       none.</p>
  * @example
@@ -344,6 +343,7 @@ export interface BatchWriteCommandOutput extends BatchWriteResponse, __MetadataB
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class BatchWriteCommand extends $Command
   .classBuilder<

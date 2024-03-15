@@ -27,7 +27,6 @@ export interface CreateConfiguredTableCommandInput extends CreateConfiguredTable
 export interface CreateConfiguredTableCommandOutput extends CreateConfiguredTableOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new configured table resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -110,6 +109,7 @@ export interface CreateConfiguredTableCommandOutput extends CreateConfiguredTabl
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class CreateConfiguredTableCommand extends $Command
   .classBuilder<

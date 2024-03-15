@@ -27,7 +27,6 @@ export interface UpdateAppBlockBuilderCommandInput extends UpdateAppBlockBuilder
 export interface UpdateAppBlockBuilderCommandOutput extends UpdateAppBlockBuilderResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an app block builder.</p>
  *          <p>If the app block builder is in the <code>STARTING</code> or <code>STOPPING</code>
  *             state, you can't update it. If the app block builder is in the <code>RUNNING</code>
@@ -148,6 +147,7 @@ export interface UpdateAppBlockBuilderCommandOutput extends UpdateAppBlockBuilde
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class UpdateAppBlockBuilderCommand extends $Command
   .classBuilder<

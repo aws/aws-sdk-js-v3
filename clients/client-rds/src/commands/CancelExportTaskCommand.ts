@@ -27,7 +27,6 @@ export interface CancelExportTaskCommandInput extends CancelExportTaskMessage {}
 export interface CancelExportTaskCommandOutput extends ExportTask, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels an export task in progress that is exporting a snapshot or cluster to Amazon S3.
  *             Any data that has already been written to the S3 bucket isn't removed.</p>
  * @example
@@ -79,6 +78,7 @@ export interface CancelExportTaskCommandOutput extends ExportTask, __MetadataBea
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To cancel a snapshot export to Amazon S3
  * ```javascript
  * // The following example cancels an export task in progress that is exporting a snapshot to Amazon S3.

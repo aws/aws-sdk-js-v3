@@ -27,7 +27,6 @@ export interface DeleteMeshCommandInput extends DeleteMeshInput {}
 export interface DeleteMeshCommandOutput extends DeleteMeshOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing service mesh.</p>
  *          <p>You must delete all resources (virtual services, routes, virtual routers, and virtual
  *          nodes) in the service mesh before you can delete the mesh itself.</p>
@@ -104,6 +103,7 @@ export interface DeleteMeshCommandOutput extends DeleteMeshOutput, __MetadataBea
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ * @public
  */
 export class DeleteMeshCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteSubnetCidrReservationCommandInput extends DeleteSubnetCid
 export interface DeleteSubnetCidrReservationCommandOutput extends DeleteSubnetCidrReservationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a subnet CIDR reservation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface DeleteSubnetCidrReservationCommandOutput extends DeleteSubnetCi
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DeleteSubnetCidrReservationCommand extends $Command
   .classBuilder<

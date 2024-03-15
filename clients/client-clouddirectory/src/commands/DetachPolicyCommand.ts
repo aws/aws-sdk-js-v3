@@ -27,7 +27,6 @@ export interface DetachPolicyCommandInput extends DetachPolicyRequest {}
 export interface DetachPolicyCommandOutput extends DetachPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Detaches a policy from an object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface DetachPolicyCommandOutput extends DetachPolicyResponse, __Metad
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class DetachPolicyCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateBotAliasCommandInput extends UpdateBotAliasRequest {}
 export interface UpdateBotAliasCommandOutput extends UpdateBotAliasResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the configuration of an existing bot alias.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -173,6 +172,7 @@ export interface UpdateBotAliasCommandOutput extends UpdateBotAliasResponse, __M
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class UpdateBotAliasCommand extends $Command
   .classBuilder<

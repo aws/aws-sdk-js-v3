@@ -27,7 +27,6 @@ export interface EnableHttpEndpointCommandInput extends EnableHttpEndpointReques
 export interface EnableHttpEndpointCommandOutput extends EnableHttpEndpointResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables the HTTP endpoint for the DB cluster. By default, the HTTP endpoint
  *           isn't enabled.</p>
  *          <p>When enabled, this endpoint provides a connectionless web service API (RDS Data API)
@@ -72,6 +71,7 @@ export interface EnableHttpEndpointCommandOutput extends EnableHttpEndpointRespo
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  */
 export class EnableHttpEndpointCommand extends $Command
   .classBuilder<

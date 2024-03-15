@@ -27,7 +27,6 @@ export interface UpdateRuleMetadataCommandInput extends UpdateRuleMetadataReques
 export interface UpdateRuleMetadataCommandOutput extends UpdateRuleMetadataResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a rule's metadata. The description attribute can be updated.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface UpdateRuleMetadataCommandOutput extends UpdateRuleMetadataResul
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class UpdateRuleMetadataCommand extends $Command
   .classBuilder<

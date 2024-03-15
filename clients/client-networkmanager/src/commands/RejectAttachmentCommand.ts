@@ -27,7 +27,6 @@ export interface RejectAttachmentCommandInput extends RejectAttachmentRequest {}
 export interface RejectAttachmentCommandOutput extends RejectAttachmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Rejects a core network attachment request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface RejectAttachmentCommandOutput extends RejectAttachmentResponse,
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class RejectAttachmentCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateGraphCommandInput extends CreateGraphInput {}
 export interface CreateGraphCommandOutput extends CreateGraphOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new Neptune Analytics graph.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface CreateGraphCommandOutput extends CreateGraphOutput, __MetadataB
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ * @public
  */
 export class CreateGraphCommand extends $Command
   .classBuilder<

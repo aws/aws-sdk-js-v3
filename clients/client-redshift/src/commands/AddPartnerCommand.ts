@@ -27,7 +27,6 @@ export interface AddPartnerCommandInput extends PartnerIntegrationInputMessage {
 export interface AddPartnerCommandOutput extends PartnerIntegrationOutputMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a partner integration to a cluster.
  *             This operation authorizes a partner to push status updates for the specified database.
  *             To complete the integration, you also set up the integration on the partner website.</p>
@@ -74,6 +73,7 @@ export interface AddPartnerCommandOutput extends PartnerIntegrationOutputMessage
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class AddPartnerCommand extends $Command
   .classBuilder<

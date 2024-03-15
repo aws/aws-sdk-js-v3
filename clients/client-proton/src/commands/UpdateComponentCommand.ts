@@ -32,7 +32,6 @@ export interface UpdateComponentCommandInput extends UpdateComponentInput {}
 export interface UpdateComponentCommandOutput extends UpdateComponentOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update a component.</p>
  *          <p>There are a few modes for updating a component. The <code>deploymentType</code> field defines the mode.</p>
  *          <note>
@@ -114,6 +113,7 @@ export interface UpdateComponentCommandOutput extends UpdateComponentOutput, __M
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class UpdateComponentCommand extends $Command
   .classBuilder<

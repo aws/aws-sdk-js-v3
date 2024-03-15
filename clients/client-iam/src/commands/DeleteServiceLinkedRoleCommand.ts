@@ -27,7 +27,6 @@ export interface DeleteServiceLinkedRoleCommandInput extends DeleteServiceLinked
 export interface DeleteServiceLinkedRoleCommandOutput extends DeleteServiceLinkedRoleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Submits a service-linked role deletion request and returns a
  *                 <code>DeletionTaskId</code>, which you can use to check the status of the deletion.
  *             Before you call this operation, confirm that the role has no active sessions and that
@@ -83,6 +82,7 @@ export interface DeleteServiceLinkedRoleCommandOutput extends DeleteServiceLinke
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class DeleteServiceLinkedRoleCommand extends $Command
   .classBuilder<

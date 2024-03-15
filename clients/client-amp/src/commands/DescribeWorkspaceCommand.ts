@@ -27,7 +27,6 @@ export interface DescribeWorkspaceCommandInput extends DescribeWorkspaceRequest 
 export interface DescribeWorkspaceCommandOutput extends DescribeWorkspaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about an existing workspace. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface DescribeWorkspaceCommandOutput extends DescribeWorkspaceRespons
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ * @public
  */
 export class DescribeWorkspaceCommand extends $Command
   .classBuilder<

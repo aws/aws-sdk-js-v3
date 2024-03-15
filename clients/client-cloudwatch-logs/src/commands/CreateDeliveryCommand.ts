@@ -27,7 +27,6 @@ export interface CreateDeliveryCommandInput extends CreateDeliveryRequest {}
 export interface CreateDeliveryCommandOutput extends CreateDeliveryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a <i>delivery</i>. A delivery is a connection between a logical <i>delivery source</i> and a logical
  *        <i>delivery destination</i>
  *        that you have already created.</p>
@@ -124,6 +123,7 @@ export interface CreateDeliveryCommandOutput extends CreateDeliveryResponse, __M
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class CreateDeliveryCommand extends $Command
   .classBuilder<

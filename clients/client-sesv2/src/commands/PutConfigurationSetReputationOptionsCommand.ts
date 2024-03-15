@@ -35,7 +35,6 @@ export interface PutConfigurationSetReputationOptionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Enable or disable collection of reputation metrics for emails that you send using a
  *             particular configuration set in a specific Amazon Web Services Region.</p>
  * @example
@@ -72,6 +71,7 @@ export interface PutConfigurationSetReputationOptionsCommandOutput
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class PutConfigurationSetReputationOptionsCommand extends $Command
   .classBuilder<

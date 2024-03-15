@@ -27,7 +27,6 @@ export interface ListResourcesCommandInput extends ListResourcesRequest {}
 export interface ListResourcesCommandOutput extends ListResourcesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns summaries of the organization's resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface ListResourcesCommandOutput extends ListResourcesResponse, __Met
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class ListResourcesCommand extends $Command
   .classBuilder<

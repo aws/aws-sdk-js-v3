@@ -27,7 +27,6 @@ export interface UpdateImagePermissionsCommandInput extends UpdateImagePermissio
 export interface UpdateImagePermissionsCommandOutput extends UpdateImagePermissionsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds or updates permissions for the specified private image. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface UpdateImagePermissionsCommandOutput extends UpdateImagePermissi
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class UpdateImagePermissionsCommand extends $Command
   .classBuilder<

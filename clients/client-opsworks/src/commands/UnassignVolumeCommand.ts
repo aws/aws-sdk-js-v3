@@ -27,7 +27,6 @@ export interface UnassignVolumeCommandInput extends UnassignVolumeRequest {}
 export interface UnassignVolumeCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Unassigns an assigned Amazon EBS volume. The volume remains registered with the stack. For more
  *       information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource
  *         Management</a>.</p>
@@ -66,6 +65,7 @@ export interface UnassignVolumeCommandOutput extends __MetadataBearer {}
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class UnassignVolumeCommand extends $Command
   .classBuilder<

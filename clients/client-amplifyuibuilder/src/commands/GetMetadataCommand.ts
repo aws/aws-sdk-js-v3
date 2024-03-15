@@ -27,7 +27,6 @@ export interface GetMetadataCommandInput extends GetMetadataRequest {}
 export interface GetMetadataCommandOutput extends GetMetadataResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns existing metadata for an Amplify app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +63,7 @@ export interface GetMetadataCommandOutput extends GetMetadataResponse, __Metadat
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ * @public
  */
 export class GetMetadataCommand extends $Command
   .classBuilder<

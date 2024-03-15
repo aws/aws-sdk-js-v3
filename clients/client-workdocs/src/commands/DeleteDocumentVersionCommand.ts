@@ -27,7 +27,6 @@ export interface DeleteDocumentVersionCommandInput extends DeleteDocumentVersion
 export interface DeleteDocumentVersionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specific version of a document.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface DeleteDocumentVersionCommandOutput extends __MetadataBearer {}
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class DeleteDocumentVersionCommand extends $Command
   .classBuilder<

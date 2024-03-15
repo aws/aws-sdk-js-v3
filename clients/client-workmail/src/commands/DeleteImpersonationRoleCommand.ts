@@ -27,7 +27,6 @@ export interface DeleteImpersonationRoleCommandInput extends DeleteImpersonation
 export interface DeleteImpersonationRoleCommandOutput extends DeleteImpersonationRoleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an impersonation role for the given WorkMail organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface DeleteImpersonationRoleCommandOutput extends DeleteImpersonatio
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class DeleteImpersonationRoleCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateTrustedTokenIssuerCommandInput extends CreateTrustedToken
 export interface CreateTrustedTokenIssuerCommandOutput extends CreateTrustedTokenIssuerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a connection to a trusted token issuer in an instance of IAM Identity Center. A trusted token issuer enables trusted identity propagation to be used with applications that authenticate outside of Amazon Web Services.</p>
  *          <p>This trusted token issuer describes an external identity
  *             provider (IdP) that can generate claims or assertions in the form of access tokens for a
@@ -99,6 +98,7 @@ export interface CreateTrustedTokenIssuerCommandOutput extends CreateTrustedToke
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class CreateTrustedTokenIssuerCommand extends $Command
   .classBuilder<

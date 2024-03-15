@@ -27,7 +27,6 @@ export interface DescribeByoipCidrsCommandInput extends DescribeByoipCidrsReques
 export interface DescribeByoipCidrsCommandOutput extends DescribeByoipCidrsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the IP address ranges that were specified in calls to <a>ProvisionByoipCidr</a>.</p>
  *          <p>To describe the address pools that were created when you provisioned the address
  *           ranges, use <a>DescribePublicIpv4Pools</a> or <a>DescribeIpv6Pools</a>.</p>
@@ -76,6 +75,7 @@ export interface DescribeByoipCidrsCommandOutput extends DescribeByoipCidrsResul
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeByoipCidrsCommand extends $Command
   .classBuilder<

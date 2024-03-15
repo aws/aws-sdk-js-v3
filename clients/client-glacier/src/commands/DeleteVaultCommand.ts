@@ -27,7 +27,6 @@ export interface DeleteVaultCommandInput extends DeleteVaultInput {}
 export interface DeleteVaultCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation deletes a vault. Amazon S3 Glacier will delete a vault only if there are
  *          no archives in the vault as of the last inventory and there have been no writes to the
  *          vault since the last inventory. If either of these conditions is not satisfied, the vault
@@ -86,6 +85,7 @@ export interface DeleteVaultCommandOutput extends __MetadataBearer {}
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * @public
  * @example To delete a vault
  * ```javascript
  * // The example deletes a vault named my-vault:

@@ -28,7 +28,6 @@ export interface DescribeBatchLoadTaskCommandInput extends DescribeBatchLoadTask
 export interface DescribeBatchLoadTaskCommandOutput extends DescribeBatchLoadTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the batch load task, including configurations, mappings,
  *          progress, and other details. <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service quotas apply</a>. See
  *             <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.describe-batch-load.html">code
@@ -160,6 +159,7 @@ export interface DescribeBatchLoadTaskCommandOutput extends DescribeBatchLoadTas
  * @throws {@link TimestreamWriteServiceException}
  * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
+ * @public
  */
 export class DescribeBatchLoadTaskCommand extends $Command
   .classBuilder<

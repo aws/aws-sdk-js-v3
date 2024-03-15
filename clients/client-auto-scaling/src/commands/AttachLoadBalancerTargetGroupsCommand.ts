@@ -32,7 +32,6 @@ export interface AttachLoadBalancerTargetGroupsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This API operation is superseded by <a>AttachTrafficSources</a>, which
  *                 can attach multiple traffic sources types. We recommend using
@@ -97,6 +96,7 @@ export interface AttachLoadBalancerTargetGroupsCommandOutput
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To attach a target group to an Auto Scaling group
  * ```javascript
  * // This example attaches the specified target group to the specified Auto Scaling group.

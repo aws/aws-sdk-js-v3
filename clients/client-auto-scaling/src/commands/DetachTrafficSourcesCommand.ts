@@ -27,7 +27,6 @@ export interface DetachTrafficSourcesCommandInput extends DetachTrafficSourcesTy
 export interface DetachTrafficSourcesCommandOutput extends DetachTrafficSourcesResultType, __MetadataBearer {}
 
 /**
- * @public
  * <p>Detaches one or more traffic sources from the specified Auto Scaling group.</p>
  *          <p>When you detach a traffic source, it enters the <code>Removing</code> state while
  *             deregistering the instances in the group. When all instances are deregistered, then you
@@ -66,6 +65,7 @@ export interface DetachTrafficSourcesCommandOutput extends DetachTrafficSourcesR
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To detach a target group from an Auto Scaling group
  * ```javascript
  * // This example detaches the specified target group from the specified Auto Scaling group.

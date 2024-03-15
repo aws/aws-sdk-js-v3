@@ -27,7 +27,6 @@ export interface DescribeFolderCommandInput extends DescribeFolderRequest {}
 export interface DescribeFolderCommandOutput extends DescribeFolderResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a folder.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface DescribeFolderCommandOutput extends DescribeFolderResponse, __M
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DescribeFolderCommand extends $Command
   .classBuilder<

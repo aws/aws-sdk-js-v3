@@ -27,7 +27,6 @@ export interface BatchGetItemCommandInput extends BatchGetItemInput {}
 export interface BatchGetItemCommandOutput extends BatchGetItemOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>The <code>BatchGetItem</code> operation returns the attributes of one or more items
  *             from one or more tables. You identify requested items by primary key.</p>
  *          <p>A single operation can retrieve up to 16 MB of data, which can contain as many as 100
@@ -272,6 +271,7 @@ export interface BatchGetItemCommandOutput extends BatchGetItemOutput, __Metadat
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  * @example To retrieve multiple items from a table
  * ```javascript
  * // This example reads multiple items from the Music table using a batch of three GetItem requests.  Only the AlbumTitle attribute is returned.

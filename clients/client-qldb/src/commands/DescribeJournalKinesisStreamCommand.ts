@@ -32,7 +32,6 @@ export interface DescribeJournalKinesisStreamCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns detailed information about a given Amazon QLDB journal stream. The output
  *          includes the Amazon Resource Name (ARN), stream name, current status, creation time, and
  *          the parameters of the original stream creation request.</p>
@@ -90,6 +89,7 @@ export interface DescribeJournalKinesisStreamCommandOutput
  * @throws {@link QLDBServiceException}
  * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
+ * @public
  */
 export class DescribeJournalKinesisStreamCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface DescribeTagsCommandInput extends DescribeTagsInput {}
 export interface DescribeTagsCommandOutput extends DescribeTagsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the tags for the specified Elastic Load Balancing resources. You can describe
  *       the tags for one or more Application Load Balancers, Network Load Balancers, Gateway Load
  *       Balancers, target groups, listeners, or rules.</p>
@@ -88,6 +87,7 @@ export interface DescribeTagsCommandOutput extends DescribeTagsOutput, __Metadat
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  * @example To describe the tags assigned to a load balancer
  * ```javascript
  * // This example describes the tags assigned to the specified load balancer.

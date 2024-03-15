@@ -27,7 +27,6 @@ export interface GetDataSourceCommandInput extends GetDataSourceInput {}
 export interface GetDataSourceCommandOutput extends GetDataSourceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets an Amazon DataZone data source.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -164,6 +163,7 @@ export interface GetDataSourceCommandOutput extends GetDataSourceOutput, __Metad
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class GetDataSourceCommand extends $Command
   .classBuilder<

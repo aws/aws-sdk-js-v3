@@ -27,7 +27,6 @@ export interface CreateAuthenticationProfileCommandInput extends CreateAuthentic
 export interface CreateAuthenticationProfileCommandOutput extends CreateAuthenticationProfileResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an authentication profile with the specified parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface CreateAuthenticationProfileCommandOutput extends CreateAuthenti
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class CreateAuthenticationProfileCommand extends $Command
   .classBuilder<

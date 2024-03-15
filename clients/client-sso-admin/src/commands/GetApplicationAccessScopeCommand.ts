@@ -27,7 +27,6 @@ export interface GetApplicationAccessScopeCommandInput extends GetApplicationAcc
 export interface GetApplicationAccessScopeCommandOutput extends GetApplicationAccessScopeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the authorized targets for an IAM Identity Center access scope for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface GetApplicationAccessScopeCommandOutput extends GetApplicationAc
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class GetApplicationAccessScopeCommand extends $Command
   .classBuilder<

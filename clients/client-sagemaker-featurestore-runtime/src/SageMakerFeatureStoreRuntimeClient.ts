@@ -259,7 +259,6 @@ export interface SageMakerFeatureStoreRuntimeClientResolvedConfig
   extends SageMakerFeatureStoreRuntimeClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Contains all data plane API operations and data types for the Amazon SageMaker Feature
  *          Store. Use this API to put, delete, and retrieve (get) features from a feature
  *          store.</p>
@@ -287,6 +286,7 @@ export interface SageMakerFeatureStoreRuntimeClientResolvedConfig
  *                </p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class SageMakerFeatureStoreRuntimeClient extends __Client<
   __HttpHandlerOptions,

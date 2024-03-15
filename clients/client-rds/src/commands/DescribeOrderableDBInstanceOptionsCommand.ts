@@ -32,7 +32,6 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the orderable DB instance options for a specified DB engine.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -131,6 +130,7 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To describe orderable DB instance options
  * ```javascript
  * // The following example retrieves details about the orderable options for a DB instances running the MySQL DB engine.

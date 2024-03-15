@@ -36,7 +36,6 @@ export interface AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutpu
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches the specified customer managed policy to the specified <a>PermissionSet</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutpu
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class AttachCustomerManagedPolicyReferenceToPermissionSetCommand extends $Command
   .classBuilder<

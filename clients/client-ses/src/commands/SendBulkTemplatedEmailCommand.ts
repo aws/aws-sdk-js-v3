@@ -27,7 +27,6 @@ export interface SendBulkTemplatedEmailCommandInput extends SendBulkTemplatedEma
 export interface SendBulkTemplatedEmailCommandOutput extends SendBulkTemplatedEmailResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Composes an email message to multiple destinations. The message body is created using
  *             an email template.</p>
  *          <p>To send email using this operation, your call must meet the following
@@ -166,6 +165,7 @@ export interface SendBulkTemplatedEmailCommandOutput extends SendBulkTemplatedEm
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  */
 export class SendBulkTemplatedEmailCommand extends $Command
   .classBuilder<

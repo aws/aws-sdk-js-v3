@@ -35,7 +35,6 @@ export interface CreateLaunchConfigurationTemplateCommandInput extends CreateLau
 export interface CreateLaunchConfigurationTemplateCommandOutput extends LaunchConfigurationTemplate, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new Launch Configuration Template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -177,6 +176,7 @@ export interface CreateLaunchConfigurationTemplateCommandOutput extends LaunchCo
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * @public
  */
 export class CreateLaunchConfigurationTemplateCommand extends $Command
   .classBuilder<

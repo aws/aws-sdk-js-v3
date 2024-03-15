@@ -31,7 +31,6 @@ export interface UpdateCollectionCommandInput extends UpdateCollectionRequest {}
 export interface UpdateCollectionCommandOutput extends UpdateCollectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an OpenSearch Serverless collection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface UpdateCollectionCommandOutput extends UpdateCollectionResponse,
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ * @public
  */
 export class UpdateCollectionCommand extends $Command
   .classBuilder<

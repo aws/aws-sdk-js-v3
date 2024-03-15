@@ -27,7 +27,6 @@ export interface DescribeWorkforceCommandInput extends DescribeWorkforceRequest 
 export interface DescribeWorkforceCommandOutput extends DescribeWorkforceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists private workforce information, including workforce name, Amazon Resource Name
  *             (ARN), and, if applicable, allowed IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>). Allowable IP address
  *             ranges are the IP addresses that workers can use to access tasks. </p>
@@ -96,6 +95,7 @@ export interface DescribeWorkforceCommandOutput extends DescribeWorkforceRespons
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeWorkforceCommand extends $Command
   .classBuilder<

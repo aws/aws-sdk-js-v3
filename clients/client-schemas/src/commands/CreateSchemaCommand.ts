@@ -27,7 +27,6 @@ export interface CreateSchemaCommandInput extends CreateSchemaRequest {}
 export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a schema definition.</p> <note><p>Inactive schemas will be deleted after two years.</p></note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  * @throws {@link SchemasServiceException}
  * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ * @public
  */
 export class CreateSchemaCommand extends $Command
   .classBuilder<

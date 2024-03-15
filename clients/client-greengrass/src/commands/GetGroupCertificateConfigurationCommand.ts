@@ -32,7 +32,6 @@ export interface GetGroupCertificateConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * Retrieves the current configuration for the CA used by the group.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface GetGroupCertificateConfigurationCommandOutput
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class GetGroupCertificateConfigurationCommand extends $Command
   .classBuilder<

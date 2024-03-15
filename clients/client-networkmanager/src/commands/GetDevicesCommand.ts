@@ -27,7 +27,6 @@ export interface GetDevicesCommandInput extends GetDevicesRequest {}
 export interface GetDevicesCommandOutput extends GetDevicesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about one or more of your devices in a global network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface GetDevicesCommandOutput extends GetDevicesResponse, __MetadataB
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class GetDevicesCommand extends $Command
   .classBuilder<

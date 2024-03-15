@@ -27,7 +27,6 @@ export interface DeleteConfigurationSetCommandInput extends DeleteConfigurationS
 export interface DeleteConfigurationSetCommandOutput extends DeleteConfigurationSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a configuration set. Configuration sets enable you to publish email sending
  *             events. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity.html">Amazon SES
  *                 Developer Guide</a>.</p>
@@ -59,6 +58,7 @@ export interface DeleteConfigurationSetCommandOutput extends DeleteConfiguration
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  */
 export class DeleteConfigurationSetCommand extends $Command
   .classBuilder<

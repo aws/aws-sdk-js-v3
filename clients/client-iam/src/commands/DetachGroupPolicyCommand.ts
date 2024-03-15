@@ -27,7 +27,6 @@ export interface DetachGroupPolicyCommandInput extends DetachGroupPolicyRequest 
 export interface DetachGroupPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified managed policy from the specified IAM group.</p>
  *          <p>A group can also have inline policies embedded with it. To delete an inline policy,
  *             use <a>DeleteGroupPolicy</a>. For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
@@ -74,6 +73,7 @@ export interface DetachGroupPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class DetachGroupPolicyCommand extends $Command
   .classBuilder<

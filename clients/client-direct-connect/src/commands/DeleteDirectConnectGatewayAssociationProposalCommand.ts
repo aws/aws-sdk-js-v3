@@ -36,7 +36,6 @@ export interface DeleteDirectConnectGatewayAssociationProposalCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the association proposal request between the specified Direct Connect gateway and virtual private gateway or transit gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface DeleteDirectConnectGatewayAssociationProposalCommandOutput
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class DeleteDirectConnectGatewayAssociationProposalCommand extends $Command
   .classBuilder<

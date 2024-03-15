@@ -36,7 +36,6 @@ export interface EnableAvailabilityZonesForLoadBalancerCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds the specified Availability Zones to the set of Availability Zones for the specified load balancer
  *             in EC2-Classic or a default VPC.</p>
  *         <p>For load balancers in a non-default VPC, use <a>AttachLoadBalancerToSubnets</a>.</p>
@@ -77,6 +76,7 @@ export interface EnableAvailabilityZonesForLoadBalancerCommandOutput
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * @public
  * @example To enable an Availability Zone for a load balancer
  * ```javascript
  * // This example adds the specified Availability Zone to the specified load balancer.

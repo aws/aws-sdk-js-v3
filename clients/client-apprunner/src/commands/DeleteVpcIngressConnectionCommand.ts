@@ -27,7 +27,6 @@ export interface DeleteVpcIngressConnectionCommandInput extends DeleteVpcIngress
 export interface DeleteVpcIngressConnectionCommandOutput extends DeleteVpcIngressConnectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete an App Runner VPC Ingress Connection resource that's associated with an App Runner service. The VPC Ingress Connection must be in one of the following states to be deleted:
  *     </p>
  *          <ul>
@@ -103,6 +102,7 @@ export interface DeleteVpcIngressConnectionCommandOutput extends DeleteVpcIngres
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ * @public
  */
 export class DeleteVpcIngressConnectionCommand extends $Command
   .classBuilder<

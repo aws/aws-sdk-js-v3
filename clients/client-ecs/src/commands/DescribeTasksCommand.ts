@@ -27,7 +27,6 @@ export interface DescribeTasksCommandInput extends DescribeTasksRequest {}
 export interface DescribeTasksCommandOutput extends DescribeTasksResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a specified task or tasks.</p>
  *          <p>Currently, stopped tasks appear in the returned results for at least one hour.</p>
  *          <p>If you have tasks with tags, and then delete the cluster, the tagged tasks are
@@ -244,6 +243,7 @@ export interface DescribeTasksCommandOutput extends DescribeTasksResponse, __Met
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  * @example To describe a task
  * ```javascript
  * // This example provides a description of the specified task, using the task UUID as an identifier.

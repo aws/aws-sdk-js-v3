@@ -32,7 +32,6 @@ export interface AbortMultipartReadSetUploadCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Stops a multipart upload.
  *     </p>
@@ -87,6 +86,7 @@ export interface AbortMultipartReadSetUploadCommandOutput
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class AbortMultipartReadSetUploadCommand extends $Command
   .classBuilder<

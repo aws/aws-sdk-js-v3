@@ -31,7 +31,6 @@ export interface DisassociateApprovalRuleTemplateFromRepositoryCommandInput
 export interface DisassociateApprovalRuleTemplateFromRepositoryCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the association between a template and a repository so that approval rules
  *             based on the template are not automatically created when pull requests are created in
  *             the specified repository. This does not delete any approval rules previously created for
@@ -102,6 +101,7 @@ export interface DisassociateApprovalRuleTemplateFromRepositoryCommandOutput ext
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class DisassociateApprovalRuleTemplateFromRepositoryCommand extends $Command
   .classBuilder<

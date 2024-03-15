@@ -27,7 +27,6 @@ export interface SearchJobsCommandInput extends SearchJobsRequest {}
 export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Searches for Amazon Braket jobs that match the specified filter values.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * @throws {@link BraketServiceException}
  * <p>Base exception class for all service exceptions from Braket service.</p>
  *
+ * @public
  */
 export class SearchJobsCommand extends $Command
   .classBuilder<

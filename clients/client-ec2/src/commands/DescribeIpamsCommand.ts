@@ -27,7 +27,6 @@ export interface DescribeIpamsCommandInput extends DescribeIpamsRequest {}
 export interface DescribeIpamsCommandOutput extends DescribeIpamsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get information about your IPAM pools.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.
  *       </p>
@@ -99,6 +98,7 @@ export interface DescribeIpamsCommandOutput extends DescribeIpamsResult, __Metad
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeIpamsCommand extends $Command
   .classBuilder<

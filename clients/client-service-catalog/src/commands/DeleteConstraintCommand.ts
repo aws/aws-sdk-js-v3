@@ -27,7 +27,6 @@ export interface DeleteConstraintCommandInput extends DeleteConstraintInput {}
 export interface DeleteConstraintCommandOutput extends DeleteConstraintOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified constraint.</p>
  *          <p>A delegated admin is authorized to invoke this command.</p>
  * @example
@@ -61,6 +60,7 @@ export interface DeleteConstraintCommandOutput extends DeleteConstraintOutput, _
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class DeleteConstraintCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface DescribeUserPoolClientCommandInput extends DescribeUserPoolClie
 export interface DescribeUserPoolClientCommandOutput extends DescribeUserPoolClientResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Client method for returning the configuration information and metadata of the
  *             specified user pool app client.</p>
  *          <note>
@@ -156,6 +155,7 @@ export interface DescribeUserPoolClientCommandOutput extends DescribeUserPoolCli
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class DescribeUserPoolClientCommand extends $Command
   .classBuilder<

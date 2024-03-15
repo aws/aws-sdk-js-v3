@@ -29,7 +29,6 @@ export interface RemoveSchemaVersionMetadataCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a key value pair from the schema version metadata for the specified schema version ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface RemoveSchemaVersionMetadataCommandOutput
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class RemoveSchemaVersionMetadataCommand extends $Command
   .classBuilder<

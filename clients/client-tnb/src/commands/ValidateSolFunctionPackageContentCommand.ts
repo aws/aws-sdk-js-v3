@@ -40,7 +40,6 @@ export interface ValidateSolFunctionPackageContentCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Validates function package content. This can be used as a dry run before uploading function package content with <a href="https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolFunctionPackageContent.html">PutSolFunctionPackageContent</a>.</p>
  *          <p>A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network.</p>
  * @example
@@ -100,6 +99,7 @@ export interface ValidateSolFunctionPackageContentCommandOutput
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ * @public
  */
 export class ValidateSolFunctionPackageContentCommand extends $Command
   .classBuilder<

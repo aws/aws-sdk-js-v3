@@ -27,7 +27,6 @@ export interface DeleteBrowserSettingsCommandInput extends DeleteBrowserSettings
 export interface DeleteBrowserSettingsCommandOutput extends DeleteBrowserSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes browser settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DeleteBrowserSettingsCommandOutput extends DeleteBrowserSetting
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * @public
  */
 export class DeleteBrowserSettingsCommand extends $Command
   .classBuilder<

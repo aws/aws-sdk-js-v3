@@ -27,7 +27,6 @@ export interface LookupEventsCommandInput extends LookupEventsRequest {}
 export interface LookupEventsCommandOutput extends LookupEventsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Looks up <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-management-events">management events</a> or <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-insights-events">CloudTrail Insights events</a> that are captured by CloudTrail.
  *          You can look up events that occurred in a Region within the last 90 days.</p>
  *          <note>
@@ -159,6 +158,7 @@ export interface LookupEventsCommandOutput extends LookupEventsResponse, __Metad
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class LookupEventsCommand extends $Command
   .classBuilder<

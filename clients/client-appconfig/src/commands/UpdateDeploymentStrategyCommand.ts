@@ -27,7 +27,6 @@ export interface UpdateDeploymentStrategyCommandInput extends UpdateDeploymentSt
 export interface UpdateDeploymentStrategyCommandOutput extends DeploymentStrategy, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a deployment strategy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface UpdateDeploymentStrategyCommandOutput extends DeploymentStrateg
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  * @example To update a deployment strategy
  * ```javascript
  * // The following update-deployment-strategy example updates final bake time to 20 minutes in the specified deployment strategy. ::

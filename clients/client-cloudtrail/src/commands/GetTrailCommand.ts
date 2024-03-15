@@ -27,7 +27,6 @@ export interface GetTrailCommandInput extends GetTrailRequest {}
 export interface GetTrailCommandOutput extends GetTrailResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns settings information for a specified trail.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -115,6 +114,7 @@ export interface GetTrailCommandOutput extends GetTrailResponse, __MetadataBeare
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class GetTrailCommand extends $Command
   .classBuilder<

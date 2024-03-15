@@ -31,7 +31,6 @@ export interface GetServerDetailsCommandInput extends GetServerDetailsRequest {}
 export interface GetServerDetailsCommandOutput extends GetServerDetailsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Retrieves detailed information about a specified server. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -137,6 +136,7 @@ export interface GetServerDetailsCommandOutput extends GetServerDetailsResponse,
  * @throws {@link MigrationHubStrategyServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ * @public
  */
 export class GetServerDetailsCommand extends $Command
   .classBuilder<

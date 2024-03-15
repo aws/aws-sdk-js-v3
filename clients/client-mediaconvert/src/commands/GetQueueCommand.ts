@@ -27,7 +27,6 @@ export interface GetQueueCommandInput extends GetQueueRequest {}
 export interface GetQueueCommandOutput extends GetQueueResponse, __MetadataBearer {}
 
 /**
- * @public
  * Retrieve the JSON for a specific queue.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface GetQueueCommandOutput extends GetQueueResponse, __MetadataBeare
  * @throws {@link MediaConvertServiceException}
  * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
+ * @public
  */
 export class GetQueueCommand extends $Command
   .classBuilder<

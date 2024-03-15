@@ -32,7 +32,6 @@ export interface GetCapacityAssignmentConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the capacity assignment configuration for a capacity reservation, if one
  *             exists.</p>
  * @example
@@ -78,6 +77,7 @@ export interface GetCapacityAssignmentConfigurationCommandOutput
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class GetCapacityAssignmentConfigurationCommand extends $Command
   .classBuilder<

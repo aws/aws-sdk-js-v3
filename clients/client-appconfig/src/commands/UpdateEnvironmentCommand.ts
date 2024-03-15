@@ -27,7 +27,6 @@ export interface UpdateEnvironmentCommandInput extends UpdateEnvironmentRequest 
 export interface UpdateEnvironmentCommandOutput extends Environment, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface UpdateEnvironmentCommandOutput extends Environment, __MetadataB
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  * @example To update an environment
  * ```javascript
  * // The following update-environment example updates an environment's description.

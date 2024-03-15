@@ -27,7 +27,6 @@ export interface DescribeInstanceStatusCommandInput extends DescribeInstanceStat
 export interface DescribeInstanceStatusCommandOutput extends DescribeInstanceStatusResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the status of the specified instances or all of your instances. By default,
  *             only running instances are described, unless you specifically indicate to return the
  *             status of all instances.</p>
@@ -143,6 +142,7 @@ export interface DescribeInstanceStatusCommandOutput extends DescribeInstanceSta
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To describe the status of an instance
  * ```javascript
  * // This example describes the current status of the specified instance.

@@ -31,7 +31,6 @@ export interface BatchGetUserAccessTasksCommandInput extends BatchGetUserAccessT
 export interface BatchGetUserAccessTasksCommandOutput extends BatchGetUserAccessTasksResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets user access details in a batch request.</p>
  *          <p>This action polls data from the tasks that are kicked off by the
  *             <code>StartUserAccessTasks</code> action.</p>
@@ -98,6 +97,7 @@ export interface BatchGetUserAccessTasksCommandOutput extends BatchGetUserAccess
  * @throws {@link AppFabricServiceException}
  * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
+ * @public
  */
 export class BatchGetUserAccessTasksCommand extends $Command
   .classBuilder<

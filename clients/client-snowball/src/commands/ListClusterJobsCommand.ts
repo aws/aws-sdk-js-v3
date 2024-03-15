@@ -27,7 +27,6 @@ export interface ListClusterJobsCommandInput extends ListClusterJobsRequest {}
 export interface ListClusterJobsCommandOutput extends ListClusterJobsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an array of <code>JobListEntry</code> objects of the specified length. Each
  *         <code>JobListEntry</code> object is for a job in the specified cluster and contains a job's
  *       state, a job's ID, and other information.</p>
@@ -79,6 +78,7 @@ export interface ListClusterJobsCommandOutput extends ListClusterJobsResult, __M
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * @public
  * @example To get a list of jobs in a cluster that you've created for AWS Snowball
  * ```javascript
  * // Returns an array of JobListEntry objects of the specified length. Each JobListEntry object is for a job in the specified cluster and contains a job's state, a job's ID, and other information.

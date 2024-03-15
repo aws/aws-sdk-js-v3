@@ -30,7 +30,6 @@ export interface DeleteCloudFrontOriginAccessIdentityCommandInput extends Delete
 export interface DeleteCloudFrontOriginAccessIdentityCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete an origin access identity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface DeleteCloudFrontOriginAccessIdentityCommandOutput extends __Met
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class DeleteCloudFrontOriginAccessIdentityCommand extends $Command
   .classBuilder<

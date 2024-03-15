@@ -27,7 +27,6 @@ export interface CancelJobRunCommandInput extends CancelJobRunRequest {}
 export interface CancelJobRunCommandOutput extends CancelJobRunResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels a job run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface CancelJobRunCommandOutput extends CancelJobRunResponse, __Metad
  * @throws {@link EMRServerlessServiceException}
  * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
+ * @public
  */
 export class CancelJobRunCommand extends $Command
   .classBuilder<

@@ -31,9 +31,6 @@ export interface CreateAppInstanceAdminCommandInput extends CreateAppInstanceAdm
 export interface CreateAppInstanceAdminCommandOutput extends CreateAppInstanceAdminResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by CreateAppInstanceAdmin in the Amazon Chime SDK Identity Namespace
- *
  * <p>Promotes an <code>AppInstanceUser</code> to an <code>AppInstanceAdmin</code>. The promoted user can perform the following actions. </p>
  *          <important>
  *             <p>
@@ -109,6 +106,8 @@ export interface CreateAppInstanceAdminCommandOutput extends CreateAppInstanceAd
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by CreateAppInstanceAdmin in the Amazon Chime SDK Identity Namespace
  */
 export class CreateAppInstanceAdminCommand extends $Command
   .classBuilder<

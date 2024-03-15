@@ -27,7 +27,6 @@ export interface ListInferenceExperimentsCommandInput extends ListInferenceExper
 export interface ListInferenceExperimentsCommandOutput extends ListInferenceExperimentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the list of all inference experiments.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface ListInferenceExperimentsCommandOutput extends ListInferenceExpe
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListInferenceExperimentsCommand extends $Command
   .classBuilder<

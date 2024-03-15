@@ -27,7 +27,6 @@ export interface ListConfigurationSetsCommandInput extends ListConfigurationSets
 export interface ListConfigurationSetsCommandOutput extends ListConfigurationSetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a list of the configuration sets associated with your Amazon SES account in the
  *             current Amazon Web Services Region. For information about using configuration sets, see <a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity.html">Monitoring
  *                 Your Amazon SES Sending Activity</a> in the <i>Amazon SES Developer
@@ -71,6 +70,7 @@ export interface ListConfigurationSetsCommandOutput extends ListConfigurationSet
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  */
 export class ListConfigurationSetsCommand extends $Command
   .classBuilder<

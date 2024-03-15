@@ -27,7 +27,6 @@ export interface DescribeTopicPermissionsCommandInput extends DescribeTopicPermi
 export interface DescribeTopicPermissionsCommandOutput extends DescribeTopicPermissionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the permissions of a topic.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface DescribeTopicPermissionsCommandOutput extends DescribeTopicPerm
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DescribeTopicPermissionsCommand extends $Command
   .classBuilder<

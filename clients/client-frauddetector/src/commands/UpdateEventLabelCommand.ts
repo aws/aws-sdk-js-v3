@@ -27,7 +27,6 @@ export interface UpdateEventLabelCommandInput extends UpdateEventLabelRequest {}
 export interface UpdateEventLabelCommandOutput extends UpdateEventLabelResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified event with a new label.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface UpdateEventLabelCommandOutput extends UpdateEventLabelResult, _
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class UpdateEventLabelCommand extends $Command
   .classBuilder<

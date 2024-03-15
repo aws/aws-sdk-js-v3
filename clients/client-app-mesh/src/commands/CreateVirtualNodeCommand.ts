@@ -27,7 +27,6 @@ export interface CreateVirtualNodeCommandInput extends CreateVirtualNodeInput {}
 export interface CreateVirtualNodeCommandOutput extends CreateVirtualNodeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a virtual node within a service mesh.</p>
  *          <p> A virtual node acts as a logical pointer to a particular task group, such as an Amazon ECS service or a Kubernetes deployment. When you create a virtual node, you can
  *          specify the service discovery information for your task group, and whether the proxy
@@ -581,6 +580,7 @@ export interface CreateVirtualNodeCommandOutput extends CreateVirtualNodeOutput,
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ * @public
  */
 export class CreateVirtualNodeCommand extends $Command
   .classBuilder<

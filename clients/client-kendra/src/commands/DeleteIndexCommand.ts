@@ -27,7 +27,6 @@ export interface DeleteIndexCommandInput extends DeleteIndexRequest {}
 export interface DeleteIndexCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing Amazon Kendra index. An exception is not thrown if the index is
  *       already being deleted. While the index is being deleted, the <code>Status</code> field
  *       returned by a call to the <code>DescribeIndex</code> API is set to
@@ -80,6 +79,7 @@ export interface DeleteIndexCommandOutput extends __MetadataBearer {}
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class DeleteIndexCommand extends $Command
   .classBuilder<

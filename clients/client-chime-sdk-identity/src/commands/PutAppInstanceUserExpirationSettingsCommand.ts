@@ -35,7 +35,6 @@ export interface PutAppInstanceUserExpirationSettingsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the number of days before the <code>AppInstanceUser</code> is automatically deleted.</p>
  *          <note>
  *             <p>A background process deletes expired <code>AppInstanceUsers</code> within 6 hours of expiration.
@@ -99,6 +98,7 @@ export interface PutAppInstanceUserExpirationSettingsCommandOutput
  * @throws {@link ChimeSDKIdentityServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
+ * @public
  */
 export class PutAppInstanceUserExpirationSettingsCommand extends $Command
   .classBuilder<

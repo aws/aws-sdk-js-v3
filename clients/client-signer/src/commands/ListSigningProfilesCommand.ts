@@ -27,7 +27,6 @@ export interface ListSigningProfilesCommandInput extends ListSigningProfilesRequ
 export interface ListSigningProfilesCommandOutput extends ListSigningProfilesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all available signing profiles in your AWS account. Returns only profiles with an
  * 				<code>ACTIVE</code> status unless the <code>includeCanceled</code> request field is
  * 			set to <code>true</code>. If additional jobs remain to be listed, AWS Signer returns a
@@ -102,6 +101,7 @@ export interface ListSigningProfilesCommandOutput extends ListSigningProfilesRes
  * @throws {@link SignerServiceException}
  * <p>Base exception class for all service exceptions from Signer service.</p>
  *
+ * @public
  */
 export class ListSigningProfilesCommand extends $Command
   .classBuilder<

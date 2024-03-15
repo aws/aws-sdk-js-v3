@@ -27,7 +27,6 @@ export interface ListPullRequestsCommandInput extends ListPullRequestsInput {}
 export interface ListPullRequestsCommandOutput extends ListPullRequestsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of pull requests for a specified repository. The return list can be refined by pull request
  *         status or pull request author ARN.</p>
  * @example
@@ -107,6 +106,7 @@ export interface ListPullRequestsCommandOutput extends ListPullRequestsOutput, _
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class ListPullRequestsCommand extends $Command
   .classBuilder<

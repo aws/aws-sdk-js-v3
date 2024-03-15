@@ -288,8 +288,8 @@ export type AccountClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
 export interface AccountClientResolvedConfig extends AccountClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Operations for Amazon Web Services Account Management</p>
+ * @public
  */
 export class AccountClient extends __Client<
   __HttpHandlerOptions,

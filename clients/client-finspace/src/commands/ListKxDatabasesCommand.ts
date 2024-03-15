@@ -27,7 +27,6 @@ export interface ListKxDatabasesCommandInput extends ListKxDatabasesRequest {}
 export interface ListKxDatabasesCommandOutput extends ListKxDatabasesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all the databases in the kdb environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface ListKxDatabasesCommandOutput extends ListKxDatabasesResponse, _
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class ListKxDatabasesCommand extends $Command
   .classBuilder<

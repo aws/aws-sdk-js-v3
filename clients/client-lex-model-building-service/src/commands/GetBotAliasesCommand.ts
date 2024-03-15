@@ -31,7 +31,6 @@ export interface GetBotAliasesCommandInput extends GetBotAliasesRequest {}
 export interface GetBotAliasesCommandOutput extends GetBotAliasesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of aliases for a specified Amazon Lex bot.</p>
  *          <p>This operation requires permissions for the
  *         <code>lex:GetBotAliases</code> action.</p>
@@ -98,6 +97,7 @@ export interface GetBotAliasesCommandOutput extends GetBotAliasesResponse, __Met
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * @public
  */
 export class GetBotAliasesCommand extends $Command
   .classBuilder<

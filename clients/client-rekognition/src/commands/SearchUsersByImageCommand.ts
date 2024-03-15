@@ -27,7 +27,6 @@ export interface SearchUsersByImageCommandInput extends SearchUsersByImageReques
 export interface SearchUsersByImageCommandOutput extends SearchUsersByImageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Searches for UserIDs using a supplied image. It first detects the largest face in the
  *       image, and then searches a specified collection for matching UserIDs. </p>
  *          <p>The operation returns an array of UserIDs that match the face in the supplied image,
@@ -276,6 +275,7 @@ export interface SearchUsersByImageCommandOutput extends SearchUsersByImageRespo
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example SearchUsersByImage
  * ```javascript
  * // Searches for UserIDs using a supplied image.

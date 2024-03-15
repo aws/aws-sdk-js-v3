@@ -27,7 +27,6 @@ export interface UpdateJobFromSourceControlCommandInput extends UpdateJobFromSou
 export interface UpdateJobFromSourceControlCommandOutput extends UpdateJobFromSourceControlResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Synchronizes a job from the source control repository. This operation takes the job artifacts that are located in the remote repository and updates the Glue internal stores with these artifacts.</p>
  *          <p>This API supports optional parameters which take in the repository information.</p>
  * @example
@@ -85,6 +84,7 @@ export interface UpdateJobFromSourceControlCommandOutput extends UpdateJobFromSo
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class UpdateJobFromSourceControlCommand extends $Command
   .classBuilder<

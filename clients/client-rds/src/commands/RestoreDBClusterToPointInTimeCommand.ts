@@ -32,7 +32,6 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Restores a DB cluster to an arbitrary point in time. Users can restore to any point
  *             in time before <code>LatestRestorableTime</code> for up to
  *                 <code>BackupRetentionPeriod</code> days. The target DB cluster is created from the
@@ -387,6 +386,7 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To restore a DB cluster to a specified time
  * ```javascript
  * // The following example restores the DB cluster named database-4 to the latest possible time. Using copy-on-write as the restore type restores the new DB cluster as a clone of the source DB cluster.

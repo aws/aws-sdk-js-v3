@@ -27,7 +27,6 @@ export interface UpdateWorkspaceBundleCommandInput extends UpdateWorkspaceBundle
 export interface UpdateWorkspaceBundleCommandOutput extends UpdateWorkspaceBundleResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a WorkSpace bundle with a new image. For more information about updating WorkSpace bundles, see
  *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/update-custom-bundle.html">
  *             Update a Custom WorkSpaces Bundle</a>.</p>
@@ -76,6 +75,7 @@ export interface UpdateWorkspaceBundleCommandOutput extends UpdateWorkspaceBundl
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class UpdateWorkspaceBundleCommand extends $Command
   .classBuilder<

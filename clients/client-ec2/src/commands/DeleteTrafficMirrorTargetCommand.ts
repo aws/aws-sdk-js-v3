@@ -27,7 +27,6 @@ export interface DeleteTrafficMirrorTargetCommandInput extends DeleteTrafficMirr
 export interface DeleteTrafficMirrorTargetCommandOutput extends DeleteTrafficMirrorTargetResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified Traffic Mirror target.</p>
  *          <p>You cannot delete a Traffic Mirror target that is in use by a Traffic Mirror session.</p>
  * @example
@@ -57,6 +56,7 @@ export interface DeleteTrafficMirrorTargetCommandOutput extends DeleteTrafficMir
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DeleteTrafficMirrorTargetCommand extends $Command
   .classBuilder<

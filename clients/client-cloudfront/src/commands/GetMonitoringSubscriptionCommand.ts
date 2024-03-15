@@ -27,7 +27,6 @@ export interface GetMonitoringSubscriptionCommandInput extends GetMonitoringSubs
 export interface GetMonitoringSubscriptionCommandOutput extends GetMonitoringSubscriptionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about whether additional CloudWatch metrics are enabled for the
  * 			specified CloudFront distribution.</p>
  * @example
@@ -72,6 +71,7 @@ export interface GetMonitoringSubscriptionCommandOutput extends GetMonitoringSub
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class GetMonitoringSubscriptionCommand extends $Command
   .classBuilder<

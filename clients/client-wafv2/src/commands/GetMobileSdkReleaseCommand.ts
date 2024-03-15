@@ -27,7 +27,6 @@ export interface GetMobileSdkReleaseCommandInput extends GetMobileSdkReleaseRequ
 export interface GetMobileSdkReleaseCommandOutput extends GetMobileSdkReleaseResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information for the specified mobile SDK release, including release notes and
  *          tags.</p>
  *          <p>The mobile SDK is not generally available. Customers who have access to the mobile SDK can use it to establish and manage WAF tokens for use in HTTP(S) requests from a mobile device to WAF. For more information, see
@@ -103,6 +102,7 @@ export interface GetMobileSdkReleaseCommandOutput extends GetMobileSdkReleaseRes
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class GetMobileSdkReleaseCommand extends $Command
   .classBuilder<

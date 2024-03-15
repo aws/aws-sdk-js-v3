@@ -31,7 +31,6 @@ export interface GetFederationTokenCommandInput extends GetFederationTokenReques
 export interface GetFederationTokenCommandOutput extends GetFederationTokenResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Supports SAML sign-in for Amazon Connect. Retrieves a token for federation. The token is
  *    for the Amazon Connect user which corresponds to the IAM credentials that were
  *    used to invoke this action. </p>
@@ -99,6 +98,7 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class GetFederationTokenCommand extends $Command
   .classBuilder<

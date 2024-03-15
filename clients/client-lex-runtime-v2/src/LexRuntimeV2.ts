@@ -116,8 +116,8 @@ export interface LexRuntimeV2 {
 }
 
 /**
- * @public
  * <p>This section contains documentation for the Amazon Lex V2 Runtime V2 API operations.</p>
+ * @public
  */
 export class LexRuntimeV2 extends LexRuntimeV2Client implements LexRuntimeV2 {}
 createAggregatedClient(commands, LexRuntimeV2);

@@ -27,7 +27,6 @@ export interface ListAgentsCommandInput extends ListAgentsRequest {}
 export interface ListAgentsCommandOutput extends ListAgentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * Lists Agents
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface ListAgentsCommandOutput extends ListAgentsResponse, __MetadataB
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ * @public
  */
 export class ListAgentsCommand extends $Command
   .classBuilder<

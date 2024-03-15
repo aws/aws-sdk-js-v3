@@ -27,7 +27,6 @@ export interface StartDataIngestionJobCommandInput extends StartDataIngestionJob
 export interface StartDataIngestionJobCommandOutput extends StartDataIngestionJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a data ingestion job. Amazon Lookout for Equipment returns the job status. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface StartDataIngestionJobCommandOutput extends StartDataIngestionJo
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  */
 export class StartDataIngestionJobCommand extends $Command
   .classBuilder<

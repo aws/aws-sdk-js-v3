@@ -764,7 +764,6 @@ export interface RAM {
 }
 
 /**
- * @public
  * <p>This is the <i>Resource Access Manager API Reference</i>. This documentation provides
  *             descriptions and syntax for each of the actions and data types in RAM. RAM is a
  *             service that helps you securely share your Amazon Web Services resources to other Amazon Web Services accounts. If
@@ -785,6 +784,7 @@ export interface RAM {
  *                </p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class RAM extends RAMClient implements RAM {}
 createAggregatedClient(commands, RAM);

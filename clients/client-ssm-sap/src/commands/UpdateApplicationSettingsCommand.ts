@@ -31,7 +31,6 @@ export interface UpdateApplicationSettingsCommandInput extends UpdateApplication
 export interface UpdateApplicationSettingsCommandOutput extends UpdateApplicationSettingsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the settings of an application registered with AWS Systems Manager for
  *          SAP.</p>
  * @example
@@ -97,6 +96,7 @@ export interface UpdateApplicationSettingsCommandOutput extends UpdateApplicatio
  * @throws {@link SsmSapServiceException}
  * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
+ * @public
  */
 export class UpdateApplicationSettingsCommand extends $Command
   .classBuilder<

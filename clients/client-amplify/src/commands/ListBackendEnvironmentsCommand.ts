@@ -27,7 +27,6 @@ export interface ListBackendEnvironmentsCommandInput extends ListBackendEnvironm
 export interface ListBackendEnvironmentsCommandOutput extends ListBackendEnvironmentsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the backend environments for an Amplify app. </p>
  *          <p>This API is available only to Amplify Gen 1 applications where the
  *             backend was created using Amplify Studio or the Amplify
@@ -83,6 +82,7 @@ export interface ListBackendEnvironmentsCommandOutput extends ListBackendEnviron
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ * @public
  */
 export class ListBackendEnvironmentsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface PingCommandInput {}
 export interface PingCommandOutput extends PingResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Checks the health of the service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,6 +55,7 @@ export interface PingCommandOutput extends PingResponse, __MetadataBearer {}
  * @throws {@link PrivateNetworksServiceException}
  * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
+ * @public
  */
 export class PingCommand extends $Command
   .classBuilder<

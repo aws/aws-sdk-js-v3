@@ -27,7 +27,6 @@ export interface RegisterEcsClusterCommandInput extends RegisterEcsClusterReques
 export interface RegisterEcsClusterCommandOutput extends RegisterEcsClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers a specified Amazon ECS cluster with a stack. You can register only one
  *       cluster with a stack. A cluster can be registered with only one stack.
  *       For more information, see
@@ -72,6 +71,7 @@ export interface RegisterEcsClusterCommandOutput extends RegisterEcsClusterResul
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class RegisterEcsClusterCommand extends $Command
   .classBuilder<

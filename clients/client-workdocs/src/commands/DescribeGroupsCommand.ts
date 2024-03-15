@@ -31,7 +31,6 @@ export interface DescribeGroupsCommandInput extends DescribeGroupsRequest {}
 export interface DescribeGroupsCommandOutput extends DescribeGroupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the groups specified by the query. Groups are defined by the underlying
  *             Active Directory.</p>
  * @example
@@ -84,6 +83,7 @@ export interface DescribeGroupsCommandOutput extends DescribeGroupsResponse, __M
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class DescribeGroupsCommand extends $Command
   .classBuilder<

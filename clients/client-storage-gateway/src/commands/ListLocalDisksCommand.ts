@@ -27,7 +27,6 @@ export interface ListLocalDisksCommandInput extends ListLocalDisksInput {}
 export interface ListLocalDisksCommandOutput extends ListLocalDisksOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the gateway's local disks. To specify which gateway to describe,
  *          you use the Amazon Resource Name (ARN) of the gateway in the body of the request.</p>
  *          <p>The request returns a list of all disks, specifying which are configured as working
@@ -84,6 +83,7 @@ export interface ListLocalDisksCommandOutput extends ListLocalDisksOutput, __Met
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To list the gateway's local disks
  * ```javascript
  * // The request returns a list of all disks, specifying which are configured as working storage, cache storage, or stored volume or not configured at all.

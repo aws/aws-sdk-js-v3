@@ -35,7 +35,6 @@ export interface UpdateNotificationRuleCommandInput extends UpdateNotificationRu
 export interface UpdateNotificationRuleCommandOutput extends UpdateNotificationRuleResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a notification rule for a resource. You can change the events that trigger the
  *             notification rule, the status of the rule, and the targets that receive the
  *             notifications.</p>
@@ -87,6 +86,7 @@ export interface UpdateNotificationRuleCommandOutput extends UpdateNotificationR
  * @throws {@link CodestarNotificationsServiceException}
  * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
+ * @public
  */
 export class UpdateNotificationRuleCommand extends $Command
   .classBuilder<

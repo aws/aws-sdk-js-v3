@@ -27,7 +27,6 @@ export interface GetResolverConfigCommandInput extends GetResolverConfigRequest 
 export interface GetResolverConfigCommandOutput extends GetResolverConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the behavior configuration of Route 53 Resolver behavior for a single VPC from
  * 				Amazon Virtual Private Cloud.</p>
  * @example
@@ -80,6 +79,7 @@ export interface GetResolverConfigCommandOutput extends GetResolverConfigRespons
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class GetResolverConfigCommand extends $Command
   .classBuilder<

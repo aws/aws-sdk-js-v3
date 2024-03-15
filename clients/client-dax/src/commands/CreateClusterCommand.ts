@@ -27,7 +27,6 @@ export interface CreateClusterCommandInput extends CreateClusterRequest {}
 export interface CreateClusterCommandOutput extends CreateClusterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a DAX cluster. All nodes in the cluster run the same DAX caching software.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -186,6 +185,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * @throws {@link DAXServiceException}
  * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ * @public
  */
 export class CreateClusterCommand extends $Command
   .classBuilder<

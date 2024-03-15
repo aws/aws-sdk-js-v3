@@ -27,7 +27,6 @@ export interface DescribeQueryCommandInput extends DescribeQueryRequest {}
 export interface DescribeQueryCommandOutput extends DescribeQueryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns metadata about a query, including query run time in milliseconds, number of
  *          events scanned and matched, and query status. If the query results were delivered to an S3 bucket,
  *          the response also provides the S3 URI and the delivery status.</p>
@@ -100,6 +99,7 @@ export interface DescribeQueryCommandOutput extends DescribeQueryResponse, __Met
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class DescribeQueryCommand extends $Command
   .classBuilder<

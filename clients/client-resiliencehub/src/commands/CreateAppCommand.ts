@@ -32,7 +32,6 @@ export interface CreateAppCommandInput extends CreateAppRequest {}
 export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Resilience Hub application. An Resilience Hub application is a
  *       collection of Amazon Web Services resources structured to prevent and recover Amazon Web Services application disruptions. To describe a Resilience Hub application, you provide an
  *       application name, resources from one or more CloudFormation stacks, Resource Groups, Terraform state files, AppRegistry applications, and an appropriate
@@ -152,6 +151,7 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class CreateAppCommand extends $Command
   .classBuilder<

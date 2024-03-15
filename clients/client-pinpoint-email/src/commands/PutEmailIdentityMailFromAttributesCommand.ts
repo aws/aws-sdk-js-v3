@@ -35,7 +35,6 @@ export interface PutEmailIdentityMailFromAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Used to enable or disable the custom Mail-From domain configuration for an email
  *             identity.</p>
  * @example
@@ -73,6 +72,7 @@ export interface PutEmailIdentityMailFromAttributesCommandOutput
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * @public
  */
 export class PutEmailIdentityMailFromAttributesCommand extends $Command
   .classBuilder<

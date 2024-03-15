@@ -42,7 +42,6 @@ export interface CreateMediaInsightsPipelineConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>A structure that contains the static configurations for a media insights
  *          pipeline.</p>
  * @example
@@ -294,6 +293,7 @@ export interface CreateMediaInsightsPipelineConfigurationCommandOutput
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ * @public
  */
 export class CreateMediaInsightsPipelineConfigurationCommand extends $Command
   .classBuilder<

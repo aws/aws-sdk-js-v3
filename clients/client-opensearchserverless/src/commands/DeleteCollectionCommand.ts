@@ -31,7 +31,6 @@ export interface DeleteCollectionCommandInput extends DeleteCollectionRequest {}
 export interface DeleteCollectionCommandOutput extends DeleteCollectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an OpenSearch Serverless collection. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html">Creating and
  *                 managing Amazon OpenSearch Serverless collections</a>.</p>
  * @example
@@ -80,6 +79,7 @@ export interface DeleteCollectionCommandOutput extends DeleteCollectionResponse,
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ * @public
  */
 export class DeleteCollectionCommand extends $Command
   .classBuilder<

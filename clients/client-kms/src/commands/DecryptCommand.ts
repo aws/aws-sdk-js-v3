@@ -27,7 +27,6 @@ export interface DecryptCommandInput extends DecryptRequest {}
 export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Decrypts ciphertext that was encrypted by a KMS key using any of the following
  *       operations:</p>
  *          <ul>
@@ -247,6 +246,7 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To decrypt data with a symmetric encryption KMS key
  * ```javascript
  * // The following example decrypts data that was encrypted with a symmetric encryption KMS key. The KeyId is not required when decrypting with a symmetric encryption key, but it is a best practice.

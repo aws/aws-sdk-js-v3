@@ -29,7 +29,6 @@ export interface CreateAccessGrantsInstanceCommandInput extends CreateAccessGran
 export interface CreateAccessGrantsInstanceCommandOutput extends CreateAccessGrantsInstanceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an S3 Access Grants instance, which serves as a logical grouping for access grants. You can create one S3 Access Grants instance per Region per account. </p>
  *          <dl>
  *             <dt>Permissions</dt>
@@ -77,6 +76,7 @@ export interface CreateAccessGrantsInstanceCommandOutput extends CreateAccessGra
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class CreateAccessGrantsInstanceCommand extends $Command
   .classBuilder<

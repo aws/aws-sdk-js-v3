@@ -27,7 +27,6 @@ export interface UpdateAccountConfigurationCommandInput extends UpdateAccountCon
 export interface UpdateAccountConfigurationCommandOutput extends UpdateAccountConfigurationResponse, __MetadataBearer {}
 
 /**
- * @public
  * Update account configuration
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface UpdateAccountConfigurationCommandOutput extends UpdateAccountCo
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class UpdateAccountConfigurationCommand extends $Command
   .classBuilder<

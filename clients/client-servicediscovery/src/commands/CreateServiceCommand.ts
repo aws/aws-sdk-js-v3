@@ -27,7 +27,6 @@ export interface CreateServiceCommandInput extends CreateServiceRequest {}
 export interface CreateServiceCommandOutput extends CreateServiceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a service. This action defines the configuration for the following entities:</p>
  *          <ul>
  *             <li>
@@ -171,6 +170,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
+ * @public
  * @example Example: Create service
  * ```javascript
  * // Example: Create service

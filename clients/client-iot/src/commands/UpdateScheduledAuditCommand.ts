@@ -27,7 +27,6 @@ export interface UpdateScheduledAuditCommandInput extends UpdateScheduledAuditRe
 export interface UpdateScheduledAuditCommandOutput extends UpdateScheduledAuditResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a scheduled audit, including which checks are performed and
  *           how often the audit takes place.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdateScheduledAudit</a> action.</p>
@@ -75,6 +74,7 @@ export interface UpdateScheduledAuditCommandOutput extends UpdateScheduledAuditR
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class UpdateScheduledAuditCommand extends $Command
   .classBuilder<

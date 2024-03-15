@@ -32,7 +32,6 @@ export interface DeleteAssetModelCompositeModelCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a composite model. This action can't be undone. You must delete all assets created
  *       from a  composite model before you can delete the model. Also, you can't delete a composite model if
  *       a parent asset model exists that contains a property formula expression that depends on the
@@ -98,6 +97,7 @@ export interface DeleteAssetModelCompositeModelCommandOutput
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class DeleteAssetModelCompositeModelCommand extends $Command
   .classBuilder<

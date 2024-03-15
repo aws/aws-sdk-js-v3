@@ -27,7 +27,6 @@ export interface GetFilterCommandInput extends GetFilterRequest {}
 export interface GetFilterCommandOutput extends GetFilterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the details of the filter specified by the filter name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface GetFilterCommandOutput extends GetFilterResponse, __MetadataBea
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class GetFilterCommand extends $Command
   .classBuilder<

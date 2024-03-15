@@ -27,7 +27,6 @@ export interface StartExpenseAnalysisCommandInput extends StartExpenseAnalysisRe
 export interface StartExpenseAnalysisCommandOutput extends StartExpenseAnalysisResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts the asynchronous analysis of invoices or receipts for data like contact information,
  *    items purchased, and vendor names.</p>
  *          <p>
@@ -142,6 +141,7 @@ export interface StartExpenseAnalysisCommandOutput extends StartExpenseAnalysisR
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ * @public
  */
 export class StartExpenseAnalysisCommand extends $Command
   .classBuilder<

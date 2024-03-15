@@ -27,7 +27,6 @@ export interface AttachDiskCommandInput extends AttachDiskRequest {}
 export interface AttachDiskCommandOutput extends AttachDiskResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches a block storage disk to a running or stopped Lightsail instance and exposes it
  *       to the instance with the specified disk name.</p>
  *          <p>The <code>attach disk</code> operation supports tag-based access control via resource tags
@@ -110,6 +109,7 @@ export interface AttachDiskCommandOutput extends AttachDiskResult, __MetadataBea
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class AttachDiskCommand extends $Command
   .classBuilder<

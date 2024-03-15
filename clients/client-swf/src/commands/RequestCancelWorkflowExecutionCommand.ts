@@ -30,7 +30,6 @@ export interface RequestCancelWorkflowExecutionCommandInput extends RequestCance
 export interface RequestCancelWorkflowExecutionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Records a <code>WorkflowExecutionCancelRequested</code> event in the currently running
  *       workflow execution identified by the given domain, workflowId, and runId. This logically
  *       requests the cancellation of the workflow execution as a whole. It is up to the decider to
@@ -100,6 +99,7 @@ export interface RequestCancelWorkflowExecutionCommandOutput extends __MetadataB
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ * @public
  */
 export class RequestCancelWorkflowExecutionCommand extends $Command
   .classBuilder<

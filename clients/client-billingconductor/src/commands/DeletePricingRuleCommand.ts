@@ -27,7 +27,6 @@ export interface DeletePricingRuleCommandInput extends DeletePricingRuleInput {}
 export interface DeletePricingRuleCommandOutput extends DeletePricingRuleOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p> Deletes the pricing rule that's identified by the input Amazon Resource Name (ARN). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DeletePricingRuleCommandOutput extends DeletePricingRuleOutput,
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ * @public
  */
 export class DeletePricingRuleCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface GetWirelessGatewayFirmwareInformationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the firmware version and other information about a wireless gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface GetWirelessGatewayFirmwareInformationCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class GetWirelessGatewayFirmwareInformationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Assigns one of more tags (key-value pairs) to the specified MediaPackage resource.</p>
  *          <p>Tags can help you organize and categorize your resources. You can also use them to scope user
  *          permissions, by granting a user permission to access or change only resources with certain tag values.
@@ -64,6 +63,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

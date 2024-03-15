@@ -30,7 +30,6 @@ export interface EnableOrganizationAdminAccountCommandInput extends EnableOrgani
 export interface EnableOrganizationAdminAccountCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Designates the Detective administrator account for the organization in the
  *          current Region.</p>
  *          <p>If the account does not have Detective enabled, then enables Detective
@@ -81,6 +80,7 @@ export interface EnableOrganizationAdminAccountCommandOutput extends __MetadataB
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ * @public
  */
 export class EnableOrganizationAdminAccountCommand extends $Command
   .classBuilder<

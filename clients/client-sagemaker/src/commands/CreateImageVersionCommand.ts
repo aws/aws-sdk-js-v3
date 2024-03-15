@@ -27,7 +27,6 @@ export interface CreateImageVersionCommandInput extends CreateImageVersionReques
 export interface CreateImageVersionCommandOutput extends CreateImageVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a version of the SageMaker image specified by <code>ImageName</code>. The version
  *         represents the Amazon ECR container image specified by <code>BaseImage</code>.</p>
  * @example
@@ -78,6 +77,7 @@ export interface CreateImageVersionCommandOutput extends CreateImageVersionRespo
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class CreateImageVersionCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface CreateDirectoryConfigCommandInput extends CreateDirectoryConfig
 export interface CreateDirectoryConfigCommandOutput extends CreateDirectoryConfigResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Directory Config object in AppStream 2.0. This object includes the configuration information required to join fleets and image builders to Microsoft Active Directory domains.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface CreateDirectoryConfigCommandOutput extends CreateDirectoryConfi
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class CreateDirectoryConfigCommand extends $Command
   .classBuilder<

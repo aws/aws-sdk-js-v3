@@ -35,7 +35,6 @@ export interface ListControlInsightsByControlDomainCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the latest analytics data for controls within a specific control domain across all
  *          active assessments.</p>
  *          <note>
@@ -98,6 +97,7 @@ export interface ListControlInsightsByControlDomainCommandOutput
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class ListControlInsightsByControlDomainCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Tags a contact or escalation plan. You can tag only contacts and escalation plans in the
  *          first region of your replication set.</p>
  * @example
@@ -79,6 +78,7 @@ export interface TagResourceCommandOutput extends TagResourceResult, __MetadataB
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

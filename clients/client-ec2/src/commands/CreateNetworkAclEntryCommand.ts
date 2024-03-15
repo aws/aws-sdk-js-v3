@@ -27,7 +27,6 @@ export interface CreateNetworkAclEntryCommandInput extends CreateNetworkAclEntry
 export interface CreateNetworkAclEntryCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an entry (a rule) in a network ACL with the specified rule number. Each network ACL has a set of numbered ingress rules
  * 		        and a separate set of numbered egress rules. When determining whether a packet should be allowed in or out of a subnet associated
  * 		        with the ACL, we process the entries in the ACL according to the rule numbers, in ascending order. Each network ACL has a set of
@@ -76,6 +75,7 @@ export interface CreateNetworkAclEntryCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To create a network ACL entry
  * ```javascript
  * // This example creates an entry for the specified network ACL. The rule allows ingress traffic from anywhere (0.0.0.0/0) on UDP port 53 (DNS) into any associated subnet.

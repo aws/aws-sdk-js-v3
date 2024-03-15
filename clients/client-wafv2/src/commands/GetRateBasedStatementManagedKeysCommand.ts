@@ -32,7 +32,6 @@ export interface GetRateBasedStatementManagedKeysCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the IP addresses that are currently blocked by a rate-based rule instance. This
  *        is only available for rate-based rules that aggregate solely on the IP address or on the forwarded IP
  *        address. </p>
@@ -129,6 +128,7 @@ export interface GetRateBasedStatementManagedKeysCommandOutput
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class GetRateBasedStatementManagedKeysCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface SetTimeBasedAutoScalingCommandInput extends SetTimeBasedAutoSca
 export interface SetTimeBasedAutoScalingCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Specify the time-based auto scaling configuration for a specified instance. For more
  *       information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-autoscaling.html">Managing
  *         Load with Time-based and Load-based Instances</a>.</p>
@@ -85,6 +84,7 @@ export interface SetTimeBasedAutoScalingCommandOutput extends __MetadataBearer {
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class SetTimeBasedAutoScalingCommand extends $Command
   .classBuilder<

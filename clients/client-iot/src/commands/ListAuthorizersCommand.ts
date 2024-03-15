@@ -27,7 +27,6 @@ export interface ListAuthorizersCommandInput extends ListAuthorizersRequest {}
 export interface ListAuthorizersCommandOutput extends ListAuthorizersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the authorizers registered in your account.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListAuthorizers</a> action.</p>
  * @example
@@ -80,6 +79,7 @@ export interface ListAuthorizersCommandOutput extends ListAuthorizersResponse, _
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListAuthorizersCommand extends $Command
   .classBuilder<

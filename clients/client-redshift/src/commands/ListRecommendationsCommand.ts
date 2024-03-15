@@ -27,7 +27,6 @@ export interface ListRecommendationsCommandInput extends ListRecommendationsMess
 export interface ListRecommendationsCommandOutput extends ListRecommendationsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>List the Amazon Redshift Advisor recommendations for one or multiple Amazon Redshift clusters in an Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface ListRecommendationsCommandOutput extends ListRecommendationsRes
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class ListRecommendationsCommand extends $Command
   .classBuilder<

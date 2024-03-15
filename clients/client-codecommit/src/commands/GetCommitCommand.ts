@@ -27,7 +27,6 @@ export interface GetCommitCommandInput extends GetCommitInput {}
 export interface GetCommitCommandOutput extends GetCommitOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a commit, including commit message and committer information.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -112,6 +111,7 @@ export interface GetCommitCommandOutput extends GetCommitOutput, __MetadataBeare
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class GetCommitCommand extends $Command
   .classBuilder<

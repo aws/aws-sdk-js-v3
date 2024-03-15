@@ -27,7 +27,6 @@ export interface StartSegmentDetectionCommandInput extends StartSegmentDetection
 export interface StartSegmentDetectionCommandOutput extends StartSegmentDetectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts asynchronous detection of segment detection in a stored video.</p>
  *          <p>Amazon Rekognition Video can detect segments in a video stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name and
  *       the filename of the video. <code>StartSegmentDetection</code> returns a job identifier (<code>JobId</code>) which you use to get
@@ -130,6 +129,7 @@ export interface StartSegmentDetectionCommandOutput extends StartSegmentDetectio
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  */
 export class StartSegmentDetectionCommand extends $Command
   .classBuilder<

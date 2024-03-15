@@ -27,7 +27,6 @@ export interface TerminateAppCommandInput extends TerminateAppRequest {}
 export interface TerminateAppCommandOutput extends TerminateAppResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Terminates the stack for the specified application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface TerminateAppCommandOutput extends TerminateAppResponse, __Metad
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ * @public
  */
 export class TerminateAppCommand extends $Command
   .classBuilder<

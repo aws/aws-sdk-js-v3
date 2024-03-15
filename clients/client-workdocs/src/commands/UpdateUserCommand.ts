@@ -32,7 +32,6 @@ export interface UpdateUserCommandInput extends UpdateUserRequest {}
 export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified attributes of the specified user, and grants or revokes
  *             administrative privileges to the Amazon WorkDocs site.</p>
  * @example
@@ -123,6 +122,7 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class UpdateUserCommand extends $Command
   .classBuilder<

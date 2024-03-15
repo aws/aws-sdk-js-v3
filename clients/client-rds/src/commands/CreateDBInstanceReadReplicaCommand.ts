@@ -28,7 +28,6 @@ export interface CreateDBInstanceReadReplicaCommandInput extends CreateDBInstanc
 export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstanceReadReplicaResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new DB instance that acts as a read replica for an existing source DB
  *             instance or Multi-AZ DB cluster. You can create a read replica for a DB instance running
  *             Db2, MariaDB, MySQL, Oracle, PostgreSQL, or SQL Server. You can create a read replica for a
@@ -432,6 +431,7 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To create a DB instance read replica
  * ```javascript
  * // This example creates a read replica of an existing DB instance named test-instance. The read replica is named test-instance-repl.

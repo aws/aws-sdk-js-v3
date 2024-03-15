@@ -27,7 +27,6 @@ export interface ReserveContactCommandInput extends ReserveContactRequest {}
 export interface ReserveContactCommandOutput extends ContactIdResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Reserves a contact using specified parameters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface ReserveContactCommandOutput extends ContactIdResponse, __Metada
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ * @public
  */
 export class ReserveContactCommand extends $Command
   .classBuilder<

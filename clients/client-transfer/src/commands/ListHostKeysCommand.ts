@@ -27,7 +27,6 @@ export interface ListHostKeysCommandInput extends ListHostKeysRequest {}
 export interface ListHostKeysCommandOutput extends ListHostKeysResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of host keys for the server that's specified by the <code>ServerId</code>
  *       parameter.</p>
  * @example
@@ -85,6 +84,7 @@ export interface ListHostKeysCommandOutput extends ListHostKeysResponse, __Metad
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class ListHostKeysCommand extends $Command
   .classBuilder<

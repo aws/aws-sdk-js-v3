@@ -32,7 +32,6 @@ export interface DisableSnapshotBlockPublicAccessCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables the <i>block public access for snapshots</i> setting at
  *       the account level for the specified Amazon Web Services Region. After you disable block public
  *       access for snapshots in a Region, users can publicly share snapshots in that Region.</p>
@@ -68,6 +67,7 @@ export interface DisableSnapshotBlockPublicAccessCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DisableSnapshotBlockPublicAccessCommand extends $Command
   .classBuilder<

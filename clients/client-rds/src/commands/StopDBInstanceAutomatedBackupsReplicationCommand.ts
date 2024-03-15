@@ -36,7 +36,6 @@ export interface StopDBInstanceAutomatedBackupsReplicationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops automated backup replication for a DB instance.</p>
  *          <p>This command doesn't apply to RDS Custom, Aurora MySQL, and Aurora PostgreSQL.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html">
@@ -114,6 +113,7 @@ export interface StopDBInstanceAutomatedBackupsReplicationCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To stop replicating automated backups
  * ```javascript
  * // The following example ends replication of automated backups. Replicated backups are retained according to the set backup retention period.

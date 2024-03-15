@@ -32,7 +32,6 @@ export interface RejectSubscriptionRequestCommandInput extends RejectSubscriptio
 export interface RejectSubscriptionRequestCommandOutput extends RejectSubscriptionRequestOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Rejects the specified subscription request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -124,6 +123,7 @@ export interface RejectSubscriptionRequestCommandOutput extends RejectSubscripti
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class RejectSubscriptionRequestCommand extends $Command
   .classBuilder<

@@ -31,9 +31,6 @@ export interface ListSipMediaApplicationsCommandInput extends ListSipMediaApplic
 export interface ListSipMediaApplicationsCommandOutput extends ListSipMediaApplicationsResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by ListSipMediaApplications in the Amazon Chime SDK Voice Namespace
- *
  * <p>Lists the SIP media applications under the administrator's AWS account.</p>
  *          <important>
  *             <p>
@@ -101,6 +98,8 @@ export interface ListSipMediaApplicationsCommandOutput extends ListSipMediaAppli
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by ListSipMediaApplications in the Amazon Chime SDK Voice Namespace
  */
 export class ListSipMediaApplicationsCommand extends $Command
   .classBuilder<

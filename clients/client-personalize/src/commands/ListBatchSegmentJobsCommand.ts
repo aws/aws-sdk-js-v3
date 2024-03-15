@@ -27,7 +27,6 @@ export interface ListBatchSegmentJobsCommandInput extends ListBatchSegmentJobsRe
 export interface ListBatchSegmentJobsCommandOutput extends ListBatchSegmentJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of the batch segment jobs that have been performed off of a solution
  *       version that you specify.</p>
  * @example
@@ -75,6 +74,7 @@ export interface ListBatchSegmentJobsCommandOutput extends ListBatchSegmentJobsR
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class ListBatchSegmentJobsCommand extends $Command
   .classBuilder<

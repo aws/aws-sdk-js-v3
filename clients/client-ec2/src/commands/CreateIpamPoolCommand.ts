@@ -27,7 +27,6 @@ export interface CreateIpamPoolCommandInput extends CreateIpamPoolRequest {}
 export interface CreateIpamPoolCommandOutput extends CreateIpamPoolResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create an IP address pool for Amazon VPC IP Address Manager (IPAM). In IPAM, a pool is a collection of contiguous IP addresses CIDRs. Pools enable you to organize your IP addresses according to your routing and security needs. For example, if you have separate routing and security needs for development and production applications, you can create a pool for each.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-top-ipam.html">Create a top-level pool</a> in the <i>Amazon VPC IPAM User Guide</i>.
  *       </p>
@@ -133,6 +132,7 @@ export interface CreateIpamPoolCommandOutput extends CreateIpamPoolResult, __Met
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateIpamPoolCommand extends $Command
   .classBuilder<

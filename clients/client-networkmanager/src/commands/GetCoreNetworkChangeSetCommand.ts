@@ -27,7 +27,6 @@ export interface GetCoreNetworkChangeSetCommandInput extends GetCoreNetworkChang
 export interface GetCoreNetworkChangeSetCommandOutput extends GetCoreNetworkChangeSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a change set between the LIVE core network policy and a submitted policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -111,6 +110,7 @@ export interface GetCoreNetworkChangeSetCommandOutput extends GetCoreNetworkChan
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class GetCoreNetworkChangeSetCommand extends $Command
   .classBuilder<

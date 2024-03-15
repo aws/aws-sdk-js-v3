@@ -27,7 +27,6 @@ export interface DescribeMigrationTaskCommandInput extends DescribeMigrationTask
 export interface DescribeMigrationTaskCommandOutput extends DescribeMigrationTaskResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of all attributes associated with a specific migration task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface DescribeMigrationTaskCommandOutput extends DescribeMigrationTas
  * @throws {@link MigrationHubServiceException}
  * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
+ * @public
  */
 export class DescribeMigrationTaskCommand extends $Command
   .classBuilder<

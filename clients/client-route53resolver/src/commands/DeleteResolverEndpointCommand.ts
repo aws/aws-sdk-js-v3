@@ -27,7 +27,6 @@ export interface DeleteResolverEndpointCommandInput extends DeleteResolverEndpoi
 export interface DeleteResolverEndpointCommandOutput extends DeleteResolverEndpointResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a Resolver endpoint. The effect of deleting a Resolver endpoint depends on whether it's an inbound or an outbound
  * 			Resolver endpoint:</p>
  *          <ul>
@@ -103,6 +102,7 @@ export interface DeleteResolverEndpointCommandOutput extends DeleteResolverEndpo
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class DeleteResolverEndpointCommand extends $Command
   .classBuilder<

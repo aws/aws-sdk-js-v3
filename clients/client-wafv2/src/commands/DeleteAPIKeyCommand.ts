@@ -27,7 +27,6 @@ export interface DeleteAPIKeyCommandInput extends DeleteAPIKeyRequest {}
 export interface DeleteAPIKeyCommandOutput extends DeleteAPIKeyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified API key. </p>
  *          <p>After you delete a key, it can take up to 24 hours for WAF to disallow use of the key in all regions. </p>
  * @example
@@ -94,6 +93,7 @@ export interface DeleteAPIKeyCommandOutput extends DeleteAPIKeyResponse, __Metad
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class DeleteAPIKeyCommand extends $Command
   .classBuilder<

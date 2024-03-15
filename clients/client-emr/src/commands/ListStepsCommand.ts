@@ -27,7 +27,6 @@ export interface ListStepsCommandInput extends ListStepsInput {}
 export interface ListStepsCommandOutput extends ListStepsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a list of steps for the cluster in reverse order unless you specify
  *             <code>stepIds</code> with the request or filter by <code>StepStates</code>. You can
  *          specify a maximum of 10 <code>stepIDs</code>. The CLI automatically
@@ -108,6 +107,7 @@ export interface ListStepsCommandOutput extends ListStepsOutput, __MetadataBeare
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class ListStepsCommand extends $Command
   .classBuilder<

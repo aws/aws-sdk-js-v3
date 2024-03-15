@@ -27,7 +27,6 @@ export interface PutExternalEvaluationCommandInput extends PutExternalEvaluation
 export interface PutExternalEvaluationCommandOutput extends PutExternalEvaluationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Add or updates the evaluations for process checks.
  * 			This API checks if the rule is a process check when the name of the Config rule is provided.</p>
  * @example
@@ -68,6 +67,7 @@ export interface PutExternalEvaluationCommandOutput extends PutExternalEvaluatio
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class PutExternalEvaluationCommand extends $Command
   .classBuilder<

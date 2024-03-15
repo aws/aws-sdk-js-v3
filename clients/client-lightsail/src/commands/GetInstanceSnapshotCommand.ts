@@ -27,7 +27,6 @@ export interface GetInstanceSnapshotCommandInput extends GetInstanceSnapshotRequ
 export interface GetInstanceSnapshotCommandOutput extends GetInstanceSnapshotResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a specific instance snapshot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -148,6 +147,7 @@ export interface GetInstanceSnapshotCommandOutput extends GetInstanceSnapshotRes
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetInstanceSnapshotCommand extends $Command
   .classBuilder<

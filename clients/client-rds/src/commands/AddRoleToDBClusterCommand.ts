@@ -27,7 +27,6 @@ export interface AddRoleToDBClusterCommandInput extends AddRoleToDBClusterMessag
 export interface AddRoleToDBClusterCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates an Identity and Access Management (IAM) role with a DB cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface AddRoleToDBClusterCommandOutput extends __MetadataBearer {}
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To associate an AWS Identity and Access Management (IAM) role with a DB cluster
  * ```javascript
  * // The following example associates a role with a DB cluster.

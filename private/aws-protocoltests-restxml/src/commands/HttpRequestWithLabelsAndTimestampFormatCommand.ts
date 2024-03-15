@@ -29,7 +29,6 @@ export interface HttpRequestWithLabelsAndTimestampFormatCommandInput
 export interface HttpRequestWithLabelsAndTimestampFormatCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * The example tests how requests serialize different timestamp formats in the
  * URI path.
  * @example
@@ -62,6 +61,7 @@ export interface HttpRequestWithLabelsAndTimestampFormatCommandOutput extends __
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ * @public
  */
 export class HttpRequestWithLabelsAndTimestampFormatCommand extends $Command
   .classBuilder<

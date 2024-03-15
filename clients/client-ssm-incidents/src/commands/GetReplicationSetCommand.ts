@@ -27,7 +27,6 @@ export interface GetReplicationSetCommandInput extends GetReplicationSetInput {}
 export interface GetReplicationSetCommandOutput extends GetReplicationSetOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieve your Incident Manager replication set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface GetReplicationSetCommandOutput extends GetReplicationSetOutput,
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ * @public
  */
 export class GetReplicationSetCommand extends $Command
   .classBuilder<

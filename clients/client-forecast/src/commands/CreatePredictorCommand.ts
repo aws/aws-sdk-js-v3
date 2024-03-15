@@ -31,7 +31,6 @@ export interface CreatePredictorCommandInput extends CreatePredictorRequest {}
 export interface CreatePredictorCommandOutput extends CreatePredictorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p> This operation creates a legacy predictor that does not include all the predictor
  *         functionalities provided by Amazon Forecast. To create a predictor that is compatible with all
@@ -217,6 +216,7 @@ export interface CreatePredictorCommandOutput extends CreatePredictorResponse, _
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class CreatePredictorCommand extends $Command
   .classBuilder<

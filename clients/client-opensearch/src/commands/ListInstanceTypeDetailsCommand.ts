@@ -27,7 +27,6 @@ export interface ListInstanceTypeDetailsCommandInput extends ListInstanceTypeDet
 export interface ListInstanceTypeDetailsCommandOutput extends ListInstanceTypeDetailsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all instance types and available features for a given OpenSearch or Elasticsearch
  *    version.</p>
  * @example
@@ -89,6 +88,7 @@ export interface ListInstanceTypeDetailsCommandOutput extends ListInstanceTypeDe
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class ListInstanceTypeDetailsCommand extends $Command
   .classBuilder<

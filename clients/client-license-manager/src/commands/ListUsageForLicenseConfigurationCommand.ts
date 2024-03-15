@@ -32,7 +32,6 @@ export interface ListUsageForLicenseConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all license usage records for a license configuration, displaying license
  *          consumption details by resource at a selected point in time. Use this action to audit the
  *          current license consumption for any license inventory and configuration.</p>
@@ -101,6 +100,7 @@ export interface ListUsageForLicenseConfigurationCommandOutput
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * @public
  */
 export class ListUsageForLicenseConfigurationCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface CreateFileSystemFromBackupCommandInput extends CreateFileSystem
 export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSystemFromBackupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new Amazon FSx for Lustre, Amazon FSx for Windows File
  *             Server, or Amazon FSx for OpenZFS file system from an existing Amazon FSx backup.</p>
  *          <p>If a file system with the specified client request token exists and the parameters
@@ -794,6 +793,7 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  * @example To create a new file system from backup
  * ```javascript
  * // This operation creates a new file system from backup.

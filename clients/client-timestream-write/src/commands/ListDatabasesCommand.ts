@@ -28,7 +28,6 @@ export interface ListDatabasesCommandInput extends ListDatabasesRequest {}
 export interface ListDatabasesCommandOutput extends ListDatabasesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of your Timestream databases. <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service quotas apply</a>. See
  *             <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.list-db.html">code sample</a> for
  *          details. </p>
@@ -87,6 +86,7 @@ export interface ListDatabasesCommandOutput extends ListDatabasesResponse, __Met
  * @throws {@link TimestreamWriteServiceException}
  * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
+ * @public
  */
 export class ListDatabasesCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface ListLinuxSubscriptionInstancesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the running Amazon EC2 instances that were discovered with commercial Linux
  *       subscriptions.</p>
  * @example
@@ -100,6 +99,7 @@ export interface ListLinuxSubscriptionInstancesCommandOutput
  * @throws {@link LicenseManagerLinuxSubscriptionsServiceException}
  * <p>Base exception class for all service exceptions from LicenseManagerLinuxSubscriptions service.</p>
  *
+ * @public
  */
 export class ListLinuxSubscriptionInstancesCommand extends $Command
   .classBuilder<

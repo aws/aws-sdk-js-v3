@@ -406,7 +406,6 @@ export type CloudWatchClientResolvedConfigType = __SmithyResolvedConfiguration<_
 export interface CloudWatchClientResolvedConfig extends CloudWatchClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Amazon CloudWatch monitors your Amazon Web Services (Amazon Web Services) resources and the
  * 			applications you run on Amazon Web Services in real time. You can use CloudWatch to collect and track
  * 			metrics, which are the variables you want to measure for your resources and
@@ -420,6 +419,7 @@ export interface CloudWatchClientResolvedConfig extends CloudWatchClientResolved
  *          <p>In addition to monitoring the built-in metrics that come with Amazon Web Services, you can monitor
  * 			your own custom metrics. With CloudWatch, you gain system-wide visibility into resource
  * 			utilization, application performance, and operational health.</p>
+ * @public
  */
 export class CloudWatchClient extends __Client<
   __HttpHandlerOptions,

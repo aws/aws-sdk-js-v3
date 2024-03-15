@@ -27,7 +27,6 @@ export interface ListTerminologiesCommandInput extends ListTerminologiesRequest 
 export interface ListTerminologiesCommandOutput extends ListTerminologiesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a list of custom terminologies associated with your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface ListTerminologiesCommandOutput extends ListTerminologiesRespons
  * @throws {@link TranslateServiceException}
  * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ * @public
  */
 export class ListTerminologiesCommand extends $Command
   .classBuilder<

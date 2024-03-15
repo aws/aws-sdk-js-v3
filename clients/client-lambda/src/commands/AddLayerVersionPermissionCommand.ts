@@ -27,7 +27,6 @@ export interface AddLayerVersionPermissionCommandInput extends AddLayerVersionPe
 export interface AddLayerVersionPermissionCommandOutput extends AddLayerVersionPermissionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds permissions to the resource-based policy of a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
  *         layer</a>. Use this action to grant layer
  *       usage permission to other accounts. You can grant permission to a single account, all accounts in an organization,
@@ -89,6 +88,7 @@ export interface AddLayerVersionPermissionCommandOutput extends AddLayerVersionP
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class AddLayerVersionPermissionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface BatchExecuteStatementCommandInput extends BatchExecuteStatement
 export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatementOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Runs one or more SQL statements, which can be data manipulation language (DML) or data definition
  *       language (DDL).
  *       Depending on the authorization
@@ -116,6 +115,7 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  * @throws {@link RedshiftDataServiceException}
  * <p>Base exception class for all service exceptions from RedshiftData service.</p>
  *
+ * @public
  */
 export class BatchExecuteStatementCommand extends $Command
   .classBuilder<

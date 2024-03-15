@@ -27,7 +27,6 @@ export interface RespondActivityTaskFailedCommandInput extends RespondActivityTa
 export interface RespondActivityTaskFailedCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Used by workers to tell the service that the <a>ActivityTask</a> identified
  *       by the <code>taskToken</code> has failed with <code>reason</code> (if specified). The
  *         <code>reason</code> and <code>details</code> appear in the <code>ActivityTaskFailed</code>
@@ -91,6 +90,7 @@ export interface RespondActivityTaskFailedCommandOutput extends __MetadataBearer
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ * @public
  */
 export class RespondActivityTaskFailedCommand extends $Command
   .classBuilder<

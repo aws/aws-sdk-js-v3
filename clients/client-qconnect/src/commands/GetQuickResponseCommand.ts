@@ -31,7 +31,6 @@ export interface GetQuickResponseCommandInput extends GetQuickResponseRequest {}
 export interface GetQuickResponseCommandOutput extends GetQuickResponseResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the quick response.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -104,6 +103,7 @@ export interface GetQuickResponseCommandOutput extends GetQuickResponseResponse,
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ * @public
  */
 export class GetQuickResponseCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface SetDefaultMessageTypeCommandInput extends SetDefaultMessageType
 export interface SetDefaultMessageTypeCommandOutput extends SetDefaultMessageTypeResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the default message type on a configuration set.</p>
  *          <p>Choose the category of SMS messages that you plan to send from this account. If you
  *             send account-related messages or time-sensitive messages such as one-time passcodes,
@@ -85,6 +84,7 @@ export interface SetDefaultMessageTypeCommandOutput extends SetDefaultMessageTyp
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class SetDefaultMessageTypeCommand extends $Command
   .classBuilder<

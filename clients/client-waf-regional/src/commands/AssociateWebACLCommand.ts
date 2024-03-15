@@ -27,7 +27,6 @@ export interface AssociateWebACLCommandInput extends AssociateWebACLRequest {}
 export interface AssociateWebACLCommandOutput extends AssociateWebACLResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic Regional</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -115,6 +114,7 @@ export interface AssociateWebACLCommandOutput extends AssociateWebACLResponse, _
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
+ * @public
  */
 export class AssociateWebACLCommand extends $Command
   .classBuilder<

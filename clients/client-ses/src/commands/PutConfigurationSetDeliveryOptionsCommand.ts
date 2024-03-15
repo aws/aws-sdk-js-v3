@@ -35,7 +35,6 @@ export interface PutConfigurationSetDeliveryOptionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds or updates the delivery options for a configuration set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface PutConfigurationSetDeliveryOptionsCommandOutput
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  */
 export class PutConfigurationSetDeliveryOptionsCommand extends $Command
   .classBuilder<

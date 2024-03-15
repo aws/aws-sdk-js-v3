@@ -27,7 +27,6 @@ export interface DeleteReportCommandInput extends DeleteReportInput {}
 export interface DeleteReportCommandOutput extends DeleteReportOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Deletes a report.
  *     </p>
@@ -58,6 +57,7 @@ export interface DeleteReportCommandOutput extends DeleteReportOutput, __Metadat
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * @public
  */
 export class DeleteReportCommand extends $Command
   .classBuilder<

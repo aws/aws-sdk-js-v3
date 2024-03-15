@@ -27,7 +27,6 @@ export interface DeleteStoredQueryCommandInput extends DeleteStoredQueryRequest 
 export interface DeleteStoredQueryCommandOutput extends DeleteStoredQueryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the stored query for a single Amazon Web Services account and a single Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,6 +60,7 @@ export interface DeleteStoredQueryCommandOutput extends DeleteStoredQueryRespons
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class DeleteStoredQueryCommand extends $Command
   .classBuilder<

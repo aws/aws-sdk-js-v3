@@ -27,7 +27,6 @@ export interface DescribePortfolioCommandInput extends DescribePortfolioInput {}
 export interface DescribePortfolioCommandOutput extends DescribePortfolioOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the specified portfolio.</p>
  *          <p>A delegated admin is authorized to invoke this command.</p>
  * @example
@@ -87,6 +86,7 @@ export interface DescribePortfolioCommandOutput extends DescribePortfolioOutput,
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class DescribePortfolioCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateVariableCommandInput extends CreateVariableRequest {}
 export interface CreateVariableCommandOutput extends CreateVariableResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a variable.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface CreateVariableCommandOutput extends CreateVariableResult, __Met
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class CreateVariableCommand extends $Command
   .classBuilder<

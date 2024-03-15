@@ -27,7 +27,6 @@ export interface ListBundlesCommandInput extends ListBundlesRequest {}
 export interface ListBundlesCommandOutput extends ListBundlesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             List all available bundles.
  *         </p>
@@ -99,6 +98,7 @@ export interface ListBundlesCommandOutput extends ListBundlesResult, __MetadataB
  * @throws {@link MobileServiceException}
  * <p>Base exception class for all service exceptions from Mobile service.</p>
  *
+ * @public
  */
 export class ListBundlesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListServerCertificatesCommandInput extends ListServerCertificat
 export interface ListServerCertificatesCommandOutput extends ListServerCertificatesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the server certificates stored in IAM that have the specified path prefix. If
  *             none exist, the operation returns an empty list.</p>
  *          <p> You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
@@ -83,6 +82,7 @@ export interface ListServerCertificatesCommandOutput extends ListServerCertifica
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class ListServerCertificatesCommand extends $Command
   .classBuilder<

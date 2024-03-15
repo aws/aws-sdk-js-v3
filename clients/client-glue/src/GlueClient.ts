@@ -1134,9 +1134,9 @@ export type GlueClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpH
 export interface GlueClientResolvedConfig extends GlueClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>Glue</fullname>
  *          <p>Defines the public endpoint for the Glue service.</p>
+ * @public
  */
 export class GlueClient extends __Client<
   __HttpHandlerOptions,

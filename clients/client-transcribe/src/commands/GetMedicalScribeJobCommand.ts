@@ -27,7 +27,6 @@ export interface GetMedicalScribeJobCommandInput extends GetMedicalScribeJobRequ
 export interface GetMedicalScribeJobCommandOutput extends GetMedicalScribeJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides information about the specified Medical Scribe job.</p>
  *          <p>To view the status of the specified medical transcription job, check the
  *                 <code>MedicalScribeJobStatus</code> field. If the status is <code>COMPLETED</code>,
@@ -117,6 +116,7 @@ export interface GetMedicalScribeJobCommandOutput extends GetMedicalScribeJobRes
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * @public
  */
 export class GetMedicalScribeJobCommand extends $Command
   .classBuilder<

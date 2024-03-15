@@ -27,7 +27,6 @@ export interface SignCommandInput extends SignRequest {}
 export interface SignCommandOutput extends SignResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a <a href="https://en.wikipedia.org/wiki/Digital_signature">digital
  *         signature</a> for a message or message digest by using the private key in an asymmetric
  *       signing KMS key. To verify the signature, use the <a>Verify</a> operation, or use
@@ -184,6 +183,7 @@ export interface SignCommandOutput extends SignResponse, __MetadataBearer {}
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To digitally sign a message with an asymmetric KMS key.
  * ```javascript
  * // This operation uses the private key in an asymmetric elliptic curve (ECC) KMS key to generate a digital signature for a given message.

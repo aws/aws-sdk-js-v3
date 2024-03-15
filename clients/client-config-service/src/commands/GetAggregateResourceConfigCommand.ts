@@ -27,7 +27,6 @@ export interface GetAggregateResourceConfigCommandInput extends GetAggregateReso
 export interface GetAggregateResourceConfigCommandOutput extends GetAggregateResourceConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns configuration item that is aggregated for your specific resource in a specific source account and region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -111,6 +110,7 @@ export interface GetAggregateResourceConfigCommandOutput extends GetAggregateRes
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class GetAggregateResourceConfigCommand extends $Command
   .classBuilder<

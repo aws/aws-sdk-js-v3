@@ -32,7 +32,6 @@ export interface CreateWaveCommandInput extends CreateWaveRequest {}
 export interface CreateWaveCommandOutput extends Wave, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create wave.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface CreateWaveCommandOutput extends Wave, __MetadataBearer {}
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * @public
  */
 export class CreateWaveCommand extends $Command
   .classBuilder<

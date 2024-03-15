@@ -39,7 +39,6 @@ export interface ListAssociatedRoute53HealthChecksCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an array of all Amazon Route 53 health checks associated with a specific routing control.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface ListAssociatedRoute53HealthChecksCommandOutput
  * @throws {@link Route53RecoveryControlConfigServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
+ * @public
  */
 export class ListAssociatedRoute53HealthChecksCommand extends $Command
   .classBuilder<

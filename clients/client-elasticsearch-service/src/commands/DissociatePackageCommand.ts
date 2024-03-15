@@ -31,7 +31,6 @@ export interface DissociatePackageCommandInput extends DissociatePackageRequest 
 export interface DissociatePackageCommandOutput extends DissociatePackageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Dissociates a package from the Amazon ES domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface DissociatePackageCommandOutput extends DissociatePackageRespons
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * @public
  */
 export class DissociatePackageCommand extends $Command
   .classBuilder<

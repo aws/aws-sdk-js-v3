@@ -27,7 +27,6 @@ export interface CreateBotAliasCommandInput extends CreateBotAliasRequest {}
 export interface CreateBotAliasCommandOutput extends CreateBotAliasResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an alias for the specified version of a bot. Use an alias to
  *          enable you to change the version of a bot without updating applications
  *          that use the bot.</p>
@@ -181,6 +180,7 @@ export interface CreateBotAliasCommandOutput extends CreateBotAliasResponse, __M
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class CreateBotAliasCommand extends $Command
   .classBuilder<

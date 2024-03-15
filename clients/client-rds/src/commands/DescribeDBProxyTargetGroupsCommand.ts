@@ -29,7 +29,6 @@ export interface DescribeDBProxyTargetGroupsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about DB proxy target groups, represented by <code>DBProxyTargetGroup</code> data structures.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface DescribeDBProxyTargetGroupsCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  */
 export class DescribeDBProxyTargetGroupsCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface DescribeTrustedAdvisorChecksCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about all available Trusted Advisor checks, including the name, ID,
  *             category, description, and metadata. You must specify a language code.</p>
  *          <p>The response contains a <a>TrustedAdvisorCheckDescription</a> object for
@@ -103,6 +102,7 @@ export interface DescribeTrustedAdvisorChecksCommandOutput
  * @throws {@link SupportServiceException}
  * <p>Base exception class for all service exceptions from Support service.</p>
  *
+ * @public
  */
 export class DescribeTrustedAdvisorChecksCommand extends $Command
   .classBuilder<

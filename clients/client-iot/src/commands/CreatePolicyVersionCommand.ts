@@ -27,7 +27,6 @@ export interface CreatePolicyVersionCommandInput extends CreatePolicyVersionRequ
 export interface CreatePolicyVersionCommandOutput extends CreatePolicyVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new version of the specified IoT policy. To update a policy, create a
  *          new policy version. A managed policy can have up to five versions. If the policy has five
  *          versions, you must use <a>DeletePolicyVersion</a> to delete an existing version
@@ -91,6 +90,7 @@ export interface CreatePolicyVersionCommandOutput extends CreatePolicyVersionRes
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class CreatePolicyVersionCommand extends $Command
   .classBuilder<

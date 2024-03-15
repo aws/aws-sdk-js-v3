@@ -31,7 +31,6 @@ export interface CreateSlotTypeVersionCommandInput extends CreateSlotTypeVersion
 export interface CreateSlotTypeVersionCommandOutput extends CreateSlotTypeVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new version of a slot type based on the
  *         <code>$LATEST</code> version of the specified slot type. If the
  *         <code>$LATEST</code> version of this resource has not changed since the
@@ -119,6 +118,7 @@ export interface CreateSlotTypeVersionCommandOutput extends CreateSlotTypeVersio
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * @public
  */
 export class CreateSlotTypeVersionCommand extends $Command
   .classBuilder<

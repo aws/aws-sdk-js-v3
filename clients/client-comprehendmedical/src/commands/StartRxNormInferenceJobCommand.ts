@@ -31,7 +31,6 @@ export interface StartRxNormInferenceJobCommandInput extends StartRxNormInferenc
 export interface StartRxNormInferenceJobCommandOutput extends StartRxNormInferenceJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an asynchronous job to detect medication entities and link them to the RxNorm
  *       ontology. Use the <code>DescribeRxNormInferenceJob</code> operation to track the status of a
  *       job.</p>
@@ -89,6 +88,7 @@ export interface StartRxNormInferenceJobCommandOutput extends StartRxNormInferen
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ * @public
  */
 export class StartRxNormInferenceJobCommand extends $Command
   .classBuilder<

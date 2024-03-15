@@ -27,9 +27,6 @@ export interface GetDatasetCommandInput extends GetDatasetRequest {}
 export interface GetDatasetCommandOutput extends GetDatasetResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This method will be discontinued.
- *
  * <p>Returns information about a Dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +95,8 @@ export interface GetDatasetCommandOutput extends GetDatasetResponse, __MetadataB
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ * @public
+ * @deprecated This method will be discontinued.
  */
 export class GetDatasetCommand extends $Command
   .classBuilder<

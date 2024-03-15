@@ -32,7 +32,6 @@ export interface CreateComponentCommandInput extends CreateComponentInput {}
 export interface CreateComponentCommandOutput extends CreateComponentOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create an Proton component. A component is an infrastructure extension for a service instance.</p>
  *          <p>For more information about components, see
  *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
@@ -116,6 +115,7 @@ export interface CreateComponentCommandOutput extends CreateComponentOutput, __M
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class CreateComponentCommand extends $Command
   .classBuilder<

@@ -41,7 +41,6 @@ export interface CreateMediaLiveConnectorPipelineCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a media live connector pipeline in an Amazon Chime SDK meeting.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -224,6 +223,7 @@ export interface CreateMediaLiveConnectorPipelineCommandOutput
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ * @public
  */
 export class CreateMediaLiveConnectorPipelineCommand extends $Command
   .classBuilder<

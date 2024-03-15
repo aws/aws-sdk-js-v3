@@ -32,7 +32,6 @@ export interface GetContainerServiceMetricDataCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the data points of a specific metric of your Amazon Lightsail container
  *       service.</p>
  *          <p>Metrics report the utilization of your resources. Monitor and collect metric data
@@ -104,6 +103,7 @@ export interface GetContainerServiceMetricDataCommandOutput
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetContainerServiceMetricDataCommand extends $Command
   .classBuilder<

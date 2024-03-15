@@ -27,7 +27,6 @@ export interface BatchDeleteScheduledActionCommandInput extends BatchDeleteSched
 export interface BatchDeleteScheduledActionCommandOutput extends BatchDeleteScheduledActionAnswer, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes one or more scheduled actions for the specified Auto Scaling group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface BatchDeleteScheduledActionCommandOutput extends BatchDeleteSche
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  */
 export class BatchDeleteScheduledActionCommand extends $Command
   .classBuilder<

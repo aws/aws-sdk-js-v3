@@ -27,7 +27,6 @@ export interface CreateInstanceExportTaskCommandInput extends CreateInstanceExpo
 export interface CreateInstanceExportTaskCommandOutput extends CreateInstanceExportTaskResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Exports a running or stopped instance to an Amazon S3 bucket.</p>
  *          <p>For information about the prerequisites for your Amazon S3 bucket, supported operating systems,
  *    image formats, and known limitations for the types of instances you can export, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html">Exporting an instance as a VM Using VM
@@ -98,6 +97,7 @@ export interface CreateInstanceExportTaskCommandOutput extends CreateInstanceExp
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateInstanceExportTaskCommand extends $Command
   .classBuilder<

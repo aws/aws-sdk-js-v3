@@ -27,9 +27,6 @@ export interface CreateVoiceConnectorGroupCommandInput extends CreateVoiceConnec
 export interface CreateVoiceConnectorGroupCommandOutput extends CreateVoiceConnectorGroupResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by CreateVoiceConnectorGroup in the Amazon Chime SDK Voice Namespace
- *
  * <p>Creates an Amazon Chime Voice Connector group under the administrator's AWS account. You can
  *             associate Amazon Chime Voice Connectors with the Amazon Chime Voice Connector group by
  *             including <code>VoiceConnectorItems</code> in the request.</p>
@@ -110,6 +107,8 @@ export interface CreateVoiceConnectorGroupCommandOutput extends CreateVoiceConne
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by CreateVoiceConnectorGroup in the Amazon Chime SDK Voice Namespace
  */
 export class CreateVoiceConnectorGroupCommand extends $Command
   .classBuilder<

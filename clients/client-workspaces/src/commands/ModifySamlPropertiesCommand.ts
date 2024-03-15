@@ -27,7 +27,6 @@ export interface ModifySamlPropertiesCommandInput extends ModifySamlPropertiesRe
 export interface ModifySamlPropertiesCommandOutput extends ModifySamlPropertiesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies multiple properties related to SAML 2.0 authentication, including the enablement status,
  *          user access URL, and relay state parameter name that are used for configuring federation with an
  *          SAML 2.0 identity provider.</p>
@@ -75,6 +74,7 @@ export interface ModifySamlPropertiesCommandOutput extends ModifySamlPropertiesR
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class ModifySamlPropertiesCommand extends $Command
   .classBuilder<

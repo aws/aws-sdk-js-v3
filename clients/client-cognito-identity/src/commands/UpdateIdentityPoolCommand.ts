@@ -27,7 +27,6 @@ export interface UpdateIdentityPoolCommandInput extends IdentityPool {}
 export interface UpdateIdentityPoolCommandOutput extends IdentityPool, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an identity pool.</p>
  *          <p>You must use AWS Developer credentials to call this API.</p>
  * @example
@@ -128,6 +127,7 @@ export interface UpdateIdentityPoolCommandOutput extends IdentityPool, __Metadat
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ * @public
  */
 export class UpdateIdentityPoolCommand extends $Command
   .classBuilder<

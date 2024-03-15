@@ -27,7 +27,6 @@ export interface MergeBranchesByThreeWayCommandInput extends MergeBranchesByThre
 export interface MergeBranchesByThreeWayCommandOutput extends MergeBranchesByThreeWayOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Merges two specified branches using the three-way merge strategy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -216,6 +215,7 @@ export interface MergeBranchesByThreeWayCommandOutput extends MergeBranchesByThr
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class MergeBranchesByThreeWayCommand extends $Command
   .classBuilder<

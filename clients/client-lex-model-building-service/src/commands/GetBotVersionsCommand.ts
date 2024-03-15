@@ -31,7 +31,6 @@ export interface GetBotVersionsCommandInput extends GetBotVersionsRequest {}
 export interface GetBotVersionsCommandOutput extends GetBotVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about all of the versions of a bot.</p>
  *          <p>The <code>GetBotVersions</code> operation returns a
  *         <code>BotMetadata</code> object for each version of a bot. For example,
@@ -96,6 +95,7 @@ export interface GetBotVersionsCommandOutput extends GetBotVersionsResponse, __M
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * @public
  */
 export class GetBotVersionsCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface ListKeysCommandInput extends ListKeysInput {}
 export interface ListKeysCommandOutput extends ListKeysOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the keys in the caller's Amazon Web Services account and Amazon Web Services Region. You can filter the list of keys.</p>
  *          <p>This is a paginated operation, which means that each response might contain only a subset of all the keys.
  *          When the response contains only a subset of keys, it includes a <code>NextToken</code> value. Use this value in a subsequent <code>ListKeys</code> request to get more keys.
@@ -129,6 +128,7 @@ export interface ListKeysCommandOutput extends ListKeysOutput, __MetadataBearer 
  * @throws {@link PaymentCryptographyServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptography service.</p>
  *
+ * @public
  */
 export class ListKeysCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateSchemaCommandInput extends CreateSchemaRequest {}
 export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon Personalize schema from the specified schema string. The schema you create
  *       must be in Avro JSON format.</p>
  *          <p>Amazon Personalize recognizes three schema variants. Each schema is associated with a dataset
@@ -91,6 +90,7 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class CreateSchemaCommand extends $Command
   .classBuilder<

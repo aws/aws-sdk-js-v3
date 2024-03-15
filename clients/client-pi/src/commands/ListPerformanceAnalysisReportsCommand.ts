@@ -32,7 +32,6 @@ export interface ListPerformanceAnalysisReportsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the analysis reports created for the DB instance. The reports are sorted based on the start time of each report.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface ListPerformanceAnalysisReportsCommandOutput
  * @throws {@link PIServiceException}
  * <p>Base exception class for all service exceptions from PI service.</p>
  *
+ * @public
  */
 export class ListPerformanceAnalysisReportsCommand extends $Command
   .classBuilder<

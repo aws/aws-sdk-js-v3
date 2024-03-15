@@ -31,9 +31,6 @@ export interface GetChannelMessageCommandInput extends GetChannelMessageRequest 
 export interface GetChannelMessageCommandOutput extends GetChannelMessageResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by GetChannelMessage in the Amazon Chime SDK Messaging Namespace
- *
  * <p>Gets the full details of a channel message.</p>
  *          <note>
  *             <p>The x-amz-chime-bearer request header is mandatory. Use the
@@ -111,6 +108,8 @@ export interface GetChannelMessageCommandOutput extends GetChannelMessageRespons
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by GetChannelMessage in the Amazon Chime SDK Messaging Namespace
  */
 export class GetChannelMessageCommand extends $Command
   .classBuilder<

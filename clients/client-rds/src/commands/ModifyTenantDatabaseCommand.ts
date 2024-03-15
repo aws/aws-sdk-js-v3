@@ -32,7 +32,6 @@ export interface ModifyTenantDatabaseCommandInput extends ModifyTenantDatabaseMe
 export interface ModifyTenantDatabaseCommandOutput extends ModifyTenantDatabaseResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies an existing tenant database in a DB instance. You can change the tenant
  *             database name or the master user password. This operation is supported only for RDS for
  *             Oracle CDB instances using the multi-tenant configuration.</p>
@@ -101,6 +100,7 @@ export interface ModifyTenantDatabaseCommandOutput extends ModifyTenantDatabaseR
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  */
 export class ModifyTenantDatabaseCommand extends $Command
   .classBuilder<

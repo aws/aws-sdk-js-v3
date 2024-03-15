@@ -27,7 +27,6 @@ export interface GetChannelCommandInput extends GetChannelRequest {}
 export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the channel configuration for the specified channel ARN. See also <a>BatchGetChannel</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataB
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ * @public
  */
 export class GetChannelCommand extends $Command
   .classBuilder<

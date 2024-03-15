@@ -32,7 +32,6 @@ export interface GetTemporaryGlueTableCredentialsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows a caller in a secure environment to assume a role with permission to access Amazon S3. In order to vend such credentials, Lake Formation assumes the role associated with a registered location, for example an Amazon S3 bucket, with a scope down policy which restricts the access to a single prefix.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -104,6 +103,7 @@ export interface GetTemporaryGlueTableCredentialsCommandOutput
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class GetTemporaryGlueTableCredentialsCommand extends $Command
   .classBuilder<

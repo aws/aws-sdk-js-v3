@@ -27,7 +27,6 @@ export interface ListWorkerBlocksCommandInput extends ListWorkerBlocksRequest {}
 export interface ListWorkerBlocksCommandOutput extends ListWorkerBlocksResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The <code>ListWorkersBlocks</code> operation retrieves a list of Workers who are blocked from working on your HITs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface ListWorkerBlocksCommandOutput extends ListWorkerBlocksResponse,
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * @public
  */
 export class ListWorkerBlocksCommand extends $Command
   .classBuilder<

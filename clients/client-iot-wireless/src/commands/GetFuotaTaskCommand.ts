@@ -27,7 +27,6 @@ export interface GetFuotaTaskCommandInput extends GetFuotaTaskRequest {}
 export interface GetFuotaTaskCommandOutput extends GetFuotaTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a FUOTA task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface GetFuotaTaskCommandOutput extends GetFuotaTaskResponse, __Metad
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class GetFuotaTaskCommand extends $Command
   .classBuilder<

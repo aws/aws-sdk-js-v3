@@ -28,7 +28,6 @@ export interface GetCampaignVersionCommandInput extends GetCampaignVersionReques
 export interface GetCampaignVersionCommandOutput extends GetCampaignVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the status, configuration, and other settings for a specific version of a campaign.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -460,6 +459,7 @@ export interface GetCampaignVersionCommandOutput extends GetCampaignVersionRespo
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class GetCampaignVersionCommand extends $Command
   .classBuilder<

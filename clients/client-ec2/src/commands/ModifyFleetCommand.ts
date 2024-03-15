@@ -27,7 +27,6 @@ export interface ModifyFleetCommandInput extends ModifyFleetRequest {}
 export interface ModifyFleetCommandOutput extends ModifyFleetResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the specified EC2 Fleet.</p>
  *          <p>You can only modify an EC2 Fleet request of type <code>maintain</code>.</p>
  *          <p>While the EC2 Fleet is being modified, it is in the <code>modifying</code> state.</p>
@@ -186,6 +185,7 @@ export interface ModifyFleetCommandOutput extends ModifyFleetResult, __MetadataB
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyFleetCommand extends $Command
   .classBuilder<

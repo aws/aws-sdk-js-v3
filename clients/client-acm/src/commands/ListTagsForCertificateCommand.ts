@@ -27,7 +27,6 @@ export interface ListTagsForCertificateCommandInput extends ListTagsForCertifica
 export interface ListTagsForCertificateCommandOutput extends ListTagsForCertificateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the tags that have been applied to the ACM certificate. Use the certificate's
  *       Amazon Resource Name (ARN) to specify the certificate. To add a tag to an ACM certificate,
  *       use the <a>AddTagsToCertificate</a> action. To delete a tag, use the <a>RemoveTagsFromCertificate</a> action. </p>
@@ -69,6 +68,7 @@ export interface ListTagsForCertificateCommandOutput extends ListTagsForCertific
  * @throws {@link ACMServiceException}
  * <p>Base exception class for all service exceptions from ACM service.</p>
  *
+ * @public
  */
 export class ListTagsForCertificateCommand extends $Command
   .classBuilder<

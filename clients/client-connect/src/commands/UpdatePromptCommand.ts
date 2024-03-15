@@ -27,7 +27,6 @@ export interface UpdatePromptCommandInput extends UpdatePromptRequest {}
 export interface UpdatePromptCommandOutput extends UpdatePromptResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a prompt.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface UpdatePromptCommandOutput extends UpdatePromptResponse, __Metad
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UpdatePromptCommand extends $Command
   .classBuilder<

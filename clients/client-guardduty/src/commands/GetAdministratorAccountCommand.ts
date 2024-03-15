@@ -27,7 +27,6 @@ export interface GetAdministratorAccountCommandInput extends GetAdministratorAcc
 export interface GetAdministratorAccountCommandOutput extends GetAdministratorAccountResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides the details of the GuardDuty administrator account associated with the current
  *       GuardDuty member account.</p>
  *          <note>
@@ -71,6 +70,7 @@ export interface GetAdministratorAccountCommandOutput extends GetAdministratorAc
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class GetAdministratorAccountCommand extends $Command
   .classBuilder<

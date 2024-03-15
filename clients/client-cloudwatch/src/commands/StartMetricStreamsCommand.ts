@@ -27,7 +27,6 @@ export interface StartMetricStreamsCommandInput extends StartMetricStreamsInput 
 export interface StartMetricStreamsCommandOutput extends StartMetricStreamsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts the streaming of metrics for one or more of your metric streams.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +63,7 @@ export interface StartMetricStreamsCommandOutput extends StartMetricStreamsOutpu
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * @public
  */
 export class StartMetricStreamsCommand extends $Command
   .classBuilder<

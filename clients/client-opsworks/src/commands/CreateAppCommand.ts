@@ -27,7 +27,6 @@ export interface CreateAppCommandInput extends CreateAppRequest {}
 export interface CreateAppCommandOutput extends CreateAppResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an app for a specified stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html">Creating
  *       Apps</a>.</p>
  *          <p>
@@ -105,6 +104,7 @@ export interface CreateAppCommandOutput extends CreateAppResult, __MetadataBeare
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class CreateAppCommand extends $Command
   .classBuilder<

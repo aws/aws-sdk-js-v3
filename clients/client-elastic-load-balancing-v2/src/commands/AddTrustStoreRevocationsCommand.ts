@@ -31,7 +31,6 @@ export interface AddTrustStoreRevocationsCommandInput extends AddTrustStoreRevoc
 export interface AddTrustStoreRevocationsCommandOutput extends AddTrustStoreRevocationsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds the specified revocation file to the specified trust store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface AddTrustStoreRevocationsCommandOutput extends AddTrustStoreRevo
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  */
 export class AddTrustStoreRevocationsCommand extends $Command
   .classBuilder<

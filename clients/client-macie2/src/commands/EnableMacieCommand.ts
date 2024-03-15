@@ -27,7 +27,6 @@ export interface EnableMacieCommandInput extends EnableMacieRequest {}
 export interface EnableMacieCommandOutput extends EnableMacieResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables Amazon Macie and specifies the configuration settings for a Macie account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface EnableMacieCommandOutput extends EnableMacieResponse, __Metadat
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class EnableMacieCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface GetApplicationCommandInput extends GetApplicationRequest {}
 export interface GetApplicationCommandOutput extends GetApplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *        Retrieves metadata information
  *        about one
@@ -114,6 +113,7 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * @throws {@link ServiceCatalogAppRegistryServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
+ * @public
  */
 export class GetApplicationCommand extends $Command
   .classBuilder<

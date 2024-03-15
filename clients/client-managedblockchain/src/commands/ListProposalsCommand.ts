@@ -31,7 +31,6 @@ export interface ListProposalsCommandInput extends ListProposalsInput {}
 export interface ListProposalsCommandOutput extends ListProposalsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of proposals for the network.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
@@ -92,6 +91,7 @@ export interface ListProposalsCommandOutput extends ListProposalsOutput, __Metad
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ * @public
  */
 export class ListProposalsCommand extends $Command
   .classBuilder<

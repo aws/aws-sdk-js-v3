@@ -29,7 +29,6 @@ export interface GetTableAutoScalingSettingsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns auto scaling related settings of the specified table in JSON format. If the table is a multi-Region table, the
  *          Amazon Web Services Region specific auto scaling settings of the table are included.</p>
  *          <p>Amazon Keyspaces auto scaling helps you provision throughput capacity for variable workloads efficiently by increasing and decreasing
@@ -159,6 +158,7 @@ export interface GetTableAutoScalingSettingsCommandOutput
  * @throws {@link KeyspacesServiceException}
  * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
+ * @public
  */
 export class GetTableAutoScalingSettingsCommand extends $Command
   .classBuilder<

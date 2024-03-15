@@ -27,7 +27,6 @@ export interface ListDatasetGroupsCommandInput extends ListDatasetGroupsRequest 
 export interface ListDatasetGroupsCommandOutput extends ListDatasetGroupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of dataset groups created using the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a> operation.
  *       For each dataset group, this operation returns a summary of its properties, including its
  *       Amazon Resource Name (ARN). You can retrieve the complete set of properties by using the
@@ -71,6 +70,7 @@ export interface ListDatasetGroupsCommandOutput extends ListDatasetGroupsRespons
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class ListDatasetGroupsCommand extends $Command
   .classBuilder<

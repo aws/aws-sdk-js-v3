@@ -27,7 +27,6 @@ export interface UpdateBuildCommandInput extends UpdateBuildInput {}
 export interface UpdateBuildCommandOutput extends UpdateBuildOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates metadata in a build resource, including the build name and version. To update
  *             the metadata, specify the build ID to update and provide the new values. If successful,
  *             a build object containing the updated metadata is returned.</p>
@@ -93,6 +92,7 @@ export interface UpdateBuildCommandOutput extends UpdateBuildOutput, __MetadataB
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class UpdateBuildCommand extends $Command
   .classBuilder<

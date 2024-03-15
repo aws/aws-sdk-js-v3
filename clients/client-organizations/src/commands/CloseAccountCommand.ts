@@ -27,7 +27,6 @@ export interface CloseAccountCommandInput extends CloseAccountRequest {}
 export interface CloseAccountCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Closes an Amazon Web Services member account within an organization. You can close an account when
  *                 <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all
  *                 features are enabled </a>. You can't close the management account with this API.
@@ -440,6 +439,7 @@ export interface CloseAccountCommandOutput extends __MetadataBearer {}
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  */
 export class CloseAccountCommand extends $Command
   .classBuilder<

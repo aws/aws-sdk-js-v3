@@ -27,7 +27,6 @@ export interface DisableRuleCommandInput extends DisableRuleRequest {}
 export interface DisableRuleCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables the specified rule. A disabled rule won't match any events, and won't
  *       self-trigger if it has a schedule expression.</p>
  *          <p>When you disable a rule, incoming events might continue to match to the disabled rule.
@@ -74,6 +73,7 @@ export interface DisableRuleCommandOutput extends __MetadataBearer {}
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * @public
  */
 export class DisableRuleCommand extends $Command
   .classBuilder<

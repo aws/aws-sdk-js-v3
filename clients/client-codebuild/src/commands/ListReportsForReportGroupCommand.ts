@@ -27,7 +27,6 @@ export interface ListReportsForReportGroupCommandInput extends ListReportsForRep
 export interface ListReportsForReportGroupCommandOutput extends ListReportsForReportGroupOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Returns a list of ARNs for the reports that belong to a <code>ReportGroup</code>.
  *     </p>
@@ -72,6 +71,7 @@ export interface ListReportsForReportGroupCommandOutput extends ListReportsForRe
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * @public
  */
 export class ListReportsForReportGroupCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface CreateIdentityProviderCommandInput extends CreateIdentityProvid
 export interface CreateIdentityProviderCommandOutput extends CreateIdentityProviderResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds a configuration and trust relationship between a third-party identity provider (IdP) and a user pool.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
@@ -131,6 +130,7 @@ export interface CreateIdentityProviderCommandOutput extends CreateIdentityProvi
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class CreateIdentityProviderCommand extends $Command
   .classBuilder<

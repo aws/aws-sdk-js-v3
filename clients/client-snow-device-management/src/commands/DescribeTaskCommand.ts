@@ -31,7 +31,6 @@ export interface DescribeTaskCommandInput extends DescribeTaskInput {}
 export interface DescribeTaskCommandOutput extends DescribeTaskOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Checks the metadata for a given task on a device. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface DescribeTaskCommandOutput extends DescribeTaskOutput, __Metadat
  * @throws {@link SnowDeviceManagementServiceException}
  * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
+ * @public
  */
 export class DescribeTaskCommand extends $Command
   .classBuilder<

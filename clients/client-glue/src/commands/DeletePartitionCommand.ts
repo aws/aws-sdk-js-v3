@@ -27,7 +27,6 @@ export interface DeletePartitionCommandInput extends DeletePartitionRequest {}
 export interface DeletePartitionCommandOutput extends DeletePartitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specified partition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface DeletePartitionCommandOutput extends DeletePartitionResponse, _
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class DeletePartitionCommand extends $Command
   .classBuilder<

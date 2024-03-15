@@ -27,7 +27,6 @@ export interface GetSMSAttributesCommandInput extends GetSMSAttributesInput {}
 export interface GetSMSAttributesCommandOutput extends GetSMSAttributesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the settings for sending SMS messages from your Amazon Web Services account.</p>
  *          <p>These settings are set with the <code>SetSMSAttributes</code> action.</p>
  * @example
@@ -73,6 +72,7 @@ export interface GetSMSAttributesCommandOutput extends GetSMSAttributesResponse,
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * @public
  */
 export class GetSMSAttributesCommand extends $Command
   .classBuilder<

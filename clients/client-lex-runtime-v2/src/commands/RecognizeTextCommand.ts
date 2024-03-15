@@ -32,7 +32,6 @@ export interface RecognizeTextCommandInput extends RecognizeTextRequest {}
 export interface RecognizeTextCommandOutput extends RecognizeTextResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sends user input to Amazon Lex V2. Client applications use this API to send
  *          requests to Amazon Lex V2 at runtime. Amazon Lex V2 then interprets the user input
  *          using the machine learning model that it build for the bot.</p>
@@ -346,6 +345,7 @@ export interface RecognizeTextCommandOutput extends RecognizeTextResponse, __Met
  * @throws {@link LexRuntimeV2ServiceException}
  * <p>Base exception class for all service exceptions from LexRuntimeV2 service.</p>
  *
+ * @public
  */
 export class RecognizeTextCommand extends $Command
   .classBuilder<

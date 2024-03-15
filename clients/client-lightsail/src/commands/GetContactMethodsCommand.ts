@@ -27,7 +27,6 @@ export interface GetContactMethodsCommandInput extends GetContactMethodsRequest 
 export interface GetContactMethodsCommandOutput extends GetContactMethodsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the configured contact methods. Specify a protocol in your
  *       request to return information about a specific contact method.</p>
  *          <p>A contact method is used to send you notifications about your Amazon Lightsail resources.
@@ -103,6 +102,7 @@ export interface GetContactMethodsCommandOutput extends GetContactMethodsResult,
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetContactMethodsCommand extends $Command
   .classBuilder<

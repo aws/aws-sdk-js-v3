@@ -27,7 +27,6 @@ export interface DeleteConnectorCommandInput extends DeleteConnectorRequest {}
 export interface DeleteConnectorCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a connector for Active Directory. You must provide the Amazon Resource Name (ARN) of the
  *          connector that you want to delete. You can find the ARN by calling the <a href="https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_ListConnectors">https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_ListConnectors</a>
  *          action. Deleting a connector does not deregister your directory with Amazon Web Services Private CA. You can
@@ -83,6 +82,7 @@ export interface DeleteConnectorCommandOutput extends __MetadataBearer {}
  * @throws {@link PcaConnectorAdServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ * @public
  */
 export class DeleteConnectorCommand extends $Command
   .classBuilder<

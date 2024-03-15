@@ -27,7 +27,6 @@ export interface ListThemesCommandInput extends ListThemesRequest {}
 export interface ListThemesCommandOutput extends ListThemesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the themes in the current Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface ListThemesCommandOutput extends ListThemesResponse, __MetadataB
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class ListThemesCommand extends $Command
   .classBuilder<

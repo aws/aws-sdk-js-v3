@@ -27,7 +27,6 @@ export interface ContinueDeploymentCommandInput extends ContinueDeploymentInput 
 export interface ContinueDeploymentCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>For a blue/green deployment, starts the process of rerouting traffic from instances in
  *             the original environment to instances in the replacement environment without waiting for
  *             a specified wait time to elapse. (Traffic rerouting, which is achieved by registering
@@ -82,6 +81,7 @@ export interface ContinueDeploymentCommandOutput extends __MetadataBearer {}
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
  */
 export class ContinueDeploymentCommand extends $Command
   .classBuilder<

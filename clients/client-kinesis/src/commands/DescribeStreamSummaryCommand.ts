@@ -27,7 +27,6 @@ export interface DescribeStreamSummaryCommandInput extends DescribeStreamSummary
 export interface DescribeStreamSummaryCommandOutput extends DescribeStreamSummaryOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a summarized description of the specified Kinesis data stream without the
  *             shard list.</p>
  *          <note>
@@ -104,6 +103,7 @@ export interface DescribeStreamSummaryCommandOutput extends DescribeStreamSummar
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * @public
  */
 export class DescribeStreamSummaryCommand extends $Command
   .classBuilder<

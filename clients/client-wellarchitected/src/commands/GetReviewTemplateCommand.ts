@@ -27,7 +27,6 @@ export interface GetReviewTemplateCommandInput extends GetReviewTemplateInput {}
 export interface GetReviewTemplateCommandOutput extends GetReviewTemplateOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get review template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface GetReviewTemplateCommandOutput extends GetReviewTemplateOutput,
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * @public
  */
 export class GetReviewTemplateCommand extends $Command
   .classBuilder<

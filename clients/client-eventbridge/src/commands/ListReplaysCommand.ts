@@ -27,7 +27,6 @@ export interface ListReplaysCommandInput extends ListReplaysRequest {}
 export interface ListReplaysCommandOutput extends ListReplaysResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists your replays. You can either list all the replays or you can provide a prefix to
  *       match to the replay names. Filter parameters are exclusive.</p>
  * @example
@@ -76,6 +75,7 @@ export interface ListReplaysCommandOutput extends ListReplaysResponse, __Metadat
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * @public
  */
 export class ListReplaysCommand extends $Command
   .classBuilder<

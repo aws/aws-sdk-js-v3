@@ -27,7 +27,6 @@ export interface RevokeSecurityGroupEgressCommandInput extends RevokeSecurityGro
 export interface RevokeSecurityGroupEgressCommandOutput extends RevokeSecurityGroupEgressResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified outbound (egress) rules from the specified security group.</p>
  *          <p>You can specify rules using either rule IDs or security group rule properties. If you use
  *          rule properties, the values that you specify (for example, ports) must match the existing rule's
@@ -149,6 +148,7 @@ export interface RevokeSecurityGroupEgressCommandOutput extends RevokeSecurityGr
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class RevokeSecurityGroupEgressCommand extends $Command
   .classBuilder<

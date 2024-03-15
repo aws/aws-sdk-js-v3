@@ -31,7 +31,6 @@ export interface DeleteTemplateGroupAccessControlEntryCommandInput
 export interface DeleteTemplateGroupAccessControlEntryCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a group access control entry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface DeleteTemplateGroupAccessControlEntryCommandOutput extends __Me
  * @throws {@link PcaConnectorAdServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ * @public
  */
 export class DeleteTemplateGroupAccessControlEntryCommand extends $Command
   .classBuilder<

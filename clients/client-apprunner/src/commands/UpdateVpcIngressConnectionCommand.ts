@@ -27,7 +27,6 @@ export interface UpdateVpcIngressConnectionCommandInput extends UpdateVpcIngress
 export interface UpdateVpcIngressConnectionCommandOutput extends UpdateVpcIngressConnectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update an existing App Runner VPC Ingress Connection resource. The VPC Ingress Connection must be in one of the following states to be updated:</p>
  *          <ul>
  *             <li>
@@ -101,6 +100,7 @@ export interface UpdateVpcIngressConnectionCommandOutput extends UpdateVpcIngres
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ * @public
  */
 export class UpdateVpcIngressConnectionCommand extends $Command
   .classBuilder<

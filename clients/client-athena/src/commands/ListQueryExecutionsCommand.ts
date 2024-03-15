@@ -27,7 +27,6 @@ export interface ListQueryExecutionsCommandInput extends ListQueryExecutionsInpu
 export interface ListQueryExecutionsCommandOutput extends ListQueryExecutionsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a list of available query execution IDs for the queries in the specified
  *             workgroup. Athena keeps a query history for 45 days. If a workgroup is not
  *             specified, returns a list of query execution IDs for the primary workgroup. Requires you
@@ -71,6 +70,7 @@ export interface ListQueryExecutionsCommandOutput extends ListQueryExecutionsOut
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class ListQueryExecutionsCommand extends $Command
   .classBuilder<

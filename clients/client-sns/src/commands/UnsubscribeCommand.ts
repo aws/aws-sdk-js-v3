@@ -27,7 +27,6 @@ export interface UnsubscribeCommandInput extends UnsubscribeInput {}
 export interface UnsubscribeCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a subscription. If the subscription requires authentication for deletion, only
  *             the owner of the subscription or the topic's owner can unsubscribe, and an Amazon Web Services
  *             signature is required. If the <code>Unsubscribe</code> call does not require
@@ -81,6 +80,7 @@ export interface UnsubscribeCommandOutput extends __MetadataBearer {}
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * @public
  */
 export class UnsubscribeCommand extends $Command
   .classBuilder<

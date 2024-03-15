@@ -31,7 +31,6 @@ export interface TestIdentityProviderCommandInput extends TestIdentityProviderRe
 export interface TestIdentityProviderCommandOutput extends TestIdentityProviderResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>If the <code>IdentityProviderType</code> of a file transfer protocol-enabled server is
  *         <code>AWS_DIRECTORY_SERVICE</code> or <code>API_Gateway</code>, tests whether your identity
  *       provider is set up successfully. We highly recommend that you call this operation to test your
@@ -128,6 +127,7 @@ export interface TestIdentityProviderCommandOutput extends TestIdentityProviderR
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class TestIdentityProviderCommand extends $Command
   .classBuilder<

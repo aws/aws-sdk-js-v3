@@ -27,7 +27,6 @@ export interface DescribeNodegroupCommandInput extends DescribeNodegroupRequest 
 export interface DescribeNodegroupCommandOutput extends DescribeNodegroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a managed node group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -145,6 +144,7 @@ export interface DescribeNodegroupCommandOutput extends DescribeNodegroupRespons
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class DescribeNodegroupCommand extends $Command
   .classBuilder<

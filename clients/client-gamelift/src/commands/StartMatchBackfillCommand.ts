@@ -32,7 +32,6 @@ export interface StartMatchBackfillCommandInput extends StartMatchBackfillInput 
 export interface StartMatchBackfillCommandOutput extends StartMatchBackfillOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Finds new players to fill open slots in currently running game sessions. The backfill
  *             match process is essentially identical to the process of forming new matches. Backfill
  *             requests use the same matchmaker that was used to make the original match, and they
@@ -177,6 +176,7 @@ export interface StartMatchBackfillCommandOutput extends StartMatchBackfillOutpu
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class StartMatchBackfillCommand extends $Command
   .classBuilder<

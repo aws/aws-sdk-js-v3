@@ -27,7 +27,6 @@ export interface SetIpAddressTypeCommandInput extends SetIpAddressTypeRequest {}
 export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the IP address type for an Amazon Lightsail resource.</p>
  *          <p>Use this action to enable dual-stack for a resource, which enables IPv4 and IPv6 for the
  *       specified resource. Alternately, you can use this action to disable dual-stack, and enable
@@ -108,6 +107,7 @@ export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeResult, _
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class SetIpAddressTypeCommand extends $Command
   .classBuilder<

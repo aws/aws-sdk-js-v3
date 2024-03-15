@@ -31,7 +31,6 @@ export interface GetMemberCommandInput extends GetMemberInput {}
 export interface GetMemberCommandOutput extends GetMemberOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns detailed information about a member.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
@@ -106,6 +105,7 @@ export interface GetMemberCommandOutput extends GetMemberOutput, __MetadataBeare
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ * @public
  */
 export class GetMemberCommand extends $Command
   .classBuilder<

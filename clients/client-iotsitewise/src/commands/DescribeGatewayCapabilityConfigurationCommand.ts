@@ -36,7 +36,6 @@ export interface DescribeGatewayCapabilityConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about a gateway capability configuration.
  *       Each gateway capability defines data sources for a gateway. A capability configuration
  *       can contain multiple data source configurations. If you define OPC-UA sources for a gateway in
@@ -88,6 +87,7 @@ export interface DescribeGatewayCapabilityConfigurationCommandOutput
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class DescribeGatewayCapabilityConfigurationCommand extends $Command
   .classBuilder<

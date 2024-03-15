@@ -36,7 +36,6 @@ export interface DisableApplicationLayerAutomaticResponseCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disable the Shield Advanced automatic application layer DDoS mitigation feature for the protected resource. This
  *        stops Shield Advanced from creating, verifying, and applying WAF rules for attacks that it detects for the resource. </p>
  * @example
@@ -79,6 +78,7 @@ export interface DisableApplicationLayerAutomaticResponseCommandOutput
  * @throws {@link ShieldServiceException}
  * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ * @public
  */
 export class DisableApplicationLayerAutomaticResponseCommand extends $Command
   .classBuilder<

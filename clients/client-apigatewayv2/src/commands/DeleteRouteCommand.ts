@@ -27,7 +27,6 @@ export interface DeleteRouteCommandInput extends DeleteRouteRequest {}
 export interface DeleteRouteCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a Route.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -60,6 +59,7 @@ export interface DeleteRouteCommandOutput extends __MetadataBearer {}
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ * @public
  */
 export class DeleteRouteCommand extends $Command
   .classBuilder<

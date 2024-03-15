@@ -32,7 +32,6 @@ export interface DeleteEnvironmentAccountConnectionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>In an environment account, delete an environment account connection.</p>
  *          <p>After you delete an environment account connection that’s in use by an Proton environment, Proton <i>can’t</i> manage the
  *       environment infrastructure resources until a new environment account connection is accepted for the environment account and associated environment. You're
@@ -95,6 +94,7 @@ export interface DeleteEnvironmentAccountConnectionCommandOutput
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class DeleteEnvironmentAccountConnectionCommand extends $Command
   .classBuilder<

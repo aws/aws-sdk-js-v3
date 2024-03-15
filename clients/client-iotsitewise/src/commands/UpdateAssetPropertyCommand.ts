@@ -27,7 +27,6 @@ export interface UpdateAssetPropertyCommandInput extends UpdateAssetPropertyRequ
 export interface UpdateAssetPropertyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an asset property's alias and notification state.</p>
  *          <important>
  *             <p>This operation overwrites the property's existing alias and notification state. To keep
@@ -83,6 +82,7 @@ export interface UpdateAssetPropertyCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class UpdateAssetPropertyCommand extends $Command
   .classBuilder<

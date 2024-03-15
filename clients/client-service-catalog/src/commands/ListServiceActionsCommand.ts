@@ -27,7 +27,6 @@ export interface ListServiceActionsCommandInput extends ListServiceActionsInput 
 export interface ListServiceActionsCommandOutput extends ListServiceActionsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all self-service actions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface ListServiceActionsCommandOutput extends ListServiceActionsOutpu
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class ListServiceActionsCommand extends $Command
   .classBuilder<

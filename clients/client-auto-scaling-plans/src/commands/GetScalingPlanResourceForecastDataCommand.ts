@@ -35,7 +35,6 @@ export interface GetScalingPlanResourceForecastDataCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the forecast data for a scalable resource.</p>
  *          <p>Capacity forecasts are represented as predicted values, or data points, that are
  *          calculated using historical data points from a specified CloudWatch load metric. Data points are
@@ -84,6 +83,7 @@ export interface GetScalingPlanResourceForecastDataCommandOutput
  * @throws {@link AutoScalingPlansServiceException}
  * <p>Base exception class for all service exceptions from AutoScalingPlans service.</p>
  *
+ * @public
  */
 export class GetScalingPlanResourceForecastDataCommand extends $Command
   .classBuilder<

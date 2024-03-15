@@ -36,7 +36,6 @@ export interface ListPermissionSetsProvisionedToAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the permission sets that are provisioned to a specified Amazon Web Services
  *             account.</p>
  * @example
@@ -89,6 +88,7 @@ export interface ListPermissionSetsProvisionedToAccountCommandOutput
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class ListPermissionSetsProvisionedToAccountCommand extends $Command
   .classBuilder<

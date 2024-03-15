@@ -32,7 +32,6 @@ export interface AssumeRoleForPodIdentityCommandInput extends AssumeRoleForPodId
 export interface AssumeRoleForPodIdentityCommandOutput extends AssumeRoleForPodIdentityResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The Amazon EKS Auth API and the <code>AssumeRoleForPodIdentity</code> action are only used
  *             by the EKS Pod Identity Agent.</p>
  *          <p>We recommend that applications use the Amazon Web Services SDKs to connect to Amazon Web Services services; if
@@ -115,6 +114,7 @@ export interface AssumeRoleForPodIdentityCommandOutput extends AssumeRoleForPodI
  * @throws {@link EKSAuthServiceException}
  * <p>Base exception class for all service exceptions from EKSAuth service.</p>
  *
+ * @public
  */
 export class AssumeRoleForPodIdentityCommand extends $Command
   .classBuilder<

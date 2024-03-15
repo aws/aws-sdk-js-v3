@@ -27,7 +27,6 @@ export interface DisassociateFacesCommandInput extends DisassociateFacesRequest 
 export interface DisassociateFacesCommandOutput extends DisassociateFacesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the association between a <code>Face</code> supplied in an array of
  *         <code>FaceIds</code> and the User. If the User is not present already, then a
  *         <code>ResourceNotFound</code> exception is thrown. If successful, an array of faces that are
@@ -109,6 +108,7 @@ export interface DisassociateFacesCommandOutput extends DisassociateFacesRespons
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example DisassociateFaces
  * ```javascript
  * // Removes the association between a Face supplied in an array of FaceIds and the User.

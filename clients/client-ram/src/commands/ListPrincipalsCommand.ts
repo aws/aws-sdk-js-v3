@@ -27,7 +27,6 @@ export interface ListPrincipalsCommandInput extends ListPrincipalsRequest {}
 export interface ListPrincipalsCommandOutput extends ListPrincipalsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the principals that you are sharing resources with or that are sharing resources
  *             with you.</p>
  * @example
@@ -97,6 +96,7 @@ export interface ListPrincipalsCommandOutput extends ListPrincipalsResponse, __M
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * @public
  */
 export class ListPrincipalsCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface CalculateRouteCommandInput extends CalculateRouteRequest {}
 export interface CalculateRouteCommandOutput extends CalculateRouteResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html">Calculates a route</a> given the following required parameters:
  *                 <code>DeparturePosition</code> and <code>DestinationPosition</code>. Requires that
@@ -186,6 +185,7 @@ export interface CalculateRouteCommandOutput extends CalculateRouteResponse, __M
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class CalculateRouteCommand extends $Command
   .classBuilder<

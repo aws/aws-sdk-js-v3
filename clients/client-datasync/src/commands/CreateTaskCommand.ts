@@ -27,7 +27,6 @@ export interface CreateTaskCommandInput extends CreateTaskRequest {}
 export interface CreateTaskCommandOutput extends CreateTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Configures a transfer task, which defines where and how DataSync moves your
  *       data.</p>
  *          <p>A task includes a source location, destination location, and the options for how and
@@ -151,6 +150,7 @@ export interface CreateTaskCommandOutput extends CreateTaskResponse, __MetadataB
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class CreateTaskCommand extends $Command
   .classBuilder<

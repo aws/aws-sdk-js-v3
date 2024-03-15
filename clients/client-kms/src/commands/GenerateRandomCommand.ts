@@ -31,7 +31,6 @@ export interface GenerateRandomCommandInput extends GenerateRandomRequest {}
 export interface GenerateRandomCommandOutput extends GenerateRandomResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a random byte string that is cryptographically secure.</p>
  *          <p>You must use the <code>NumberOfBytes</code> parameter to specify the length of the random
  *       byte string. There is no default value for string length.</p>
@@ -140,6 +139,7 @@ export interface GenerateRandomCommandOutput extends GenerateRandomResponse, __M
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To generate random data
  * ```javascript
  * // The following example generates 32 bytes of random data.

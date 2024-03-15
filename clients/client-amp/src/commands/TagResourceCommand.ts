@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The <code>TagResource</code> operation associates tags with an Amazon Managed Service for Prometheus
  *             resource. The only resources that can be tagged are workspaces and rule groups
  *             namespaces. </p>
@@ -78,6 +77,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

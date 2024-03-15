@@ -35,7 +35,6 @@ export interface BatchDisassociateAnalyticsDataSetCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Removes a list of analytics datasets associated with a given Amazon Connect instance.
  *    You can disassociate multiple datasets in a single call.</p>
@@ -92,6 +91,7 @@ export interface BatchDisassociateAnalyticsDataSetCommandOutput
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class BatchDisassociateAnalyticsDataSetCommand extends $Command
   .classBuilder<

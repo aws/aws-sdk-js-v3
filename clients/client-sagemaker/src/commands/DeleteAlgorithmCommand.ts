@@ -27,7 +27,6 @@ export interface DeleteAlgorithmCommandInput extends DeleteAlgorithmInput {}
 export interface DeleteAlgorithmCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified algorithm from your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -57,6 +56,7 @@ export interface DeleteAlgorithmCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteAlgorithmCommand extends $Command
   .classBuilder<

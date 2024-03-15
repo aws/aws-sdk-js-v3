@@ -27,7 +27,6 @@ export interface GetKxClusterCommandInput extends GetKxClusterRequest {}
 export interface GetKxClusterCommandOutput extends GetKxClusterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about a kdb cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -180,6 +179,7 @@ export interface GetKxClusterCommandOutput extends GetKxClusterResponse, __Metad
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class GetKxClusterCommand extends $Command
   .classBuilder<

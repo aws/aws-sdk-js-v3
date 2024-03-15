@@ -27,7 +27,6 @@ export interface CreateImportJobCommandInput extends CreateImportJobRequest {}
 export interface CreateImportJobCommandOutput extends CreateImportJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an import job for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -111,6 +110,7 @@ export interface CreateImportJobCommandOutput extends CreateImportJobResponse, _
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class CreateImportJobCommand extends $Command
   .classBuilder<

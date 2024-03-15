@@ -27,7 +27,6 @@ export interface UpdateDevEnvironmentCommandInput extends UpdateDevEnvironmentRe
 export interface UpdateDevEnvironmentCommandOutput extends UpdateDevEnvironmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes one or more values for a Dev Environment. Updating certain values of the Dev Environment will cause a restart.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface UpdateDevEnvironmentCommandOutput extends UpdateDevEnvironmentR
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ * @public
  */
 export class UpdateDevEnvironmentCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetMetricPolicyCommandInput extends GetMetricPolicyInput {}
 export interface GetMetricPolicyCommandOutput extends GetMetricPolicyOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the metric policy for the specified container. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface GetMetricPolicyCommandOutput extends GetMetricPolicyOutput, __M
  * @throws {@link MediaStoreServiceException}
  * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ * @public
  */
 export class GetMetricPolicyCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface BacktrackDBClusterCommandInput extends BacktrackDBClusterMessag
 export interface BacktrackDBClusterCommandOutput extends DBClusterBacktrack, __MetadataBearer {}
 
 /**
- * @public
  * <p>Backtracks a DB cluster to a specific time, without creating a new DB cluster.</p>
  *          <p>For more information on backtracking, see
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.html">
@@ -77,6 +76,7 @@ export interface BacktrackDBClusterCommandOutput extends DBClusterBacktrack, __M
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  */
 export class BacktrackDBClusterCommand extends $Command
   .classBuilder<

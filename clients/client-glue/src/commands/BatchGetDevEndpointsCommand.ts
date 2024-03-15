@@ -27,7 +27,6 @@ export interface BatchGetDevEndpointsCommandInput extends BatchGetDevEndpointsRe
 export interface BatchGetDevEndpointsCommandOutput extends BatchGetDevEndpointsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of resource metadata for a given list of development endpoint names. After
  *       calling the <code>ListDevEndpoints</code> operation, you can call this operation to access the
  *       data to which you have been granted permissions. This operation supports all IAM permissions,
@@ -109,6 +108,7 @@ export interface BatchGetDevEndpointsCommandOutput extends BatchGetDevEndpointsR
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class BatchGetDevEndpointsCommand extends $Command
   .classBuilder<

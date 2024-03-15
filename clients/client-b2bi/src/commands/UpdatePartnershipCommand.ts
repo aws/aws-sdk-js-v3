@@ -31,7 +31,6 @@ export interface UpdatePartnershipCommandInput extends UpdatePartnershipRequest 
 export interface UpdatePartnershipCommandOutput extends UpdatePartnershipResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates some of the parameters for a partnership between a customer and trading partner. A partnership represents the connection between you and your trading partner. It ties
  *    together a profile and one or more trading capabilities.</p>
  * @example
@@ -96,6 +95,7 @@ export interface UpdatePartnershipCommandOutput extends UpdatePartnershipRespons
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
+ * @public
  * @example Sample UpdatePartnership call
  * ```javascript
  * //

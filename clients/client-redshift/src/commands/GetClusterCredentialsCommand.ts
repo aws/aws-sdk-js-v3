@@ -28,7 +28,6 @@ export interface GetClusterCredentialsCommandInput extends GetClusterCredentials
 export interface GetClusterCredentialsCommandOutput extends ClusterCredentials, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a database user name and temporary password with temporary authorization to
  *             log on to an Amazon Redshift database. The action returns the database user name
  *             prefixed with <code>IAM:</code> if <code>AutoCreate</code> is <code>False</code> or
@@ -93,6 +92,7 @@ export interface GetClusterCredentialsCommandOutput extends ClusterCredentials, 
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class GetClusterCredentialsCommand extends $Command
   .classBuilder<

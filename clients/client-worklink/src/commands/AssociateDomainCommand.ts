@@ -27,9 +27,6 @@ export interface AssociateDomainCommandInput extends AssociateDomainRequest {}
 export interface AssociateDomainCommandOutput extends AssociateDomainResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
- *
  * <p>Specifies a domain to be associated to Amazon WorkLink.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +73,8 @@ export interface AssociateDomainCommandOutput extends AssociateDomainResponse, _
  * @throws {@link WorkLinkServiceException}
  * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
+ * @public
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  */
 export class AssociateDomainCommand extends $Command
   .classBuilder<

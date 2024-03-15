@@ -29,7 +29,6 @@ export interface TerminateClientVpnConnectionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Terminates active Client VPN endpoint connections. This action can be used to terminate a specific client connection, or up to five connections established by a specific user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface TerminateClientVpnConnectionsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class TerminateClientVpnConnectionsCommand extends $Command
   .classBuilder<

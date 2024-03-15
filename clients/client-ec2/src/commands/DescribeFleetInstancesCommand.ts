@@ -27,7 +27,6 @@ export interface DescribeFleetInstancesCommandInput extends DescribeFleetInstanc
 export interface DescribeFleetInstancesCommandOutput extends DescribeFleetInstancesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the running instances for the specified EC2 Fleet.</p>
  *          <note>
  *             <p>Currently, <code>DescribeFleetInstances</code> does not support fleets of type
@@ -82,6 +81,7 @@ export interface DescribeFleetInstancesCommandOutput extends DescribeFleetInstan
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeFleetInstancesCommand extends $Command
   .classBuilder<

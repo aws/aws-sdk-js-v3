@@ -27,7 +27,6 @@ export interface DeleteUserCommandInput extends DeleteUserRequest {}
 export interface DeleteUserCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified user from a Simple AD or Microsoft AD directory.</p>
  *          <important>
  *             <p>Deleting a user immediately and permanently deletes all content in that user's folder structure. Site retention policies do NOT apply to this type of deletion.</p>
@@ -74,6 +73,7 @@ export interface DeleteUserCommandOutput extends __MetadataBearer {}
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class DeleteUserCommand extends $Command
   .classBuilder<

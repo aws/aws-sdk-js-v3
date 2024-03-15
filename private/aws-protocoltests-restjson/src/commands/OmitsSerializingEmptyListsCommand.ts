@@ -25,7 +25,6 @@ export interface OmitsSerializingEmptyListsCommandInput extends OmitsSerializing
 export interface OmitsSerializingEmptyListsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * Omits serializing empty lists. Because empty strings are serilized as
  * `Foo=`, empty lists cannot also be serialized as `Foo=` and instead
  * must be omitted.
@@ -73,6 +72,7 @@ export interface OmitsSerializingEmptyListsCommandOutput extends __MetadataBeare
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ * @public
  */
 export class OmitsSerializingEmptyListsCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface DisassociateDataShareConsumerCommandInput extends DisassociateD
 export interface DisassociateDataShareConsumerCommandOutput extends DataShare, __MetadataBearer {}
 
 /**
- * @public
  * <p>From a datashare consumer account, remove association for the specified datashare.
  *             </p>
  * @example
@@ -83,6 +82,7 @@ export interface DisassociateDataShareConsumerCommandOutput extends DataShare, _
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DisassociateDataShareConsumerCommand extends $Command
   .classBuilder<

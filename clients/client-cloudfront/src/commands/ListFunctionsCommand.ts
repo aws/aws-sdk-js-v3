@@ -27,7 +27,6 @@ export interface ListFunctionsCommandInput extends ListFunctionsRequest {}
 export interface ListFunctionsCommandOutput extends ListFunctionsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of all CloudFront functions in your Amazon Web Services account.</p>
  *          <p>You can optionally apply a filter to return only the functions that are in the
  * 			specified stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
@@ -98,6 +97,7 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResult, __Metad
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class ListFunctionsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Adds the specified tags to an Elastic Inference Accelerator.
  *         </p>
@@ -78,6 +77,7 @@ export interface TagResourceCommandOutput extends TagResourceResult, __MetadataB
  * @throws {@link ElasticInferenceServiceException}
  * <p>Base exception class for all service exceptions from ElasticInference service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

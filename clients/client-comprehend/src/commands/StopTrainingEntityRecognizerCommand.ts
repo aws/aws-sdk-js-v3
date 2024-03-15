@@ -32,7 +32,6 @@ export interface StopTrainingEntityRecognizerCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops an entity recognizer training job while in progress.</p>
  *          <p>If the training job state is <code>TRAINING</code>, the job is marked for termination and
  *       put into the <code>STOP_REQUESTED</code> state. If the training job completes before it can be
@@ -75,6 +74,7 @@ export interface StopTrainingEntityRecognizerCommandOutput
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class StopTrainingEntityRecognizerCommand extends $Command
   .classBuilder<

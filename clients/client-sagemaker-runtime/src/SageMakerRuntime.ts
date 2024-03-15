@@ -76,8 +76,8 @@ export interface SageMakerRuntime {
 }
 
 /**
- * @public
  * <p> The Amazon SageMaker runtime API. </p>
+ * @public
  */
 export class SageMakerRuntime extends SageMakerRuntimeClient implements SageMakerRuntime {}
 createAggregatedClient(commands, SageMakerRuntime);

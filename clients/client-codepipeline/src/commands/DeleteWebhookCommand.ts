@@ -27,7 +27,6 @@ export interface DeleteWebhookCommandInput extends DeleteWebhookInput {}
 export interface DeleteWebhookCommandOutput extends DeleteWebhookOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a previously created webhook by name. Deleting the webhook stops CodePipeline from starting a pipeline every time an external event occurs. The API
  *             returns successfully when trying to delete a webhook that is already deleted. If a
  *             deleted webhook is re-created by calling PutWebhook with the same name, it will have a
@@ -62,6 +61,7 @@ export interface DeleteWebhookCommandOutput extends DeleteWebhookOutput, __Metad
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * @public
  */
 export class DeleteWebhookCommand extends $Command
   .classBuilder<

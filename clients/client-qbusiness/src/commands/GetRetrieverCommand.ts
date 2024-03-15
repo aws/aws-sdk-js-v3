@@ -27,7 +27,6 @@ export interface GetRetrieverCommandInput extends GetRetrieverRequest {}
 export interface GetRetrieverCommandOutput extends GetRetrieverResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about an existing retriever used by an Amazon Q
  *             application.</p>
  * @example
@@ -114,6 +113,7 @@ export interface GetRetrieverCommandOutput extends GetRetrieverResponse, __Metad
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ * @public
  */
 export class GetRetrieverCommand extends $Command
   .classBuilder<

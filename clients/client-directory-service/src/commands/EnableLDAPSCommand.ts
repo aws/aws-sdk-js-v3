@@ -27,7 +27,6 @@ export interface EnableLDAPSCommandInput extends EnableLDAPSRequest {}
 export interface EnableLDAPSCommandOutput extends EnableLDAPSResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Activates the switch for the specific directory to always use LDAP secure calls.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface EnableLDAPSCommandOutput extends EnableLDAPSResult, __MetadataB
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class EnableLDAPSCommand extends $Command
   .classBuilder<

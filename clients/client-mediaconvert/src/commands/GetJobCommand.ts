@@ -27,7 +27,6 @@ export interface GetJobCommandInput extends GetJobRequest {}
 export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * Retrieve the JSON for a specific transcoding job.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -1575,6 +1574,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * @throws {@link MediaConvertServiceException}
  * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
+ * @public
  */
 export class GetJobCommand extends $Command
   .classBuilder<

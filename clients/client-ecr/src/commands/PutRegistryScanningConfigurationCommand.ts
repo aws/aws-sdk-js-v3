@@ -32,7 +32,6 @@ export interface PutRegistryScanningConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates the scanning configuration for your private registry.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface PutRegistryScanningConfigurationCommandOutput
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * @public
  */
 export class PutRegistryScanningConfigurationCommand extends $Command
   .classBuilder<

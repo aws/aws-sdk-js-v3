@@ -35,7 +35,6 @@ export interface DeleteMediaPipelineKinesisVideoStreamPoolCommandInput
 export interface DeleteMediaPipelineKinesisVideoStreamPoolCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Kinesis video stream pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface DeleteMediaPipelineKinesisVideoStreamPoolCommandOutput extends 
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ * @public
  */
 export class DeleteMediaPipelineKinesisVideoStreamPoolCommand extends $Command
   .classBuilder<

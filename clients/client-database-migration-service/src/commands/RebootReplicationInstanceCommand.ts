@@ -31,7 +31,6 @@ export interface RebootReplicationInstanceCommandInput extends RebootReplication
 export interface RebootReplicationInstanceCommandOutput extends RebootReplicationInstanceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Reboots a replication instance. Rebooting results in a momentary outage, until the
  *          replication instance becomes available again.</p>
  * @example
@@ -128,6 +127,7 @@ export interface RebootReplicationInstanceCommandOutput extends RebootReplicatio
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class RebootReplicationInstanceCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface CreateExplainabilityCommandInput extends CreateExplainabilityRe
 export interface CreateExplainabilityCommandOutput extends CreateExplainabilityResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>Explainability is only available for Forecasts and Predictors generated from an
  *                 AutoPredictor (<a>CreateAutoPredictor</a>)</p>
@@ -223,6 +222,7 @@ export interface CreateExplainabilityCommandOutput extends CreateExplainabilityR
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class CreateExplainabilityCommand extends $Command
   .classBuilder<

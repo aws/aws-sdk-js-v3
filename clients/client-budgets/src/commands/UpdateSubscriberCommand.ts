@@ -31,7 +31,6 @@ export interface UpdateSubscriberCommandInput extends UpdateSubscriberRequest {}
 export interface UpdateSubscriberCommandOutput extends UpdateSubscriberResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a subscriber.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface UpdateSubscriberCommandOutput extends UpdateSubscriberResponse,
  * @throws {@link BudgetsServiceException}
  * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
+ * @public
  */
 export class UpdateSubscriberCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetSnapshotLimitsCommandInput extends GetSnapshotLimitsRequest 
 export interface GetSnapshotLimitsCommandOutput extends GetSnapshotLimitsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Obtains the manual snapshot limits for a directory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface GetSnapshotLimitsCommandOutput extends GetSnapshotLimitsResult,
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class GetSnapshotLimitsCommand extends $Command
   .classBuilder<

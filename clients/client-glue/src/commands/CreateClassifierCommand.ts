@@ -27,7 +27,6 @@ export interface CreateClassifierCommandInput extends CreateClassifierRequest {}
 export interface CreateClassifierCommandOutput extends CreateClassifierResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a classifier in the user's account. This can be a <code>GrokClassifier</code>, an
  *         <code>XMLClassifier</code>, a <code>JsonClassifier</code>, or a <code>CsvClassifier</code>,
  *       depending on which field of the request is present.</p>
@@ -94,6 +93,7 @@ export interface CreateClassifierCommandOutput extends CreateClassifierResponse,
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class CreateClassifierCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeClustersCommandInput extends DescribeClustersRequest {}
 export interface DescribeClustersCommandOutput extends DescribeClustersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about AWS CloudHSM clusters.</p>
  *          <p>This is a paginated operation, which means that each response might contain only a
  *       subset of all the clusters. When the response contains only a subset of clusters, it includes
@@ -129,6 +128,7 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * @throws {@link CloudHSMV2ServiceException}
  * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
+ * @public
  */
 export class DescribeClustersCommand extends $Command
   .classBuilder<

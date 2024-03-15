@@ -27,7 +27,6 @@ export interface DeleteVoiceTemplateCommandInput extends DeleteVoiceTemplateRequ
 export interface DeleteVoiceTemplateCommandOutput extends DeleteVoiceTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a message template for messages that were sent through the voice channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface DeleteVoiceTemplateCommandOutput extends DeleteVoiceTemplateRes
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class DeleteVoiceTemplateCommand extends $Command
   .classBuilder<

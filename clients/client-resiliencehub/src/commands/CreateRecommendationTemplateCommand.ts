@@ -37,7 +37,6 @@ export interface CreateRecommendationTemplateCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new recommendation template for the Resilience Hub application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -130,6 +129,7 @@ export interface CreateRecommendationTemplateCommandOutput
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class CreateRecommendationTemplateCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface CreateLocationFsxWindowsCommandInput extends CreateLocationFsxW
 export interface CreateLocationFsxWindowsCommandOutput extends CreateLocationFsxWindowsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a transfer <i>location</i> for an Amazon FSx for Windows File Server file
  *       system. DataSync can use this location as a source or destination for
  *       transferring data.</p>
@@ -84,6 +83,7 @@ export interface CreateLocationFsxWindowsCommandOutput extends CreateLocationFsx
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class CreateLocationFsxWindowsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeClusterCommandInput extends DescribeClusterRequest {}
 export interface DescribeClusterCommandOutput extends DescribeClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a specific cluster including shipping information, cluster
  *       status, and other important metadata.</p>
  * @example
@@ -138,6 +137,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResult, __M
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * @public
  * @example To describe a cluster
  * ```javascript
  * // Returns information about a specific cluster including shipping information, cluster status, and other important metadata.

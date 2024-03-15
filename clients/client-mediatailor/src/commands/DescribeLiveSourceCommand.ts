@@ -27,7 +27,6 @@ export interface DescribeLiveSourceCommandInput extends DescribeLiveSourceReques
 export interface DescribeLiveSourceCommandOutput extends DescribeLiveSourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The live source to describe.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface DescribeLiveSourceCommandOutput extends DescribeLiveSourceRespo
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ * @public
  */
 export class DescribeLiveSourceCommand extends $Command
   .classBuilder<

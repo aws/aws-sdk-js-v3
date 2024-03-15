@@ -36,7 +36,6 @@ export interface UpdateFirewallEncryptionConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>A complex type that contains settings for encryption of your firewall resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -108,6 +107,7 @@ export interface UpdateFirewallEncryptionConfigurationCommandOutput
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ * @public
  */
 export class UpdateFirewallEncryptionConfigurationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DisassociateMembersCommandInput extends DisassociateMembersRequ
 export interface DisassociateMembersCommandOutput extends DisassociateMembersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates the specified member accounts from the associated administrator account.</p>
  *          <p>Can be used to disassociate both accounts that are managed using Organizations and accounts that
  *          were invited manually.</p>
@@ -77,6 +76,7 @@ export interface DisassociateMembersCommandOutput extends DisassociateMembersRes
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To disassociate member accounts from administrator account
  * ```javascript
  * // The following example dissociates the specified member accounts from the associated administrator account.

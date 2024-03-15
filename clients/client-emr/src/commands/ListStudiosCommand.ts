@@ -27,7 +27,6 @@ export interface ListStudiosCommandInput extends ListStudiosInput {}
 export interface ListStudiosCommandOutput extends ListStudiosOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all Amazon EMR Studios associated with the Amazon Web Services account. The list includes details such as ID, Studio Access URL, and
  *          creation time for each Studio.</p>
  * @example
@@ -74,6 +73,7 @@ export interface ListStudiosCommandOutput extends ListStudiosOutput, __MetadataB
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class ListStudiosCommand extends $Command
   .classBuilder<

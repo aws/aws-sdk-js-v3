@@ -27,7 +27,6 @@ export interface DeleteProjectPolicyCommandInput extends DeleteProjectPolicyRequ
 export interface DeleteProjectPolicyCommandOutput extends DeleteProjectPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation applies only to Amazon Rekognition Custom Labels.</p>
  *          </note>
@@ -83,6 +82,7 @@ export interface DeleteProjectPolicyCommandOutput extends DeleteProjectPolicyRes
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  * @example DeleteProjectPolicy
  * ```javascript
  * // This operation deletes a revision of an existing project policy from an Amazon Rekognition Custom Labels project.

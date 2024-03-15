@@ -31,7 +31,6 @@ export interface ListInvitationsCommandInput extends ListInvitationsInput {}
 export interface ListInvitationsCommandOutput extends ListInvitationsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all invitations for the current Amazon Web Services account.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
@@ -102,6 +101,7 @@ export interface ListInvitationsCommandOutput extends ListInvitationsOutput, __M
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ * @public
  */
 export class ListInvitationsCommand extends $Command
   .classBuilder<

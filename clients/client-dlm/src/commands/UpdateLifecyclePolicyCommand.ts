@@ -27,7 +27,6 @@ export interface UpdateLifecyclePolicyCommandInput extends UpdateLifecyclePolicy
 export interface UpdateLifecyclePolicyCommandOutput extends UpdateLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified lifecycle policy.</p>
  *          <p>For more information about updating a policy, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/view-modify-delete.html#modify">Modify lifecycle
  * 			policies</a>.</p>
@@ -251,6 +250,7 @@ export interface UpdateLifecyclePolicyCommandOutput extends UpdateLifecyclePolic
  * @throws {@link DLMServiceException}
  * <p>Base exception class for all service exceptions from DLM service.</p>
  *
+ * @public
  */
 export class UpdateLifecyclePolicyCommand extends $Command
   .classBuilder<

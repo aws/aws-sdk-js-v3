@@ -32,7 +32,6 @@ export interface DescribeEngineDefaultParametersCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the default engine and system parameter information for the specified cache
  *             engine.</p>
  * @example
@@ -103,6 +102,7 @@ export interface DescribeEngineDefaultParametersCommandOutput
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  * @example DescribeEngineDefaultParameters
  * ```javascript
  * // Returns the default engine and system parameter information for the specified cache engine.

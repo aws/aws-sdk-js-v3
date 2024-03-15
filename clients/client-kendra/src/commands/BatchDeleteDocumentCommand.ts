@@ -27,7 +27,6 @@ export interface BatchDeleteDocumentCommandInput extends BatchDeleteDocumentRequ
 export interface BatchDeleteDocumentCommandOutput extends BatchDeleteDocumentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes one or more documents from an index. The documents must have been added with
  *             the <code>BatchPutDocument</code> API.</p>
  *          <p>The documents are deleted asynchronously. You can see the progress of the deletion by
@@ -101,6 +100,7 @@ export interface BatchDeleteDocumentCommandOutput extends BatchDeleteDocumentRes
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class BatchDeleteDocumentCommand extends $Command
   .classBuilder<

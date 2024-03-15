@@ -27,7 +27,6 @@ export interface CreatePortfolioCommandInput extends CreatePortfolioInput {}
 export interface CreatePortfolioCommandOutput extends CreatePortfolioOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a portfolio.</p>
  *          <p>A delegated admin is authorized to invoke this command.</p>
  * @example
@@ -91,6 +90,7 @@ export interface CreatePortfolioCommandOutput extends CreatePortfolioOutput, __M
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class CreatePortfolioCommand extends $Command
   .classBuilder<

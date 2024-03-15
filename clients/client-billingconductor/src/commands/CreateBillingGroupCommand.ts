@@ -31,7 +31,6 @@ export interface CreateBillingGroupCommandInput extends CreateBillingGroupInput 
 export interface CreateBillingGroupCommandOutput extends CreateBillingGroupOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Creates a billing group that resembles a consolidated billing family that Amazon Web Services charges, based off of the predefined pricing plan computation.
  *     </p>
@@ -99,6 +98,7 @@ export interface CreateBillingGroupCommandOutput extends CreateBillingGroupOutpu
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ * @public
  */
 export class CreateBillingGroupCommand extends $Command
   .classBuilder<

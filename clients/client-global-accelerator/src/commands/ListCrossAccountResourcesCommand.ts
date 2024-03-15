@@ -31,7 +31,6 @@ export interface ListCrossAccountResourcesCommandInput extends ListCrossAccountR
 export interface ListCrossAccountResourcesCommandOutput extends ListCrossAccountResourcesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List the cross-account endpoints available to add to an accelerator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface ListCrossAccountResourcesCommandOutput extends ListCrossAccount
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class ListCrossAccountResourcesCommand extends $Command
   .classBuilder<

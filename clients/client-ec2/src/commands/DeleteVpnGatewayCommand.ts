@@ -27,7 +27,6 @@ export interface DeleteVpnGatewayCommandInput extends DeleteVpnGatewayRequest {}
 export interface DeleteVpnGatewayCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified virtual private gateway. You must first detach the virtual
  *             private gateway from the VPC. Note that you don't need to delete the virtual private
  *             gateway if you plan to delete and recreate the VPN connection between your VPC and your
@@ -57,6 +56,7 @@ export interface DeleteVpnGatewayCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DeleteVpnGatewayCommand extends $Command
   .classBuilder<

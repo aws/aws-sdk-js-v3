@@ -27,7 +27,6 @@ export interface DeleteAppCommandInput extends DeleteAppRequest {}
 export interface DeleteAppCommandOutput extends DeleteAppResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified application. Optionally deletes the launched stack associated with
  *             the application and all Server Migration Service replication jobs for servers in the application.</p>
  * @example
@@ -72,6 +71,7 @@ export interface DeleteAppCommandOutput extends DeleteAppResponse, __MetadataBea
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ * @public
  */
 export class DeleteAppCommand extends $Command
   .classBuilder<

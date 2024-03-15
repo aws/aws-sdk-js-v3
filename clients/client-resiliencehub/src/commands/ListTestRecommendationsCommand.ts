@@ -27,7 +27,6 @@ export interface ListTestRecommendationsCommandInput extends ListTestRecommendat
 export interface ListTestRecommendationsCommandOutput extends ListTestRecommendationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the test recommendations for the Resilience Hub application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -108,6 +107,7 @@ export interface ListTestRecommendationsCommandOutput extends ListTestRecommenda
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class ListTestRecommendationsCommand extends $Command
   .classBuilder<

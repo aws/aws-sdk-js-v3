@@ -27,7 +27,6 @@ export interface DisconnectSourceServerCommandInput extends DisconnectSourceServ
 export interface DisconnectSourceServerCommandOutput extends SourceServer, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disconnects a specific Source Server from Elastic Disaster Recovery. Data replication is stopped immediately. All AWS resources created by Elastic Disaster Recovery for enabling the replication of the Source Server will be terminated / deleted within 90 minutes. You cannot disconnect a Source Server if it has a Recovery Instance. If the agent on the Source Server has not been prevented from communicating with the Elastic Disaster Recovery service, then it will receive a command to uninstall itself (within approximately 10 minutes). The following properties of the SourceServer will be changed immediately: dataReplicationInfo.dataReplicationState will be set to DISCONNECTED; The totalStorageBytes property for each of dataReplicationInfo.replicatedDisks will be set to zero; dataReplicationInfo.lagDuration and dataReplicationInfo.lagDuration will be nullified.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -171,6 +170,7 @@ export interface DisconnectSourceServerCommandOutput extends SourceServer, __Met
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * @public
  */
 export class DisconnectSourceServerCommand extends $Command
   .classBuilder<

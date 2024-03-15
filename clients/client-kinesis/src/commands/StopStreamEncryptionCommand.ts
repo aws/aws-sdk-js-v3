@@ -27,7 +27,6 @@ export interface StopStreamEncryptionCommandInput extends StopStreamEncryptionIn
 export interface StopStreamEncryptionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables server-side encryption for a specified stream. </p>
  *          <note>
  *             <p>When invoking this API, you must use either the <code>StreamARN</code> or the
@@ -95,6 +94,7 @@ export interface StopStreamEncryptionCommandOutput extends __MetadataBearer {}
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * @public
  */
 export class StopStreamEncryptionCommand extends $Command
   .classBuilder<

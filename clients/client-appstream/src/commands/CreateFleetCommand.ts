@@ -27,7 +27,6 @@ export interface CreateFleetCommandInput extends CreateFleetRequest {}
 export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a fleet. A fleet consists of streaming instances that your users access for their applications and desktops.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -184,6 +183,7 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class CreateFleetCommand extends $Command
   .classBuilder<

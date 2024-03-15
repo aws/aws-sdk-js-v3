@@ -31,7 +31,6 @@ export interface RemoveWorkloadCommandInput extends RemoveWorkloadRequest {}
 export interface RemoveWorkloadCommandOutput extends RemoveWorkloadResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Remove workload from a component.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface RemoveWorkloadCommandOutput extends RemoveWorkloadResponse, __M
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ * @public
  */
 export class RemoveWorkloadCommand extends $Command
   .classBuilder<

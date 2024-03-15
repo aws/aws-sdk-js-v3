@@ -29,7 +29,6 @@ export interface DeleteGlobalReplicationGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deleting a Global datastore is a two-step process: </p>
  *          <ul>
  *             <li>
@@ -114,6 +113,7 @@ export interface DeleteGlobalReplicationGroupCommandOutput
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  */
 export class DeleteGlobalReplicationGroupCommand extends $Command
   .classBuilder<

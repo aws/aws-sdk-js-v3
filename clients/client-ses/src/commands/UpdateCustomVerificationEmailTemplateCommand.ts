@@ -31,7 +31,6 @@ export interface UpdateCustomVerificationEmailTemplateCommandInput
 export interface UpdateCustomVerificationEmailTemplateCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing custom verification email template.</p>
  *          <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
  *                 Custom Verification Email Templates</a> in the <i>Amazon SES Developer
@@ -77,6 +76,7 @@ export interface UpdateCustomVerificationEmailTemplateCommandOutput extends __Me
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  */
 export class UpdateCustomVerificationEmailTemplateCommand extends $Command
   .classBuilder<

@@ -35,7 +35,6 @@ export interface AssociateDelegationSignerToDomainCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p> Creates a delegation signer (DS) record in the registry zone for this domain
  * 			name.</p>
  *          <p>Note that creating DS record at the registry impacts DNSSEC validation of your DNS
@@ -99,6 +98,7 @@ export interface AssociateDelegationSignerToDomainCommandOutput
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * @public
  */
 export class AssociateDelegationSignerToDomainCommand extends $Command
   .classBuilder<

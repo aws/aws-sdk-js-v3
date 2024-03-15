@@ -27,7 +27,6 @@ export interface DescribeAccessPolicyCommandInput extends DescribeAccessPolicyRe
 export interface DescribeAccessPolicyCommandOutput extends DescribeAccessPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes an access policy, which specifies an identity's access to an IoT SiteWise Monitor portal or
  *       project.</p>
  * @example
@@ -98,6 +97,7 @@ export interface DescribeAccessPolicyCommandOutput extends DescribeAccessPolicyR
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class DescribeAccessPolicyCommand extends $Command
   .classBuilder<

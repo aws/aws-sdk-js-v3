@@ -36,7 +36,6 @@ export interface GetSavingsPlansPurchaseRecommendationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the Savings Plans recommendations for your account. First use
  *         <code>StartSavingsPlansPurchaseRecommendationGeneration</code> to generate a new set of
  *       recommendations, and then use <code>GetSavingsPlansPurchaseRecommendation</code> to retrieve
@@ -196,6 +195,7 @@ export interface GetSavingsPlansPurchaseRecommendationCommandOutput
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * @public
  */
 export class GetSavingsPlansPurchaseRecommendationCommand extends $Command
   .classBuilder<

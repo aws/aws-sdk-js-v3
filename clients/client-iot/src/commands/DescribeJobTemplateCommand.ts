@@ -27,7 +27,6 @@ export interface DescribeJobTemplateCommandInput extends DescribeJobTemplateRequ
 export interface DescribeJobTemplateCommandOutput extends DescribeJobTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a job template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -117,6 +116,7 @@ export interface DescribeJobTemplateCommandOutput extends DescribeJobTemplateRes
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DescribeJobTemplateCommand extends $Command
   .classBuilder<

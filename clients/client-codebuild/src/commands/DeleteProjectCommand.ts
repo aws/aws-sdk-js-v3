@@ -27,7 +27,6 @@ export interface DeleteProjectCommandInput extends DeleteProjectInput {}
 export interface DeleteProjectCommandOutput extends DeleteProjectOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p> Deletes a build project. When you delete a project, its builds are not deleted.
  *         </p>
  * @example
@@ -57,6 +56,7 @@ export interface DeleteProjectCommandOutput extends DeleteProjectOutput, __Metad
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * @public
  */
 export class DeleteProjectCommand extends $Command
   .classBuilder<

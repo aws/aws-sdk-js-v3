@@ -27,7 +27,6 @@ export interface GetModelManifestCommandInput extends GetModelManifestRequest {}
 export interface GetModelManifestCommandOutput extends GetModelManifestResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Retrieves information about a vehicle model (model manifest). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface GetModelManifestCommandOutput extends GetModelManifestResponse,
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class GetModelManifestCommand extends $Command
   .classBuilder<

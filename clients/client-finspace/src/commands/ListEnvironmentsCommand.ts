@@ -27,9 +27,6 @@ export interface ListEnvironmentsCommandInput extends ListEnvironmentsRequest {}
 export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This method will be discontinued.
- *
  * <p>A list of all of your FinSpace environments.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +90,8 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse,
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
+ * @deprecated This method will be discontinued.
  */
 export class ListEnvironmentsCommand extends $Command
   .classBuilder<

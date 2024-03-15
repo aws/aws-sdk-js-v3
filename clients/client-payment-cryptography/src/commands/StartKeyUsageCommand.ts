@@ -31,7 +31,6 @@ export interface StartKeyUsageCommandInput extends StartKeyUsageInput {}
 export interface StartKeyUsageCommandOutput extends StartKeyUsageOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables an Amazon Web Services Payment Cryptography key, which makes it active for cryptographic operations within Amazon Web Services Payment Cryptography</p>
  *          <p>
  *             <b>Cross-account use:</b> This operation can't be used across different Amazon Web Services accounts.</p>
@@ -124,6 +123,7 @@ export interface StartKeyUsageCommandOutput extends StartKeyUsageOutput, __Metad
  * @throws {@link PaymentCryptographyServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptography service.</p>
  *
+ * @public
  */
 export class StartKeyUsageCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteTrustStoreCommandInput extends DeleteTrustStoreRequest {}
 export interface DeleteTrustStoreCommandOutput extends DeleteTrustStoreResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the trust store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DeleteTrustStoreCommandOutput extends DeleteTrustStoreResponse,
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * @public
  */
 export class DeleteTrustStoreCommand extends $Command
   .classBuilder<

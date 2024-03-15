@@ -27,7 +27,6 @@ export interface DescribeResourcePolicyCommandInput extends DescribeResourcePoli
 export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the resource policy and policy revision for a bot or bot
  *          alias.</p>
  * @example
@@ -70,6 +69,7 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class DescribeResourcePolicyCommand extends $Command
   .classBuilder<

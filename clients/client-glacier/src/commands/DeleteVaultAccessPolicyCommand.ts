@@ -27,7 +27,6 @@ export interface DeleteVaultAccessPolicyCommandInput extends DeleteVaultAccessPo
 export interface DeleteVaultAccessPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation deletes the access policy associated with the specified vault. The
  *          operation is eventually consistent; that is, it might take some time for Amazon S3 Glacier to
  *          completely remove the access policy, and you might still see the effect of the policy for a
@@ -73,6 +72,7 @@ export interface DeleteVaultAccessPolicyCommandOutput extends __MetadataBearer {
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * @public
  * @example To delete the vault access policy
  * ```javascript
  * // The example deletes the access policy associated with the vault named examplevault.

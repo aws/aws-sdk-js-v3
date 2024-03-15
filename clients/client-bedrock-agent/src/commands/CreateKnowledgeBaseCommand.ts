@@ -27,7 +27,6 @@ export interface CreateKnowledgeBaseCommandInput extends CreateKnowledgeBaseRequ
 export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseResponse, __MetadataBearer {}
 
 /**
- * @public
  * Create a new knowledge base
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -189,6 +188,7 @@ export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseRes
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ * @public
  */
 export class CreateKnowledgeBaseCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateDataCatalogCommandInput extends CreateDataCatalogInput {}
 export interface CreateDataCatalogCommandOutput extends CreateDataCatalogOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates (registers) a data catalog with the specified name and properties. Catalogs
  *             created are visible to all users of the same Amazon Web Services account.</p>
  * @example
@@ -73,6 +72,7 @@ export interface CreateDataCatalogCommandOutput extends CreateDataCatalogOutput,
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class CreateDataCatalogCommand extends $Command
   .classBuilder<

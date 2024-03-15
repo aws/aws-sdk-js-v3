@@ -27,7 +27,6 @@ export interface SetUnhealthyNodeReplacementCommandInput extends SetUnhealthyNod
 export interface SetUnhealthyNodeReplacementCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Specify whether to enable unhealthy node replacement, which lets Amazon EMR gracefully
  *          replace core nodes on a cluster if any nodes become unhealthy. For example, a node becomes
  *          unhealthy if disk usage is above 90%. If unhealthy node replacement is on and <code>TerminationProtected</code> are off,
@@ -71,6 +70,7 @@ export interface SetUnhealthyNodeReplacementCommandOutput extends __MetadataBear
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class SetUnhealthyNodeReplacementCommand extends $Command
   .classBuilder<

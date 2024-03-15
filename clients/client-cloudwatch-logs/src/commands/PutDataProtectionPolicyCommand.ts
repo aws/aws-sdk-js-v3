@@ -27,7 +27,6 @@ export interface PutDataProtectionPolicyCommandInput extends PutDataProtectionPo
 export interface PutDataProtectionPolicyCommandOutput extends PutDataProtectionPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a data protection policy for the specified log group. A data protection policy can help safeguard sensitive
  *       data that's ingested by the log group by auditing and masking the sensitive log data.</p>
  *          <important>
@@ -93,6 +92,7 @@ export interface PutDataProtectionPolicyCommandOutput extends PutDataProtectionP
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class PutDataProtectionPolicyCommand extends $Command
   .classBuilder<

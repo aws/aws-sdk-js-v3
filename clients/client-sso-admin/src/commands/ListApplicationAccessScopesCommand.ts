@@ -29,7 +29,6 @@ export interface ListApplicationAccessScopesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the access scopes and authorized targets associated with an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface ListApplicationAccessScopesCommandOutput
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class ListApplicationAccessScopesCommand extends $Command
   .classBuilder<

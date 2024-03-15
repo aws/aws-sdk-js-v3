@@ -27,7 +27,6 @@ export interface DescribeConformancePacksCommandInput extends DescribeConformanc
 export interface DescribeConformancePacksCommandOutput extends DescribeConformancePacksResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of one or more conformance packs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface DescribeConformancePacksCommandOutput extends DescribeConforman
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class DescribeConformancePacksCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetGeofenceCommandInput extends GetGeofenceRequest {}
 export interface GetGeofenceCommandOutput extends GetGeofenceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the geofence details from a geofence collection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface GetGeofenceCommandOutput extends GetGeofenceResponse, __Metadat
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class GetGeofenceCommand extends $Command
   .classBuilder<

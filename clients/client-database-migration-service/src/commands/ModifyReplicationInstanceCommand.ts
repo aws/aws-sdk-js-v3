@@ -31,7 +31,6 @@ export interface ModifyReplicationInstanceCommandInput extends ModifyReplication
 export interface ModifyReplicationInstanceCommandOutput extends ModifyReplicationInstanceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the replication instance to apply new settings. You can change one or more
  *          parameters by specifying these parameters and the new values in the request.</p>
  *          <p>Some settings are applied during the maintenance window.</p>
@@ -157,6 +156,7 @@ export interface ModifyReplicationInstanceCommandOutput extends ModifyReplicatio
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Modify replication instance
  * ```javascript
  * // Modifies the replication instance to apply new settings. You can change one or more parameters by specifying these parameters and the new values in the request. Some settings are applied during the maintenance window.

@@ -30,7 +30,6 @@ export interface DeleteUserPermissionsBoundaryCommandInput extends DeleteUserPer
 export interface DeleteUserPermissionsBoundaryCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the permissions boundary for the specified IAM user.</p>
  *          <important>
  *             <p>Deleting the permissions boundary for a user might increase its permissions by
@@ -69,6 +68,7 @@ export interface DeleteUserPermissionsBoundaryCommandOutput extends __MetadataBe
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class DeleteUserPermissionsBoundaryCommand extends $Command
   .classBuilder<

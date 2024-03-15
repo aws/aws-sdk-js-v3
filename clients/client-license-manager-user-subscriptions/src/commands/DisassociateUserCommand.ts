@@ -31,7 +31,6 @@ export interface DisassociateUserCommandInput extends DisassociateUserRequest {}
 export interface DisassociateUserCommandOutput extends DisassociateUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates the user from an EC2 instance providing user-based subscriptions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface DisassociateUserCommandOutput extends DisassociateUserResponse,
  * @throws {@link LicenseManagerUserSubscriptionsServiceException}
  * <p>Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.</p>
  *
+ * @public
  */
 export class DisassociateUserCommand extends $Command
   .classBuilder<

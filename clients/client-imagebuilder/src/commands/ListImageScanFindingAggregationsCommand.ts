@@ -32,7 +32,6 @@ export interface ListImageScanFindingAggregationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of image scan aggregations for your account. You can filter by the type
  * 			of key that Image Builder uses to group results. For example, if you want to get a list of
  * 			findings by severity level for one of your pipelines, you might specify your pipeline
@@ -159,6 +158,7 @@ export interface ListImageScanFindingAggregationsCommandOutput
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class ListImageScanFindingAggregationsCommand extends $Command
   .classBuilder<

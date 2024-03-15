@@ -32,7 +32,6 @@ export interface UpdateFieldLevelEncryptionConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Update a field-level encryption configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -160,6 +159,7 @@ export interface UpdateFieldLevelEncryptionConfigCommandOutput
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class UpdateFieldLevelEncryptionConfigCommand extends $Command
   .classBuilder<

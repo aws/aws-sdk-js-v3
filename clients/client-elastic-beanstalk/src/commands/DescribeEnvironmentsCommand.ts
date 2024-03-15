@@ -27,7 +27,6 @@ export interface DescribeEnvironmentsCommandInput extends DescribeEnvironmentsMe
 export interface DescribeEnvironmentsCommandOutput extends EnvironmentDescriptionsMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns descriptions for existing environments.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -111,6 +110,7 @@ export interface DescribeEnvironmentsCommandOutput extends EnvironmentDescriptio
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  * @example To view information about an environment
  * ```javascript
  * // The following operation retrieves information about an environment named my-env:

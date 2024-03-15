@@ -31,7 +31,6 @@ export interface GetTransactionCommandInput extends GetTransactionInput {}
 export interface GetTransactionCommandOutput extends GetTransactionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the details of a transaction.</p>
  *          <note>
  *             <p>This action will return transaction details for all transactions
@@ -108,6 +107,7 @@ export interface GetTransactionCommandOutput extends GetTransactionOutput, __Met
  * @throws {@link ManagedBlockchainQueryServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchainQuery service.</p>
  *
+ * @public
  */
 export class GetTransactionCommand extends $Command
   .classBuilder<

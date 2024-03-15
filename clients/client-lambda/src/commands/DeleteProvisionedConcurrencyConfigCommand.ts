@@ -30,7 +30,6 @@ export interface DeleteProvisionedConcurrencyConfigCommandInput extends DeletePr
 export interface DeleteProvisionedConcurrencyConfigCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the provisioned concurrency configuration for a function.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface DeleteProvisionedConcurrencyConfigCommandOutput extends __Metad
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class DeleteProvisionedConcurrencyConfigCommand extends $Command
   .classBuilder<

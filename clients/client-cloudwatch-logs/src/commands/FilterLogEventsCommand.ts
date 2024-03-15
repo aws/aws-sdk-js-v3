@@ -27,7 +27,6 @@ export interface FilterLogEventsCommandInput extends FilterLogEventsRequest {}
 export interface FilterLogEventsCommandOutput extends FilterLogEventsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists log events from the specified log group. You can list all the log events or filter the results
  *       using a filter pattern, a time range, and the name of the log stream.</p>
  *          <p>You must have the <code>logs:FilterLogEvents</code> permission to perform this operation.</p>
@@ -106,6 +105,7 @@ export interface FilterLogEventsCommandOutput extends FilterLogEventsResponse, _
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class FilterLogEventsCommand extends $Command
   .classBuilder<

@@ -258,7 +258,6 @@ export type MarketplaceMeteringClientResolvedConfigType = __SmithyResolvedConfig
 export interface MarketplaceMeteringClientResolvedConfig extends MarketplaceMeteringClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>AWS Marketplace Metering Service</fullname>
  *          <p>This reference provides descriptions of the low-level AWS Marketplace Metering Service
  *             API.</p>
@@ -322,6 +321,7 @@ export interface MarketplaceMeteringClientResolvedConfig extends MarketplaceMete
  *                     <i>
  *                <a href="http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html">AWS CloudTrail User Guide</a>.</i>
  *          </p>
+ * @public
  */
 export class MarketplaceMeteringClient extends __Client<
   __HttpHandlerOptions,

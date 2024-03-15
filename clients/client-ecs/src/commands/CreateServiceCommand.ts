@@ -27,7 +27,6 @@ export interface CreateServiceCommandInput extends CreateServiceRequest {}
 export interface CreateServiceCommandOutput extends CreateServiceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Runs and maintains your desired number of tasks from a specified task definition. If
  * 			the number of tasks running in a service drops below the <code>desiredCount</code>,
  * 			Amazon ECS runs another copy of the task in the specified cluster. To update an existing
@@ -582,6 +581,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  * @example To create a new service
  * ```javascript
  * // This example creates a service in your default region called ``ecs-simple-service``. The service uses the ``hello_world`` task definition and it maintains 10 copies of that task.

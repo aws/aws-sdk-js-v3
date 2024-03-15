@@ -32,7 +32,6 @@ export interface CreateSolFunctionPackageCommandInput extends CreateSolFunctionP
 export interface CreateSolFunctionPackageCommandOutput extends CreateSolFunctionPackageOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a function package.</p>
  *          <p>A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network. For more information, see <a href="https://docs.aws.amazon.com/tnb/latest/ug/function-packages.html">Function packages</a> in the <i>Amazon Web Services Telco Network Builder User Guide</i>.
  *       </p>
@@ -87,6 +86,7 @@ export interface CreateSolFunctionPackageCommandOutput extends CreateSolFunction
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ * @public
  */
 export class CreateSolFunctionPackageCommand extends $Command
   .classBuilder<

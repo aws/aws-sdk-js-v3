@@ -27,7 +27,6 @@ export interface StartSpeechSynthesisTaskCommandInput extends StartSpeechSynthes
 export interface StartSpeechSynthesisTaskCommandOutput extends StartSpeechSynthesisTaskOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows the creation of an asynchronous synthesis task, by starting a
  *       new <code>SpeechSynthesisTask</code>. This operation requires all the
  *       standard information needed for speech synthesis, plus the name of an
@@ -155,6 +154,7 @@ export interface StartSpeechSynthesisTaskCommandOutput extends StartSpeechSynthe
  * @throws {@link PollyServiceException}
  * <p>Base exception class for all service exceptions from Polly service.</p>
  *
+ * @public
  */
 export class StartSpeechSynthesisTaskCommand extends $Command
   .classBuilder<

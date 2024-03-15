@@ -31,7 +31,6 @@ export interface ListUserAssociationsCommandInput extends ListUserAssociationsRe
 export interface ListUserAssociationsCommandOutput extends ListUserAssociationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists user associations for an identity provider.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -111,6 +110,7 @@ export interface ListUserAssociationsCommandOutput extends ListUserAssociationsR
  * @throws {@link LicenseManagerUserSubscriptionsServiceException}
  * <p>Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.</p>
  *
+ * @public
  */
 export class ListUserAssociationsCommand extends $Command
   .classBuilder<

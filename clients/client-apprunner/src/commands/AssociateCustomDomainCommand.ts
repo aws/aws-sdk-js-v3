@@ -27,7 +27,6 @@ export interface AssociateCustomDomainCommandInput extends AssociateCustomDomain
 export interface AssociateCustomDomainCommandOutput extends AssociateCustomDomainResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associate your own domain name with the App Runner subdomain URL of your App Runner service.</p>
  *          <p>After you call <code>AssociateCustomDomain</code> and receive a successful response, use the information in the <a>CustomDomain</a> record
  *       that's returned to add CNAME records to your Domain Name System (DNS). For each mapped domain name, add a mapping to the target App Runner subdomain and one or
@@ -91,6 +90,7 @@ export interface AssociateCustomDomainCommandOutput extends AssociateCustomDomai
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ * @public
  */
 export class AssociateCustomDomainCommand extends $Command
   .classBuilder<

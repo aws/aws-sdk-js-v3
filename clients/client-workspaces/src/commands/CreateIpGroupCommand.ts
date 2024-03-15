@@ -27,7 +27,6 @@ export interface CreateIpGroupCommandInput extends CreateIpGroupRequest {}
 export interface CreateIpGroupCommandOutput extends CreateIpGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an IP access control group.</p>
  *          <p>An IP access control group provides you with the ability to control the IP addresses
  *          from which users are allowed to access their WorkSpaces. To specify the CIDR address
@@ -91,6 +90,7 @@ export interface CreateIpGroupCommandOutput extends CreateIpGroupResult, __Metad
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class CreateIpGroupCommand extends $Command
   .classBuilder<

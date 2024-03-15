@@ -27,7 +27,6 @@ export interface TagStreamCommandInput extends TagStreamInput {}
 export interface TagStreamCommandOutput extends TagStreamOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds one or more tags to a stream. A <i>tag</i> is a key-value pair
  *             (the value is optional) that you can define and assign to Amazon Web Services resources. If you specify
  *             a tag that already exists, the tag value is replaced with the value that you specify in
@@ -86,6 +85,7 @@ export interface TagStreamCommandOutput extends TagStreamOutput, __MetadataBeare
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ * @public
  */
 export class TagStreamCommand extends $Command
   .classBuilder<

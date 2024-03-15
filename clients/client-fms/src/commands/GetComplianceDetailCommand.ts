@@ -27,7 +27,6 @@ export interface GetComplianceDetailCommandInput extends GetComplianceDetailRequ
 export interface GetComplianceDetailCommandOutput extends GetComplianceDetailResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns detailed compliance information about the specified member account. Details
  *       include resources that are in and out of compliance with the specified policy. </p>
  *          <ul>
@@ -115,6 +114,7 @@ export interface GetComplianceDetailCommandOutput extends GetComplianceDetailRes
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * @public
  */
 export class GetComplianceDetailCommand extends $Command
   .classBuilder<

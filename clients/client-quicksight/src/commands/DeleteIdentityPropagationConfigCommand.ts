@@ -32,7 +32,6 @@ export interface DeleteIdentityPropagationConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes all access scopes and authorized targets that are associated with a service from the Amazon QuickSight IAM Identity Center application.</p>
  *          <p>This operation is only supported for Amazon QuickSight accounts that use IAM Identity Center.</p>
  * @example
@@ -81,6 +80,7 @@ export interface DeleteIdentityPropagationConfigCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DeleteIdentityPropagationConfigCommand extends $Command
   .classBuilder<

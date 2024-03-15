@@ -31,7 +31,6 @@ export interface StopGameSessionPlacementCommandInput extends StopGameSessionPla
 export interface StopGameSessionPlacementCommandOutput extends StopGameSessionPlacementOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels a game session placement that is in <code>PENDING</code> status. To stop a
  *             placement, provide the placement ID values. If successful, the placement is moved to
  *                 <code>CANCELLED</code> status.</p>
@@ -110,6 +109,7 @@ export interface StopGameSessionPlacementCommandOutput extends StopGameSessionPl
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class StopGameSessionPlacementCommand extends $Command
   .classBuilder<

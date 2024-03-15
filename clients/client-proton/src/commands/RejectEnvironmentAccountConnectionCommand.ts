@@ -32,7 +32,6 @@ export interface RejectEnvironmentAccountConnectionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>In a management account, reject an environment account connection from another environment account.</p>
  *          <p>After you reject an environment account connection request, you <i>can't</i> accept or use the rejected environment account
  *       connection.</p>
@@ -95,6 +94,7 @@ export interface RejectEnvironmentAccountConnectionCommandOutput
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class RejectEnvironmentAccountConnectionCommand extends $Command
   .classBuilder<

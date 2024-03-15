@@ -36,7 +36,6 @@ export interface DescribeDashboardSnapshotJobCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes an existing snapshot job.</p>
  *          <p>Poll job descriptions after a job starts to know the status of the job. For information on available status codes, see <code>JobStatus</code>.</p>
  * @example
@@ -170,6 +169,7 @@ export interface DescribeDashboardSnapshotJobCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DescribeDashboardSnapshotJobCommand extends $Command
   .classBuilder<

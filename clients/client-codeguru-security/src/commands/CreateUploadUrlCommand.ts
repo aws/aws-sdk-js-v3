@@ -31,7 +31,6 @@ export interface CreateUploadUrlCommandInput extends CreateUploadUrlRequest {}
 export interface CreateUploadUrlCommandOutput extends CreateUploadUrlResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Generates a pre-signed URL and request headers used to upload a code resource.</p>
  *          <p>You can upload your code resource to the URL and add the request headers using any HTTP
  *       client.</p>
@@ -77,6 +76,7 @@ export interface CreateUploadUrlCommandOutput extends CreateUploadUrlResponse, _
  * @throws {@link CodeGuruSecurityServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruSecurity service.</p>
  *
+ * @public
  */
 export class CreateUploadUrlCommand extends $Command
   .classBuilder<

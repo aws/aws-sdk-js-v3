@@ -115,8 +115,8 @@ export interface S3Outposts {
 }
 
 /**
- * @public
  * <p>Amazon S3 on Outposts provides access to S3 on Outposts operations.</p>
+ * @public
  */
 export class S3Outposts extends S3OutpostsClient implements S3Outposts {}
 createAggregatedClient(commands, S3Outposts);

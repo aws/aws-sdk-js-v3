@@ -27,7 +27,6 @@ export interface DescribeTapeArchivesCommandInput extends DescribeTapeArchivesIn
 export interface DescribeTapeArchivesCommandOutput extends DescribeTapeArchivesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a description of specified virtual tapes in the virtual tape shelf (VTS). This
  *          operation is only supported in the tape gateway type.</p>
  *          <p>If a specific <code>TapeARN</code> is not specified, Storage Gateway returns a
@@ -87,6 +86,7 @@ export interface DescribeTapeArchivesCommandOutput extends DescribeTapeArchivesO
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  * @example To describe virtual tapes in the VTS
  * ```javascript
  * // Returns a description of specified virtual tapes in the virtual tape shelf (VTS).

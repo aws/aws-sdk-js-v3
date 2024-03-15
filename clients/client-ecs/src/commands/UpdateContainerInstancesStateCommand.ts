@@ -32,7 +32,6 @@ export interface UpdateContainerInstancesStateCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the status of an Amazon ECS container instance.</p>
  *          <p>Once a container instance has reached an <code>ACTIVE</code> state, you can change the
  * 			status of a container instance to <code>DRAINING</code> to manually remove an instance
@@ -215,6 +214,7 @@ export interface UpdateContainerInstancesStateCommandOutput
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  */
 export class UpdateContainerInstancesStateCommand extends $Command
   .classBuilder<

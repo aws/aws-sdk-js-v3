@@ -27,7 +27,6 @@ export interface DeleteDBSecurityGroupCommandInput extends DeleteDBSecurityGroup
 export interface DeleteDBSecurityGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a DB security group.</p>
  *          <p>The specified DB security group must not be associated with any DB instances.</p>
  *          <note>
@@ -68,6 +67,7 @@ export interface DeleteDBSecurityGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To delete a DB security group
  * ```javascript
  * // The following example deletes a DB security group.

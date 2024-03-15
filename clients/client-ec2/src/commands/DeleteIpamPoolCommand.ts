@@ -27,7 +27,6 @@ export interface DeleteIpamPoolCommandInput extends DeleteIpamPoolRequest {}
 export interface DeleteIpamPoolCommandOutput extends DeleteIpamPoolResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete an IPAM pool.</p>
  *          <note>
  *             <p>You cannot delete an IPAM pool if there are allocations in it or CIDRs provisioned to it. To release
@@ -104,6 +103,7 @@ export interface DeleteIpamPoolCommandOutput extends DeleteIpamPoolResult, __Met
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DeleteIpamPoolCommand extends $Command
   .classBuilder<

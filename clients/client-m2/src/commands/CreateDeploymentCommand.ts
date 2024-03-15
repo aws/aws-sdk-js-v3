@@ -27,7 +27,6 @@ export interface CreateDeploymentCommandInput extends CreateDeploymentRequest {}
 export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates and starts a deployment to deploy an application into a runtime
  *          environment.</p>
  * @example
@@ -80,6 +79,7 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
  * @throws {@link M2ServiceException}
  * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ * @public
  */
 export class CreateDeploymentCommand extends $Command
   .classBuilder<

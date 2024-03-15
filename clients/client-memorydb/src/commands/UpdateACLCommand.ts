@@ -27,7 +27,6 @@ export interface UpdateACLCommandInput extends UpdateACLRequest {}
 export interface UpdateACLCommandOutput extends UpdateACLResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes the list of users that belong to the Access Control List.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface UpdateACLCommandOutput extends UpdateACLResponse, __MetadataBea
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * @public
  */
 export class UpdateACLCommand extends $Command
   .classBuilder<

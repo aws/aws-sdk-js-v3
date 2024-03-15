@@ -27,7 +27,6 @@ export interface UpdateTeamMemberCommandInput extends UpdateTeamMemberRequest {}
 export interface UpdateTeamMemberCommandOutput extends UpdateTeamMemberResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a team member's attributes in an AWS CodeStar project. For example, you can change a
  *       team member's role in the project, or change whether they have remote access to project
  *       resources.</p>
@@ -84,6 +83,7 @@ export interface UpdateTeamMemberCommandOutput extends UpdateTeamMemberResult, _
  * @throws {@link CodeStarServiceException}
  * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
+ * @public
  */
 export class UpdateTeamMemberCommand extends $Command
   .classBuilder<

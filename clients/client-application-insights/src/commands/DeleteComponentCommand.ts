@@ -31,7 +31,6 @@ export interface DeleteComponentCommandInput extends DeleteComponentRequest {}
 export interface DeleteComponentCommandOutput extends DeleteComponentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Ungroups a custom component. When you ungroup custom components, all applicable monitors
  *          that are set up for the component are removed and the instances revert to their standalone
  *          status.</p>
@@ -69,6 +68,7 @@ export interface DeleteComponentCommandOutput extends DeleteComponentResponse, _
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ * @public
  */
 export class DeleteComponentCommand extends $Command
   .classBuilder<

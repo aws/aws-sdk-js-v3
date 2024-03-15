@@ -27,7 +27,6 @@ export interface RegisterClusterCommandInput extends RegisterClusterRequest {}
 export interface RegisterClusterCommandOutput extends RegisterClusterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Connects a Kubernetes cluster to the Amazon EKS control plane. </p>
  *          <p>Any Kubernetes cluster can be connected to the Amazon EKS control plane to view
  *             current information about the cluster and its nodes. </p>
@@ -197,6 +196,7 @@ export interface RegisterClusterCommandOutput extends RegisterClusterResponse, _
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class RegisterClusterCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CommitTransactionCommandInput extends CommitTransactionRequest 
 export interface CommitTransactionCommandOutput extends CommitTransactionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Ends a SQL transaction started with the <code>BeginTransaction</code> operation and
  *             commits the changes.</p>
  * @example
@@ -112,6 +111,7 @@ export interface CommitTransactionCommandOutput extends CommitTransactionRespons
  * @throws {@link RDSDataServiceException}
  * <p>Base exception class for all service exceptions from RDSData service.</p>
  *
+ * @public
  */
 export class CommitTransactionCommand extends $Command
   .classBuilder<

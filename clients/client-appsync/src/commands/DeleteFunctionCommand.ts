@@ -27,7 +27,6 @@ export interface DeleteFunctionCommandInput extends DeleteFunctionRequest {}
 export interface DeleteFunctionCommandOutput extends DeleteFunctionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a <code>Function</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface DeleteFunctionCommandOutput extends DeleteFunctionResponse, __M
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class DeleteFunctionCommand extends $Command
   .classBuilder<

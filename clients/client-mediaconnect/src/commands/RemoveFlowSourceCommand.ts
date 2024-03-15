@@ -27,7 +27,6 @@ export interface RemoveFlowSourceCommandInput extends RemoveFlowSourceRequest {}
 export interface RemoveFlowSourceCommandOutput extends RemoveFlowSourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * Removes a source from an existing flow. This request can be made only if there is more than one source on the flow.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface RemoveFlowSourceCommandOutput extends RemoveFlowSourceResponse,
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ * @public
  */
 export class RemoveFlowSourceCommand extends $Command
   .classBuilder<

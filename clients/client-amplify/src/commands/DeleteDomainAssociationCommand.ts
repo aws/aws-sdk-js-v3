@@ -27,7 +27,6 @@ export interface DeleteDomainAssociationCommandInput extends DeleteDomainAssocia
 export interface DeleteDomainAssociationCommandOutput extends DeleteDomainAssociationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a domain association for an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface DeleteDomainAssociationCommandOutput extends DeleteDomainAssoci
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ * @public
  */
 export class DeleteDomainAssociationCommand extends $Command
   .classBuilder<

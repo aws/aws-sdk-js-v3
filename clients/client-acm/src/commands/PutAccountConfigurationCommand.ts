@@ -27,7 +27,6 @@ export interface PutAccountConfigurationCommandInput extends PutAccountConfigura
 export interface PutAccountConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds or modifies account-level configurations in ACM. </p>
  *          <p>The supported configuration option is <code>DaysBeforeExpiry</code>. This option specifies
  *       the number of days prior to certificate expiration when ACM starts generating
@@ -74,6 +73,7 @@ export interface PutAccountConfigurationCommandOutput extends __MetadataBearer {
  * @throws {@link ACMServiceException}
  * <p>Base exception class for all service exceptions from ACM service.</p>
  *
+ * @public
  */
 export class PutAccountConfigurationCommand extends $Command
   .classBuilder<

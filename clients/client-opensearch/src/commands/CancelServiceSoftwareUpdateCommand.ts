@@ -32,7 +32,6 @@ export interface CancelServiceSoftwareUpdateCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels a scheduled service software update for an Amazon OpenSearch Service domain. You can
  *    only perform this operation before the <code>AutomatedUpdateDate</code> and when the domain's
  *     <code>UpdateStatus</code> is <code>PENDING_UPDATE</code>. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">Service software updates in Amazon OpenSearch Service</a>.</p>
@@ -83,6 +82,7 @@ export interface CancelServiceSoftwareUpdateCommandOutput
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class CancelServiceSoftwareUpdateCommand extends $Command
   .classBuilder<

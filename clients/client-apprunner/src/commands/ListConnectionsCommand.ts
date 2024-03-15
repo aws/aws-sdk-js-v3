@@ -27,7 +27,6 @@ export interface ListConnectionsCommandInput extends ListConnectionsRequest {}
 export interface ListConnectionsCommandOutput extends ListConnectionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of App Runner connections that are associated with your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface ListConnectionsCommandOutput extends ListConnectionsResponse, _
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ * @public
  */
 export class ListConnectionsCommand extends $Command
   .classBuilder<

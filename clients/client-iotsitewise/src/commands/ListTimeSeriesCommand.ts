@@ -27,7 +27,6 @@ export interface ListTimeSeriesCommandInput extends ListTimeSeriesRequest {}
 export interface ListTimeSeriesCommandOutput extends ListTimeSeriesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a paginated list of time series (data streams).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface ListTimeSeriesCommandOutput extends ListTimeSeriesResponse, __M
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class ListTimeSeriesCommand extends $Command
   .classBuilder<

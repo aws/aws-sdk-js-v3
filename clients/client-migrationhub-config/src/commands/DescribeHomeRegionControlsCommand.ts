@@ -31,7 +31,6 @@ export interface DescribeHomeRegionControlsCommandInput extends DescribeHomeRegi
 export interface DescribeHomeRegionControlsCommandOutput extends DescribeHomeRegionControlsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>This API permits filtering on the <code>ControlId</code> and <code>HomeRegion</code>
  *       fields.</p>
  * @example
@@ -96,6 +95,7 @@ export interface DescribeHomeRegionControlsCommandOutput extends DescribeHomeReg
  * @throws {@link MigrationHubConfigServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubConfig service.</p>
  *
+ * @public
  */
 export class DescribeHomeRegionControlsCommand extends $Command
   .classBuilder<

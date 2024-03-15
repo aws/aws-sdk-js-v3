@@ -27,7 +27,6 @@ export interface CreateConfigurationSetCommandInput extends CreateConfigurationS
 export interface CreateConfigurationSetCommandOutput extends CreateConfigurationSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a configuration set. <i>Configuration sets</i> are groups of
  *             rules that you can apply to the emails that you send. You apply a configuration set to
  *             an email by specifying the name of the configuration set when you call the Amazon SES API v2. When
@@ -108,6 +107,7 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class CreateConfigurationSetCommand extends $Command
   .classBuilder<

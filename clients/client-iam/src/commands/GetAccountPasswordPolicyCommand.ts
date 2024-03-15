@@ -27,7 +27,6 @@ export interface GetAccountPasswordPolicyCommandInput {}
 export interface GetAccountPasswordPolicyCommandOutput extends GetAccountPasswordPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the password policy for the Amazon Web Services account. This tells you the complexity
  *             requirements and mandatory rotation periods for the IAM user passwords in your account.
  *             For more information about using a password policy, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html">Managing an IAM password
@@ -75,6 +74,7 @@ export interface GetAccountPasswordPolicyCommandOutput extends GetAccountPasswor
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  * @example To see the current account password policy
  * ```javascript
  * // The following command displays details about the password policy for the current AWS account.

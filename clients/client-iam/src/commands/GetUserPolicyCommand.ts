@@ -27,7 +27,6 @@ export interface GetUserPolicyCommandInput extends GetUserPolicyRequest {}
 export interface GetUserPolicyCommandOutput extends GetUserPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the specified inline policy document that is embedded in the specified IAM
  *             user.</p>
  *          <note>
@@ -80,6 +79,7 @@ export interface GetUserPolicyCommandOutput extends GetUserPolicyResponse, __Met
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class GetUserPolicyCommand extends $Command
   .classBuilder<

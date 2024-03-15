@@ -27,7 +27,6 @@ export interface CreateXssMatchSetCommandInput extends CreateXssMatchSetRequest 
 export interface CreateXssMatchSetCommandOutput extends CreateXssMatchSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -155,6 +154,7 @@ export interface CreateXssMatchSetCommandOutput extends CreateXssMatchSetRespons
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
+ * @public
  * @example To create an XSS match set
  * ```javascript
  * // The following example creates an XSS match set named MySampleXssMatchSet.

@@ -27,7 +27,6 @@ export interface DisassociateFlowCommandInput extends DisassociateFlowRequest {}
 export interface DisassociateFlowCommandOutput extends DisassociateFlowResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates a connect resource from a flow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface DisassociateFlowCommandOutput extends DisassociateFlowResponse,
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class DisassociateFlowCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface UpdateRepositoryDescriptionCommandInput extends UpdateRepositor
 export interface UpdateRepositoryDescriptionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets or changes the comment or description for a repository.</p>
  *          <note>
  *             <p>The description field for a repository accepts all HTML characters and all valid
@@ -93,6 +92,7 @@ export interface UpdateRepositoryDescriptionCommandOutput extends __MetadataBear
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class UpdateRepositoryDescriptionCommand extends $Command
   .classBuilder<

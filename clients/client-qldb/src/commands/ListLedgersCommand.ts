@@ -27,7 +27,6 @@ export interface ListLedgersCommandInput extends ListLedgersRequest {}
 export interface ListLedgersCommandOutput extends ListLedgersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns all ledgers that are associated with the current Amazon Web Services account and
  *          Region.</p>
  *          <p>This action returns a maximum of <code>MaxResults</code> items and is paginated so that
@@ -66,6 +65,7 @@ export interface ListLedgersCommandOutput extends ListLedgersResponse, __Metadat
  * @throws {@link QLDBServiceException}
  * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
+ * @public
  */
 export class ListLedgersCommand extends $Command
   .classBuilder<

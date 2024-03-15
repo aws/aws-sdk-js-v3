@@ -27,7 +27,6 @@ export interface DescribeArchiveCommandInput extends DescribeArchiveRequest {}
 export interface DescribeArchiveCommandOutput extends DescribeArchiveResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves details about an archive.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DescribeArchiveCommandOutput extends DescribeArchiveResponse, _
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * @public
  */
 export class DescribeArchiveCommand extends $Command
   .classBuilder<

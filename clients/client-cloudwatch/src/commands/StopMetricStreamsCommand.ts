@@ -27,7 +27,6 @@ export interface StopMetricStreamsCommandInput extends StopMetricStreamsInput {}
 export interface StopMetricStreamsCommandOutput extends StopMetricStreamsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops the streaming of metrics for one or more of your metric streams.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +63,7 @@ export interface StopMetricStreamsCommandOutput extends StopMetricStreamsOutput,
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * @public
  */
 export class StopMetricStreamsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface AddFlowOutputsCommandInput extends AddFlowOutputsRequest {}
 export interface AddFlowOutputsCommandOutput extends AddFlowOutputsResponse, __MetadataBearer {}
 
 /**
- * @public
  * Adds outputs to an existing flow. You can create up to 50 outputs per flow.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -195,6 +194,7 @@ export interface AddFlowOutputsCommandOutput extends AddFlowOutputsResponse, __M
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ * @public
  */
 export class AddFlowOutputsCommand extends $Command
   .classBuilder<

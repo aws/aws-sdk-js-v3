@@ -27,7 +27,6 @@ export interface GetBackendCommandInput extends GetBackendRequest {}
 export interface GetBackendCommandOutput extends GetBackendResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides project-level details for your Amplify UI project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface GetBackendCommandOutput extends GetBackendResponse, __MetadataB
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ * @public
  */
 export class GetBackendCommand extends $Command
   .classBuilder<

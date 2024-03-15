@@ -27,9 +27,6 @@ export interface SearchRoomsCommandInput extends SearchRoomsRequest {}
 export interface SearchRoomsCommandOutput extends SearchRoomsResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Searches rooms and lists the ones that meet a set of filter and sort
  *          criteria.</p>
  * @example
@@ -84,6 +81,8 @@ export interface SearchRoomsCommandOutput extends SearchRoomsResponse, __Metadat
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class SearchRoomsCommand extends $Command
   .classBuilder<

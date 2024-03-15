@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Assigns tags to resources. A tag is a label that you assign to an Amazon Web Services
  *          resource. Each tag consists of a key and an optional value, both of which you define. Tags
  *          enable you to categorize your Amazon Web Services resources by attributes such as purpose,
@@ -70,6 +69,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link EMRServerlessServiceException}
  * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

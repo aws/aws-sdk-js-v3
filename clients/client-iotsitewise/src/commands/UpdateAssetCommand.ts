@@ -27,7 +27,6 @@ export interface UpdateAssetCommandInput extends UpdateAssetRequest {}
 export interface UpdateAssetCommandOutput extends UpdateAssetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an asset's name. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html">Updating assets and models</a> in the
  *         <i>IoT SiteWise User Guide</i>.</p>
  * @example
@@ -95,6 +94,7 @@ export interface UpdateAssetCommandOutput extends UpdateAssetResponse, __Metadat
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class UpdateAssetCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListGraphqlApisCommandInput extends ListGraphqlApisRequest {}
 export interface ListGraphqlApisCommandOutput extends ListGraphqlApisResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists your GraphQL APIs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -143,6 +142,7 @@ export interface ListGraphqlApisCommandOutput extends ListGraphqlApisResponse, _
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class ListGraphqlApisCommand extends $Command
   .classBuilder<

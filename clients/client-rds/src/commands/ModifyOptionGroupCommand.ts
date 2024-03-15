@@ -27,7 +27,6 @@ export interface ModifyOptionGroupCommandInput extends ModifyOptionGroupMessage 
 export interface ModifyOptionGroupCommandOutput extends ModifyOptionGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies an existing option group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -137,6 +136,7 @@ export interface ModifyOptionGroupCommandOutput extends ModifyOptionGroupResult,
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To modify an option group
  * ```javascript
  * // The following example adds an option to an option group.

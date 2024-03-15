@@ -32,7 +32,6 @@ export interface CreateFileSystemCommandInput extends CreateFileSystemRequest {}
 export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new, empty Amazon FSx file system. You can create the following supported
  *         Amazon FSx file systems using the <code>CreateFileSystem</code> API operation:</p>
  *          <ul>
@@ -829,6 +828,7 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  * @example To create a new file system
  * ```javascript
  * // This operation creates a new Amazon FSx for Windows File Server file system.

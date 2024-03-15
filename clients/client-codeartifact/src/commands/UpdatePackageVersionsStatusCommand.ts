@@ -30,7 +30,6 @@ export interface UpdatePackageVersionsStatusCommandInput extends UpdatePackageVe
 export interface UpdatePackageVersionsStatusCommandOutput extends UpdatePackageVersionsStatusResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Updates the status of one or more versions of a package. Using <code>UpdatePackageVersionsStatus</code>,
  *       you can update the status of package versions to <code>Archived</code>, <code>Published</code>, or <code>Unlisted</code>.
@@ -115,6 +114,7 @@ export interface UpdatePackageVersionsStatusCommandOutput extends UpdatePackageV
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ * @public
  */
 export class UpdatePackageVersionsStatusCommand extends $Command
   .classBuilder<

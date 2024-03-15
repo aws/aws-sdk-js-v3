@@ -27,7 +27,6 @@ export interface DescribeLineageGroupCommandInput extends DescribeLineageGroupRe
 export interface DescribeLineageGroupCommandOutput extends DescribeLineageGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a list of properties for the requested lineage group.
  *          For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/xaccount-lineage-tracking.html">
  *             Cross-Account Lineage Tracking </a> in the <i>Amazon SageMaker Developer Guide</i>.</p>
@@ -85,6 +84,7 @@ export interface DescribeLineageGroupCommandOutput extends DescribeLineageGroupR
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeLineageGroupCommand extends $Command
   .classBuilder<

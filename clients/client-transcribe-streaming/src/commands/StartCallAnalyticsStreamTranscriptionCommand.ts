@@ -44,7 +44,6 @@ export interface StartCallAnalyticsStreamTranscriptionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to
  *       Amazon Transcribe and the transcription results are streamed to your application. Use this operation
  *       for <a href="https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics.html">Call Analytics</a> transcriptions.</p>
@@ -227,6 +226,7 @@ export interface StartCallAnalyticsStreamTranscriptionCommandOutput
  * @throws {@link TranscribeStreamingServiceException}
  * <p>Base exception class for all service exceptions from TranscribeStreaming service.</p>
  *
+ * @public
  */
 export class StartCallAnalyticsStreamTranscriptionCommand extends $Command
   .classBuilder<

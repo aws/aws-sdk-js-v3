@@ -27,7 +27,6 @@ export interface DescribePullRequestEventsCommandInput extends DescribePullReque
 export interface DescribePullRequestEventsCommandOutput extends DescribePullRequestEventsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about one or more pull request events.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -145,6 +144,7 @@ export interface DescribePullRequestEventsCommandOutput extends DescribePullRequ
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class DescribePullRequestEventsCommand extends $Command
   .classBuilder<

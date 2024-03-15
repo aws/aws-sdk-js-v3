@@ -27,7 +27,6 @@ export interface CreatePresignedNotebookUrlCommandInput extends CreatePresignedN
 export interface CreatePresignedNotebookUrlCommandOutput extends CreatePresignedNotebookUrlResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets an authentication token and the URL at which the notebook can be accessed. During
  *             programmatic access, <code>CreatePresignedNotebookUrl</code> must be called every 10
  *             minutes to refresh the authentication token. For information about granting programmatic
@@ -72,6 +71,7 @@ export interface CreatePresignedNotebookUrlCommandOutput extends CreatePresigned
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class CreatePresignedNotebookUrlCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateCustomDataIdentifierCommandInput extends CreateCustomData
 export interface CreateCustomDataIdentifierCommandOutput extends CreateCustomDataIdentifierResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates and defines the criteria and other settings for a custom data identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface CreateCustomDataIdentifierCommandOutput extends CreateCustomDat
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class CreateCustomDataIdentifierCommand extends $Command
   .classBuilder<

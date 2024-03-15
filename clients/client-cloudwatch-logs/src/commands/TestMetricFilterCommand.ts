@@ -27,7 +27,6 @@ export interface TestMetricFilterCommandInput extends TestMetricFilterRequest {}
 export interface TestMetricFilterCommandOutput extends TestMetricFilterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Tests the filter pattern of a metric filter against a sample of log event messages. You
  *       can use this operation to validate the correctness of a metric filter pattern.</p>
  * @example
@@ -73,6 +72,7 @@ export interface TestMetricFilterCommandOutput extends TestMetricFilterResponse,
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class TestMetricFilterCommand extends $Command
   .classBuilder<

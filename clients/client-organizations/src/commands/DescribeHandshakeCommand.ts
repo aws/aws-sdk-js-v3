@@ -31,7 +31,6 @@ export interface DescribeHandshakeCommandInput extends DescribeHandshakeRequest 
 export interface DescribeHandshakeCommandOutput extends DescribeHandshakeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about a previously requested handshake. The handshake ID comes
  *             from the response to the original <a>InviteAccountToOrganization</a>
  *             operation that generated the handshake.</p>
@@ -218,6 +217,7 @@ export interface DescribeHandshakeCommandOutput extends DescribeHandshakeRespons
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  * @example To get information about a handshake
  * ```javascript
  * // The following example shows you how to request details about a handshake. The handshake ID comes either from the original call to "InviteAccountToOrganization", or from a call to "ListHandshakesForAccount" or "ListHandshakesForOrganization":

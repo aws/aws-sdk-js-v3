@@ -27,7 +27,6 @@ export interface StartImportCommandInput extends StartImportRequest {}
 export interface StartImportCommandOutput extends StartImportResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Start import.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * @public
  */
 export class StartImportCommand extends $Command
   .classBuilder<

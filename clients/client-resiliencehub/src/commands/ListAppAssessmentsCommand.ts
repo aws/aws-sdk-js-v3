@@ -27,7 +27,6 @@ export interface ListAppAssessmentsCommandInput extends ListAppAssessmentsReques
 export interface ListAppAssessmentsCommandOutput extends ListAppAssessmentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the assessments for an Resilience Hub application. You can use request parameters to
  *       refine the results for the response object.</p>
  * @example
@@ -105,6 +104,7 @@ export interface ListAppAssessmentsCommandOutput extends ListAppAssessmentsRespo
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class ListAppAssessmentsCommand extends $Command
   .classBuilder<

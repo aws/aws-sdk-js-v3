@@ -31,7 +31,6 @@ export interface GetIpAccessSettingsCommandInput extends GetIpAccessSettingsRequ
 export interface GetIpAccessSettingsCommandOutput extends GetIpAccessSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the IP access settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface GetIpAccessSettingsCommandOutput extends GetIpAccessSettingsRes
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * @public
  */
 export class GetIpAccessSettingsCommand extends $Command
   .classBuilder<

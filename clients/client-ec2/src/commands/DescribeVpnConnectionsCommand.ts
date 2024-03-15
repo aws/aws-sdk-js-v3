@@ -31,7 +31,6 @@ export interface DescribeVpnConnectionsCommandInput extends DescribeVpnConnectio
 export interface DescribeVpnConnectionsCommandOutput extends DescribeVpnConnectionsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes one or more of your VPN connections.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
  *                 User Guide</i>.</p>
@@ -179,6 +178,7 @@ export interface DescribeVpnConnectionsCommandOutput extends DescribeVpnConnecti
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeVpnConnectionsCommand extends $Command
   .classBuilder<

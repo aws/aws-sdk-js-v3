@@ -27,7 +27,6 @@ export interface ListApprovalRuleTemplatesCommandInput extends ListApprovalRuleT
 export interface ListApprovalRuleTemplatesCommandOutput extends ListApprovalRuleTemplatesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all approval rule templates in the specified Amazon Web Services Region in your Amazon Web Services account. If
  *             an Amazon Web Services Region is not specified, the Amazon Web Services Region where you are signed in is used.</p>
  * @example
@@ -66,6 +65,7 @@ export interface ListApprovalRuleTemplatesCommandOutput extends ListApprovalRule
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class ListApprovalRuleTemplatesCommand extends $Command
   .classBuilder<

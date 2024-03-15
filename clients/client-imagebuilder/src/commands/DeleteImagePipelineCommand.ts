@@ -27,7 +27,6 @@ export interface DeleteImagePipelineCommandInput extends DeleteImagePipelineRequ
 export interface DeleteImagePipelineCommandOutput extends DeleteImagePipelineResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an image pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface DeleteImagePipelineCommandOutput extends DeleteImagePipelineRes
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class DeleteImagePipelineCommand extends $Command
   .classBuilder<

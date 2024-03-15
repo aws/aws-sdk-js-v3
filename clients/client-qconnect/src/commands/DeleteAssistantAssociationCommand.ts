@@ -27,7 +27,6 @@ export interface DeleteAssistantAssociationCommandInput extends DeleteAssistantA
 export interface DeleteAssistantAssociationCommandOutput extends DeleteAssistantAssociationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an assistant association.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +62,7 @@ export interface DeleteAssistantAssociationCommandOutput extends DeleteAssistant
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ * @public
  */
 export class DeleteAssistantAssociationCommand extends $Command
   .classBuilder<

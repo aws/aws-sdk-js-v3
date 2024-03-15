@@ -27,7 +27,6 @@ export interface GetTableCommandInput extends GetTableRequest {}
 export interface GetTableCommandOutput extends GetTableResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the <code>Table</code> definition in a Data Catalog for
  *       a specified table.</p>
  * @example
@@ -179,6 +178,7 @@ export interface GetTableCommandOutput extends GetTableResponse, __MetadataBeare
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetTableCommand extends $Command
   .classBuilder<

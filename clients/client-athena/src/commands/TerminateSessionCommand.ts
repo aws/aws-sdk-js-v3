@@ -27,7 +27,6 @@ export interface TerminateSessionCommandInput extends TerminateSessionRequest {}
 export interface TerminateSessionCommandOutput extends TerminateSessionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Terminates an active session. A <code>TerminateSession</code> call on a session that
  *             is already inactive (for example, in a <code>FAILED</code>, <code>TERMINATED</code> or
  *                 <code>TERMINATING</code> state) succeeds but has no effect. Calculations running in
@@ -70,6 +69,7 @@ export interface TerminateSessionCommandOutput extends TerminateSessionResponse,
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class TerminateSessionCommand extends $Command
   .classBuilder<

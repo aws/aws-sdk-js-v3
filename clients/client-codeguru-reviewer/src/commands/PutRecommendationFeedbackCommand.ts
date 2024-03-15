@@ -27,7 +27,6 @@ export interface PutRecommendationFeedbackCommandInput extends PutRecommendation
 export interface PutRecommendationFeedbackCommandOutput extends PutRecommendationFeedbackResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stores customer feedback for a CodeGuru Reviewer recommendation. When this API is called again with
  *          different reactions the previous feedback is overwritten.</p>
  * @example
@@ -73,6 +72,7 @@ export interface PutRecommendationFeedbackCommandOutput extends PutRecommendatio
  * @throws {@link CodeGuruReviewerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruReviewer service.</p>
  *
+ * @public
  */
 export class PutRecommendationFeedbackCommand extends $Command
   .classBuilder<

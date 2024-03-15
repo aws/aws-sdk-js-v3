@@ -31,7 +31,6 @@ export interface ListNetworksCommandInput extends ListNetworksInput {}
 export interface ListNetworksCommandOutput extends ListNetworksOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the networks in which the current Amazon Web Services account participates.</p>
  *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
  * @example
@@ -91,6 +90,7 @@ export interface ListNetworksCommandOutput extends ListNetworksOutput, __Metadat
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ * @public
  */
 export class ListNetworksCommand extends $Command
   .classBuilder<

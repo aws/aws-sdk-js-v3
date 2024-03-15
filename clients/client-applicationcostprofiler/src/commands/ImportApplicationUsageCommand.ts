@@ -31,7 +31,6 @@ export interface ImportApplicationUsageCommandInput extends ImportApplicationUsa
 export interface ImportApplicationUsageCommandOutput extends ImportApplicationUsageResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Ingests application usage data from Amazon Simple Storage Service (Amazon S3).</p>
  *          <p>The data must already exist in the S3 location. As part of the action, AWS Application Cost Profiler
  *       copies the object from your S3 bucket to an S3 bucket owned by Amazon for processing
@@ -78,6 +77,7 @@ export interface ImportApplicationUsageCommandOutput extends ImportApplicationUs
  * @throws {@link ApplicationCostProfilerServiceException}
  * <p>Base exception class for all service exceptions from ApplicationCostProfiler service.</p>
  *
+ * @public
  */
 export class ImportApplicationUsageCommand extends $Command
   .classBuilder<

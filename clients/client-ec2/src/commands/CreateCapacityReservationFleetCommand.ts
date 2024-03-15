@@ -32,7 +32,6 @@ export interface CreateCapacityReservationFleetCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Capacity Reservation Fleet. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-cr-fleets.html#create-crfleet">Create a Capacity
  * 			Reservation Fleet</a> in the Amazon EC2 User Guide.</p>
  * @example
@@ -118,6 +117,7 @@ export interface CreateCapacityReservationFleetCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateCapacityReservationFleetCommand extends $Command
   .classBuilder<

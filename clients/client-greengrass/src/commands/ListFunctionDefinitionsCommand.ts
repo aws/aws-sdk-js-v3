@@ -27,7 +27,6 @@ export interface ListFunctionDefinitionsCommandInput extends ListFunctionDefinit
 export interface ListFunctionDefinitionsCommandOutput extends ListFunctionDefinitionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * Retrieves a list of Lambda function definitions.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface ListFunctionDefinitionsCommandOutput extends ListFunctionDefini
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class ListFunctionDefinitionsCommand extends $Command
   .classBuilder<

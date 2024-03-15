@@ -31,7 +31,6 @@ export interface ListVoiceProfilesCommandInput extends ListVoiceProfilesRequest 
 export interface ListVoiceProfilesCommandOutput extends ListVoiceProfilesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the voice profiles in a voice profile domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface ListVoiceProfilesCommandOutput extends ListVoiceProfilesRespons
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class ListVoiceProfilesCommand extends $Command
   .classBuilder<

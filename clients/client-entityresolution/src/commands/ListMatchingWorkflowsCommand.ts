@@ -27,7 +27,6 @@ export interface ListMatchingWorkflowsCommandInput extends ListMatchingWorkflows
 export interface ListMatchingWorkflowsCommandOutput extends ListMatchingWorkflowsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all the <code>MatchingWorkflows</code> that have been created for an
  *             Amazon Web Services account.</p>
  * @example
@@ -86,6 +85,7 @@ export interface ListMatchingWorkflowsCommandOutput extends ListMatchingWorkflow
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ * @public
  */
 export class ListMatchingWorkflowsCommand extends $Command
   .classBuilder<

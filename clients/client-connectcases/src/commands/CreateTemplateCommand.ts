@@ -27,7 +27,6 @@ export interface CreateTemplateCommandInput extends CreateTemplateRequest {}
 export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a template in the Cases domain. This template is used to define the case object
  *       model (that is, to define what data can be captured on cases) in a Cases domain. A template
  *       must have a unique name within a domain, and it must reference existing field IDs and layout
@@ -98,6 +97,7 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ * @public
  */
 export class CreateTemplateCommand extends $Command
   .classBuilder<

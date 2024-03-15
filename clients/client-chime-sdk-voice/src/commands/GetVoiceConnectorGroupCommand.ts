@@ -27,7 +27,6 @@ export interface GetVoiceConnectorGroupCommandInput extends GetVoiceConnectorGro
 export interface GetVoiceConnectorGroupCommandOutput extends GetVoiceConnectorGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves details for the specified Amazon Chime SDK Voice Connector group,
  *          such as timestamps,name, and associated <code>VoiceConnectorItems</code>.</p>
  * @example
@@ -89,6 +88,7 @@ export interface GetVoiceConnectorGroupCommandOutput extends GetVoiceConnectorGr
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class GetVoiceConnectorGroupCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface StartPipelineExecutionCommandInput extends StartPipelineExecuti
 export interface StartPipelineExecutionCommandOutput extends StartPipelineExecutionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts the specified pipeline. Specifically, it begins processing the latest commit
  *             to the source location specified as part of the pipeline.</p>
  * @example
@@ -83,6 +82,7 @@ export interface StartPipelineExecutionCommandOutput extends StartPipelineExecut
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * @public
  */
 export class StartPipelineExecutionCommand extends $Command
   .classBuilder<

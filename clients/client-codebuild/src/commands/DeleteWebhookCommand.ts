@@ -27,7 +27,6 @@ export interface DeleteWebhookCommandInput extends DeleteWebhookInput {}
 export interface DeleteWebhookCommandOutput extends DeleteWebhookOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>For an existing CodeBuild build project that has its source code stored in a GitHub or
  *             Bitbucket repository, stops CodeBuild from rebuilding the source code every time a code
  *             change is pushed to the repository.</p>
@@ -64,6 +63,7 @@ export interface DeleteWebhookCommandOutput extends DeleteWebhookOutput, __Metad
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * @public
  */
 export class DeleteWebhookCommand extends $Command
   .classBuilder<

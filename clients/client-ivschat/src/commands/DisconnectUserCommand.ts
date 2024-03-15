@@ -31,7 +31,6 @@ export interface DisconnectUserCommandInput extends DisconnectUserRequest {}
 export interface DisconnectUserCommandOutput extends DisconnectUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disconnects all connections using a specified user ID from a room. This replicates the
  *             <a href="https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/actions-disconnectuser-publish.html">
  *             DisconnectUser</a> WebSocket operation in the Amazon IVS Chat Messaging API.</p>
@@ -76,6 +75,7 @@ export interface DisconnectUserCommandOutput extends DisconnectUserResponse, __M
  * @throws {@link IvschatServiceException}
  * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
+ * @public
  */
 export class DisconnectUserCommand extends $Command
   .classBuilder<

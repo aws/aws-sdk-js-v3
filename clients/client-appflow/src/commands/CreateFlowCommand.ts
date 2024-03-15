@@ -27,7 +27,6 @@ export interface CreateFlowCommandInput extends CreateFlowRequest {}
 export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Enables your application to create a new flow using Amazon AppFlow. You must create
  *       a connector profile before calling this API. Please note that the Request Syntax below shows
  *       syntax for multiple destinations, however, you can only transfer data to one item in this list
@@ -367,6 +366,7 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  * @throws {@link AppflowServiceException}
  * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ * @public
  */
 export class CreateFlowCommand extends $Command
   .classBuilder<

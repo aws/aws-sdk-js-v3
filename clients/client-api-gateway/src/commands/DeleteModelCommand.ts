@@ -27,7 +27,6 @@ export interface DeleteModelCommandInput extends DeleteModelRequest {}
 export interface DeleteModelCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a model.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface DeleteModelCommandOutput extends __MetadataBearer {}
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class DeleteModelCommand extends $Command
   .classBuilder<

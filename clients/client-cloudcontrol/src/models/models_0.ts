@@ -4,8 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { CloudControlServiceException as __BaseException } from "./CloudControlServiceException";
 
 /**
- * @public
  * <p>The resource with the name requested already exists.</p>
+ * @public
  */
 export class AlreadyExistsException extends __BaseException {
   readonly name: "AlreadyExistsException" = "AlreadyExistsException";
@@ -30,9 +30,9 @@ export class AlreadyExistsException extends __BaseException {
  */
 export interface CancelResourceRequestInput {
   /**
-   * @public
    * <p>The <code>RequestToken</code> of the <code>ProgressEvent</code> object returned by the
    *       resource operation request.</p>
+   * @public
    */
   RequestToken: string | undefined;
 }
@@ -98,44 +98,43 @@ export const OperationStatus = {
 export type OperationStatus = (typeof OperationStatus)[keyof typeof OperationStatus];
 
 /**
- * @public
  * <p>Represents the current status of a resource operation request. For more information, see
  *         <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html">Managing resource operation requests</a> in the
  *         <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
+ * @public
  */
 export interface ProgressEvent {
   /**
-   * @public
    * <p>The name of the resource type used in the operation.</p>
+   * @public
    */
   TypeName?: string;
 
   /**
-   * @public
    * <p>The primary identifier for the resource.</p>
    *          <note>
    *             <p>In some cases, the resource identifier may be available before the resource operation
    *         has reached a status of <code>SUCCESS</code>.</p>
    *          </note>
+   * @public
    */
   Identifier?: string;
 
   /**
-   * @public
    * <p>The unique token representing this resource operation request.</p>
    *          <p>Use the <code>RequestToken</code> with <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResourceRequestStatus.html">GetResourceRequestStatus</a> to return the current status of a resource operation
    *       request.</p>
+   * @public
    */
   RequestToken?: string;
 
   /**
-   * @public
    * <p>The resource operation type.</p>
+   * @public
    */
   Operation?: Operation;
 
   /**
-   * @public
    * <p>The current status of the resource operation request.</p>
    *          <ul>
    *             <li>
@@ -165,39 +164,40 @@ export interface ProgressEvent {
    *                   <code>CANCEL_COMPLETE</code>: The resource operation has been canceled.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   OperationStatus?: OperationStatus;
 
   /**
-   * @public
    * <p>When the resource operation request was initiated.</p>
+   * @public
    */
   EventTime?: Date;
 
   /**
-   * @public
    * <p>A JSON string containing the resource model, consisting of each resource property and its
    *       current value.</p>
+   * @public
    */
   ResourceModel?: string;
 
   /**
-   * @public
    * <p>Any message explaining the current status.</p>
+   * @public
    */
   StatusMessage?: string;
 
   /**
-   * @public
    * <p>For requests with a status of <code>FAILED</code>, the associated error code.</p>
    *          <p>For error code definitions, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-test-contract-errors.html">Handler error codes</a> in the <i>CloudFormation Command
    *         Line Interface User Guide for Extension Development</i>.</p>
+   * @public
    */
   ErrorCode?: HandlerErrorCode;
 
   /**
-   * @public
    * <p>When to next request the status of this resource operation request.</p>
+   * @public
    */
   RetryAfter?: Date;
 }
@@ -207,17 +207,17 @@ export interface ProgressEvent {
  */
 export interface CancelResourceRequestOutput {
   /**
-   * @public
    * <p>Represents the current status of a resource operation request. For more information, see
    *         <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html">Managing resource operation requests</a> in the
    *         <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
+   * @public
    */
   ProgressEvent?: ProgressEvent;
 }
 
 /**
- * @public
  * <p>The resource is currently being modified by another operation.</p>
+ * @public
  */
 export class ConcurrentModificationException extends __BaseException {
   readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
@@ -238,8 +238,8 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A resource operation with the specified request token can't be found.</p>
+ * @public
  */
 export class RequestTokenNotFoundException extends __BaseException {
   readonly name: "RequestTokenNotFoundException" = "RequestTokenNotFoundException";
@@ -260,10 +260,10 @@ export class RequestTokenNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified client token has already been used in another resource request.</p>
  *          <p>It's best practice for client tokens to be unique for each resource operation request.
  *       However, client token expire after 36 hours.</p>
+ * @public
  */
 export class ClientTokenConflictException extends __BaseException {
   readonly name: "ClientTokenConflictException" = "ClientTokenConflictException";
@@ -284,8 +284,8 @@ export class ClientTokenConflictException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Another resource operation is currently being performed on this resource.</p>
+ * @public
  */
 export class ConcurrentOperationException extends __BaseException {
   readonly name: "ConcurrentOperationException" = "ConcurrentOperationException";
@@ -310,21 +310,20 @@ export class ConcurrentOperationException extends __BaseException {
  */
 export interface CreateResourceInput {
   /**
-   * @public
    * <p>The name of the resource type.</p>
+   * @public
    */
   TypeName: string | undefined;
 
   /**
-   * @public
    * <p>For private resource types, the type version to use in this resource
    *                                      operation. If you do not specify a resource version, CloudFormation
    *                                      uses the default version.</p>
+   * @public
    */
   TypeVersionId?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Identity and Access Management
    *                                     (IAM) role for Cloud Control API to use when performing this resource
    *                                     operation. The role specified must have the permissions required for this
@@ -338,11 +337,11 @@ export interface CreateResourceInput {
    *                                     your Amazon Web Services user credentials.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions">Specifying
    *                                     credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
+   * @public
    */
   RoleArn?: string;
 
   /**
-   * @public
    * <p>A unique identifier to ensure the idempotency of the resource request. As a
    *                                      best practice, specify this token to ensure idempotency, so that Amazon Web Services Cloud Control API can
    *                                      accurately distinguish between request retries and new resource requests. You
@@ -354,11 +353,11 @@ export interface CreateResourceInput {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-idempotency">Ensuring
    *                                      resource operation requests are unique</a> in the <i>Amazon Web Services Cloud Control API User
    *                                      Guide</i>.</p>
+   * @public
    */
   ClientToken?: string;
 
   /**
-   * @public
    * <p>Structured data format representing the desired state of the resource, consisting of that
    *       resource's properties and their desired values.</p>
    *          <note>
@@ -377,6 +376,7 @@ export interface CreateResourceInput {
    *         Guide</i>.</p>
    *          <p>For more information about the properties of a specific resource, refer to the related
    *       topic for the resource in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Resource and property types reference</a> in the <i>CloudFormation Users Guide</i>.</p>
+   * @public
    */
   DesiredState: string | undefined;
 }
@@ -386,19 +386,19 @@ export interface CreateResourceInput {
  */
 export interface CreateResourceOutput {
   /**
-   * @public
    * <p>Represents the current status of the resource creation request.</p>
    *          <p>After you have initiated a resource creation request, you can monitor the progress of your
    *       request by calling <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResourceRequestStatus.html">GetResourceRequestStatus</a> using the <code>RequestToken</code> of the
    *         <code>ProgressEvent</code> returned by <code>CreateResource</code>.</p>
+   * @public
    */
   ProgressEvent?: ProgressEvent;
 }
 
 /**
- * @public
  * <p>The resource handler has returned that the downstream service generated an error that
  *       doesn't map to any other handler error code.</p>
+ * @public
  */
 export class GeneralServiceException extends __BaseException {
   readonly name: "GeneralServiceException" = "GeneralServiceException";
@@ -419,9 +419,9 @@ export class GeneralServiceException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The resource handler has failed without a returning a more specific error code. This can
  *       include timeouts.</p>
+ * @public
  */
 export class HandlerFailureException extends __BaseException {
   readonly name: "HandlerFailureException" = "HandlerFailureException";
@@ -442,9 +442,9 @@ export class HandlerFailureException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The resource handler has returned that an unexpected error occurred within the resource
  *       handler.</p>
+ * @public
  */
 export class HandlerInternalFailureException extends __BaseException {
   readonly name: "HandlerInternalFailureException" = "HandlerInternalFailureException";
@@ -465,9 +465,9 @@ export class HandlerInternalFailureException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The resource handler has returned that the credentials provided by the user are
  *       invalid.</p>
+ * @public
  */
 export class InvalidCredentialsException extends __BaseException {
   readonly name: "InvalidCredentialsException" = "InvalidCredentialsException";
@@ -488,9 +488,9 @@ export class InvalidCredentialsException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The resource handler has returned that invalid input from the user has generated a generic
  *       exception.</p>
+ * @public
  */
 export class InvalidRequestException extends __BaseException {
   readonly name: "InvalidRequestException" = "InvalidRequestException";
@@ -511,9 +511,9 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The resource handler has returned that the request couldn't be completed due to networking
  *       issues, such as a failure to receive a response from the server.</p>
+ * @public
  */
 export class NetworkFailureException extends __BaseException {
   readonly name: "NetworkFailureException" = "NetworkFailureException";
@@ -534,9 +534,9 @@ export class NetworkFailureException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The resource handler has returned that the downstream resource failed to complete all of
  *       its ready-state checks.</p>
+ * @public
  */
 export class NotStabilizedException extends __BaseException {
   readonly name: "NotStabilizedException" = "NotStabilizedException";
@@ -557,9 +557,9 @@ export class NotStabilizedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>One or more properties included in this resource operation are defined as create-only, and
  *       therefore can't be updated.</p>
+ * @public
  */
 export class NotUpdatableException extends __BaseException {
   readonly name: "NotUpdatableException" = "NotUpdatableException";
@@ -580,10 +580,10 @@ export class NotUpdatableException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Cloud Control API hasn't received a valid response from the resource handler, due to a configuration
  *       error. This includes issues such as the resource handler returning an invalid response, or
  *       timing out.</p>
+ * @public
  */
 export class PrivateTypeException extends __BaseException {
   readonly name: "PrivateTypeException" = "PrivateTypeException";
@@ -604,10 +604,10 @@ export class PrivateTypeException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The resource is temporarily unavailable to be acted upon. For example, if the resource is
  *       currently undergoing an operation and can't be acted upon until that operation is
  *       finished.</p>
+ * @public
  */
 export class ResourceConflictException extends __BaseException {
   readonly name: "ResourceConflictException" = "ResourceConflictException";
@@ -628,8 +628,8 @@ export class ResourceConflictException extends __BaseException {
 }
 
 /**
- * @public
  * <p>A resource with the specified identifier can't be found.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -650,9 +650,9 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The resource handler has returned that the downstream service returned an internal error,
  *       typically with a <code>5XX HTTP</code> status code.</p>
+ * @public
  */
 export class ServiceInternalErrorException extends __BaseException {
   readonly name: "ServiceInternalErrorException" = "ServiceInternalErrorException";
@@ -673,9 +673,9 @@ export class ServiceInternalErrorException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The resource handler has returned that a non-transient resource limit was reached on the
  *       service side.</p>
+ * @public
  */
 export class ServiceLimitExceededException extends __BaseException {
   readonly name: "ServiceLimitExceededException" = "ServiceLimitExceededException";
@@ -696,8 +696,8 @@ export class ServiceLimitExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request was denied due to request throttling.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -718,8 +718,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified extension doesn't exist in the CloudFormation registry.</p>
+ * @public
  */
 export class TypeNotFoundException extends __BaseException {
   readonly name: "TypeNotFoundException" = "TypeNotFoundException";
@@ -740,8 +740,8 @@ export class TypeNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified resource doesn't support this resource operation.</p>
+ * @public
  */
 export class UnsupportedActionException extends __BaseException {
   readonly name: "UnsupportedActionException" = "UnsupportedActionException";
@@ -766,21 +766,20 @@ export class UnsupportedActionException extends __BaseException {
  */
 export interface DeleteResourceInput {
   /**
-   * @public
    * <p>The name of the resource type.</p>
+   * @public
    */
   TypeName: string | undefined;
 
   /**
-   * @public
    * <p>For private resource types, the type version to use in this resource
    *                                      operation. If you do not specify a resource version, CloudFormation
    *                                      uses the default version.</p>
+   * @public
    */
   TypeVersionId?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Identity and Access Management
    *                                     (IAM) role for Cloud Control API to use when performing this resource
    *                                     operation. The role specified must have the permissions required for this
@@ -794,11 +793,11 @@ export interface DeleteResourceInput {
    *                                     your Amazon Web Services user credentials.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions">Specifying
    *                                     credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
+   * @public
    */
   RoleArn?: string;
 
   /**
-   * @public
    * <p>A unique identifier to ensure the idempotency of the resource request. As a
    *                                      best practice, specify this token to ensure idempotency, so that Amazon Web Services Cloud Control API can
    *                                      accurately distinguish between request retries and new resource requests. You
@@ -810,11 +809,11 @@ export interface DeleteResourceInput {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-idempotency">Ensuring
    *                                      resource operation requests are unique</a> in the <i>Amazon Web Services Cloud Control API User
    *                                      Guide</i>.</p>
+   * @public
    */
   ClientToken?: string;
 
   /**
-   * @public
    * <p>The identifier for the resource.</p>
    *          <p>You can specify the primary identifier, or any secondary identifier
    *                                             defined for the resource type in its resource schema. You can only specify
@@ -827,6 +826,7 @@ export interface DeleteResourceInput {
    *                                             separated by <code>|</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-identifier.html">Identifying
    *                                             resources</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
+   * @public
    */
   Identifier: string | undefined;
 }
@@ -836,11 +836,11 @@ export interface DeleteResourceInput {
  */
 export interface DeleteResourceOutput {
   /**
-   * @public
    * <p>Represents the current status of the resource deletion request.</p>
    *          <p>After you have initiated a resource deletion request, you can monitor the progress of your
    *       request by calling <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResourceRequestStatus.html">GetResourceRequestStatus</a> using the <code>RequestToken</code> of the
    *         <code>ProgressEvent</code> returned by <code>DeleteResource</code>.</p>
+   * @public
    */
   ProgressEvent?: ProgressEvent;
 }
@@ -850,21 +850,20 @@ export interface DeleteResourceOutput {
  */
 export interface GetResourceInput {
   /**
-   * @public
    * <p>The name of the resource type.</p>
+   * @public
    */
   TypeName: string | undefined;
 
   /**
-   * @public
    * <p>For private resource types, the type version to use in this resource
    *                                      operation. If you do not specify a resource version, CloudFormation
    *                                      uses the default version.</p>
+   * @public
    */
   TypeVersionId?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Identity and Access Management
    *                                     (IAM) role for Cloud Control API to use when performing this resource
    *                                     operation. The role specified must have the permissions required for this
@@ -878,11 +877,11 @@ export interface GetResourceInput {
    *                                     your Amazon Web Services user credentials.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions">Specifying
    *                                     credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
+   * @public
    */
   RoleArn?: string;
 
   /**
-   * @public
    * <p>The identifier for the resource.</p>
    *          <p>You can specify the primary identifier, or any secondary identifier
    *                                             defined for the resource type in its resource schema. You can only specify
@@ -895,26 +894,27 @@ export interface GetResourceInput {
    *                                             separated by <code>|</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-identifier.html">Identifying
    *                                             resources</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
+   * @public
    */
   Identifier: string | undefined;
 }
 
 /**
- * @public
  * <p>Represents information about a provisioned resource.</p>
+ * @public
  */
 export interface ResourceDescription {
   /**
-   * @public
    * <p>The primary identifier for the resource.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-identifier.html">Identifying
    *         resources</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
+   * @public
    */
   Identifier?: string;
 
   /**
-   * @public
    * <p>A list of the resource properties and their current values.</p>
+   * @public
    */
   Properties?: string;
 }
@@ -924,14 +924,14 @@ export interface ResourceDescription {
  */
 export interface GetResourceOutput {
   /**
-   * @public
    * <p>The name of the resource type.</p>
+   * @public
    */
   TypeName?: string;
 
   /**
-   * @public
    * <p>Represents information about a provisioned resource.</p>
+   * @public
    */
   ResourceDescription?: ResourceDescription;
 }
@@ -941,10 +941,10 @@ export interface GetResourceOutput {
  */
 export interface GetResourceRequestStatusInput {
   /**
-   * @public
    * <p>A unique token used to track the progress of the resource operation request.</p>
    *          <p>Request tokens are included in the <code>ProgressEvent</code> type returned by a resource
    *       operation request.</p>
+   * @public
    */
   RequestToken: string | undefined;
 }
@@ -954,25 +954,24 @@ export interface GetResourceRequestStatusInput {
  */
 export interface GetResourceRequestStatusOutput {
   /**
-   * @public
    * <p>Represents the current status of the resource operation request.</p>
+   * @public
    */
   ProgressEvent?: ProgressEvent;
 }
 
 /**
- * @public
  * <p>The filter criteria to use in determining the requests returned.</p>
+ * @public
  */
 export interface ResourceRequestStatusFilter {
   /**
-   * @public
    * <p>The operation types to include in the filter.</p>
+   * @public
    */
   Operations?: Operation[];
 
   /**
-   * @public
    * <p>The operation statuses to include in the filter.</p>
    *          <ul>
    *             <li>
@@ -1001,6 +1000,7 @@ export interface ResourceRequestStatusFilter {
    *                   <code>CANCEL_COMPLETE</code>: The operation has been canceled.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   OperationStatuses?: OperationStatus[];
 }
@@ -1010,29 +1010,29 @@ export interface ResourceRequestStatusFilter {
  */
 export interface ListResourceRequestsInput {
   /**
-   * @public
    * <p>The maximum number of results to be returned with a single call. If the number of
    *       available results exceeds this maximum, the response includes a <code>NextToken</code> value
    *       that you can assign to the <code>NextToken</code> request parameter to get the next set of
    *       results.</p>
    *          <p>The default is <code>20</code>.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>If the previous paginated request didn't return all of the remaining results,
    *                                    the response object's <code>NextToken</code> parameter value is set to a token.
    *                                    To retrieve the next set of results, call this action again and assign that token to
    *                                    the request object's <code>NextToken</code> parameter. If there are no remaining
    *                                    results, the previous response object's <code>NextToken</code> parameter is set to
    *                                    <code>null</code>.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The filter criteria to apply to the requests returned.</p>
+   * @public
    */
   ResourceRequestStatusFilter?: ResourceRequestStatusFilter;
 }
@@ -1042,18 +1042,18 @@ export interface ListResourceRequestsInput {
  */
 export interface ListResourceRequestsOutput {
   /**
-   * @public
    * <p>The requests that match the specified filter criteria.</p>
+   * @public
    */
   ResourceRequestStatusSummaries?: ProgressEvent[];
 
   /**
-   * @public
    * <p>If the request doesn't return all of the remaining results,
    *                                     <code>NextToken</code> is set to a token. To retrieve the next set of results, call
    *                                     <code>ListResources</code> again and assign that token to the request object's
    *                                     <code>NextToken</code> parameter. If the request returns all results,
    *                                     <code>NextToken</code> is set to null.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1063,21 +1063,20 @@ export interface ListResourceRequestsOutput {
  */
 export interface ListResourcesInput {
   /**
-   * @public
    * <p>The name of the resource type.</p>
+   * @public
    */
   TypeName: string | undefined;
 
   /**
-   * @public
    * <p>For private resource types, the type version to use in this resource
    *                                      operation. If you do not specify a resource version, CloudFormation
    *                                      uses the default version.</p>
+   * @public
    */
   TypeVersionId?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Identity and Access Management
    *                                     (IAM) role for Cloud Control API to use when performing this resource
    *                                     operation. The role specified must have the permissions required for this
@@ -1091,29 +1090,30 @@ export interface ListResourcesInput {
    *                                     your Amazon Web Services user credentials.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions">Specifying
    *                                     credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
+   * @public
    */
   RoleArn?: string;
 
   /**
-   * @public
    * <p>If the previous paginated request didn't return all of the remaining results,
    *                                    the response object's <code>NextToken</code> parameter value is set to a token.
    *                                    To retrieve the next set of results, call this action again and assign that token to
    *                                    the request object's <code>NextToken</code> parameter. If there are no remaining
    *                                    results, the previous response object's <code>NextToken</code> parameter is set to
    *                                    <code>null</code>.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Reserved.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>The resource model to use to select the resources to return.</p>
+   * @public
    */
   ResourceModel?: string;
 }
@@ -1123,25 +1123,25 @@ export interface ListResourcesInput {
  */
 export interface ListResourcesOutput {
   /**
-   * @public
    * <p>The name of the resource type.</p>
+   * @public
    */
   TypeName?: string;
 
   /**
-   * @public
    * <p>Information about the specified resources, including primary identifier and resource
    *       model.</p>
+   * @public
    */
   ResourceDescriptions?: ResourceDescription[];
 
   /**
-   * @public
    * <p>If the request doesn't return all of the remaining results,
    *                                     <code>NextToken</code> is set to a token. To retrieve the next set of results, call
    *                                     <code>ListResources</code> again and assign that token to the request object's
    *                                     <code>NextToken</code> parameter. If the request returns all results,
    *                                     <code>NextToken</code> is set to null.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1151,21 +1151,20 @@ export interface ListResourcesOutput {
  */
 export interface UpdateResourceInput {
   /**
-   * @public
    * <p>The name of the resource type.</p>
+   * @public
    */
   TypeName: string | undefined;
 
   /**
-   * @public
    * <p>For private resource types, the type version to use in this resource
    *                                      operation. If you do not specify a resource version, CloudFormation
    *                                      uses the default version.</p>
+   * @public
    */
   TypeVersionId?: string;
 
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the Identity and Access Management
    *                                     (IAM) role for Cloud Control API to use when performing this resource
    *                                     operation. The role specified must have the permissions required for this
@@ -1179,11 +1178,11 @@ export interface UpdateResourceInput {
    *                                     your Amazon Web Services user credentials.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions">Specifying
    *                                     credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
+   * @public
    */
   RoleArn?: string;
 
   /**
-   * @public
    * <p>A unique identifier to ensure the idempotency of the resource request. As a
    *                                      best practice, specify this token to ensure idempotency, so that Amazon Web Services Cloud Control API can
    *                                      accurately distinguish between request retries and new resource requests. You
@@ -1195,11 +1194,11 @@ export interface UpdateResourceInput {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-idempotency">Ensuring
    *                                      resource operation requests are unique</a> in the <i>Amazon Web Services Cloud Control API User
    *                                      Guide</i>.</p>
+   * @public
    */
   ClientToken?: string;
 
   /**
-   * @public
    * <p>The identifier for the resource.</p>
    *          <p>You can specify the primary identifier, or any secondary identifier
    *                                             defined for the resource type in its resource schema. You can only specify
@@ -1212,14 +1211,15 @@ export interface UpdateResourceInput {
    *                                             separated by <code>|</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-identifier.html">Identifying
    *                                             resources</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
+   * @public
    */
   Identifier: string | undefined;
 
   /**
-   * @public
    * <p>A JavaScript Object Notation (JSON) document listing the patch operations that represent
    *       the updates to apply to the current resource properties. For details, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-update.html#resource-operations-update-patch">Composing the patch document</a> in the <i>Amazon Web Services Cloud Control API User
    *       Guide</i>.</p>
+   * @public
    */
   PatchDocument: string | undefined;
 }
@@ -1229,10 +1229,10 @@ export interface UpdateResourceInput {
  */
 export interface UpdateResourceOutput {
   /**
-   * @public
    * <p>Represents the current status of the resource update request.</p>
    *          <p>Use the <code>RequestToken</code> of the <code>ProgressEvent</code> with <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResourceRequestStatus.html">GetResourceRequestStatus</a> to return the current status of a resource operation
    *       request.</p>
+   * @public
    */
   ProgressEvent?: ProgressEvent;
 }

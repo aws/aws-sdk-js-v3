@@ -27,7 +27,6 @@ export interface CreateConnectionCommandInput extends CreateConnectionRequest {}
 export interface CreateConnectionCommandOutput extends CreateConnectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a connection definition in the Data Catalog.</p>
  *          <p>Connections used for creating federated resources require the IAM <code>glue:PassConnection</code> permission.</p>
  * @example
@@ -90,6 +89,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class CreateConnectionCommand extends $Command
   .classBuilder<

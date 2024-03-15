@@ -27,7 +27,6 @@ export interface CreateRecommenderCommandInput extends CreateRecommenderRequest 
 export interface CreateRecommenderCommandOutput extends CreateRecommenderResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a recommender with the recipe (a Domain dataset group use case) you specify.
  *       You create recommenders for a Domain dataset group and specify the recommender's Amazon Resource Name (ARN) when you make a
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a>
@@ -172,6 +171,7 @@ export interface CreateRecommenderCommandOutput extends CreateRecommenderRespons
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class CreateRecommenderCommand extends $Command
   .classBuilder<

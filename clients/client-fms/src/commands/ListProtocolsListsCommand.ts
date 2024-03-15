@@ -27,7 +27,6 @@ export interface ListProtocolsListsCommandInput extends ListProtocolsListsReques
 export interface ListProtocolsListsCommandOutput extends ListProtocolsListsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an array of <code>ProtocolsListDataSummary</code> objects.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface ListProtocolsListsCommandOutput extends ListProtocolsListsRespo
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * @public
  */
 export class ListProtocolsListsCommand extends $Command
   .classBuilder<

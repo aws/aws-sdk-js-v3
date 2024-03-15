@@ -27,7 +27,6 @@ export interface GetLandingZoneCommandInput extends GetLandingZoneInput {}
 export interface GetLandingZoneCommandOutput extends GetLandingZoneOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns details about the landing zone. Displays a message in case of error.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface GetLandingZoneCommandOutput extends GetLandingZoneOutput, __Met
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ * @public
  */
 export class GetLandingZoneCommand extends $Command
   .classBuilder<

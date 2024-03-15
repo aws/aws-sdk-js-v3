@@ -27,7 +27,6 @@ export interface DisassociateMembersCommandInput extends DisassociateMembersRequ
 export interface DisassociateMembersCommandOutput extends DisassociateMembersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates GuardDuty member accounts (from the current administrator account) specified
  *       by the account IDs.</p>
  *          <p>When you
@@ -79,6 +78,7 @@ export interface DisassociateMembersCommandOutput extends DisassociateMembersRes
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class DisassociateMembersCommand extends $Command
   .classBuilder<

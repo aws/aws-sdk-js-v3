@@ -27,7 +27,6 @@ export interface ModifyDBInstanceCommandInput extends ModifyDBInstanceMessage {}
 export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies settings for a DB instance.
  *           You can change one or more database configuration parameters by specifying these parameters and the new values in the request.
  *             To learn what modifications you can make to your DB instance,
@@ -435,6 +434,7 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To modify a DB instance
  * ```javascript
  * // The following example associates an option group and a parameter group with a compatible Microsoft SQL Server DB instance. The ApplyImmediately parameter causes the option and parameter groups to be associated immediately, instead of waiting until the next maintenance window.

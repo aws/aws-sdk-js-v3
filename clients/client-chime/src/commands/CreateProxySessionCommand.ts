@@ -32,9 +32,6 @@ export interface CreateProxySessionCommandInput extends CreateProxySessionReques
 export interface CreateProxySessionCommandOutput extends CreateProxySessionResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by CreateProxySession in the Amazon Chime SDK Voice Namespace
- *
  * <p>Creates a proxy session on the specified Amazon Chime Voice Connector for the specified participant phone numbers.</p>
  *          <important>
  *             <p>
@@ -128,6 +125,8 @@ export interface CreateProxySessionCommandOutput extends CreateProxySessionRespo
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by CreateProxySession in the Amazon Chime SDK Voice Namespace
  */
 export class CreateProxySessionCommand extends $Command
   .classBuilder<

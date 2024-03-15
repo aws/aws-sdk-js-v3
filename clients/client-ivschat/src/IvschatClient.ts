@@ -315,7 +315,6 @@ export type IvschatClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
 export interface IvschatClientResolvedConfig extends IvschatClientResolvedConfigType {}
 
 /**
- * @public
  * <p>
  *             <b>Introduction</b>
  *          </p>
@@ -535,6 +534,7 @@ export interface IvschatClientResolvedConfig extends IvschatClientResolvedConfig
  *          <p>All the above are HTTP operations. There is a separate <i>messaging</i> API
  *       for managing Chat resources; see the <a href="https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/chat-messaging-api.html"> Amazon IVS Chat Messaging API
  *         Reference</a>.</p>
+ * @public
  */
 export class IvschatClient extends __Client<
   __HttpHandlerOptions,

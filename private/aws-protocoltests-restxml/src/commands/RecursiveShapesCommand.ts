@@ -25,7 +25,6 @@ export interface RecursiveShapesCommandInput extends RecursiveShapesRequest {}
 export interface RecursiveShapesCommandOutput extends RecursiveShapesResponse, __MetadataBearer {}
 
 /**
- * @public
  * Recursive shapes
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface RecursiveShapesCommandOutput extends RecursiveShapesResponse, _
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ * @public
  */
 export class RecursiveShapesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeThumbnailsCommandInput extends DescribeThumbnailsReques
 export interface DescribeThumbnailsCommandOutput extends DescribeThumbnailsResponse, __MetadataBearer {}
 
 /**
- * @public
  * Describe the latest thumbnails data.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface DescribeThumbnailsCommandOutput extends DescribeThumbnailsRespo
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class DescribeThumbnailsCommand extends $Command
   .classBuilder<

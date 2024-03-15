@@ -27,7 +27,6 @@ export interface BatchStopCommandInput extends BatchStopRequest {}
 export interface BatchStopCommandOutput extends BatchStopResponse, __MetadataBearer {}
 
 /**
- * @public
  * Stops running resources
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface BatchStopCommandOutput extends BatchStopResponse, __MetadataBea
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class BatchStopCommand extends $Command
   .classBuilder<

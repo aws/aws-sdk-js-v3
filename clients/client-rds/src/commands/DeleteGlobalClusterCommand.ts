@@ -27,7 +27,6 @@ export interface DeleteGlobalClusterCommandInput extends DeleteGlobalClusterMess
 export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a global database cluster. The primary and secondary clusters must already be detached or
  *         destroyed first.</p>
  *          <note>
@@ -92,6 +91,7 @@ export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterRes
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To delete a global DB cluster
  * ```javascript
  * // The following example deletes an Aurora MySQL-compatible global DB cluster.

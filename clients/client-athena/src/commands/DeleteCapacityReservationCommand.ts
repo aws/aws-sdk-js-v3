@@ -27,7 +27,6 @@ export interface DeleteCapacityReservationCommandInput extends DeleteCapacityRes
 export interface DeleteCapacityReservationCommandOutput extends DeleteCapacityReservationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a cancelled capacity reservation. A reservation must be cancelled before it
  *             can be deleted. A deleted reservation is immediately removed from your account and can
  *             no longer be referenced, including by its ARN. A deleted reservation cannot be called by
@@ -65,6 +64,7 @@ export interface DeleteCapacityReservationCommandOutput extends DeleteCapacityRe
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class DeleteCapacityReservationCommand extends $Command
   .classBuilder<

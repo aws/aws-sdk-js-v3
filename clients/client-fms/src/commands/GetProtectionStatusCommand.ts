@@ -27,7 +27,6 @@ export interface GetProtectionStatusCommandInput extends GetProtectionStatusRequ
 export interface GetProtectionStatusCommandOutput extends GetProtectionStatusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>If you created a Shield Advanced policy, returns policy-level attack summary information
  *          in the event of a potential DDoS attack. Other policy types are currently unsupported.</p>
  * @example
@@ -74,6 +73,7 @@ export interface GetProtectionStatusCommandOutput extends GetProtectionStatusRes
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * @public
  */
 export class GetProtectionStatusCommand extends $Command
   .classBuilder<

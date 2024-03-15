@@ -27,7 +27,6 @@ export interface IndexDocumentsCommandInput extends IndexDocumentsRequest {}
 export interface IndexDocumentsCommandOutput extends IndexDocumentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Tells the search domain to start indexing its documents using the latest indexing options. This operation must be invoked to activate options whose <a>OptionStatus</a> is  <code>RequiresIndexDocuments</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface IndexDocumentsCommandOutput extends IndexDocumentsResponse, __M
  * @throws {@link CloudSearchServiceException}
  * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
+ * @public
  */
 export class IndexDocumentsCommand extends $Command
   .classBuilder<

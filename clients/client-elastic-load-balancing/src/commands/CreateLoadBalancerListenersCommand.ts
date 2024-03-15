@@ -31,7 +31,6 @@ export interface CreateLoadBalancerListenersCommandInput extends CreateLoadBalan
 export interface CreateLoadBalancerListenersCommandOutput extends CreateLoadBalancerListenerOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates one or more listeners for the specified load balancer. If a listener with the specified port does not already exist, it is created; otherwise, the properties of the new listener must match the properties of the existing listener.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html">Listeners for Your Classic Load Balancer</a>
  *             in the <i>Classic Load Balancers Guide</i>.</p>
@@ -85,6 +84,7 @@ export interface CreateLoadBalancerListenersCommandOutput extends CreateLoadBala
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * @public
  * @example To create an HTTP listener for a load balancer
  * ```javascript
  * // This example creates a listener for your load balancer at port 80 using the HTTP protocol.

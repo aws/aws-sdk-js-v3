@@ -32,7 +32,6 @@ export interface DisassociateFileSystemAliasesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Use this action to disassociate, or remove, one or more Domain Name Service (DNS) aliases
  *             from an Amazon FSx for Windows File Server file system. If you attempt to disassociate a DNS alias that is not
  *             associated with the file system, Amazon FSx responds with an HTTP status code 400 (Bad Request). For more information, see
@@ -86,6 +85,7 @@ export interface DisassociateFileSystemAliasesCommandOutput
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  */
 export class DisassociateFileSystemAliasesCommand extends $Command
   .classBuilder<

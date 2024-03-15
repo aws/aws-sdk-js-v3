@@ -27,7 +27,6 @@ export interface ListTeamMembersCommandInput extends ListTeamMembersRequest {}
 export interface ListTeamMembersCommandOutput extends ListTeamMembersResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all team members associated with a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface ListTeamMembersCommandOutput extends ListTeamMembersResult, __M
  * @throws {@link CodeStarServiceException}
  * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
+ * @public
  */
 export class ListTeamMembersCommand extends $Command
   .classBuilder<

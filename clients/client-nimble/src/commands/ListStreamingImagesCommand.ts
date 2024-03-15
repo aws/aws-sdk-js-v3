@@ -31,7 +31,6 @@ export interface ListStreamingImagesCommandInput extends ListStreamingImagesRequ
 export interface ListStreamingImagesCommandOutput extends ListStreamingImagesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List the streaming image resources available to this studio.</p>
  *         <p>This list will contain both images provided by Amazon Web Services, as well as
  *             streaming images that you have created in your studio.</p>
@@ -111,6 +110,7 @@ export interface ListStreamingImagesCommandOutput extends ListStreamingImagesRes
  * @throws {@link NimbleServiceException}
  * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
+ * @public
  */
 export class ListStreamingImagesCommand extends $Command
   .classBuilder<

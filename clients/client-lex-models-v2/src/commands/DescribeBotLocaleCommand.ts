@@ -27,7 +27,6 @@ export interface DescribeBotLocaleCommandInput extends DescribeBotLocaleRequest 
 export interface DescribeBotLocaleCommandOutput extends DescribeBotLocaleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the settings that a bot has for a specific locale. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -127,6 +126,7 @@ export interface DescribeBotLocaleCommandOutput extends DescribeBotLocaleRespons
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class DescribeBotLocaleCommand extends $Command
   .classBuilder<

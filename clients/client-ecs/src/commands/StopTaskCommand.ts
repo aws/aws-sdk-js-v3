@@ -27,7 +27,6 @@ export interface StopTaskCommandInput extends StopTaskRequest {}
 export interface StopTaskCommandOutput extends StopTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a running task. Any tags associated with the task will be deleted.</p>
  *          <p>When <a>StopTask</a> is called on a task, the equivalent of <code>docker
  * 				stop</code> is issued to the containers running in the task. This results in a
@@ -239,6 +238,7 @@ export interface StopTaskCommandOutput extends StopTaskResponse, __MetadataBeare
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  */
 export class StopTaskCommand extends $Command
   .classBuilder<

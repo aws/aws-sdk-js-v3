@@ -27,7 +27,6 @@ export interface DeleteSshPublicKeyCommandInput extends DeleteSshPublicKeyReques
 export interface DeleteSshPublicKeyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a user's Secure Shell (SSH) public key.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface DeleteSshPublicKeyCommandOutput extends __MetadataBearer {}
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class DeleteSshPublicKeyCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetDeliveryCommandInput extends GetDeliveryRequest {}
 export interface GetDeliveryCommandOutput extends GetDeliveryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns complete information about one logical <i>delivery</i>. A delivery is a
  *        connection between a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html">
  *                <i>delivery source</i>
@@ -93,6 +92,7 @@ export interface GetDeliveryCommandOutput extends GetDeliveryResponse, __Metadat
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class GetDeliveryCommand extends $Command
   .classBuilder<

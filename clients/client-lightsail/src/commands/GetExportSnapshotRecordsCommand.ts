@@ -27,7 +27,6 @@ export interface GetExportSnapshotRecordsCommandInput extends GetExportSnapshotR
 export interface GetExportSnapshotRecordsCommandOutput extends GetExportSnapshotRecordsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns all export snapshot records created as a result of the <code>export
  *         snapshot</code> operation.</p>
  *          <p>An export snapshot record can be used to create a new Amazon EC2 instance and its related
@@ -129,6 +128,7 @@ export interface GetExportSnapshotRecordsCommandOutput extends GetExportSnapshot
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetExportSnapshotRecordsCommand extends $Command
   .classBuilder<

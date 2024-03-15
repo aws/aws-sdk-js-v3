@@ -27,7 +27,6 @@ export interface GetChannelPolicyCommandInput extends GetChannelPolicyRequest {}
 export interface GetChannelPolicyCommandOutput extends GetChannelPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the specified channel policy that's configured in AWS Elemental MediaPackage. With policies, you can specify who has access to AWS resources and what actions they can perform on those resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface GetChannelPolicyCommandOutput extends GetChannelPolicyResponse,
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
+ * @public
  */
 export class GetChannelPolicyCommand extends $Command
   .classBuilder<

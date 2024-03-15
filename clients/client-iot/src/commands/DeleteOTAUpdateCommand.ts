@@ -27,7 +27,6 @@ export interface DeleteOTAUpdateCommandInput extends DeleteOTAUpdateRequest {}
 export interface DeleteOTAUpdateCommandOutput extends DeleteOTAUpdateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete an OTA update.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteOTAUpdate</a> action.</p>
  * @example
@@ -79,6 +78,7 @@ export interface DeleteOTAUpdateCommandOutput extends DeleteOTAUpdateResponse, _
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DeleteOTAUpdateCommand extends $Command
   .classBuilder<

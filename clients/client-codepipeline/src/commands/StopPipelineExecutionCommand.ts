@@ -27,7 +27,6 @@ export interface StopPipelineExecutionCommandInput extends StopPipelineExecution
 export interface StopPipelineExecutionCommandOutput extends StopPipelineExecutionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops the specified pipeline execution. You choose to either stop the pipeline
  *             execution by completing in-progress actions without starting subsequent actions, or by
  *             abandoning in-progress actions. While completing or abandoning in-progress actions, the
@@ -84,6 +83,7 @@ export interface StopPipelineExecutionCommandOutput extends StopPipelineExecutio
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * @public
  */
 export class StopPipelineExecutionCommand extends $Command
   .classBuilder<

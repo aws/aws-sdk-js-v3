@@ -27,7 +27,6 @@ export interface DescribeSimulationJobCommandInput extends DescribeSimulationJob
 export interface DescribeSimulationJobCommandOutput extends DescribeSimulationJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a simulation job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -216,6 +215,7 @@ export interface DescribeSimulationJobCommandOutput extends DescribeSimulationJo
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ * @public
  */
 export class DescribeSimulationJobCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CancelJournalKinesisStreamCommandInput extends CancelJournalKin
 export interface CancelJournalKinesisStreamCommandOutput extends CancelJournalKinesisStreamResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Ends a given Amazon QLDB journal stream. Before a stream can be canceled, its current
  *          status must be <code>ACTIVE</code>.</p>
  *          <p>You can't restart a stream after you cancel it. Canceled QLDB stream resources are
@@ -69,6 +68,7 @@ export interface CancelJournalKinesisStreamCommandOutput extends CancelJournalKi
  * @throws {@link QLDBServiceException}
  * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
+ * @public
  */
 export class CancelJournalKinesisStreamCommand extends $Command
   .classBuilder<

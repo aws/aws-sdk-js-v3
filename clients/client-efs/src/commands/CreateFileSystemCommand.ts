@@ -27,7 +27,6 @@ export interface CreateFileSystemCommandInput extends CreateFileSystemRequest {}
 export interface CreateFileSystemCommandOutput extends FileSystemDescription, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new, empty file system. The operation requires a creation token in the
  *       request that Amazon EFS uses to ensure idempotent creation (calling the operation with same
  *       creation token has no effect). If a file system does not currently exist that is owned by the
@@ -184,6 +183,7 @@ export interface CreateFileSystemCommandOutput extends FileSystemDescription, __
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * @public
  * @example To create a new file system
  * ```javascript
  * // This operation creates a new, encrypted file system with automatic backups enabled, and the default generalpurpose performance mode.

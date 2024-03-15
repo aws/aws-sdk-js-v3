@@ -27,7 +27,6 @@ export interface DescribeContainerInstancesCommandInput extends DescribeContaine
 export interface DescribeContainerInstancesCommandOutput extends DescribeContainerInstancesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes one or more container instances. Returns metadata about each container
  * 			instance requested.</p>
  * @example
@@ -165,6 +164,7 @@ export interface DescribeContainerInstancesCommandOutput extends DescribeContain
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  * @example To describe container instance
  * ```javascript
  * // This example provides a description of the specified container instance in your default region, using the container instance UUID as an identifier.

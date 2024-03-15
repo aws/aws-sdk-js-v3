@@ -27,7 +27,6 @@ export interface DeleteSubnetGroupCommandInput extends DeleteSubnetGroupRequest 
 export interface DeleteSubnetGroupCommandOutput extends DeleteSubnetGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a subnet group.</p>
  *         <note>
  *             <p>You cannot delete a subnet group if it is associated with any DAX
@@ -69,6 +68,7 @@ export interface DeleteSubnetGroupCommandOutput extends DeleteSubnetGroupRespons
  * @throws {@link DAXServiceException}
  * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ * @public
  */
 export class DeleteSubnetGroupCommand extends $Command
   .classBuilder<

@@ -29,7 +29,6 @@ export interface DeregisterContainerInstanceCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deregisters an Amazon ECS container instance from the specified cluster. This instance is
  * 			no longer available to run tasks.</p>
  *          <p>If you intend to use the container instance for some other purpose after
@@ -166,6 +165,7 @@ export interface DeregisterContainerInstanceCommandOutput
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  * @example To deregister a container instance from a cluster
  * ```javascript
  * // This example deregisters a container instance from the specified cluster in your default region. If there are still tasks running on the container instance, you must either stop those tasks before deregistering, or use the force option.

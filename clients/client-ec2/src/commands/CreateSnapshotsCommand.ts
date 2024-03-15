@@ -27,7 +27,6 @@ export interface CreateSnapshotsCommandInput extends CreateSnapshotsRequest {}
 export interface CreateSnapshotsCommandOutput extends CreateSnapshotsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates crash-consistent snapshots of multiple EBS volumes and stores the data in S3.
  *     Volumes are chosen by specifying an instance. Any attached volumes will produce one snapshot
  *     each that is crash-consistent across the instance.</p>
@@ -105,6 +104,7 @@ export interface CreateSnapshotsCommandOutput extends CreateSnapshotsResult, __M
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateSnapshotsCommand extends $Command
   .classBuilder<

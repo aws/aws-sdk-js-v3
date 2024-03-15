@@ -27,7 +27,6 @@ export interface CreateOriginEndpointCommandInput extends CreateOriginEndpointRe
 export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointResponse, __MetadataBearer {}
 
 /**
- * @public
  * Creates a new OriginEndpoint record.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -399,6 +398,7 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  * @throws {@link MediaPackageServiceException}
  * <p>Base exception class for all service exceptions from MediaPackage service.</p>
  *
+ * @public
  */
 export class CreateOriginEndpointCommand extends $Command
   .classBuilder<

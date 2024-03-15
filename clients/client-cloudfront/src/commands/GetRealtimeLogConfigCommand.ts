@@ -27,7 +27,6 @@ export interface GetRealtimeLogConfigCommandInput extends GetRealtimeLogConfigRe
 export interface GetRealtimeLogConfigCommandOutput extends GetRealtimeLogConfigResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a real-time log configuration.</p>
  *          <p>To get a real-time log configuration, you can provide the configuration's name or its
  * 			Amazon Resource Name (ARN). You must provide at least one. If you provide both, CloudFront
@@ -84,6 +83,7 @@ export interface GetRealtimeLogConfigCommandOutput extends GetRealtimeLogConfigR
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class GetRealtimeLogConfigCommand extends $Command
   .classBuilder<

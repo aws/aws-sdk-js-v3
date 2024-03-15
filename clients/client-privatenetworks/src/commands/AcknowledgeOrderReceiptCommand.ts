@@ -31,7 +31,6 @@ export interface AcknowledgeOrderReceiptCommandInput extends AcknowledgeOrderRec
 export interface AcknowledgeOrderReceiptCommandOutput extends AcknowledgeOrderReceiptResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Acknowledges that the specified network order was received.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface AcknowledgeOrderReceiptCommandOutput extends AcknowledgeOrderRe
  * @throws {@link PrivateNetworksServiceException}
  * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
+ * @public
  */
 export class AcknowledgeOrderReceiptCommand extends $Command
   .classBuilder<

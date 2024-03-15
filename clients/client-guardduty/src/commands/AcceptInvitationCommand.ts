@@ -27,9 +27,6 @@ export interface AcceptInvitationCommandInput extends AcceptInvitationRequest {}
 export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This operation is deprecated, use AcceptAdministratorInvitation instead
- *
  * <p>Accepts the invitation to be monitored by a GuardDuty administrator account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +60,8 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
+ * @deprecated This operation is deprecated, use AcceptAdministratorInvitation instead
  */
 export class AcceptInvitationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface FinalizeCutoverCommandInput extends FinalizeCutoverRequest {}
 export interface FinalizeCutoverCommandOutput extends SourceServer, __MetadataBearer {}
 
 /**
- * @public
  * <p>Finalizes the cutover immediately for specific Source Servers. All AWS resources created by Application Migration Service for enabling the replication of these source servers will be terminated / deleted within 90 minutes. Launched Test or Cutover instances will NOT be terminated. The AWS Replication Agent will receive a command to uninstall itself (within 10 minutes). The following properties of the SourceServer will be changed immediately: dataReplicationInfo.dataReplicationState will be changed to DISCONNECTED; The SourceServer.lifeCycle.state will be changed to CUTOVER; The totalStorageBytes property fo each of dataReplicationInfo.replicatedDisks will be set to zero; dataReplicationInfo.lagDuration and dataReplicationInfo.lagDuration will be nullified.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -183,6 +182,7 @@ export interface FinalizeCutoverCommandOutput extends SourceServer, __MetadataBe
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * @public
  */
 export class FinalizeCutoverCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListAccountAssignmentsCommandInput extends ListAccountAssignmen
 export interface ListAccountAssignmentsCommandOutput extends ListAccountAssignmentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the assignee of the specified Amazon Web Services account with the specified permission
  *             set.</p>
  * @example
@@ -85,6 +84,7 @@ export interface ListAccountAssignmentsCommandOutput extends ListAccountAssignme
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class ListAccountAssignmentsCommand extends $Command
   .classBuilder<

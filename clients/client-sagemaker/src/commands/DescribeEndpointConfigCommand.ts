@@ -27,7 +27,6 @@ export interface DescribeEndpointConfigCommandInput extends DescribeEndpointConf
 export interface DescribeEndpointConfigCommandOutput extends DescribeEndpointConfigOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the description of an endpoint configuration created using the
  *                 <code>CreateEndpointConfig</code> API.</p>
  * @example
@@ -205,6 +204,7 @@ export interface DescribeEndpointConfigCommandOutput extends DescribeEndpointCon
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeEndpointConfigCommand extends $Command
   .classBuilder<

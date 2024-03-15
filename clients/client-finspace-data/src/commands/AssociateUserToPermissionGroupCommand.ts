@@ -32,9 +32,6 @@ export interface AssociateUserToPermissionGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This method will be discontinued.
- *
  * <p>Adds a user to a permission group to grant permissions for actions a user can perform in FinSpace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +80,8 @@ export interface AssociateUserToPermissionGroupCommandOutput
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ * @public
+ * @deprecated This method will be discontinued.
  */
 export class AssociateUserToPermissionGroupCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ExitStandbyCommandInput extends ExitStandbyQuery {}
 export interface ExitStandbyCommandOutput extends ExitStandbyAnswer, __MetadataBearer {}
 
 /**
- * @public
  * <p>Moves the specified instances out of the standby state.</p>
  *          <p>After you put the instances back in service, the desired capacity is
  *             incremented.</p>
@@ -82,6 +81,7 @@ export interface ExitStandbyCommandOutput extends ExitStandbyAnswer, __MetadataB
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To move instances out of standby mode
  * ```javascript
  * // This example moves the specified instance out of standby mode.

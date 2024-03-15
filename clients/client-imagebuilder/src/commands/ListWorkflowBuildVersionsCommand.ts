@@ -27,7 +27,6 @@ export interface ListWorkflowBuildVersionsCommandInput extends ListWorkflowBuild
 export interface ListWorkflowBuildVersionsCommandOutput extends ListWorkflowBuildVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of build versions for a specific workflow resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface ListWorkflowBuildVersionsCommandOutput extends ListWorkflowBuil
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class ListWorkflowBuildVersionsCommand extends $Command
   .classBuilder<

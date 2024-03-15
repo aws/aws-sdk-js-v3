@@ -4,9 +4,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { KinesisVideoSignalingServiceException as __BaseException } from "./KinesisVideoSignalingServiceException";
 
 /**
- * @public
  * <p>Your request was throttled because you have exceeded the limit of allowed client
  *             calls. Try making the call later.</p>
+ * @public
  */
 export class ClientLimitExceededException extends __BaseException {
   readonly name: "ClientLimitExceededException" = "ClientLimitExceededException";
@@ -44,60 +44,60 @@ export type Service = (typeof Service)[keyof typeof Service];
  */
 export interface GetIceServerConfigRequest {
   /**
-   * @public
    * <p>The ARN of the signaling channel to be used for the peer-to-peer connection between
    *             configured peers. </p>
+   * @public
    */
   ChannelARN: string | undefined;
 
   /**
-   * @public
    * <p>Unique identifier for the viewer. Must be unique within the signaling channel.</p>
+   * @public
    */
   ClientId?: string;
 
   /**
-   * @public
    * <p>Specifies the desired service. Currently, <code>TURN</code> is the only valid
    *             value.</p>
+   * @public
    */
   Service?: Service;
 
   /**
-   * @public
    * <p>An optional user ID to be associated with the credentials.</p>
+   * @public
    */
   Username?: string;
 }
 
 /**
- * @public
  * <p>A structure for the ICE server connection data.</p>
+ * @public
  */
 export interface IceServer {
   /**
-   * @public
    * <p>An array of URIs, in the form specified in the <a href="https://tools.ietf.org/html/draft-petithuguenin-behave-turn-uris-03">I-D.petithuguenin-behave-turn-uris</a> spec. These URIs provide the different
    *             addresses and/or protocols that can be used to reach the TURN server.</p>
+   * @public
    */
   Uris?: string[];
 
   /**
-   * @public
    * <p>A username to login to the ICE server.</p>
+   * @public
    */
   Username?: string;
 
   /**
-   * @public
    * <p>A password to login to the ICE server.</p>
+   * @public
    */
   Password?: string;
 
   /**
-   * @public
    * <p>The period of time, in seconds, during which the username and password are
    *             valid.</p>
+   * @public
    */
   Ttl?: number;
 }
@@ -107,15 +107,15 @@ export interface IceServer {
  */
 export interface GetIceServerConfigResponse {
   /**
-   * @public
    * <p>The list of ICE server information objects.</p>
+   * @public
    */
   IceServerList?: IceServer[];
 }
 
 /**
- * @public
  * <p>The value for this input parameter is invalid.</p>
+ * @public
  */
 export class InvalidArgumentException extends __BaseException {
   readonly name: "InvalidArgumentException" = "InvalidArgumentException";
@@ -136,8 +136,8 @@ export class InvalidArgumentException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified client is invalid.</p>
+ * @public
  */
 export class InvalidClientException extends __BaseException {
   readonly name: "InvalidClientException" = "InvalidClientException";
@@ -156,8 +156,8 @@ export class InvalidClientException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The caller is not authorized to perform this operation.</p>
+ * @public
  */
 export class NotAuthorizedException extends __BaseException {
   readonly name: "NotAuthorizedException" = "NotAuthorizedException";
@@ -178,8 +178,8 @@ export class NotAuthorizedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified resource is not found.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -200,10 +200,10 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>If the client session is expired. Once the client is connected, the session is valid
  *             for 45 minutes. Client should reconnect to the channel to continue sending/receiving
  *             messages.</p>
+ * @public
  */
 export class SessionExpiredException extends __BaseException {
   readonly name: "SessionExpiredException" = "SessionExpiredException";
@@ -226,21 +226,21 @@ export class SessionExpiredException extends __BaseException {
  */
 export interface SendAlexaOfferToMasterRequest {
   /**
-   * @public
    * <p>The ARN of the signaling channel by which Alexa and the master peer
    *             communicate.</p>
+   * @public
    */
   ChannelARN: string | undefined;
 
   /**
-   * @public
    * <p>The unique identifier for the sender client.</p>
+   * @public
    */
   SenderClientId: string | undefined;
 
   /**
-   * @public
    * <p>The base64-encoded SDP offer content.</p>
+   * @public
    */
   MessagePayload: string | undefined;
 }
@@ -250,8 +250,8 @@ export interface SendAlexaOfferToMasterRequest {
  */
 export interface SendAlexaOfferToMasterResponse {
   /**
-   * @public
    * <p>The base64-encoded SDP answer content.</p>
+   * @public
    */
   Answer?: string;
 }

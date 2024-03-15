@@ -25,7 +25,6 @@ export interface BodyWithXmlNameCommandInput extends BodyWithXmlNameInputOutput 
 export interface BodyWithXmlNameCommandOutput extends BodyWithXmlNameInputOutput, __MetadataBearer {}
 
 /**
- * @public
  * The following example serializes a body that uses an XML name,
  * changing the wrapper name.
  * @example
@@ -58,6 +57,7 @@ export interface BodyWithXmlNameCommandOutput extends BodyWithXmlNameInputOutput
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ * @public
  */
 export class BodyWithXmlNameCommand extends $Command
   .classBuilder<

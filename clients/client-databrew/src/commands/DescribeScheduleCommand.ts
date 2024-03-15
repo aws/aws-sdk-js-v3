@@ -27,7 +27,6 @@ export interface DescribeScheduleCommandInput extends DescribeScheduleRequest {}
 export interface DescribeScheduleCommandOutput extends DescribeScheduleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the definition of a specific DataBrew schedule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface DescribeScheduleCommandOutput extends DescribeScheduleResponse,
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * @public
  */
 export class DescribeScheduleCommand extends $Command
   .classBuilder<

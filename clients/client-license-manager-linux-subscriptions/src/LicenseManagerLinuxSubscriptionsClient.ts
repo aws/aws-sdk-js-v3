@@ -270,9 +270,9 @@ export interface LicenseManagerLinuxSubscriptionsClientResolvedConfig
   extends LicenseManagerLinuxSubscriptionsClientResolvedConfigType {}
 
 /**
- * @public
  * <p>With License Manager, you can discover and track your commercial Linux subscriptions on running
  *       Amazon EC2 instances.</p>
+ * @public
  */
 export class LicenseManagerLinuxSubscriptionsClient extends __Client<
   __HttpHandlerOptions,

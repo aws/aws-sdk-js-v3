@@ -27,7 +27,6 @@ export interface BatchGetChannelCommandInput extends BatchGetChannelRequest {}
 export interface BatchGetChannelCommandOutput extends BatchGetChannelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Performs <a>GetChannel</a> on multiple ARNs simultaneously.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface BatchGetChannelCommandOutput extends BatchGetChannelResponse, _
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ * @public
  */
 export class BatchGetChannelCommand extends $Command
   .classBuilder<

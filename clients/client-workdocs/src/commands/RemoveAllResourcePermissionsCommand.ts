@@ -33,7 +33,6 @@ export interface RemoveAllResourcePermissionsCommandInput extends RemoveAllResou
 export interface RemoveAllResourcePermissionsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes all the permissions from the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface RemoveAllResourcePermissionsCommandOutput extends __MetadataBea
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class RemoveAllResourcePermissionsCommand extends $Command
   .classBuilder<

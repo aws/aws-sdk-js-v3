@@ -27,7 +27,6 @@ export interface BatchEvaluateFeatureCommandInput extends BatchEvaluateFeatureRe
 export interface BatchEvaluateFeatureCommandOutput extends BatchEvaluateFeatureResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation assigns feature variation to user sessions. For each user session, you pass
  *       in an <code>entityID</code> that represents the user. Evidently then checks the evaluation
  *       rules and assigns the variation.</p>
@@ -103,6 +102,7 @@ export interface BatchEvaluateFeatureCommandOutput extends BatchEvaluateFeatureR
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ * @public
  */
 export class BatchEvaluateFeatureCommand extends $Command
   .classBuilder<

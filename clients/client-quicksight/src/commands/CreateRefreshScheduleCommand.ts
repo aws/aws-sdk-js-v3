@@ -27,7 +27,6 @@ export interface CreateRefreshScheduleCommandInput extends CreateRefreshSchedule
 export interface CreateRefreshScheduleCommandOutput extends CreateRefreshScheduleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a refresh schedule for a dataset. You can create up to 5 different schedules for a single dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface CreateRefreshScheduleCommandOutput extends CreateRefreshSchedul
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class CreateRefreshScheduleCommand extends $Command
   .classBuilder<

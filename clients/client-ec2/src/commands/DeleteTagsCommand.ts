@@ -27,7 +27,6 @@ export interface DeleteTagsCommandInput extends DeleteTagsRequest {}
 export interface DeleteTagsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified set of tags from the specified set of resources.</p>
  *          <p>To list the current tags, use <a>DescribeTags</a>. For more information about
  *          tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag
@@ -66,6 +65,7 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To delete a tag from a resource
  * ```javascript
  * // This example deletes the tag Stack=test from the specified image.

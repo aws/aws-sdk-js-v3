@@ -27,7 +27,6 @@ export interface ListConfigurationsCommandInput extends ListConfigurationsReques
 export interface ListConfigurationsCommandOutput extends ListConfigurationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all configurations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface ListConfigurationsCommandOutput extends ListConfigurationsRespo
  * @throws {@link MqServiceException}
  * <p>Base exception class for all service exceptions from Mq service.</p>
  *
+ * @public
  */
 export class ListConfigurationsCommand extends $Command
   .classBuilder<

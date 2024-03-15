@@ -30,7 +30,6 @@ export interface UpdateTrafficPolicyInstanceCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>After you submit a <code>UpdateTrafficPolicyInstance</code> request, there's a brief delay while Route 53 creates the resource record sets
  * 			that are specified in the traffic policy definition. Use <code>GetTrafficPolicyInstance</code> with the <code>id</code> of updated traffic policy instance confirm
@@ -121,6 +120,7 @@ export interface UpdateTrafficPolicyInstanceCommandOutput
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class UpdateTrafficPolicyInstanceCommand extends $Command
   .classBuilder<

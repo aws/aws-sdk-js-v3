@@ -27,7 +27,6 @@ export interface DescribeLaunchConfigurationsCommandInput extends LaunchConfigur
 export interface DescribeLaunchConfigurationsCommandOutput extends LaunchConfigurationsType, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the launch configurations in the account and Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -115,6 +114,7 @@ export interface DescribeLaunchConfigurationsCommandOutput extends LaunchConfigu
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To describe Auto Scaling launch configurations
  * ```javascript
  * // This example describes the specified launch configuration.

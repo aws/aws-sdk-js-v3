@@ -31,7 +31,6 @@ export interface AddTagsCommandInput extends AddTagsInput {}
 export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds the specified tags to the specified load balancer. Each load balancer can have a maximum of 10 tags.</p>
  *
  *         <p>Each tag consists of a key and an optional value. If a tag with the same key is already associated
@@ -80,6 +79,7 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * @public
  * @example To add tags to a load balancer
  * ```javascript
  * // This example adds two tags to the specified load balancer.

@@ -27,7 +27,6 @@ export interface DeleteParameterGroupCommandInput extends DeleteParameterGroupRe
 export interface DeleteParameterGroupCommandOutput extends DeleteParameterGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified parameter group. You cannot delete a parameter group if it is associated with any clusters.
  *          You cannot delete the default parameter groups in your account.</p>
  * @example
@@ -76,6 +75,7 @@ export interface DeleteParameterGroupCommandOutput extends DeleteParameterGroupR
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * @public
  */
 export class DeleteParameterGroupCommand extends $Command
   .classBuilder<

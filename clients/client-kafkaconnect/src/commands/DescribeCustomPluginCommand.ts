@@ -27,7 +27,6 @@ export interface DescribeCustomPluginCommandInput extends DescribeCustomPluginRe
 export interface DescribeCustomPluginCommandOutput extends DescribeCustomPluginResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>A summary description of the custom plugin.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -107,6 +106,7 @@ export interface DescribeCustomPluginCommandOutput extends DescribeCustomPluginR
  * @throws {@link KafkaConnectServiceException}
  * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
+ * @public
  */
 export class DescribeCustomPluginCommand extends $Command
   .classBuilder<

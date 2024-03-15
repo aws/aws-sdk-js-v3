@@ -27,7 +27,6 @@ export interface ListDevelopmentSchemaArnsCommandInput extends ListDevelopmentSc
 export interface ListDevelopmentSchemaArnsCommandOutput extends ListDevelopmentSchemaArnsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves each Amazon Resource Name (ARN) of schemas in the development
  *       state.</p>
  * @example
@@ -85,6 +84,7 @@ export interface ListDevelopmentSchemaArnsCommandOutput extends ListDevelopmentS
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class ListDevelopmentSchemaArnsCommand extends $Command
   .classBuilder<

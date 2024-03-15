@@ -32,7 +32,6 @@ export interface StartBotRecommendationCommandInput extends StartBotRecommendati
 export interface StartBotRecommendationCommandOutput extends StartBotRecommendationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use this to provide your transcript data, and to start the bot
  *          recommendation process.</p>
  * @example
@@ -147,6 +146,7 @@ export interface StartBotRecommendationCommandOutput extends StartBotRecommendat
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class StartBotRecommendationCommand extends $Command
   .classBuilder<

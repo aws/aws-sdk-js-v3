@@ -33,7 +33,6 @@ export interface DescribeListenerCertificatesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the default certificate and the certificate list for the specified HTTPS or TLS
  *       listener.</p>
  *          <p>If the default certificate is also in the certificate list, it appears twice in the
@@ -79,6 +78,7 @@ export interface DescribeListenerCertificatesCommandOutput
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  */
 export class DescribeListenerCertificatesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListKxVolumesCommandInput extends ListKxVolumesRequest {}
 export interface ListKxVolumesCommandOutput extends ListKxVolumesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  * Lists all the volumes in a kdb environment.
  * </p>
@@ -97,6 +96,7 @@ export interface ListKxVolumesCommandOutput extends ListKxVolumesResponse, __Met
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class ListKxVolumesCommand extends $Command
   .classBuilder<

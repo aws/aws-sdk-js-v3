@@ -36,7 +36,6 @@ export interface GetManagedEndpointSessionCredentialsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Generate a session token to connect to a managed endpoint. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface GetManagedEndpointSessionCredentialsCommandOutput
  * @throws {@link EMRContainersServiceException}
  * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
+ * @public
  */
 export class GetManagedEndpointSessionCredentialsCommand extends $Command
   .classBuilder<

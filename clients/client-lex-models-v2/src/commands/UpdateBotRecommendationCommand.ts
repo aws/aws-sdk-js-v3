@@ -32,7 +32,6 @@ export interface UpdateBotRecommendationCommandInput extends UpdateBotRecommenda
 export interface UpdateBotRecommendationCommandOutput extends UpdateBotRecommendationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing bot recommendation request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -128,6 +127,7 @@ export interface UpdateBotRecommendationCommandOutput extends UpdateBotRecommend
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class UpdateBotRecommendationCommand extends $Command
   .classBuilder<

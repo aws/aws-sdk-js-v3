@@ -27,7 +27,6 @@ export interface GetStreamingDistributionCommandInput extends GetStreamingDistri
 export interface GetStreamingDistributionCommandOutput extends GetStreamingDistributionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a specified RTMP distribution, including the distribution
  * 			configuration.</p>
  * @example
@@ -112,6 +111,7 @@ export interface GetStreamingDistributionCommandOutput extends GetStreamingDistr
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class GetStreamingDistributionCommand extends $Command
   .classBuilder<

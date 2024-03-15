@@ -27,7 +27,6 @@ export interface DescribeJobQueuesCommandInput extends DescribeJobQueuesRequest 
 export interface DescribeJobQueuesCommandOutput extends DescribeJobQueuesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes one or more of your job queues.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface DescribeJobQueuesCommandOutput extends DescribeJobQueuesRespons
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ * @public
  * @example To describe a job queue
  * ```javascript
  * // This example describes the HighPriority job queue.

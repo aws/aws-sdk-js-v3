@@ -27,7 +27,6 @@ export interface BatchDisableStandardsCommandInput extends BatchDisableStandards
 export interface BatchDisableStandardsCommandOutput extends BatchDisableStandardsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables the standards specified by the provided
  *          <code>StandardsSubscriptionArns</code>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html">Security Standards</a> section of the <i>Security Hub User
@@ -89,6 +88,7 @@ export interface BatchDisableStandardsCommandOutput extends BatchDisableStandard
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To disable one or more security standards
  * ```javascript
  * // The following example disables a security standard in Security Hub.

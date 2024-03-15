@@ -32,7 +32,6 @@ export interface PutBucketLifecycleConfigurationCommandInput extends PutBucketLi
 export interface PutBucketLifecycleConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This action puts a lifecycle configuration to an Amazon S3 on Outposts bucket. To put a
  *             lifecycle configuration to an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html">PutBucketLifecycleConfiguration</a> in the <i>Amazon S3 API Reference</i>.
@@ -136,6 +135,7 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class PutBucketLifecycleConfigurationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetDeviceFleetReportCommandInput extends GetDeviceFleetReportRe
 export interface GetDeviceFleetReportCommandOutput extends GetDeviceFleetReportResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface GetDeviceFleetReportCommandOutput extends GetDeviceFleetReportR
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class GetDeviceFleetReportCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListEvaluationFormsCommandInput extends ListEvaluationFormsRequ
 export interface ListEvaluationFormsCommandOutput extends ListEvaluationFormsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists evaluation forms in the specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface ListEvaluationFormsCommandOutput extends ListEvaluationFormsRes
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class ListEvaluationFormsCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface ListResolverRuleAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the associations that were created between Resolver rules and VPCs using the current Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface ListResolverRuleAssociationsCommandOutput
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class ListResolverRuleAssociationsCommand extends $Command
   .classBuilder<

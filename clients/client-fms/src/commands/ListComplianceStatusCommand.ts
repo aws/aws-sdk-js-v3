@@ -27,7 +27,6 @@ export interface ListComplianceStatusCommandInput extends ListComplianceStatusRe
 export interface ListComplianceStatusCommandOutput extends ListComplianceStatusResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an array of <code>PolicyComplianceStatus</code> objects. Use
  *         <code>PolicyComplianceStatus</code> to get a summary of which member accounts are protected
  *       by the specified policy. </p>
@@ -85,6 +84,7 @@ export interface ListComplianceStatusCommandOutput extends ListComplianceStatusR
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * @public
  */
 export class ListComplianceStatusCommand extends $Command
   .classBuilder<

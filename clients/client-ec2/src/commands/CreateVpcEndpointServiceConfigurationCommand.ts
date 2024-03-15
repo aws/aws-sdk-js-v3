@@ -36,7 +36,6 @@ export interface CreateVpcEndpointServiceConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a VPC endpoint service to which service consumers (Amazon Web Services accounts,
  *             users, and IAM roles) can connect.</p>
  *          <p>Before you create an endpoint service, you must create one of the following for your service:</p>
@@ -144,6 +143,7 @@ export interface CreateVpcEndpointServiceConfigurationCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateVpcEndpointServiceConfigurationCommand extends $Command
   .classBuilder<

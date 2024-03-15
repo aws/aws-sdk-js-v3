@@ -27,7 +27,6 @@ export interface DescribeCampaignCommandInput extends DescribeCampaignRequest {}
 export interface DescribeCampaignCommandOutput extends DescribeCampaignResponse, __MetadataBearer {}
 
 /**
- * @public
  * Describes the specific campaign.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface DescribeCampaignCommandOutput extends DescribeCampaignResponse,
  * @throws {@link ConnectCampaignsServiceException}
  * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
+ * @public
  */
 export class DescribeCampaignCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeregisterClusterCommandInput extends DeregisterClusterRequest 
 export interface DeregisterClusterCommandOutput extends DeregisterClusterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deregisters a connected cluster to remove it from the Amazon EKS control
  *             plane.</p>
  *          <p>A connected cluster is a Kubernetes cluster that you've connected to your control plane
@@ -173,6 +172,7 @@ export interface DeregisterClusterCommandOutput extends DeregisterClusterRespons
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class DeregisterClusterCommand extends $Command
   .classBuilder<

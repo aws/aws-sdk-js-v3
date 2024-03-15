@@ -27,7 +27,6 @@ export interface CreateVpcConnectorCommandInput extends CreateVpcConnectorReques
 export interface CreateVpcConnectorCommandOutput extends CreateVpcConnectorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create an App Runner VPC connector resource. App Runner requires this resource when you want to associate your App Runner service to a custom Amazon Virtual Private Cloud
  *         (Amazon VPC).</p>
  * @example
@@ -92,6 +91,7 @@ export interface CreateVpcConnectorCommandOutput extends CreateVpcConnectorRespo
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ * @public
  */
 export class CreateVpcConnectorCommand extends $Command
   .classBuilder<

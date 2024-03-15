@@ -27,7 +27,6 @@ export interface ListSolFunctionInstancesCommandInput extends ListSolFunctionIns
 export interface ListSolFunctionInstancesCommandOutput extends ListSolFunctionInstancesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists network function instances.</p>
  *          <p>A network function instance is a function in a function package .</p>
  * @example
@@ -86,6 +85,7 @@ export interface ListSolFunctionInstancesCommandOutput extends ListSolFunctionIn
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ * @public
  */
 export class ListSolFunctionInstancesCommand extends $Command
   .classBuilder<

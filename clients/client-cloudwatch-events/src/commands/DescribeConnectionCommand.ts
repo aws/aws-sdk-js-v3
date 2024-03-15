@@ -31,7 +31,6 @@ export interface DescribeConnectionCommandInput extends DescribeConnectionReques
 export interface DescribeConnectionCommandOutput extends DescribeConnectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves details about a connection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -135,6 +134,7 @@ export interface DescribeConnectionCommandOutput extends DescribeConnectionRespo
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ * @public
  */
 export class DescribeConnectionCommand extends $Command
   .classBuilder<

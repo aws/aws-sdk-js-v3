@@ -27,7 +27,6 @@ export interface DeleteContactMethodCommandInput extends DeleteContactMethodRequ
 export interface DeleteContactMethodCommandOutput extends DeleteContactMethodResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a contact method.</p>
  *          <p>A contact method is used to send you notifications about your Amazon Lightsail resources.
  *       You can add one email address and one mobile phone number contact method in each Amazon Web Services Region. However, SMS text messaging is not supported in some Amazon Web Services
@@ -103,6 +102,7 @@ export interface DeleteContactMethodCommandOutput extends DeleteContactMethodRes
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class DeleteContactMethodCommand extends $Command
   .classBuilder<

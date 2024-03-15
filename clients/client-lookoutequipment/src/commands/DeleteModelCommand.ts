@@ -27,7 +27,6 @@ export interface DeleteModelCommandInput extends DeleteModelRequest {}
 export interface DeleteModelCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a machine learning model currently available for Amazon Lookout for Equipment. This will prevent it
  *          from being used with an inference scheduler, even one that is already set up. </p>
  * @example
@@ -77,6 +76,7 @@ export interface DeleteModelCommandOutput extends __MetadataBearer {}
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  */
 export class DeleteModelCommand extends $Command
   .classBuilder<

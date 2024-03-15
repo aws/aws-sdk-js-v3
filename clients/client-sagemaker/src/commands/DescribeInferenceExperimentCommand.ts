@@ -29,7 +29,6 @@ export interface DescribeInferenceExperimentCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns details about an inference experiment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -115,6 +114,7 @@ export interface DescribeInferenceExperimentCommandOutput
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeInferenceExperimentCommand extends $Command
   .classBuilder<

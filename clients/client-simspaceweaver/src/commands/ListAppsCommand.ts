@@ -27,7 +27,6 @@ export interface ListAppsCommandInput extends ListAppsInput {}
 export interface ListAppsCommandOutput extends ListAppsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all custom apps or service apps for the given simulation and domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface ListAppsCommandOutput extends ListAppsOutput, __MetadataBearer 
  * @throws {@link SimSpaceWeaverServiceException}
  * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
+ * @public
  */
 export class ListAppsCommand extends $Command
   .classBuilder<

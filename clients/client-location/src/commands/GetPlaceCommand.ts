@@ -32,7 +32,6 @@ export interface GetPlaceCommandInput extends GetPlaceRequest {}
 export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Finds a place by its unique ID. A <code>PlaceId</code> is returned by other search
  *             operations.</p>
  *          <note>
@@ -124,6 +123,7 @@ export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBeare
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ * @public
  */
 export class GetPlaceCommand extends $Command
   .classBuilder<

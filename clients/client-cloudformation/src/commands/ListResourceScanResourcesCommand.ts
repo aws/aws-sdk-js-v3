@@ -27,7 +27,6 @@ export interface ListResourceScanResourcesCommandInput extends ListResourceScanR
 export interface ListResourceScanResourcesCommandOutput extends ListResourceScanResourcesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the resources from a resource scan. The results can be filtered by resource identifier, resource type
  *    prefix, tag key, and tag value. Only resources that match all specified filters are returned. The response indicates
  *    whether each returned resource is already managed by CloudFormation.</p>
@@ -78,6 +77,7 @@ export interface ListResourceScanResourcesCommandOutput extends ListResourceScan
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  * @example To list the resources in your resource scan
  * ```javascript
  * // This example lists the resources in your resource scan

@@ -27,7 +27,6 @@ export interface DescribeReleaseLabelCommandInput extends DescribeReleaseLabelIn
 export interface DescribeReleaseLabelCommandOutput extends DescribeReleaseLabelOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides Amazon EMR release label details, such as the releases available the
  *          Region where the API request is run, and the available applications for a specific Amazon EMR release label. Can also list Amazon EMR releases that support a
  *          specified version of Spark.</p>
@@ -78,6 +77,7 @@ export interface DescribeReleaseLabelCommandOutput extends DescribeReleaseLabelO
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class DescribeReleaseLabelCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListAssetsCommandInput extends ListAssetsInput {}
 export interface ListAssetsCommandOutput extends ListAssetsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the hardware assets for the specified Outpost.</p>
  *          <p>Use filters to return specific results. If you specify multiple filters, the results include only the resources that match
  *  all of the specified filters. For a filter where you can specify multiple values, the results include
@@ -95,6 +94,7 @@ export interface ListAssetsCommandOutput extends ListAssetsOutput, __MetadataBea
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ * @public
  */
 export class ListAssetsCommand extends $Command
   .classBuilder<

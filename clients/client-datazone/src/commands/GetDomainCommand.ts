@@ -27,7 +27,6 @@ export interface GetDomainCommandInput extends GetDomainInput {}
 export interface GetDomainCommandOutput extends GetDomainOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets an Amazon DataZone domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface GetDomainCommandOutput extends GetDomainOutput, __MetadataBeare
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class GetDomainCommand extends $Command
   .classBuilder<

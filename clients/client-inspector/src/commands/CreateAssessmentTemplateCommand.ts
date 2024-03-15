@@ -27,7 +27,6 @@ export interface CreateAssessmentTemplateCommandInput extends CreateAssessmentTe
 export interface CreateAssessmentTemplateCommandOutput extends CreateAssessmentTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an assessment template for the assessment target that is specified by the ARN
  *          of the assessment target. If the <a href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_slr.html">service-linked role</a> isn’t already registered, this action also creates and
  *          registers a service-linked role to grant Amazon Inspector access to AWS Services needed to
@@ -90,6 +89,7 @@ export interface CreateAssessmentTemplateCommandOutput extends CreateAssessmentT
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * @public
  * @example Create assessment template
  * ```javascript
  * // Creates an assessment template for the assessment target that is specified by the ARN of the assessment target.

@@ -31,7 +31,6 @@ export interface SendEventCommandInput extends SendEventRequest {}
 export interface SendEventCommandOutput extends SendEventResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>The <code>application/vnd.amazonaws.connect.event.connection.acknowledged</code>
  *                 ContentType will no longer be supported starting December 31, 2024. This event has
@@ -94,6 +93,7 @@ export interface SendEventCommandOutput extends SendEventResponse, __MetadataBea
  * @throws {@link ConnectParticipantServiceException}
  * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
+ * @public
  */
 export class SendEventCommand extends $Command
   .classBuilder<

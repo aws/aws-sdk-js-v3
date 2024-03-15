@@ -35,7 +35,6 @@ export interface DescribeDataRepositoryAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the description of specific Amazon FSx for Lustre or Amazon File Cache
  *             data repository associations, if one or more <code>AssociationIds</code> values
  *             are provided in the request, or if filters are used in the request. Data repository
@@ -158,6 +157,7 @@ export interface DescribeDataRepositoryAssociationsCommandOutput
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  */
 export class DescribeDataRepositoryAssociationsCommand extends $Command
   .classBuilder<

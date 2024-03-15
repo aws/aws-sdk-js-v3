@@ -31,7 +31,6 @@ export interface GetComplianceSummaryCommandInput extends GetComplianceSummaryIn
 export interface GetComplianceSummaryCommandOutput extends GetComplianceSummaryOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a table that shows counts of resources that are noncompliant with their tag
  *             policies.</p>
  *          <p>For more information on tag policies, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">Tag Policies</a> in
@@ -149,6 +148,7 @@ export interface GetComplianceSummaryCommandOutput extends GetComplianceSummaryO
  * @throws {@link ResourceGroupsTaggingAPIServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroupsTaggingAPI service.</p>
  *
+ * @public
  */
 export class GetComplianceSummaryCommand extends $Command
   .classBuilder<

@@ -35,7 +35,6 @@ export interface DisassociateWirelessGatewayFromThingCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates a wireless gateway from its currently associated thing.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface DisassociateWirelessGatewayFromThingCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class DisassociateWirelessGatewayFromThingCommand extends $Command
   .classBuilder<

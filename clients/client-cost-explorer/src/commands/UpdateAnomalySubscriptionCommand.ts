@@ -27,7 +27,6 @@ export interface UpdateAnomalySubscriptionCommandInput extends UpdateAnomalySubs
 export interface UpdateAnomalySubscriptionCommandOutput extends UpdateAnomalySubscriptionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing cost anomaly subscription. Specify the fields that you want to update.
  *       Omitted fields are unchanged.</p>
  *          <note>
@@ -149,6 +148,7 @@ export interface UpdateAnomalySubscriptionCommandOutput extends UpdateAnomalySub
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * @public
  */
 export class UpdateAnomalySubscriptionCommand extends $Command
   .classBuilder<

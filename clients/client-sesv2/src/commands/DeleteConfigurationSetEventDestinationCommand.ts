@@ -36,7 +36,6 @@ export interface DeleteConfigurationSetEventDestinationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete an event destination.</p>
  *          <p>
  *             <i>Events</i> include message sends, deliveries, opens, clicks, bounces,
@@ -78,6 +77,7 @@ export interface DeleteConfigurationSetEventDestinationCommandOutput
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class DeleteConfigurationSetEventDestinationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetCostEstimateCommandInput extends GetCostEstimateRequest {}
 export interface GetCostEstimateCommandOutput extends GetCostEstimateResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the cost estimate for a specified resource. A cost estimate
  *       will not generate for a resource that has been deleted.</p>
  * @example
@@ -105,6 +104,7 @@ export interface GetCostEstimateCommandOutput extends GetCostEstimateResult, __M
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetCostEstimateCommand extends $Command
   .classBuilder<

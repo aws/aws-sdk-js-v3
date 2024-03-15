@@ -37,7 +37,6 @@ export interface BatchCreateDelegationByAssessmentCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p> Creates a batch of delegations for an assessment in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -113,6 +112,7 @@ export interface BatchCreateDelegationByAssessmentCommandOutput
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class BatchCreateDelegationByAssessmentCommand extends $Command
   .classBuilder<

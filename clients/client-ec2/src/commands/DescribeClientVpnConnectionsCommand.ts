@@ -29,7 +29,6 @@ export interface DescribeClientVpnConnectionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes active client connections and connections that have been terminated within the last 60
  * 			minutes for the specified Client VPN endpoint.</p>
  * @example
@@ -92,6 +91,7 @@ export interface DescribeClientVpnConnectionsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeClientVpnConnectionsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteAccessTokenCommandInput extends DeleteAccessTokenRequest 
 export interface DeleteAccessTokenCommandOutput extends DeleteAccessTokenResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specified personal access token (PAT). A personal access token can only be deleted by the user who created it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface DeleteAccessTokenCommandOutput extends DeleteAccessTokenRespons
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ * @public
  */
 export class DeleteAccessTokenCommand extends $Command
   .classBuilder<

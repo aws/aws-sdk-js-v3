@@ -32,7 +32,6 @@ export interface CreateBatchLoadTaskCommandInput extends CreateBatchLoadTaskRequ
 export interface CreateBatchLoadTaskCommandOutput extends CreateBatchLoadTaskResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new Timestream batch load task. A batch load task processes data from
  *          a CSV source in an S3 location and writes to a Timestream table. A mapping from
  *          source to target is defined in a batch load task. Errors and events are written to a report
@@ -164,6 +163,7 @@ export interface CreateBatchLoadTaskCommandOutput extends CreateBatchLoadTaskRes
  * @throws {@link TimestreamWriteServiceException}
  * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
+ * @public
  */
 export class CreateBatchLoadTaskCommand extends $Command
   .classBuilder<

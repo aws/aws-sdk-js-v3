@@ -27,7 +27,6 @@ export interface ListTagsForDomainCommandInput extends ListTagsForDomainRequest 
 export interface ListTagsForDomainCommandOutput extends ListTagsForDomainResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation returns all of the tags that are associated with the specified
  * 			domain.</p>
  *          <p>All tag operations are eventually consistent; subsequent operations might not
@@ -76,6 +75,7 @@ export interface ListTagsForDomainCommandOutput extends ListTagsForDomainRespons
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * @public
  */
 export class ListTagsForDomainCommand extends $Command
   .classBuilder<

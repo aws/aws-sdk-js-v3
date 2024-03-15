@@ -27,7 +27,6 @@ export interface UpdateTriggerCommandInput extends UpdateTriggerRequest {}
 export interface UpdateTriggerCommandOutput extends UpdateTriggerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a trigger definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -143,6 +142,7 @@ export interface UpdateTriggerCommandOutput extends UpdateTriggerResponse, __Met
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class UpdateTriggerCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeInstanceInformationCommandInput extends DescribeInstanc
 export interface DescribeInstanceInformationCommandOutput extends DescribeInstanceInformationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides information about one or more of your managed nodes, including the operating system
  *    platform, SSM Agent version, association status, and IP address. This operation does not return
  *    information for nodes that are either Stopped or Terminated.</p>
@@ -143,6 +142,7 @@ export interface DescribeInstanceInformationCommandOutput extends DescribeInstan
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class DescribeInstanceInformationCommand extends $Command
   .classBuilder<

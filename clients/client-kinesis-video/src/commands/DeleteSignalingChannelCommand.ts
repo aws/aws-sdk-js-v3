@@ -27,7 +27,6 @@ export interface DeleteSignalingChannelCommandInput extends DeleteSignalingChann
 export interface DeleteSignalingChannelCommandOutput extends DeleteSignalingChannelOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specified signaling channel. <code>DeleteSignalingChannel</code> is an
  *             asynchronous operation. If you don't specify the channel's current version, the most
  *             recent version is deleted.</p>
@@ -94,6 +93,7 @@ export interface DeleteSignalingChannelCommandOutput extends DeleteSignalingChan
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ * @public
  */
 export class DeleteSignalingChannelCommand extends $Command
   .classBuilder<

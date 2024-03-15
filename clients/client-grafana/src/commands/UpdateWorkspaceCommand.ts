@@ -32,7 +32,6 @@ export interface UpdateWorkspaceCommandInput extends UpdateWorkspaceRequest {}
 export interface UpdateWorkspaceCommandOutput extends UpdateWorkspaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies an existing Amazon Managed Grafana workspace. If you use this operation and omit
  *             any optional parameters, the existing values of those parameters are not changed.</p>
  *          <p>To modify the user authentication methods that the workspace uses, such as SAML or
@@ -170,6 +169,7 @@ export interface UpdateWorkspaceCommandOutput extends UpdateWorkspaceResponse, _
  * @throws {@link GrafanaServiceException}
  * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
+ * @public
  */
 export class UpdateWorkspaceCommand extends $Command
   .classBuilder<

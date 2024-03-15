@@ -27,7 +27,6 @@ export interface ImportPlaybackKeyPairCommandInput extends ImportPlaybackKeyPair
 export interface ImportPlaybackKeyPairCommandOutput extends ImportPlaybackKeyPairResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Imports the public portion of a new key pair and returns its <code>arn</code> and
  *         <code>fingerprint</code>. The <code>privateKey</code> can then be used to generate viewer
  *       authorization tokens, to grant viewers access to private channels. For more information, see
@@ -85,6 +84,7 @@ export interface ImportPlaybackKeyPairCommandOutput extends ImportPlaybackKeyPai
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ * @public
  */
 export class ImportPlaybackKeyPairCommand extends $Command
   .classBuilder<

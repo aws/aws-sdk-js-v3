@@ -32,7 +32,6 @@ export interface StartSourceNetworkRecoveryCommandInput extends StartSourceNetwo
 export interface StartSourceNetworkRecoveryCommandOutput extends StartSourceNetworkRecoveryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deploy VPC for the specified Source Network and modify launch templates to use this network. The VPC will be deployed using a dedicated CloudFormation stack.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -141,6 +140,7 @@ export interface StartSourceNetworkRecoveryCommandOutput extends StartSourceNetw
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * @public
  */
 export class StartSourceNetworkRecoveryCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface PutBackupPolicyCommandInput extends PutBackupPolicyRequest {}
 export interface PutBackupPolicyCommandOutput extends BackupPolicyDescription, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the file system's backup policy. Use this action to start or stop automatic backups of the file system. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface PutBackupPolicyCommandOutput extends BackupPolicyDescription, _
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * @public
  */
 export class PutBackupPolicyCommand extends $Command
   .classBuilder<

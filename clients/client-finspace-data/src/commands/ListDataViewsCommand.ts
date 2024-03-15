@@ -27,9 +27,6 @@ export interface ListDataViewsCommandInput extends ListDataViewsRequest {}
 export interface ListDataViewsCommandOutput extends ListDataViewsResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated This method will be discontinued.
- *
  * <p>Lists all available Dataviews for a Dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -104,6 +101,8 @@ export interface ListDataViewsCommandOutput extends ListDataViewsResponse, __Met
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ * @public
+ * @deprecated This method will be discontinued.
  */
 export class ListDataViewsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateConfigurationSetCommandInput extends CreateConfigurationS
 export interface CreateConfigurationSetCommandOutput extends CreateConfigurationSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a configuration set.</p>
  *          <p>Configuration sets enable you to publish email sending events. For information about
  *             using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity.html">Amazon SES Developer
@@ -72,6 +71,7 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  */
 export class CreateConfigurationSetCommand extends $Command
   .classBuilder<

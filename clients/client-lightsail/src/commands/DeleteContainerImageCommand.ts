@@ -27,7 +27,6 @@ export interface DeleteContainerImageCommandInput extends DeleteContainerImageRe
 export interface DeleteContainerImageCommandOutput extends DeleteContainerImageResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a container image that is registered to your Amazon Lightsail container
  *       service.</p>
  * @example
@@ -78,6 +77,7 @@ export interface DeleteContainerImageCommandOutput extends DeleteContainerImageR
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class DeleteContainerImageCommand extends $Command
   .classBuilder<

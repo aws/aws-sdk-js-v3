@@ -27,7 +27,6 @@ export interface CreatePlatformApplicationCommandInput extends CreatePlatformApp
 export interface CreatePlatformApplicationCommandOutput extends CreatePlatformApplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a platform application object for one of the supported push notification
  *             services, such as APNS and GCM (Firebase Cloud Messaging), to which devices and mobile
  *             apps may register. You must specify <code>PlatformPrincipal</code> and
@@ -121,6 +120,7 @@ export interface CreatePlatformApplicationCommandOutput extends CreatePlatformAp
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * @public
  */
 export class CreatePlatformApplicationCommand extends $Command
   .classBuilder<

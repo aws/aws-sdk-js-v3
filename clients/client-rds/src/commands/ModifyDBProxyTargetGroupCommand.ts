@@ -27,7 +27,6 @@ export interface ModifyDBProxyTargetGroupCommandInput extends ModifyDBProxyTarge
 export interface ModifyDBProxyTargetGroupCommandOutput extends ModifyDBProxyTargetGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the properties of a <code>DBProxyTargetGroup</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface ModifyDBProxyTargetGroupCommandOutput extends ModifyDBProxyTarg
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  */
 export class ModifyDBProxyTargetGroupCommand extends $Command
   .classBuilder<

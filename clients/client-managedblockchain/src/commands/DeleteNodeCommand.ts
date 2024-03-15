@@ -31,7 +31,6 @@ export interface DeleteNodeCommandInput extends DeleteNodeInput {}
 export interface DeleteNodeCommandOutput extends DeleteNodeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a node that your Amazon Web Services account owns. All data on the node is lost and cannot be recovered.</p>
  *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
  * @example
@@ -81,6 +80,7 @@ export interface DeleteNodeCommandOutput extends DeleteNodeOutput, __MetadataBea
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ * @public
  */
 export class DeleteNodeCommand extends $Command
   .classBuilder<

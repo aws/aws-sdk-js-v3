@@ -27,7 +27,6 @@ export interface ListMulticastGroupsCommandInput extends ListMulticastGroupsRequ
 export interface ListMulticastGroupsCommandOutput extends ListMulticastGroupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the multicast groups registered to your AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface ListMulticastGroupsCommandOutput extends ListMulticastGroupsRes
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class ListMulticastGroupsCommand extends $Command
   .classBuilder<

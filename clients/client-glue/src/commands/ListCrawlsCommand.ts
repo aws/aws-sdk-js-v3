@@ -27,7 +27,6 @@ export interface ListCrawlsCommandInput extends ListCrawlsRequest {}
 export interface ListCrawlsCommandOutput extends ListCrawlsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns all the crawls of a specified crawler. Returns only the crawls that have occurred since the launch date of the crawler history feature, and only retains up to 12 months of crawls. Older crawls will not be returned.</p>
  *          <p>You may use this API to:</p>
  *          <ul>
@@ -102,6 +101,7 @@ export interface ListCrawlsCommandOutput extends ListCrawlsResponse, __MetadataB
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class ListCrawlsCommand extends $Command
   .classBuilder<

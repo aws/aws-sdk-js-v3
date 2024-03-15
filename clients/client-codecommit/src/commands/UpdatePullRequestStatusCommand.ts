@@ -27,7 +27,6 @@ export interface UpdatePullRequestStatusCommandInput extends UpdatePullRequestSt
 export interface UpdatePullRequestStatusCommandOutput extends UpdatePullRequestStatusOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the status of a pull request. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -130,6 +129,7 @@ export interface UpdatePullRequestStatusCommandOutput extends UpdatePullRequestS
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class UpdatePullRequestStatusCommand extends $Command
   .classBuilder<

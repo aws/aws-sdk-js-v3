@@ -27,7 +27,6 @@ export interface ListDeviceProfilesCommandInput extends ListDeviceProfilesReques
 export interface ListDeviceProfilesCommandOutput extends ListDeviceProfilesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the device profiles registered to your AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface ListDeviceProfilesCommandOutput extends ListDeviceProfilesRespo
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class ListDeviceProfilesCommand extends $Command
   .classBuilder<

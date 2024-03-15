@@ -32,7 +32,6 @@ export interface ListAppComponentRecommendationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the recommendations for an Resilience Hub Application Component.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -127,6 +126,7 @@ export interface ListAppComponentRecommendationsCommandOutput
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class ListAppComponentRecommendationsCommand extends $Command
   .classBuilder<

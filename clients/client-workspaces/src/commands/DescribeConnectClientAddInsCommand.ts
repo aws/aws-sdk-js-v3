@@ -27,7 +27,6 @@ export interface DescribeConnectClientAddInsCommandInput extends DescribeConnect
 export interface DescribeConnectClientAddInsCommandOutput extends DescribeConnectClientAddInsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of Amazon Connect client add-ins that have been created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface DescribeConnectClientAddInsCommandOutput extends DescribeConnec
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class DescribeConnectClientAddInsCommand extends $Command
   .classBuilder<

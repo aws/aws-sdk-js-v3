@@ -37,7 +37,6 @@ export interface CreateServiceTemplateVersionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a new major or minor version of a service template. A major version of a service
  *       template is a version that <i>isn't</i> backward compatible. A minor version of
  *       a service template is a version that's backward compatible within its major version.</p>
@@ -134,6 +133,7 @@ export interface CreateServiceTemplateVersionCommandOutput
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class CreateServiceTemplateVersionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateDatastoreCommandInput extends CreateDatastoreRequest {}
 export interface CreateDatastoreCommandOutput extends CreateDatastoreResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a data store, which is a repository for messages.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -128,6 +127,7 @@ export interface CreateDatastoreCommandOutput extends CreateDatastoreResponse, _
  * @throws {@link IoTAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
+ * @public
  */
 export class CreateDatastoreCommand extends $Command
   .classBuilder<

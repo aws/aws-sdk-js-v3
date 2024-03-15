@@ -27,7 +27,6 @@ export interface DeleteUserProfileCommandInput extends DeleteUserProfileRequest 
 export interface DeleteUserProfileCommandOutput extends DeleteUserProfileResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a user profile in AWS CodeStar, including all personal preference data associated with
  *       that profile, such as display name and email address. It does not delete the history of that
  *       user, for example the history of commits made by that user.</p>
@@ -60,6 +59,7 @@ export interface DeleteUserProfileCommandOutput extends DeleteUserProfileResult,
  * @throws {@link CodeStarServiceException}
  * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
+ * @public
  */
 export class DeleteUserProfileCommand extends $Command
   .classBuilder<

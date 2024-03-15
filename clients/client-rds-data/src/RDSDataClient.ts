@@ -270,7 +270,6 @@ export type RDSDataClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
 export interface RDSDataClientResolvedConfig extends RDSDataClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>RDS Data API</fullname>
  *          <p>Amazon RDS provides an HTTP endpoint to run SQL statements on an Amazon Aurora DB cluster. To run these
  *             statements, you use the RDS Data API (Data API).</p>
@@ -286,6 +285,7 @@ export interface RDSDataClientResolvedConfig extends RDSDataClientResolvedConfig
  *          <p>For more information about the Data API, see
  *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using RDS Data API</a>
  *           in the <i>Amazon Aurora User Guide</i>.</p>
+ * @public
  */
 export class RDSDataClient extends __Client<
   __HttpHandlerOptions,

@@ -27,7 +27,6 @@ export interface PutDataLakeSettingsCommandInput extends PutDataLakeSettingsRequ
 export interface PutDataLakeSettingsCommandOutput extends PutDataLakeSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the list of data lake administrators who have admin privileges on all resources managed by Lake Formation. For more information on admin privileges, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/lake-formation-permissions.html">Granting Lake Formation Permissions</a>.</p>
  *          <p>This API replaces the current list of data lake admins with the new list being passed. To add an admin, fetch the current list and add the new admin to that list and pass that list in this API.</p>
  * @example
@@ -108,6 +107,7 @@ export interface PutDataLakeSettingsCommandOutput extends PutDataLakeSettingsRes
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class PutDataLakeSettingsCommand extends $Command
   .classBuilder<

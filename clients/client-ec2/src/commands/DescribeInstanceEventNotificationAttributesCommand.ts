@@ -36,7 +36,6 @@ export interface DescribeInstanceEventNotificationAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the tag keys that are registered to appear in scheduled event notifications for
  *       	resources in the current Region.</p>
  * @example
@@ -70,6 +69,7 @@ export interface DescribeInstanceEventNotificationAttributesCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeInstanceEventNotificationAttributesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeJobDefinitionsCommandInput extends DescribeJobDefinitio
 export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefinitionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a list of job definitions. You can specify a <code>status</code> (such as
  *         <code>ACTIVE</code>) to only return job definitions that match that status.</p>
  * @example
@@ -518,6 +517,7 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ * @public
  * @example To describe active job definitions
  * ```javascript
  * // This example describes all of your active job definitions.

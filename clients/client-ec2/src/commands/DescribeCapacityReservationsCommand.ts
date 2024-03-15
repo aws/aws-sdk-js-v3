@@ -29,7 +29,6 @@ export interface DescribeCapacityReservationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes one or more of your Capacity Reservations. The results describe only the Capacity Reservations in the
  * 		    	Amazon Web Services Region that you're currently using.</p>
  * @example
@@ -109,6 +108,7 @@ export interface DescribeCapacityReservationsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeCapacityReservationsCommand extends $Command
   .classBuilder<

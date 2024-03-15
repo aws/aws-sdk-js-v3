@@ -27,7 +27,6 @@ export interface DeleteFindingAggregatorCommandInput extends DeleteFindingAggreg
 export interface DeleteFindingAggregatorCommandOutput extends DeleteFindingAggregatorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a finding aggregator. When you delete the finding aggregator, you stop finding aggregation.</p>
  *          <p>When you stop finding aggregation, findings that were already aggregated to the aggregation Region are still visible from the aggregation Region. New findings and finding updates are not aggregated.
  *       </p>
@@ -75,6 +74,7 @@ export interface DeleteFindingAggregatorCommandOutput extends DeleteFindingAggre
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To delete a finding aggregator
  * ```javascript
  * // The following example deletes a finding aggregator in Security Hub. Deleting the finding aggregator stops cross-Region aggregation. This operation produces no output.

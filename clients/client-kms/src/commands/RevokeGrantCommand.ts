@@ -27,7 +27,6 @@ export interface RevokeGrantCommandInput extends RevokeGrantRequest {}
 export interface RevokeGrantCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified grant. You revoke a grant to terminate the permissions that the
  *       grant allows. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/managing-grants.html#grant-delete">Retiring and revoking grants</a> in
  *       the <i>
@@ -143,6 +142,7 @@ export interface RevokeGrantCommandOutput extends __MetadataBearer {}
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To revoke a grant
  * ```javascript
  * // The following example revokes a grant.

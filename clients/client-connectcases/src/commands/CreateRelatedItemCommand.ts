@@ -27,7 +27,6 @@ export interface CreateRelatedItemCommandInput extends CreateRelatedItemRequest 
 export interface CreateRelatedItemCommandOutput extends CreateRelatedItemResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a related item (comments, tasks, and contacts) and associates it with a
  *       case.</p>
  *          <note>
@@ -108,6 +107,7 @@ export interface CreateRelatedItemCommandOutput extends CreateRelatedItemRespons
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ * @public
  */
 export class CreateRelatedItemCommand extends $Command
   .classBuilder<

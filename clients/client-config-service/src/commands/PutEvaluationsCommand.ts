@@ -27,7 +27,6 @@ export interface PutEvaluationsCommandInput extends PutEvaluationsRequest {}
 export interface PutEvaluationsCommandOutput extends PutEvaluationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Used by an Lambda function to deliver evaluation results to
  * 			Config. This action is required in every Lambda function
  * 			that is invoked by an Config rule.</p>
@@ -85,6 +84,7 @@ export interface PutEvaluationsCommandOutput extends PutEvaluationsResponse, __M
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class PutEvaluationsCommand extends $Command
   .classBuilder<

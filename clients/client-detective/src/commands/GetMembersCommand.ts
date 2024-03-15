@@ -27,7 +27,6 @@ export interface GetMembersCommandInput extends GetMembersRequest {}
 export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the membership details for specified member accounts for a behavior
  *          graph.</p>
  * @example
@@ -104,6 +103,7 @@ export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataB
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ * @public
  */
 export class GetMembersCommand extends $Command
   .classBuilder<

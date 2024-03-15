@@ -29,7 +29,6 @@ export interface ListLabelingJobsForWorkteamCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of labeling jobs assigned to a specified work team.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface ListLabelingJobsForWorkteamCommandOutput
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListLabelingJobsForWorkteamCommand extends $Command
   .classBuilder<

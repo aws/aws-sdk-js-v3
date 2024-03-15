@@ -27,7 +27,6 @@ export interface ListScenesCommandInput extends ListScenesRequest {}
 export interface ListScenesCommandOutput extends ListScenesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all scenes in a workspace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface ListScenesCommandOutput extends ListScenesResponse, __MetadataB
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ * @public
  */
 export class ListScenesCommand extends $Command
   .classBuilder<

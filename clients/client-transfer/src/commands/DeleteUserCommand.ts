@@ -27,7 +27,6 @@ export interface DeleteUserCommandInput extends DeleteUserRequest {}
 export interface DeleteUserCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the user belonging to a file transfer protocol-enabled server you specify.</p>
  *          <p>No response returns from this operation.</p>
  *          <note>
@@ -71,6 +70,7 @@ export interface DeleteUserCommandOutput extends __MetadataBearer {}
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ * @public
  */
 export class DeleteUserCommand extends $Command
   .classBuilder<

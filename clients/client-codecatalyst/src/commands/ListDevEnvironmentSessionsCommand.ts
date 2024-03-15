@@ -27,7 +27,6 @@ export interface ListDevEnvironmentSessionsCommandInput extends ListDevEnvironme
 export interface ListDevEnvironmentSessionsCommandOutput extends ListDevEnvironmentSessionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of active sessions for a Dev Environment in a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface ListDevEnvironmentSessionsCommandOutput extends ListDevEnvironm
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ * @public
  */
 export class ListDevEnvironmentSessionsCommand extends $Command
   .classBuilder<

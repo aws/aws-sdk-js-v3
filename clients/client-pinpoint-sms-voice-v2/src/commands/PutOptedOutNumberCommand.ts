@@ -31,7 +31,6 @@ export interface PutOptedOutNumberCommandInput extends PutOptedOutNumberRequest 
 export interface PutOptedOutNumberCommandOutput extends PutOptedOutNumberResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an opted out destination phone number in the opt-out list.</p>
  *          <p>If the destination phone number isn't valid or if the specified opt-out list doesn't
  *             exist, an error is returned.</p>
@@ -84,6 +83,7 @@ export interface PutOptedOutNumberCommandOutput extends PutOptedOutNumberResult,
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class PutOptedOutNumberCommand extends $Command
   .classBuilder<

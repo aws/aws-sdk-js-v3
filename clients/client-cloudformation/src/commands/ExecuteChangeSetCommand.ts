@@ -27,7 +27,6 @@ export interface ExecuteChangeSetCommandInput extends ExecuteChangeSetInput {}
 export interface ExecuteChangeSetCommandOutput extends ExecuteChangeSetOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a stack using the input information that was provided when the specified change set was created. After
  *    the call successfully completes, CloudFormation starts updating the stack. Use the <a>DescribeStacks</a> action to
  *    view the status of the update.</p>
@@ -79,6 +78,7 @@ export interface ExecuteChangeSetCommandOutput extends ExecuteChangeSetOutput, _
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class ExecuteChangeSetCommand extends $Command
   .classBuilder<

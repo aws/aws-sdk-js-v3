@@ -27,7 +27,6 @@ export interface AttachPolicyCommandInput extends AttachPolicyRequest {}
 export interface AttachPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches the specified policy to the specified principal (certificate or other
  *          credential).</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AttachPolicy</a> action.</p>
@@ -77,6 +76,7 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class AttachPolicyCommand extends $Command
   .classBuilder<

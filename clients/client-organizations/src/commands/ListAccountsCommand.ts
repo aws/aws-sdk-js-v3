@@ -27,7 +27,6 @@ export interface ListAccountsCommandInput extends ListAccountsRequest {}
 export interface ListAccountsCommandOutput extends ListAccountsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the accounts in the organization. To request only the accounts in a
  *             specified root or organizational unit (OU), use the <a>ListAccountsForParent</a> operation instead.</p>
  *          <note>
@@ -202,6 +201,7 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  * @example To retrieve a list of all of the accounts in an organization
  * ```javascript
  * // The following example shows you how to request a list of the accounts in an organization:

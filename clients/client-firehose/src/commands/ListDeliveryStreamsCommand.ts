@@ -27,7 +27,6 @@ export interface ListDeliveryStreamsCommandInput extends ListDeliveryStreamsInpu
 export interface ListDeliveryStreamsCommandOutput extends ListDeliveryStreamsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists your delivery streams in alphabetical order of their names.</p>
  *          <p>The number of delivery streams might be too large to return using a single call to
  *             <code>ListDeliveryStreams</code>. You can limit the number of delivery streams returned,
@@ -67,6 +66,7 @@ export interface ListDeliveryStreamsCommandOutput extends ListDeliveryStreamsOut
  * @throws {@link FirehoseServiceException}
  * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
+ * @public
  */
 export class ListDeliveryStreamsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteManagedPrefixListCommandInput extends DeleteManagedPrefix
 export interface DeleteManagedPrefixListCommandOutput extends DeleteManagedPrefixListResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified managed prefix list. You must first remove all references to the prefix list in your resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface DeleteManagedPrefixListCommandOutput extends DeleteManagedPrefi
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DeleteManagedPrefixListCommand extends $Command
   .classBuilder<

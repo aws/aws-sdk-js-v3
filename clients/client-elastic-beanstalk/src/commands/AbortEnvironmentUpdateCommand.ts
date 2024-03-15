@@ -27,7 +27,6 @@ export interface AbortEnvironmentUpdateCommandInput extends AbortEnvironmentUpda
 export interface AbortEnvironmentUpdateCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels in-progress environment configuration update or application version
  *       deployment.</p>
  * @example
@@ -59,6 +58,7 @@ export interface AbortEnvironmentUpdateCommandOutput extends __MetadataBearer {}
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  * @example To abort a deployment
  * ```javascript
  * // The following code aborts a running application version deployment for an environment named my-env:

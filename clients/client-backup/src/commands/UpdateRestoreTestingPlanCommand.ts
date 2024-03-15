@@ -27,7 +27,6 @@ export interface UpdateRestoreTestingPlanCommandInput extends UpdateRestoreTesti
 export interface UpdateRestoreTestingPlanCommandOutput extends UpdateRestoreTestingPlanOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This request will send changes to your specified restore testing
  *          plan. <code>RestoreTestingPlanName</code>
  *          cannot be updated after it is created.</p>
@@ -124,6 +123,7 @@ export interface UpdateRestoreTestingPlanCommandOutput extends UpdateRestoreTest
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class UpdateRestoreTestingPlanCommand extends $Command
   .classBuilder<

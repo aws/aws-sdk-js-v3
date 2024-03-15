@@ -27,7 +27,6 @@ export interface DescribeAgentCommandInput extends DescribeAgentRequest {}
 export interface DescribeAgentCommandOutput extends DescribeAgentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about an DataSync agent, such as its name, service endpoint
  *       type, and status.</p>
  * @example
@@ -81,6 +80,7 @@ export interface DescribeAgentCommandOutput extends DescribeAgentResponse, __Met
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class DescribeAgentCommand extends $Command
   .classBuilder<

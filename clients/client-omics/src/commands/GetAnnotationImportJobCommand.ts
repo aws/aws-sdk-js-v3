@@ -27,7 +27,6 @@ export interface GetAnnotationImportJobCommandInput extends GetAnnotationImportR
 export interface GetAnnotationImportJobCommandOutput extends GetAnnotationImportResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about an annotation import job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -107,6 +106,7 @@ export interface GetAnnotationImportJobCommandOutput extends GetAnnotationImport
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class GetAnnotationImportJobCommand extends $Command
   .classBuilder<

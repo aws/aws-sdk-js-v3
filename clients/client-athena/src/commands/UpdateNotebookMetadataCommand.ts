@@ -27,7 +27,6 @@ export interface UpdateNotebookMetadataCommandInput extends UpdateNotebookMetada
 export interface UpdateNotebookMetadataCommandOutput extends UpdateNotebookMetadataOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the metadata for a notebook.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface UpdateNotebookMetadataCommandOutput extends UpdateNotebookMetad
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class UpdateNotebookMetadataCommand extends $Command
   .classBuilder<

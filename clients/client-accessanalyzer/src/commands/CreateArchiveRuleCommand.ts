@@ -27,7 +27,6 @@ export interface CreateArchiveRuleCommandInput extends CreateArchiveRuleRequest 
 export interface CreateArchiveRuleCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an archive rule for the specified analyzer. Archive rules automatically archive
  *          new findings that meet the criteria you define when you create the rule.</p>
  *          <p>To learn about filter keys that you can use to create an archive rule, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">IAM Access Analyzer filter keys</a> in the <b>IAM User Guide</b>.</p>
@@ -92,6 +91,7 @@ export interface CreateArchiveRuleCommandOutput extends __MetadataBearer {}
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ * @public
  */
 export class CreateArchiveRuleCommand extends $Command
   .classBuilder<

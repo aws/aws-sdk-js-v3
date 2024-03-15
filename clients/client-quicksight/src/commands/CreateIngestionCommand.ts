@@ -27,7 +27,6 @@ export interface CreateIngestionCommandInput extends CreateIngestionRequest {}
 export interface CreateIngestionCommandOutput extends CreateIngestionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates and starts a new SPICE ingestion for a dataset. You can manually refresh datasets in
  * 			an Enterprise edition account 32 times in a 24-hour period. You can manually refresh
  * 			datasets in a Standard edition account 8 times in a 24-hour period. Each 24-hour period
@@ -92,6 +91,7 @@ export interface CreateIngestionCommandOutput extends CreateIngestionResponse, _
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class CreateIngestionCommand extends $Command
   .classBuilder<

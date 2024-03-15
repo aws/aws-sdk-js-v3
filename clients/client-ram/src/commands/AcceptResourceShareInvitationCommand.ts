@@ -32,7 +32,6 @@ export interface AcceptResourceShareInvitationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Accepts an invitation to a resource share from another Amazon Web Services account. After you accept the
  *             invitation, the resources included in the resource share are available to interact with in the
  *             relevant Amazon Web Services Management Consoles and tools.</p>
@@ -122,6 +121,7 @@ export interface AcceptResourceShareInvitationCommandOutput
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * @public
  */
 export class AcceptResourceShareInvitationCommand extends $Command
   .classBuilder<

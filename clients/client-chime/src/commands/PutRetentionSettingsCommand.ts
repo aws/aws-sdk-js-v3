@@ -27,7 +27,6 @@ export interface PutRetentionSettingsCommandInput extends PutRetentionSettingsRe
 export interface PutRetentionSettingsCommandOutput extends PutRetentionSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  * Puts retention settings for the specified Amazon Chime Enterprise account. We recommend using AWS CloudTrail to monitor usage of this API for your account. For more information, see
  * <a href="https://docs.aws.amazon.com/chime/latest/ag/cloudtrail.html">Logging Amazon Chime API Calls with AWS CloudTrail</a>
@@ -107,6 +106,7 @@ export interface PutRetentionSettingsCommandOutput extends PutRetentionSettingsR
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class PutRetentionSettingsCommand extends $Command
   .classBuilder<

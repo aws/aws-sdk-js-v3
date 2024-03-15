@@ -27,7 +27,6 @@ export interface ListDomainsCommandInput extends ListDomainsInput {}
 export interface ListDomainsCommandOutput extends DomainInfos, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the list of domains registered in the account. The results may be split into
  *       multiple pages. To retrieve subsequent pages, make the call again using the nextPageToken
  *       returned by the initial call.</p>
@@ -100,6 +99,7 @@ export interface ListDomainsCommandOutput extends DomainInfos, __MetadataBearer 
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ * @public
  */
 export class ListDomainsCommand extends $Command
   .classBuilder<

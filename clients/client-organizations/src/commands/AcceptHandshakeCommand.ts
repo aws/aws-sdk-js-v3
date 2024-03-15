@@ -31,7 +31,6 @@ export interface AcceptHandshakeCommandInput extends AcceptHandshakeRequest {}
 export interface AcceptHandshakeCommandOutput extends AcceptHandshakeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sends a response to the originator of a handshake agreeing to the action proposed by
  *             the handshake request.</p>
  *          <p>You can only call this operation by the following principals when they also have the
@@ -320,6 +319,7 @@ export interface AcceptHandshakeCommandOutput extends AcceptHandshakeResponse, _
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  * @example To accept a handshake from another account
  * ```javascript
  * // Bill is the owner of an organization, and he invites Juan's account (222222222222) to join his organization. The following example shows Juan's account accepting the handshake and thus agreeing to the invitation.

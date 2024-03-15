@@ -27,7 +27,6 @@ export interface UpdateDistributionCommandInput extends UpdateDistributionReques
 export interface UpdateDistributionCommandOutput extends UpdateDistributionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing Amazon Lightsail content delivery network (CDN) distribution.</p>
  *          <p>Use this action to update the configuration of your existing distribution.</p>
  * @example
@@ -138,6 +137,7 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class UpdateDistributionCommand extends $Command
   .classBuilder<

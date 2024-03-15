@@ -27,7 +27,6 @@ export interface CreateTemplateCommandInput extends CreateTemplateRequest {}
 export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Active Directory compatible certificate template. The connectors issues certificates
  *          using these templates based on the requester’s Active Directory group membership.</p>
  * @example
@@ -326,6 +325,7 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  * @throws {@link PcaConnectorAdServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ * @public
  */
 export class CreateTemplateCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface GetSamplingStatisticSummariesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about recent sampling results for all sampling rules.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface GetSamplingStatisticSummariesCommandOutput
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ * @public
  */
 export class GetSamplingStatisticSummariesCommand extends $Command
   .classBuilder<

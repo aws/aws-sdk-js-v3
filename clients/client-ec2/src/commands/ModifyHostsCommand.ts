@@ -27,7 +27,6 @@ export interface ModifyHostsCommandInput extends ModifyHostsRequest {}
 export interface ModifyHostsCommandOutput extends ModifyHostsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modify the auto-placement setting of a Dedicated Host. When auto-placement is enabled,
  *             any instances that you launch with a tenancy of <code>host</code> but without a specific
  *             host ID are placed onto any available Dedicated Host in your account that has
@@ -81,6 +80,7 @@ export interface ModifyHostsCommandOutput extends ModifyHostsResult, __MetadataB
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyHostsCommand extends $Command
   .classBuilder<

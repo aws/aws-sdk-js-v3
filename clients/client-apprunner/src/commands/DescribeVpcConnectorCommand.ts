@@ -27,7 +27,6 @@ export interface DescribeVpcConnectorCommandInput extends DescribeVpcConnectorRe
 export interface DescribeVpcConnectorCommandOutput extends DescribeVpcConnectorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Return a description of an App Runner VPC connector resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface DescribeVpcConnectorCommandOutput extends DescribeVpcConnectorR
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ * @public
  */
 export class DescribeVpcConnectorCommand extends $Command
   .classBuilder<

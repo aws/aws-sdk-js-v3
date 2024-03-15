@@ -27,7 +27,6 @@ export interface StopMultiplexCommandInput extends StopMultiplexRequest {}
 export interface StopMultiplexCommandOutput extends StopMultiplexResponse, __MetadataBearer {}
 
 /**
- * @public
  * Stops a running multiplex. If the multiplex isn't running, this action has no effect.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface StopMultiplexCommandOutput extends StopMultiplexResponse, __Met
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class StopMultiplexCommand extends $Command
   .classBuilder<

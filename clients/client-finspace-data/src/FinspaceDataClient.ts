@@ -369,8 +369,8 @@ export type FinspaceDataClientResolvedConfigType = __SmithyResolvedConfiguration
 export interface FinspaceDataClientResolvedConfig extends FinspaceDataClientResolvedConfigType {}
 
 /**
- * @public
  * <p> The FinSpace APIs let you take actions inside the FinSpace.</p>
+ * @public
  */
 export class FinspaceDataClient extends __Client<
   __HttpHandlerOptions,

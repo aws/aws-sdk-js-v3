@@ -27,7 +27,6 @@ export interface GetGatewayResponsesCommandInput extends GetGatewayResponsesRequ
 export interface GetGatewayResponsesCommandOutput extends GatewayResponses, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the GatewayResponses collection on the given RestApi. If an API developer has not added any definitions for gateway responses, the result will be the API Gateway-generated default GatewayResponses collection for the supported response types.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface GetGatewayResponsesCommandOutput extends GatewayResponses, __Me
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class GetGatewayResponsesCommand extends $Command
   .classBuilder<

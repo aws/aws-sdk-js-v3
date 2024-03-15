@@ -32,7 +32,6 @@ export interface ListCollaborationPrivacyBudgetsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns an array that summarizes each privacy budget in a specified collaboration. The summary includes the collaboration ARN, creation time, creating account, and privacy budget details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface ListCollaborationPrivacyBudgetsCommandOutput
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class ListCollaborationPrivacyBudgetsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeCertificatesCommandInput extends DescribeCertificatesMe
 export interface DescribeCertificatesCommandOutput extends CertificateMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of certificate authority (CA) certificates provided by Amazon DocumentDB for this Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface DescribeCertificatesCommandOutput extends CertificateMessage, _
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class DescribeCertificatesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateResourceDataSyncCommandInput extends CreateResourceDataSy
 export interface CreateResourceDataSyncCommandOutput extends CreateResourceDataSyncResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>A resource data sync helps you view data from multiple sources in a single location.
  *    Amazon Web Services Systems Manager offers two types of resource data sync: <code>SyncToDestination</code> and
  *     <code>SyncFromSource</code>.</p>
@@ -112,6 +111,7 @@ export interface CreateResourceDataSyncCommandOutput extends CreateResourceDataS
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class CreateResourceDataSyncCommand extends $Command
   .classBuilder<

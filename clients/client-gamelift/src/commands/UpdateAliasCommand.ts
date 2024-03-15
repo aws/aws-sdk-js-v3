@@ -27,7 +27,6 @@ export interface UpdateAliasCommandInput extends UpdateAliasInput {}
 export interface UpdateAliasCommandOutput extends UpdateAliasOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates properties for an alias. To update properties, specify the alias ID to be
  *             updated and provide the information to be changed. To reassign an alias to another
  *             fleet, provide an updated routing strategy. If successful, the updated alias record is
@@ -97,6 +96,7 @@ export interface UpdateAliasCommandOutput extends UpdateAliasOutput, __MetadataB
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class UpdateAliasCommand extends $Command
   .classBuilder<

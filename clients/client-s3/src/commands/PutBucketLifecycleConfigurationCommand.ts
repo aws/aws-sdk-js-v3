@@ -31,7 +31,6 @@ export interface PutBucketLifecycleConfigurationCommandInput extends PutBucketLi
 export interface PutBucketLifecycleConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -210,6 +209,7 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example Put bucket lifecycle
  * ```javascript
  * // The following example replaces existing lifecycle configuration, if any, on the specified bucket.

@@ -31,7 +31,6 @@ export interface DescribeObservationCommandInput extends DescribeObservationRequ
 export interface DescribeObservationCommandOutput extends DescribeObservationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes an anomaly or error with the application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -115,6 +114,7 @@ export interface DescribeObservationCommandOutput extends DescribeObservationRes
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ * @public
  */
 export class DescribeObservationCommand extends $Command
   .classBuilder<

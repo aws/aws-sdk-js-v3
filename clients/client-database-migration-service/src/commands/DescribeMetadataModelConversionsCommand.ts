@@ -36,7 +36,6 @@ export interface DescribeMetadataModelConversionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a paginated list of metadata model conversions for a migration project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface DescribeMetadataModelConversionsCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Describe Metadata Model Conversions
  * ```javascript
  * // Returns a paginated list of metadata model conversions for a migration project.

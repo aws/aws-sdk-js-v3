@@ -32,7 +32,6 @@ export interface UpdateSMBFileShareVisibilityCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Controls whether the shares on an S3 File Gateway are visible in a net view or browse
  *          list. The operation is only supported for S3 File Gateways.</p>
  * @example
@@ -70,6 +69,7 @@ export interface UpdateSMBFileShareVisibilityCommandOutput
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  */
 export class UpdateSMBFileShareVisibilityCommand extends $Command
   .classBuilder<

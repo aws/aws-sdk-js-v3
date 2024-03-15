@@ -29,7 +29,6 @@ export interface StartOnDemandReplicationRunCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an on-demand replication run for the specified replication job. This
  *             replication run starts immediately. This replication run is in addition to the ones
  *             already scheduled.</p>
@@ -83,6 +82,7 @@ export interface StartOnDemandReplicationRunCommandOutput
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ * @public
  */
 export class StartOnDemandReplicationRunCommand extends $Command
   .classBuilder<

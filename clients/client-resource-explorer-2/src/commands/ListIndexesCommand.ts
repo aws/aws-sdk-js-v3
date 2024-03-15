@@ -31,7 +31,6 @@ export interface ListIndexesCommandInput extends ListIndexesInput {}
 export interface ListIndexesCommandOutput extends ListIndexesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of all of the indexes in Amazon Web Services Regions that are currently collecting
  *             resource information for Amazon Web Services Resource Explorer.</p>
  * @example
@@ -89,6 +88,7 @@ export interface ListIndexesCommandOutput extends ListIndexesOutput, __MetadataB
  * @throws {@link ResourceExplorer2ServiceException}
  * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
+ * @public
  */
 export class ListIndexesCommand extends $Command
   .classBuilder<

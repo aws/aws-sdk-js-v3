@@ -32,7 +32,6 @@ export interface CreateServiceCommandInput extends CreateServiceInput {}
 export interface CreateServiceCommandOutput extends CreateServiceOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create an Proton service. An Proton service is an instantiation of a service
  *       template and often includes several service instances and pipeline. For more information, see
  *         <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-services.html">Services</a>
@@ -126,6 +125,7 @@ export interface CreateServiceCommandOutput extends CreateServiceOutput, __Metad
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class CreateServiceCommand extends $Command
   .classBuilder<

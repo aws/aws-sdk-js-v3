@@ -27,7 +27,6 @@ export interface ListMailboxExportJobsCommandInput extends ListMailboxExportJobs
 export interface ListMailboxExportJobsCommandOutput extends ListMailboxExportJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the mailbox export jobs started for the specified organization within the last
  *          seven days.</p>
  * @example
@@ -82,6 +81,7 @@ export interface ListMailboxExportJobsCommandOutput extends ListMailboxExportJob
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class ListMailboxExportJobsCommand extends $Command
   .classBuilder<

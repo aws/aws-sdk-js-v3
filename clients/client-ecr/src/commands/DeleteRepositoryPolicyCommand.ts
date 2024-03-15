@@ -27,7 +27,6 @@ export interface DeleteRepositoryPolicyCommandInput extends DeleteRepositoryPoli
 export interface DeleteRepositoryPolicyCommandOutput extends DeleteRepositoryPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the repository policy associated with the specified repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface DeleteRepositoryPolicyCommandOutput extends DeleteRepositoryPol
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * @public
  * @example To delete the policy associated with a repository
  * ```javascript
  * // This example deletes the policy associated with the repository named ubuntu in the current account.

@@ -27,7 +27,6 @@ export interface ListVersionsCommandInput extends ListVersionsRequest {}
 export interface ListVersionsCommandOutput extends ListVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all versions of OpenSearch and Elasticsearch that Amazon OpenSearch Service
  *    supports.</p>
  * @example
@@ -72,6 +71,7 @@ export interface ListVersionsCommandOutput extends ListVersionsResponse, __Metad
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class ListVersionsCommand extends $Command
   .classBuilder<

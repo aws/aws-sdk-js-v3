@@ -36,7 +36,6 @@ export interface UpdateDefaultAutoScalingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Update an auto scaling configuration to be the default. The existing default auto scaling configuration will be set to non-default
  *       automatically.</p>
  * @example
@@ -87,6 +86,7 @@ export interface UpdateDefaultAutoScalingConfigurationCommandOutput
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ * @public
  */
 export class UpdateDefaultAutoScalingConfigurationCommand extends $Command
   .classBuilder<

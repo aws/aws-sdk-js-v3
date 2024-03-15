@@ -27,7 +27,6 @@ export interface RemovePermissionCommandInput extends RemovePermissionRequest {}
 export interface RemovePermissionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Revokes function-use permission from an Amazon Web Service or another Amazon Web Services account. You
  *       can get the ID of the statement from the output of <a>GetPolicy</a>.</p>
  * @example
@@ -73,6 +72,7 @@ export interface RemovePermissionCommandOutput extends __MetadataBearer {}
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class RemovePermissionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListAssignmentsForHITCommandInput extends ListAssignmentsForHIT
 export interface ListAssignmentsForHITCommandOutput extends ListAssignmentsForHITResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             The
  *             <code>ListAssignmentsForHIT</code>
@@ -109,6 +108,7 @@ export interface ListAssignmentsForHITCommandOutput extends ListAssignmentsForHI
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * @public
  */
 export class ListAssignmentsForHITCommand extends $Command
   .classBuilder<

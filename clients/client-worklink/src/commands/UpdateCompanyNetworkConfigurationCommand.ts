@@ -35,9 +35,6 @@ export interface UpdateCompanyNetworkConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
- *
  * <p>Updates the company network configuration for the fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +82,8 @@ export interface UpdateCompanyNetworkConfigurationCommandOutput
  * @throws {@link WorkLinkServiceException}
  * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
+ * @public
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  */
 export class UpdateCompanyNetworkConfigurationCommand extends $Command
   .classBuilder<

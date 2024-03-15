@@ -27,7 +27,6 @@ export interface CreateContactChannelCommandInput extends CreateContactChannelRe
 export interface CreateContactChannelCommandOutput extends CreateContactChannelResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>A contact channel is the method that Incident Manager uses to engage your contact.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface CreateContactChannelCommandOutput extends CreateContactChannelR
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ * @public
  */
 export class CreateContactChannelCommand extends $Command
   .classBuilder<

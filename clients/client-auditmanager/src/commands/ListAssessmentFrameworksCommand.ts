@@ -31,7 +31,6 @@ export interface ListAssessmentFrameworksCommandInput extends ListAssessmentFram
 export interface ListAssessmentFrameworksCommandOutput extends ListAssessmentFrameworksResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns a list of the frameworks that are available in the Audit Manager framework
  *          library. </p>
  * @example
@@ -88,6 +87,7 @@ export interface ListAssessmentFrameworksCommandOutput extends ListAssessmentFra
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class ListAssessmentFrameworksCommand extends $Command
   .classBuilder<

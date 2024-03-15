@@ -27,7 +27,6 @@ export interface RedactRoomMessageCommandInput extends RedactRoomMessageRequest 
 export interface RedactRoomMessageCommandOutput extends RedactRoomMessageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Redacts the specified message from the specified Amazon Chime channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface RedactRoomMessageCommandOutput extends RedactRoomMessageRespons
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
  */
 export class RedactRoomMessageCommand extends $Command
   .classBuilder<

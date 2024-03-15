@@ -27,7 +27,6 @@ export interface CancelCapacityReservationCommandInput extends CancelCapacityRes
 export interface CancelCapacityReservationCommandOutput extends CancelCapacityReservationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels the capacity reservation with the specified name. Cancelled reservations
  *             remain in your account and will be deleted 45 days after cancellation. During the 45
  *             days, you cannot re-purpose or reuse a reservation that has been cancelled, but you can
@@ -64,6 +63,7 @@ export interface CancelCapacityReservationCommandOutput extends CancelCapacityRe
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class CancelCapacityReservationCommand extends $Command
   .classBuilder<

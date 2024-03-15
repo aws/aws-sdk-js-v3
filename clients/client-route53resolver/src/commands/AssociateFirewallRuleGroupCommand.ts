@@ -27,7 +27,6 @@ export interface AssociateFirewallRuleGroupCommandInput extends AssociateFirewal
 export interface AssociateFirewallRuleGroupCommandOutput extends AssociateFirewallRuleGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a <a>FirewallRuleGroup</a> with a VPC, to provide DNS filtering for the VPC. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -104,6 +103,7 @@ export interface AssociateFirewallRuleGroupCommandOutput extends AssociateFirewa
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class AssociateFirewallRuleGroupCommand extends $Command
   .classBuilder<

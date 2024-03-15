@@ -27,7 +27,6 @@ export interface StopExperimentCommandInput extends StopExperimentRequest {}
 export interface StopExperimentCommandOutput extends StopExperimentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops the specified experiment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -142,6 +141,7 @@ export interface StopExperimentCommandOutput extends StopExperimentResponse, __M
  * @throws {@link FisServiceException}
  * <p>Base exception class for all service exceptions from Fis service.</p>
  *
+ * @public
  */
 export class StopExperimentCommand extends $Command
   .classBuilder<

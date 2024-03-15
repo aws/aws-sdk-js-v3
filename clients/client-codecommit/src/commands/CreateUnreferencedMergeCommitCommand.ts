@@ -32,7 +32,6 @@ export interface CreateUnreferencedMergeCommitCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an unreferenced commit that represents the result of merging two branches
  *             using a specified merge strategy. This can help you determine the outcome of a potential
  *             merge. This API cannot be used with the fast-forward merge strategy because that
@@ -218,6 +217,7 @@ export interface CreateUnreferencedMergeCommitCommandOutput
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class CreateUnreferencedMergeCommitCommand extends $Command
   .classBuilder<

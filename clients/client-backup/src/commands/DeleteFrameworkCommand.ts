@@ -27,7 +27,6 @@ export interface DeleteFrameworkCommandInput extends DeleteFrameworkInput {}
 export interface DeleteFrameworkCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the framework specified by a framework name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface DeleteFrameworkCommandOutput extends __MetadataBearer {}
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class DeleteFrameworkCommand extends $Command
   .classBuilder<

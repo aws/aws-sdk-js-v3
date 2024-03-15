@@ -36,7 +36,6 @@ export interface ListPoolOriginationIdentitiesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all associated origination identities in your pool.</p>
  *          <p>If you specify filters, the output includes information for only those origination
  *             identities that meet the filter criteria.</p>
@@ -107,6 +106,7 @@ export interface ListPoolOriginationIdentitiesCommandOutput
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class ListPoolOriginationIdentitiesCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface StopContinuousExportCommandInput extends StopContinuousExportRe
 export interface StopContinuousExportCommandOutput extends StopContinuousExportResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stop the continuous flow of agent's discovered data into Amazon Athena.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface StopContinuousExportCommandOutput extends StopContinuousExportR
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ * @public
  */
 export class StopContinuousExportCommand extends $Command
   .classBuilder<

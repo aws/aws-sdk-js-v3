@@ -27,7 +27,6 @@ export interface DescribeCampaignCommandInput extends DescribeCampaignRequest {}
 export interface DescribeCampaignCommandOutput extends DescribeCampaignResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the given campaign, including its status.</p>
  *          <p>A campaign can be in one of the following states:</p>
  *          <ul>
@@ -102,6 +101,7 @@ export interface DescribeCampaignCommandOutput extends DescribeCampaignResponse,
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class DescribeCampaignCommand extends $Command
   .classBuilder<

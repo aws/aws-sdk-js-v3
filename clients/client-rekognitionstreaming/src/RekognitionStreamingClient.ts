@@ -276,7 +276,6 @@ export type RekognitionStreamingClientResolvedConfigType = __SmithyResolvedConfi
 export interface RekognitionStreamingClientResolvedConfig extends RekognitionStreamingClientResolvedConfigType {}
 
 /**
- * @public
  * <p>A real-time video processing service based on Rekognition. This section documents the API
  *       operations for Rekognition Face Liveness.</p>
  *          <p>
@@ -299,6 +298,7 @@ export interface RekognitionStreamingClientResolvedConfig extends RekognitionStr
  *                </p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class RekognitionStreamingClient extends __Client<
   __HttpHandlerOptions,

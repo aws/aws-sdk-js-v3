@@ -27,7 +27,6 @@ export interface DescribeServicesCommandInput extends DescribeServicesRequest {}
 export interface DescribeServicesCommandOutput extends DescribeServicesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the current list of Amazon Web Services services and a list of service categories for each
  *             service. You then use service names and categories in your <a>CreateCase</a>
  *             requests. Each Amazon Web Services service has its own set of categories.</p>
@@ -94,6 +93,7 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * @throws {@link SupportServiceException}
  * <p>Base exception class for all service exceptions from Support service.</p>
  *
+ * @public
  */
 export class DescribeServicesCommand extends $Command
   .classBuilder<

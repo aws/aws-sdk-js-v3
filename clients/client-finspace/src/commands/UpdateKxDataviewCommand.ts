@@ -27,7 +27,6 @@ export interface UpdateKxDataviewCommandInput extends UpdateKxDataviewRequest {}
 export interface UpdateKxDataviewCommandOutput extends UpdateKxDataviewResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  * Updates the specified dataview. The dataviews get automatically updated when any new changesets are ingested. Each update of the dataview creates a new version, including changeset details and cache configurations</p>
  * @example
@@ -127,6 +126,7 @@ export interface UpdateKxDataviewCommandOutput extends UpdateKxDataviewResponse,
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ * @public
  */
 export class UpdateKxDataviewCommand extends $Command
   .classBuilder<

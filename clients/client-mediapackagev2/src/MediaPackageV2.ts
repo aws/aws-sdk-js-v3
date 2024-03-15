@@ -510,7 +510,6 @@ export interface MediaPackageV2 {
 }
 
 /**
- * @public
  * <note>
  *             <p>This guide is intended for creating AWS Elemental MediaPackage resources in MediaPackage Version 2 (v2) starting from May 2023.
  *         To get started with MediaPackage v2, create your MediaPackage resources. There isn't an automated process to
@@ -523,6 +522,7 @@ export interface MediaPackageV2 {
  *          </note>
  *          <p>This is the AWS Elemental MediaPackage v2 Live REST API Reference. It describes all the MediaPackage API operations for live content in detail, and provides sample requests, responses, and errors for the supported web services protocols.</p>
  *          <p>We assume that you have the IAM permissions that you need to use MediaPackage via the REST API. We also assume that you are familiar with the features and operations of MediaPackage, as described in the AWS Elemental MediaPackage User Guide.</p>
+ * @public
  */
 export class MediaPackageV2 extends MediaPackageV2Client implements MediaPackageV2 {}
 createAggregatedClient(commands, MediaPackageV2);

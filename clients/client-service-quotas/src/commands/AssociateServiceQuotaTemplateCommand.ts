@@ -32,7 +32,6 @@ export interface AssociateServiceQuotaTemplateCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates your quota request template with your organization. When a new
  *             Amazon Web Services account is created in your organization, the quota increase requests in the
  *             template are automatically applied to the account. You can add a quota increase request
@@ -86,6 +85,7 @@ export interface AssociateServiceQuotaTemplateCommandOutput
  * @throws {@link ServiceQuotasServiceException}
  * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
+ * @public
  */
 export class AssociateServiceQuotaTemplateCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetGroupCommandInput extends GetGroupRequest {}
 export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about one group. Groups are a global resource, so you can use this operation from
  *       any Region.</p>
  * @example
@@ -77,6 +76,7 @@ export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBeare
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ * @public
  */
 export class GetGroupCommand extends $Command
   .classBuilder<

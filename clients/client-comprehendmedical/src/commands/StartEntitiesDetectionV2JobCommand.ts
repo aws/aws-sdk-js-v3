@@ -33,7 +33,6 @@ export interface StartEntitiesDetectionV2JobCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an asynchronous medical entity detection job for a collection of documents. Use the
  *         <code>DescribeEntitiesDetectionV2Job</code> operation to track the status of a job.</p>
  * @example
@@ -90,6 +89,7 @@ export interface StartEntitiesDetectionV2JobCommandOutput
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ * @public
  */
 export class StartEntitiesDetectionV2JobCommand extends $Command
   .classBuilder<

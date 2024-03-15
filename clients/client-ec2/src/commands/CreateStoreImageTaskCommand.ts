@@ -27,7 +27,6 @@ export interface CreateStoreImageTaskCommandInput extends CreateStoreImageTaskRe
 export interface CreateStoreImageTaskCommandOutput extends CreateStoreImageTaskResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stores an AMI as a single object in an Amazon S3 bucket.</p>
  *          <p>To use this API, you must have the required permissions. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions for storing and restoring AMIs using Amazon S3</a> in the
  *         <i>Amazon EC2 User Guide</i>.</p>
@@ -67,6 +66,7 @@ export interface CreateStoreImageTaskCommandOutput extends CreateStoreImageTaskR
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateStoreImageTaskCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateServiceSyncConfigCommandInput extends CreateServiceSyncCo
 export interface CreateServiceSyncConfigCommandOutput extends CreateServiceSyncConfigOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create the Proton Ops configuration file.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface CreateServiceSyncConfigCommandOutput extends CreateServiceSyncC
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class CreateServiceSyncConfigCommand extends $Command
   .classBuilder<

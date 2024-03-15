@@ -32,7 +32,6 @@ export interface GetImageBlockPublicAccessStateCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the current state of <i>block public access for AMIs</i> at the account
  *       level in the specified Amazon Web Services Region.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-intro.html#block-public-access-to-amis">Block
@@ -63,6 +62,7 @@ export interface GetImageBlockPublicAccessStateCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class GetImageBlockPublicAccessStateCommand extends $Command
   .classBuilder<

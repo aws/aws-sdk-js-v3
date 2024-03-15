@@ -27,7 +27,6 @@ export interface DeleteRuleCommandInput extends DeleteRuleRequest {}
 export interface DeleteRuleCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified rule.</p>
  *          <p>Before you can delete the rule, you must remove all targets, using <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemoveTargets.html">RemoveTargets</a>.</p>
  *          <p>When you delete a rule, incoming events might continue to match to the deleted rule. Allow
@@ -82,6 +81,7 @@ export interface DeleteRuleCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ * @public
  */
 export class DeleteRuleCommand extends $Command
   .classBuilder<

@@ -369,7 +369,6 @@ export type ApplicationInsightsClientResolvedConfigType = __SmithyResolvedConfig
 export interface ApplicationInsightsClientResolvedConfig extends ApplicationInsightsClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>Amazon CloudWatch Application Insights</fullname>
  *          <p> Amazon CloudWatch Application Insights is a service that helps you detect common
  *          problems with your applications. It enables you to pinpoint the source of issues in your
@@ -382,6 +381,7 @@ export interface ApplicationInsightsClientResolvedConfig extends ApplicationInsi
  *          your Application Load Balancer (ALB), Application Insights informs you that a memory
  *          pressure problem with your SQL Server database is occurring. It bases this analysis on
  *          impactful metrics and log errors. </p>
+ * @public
  */
 export class ApplicationInsightsClient extends __Client<
   __HttpHandlerOptions,

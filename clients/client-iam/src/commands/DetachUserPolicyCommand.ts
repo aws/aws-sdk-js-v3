@@ -27,7 +27,6 @@ export interface DetachUserPolicyCommandInput extends DetachUserPolicyRequest {}
 export interface DetachUserPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified managed policy from the specified user.</p>
  *          <p>A user can also have inline policies embedded with it. To delete an inline policy, use
  *                 <a>DeleteUserPolicy</a>. For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
@@ -74,6 +73,7 @@ export interface DetachUserPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class DetachUserPolicyCommand extends $Command
   .classBuilder<

@@ -28,7 +28,6 @@ export interface ModifyUsageLimitCommandInput extends ModifyUsageLimitMessage {}
 export interface ModifyUsageLimitCommandOutput extends UsageLimit, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies a usage limit in a cluster.
  *             You can't modify the feature type or period of a usage limit.</p>
  * @example
@@ -80,6 +79,7 @@ export interface ModifyUsageLimitCommandOutput extends UsageLimit, __MetadataBea
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class ModifyUsageLimitCommand extends $Command
   .classBuilder<

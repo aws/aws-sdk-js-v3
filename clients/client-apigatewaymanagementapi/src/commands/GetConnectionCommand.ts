@@ -31,7 +31,6 @@ export interface GetConnectionCommandInput extends GetConnectionRequest {}
 export interface GetConnectionCommandOutput extends GetConnectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get information about the connection with the provided id.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface GetConnectionCommandOutput extends GetConnectionResponse, __Met
  * @throws {@link ApiGatewayManagementApiServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayManagementApi service.</p>
  *
+ * @public
  */
 export class GetConnectionCommand extends $Command
   .classBuilder<

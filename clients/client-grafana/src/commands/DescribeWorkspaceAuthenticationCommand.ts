@@ -36,7 +36,6 @@ export interface DescribeWorkspaceAuthenticationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Displays information about the authentication methods used in one Amazon Managed Grafana
  *             workspace.</p>
  * @example
@@ -116,6 +115,7 @@ export interface DescribeWorkspaceAuthenticationCommandOutput
  * @throws {@link GrafanaServiceException}
  * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
+ * @public
  */
 export class DescribeWorkspaceAuthenticationCommand extends $Command
   .classBuilder<

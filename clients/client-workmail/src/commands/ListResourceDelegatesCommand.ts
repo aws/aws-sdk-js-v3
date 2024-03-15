@@ -27,7 +27,6 @@ export interface ListResourceDelegatesCommandInput extends ListResourceDelegates
 export interface ListResourceDelegatesCommandOutput extends ListResourceDelegatesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the delegates associated with a resource. Users and groups can be resource
  *          delegates and answer requests on behalf of the resource.</p>
  * @example
@@ -87,6 +86,7 @@ export interface ListResourceDelegatesCommandOutput extends ListResourceDelegate
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * @public
  */
 export class ListResourceDelegatesCommand extends $Command
   .classBuilder<

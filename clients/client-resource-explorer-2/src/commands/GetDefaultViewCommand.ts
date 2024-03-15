@@ -31,7 +31,6 @@ export interface GetDefaultViewCommandInput {}
 export interface GetDefaultViewCommandOutput extends GetDefaultViewOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the Amazon Resource Name (ARN) of the view that is the default for the
  *             Amazon Web Services Region in which you call this operation. You can then call <a>GetView</a> to retrieve the details of that view.</p>
  * @example
@@ -79,6 +78,7 @@ export interface GetDefaultViewCommandOutput extends GetDefaultViewOutput, __Met
  * @throws {@link ResourceExplorer2ServiceException}
  * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
+ * @public
  */
 export class GetDefaultViewCommand extends $Command
   .classBuilder<

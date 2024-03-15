@@ -31,7 +31,6 @@ export interface DeleteReplicationInstanceCommandInput extends DeleteReplication
 export interface DeleteReplicationInstanceCommandOutput extends DeleteReplicationInstanceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified replication instance.</p>
  *          <note>
  *             <p>You must delete any migration tasks that are associated with the replication instance
@@ -130,6 +129,7 @@ export interface DeleteReplicationInstanceCommandOutput extends DeleteReplicatio
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Delete Replication Instance
  * ```javascript
  * // Deletes the specified replication instance. You must delete any migration tasks that are associated with the replication instance before you can delete it.

@@ -40,7 +40,6 @@ export interface DescribeElasticsearchInstanceTypeLimitsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *     Describe Elasticsearch Limits for a given InstanceType and ElasticsearchVersion.
  *     When modifying existing Domain, specify the
@@ -126,6 +125,7 @@ export interface DescribeElasticsearchInstanceTypeLimitsCommandOutput
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * @public
  */
 export class DescribeElasticsearchInstanceTypeLimitsCommand extends $Command
   .classBuilder<

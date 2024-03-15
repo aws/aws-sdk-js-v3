@@ -27,7 +27,6 @@ export interface ListEventBusesCommandInput extends ListEventBusesRequest {}
 export interface ListEventBusesCommandOutput extends ListEventBusesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the event buses in your account, including the default event bus, custom event
  *       buses, and partner event buses.</p>
  * @example
@@ -68,6 +67,7 @@ export interface ListEventBusesCommandOutput extends ListEventBusesResponse, __M
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * @public
  */
 export class ListEventBusesCommand extends $Command
   .classBuilder<

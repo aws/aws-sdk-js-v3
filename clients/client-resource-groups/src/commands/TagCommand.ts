@@ -27,7 +27,6 @@ export interface TagCommandInput extends TagInput {}
 export interface TagCommandOutput extends TagOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds tags to a resource group with the specified ARN. Existing tags on a resource
  *             group are not changed if they are not specified in the request parameters.</p>
  *          <important>
@@ -98,6 +97,7 @@ export interface TagCommandOutput extends TagOutput, __MetadataBearer {}
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ * @public
  */
 export class TagCommand extends $Command
   .classBuilder<

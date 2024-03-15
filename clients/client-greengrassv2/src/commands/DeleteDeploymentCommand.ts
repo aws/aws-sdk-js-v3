@@ -27,7 +27,6 @@ export interface DeleteDeploymentCommandInput extends DeleteDeploymentRequest {}
 export interface DeleteDeploymentCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a deployment. To delete an active deployment, you must first cancel it. For more
  *       information, see <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_CancelDeployment.html">CancelDeployment</a>.</p>
  *          <p>Deleting a deployment doesn't affect core devices that run that deployment, because core
@@ -78,6 +77,7 @@ export interface DeleteDeploymentCommandOutput extends __MetadataBearer {}
  * @throws {@link GreengrassV2ServiceException}
  * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ * @public
  */
 export class DeleteDeploymentCommand extends $Command
   .classBuilder<

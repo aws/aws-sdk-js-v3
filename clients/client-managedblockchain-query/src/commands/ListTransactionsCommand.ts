@@ -31,7 +31,6 @@ export interface ListTransactionsCommandInput extends ListTransactionsInput {}
 export interface ListTransactionsCommandOutput extends ListTransactionsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all of the transactions on a given wallet address or to a specific contract.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface ListTransactionsCommandOutput extends ListTransactionsOutput, _
  * @throws {@link ManagedBlockchainQueryServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchainQuery service.</p>
  *
+ * @public
  */
 export class ListTransactionsCommand extends $Command
   .classBuilder<

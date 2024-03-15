@@ -32,7 +32,6 @@ export interface DeleteAnnotationStoreVersionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  * Deletes one or multiple versions of an annotation store.
  * </p>
@@ -89,6 +88,7 @@ export interface DeleteAnnotationStoreVersionsCommandOutput
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class DeleteAnnotationStoreVersionsCommand extends $Command
   .classBuilder<

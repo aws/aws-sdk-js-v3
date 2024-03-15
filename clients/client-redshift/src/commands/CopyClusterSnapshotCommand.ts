@@ -27,7 +27,6 @@ export interface CopyClusterSnapshotCommandInput extends CopyClusterSnapshotMess
 export interface CopyClusterSnapshotCommandOutput extends CopyClusterSnapshotResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Copies the specified automated cluster snapshot to a new manual cluster snapshot.
  *             The source must be an automated snapshot and it must be in the available
  *             state.</p>
@@ -141,6 +140,7 @@ export interface CopyClusterSnapshotCommandOutput extends CopyClusterSnapshotRes
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class CopyClusterSnapshotCommand extends $Command
   .classBuilder<

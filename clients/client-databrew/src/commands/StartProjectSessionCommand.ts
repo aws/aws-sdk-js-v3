@@ -31,7 +31,6 @@ export interface StartProjectSessionCommandInput extends StartProjectSessionRequ
 export interface StartProjectSessionCommandOutput extends StartProjectSessionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an interactive session, enabling you to manipulate data in a DataBrew
  *             project.</p>
  * @example
@@ -74,6 +73,7 @@ export interface StartProjectSessionCommandOutput extends StartProjectSessionRes
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * @public
  */
 export class StartProjectSessionCommand extends $Command
   .classBuilder<

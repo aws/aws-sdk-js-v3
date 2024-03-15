@@ -32,7 +32,6 @@ export interface SearchAssociatedTranscriptsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Search for associated transcripts that meet the specified
  *          criteria.</p>
  * @example
@@ -104,6 +103,7 @@ export interface SearchAssociatedTranscriptsCommandOutput
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class SearchAssociatedTranscriptsCommand extends $Command
   .classBuilder<

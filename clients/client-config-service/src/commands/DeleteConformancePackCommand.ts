@@ -27,7 +27,6 @@ export interface DeleteConformancePackCommandInput extends DeleteConformancePack
 export interface DeleteConformancePackCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified conformance pack and all the Config rules, remediation actions, and all evaluation results within that
  * 			conformance pack.</p>
  *          <p>Config sets the conformance pack to <code>DELETE_IN_PROGRESS</code> until the deletion is complete.
@@ -85,6 +84,7 @@ export interface DeleteConformancePackCommandOutput extends __MetadataBearer {}
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class DeleteConformancePackCommand extends $Command
   .classBuilder<

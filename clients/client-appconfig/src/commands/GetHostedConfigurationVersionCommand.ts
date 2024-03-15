@@ -44,7 +44,6 @@ export interface GetHostedConfigurationVersionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about a specific configuration version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface GetHostedConfigurationVersionCommandOutput
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  * @example To retrieve hosted configuration details
  * ```javascript
  * // The following get-hosted-configuration-version example retrieves the configuration details of the AWS AppConfig hosted configuration.

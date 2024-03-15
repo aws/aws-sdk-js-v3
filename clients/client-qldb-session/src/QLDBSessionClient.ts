@@ -247,7 +247,6 @@ export type QLDBSessionClientResolvedConfigType = __SmithyResolvedConfiguration<
 export interface QLDBSessionClientResolvedConfig extends QLDBSessionClientResolvedConfigType {}
 
 /**
- * @public
  * <p>The transactional data APIs for Amazon QLDB</p>
  *          <note>
  *             <p>Instead of interacting directly with this API, we recommend using the QLDB driver
@@ -269,6 +268,7 @@ export interface QLDBSessionClientResolvedConfig extends QLDBSessionClientResolv
  *                </li>
  *             </ul>
  *          </note>
+ * @public
  */
 export class QLDBSessionClient extends __Client<
   __HttpHandlerOptions,

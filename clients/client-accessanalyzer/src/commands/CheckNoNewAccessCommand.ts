@@ -31,7 +31,6 @@ export interface CheckNoNewAccessCommandInput extends CheckNoNewAccessRequest {}
 export interface CheckNoNewAccessCommandOutput extends CheckNoNewAccessResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Checks whether new access is allowed for an updated policy when compared to the existing
  *          policy.</p>
  *          <p>You can find examples for reference policies and learn how to set up and run a custom
@@ -92,6 +91,7 @@ export interface CheckNoNewAccessCommandOutput extends CheckNoNewAccessResponse,
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ * @public
  */
 export class CheckNoNewAccessCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface GetIndexCommandInput {}
 export interface GetIndexCommandOutput extends GetIndexOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves details about the Amazon Web Services Resource Explorer index in the Amazon Web Services Region in which you invoked
  *             the operation.</p>
  * @example
@@ -92,6 +91,7 @@ export interface GetIndexCommandOutput extends GetIndexOutput, __MetadataBearer 
  * @throws {@link ResourceExplorer2ServiceException}
  * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
+ * @public
  */
 export class GetIndexCommand extends $Command
   .classBuilder<

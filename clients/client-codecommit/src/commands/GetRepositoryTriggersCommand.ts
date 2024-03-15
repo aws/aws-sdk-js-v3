@@ -27,7 +27,6 @@ export interface GetRepositoryTriggersCommandInput extends GetRepositoryTriggers
 export interface GetRepositoryTriggersCommandOutput extends GetRepositoryTriggersOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about triggers configured for a repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface GetRepositoryTriggersCommandOutput extends GetRepositoryTrigger
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class GetRepositoryTriggersCommand extends $Command
   .classBuilder<

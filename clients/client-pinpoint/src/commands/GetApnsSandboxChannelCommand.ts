@@ -27,7 +27,6 @@ export interface GetApnsSandboxChannelCommandInput extends GetApnsSandboxChannel
 export interface GetApnsSandboxChannelCommandOutput extends GetApnsSandboxChannelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the status and settings of the APNs sandbox channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface GetApnsSandboxChannelCommandOutput extends GetApnsSandboxChanne
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class GetApnsSandboxChannelCommand extends $Command
   .classBuilder<

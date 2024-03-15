@@ -27,7 +27,6 @@ export interface ListRemoteAccessSessionsCommandInput extends ListRemoteAccessSe
 export interface ListRemoteAccessSessionsCommandOutput extends ListRemoteAccessSessionsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all currently running remote access sessions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -155,6 +154,7 @@ export interface ListRemoteAccessSessionsCommandOutput extends ListRemoteAccessS
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To get information about a remote access session
  * ```javascript
  * // The following example returns information about a specific Device Farm remote access session.

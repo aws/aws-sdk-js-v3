@@ -36,7 +36,6 @@ export interface CreateRegistrationAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Associate the registration with an origination identity such as a phone number or sender ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface CreateRegistrationAssociationCommandOutput
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class CreateRegistrationAssociationCommand extends $Command
   .classBuilder<

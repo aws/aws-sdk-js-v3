@@ -27,7 +27,6 @@ export interface CreateDatasetImportJobCommandInput extends CreateDatasetImportJ
 export interface CreateDatasetImportJobCommandOutput extends CreateDatasetImportJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a job that imports training data from your data source (an
  *       Amazon S3 bucket) to an Amazon Personalize dataset. To allow Amazon Personalize to import the
  *       training data, you must specify an IAM service role that has permission to
@@ -135,6 +134,7 @@ export interface CreateDatasetImportJobCommandOutput extends CreateDatasetImport
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class CreateDatasetImportJobCommand extends $Command
   .classBuilder<

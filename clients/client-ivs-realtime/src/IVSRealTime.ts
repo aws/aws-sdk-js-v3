@@ -559,7 +559,6 @@ export interface IVSRealTime {
 }
 
 /**
- * @public
  * <p>
  *             <b>Introduction</b>
  *          </p>
@@ -768,6 +767,7 @@ export interface IVSRealTime {
  *           specified ARN.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class IVSRealTime extends IVSRealTimeClient implements IVSRealTime {}
 createAggregatedClient(commands, IVSRealTime);

@@ -27,7 +27,6 @@ export interface SearchDevicesCommandInput extends SearchDevicesRequest {}
 export interface SearchDevicesCommandOutput extends SearchDevicesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Searches for devices using the specified filters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface SearchDevicesCommandOutput extends SearchDevicesResponse, __Met
  * @throws {@link BraketServiceException}
  * <p>Base exception class for all service exceptions from Braket service.</p>
  *
+ * @public
  */
 export class SearchDevicesCommand extends $Command
   .classBuilder<

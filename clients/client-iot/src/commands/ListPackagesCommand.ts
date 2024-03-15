@@ -27,7 +27,6 @@ export interface ListPackagesCommandInput extends ListPackagesRequest {}
 export interface ListPackagesCommandOutput extends ListPackagesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the software packages associated to the account.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListPackages</a> action.</p>
  * @example
@@ -75,6 +74,7 @@ export interface ListPackagesCommandOutput extends ListPackagesResponse, __Metad
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListPackagesCommand extends $Command
   .classBuilder<

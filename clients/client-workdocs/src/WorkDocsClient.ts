@@ -432,7 +432,6 @@ export type WorkDocsClientResolvedConfigType = __SmithyResolvedConfiguration<__H
 export interface WorkDocsClientResolvedConfig extends WorkDocsClientResolvedConfigType {}
 
 /**
- * @public
  * <p>The Amazon WorkDocs API is designed for the following use cases:</p>
  *          <ul>
  *             <li>
@@ -492,6 +491,7 @@ export interface WorkDocsClientResolvedConfig extends WorkDocsClientResolvedConf
  *             </ul>
  *             <p>For information about Amazon WorkDocs API pricing, see <a href="https://aws.amazon.com/workdocs/pricing/">Amazon WorkDocs Pricing</a>.</p>
  *          </note>
+ * @public
  */
 export class WorkDocsClient extends __Client<
   __HttpHandlerOptions,

@@ -27,7 +27,6 @@ export interface DeleteAccountAssignmentCommandInput extends DeleteAccountAssign
 export interface DeleteAccountAssignmentCommandOutput extends DeleteAccountAssignmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a principal's access from a specified Amazon Web Services account using a specified
  *             permission set.</p>
  *          <note>
@@ -99,6 +98,7 @@ export interface DeleteAccountAssignmentCommandOutput extends DeleteAccountAssig
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class DeleteAccountAssignmentCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface PutEventStreamCommandInput extends PutEventStreamRequest {}
 export interface PutEventStreamCommandOutput extends PutEventStreamResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new event stream for an application or updates the settings of an existing event stream for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface PutEventStreamCommandOutput extends PutEventStreamResponse, __M
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class PutEventStreamCommand extends $Command
   .classBuilder<

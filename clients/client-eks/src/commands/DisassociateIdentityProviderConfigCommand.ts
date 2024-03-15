@@ -35,7 +35,6 @@ export interface DisassociateIdentityProviderConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates an identity provider configuration from a cluster.</p>
  *          <p>If you disassociate an identity provider from your cluster, users included in the
  *             provider can no longer access the cluster. However, you can still access the cluster
@@ -115,6 +114,7 @@ export interface DisassociateIdentityProviderConfigCommandOutput
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class DisassociateIdentityProviderConfigCommand extends $Command
   .classBuilder<

@@ -30,7 +30,6 @@ export interface DeleteNotebookInstanceLifecycleConfigCommandInput extends Delet
 export interface DeleteNotebookInstanceLifecycleConfigCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a notebook instance lifecycle configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,6 +55,7 @@ export interface DeleteNotebookInstanceLifecycleConfigCommandOutput extends __Me
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteNotebookInstanceLifecycleConfigCommand extends $Command
   .classBuilder<

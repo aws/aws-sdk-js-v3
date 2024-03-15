@@ -27,7 +27,6 @@ export interface GetQueueAttributesCommandInput extends GetQueueAttributesReques
 export interface GetQueueAttributesCommandOutput extends GetQueueAttributesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets attributes for the specified queue.</p>
  *          <note>
  *             <p>To determine whether a queue is <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO</a>, you can check whether <code>QueueName</code> ends with the
@@ -98,6 +97,7 @@ export interface GetQueueAttributesCommandOutput extends GetQueueAttributesResul
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ * @public
  */
 export class GetQueueAttributesCommand extends $Command
   .classBuilder<

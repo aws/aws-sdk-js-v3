@@ -32,7 +32,6 @@ export interface AssumeRoleWithSAMLCommandInput extends AssumeRoleWithSAMLReques
 export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a set of temporary security credentials for users who have been authenticated
  *          via a SAML authentication response. This operation provides a mechanism for tying an
  *          enterprise identity store or directory to role-based Amazon Web Services access without user-specific
@@ -249,6 +248,7 @@ export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLRespo
  * @throws {@link STSServiceException}
  * <p>Base exception class for all service exceptions from STS service.</p>
  *
+ * @public
  * @example To assume a role using a SAML assertion
  * ```javascript
  * //

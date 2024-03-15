@@ -27,7 +27,6 @@ export interface ListDatastoresCommandInput extends ListDatastoresRequest {}
 export interface ListDatastoresCommandOutput extends ListDatastoresResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of data stores.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -105,6 +104,7 @@ export interface ListDatastoresCommandOutput extends ListDatastoresResponse, __M
  * @throws {@link IoTAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
+ * @public
  */
 export class ListDatastoresCommand extends $Command
   .classBuilder<

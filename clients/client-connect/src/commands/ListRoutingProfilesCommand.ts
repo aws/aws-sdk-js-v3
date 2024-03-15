@@ -27,7 +27,6 @@ export interface ListRoutingProfilesCommandInput extends ListRoutingProfilesRequ
 export interface ListRoutingProfilesCommandOutput extends ListRoutingProfilesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides summary information about the routing profiles for the specified Amazon Connect
  *    instance.</p>
  *          <p>For more information about routing profiles, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing.html">Routing Profiles</a> and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/routing-profiles.html">Create a Routing
@@ -84,6 +83,7 @@ export interface ListRoutingProfilesCommandOutput extends ListRoutingProfilesRes
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class ListRoutingProfilesCommand extends $Command
   .classBuilder<

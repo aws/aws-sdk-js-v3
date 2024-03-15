@@ -27,7 +27,6 @@ export interface DescribeClusterCommandInput extends DescribeClusterInput {}
 export interface DescribeClusterCommandOutput extends DescribeClusterOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides cluster-level details including status, hardware and software configuration,
  *          VPC settings, and so on.</p>
  * @example
@@ -183,6 +182,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterOutput, __M
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class DescribeClusterCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateBotCommandInput extends CreateBotRequest {}
 export interface CreateBotCommandOutput extends CreateBotResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon Lex conversational bot. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -127,6 +126,7 @@ export interface CreateBotCommandOutput extends CreateBotResponse, __MetadataBea
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class CreateBotCommand extends $Command
   .classBuilder<

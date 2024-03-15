@@ -1567,7 +1567,6 @@ export interface Route53Resolver {
 }
 
 /**
- * @public
  * <p>When you create a VPC using Amazon VPC, you automatically get DNS resolution within the VPC
  * 			from Route 53 Resolver. By default, Resolver answers DNS queries for VPC domain names
  * 			such as domain names for EC2 instances or Elastic Load Balancing load balancers.
@@ -1595,6 +1594,7 @@ export interface Route53Resolver {
  *          <p>Like Amazon VPC, Resolver is Regional. In each Region where you have VPCs, you can choose
  * 			whether to forward queries from your VPCs to your network (outbound queries), from your
  * 			network to your VPCs (inbound queries), or both.</p>
+ * @public
  */
 export class Route53Resolver extends Route53ResolverClient implements Route53Resolver {}
 createAggregatedClient(commands, Route53Resolver);

@@ -27,7 +27,6 @@ export interface RestoreDBInstanceFromS3CommandInput extends RestoreDBInstanceFr
 export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceFromS3Result, __MetadataBearer {}
 
 /**
- * @public
  * <p>Amazon Relational Database Service (Amazon RDS)
  *             supports importing MySQL databases by using backup files.
  *             You can create a backup of your on-premises database,
@@ -414,6 +413,7 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  */
 export class RestoreDBInstanceFromS3Command extends $Command
   .classBuilder<

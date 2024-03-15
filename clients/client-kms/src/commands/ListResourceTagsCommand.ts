@@ -27,7 +27,6 @@ export interface ListResourceTagsCommandInput extends ListResourceTagsRequest {}
 export interface ListResourceTagsCommandOutput extends ListResourceTagsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns all tags on the specified KMS key.</p>
  *          <p>For general information about tags, including the format and syntax, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in
  *       the <i>Amazon Web Services General Reference</i>. For information about using
@@ -116,6 +115,7 @@ export interface ListResourceTagsCommandOutput extends ListResourceTagsResponse,
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To list tags for a KMS key
  * ```javascript
  * // The following example lists tags for a KMS key.

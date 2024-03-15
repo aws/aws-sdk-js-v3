@@ -27,7 +27,6 @@ export interface UpdateAllowListCommandInput extends UpdateAllowListRequest {}
 export interface UpdateAllowListCommandOutput extends UpdateAllowListResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the settings for an allow list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface UpdateAllowListCommandOutput extends UpdateAllowListResponse, _
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class UpdateAllowListCommand extends $Command
   .classBuilder<

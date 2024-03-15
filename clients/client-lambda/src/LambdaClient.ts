@@ -583,7 +583,6 @@ export type LambdaClientResolvedConfigType = __SmithyResolvedConfiguration<__Htt
 export interface LambdaClientResolvedConfig extends LambdaClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>Lambda</fullname>
  *          <p>
  *             <b>Overview</b>
@@ -649,6 +648,7 @@ export interface LambdaClientResolvedConfig extends LambdaClientResolvedConfigTy
  *          <p>Root certificates from the first two authorities are available from <a href="https://www.amazontrust.com/repository/">Amazon trust services</a>, but keeping your computer
  *         up-to-date is the more straightforward solution. To learn more about ACM-provided certificates, see <a href="http://aws.amazon.com/certificate-manager/faqs/#certificates">Amazon Web Services Certificate Manager FAQs.</a>
  *          </p>
+ * @public
  */
 export class LambdaClient extends __Client<
   __HttpHandlerOptions,

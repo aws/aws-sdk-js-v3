@@ -27,7 +27,6 @@ export interface CreateVpnGatewayCommandInput extends CreateVpnGatewayRequest {}
 export interface CreateVpnGatewayCommandOutput extends CreateVpnGatewayResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a virtual private gateway. A virtual private gateway is the endpoint on the
  *             VPC side of your VPN connection. You can create a virtual private gateway before
  *             creating the VPC itself.</p>
@@ -91,6 +90,7 @@ export interface CreateVpnGatewayCommandOutput extends CreateVpnGatewayResult, _
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateVpnGatewayCommand extends $Command
   .classBuilder<

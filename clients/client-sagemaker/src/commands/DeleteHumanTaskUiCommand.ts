@@ -27,7 +27,6 @@ export interface DeleteHumanTaskUiCommandInput extends DeleteHumanTaskUiRequest 
 export interface DeleteHumanTaskUiCommandOutput extends DeleteHumanTaskUiResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use this operation to delete a human task user interface (worker task template).</p>
  *          <p>
  *       To see a list of human task user interfaces
@@ -60,6 +59,7 @@ export interface DeleteHumanTaskUiCommandOutput extends DeleteHumanTaskUiRespons
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteHumanTaskUiCommand extends $Command
   .classBuilder<

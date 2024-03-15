@@ -36,7 +36,6 @@ export interface DeleteRegistrationAttachmentCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Permanently delete the specified registration attachment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface DeleteRegistrationAttachmentCommandOutput
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class DeleteRegistrationAttachmentCommand extends $Command
   .classBuilder<

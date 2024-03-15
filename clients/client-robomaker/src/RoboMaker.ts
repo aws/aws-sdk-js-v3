@@ -1221,8 +1221,8 @@ export interface RoboMaker {
 }
 
 /**
- * @public
  * <p>This section provides documentation for the AWS RoboMaker API operations.</p>
+ * @public
  */
 export class RoboMaker extends RoboMakerClient implements RoboMaker {}
 createAggregatedClient(commands, RoboMaker);

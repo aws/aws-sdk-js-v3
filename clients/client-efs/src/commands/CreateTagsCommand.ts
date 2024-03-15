@@ -27,9 +27,6 @@ export interface CreateTagsCommandInput extends CreateTagsRequest {}
 export interface CreateTagsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Use TagResource.
- *
  * <note>
  *             <p>DEPRECATED - <code>CreateTags</code> is deprecated and not maintained. To create tags for EFS
  *         resources, use the  API action.</p>
@@ -81,6 +78,8 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * @public
+ * @deprecated Use TagResource.
  * @example To create a new tag
  * ```javascript
  * // This operation creates a new tag for an EFS file system.

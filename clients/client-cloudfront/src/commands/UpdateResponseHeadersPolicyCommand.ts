@@ -27,7 +27,6 @@ export interface UpdateResponseHeadersPolicyCommandInput extends UpdateResponseH
 export interface UpdateResponseHeadersPolicyCommandOutput extends UpdateResponseHeadersPolicyResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a response headers policy.</p>
  *          <p>When you update a response headers policy, the entire policy is replaced. You cannot
  * 			update some policy fields independent of others. To update a response headers policy
@@ -292,6 +291,7 @@ export interface UpdateResponseHeadersPolicyCommandOutput extends UpdateResponse
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class UpdateResponseHeadersPolicyCommand extends $Command
   .classBuilder<

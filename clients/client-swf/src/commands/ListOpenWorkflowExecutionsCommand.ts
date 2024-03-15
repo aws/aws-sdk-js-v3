@@ -27,7 +27,6 @@ export interface ListOpenWorkflowExecutionsCommandInput extends ListOpenWorkflow
 export interface ListOpenWorkflowExecutionsCommandOutput extends WorkflowExecutionInfos, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of open workflow executions in the specified domain that meet the
  *       filtering criteria. The results may be split into multiple pages. To retrieve subsequent
  *       pages, make the call again using the nextPageToken returned by the initial call.</p>
@@ -149,6 +148,7 @@ export interface ListOpenWorkflowExecutionsCommandOutput extends WorkflowExecuti
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ * @public
  */
 export class ListOpenWorkflowExecutionsCommand extends $Command
   .classBuilder<

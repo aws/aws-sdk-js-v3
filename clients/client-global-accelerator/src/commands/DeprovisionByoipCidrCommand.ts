@@ -31,7 +31,6 @@ export interface DeprovisionByoipCidrCommandInput extends DeprovisionByoipCidrRe
 export interface DeprovisionByoipCidrCommandOutput extends DeprovisionByoipCidrResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Releases the specified address range that you provisioned to use with your Amazon Web Services resources
  * 			through bring your own IP addresses (BYOIP) and deletes the corresponding address pool. </p>
  *          <p>Before you can release an address range, you must stop advertising it by using <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/WithdrawByoipCidr.html">WithdrawByoipCidr</a> and you must not have
@@ -90,6 +89,7 @@ export interface DeprovisionByoipCidrCommandOutput extends DeprovisionByoipCidrR
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class DeprovisionByoipCidrCommand extends $Command
   .classBuilder<

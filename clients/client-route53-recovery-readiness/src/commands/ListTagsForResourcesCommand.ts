@@ -31,7 +31,6 @@ export interface ListTagsForResourcesCommandInput extends ListTagsForResourcesRe
 export interface ListTagsForResourcesCommandOutput extends ListTagsForResourcesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the tags for a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface ListTagsForResourcesCommandOutput extends ListTagsForResourcesR
  * @throws {@link Route53RecoveryReadinessServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
+ * @public
  */
 export class ListTagsForResourcesCommand extends $Command
   .classBuilder<

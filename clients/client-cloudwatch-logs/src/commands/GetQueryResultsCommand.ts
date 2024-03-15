@@ -27,7 +27,6 @@ export interface GetQueryResultsCommandInput extends GetQueryResultsRequest {}
 export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the results from the specified query.</p>
  *          <p>Only the fields requested in the query are returned, along with a <code>@ptr</code>
  *       field, which is the identifier for the log record. You can use the value of <code>@ptr</code>
@@ -91,6 +90,7 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, _
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class GetQueryResultsCommand extends $Command
   .classBuilder<

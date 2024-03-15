@@ -27,7 +27,6 @@ export interface GetFreeTierUsageCommandInput extends GetFreeTierUsageRequest {}
 export interface GetFreeTierUsageCommandOutput extends GetFreeTierUsageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all Free Tier usage objects that match your filters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -114,6 +113,7 @@ export interface GetFreeTierUsageCommandOutput extends GetFreeTierUsageResponse,
  * @throws {@link FreeTierServiceException}
  * <p>Base exception class for all service exceptions from FreeTier service.</p>
  *
+ * @public
  */
 export class GetFreeTierUsageCommand extends $Command
   .classBuilder<

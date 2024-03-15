@@ -32,7 +32,6 @@ export interface UpdateLedgerPermissionsModeCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the permissions mode of a ledger.</p>
  *          <important>
  *             <p>Before you switch to the <code>STANDARD</code> permissions mode, you must first
@@ -75,6 +74,7 @@ export interface UpdateLedgerPermissionsModeCommandOutput
  * @throws {@link QLDBServiceException}
  * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
+ * @public
  */
 export class UpdateLedgerPermissionsModeCommand extends $Command
   .classBuilder<

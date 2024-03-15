@@ -27,7 +27,6 @@ export interface ListTrialsCommandInput extends ListTrialsRequest {}
 export interface ListTrialsCommandOutput extends ListTrialsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the trials in your account. Specify an experiment name to limit the list to the
  *       trials that are part of that experiment. Specify a trial component name to limit the list to
  *       the trials that associated with that trial component. The list can be filtered to show only
@@ -82,6 +81,7 @@ export interface ListTrialsCommandOutput extends ListTrialsResponse, __MetadataB
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListTrialsCommand extends $Command
   .classBuilder<

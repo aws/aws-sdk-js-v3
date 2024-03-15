@@ -27,7 +27,6 @@ export interface DescribeLogGroupsCommandInput extends DescribeLogGroupsRequest 
 export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the specified log groups. You can list all your log groups or filter the results by prefix.
  *       The results are ASCII-sorted by log group name.</p>
  *          <p>CloudWatch Logs doesn’t support IAM policies that control access to the <code>DescribeLogGroups</code> action by using the
@@ -97,6 +96,7 @@ export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsRespons
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class DescribeLogGroupsCommand extends $Command
   .classBuilder<

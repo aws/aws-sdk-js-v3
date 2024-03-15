@@ -27,7 +27,6 @@ export interface UpdateFindingsFilterCommandInput extends UpdateFindingsFilterRe
 export interface UpdateFindingsFilterCommandOutput extends UpdateFindingsFilterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the criteria and other settings for a findings filter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface UpdateFindingsFilterCommandOutput extends UpdateFindingsFilterR
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * @public
  */
 export class UpdateFindingsFilterCommand extends $Command
   .classBuilder<

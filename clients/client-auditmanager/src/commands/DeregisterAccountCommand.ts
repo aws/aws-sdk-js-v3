@@ -27,7 +27,6 @@ export interface DeregisterAccountCommandInput extends DeregisterAccountRequest 
 export interface DeregisterAccountCommandOutput extends DeregisterAccountResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Deregisters an account in Audit Manager. </p>
  *          <note>
  *             <p>Before you deregister, you can use the <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_UpdateSettings.html">UpdateSettings</a> API operation to set your preferred data retention policy. By
@@ -76,6 +75,7 @@ export interface DeregisterAccountCommandOutput extends DeregisterAccountRespons
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class DeregisterAccountCommand extends $Command
   .classBuilder<

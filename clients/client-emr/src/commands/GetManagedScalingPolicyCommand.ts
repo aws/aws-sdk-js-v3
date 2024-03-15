@@ -27,7 +27,6 @@ export interface GetManagedScalingPolicyCommandInput extends GetManagedScalingPo
 export interface GetManagedScalingPolicyCommandOutput extends GetManagedScalingPolicyOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Fetches the attached managed scaling policy for an Amazon EMR cluster. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +62,7 @@ export interface GetManagedScalingPolicyCommandOutput extends GetManagedScalingP
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class GetManagedScalingPolicyCommand extends $Command
   .classBuilder<

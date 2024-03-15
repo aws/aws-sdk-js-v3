@@ -31,7 +31,6 @@ export interface DescribeEventsCommandInput extends DescribeEventsMessage {}
 export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Lists events for a given source identifier and source type. You can also specify a
  *          start and end time. For more information on DMS events, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working with Events and
  *             Notifications</a> in the <i>Database Migration Service User
@@ -91,6 +90,7 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class DescribeEventsCommand extends $Command
   .classBuilder<

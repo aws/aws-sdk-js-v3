@@ -31,7 +31,6 @@ export interface GetIntentVersionsCommandInput extends GetIntentVersionsRequest 
 export interface GetIntentVersionsCommandOutput extends GetIntentVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about all of the versions of an intent.</p>
  *          <p>The <code>GetIntentVersions</code> operation returns an
  *         <code>IntentMetadata</code> object for each version of an intent. For
@@ -95,6 +94,7 @@ export interface GetIntentVersionsCommandOutput extends GetIntentVersionsRespons
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * @public
  */
 export class GetIntentVersionsCommand extends $Command
   .classBuilder<

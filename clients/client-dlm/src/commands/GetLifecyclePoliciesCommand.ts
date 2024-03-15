@@ -27,7 +27,6 @@ export interface GetLifecyclePoliciesCommandInput extends GetLifecyclePoliciesRe
 export interface GetLifecyclePoliciesCommandOutput extends GetLifecyclePoliciesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets summary information about all or the specified data lifecycle policies.</p>
  *          <p>To get complete information about a policy, use <a href="https://docs.aws.amazon.com/dlm/latest/APIReference/API_GetLifecyclePolicy.html">GetLifecyclePolicy</a>.</p>
  * @example
@@ -93,6 +92,7 @@ export interface GetLifecyclePoliciesCommandOutput extends GetLifecyclePoliciesR
  * @throws {@link DLMServiceException}
  * <p>Base exception class for all service exceptions from DLM service.</p>
  *
+ * @public
  */
 export class GetLifecyclePoliciesCommand extends $Command
   .classBuilder<

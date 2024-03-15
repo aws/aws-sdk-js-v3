@@ -32,7 +32,6 @@ export interface AcceptSubscriptionRequestCommandInput extends AcceptSubscriptio
 export interface AcceptSubscriptionRequestCommandOutput extends AcceptSubscriptionRequestOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Accepts a subscription request to a specific asset. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -124,6 +123,7 @@ export interface AcceptSubscriptionRequestCommandOutput extends AcceptSubscripti
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class AcceptSubscriptionRequestCommand extends $Command
   .classBuilder<

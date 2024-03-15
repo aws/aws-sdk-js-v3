@@ -31,7 +31,6 @@ export interface DeleteBotAliasCommandInput extends DeleteBotAliasRequest {}
 export interface DeleteBotAliasCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an alias for the specified bot. </p>
  *          <p>You can't delete an alias that is used in the association between a
  *       bot and a messaging channel. If an alias is used in a channel association,
@@ -103,6 +102,7 @@ export interface DeleteBotAliasCommandOutput extends __MetadataBearer {}
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * @public
  */
 export class DeleteBotAliasCommand extends $Command
   .classBuilder<

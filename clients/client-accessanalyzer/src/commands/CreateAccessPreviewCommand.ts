@@ -27,7 +27,6 @@ export interface CreateAccessPreviewCommandInput extends CreateAccessPreviewRequ
 export interface CreateAccessPreviewCommandOutput extends CreateAccessPreviewResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an access preview that allows you to preview IAM Access Analyzer findings for your
  *          resource before deploying resource permissions.</p>
  * @example
@@ -187,6 +186,7 @@ export interface CreateAccessPreviewCommandOutput extends CreateAccessPreviewRes
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ * @public
  */
 export class CreateAccessPreviewCommand extends $Command
   .classBuilder<

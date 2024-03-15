@@ -27,7 +27,6 @@ export interface ListGatewayInstancesCommandInput extends ListGatewayInstancesRe
 export interface ListGatewayInstancesCommandOutput extends ListGatewayInstancesResponse, __MetadataBearer {}
 
 /**
- * @public
  * Displays a list of instances associated with the AWS account. This request returns a paginated result. You can use the filterArn property to display only the instances associated with the selected Gateway Amazon Resource Name (ARN).
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface ListGatewayInstancesCommandOutput extends ListGatewayInstancesR
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ * @public
  */
 export class ListGatewayInstancesCommand extends $Command
   .classBuilder<

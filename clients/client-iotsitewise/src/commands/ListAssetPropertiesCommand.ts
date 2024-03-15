@@ -27,7 +27,6 @@ export interface ListAssetPropertiesCommandInput extends ListAssetPropertiesRequ
 export interface ListAssetPropertiesCommandOutput extends ListAssetPropertiesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a paginated list of properties associated with an asset.
  *       If you update properties associated with the model before you finish listing all the properties,
  *         you need to start all over again.</p>
@@ -95,6 +94,7 @@ export interface ListAssetPropertiesCommandOutput extends ListAssetPropertiesRes
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class ListAssetPropertiesCommand extends $Command
   .classBuilder<

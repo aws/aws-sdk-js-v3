@@ -27,7 +27,6 @@ export interface DescribeReportJobCommandInput extends DescribeReportJobInput {}
 export interface DescribeReportJobCommandOutput extends DescribeReportJobOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the details associated with creating a report as specified by its
  *             <code>ReportJobId</code>.</p>
  * @example
@@ -79,6 +78,7 @@ export interface DescribeReportJobCommandOutput extends DescribeReportJobOutput,
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class DescribeReportJobCommand extends $Command
   .classBuilder<

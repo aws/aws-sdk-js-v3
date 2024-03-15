@@ -27,7 +27,6 @@ export interface DeleteVirtualInterfaceCommandInput extends DeleteVirtualInterfa
 export interface DeleteVirtualInterfaceCommandOutput extends DeleteVirtualInterfaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a virtual interface.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,6 +60,7 @@ export interface DeleteVirtualInterfaceCommandOutput extends DeleteVirtualInterf
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class DeleteVirtualInterfaceCommand extends $Command
   .classBuilder<

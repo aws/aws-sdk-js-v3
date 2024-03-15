@@ -32,7 +32,6 @@ export interface DescribeReservedInstancesListingsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes your account's Reserved Instance listings in the Reserved Instance Marketplace.</p>
  *          <p>The Reserved Instance Marketplace matches sellers who want to resell Reserved Instance capacity that they no longer need with buyers who want to purchase additional capacity. Reserved Instances bought and sold through the Reserved Instance Marketplace work like any other Reserved Instances.</p>
  *          <p>As a seller, you choose to list some or all of your Reserved Instances, and you specify the upfront price to receive for them. Your Reserved Instances are then listed in the Reserved Instance Marketplace and are available for purchase.</p>
@@ -109,6 +108,7 @@ export interface DescribeReservedInstancesListingsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeReservedInstancesListingsCommand extends $Command
   .classBuilder<

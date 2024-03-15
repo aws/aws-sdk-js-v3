@@ -27,7 +27,6 @@ export interface BatchGetReportGroupsCommandInput extends BatchGetReportGroupsIn
 export interface BatchGetReportGroupsCommandOutput extends BatchGetReportGroupsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Returns an array of report groups.
  *     </p>
@@ -91,6 +90,7 @@ export interface BatchGetReportGroupsCommandOutput extends BatchGetReportGroupsO
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * @public
  */
 export class BatchGetReportGroupsCommand extends $Command
   .classBuilder<

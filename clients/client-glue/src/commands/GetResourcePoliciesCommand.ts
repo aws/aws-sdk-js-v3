@@ -27,7 +27,6 @@ export interface GetResourcePoliciesCommandInput extends GetResourcePoliciesRequ
 export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the resource policies set on individual resources by Resource Access Manager
  *       during cross-account permission grants. Also retrieves the Data Catalog resource
  *       policy.</p>
@@ -81,6 +80,7 @@ export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesRes
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetResourcePoliciesCommand extends $Command
   .classBuilder<

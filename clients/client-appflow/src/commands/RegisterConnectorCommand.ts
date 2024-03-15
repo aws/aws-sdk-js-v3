@@ -27,7 +27,6 @@ export interface RegisterConnectorCommandInput extends RegisterConnectorRequest 
 export interface RegisterConnectorCommandOutput extends RegisterConnectorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Registers a new custom connector with your Amazon Web Services account. Before you can
  *       register the connector, you must deploy the associated AWS lambda function in your
  *       account.</p>
@@ -97,6 +96,7 @@ export interface RegisterConnectorCommandOutput extends RegisterConnectorRespons
  * @throws {@link AppflowServiceException}
  * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ * @public
  */
 export class RegisterConnectorCommand extends $Command
   .classBuilder<

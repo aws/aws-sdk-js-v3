@@ -27,7 +27,6 @@ export interface GetDatasetContentCommandInput extends GetDatasetContentRequest 
 export interface GetDatasetContentCommandOutput extends GetDatasetContentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the contents of a dataset as presigned URIs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface GetDatasetContentCommandOutput extends GetDatasetContentRespons
  * @throws {@link IoTAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
+ * @public
  */
 export class GetDatasetContentCommand extends $Command
   .classBuilder<

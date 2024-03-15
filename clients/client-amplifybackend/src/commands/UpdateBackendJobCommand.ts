@@ -27,7 +27,6 @@ export interface UpdateBackendJobCommandInput extends UpdateBackendJobRequest {}
 export interface UpdateBackendJobCommandOutput extends UpdateBackendJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a specific job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface UpdateBackendJobCommandOutput extends UpdateBackendJobResponse,
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ * @public
  */
 export class UpdateBackendJobCommand extends $Command
   .classBuilder<

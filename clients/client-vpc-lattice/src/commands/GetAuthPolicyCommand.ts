@@ -27,7 +27,6 @@ export interface GetAuthPolicyCommandInput extends GetAuthPolicyRequest {}
 export interface GetAuthPolicyCommandOutput extends GetAuthPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the auth policy for the specified service or service
  *    network.</p>
  * @example
@@ -75,6 +74,7 @@ export interface GetAuthPolicyCommandOutput extends GetAuthPolicyResponse, __Met
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ * @public
  */
 export class GetAuthPolicyCommand extends $Command
   .classBuilder<

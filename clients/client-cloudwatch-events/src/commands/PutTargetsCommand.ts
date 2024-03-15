@@ -27,7 +27,6 @@ export interface PutTargetsCommandInput extends PutTargetsRequest {}
 export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds the specified targets to the specified rule, or updates the targets if they are
  *       already associated with the rule.</p>
  *          <p>Targets are the resources that are invoked when a rule is triggered.</p>
@@ -358,6 +357,7 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ * @public
  */
 export class PutTargetsCommand extends $Command
   .classBuilder<

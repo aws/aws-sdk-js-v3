@@ -27,7 +27,6 @@ export interface UpdateAccountSettingsCommandInput extends UpdateAccountSettings
 export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSettingsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Turns on or turns off optional features in Resource Groups.</p>
  *          <p>The preceding example shows that the request to turn on group lifecycle events is
  *                 <code>IN_PROGRESS</code>. You can call the <a>GetAccountSettings</a>
@@ -79,6 +78,7 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ * @public
  */
 export class UpdateAccountSettingsCommand extends $Command
   .classBuilder<

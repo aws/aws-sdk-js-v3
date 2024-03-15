@@ -27,7 +27,6 @@ export interface DeleteFunctionUrlConfigCommandInput extends DeleteFunctionUrlCo
 export interface DeleteFunctionUrlConfigCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a Lambda function URL. When you delete a function URL, you
  *       can't recover it. Creating a new function URL results in a different URL address.</p>
  * @example
@@ -67,6 +66,7 @@ export interface DeleteFunctionUrlConfigCommandOutput extends __MetadataBearer {
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class DeleteFunctionUrlConfigCommand extends $Command
   .classBuilder<

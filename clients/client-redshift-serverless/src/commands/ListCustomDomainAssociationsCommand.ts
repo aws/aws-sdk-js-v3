@@ -36,7 +36,6 @@ export interface ListCustomDomainAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p> Lists custom domain associations for Amazon Redshift Serverless.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface ListCustomDomainAssociationsCommandOutput
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * @public
  */
 export class ListCustomDomainAssociationsCommand extends $Command
   .classBuilder<

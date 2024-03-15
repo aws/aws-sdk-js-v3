@@ -27,7 +27,6 @@ export interface DeleteTableCommandInput extends DeleteTableRequest {}
 export interface DeleteTableCommandOutput extends DeleteTableResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a table definition from the Data Catalog.</p>
  *          <note>
  *             <p>After completing this operation, you no longer have access to the table versions and
@@ -84,6 +83,7 @@ export interface DeleteTableCommandOutput extends DeleteTableResponse, __Metadat
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class DeleteTableCommand extends $Command
   .classBuilder<

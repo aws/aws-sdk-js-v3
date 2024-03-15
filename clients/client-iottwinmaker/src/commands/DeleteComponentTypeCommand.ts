@@ -27,7 +27,6 @@ export interface DeleteComponentTypeCommandInput extends DeleteComponentTypeRequ
 export interface DeleteComponentTypeCommandOutput extends DeleteComponentTypeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a component type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface DeleteComponentTypeCommandOutput extends DeleteComponentTypeRes
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ * @public
  */
 export class DeleteComponentTypeCommand extends $Command
   .classBuilder<

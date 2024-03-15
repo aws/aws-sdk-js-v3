@@ -27,7 +27,6 @@ export interface DescribeSchedulingPoliciesCommandInput extends DescribeScheduli
 export interface DescribeSchedulingPoliciesCommandOutput extends DescribeSchedulingPoliciesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes one or more of your scheduling policies.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface DescribeSchedulingPoliciesCommandOutput extends DescribeSchedul
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ * @public
  */
 export class DescribeSchedulingPoliciesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateDBSecurityGroupCommandInput extends CreateDBSecurityGroup
 export interface CreateDBSecurityGroupCommandOutput extends CreateDBSecurityGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new DB security group. DB security groups control access to a DB instance.</p>
  *          <p>A DB security group controls access to EC2-Classic DB instances that are not in a VPC.</p>
  *          <note>
@@ -101,6 +100,7 @@ export interface CreateDBSecurityGroupCommandOutput extends CreateDBSecurityGrou
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To create a DB security group.
  * ```javascript
  * // This example creates a DB security group.

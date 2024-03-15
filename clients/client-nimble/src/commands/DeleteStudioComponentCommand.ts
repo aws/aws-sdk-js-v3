@@ -31,7 +31,6 @@ export interface DeleteStudioComponentCommandInput extends DeleteStudioComponent
 export interface DeleteStudioComponentCommandOutput extends DeleteStudioComponentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a studio component resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -147,6 +146,7 @@ export interface DeleteStudioComponentCommandOutput extends DeleteStudioComponen
  * @throws {@link NimbleServiceException}
  * <p>Base exception class for all service exceptions from Nimble service.</p>
  *
+ * @public
  */
 export class DeleteStudioComponentCommand extends $Command
   .classBuilder<

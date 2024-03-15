@@ -27,7 +27,6 @@ export interface PutManagedScalingPolicyCommandInput extends PutManagedScalingPo
 export interface PutManagedScalingPolicyCommandOutput extends PutManagedScalingPolicyOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates a managed scaling policy for an Amazon EMR cluster. The
  *          managed scaling policy defines the limits for resources, such as Amazon EC2
  *          instances that can be added or terminated from a cluster. The policy only applies to the
@@ -65,6 +64,7 @@ export interface PutManagedScalingPolicyCommandOutput extends PutManagedScalingP
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class PutManagedScalingPolicyCommand extends $Command
   .classBuilder<

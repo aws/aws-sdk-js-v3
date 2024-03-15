@@ -32,7 +32,6 @@ export interface AssociateTransitGatewayRouteTableCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates the specified attachment with the specified transit gateway route table. You can
  *         associate only one route table with an attachment.</p>
  * @example
@@ -69,6 +68,7 @@ export interface AssociateTransitGatewayRouteTableCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class AssociateTransitGatewayRouteTableCommand extends $Command
   .classBuilder<

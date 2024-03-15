@@ -32,7 +32,6 @@ export interface GetCustomerGatewayAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the association information for customer gateways that are associated with
  *             devices and links in your global network.</p>
  * @example
@@ -94,6 +93,7 @@ export interface GetCustomerGatewayAssociationsCommandOutput
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class GetCustomerGatewayAssociationsCommand extends $Command
   .classBuilder<

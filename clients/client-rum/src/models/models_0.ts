@@ -7,8 +7,8 @@ import {
 import { RUMServiceException as __BaseException } from "./RUMServiceException";
 
 /**
- * @public
  * <p>You don't have sufficient permissions to perform this action.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -51,50 +51,49 @@ export const Telemetry = {
 export type Telemetry = (typeof Telemetry)[keyof typeof Telemetry];
 
 /**
- * @public
  * <p>This structure contains much of the configuration data for the app monitor.</p>
+ * @public
  */
 export interface AppMonitorConfiguration {
   /**
-   * @public
    * <p>The ID of the Amazon Cognito identity pool
    *          that is used to authorize the sending of data to RUM.</p>
+   * @public
    */
   IdentityPoolId?: string;
 
   /**
-   * @public
    * <p>A list of URLs in your website or application to exclude from RUM data collection.</p>
    *          <p>You can't include both <code>ExcludedPages</code> and <code>IncludedPages</code> in the same operation.</p>
+   * @public
    */
   ExcludedPages?: string[];
 
   /**
-   * @public
    * <p>If this app monitor is to collect data from only certain pages in your application, this structure lists those pages. </p>
    *          <p>You can't include both <code>ExcludedPages</code> and <code>IncludedPages</code> in the same operation.</p>
+   * @public
    */
   IncludedPages?: string[];
 
   /**
-   * @public
    * <p>A list of pages in your application that are to be displayed with a "favorite" icon
    *          in the CloudWatch RUM console.</p>
+   * @public
    */
   FavoritePages?: string[];
 
   /**
-   * @public
    * <p>Specifies the portion of user sessions to use for RUM data collection. Choosing a higher portion gives you
    *       more data but also incurs more costs.</p>
    *          <p>The range for this value is 0 to 1 inclusive. Setting this to 1 means that 100% of user sessions are sampled, and setting
    *          it to 0.1 means that 10% of user sessions are sampled.</p>
    *          <p>If you omit this parameter, the default of 0.1 is used, and 10% of sessions will be sampled.</p>
+   * @public
    */
   SessionSampleRate?: number;
 
   /**
-   * @public
    * <p>The ARN of the guest IAM role that is attached to the Amazon Cognito identity pool
    *       that is used to authorize the sending of data to RUM.</p>
    *          <note>
@@ -116,20 +115,20 @@ export interface AppMonitorConfiguration {
    *                </li>
    *             </ul>
    *          </note>
+   * @public
    */
   GuestRoleArn?: string;
 
   /**
-   * @public
    * <p>If you set this to <code>true</code>, the RUM web client sets two cookies, a session
    *          cookie and a user cookie. The cookies allow the RUM web client to collect data relating to
    *          the number of users an application has and the behavior of the application across a
    *          sequence of events. Cookies are stored in the top-level domain of the current page.</p>
+   * @public
    */
   AllowCookies?: boolean;
 
   /**
-   * @public
    * <p>An array that lists the types of telemetry data that this app monitor is to collect.</p>
    *          <ul>
    *             <li>
@@ -147,17 +146,18 @@ export interface AppMonitorConfiguration {
    *                   <code>http</code> indicates that RUM collects data about HTTP errors thrown by your application.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   Telemetries?: Telemetry[];
 
   /**
-   * @public
    * <p>If you set this to <code>true</code>, RUM enables X-Ray tracing for
    *          the user sessions that RUM samples. RUM adds an X-Ray trace header to allowed
    *          HTTP requests. It also records an X-Ray segment for allowed HTTP requests.
    *          You can see traces and segments from these user sessions in the X-Ray console
    *          and the CloudWatch ServiceLens console. For more information, see <a href="https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html">What is X-Ray?</a>
    *          </p>
+   * @public
    */
   EnableXRay?: boolean;
 }
@@ -177,48 +177,48 @@ export const CustomEventsStatus = {
 export type CustomEventsStatus = (typeof CustomEventsStatus)[keyof typeof CustomEventsStatus];
 
 /**
- * @public
  * <p>A structure that contains information about custom events for this app monitor.</p>
+ * @public
  */
 export interface CustomEvents {
   /**
-   * @public
    * <p>Specifies whether this app monitor allows the web client to define and send
    *          custom events. The default is for custom events to be <code>DISABLED</code>.</p>
+   * @public
    */
   Status?: CustomEventsStatus;
 }
 
 /**
- * @public
  * <p>A structure that contains the information about whether the app monitor stores copies of the data
  *       that RUM collects in CloudWatch Logs. If it does, this structure also contains the name of the log group.</p>
+ * @public
  */
 export interface CwLog {
   /**
-   * @public
    * <p>Indicated whether the app monitor stores copies of the data
    *          that RUM collects in CloudWatch Logs.</p>
+   * @public
    */
   CwLogEnabled?: boolean;
 
   /**
-   * @public
    * <p>The name of the log group where the copies are stored.</p>
+   * @public
    */
   CwLogGroup?: string;
 }
 
 /**
- * @public
  * <p>A structure that contains information about whether this app monitor stores a copy of
  *          the telemetry data that RUM collects using CloudWatch Logs.</p>
+ * @public
  */
 export interface DataStorage {
   /**
-   * @public
    * <p>A structure that contains the information about whether the app monitor stores copies of the data
    *          that RUM collects in CloudWatch Logs. If it does, this structure also contains the name of the log group.</p>
+   * @public
    */
   CwLog?: CwLog;
 }
@@ -239,97 +239,97 @@ export const StateEnum = {
 export type StateEnum = (typeof StateEnum)[keyof typeof StateEnum];
 
 /**
- * @public
  * <p>A RUM app monitor collects telemetry data from your application and sends that
  *          data to RUM. The data includes performance and reliability information such as page load time, client-side errors,
  *          and user behavior.</p>
+ * @public
  */
 export interface AppMonitor {
   /**
-   * @public
    * <p>The name of the app monitor.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The top-level internet domain name for which your application has administrative authority.</p>
+   * @public
    */
   Domain?: string;
 
   /**
-   * @public
    * <p>The unique ID of this app monitor.</p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The date and time that this app monitor was created.</p>
+   * @public
    */
   Created?: string;
 
   /**
-   * @public
    * <p>The date and time of the most recent changes to this app monitor's configuration.</p>
+   * @public
    */
   LastModified?: string;
 
   /**
-   * @public
    * <p>The list of tag keys and values associated with this app monitor.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>The current state of the app monitor.</p>
+   * @public
    */
   State?: StateEnum;
 
   /**
-   * @public
    * <p>A structure that contains much of the configuration data for the app monitor.</p>
+   * @public
    */
   AppMonitorConfiguration?: AppMonitorConfiguration;
 
   /**
-   * @public
    * <p>A structure that contains information about whether this app monitor stores a copy of
    *          the telemetry data that RUM collects using CloudWatch Logs.</p>
+   * @public
    */
   DataStorage?: DataStorage;
 
   /**
-   * @public
    * <p>Specifies whether this app monitor allows the web client to define and send
    *       custom events.</p>
    *          <p>For more information about custom events, see
    *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-custom-events.html">Send custom events</a>.</p>
+   * @public
    */
   CustomEvents?: CustomEvents;
 }
 
 /**
- * @public
  * <p>A structure that contains information about the RUM app monitor.</p>
+ * @public
  */
 export interface AppMonitorDetails {
   /**
-   * @public
    * <p>The name of the app monitor.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The unique ID of the app monitor.</p>
+   * @public
    */
   id?: string;
 
   /**
-   * @public
    * <p>The version of the app monitor.</p>
+   * @public
    */
   version?: string;
 }
@@ -349,7 +349,6 @@ export const MetricDestination = {
 export type MetricDestination = (typeof MetricDestination)[keyof typeof MetricDestination];
 
 /**
- * @public
  * <p>Use this structure to define one extended metric or custom metric that RUM will send
  *          to CloudWatch or CloudWatch Evidently. For more information, see
  *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-custom-and-extended-metrics.html">
@@ -591,10 +590,10 @@ export type MetricDestination = (typeof MetricDestination)[keyof typeof MetricDe
  *                </p>
  *             </li>
  *          </ul>
+ * @public
  */
 export interface MetricDefinitionRequest {
   /**
-   * @public
    * <p>The name for the metric that is defined in this structure. For custom metrics, you can specify
    *          any name that you like. For extended metrics, valid values are the following:</p>
    *          <ul>
@@ -655,28 +654,28 @@ export interface MetricDefinitionRequest {
    *                </p>
    *             </li>
    *          </ul>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>The field within the event object that the metric value is sourced from.</p>
    *          <p>If you omit this field, a hardcoded value of 1 is pushed as the metric value. This is
    *          useful if you want to count the number of events that the filter catches. </p>
    *          <p>If this metric is sent to CloudWatch Evidently, this field will be passed to
    *          Evidently raw. Evidently will handle data extraction from the event.</p>
+   * @public
    */
   ValueKey?: string;
 
   /**
-   * @public
    * <p>The CloudWatch metric unit to use for this metric. If you omit this field, the metric
    *       is recorded with no unit.</p>
+   * @public
    */
   UnitLabel?: string;
 
   /**
-   * @public
    * <p>Use this field only if you are sending the metric to CloudWatch.</p>
    *          <p>This field is a map of field paths to dimension names. It defines the dimensions to associate with this
    *          metric in CloudWatch. For extended metrics, valid values for the entries in this field are the following:</p>
@@ -715,11 +714,11 @@ export interface MetricDefinitionRequest {
    *          <p> For both extended metrics and custom metrics,
    *          all dimensions listed in this field
    *          must also be included in <code>EventPattern</code>.</p>
+   * @public
    */
   DimensionKeys?: Record<string, string>;
 
   /**
-   * @public
    * <p>The pattern that defines the metric, specified as a JSON object. RUM checks events that happen in a user's session
    *          against the pattern, and events that match the pattern are sent to the metric destination.</p>
    *          <p>When you define extended metrics, the metric definition is not valid if <code>EventPattern</code>
@@ -768,14 +767,15 @@ export interface MetricDefinitionRequest {
    *          </ul>
    *          <p>If the metrics destination is <code>CloudWatch</code> and the event also matches a value
    *          in <code>DimensionKeys</code>, then the metric is published with the specified dimensions. </p>
+   * @public
    */
   EventPattern?: string;
 
   /**
-   * @public
    * <p>If this structure is for a custom metric instead of an extended metrics, use this parameter to define the
    *          metric namespace for that custom metric. Do not specify this parameter if this structure is for an extended metric.</p>
    *          <p>You cannot use any string that starts with <code>AWS/</code> for your namespace.</p>
+   * @public
    */
   Namespace?: string;
 }
@@ -785,118 +785,118 @@ export interface MetricDefinitionRequest {
  */
 export interface BatchCreateRumMetricDefinitionsRequest {
   /**
-   * @public
    * <p>The name of the CloudWatch RUM app monitor that is to send the metrics.</p>
+   * @public
    */
   AppMonitorName: string | undefined;
 
   /**
-   * @public
    * <p>The destination to send the metrics to. Valid values are <code>CloudWatch</code> and
    *             <code>Evidently</code>. If you specify <code>Evidently</code>, you must also specify the
    *          Amazon Resource Name (ARN) of the CloudWatchEvidently experiment that will receive
    *          the metrics and an IAM role that has permission to write to the
    *          experiment.</p>
+   * @public
    */
   Destination: MetricDestination | undefined;
 
   /**
-   * @public
    * <p>This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is
    *          <code>CloudWatch</code>, do not use this parameter.</p>
    *          <p>This parameter specifies the ARN of the Evidently experiment that is to receive the metrics. You must have already defined this
    *          experiment as a valid destination. For more information, see <a href="https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_PutRumMetricsDestination.html">PutRumMetricsDestination</a>.</p>
+   * @public
    */
   DestinationArn?: string;
 
   /**
-   * @public
    * <p>An array of structures which define the metrics that you want to send.</p>
+   * @public
    */
   MetricDefinitions: MetricDefinitionRequest[] | undefined;
 }
 
 /**
- * @public
  * <p>A structure that defines one error caused by a
  *          <a href="https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_BatchCreateRumMetricsDefinitions.html">BatchCreateRumMetricsDefinitions</a>
  *       operation.</p>
+ * @public
  */
 export interface BatchCreateRumMetricDefinitionsError {
   /**
-   * @public
    * <p>The metric definition that caused this error.</p>
+   * @public
    */
   MetricDefinition: MetricDefinitionRequest | undefined;
 
   /**
-   * @public
    * <p>The error code.</p>
+   * @public
    */
   ErrorCode: string | undefined;
 
   /**
-   * @public
    * <p>The error message for this metric definition.</p>
+   * @public
    */
   ErrorMessage: string | undefined;
 }
 
 /**
- * @public
  * <p>A structure that displays the definition of one extended metric that RUM sends
  *          to CloudWatch or CloudWatch Evidently. For more information, see
  *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-vended-metrics.html">
  *             Additional metrics that you can send to CloudWatch and CloudWatch Evidently</a>.</p>
+ * @public
  */
 export interface MetricDefinition {
   /**
-   * @public
    * <p>The ID of this metric definition.</p>
+   * @public
    */
   MetricDefinitionId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the metric that is defined in this structure.</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>The field within the event object that the metric value is sourced from.</p>
+   * @public
    */
   ValueKey?: string;
 
   /**
-   * @public
    * <p>Use this field only if you are sending this metric to CloudWatch. It defines
    *          the CloudWatch metric unit that this metric is measured in. </p>
+   * @public
    */
   UnitLabel?: string;
 
   /**
-   * @public
    * <p>This field is a map of field paths to dimension names. It defines the dimensions to associate with this
    *          metric in CloudWatch The value of this field is used only if the metric destination is <code>CloudWatch</code>.
    *          If the metric destination is <code>Evidently</code>, the value of <code>DimensionKeys</code> is ignored.</p>
+   * @public
    */
   DimensionKeys?: Record<string, string>;
 
   /**
-   * @public
    * <p>The pattern that defines the metric. RUM checks events that happen in a user's session
    *       against the pattern, and events that match the pattern are sent to the metric destination.</p>
    *          <p>If the metrics destination
    *       is <code>CloudWatch</code> and the event
    *       also matches a value in <code>DimensionKeys</code>, then the metric is published with the specified dimensions. </p>
+   * @public
    */
   EventPattern?: string;
 
   /**
-   * @public
    * <p>If this metric definition is for a custom metric instead of an extended metric, this field displays
    *       the metric namespace that the custom metric is published to.</p>
+   * @public
    */
   Namespace?: string;
 }
@@ -906,34 +906,34 @@ export interface MetricDefinition {
  */
 export interface BatchCreateRumMetricDefinitionsResponse {
   /**
-   * @public
    * <p>An array of error objects, if the operation caused any errors.</p>
+   * @public
    */
   Errors: BatchCreateRumMetricDefinitionsError[] | undefined;
 
   /**
-   * @public
    * <p>An array of structures that define the extended metrics.</p>
+   * @public
    */
   MetricDefinitions?: MetricDefinition[];
 }
 
 /**
- * @public
  * <p>This operation attempted to create a resource that already exists.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The name of the resource that is associated with the error.</p>
+   * @public
    */
   resourceName: string | undefined;
 
   /**
-   * @public
    * <p>The type of the resource that is associated with the error.</p>
+   * @public
    */
   resourceType?: string;
 
@@ -953,16 +953,16 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Internal service exception.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
   $retryable = {};
   /**
-   * @public
    * <p>The value of a parameter in the request caused an error.</p>
+   * @public
    */
   retryAfterSeconds?: number;
 
@@ -981,21 +981,21 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>Resource not found.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The name of the resource that is associated with the error.</p>
+   * @public
    */
   resourceName: string | undefined;
 
   /**
-   * @public
    * <p>The type of the resource that is associated with the error.</p>
+   * @public
    */
   resourceType?: string;
 
@@ -1015,8 +1015,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>This request exceeds a service quota.</p>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
@@ -1035,8 +1035,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request was throttled because of quota limits.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -1045,20 +1045,20 @@ export class ThrottlingException extends __BaseException {
     throttling: true,
   };
   /**
-   * @public
    * <p>The ID of the service that is associated with the error.</p>
+   * @public
    */
   serviceCode?: string;
 
   /**
-   * @public
    * <p>The ID of the service quota that was exceeded.</p>
+   * @public
    */
   quotaCode?: string;
 
   /**
-   * @public
    * <p>The value of a parameter in the request caused an error.</p>
+   * @public
    */
   retryAfterSeconds?: number;
 
@@ -1079,8 +1079,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>One of the arguments for the request is not valid.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -1103,58 +1103,58 @@ export class ValidationException extends __BaseException {
  */
 export interface BatchDeleteRumMetricDefinitionsRequest {
   /**
-   * @public
    * <p>The name of the CloudWatch RUM app monitor that is sending these metrics.</p>
+   * @public
    */
   AppMonitorName: string | undefined;
 
   /**
-   * @public
    * <p>Defines the destination where you want to stop sending the specified metrics. Valid values are <code>CloudWatch</code> and
    *          <code>Evidently</code>. If
    *          you specify <code>Evidently</code>, you must also specify the ARN of the CloudWatchEvidently experiment that is to
    *          be the destination and an IAM role that has permission to write to the experiment.</p>
+   * @public
    */
   Destination: MetricDestination | undefined;
 
   /**
-   * @public
    * <p>This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is
    *          <code>CloudWatch</code>, do not use this parameter. </p>
    *          <p>This parameter specifies
    *          the ARN of the Evidently experiment that was receiving the metrics that are being deleted.</p>
+   * @public
    */
   DestinationArn?: string;
 
   /**
-   * @public
    * <p>An array of structures which define the metrics that you want to stop sending.</p>
+   * @public
    */
   MetricDefinitionIds: string[] | undefined;
 }
 
 /**
- * @public
  * <p>A structure that defines one error caused by a
  *          <a href="https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_BatchDeleteRumMetricsDefinitions.html">BatchCreateRumMetricsDefinitions</a>
  *          operation.</p>
+ * @public
  */
 export interface BatchDeleteRumMetricDefinitionsError {
   /**
-   * @public
    * <p>The ID of the metric definition that caused this error.</p>
+   * @public
    */
   MetricDefinitionId: string | undefined;
 
   /**
-   * @public
    * <p>The error code.</p>
+   * @public
    */
   ErrorCode: string | undefined;
 
   /**
-   * @public
    * <p>The error message for this metric definition.</p>
+   * @public
    */
   ErrorMessage: string | undefined;
 }
@@ -1164,14 +1164,14 @@ export interface BatchDeleteRumMetricDefinitionsError {
  */
 export interface BatchDeleteRumMetricDefinitionsResponse {
   /**
-   * @public
    * <p>An array of error objects, if the operation caused any errors.</p>
+   * @public
    */
   Errors: BatchDeleteRumMetricDefinitionsError[] | undefined;
 
   /**
-   * @public
    * <p>The IDs of the metric definitions that were deleted.</p>
+   * @public
    */
   MetricDefinitionIds?: string[];
 }
@@ -1181,39 +1181,39 @@ export interface BatchDeleteRumMetricDefinitionsResponse {
  */
 export interface BatchGetRumMetricDefinitionsRequest {
   /**
-   * @public
    * <p>The name of the CloudWatch RUM app monitor that is sending the metrics.</p>
+   * @public
    */
   AppMonitorName: string | undefined;
 
   /**
-   * @public
    * <p>The type of destination that you want to view metrics for. Valid values are <code>CloudWatch</code>
    *          and <code>Evidently</code>.</p>
+   * @public
    */
   Destination: MetricDestination | undefined;
 
   /**
-   * @public
    * <p>This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is
    *          <code>CloudWatch</code>, do not use this parameter.</p>
    *          <p>This parameter
    *          specifies the ARN of the Evidently experiment that corresponds to the destination.</p>
+   * @public
    */
   DestinationArn?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return in one operation. The default is 50. The maximum that you can
    *          specify is 100.</p>
    *          <p>To retrieve the remaining results, make another call with the returned
    *          <code>NextToken</code> value. </p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>Use the token returned by the previous operation to request the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1223,16 +1223,16 @@ export interface BatchGetRumMetricDefinitionsRequest {
  */
 export interface BatchGetRumMetricDefinitionsResponse {
   /**
-   * @public
    * <p>An array of structures that display information about the metrics that are sent by the specified
    *          app monitor to the specified destination.</p>
+   * @public
    */
   MetricDefinitions?: MetricDefinition[];
 
   /**
-   * @public
    * <p>A token that you can use in a subsequent operation to
    *          retrieve the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1242,19 +1242,18 @@ export interface BatchGetRumMetricDefinitionsResponse {
  */
 export interface CreateAppMonitorRequest {
   /**
-   * @public
    * <p>A name for the app monitor.</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>The top-level internet domain name for which your application has administrative authority.</p>
+   * @public
    */
   Domain: string | undefined;
 
   /**
-   * @public
    * <p>Assigns one or more tags (key-value pairs) to the app monitor.</p>
    *          <p>Tags can help you organize and categorize your resources. You can also use them to scope user
    *          permissions by granting a user
@@ -1262,11 +1261,11 @@ export interface CreateAppMonitorRequest {
    *          <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p>
    *          <p>You can associate as many as 50 tags with an app monitor.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 
   /**
-   * @public
    * <p>A structure that contains much of the configuration data for the app monitor. If you are using
    *          Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the
    *          Amazon Cognito identity pool to use for authorization. If you don't include <code>AppMonitorConfiguration</code>, you must set up your own
@@ -1274,25 +1273,26 @@ export interface CreateAppMonitorRequest {
    *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-get-started-authorization.html">Authorize your application
    *             to send data to Amazon Web Services</a>.</p>
    *          <p>If you omit this argument, the sample rate used for RUM is set to 10% of the user sessions.</p>
+   * @public
    */
   AppMonitorConfiguration?: AppMonitorConfiguration;
 
   /**
-   * @public
    * <p>Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM
    *          sends a copy of this telemetry data to Amazon CloudWatch Logs
    *          in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur
    *          Amazon CloudWatch Logs charges.</p>
    *          <p>If you omit this parameter, the default is <code>false</code>.</p>
+   * @public
    */
   CwLogEnabled?: boolean;
 
   /**
-   * @public
    * <p>Specifies whether this app monitor allows the web client to define and send
    *          custom events. If you omit this parameter, custom events are <code>DISABLED</code>.</p>
    *          <p>For more information about custom events, see
    *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-custom-events.html">Send custom events</a>.</p>
+   * @public
    */
   CustomEvents?: CustomEvents;
 }
@@ -1302,8 +1302,8 @@ export interface CreateAppMonitorRequest {
  */
 export interface CreateAppMonitorResponse {
   /**
-   * @public
    * <p>The unique ID of the new app monitor.</p>
+   * @public
    */
   Id?: string;
 }
@@ -1313,8 +1313,8 @@ export interface CreateAppMonitorResponse {
  */
 export interface DeleteAppMonitorRequest {
   /**
-   * @public
    * <p>The name of the app monitor to delete.</p>
+   * @public
    */
   Name: string | undefined;
 }
@@ -1329,22 +1329,22 @@ export interface DeleteAppMonitorResponse {}
  */
 export interface DeleteRumMetricsDestinationRequest {
   /**
-   * @public
    * <p>The name of the app monitor that is sending metrics to the destination that you want to delete.</p>
+   * @public
    */
   AppMonitorName: string | undefined;
 
   /**
-   * @public
    * <p>The type of destination to delete. Valid values are <code>CloudWatch</code> and <code>Evidently</code>.</p>
+   * @public
    */
   Destination: MetricDestination | undefined;
 
   /**
-   * @public
    * <p>This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is
    *          <code>CloudWatch</code>, do not use this parameter. This parameter
    *          specifies the ARN of the Evidently experiment that corresponds to the destination to delete.</p>
+   * @public
    */
   DestinationArn?: string;
 }
@@ -1359,8 +1359,8 @@ export interface DeleteRumMetricsDestinationResponse {}
  */
 export interface GetAppMonitorRequest {
   /**
-   * @public
    * <p>The app monitor to retrieve information for.</p>
+   * @public
    */
   Name: string | undefined;
 }
@@ -1370,14 +1370,13 @@ export interface GetAppMonitorRequest {
  */
 export interface GetAppMonitorResponse {
   /**
-   * @public
    * <p>A structure containing all the configuration information for the app monitor.</p>
+   * @public
    */
   AppMonitor?: AppMonitor;
 }
 
 /**
- * @public
  * <p>A structure that defines a key and values that you can use to filter the results. The
  *          only performance events that are returned are those that have values matching the ones that
  *          you specify in one of your <code>QueryFilter</code> structures.</p>
@@ -1388,10 +1387,10 @@ export interface GetAppMonitorResponse {
  *          works as a "not equal to" filter. For example, specify <code>Invert</code> as the <code>Name</code>
  *          and specify <code>Chrome</code> as the value to return all events except events from
  *          user sessions with the Chrome browser.</p>
+ * @public
  */
 export interface QueryFilter {
   /**
-   * @public
    * <p>The name of a key to search for.
    *       The filter returns only the events that match the <code>Name</code>
    *          and <code>Values</code> that you specify.
@@ -1399,31 +1398,32 @@ export interface QueryFilter {
    *          <p>Valid values for <code>Name</code> are <code>Browser</code> | <code>Device</code> | <code>Country</code> |
    *          <code>Page</code> | <code>OS</code> | <code>EventType</code> | <code>Invert</code>
    *          </p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The values of the <code>Name</code> that are to be be included in the returned results.</p>
+   * @public
    */
   Values?: string[];
 }
 
 /**
- * @public
  * <p>A structure that defines the time range that you want to retrieve results from.</p>
+ * @public
  */
 export interface TimeRange {
   /**
-   * @public
    * <p>The beginning of the time range to retrieve performance events from.</p>
+   * @public
    */
   After: number | undefined;
 
   /**
-   * @public
    * <p>The end of the time range to retrieve performance events from. If you omit this, the time
    *       range extends to the time that this operation is performed.</p>
+   * @public
    */
   Before?: number;
 }
@@ -1433,33 +1433,33 @@ export interface TimeRange {
  */
 export interface GetAppMonitorDataRequest {
   /**
-   * @public
    * <p>The name of the app monitor that collected the data that you want to retrieve.</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>A structure that defines the time range that you want to retrieve results from.</p>
+   * @public
    */
   TimeRange: TimeRange | undefined;
 
   /**
-   * @public
    * <p>An array of structures that you can use to filter the results to those that match one or
    *          more sets of key-value pairs that you specify.</p>
+   * @public
    */
   Filters?: QueryFilter[];
 
   /**
-   * @public
    * <p>The maximum number of results to return in one operation. </p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>Use the token returned by the previous operation to request the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1469,15 +1469,15 @@ export interface GetAppMonitorDataRequest {
  */
 export interface GetAppMonitorDataResponse {
   /**
-   * @public
    * <p>The events that RUM collected that match your request.</p>
+   * @public
    */
   Events?: string[];
 
   /**
-   * @public
    * <p>A token that you can use in a subsequent operation to retrieve the next set of
    *          results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1487,51 +1487,51 @@ export interface GetAppMonitorDataResponse {
  */
 export interface ListAppMonitorsRequest {
   /**
-   * @public
    * <p>The maximum number of results to return in one operation. The default is 50. The maximum that you can
    *       specify is 100.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>Use the token returned by the previous operation to request the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>A structure that includes some data about app monitors and their settings.</p>
+ * @public
  */
 export interface AppMonitorSummary {
   /**
-   * @public
    * <p>The name of this app monitor.</p>
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * <p>The unique ID of this app monitor.</p>
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * <p>The date and time that the app monitor was created.</p>
+   * @public
    */
   Created?: string;
 
   /**
-   * @public
    * <p>The date and time of the most recent changes to this app monitor's configuration.</p>
+   * @public
    */
   LastModified?: string;
 
   /**
-   * @public
    * <p>The current state of this app monitor.</p>
+   * @public
    */
   State?: StateEnum;
 }
@@ -1541,15 +1541,15 @@ export interface AppMonitorSummary {
  */
 export interface ListAppMonitorsResponse {
   /**
-   * @public
    * <p>A token that you can use in a subsequent operation to retrieve the next set of
    *          results.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>An array of structures that contain information about the returned app monitors.</p>
+   * @public
    */
   AppMonitorSummaries?: AppMonitorSummary[];
 }
@@ -1559,50 +1559,50 @@ export interface ListAppMonitorsResponse {
  */
 export interface ListRumMetricsDestinationsRequest {
   /**
-   * @public
    * <p>The name of the app monitor associated with the destinations that you want to retrieve.</p>
+   * @public
    */
   AppMonitorName: string | undefined;
 
   /**
-   * @public
    * <p>The maximum number of results to return in one operation. The default is 50. The maximum that you can
    *          specify is 100.</p>
    *          <p>To retrieve the remaining results, make another call with the returned
    *          <code>NextToken</code> value. </p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>Use the token returned by the previous operation to request the next page of results.</p>
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * <p>A structure that displays information about one destination that CloudWatch RUM sends
  *       extended metrics to.</p>
+ * @public
  */
 export interface MetricDestinationSummary {
   /**
-   * @public
    * <p>Specifies whether the destination is <code>CloudWatch</code> or <code>Evidently</code>.</p>
+   * @public
    */
   Destination?: MetricDestination;
 
   /**
-   * @public
    * <p>If the destination is <code>Evidently</code>, this specifies the ARN of the Evidently experiment that receives
    *        the metrics.</p>
+   * @public
    */
   DestinationArn?: string;
 
   /**
-   * @public
    * <p>This field appears only when the destination is <code>Evidently</code>. It specifies
    *          the ARN of the IAM role that is used to write to the Evidently experiment that receives the metrics.</p>
+   * @public
    */
   IamRoleArn?: string;
 }
@@ -1612,16 +1612,16 @@ export interface MetricDestinationSummary {
  */
 export interface ListRumMetricsDestinationsResponse {
   /**
-   * @public
    * <p>The list of CloudWatch RUM extended metrics destinations associated with the app monitor that
    *       you specified.</p>
+   * @public
    */
   Destinations?: MetricDestinationSummary[];
 
   /**
-   * @public
    * <p>A token that you can use in a subsequent operation to
    *          retrieve the next set of results.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1631,29 +1631,28 @@ export interface ListRumMetricsDestinationsResponse {
  */
 export interface PutRumMetricsDestinationRequest {
   /**
-   * @public
    * <p>The name of the CloudWatch RUM app monitor that will send the metrics.</p>
+   * @public
    */
   AppMonitorName: string | undefined;
 
   /**
-   * @public
    * <p>Defines the destination to send the metrics to. Valid values are <code>CloudWatch</code> and
    *          <code>Evidently</code>. If
    *          you specify <code>Evidently</code>, you must also specify the ARN of the CloudWatchEvidently experiment that is to
    *          be the destination and an IAM role that has permission to write to the experiment.</p>
+   * @public
    */
   Destination: MetricDestination | undefined;
 
   /**
-   * @public
    * <p>Use this parameter only if <code>Destination</code> is <code>Evidently</code>. This parameter specifies
    *       the ARN of the Evidently experiment that will receive the extended metrics.</p>
+   * @public
    */
   DestinationArn?: string;
 
   /**
-   * @public
    * <p>This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is
    *          <code>CloudWatch</code>, don't use this parameter.</p>
    *          <p>This parameter specifies
@@ -1664,6 +1663,7 @@ export interface PutRumMetricsDestinationRequest {
    *             CloudWatchAmazonCloudWatchRUMFullAccess</a>
    *           policy doesn't include <code>PassRole</code>
    *          permissions.</p>
+   * @public
    */
   IamRoleArn?: string;
 }
@@ -1678,43 +1678,43 @@ export interface PutRumMetricsDestinationResponse {}
  */
 export interface UpdateAppMonitorRequest {
   /**
-   * @public
    * <p>The name of the app monitor to update.</p>
+   * @public
    */
   Name: string | undefined;
 
   /**
-   * @public
    * <p>The top-level internet domain name for which your application has administrative authority.</p>
+   * @public
    */
   Domain?: string;
 
   /**
-   * @public
    * <p>A structure that contains much of the configuration data for the app monitor. If you are using
    *          Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the
    *          Amazon Cognito identity pool to use for authorization. If you don't include <code>AppMonitorConfiguration</code>, you must set up your own
    *          authorization method. For more information, see
    *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-get-started-authorization.html">Authorize your application
    *             to send data to Amazon Web Services</a>.</p>
+   * @public
    */
   AppMonitorConfiguration?: AppMonitorConfiguration;
 
   /**
-   * @public
    * <p>Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM
    *          sends a copy of this telemetry data to Amazon CloudWatch Logs
    *          in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur
    *          Amazon CloudWatch Logs charges.</p>
+   * @public
    */
   CwLogEnabled?: boolean;
 
   /**
-   * @public
    * <p>Specifies whether this app monitor allows the web client to define and send
    *          custom events. The default is for custom events to be <code>DISABLED</code>.</p>
    *          <p>For more information about custom events, see
    *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-custom-events.html">Send custom events</a>.</p>
+   * @public
    */
   CustomEvents?: CustomEvents;
 }
@@ -1729,38 +1729,38 @@ export interface UpdateAppMonitorResponse {}
  */
 export interface UpdateRumMetricDefinitionRequest {
   /**
-   * @public
    * <p>The name of the CloudWatch RUM app monitor that sends these metrics.</p>
+   * @public
    */
   AppMonitorName: string | undefined;
 
   /**
-   * @public
    * <p>The destination to send the metrics to. Valid values are <code>CloudWatch</code> and <code>Evidently</code>. If
    *          you specify <code>Evidently</code>, you must also specify the ARN of the CloudWatchEvidently experiment
    *          that will receive
    *          the metrics and an IAM role that has permission to write to the experiment.</p>
+   * @public
    */
   Destination: MetricDestination | undefined;
 
   /**
-   * @public
    * <p>This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is
    *          <code>CloudWatch</code>, do not use this parameter.</p>
    *          <p>This parameter specifies the ARN of the Evidently experiment that is to receive the metrics. You must have already defined this
    *          experiment as a valid destination. For more information, see <a href="https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_PutRumMetricsDestination.html">PutRumMetricsDestination</a>.</p>
+   * @public
    */
   DestinationArn?: string;
 
   /**
-   * @public
    * <p>A structure that contains the new definition that you want to use for this metric.</p>
+   * @public
    */
   MetricDefinition: MetricDefinitionRequest | undefined;
 
   /**
-   * @public
    * <p>The ID of the metric definition to update.</p>
+   * @public
    */
   MetricDefinitionId: string | undefined;
 }
@@ -1775,8 +1775,8 @@ export interface UpdateRumMetricDefinitionResponse {}
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The ARN of the resource that you want to see the tags of.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 }
@@ -1786,72 +1786,72 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>The ARN of the resource that you are viewing.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The list of tag keys and values associated with the resource you specified.</p>
+   * @public
    */
   Tags: Record<string, string> | undefined;
 }
 
 /**
- * @public
  * <p>A structure that contains the information for one performance event that RUM collects from a user session with your
  *       application.</p>
+ * @public
  */
 export interface RumEvent {
   /**
-   * @public
    * <p>A unique ID for this event.</p>
+   * @public
    */
   id: string | undefined;
 
   /**
-   * @public
    * <p>The exact time that this event occurred.</p>
+   * @public
    */
   timestamp: Date | undefined;
 
   /**
-   * @public
    * <p>The JSON schema that denotes the type of event this is, such as a page load or a new session.</p>
+   * @public
    */
   type: string | undefined;
 
   /**
-   * @public
    * <p>Metadata about this event, which contains a JSON serialization of the identity of the user for
    *          this session. The user information comes from information such as the HTTP user-agent request header
    *          and document interface.</p>
+   * @public
    */
   metadata?: __LazyJsonString | string;
 
   /**
-   * @public
    * <p>A string containing details about the event.</p>
+   * @public
    */
   details: __LazyJsonString | string | undefined;
 }
 
 /**
- * @public
  * <p>A structure that contains information about the user session that this batch of events was collected from.</p>
+ * @public
  */
 export interface UserDetails {
   /**
-   * @public
    * <p>The ID of the user for this user session. This ID is generated by RUM and does not include any
    *       personally identifiable information about the user.</p>
+   * @public
    */
   userId?: string;
 
   /**
-   * @public
    * <p>The session ID that the performance events are from.</p>
+   * @public
    */
   sessionId?: string;
 }
@@ -1861,32 +1861,32 @@ export interface UserDetails {
  */
 export interface PutRumEventsRequest {
   /**
-   * @public
    * <p>The ID of the app monitor that is sending this data.</p>
+   * @public
    */
   Id: string | undefined;
 
   /**
-   * @public
    * <p>A unique identifier for this batch of RUM event data.</p>
+   * @public
    */
   BatchId: string | undefined;
 
   /**
-   * @public
    * <p>A structure that contains information about the app monitor that collected this telemetry information.</p>
+   * @public
    */
   AppMonitorDetails: AppMonitorDetails | undefined;
 
   /**
-   * @public
    * <p>A structure that contains information about the user session that this batch of events was collected from.</p>
+   * @public
    */
   UserDetails: UserDetails | undefined;
 
   /**
-   * @public
    * <p>An array of structures that contain the telemetry event data.</p>
+   * @public
    */
   RumEvents: RumEvent[] | undefined;
 }
@@ -1901,14 +1901,14 @@ export interface PutRumEventsResponse {}
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>The ARN of the CloudWatch RUM resource that you're adding tags to.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The list of key-value pairs to associate with the resource.</p>
+   * @public
    */
   Tags: Record<string, string> | undefined;
 }
@@ -1923,14 +1923,14 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>The ARN of the CloudWatch RUM resource that you're removing tags from.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The list of tag keys to remove from the resource.</p>
+   * @public
    */
   TagKeys: string[] | undefined;
 }

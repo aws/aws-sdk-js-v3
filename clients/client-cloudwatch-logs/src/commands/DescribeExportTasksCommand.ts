@@ -27,7 +27,6 @@ export interface DescribeExportTasksCommandInput extends DescribeExportTasksRequ
 export interface DescribeExportTasksCommandOutput extends DescribeExportTasksResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the specified export tasks. You can list all your export tasks or filter
  *       the results based on task ID or task status.</p>
  * @example
@@ -84,6 +83,7 @@ export interface DescribeExportTasksCommandOutput extends DescribeExportTasksRes
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class DescribeExportTasksCommand extends $Command
   .classBuilder<

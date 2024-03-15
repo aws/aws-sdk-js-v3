@@ -27,7 +27,6 @@ export interface EnableEnhancedMonitoringCommandInput extends EnableEnhancedMoni
 export interface EnableEnhancedMonitoringCommandOutput extends EnhancedMonitoringOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables enhanced Kinesis data stream monitoring for shard-level metrics.</p>
  *          <note>
  *             <p>When invoking this API, you must use either the <code>StreamARN</code> or the
@@ -91,6 +90,7 @@ export interface EnableEnhancedMonitoringCommandOutput extends EnhancedMonitorin
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * @public
  */
 export class EnableEnhancedMonitoringCommand extends $Command
   .classBuilder<

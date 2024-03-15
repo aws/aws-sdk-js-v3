@@ -27,7 +27,6 @@ export interface ListOperationsCommandInput extends ListOperationsRequest {}
 export interface ListOperationsCommandOutput extends ListOperationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Return a list of operations that occurred on an App Runner service.</p>
  *          <p>The resulting list of <a>OperationSummary</a> objects is sorted in reverse chronological order. The first object on the list represents the
  *       last started operation.</p>
@@ -79,6 +78,7 @@ export interface ListOperationsCommandOutput extends ListOperationsResponse, __M
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ * @public
  */
 export class ListOperationsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeAssetModelCommandInput extends DescribeAssetModelReques
 export interface DescribeAssetModelCommandOutput extends DescribeAssetModelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about an asset model.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -267,6 +266,7 @@ export interface DescribeAssetModelCommandOutput extends DescribeAssetModelRespo
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class DescribeAssetModelCommand extends $Command
   .classBuilder<

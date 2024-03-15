@@ -32,7 +32,6 @@ export interface TranslateDocumentCommandInput extends TranslateDocumentRequest 
 export interface TranslateDocumentCommandOutput extends TranslateDocumentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Translates the input document from the source language to the target language.
  *       This synchronous operation supports text, HTML, or Word documents as the input document.
  *
@@ -131,6 +130,7 @@ export interface TranslateDocumentCommandOutput extends TranslateDocumentRespons
  * @throws {@link TranslateServiceException}
  * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ * @public
  */
 export class TranslateDocumentCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreatePolicyCommandInput extends CreatePolicyRequest {}
 export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new managed policy for your Amazon Web Services account.</p>
  *          <p>This operation creates a policy version with a version identifier of <code>v1</code>
  *             and sets v1 as the policy's default version. For more information about policy versions,
@@ -116,6 +115,7 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class CreatePolicyCommand extends $Command
   .classBuilder<

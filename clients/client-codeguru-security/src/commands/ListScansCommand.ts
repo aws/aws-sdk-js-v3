@@ -27,7 +27,6 @@ export interface ListScansCommandInput extends ListScansRequest {}
 export interface ListScansCommandOutput extends ListScansResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all the standard scans in an account. Does not return express
  *       scans.</p>
  * @example
@@ -79,6 +78,7 @@ export interface ListScansCommandOutput extends ListScansResponse, __MetadataBea
  * @throws {@link CodeGuruSecurityServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruSecurity service.</p>
  *
+ * @public
  */
 export class ListScansCommand extends $Command
   .classBuilder<

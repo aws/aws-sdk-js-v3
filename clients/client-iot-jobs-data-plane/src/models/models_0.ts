@@ -4,8 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { IoTJobsDataPlaneServiceException as __BaseException } from "./IoTJobsDataPlaneServiceException";
 
 /**
- * @public
  * <p>The certificate is invalid.</p>
+ * @public
  */
 export class CertificateValidationException extends __BaseException {
   readonly name: "CertificateValidationException" = "CertificateValidationException";
@@ -28,27 +28,27 @@ export class CertificateValidationException extends __BaseException {
  */
 export interface DescribeJobExecutionRequest {
   /**
-   * @public
    * <p>The unique identifier assigned to this job when it was created.</p>
+   * @public
    */
   jobId: string | undefined;
 
   /**
-   * @public
    * <p>The thing name associated with the device the job execution is running on.</p>
+   * @public
    */
   thingName: string | undefined;
 
   /**
-   * @public
    * <p>Optional. When set to true, the response contains the job document. The default is false.</p>
+   * @public
    */
   includeJobDocument?: boolean;
 
   /**
-   * @public
    * <p>Optional. A number that identifies a particular job execution on a particular device. If not specified,
    *          the latest job execution is returned.</p>
+   * @public
    */
   executionNumber?: number;
 }
@@ -74,77 +74,77 @@ export const JobExecutionStatus = {
 export type JobExecutionStatus = (typeof JobExecutionStatus)[keyof typeof JobExecutionStatus];
 
 /**
- * @public
  * <p>Contains data about a job execution.</p>
+ * @public
  */
 export interface JobExecution {
   /**
-   * @public
    * <p>The unique identifier you assigned to this job when it was created.</p>
+   * @public
    */
   jobId?: string;
 
   /**
-   * @public
    * <p>The name of the thing that is executing the job.</p>
+   * @public
    */
   thingName?: string;
 
   /**
-   * @public
    * <p>The status of the job execution. Can be one of: "QUEUED", "IN_PROGRESS", "FAILED", "SUCCESS", "CANCELED",
    *          "REJECTED", or "REMOVED".</p>
+   * @public
    */
   status?: JobExecutionStatus;
 
   /**
-   * @public
    * <p>A collection of name/value pairs that describe the status of the job execution.</p>
+   * @public
    */
   statusDetails?: Record<string, string>;
 
   /**
-   * @public
    * <p>The time, in milliseconds since the epoch, when the job execution was enqueued.</p>
+   * @public
    */
   queuedAt?: number;
 
   /**
-   * @public
    * <p>The time, in milliseconds since the epoch, when the job execution was started.</p>
+   * @public
    */
   startedAt?: number;
 
   /**
-   * @public
    * <p>The time, in milliseconds since the epoch, when the job execution was last updated. </p>
+   * @public
    */
   lastUpdatedAt?: number;
 
   /**
-   * @public
    * <p>The estimated number of seconds that remain before the job execution status will be
    *            changed to <code>TIMED_OUT</code>.</p>
+   * @public
    */
   approximateSecondsBeforeTimedOut?: number;
 
   /**
-   * @public
    * <p>The version of the job execution. Job execution versions are incremented each time they are updated by a
    *          device.</p>
+   * @public
    */
   versionNumber?: number;
 
   /**
-   * @public
    * <p>A number that identifies a particular job execution on a particular device. It can be used later in
    *          commands that return or update job execution information.</p>
+   * @public
    */
   executionNumber?: number;
 
   /**
-   * @public
    * <p>The content of the job document.</p>
+   * @public
    */
   jobDocument?: string;
 }
@@ -154,15 +154,15 @@ export interface JobExecution {
  */
 export interface DescribeJobExecutionResponse {
   /**
-   * @public
    * <p>Contains data about a job execution.</p>
+   * @public
    */
   execution?: JobExecution;
 }
 
 /**
- * @public
  * <p>The contents of the request were invalid. For example, this code is returned when an UpdateJobExecution request contains invalid status details. The message contains details about the error.</p>
+ * @public
  */
 export class InvalidRequestException extends __BaseException {
   readonly name: "InvalidRequestException" = "InvalidRequestException";
@@ -181,8 +181,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The specified resource does not exist.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -201,8 +201,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The service is temporarily unavailable.</p>
+ * @public
  */
 export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
@@ -221,8 +221,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The job is in a terminal state.</p>
+ * @public
  */
 export class TerminalStateException extends __BaseException {
   readonly name: "TerminalStateException" = "TerminalStateException";
@@ -241,15 +241,15 @@ export class TerminalStateException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The rate exceeds the limit.</p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The payload associated with the exception.</p>
+   * @public
    */
   payload?: Uint8Array;
 
@@ -272,51 +272,51 @@ export class ThrottlingException extends __BaseException {
  */
 export interface GetPendingJobExecutionsRequest {
   /**
-   * @public
    * <p>The name of the thing that is executing the job.</p>
+   * @public
    */
   thingName: string | undefined;
 }
 
 /**
- * @public
  * <p>Contains a subset of information about a job execution.</p>
+ * @public
  */
 export interface JobExecutionSummary {
   /**
-   * @public
    * <p>The unique identifier you assigned to this job when it was created.</p>
+   * @public
    */
   jobId?: string;
 
   /**
-   * @public
    * <p>The time, in milliseconds since the epoch, when the job execution was enqueued.</p>
+   * @public
    */
   queuedAt?: number;
 
   /**
-   * @public
    * <p>The time, in milliseconds since the epoch, when the job execution started.</p>
+   * @public
    */
   startedAt?: number;
 
   /**
-   * @public
    * <p>The time, in milliseconds since the epoch, when the job execution was last updated.</p>
+   * @public
    */
   lastUpdatedAt?: number;
 
   /**
-   * @public
    * <p>The version of the job execution. Job execution versions are incremented each time AWS IoT Jobs receives
    *          an update from a device.</p>
+   * @public
    */
   versionNumber?: number;
 
   /**
-   * @public
    * <p>A number that identifies a particular job execution on a particular device.</p>
+   * @public
    */
   executionNumber?: number;
 }
@@ -326,23 +326,23 @@ export interface JobExecutionSummary {
  */
 export interface GetPendingJobExecutionsResponse {
   /**
-   * @public
    * <p>A list of JobExecutionSummary objects with status IN_PROGRESS.</p>
+   * @public
    */
   inProgressJobs?: JobExecutionSummary[];
 
   /**
-   * @public
    * <p>A list of JobExecutionSummary objects with status QUEUED.</p>
+   * @public
    */
   queuedJobs?: JobExecutionSummary[];
 }
 
 /**
- * @public
  * <p>An update attempted to change the job execution to a state that is invalid because of the job execution's
  *          current state (for example, an attempt to change a request in state SUCCESS to state IN_PROGRESS). In this
  *          case, the body of the error message also contains the executionState field.</p>
+ * @public
  */
 export class InvalidStateTransitionException extends __BaseException {
   readonly name: "InvalidStateTransitionException" = "InvalidStateTransitionException";
@@ -365,20 +365,19 @@ export class InvalidStateTransitionException extends __BaseException {
  */
 export interface StartNextPendingJobExecutionRequest {
   /**
-   * @public
    * <p>The name of the thing associated with the device.</p>
+   * @public
    */
   thingName: string | undefined;
 
   /**
-   * @public
    * <p>A collection of name/value pairs that describe the status of the job execution. If not specified, the
    *          statusDetails are unchanged.</p>
+   * @public
    */
   statusDetails?: Record<string, string>;
 
   /**
-   * @public
    * <p>Specifies the amount of time this device has to finish execution of this job. If the job
    *            execution status is not set to a terminal state before this timer expires, or before the
    *            timer is reset (by calling <code>UpdateJobExecution</code>, setting the status to
@@ -386,6 +385,7 @@ export interface StartNextPendingJobExecutionRequest {
    *            the job execution status will be automatically set to <code>TIMED_OUT</code>.  Note that setting
    *            this timeout has no effect on that job execution timeout which may have been specified when
    *            the job was created (<code>CreateJob</code> using field <code>timeoutConfig</code>).</p>
+   * @public
    */
   stepTimeoutInMinutes?: number;
 }
@@ -395,8 +395,8 @@ export interface StartNextPendingJobExecutionRequest {
  */
 export interface StartNextPendingJobExecutionResponse {
   /**
-   * @public
    * <p>A JobExecution object.</p>
+   * @public
    */
   execution?: JobExecution;
 }
@@ -406,33 +406,32 @@ export interface StartNextPendingJobExecutionResponse {
  */
 export interface UpdateJobExecutionRequest {
   /**
-   * @public
    * <p>The unique identifier assigned to this job when it was created.</p>
+   * @public
    */
   jobId: string | undefined;
 
   /**
-   * @public
    * <p>The name of the thing associated with the device.</p>
+   * @public
    */
   thingName: string | undefined;
 
   /**
-   * @public
    * <p>The new status for the job execution (IN_PROGRESS, FAILED, SUCCESS, or REJECTED). This must be specified
    *          on every update.</p>
+   * @public
    */
   status: JobExecutionStatus | undefined;
 
   /**
-   * @public
    * <p> Optional. A collection of name/value pairs that describe the status of the job execution. If not
    *          specified, the statusDetails are unchanged.</p>
+   * @public
    */
   statusDetails?: Record<string, string>;
 
   /**
-   * @public
    * <p>Specifies the amount of time this device has to finish execution of this job. If the job
    *            execution status is not set to a terminal state before this timer expires, or before the
    *            timer is reset (by again calling <code>UpdateJobExecution</code>, setting the status to
@@ -440,61 +439,62 @@ export interface UpdateJobExecutionRequest {
    *            status will be automatically set to <code>TIMED_OUT</code>.  Note that setting or resetting
    *            this timeout has no effect on that job execution timeout which may have been specified when
    *            the job was created (<code>CreateJob</code> using field <code>timeoutConfig</code>).</p>
+   * @public
    */
   stepTimeoutInMinutes?: number;
 
   /**
-   * @public
    * <p>Optional. The expected current version of the job execution. Each time you update the job execution, its
    *          version is incremented. If the version of the job execution stored in Jobs does not match, the update is
    *          rejected with a VersionMismatch error, and an ErrorResponse that contains the current job execution status data
    *          is returned. (This makes it unnecessary to perform a separate DescribeJobExecution request in order to obtain
    *          the job execution status data.)</p>
+   * @public
    */
   expectedVersion?: number;
 
   /**
-   * @public
    * <p>Optional. When included and set to true, the response contains the JobExecutionState data. The default is
    *          false.</p>
+   * @public
    */
   includeJobExecutionState?: boolean;
 
   /**
-   * @public
    * <p>Optional. When set to true, the response contains the job document. The default is false.</p>
+   * @public
    */
   includeJobDocument?: boolean;
 
   /**
-   * @public
    * <p>Optional. A number that identifies a particular job execution on a particular device.</p>
+   * @public
    */
   executionNumber?: number;
 }
 
 /**
- * @public
  * <p>Contains data about the state of a job execution.</p>
+ * @public
  */
 export interface JobExecutionState {
   /**
-   * @public
    * <p>The status of the job execution. Can be one of: "QUEUED", "IN_PROGRESS", "FAILED", "SUCCESS", "CANCELED",
    *          "REJECTED", or "REMOVED".</p>
+   * @public
    */
   status?: JobExecutionStatus;
 
   /**
-   * @public
    * <p>A collection of name/value pairs that describe the status of the job execution.</p>
+   * @public
    */
   statusDetails?: Record<string, string>;
 
   /**
-   * @public
    * <p>The version of the job execution. Job execution versions are incremented each time they are updated by a
    *          device.</p>
+   * @public
    */
   versionNumber?: number;
 }
@@ -504,14 +504,14 @@ export interface JobExecutionState {
  */
 export interface UpdateJobExecutionResponse {
   /**
-   * @public
    * <p>A JobExecutionState object.</p>
+   * @public
    */
   executionState?: JobExecutionState;
 
   /**
-   * @public
    * <p>The contents of the Job Documents.</p>
+   * @public
    */
   jobDocument?: string;
 }

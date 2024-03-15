@@ -32,7 +32,6 @@ export interface DeletePublishingDestinationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the publishing definition with the specified <code>destinationId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,6 +64,7 @@ export interface DeletePublishingDestinationCommandOutput
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class DeletePublishingDestinationCommand extends $Command
   .classBuilder<

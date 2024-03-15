@@ -31,7 +31,6 @@ export interface GetIceServerConfigCommandInput extends GetIceServerConfigReques
 export interface GetIceServerConfigCommandOutput extends GetIceServerConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the Interactive Connectivity Establishment (ICE) server configuration
  *             information, including URIs, username, and password which can be used to configure the
  *             WebRTC connection. The ICE component uses this configuration information to setup the
@@ -105,6 +104,7 @@ export interface GetIceServerConfigCommandOutput extends GetIceServerConfigRespo
  * @throws {@link KinesisVideoSignalingServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideoSignaling service.</p>
  *
+ * @public
  */
 export class GetIceServerConfigCommand extends $Command
   .classBuilder<

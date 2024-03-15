@@ -35,7 +35,6 @@ export interface GetEventConfigurationByResourceTypesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Get the event configuration based on resource types.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface GetEventConfigurationByResourceTypesCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class GetEventConfigurationByResourceTypesCommand extends $Command
   .classBuilder<

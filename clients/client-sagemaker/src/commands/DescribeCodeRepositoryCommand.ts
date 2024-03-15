@@ -27,7 +27,6 @@ export interface DescribeCodeRepositoryCommandInput extends DescribeCodeReposito
 export interface DescribeCodeRepositoryCommandOutput extends DescribeCodeRepositoryOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets details about the specified Git repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +62,7 @@ export interface DescribeCodeRepositoryCommandOutput extends DescribeCodeReposit
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeCodeRepositoryCommand extends $Command
   .classBuilder<

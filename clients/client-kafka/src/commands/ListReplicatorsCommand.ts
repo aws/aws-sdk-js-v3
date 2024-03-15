@@ -27,7 +27,6 @@ export interface ListReplicatorsCommandInput extends ListReplicatorsRequest {}
 export interface ListReplicatorsCommandOutput extends ListReplicatorsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the replicators.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -103,6 +102,7 @@ export interface ListReplicatorsCommandOutput extends ListReplicatorsResponse, _
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ * @public
  */
 export class ListReplicatorsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface TerminateWorkspacesCommandInput extends TerminateWorkspacesRequ
 export interface TerminateWorkspacesCommandOutput extends TerminateWorkspacesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Terminates the specified WorkSpaces.</p>
  *          <important>
  *             <p>Terminating a WorkSpace is a permanent action and cannot be undone. The user's data
@@ -89,6 +88,7 @@ export interface TerminateWorkspacesCommandOutput extends TerminateWorkspacesRes
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class TerminateWorkspacesCommand extends $Command
   .classBuilder<

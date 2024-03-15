@@ -27,7 +27,6 @@ export interface GetUserEndpointsCommandInput extends GetUserEndpointsRequest {}
 export interface GetUserEndpointsCommandOutput extends GetUserEndpointsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about all the endpoints that are associated with a specific user ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -126,6 +125,7 @@ export interface GetUserEndpointsCommandOutput extends GetUserEndpointsResponse,
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class GetUserEndpointsCommand extends $Command
   .classBuilder<

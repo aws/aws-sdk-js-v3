@@ -27,7 +27,6 @@ export interface DeleteContactCommandInput extends DeleteContactRequest {}
 export interface DeleteContactCommandOutput extends DeleteContactResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>To remove a contact from Incident Manager, you can delete the contact. Deleting a contact
  *          removes them from all escalation plans and related response plans. Deleting an escalation
  *          plan removes it from all related response plans. You will have to recreate the contact and
@@ -75,6 +74,7 @@ export interface DeleteContactCommandOutput extends DeleteContactResult, __Metad
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ * @public
  */
 export class DeleteContactCommand extends $Command
   .classBuilder<

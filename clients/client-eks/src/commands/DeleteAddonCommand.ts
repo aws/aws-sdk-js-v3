@@ -27,7 +27,6 @@ export interface DeleteAddonCommandInput extends DeleteAddonRequest {}
 export interface DeleteAddonCommandOutput extends DeleteAddonResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Amazon EKS add-on.</p>
  *          <p>When you remove an add-on, it's deleted from the cluster. You can always manually
  *             start an add-on on the cluster using the Kubernetes API.</p>
@@ -110,6 +109,7 @@ export interface DeleteAddonCommandOutput extends DeleteAddonResponse, __Metadat
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class DeleteAddonCommand extends $Command
   .classBuilder<

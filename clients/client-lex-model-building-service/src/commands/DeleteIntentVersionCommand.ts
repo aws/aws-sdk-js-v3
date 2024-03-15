@@ -31,7 +31,6 @@ export interface DeleteIntentVersionCommandInput extends DeleteIntentVersionRequ
 export interface DeleteIntentVersionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specific version of an intent. To delete all versions of
  *       a intent, use the <a>DeleteIntent</a> operation. </p>
  *          <p>This operation requires permissions for the
@@ -98,6 +97,7 @@ export interface DeleteIntentVersionCommandOutput extends __MetadataBearer {}
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * @public
  */
 export class DeleteIntentVersionCommand extends $Command
   .classBuilder<

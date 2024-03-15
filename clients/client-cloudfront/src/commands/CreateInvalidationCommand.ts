@@ -27,7 +27,6 @@ export interface CreateInvalidationCommandInput extends CreateInvalidationReques
 export interface CreateInvalidationCommandOutput extends CreateInvalidationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a new invalidation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface CreateInvalidationCommandOutput extends CreateInvalidationResul
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class CreateInvalidationCommand extends $Command
   .classBuilder<

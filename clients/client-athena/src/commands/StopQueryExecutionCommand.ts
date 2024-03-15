@@ -27,7 +27,6 @@ export interface StopQueryExecutionCommandInput extends StopQueryExecutionInput 
 export interface StopQueryExecutionCommandOutput extends StopQueryExecutionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops a query execution. Requires you to have access to the workgroup in which the
  *             query ran.</p>
  * @example
@@ -62,6 +61,7 @@ export interface StopQueryExecutionCommandOutput extends StopQueryExecutionOutpu
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class StopQueryExecutionCommand extends $Command
   .classBuilder<

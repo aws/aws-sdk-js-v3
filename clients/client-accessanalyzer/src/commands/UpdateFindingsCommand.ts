@@ -27,7 +27,6 @@ export interface UpdateFindingsCommandInput extends UpdateFindingsRequest {}
 export interface UpdateFindingsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the status for the specified findings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface UpdateFindingsCommandOutput extends __MetadataBearer {}
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ * @public
  */
 export class UpdateFindingsCommand extends $Command
   .classBuilder<

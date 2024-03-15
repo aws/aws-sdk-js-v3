@@ -27,7 +27,6 @@ export interface DeleteDatasetCommandInput extends DeleteDatasetRequest {}
 export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing Amazon Lookout for Vision <code>dataset</code>. </p>
  *          <p>If your the project has a single
  *       dataset, you must create a new dataset before you can create a model.</p>
@@ -88,6 +87,7 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
  * @throws {@link LookoutVisionServiceException}
  * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
+ * @public
  */
 export class DeleteDatasetCommand extends $Command
   .classBuilder<

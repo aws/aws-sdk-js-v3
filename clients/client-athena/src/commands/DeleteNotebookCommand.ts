@@ -27,7 +27,6 @@ export interface DeleteNotebookCommandInput extends DeleteNotebookInput {}
 export interface DeleteNotebookCommandOutput extends DeleteNotebookOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified notebook.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +63,7 @@ export interface DeleteNotebookCommandOutput extends DeleteNotebookOutput, __Met
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class DeleteNotebookCommand extends $Command
   .classBuilder<

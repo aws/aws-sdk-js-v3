@@ -27,7 +27,6 @@ export interface StopFleetCommandInput extends StopFleetRequest {}
 export interface StopFleetCommandOutput extends StopFleetResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops the specified fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +58,7 @@ export interface StopFleetCommandOutput extends StopFleetResult, __MetadataBeare
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class StopFleetCommand extends $Command
   .classBuilder<

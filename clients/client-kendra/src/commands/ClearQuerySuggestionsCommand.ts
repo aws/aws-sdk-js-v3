@@ -27,7 +27,6 @@ export interface ClearQuerySuggestionsCommandInput extends ClearQuerySuggestions
 export interface ClearQuerySuggestionsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Clears existing query suggestions from an index.</p>
  *          <p>This deletes existing suggestions only, not the queries
  *             in the query log. After you clear suggestions, Amazon Kendra learns
@@ -86,6 +85,7 @@ export interface ClearQuerySuggestionsCommandOutput extends __MetadataBearer {}
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class ClearQuerySuggestionsCommand extends $Command
   .classBuilder<

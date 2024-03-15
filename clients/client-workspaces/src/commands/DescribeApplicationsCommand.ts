@@ -27,7 +27,6 @@ export interface DescribeApplicationsCommandInput extends DescribeApplicationsRe
 export interface DescribeApplicationsCommandOutput extends DescribeApplicationsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified applications by filtering based on their compute types, license availability, operating systems, and owners.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,6 +95,7 @@ export interface DescribeApplicationsCommandOutput extends DescribeApplicationsR
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class DescribeApplicationsCommand extends $Command
   .classBuilder<

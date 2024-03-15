@@ -32,7 +32,6 @@ export interface ListSecurityControlDefinitionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Lists all of the security controls that apply to a specified standard.
  *       </p>
@@ -147,6 +146,7 @@ export interface ListSecurityControlDefinitionsCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To list security controls that apply to a standard
  * ```javascript
  * // The following example lists security controls that apply to a specified Security Hub standard.

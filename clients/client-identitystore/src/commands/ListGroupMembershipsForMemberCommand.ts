@@ -32,7 +32,6 @@ export interface ListGroupMembershipsForMemberCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>For the specified member in the specified identity store, returns the list of all <code>GroupMembership</code> objects and returns results in paginated form.</p>
  *          <note>
  *             <p>If you have administrator access to a member account, you can use this API from the member account.
@@ -95,6 +94,7 @@ export interface ListGroupMembershipsForMemberCommandOutput
  * @throws {@link IdentitystoreServiceException}
  * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
+ * @public
  */
 export class ListGroupMembershipsForMemberCommand extends $Command
   .classBuilder<

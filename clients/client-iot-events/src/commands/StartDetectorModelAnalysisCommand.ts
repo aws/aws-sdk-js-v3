@@ -27,7 +27,6 @@ export interface StartDetectorModelAnalysisCommandInput extends StartDetectorMod
 export interface StartDetectorModelAnalysisCommandOutput extends StartDetectorModelAnalysisResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Performs an analysis of your detector model. For more information,
  *       see <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-analyze-api.html">Troubleshooting a detector model</a>
  *       in the <i>AWS IoT Events Developer Guide</i>.</p>
@@ -445,6 +444,7 @@ export interface StartDetectorModelAnalysisCommandOutput extends StartDetectorMo
  * @throws {@link IoTEventsServiceException}
  * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
+ * @public
  */
 export class StartDetectorModelAnalysisCommand extends $Command
   .classBuilder<

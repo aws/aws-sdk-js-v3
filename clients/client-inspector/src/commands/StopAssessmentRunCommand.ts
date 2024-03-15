@@ -27,7 +27,6 @@ export interface StopAssessmentRunCommandInput extends StopAssessmentRunRequest 
 export interface StopAssessmentRunCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops the assessment run that is specified by the ARN of the assessment
  *          run.</p>
  * @example
@@ -72,6 +71,7 @@ export interface StopAssessmentRunCommandOutput extends __MetadataBearer {}
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * @public
  * @example Stop assessment run
  * ```javascript
  * // Stops the assessment run that is specified by the ARN of the assessment run.

@@ -275,10 +275,10 @@ export interface IoT1ClickDevicesService {
 }
 
 /**
- * @public
  * <p>Describes all of the AWS IoT 1-Click device-related API operations for the service.
  *  Also provides sample requests, responses, and errors for the supported web services
  *  protocols.</p>
+ * @public
  */
 export class IoT1ClickDevicesService extends IoT1ClickDevicesServiceClient implements IoT1ClickDevicesService {}
 createAggregatedClient(commands, IoT1ClickDevicesService);

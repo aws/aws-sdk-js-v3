@@ -31,7 +31,6 @@ export interface BatchGetSecretValueCommandInput extends BatchGetSecretValueRequ
 export interface BatchGetSecretValueCommandOutput extends BatchGetSecretValueResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the contents of the encrypted fields <code>SecretString</code> or <code>SecretBinary</code> for up to 20 secrets.  To retrieve a single secret, call <a>GetSecretValue</a>. </p>
  *          <p>To choose which secrets to retrieve, you can specify a list of secrets by name or ARN, or you can use filters. If Secrets Manager encounters errors such as <code>AccessDeniedException</code> while attempting to retrieve any of the secrets, you can see the errors in <code>Errors</code> in the response.</p>
  *          <p>Secrets Manager generates CloudTrail <code>GetSecretValue</code> log entries for each secret you request when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
@@ -133,6 +132,7 @@ export interface BatchGetSecretValueCommandOutput extends BatchGetSecretValueRes
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
+ * @public
  * @example To retrieve the secret values for a group of secrets listed by name
  * ```javascript
  * // The following example gets the values for three secrets.

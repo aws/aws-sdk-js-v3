@@ -31,7 +31,6 @@ export interface ModifyDataProviderCommandInput extends ModifyDataProviderMessag
 export interface ModifyDataProviderCommandOutput extends ModifyDataProviderResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the specified data provider using the provided settings.</p>
  *          <note>
  *             <p>You must remove the data provider from all migration projects before you can modify it.</p>
@@ -206,6 +205,7 @@ export interface ModifyDataProviderCommandOutput extends ModifyDataProviderRespo
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Modify Data Provider
  * ```javascript
  * // Modifies the specified data provider using the provided settings.

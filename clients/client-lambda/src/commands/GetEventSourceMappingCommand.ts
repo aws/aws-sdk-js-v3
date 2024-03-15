@@ -27,7 +27,6 @@ export interface GetEventSourceMappingCommandInput extends GetEventSourceMapping
 export interface GetEventSourceMappingCommandOutput extends EventSourceMappingConfiguration, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns details about an event source mapping. You can get the identifier of a mapping from the output of
  *         <a>ListEventSourceMappings</a>.</p>
  * @example
@@ -134,6 +133,7 @@ export interface GetEventSourceMappingCommandOutput extends EventSourceMappingCo
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class GetEventSourceMappingCommand extends $Command
   .classBuilder<

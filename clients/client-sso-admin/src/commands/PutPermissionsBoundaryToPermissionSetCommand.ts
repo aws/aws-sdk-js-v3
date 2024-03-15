@@ -36,7 +36,6 @@ export interface PutPermissionsBoundaryToPermissionSetCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches an Amazon Web Services managed or customer managed policy to the specified <a>PermissionSet</a> as a permissions boundary.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface PutPermissionsBoundaryToPermissionSetCommandOutput
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class PutPermissionsBoundaryToPermissionSetCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateProjectCommandInput extends CreateProjectRequest {}
 export interface CreateProjectCommandOutput extends CreateProjectResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a project, including project resources. This action creates a project based on
  *       a submitted project request. A set of source code files and a toolchain template file
  *       can be included with the project request. If these are not provided, an empty project is created.</p>
@@ -126,6 +125,7 @@ export interface CreateProjectCommandOutput extends CreateProjectResult, __Metad
  * @throws {@link CodeStarServiceException}
  * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
+ * @public
  */
 export class CreateProjectCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface SearchAnalysesCommandInput extends SearchAnalysesRequest {}
 export interface SearchAnalysesCommandOutput extends SearchAnalysesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Searches for analyses that belong to the user specified in the filter.</p>
  *          <note>
  *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
@@ -100,6 +99,7 @@ export interface SearchAnalysesCommandOutput extends SearchAnalysesResponse, __M
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class SearchAnalysesCommand extends $Command
   .classBuilder<

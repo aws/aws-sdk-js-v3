@@ -34,7 +34,6 @@ export interface CopyObjectCommandInput extends CopyObjectRequest {}
 export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a copy of an object that is already stored in Amazon S3.</p>
  *          <note>
  *             <p>You can store individual objects of up to 5 TB in Amazon S3. You create a copy of your
@@ -282,6 +281,7 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example To copy an object
  * ```javascript
  * // The following example copies an object from one bucket to another.

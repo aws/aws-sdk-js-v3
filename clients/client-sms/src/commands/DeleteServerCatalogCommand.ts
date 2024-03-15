@@ -27,7 +27,6 @@ export interface DeleteServerCatalogCommandInput extends DeleteServerCatalogRequ
 export interface DeleteServerCatalogCommandOutput extends DeleteServerCatalogResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes all servers from your server catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +63,7 @@ export interface DeleteServerCatalogCommandOutput extends DeleteServerCatalogRes
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ * @public
  */
 export class DeleteServerCatalogCommand extends $Command
   .classBuilder<

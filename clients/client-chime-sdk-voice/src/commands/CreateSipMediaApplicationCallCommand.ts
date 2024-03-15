@@ -36,7 +36,6 @@ export interface CreateSipMediaApplicationCallCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an outbound call to a phone number from the phone number specified
  *          in the request, and it invokes the endpoint of the specified
  *          <code>sipMediaApplicationId</code>.</p>
@@ -100,6 +99,7 @@ export interface CreateSipMediaApplicationCallCommandOutput
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class CreateSipMediaApplicationCallCommand extends $Command
   .classBuilder<

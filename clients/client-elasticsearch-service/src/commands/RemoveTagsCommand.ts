@@ -31,7 +31,6 @@ export interface RemoveTagsCommandInput extends RemoveTagsRequest {}
 export interface RemoveTagsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes the specified set of tags from the specified Elasticsearch domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface RemoveTagsCommandOutput extends __MetadataBearer {}
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * @public
  */
 export class RemoveTagsCommand extends $Command
   .classBuilder<

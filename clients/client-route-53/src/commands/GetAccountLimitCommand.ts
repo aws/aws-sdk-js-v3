@@ -27,7 +27,6 @@ export interface GetAccountLimitCommandInput extends GetAccountLimitRequest {}
 export interface GetAccountLimitCommandOutput extends GetAccountLimitResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the specified limit for the current account, for example, the maximum number of
  * 			health checks that you can create using the account.</p>
  *          <p>For the default limit, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the
@@ -70,6 +69,7 @@ export interface GetAccountLimitCommandOutput extends GetAccountLimitResponse, _
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class GetAccountLimitCommand extends $Command
   .classBuilder<

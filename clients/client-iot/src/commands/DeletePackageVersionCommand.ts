@@ -27,7 +27,6 @@ export interface DeletePackageVersionCommandInput extends DeletePackageVersionRe
 export interface DeletePackageVersionCommandOutput extends DeletePackageVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specific version from a software package.</p>
  *          <p>
  *             <b>Note:</b> If a package version is designated as default, you must remove the designation from the software package using the <a>UpdatePackage</a> action.</p>
@@ -67,6 +66,7 @@ export interface DeletePackageVersionCommandOutput extends DeletePackageVersionR
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DeletePackageVersionCommand extends $Command
   .classBuilder<

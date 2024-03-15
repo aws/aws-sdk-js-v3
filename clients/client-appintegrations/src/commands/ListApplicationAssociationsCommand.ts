@@ -32,7 +32,6 @@ export interface ListApplicationAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a paginated list of application associations for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface ListApplicationAssociationsCommandOutput
  * @throws {@link AppIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
+ * @public
  * @example To list application associations of an application
  * ```javascript
  * // The following retrives application associations of an application

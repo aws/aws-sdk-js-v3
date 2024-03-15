@@ -32,7 +32,6 @@ export interface ApplyPendingMaintenanceActionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Applies a pending maintenance action to a resource (for example, to a DB instance).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface ApplyPendingMaintenanceActionCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To apply pending maintenance actions
  * ```javascript
  * // The following example applies the pending maintenance actions for a DB cluster.

@@ -4059,9 +4059,6 @@ export interface Chime {
 }
 
 /**
- * @public
- * @deprecated This namespace has been deprecated
- *
  * <important>
  *             <p>
  *                <b>Most of these APIs are no longer supported and will not be updated.</b> We recommend using the latest versions in the
@@ -4105,6 +4102,8 @@ export interface Chime {
  *          <p>Administrative permissions are controlled using AWS Identity and Access Management (IAM). For more information, see
  *             <a href="https://docs.aws.amazon.com/chime/latest/ag/security-iam.html">Identity and Access Management for Amazon Chime</a>
  *             in the <i>Amazon Chime Administration Guide</i>.</p>
+ * @public
+ * @deprecated This namespace has been deprecated
  */
 export class Chime extends ChimeClient implements Chime {}
 createAggregatedClient(commands, Chime);

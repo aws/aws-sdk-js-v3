@@ -27,7 +27,6 @@ export interface BatchDescribeModelPackageCommandInput extends BatchDescribeMode
 export interface BatchDescribeModelPackageCommandOutput extends BatchDescribeModelPackageOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This action batch describes a list of versioned model packages</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -120,6 +119,7 @@ export interface BatchDescribeModelPackageCommandOutput extends BatchDescribeMod
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class BatchDescribeModelPackageCommand extends $Command
   .classBuilder<

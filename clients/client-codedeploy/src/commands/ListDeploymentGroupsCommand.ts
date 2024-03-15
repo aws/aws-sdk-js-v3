@@ -27,7 +27,6 @@ export interface ListDeploymentGroupsCommandInput extends ListDeploymentGroupsIn
 export interface ListDeploymentGroupsCommandOutput extends ListDeploymentGroupsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the deployment groups for an application registered with the Amazon Web Services
  *             user or Amazon Web Services account.</p>
  * @example
@@ -73,6 +72,7 @@ export interface ListDeploymentGroupsCommandOutput extends ListDeploymentGroupsO
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
  */
 export class ListDeploymentGroupsCommand extends $Command
   .classBuilder<

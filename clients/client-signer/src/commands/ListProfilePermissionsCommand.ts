@@ -27,7 +27,6 @@ export interface ListProfilePermissionsCommandInput extends ListProfilePermissio
 export interface ListProfilePermissionsCommandOutput extends ListProfilePermissionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the cross-account permissions associated with a signing profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface ListProfilePermissionsCommandOutput extends ListProfilePermissi
  * @throws {@link SignerServiceException}
  * <p>Base exception class for all service exceptions from Signer service.</p>
  *
+ * @public
  */
 export class ListProfilePermissionsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateScheduleCommandInput extends CreateScheduleRequest {}
 export interface CreateScheduleCommandOutput extends CreateScheduleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new schedule for one or more DataBrew jobs. Jobs can be run at a specific
  *             date and time, or at regular intervals.</p>
  * @example
@@ -72,6 +71,7 @@ export interface CreateScheduleCommandOutput extends CreateScheduleResponse, __M
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * @public
  */
 export class CreateScheduleCommand extends $Command
   .classBuilder<

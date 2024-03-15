@@ -29,7 +29,6 @@ export interface StartKeyPhrasesDetectionJobCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an asynchronous key phrase detection job for a collection of documents. Use the
  *          operation to track the status of a
  *       job.</p>
@@ -116,6 +115,7 @@ export interface StartKeyPhrasesDetectionJobCommandOutput
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class StartKeyPhrasesDetectionJobCommand extends $Command
   .classBuilder<

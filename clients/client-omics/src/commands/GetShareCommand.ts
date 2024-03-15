@@ -27,7 +27,6 @@ export interface GetShareCommandInput extends GetShareRequest {}
 export interface GetShareCommandOutput extends GetShareResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Retrieves the metadata for a share.
  *     </p>
@@ -88,6 +87,7 @@ export interface GetShareCommandOutput extends GetShareResponse, __MetadataBeare
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class GetShareCommand extends $Command
   .classBuilder<

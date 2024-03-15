@@ -27,7 +27,6 @@ export interface ListDomainMaintenancesCommandInput extends ListDomainMaintenanc
 export interface ListDomainMaintenancesCommandOutput extends ListDomainMaintenancesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>A list of maintenance actions for the domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface ListDomainMaintenancesCommandOutput extends ListDomainMaintenan
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class ListDomainMaintenancesCommand extends $Command
   .classBuilder<

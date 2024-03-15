@@ -27,7 +27,6 @@ export interface UpdateBlueprintCommandInput extends UpdateBlueprintRequest {}
 export interface UpdateBlueprintCommandOutput extends UpdateBlueprintResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a registered blueprint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface UpdateBlueprintCommandOutput extends UpdateBlueprintResponse, _
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class UpdateBlueprintCommand extends $Command
   .classBuilder<

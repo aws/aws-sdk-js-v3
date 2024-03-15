@@ -27,7 +27,6 @@ export interface UpdatePortfolioShareCommandInput extends UpdatePortfolioShareIn
 export interface UpdatePortfolioShareCommandOutput extends UpdatePortfolioShareOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified portfolio share. You can use this API to enable or disable <code>TagOptions</code> sharing
  *          or Principal sharing for an existing portfolio share. </p>
  *          <p>The portfolio share cannot be updated if the <code>CreatePortfolioShare</code> operation is <code>IN_PROGRESS</code>, as the share is not available to recipient entities.
@@ -92,6 +91,7 @@ export interface UpdatePortfolioShareCommandOutput extends UpdatePortfolioShareO
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class UpdatePortfolioShareCommand extends $Command
   .classBuilder<

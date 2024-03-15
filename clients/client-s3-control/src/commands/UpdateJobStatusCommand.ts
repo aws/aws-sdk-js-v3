@@ -28,7 +28,6 @@ export interface UpdateJobStatusCommandInput extends UpdateJobStatusRequest {}
 export interface UpdateJobStatusCommandOutput extends UpdateJobStatusResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the status for the specified job. Use this operation to confirm that you want to
  *          run a job or to cancel an existing job. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html">S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <dl>
@@ -108,6 +107,7 @@ export interface UpdateJobStatusCommandOutput extends UpdateJobStatusResult, __M
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class UpdateJobStatusCommand extends $Command
   .classBuilder<

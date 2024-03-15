@@ -27,7 +27,6 @@ export interface ListSolutionsCommandInput extends ListSolutionsRequest {}
 export interface ListSolutionsCommandOutput extends ListSolutionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of solutions that use the given dataset group.
  *       When a dataset group is not specified, all the solutions associated with the account are listed.
  *       The response provides the properties for each solution, including the Amazon Resource Name (ARN).
@@ -76,6 +75,7 @@ export interface ListSolutionsCommandOutput extends ListSolutionsResponse, __Met
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class ListSolutionsCommand extends $Command
   .classBuilder<

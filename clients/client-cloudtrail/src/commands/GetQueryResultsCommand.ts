@@ -27,7 +27,6 @@ export interface GetQueryResultsCommandInput extends GetQueryResultsRequest {}
 export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets event data results of a query. You must specify the <code>QueryID</code> value
  *          returned by the <code>StartQuery</code> operation.</p>
  * @example
@@ -110,6 +109,7 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, _
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class GetQueryResultsCommand extends $Command
   .classBuilder<

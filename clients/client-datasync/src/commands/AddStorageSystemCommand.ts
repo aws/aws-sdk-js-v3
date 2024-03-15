@@ -31,7 +31,6 @@ export interface AddStorageSystemCommandInput extends AddStorageSystemRequest {}
 export interface AddStorageSystemCommandOutput extends AddStorageSystemResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon Web Services resource for an on-premises storage system that you want DataSync Discovery to collect
  *       information about.</p>
  * @example
@@ -87,6 +86,7 @@ export interface AddStorageSystemCommandOutput extends AddStorageSystemResponse,
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class AddStorageSystemCommand extends $Command
   .classBuilder<

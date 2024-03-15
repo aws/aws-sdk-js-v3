@@ -27,7 +27,6 @@ export interface UpdateXssMatchSetCommandInput extends UpdateXssMatchSetRequest 
 export interface UpdateXssMatchSetCommandOutput extends UpdateXssMatchSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
  *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
@@ -217,6 +216,7 @@ export interface UpdateXssMatchSetCommandOutput extends UpdateXssMatchSetRespons
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
+ * @public
  * @example To update an XSS match set
  * ```javascript
  * // The following example deletes an XssMatchTuple object (filters) in an XssMatchSet with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.

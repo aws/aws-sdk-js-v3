@@ -27,7 +27,6 @@ export interface GetAccountCommandInput extends GetAccountRequest {}
 export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Obtain information about the email-sending status and capabilities of your Amazon SES
  *             account in the current Amazon Web Services Region.</p>
  * @example
@@ -95,6 +94,7 @@ export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataB
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * @public
  */
 export class GetAccountCommand extends $Command
   .classBuilder<

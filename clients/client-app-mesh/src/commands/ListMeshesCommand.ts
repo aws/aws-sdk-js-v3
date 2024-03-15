@@ -27,7 +27,6 @@ export interface ListMeshesCommandInput extends ListMeshesInput {}
 export interface ListMeshesCommandOutput extends ListMeshesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of existing service meshes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface ListMeshesCommandOutput extends ListMeshesOutput, __MetadataBea
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ * @public
  */
 export class ListMeshesCommand extends $Command
   .classBuilder<

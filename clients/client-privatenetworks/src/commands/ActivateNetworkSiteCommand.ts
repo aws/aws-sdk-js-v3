@@ -31,7 +31,6 @@ export interface ActivateNetworkSiteCommandInput extends ActivateNetworkSiteRequ
 export interface ActivateNetworkSiteCommandOutput extends ActivateNetworkSiteResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Activates the specified network site.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -136,6 +135,7 @@ export interface ActivateNetworkSiteCommandOutput extends ActivateNetworkSiteRes
  * @throws {@link PrivateNetworksServiceException}
  * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
+ * @public
  */
 export class ActivateNetworkSiteCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteDocumentationPartCommandInput extends DeleteDocumentation
 export interface DeleteDocumentationPartCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a documentation part</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface DeleteDocumentationPartCommandOutput extends __MetadataBearer {
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class DeleteDocumentationPartCommand extends $Command
   .classBuilder<

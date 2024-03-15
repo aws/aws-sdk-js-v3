@@ -27,7 +27,6 @@ export interface PutRuntimeManagementConfigCommandInput extends PutRuntimeManage
 export interface PutRuntimeManagementConfigCommandOutput extends PutRuntimeManagementConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Sets the runtime management configuration for a function's version. For more information,
  *       see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html">Runtime updates</a>.</p>
  * @example
@@ -76,6 +75,7 @@ export interface PutRuntimeManagementConfigCommandOutput extends PutRuntimeManag
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class PutRuntimeManagementConfigCommand extends $Command
   .classBuilder<

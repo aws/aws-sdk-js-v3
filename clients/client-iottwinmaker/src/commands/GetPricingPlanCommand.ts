@@ -27,7 +27,6 @@ export interface GetPricingPlanCommandInput extends GetPricingPlanRequest {}
 export interface GetPricingPlanCommandOutput extends GetPricingPlanResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the pricing plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface GetPricingPlanCommandOutput extends GetPricingPlanResponse, __M
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ * @public
  */
 export class GetPricingPlanCommand extends $Command
   .classBuilder<

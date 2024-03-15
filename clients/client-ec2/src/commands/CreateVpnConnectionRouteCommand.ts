@@ -27,7 +27,6 @@ export interface CreateVpnConnectionRouteCommandInput extends CreateVpnConnectio
 export interface CreateVpnConnectionRouteCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a static route associated with a VPN connection between an existing virtual
  *             private gateway and a VPN customer gateway. The static route allows traffic to be routed
  *             from the virtual private gateway to the VPN customer gateway.</p>
@@ -58,6 +57,7 @@ export interface CreateVpnConnectionRouteCommandOutput extends __MetadataBearer 
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateVpnConnectionRouteCommand extends $Command
   .classBuilder<

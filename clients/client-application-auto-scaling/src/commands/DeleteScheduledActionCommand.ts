@@ -31,7 +31,6 @@ export interface DeleteScheduledActionCommandInput extends DeleteScheduledAction
 export interface DeleteScheduledActionCommandOutput extends DeleteScheduledActionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified scheduled action for an Application Auto Scaling scalable target.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/scheduled-scaling-additional-cli-commands.html#delete-scheduled-action">Delete a scheduled action</a> in the <i>Application Auto Scaling User Guide</i>.</p>
  * @example
@@ -79,6 +78,7 @@ export interface DeleteScheduledActionCommandOutput extends DeleteScheduledActio
  * @throws {@link ApplicationAutoScalingServiceException}
  * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
+ * @public
  * @example To delete a scheduled action
  * ```javascript
  * // This example deletes a scheduled action for the AppStream 2.0 fleet called sample-fleet.

@@ -32,7 +32,6 @@ export interface GetHostReservationPurchasePreviewCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Preview a reservation purchase with configurations that match those of your Dedicated
  *             Host. You must have active Dedicated Hosts in your account before you purchase a
  *             reservation.</p>
@@ -83,6 +82,7 @@ export interface GetHostReservationPurchasePreviewCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class GetHostReservationPurchasePreviewCommand extends $Command
   .classBuilder<

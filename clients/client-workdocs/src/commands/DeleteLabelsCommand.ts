@@ -27,7 +27,6 @@ export interface DeleteLabelsCommandInput extends DeleteLabelsRequest {}
 export interface DeleteLabelsCommandOutput extends DeleteLabelsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified list of labels from a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface DeleteLabelsCommandOutput extends DeleteLabelsResponse, __Metad
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class DeleteLabelsCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface UpdatePreferencesCommandInput extends UpdatePreferencesRequest 
 export interface UpdatePreferencesCommandOutput extends UpdatePreferencesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a set of preferences for an account in order to add account-specific preferences
  *       into the service. These preferences impact how the savings associated with recommendations are
  *       presented.</p>
@@ -77,6 +76,7 @@ export interface UpdatePreferencesCommandOutput extends UpdatePreferencesRespons
  * @throws {@link CostOptimizationHubServiceException}
  * <p>Base exception class for all service exceptions from CostOptimizationHub service.</p>
  *
+ * @public
  */
 export class UpdatePreferencesCommand extends $Command
   .classBuilder<

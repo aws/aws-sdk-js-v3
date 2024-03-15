@@ -27,7 +27,6 @@ export interface PutLoggingOptionsCommandInput extends PutLoggingOptionsRequest 
 export interface PutLoggingOptionsCommandOutput extends PutLoggingOptionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates the logging option.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface PutLoggingOptionsCommandOutput extends PutLoggingOptionsRespons
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * @public
  */
 export class PutLoggingOptionsCommand extends $Command
   .classBuilder<

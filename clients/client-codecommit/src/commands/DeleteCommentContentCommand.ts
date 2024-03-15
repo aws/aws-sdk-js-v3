@@ -27,7 +27,6 @@ export interface DeleteCommentContentCommandInput extends DeleteCommentContentIn
 export interface DeleteCommentContentCommandOutput extends DeleteCommentContentOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the content of a comment made on a change, file, or commit in a repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface DeleteCommentContentCommandOutput extends DeleteCommentContentO
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class DeleteCommentContentCommand extends $Command
   .classBuilder<

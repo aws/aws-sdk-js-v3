@@ -27,7 +27,6 @@ export interface DeleteBranchCommandInput extends DeleteBranchInput {}
 export interface DeleteBranchCommandOutput extends DeleteBranchOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a branch from a repository, unless that branch is the default branch for the repository. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface DeleteBranchCommandOutput extends DeleteBranchOutput, __Metadat
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * @public
  */
 export class DeleteBranchCommand extends $Command
   .classBuilder<

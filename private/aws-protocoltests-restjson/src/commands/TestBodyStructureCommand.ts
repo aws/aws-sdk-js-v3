@@ -25,7 +25,6 @@ export interface TestBodyStructureCommandInput extends TestBodyStructureInputOut
 export interface TestBodyStructureCommandOutput extends TestBodyStructureInputOutput, __MetadataBearer {}
 
 /**
- * @public
  * This example operation serializes a structure in the HTTP body.
  *
  * It should ensure Content-Type: application/json is
@@ -64,6 +63,7 @@ export interface TestBodyStructureCommandOutput extends TestBodyStructureInputOu
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ * @public
  */
 export class TestBodyStructureCommand extends $Command
   .classBuilder<

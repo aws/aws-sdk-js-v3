@@ -27,7 +27,6 @@ export interface DescribeProductAsAdminCommandInput extends DescribeProductAsAdm
 export interface DescribeProductAsAdminCommandOutput extends DescribeProductAsAdminOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about the specified product. This operation is run with administrator access.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -130,6 +129,7 @@ export interface DescribeProductAsAdminCommandOutput extends DescribeProductAsAd
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class DescribeProductAsAdminCommand extends $Command
   .classBuilder<

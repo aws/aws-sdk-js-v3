@@ -27,7 +27,6 @@ export interface ModifySpotFleetRequestCommandInput extends ModifySpotFleetReque
 export interface ModifySpotFleetRequestCommandOutput extends ModifySpotFleetRequestResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the specified Spot Fleet request.</p>
  *          <p>You can only modify a Spot Fleet request of type <code>maintain</code>.</p>
  *          <p>While the Spot Fleet request is being modified, it is in the <code>modifying</code>
@@ -171,6 +170,7 @@ export interface ModifySpotFleetRequestCommandOutput extends ModifySpotFleetRequ
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To increase the target capacity of a Spot fleet request
  * ```javascript
  * // This example increases the target capacity of the specified Spot fleet request.

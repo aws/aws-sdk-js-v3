@@ -31,7 +31,6 @@ export interface UpdateAcceleratorCommandInput extends UpdateAcceleratorRequest 
 export interface UpdateAcceleratorCommandOutput extends UpdateAcceleratorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update an accelerator to make changes, such as the following: </p>
  *          <ul>
  *             <li>
@@ -121,6 +120,7 @@ export interface UpdateAcceleratorCommandOutput extends UpdateAcceleratorRespons
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * @public
  */
 export class UpdateAcceleratorCommand extends $Command
   .classBuilder<

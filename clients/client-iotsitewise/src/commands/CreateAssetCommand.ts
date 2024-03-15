@@ -27,7 +27,6 @@ export interface CreateAssetCommandInput extends CreateAssetRequest {}
 export interface CreateAssetCommandOutput extends CreateAssetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an asset from an existing asset model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-assets.html">Creating assets</a> in the
  *         <i>IoT SiteWise User Guide</i>.</p>
  * @example
@@ -107,6 +106,7 @@ export interface CreateAssetCommandOutput extends CreateAssetResponse, __Metadat
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class CreateAssetCommand extends $Command
   .classBuilder<

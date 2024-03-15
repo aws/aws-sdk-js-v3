@@ -339,7 +339,6 @@ export type RolesAnywhereClientResolvedConfigType = __SmithyResolvedConfiguratio
 export interface RolesAnywhereClientResolvedConfig extends RolesAnywhereClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Identity and Access Management Roles Anywhere provides a secure way for your workloads such as
  *          servers, containers, and applications that run outside of Amazon Web Services to obtain
  *          temporary Amazon Web Services credentials. Your workloads can use the same IAM policies and roles you have for native Amazon Web Services applications to access Amazon Web Services resources. Using IAM Roles Anywhere eliminates the need to
@@ -355,6 +354,7 @@ export interface RolesAnywhereClientResolvedConfig extends RolesAnywhereClientRe
  *          <p>This guide describes the IAM Roles Anywhere operations that you can call
  *          programmatically. For more information about IAM Roles Anywhere, see the
  *             <a href="https://docs.aws.amazon.com/rolesanywhere/latest/userguide/introduction.html">IAM Roles Anywhere User Guide</a>.</p>
+ * @public
  */
 export class RolesAnywhereClient extends __Client<
   __HttpHandlerOptions,

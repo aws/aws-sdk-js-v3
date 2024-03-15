@@ -27,7 +27,6 @@ export interface CreateCacheParameterGroupCommandInput extends CreateCacheParame
 export interface CreateCacheParameterGroupCommandOutput extends CreateCacheParameterGroupResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new Amazon ElastiCache cache parameter group. An ElastiCache cache parameter
  *             group is a collection of parameters and their values that are applied to all of the
  *             nodes in any cluster or replication group using the CacheParameterGroup.</p>
@@ -108,6 +107,7 @@ export interface CreateCacheParameterGroupCommandOutput extends CreateCacheParam
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  * @example CreateCacheParameterGroup
  * ```javascript
  * // Creates the Amazon ElastiCache parameter group custom-redis2-8.

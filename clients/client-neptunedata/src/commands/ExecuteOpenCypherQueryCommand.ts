@@ -27,7 +27,6 @@ export interface ExecuteOpenCypherQueryCommandInput extends ExecuteOpenCypherQue
 export interface ExecuteOpenCypherQueryCommandOutput extends ExecuteOpenCypherQueryOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Executes an openCypher query. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-opencypher.html">Accessing
  *       the Neptune Graph with openCypher</a> for more information.</p>
  *          <p>Neptune supports building graph applications using openCypher,
@@ -158,6 +157,7 @@ export interface ExecuteOpenCypherQueryCommandOutput extends ExecuteOpenCypherQu
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * @public
  */
 export class ExecuteOpenCypherQueryCommand extends $Command
   .classBuilder<

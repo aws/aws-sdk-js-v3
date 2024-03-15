@@ -27,7 +27,6 @@ export interface GetFacetCommandInput extends GetFacetRequest {}
 export interface GetFacetCommandOutput extends GetFacetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets details of the <a>Facet</a>, such as facet name, attributes, <a>Rule</a>s, or <code>ObjectType</code>. You can call this on all kinds of schema
  *       facets -- published, development, or applied.</p>
  * @example
@@ -86,6 +85,7 @@ export interface GetFacetCommandOutput extends GetFacetResponse, __MetadataBeare
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class GetFacetCommand extends $Command
   .classBuilder<

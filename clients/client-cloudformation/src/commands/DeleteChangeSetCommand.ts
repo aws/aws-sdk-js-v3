@@ -27,7 +27,6 @@ export interface DeleteChangeSetCommandInput extends DeleteChangeSetInput {}
 export interface DeleteChangeSetCommandOutput extends DeleteChangeSetOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified change set. Deleting change sets ensures that no one executes the wrong change set.</p>
  *          <p>If the call successfully completes, CloudFormation successfully deleted the change set.</p>
  *          <p>If <code>IncludeNestedStacks</code> specifies <code>True</code> during the creation of the nested change set,
@@ -62,6 +61,7 @@ export interface DeleteChangeSetCommandOutput extends DeleteChangeSetOutput, __M
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class DeleteChangeSetCommand extends $Command
   .classBuilder<

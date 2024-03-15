@@ -27,7 +27,6 @@ export interface DescribeEndpointCommandInput extends DescribeEndpointRequest {}
 export interface DescribeEndpointCommandOutput extends DescribeEndpointResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns or creates a unique endpoint specific to the Amazon Web Services account making the
  *          call.</p>
  *          <note>
@@ -72,6 +71,7 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointResponse,
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DescribeEndpointCommand extends $Command
   .classBuilder<

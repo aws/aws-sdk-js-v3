@@ -27,7 +27,6 @@ export interface RemoveTagsFromCertificateCommandInput extends RemoveTagsFromCer
 export interface RemoveTagsFromCertificateCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Remove one or more tags from an ACM certificate. A tag consists of a key-value pair. If
  *       you do not specify the value portion of the tag when calling this function, the tag will be
  *       removed regardless of value. If you specify a value, the tag is removed only if it is
@@ -84,6 +83,7 @@ export interface RemoveTagsFromCertificateCommandOutput extends __MetadataBearer
  * @throws {@link ACMServiceException}
  * <p>Base exception class for all service exceptions from ACM service.</p>
  *
+ * @public
  */
 export class RemoveTagsFromCertificateCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListExecutorsCommandInput extends ListExecutorsRequest {}
 export interface ListExecutorsCommandOutput extends ListExecutorsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists, in descending order, the executors that joined a session. Newer executors are
  *             listed first; older executors are listed later. The result can be optionally filtered by
  *             state.</p>
@@ -82,6 +81,7 @@ export interface ListExecutorsCommandOutput extends ListExecutorsResponse, __Met
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class ListExecutorsCommand extends $Command
   .classBuilder<

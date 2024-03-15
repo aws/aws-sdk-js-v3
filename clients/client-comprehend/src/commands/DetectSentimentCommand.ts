@@ -32,7 +32,6 @@ export interface DetectSentimentCommandInput extends DetectSentimentRequest {}
 export interface DetectSentimentCommandOutput extends DetectSentimentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Inspects text and returns an inference of the prevailing sentiment
  *         (<code>POSITIVE</code>, <code>NEUTRAL</code>, <code>MIXED</code>, or <code>NEGATIVE</code>). </p>
  * @example
@@ -82,6 +81,7 @@ export interface DetectSentimentCommandOutput extends DetectSentimentResponse, _
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class DetectSentimentCommand extends $Command
   .classBuilder<

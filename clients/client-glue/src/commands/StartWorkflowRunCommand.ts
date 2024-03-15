@@ -27,7 +27,6 @@ export interface StartWorkflowRunCommandInput extends StartWorkflowRunRequest {}
 export interface StartWorkflowRunCommandOutput extends StartWorkflowRunResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a new run of the specified workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface StartWorkflowRunCommandOutput extends StartWorkflowRunResponse,
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class StartWorkflowRunCommand extends $Command
   .classBuilder<

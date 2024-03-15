@@ -27,7 +27,6 @@ export interface GetLandingZoneOperationCommandInput extends GetLandingZoneOpera
 export interface GetLandingZoneOperationCommandOutput extends GetLandingZoneOperationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the status of the specified landing zone operation. Details for an operation are available for
  *          60 days.</p>
  * @example
@@ -77,6 +76,7 @@ export interface GetLandingZoneOperationCommandOutput extends GetLandingZoneOper
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ * @public
  */
 export class GetLandingZoneOperationCommand extends $Command
   .classBuilder<

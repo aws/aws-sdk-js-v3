@@ -32,7 +32,6 @@ export interface GetColumnStatisticsForPartitionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves partition statistics of columns.</p>
  *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>GetPartition</code>.</p>
  * @example
@@ -148,6 +147,7 @@ export interface GetColumnStatisticsForPartitionCommandOutput
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class GetColumnStatisticsForPartitionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListResourceScansCommandInput extends ListResourceScansInput {}
 export interface ListResourceScansCommandOutput extends ListResourceScansOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>List the resource scans from newest to oldest. By default it will return up to 10 resource scans.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface ListResourceScansCommandOutput extends ListResourceScansOutput,
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  * @example Listing Resource Scans
  * ```javascript
  * // This example shows how to list resource scans

@@ -31,7 +31,6 @@ export interface StartApplicationCommandInput extends StartApplicationRequest {}
 export interface StartApplicationCommandOutput extends StartApplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts the specified Managed Service for Apache Flink application. After creating an application, you must exclusively call this operation to
  *       start your application.</p>
  * @example
@@ -90,6 +89,7 @@ export interface StartApplicationCommandOutput extends StartApplicationResponse,
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ * @public
  */
 export class StartApplicationCommand extends $Command
   .classBuilder<

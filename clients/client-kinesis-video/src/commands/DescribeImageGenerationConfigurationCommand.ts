@@ -35,7 +35,6 @@ export interface DescribeImageGenerationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the <code>ImageGenerationConfiguration</code> for a given Kinesis video stream.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface DescribeImageGenerationConfigurationCommandOutput
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ * @public
  */
 export class DescribeImageGenerationConfigurationCommand extends $Command
   .classBuilder<

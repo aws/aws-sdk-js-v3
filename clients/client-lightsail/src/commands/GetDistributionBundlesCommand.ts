@@ -27,7 +27,6 @@ export interface GetDistributionBundlesCommandInput extends GetDistributionBundl
 export interface GetDistributionBundlesCommandOutput extends GetDistributionBundlesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the bundles that can be applied to your Amazon Lightsail content delivery network
  *       (CDN) distributions.</p>
  *          <p>A distribution bundle specifies the monthly network transfer quota and monthly cost of
@@ -90,6 +89,7 @@ export interface GetDistributionBundlesCommandOutput extends GetDistributionBund
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class GetDistributionBundlesCommand extends $Command
   .classBuilder<

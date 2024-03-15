@@ -27,7 +27,6 @@ export interface GetAnomaliesCommandInput extends GetAnomaliesRequest {}
 export interface GetAnomaliesCommandOutput extends GetAnomaliesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves all of the cost anomalies detected on your account during the time period that's
  *       specified by the <code>DateInterval</code> object. Anomalies are available for up to 90
  *       days.</p>
@@ -105,6 +104,7 @@ export interface GetAnomaliesCommandOutput extends GetAnomaliesResponse, __Metad
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * @public
  */
 export class GetAnomaliesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeletePolicyCommandInput extends DeletePolicyRequest {}
 export interface DeletePolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the resource-based policy attached to a private CA. Deletion will remove any
  * 			access that the policy has granted. If there is no policy attached to the private CA,
  * 			this action will return successful.</p>
@@ -109,6 +108,7 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ * @public
  */
 export class DeletePolicyCommand extends $Command
   .classBuilder<

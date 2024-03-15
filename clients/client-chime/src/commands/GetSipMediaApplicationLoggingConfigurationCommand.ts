@@ -36,9 +36,6 @@ export interface GetSipMediaApplicationLoggingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by GetSipMediaApplicationLoggingConfiguration in the Amazon Chime SDK Voice Namespace
- *
  * <p>Returns the logging configuration for the specified SIP media application.</p>
  *          <important>
  *             <p>
@@ -96,6 +93,8 @@ export interface GetSipMediaApplicationLoggingConfigurationCommandOutput
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by GetSipMediaApplicationLoggingConfiguration in the Amazon Chime SDK Voice Namespace
  */
 export class GetSipMediaApplicationLoggingConfigurationCommand extends $Command
   .classBuilder<

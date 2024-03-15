@@ -31,7 +31,6 @@ export interface GetSipMediaApplicationCommandInput extends GetSipMediaApplicati
 export interface GetSipMediaApplicationCommandOutput extends GetSipMediaApplicationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the information for a SIP media application, including name,
  *          AWS Region, and endpoints.</p>
  * @example
@@ -93,6 +92,7 @@ export interface GetSipMediaApplicationCommandOutput extends GetSipMediaApplicat
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * @public
  */
 export class GetSipMediaApplicationCommand extends $Command
   .classBuilder<

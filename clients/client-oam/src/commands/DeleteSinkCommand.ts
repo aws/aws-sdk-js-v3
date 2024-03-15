@@ -27,7 +27,6 @@ export interface DeleteSinkCommandInput extends DeleteSinkInput {}
 export interface DeleteSinkCommandOutput extends DeleteSinkOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a sink. You must delete all links to a sink before you can delete that sink.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DeleteSinkCommandOutput extends DeleteSinkOutput, __MetadataBea
  * @throws {@link OAMServiceException}
  * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ * @public
  */
 export class DeleteSinkCommand extends $Command
   .classBuilder<

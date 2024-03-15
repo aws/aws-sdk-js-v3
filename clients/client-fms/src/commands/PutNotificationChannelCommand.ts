@@ -27,7 +27,6 @@ export interface PutNotificationChannelCommandInput extends PutNotificationChann
 export interface PutNotificationChannelCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Designates the IAM role and Amazon Simple Notification Service (SNS) topic that
  *       Firewall Manager uses to record SNS logs.</p>
  *          <p>To perform this action outside of the console, you must first configure the SNS topic's access policy to allow the <code>SnsRoleName</code> to publish SNS logs. If the <code>SnsRoleName</code> provided is a role other than the <code>AWSServiceRoleForFMS</code> service-linked role, this role must have a trust relationship configured to allow the Firewall Manager service principal <code>fms.amazonaws.com</code> to assume this role. For information about configuring an SNS access policy, see
@@ -71,6 +70,7 @@ export interface PutNotificationChannelCommandOutput extends __MetadataBearer {}
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * @public
  */
 export class PutNotificationChannelCommand extends $Command
   .classBuilder<

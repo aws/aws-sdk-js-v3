@@ -27,7 +27,6 @@ export interface ListAccountSettingsCommandInput extends ListAccountSettingsRequ
 export interface ListAccountSettingsCommandOutput extends ListAccountSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the account settings for a specified principal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface ListAccountSettingsCommandOutput extends ListAccountSettingsRes
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  * @example To view your effective account settings
  * ```javascript
  * // This example displays the effective account settings for your account.

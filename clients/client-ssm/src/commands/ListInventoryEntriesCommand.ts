@@ -27,7 +27,6 @@ export interface ListInventoryEntriesCommandInput extends ListInventoryEntriesRe
 export interface ListInventoryEntriesCommandOutput extends ListInventoryEntriesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>A list of inventory items returned by the request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -108,6 +107,7 @@ export interface ListInventoryEntriesCommandOutput extends ListInventoryEntriesR
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class ListInventoryEntriesCommand extends $Command
   .classBuilder<

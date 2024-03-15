@@ -27,7 +27,6 @@ export interface ListAssetModelsCommandInput extends ListAssetModelsRequest {}
 export interface ListAssetModelsCommandOutput extends ListAssetModelsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a paginated list of summaries of all asset models.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface ListAssetModelsCommandOutput extends ListAssetModelsResponse, _
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class ListAssetModelsCommand extends $Command
   .classBuilder<

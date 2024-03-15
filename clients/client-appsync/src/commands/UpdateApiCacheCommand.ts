@@ -27,7 +27,6 @@ export interface UpdateApiCacheCommandInput extends UpdateApiCacheRequest {}
 export interface UpdateApiCacheCommandOutput extends UpdateApiCacheResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the cache for the GraphQL API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface UpdateApiCacheCommandOutput extends UpdateApiCacheResponse, __M
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class UpdateApiCacheCommand extends $Command
   .classBuilder<

@@ -316,7 +316,6 @@ export interface Ivschat {
 }
 
 /**
- * @public
  * <p>
  *             <b>Introduction</b>
  *          </p>
@@ -536,6 +535,7 @@ export interface Ivschat {
  *          <p>All the above are HTTP operations. There is a separate <i>messaging</i> API
  *       for managing Chat resources; see the <a href="https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/chat-messaging-api.html"> Amazon IVS Chat Messaging API
  *         Reference</a>.</p>
+ * @public
  */
 export class Ivschat extends IvschatClient implements Ivschat {}
 createAggregatedClient(commands, Ivschat);

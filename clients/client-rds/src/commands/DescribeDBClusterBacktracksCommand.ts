@@ -27,7 +27,6 @@ export interface DescribeDBClusterBacktracksCommandInput extends DescribeDBClust
 export interface DescribeDBClusterBacktracksCommandOutput extends DBClusterBacktrackMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about backtracks for a DB cluster.</p>
  *          <p>For more information on Amazon Aurora, see
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
@@ -90,6 +89,7 @@ export interface DescribeDBClusterBacktracksCommandOutput extends DBClusterBackt
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To describe backtracks for a DB cluster
  * ```javascript
  * // The following example retrieves details about the specified DB cluster.

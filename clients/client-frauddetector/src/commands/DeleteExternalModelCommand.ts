@@ -27,7 +27,6 @@ export interface DeleteExternalModelCommandInput extends DeleteExternalModelRequ
 export interface DeleteExternalModelCommandOutput extends DeleteExternalModelResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a SageMaker model from Amazon Fraud Detector.</p>
  *          <p>You can remove an Amazon SageMaker model if it is not associated with a detector version. Removing a SageMaker model disconnects it from Amazon Fraud Detector, but the model remains available in SageMaker.</p>
  * @example
@@ -69,6 +68,7 @@ export interface DeleteExternalModelCommandOutput extends DeleteExternalModelRes
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class DeleteExternalModelCommand extends $Command
   .classBuilder<

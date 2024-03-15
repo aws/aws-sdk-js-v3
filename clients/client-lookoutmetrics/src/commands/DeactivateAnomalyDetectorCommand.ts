@@ -27,7 +27,6 @@ export interface DeactivateAnomalyDetectorCommandInput extends DeactivateAnomaly
 export interface DeactivateAnomalyDetectorCommandOutput extends DeactivateAnomalyDetectorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deactivates an anomaly detector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface DeactivateAnomalyDetectorCommandOutput extends DeactivateAnomal
  * @throws {@link LookoutMetricsServiceException}
  * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
+ * @public
  */
 export class DeactivateAnomalyDetectorCommand extends $Command
   .classBuilder<

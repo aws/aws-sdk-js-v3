@@ -27,7 +27,6 @@ export interface UpdateHttpNamespaceCommandInput extends UpdateHttpNamespaceRequ
 export interface UpdateHttpNamespaceCommandOutput extends UpdateHttpNamespaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an HTTP
  *    namespace.</p>
  * @example
@@ -75,6 +74,7 @@ export interface UpdateHttpNamespaceCommandOutput extends UpdateHttpNamespaceRes
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
+ * @public
  */
 export class UpdateHttpNamespaceCommand extends $Command
   .classBuilder<

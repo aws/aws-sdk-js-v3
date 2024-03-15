@@ -27,7 +27,6 @@ export interface GetRepositoryCommandInput extends GetRepositoryInput {}
 export interface GetRepositoryCommandOutput extends GetRepositoryOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get detail data for a linked repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface GetRepositoryCommandOutput extends GetRepositoryOutput, __Metad
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * @public
  */
 export class GetRepositoryCommand extends $Command
   .classBuilder<

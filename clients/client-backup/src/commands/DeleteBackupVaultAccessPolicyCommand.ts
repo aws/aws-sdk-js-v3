@@ -30,7 +30,6 @@ export interface DeleteBackupVaultAccessPolicyCommandInput extends DeleteBackupV
 export interface DeleteBackupVaultAccessPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the policy document that manages permissions on a backup vault.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface DeleteBackupVaultAccessPolicyCommandOutput extends __MetadataBe
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * @public
  */
 export class DeleteBackupVaultAccessPolicyCommand extends $Command
   .classBuilder<

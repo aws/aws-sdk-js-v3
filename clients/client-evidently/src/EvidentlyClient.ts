@@ -375,7 +375,6 @@ export type EvidentlyClientResolvedConfigType = __SmithyResolvedConfiguration<__
 export interface EvidentlyClientResolvedConfig extends EvidentlyClientResolvedConfigType {}
 
 /**
- * @public
  * <p>You can use Amazon CloudWatch Evidently to safely validate new features by serving
  *       them to a specified percentage
  *       of your users while you roll out the feature. You can monitor the performance of the new feature
@@ -386,6 +385,7 @@ export interface EvidentlyClientResolvedConfig extends EvidentlyClientResolvedCo
  *       experiment data and analyzes it using statistical methods. It also provides clear
  *       recommendations about which variations perform better. You can test both user-facing features
  *       and backend features.</p>
+ * @public
  */
 export class EvidentlyClient extends __Client<
   __HttpHandlerOptions,

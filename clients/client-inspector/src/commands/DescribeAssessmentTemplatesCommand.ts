@@ -29,7 +29,6 @@ export interface DescribeAssessmentTemplatesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the assessment templates that are specified by the ARNs of the assessment
  *          templates.</p>
  * @example
@@ -92,6 +91,7 @@ export interface DescribeAssessmentTemplatesCommandOutput
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * @public
  * @example Describte assessment templates
  * ```javascript
  * // Describes the assessment templates that are specified by the ARNs of the assessment templates.

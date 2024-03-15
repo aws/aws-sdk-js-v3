@@ -1172,7 +1172,6 @@ export interface ECS {
 }
 
 /**
- * @public
  * <fullname>Amazon Elastic Container Service</fullname>
  *          <p>Amazon Elastic Container Service (Amazon ECS) is a highly scalable, fast, container management service. It makes
  * 			it easy to run, stop, and manage Docker containers. You can host your cluster on a
@@ -1186,6 +1185,7 @@ export interface ECS {
  * 			your resource needs, isolation policies, and availability requirements. With Amazon ECS, you
  * 			don't need to operate your own cluster management and configuration management systems.
  * 			You also don't need to worry about scaling your management infrastructure. </p>
+ * @public
  */
 export class ECS extends ECSClient implements ECS {}
 createAggregatedClient(commands, ECS);

@@ -36,7 +36,6 @@ export interface GetClusterSessionCredentialsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides temporary, HTTP basic credentials that are associated with a given runtime
  *             IAM role and used by a cluster with fine-grained access control
  *          activated. You can use these credentials to connect to cluster endpoints that support
@@ -81,6 +80,7 @@ export interface GetClusterSessionCredentialsCommandOutput
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class GetClusterSessionCredentialsCommand extends $Command
   .classBuilder<

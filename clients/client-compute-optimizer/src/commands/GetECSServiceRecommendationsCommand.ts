@@ -32,7 +32,6 @@ export interface GetECSServiceRecommendationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Returns Amazon ECS service recommendations.
  *         </p>
@@ -202,6 +201,7 @@ export interface GetECSServiceRecommendationsCommandOutput
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ * @public
  */
 export class GetECSServiceRecommendationsCommand extends $Command
   .classBuilder<

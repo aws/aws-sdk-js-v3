@@ -27,7 +27,6 @@ export interface GetPublicKeyConfigCommandInput extends GetPublicKeyConfigReques
 export interface GetPublicKeyConfigCommandOutput extends GetPublicKeyConfigResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a public key configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface GetPublicKeyConfigCommandOutput extends GetPublicKeyConfigResul
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class GetPublicKeyConfigCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface UpdateLocationSmbCommandInput extends UpdateLocationSmbRequest 
 export interface UpdateLocationSmbCommandOutput extends UpdateLocationSmbResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates some of the parameters of a Server Message Block
  *       (SMB) file server location that you can use for DataSync transfers.</p>
  * @example
@@ -75,6 +74,7 @@ export interface UpdateLocationSmbCommandOutput extends UpdateLocationSmbRespons
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class UpdateLocationSmbCommand extends $Command
   .classBuilder<

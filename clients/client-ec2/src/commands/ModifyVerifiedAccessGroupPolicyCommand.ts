@@ -32,7 +32,6 @@ export interface ModifyVerifiedAccessGroupPolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the specified Amazon Web Services Verified Access group policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface ModifyVerifiedAccessGroupPolicyCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyVerifiedAccessGroupPolicyCommand extends $Command
   .classBuilder<

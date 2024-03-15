@@ -27,7 +27,6 @@ export interface TestMappingCommandInput extends TestMappingRequest {}
 export interface TestMappingCommandOutput extends TestMappingResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Maps the input file according to the provided template file. The API call downloads the file contents from the Amazon S3 location, and passes the contents in as a string, to the <code>inputFileContent</code> parameter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface TestMappingCommandOutput extends TestMappingResponse, __Metadat
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
+ * @public
  * @example Sample TestMapping call
  * ```javascript
  * //

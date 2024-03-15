@@ -31,7 +31,6 @@ export interface StartSNOMEDCTInferenceJobCommandInput extends StartSNOMEDCTInfe
 export interface StartSNOMEDCTInferenceJobCommandOutput extends StartSNOMEDCTInferenceJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Starts an asynchronous job to detect medical concepts and link them to the SNOMED-CT ontology. Use the DescribeSNOMEDCTInferenceJob operation to track the status of a job.
  *     </p>
@@ -89,6 +88,7 @@ export interface StartSNOMEDCTInferenceJobCommandOutput extends StartSNOMEDCTInf
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ * @public
  */
 export class StartSNOMEDCTInferenceJobCommand extends $Command
   .classBuilder<

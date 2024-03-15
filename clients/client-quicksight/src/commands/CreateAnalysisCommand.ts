@@ -31,7 +31,6 @@ export interface CreateAnalysisCommandInput extends CreateAnalysisRequest {}
 export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an analysis in Amazon QuickSight.  Analyses can be created either from a template or from an <code>AnalysisDefinition</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -4712,6 +4711,7 @@ export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __M
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class CreateAnalysisCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface AddInstanceFleetCommandInput extends AddInstanceFleetInput {}
 export interface AddInstanceFleetCommandOutput extends AddInstanceFleetOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds an instance fleet to a running cluster.</p>
  *          <note>
  *             <p>The instance fleet configuration is available only in Amazon EMR releases
@@ -138,6 +137,7 @@ export interface AddInstanceFleetCommandOutput extends AddInstanceFleetOutput, _
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * @public
  */
 export class AddInstanceFleetCommand extends $Command
   .classBuilder<

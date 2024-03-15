@@ -27,7 +27,6 @@ export interface PutScalingPolicyCommandInput extends PutScalingPolicyInput {}
 export interface PutScalingPolicyCommandOutput extends PutScalingPolicyOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates a scaling policy for a fleet. Scaling policies are used to
  *             automatically scale a fleet's hosting capacity to meet player demand. An active scaling
  *             policy instructs Amazon GameLift to track a fleet metric and automatically change the fleet's
@@ -137,6 +136,7 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyOutput, _
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class PutScalingPolicyCommand extends $Command
   .classBuilder<

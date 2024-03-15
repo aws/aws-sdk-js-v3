@@ -32,7 +32,6 @@ export interface AssociateTagOptionWithResourceCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Associate the specified TagOption with the specified portfolio or product.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface AssociateTagOptionWithResourceCommandOutput
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class AssociateTagOptionWithResourceCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface UpdateProfileCommandInput extends UpdateProfileRequest {}
 export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified parameters for a profile. A profile is the mechanism used to create the concept of
  *    a private network.</p>
  * @example
@@ -95,6 +94,7 @@ export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __Met
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
+ * @public
  * @example Sample UpdateProfile call
  * ```javascript
  * //

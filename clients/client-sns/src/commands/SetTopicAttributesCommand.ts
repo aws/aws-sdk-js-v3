@@ -27,7 +27,6 @@ export interface SetTopicAttributesCommandInput extends SetTopicAttributesInput 
 export interface SetTopicAttributesCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows a topic owner to set an attribute of the topic to a new value.</p>
  *          <note>
  *             <p>To remove the ability to change topic permissions, you must deny permissions to
@@ -77,6 +76,7 @@ export interface SetTopicAttributesCommandOutput extends __MetadataBearer {}
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * @public
  */
 export class SetTopicAttributesCommand extends $Command
   .classBuilder<

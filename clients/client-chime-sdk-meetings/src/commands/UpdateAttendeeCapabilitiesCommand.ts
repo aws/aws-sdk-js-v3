@@ -31,7 +31,6 @@ export interface UpdateAttendeeCapabilitiesCommandInput extends UpdateAttendeeCa
 export interface UpdateAttendeeCapabilitiesCommandOutput extends UpdateAttendeeCapabilitiesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The capabilities that you want to update.</p>
  *          <note>
  *             <p>You use the capabilities with a set of values that control what the capabilities can do, such as <code>SendReceive</code> data. For more information about those values, see
@@ -126,6 +125,7 @@ export interface UpdateAttendeeCapabilitiesCommandOutput extends UpdateAttendeeC
  * @throws {@link ChimeSDKMeetingsServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
+ * @public
  */
 export class UpdateAttendeeCapabilitiesCommand extends $Command
   .classBuilder<

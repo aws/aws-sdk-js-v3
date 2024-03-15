@@ -32,7 +32,6 @@ export interface CreateQuerySuggestionsBlockListCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a block list to exlcude certain queries from suggestions.</p>
  *          <p>Any query that contains words or phrases specified in the block
  *             list is blocked or filtered out from being shown as a suggestion.</p>
@@ -118,6 +117,7 @@ export interface CreateQuerySuggestionsBlockListCommandOutput
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class CreateQuerySuggestionsBlockListCommand extends $Command
   .classBuilder<

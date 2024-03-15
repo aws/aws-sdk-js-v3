@@ -31,7 +31,6 @@ export interface ModifyRuleCommandInput extends ModifyRuleInput {}
 export interface ModifyRuleCommandOutput extends ModifyRuleOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Replaces the specified properties of the specified rule. Any properties that you do not
  *       specify are unchanged.</p>
  *          <p>To add an item to a list, remove an item from a list, or update an item in a list, you
@@ -305,6 +304,7 @@ export interface ModifyRuleCommandOutput extends ModifyRuleOutput, __MetadataBea
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  * @example To modify a rule
  * ```javascript
  * // This example modifies the condition for the specified rule.

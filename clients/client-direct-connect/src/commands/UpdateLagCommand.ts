@@ -27,7 +27,6 @@ export interface UpdateLagCommandInput extends UpdateLagRequest {}
 export interface UpdateLagCommandOutput extends Lag, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the attributes of the specified link aggregation group (LAG).</p>
  *          <p>You can update the following LAG attributes:</p>
  *          <ul>
@@ -155,6 +154,7 @@ export interface UpdateLagCommandOutput extends Lag, __MetadataBearer {}
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class UpdateLagCommand extends $Command
   .classBuilder<

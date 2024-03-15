@@ -4,8 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { BedrockAgentServiceException as __BaseException } from "./BedrockAgentServiceException";
 
 /**
- * @public
  * This exception is thrown when a request is denied per access permissions
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -24,8 +24,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * @public
  * Type of Executors for an Action Group
+ * @public
  */
 export type ActionGroupExecutor = ActionGroupExecutor.LambdaMember | ActionGroupExecutor.$UnknownMember;
 
@@ -34,8 +34,8 @@ export type ActionGroupExecutor = ActionGroupExecutor.LambdaMember | ActionGroup
  */
 export namespace ActionGroupExecutor {
   /**
-   * @public
    * ARN of a Lambda.
+   * @public
    */
   export interface LambdaMember {
     lambda: string;
@@ -62,8 +62,8 @@ export namespace ActionGroupExecutor {
 }
 
 /**
- * @public
  * This exception is thrown when there is a conflict performing an operation
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -96,26 +96,26 @@ export const ActionGroupState = {
 export type ActionGroupState = (typeof ActionGroupState)[keyof typeof ActionGroupState];
 
 /**
- * @public
  * The identifier for the S3 resource.
+ * @public
  */
 export interface S3Identifier {
   /**
-   * @public
    * A bucket in S3.
+   * @public
    */
   s3BucketName?: string;
 
   /**
-   * @public
    * A object key in S3.
+   * @public
    */
   s3ObjectKey?: string;
 }
 
 /**
- * @public
  * Contains information about the API Schema for the Action Group
+ * @public
  */
 export type APISchema = APISchema.PayloadMember | APISchema.S3Member | APISchema.$UnknownMember;
 
@@ -124,8 +124,8 @@ export type APISchema = APISchema.PayloadMember | APISchema.S3Member | APISchema
  */
 export namespace APISchema {
   /**
-   * @public
    * The identifier for the S3 resource.
+   * @public
    */
   export interface S3Member {
     s3: S3Identifier;
@@ -134,8 +134,8 @@ export namespace APISchema {
   }
 
   /**
-   * @public
    * String OpenAPI Payload
+   * @public
    */
   export interface PayloadMember {
     s3?: never;
@@ -179,158 +179,158 @@ export const ActionGroupSignature = {
 export type ActionGroupSignature = (typeof ActionGroupSignature)[keyof typeof ActionGroupSignature];
 
 /**
- * @public
  * Create Action Group Request
+ * @public
  */
 export interface CreateAgentActionGroupRequest {
   /**
-   * @public
    * Id generated at the server side when an Agent is created
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * Draft Version of the Agent.
+   * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * @public
    * Name for a resource.
+   * @public
    */
   actionGroupName: string | undefined;
 
   /**
-   * @public
    * Client specified token used for idempotency checks
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * Description of the Resource.
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * Action Group Signature for a BuiltIn Action
+   * @public
    */
   parentActionGroupSignature?: ActionGroupSignature;
 
   /**
-   * @public
    * Type of Executors for an Action Group
+   * @public
    */
   actionGroupExecutor?: ActionGroupExecutor;
 
   /**
-   * @public
    * Contains information about the API Schema for the Action Group
+   * @public
    */
   apiSchema?: APISchema;
 
   /**
-   * @public
    * State of the action group
+   * @public
    */
   actionGroupState?: ActionGroupState;
 }
 
 /**
- * @public
  * Contains the information of an Agent Action Group
+ * @public
  */
 export interface AgentActionGroup {
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * Agent Version.
+   * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   actionGroupId: string | undefined;
 
   /**
-   * @public
    * Name for a resource.
+   * @public
    */
   actionGroupName: string | undefined;
 
   /**
-   * @public
    * Client specified token used for idempotency checks
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * Description of the Resource.
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * Time Stamp.
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * Time Stamp.
+   * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * @public
    * Action Group Signature for a BuiltIn Action
+   * @public
    */
   parentActionSignature?: ActionGroupSignature;
 
   /**
-   * @public
    * Type of Executors for an Action Group
+   * @public
    */
   actionGroupExecutor?: ActionGroupExecutor;
 
   /**
-   * @public
    * Contains information about the API Schema for the Action Group
+   * @public
    */
   apiSchema?: APISchema;
 
   /**
-   * @public
    * State of the action group
+   * @public
    */
   actionGroupState: ActionGroupState | undefined;
 }
 
 /**
- * @public
  * Create Action Group Response
+ * @public
  */
 export interface CreateAgentActionGroupResponse {
   /**
-   * @public
    * Contains the information of an Agent Action Group
+   * @public
    */
   agentActionGroup: AgentActionGroup | undefined;
 }
 
 /**
- * @public
  * This exception is thrown if there was an unexpected error during processing of request
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -349,8 +349,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * This exception is thrown when a resource referenced by the operation does not exist
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -369,8 +369,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * This exception is thrown when a request is made beyond the service quota
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
@@ -389,8 +389,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * @public
  * This exception is thrown when the number of requests exceeds the limit
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -409,33 +409,33 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * Stores information about a field passed inside a request that resulted in an exception
+ * @public
  */
 export interface ValidationExceptionField {
   /**
-   * @public
    * Non Blank String
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * Non Blank String
+   * @public
    */
   message: string | undefined;
 }
 
 /**
- * @public
  * This exception is thrown when the request's input validation fails
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * list of ValidationExceptionField
+   * @public
    */
   fieldList?: ValidationExceptionField[];
 
@@ -454,229 +454,229 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * @public
  * Delete Action Group Request
+ * @public
  */
 export interface DeleteAgentActionGroupRequest {
   /**
-   * @public
    * Id generated at the server side when an Agent is created
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * Draft Version of the Agent.
+   * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * @public
    * Id generated at the server side when an Agent ActionGroup is created
+   * @public
    */
   actionGroupId: string | undefined;
 
   /**
-   * @public
    * Skips checking if resource is in use when set to true. Defaults to false
+   * @public
    */
   skipResourceInUseCheck?: boolean;
 }
 
 /**
- * @public
  * Delete Action Group Response
+ * @public
  */
 export interface DeleteAgentActionGroupResponse {}
 
 /**
- * @public
  * Get Action Group Request
+ * @public
  */
 export interface GetAgentActionGroupRequest {
   /**
-   * @public
    * Id generated at the server side when an Agent is created
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * Version number generated when a version is created
+   * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * @public
    * Id generated at the server side when an Agent Action Group is created
+   * @public
    */
   actionGroupId: string | undefined;
 }
 
 /**
- * @public
  * Get Action Group Response
+ * @public
  */
 export interface GetAgentActionGroupResponse {
   /**
-   * @public
    * Contains the information of an Agent Action Group
+   * @public
    */
   agentActionGroup: AgentActionGroup | undefined;
 }
 
 /**
- * @public
  * List Action Groups Request
+ * @public
  */
 export interface ListAgentActionGroupsRequest {
   /**
-   * @public
    * Id generated at the server side when an Agent is Listed
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * Id generated at the server side when an Agent is Listed
+   * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * @public
    * Max Results.
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * Opaque continuation token of previous paginated response.
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * ActionGroup Summary
+ * @public
  */
 export interface ActionGroupSummary {
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   actionGroupId: string | undefined;
 
   /**
-   * @public
    * Name for a resource.
+   * @public
    */
   actionGroupName: string | undefined;
 
   /**
-   * @public
    * State of the action group
+   * @public
    */
   actionGroupState: ActionGroupState | undefined;
 
   /**
-   * @public
    * Description of the Resource.
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * Time Stamp.
+   * @public
    */
   updatedAt: Date | undefined;
 }
 
 /**
- * @public
  * List Action Groups Response
+ * @public
  */
 export interface ListAgentActionGroupsResponse {
   /**
-   * @public
    * List of ActionGroup Summaries
+   * @public
    */
   actionGroupSummaries: ActionGroupSummary[] | undefined;
 
   /**
-   * @public
    * Opaque continuation token of previous paginated response.
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * Update Action Group Request
+ * @public
  */
 export interface UpdateAgentActionGroupRequest {
   /**
-   * @public
    * Id generated at the server side when an Agent is created
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * Draft Version of the Agent.
+   * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * @public
    * Id generated at the server side when an Action Group is created under Agent
+   * @public
    */
   actionGroupId: string | undefined;
 
   /**
-   * @public
    * Name for a resource.
+   * @public
    */
   actionGroupName: string | undefined;
 
   /**
-   * @public
    * Description of the Resource.
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * Action Group Signature for a BuiltIn Action
+   * @public
    */
   parentActionGroupSignature?: ActionGroupSignature;
 
   /**
-   * @public
    * Type of Executors for an Action Group
+   * @public
    */
   actionGroupExecutor?: ActionGroupExecutor;
 
   /**
-   * @public
    * State of the action group
+   * @public
    */
   actionGroupState?: ActionGroupState;
 
   /**
-   * @public
    * Contains information about the API Schema for the Action Group
+   * @public
    */
   apiSchema?: APISchema;
 }
 
 /**
- * @public
  * Update Action Group Response
+ * @public
  */
 export interface UpdateAgentActionGroupResponse {
   /**
-   * @public
    * Contains the information of an Agent Action Group
+   * @public
    */
   agentActionGroup: AgentActionGroup | undefined;
 }
@@ -702,37 +702,37 @@ export const AgentStatus = {
 export type AgentStatus = (typeof AgentStatus)[keyof typeof AgentStatus];
 
 /**
- * @public
  * Configuration for inference in prompt configuration
+ * @public
  */
 export interface InferenceConfiguration {
   /**
-   * @public
    * Controls randomness, higher values increase diversity
+   * @public
    */
   temperature?: number;
 
   /**
-   * @public
    * Cumulative probability cutoff for token selection
+   * @public
    */
   topP?: number;
 
   /**
-   * @public
    * Sample from the k most likely next tokens
+   * @public
    */
   topK?: number;
 
   /**
-   * @public
    * Maximum length of output
+   * @public
    */
   maximumLength?: number;
 
   /**
-   * @public
    * List of stop sequences
+   * @public
    */
   stopSequences?: string[];
 }
@@ -782,211 +782,211 @@ export const PromptType = {
 export type PromptType = (typeof PromptType)[keyof typeof PromptType];
 
 /**
- * @public
  * BasePromptConfiguration per Prompt Type.
+ * @public
  */
 export interface PromptConfiguration {
   /**
-   * @public
    * Prompt Type.
+   * @public
    */
   promptType?: PromptType;
 
   /**
-   * @public
    * Creation Mode for Prompt Configuration.
+   * @public
    */
   promptCreationMode?: CreationMode;
 
   /**
-   * @public
    * Prompt State.
+   * @public
    */
   promptState?: PromptState;
 
   /**
-   * @public
    * Base Prompt Template.
+   * @public
    */
   basePromptTemplate?: string;
 
   /**
-   * @public
    * Configuration for inference in prompt configuration
+   * @public
    */
   inferenceConfiguration?: InferenceConfiguration;
 
   /**
-   * @public
    * Creation Mode for Prompt Configuration.
+   * @public
    */
   parserMode?: CreationMode;
 }
 
 /**
- * @public
  * Configuration for prompt override.
+ * @public
  */
 export interface PromptOverrideConfiguration {
   /**
-   * @public
    * List of BasePromptConfiguration
+   * @public
    */
   promptConfigurations: PromptConfiguration[] | undefined;
 
   /**
-   * @public
    * ARN of a Lambda.
+   * @public
    */
   overrideLambda?: string;
 }
 
 /**
- * @public
  * Contains the information of an agent
+ * @public
  */
 export interface Agent {
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * Name for a resource.
+   * @public
    */
   agentName: string | undefined;
 
   /**
-   * @public
    * Arn representation of the Agent.
+   * @public
    */
   agentArn: string | undefined;
 
   /**
-   * @public
    * Draft Agent Version.
+   * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * @public
    * Client specified token used for idempotency checks
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * Instruction for the agent.
+   * @public
    */
   instruction?: string;
 
   /**
-   * @public
    * Schema Type for Action APIs.
+   * @public
    */
   agentStatus: AgentStatus | undefined;
 
   /**
-   * @public
    * ARN or name of a Bedrock model.
+   * @public
    */
   foundationModel?: string;
 
   /**
-   * @public
    * Description of the Resource.
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * Max Session Time.
+   * @public
    */
   idleSessionTTLInSeconds: number | undefined;
 
   /**
-   * @public
    * ARN of a IAM role.
+   * @public
    */
   agentResourceRoleArn: string | undefined;
 
   /**
-   * @public
    * A KMS key ARN
+   * @public
    */
   customerEncryptionKeyArn?: string;
 
   /**
-   * @public
    * Time Stamp.
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * Time Stamp.
+   * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * @public
    * Time Stamp.
+   * @public
    */
   preparedAt?: Date;
 
   /**
-   * @public
    * Failure Reasons for Error.
+   * @public
    */
   failureReasons?: string[];
 
   /**
-   * @public
    * The recommended actions users can take to resolve an error in failureReasons.
+   * @public
    */
   recommendedActions?: string[];
 
   /**
-   * @public
    * Configuration for prompt override.
+   * @public
    */
   promptOverrideConfiguration?: PromptOverrideConfiguration;
 }
 
 /**
- * @public
  * Details about the routing configuration for an Agent alias.
+ * @public
  */
 export interface AgentAliasRoutingConfigurationListItem {
   /**
-   * @public
    * Agent Version.
+   * @public
    */
   agentVersion: string | undefined;
 }
 
 /**
- * @public
  * History event for an alias for an Agent.
+ * @public
  */
 export interface AgentAliasHistoryEvent {
   /**
-   * @public
    * Routing configuration for an Agent alias.
+   * @public
    */
   routingConfiguration?: AgentAliasRoutingConfigurationListItem[];
 
   /**
-   * @public
    * Time Stamp.
+   * @public
    */
   endDate?: Date;
 
   /**
-   * @public
    * Time Stamp.
+   * @public
    */
   startDate?: Date;
 }
@@ -1009,121 +1009,121 @@ export const AgentAliasStatus = {
 export type AgentAliasStatus = (typeof AgentAliasStatus)[keyof typeof AgentAliasStatus];
 
 /**
- * @public
  * Contains the information of an agent alias
+ * @public
  */
 export interface AgentAlias {
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * Id for an Agent Alias generated at the server side.
+   * @public
    */
   agentAliasId: string | undefined;
 
   /**
-   * @public
    * Name for a resource.
+   * @public
    */
   agentAliasName: string | undefined;
 
   /**
-   * @public
    * Arn representation of the Agent Alias.
+   * @public
    */
   agentAliasArn: string | undefined;
 
   /**
-   * @public
    * Client specified token used for idempotency checks
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * Description of the Resource.
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * Routing configuration for an Agent alias.
+   * @public
    */
   routingConfiguration: AgentAliasRoutingConfigurationListItem[] | undefined;
 
   /**
-   * @public
    * Time Stamp.
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * Time Stamp.
+   * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * @public
    * The list of history events for an alias for an Agent.
+   * @public
    */
   agentAliasHistoryEvents?: AgentAliasHistoryEvent[];
 
   /**
-   * @public
    * The statuses an Agent Alias can be in.
+   * @public
    */
   agentAliasStatus: AgentAliasStatus | undefined;
 }
 
 /**
- * @public
  * Summary of an alias for an Agent.
+ * @public
  */
 export interface AgentAliasSummary {
   /**
-   * @public
    * Id for an Agent Alias generated at the server side.
+   * @public
    */
   agentAliasId: string | undefined;
 
   /**
-   * @public
    * Name for a resource.
+   * @public
    */
   agentAliasName: string | undefined;
 
   /**
-   * @public
    * Description of the Resource.
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * Routing configuration for an Agent alias.
+   * @public
    */
   routingConfiguration?: AgentAliasRoutingConfigurationListItem[];
 
   /**
-   * @public
    * The statuses an Agent Alias can be in.
+   * @public
    */
   agentAliasStatus: AgentAliasStatus | undefined;
 
   /**
-   * @public
    * Time Stamp.
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * Time Stamp.
+   * @public
    */
   updatedAt: Date | undefined;
 }
@@ -1143,787 +1143,787 @@ export const KnowledgeBaseState = {
 export type KnowledgeBaseState = (typeof KnowledgeBaseState)[keyof typeof KnowledgeBaseState];
 
 /**
- * @public
  * Contains the information of an Agent Knowledge Base.
+ * @public
  */
 export interface AgentKnowledgeBase {
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * Agent Version.
+   * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * Description of the Resource.
+   * @public
    */
   description: string | undefined;
 
   /**
-   * @public
    * Time Stamp.
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * Time Stamp.
+   * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * @public
    * State of the knowledge base; whether it is enabled or disabled
+   * @public
    */
   knowledgeBaseState: KnowledgeBaseState | undefined;
 }
 
 /**
- * @public
  * Agent Knowledge Base Summary
+ * @public
  */
 export interface AgentKnowledgeBaseSummary {
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * Description of the Resource.
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * State of the knowledge base; whether it is enabled or disabled
+   * @public
    */
   knowledgeBaseState: KnowledgeBaseState | undefined;
 
   /**
-   * @public
    * Time Stamp.
+   * @public
    */
   updatedAt: Date | undefined;
 }
 
 /**
- * @public
  * Create Agent Request
+ * @public
  */
 export interface CreateAgentRequest {
   /**
-   * @public
    * Name for a resource.
+   * @public
    */
   agentName: string | undefined;
 
   /**
-   * @public
    * Client specified token used for idempotency checks
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * Instruction for the agent.
+   * @public
    */
   instruction?: string;
 
   /**
-   * @public
    * ARN or name of a Bedrock model.
+   * @public
    */
   foundationModel?: string;
 
   /**
-   * @public
    * Description of the Resource.
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * Max Session Time.
+   * @public
    */
   idleSessionTTLInSeconds?: number;
 
   /**
-   * @public
    * ARN of a IAM role.
+   * @public
    */
   agentResourceRoleArn: string | undefined;
 
   /**
-   * @public
    * A KMS key ARN
+   * @public
    */
   customerEncryptionKeyArn?: string;
 
   /**
-   * @public
    * A map of tag keys and values
+   * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * @public
    * Configuration for prompt override.
+   * @public
    */
   promptOverrideConfiguration?: PromptOverrideConfiguration;
 }
 
 /**
- * @public
  * Create Agent Response
+ * @public
  */
 export interface CreateAgentResponse {
   /**
-   * @public
    * Contains the information of an agent
+   * @public
    */
   agent: Agent | undefined;
 }
 
 /**
- * @public
  * Delete Agent Request
+ * @public
  */
 export interface DeleteAgentRequest {
   /**
-   * @public
    * Id generated at the server side when an Agent is created
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * Skips checking if resource is in use when set to true. Defaults to false
+   * @public
    */
   skipResourceInUseCheck?: boolean;
 }
 
 /**
- * @public
  * Delete Agent Response
+ * @public
  */
 export interface DeleteAgentResponse {
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * Schema Type for Action APIs.
+   * @public
    */
   agentStatus: AgentStatus | undefined;
 }
 
 /**
- * @public
  * Get Agent Request
+ * @public
  */
 export interface GetAgentRequest {
   /**
-   * @public
    * Id generated at the server side when an Agent is created
+   * @public
    */
   agentId: string | undefined;
 }
 
 /**
- * @public
  * Get Agent Response
+ * @public
  */
 export interface GetAgentResponse {
   /**
-   * @public
    * Contains the information of an agent
+   * @public
    */
   agent: Agent | undefined;
 }
 
 /**
- * @public
  * List Agent Request
+ * @public
  */
 export interface ListAgentsRequest {
   /**
-   * @public
    * Max Results.
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * Opaque continuation token of previous paginated response.
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * Summary of Agent.
+ * @public
  */
 export interface AgentSummary {
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * Name for a resource.
+   * @public
    */
   agentName: string | undefined;
 
   /**
-   * @public
    * Schema Type for Action APIs.
+   * @public
    */
   agentStatus: AgentStatus | undefined;
 
   /**
-   * @public
    * Description of the Resource.
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * Time Stamp.
+   * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * @public
    * Agent Version.
+   * @public
    */
   latestAgentVersion?: string;
 }
 
 /**
- * @public
  * List Agent Response
+ * @public
  */
 export interface ListAgentsResponse {
   /**
-   * @public
    * List of AgentSummary.
+   * @public
    */
   agentSummaries: AgentSummary[] | undefined;
 
   /**
-   * @public
    * Opaque continuation token of previous paginated response.
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * PrepareAgent Request
+ * @public
  */
 export interface PrepareAgentRequest {
   /**
-   * @public
    * Id generated at the server side when an Agent is created
+   * @public
    */
   agentId: string | undefined;
 }
 
 /**
- * @public
  * PrepareAgent Response
+ * @public
  */
 export interface PrepareAgentResponse {
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * Schema Type for Action APIs.
+   * @public
    */
   agentStatus: AgentStatus | undefined;
 
   /**
-   * @public
    * Agent Version.
+   * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * @public
    * Time Stamp.
+   * @public
    */
   preparedAt: Date | undefined;
 }
 
 /**
- * @public
  * Update Agent Request
+ * @public
  */
 export interface UpdateAgentRequest {
   /**
-   * @public
    * Id generated at the server side when an Agent is created
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * Name for a resource.
+   * @public
    */
   agentName: string | undefined;
 
   /**
-   * @public
    * Instruction for the agent.
+   * @public
    */
   instruction?: string;
 
   /**
-   * @public
    * ARN or name of a Bedrock model.
+   * @public
    */
   foundationModel?: string;
 
   /**
-   * @public
    * Description of the Resource.
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * Max Session Time.
+   * @public
    */
   idleSessionTTLInSeconds?: number;
 
   /**
-   * @public
    * ARN of a IAM role.
+   * @public
    */
   agentResourceRoleArn: string | undefined;
 
   /**
-   * @public
    * A KMS key ARN
+   * @public
    */
   customerEncryptionKeyArn?: string;
 
   /**
-   * @public
    * Configuration for prompt override.
+   * @public
    */
   promptOverrideConfiguration?: PromptOverrideConfiguration;
 }
 
 /**
- * @public
  * Update Agent Response
+ * @public
  */
 export interface UpdateAgentResponse {
   /**
-   * @public
    * Contains the information of an agent
+   * @public
    */
   agent: Agent | undefined;
 }
 
 /**
- * @public
  * Contains the information of an agent version.
+ * @public
  */
 export interface AgentVersion {
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * Name for a resource.
+   * @public
    */
   agentName: string | undefined;
 
   /**
-   * @public
    * Arn representation of the Agent.
+   * @public
    */
   agentArn: string | undefined;
 
   /**
-   * @public
    * Numerical Agent Version.
+   * @public
    */
   version: string | undefined;
 
   /**
-   * @public
    * Instruction for the agent.
+   * @public
    */
   instruction?: string;
 
   /**
-   * @public
    * Schema Type for Action APIs.
+   * @public
    */
   agentStatus: AgentStatus | undefined;
 
   /**
-   * @public
    * ARN or name of a Bedrock model.
+   * @public
    */
   foundationModel?: string;
 
   /**
-   * @public
    * Description of the Resource.
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * Max Session Time.
+   * @public
    */
   idleSessionTTLInSeconds: number | undefined;
 
   /**
-   * @public
    * ARN of a IAM role.
+   * @public
    */
   agentResourceRoleArn: string | undefined;
 
   /**
-   * @public
    * A KMS key ARN
+   * @public
    */
   customerEncryptionKeyArn?: string;
 
   /**
-   * @public
    * Time Stamp.
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * Time Stamp.
+   * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * @public
    * Failure Reasons for Error.
+   * @public
    */
   failureReasons?: string[];
 
   /**
-   * @public
    * The recommended actions users can take to resolve an error in failureReasons.
+   * @public
    */
   recommendedActions?: string[];
 
   /**
-   * @public
    * Configuration for prompt override.
+   * @public
    */
   promptOverrideConfiguration?: PromptOverrideConfiguration;
 }
 
 /**
- * @public
  * Summary of agent version.
+ * @public
  */
 export interface AgentVersionSummary {
   /**
-   * @public
    * Name for a resource.
+   * @public
    */
   agentName: string | undefined;
 
   /**
-   * @public
    * Schema Type for Action APIs.
+   * @public
    */
   agentStatus: AgentStatus | undefined;
 
   /**
-   * @public
    * Agent Version.
+   * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * @public
    * Time Stamp.
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * Time Stamp.
+   * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * @public
    * Description of the Resource.
+   * @public
    */
   description?: string;
 }
 
 /**
- * @public
  * Create Agent Alias Request
+ * @public
  */
 export interface CreateAgentAliasRequest {
   /**
-   * @public
    * Id generated at the server side when an Agent is created
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * Name for a resource.
+   * @public
    */
   agentAliasName: string | undefined;
 
   /**
-   * @public
    * Client specified token used for idempotency checks
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * Description of the Resource.
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * Routing configuration for an Agent alias.
+   * @public
    */
   routingConfiguration?: AgentAliasRoutingConfigurationListItem[];
 
   /**
-   * @public
    * A map of tag keys and values
+   * @public
    */
   tags?: Record<string, string>;
 }
 
 /**
- * @public
  * Create Agent Alias Response
+ * @public
  */
 export interface CreateAgentAliasResponse {
   /**
-   * @public
    * Contains the information of an agent alias
+   * @public
    */
   agentAlias: AgentAlias | undefined;
 }
 
 /**
- * @public
  * Delete Agent Alias Request
+ * @public
  */
 export interface DeleteAgentAliasRequest {
   /**
-   * @public
    * Id generated at the server side when an Agent is created
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * Id generated at the server side when an Agent Alias is created
+   * @public
    */
   agentAliasId: string | undefined;
 }
 
 /**
- * @public
  * Delete Agent Alias Response
+ * @public
  */
 export interface DeleteAgentAliasResponse {
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * Id for an Agent Alias generated at the server side.
+   * @public
    */
   agentAliasId: string | undefined;
 
   /**
-   * @public
    * The statuses an Agent Alias can be in.
+   * @public
    */
   agentAliasStatus: AgentAliasStatus | undefined;
 }
 
 /**
- * @public
  * Get Agent Alias Request
+ * @public
  */
 export interface GetAgentAliasRequest {
   /**
-   * @public
    * Id generated at the server side when an Agent is created
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * Id generated at the server side when an Agent Alias is created
+   * @public
    */
   agentAliasId: string | undefined;
 }
 
 /**
- * @public
  * Get Agent Alias Response
+ * @public
  */
 export interface GetAgentAliasResponse {
   /**
-   * @public
    * Contains the information of an agent alias
+   * @public
    */
   agentAlias: AgentAlias | undefined;
 }
 
 /**
- * @public
  * List Agent Aliases Request
+ * @public
  */
 export interface ListAgentAliasesRequest {
   /**
-   * @public
    * Id generated at the server side when an Agent is created
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * Max Results.
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * Opaque continuation token of previous paginated response.
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * List Agent Aliases Response
+ * @public
  */
 export interface ListAgentAliasesResponse {
   /**
-   * @public
    * The list of summaries of all the aliases for an Agent.
+   * @public
    */
   agentAliasSummaries: AgentAliasSummary[] | undefined;
 
   /**
-   * @public
    * Opaque continuation token of previous paginated response.
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * Update Agent Alias Request
+ * @public
  */
 export interface UpdateAgentAliasRequest {
   /**
-   * @public
    * Id generated at the server side when an Agent is created
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * Id generated at the server side when an Agent Alias is created
+   * @public
    */
   agentAliasId: string | undefined;
 
   /**
-   * @public
    * Name for a resource.
+   * @public
    */
   agentAliasName: string | undefined;
 
   /**
-   * @public
    * Description of the Resource.
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * Routing configuration for an Agent alias.
+   * @public
    */
   routingConfiguration?: AgentAliasRoutingConfigurationListItem[];
 }
 
 /**
- * @public
  * Update Agent Alias Response
+ * @public
  */
 export interface UpdateAgentAliasResponse {
   /**
-   * @public
    * Contains the information of an agent alias
+   * @public
    */
   agentAlias: AgentAlias | undefined;
 }
 
 /**
- * @public
  * Configures an S3 data source location.
+ * @public
  */
 export interface S3DataSourceConfiguration {
   /**
-   * @public
    * A S3 bucket ARN
+   * @public
    */
   bucketArn: string | undefined;
 
   /**
-   * @public
    * A list of S3 prefixes.
+   * @public
    */
   inclusionPrefixes?: string[];
 }
@@ -1942,31 +1942,31 @@ export const DataSourceType = {
 export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType];
 
 /**
- * @public
  * Specifies a raw data source location to ingest.
+ * @public
  */
 export interface DataSourceConfiguration {
   /**
-   * @public
    * The type of the data source location.
+   * @public
    */
   type: DataSourceType | undefined;
 
   /**
-   * @public
    * Configures an S3 data source location.
+   * @public
    */
   s3Configuration?: S3DataSourceConfiguration;
 }
 
 /**
- * @public
  * Server-side encryption configuration.
+ * @public
  */
 export interface ServerSideEncryptionConfiguration {
   /**
-   * @public
    * A KMS key ARN
+   * @public
    */
   kmsKeyArn?: string;
 }
@@ -1986,49 +1986,49 @@ export const ChunkingStrategy = {
 export type ChunkingStrategy = (typeof ChunkingStrategy)[keyof typeof ChunkingStrategy];
 
 /**
- * @public
  * Configures fixed size chunking strategy
+ * @public
  */
 export interface FixedSizeChunkingConfiguration {
   /**
-   * @public
    * The maximum number of tokens per chunk.
+   * @public
    */
   maxTokens: number | undefined;
 
   /**
-   * @public
    * The overlap percentage between adjacent chunks.
+   * @public
    */
   overlapPercentage: number | undefined;
 }
 
 /**
- * @public
  * Configures chunking strategy
+ * @public
  */
 export interface ChunkingConfiguration {
   /**
-   * @public
    * The type of chunking strategy
+   * @public
    */
   chunkingStrategy: ChunkingStrategy | undefined;
 
   /**
-   * @public
    * Configures fixed size chunking strategy
+   * @public
    */
   fixedSizeChunkingConfiguration?: FixedSizeChunkingConfiguration;
 }
 
 /**
- * @public
  * Configures ingestion for a vector knowledge base
+ * @public
  */
 export interface VectorIngestionConfiguration {
   /**
-   * @public
    * Configures chunking strategy
+   * @public
    */
   chunkingConfiguration?: ChunkingConfiguration;
 }
@@ -2038,44 +2038,44 @@ export interface VectorIngestionConfiguration {
  */
 export interface CreateDataSourceRequest {
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * Client specified token used for idempotency checks
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * Name for a resource.
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * Description of the Resource.
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * Specifies a raw data source location to ingest.
+   * @public
    */
   dataSourceConfiguration: DataSourceConfiguration | undefined;
 
   /**
-   * @public
    * Server-side encryption configuration.
+   * @public
    */
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
 
   /**
-   * @public
    * Configures ingestion for a vector knowledge base
+   * @public
    */
   vectorIngestionConfiguration?: VectorIngestionConfiguration;
 }
@@ -2095,67 +2095,67 @@ export const DataSourceStatus = {
 export type DataSourceStatus = (typeof DataSourceStatus)[keyof typeof DataSourceStatus];
 
 /**
- * @public
  * Contains the information of a data source.
+ * @public
  */
 export interface DataSource {
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   dataSourceId: string | undefined;
 
   /**
-   * @public
    * Name for a resource.
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * The status of a data source.
+   * @public
    */
   status: DataSourceStatus | undefined;
 
   /**
-   * @public
    * Description of the Resource.
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * Specifies a raw data source location to ingest.
+   * @public
    */
   dataSourceConfiguration: DataSourceConfiguration | undefined;
 
   /**
-   * @public
    * Server-side encryption configuration.
+   * @public
    */
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
 
   /**
-   * @public
    * Configures ingestion for a vector knowledge base
+   * @public
    */
   vectorIngestionConfiguration?: VectorIngestionConfiguration;
 
   /**
-   * @public
    * Time Stamp.
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * Time Stamp.
+   * @public
    */
   updatedAt: Date | undefined;
 }
@@ -2165,8 +2165,8 @@ export interface DataSource {
  */
 export interface CreateDataSourceResponse {
   /**
-   * @public
    * Contains the information of a data source.
+   * @public
    */
   dataSource: DataSource | undefined;
 }
@@ -2176,14 +2176,14 @@ export interface CreateDataSourceResponse {
  */
 export interface DeleteDataSourceRequest {
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   dataSourceId: string | undefined;
 }
@@ -2193,20 +2193,20 @@ export interface DeleteDataSourceRequest {
  */
 export interface DeleteDataSourceResponse {
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   dataSourceId: string | undefined;
 
   /**
-   * @public
    * The status of a data source.
+   * @public
    */
   status: DataSourceStatus | undefined;
 }
@@ -2216,14 +2216,14 @@ export interface DeleteDataSourceResponse {
  */
 export interface GetDataSourceRequest {
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   dataSourceId: string | undefined;
 }
@@ -2233,8 +2233,8 @@ export interface GetDataSourceRequest {
  */
 export interface GetDataSourceResponse {
   /**
-   * @public
    * Contains the information of a data source.
+   * @public
    */
   dataSource: DataSource | undefined;
 }
@@ -2244,62 +2244,62 @@ export interface GetDataSourceResponse {
  */
 export interface ListDataSourcesRequest {
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * Max Results.
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * Opaque continuation token of previous paginated response.
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * Summary information of a data source.
+ * @public
  */
 export interface DataSourceSummary {
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   dataSourceId: string | undefined;
 
   /**
-   * @public
    * Name for a resource.
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * The status of a data source.
+   * @public
    */
   status: DataSourceStatus | undefined;
 
   /**
-   * @public
    * Description of the Resource.
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * Time Stamp.
+   * @public
    */
   updatedAt: Date | undefined;
 }
@@ -2309,14 +2309,14 @@ export interface DataSourceSummary {
  */
 export interface ListDataSourcesResponse {
   /**
-   * @public
    * list of data source summaries
+   * @public
    */
   dataSourceSummaries: DataSourceSummary[] | undefined;
 
   /**
-   * @public
    * Opaque continuation token of previous paginated response.
+   * @public
    */
   nextToken?: string;
 }
@@ -2326,44 +2326,44 @@ export interface ListDataSourcesResponse {
  */
 export interface UpdateDataSourceRequest {
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   dataSourceId: string | undefined;
 
   /**
-   * @public
    * Name for a resource.
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * Description of the Resource.
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * Specifies a raw data source location to ingest.
+   * @public
    */
   dataSourceConfiguration: DataSourceConfiguration | undefined;
 
   /**
-   * @public
    * Server-side encryption configuration.
+   * @public
    */
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
 
   /**
-   * @public
    * Configures ingestion for a vector knowledge base
+   * @public
    */
   vectorIngestionConfiguration?: VectorIngestionConfiguration;
 }
@@ -2373,8 +2373,8 @@ export interface UpdateDataSourceRequest {
  */
 export interface UpdateDataSourceResponse {
   /**
-   * @public
    * Contains the information of a data source.
+   * @public
    */
   dataSource: DataSource | undefined;
 }
@@ -2384,56 +2384,56 @@ export interface UpdateDataSourceResponse {
  */
 export interface GetIngestionJobRequest {
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   dataSourceId: string | undefined;
 
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   ingestionJobId: string | undefined;
 }
 
 /**
- * @public
  * The document level statistics of an ingestion job
+ * @public
  */
 export interface IngestionJobStatistics {
   /**
-   * @public
    * Number of scanned documents
+   * @public
    */
   numberOfDocumentsScanned?: number;
 
   /**
-   * @public
    * Number of indexed documents
+   * @public
    */
   numberOfNewDocumentsIndexed?: number;
 
   /**
-   * @public
    * Number of modified documents indexed
+   * @public
    */
   numberOfModifiedDocumentsIndexed?: number;
 
   /**
-   * @public
    * Number of deleted documents
+   * @public
    */
   numberOfDocumentsDeleted?: number;
 
   /**
-   * @public
    * Number of failed documents
+   * @public
    */
   numberOfDocumentsFailed?: number;
 }
@@ -2455,61 +2455,61 @@ export const IngestionJobStatus = {
 export type IngestionJobStatus = (typeof IngestionJobStatus)[keyof typeof IngestionJobStatus];
 
 /**
- * @public
  * Contains the information of an ingestion job.
+ * @public
  */
 export interface IngestionJob {
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   dataSourceId: string | undefined;
 
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   ingestionJobId: string | undefined;
 
   /**
-   * @public
    * Description of the Resource.
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * The status of an ingestion job.
+   * @public
    */
   status: IngestionJobStatus | undefined;
 
   /**
-   * @public
    * The document level statistics of an ingestion job
+   * @public
    */
   statistics?: IngestionJobStatistics;
 
   /**
-   * @public
    * Failure Reasons for Error.
+   * @public
    */
   failureReasons?: string[];
 
   /**
-   * @public
    * Time Stamp.
+   * @public
    */
   startedAt: Date | undefined;
 
   /**
-   * @public
    * Time Stamp.
+   * @public
    */
   updatedAt: Date | undefined;
 }
@@ -2519,8 +2519,8 @@ export interface IngestionJob {
  */
 export interface GetIngestionJobResponse {
   /**
-   * @public
    * Contains the information of an ingestion job.
+   * @public
    */
   ingestionJob: IngestionJob | undefined;
 }
@@ -2553,25 +2553,25 @@ export const IngestionJobFilterOperator = {
 export type IngestionJobFilterOperator = (typeof IngestionJobFilterOperator)[keyof typeof IngestionJobFilterOperator];
 
 /**
- * @public
  * Filters the response returned by ListIngestionJobs operation.
+ * @public
  */
 export interface IngestionJobFilter {
   /**
-   * @public
    * The name of the field to filter ingestion jobs.
+   * @public
    */
   attribute: IngestionJobFilterAttribute | undefined;
 
   /**
-   * @public
    * The operator used to filter ingestion jobs.
+   * @public
    */
   operator: IngestionJobFilterOperator | undefined;
 
   /**
-   * @public
    * The list of values used to filter ingestion jobs.
+   * @public
    */
   values: string[] | undefined;
 }
@@ -2606,19 +2606,19 @@ export const SortOrder = {
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
- * @public
  * Sorts the response returned by ListIngestionJobs operation.
+ * @public
  */
 export interface IngestionJobSortBy {
   /**
-   * @public
    * The name of the field to sort ingestion jobs.
+   * @public
    */
   attribute: IngestionJobSortByAttribute | undefined;
 
   /**
-   * @public
    * Order to sort results by.
+   * @public
    */
   order: SortOrder | undefined;
 }
@@ -2628,92 +2628,92 @@ export interface IngestionJobSortBy {
  */
 export interface ListIngestionJobsRequest {
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   dataSourceId: string | undefined;
 
   /**
-   * @public
    * List of IngestionJobFilters
+   * @public
    */
   filters?: IngestionJobFilter[];
 
   /**
-   * @public
    * Sorts the response returned by ListIngestionJobs operation.
+   * @public
    */
   sortBy?: IngestionJobSortBy;
 
   /**
-   * @public
    * Max Results.
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * Opaque continuation token of previous paginated response.
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * Summary information of an ingestion job.
+ * @public
  */
 export interface IngestionJobSummary {
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   dataSourceId: string | undefined;
 
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   ingestionJobId: string | undefined;
 
   /**
-   * @public
    * Description of the Resource.
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * The status of an ingestion job.
+   * @public
    */
   status: IngestionJobStatus | undefined;
 
   /**
-   * @public
    * Time Stamp.
+   * @public
    */
   startedAt: Date | undefined;
 
   /**
-   * @public
    * Time Stamp.
+   * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * @public
    * The document level statistics of an ingestion job
+   * @public
    */
   statistics?: IngestionJobStatistics;
 }
@@ -2723,14 +2723,14 @@ export interface IngestionJobSummary {
  */
 export interface ListIngestionJobsResponse {
   /**
-   * @public
    * List of IngestionJobSummaries
+   * @public
    */
   ingestionJobSummaries: IngestionJobSummary[] | undefined;
 
   /**
-   * @public
    * Opaque continuation token of previous paginated response.
+   * @public
    */
   nextToken?: string;
 }
@@ -2740,26 +2740,26 @@ export interface ListIngestionJobsResponse {
  */
 export interface StartIngestionJobRequest {
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   dataSourceId: string | undefined;
 
   /**
-   * @public
    * Client specified token used for idempotency checks
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * Description of the Resource.
+   * @public
    */
   description?: string;
 }
@@ -2769,56 +2769,56 @@ export interface StartIngestionJobRequest {
  */
 export interface StartIngestionJobResponse {
   /**
-   * @public
    * Contains the information of an ingestion job.
+   * @public
    */
   ingestionJob: IngestionJob | undefined;
 }
 
 /**
- * @public
  * Associate Agent Knowledge Base Request
+ * @public
  */
 export interface AssociateAgentKnowledgeBaseRequest {
   /**
-   * @public
    * Id generated at the server side when an Agent is created
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * Draft Version of the Agent.
+   * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * Description of the Resource.
+   * @public
    */
   description: string | undefined;
 
   /**
-   * @public
    * State of the knowledge base; whether it is enabled or disabled
+   * @public
    */
   knowledgeBaseState?: KnowledgeBaseState;
 }
 
 /**
- * @public
  * Associate Agent Knowledge Base Response
+ * @public
  */
 export interface AssociateAgentKnowledgeBaseResponse {
   /**
-   * @public
    * Contains the information of an Agent Knowledge Base.
+   * @public
    */
   agentKnowledgeBase: AgentKnowledgeBase | undefined;
 }
@@ -2837,247 +2837,247 @@ export const KnowledgeBaseType = {
 export type KnowledgeBaseType = (typeof KnowledgeBaseType)[keyof typeof KnowledgeBaseType];
 
 /**
- * @public
  * Configurations for a vector knowledge base.
+ * @public
  */
 export interface VectorKnowledgeBaseConfiguration {
   /**
-   * @public
    * Arn of a Bedrock model.
+   * @public
    */
   embeddingModelArn: string | undefined;
 }
 
 /**
- * @public
  * Configures a bedrock knowledge base.
+ * @public
  */
 export interface KnowledgeBaseConfiguration {
   /**
-   * @public
    * The type of a knowledge base.
+   * @public
    */
   type: KnowledgeBaseType | undefined;
 
   /**
-   * @public
    * Configurations for a vector knowledge base.
+   * @public
    */
   vectorKnowledgeBaseConfiguration?: VectorKnowledgeBaseConfiguration;
 }
 
 /**
- * @public
  * A mapping of Bedrock Knowledge Base fields to OpenSearch Serverless field names
+ * @public
  */
 export interface OpenSearchServerlessFieldMapping {
   /**
-   * @public
    * Name of the field
+   * @public
    */
   vectorField: string | undefined;
 
   /**
-   * @public
    * Name of the field
+   * @public
    */
   textField: string | undefined;
 
   /**
-   * @public
    * Name of the field
+   * @public
    */
   metadataField: string | undefined;
 }
 
 /**
- * @public
  * Contains the configurations to use OpenSearch Serverless to store knowledge base data.
+ * @public
  */
 export interface OpenSearchServerlessConfiguration {
   /**
-   * @public
    * Arn of an OpenSearch Serverless collection.
+   * @public
    */
   collectionArn: string | undefined;
 
   /**
-   * @public
    * Arn of an OpenSearch Serverless index.
+   * @public
    */
   vectorIndexName: string | undefined;
 
   /**
-   * @public
    * A mapping of Bedrock Knowledge Base fields to OpenSearch Serverless field names
+   * @public
    */
   fieldMapping: OpenSearchServerlessFieldMapping | undefined;
 }
 
 /**
- * @public
  * A mapping of Bedrock Knowledge Base fields to Pinecone field names
+ * @public
  */
 export interface PineconeFieldMapping {
   /**
-   * @public
    * Name of the field
+   * @public
    */
   textField: string | undefined;
 
   /**
-   * @public
    * Name of the field
+   * @public
    */
   metadataField: string | undefined;
 }
 
 /**
- * @public
  * Contains the configurations to use Pinecone to store knowledge base data.
+ * @public
  */
 export interface PineconeConfiguration {
   /**
-   * @public
    * Pinecone connection string
+   * @public
    */
   connectionString: string | undefined;
 
   /**
-   * @public
    * Arn of a SecretsManager Secret.
+   * @public
    */
   credentialsSecretArn: string | undefined;
 
   /**
-   * @public
    * Pinecone namespace
+   * @public
    */
   namespace?: string;
 
   /**
-   * @public
    * A mapping of Bedrock Knowledge Base fields to Pinecone field names
+   * @public
    */
   fieldMapping: PineconeFieldMapping | undefined;
 }
 
 /**
- * @public
  * A mapping of Bedrock Knowledge Base fields to RDS column names
+ * @public
  */
 export interface RdsFieldMapping {
   /**
-   * @public
    * Name of the column
+   * @public
    */
   primaryKeyField: string | undefined;
 
   /**
-   * @public
    * Name of the column
+   * @public
    */
   vectorField: string | undefined;
 
   /**
-   * @public
    * Name of the column
+   * @public
    */
   textField: string | undefined;
 
   /**
-   * @public
    * Name of the column
+   * @public
    */
   metadataField: string | undefined;
 }
 
 /**
- * @public
  * Contains the configurations to use RDS to store knowledge base data.
+ * @public
  */
 export interface RdsConfiguration {
   /**
-   * @public
    * Arn of a RDS Resource.
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * Arn of a SecretsManager Secret.
+   * @public
    */
   credentialsSecretArn: string | undefined;
 
   /**
-   * @public
    * Name of the database within RDS
+   * @public
    */
   databaseName: string | undefined;
 
   /**
-   * @public
    * Name of the table within RDS
+   * @public
    */
   tableName: string | undefined;
 
   /**
-   * @public
    * A mapping of Bedrock Knowledge Base fields to RDS column names
+   * @public
    */
   fieldMapping: RdsFieldMapping | undefined;
 }
 
 /**
- * @public
  * A mapping of Bedrock Knowledge Base fields to Redis Cloud field names
+ * @public
  */
 export interface RedisEnterpriseCloudFieldMapping {
   /**
-   * @public
    * Name of the field
+   * @public
    */
   vectorField: string | undefined;
 
   /**
-   * @public
    * Name of the field
+   * @public
    */
   textField: string | undefined;
 
   /**
-   * @public
    * Name of the field
+   * @public
    */
   metadataField: string | undefined;
 }
 
 /**
- * @public
  * Contains the configurations to use Redis Enterprise Cloud to store knowledge base data.
+ * @public
  */
 export interface RedisEnterpriseCloudConfiguration {
   /**
-   * @public
    * Redis enterprise cloud endpoint
+   * @public
    */
   endpoint: string | undefined;
 
   /**
-   * @public
    * Name of a redis enterprise cloud index
+   * @public
    */
   vectorIndexName: string | undefined;
 
   /**
-   * @public
    * Arn of a SecretsManager Secret.
+   * @public
    */
   credentialsSecretArn: string | undefined;
 
   /**
-   * @public
    * A mapping of Bedrock Knowledge Base fields to Redis Cloud field names
+   * @public
    */
   fieldMapping: RedisEnterpriseCloudFieldMapping | undefined;
 }
@@ -3099,37 +3099,37 @@ export const KnowledgeBaseStorageType = {
 export type KnowledgeBaseStorageType = (typeof KnowledgeBaseStorageType)[keyof typeof KnowledgeBaseStorageType];
 
 /**
- * @public
  * Configures the physical storage of ingested data in a knowledge base.
+ * @public
  */
 export interface StorageConfiguration {
   /**
-   * @public
    * The storage type of a knowledge base.
+   * @public
    */
   type: KnowledgeBaseStorageType | undefined;
 
   /**
-   * @public
    * Contains the configurations to use OpenSearch Serverless to store knowledge base data.
+   * @public
    */
   opensearchServerlessConfiguration?: OpenSearchServerlessConfiguration;
 
   /**
-   * @public
    * Contains the configurations to use Pinecone to store knowledge base data.
+   * @public
    */
   pineconeConfiguration?: PineconeConfiguration;
 
   /**
-   * @public
    * Contains the configurations to use Redis Enterprise Cloud to store knowledge base data.
+   * @public
    */
   redisEnterpriseCloudConfiguration?: RedisEnterpriseCloudConfiguration;
 
   /**
-   * @public
    * Contains the configurations to use RDS to store knowledge base data.
+   * @public
    */
   rdsConfiguration?: RdsConfiguration;
 }
@@ -3139,44 +3139,44 @@ export interface StorageConfiguration {
  */
 export interface CreateKnowledgeBaseRequest {
   /**
-   * @public
    * Client specified token used for idempotency checks
+   * @public
    */
   clientToken?: string;
 
   /**
-   * @public
    * Name for a resource.
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * Description of the Resource.
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * ARN of a IAM role.
+   * @public
    */
   roleArn: string | undefined;
 
   /**
-   * @public
    * Configures a bedrock knowledge base.
+   * @public
    */
   knowledgeBaseConfiguration: KnowledgeBaseConfiguration | undefined;
 
   /**
-   * @public
    * Configures the physical storage of ingested data in a knowledge base.
+   * @public
    */
   storageConfiguration: StorageConfiguration | undefined;
 
   /**
-   * @public
    * A map of tag keys and values
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -3199,73 +3199,73 @@ export const KnowledgeBaseStatus = {
 export type KnowledgeBaseStatus = (typeof KnowledgeBaseStatus)[keyof typeof KnowledgeBaseStatus];
 
 /**
- * @public
  * Contains the information of a knowledge base.
+ * @public
  */
 export interface KnowledgeBase {
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * Name for a resource.
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * ARN of a KnowledgeBase
+   * @public
    */
   knowledgeBaseArn: string | undefined;
 
   /**
-   * @public
    * Description of the Resource.
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * ARN of a IAM role.
+   * @public
    */
   roleArn: string | undefined;
 
   /**
-   * @public
    * Configures a bedrock knowledge base.
+   * @public
    */
   knowledgeBaseConfiguration: KnowledgeBaseConfiguration | undefined;
 
   /**
-   * @public
    * Configures the physical storage of ingested data in a knowledge base.
+   * @public
    */
   storageConfiguration: StorageConfiguration | undefined;
 
   /**
-   * @public
    * The status of a knowledge base.
+   * @public
    */
   status: KnowledgeBaseStatus | undefined;
 
   /**
-   * @public
    * Time Stamp.
+   * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * @public
    * Time Stamp.
+   * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * @public
    * Failure Reasons for Error.
+   * @public
    */
   failureReasons?: string[];
 }
@@ -3275,8 +3275,8 @@ export interface KnowledgeBase {
  */
 export interface CreateKnowledgeBaseResponse {
   /**
-   * @public
    * Contains the information of a knowledge base.
+   * @public
    */
   knowledgeBase: KnowledgeBase | undefined;
 }
@@ -3286,8 +3286,8 @@ export interface CreateKnowledgeBaseResponse {
  */
 export interface DeleteKnowledgeBaseRequest {
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   knowledgeBaseId: string | undefined;
 }
@@ -3297,80 +3297,80 @@ export interface DeleteKnowledgeBaseRequest {
  */
 export interface DeleteKnowledgeBaseResponse {
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * The status of a knowledge base.
+   * @public
    */
   status: KnowledgeBaseStatus | undefined;
 }
 
 /**
- * @public
  * Disassociate Agent Knowledge Base Request
+ * @public
  */
 export interface DisassociateAgentKnowledgeBaseRequest {
   /**
-   * @public
    * Id generated at the server side when an Agent is created
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * Draft Version of the Agent.
+   * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * @public
    * Id generated at the server side when a Knowledge Base is associated to an Agent
+   * @public
    */
   knowledgeBaseId: string | undefined;
 }
 
 /**
- * @public
  * Disassociate Agent Knowledge Base Response
+ * @public
  */
 export interface DisassociateAgentKnowledgeBaseResponse {}
 
 /**
- * @public
  * Get Agent Knowledge Base Request
+ * @public
  */
 export interface GetAgentKnowledgeBaseRequest {
   /**
-   * @public
    * Id generated at the server side when an Agent is created
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * Version number generated when a version is created
+   * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * @public
    * Id generated at the server side when a Knowledge Base is associated
+   * @public
    */
   knowledgeBaseId: string | undefined;
 }
 
 /**
- * @public
  * Get Agent Knowledge Base Response
+ * @public
  */
 export interface GetAgentKnowledgeBaseResponse {
   /**
-   * @public
    * Contains the information of an Agent Knowledge Base.
+   * @public
    */
   agentKnowledgeBase: AgentKnowledgeBase | undefined;
 }
@@ -3380,8 +3380,8 @@ export interface GetAgentKnowledgeBaseResponse {
  */
 export interface GetKnowledgeBaseRequest {
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   knowledgeBaseId: string | undefined;
 }
@@ -3391,56 +3391,56 @@ export interface GetKnowledgeBaseRequest {
  */
 export interface GetKnowledgeBaseResponse {
   /**
-   * @public
    * Contains the information of a knowledge base.
+   * @public
    */
   knowledgeBase: KnowledgeBase | undefined;
 }
 
 /**
- * @public
  * List Agent Knowledge Bases Request
+ * @public
  */
 export interface ListAgentKnowledgeBasesRequest {
   /**
-   * @public
    * Id generated at the server side when an Agent is created
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * Version number generated when a version is created
+   * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * @public
    * Max Results.
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * Opaque continuation token of previous paginated response.
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * List Agent Knowledge Bases Response
+ * @public
  */
 export interface ListAgentKnowledgeBasesResponse {
   /**
-   * @public
    * List of Agent Knowledge Base Summaries
+   * @public
    */
   agentKnowledgeBaseSummaries: AgentKnowledgeBaseSummary[] | undefined;
 
   /**
-   * @public
    * Opaque continuation token of previous paginated response.
+   * @public
    */
   nextToken?: string;
 }
@@ -3450,50 +3450,50 @@ export interface ListAgentKnowledgeBasesResponse {
  */
 export interface ListKnowledgeBasesRequest {
   /**
-   * @public
    * Max Results.
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * Opaque continuation token of previous paginated response.
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * Summary information of a knowledge base.
+ * @public
  */
 export interface KnowledgeBaseSummary {
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * Name for a resource.
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * Description of the Resource.
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * The status of a knowledge base.
+   * @public
    */
   status: KnowledgeBaseStatus | undefined;
 
   /**
-   * @public
    * Time Stamp.
+   * @public
    */
   updatedAt: Date | undefined;
 }
@@ -3503,62 +3503,62 @@ export interface KnowledgeBaseSummary {
  */
 export interface ListKnowledgeBasesResponse {
   /**
-   * @public
    * List of KnowledgeBaseSummaries
+   * @public
    */
   knowledgeBaseSummaries: KnowledgeBaseSummary[] | undefined;
 
   /**
-   * @public
    * Opaque continuation token of previous paginated response.
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * Update Agent Knowledge Base Request
+ * @public
  */
 export interface UpdateAgentKnowledgeBaseRequest {
   /**
-   * @public
    * Id generated at the server side when an Agent is created
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * Draft Version of the Agent.
+   * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * @public
    * Id generated at the server side when a Knowledge Base is associated to an Agent
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * Description of the Resource.
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * State of the knowledge base; whether it is enabled or disabled
+   * @public
    */
   knowledgeBaseState?: KnowledgeBaseState;
 }
 
 /**
- * @public
  * Update Agent Knowledge Base Response
+ * @public
  */
 export interface UpdateAgentKnowledgeBaseResponse {
   /**
-   * @public
    * Contains the information of an Agent Knowledge Base.
+   * @public
    */
   agentKnowledgeBase: AgentKnowledgeBase | undefined;
 }
@@ -3568,38 +3568,38 @@ export interface UpdateAgentKnowledgeBaseResponse {
  */
 export interface UpdateKnowledgeBaseRequest {
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * @public
    * Name for a resource.
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * Description of the Resource.
+   * @public
    */
   description?: string;
 
   /**
-   * @public
    * ARN of a IAM role.
+   * @public
    */
   roleArn: string | undefined;
 
   /**
-   * @public
    * Configures a bedrock knowledge base.
+   * @public
    */
   knowledgeBaseConfiguration: KnowledgeBaseConfiguration | undefined;
 
   /**
-   * @public
    * Configures the physical storage of ingested data in a knowledge base.
+   * @public
    */
   storageConfiguration: StorageConfiguration | undefined;
 }
@@ -3609,8 +3609,8 @@ export interface UpdateKnowledgeBaseRequest {
  */
 export interface UpdateKnowledgeBaseResponse {
   /**
-   * @public
    * Contains the information of a knowledge base.
+   * @public
    */
   knowledgeBase: KnowledgeBase | undefined;
 }
@@ -3620,8 +3620,8 @@ export interface UpdateKnowledgeBaseResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * ARN of Taggable resources: [Agent, AgentAlias, Knowledge-Base]
+   * @public
    */
   resourceArn: string | undefined;
 }
@@ -3631,8 +3631,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * A map of tag keys and values
+   * @public
    */
   tags?: Record<string, string>;
 }
@@ -3642,14 +3642,14 @@ export interface ListTagsForResourceResponse {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * ARN of Taggable resources: [Agent, AgentAlias, Knowledge-Base]
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * A map of tag keys and values
+   * @public
    */
   tags: Record<string, string> | undefined;
 }
@@ -3664,14 +3664,14 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * ARN of Taggable resources: [Agent, AgentAlias, Knowledge-Base]
+   * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * @public
    * List of Tag Keys
+   * @public
    */
   tagKeys: string[] | undefined;
 }
@@ -3682,121 +3682,121 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 /**
- * @public
  * Delete Agent Version Request
+ * @public
  */
 export interface DeleteAgentVersionRequest {
   /**
-   * @public
    * Id generated at the server side when an Agent is created
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * Numerical Agent Version.
+   * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * @public
    * Skips checking if resource is in use when set to true. Defaults to false
+   * @public
    */
   skipResourceInUseCheck?: boolean;
 }
 
 /**
- * @public
  * Delete Agent Version Response
+ * @public
  */
 export interface DeleteAgentVersionResponse {
   /**
-   * @public
    * Identifier for a resource.
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * Numerical Agent Version.
+   * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * @public
    * Schema Type for Action APIs.
+   * @public
    */
   agentStatus: AgentStatus | undefined;
 }
 
 /**
- * @public
  * Get Agent Version Request
+ * @public
  */
 export interface GetAgentVersionRequest {
   /**
-   * @public
    * Id generated at the server side when an Agent is created
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * Numerical Agent Version.
+   * @public
    */
   agentVersion: string | undefined;
 }
 
 /**
- * @public
  * Get Agent Version Response
+ * @public
  */
 export interface GetAgentVersionResponse {
   /**
-   * @public
    * Contains the information of an agent version.
+   * @public
    */
   agentVersion: AgentVersion | undefined;
 }
 
 /**
- * @public
  * List Agent Versions Request
+ * @public
  */
 export interface ListAgentVersionsRequest {
   /**
-   * @public
    * Id generated at the server side when an Agent is created
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * Max Results.
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * Opaque continuation token of previous paginated response.
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * List Agent Versions Response
+ * @public
  */
 export interface ListAgentVersionsResponse {
   /**
-   * @public
    * List of AgentVersionSummary.
+   * @public
    */
   agentVersionSummaries: AgentVersionSummary[] | undefined;
 
   /**
-   * @public
    * Opaque continuation token of previous paginated response.
+   * @public
    */
   nextToken?: string;
 }

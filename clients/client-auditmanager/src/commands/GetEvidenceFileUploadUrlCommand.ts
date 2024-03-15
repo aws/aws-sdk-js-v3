@@ -32,7 +32,6 @@ export interface GetEvidenceFileUploadUrlCommandInput extends GetEvidenceFileUpl
 export interface GetEvidenceFileUploadUrlCommandOutput extends GetEvidenceFileUploadUrlResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a presigned Amazon S3 URL that can be used to upload a file as manual
  *          evidence. For instructions on how to use this operation, see <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#how-to-upload-manual-evidence-files">Upload a file from your browser </a> in the <i>Audit Manager User
  *             Guide</i>.</p>
@@ -92,6 +91,7 @@ export interface GetEvidenceFileUploadUrlCommandOutput extends GetEvidenceFileUp
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class GetEvidenceFileUploadUrlCommand extends $Command
   .classBuilder<

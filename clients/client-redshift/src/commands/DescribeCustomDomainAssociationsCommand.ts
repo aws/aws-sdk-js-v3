@@ -33,7 +33,6 @@ export interface DescribeCustomDomainAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Contains information about custom domain associations for a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface DescribeCustomDomainAssociationsCommandOutput
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DescribeCustomDomainAssociationsCommand extends $Command
   .classBuilder<

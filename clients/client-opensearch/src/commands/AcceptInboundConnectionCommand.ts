@@ -27,7 +27,6 @@ export interface AcceptInboundConnectionCommandInput extends AcceptInboundConnec
 export interface AcceptInboundConnectionCommandOutput extends AcceptInboundConnectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows the destination Amazon OpenSearch Service domain owner to accept an inbound
  *    cross-cluster search connection request. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search
  *     for Amazon OpenSearch Service</a>.</p>
@@ -87,6 +86,7 @@ export interface AcceptInboundConnectionCommandOutput extends AcceptInboundConne
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * @public
  */
 export class AcceptInboundConnectionCommand extends $Command
   .classBuilder<

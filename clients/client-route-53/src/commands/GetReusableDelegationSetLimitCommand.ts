@@ -33,7 +33,6 @@ export interface GetReusableDelegationSetLimitCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the maximum number of hosted zones that you can associate with the specified
  * 			reusable delegation set.</p>
  *          <p>For the default limit, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the
@@ -76,6 +75,7 @@ export interface GetReusableDelegationSetLimitCommandOutput
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class GetReusableDelegationSetLimitCommand extends $Command
   .classBuilder<

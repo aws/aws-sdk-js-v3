@@ -32,7 +32,6 @@ export interface ListGroupCertificateAuthoritiesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * Retrieves the current CAs for a group.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface ListGroupCertificateAuthoritiesCommandOutput
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ * @public
  */
 export class ListGroupCertificateAuthoritiesCommand extends $Command
   .classBuilder<

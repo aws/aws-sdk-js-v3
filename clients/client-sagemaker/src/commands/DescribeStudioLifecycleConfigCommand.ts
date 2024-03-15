@@ -32,7 +32,6 @@ export interface DescribeStudioLifecycleConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the Amazon SageMaker Studio Lifecycle Configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DescribeStudioLifecycleConfigCommandOutput
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DescribeStudioLifecycleConfigCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteAttributesCommandInput extends DeleteAttributesRequest {}
 export interface DeleteAttributesCommandOutput extends DeleteAttributesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes one or more custom attributes from an Amazon ECS resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface DeleteAttributesCommandOutput extends DeleteAttributesResponse,
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  */
 export class DeleteAttributesCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface BatchGetCollaborationAnalysisTemplateCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves multiple analysis templates within a collaboration by their Amazon Resource
  *          Names (ARNs).</p>
  * @example
@@ -118,6 +117,7 @@ export interface BatchGetCollaborationAnalysisTemplateCommandOutput
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * @public
  */
 export class BatchGetCollaborationAnalysisTemplateCommand extends $Command
   .classBuilder<

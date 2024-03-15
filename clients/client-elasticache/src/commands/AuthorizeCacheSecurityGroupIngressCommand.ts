@@ -35,7 +35,6 @@ export interface AuthorizeCacheSecurityGroupIngressCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Allows network ingress to a cache security group. Applications using ElastiCache must
  *             be running on Amazon EC2, and Amazon EC2 security groups are used as the authorization
  *             mechanism.</p>
@@ -100,6 +99,7 @@ export interface AuthorizeCacheSecurityGroupIngressCommandOutput
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  * @example AuthorizeCacheCacheSecurityGroupIngress
  * ```javascript
  * // Allows network ingress to a cache security group. Applications using ElastiCache must be running on Amazon EC2. Amazon EC2 security groups are used as the authorization mechanism.

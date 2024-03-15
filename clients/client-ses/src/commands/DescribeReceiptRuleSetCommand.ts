@@ -27,7 +27,6 @@ export interface DescribeReceiptRuleSetCommandInput extends DescribeReceiptRuleS
 export interface DescribeReceiptRuleSetCommandOutput extends DescribeReceiptRuleSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the details of the specified receipt rule set.</p>
  *          <p>For information about managing receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-receipt-rules-console-walkthrough.html">Amazon SES
  *                 Developer Guide</a>.</p>
@@ -113,6 +112,7 @@ export interface DescribeReceiptRuleSetCommandOutput extends DescribeReceiptRule
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example DescribeReceiptRuleSet
  * ```javascript
  * // The following example returns the metadata and receipt rules of a receipt rule set:

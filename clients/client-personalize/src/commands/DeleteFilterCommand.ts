@@ -27,7 +27,6 @@ export interface DeleteFilterCommandInput extends DeleteFilterRequest {}
 export interface DeleteFilterCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a filter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +61,7 @@ export interface DeleteFilterCommandOutput extends __MetadataBearer {}
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class DeleteFilterCommand extends $Command
   .classBuilder<

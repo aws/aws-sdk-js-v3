@@ -27,7 +27,6 @@ export interface ListCertificatesCommandInput extends ListCertificatesRequest {}
 export interface ListCertificatesCommandOutput extends ListCertificatesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the certificates registered in your Amazon Web Services account.</p>
  *          <p>The results are paginated with a default page size of 25. You can use the returned
  *          marker to retrieve additional results.</p>
@@ -84,6 +83,7 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResponse,
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListCertificatesCommand extends $Command
   .classBuilder<

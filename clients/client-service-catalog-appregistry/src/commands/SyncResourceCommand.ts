@@ -31,7 +31,6 @@ export interface SyncResourceCommandInput extends SyncResourceRequest {}
 export interface SyncResourceCommandOutput extends SyncResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Syncs the resource with current AppRegistry records.</p>
  *          <p>Specifically, the resource’s AppRegistry system tags sync with its associated application. We remove the resource's AppRegistry system tags if it does not associate with the application. The caller must have permissions to read and update the resource.</p>
  * @example
@@ -83,6 +82,7 @@ export interface SyncResourceCommandOutput extends SyncResourceResponse, __Metad
  * @throws {@link ServiceCatalogAppRegistryServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
+ * @public
  */
 export class SyncResourceCommand extends $Command
   .classBuilder<

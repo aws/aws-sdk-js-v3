@@ -31,7 +31,6 @@ export interface DescribeImportSnapshotTasksCommandInput extends DescribeImportS
 export interface DescribeImportSnapshotTasksCommandOutput extends DescribeImportSnapshotTasksResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes your import snapshot tasks.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface DescribeImportSnapshotTasksCommandOutput extends DescribeImport
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DescribeImportSnapshotTasksCommand extends $Command
   .classBuilder<

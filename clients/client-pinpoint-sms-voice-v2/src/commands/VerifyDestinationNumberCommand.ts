@@ -31,7 +31,6 @@ export interface VerifyDestinationNumberCommandInput extends VerifyDestinationNu
 export interface VerifyDestinationNumberCommandOutput extends VerifyDestinationNumberResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Use the verification code that was received by the verified destination phone number to opt-in the verified destination phone number to receive more messages.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface VerifyDestinationNumberCommandOutput extends VerifyDestinationN
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * @public
  */
 export class VerifyDestinationNumberCommand extends $Command
   .classBuilder<

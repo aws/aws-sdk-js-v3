@@ -27,7 +27,6 @@ export interface ListAssetBundleImportJobsCommandInput extends ListAssetBundleIm
 export interface ListAssetBundleImportJobsCommandOutput extends ListAssetBundleImportJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all asset bundle import jobs that have taken place in the last 14 days. Jobs created more than 14 days ago are deleted forever and are not returned. If you are using the same job ID for multiple jobs, <code>ListAssetBundleImportJobs</code> only returns the most recent job that uses the repeated job ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface ListAssetBundleImportJobsCommandOutput extends ListAssetBundleI
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class ListAssetBundleImportJobsCommand extends $Command
   .classBuilder<

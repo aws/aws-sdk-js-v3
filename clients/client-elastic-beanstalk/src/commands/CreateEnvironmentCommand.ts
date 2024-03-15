@@ -27,7 +27,6 @@ export interface CreateEnvironmentCommandInput extends CreateEnvironmentMessage 
 export interface CreateEnvironmentCommandOutput extends EnvironmentDescription, __MetadataBearer {}
 
 /**
- * @public
  * <p>Launches an AWS Elastic Beanstalk environment for the specified application using the specified
  *       configuration.</p>
  * @example
@@ -138,6 +137,7 @@ export interface CreateEnvironmentCommandOutput extends EnvironmentDescription, 
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * @public
  * @example To create a new environment for an application
  * ```javascript
  * // The following operation creates a new environment for version v1 of a java application named my-app:

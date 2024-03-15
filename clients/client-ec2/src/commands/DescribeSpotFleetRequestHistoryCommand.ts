@@ -32,7 +32,6 @@ export interface DescribeSpotFleetRequestHistoryCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the events for the specified Spot Fleet request during the specified
  *             time.</p>
  *          <p>Spot Fleet events are delayed by up to 30 seconds before they can be described. This
@@ -85,6 +84,7 @@ export interface DescribeSpotFleetRequestHistoryCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To describe Spot fleet history
  * ```javascript
  * // This example returns the history for the specified Spot fleet starting at the specified time.

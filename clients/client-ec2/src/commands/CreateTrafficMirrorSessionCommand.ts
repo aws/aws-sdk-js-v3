@@ -27,7 +27,6 @@ export interface CreateTrafficMirrorSessionCommandInput extends CreateTrafficMir
 export interface CreateTrafficMirrorSessionCommandOutput extends CreateTrafficMirrorSessionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a Traffic Mirror session.</p>
  *          <p>A Traffic Mirror session actively copies packets from a Traffic Mirror source to a Traffic Mirror target. Create a filter, and then assign it
  *          to the session to define a subset of the traffic to mirror, for example all TCP
@@ -97,6 +96,7 @@ export interface CreateTrafficMirrorSessionCommandOutput extends CreateTrafficMi
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateTrafficMirrorSessionCommand extends $Command
   .classBuilder<

@@ -8,10 +8,10 @@ import { DetectiveServiceException as __BaseException } from "./DetectiveService
  */
 export interface AcceptInvitationRequest {
   /**
-   * @public
    * <p>The ARN of the behavior graph that the member account is accepting the invitation
    *          for.</p>
    *          <p>The member account status in the behavior graph must be <code>INVITED</code>.</p>
+   * @public
    */
   GraphArn: string | undefined;
 }
@@ -32,35 +32,35 @@ export const ErrorCode = {
 export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
 
 /**
- * @public
  * <p>The request issuer does not have permission to access this resource or perform this
  *          operation.</p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
   Message?: string;
   /**
-   * @public
    * <p>The SDK default error code associated with the access denied exception.</p>
+   * @public
    */
   ErrorCode?: ErrorCode;
 
   /**
-   * @public
    * <p>The SDK default explanation of why access was denied.</p>
+   * @public
    */
   ErrorCodeReason?: string;
 
   /**
-   * @public
    * <p>The error code associated with the access denied exception.</p>
+   * @public
    */
   SubErrorCode?: ErrorCode;
 
   /**
-   * @public
    * <p> An explanation of why access was denied.</p>
+   * @public
    */
   SubErrorCodeReason?: string;
   /**
@@ -82,8 +82,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request attempted an invalid action.</p>
+ * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -104,8 +104,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request was valid but failed because of a problem with the service.</p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
@@ -126,8 +126,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request refers to a nonexistent resource.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -148,22 +148,22 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request parameters are invalid.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   Message?: string;
   /**
-   * @public
    * <p>The error code associated with the validation failure.</p>
+   * @public
    */
   ErrorCode?: ErrorCode;
 
   /**
-   * @public
    * <p> An explanation of why validation failed.</p>
+   * @public
    */
   ErrorCodeReason?: string;
   /**
@@ -183,49 +183,49 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * @public
  * <p>An Amazon Web Services account that is the administrator account of or a member of a
  *          behavior graph.</p>
+ * @public
  */
 export interface Account {
   /**
-   * @public
    * <p>The account identifier of the Amazon Web Services account.</p>
+   * @public
    */
   AccountId: string | undefined;
 
   /**
-   * @public
    * <p>The Amazon Web Services account root user email address for the Amazon Web Services
    *          account.</p>
+   * @public
    */
   EmailAddress: string | undefined;
 }
 
 /**
- * @public
  * <p>Information about the Detective administrator account for an
  *          organization.</p>
+ * @public
  */
 export interface Administrator {
   /**
-   * @public
    * <p>The Amazon Web Services account identifier of the Detective administrator
    *          account for the organization.</p>
+   * @public
    */
   AccountId?: string;
 
   /**
-   * @public
    * <p>The ARN of the organization behavior graph.</p>
+   * @public
    */
   GraphArn?: string;
 
   /**
-   * @public
    * <p>The date and time when the Detective administrator account was enabled. The
    *          value is an ISO8601 formatted string. For example,
    *          <code>2021-08-18T16:35:56.284Z</code>.</p>
+   * @public
    */
   DelegationTime?: Date;
 }
@@ -235,15 +235,15 @@ export interface Administrator {
  */
 export interface BatchGetGraphMemberDatasourcesRequest {
   /**
-   * @public
    * <p>The ARN of the behavior graph.</p>
+   * @public
    */
   GraphArn: string | undefined;
 
   /**
-   * @public
    * <p>The list of Amazon Web Services accounts to get data source package information
    *          on.</p>
+   * @public
    */
   AccountIds: string[] | undefined;
 }
@@ -280,38 +280,38 @@ export type DatasourcePackageIngestState =
   (typeof DatasourcePackageIngestState)[keyof typeof DatasourcePackageIngestState];
 
 /**
- * @public
  * <p>Details on when data collection began for a source package.</p>
+ * @public
  */
 export interface TimestampForCollection {
   /**
-   * @public
    * <p>The data and time when data collection began for a source package. The value is an
    *          ISO8601 formatted string. For example, <code>2021-08-18T16:35:56.284Z</code>.</p>
+   * @public
    */
   Timestamp?: Date;
 }
 
 /**
- * @public
  * <p>Details on data source packages for members of the behavior graph.</p>
+ * @public
  */
 export interface MembershipDatasources {
   /**
-   * @public
    * <p>The account identifier of the Amazon Web Services account.</p>
+   * @public
    */
   AccountId?: string;
 
   /**
-   * @public
    * <p>The ARN of the organization behavior graph.</p>
+   * @public
    */
   GraphArn?: string;
 
   /**
-   * @public
    * <p>Details on when a data source package was added to a behavior graph.</p>
+   * @public
    */
   DatasourcePackageIngestHistory?: Partial<
     Record<DatasourcePackage, Partial<Record<DatasourcePackageIngestState, TimestampForCollection>>>
@@ -319,21 +319,21 @@ export interface MembershipDatasources {
 }
 
 /**
- * @public
  * <p>A member account that was included in a request but for which the request could not be
  *          processed.</p>
+ * @public
  */
 export interface UnprocessedAccount {
   /**
-   * @public
    * <p>The Amazon Web Services account identifier of the member account that was not
    *          processed.</p>
+   * @public
    */
   AccountId?: string;
 
   /**
-   * @public
    * <p>The reason that the member account request could not be processed.</p>
+   * @public
    */
   Reason?: string;
 }
@@ -343,14 +343,14 @@ export interface UnprocessedAccount {
  */
 export interface BatchGetGraphMemberDatasourcesResponse {
   /**
-   * @public
    * <p>Details on the status of data source packages for members of the behavior graph.</p>
+   * @public
    */
   MemberDatasources?: MembershipDatasources[];
 
   /**
-   * @public
    * <p>Accounts that data source package information could not be retrieved for.</p>
+   * @public
    */
   UnprocessedAccounts?: UnprocessedAccount[];
 }
@@ -360,27 +360,27 @@ export interface BatchGetGraphMemberDatasourcesResponse {
  */
 export interface BatchGetMembershipDatasourcesRequest {
   /**
-   * @public
    * <p>The ARN of the behavior graph.</p>
+   * @public
    */
   GraphArns: string[] | undefined;
 }
 
 /**
- * @public
  * <p>Behavior graphs that could not be processed in the request.</p>
+ * @public
  */
 export interface UnprocessedGraph {
   /**
-   * @public
    * <p>The ARN of the organization behavior graph.</p>
+   * @public
    */
   GraphArn?: string;
 
   /**
-   * @public
    * <p>The reason data source package information could not be processed for a behavior
    *          graph.</p>
+   * @public
    */
   Reason?: string;
 }
@@ -390,14 +390,14 @@ export interface UnprocessedGraph {
  */
 export interface BatchGetMembershipDatasourcesResponse {
   /**
-   * @public
    * <p>Details on the data source package history for an member of the behavior graph.</p>
+   * @public
    */
   MembershipDatasources?: MembershipDatasources[];
 
   /**
-   * @public
    * <p>Graphs that data source package information could not be retrieved for.</p>
+   * @public
    */
   UnprocessedGraphs?: UnprocessedGraph[];
 }
@@ -407,10 +407,10 @@ export interface BatchGetMembershipDatasourcesResponse {
  */
 export interface CreateGraphRequest {
   /**
-   * @public
    * <p>The tags to assign to the new behavior graph. You can add up to 50 tags. For each tag,
    *          you provide the tag key and the tag value. Each tag key can contain up to 128 characters.
    *          Each tag value can contain up to 256 characters.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -420,14 +420,13 @@ export interface CreateGraphRequest {
  */
 export interface CreateGraphResponse {
   /**
-   * @public
    * <p>The ARN of the new behavior graph.</p>
+   * @public
    */
   GraphArn?: string;
 }
 
 /**
- * @public
  * <p>This request cannot be completed for one of the following reasons.</p>
  *          <ul>
  *             <li>
@@ -439,14 +438,15 @@ export interface CreateGraphResponse {
  *                <p>This request cannot be completed if the current volume ingested is above the limit of 10 TB per day. Detective will not allow you to add additional member accounts.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
   Message?: string;
   /**
-   * @public
    * <p>The type of resource that has exceeded the service quota.</p>
+   * @public
    */
   Resources?: string[];
   /**
@@ -469,35 +469,35 @@ export class ServiceQuotaExceededException extends __BaseException {
  */
 export interface CreateMembersRequest {
   /**
-   * @public
    * <p>The ARN of the behavior graph.</p>
+   * @public
    */
   GraphArn: string | undefined;
 
   /**
-   * @public
    * <p>Customized message text to include in the invitation email message to the invited member
    *          accounts.</p>
+   * @public
    */
   Message?: string;
 
   /**
-   * @public
    * <p>if set to <code>true</code>, then the invited accounts do not receive email
    *          notifications. By default, this is set to <code>false</code>, and the invited accounts
    *          receive email notifications.</p>
    *          <p>Organization accounts in the organization behavior graph do not receive email
    *          notifications.</p>
+   * @public
    */
   DisableEmailNotification?: boolean;
 
   /**
-   * @public
    * <p>The list of Amazon Web Services accounts to invite or to enable. You can invite or enable
    *          up to 50 accounts at a time. For each invited account, the account list contains the
    *          account identifier and the Amazon Web Services account root user email address. For
    *          organization accounts in the organization behavior graph, the email address is not
    *          required.</p>
+   * @public
    */
   Accounts: Account[] | undefined;
 }
@@ -548,65 +548,64 @@ export const MemberStatus = {
 export type MemberStatus = (typeof MemberStatus)[keyof typeof MemberStatus];
 
 /**
- * @public
  * <p>Information on the usage of a data source package in the behavior graph.</p>
+ * @public
  */
 export interface DatasourcePackageUsageInfo {
   /**
-   * @public
    * <p>Total volume of data in bytes per day ingested for a given data source package.</p>
+   * @public
    */
   VolumeUsageInBytes?: number;
 
   /**
-   * @public
    * <p>The data and time when the member account data volume was last updated. The value is an
    *          ISO8601 formatted string. For example, <code>2021-08-18T16:35:56.284Z</code>.</p>
+   * @public
    */
   VolumeUsageUpdateTime?: Date;
 }
 
 /**
- * @public
  * <p>Details about a member account in a behavior graph.</p>
+ * @public
  */
 export interface MemberDetail {
   /**
-   * @public
    * <p>The Amazon Web Services account identifier for the member account.</p>
+   * @public
    */
   AccountId?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services account root user email address for the member account.</p>
+   * @public
    */
   EmailAddress?: string;
 
   /**
-   * @public
    * <p>The ARN of the behavior graph.</p>
+   * @public
    */
   GraphArn?: string;
 
   /**
-   * @public
    * @deprecated
    *
    * <p>The Amazon Web Services account identifier of the administrator account for the behavior
    *          graph.</p>
+   * @public
    */
   MasterId?: string;
 
   /**
-   * @public
    * <p>The Amazon Web Services account identifier of the administrator account for the behavior
    *          graph.</p>
+   * @public
    */
   AdministratorId?: string;
 
   /**
-   * @public
    * <p>The current membership status of the member account. The status can have one of the
    *          following values:</p>
    *          <ul>
@@ -649,11 +648,11 @@ export interface MemberDetail {
    *          <p>Invited accounts that declined an invitation or that were removed from the behavior
    *          graph are not included. In the organization behavior graph, organization accounts that the
    *             Detective administrator account did not enable are not included.</p>
+   * @public
    */
   Status?: MemberStatus;
 
   /**
-   * @public
    * <p>For member accounts with a status of <code>ACCEPTED_BUT_DISABLED</code>, the reason that
    *          the member account is not enabled.</p>
    *          <p>The reason can have one of the following values:</p>
@@ -670,43 +669,43 @@ export interface MemberDetail {
    *                account is not enrolled in Amazon GuardDuty. </p>
    *             </li>
    *          </ul>
+   * @public
    */
   DisabledReason?: MemberDisabledReason;
 
   /**
-   * @public
    * <p>For invited accounts, the date and time that Detective sent the invitation to
    *          the account. The value is an ISO8601 formatted string. For example,
    *             <code>2021-08-18T16:35:56.284Z</code>.</p>
+   * @public
    */
   InvitedTime?: Date;
 
   /**
-   * @public
    * <p>The date and time that the member account was last updated. The value is an ISO8601
    *          formatted string. For example, <code>2021-08-18T16:35:56.284Z</code>.</p>
+   * @public
    */
   UpdatedTime?: Date;
 
   /**
-   * @public
    * @deprecated
    *
    * <p>The data volume in bytes per day for the member account.</p>
+   * @public
    */
   VolumeUsageInBytes?: number;
 
   /**
-   * @public
    * @deprecated
    *
    * <p>The data and time when the member account data volume was last updated. The value is an
    *          ISO8601 formatted string. For example, <code>2021-08-18T16:35:56.284Z</code>.</p>
+   * @public
    */
   VolumeUsageUpdatedTime?: Date;
 
   /**
-   * @public
    * @deprecated
    *
    * <p>The member account data volume as a percentage of the maximum allowed data volume. 0
@@ -716,37 +715,38 @@ export interface MemberDetail {
    *          volume is 160 GB per day. If the data volume for the member account is 40 GB per day, then
    *             <code>PercentOfGraphUtilization</code> is 25. It represents 25% of the maximum allowed
    *          data volume. </p>
+   * @public
    */
   PercentOfGraphUtilization?: number;
 
   /**
-   * @public
    * @deprecated
    *
    * <p>The date and time when the graph utilization percentage was last updated. The value is
    *          an ISO8601 formatted string. For example, <code>2021-08-18T16:35:56.284Z</code>.</p>
+   * @public
    */
   PercentOfGraphUtilizationUpdatedTime?: Date;
 
   /**
-   * @public
    * <p>The type of behavior graph membership.</p>
    *          <p>For an organization account in the organization behavior graph, the type is
    *             <code>ORGANIZATION</code>.</p>
    *          <p>For an account that was invited to a behavior graph, the type is
    *          <code>INVITATION</code>. </p>
+   * @public
    */
   InvitationType?: InvitationType;
 
   /**
-   * @public
    * <p>Details on the volume of usage for each data source package in a behavior graph.</p>
+   * @public
    */
   VolumeUsageByDatasourcePackage?: Partial<Record<DatasourcePackage, DatasourcePackageUsageInfo>>;
 
   /**
-   * @public
    * <p>The state of a data source package for the behavior graph.</p>
+   * @public
    */
   DatasourcePackageIngestStates?: Partial<Record<DatasourcePackage, DatasourcePackageIngestState>>;
 }
@@ -756,19 +756,19 @@ export interface MemberDetail {
  */
 export interface CreateMembersResponse {
   /**
-   * @public
    * <p>The set of member account invitation or enablement requests that Detective was
    *          able to process. This includes accounts that are being verified, that failed verification,
    *          and that passed verification and are being sent an invitation or are being enabled.</p>
+   * @public
    */
   Members?: MemberDetail[];
 
   /**
-   * @public
    * <p>The list of accounts for which Detective was unable to process the invitation
    *          or enablement request. For each account, the list provides the reason why the request could
    *          not be processed. The list includes accounts that are already member accounts in the
    *          behavior graph.</p>
+   * @public
    */
   UnprocessedAccounts?: UnprocessedAccount[];
 }
@@ -778,8 +778,8 @@ export interface CreateMembersResponse {
  */
 export interface DeleteGraphRequest {
   /**
-   * @public
    * <p>The ARN of the behavior graph to disable.</p>
+   * @public
    */
   GraphArn: string | undefined;
 }
@@ -789,15 +789,15 @@ export interface DeleteGraphRequest {
  */
 export interface DeleteMembersRequest {
   /**
-   * @public
    * <p>The ARN of the behavior graph to remove members from.</p>
+   * @public
    */
   GraphArn: string | undefined;
 
   /**
-   * @public
    * <p>The list of Amazon Web Services account identifiers for the member accounts to remove
    *          from the behavior graph. You can remove up to 50 member accounts at a time.</p>
+   * @public
    */
   AccountIds: string[] | undefined;
 }
@@ -807,16 +807,16 @@ export interface DeleteMembersRequest {
  */
 export interface DeleteMembersResponse {
   /**
-   * @public
    * <p>The list of Amazon Web Services account identifiers for the member accounts that Detective successfully removed from the behavior graph.</p>
+   * @public
    */
   AccountIds?: string[];
 
   /**
-   * @public
    * <p>The list of member accounts that Detective was not able to remove from the
    *          behavior graph. For each member account, provides the reason that the deletion could not be
    *          processed.</p>
+   * @public
    */
   UnprocessedAccounts?: UnprocessedAccount[];
 }
@@ -826,8 +826,8 @@ export interface DeleteMembersResponse {
  */
 export interface DescribeOrganizationConfigurationRequest {
   /**
-   * @public
    * <p>The ARN of the organization behavior graph.</p>
+   * @public
    */
   GraphArn: string | undefined;
 }
@@ -837,17 +837,17 @@ export interface DescribeOrganizationConfigurationRequest {
  */
 export interface DescribeOrganizationConfigurationResponse {
   /**
-   * @public
    * <p>Indicates whether to automatically enable new organization accounts as member accounts
    *          in the organization behavior graph.</p>
+   * @public
    */
   AutoEnable?: boolean;
 }
 
 /**
- * @public
  * <p>The request cannot be completed because too many other requests are occurring at the
  *          same time.</p>
+ * @public
  */
 export class TooManyRequestsException extends __BaseException {
   readonly name: "TooManyRequestsException" = "TooManyRequestsException";
@@ -872,10 +872,10 @@ export class TooManyRequestsException extends __BaseException {
  */
 export interface DisassociateMembershipRequest {
   /**
-   * @public
    * <p>The ARN of the behavior graph to remove the member account from.</p>
    *          <p>The member account's member status in the behavior graph must be
    *          <code>ENABLED</code>.</p>
+   * @public
    */
   GraphArn: string | undefined;
 }
@@ -885,8 +885,8 @@ export interface DisassociateMembershipRequest {
  */
 export interface EnableOrganizationAdminAccountRequest {
   /**
-   * @public
    * <p>The Amazon Web Services account identifier of the account to designate as the Detective administrator account for the organization.</p>
+   * @public
    */
   AccountId: string | undefined;
 }
@@ -896,14 +896,14 @@ export interface EnableOrganizationAdminAccountRequest {
  */
 export interface GetInvestigationRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the behavior graph.</p>
+   * @public
    */
   GraphArn: string | undefined;
 
   /**
-   * @public
    * <p>The investigation ID of the investigation report.</p>
+   * @public
    */
   InvestigationId: string | undefined;
 }
@@ -973,66 +973,66 @@ export type Status = (typeof Status)[keyof typeof Status];
  */
 export interface GetInvestigationResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the behavior graph.</p>
+   * @public
    */
   GraphArn?: string;
 
   /**
-   * @public
    * <p>The investigation ID of the investigation report.</p>
+   * @public
    */
   InvestigationId?: string;
 
   /**
-   * @public
    * <p>The unique Amazon Resource Name (ARN). Detective supports IAM user ARNs and IAM role ARNs.</p>
+   * @public
    */
   EntityArn?: string;
 
   /**
-   * @public
    * <p>Type of entity. For example, Amazon Web Services accounts, such as an IAM user and/or IAM role.</p>
+   * @public
    */
   EntityType?: EntityType;
 
   /**
-   * @public
    * <p>The creation time of the investigation report in UTC time stamp format.</p>
+   * @public
    */
   CreatedTime?: Date;
 
   /**
-   * @public
    * <p>The start date and time used to set the scope time within which you want to generate the investigation report. The value is an UTC ISO8601 formatted
    *          string. For example, <code>2021-08-18T16:35:56.284Z</code>.</p>
+   * @public
    */
   ScopeStartTime?: Date;
 
   /**
-   * @public
    * <p>The data and time when the investigation began. The value is an UTC ISO8601 formatted
    *          string. For example, <code>2021-08-18T16:35:56.284Z</code>.</p>
+   * @public
    */
   ScopeEndTime?: Date;
 
   /**
-   * @public
    * <p>The status based on the completion status of the investigation.</p>
+   * @public
    */
   Status?: Status;
 
   /**
-   * @public
    * <p>The severity assigned is based on the likelihood and impact of the indicators of
    *          compromise discovered in the investigation.</p>
+   * @public
    */
   Severity?: Severity;
 
   /**
-   * @public
    * <p>The current state of the investigation. An archived investigation indicates that you
    *          have completed reviewing the investigation.</p>
+   * @public
    */
   State?: State;
 }
@@ -1042,18 +1042,18 @@ export interface GetInvestigationResponse {
  */
 export interface GetMembersRequest {
   /**
-   * @public
    * <p>The ARN of the behavior graph for which to request the member details.</p>
+   * @public
    */
   GraphArn: string | undefined;
 
   /**
-   * @public
    * <p>The list of Amazon Web Services account identifiers for the member account for which to
    *          return member details. You can request details for up to 50 member accounts at a
    *          time.</p>
    *          <p>You cannot use <code>GetMembers</code> to retrieve information about member accounts
    *          that were removed from the behavior graph.</p>
+   * @public
    */
   AccountIds: string[] | undefined;
 }
@@ -1063,17 +1063,17 @@ export interface GetMembersRequest {
  */
 export interface GetMembersResponse {
   /**
-   * @public
    * <p>The member account details that Detective is returning in response to the
    *          request.</p>
+   * @public
    */
   MemberDetails?: MemberDetail[];
 
   /**
-   * @public
    * <p>The requested member accounts for which Detective was unable to return member
    *          details.</p>
    *          <p>For each account, provides the reason why the request could not be processed.</p>
+   * @public
    */
   UnprocessedAccounts?: UnprocessedAccount[];
 }
@@ -1083,40 +1083,40 @@ export interface GetMembersResponse {
  */
 export interface ListDatasourcePackagesRequest {
   /**
-   * @public
    * <p>The ARN of the behavior graph.</p>
+   * @public
    */
   GraphArn: string | undefined;
 
   /**
-   * @public
    * <p>For requests to get the next page of results, the pagination token that was returned
    *          with the previous set of results. The initial request does not include a pagination
    *          token.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return.</p>
+   * @public
    */
   MaxResults?: number;
 }
 
 /**
- * @public
  * <p>Details about the data source packages ingested by your behavior graph.</p>
+ * @public
  */
 export interface DatasourcePackageIngestDetail {
   /**
-   * @public
    * <p>Details on which data source packages are ingested for a member account.</p>
+   * @public
    */
   DatasourcePackageIngestState?: DatasourcePackageIngestState;
 
   /**
-   * @public
    * <p>The date a data source package was enabled for this account</p>
+   * @public
    */
   LastIngestStateChange?: Partial<Record<DatasourcePackageIngestState, TimestampForCollection>>;
 }
@@ -1126,16 +1126,16 @@ export interface DatasourcePackageIngestDetail {
  */
 export interface ListDatasourcePackagesResponse {
   /**
-   * @public
    * <p>Details on the data source packages active in the behavior graph.</p>
+   * @public
    */
   DatasourcePackages?: Partial<Record<DatasourcePackage, DatasourcePackageIngestDetail>>;
 
   /**
-   * @public
    * <p>For requests to get the next page of results, the pagination token that was returned
    *          with the previous set of results. The initial request does not include a pagination
    *          token.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1145,36 +1145,36 @@ export interface ListDatasourcePackagesResponse {
  */
 export interface ListGraphsRequest {
   /**
-   * @public
    * <p>For requests to get the next page of results, the pagination token that was returned
    *          with the previous set of results. The initial request does not include a pagination
    *          token.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of graphs to return at a time. The total must be less than the
    *          overall limit on the number of results to return, which is currently 200.</p>
+   * @public
    */
   MaxResults?: number;
 }
 
 /**
- * @public
  * <p>A behavior graph in Detective.</p>
+ * @public
  */
 export interface Graph {
   /**
-   * @public
    * <p>The ARN of the behavior graph.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>The date and time that the behavior graph was created. The value is an ISO8601 formatted
    *          string. For example, <code>2021-08-18T16:35:56.284Z</code>.</p>
+   * @public
    */
   CreatedTime?: Date;
 }
@@ -1184,15 +1184,15 @@ export interface Graph {
  */
 export interface ListGraphsResponse {
   /**
-   * @public
    * <p>A list of behavior graphs that the account is an administrator account for.</p>
+   * @public
    */
   GraphList?: Graph[];
 
   /**
-   * @public
    * <p>If there are more behavior graphs remaining in the results, then this is the pagination
    *          token to use to request the next page of behavior graphs.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1222,33 +1222,33 @@ export type IndicatorType = (typeof IndicatorType)[keyof typeof IndicatorType];
  */
 export interface ListIndicatorsRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the behavior graph.</p>
+   * @public
    */
   GraphArn: string | undefined;
 
   /**
-   * @public
    * <p>The investigation ID of the investigation report.</p>
+   * @public
    */
   InvestigationId: string | undefined;
 
   /**
-   * @public
    * <p>For the list of indicators of compromise that are generated by Detective investigations, see <a href="https://docs.aws.amazon.com/detective/latest/userguide/detective-investigations.html">Detective investigations</a>.</p>
+   * @public
    */
   IndicatorType?: IndicatorType;
 
   /**
-   * @public
    * <p>Lists if there are more results available. The value of nextToken is a unique pagination token for each page. Repeat the call using the returned token to retrieve the next page. Keep all other arguments unchanged.</p>
    *          <p>Each pagination token expires after 24 hours. Using an expired pagination token will return a Validation Exception error.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Lists the maximum number of indicators in a page.</p>
+   * @public
    */
   MaxResults?: number;
 }
@@ -1267,276 +1267,276 @@ export const Reason = {
 export type Reason = (typeof Reason)[keyof typeof Reason];
 
 /**
- * @public
  * <p>Contains information on suspicious IP addresses identified as indicators of compromise. This indicator is derived from Amazon Web Services threat intelligence.</p>
+ * @public
  */
 export interface FlaggedIpAddressDetail {
   /**
-   * @public
    * <p>IP address of the suspicious entity.</p>
+   * @public
    */
   IpAddress?: string;
 
   /**
-   * @public
    * <p>Details the reason the IP address was flagged as suspicious.</p>
+   * @public
    */
   Reason?: Reason;
 }
 
 /**
- * @public
  * <p>Contains information on unusual and impossible travel in an account.</p>
+ * @public
  */
 export interface ImpossibleTravelDetail {
   /**
-   * @public
    * <p>IP address where the resource was first used in the impossible travel.</p>
+   * @public
    */
   StartingIpAddress?: string;
 
   /**
-   * @public
    * <p>IP address where the resource was last used in the impossible travel.</p>
+   * @public
    */
   EndingIpAddress?: string;
 
   /**
-   * @public
    * <p>Location where the resource was first used in the impossible travel.</p>
+   * @public
    */
   StartingLocation?: string;
 
   /**
-   * @public
    * <p>Location where the resource was last used in the impossible travel.</p>
+   * @public
    */
   EndingLocation?: string;
 
   /**
-   * @public
    * <p>Returns the time difference between the first and last timestamp the resource was used.</p>
+   * @public
    */
   HourlyTimeDelta?: number;
 }
 
 /**
- * @public
  * <p>Details new Autonomous System Organizations (ASOs) used either at the resource or account level. </p>
+ * @public
  */
 export interface NewAsoDetail {
   /**
-   * @public
    * <p>Details about the new Autonomous System Organization (ASO).</p>
+   * @public
    */
   Aso?: string;
 
   /**
-   * @public
    * <p>Checks if the Autonomous System Organization (ASO) is new for the entire account.</p>
+   * @public
    */
   IsNewForEntireAccount?: boolean;
 }
 
 /**
- * @public
  * <p>Details new geolocations used either at the resource or account level. For example, lists an observed geolocation that is an infrequent or unused location based on previous user activity.</p>
+ * @public
  */
 export interface NewGeolocationDetail {
   /**
-   * @public
    * <p>Location where the resource was accessed.</p>
+   * @public
    */
   Location?: string;
 
   /**
-   * @public
    * <p>IP address using which the resource was accessed.</p>
+   * @public
    */
   IpAddress?: string;
 
   /**
-   * @public
    * <p>Checks if the geolocation is new for the entire account.</p>
+   * @public
    */
   IsNewForEntireAccount?: boolean;
 }
 
 /**
- * @public
  * <p>Details new user agents used either at the resource or account level.</p>
+ * @public
  */
 export interface NewUserAgentDetail {
   /**
-   * @public
    * <p>New user agent which accessed the resource.</p>
+   * @public
    */
   UserAgent?: string;
 
   /**
-   * @public
    * <p>Checks if the user agent is new for the entire account.</p>
+   * @public
    */
   IsNewForEntireAccount?: boolean;
 }
 
 /**
- * @public
  * <p>Details related activities associated with a potential security event. Lists all distinct categories of evidence that are connected to the resource or the finding group.</p>
+ * @public
  */
 export interface RelatedFindingDetail {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the related finding.</p>
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * <p>The type of finding.</p>
+   * @public
    */
   Type?: string;
 
   /**
-   * @public
    * <p>The IP address of the finding.</p>
+   * @public
    */
   IpAddress?: string;
 }
 
 /**
- * @public
  * <p>Details multiple activities as they related to a potential security event. Detective uses graph analysis technique that infers relationships between findings and entities, and groups them together as a finding group.</p>
+ * @public
  */
 export interface RelatedFindingGroupDetail {
   /**
-   * @public
    * <p>The unique identifier for the finding group.</p>
+   * @public
    */
   Id?: string;
 }
 
 /**
- * @public
  * <p>Details tactics, techniques, and procedures (TTPs) used in a potential security event. Tactics are based on <a href="https://attack.mitre.org/matrices/enterprise/">MITRE ATT&CK Matrix for
  *          Enterprise</a>. </p>
+ * @public
  */
 export interface TTPsObservedDetail {
   /**
-   * @public
    * <p>The tactic used, identified by the investigation.</p>
+   * @public
    */
   Tactic?: string;
 
   /**
-   * @public
    * <p>The technique used, identified by the investigation. </p>
+   * @public
    */
   Technique?: string;
 
   /**
-   * @public
    * <p>The procedure used, identified by the investigation.</p>
+   * @public
    */
   Procedure?: string;
 
   /**
-   * @public
    * <p>The IP address where the tactics, techniques, and procedure (TTP) was observed.</p>
+   * @public
    */
   IpAddress?: string;
 
   /**
-   * @public
    * <p>The name of the API where the tactics, techniques, and procedure (TTP) was observed.</p>
+   * @public
    */
   APIName?: string;
 
   /**
-   * @public
    * <p>The total number of successful API requests.</p>
+   * @public
    */
   APISuccessCount?: number;
 
   /**
-   * @public
    * <p>The total number of failed API requests.</p>
+   * @public
    */
   APIFailureCount?: number;
 }
 
 /**
- * @public
  * <p>Details about the indicators of compromise which are used to determine if a resource is involved in a security incident. An indicator of compromise (IOC) is an artifact observed in or on a network, system, or environment that can (with a high level of confidence) identify malicious activity or a security incident. For the list of indicators of compromise that are generated by Detective investigations, see <a href="https://docs.aws.amazon.com/detective/latest/userguide/detective-investigations.html">Detective investigations</a>.</p>
+ * @public
  */
 export interface IndicatorDetail {
   /**
-   * @public
    * <p>Details about the indicator of compromise.</p>
+   * @public
    */
   TTPsObservedDetail?: TTPsObservedDetail;
 
   /**
-   * @public
    * <p>Identifies unusual and impossible user activity for an account. </p>
+   * @public
    */
   ImpossibleTravelDetail?: ImpossibleTravelDetail;
 
   /**
-   * @public
    * <p>Suspicious IP addresses that are flagged, which indicates critical or severe threats based on threat intelligence by Detective. This indicator is derived from Amazon Web Services threat intelligence.</p>
+   * @public
    */
   FlaggedIpAddressDetail?: FlaggedIpAddressDetail;
 
   /**
-   * @public
    * <p>Contains details about the new geographic location.</p>
+   * @public
    */
   NewGeolocationDetail?: NewGeolocationDetail;
 
   /**
-   * @public
    * <p>Contains details about the new Autonomous System Organization (ASO).</p>
+   * @public
    */
   NewAsoDetail?: NewAsoDetail;
 
   /**
-   * @public
    * <p>Contains details about the new user agent.</p>
+   * @public
    */
   NewUserAgentDetail?: NewUserAgentDetail;
 
   /**
-   * @public
    * <p>Contains details about related findings.</p>
+   * @public
    */
   RelatedFindingDetail?: RelatedFindingDetail;
 
   /**
-   * @public
    * <p>Contains details about related finding groups.</p>
+   * @public
    */
   RelatedFindingGroupDetail?: RelatedFindingGroupDetail;
 }
 
 /**
- * @public
  * <p>Detective investigations triages indicators of compromises such as a finding
  *          and surfaces only the most critical and suspicious issues, so you can focus on high-level
  *          investigations. An <code>Indicator</code> lets you determine if an Amazon Web Services
  *          resource is involved in unusual activity that could indicate malicious behavior and its
  *          impact.</p>
+ * @public
  */
 export interface Indicator {
   /**
-   * @public
    * <p>The type of indicator. </p>
+   * @public
    */
   IndicatorType?: IndicatorType;
 
   /**
-   * @public
    * <p>Details about the indicators of compromise that are used to determine if a resource is involved in a security incident. An indicator of compromise (IOC) is an artifact observed in or on a network, system, or environment that can (with a high level of confidence) identify malicious activity or a security incident.</p>
+   * @public
    */
   IndicatorDetail?: IndicatorDetail;
 }
@@ -1546,93 +1546,93 @@ export interface Indicator {
  */
 export interface ListIndicatorsResponse {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the behavior graph.</p>
+   * @public
    */
   GraphArn?: string;
 
   /**
-   * @public
    * <p>The investigation ID of the investigation report.</p>
+   * @public
    */
   InvestigationId?: string;
 
   /**
-   * @public
    * <p>Lists if there are more results available. The value of nextToken is a unique pagination token for each page. Repeat the call using the returned token to retrieve the next page. Keep all other arguments unchanged.</p>
    *          <p>Each pagination token expires after 24 hours. Using an expired pagination token will return a Validation Exception error.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Lists the indicators of compromise.</p>
+   * @public
    */
   Indicators?: Indicator[];
 }
 
 /**
- * @public
  * <p>Contains details on the time range used to filter data.</p>
+ * @public
  */
 export interface DateFilter {
   /**
-   * @public
    * <p>A timestamp representing the start of the time period from when data is filtered, including the start date.</p>
+   * @public
    */
   StartInclusive: Date | undefined;
 
   /**
-   * @public
    * <p>A timestamp representing the end date of the time period until when data is filtered, including the end date.</p>
+   * @public
    */
   EndInclusive: Date | undefined;
 }
 
 /**
- * @public
  * <p>A string for filtering Detective investigations.</p>
+ * @public
  */
 export interface StringFilter {
   /**
-   * @public
    * <p>The string filter value.</p>
+   * @public
    */
   Value: string | undefined;
 }
 
 /**
- * @public
  * <p>Details on the criteria used to define the filter for investigation results.</p>
+ * @public
  */
 export interface FilterCriteria {
   /**
-   * @public
    * <p>Filter the investigation results based on the severity.</p>
+   * @public
    */
   Severity?: StringFilter;
 
   /**
-   * @public
    * <p>Filter the investigation results based on the status.</p>
+   * @public
    */
   Status?: StringFilter;
 
   /**
-   * @public
    * <p>Filter the investigation results based on the state.</p>
+   * @public
    */
   State?: StringFilter;
 
   /**
-   * @public
    * <p>Filter the investigation results based on the Amazon Resource Name (ARN) of the entity.</p>
+   * @public
    */
   EntityArn?: StringFilter;
 
   /**
-   * @public
    * <p>Filter the investigation results based on when the investigation was created.</p>
+   * @public
    */
   CreatedTime?: DateFilter;
 }
@@ -1667,19 +1667,19 @@ export const SortOrder = {
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
- * @public
  * <p>Details about the criteria used for sorting investigations.</p>
+ * @public
  */
 export interface SortCriteria {
   /**
-   * @public
    * <p>Represents the <code>Field</code> attribute to sort investigations.</p>
+   * @public
    */
   Field?: Field;
 
   /**
-   * @public
    * <p>The order by which the sorted findings are displayed.</p>
+   * @public
    */
   SortOrder?: SortOrder;
 }
@@ -1689,82 +1689,82 @@ export interface SortCriteria {
  */
 export interface ListInvestigationsRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the behavior graph.</p>
+   * @public
    */
   GraphArn: string | undefined;
 
   /**
-   * @public
    * <p>Lists if there are more results available. The value of nextToken is a unique pagination token for each page. Repeat the call using the returned token to retrieve the next page. Keep all other arguments unchanged.</p>
    *          <p>Each pagination token expires after 24 hours. Using an expired pagination token will return a Validation Exception error.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>Lists the maximum number of investigations in a page.</p>
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * <p>Filters the investigation results based on a criteria.</p>
+   * @public
    */
   FilterCriteria?: FilterCriteria;
 
   /**
-   * @public
    * <p>Sorts the investigation results based on a criteria.</p>
+   * @public
    */
   SortCriteria?: SortCriteria;
 }
 
 /**
- * @public
  * <p>Details about the investigation related to a potential security event identified by Detective.</p>
+ * @public
  */
 export interface InvestigationDetail {
   /**
-   * @public
    * <p>The investigation ID of the investigation report.</p>
+   * @public
    */
   InvestigationId?: string;
 
   /**
-   * @public
    * <p>Severity based on the likelihood and impact of the indicators of compromise discovered in the investigation.</p>
+   * @public
    */
   Severity?: Severity;
 
   /**
-   * @public
    * <p>Status based on the completion status of the investigation.</p>
+   * @public
    */
   Status?: Status;
 
   /**
-   * @public
    * <p>The current state of the investigation. An archived investigation indicates you have completed reviewing the investigation.</p>
+   * @public
    */
   State?: State;
 
   /**
-   * @public
    * <p>The time stamp of the creation time of the investigation report. The value is an UTC ISO8601 formatted
    *          string. For example, <code>2021-08-18T16:35:56.284Z</code>.</p>
+   * @public
    */
   CreatedTime?: Date;
 
   /**
-   * @public
    * <p>The unique Amazon Resource Name (ARN) of the IAM user and IAM role.</p>
+   * @public
    */
   EntityArn?: string;
 
   /**
-   * @public
    * <p>Type of entity. For example, Amazon Web Services accounts, such as IAM user and role.</p>
+   * @public
    */
   EntityType?: EntityType;
 }
@@ -1774,15 +1774,15 @@ export interface InvestigationDetail {
  */
 export interface ListInvestigationsResponse {
   /**
-   * @public
    * <p>Lists the summary of uncommon behavior or malicious activity which indicates a compromise.</p>
+   * @public
    */
   InvestigationDetails?: InvestigationDetail[];
 
   /**
-   * @public
    * <p>Lists if there are more results available. The value of nextToken is a unique pagination token for each page. Repeat the call using the returned token to retrieve the next page. Keep all other arguments unchanged.</p>
    *          <p>Each pagination token expires after 24 hours. </p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1792,18 +1792,18 @@ export interface ListInvestigationsResponse {
  */
 export interface ListInvitationsRequest {
   /**
-   * @public
    * <p>For requests to retrieve the next page of results, the pagination token that was
    *          returned with the previous page of results. The initial request does not include a
    *          pagination token.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of behavior graph invitations to return in the response. The total
    *          must be less than the overall limit on the number of results to return, which is currently
    *          200.</p>
+   * @public
    */
   MaxResults?: number;
 }
@@ -1813,16 +1813,16 @@ export interface ListInvitationsRequest {
  */
 export interface ListInvitationsResponse {
   /**
-   * @public
    * <p>The list of behavior graphs for which the member account has open or accepted
    *          invitations.</p>
+   * @public
    */
   Invitations?: MemberDetail[];
 
   /**
-   * @public
    * <p>If there are more behavior graphs remaining in the results, then this is the pagination
    *          token to use to request the next page of behavior graphs.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1832,23 +1832,23 @@ export interface ListInvitationsResponse {
  */
 export interface ListMembersRequest {
   /**
-   * @public
    * <p>The ARN of the behavior graph for which to retrieve the list of member accounts.</p>
+   * @public
    */
   GraphArn: string | undefined;
 
   /**
-   * @public
    * <p>For requests to retrieve the next page of member account results, the pagination token
    *          that was returned with the previous page of results. The initial request does not include a
    *          pagination token.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of member accounts to include in the response. The total must be less
    *          than the overall limit on the number of results to return, which is currently 200.</p>
+   * @public
    */
   MaxResults?: number;
 }
@@ -1858,7 +1858,6 @@ export interface ListMembersRequest {
  */
 export interface ListMembersResponse {
   /**
-   * @public
    * <p>The list of member accounts in the behavior graph.</p>
    *          <p>For invited accounts, the results include member accounts that did not pass verification
    *          and member accounts that have not yet accepted the invitation to the behavior graph. The
@@ -1866,13 +1865,14 @@ export interface ListMembersResponse {
    *          <p>For the organization behavior graph, the results do not include organization accounts
    *          that the Detective administrator account has not enabled as member
    *          accounts.</p>
+   * @public
    */
   MemberDetails?: MemberDetail[];
 
   /**
-   * @public
    * <p>If there are more member accounts remaining in the results, then use this pagination
    *          token to request the next page of member accounts.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1882,16 +1882,16 @@ export interface ListMembersResponse {
  */
 export interface ListOrganizationAdminAccountsRequest {
   /**
-   * @public
    * <p>For requests to get the next page of results, the pagination token that was returned
    *          with the previous set of results. The initial request does not include a pagination
    *          token.</p>
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * <p>The maximum number of results to return.</p>
+   * @public
    */
   MaxResults?: number;
 }
@@ -1901,15 +1901,15 @@ export interface ListOrganizationAdminAccountsRequest {
  */
 export interface ListOrganizationAdminAccountsResponse {
   /**
-   * @public
    * <p>The list of Detective administrator accounts.</p>
+   * @public
    */
   Administrators?: Administrator[];
 
   /**
-   * @public
    * <p>If there are more accounts remaining in the results, then this is the pagination token
    *          to use to request the next page of accounts.</p>
+   * @public
    */
   NextToken?: string;
 }
@@ -1919,8 +1919,8 @@ export interface ListOrganizationAdminAccountsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * <p>The ARN of the behavior graph for which to retrieve the tag values.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 }
@@ -1930,9 +1930,9 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * <p>The tag values that are assigned to the behavior graph. The request returns up to 50 tag
    *          values.</p>
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -1942,10 +1942,10 @@ export interface ListTagsForResourceResponse {
  */
 export interface RejectInvitationRequest {
   /**
-   * @public
    * <p>The ARN of the behavior graph to reject the invitation to.</p>
    *          <p>The member account's current member status in the behavior graph must be
    *             <code>INVITED</code>.</p>
+   * @public
    */
   GraphArn: string | undefined;
 }
@@ -1955,27 +1955,27 @@ export interface RejectInvitationRequest {
  */
 export interface StartInvestigationRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the behavior graph.</p>
+   * @public
    */
   GraphArn: string | undefined;
 
   /**
-   * @public
    * <p>The unique Amazon Resource Name (ARN) of the IAM user and IAM role.</p>
+   * @public
    */
   EntityArn: string | undefined;
 
   /**
-   * @public
    * <p>The data and time when the investigation began. The value is an UTC ISO8601 formatted string. For example, <code>2021-08-18T16:35:56.284Z</code>.</p>
+   * @public
    */
   ScopeStartTime: Date | undefined;
 
   /**
-   * @public
    * <p>The data and time when the investigation ended. The value is an UTC ISO8601 formatted
    *          string. For example, <code>2021-08-18T16:35:56.284Z</code>.</p>
+   * @public
    */
   ScopeEndTime: Date | undefined;
 }
@@ -1985,8 +1985,8 @@ export interface StartInvestigationRequest {
  */
 export interface StartInvestigationResponse {
   /**
-   * @public
    * <p>The investigation ID of the investigation report.</p>
+   * @public
    */
   InvestigationId?: string;
 }
@@ -1996,16 +1996,16 @@ export interface StartInvestigationResponse {
  */
 export interface StartMonitoringMemberRequest {
   /**
-   * @public
    * <p>The ARN of the behavior graph.</p>
+   * @public
    */
   GraphArn: string | undefined;
 
   /**
-   * @public
    * <p>The account ID of the member account to try to enable.</p>
    *          <p>The account must be an invited member account with a status of
    *             <code>ACCEPTED_BUT_DISABLED</code>. </p>
+   * @public
    */
   AccountId: string | undefined;
 }
@@ -2015,16 +2015,16 @@ export interface StartMonitoringMemberRequest {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * <p>The ARN of the behavior graph to assign the tags to.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The tags to assign to the behavior graph. You can add up to 50 tags. For each tag, you
    *          provide the tag key and the tag value. Each tag key can contain up to 128 characters. Each
    *          tag value can contain up to 256 characters.</p>
+   * @public
    */
   Tags: Record<string, string> | undefined;
 }
@@ -2039,15 +2039,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * <p>The ARN of the behavior graph to remove the tags from.</p>
+   * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * @public
    * <p>The tag keys of the tags to remove from the behavior graph. You can remove up to 50 tags
    *          at a time.</p>
+   * @public
    */
   TagKeys: string[] | undefined;
 }
@@ -2062,14 +2062,14 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateDatasourcePackagesRequest {
   /**
-   * @public
    * <p>The ARN of the behavior graph.</p>
+   * @public
    */
   GraphArn: string | undefined;
 
   /**
-   * @public
    * <p>The data source package start for the behavior graph.</p>
+   * @public
    */
   DatasourcePackages: DatasourcePackage[] | undefined;
 }
@@ -2079,20 +2079,20 @@ export interface UpdateDatasourcePackagesRequest {
  */
 export interface UpdateInvestigationStateRequest {
   /**
-   * @public
    * <p>The Amazon Resource Name (ARN) of the behavior graph.</p>
+   * @public
    */
   GraphArn: string | undefined;
 
   /**
-   * @public
    * <p>The investigation ID of the investigation report.</p>
+   * @public
    */
   InvestigationId: string | undefined;
 
   /**
-   * @public
    * <p>The current state of the investigation. An archived investigation indicates you have completed reviewing the investigation.</p>
+   * @public
    */
   State: State | undefined;
 }
@@ -2102,15 +2102,15 @@ export interface UpdateInvestigationStateRequest {
  */
 export interface UpdateOrganizationConfigurationRequest {
   /**
-   * @public
    * <p>The ARN of the organization behavior graph.</p>
+   * @public
    */
   GraphArn: string | undefined;
 
   /**
-   * @public
    * <p>Indicates whether to automatically enable new organization accounts as member accounts
    *          in the organization behavior graph.</p>
+   * @public
    */
   AutoEnable?: boolean;
 }

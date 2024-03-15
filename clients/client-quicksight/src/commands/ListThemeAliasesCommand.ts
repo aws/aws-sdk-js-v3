@@ -27,7 +27,6 @@ export interface ListThemeAliasesCommandInput extends ListThemeAliasesRequest {}
 export interface ListThemeAliasesCommandOutput extends ListThemeAliasesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all the aliases of a theme.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface ListThemeAliasesCommandOutput extends ListThemeAliasesResponse,
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class ListThemeAliasesCommand extends $Command
   .classBuilder<

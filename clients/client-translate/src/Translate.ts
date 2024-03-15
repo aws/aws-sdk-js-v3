@@ -417,8 +417,8 @@ export interface Translate {
 }
 
 /**
- * @public
  * <p>Provides translation of the input content from the source language to the target language.</p>
+ * @public
  */
 export class Translate extends TranslateClient implements Translate {}
 createAggregatedClient(commands, Translate);

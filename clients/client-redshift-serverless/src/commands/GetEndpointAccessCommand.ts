@@ -31,7 +31,6 @@ export interface GetEndpointAccessCommandInput extends GetEndpointAccessRequest 
 export interface GetEndpointAccessCommandOutput extends GetEndpointAccessResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information, such as the name, about a VPC endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -100,6 +99,7 @@ export interface GetEndpointAccessCommandOutput extends GetEndpointAccessRespons
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * @public
  */
 export class GetEndpointAccessCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListAgentVersionsCommandInput extends ListAgentVersionsRequest 
 export interface ListAgentVersionsCommandOutput extends ListAgentVersionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * Lists Agent Versions
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface ListAgentVersionsCommandOutput extends ListAgentVersionsRespons
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ * @public
  */
 export class ListAgentVersionsCommand extends $Command
   .classBuilder<

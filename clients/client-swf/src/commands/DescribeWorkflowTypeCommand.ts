@@ -27,7 +27,6 @@ export interface DescribeWorkflowTypeCommandInput extends DescribeWorkflowTypeIn
 export interface DescribeWorkflowTypeCommandOutput extends WorkflowTypeDetail, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the specified <i>workflow type</i>. This
  *       includes configuration settings specified when the type was registered and other information
  *       such as creation date, current status, etc.</p>
@@ -122,6 +121,7 @@ export interface DescribeWorkflowTypeCommandOutput extends WorkflowTypeDetail, _
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ * @public
  */
 export class DescribeWorkflowTypeCommand extends $Command
   .classBuilder<

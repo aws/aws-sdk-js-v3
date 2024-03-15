@@ -27,7 +27,6 @@ export interface CreateLogGroupCommandInput extends CreateLogGroupRequest {}
 export interface CreateLogGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a log group with the specified name. You can create up to 1,000,000 log groups per Region per account.</p>
  *          <p>You must use the following guidelines when naming a log group:</p>
  *          <ul>
@@ -105,6 +104,7 @@ export interface CreateLogGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class CreateLogGroupCommand extends $Command
   .classBuilder<

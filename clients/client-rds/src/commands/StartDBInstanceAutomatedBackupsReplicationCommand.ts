@@ -37,7 +37,6 @@ export interface StartDBInstanceAutomatedBackupsReplicationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables replication of automated backups to a different Amazon Web Services Region.</p>
  *          <p>This command doesn't apply to RDS Custom.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html">
@@ -129,6 +128,7 @@ export interface StartDBInstanceAutomatedBackupsReplicationCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To enable cross-Region automated backups
  * ```javascript
  * // The following example replicates automated backups from a DB instance in the US East (N. Virginia) Region. The backup retention period is 14 days.

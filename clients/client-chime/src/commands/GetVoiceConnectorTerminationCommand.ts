@@ -36,9 +36,6 @@ export interface GetVoiceConnectorTerminationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by GetVoiceConnectorTermination in the Amazon Chime SDK Voice Namespace
- *
  * <p>Retrieves termination setting details for the specified Amazon Chime Voice Connector.</p>
  *          <important>
  *             <p>
@@ -104,6 +101,8 @@ export interface GetVoiceConnectorTerminationCommandOutput
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by GetVoiceConnectorTermination in the Amazon Chime SDK Voice Namespace
  */
 export class GetVoiceConnectorTerminationCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface RotateIngestEndpointCredentialsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * Rotate the IngestEndpoint's username and password, as specified by the IngestEndpoint's id.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -105,6 +104,7 @@ export interface RotateIngestEndpointCredentialsCommandOutput
  * @throws {@link MediaPackageServiceException}
  * <p>Base exception class for all service exceptions from MediaPackage service.</p>
  *
+ * @public
  */
 export class RotateIngestEndpointCredentialsCommand extends $Command
   .classBuilder<

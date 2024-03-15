@@ -27,7 +27,6 @@ export interface AttachVolumeCommandInput extends AttachVolumeRequest {}
 export interface AttachVolumeCommandOutput extends VolumeAttachment, __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches an EBS volume to a running or stopped instance and exposes it to the instance
  *       with the specified device name.</p>
  *          <p>Encrypted EBS volumes must be attached to instances that support Amazon EBS encryption. For
@@ -89,6 +88,7 @@ export interface AttachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To attach a volume to an instance
  * ```javascript
  * // This example attaches a volume (``vol-1234567890abcdef0``) to an instance (``i-01474ef662b89480``) as ``/dev/sdf``.

@@ -27,7 +27,6 @@ export interface ModifyAquaConfigurationCommandInput extends ModifyAquaInputMess
 export interface ModifyAquaConfigurationCommandOutput extends ModifyAquaOutputMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation is retired. Calling this operation does not change AQUA configuration. Amazon Redshift automatically determines whether to use AQUA (Advanced Query Accelerator). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +68,7 @@ export interface ModifyAquaConfigurationCommandOutput extends ModifyAquaOutputMe
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class ModifyAquaConfigurationCommand extends $Command
   .classBuilder<

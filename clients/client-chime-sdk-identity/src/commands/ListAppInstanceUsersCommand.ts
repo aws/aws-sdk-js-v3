@@ -32,7 +32,6 @@ export interface ListAppInstanceUsersCommandInput extends ListAppInstanceUsersRe
 export interface ListAppInstanceUsersCommandOutput extends ListAppInstanceUsersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>List all <code>AppInstanceUsers</code> created under a single
  *          <code>AppInstance</code>.</p>
  * @example
@@ -89,6 +88,7 @@ export interface ListAppInstanceUsersCommandOutput extends ListAppInstanceUsersR
  * @throws {@link ChimeSDKIdentityServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
+ * @public
  */
 export class ListAppInstanceUsersCommand extends $Command
   .classBuilder<

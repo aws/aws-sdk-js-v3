@@ -28,7 +28,6 @@ export interface PauseClusterCommandInput extends PauseClusterMessage {}
 export interface PauseClusterCommandOutput extends PauseClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Pauses a cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -254,6 +253,7 @@ export interface PauseClusterCommandOutput extends PauseClusterResult, __Metadat
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class PauseClusterCommand extends $Command
   .classBuilder<

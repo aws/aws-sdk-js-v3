@@ -27,7 +27,6 @@ export interface StopClusterCommandInput extends StopClusterInput {}
 export interface StopClusterCommandOutput extends StopClusterOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops the running elastic cluster that is specified by <code>clusterArn</code>.
  *       The elastic cluster must be in the <i>available</i> state. </p>
  * @example
@@ -99,6 +98,7 @@ export interface StopClusterCommandOutput extends StopClusterOutput, __MetadataB
  * @throws {@link DocDBElasticServiceException}
  * <p>Base exception class for all service exceptions from DocDBElastic service.</p>
  *
+ * @public
  */
 export class StopClusterCommand extends $Command
   .classBuilder<

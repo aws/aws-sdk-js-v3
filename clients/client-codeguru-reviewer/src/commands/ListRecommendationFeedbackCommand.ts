@@ -27,7 +27,6 @@ export interface ListRecommendationFeedbackCommandInput extends ListRecommendati
 export interface ListRecommendationFeedbackCommandOutput extends ListRecommendationFeedbackResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RecommendationFeedbackSummary.html">RecommendationFeedbackSummary</a> objects that contain customer recommendation
  *          feedback for all CodeGuru Reviewer users.</p>
  * @example
@@ -88,6 +87,7 @@ export interface ListRecommendationFeedbackCommandOutput extends ListRecommendat
  * @throws {@link CodeGuruReviewerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruReviewer service.</p>
  *
+ * @public
  */
 export class ListRecommendationFeedbackCommand extends $Command
   .classBuilder<

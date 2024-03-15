@@ -27,7 +27,6 @@ export interface ImportApiCommandInput extends ImportApiRequest {}
 export interface ImportApiCommandOutput extends ImportApiResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Imports an API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -105,6 +104,7 @@ export interface ImportApiCommandOutput extends ImportApiResponse, __MetadataBea
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ * @public
  */
 export class ImportApiCommand extends $Command
   .classBuilder<

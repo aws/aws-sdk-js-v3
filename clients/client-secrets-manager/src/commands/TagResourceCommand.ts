@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches tags to a secret. Tags consist of a key name and a value. Tags are part of the
  *       secret's metadata. They are not associated with specific versions of the secret. This operation appends tags to the existing list of tags.</p>
  *          <p>For tag quotas and naming restrictions, see <a href="https://docs.aws.amazon.com/general/latest/gr/arg.html#taged-reference-quotas">Service quotas for Tagging</a> in the <i>Amazon Web Services General
@@ -102,6 +101,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
+ * @public
  * @example To add tags to a secret
  * ```javascript
  * // The following example shows how to attach two tags each with a Key and Value to a secret. There is no output from this API. To see the result, use the DescribeSecret operation.

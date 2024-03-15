@@ -27,7 +27,6 @@ export interface DeleteImageBuilderCommandInput extends DeleteImageBuilderReques
 export interface DeleteImageBuilderCommandOutput extends DeleteImageBuilderResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified image builder and releases the capacity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -110,6 +109,7 @@ export interface DeleteImageBuilderCommandOutput extends DeleteImageBuilderResul
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * @public
  */
 export class DeleteImageBuilderCommand extends $Command
   .classBuilder<

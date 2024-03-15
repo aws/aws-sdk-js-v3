@@ -31,7 +31,6 @@ export interface GetBrowserSettingsCommandInput extends GetBrowserSettingsReques
 export interface GetBrowserSettingsCommandOutput extends GetBrowserSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets browser settings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface GetBrowserSettingsCommandOutput extends GetBrowserSettingsRespo
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * @public
  */
 export class GetBrowserSettingsCommand extends $Command
   .classBuilder<

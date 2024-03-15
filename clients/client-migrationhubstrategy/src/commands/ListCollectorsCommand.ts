@@ -31,7 +31,6 @@ export interface ListCollectorsCommandInput extends ListCollectorsRequest {}
 export interface ListCollectorsCommandOutput extends ListCollectorsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Retrieves a list of all the installed collectors. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -114,6 +113,7 @@ export interface ListCollectorsCommandOutput extends ListCollectorsResponse, __M
  * @throws {@link MigrationHubStrategyServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ * @public
  */
 export class ListCollectorsCommand extends $Command
   .classBuilder<

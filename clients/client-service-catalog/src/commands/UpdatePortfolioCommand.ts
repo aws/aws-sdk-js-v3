@@ -27,7 +27,6 @@ export interface UpdatePortfolioCommandInput extends UpdatePortfolioInput {}
 export interface UpdatePortfolioCommandOutput extends UpdatePortfolioOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified portfolio.</p>
  *          <p>You cannot update a product that was shared with you.</p>
  * @example
@@ -97,6 +96,7 @@ export interface UpdatePortfolioCommandOutput extends UpdatePortfolioOutput, __M
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class UpdatePortfolioCommand extends $Command
   .classBuilder<

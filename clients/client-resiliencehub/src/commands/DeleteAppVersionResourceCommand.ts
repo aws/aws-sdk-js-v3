@@ -27,7 +27,6 @@ export interface DeleteAppVersionResourceCommandInput extends DeleteAppVersionRe
 export interface DeleteAppVersionResourceCommandOutput extends DeleteAppVersionResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a resource from the Resilience Hub application.</p>
  *          <note>
  *             <ul>
@@ -142,6 +141,7 @@ export interface DeleteAppVersionResourceCommandOutput extends DeleteAppVersionR
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * @public
  */
 export class DeleteAppVersionResourceCommand extends $Command
   .classBuilder<

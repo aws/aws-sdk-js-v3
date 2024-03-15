@@ -17,55 +17,55 @@ export const __PeriodTriggersElement = {
 export type __PeriodTriggersElement = (typeof __PeriodTriggersElement)[keyof typeof __PeriodTriggersElement];
 
 /**
- * @public
  * A MediaPackage VOD Asset resource.
+ * @public
  */
 export interface AssetShallow {
   /**
-   * @public
    * The ARN of the Asset.
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * The time the Asset was initially submitted for Ingest.
+   * @public
    */
   CreatedAt?: string;
 
   /**
-   * @public
    * The unique identifier for the Asset.
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * The ID of the PackagingGroup for the Asset.
+   * @public
    */
   PackagingGroupId?: string;
 
   /**
-   * @public
    * The resource ID to include in SPEKE key requests.
+   * @public
    */
   ResourceId?: string;
 
   /**
-   * @public
    * ARN of the source object in S3.
+   * @public
    */
   SourceArn?: string;
 
   /**
-   * @public
    * The IAM role ARN used to access the source S3 bucket.
+   * @public
    */
   SourceRoleArn?: string;
 
   /**
-   * @public
    * A collection of tags associated with a resource
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -128,91 +128,91 @@ export const StreamOrder = {
 export type StreamOrder = (typeof StreamOrder)[keyof typeof StreamOrder];
 
 /**
- * @public
  * A StreamSelection configuration.
+ * @public
  */
 export interface StreamSelection {
   /**
-   * @public
    * The maximum video bitrate (bps) to include in output.
+   * @public
    */
   MaxVideoBitsPerSecond?: number;
 
   /**
-   * @public
    * The minimum video bitrate (bps) to include in output.
+   * @public
    */
   MinVideoBitsPerSecond?: number;
 
   /**
-   * @public
    * A directive that determines the order of streams in the output.
+   * @public
    */
   StreamOrder?: StreamOrder;
 }
 
 /**
- * @public
  * A DASH manifest configuration.
+ * @public
  */
 export interface DashManifest {
   /**
-   * @public
    * Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
+   * @public
    */
   ManifestLayout?: ManifestLayout;
 
   /**
-   * @public
    * An optional string to include in the name of the manifest.
+   * @public
    */
   ManifestName?: string;
 
   /**
-   * @public
    * Minimum duration (in seconds) that a player will buffer media before starting the presentation.
+   * @public
    */
   MinBufferTimeSeconds?: number;
 
   /**
-   * @public
    * The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
+   * @public
    */
   Profile?: Profile;
 
   /**
-   * @public
    * The source of scte markers used. When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content.
+   * @public
    */
   ScteMarkersSource?: ScteMarkersSource;
 
   /**
-   * @public
    * A StreamSelection configuration.
+   * @public
    */
   StreamSelection?: StreamSelection;
 }
 
 /**
- * @public
  * The endpoint URL used to access an Asset using one PackagingConfiguration.
+ * @public
  */
 export interface EgressEndpoint {
   /**
-   * @public
    * The ID of the PackagingConfiguration being applied to the Asset.
+   * @public
    */
   PackagingConfigurationId?: string;
 
   /**
-   * @public
    * The current processing status of the asset used for the packaging configuration. The status can be either QUEUED, PROCESSING, PLAYABLE, or FAILED. Status information won't be available for most assets ingested before 2021-09-30.
+   * @public
    */
   Status?: string;
 
   /**
-   * @public
    * The URL of the parent manifest for the repackaged Asset.
+   * @public
    */
   Url?: string;
 }
@@ -233,35 +233,34 @@ export const AdMarkers = {
 export type AdMarkers = (typeof AdMarkers)[keyof typeof AdMarkers];
 
 /**
- * @public
  * An HTTP Live Streaming (HLS) manifest configuration.
+ * @public
  */
 export interface HlsManifest {
   /**
-   * @public
    * This setting controls how ad markers are included in the packaged OriginEndpoint.
    * "NONE" will omit all SCTE-35 ad markers from the output.
    * "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad
    * markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.
    * "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35
    * messages in the input source.
+   * @public
    */
   AdMarkers?: AdMarkers;
 
   /**
-   * @public
    * When enabled, an I-Frame only stream will be included in the output.
+   * @public
    */
   IncludeIframeOnlyStream?: boolean;
 
   /**
-   * @public
    * An optional string to include in the name of the manifest.
+   * @public
    */
   ManifestName?: string;
 
   /**
-   * @public
    * The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag
    * inserted into manifests. Additionally, when an interval is specified
    * ID3Timed Metadata messages will be generated every 5 seconds using the
@@ -271,36 +270,37 @@ export interface HlsManifest {
    * ID3Timed Metadata messages will be generated. Note that irrespective
    * of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input,
    * it will be passed through to HLS output.
+   * @public
    */
   ProgramDateTimeIntervalSeconds?: number;
 
   /**
-   * @public
    * When enabled, the EXT-X-KEY tag will be repeated in output manifests.
+   * @public
    */
   RepeatExtXKey?: boolean;
 
   /**
-   * @public
    * A StreamSelection configuration.
+   * @public
    */
   StreamSelection?: StreamSelection;
 }
 
 /**
- * @public
  * A Microsoft Smooth Streaming (MSS) manifest configuration.
+ * @public
  */
 export interface MssManifest {
   /**
-   * @public
    * An optional string to include in the name of the manifest.
+   * @public
    */
   ManifestName?: string;
 
   /**
-   * @public
    * A StreamSelection configuration.
+   * @public
    */
   StreamSelection?: StreamSelection;
 }
@@ -345,121 +345,121 @@ export const PresetSpeke20Video = {
 export type PresetSpeke20Video = (typeof PresetSpeke20Video)[keyof typeof PresetSpeke20Video];
 
 /**
- * @public
  * Use encryptionContractConfiguration to configure one or more content encryption keys for your endpoints that use SPEKE 2.0.
  * The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream.
  * To configure the encryption contract, specify which audio and video encryption presets to use.
  * Note the following considerations when using encryptionContractConfiguration:
  * encryptionContractConfiguration can be used for DASH endpoints that use SPEKE 2.0. SPEKE 2.0 relies on the CPIX 2.3 specification.
  * You must disable key rotation for this endpoint by setting keyRotationIntervalSeconds to 0.
+ * @public
  */
 export interface EncryptionContractConfiguration {
   /**
-   * @public
    * A collection of audio encryption presets.
+   * @public
    */
   PresetSpeke20Audio: PresetSpeke20Audio | undefined;
 
   /**
-   * @public
    * A collection of video encryption presets.
+   * @public
    */
   PresetSpeke20Video: PresetSpeke20Video | undefined;
 }
 
 /**
- * @public
  * A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
+ * @public
  */
 export interface SpekeKeyProvider {
   /**
-   * @public
    * Use encryptionContractConfiguration to configure one or more content encryption keys for your endpoints that use SPEKE 2.0.
    * The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream.
    * To configure the encryption contract, specify which audio and video encryption presets to use.
    * Note the following considerations when using encryptionContractConfiguration:
    * encryptionContractConfiguration can be used for DASH endpoints that use SPEKE 2.0. SPEKE 2.0 relies on the CPIX 2.3 specification.
    * You must disable key rotation for this endpoint by setting keyRotationIntervalSeconds to 0.
+   * @public
    */
   EncryptionContractConfiguration?: EncryptionContractConfiguration;
 
   /**
-   * @public
    * An Amazon Resource Name (ARN) of an IAM role that AWS Elemental
    * MediaPackage will assume when accessing the key provider service.
+   * @public
    */
   RoleArn: string | undefined;
 
   /**
-   * @public
    * The system IDs to include in key requests.
+   * @public
    */
   SystemIds: string[] | undefined;
 
   /**
-   * @public
    * The URL of the external key provider service.
+   * @public
    */
   Url: string | undefined;
 }
 
 /**
- * @public
  * A CMAF encryption configuration.
+ * @public
  */
 export interface CmafEncryption {
   /**
-   * @public
    * An optional 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting blocks. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).
+   * @public
    */
   ConstantInitializationVector?: string;
 
   /**
-   * @public
    * A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
+   * @public
    */
   SpekeKeyProvider: SpekeKeyProvider | undefined;
 }
 
 /**
- * @public
  * A CMAF packaging configuration.
+ * @public
  */
 export interface CmafPackage {
   /**
-   * @public
    * A CMAF encryption configuration.
+   * @public
    */
   Encryption?: CmafEncryption;
 
   /**
-   * @public
    * A list of HLS manifest configurations.
+   * @public
    */
   HlsManifests: HlsManifest[] | undefined;
 
   /**
-   * @public
    * When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
+   * @public
    */
   IncludeEncoderConfigurationInSegments?: boolean;
 
   /**
-   * @public
    * Duration (in seconds) of each fragment. Actual fragments will be
    * rounded to the nearest multiple of the source fragment duration.
+   * @public
    */
   SegmentDurationSeconds?: number;
 }
 
 /**
- * @public
  * A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
+ * @public
  */
 export interface DashEncryption {
   /**
-   * @public
    * A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
+   * @public
    */
   SpekeKeyProvider: SpekeKeyProvider | undefined;
 }
@@ -480,53 +480,53 @@ export const SegmentTemplateFormat = {
 export type SegmentTemplateFormat = (typeof SegmentTemplateFormat)[keyof typeof SegmentTemplateFormat];
 
 /**
- * @public
  * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
+ * @public
  */
 export interface DashPackage {
   /**
-   * @public
    * A list of DASH manifest configurations.
+   * @public
    */
   DashManifests: DashManifest[] | undefined;
 
   /**
-   * @public
    * A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
+   * @public
    */
   Encryption?: DashEncryption;
 
   /**
-   * @public
    * When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
+   * @public
    */
   IncludeEncoderConfigurationInSegments?: boolean;
 
   /**
-   * @public
    * When enabled, an I-Frame only stream will be included in the output.
+   * @public
    */
   IncludeIframeOnlyStream?: boolean;
 
   /**
-   * @public
    * A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH)
    * Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not
    * be partitioned into more than one period. If the list contains "ADS", new periods will be created where
    * the Asset contains SCTE-35 ad markers.
+   * @public
    */
   PeriodTriggers?: __PeriodTriggersElement[];
 
   /**
-   * @public
    * Duration (in seconds) of each segment. Actual segments will be
    * rounded to the nearest multiple of the source segment duration.
+   * @public
    */
   SegmentDurationSeconds?: number;
 
   /**
-   * @public
    * Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
+   * @public
    */
   SegmentTemplateFormat?: SegmentTemplateFormat;
 }
@@ -546,261 +546,261 @@ export const EncryptionMethod = {
 export type EncryptionMethod = (typeof EncryptionMethod)[keyof typeof EncryptionMethod];
 
 /**
- * @public
  * An HTTP Live Streaming (HLS) encryption configuration.
+ * @public
  */
 export interface HlsEncryption {
   /**
-   * @public
    * A constant initialization vector for encryption (optional).
    * When not specified the initialization vector will be periodically rotated.
+   * @public
    */
   ConstantInitializationVector?: string;
 
   /**
-   * @public
    * The encryption method to use.
+   * @public
    */
   EncryptionMethod?: EncryptionMethod;
 
   /**
-   * @public
    * A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
+   * @public
    */
   SpekeKeyProvider: SpekeKeyProvider | undefined;
 }
 
 /**
- * @public
  * An HTTP Live Streaming (HLS) packaging configuration.
+ * @public
  */
 export interface HlsPackage {
   /**
-   * @public
    * An HTTP Live Streaming (HLS) encryption configuration.
+   * @public
    */
   Encryption?: HlsEncryption;
 
   /**
-   * @public
    * A list of HLS manifest configurations.
+   * @public
    */
   HlsManifests: HlsManifest[] | undefined;
 
   /**
-   * @public
    * When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
+   * @public
    */
   IncludeDvbSubtitles?: boolean;
 
   /**
-   * @public
    * Duration (in seconds) of each fragment. Actual fragments will be
    * rounded to the nearest multiple of the source fragment duration.
+   * @public
    */
   SegmentDurationSeconds?: number;
 
   /**
-   * @public
    * When enabled, audio streams will be placed in rendition groups in the output.
+   * @public
    */
   UseAudioRenditionGroup?: boolean;
 }
 
 /**
- * @public
  * A Microsoft Smooth Streaming (MSS) encryption configuration.
+ * @public
  */
 export interface MssEncryption {
   /**
-   * @public
    * A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
+   * @public
    */
   SpekeKeyProvider: SpekeKeyProvider | undefined;
 }
 
 /**
- * @public
  * A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
+ * @public
  */
 export interface MssPackage {
   /**
-   * @public
    * A Microsoft Smooth Streaming (MSS) encryption configuration.
+   * @public
    */
   Encryption?: MssEncryption;
 
   /**
-   * @public
    * A list of MSS manifest configurations.
+   * @public
    */
   MssManifests: MssManifest[] | undefined;
 
   /**
-   * @public
    * The duration (in seconds) of each segment.
+   * @public
    */
   SegmentDurationSeconds?: number;
 }
 
 /**
- * @public
  * A MediaPackage VOD PackagingConfiguration resource.
+ * @public
  */
 export interface PackagingConfiguration {
   /**
-   * @public
    * The ARN of the PackagingConfiguration.
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * A CMAF packaging configuration.
+   * @public
    */
   CmafPackage?: CmafPackage;
 
   /**
-   * @public
    * The time the PackagingConfiguration was created.
+   * @public
    */
   CreatedAt?: string;
 
   /**
-   * @public
    * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
+   * @public
    */
   DashPackage?: DashPackage;
 
   /**
-   * @public
    * An HTTP Live Streaming (HLS) packaging configuration.
+   * @public
    */
   HlsPackage?: HlsPackage;
 
   /**
-   * @public
    * The ID of the PackagingConfiguration.
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
+   * @public
    */
   MssPackage?: MssPackage;
 
   /**
-   * @public
    * The ID of a PackagingGroup.
+   * @public
    */
   PackagingGroupId?: string;
 
   /**
-   * @public
    * A collection of tags associated with a resource
+   * @public
    */
   Tags?: Record<string, string>;
 }
 
 /**
- * @public
  * CDN Authorization credentials
+ * @public
  */
 export interface Authorization {
   /**
-   * @public
    * The Amazon Resource Name (ARN) for the secret in AWS Secrets Manager that is used for CDN authorization.
+   * @public
    */
   CdnIdentifierSecret: string | undefined;
 
   /**
-   * @public
    * The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.
+   * @public
    */
   SecretsRoleArn: string | undefined;
 }
 
 /**
- * @public
  * Configure egress access logging.
+ * @public
  */
 export interface EgressAccessLogs {
   /**
-   * @public
    * Customize the log group name.
+   * @public
    */
   LogGroupName?: string;
 }
 
 /**
- * @public
  * A MediaPackage VOD PackagingGroup resource.
+ * @public
  */
 export interface PackagingGroup {
   /**
-   * @public
    * The approximate asset count of the PackagingGroup.
+   * @public
    */
   ApproximateAssetCount?: number;
 
   /**
-   * @public
    * The ARN of the PackagingGroup.
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * CDN Authorization credentials
+   * @public
    */
   Authorization?: Authorization;
 
   /**
-   * @public
    * The time the PackagingGroup was created.
+   * @public
    */
   CreatedAt?: string;
 
   /**
-   * @public
    * The fully qualified domain name for Assets in the PackagingGroup.
+   * @public
    */
   DomainName?: string;
 
   /**
-   * @public
    * Configure egress access logging.
+   * @public
    */
   EgressAccessLogs?: EgressAccessLogs;
 
   /**
-   * @public
    * The ID of the PackagingGroup.
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * A collection of tags associated with a resource
+   * @public
    */
   Tags?: Record<string, string>;
 }
 
 /**
- * @public
  * The option to configure log subscription.
+ * @public
  */
 export interface ConfigureLogsRequest {
   /**
-   * @public
    * Configure egress access logging.
+   * @public
    */
   EgressAccessLogs?: EgressAccessLogs;
 
   /**
-   * @public
    * The ID of a MediaPackage VOD PackagingGroup resource.
+   * @public
    */
   Id: string | undefined;
 }
@@ -810,51 +810,51 @@ export interface ConfigureLogsRequest {
  */
 export interface ConfigureLogsResponse {
   /**
-   * @public
    * The ARN of the PackagingGroup.
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * CDN Authorization credentials
+   * @public
    */
   Authorization?: Authorization;
 
   /**
-   * @public
    * The time the PackagingGroup was created.
+   * @public
    */
   CreatedAt?: string;
 
   /**
-   * @public
    * The fully qualified domain name for Assets in the PackagingGroup.
+   * @public
    */
   DomainName?: string;
 
   /**
-   * @public
    * Configure egress access logging.
+   * @public
    */
   EgressAccessLogs?: EgressAccessLogs;
 
   /**
-   * @public
    * The ID of the PackagingGroup.
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * A collection of tags associated with a resource
+   * @public
    */
   Tags?: Record<string, string>;
 }
 
 /**
- * @public
  * The client is not authorized to access the requested resource.
+ * @public
  */
 export class ForbiddenException extends __BaseException {
   readonly name: "ForbiddenException" = "ForbiddenException";
@@ -875,8 +875,8 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
- * @public
  * An unexpected error occurred.
+ * @public
  */
 export class InternalServerErrorException extends __BaseException {
   readonly name: "InternalServerErrorException" = "InternalServerErrorException";
@@ -897,8 +897,8 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
- * @public
  * The requested resource does not exist.
+ * @public
  */
 export class NotFoundException extends __BaseException {
   readonly name: "NotFoundException" = "NotFoundException";
@@ -919,8 +919,8 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * @public
  * An unexpected error occurred.
+ * @public
  */
 export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
@@ -941,8 +941,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * @public
  * The client has exceeded their resource or throttling limits.
+ * @public
  */
 export class TooManyRequestsException extends __BaseException {
   readonly name: "TooManyRequestsException" = "TooManyRequestsException";
@@ -963,8 +963,8 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * @public
  * The parameters sent in the request are not valid.
+ * @public
  */
 export class UnprocessableEntityException extends __BaseException {
   readonly name: "UnprocessableEntityException" = "UnprocessableEntityException";
@@ -985,43 +985,43 @@ export class UnprocessableEntityException extends __BaseException {
 }
 
 /**
- * @public
  * A new MediaPackage VOD Asset configuration.
+ * @public
  */
 export interface CreateAssetRequest {
   /**
-   * @public
    * The unique identifier for the Asset.
+   * @public
    */
   Id: string | undefined;
 
   /**
-   * @public
    * The ID of the PackagingGroup for the Asset.
+   * @public
    */
   PackagingGroupId: string | undefined;
 
   /**
-   * @public
    * The resource ID to include in SPEKE key requests.
+   * @public
    */
   ResourceId?: string;
 
   /**
-   * @public
    * ARN of the source object in S3.
+   * @public
    */
   SourceArn: string | undefined;
 
   /**
-   * @public
    * The IAM role ARN used to access the source S3 bucket.
+   * @public
    */
   SourceRoleArn: string | undefined;
 
   /**
-   * @public
    * A collection of tags associated with a resource
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -1031,104 +1031,104 @@ export interface CreateAssetRequest {
  */
 export interface CreateAssetResponse {
   /**
-   * @public
    * The ARN of the Asset.
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * The time the Asset was initially submitted for Ingest.
+   * @public
    */
   CreatedAt?: string;
 
   /**
-   * @public
    * The list of egress endpoints available for the Asset.
+   * @public
    */
   EgressEndpoints?: EgressEndpoint[];
 
   /**
-   * @public
    * The unique identifier for the Asset.
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * The ID of the PackagingGroup for the Asset.
+   * @public
    */
   PackagingGroupId?: string;
 
   /**
-   * @public
    * The resource ID to include in SPEKE key requests.
+   * @public
    */
   ResourceId?: string;
 
   /**
-   * @public
    * ARN of the source object in S3.
+   * @public
    */
   SourceArn?: string;
 
   /**
-   * @public
    * The IAM role_arn used to access the source S3 bucket.
+   * @public
    */
   SourceRoleArn?: string;
 
   /**
-   * @public
    * A collection of tags associated with a resource
+   * @public
    */
   Tags?: Record<string, string>;
 }
 
 /**
- * @public
  * A new MediaPackage VOD PackagingConfiguration resource configuration.
+ * @public
  */
 export interface CreatePackagingConfigurationRequest {
   /**
-   * @public
    * A CMAF packaging configuration.
+   * @public
    */
   CmafPackage?: CmafPackage;
 
   /**
-   * @public
    * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
+   * @public
    */
   DashPackage?: DashPackage;
 
   /**
-   * @public
    * An HTTP Live Streaming (HLS) packaging configuration.
+   * @public
    */
   HlsPackage?: HlsPackage;
 
   /**
-   * @public
    * The ID of the PackagingConfiguration.
+   * @public
    */
   Id: string | undefined;
 
   /**
-   * @public
    * A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
+   * @public
    */
   MssPackage?: MssPackage;
 
   /**
-   * @public
    * The ID of a PackagingGroup.
+   * @public
    */
   PackagingGroupId: string | undefined;
 
   /**
-   * @public
    * A collection of tags associated with a resource
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -1138,86 +1138,86 @@ export interface CreatePackagingConfigurationRequest {
  */
 export interface CreatePackagingConfigurationResponse {
   /**
-   * @public
    * The ARN of the PackagingConfiguration.
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * A CMAF packaging configuration.
+   * @public
    */
   CmafPackage?: CmafPackage;
 
   /**
-   * @public
    * The time the PackagingConfiguration was created.
+   * @public
    */
   CreatedAt?: string;
 
   /**
-   * @public
    * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
+   * @public
    */
   DashPackage?: DashPackage;
 
   /**
-   * @public
    * An HTTP Live Streaming (HLS) packaging configuration.
+   * @public
    */
   HlsPackage?: HlsPackage;
 
   /**
-   * @public
    * The ID of the PackagingConfiguration.
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
+   * @public
    */
   MssPackage?: MssPackage;
 
   /**
-   * @public
    * The ID of a PackagingGroup.
+   * @public
    */
   PackagingGroupId?: string;
 
   /**
-   * @public
    * A collection of tags associated with a resource
+   * @public
    */
   Tags?: Record<string, string>;
 }
 
 /**
- * @public
  * A new MediaPackage VOD PackagingGroup resource configuration.
+ * @public
  */
 export interface CreatePackagingGroupRequest {
   /**
-   * @public
    * CDN Authorization credentials
+   * @public
    */
   Authorization?: Authorization;
 
   /**
-   * @public
    * Configure egress access logging.
+   * @public
    */
   EgressAccessLogs?: EgressAccessLogs;
 
   /**
-   * @public
    * The ID of the PackagingGroup.
+   * @public
    */
   Id: string | undefined;
 
   /**
-   * @public
    * A collection of tags associated with a resource
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -1227,44 +1227,44 @@ export interface CreatePackagingGroupRequest {
  */
 export interface CreatePackagingGroupResponse {
   /**
-   * @public
    * The ARN of the PackagingGroup.
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * CDN Authorization credentials
+   * @public
    */
   Authorization?: Authorization;
 
   /**
-   * @public
    * The time the PackagingGroup was created.
+   * @public
    */
   CreatedAt?: string;
 
   /**
-   * @public
    * The fully qualified domain name for Assets in the PackagingGroup.
+   * @public
    */
   DomainName?: string;
 
   /**
-   * @public
    * Configure egress access logging.
+   * @public
    */
   EgressAccessLogs?: EgressAccessLogs;
 
   /**
-   * @public
    * The ID of the PackagingGroup.
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * A collection of tags associated with a resource
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -1274,8 +1274,8 @@ export interface CreatePackagingGroupResponse {
  */
 export interface DeleteAssetRequest {
   /**
-   * @public
    * The ID of the MediaPackage VOD Asset resource to delete.
+   * @public
    */
   Id: string | undefined;
 }
@@ -1290,8 +1290,8 @@ export interface DeleteAssetResponse {}
  */
 export interface DeletePackagingConfigurationRequest {
   /**
-   * @public
    * The ID of the MediaPackage VOD PackagingConfiguration resource to delete.
+   * @public
    */
   Id: string | undefined;
 }
@@ -1306,8 +1306,8 @@ export interface DeletePackagingConfigurationResponse {}
  */
 export interface DeletePackagingGroupRequest {
   /**
-   * @public
    * The ID of the MediaPackage VOD PackagingGroup resource to delete.
+   * @public
    */
   Id: string | undefined;
 }
@@ -1322,8 +1322,8 @@ export interface DeletePackagingGroupResponse {}
  */
 export interface DescribeAssetRequest {
   /**
-   * @public
    * The ID of an MediaPackage VOD Asset resource.
+   * @public
    */
   Id: string | undefined;
 }
@@ -1333,56 +1333,56 @@ export interface DescribeAssetRequest {
  */
 export interface DescribeAssetResponse {
   /**
-   * @public
    * The ARN of the Asset.
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * The time the Asset was initially submitted for Ingest.
+   * @public
    */
   CreatedAt?: string;
 
   /**
-   * @public
    * The list of egress endpoints available for the Asset.
+   * @public
    */
   EgressEndpoints?: EgressEndpoint[];
 
   /**
-   * @public
    * The unique identifier for the Asset.
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * The ID of the PackagingGroup for the Asset.
+   * @public
    */
   PackagingGroupId?: string;
 
   /**
-   * @public
    * The resource ID to include in SPEKE key requests.
+   * @public
    */
   ResourceId?: string;
 
   /**
-   * @public
    * ARN of the source object in S3.
+   * @public
    */
   SourceArn?: string;
 
   /**
-   * @public
    * The IAM role_arn used to access the source S3 bucket.
+   * @public
    */
   SourceRoleArn?: string;
 
   /**
-   * @public
    * A collection of tags associated with a resource
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -1392,8 +1392,8 @@ export interface DescribeAssetResponse {
  */
 export interface DescribePackagingConfigurationRequest {
   /**
-   * @public
    * The ID of a MediaPackage VOD PackagingConfiguration resource.
+   * @public
    */
   Id: string | undefined;
 }
@@ -1403,56 +1403,56 @@ export interface DescribePackagingConfigurationRequest {
  */
 export interface DescribePackagingConfigurationResponse {
   /**
-   * @public
    * The ARN of the PackagingConfiguration.
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * A CMAF packaging configuration.
+   * @public
    */
   CmafPackage?: CmafPackage;
 
   /**
-   * @public
    * The time the PackagingConfiguration was created.
+   * @public
    */
   CreatedAt?: string;
 
   /**
-   * @public
    * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
+   * @public
    */
   DashPackage?: DashPackage;
 
   /**
-   * @public
    * An HTTP Live Streaming (HLS) packaging configuration.
+   * @public
    */
   HlsPackage?: HlsPackage;
 
   /**
-   * @public
    * The ID of the PackagingConfiguration.
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
+   * @public
    */
   MssPackage?: MssPackage;
 
   /**
-   * @public
    * The ID of a PackagingGroup.
+   * @public
    */
   PackagingGroupId?: string;
 
   /**
-   * @public
    * A collection of tags associated with a resource
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -1462,8 +1462,8 @@ export interface DescribePackagingConfigurationResponse {
  */
 export interface DescribePackagingGroupRequest {
   /**
-   * @public
    * The ID of a MediaPackage VOD PackagingGroup resource.
+   * @public
    */
   Id: string | undefined;
 }
@@ -1473,50 +1473,50 @@ export interface DescribePackagingGroupRequest {
  */
 export interface DescribePackagingGroupResponse {
   /**
-   * @public
    * The approximate asset count of the PackagingGroup.
+   * @public
    */
   ApproximateAssetCount?: number;
 
   /**
-   * @public
    * The ARN of the PackagingGroup.
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * CDN Authorization credentials
+   * @public
    */
   Authorization?: Authorization;
 
   /**
-   * @public
    * The time the PackagingGroup was created.
+   * @public
    */
   CreatedAt?: string;
 
   /**
-   * @public
    * The fully qualified domain name for Assets in the PackagingGroup.
+   * @public
    */
   DomainName?: string;
 
   /**
-   * @public
    * Configure egress access logging.
+   * @public
    */
   EgressAccessLogs?: EgressAccessLogs;
 
   /**
-   * @public
    * The ID of the PackagingGroup.
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * A collection of tags associated with a resource
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -1526,20 +1526,20 @@ export interface DescribePackagingGroupResponse {
  */
 export interface ListAssetsRequest {
   /**
-   * @public
    * Upper bound on number of records to return.
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * A token used to resume pagination from the end of a previous request.
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * Returns Assets associated with the specified PackagingGroup.
+   * @public
    */
   PackagingGroupId?: string;
 }
@@ -1549,14 +1549,14 @@ export interface ListAssetsRequest {
  */
 export interface ListAssetsResponse {
   /**
-   * @public
    * A list of MediaPackage VOD Asset resources.
+   * @public
    */
   Assets?: AssetShallow[];
 
   /**
-   * @public
    * A token that can be used to resume pagination from the end of the collection.
+   * @public
    */
   NextToken?: string;
 }
@@ -1566,20 +1566,20 @@ export interface ListAssetsResponse {
  */
 export interface ListPackagingConfigurationsRequest {
   /**
-   * @public
    * Upper bound on number of records to return.
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * A token used to resume pagination from the end of a previous request.
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * Returns MediaPackage VOD PackagingConfigurations associated with the specified PackagingGroup.
+   * @public
    */
   PackagingGroupId?: string;
 }
@@ -1589,14 +1589,14 @@ export interface ListPackagingConfigurationsRequest {
  */
 export interface ListPackagingConfigurationsResponse {
   /**
-   * @public
    * A token that can be used to resume pagination from the end of the collection.
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * A list of MediaPackage VOD PackagingConfiguration resources.
+   * @public
    */
   PackagingConfigurations?: PackagingConfiguration[];
 }
@@ -1606,14 +1606,14 @@ export interface ListPackagingConfigurationsResponse {
  */
 export interface ListPackagingGroupsRequest {
   /**
-   * @public
    * Upper bound on number of records to return.
+   * @public
    */
   MaxResults?: number;
 
   /**
-   * @public
    * A token used to resume pagination from the end of a previous request.
+   * @public
    */
   NextToken?: string;
 }
@@ -1623,14 +1623,14 @@ export interface ListPackagingGroupsRequest {
  */
 export interface ListPackagingGroupsResponse {
   /**
-   * @public
    * A token that can be used to resume pagination from the end of the collection.
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * A list of MediaPackage VOD PackagingGroup resources.
+   * @public
    */
   PackagingGroups?: PackagingGroup[];
 }
@@ -1640,8 +1640,8 @@ export interface ListPackagingGroupsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * @public
    * The Amazon Resource Name (ARN) for the resource. You can get this from the response to any request to the resource.
+   * @public
    */
   ResourceArn: string | undefined;
 }
@@ -1651,8 +1651,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * @public
    * A collection of tags associated with a resource
+   * @public
    */
   Tags?: Record<string, string>;
 }
@@ -1662,14 +1662,14 @@ export interface ListTagsForResourceResponse {
  */
 export interface TagResourceRequest {
   /**
-   * @public
    * The Amazon Resource Name (ARN) for the resource. You can get this from the response to any request to the resource.
+   * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * @public
    * A collection of tags associated with a resource
+   * @public
    */
   Tags: Record<string, string> | undefined;
 }
@@ -1679,32 +1679,32 @@ export interface TagResourceRequest {
  */
 export interface UntagResourceRequest {
   /**
-   * @public
    * The Amazon Resource Name (ARN) for the resource. You can get this from the response to any request to the resource.
+   * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * @public
    * A comma-separated list of the tag keys to remove from the resource.
+   * @public
    */
   TagKeys: string[] | undefined;
 }
 
 /**
- * @public
  * A MediaPackage VOD PackagingGroup resource configuration.
+ * @public
  */
 export interface UpdatePackagingGroupRequest {
   /**
-   * @public
    * CDN Authorization credentials
+   * @public
    */
   Authorization?: Authorization;
 
   /**
-   * @public
    * The ID of a MediaPackage VOD PackagingGroup resource.
+   * @public
    */
   Id: string | undefined;
 }
@@ -1714,50 +1714,50 @@ export interface UpdatePackagingGroupRequest {
  */
 export interface UpdatePackagingGroupResponse {
   /**
-   * @public
    * The approximate asset count of the PackagingGroup.
+   * @public
    */
   ApproximateAssetCount?: number;
 
   /**
-   * @public
    * The ARN of the PackagingGroup.
+   * @public
    */
   Arn?: string;
 
   /**
-   * @public
    * CDN Authorization credentials
+   * @public
    */
   Authorization?: Authorization;
 
   /**
-   * @public
    * The time the PackagingGroup was created.
+   * @public
    */
   CreatedAt?: string;
 
   /**
-   * @public
    * The fully qualified domain name for Assets in the PackagingGroup.
+   * @public
    */
   DomainName?: string;
 
   /**
-   * @public
    * Configure egress access logging.
+   * @public
    */
   EgressAccessLogs?: EgressAccessLogs;
 
   /**
-   * @public
    * The ID of the PackagingGroup.
+   * @public
    */
   Id?: string;
 
   /**
-   * @public
    * A collection of tags associated with a resource
+   * @public
    */
   Tags?: Record<string, string>;
 }

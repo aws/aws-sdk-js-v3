@@ -32,7 +32,6 @@ export interface DeleteEksAnywhereSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an expired or inactive subscription. Deleting inactive subscriptions removes
  *             them from the Amazon Web Services Management Console view and from list/describe API responses.
  *             Subscriptions can only be cancelled within 7 days of creation and are cancelled by
@@ -100,6 +99,7 @@ export interface DeleteEksAnywhereSubscriptionCommandOutput
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class DeleteEksAnywhereSubscriptionCommand extends $Command
   .classBuilder<

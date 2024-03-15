@@ -32,7 +32,6 @@ export interface ListPartnerEventSourceAccountsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>An SaaS partner can use this operation to display the Amazon Web Services account ID that a particular
  *       partner event source name is associated with. This operation is not used by Amazon Web Services
  *       customers.</p>
@@ -81,6 +80,7 @@ export interface ListPartnerEventSourceAccountsCommandOutput
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * @public
  */
 export class ListPartnerEventSourceAccountsCommand extends $Command
   .classBuilder<

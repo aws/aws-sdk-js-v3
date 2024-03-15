@@ -36,7 +36,6 @@ export interface RebalanceSlotsInGlobalReplicationGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Redistribute slots to ensure uniform distribution across existing shards in the
  *             cluster.</p>
  * @example
@@ -102,6 +101,7 @@ export interface RebalanceSlotsInGlobalReplicationGroupCommandOutput
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  */
 export class RebalanceSlotsInGlobalReplicationGroupCommand extends $Command
   .classBuilder<

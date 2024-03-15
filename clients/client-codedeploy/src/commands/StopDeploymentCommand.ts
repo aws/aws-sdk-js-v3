@@ -27,7 +27,6 @@ export interface StopDeploymentCommandInput extends StopDeploymentInput {}
 export interface StopDeploymentCommandOutput extends StopDeploymentOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Attempts to stop an ongoing deployment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface StopDeploymentCommandOutput extends StopDeploymentOutput, __Met
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * @public
  */
 export class StopDeploymentCommand extends $Command
   .classBuilder<

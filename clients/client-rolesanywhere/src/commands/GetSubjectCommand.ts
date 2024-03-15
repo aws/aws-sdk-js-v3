@@ -27,7 +27,6 @@ export interface GetSubjectCommandInput extends ScalarSubjectRequest {}
 export interface GetSubjectCommandOutput extends SubjectDetailResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a <i>subject</i>, which associates a certificate identity with
  *          authentication attempts. The subject stores auditing information such as the status
  *          of the last authentication attempt, the certificate data used in the attempt, and the
@@ -95,6 +94,7 @@ export interface GetSubjectCommandOutput extends SubjectDetailResponse, __Metada
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ * @public
  */
 export class GetSubjectCommand extends $Command
   .classBuilder<

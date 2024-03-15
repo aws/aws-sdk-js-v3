@@ -31,7 +31,6 @@ export interface RevokeVpcEndpointAccessCommandInput extends RevokeVpcEndpointAc
 export interface RevokeVpcEndpointAccessCommandOutput extends RevokeVpcEndpointAccessResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Revokes access to an Amazon OpenSearch Service domain that was provided through an interface
  *    VPC endpoint.</p>
  * @example
@@ -74,6 +73,7 @@ export interface RevokeVpcEndpointAccessCommandOutput extends RevokeVpcEndpointA
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * @public
  */
 export class RevokeVpcEndpointAccessCommand extends $Command
   .classBuilder<

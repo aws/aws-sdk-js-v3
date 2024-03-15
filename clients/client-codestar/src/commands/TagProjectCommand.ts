@@ -27,7 +27,6 @@ export interface TagProjectCommandInput extends TagProjectRequest {}
 export interface TagProjectCommandOutput extends TagProjectResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds tags to a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface TagProjectCommandOutput extends TagProjectResult, __MetadataBea
  * @throws {@link CodeStarServiceException}
  * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
+ * @public
  */
 export class TagProjectCommand extends $Command
   .classBuilder<

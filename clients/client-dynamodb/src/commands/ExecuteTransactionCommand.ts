@@ -27,7 +27,6 @@ export interface ExecuteTransactionCommandInput extends ExecuteTransactionInput 
 export interface ExecuteTransactionCommandOutput extends ExecuteTransactionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation allows you to perform transactional reads or writes on data stored in
  *             DynamoDB, using PartiQL.</p>
  *          <note>
@@ -516,6 +515,7 @@ export interface ExecuteTransactionCommandOutput extends ExecuteTransactionOutpu
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  */
 export class ExecuteTransactionCommand extends $Command
   .classBuilder<

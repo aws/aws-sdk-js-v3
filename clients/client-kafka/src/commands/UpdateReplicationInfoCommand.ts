@@ -27,7 +27,6 @@ export interface UpdateReplicationInfoCommandInput extends UpdateReplicationInfo
 export interface UpdateReplicationInfoCommandOutput extends UpdateReplicationInfoResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates replication info of a replicator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface UpdateReplicationInfoCommandOutput extends UpdateReplicationInf
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ * @public
  */
 export class UpdateReplicationInfoCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreatePipeCommandInput extends CreatePipeRequest {}
 export interface CreatePipeCommandOutput extends CreatePipeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a pipe. Amazon EventBridge Pipes connect event sources to targets and reduces the need for specialized knowledge and integration code.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -396,6 +395,7 @@ export interface CreatePipeCommandOutput extends CreatePipeResponse, __MetadataB
  * @throws {@link PipesServiceException}
  * <p>Base exception class for all service exceptions from Pipes service.</p>
  *
+ * @public
  */
 export class CreatePipeCommand extends $Command
   .classBuilder<

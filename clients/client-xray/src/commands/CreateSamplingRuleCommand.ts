@@ -27,7 +27,6 @@ export interface CreateSamplingRuleCommandInput extends CreateSamplingRuleReques
 export interface CreateSamplingRuleCommandOutput extends CreateSamplingRuleResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a rule to control sampling behavior for instrumented applications. Services
  *          retrieve rules with <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html">GetSamplingRules</a>, and evaluate each rule in ascending
  *          order of <i>priority</i> for each request. If a rule matches, the service
@@ -112,6 +111,7 @@ export interface CreateSamplingRuleCommandOutput extends CreateSamplingRuleResul
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ * @public
  */
 export class CreateSamplingRuleCommand extends $Command
   .classBuilder<

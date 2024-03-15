@@ -35,7 +35,6 @@ export interface CreatePolicyTemplateCommandInput extends CreatePolicyTemplateIn
 export interface CreatePolicyTemplateCommandOutput extends CreatePolicyTemplateOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a policy template. A template can use placeholders for the principal and resource. A
  *             template must be instantiated into a policy by associating it with specific principals
  *             and resources to use for the placeholders. That instantiated policy can then be
@@ -184,6 +183,7 @@ export interface CreatePolicyTemplateCommandOutput extends CreatePolicyTemplateO
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ * @public
  */
 export class CreatePolicyTemplateCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListKeywordsForDataSourceCommandInput extends ListKeywordsForDa
 export interface ListKeywordsForDataSourceCommandOutput extends ListKeywordsForDataSourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns a list of keywords that are pre-mapped to the specified control data source.
  *       </p>
  * @example
@@ -72,6 +71,7 @@ export interface ListKeywordsForDataSourceCommandOutput extends ListKeywordsForD
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class ListKeywordsForDataSourceCommand extends $Command
   .classBuilder<

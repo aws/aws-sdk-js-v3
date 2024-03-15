@@ -27,7 +27,6 @@ export interface DownloadDBLogFilePortionCommandInput extends DownloadDBLogFileP
 export interface DownloadDBLogFilePortionCommandOutput extends DownloadDBLogFilePortionDetails, __MetadataBearer {}
 
 /**
- * @public
  * <p>Downloads all or a portion of the specified log file, up to 1 MB in size.</p>
  *          <p>This command doesn't apply to RDS Custom.</p>
  * @example
@@ -69,6 +68,7 @@ export interface DownloadDBLogFilePortionCommandOutput extends DownloadDBLogFile
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To download a DB log file
  * ```javascript
  * // The following example downloads only the latest part of your log file.

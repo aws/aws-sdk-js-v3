@@ -27,7 +27,6 @@ export interface DeleteRepositoryCommandInput extends DeleteRepositoryRequest {}
 export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a repository. If the repository isn't empty, you must either delete the
  *             contents of the repository or use the <code>force</code> option to delete the repository
  *             and have Amazon ECR delete all of its contents on your behalf.</p>
@@ -91,6 +90,7 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResponse,
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * @public
  * @example To force delete a repository
  * ```javascript
  * // This example force deletes a repository named ubuntu in the default registry for an account. The force parameter is required if the repository contains images.

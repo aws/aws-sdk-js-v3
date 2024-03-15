@@ -27,7 +27,6 @@ export interface ListFuotaTasksCommandInput extends ListFuotaTasksRequest {}
 export interface ListFuotaTasksCommandOutput extends ListFuotaTasksResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the FUOTA tasks registered to your AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface ListFuotaTasksCommandOutput extends ListFuotaTasksResponse, __M
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class ListFuotaTasksCommand extends $Command
   .classBuilder<

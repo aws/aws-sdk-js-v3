@@ -27,7 +27,6 @@ export interface DeleteVpcPeeringConnectionCommandInput extends DeleteVpcPeering
 export interface DeleteVpcPeeringConnectionCommandOutput extends DeleteVpcPeeringConnectionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes a VPC peering connection. To delete the connection, you must have a valid
  *             authorization for the VPC peering connection that you want to delete.. </p>
  *          <p>Once a valid authorization exists, call this operation from the Amazon Web Services account that is
@@ -78,6 +77,7 @@ export interface DeleteVpcPeeringConnectionCommandOutput extends DeleteVpcPeerin
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class DeleteVpcPeeringConnectionCommand extends $Command
   .classBuilder<

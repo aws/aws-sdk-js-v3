@@ -27,7 +27,6 @@ export interface ListExperiencesCommandInput extends ListExperiencesRequest {}
 export interface ListExperiencesCommandOutput extends ListExperiencesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists one or more Amazon Kendra experiences. You can create an Amazon Kendra experience such
  *             as a search application. For more information on creating a search application
  *             experience, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building a
@@ -94,6 +93,7 @@ export interface ListExperiencesCommandOutput extends ListExperiencesResponse, _
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class ListExperiencesCommand extends $Command
   .classBuilder<

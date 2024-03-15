@@ -31,7 +31,6 @@ export interface DescribeTargetGroupsCommandInput extends DescribeTargetGroupsIn
 export interface DescribeTargetGroupsCommandOutput extends DescribeTargetGroupsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified target groups or all of your target groups. By default, all target
  *       groups are described. Alternatively, you can specify one of the following to filter the
  *       results: the ARN of the load balancer, the names of one or more target groups, or the ARNs of
@@ -103,6 +102,7 @@ export interface DescribeTargetGroupsCommandOutput extends DescribeTargetGroupsO
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * @public
  * @example To describe a target group
  * ```javascript
  * // This example describes the specified target group.

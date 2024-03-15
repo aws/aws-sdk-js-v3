@@ -31,7 +31,6 @@ export interface ActivateDeviceIdentifierCommandInput extends ActivateDeviceIden
 export interface ActivateDeviceIdentifierCommandOutput extends ActivateDeviceIdentifierResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Activates the specified device identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -82,6 +81,7 @@ export interface ActivateDeviceIdentifierCommandOutput extends ActivateDeviceIde
  * @throws {@link PrivateNetworksServiceException}
  * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
+ * @public
  */
 export class ActivateDeviceIdentifierCommand extends $Command
   .classBuilder<

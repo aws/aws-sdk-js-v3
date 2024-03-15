@@ -27,7 +27,6 @@ export interface UpdateEvaluationCommandInput extends UpdateEvaluationInput {}
 export interface UpdateEvaluationCommandOutput extends UpdateEvaluationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the <code>EvaluationName</code> of an <code>Evaluation</code>.</p>
  *         <p>You can use the <code>GetEvaluation</code> operation to view the contents of the updated data element.</p>
  * @example
@@ -66,6 +65,7 @@ export interface UpdateEvaluationCommandOutput extends UpdateEvaluationOutput, _
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * @public
  */
 export class UpdateEvaluationCommand extends $Command
   .classBuilder<

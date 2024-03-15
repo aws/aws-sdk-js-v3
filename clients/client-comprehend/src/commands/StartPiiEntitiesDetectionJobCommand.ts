@@ -32,7 +32,6 @@ export interface StartPiiEntitiesDetectionJobCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an asynchronous PII entity detection job for a collection of documents.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -116,6 +115,7 @@ export interface StartPiiEntitiesDetectionJobCommandOutput
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class StartPiiEntitiesDetectionJobCommand extends $Command
   .classBuilder<

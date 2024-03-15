@@ -27,7 +27,6 @@ export interface DeleteConnectorCommandInput extends DeleteConnectorRequest {}
 export interface DeleteConnectorCommandOutput extends DeleteConnectorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface DeleteConnectorCommandOutput extends DeleteConnectorResponse, _
  * @throws {@link KafkaConnectServiceException}
  * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
+ * @public
  */
 export class DeleteConnectorCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetProductsCommandInput extends GetProductsRequest {}
 export interface GetProductsCommandOutput extends GetProductsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all products that match the filter criteria.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface GetProductsCommandOutput extends GetProductsResponse, __Metadat
  * @throws {@link PricingServiceException}
  * <p>Base exception class for all service exceptions from Pricing service.</p>
  *
+ * @public
  */
 export class GetProductsCommand extends $Command
   .classBuilder<

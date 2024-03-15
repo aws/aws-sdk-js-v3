@@ -30,7 +30,6 @@ export interface RespondDecisionTaskCompletedCommandInput extends RespondDecisio
 export interface RespondDecisionTaskCompletedCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Used by deciders to tell the service that the <a>DecisionTask</a> identified
  *       by the <code>taskToken</code> has successfully completed. The <code>decisions</code> argument
  *       specifies the list of decisions made while processing the task.</p>
@@ -184,6 +183,7 @@ export interface RespondDecisionTaskCompletedCommandOutput extends __MetadataBea
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ * @public
  */
 export class RespondDecisionTaskCompletedCommand extends $Command
   .classBuilder<

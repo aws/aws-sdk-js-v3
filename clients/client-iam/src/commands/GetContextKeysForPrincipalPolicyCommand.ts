@@ -32,7 +32,6 @@ export interface GetContextKeysForPrincipalPolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of all of the context keys referenced in all the IAM policies that are
  *             attached to the specified IAM entity. The entity can be an IAM user, group, or role.
  *             If you specify a user, then the request also includes all of the policies attached to
@@ -86,6 +85,7 @@ export interface GetContextKeysForPrincipalPolicyCommandOutput
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class GetContextKeysForPrincipalPolicyCommand extends $Command
   .classBuilder<

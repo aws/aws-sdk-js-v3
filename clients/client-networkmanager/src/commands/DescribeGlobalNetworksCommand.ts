@@ -27,7 +27,6 @@ export interface DescribeGlobalNetworksCommandInput extends DescribeGlobalNetwor
 export interface DescribeGlobalNetworksCommandOutput extends DescribeGlobalNetworksResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes one or more global networks. By default, all global networks are
  *             described. To describe the objects in your global network, you must use the appropriate
  *                 <code>Get*</code> action. For example, to list the transit gateways in your global
@@ -92,6 +91,7 @@ export interface DescribeGlobalNetworksCommandOutput extends DescribeGlobalNetwo
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * @public
  */
 export class DescribeGlobalNetworksCommand extends $Command
   .classBuilder<

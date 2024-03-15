@@ -27,7 +27,6 @@ export interface GetQueryRuntimeStatisticsCommandInput extends GetQueryRuntimeSt
 export interface GetQueryRuntimeStatisticsCommandOutput extends GetQueryRuntimeStatisticsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns query execution runtime statistics related to a single execution of a query if
  *             you have access to the workgroup in which the query ran. Query execution runtime
  *             statistics are returned only when <a>QueryExecutionStatus$State</a> is in a
@@ -126,6 +125,7 @@ export interface GetQueryRuntimeStatisticsCommandOutput extends GetQueryRuntimeS
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class GetQueryRuntimeStatisticsCommand extends $Command
   .classBuilder<

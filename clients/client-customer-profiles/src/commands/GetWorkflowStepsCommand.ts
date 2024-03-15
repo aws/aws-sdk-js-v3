@@ -27,7 +27,6 @@ export interface GetWorkflowStepsCommandInput extends GetWorkflowStepsRequest {}
 export interface GetWorkflowStepsCommandOutput extends GetWorkflowStepsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get granular list of steps in workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface GetWorkflowStepsCommandOutput extends GetWorkflowStepsResponse,
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * @public
  */
 export class GetWorkflowStepsCommand extends $Command
   .classBuilder<

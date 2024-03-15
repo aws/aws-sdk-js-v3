@@ -27,7 +27,6 @@ export interface CreateBotVersionCommandInput extends CreateBotVersionRequest {}
 export interface CreateBotVersionCommandOutput extends CreateBotVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an immutable version of the bot. When you create the first
  *          version of a bot, Amazon Lex sets the version number to 1. Subsequent bot versions increase
  *          in an increment of 1. The version number will always represent the total number
@@ -99,6 +98,7 @@ export interface CreateBotVersionCommandOutput extends CreateBotVersionResponse,
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class CreateBotVersionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface PutDestinationCommandInput extends PutDestinationRequest {}
 export interface PutDestinationCommandOutput extends PutDestinationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates or updates a destination. This operation is used only to create destinations for cross-account subscriptions.</p>
  *          <p>A destination encapsulates a physical resource (such as an Amazon Kinesis stream). With
  *       a destination, you can subscribe to a real-time stream of log events for a different account,
@@ -85,6 +84,7 @@ export interface PutDestinationCommandOutput extends PutDestinationResponse, __M
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class PutDestinationCommand extends $Command
   .classBuilder<

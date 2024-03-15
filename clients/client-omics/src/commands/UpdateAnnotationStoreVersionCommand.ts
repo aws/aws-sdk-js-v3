@@ -32,7 +32,6 @@ export interface UpdateAnnotationStoreVersionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  * Updates the description of an annotation store version.
  * </p>
@@ -86,6 +85,7 @@ export interface UpdateAnnotationStoreVersionCommandOutput
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class UpdateAnnotationStoreVersionCommand extends $Command
   .classBuilder<

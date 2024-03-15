@@ -27,7 +27,6 @@ export interface CreateLocationEfsCommandInput extends CreateLocationEfsRequest 
 export interface CreateLocationEfsCommandOutput extends CreateLocationEfsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a transfer <i>location</i> for an Amazon EFS file system.
  *         DataSync can use this location as a source or destination for transferring
  *       data.</p>
@@ -83,6 +82,7 @@ export interface CreateLocationEfsCommandOutput extends CreateLocationEfsRespons
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class CreateLocationEfsCommand extends $Command
   .classBuilder<

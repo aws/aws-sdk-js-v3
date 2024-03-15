@@ -27,9 +27,6 @@ export interface RevokeInvitationCommandInput extends RevokeInvitationRequest {}
 export interface RevokeInvitationCommandOutput extends RevokeInvitationResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Revokes an invitation and invalidates the enrollment URL.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +59,8 @@ export interface RevokeInvitationCommandOutput extends RevokeInvitationResponse,
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class RevokeInvitationCommand extends $Command
   .classBuilder<

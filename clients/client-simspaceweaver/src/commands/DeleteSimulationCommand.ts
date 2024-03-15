@@ -27,7 +27,6 @@ export interface DeleteSimulationCommandInput extends DeleteSimulationInput {}
 export interface DeleteSimulationCommandOutput extends DeleteSimulationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes all SimSpace Weaver resources assigned to the given simulation.</p>
  *          <note>
  *             <p>Your simulation uses resources in other Amazon Web Services. This API operation doesn't delete
@@ -72,6 +71,7 @@ export interface DeleteSimulationCommandOutput extends DeleteSimulationOutput, _
  * @throws {@link SimSpaceWeaverServiceException}
  * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
+ * @public
  */
 export class DeleteSimulationCommand extends $Command
   .classBuilder<

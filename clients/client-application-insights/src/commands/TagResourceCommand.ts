@@ -31,7 +31,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Add one or more tags (keys and values) to a specified application. A
  *             <i>tag</i> is a label that you optionally define and associate with an
  *          application. Tags can help you categorize and manage application in different ways, such as
@@ -80,6 +79,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

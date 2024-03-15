@@ -27,7 +27,6 @@ export interface GetTextDetectionCommandInput extends GetTextDetectionRequest {}
 export interface GetTextDetectionCommandOutput extends GetTextDetectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the text detection results of a Amazon Rekognition Video analysis started by <a>StartTextDetection</a>.</p>
  *          <p>Text detection with Amazon Rekognition Video is an asynchronous operation. You start text detection by
  *      calling <a>StartTextDetection</a> which returns a job identifier (<code>JobId</code>)
@@ -145,6 +144,7 @@ export interface GetTextDetectionCommandOutput extends GetTextDetectionResponse,
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  */
 export class GetTextDetectionCommand extends $Command
   .classBuilder<

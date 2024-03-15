@@ -27,7 +27,6 @@ export interface GetMethodResponseCommandInput extends GetMethodResponseRequest 
 export interface GetMethodResponseCommandOutput extends MethodResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a MethodResponse resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface GetMethodResponseCommandOutput extends MethodResponse, __Metada
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * @public
  */
 export class GetMethodResponseCommand extends $Command
   .classBuilder<

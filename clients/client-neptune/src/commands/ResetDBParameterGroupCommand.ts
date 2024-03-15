@@ -27,7 +27,6 @@ export interface ResetDBParameterGroupCommandInput extends ResetDBParameterGroup
 export interface ResetDBParameterGroupCommandOutput extends DBParameterGroupNameMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the parameters of a DB parameter group to the engine/system default value. To
  *       reset specific parameters, provide a list of the following: <code>ParameterName</code> and
  *       <code>ApplyMethod</code>. To reset the entire DB parameter group, specify the
@@ -85,6 +84,7 @@ export interface ResetDBParameterGroupCommandOutput extends DBParameterGroupName
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class ResetDBParameterGroupCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface TagDeliveryStreamCommandInput extends TagDeliveryStreamInput {}
 export interface TagDeliveryStreamCommandOutput extends TagDeliveryStreamOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds or updates tags for the specified delivery stream. A tag is a key-value pair
  *          that you can define and assign to Amazon Web Services resources. If you specify a tag that
  *          already exists, the tag value is replaced with the value that you specify in the request.
@@ -80,6 +79,7 @@ export interface TagDeliveryStreamCommandOutput extends TagDeliveryStreamOutput,
  * @throws {@link FirehoseServiceException}
  * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
+ * @public
  */
 export class TagDeliveryStreamCommand extends $Command
   .classBuilder<

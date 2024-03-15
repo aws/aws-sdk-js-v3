@@ -27,7 +27,6 @@ export interface AttachElasticLoadBalancerCommandInput extends AttachElasticLoad
 export interface AttachElasticLoadBalancerCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches an Elastic Load Balancing load balancer to a specified layer. AWS OpsWorks Stacks does not support
  *           Application Load Balancer. You can only use Classic Load Balancer with AWS OpsWorks Stacks.
  *           For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/layers-elb.html">Elastic Load
@@ -73,6 +72,7 @@ export interface AttachElasticLoadBalancerCommandOutput extends __MetadataBearer
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ * @public
  */
 export class AttachElasticLoadBalancerCommand extends $Command
   .classBuilder<

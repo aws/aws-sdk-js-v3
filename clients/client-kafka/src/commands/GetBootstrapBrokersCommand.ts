@@ -27,7 +27,6 @@ export interface GetBootstrapBrokersCommandInput extends GetBootstrapBrokersRequ
 export interface GetBootstrapBrokersCommandOutput extends GetBootstrapBrokersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>A list of brokers that a client application can use to bootstrap.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface GetBootstrapBrokersCommandOutput extends GetBootstrapBrokersRes
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ * @public
  */
 export class GetBootstrapBrokersCommand extends $Command
   .classBuilder<

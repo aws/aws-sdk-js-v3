@@ -31,7 +31,6 @@ export interface DescribeReplicationConfigsCommandInput extends DescribeReplicat
 export interface DescribeReplicationConfigsCommandOutput extends DescribeReplicationConfigsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns one or more existing DMS Serverless replication configurations as a list of structures.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface DescribeReplicationConfigsCommandOutput extends DescribeReplica
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  */
 export class DescribeReplicationConfigsCommand extends $Command
   .classBuilder<

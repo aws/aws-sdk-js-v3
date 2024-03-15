@@ -27,7 +27,6 @@ export interface ListMembersCommandInput extends ListMembersRequest {}
 export interface ListMembersCommandOutput extends ListMembersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists details about all member accounts for the current Security Hub administrator
  *          account.</p>
  *          <p>The results include both member accounts that belong to an organization and member
@@ -85,6 +84,7 @@ export interface ListMembersCommandOutput extends ListMembersResponse, __Metadat
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To list member account details
  * ```javascript
  * // The following example returns details about member accounts for the calling Security Hub administrator account. The response includes member accounts that are managed through AWS Organizations and those that were invited manually.

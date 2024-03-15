@@ -32,7 +32,6 @@ export interface ListLifecycleExecutionResourcesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>List resources that the runtime instance of the image lifecycle identified for lifecycle actions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -121,6 +120,7 @@ export interface ListLifecycleExecutionResourcesCommandOutput
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * @public
  */
 export class ListLifecycleExecutionResourcesCommand extends $Command
   .classBuilder<

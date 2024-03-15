@@ -35,7 +35,6 @@ export interface GetFailbackReplicationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all Failback ReplicationConfigurations, filtered by Recovery Instance ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +77,7 @@ export interface GetFailbackReplicationConfigurationCommandOutput
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * @public
  */
 export class GetFailbackReplicationConfigurationCommand extends $Command
   .classBuilder<

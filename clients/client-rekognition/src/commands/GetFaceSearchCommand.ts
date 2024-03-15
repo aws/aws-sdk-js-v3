@@ -27,7 +27,6 @@ export interface GetFaceSearchCommandInput extends GetFaceSearchRequest {}
 export interface GetFaceSearchCommandOutput extends GetFaceSearchResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the face search results for Amazon Rekognition Video face search started by
  *       <a>StartFaceSearch</a>. The search returns faces in a collection that match the faces
  *     of persons detected in a video. It also includes the time(s) that faces are matched in the video.</p>
@@ -233,6 +232,7 @@ export interface GetFaceSearchCommandOutput extends GetFaceSearchResponse, __Met
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  */
 export class GetFaceSearchCommand extends $Command
   .classBuilder<

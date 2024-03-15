@@ -27,7 +27,6 @@ export interface UpdateContactRoutingDataCommandInput extends UpdateContactRouti
 export interface UpdateContactRoutingDataCommandOutput extends UpdateContactRoutingDataResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Updates routing priority and age on the contact (<b>QueuePriority</b> and <b>QueueTimeAdjustmentInSeconds</b>).
  *    These properties can be used to change a customer's position in the queue. For example, you can
@@ -83,6 +82,7 @@ export interface UpdateContactRoutingDataCommandOutput extends UpdateContactRout
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UpdateContactRoutingDataCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteServerCertificateCommandInput extends DeleteServerCertifi
 export interface DeleteServerCertificateCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified server certificate.</p>
  *          <p>For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
  *                 with server certificates</a> in the <i>IAM User Guide</i>. This
@@ -83,6 +82,7 @@ export interface DeleteServerCertificateCommandOutput extends __MetadataBearer {
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class DeleteServerCertificateCommand extends $Command
   .classBuilder<

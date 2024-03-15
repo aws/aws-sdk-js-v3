@@ -27,7 +27,6 @@ export interface ListPageReceiptsCommandInput extends ListPageReceiptsRequest {}
 export interface ListPageReceiptsCommandOutput extends ListPageReceiptsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all of the engagements to contact channels that have been acknowledged.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface ListPageReceiptsCommandOutput extends ListPageReceiptsResult, _
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ * @public
  */
 export class ListPageReceiptsCommand extends $Command
   .classBuilder<

@@ -31,7 +31,6 @@ export interface DescribeAccountCommandInput extends DescribeAccountRequest {}
 export interface DescribeAccountCommandOutput extends DescribeAccountResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves Organizations-related information about the specified account.</p>
  *          <p>This operation can be called only from the organization's
  * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
@@ -198,6 +197,7 @@ export interface DescribeAccountCommandOutput extends DescribeAccountResponse, _
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  * @example To get the details about an account
  * ```javascript
  * // The following example shows a user in the master account (111111111111) asking for details about account 555555555555:

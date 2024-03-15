@@ -27,7 +27,6 @@ export interface DeleteEventTrackerCommandInput extends DeleteEventTrackerReques
 export interface DeleteEventTrackerCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the event tracker. Does not delete the dataset from
  *         the dataset group. For more
  *         information on event trackers, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html">CreateEventTracker</a>.</p>
@@ -64,6 +63,7 @@ export interface DeleteEventTrackerCommandOutput extends __MetadataBearer {}
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class DeleteEventTrackerCommand extends $Command
   .classBuilder<

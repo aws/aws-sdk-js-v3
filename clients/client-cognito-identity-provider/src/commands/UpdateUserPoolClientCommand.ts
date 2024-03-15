@@ -36,7 +36,6 @@ export interface UpdateUserPoolClientCommandInput extends UpdateUserPoolClientRe
 export interface UpdateUserPoolClientCommandOutput extends UpdateUserPoolClientResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified user pool app client with the specified attributes. You can get
  *             a list of the current user pool app client settings using <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPoolClient.html">DescribeUserPoolClient</a>.</p>
  *          <important>
@@ -217,6 +216,7 @@ export interface UpdateUserPoolClientCommandOutput extends UpdateUserPoolClientR
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class UpdateUserPoolClientCommand extends $Command
   .classBuilder<

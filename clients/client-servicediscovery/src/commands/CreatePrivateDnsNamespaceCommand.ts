@@ -27,7 +27,6 @@ export interface CreatePrivateDnsNamespaceCommandInput extends CreatePrivateDnsN
 export interface CreatePrivateDnsNamespaceCommandOutput extends CreatePrivateDnsNamespaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a private namespace based on DNS, which is visible only inside a specified Amazon
  *    VPC. The namespace defines your service naming scheme. For example, if you name your namespace
  *     <code>example.com</code> and name your service <code>backend</code>, the resulting DNS name for
@@ -97,6 +96,7 @@ export interface CreatePrivateDnsNamespaceCommandOutput extends CreatePrivateDns
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
+ * @public
  * @example Example: Create private DNS namespace
  * ```javascript
  * // Example: Create private DNS namespace

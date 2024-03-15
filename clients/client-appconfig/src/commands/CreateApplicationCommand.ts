@@ -27,7 +27,6 @@ export interface CreateApplicationCommandInput extends CreateApplicationRequest 
 export interface CreateApplicationCommandOutput extends Application, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an application. In AppConfig, an application is simply an
  *          organizational construct like a folder. This organizational construct has a relationship
  *          with some unit of executable code. For example, you could create an application called
@@ -82,6 +81,7 @@ export interface CreateApplicationCommandOutput extends Application, __MetadataB
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  * @example To create an application
  * ```javascript
  * // The following create-application example creates an application in AWS AppConfig.

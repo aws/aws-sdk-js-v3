@@ -27,7 +27,6 @@ export interface GetEnabledStandardsCommandInput extends GetEnabledStandardsRequ
 export interface GetEnabledStandardsCommandOutput extends GetEnabledStandardsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the standards that are currently enabled.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface GetEnabledStandardsCommandOutput extends GetEnabledStandardsRes
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To return a list of enabled standards
  * ```javascript
  * // The following example returns a list of Security Hub standards that are currently enabled in your account.

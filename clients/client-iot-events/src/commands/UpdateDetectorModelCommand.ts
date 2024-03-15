@@ -27,7 +27,6 @@ export interface UpdateDetectorModelCommandInput extends UpdateDetectorModelRequ
 export interface UpdateDetectorModelCommandOutput extends UpdateDetectorModelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a detector model. Detectors (instances) spawned by the previous version are
  *       deleted and then re-created as new inputs arrive.</p>
  * @example
@@ -462,6 +461,7 @@ export interface UpdateDetectorModelCommandOutput extends UpdateDetectorModelRes
  * @throws {@link IoTEventsServiceException}
  * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
+ * @public
  */
 export class UpdateDetectorModelCommand extends $Command
   .classBuilder<

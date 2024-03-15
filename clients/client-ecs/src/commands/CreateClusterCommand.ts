@@ -27,7 +27,6 @@ export interface CreateClusterCommandInput extends CreateClusterRequest {}
 export interface CreateClusterCommandOutput extends CreateClusterResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new Amazon ECS cluster. By default, your account receives a <code>default</code>
  * 			cluster when you launch your first container instance. However, you can create your own
  * 			cluster with a unique name with the <code>CreateCluster</code> action.</p>
@@ -184,6 +183,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ * @public
  * @example To create a new cluster
  * ```javascript
  * // This example creates a cluster in your default region.

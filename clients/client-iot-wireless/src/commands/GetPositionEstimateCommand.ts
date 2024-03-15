@@ -35,7 +35,6 @@ export type GetPositionEstimateCommandOutputType = Omit<GetPositionEstimateRespo
 export interface GetPositionEstimateCommandOutput extends GetPositionEstimateCommandOutputType, __MetadataBearer {}
 
 /**
- * @public
  * <p>Get estimated position information as a payload in GeoJSON format. The payload
  *             measurement data is resolved using solvers that are provided by third-party
  *             vendors.</p>
@@ -221,6 +220,7 @@ export interface GetPositionEstimateCommandOutput extends GetPositionEstimateCom
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * @public
  */
 export class GetPositionEstimateCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteOutpostResolverCommandInput extends DeleteOutpostResolver
 export interface DeleteOutpostResolverCommandOutput extends DeleteOutpostResolverResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a Resolver on the Outpost.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface DeleteOutpostResolverCommandOutput extends DeleteOutpostResolve
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class DeleteOutpostResolverCommand extends $Command
   .classBuilder<

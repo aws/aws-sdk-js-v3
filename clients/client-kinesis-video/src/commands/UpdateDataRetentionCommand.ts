@@ -27,7 +27,6 @@ export interface UpdateDataRetentionCommandInput extends UpdateDataRetentionInpu
 export interface UpdateDataRetentionCommandOutput extends UpdateDataRetentionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Increases or decreases the stream's data retention period by the value that you
  *             specify. To indicate whether you want to increase or decrease the data retention period,
  *             specify the <code>Operation</code> parameter in the request body. In the request, you
@@ -116,6 +115,7 @@ export interface UpdateDataRetentionCommandOutput extends UpdateDataRetentionOut
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ * @public
  */
 export class UpdateDataRetentionCommand extends $Command
   .classBuilder<

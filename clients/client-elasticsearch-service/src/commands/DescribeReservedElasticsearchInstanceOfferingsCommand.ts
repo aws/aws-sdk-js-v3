@@ -40,7 +40,6 @@ export interface DescribeReservedElasticsearchInstanceOfferingsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists available reserved Elasticsearch instance offerings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface DescribeReservedElasticsearchInstanceOfferingsCommandOutput
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * @public
  */
 export class DescribeReservedElasticsearchInstanceOfferingsCommand extends $Command
   .classBuilder<

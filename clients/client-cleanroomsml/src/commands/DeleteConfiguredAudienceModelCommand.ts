@@ -30,7 +30,6 @@ export interface DeleteConfiguredAudienceModelCommandInput extends DeleteConfigu
 export interface DeleteConfiguredAudienceModelCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified configured audience model. You can't delete a configured audience model if there are any lookalike models that use the configured audience model. If you delete a configured audience model, it will be removed from any collaborations that it is associated to.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DeleteConfiguredAudienceModelCommandOutput extends __MetadataBe
  * @throws {@link CleanRoomsMLServiceException}
  * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
+ * @public
  */
 export class DeleteConfiguredAudienceModelCommand extends $Command
   .classBuilder<

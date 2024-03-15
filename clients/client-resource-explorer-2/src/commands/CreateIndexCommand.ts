@@ -31,7 +31,6 @@ export interface CreateIndexCommandInput extends CreateIndexInput {}
 export interface CreateIndexCommandOutput extends CreateIndexOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Turns on Amazon Web Services Resource Explorer in the Amazon Web Services Region in which you called this operation by creating
  *             an index. Resource Explorer begins discovering the resources in this Region and stores the details
  *             about the resources in the index so that they can be queried by using the <a>Search</a> operation. You can create only one index in a Region.</p>
@@ -140,6 +139,7 @@ export interface CreateIndexCommandOutput extends CreateIndexOutput, __MetadataB
  * @throws {@link ResourceExplorer2ServiceException}
  * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
+ * @public
  */
 export class CreateIndexCommand extends $Command
   .classBuilder<

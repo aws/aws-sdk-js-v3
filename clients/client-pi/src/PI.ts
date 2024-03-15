@@ -293,7 +293,6 @@ export interface PI {
 }
 
 /**
- * @public
  * <fullname>Amazon RDS Performance Insights</fullname>
  *          <p>Amazon RDS Performance Insights enables you to monitor and explore different dimensions of database load based on data captured from a running DB instance. The guide
  *             provides detailed information about Performance Insights data types, parameters and errors.</p>
@@ -319,6 +318,7 @@ export interface PI {
  *                   </i>.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class PI extends PIClient implements PI {}
 createAggregatedClient(commands, PI);

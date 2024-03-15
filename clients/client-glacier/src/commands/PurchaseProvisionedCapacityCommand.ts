@@ -30,7 +30,6 @@ export interface PurchaseProvisionedCapacityCommandInput extends PurchaseProvisi
 export interface PurchaseProvisionedCapacityCommandOutput extends PurchaseProvisionedCapacityOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation purchases a provisioned capacity unit for an AWS account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface PurchaseProvisionedCapacityCommandOutput extends PurchaseProvis
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * @public
  * @example To purchases a provisioned capacity unit for an AWS account
  * ```javascript
  * // The example purchases provisioned capacity unit for an AWS account.

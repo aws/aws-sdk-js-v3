@@ -27,7 +27,6 @@ export interface PutResourcePolicyCommandInput extends PutResourcePolicyInput {}
 export interface PutResourcePolicyCommandOutput extends PutResourcePolicyOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p> Stores a resource policy for the ARN of a <code>Project</code> or
  *                 <code>ReportGroup</code> object. </p>
  * @example
@@ -63,6 +62,7 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyOutput,
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * @public
  */
 export class PutResourcePolicyCommand extends $Command
   .classBuilder<

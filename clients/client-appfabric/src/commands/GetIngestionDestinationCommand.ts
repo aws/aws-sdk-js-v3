@@ -27,7 +27,6 @@ export interface GetIngestionDestinationCommandInput extends GetIngestionDestina
 export interface GetIngestionDestinationCommandOutput extends GetIngestionDestinationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about an ingestion destination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface GetIngestionDestinationCommandOutput extends GetIngestionDestin
  * @throws {@link AppFabricServiceException}
  * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
+ * @public
  */
 export class GetIngestionDestinationCommand extends $Command
   .classBuilder<

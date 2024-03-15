@@ -32,7 +32,6 @@ export interface DescribeAutoScalingNotificationTypesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the notification types that are supported by Amazon EC2 Auto Scaling.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,6 +63,7 @@ export interface DescribeAutoScalingNotificationTypesCommandOutput
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To describe the Auto Scaling notification types
  * ```javascript
  * // This example describes the available notification types.

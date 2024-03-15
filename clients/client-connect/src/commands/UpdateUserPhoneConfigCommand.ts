@@ -27,7 +27,6 @@ export interface UpdateUserPhoneConfigCommandInput extends UpdateUserPhoneConfig
 export interface UpdateUserPhoneConfigCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the phone configuration settings for the specified user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface UpdateUserPhoneConfigCommandOutput extends __MetadataBearer {}
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class UpdateUserPhoneConfigCommand extends $Command
   .classBuilder<

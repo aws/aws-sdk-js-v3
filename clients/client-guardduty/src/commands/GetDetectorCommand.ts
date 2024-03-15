@@ -27,7 +27,6 @@ export interface GetDetectorCommandInput extends GetDetectorRequest {}
 export interface GetDetectorCommandOutput extends GetDetectorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves an Amazon GuardDuty detector specified by the detectorId.</p>
  *          <p>There might be regional differences because some data sources might not be
  *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
@@ -113,6 +112,7 @@ export interface GetDetectorCommandOutput extends GetDetectorResponse, __Metadat
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class GetDetectorCommand extends $Command
   .classBuilder<

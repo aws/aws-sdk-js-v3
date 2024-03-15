@@ -31,7 +31,6 @@ export interface CreateLocationAzureBlobCommandInput extends CreateLocationAzure
 export interface CreateLocationAzureBlobCommandOutput extends CreateLocationAzureBlobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a transfer <i>location</i> for a Microsoft Azure Blob Storage
  *       container. DataSync can use this location as a transfer source or
  *       destination.</p>
@@ -86,6 +85,7 @@ export interface CreateLocationAzureBlobCommandOutput extends CreateLocationAzur
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class CreateLocationAzureBlobCommand extends $Command
   .classBuilder<

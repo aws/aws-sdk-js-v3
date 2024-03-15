@@ -27,7 +27,6 @@ export interface DescribeCopyProductStatusCommandInput extends DescribeCopyProdu
 export interface DescribeCopyProductStatusCommandOutput extends DescribeCopyProductStatusOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the status of the specified copy product operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,6 +60,7 @@ export interface DescribeCopyProductStatusCommandOutput extends DescribeCopyProd
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * @public
  */
 export class DescribeCopyProductStatusCommand extends $Command
   .classBuilder<

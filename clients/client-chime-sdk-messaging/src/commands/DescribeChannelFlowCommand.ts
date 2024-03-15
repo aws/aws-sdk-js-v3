@@ -35,7 +35,6 @@ export interface DescribeChannelFlowCommandInput extends DescribeChannelFlowRequ
 export interface DescribeChannelFlowCommandOutput extends DescribeChannelFlowResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the full details of a channel flow in an Amazon Chime <code>AppInstance</code>. This is a developer API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface DescribeChannelFlowCommandOutput extends DescribeChannelFlowRes
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class DescribeChannelFlowCommand extends $Command
   .classBuilder<

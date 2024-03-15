@@ -27,7 +27,6 @@ export interface ListResolverConfigsCommandInput extends ListResolverConfigsRequ
 export interface ListResolverConfigsCommandOutput extends ListResolverConfigsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the Resolver configurations that you have defined.
  * 			Route 53 Resolver uses the configurations to manage DNS resolution behavior for your VPCs.</p>
  * @example
@@ -87,6 +86,7 @@ export interface ListResolverConfigsCommandOutput extends ListResolverConfigsRes
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class ListResolverConfigsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListThingsInThingGroupCommandInput extends ListThingsInThingGro
 export interface ListThingsInThingGroupCommandOutput extends ListThingsInThingGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the things in the specified group.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThingsInThingGroup</a> action.</p>
  * @example
@@ -74,6 +73,7 @@ export interface ListThingsInThingGroupCommandOutput extends ListThingsInThingGr
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class ListThingsInThingGroupCommand extends $Command
   .classBuilder<

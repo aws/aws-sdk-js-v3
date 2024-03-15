@@ -27,7 +27,6 @@ export interface RemoveTagsCommandInput extends RemoveTagsInput {}
 export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes existing tags from the specified pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBea
  * @throws {@link DataPipelineServiceException}
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ * @public
  */
 export class RemoveTagsCommand extends $Command
   .classBuilder<

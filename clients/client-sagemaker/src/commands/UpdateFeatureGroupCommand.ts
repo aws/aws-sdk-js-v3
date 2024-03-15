@@ -27,7 +27,6 @@ export interface UpdateFeatureGroupCommandInput extends UpdateFeatureGroupReques
 export interface UpdateFeatureGroupCommandOutput extends UpdateFeatureGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the feature group by either adding features or updating the online store
  *          configuration. Use one of the following request parameters at a time while using the
  *             <code>UpdateFeatureGroup</code> API.</p>
@@ -99,6 +98,7 @@ export interface UpdateFeatureGroupCommandOutput extends UpdateFeatureGroupRespo
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class UpdateFeatureGroupCommand extends $Command
   .classBuilder<

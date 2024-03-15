@@ -27,7 +27,6 @@ export interface CreateDBProxyEndpointCommandInput extends CreateDBProxyEndpoint
 export interface CreateDBProxyEndpointCommandOutput extends CreateDBProxyEndpointResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a <code>DBProxyEndpoint</code>. Only applies to proxies that are associated with Aurora DB clusters.
  *         You can use DB proxy endpoints to specify read/write or read-only access to the DB cluster. You can also use
  *         DB proxy endpoints to access a DB proxy through a different VPC than the proxy's default VPC.</p>
@@ -102,6 +101,7 @@ export interface CreateDBProxyEndpointCommandOutput extends CreateDBProxyEndpoin
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  */
 export class CreateDBProxyEndpointCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface CreateAccountCommandInput extends CreateAccountRequest {}
 export interface CreateAccountCommandOutput extends CreateAccountResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an Amazon Web Services account that is automatically a member of the organization whose
  *             credentials made the request. This is an asynchronous request that Amazon Web Services performs in the
  *             background. Because <code>CreateAccount</code> operates asynchronously, it can return a
@@ -485,6 +484,7 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  * @example To create a new account that is automatically part of the organization
  * ```javascript
  * // The owner of an organization creates a member account in the organization. The following example shows that when the organization owner creates the member account, the account is preconfigured with the name "Production Account" and an owner email address of susan@example.com.  An IAM role is automatically created using the default name because the roleName parameter is not used. AWS Organizations sends Susan a "Welcome to AWS" email:

@@ -27,7 +27,6 @@ export interface DeleteEventSourceMappingCommandInput extends DeleteEventSourceM
 export interface DeleteEventSourceMappingCommandOutput extends EventSourceMappingConfiguration, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-invocation-modes.html">event source
  *         mapping</a>. You can get the identifier of a mapping from the output of <a>ListEventSourceMappings</a>.</p>
  *          <p>When you delete an event source mapping, it enters a <code>Deleting</code> state and might not be completely
@@ -143,6 +142,7 @@ export interface DeleteEventSourceMappingCommandOutput extends EventSourceMappin
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class DeleteEventSourceMappingCommand extends $Command
   .classBuilder<

@@ -28,7 +28,6 @@ export interface UpdateTrafficPolicyCommentCommandInput extends UpdateTrafficPol
 export interface UpdateTrafficPolicyCommentCommandOutput extends UpdateTrafficPolicyCommentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the comment for a specified traffic policy version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface UpdateTrafficPolicyCommentCommandOutput extends UpdateTrafficPo
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class UpdateTrafficPolicyCommentCommand extends $Command
   .classBuilder<

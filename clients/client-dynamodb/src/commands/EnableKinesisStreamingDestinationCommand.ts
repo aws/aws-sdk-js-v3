@@ -32,7 +32,6 @@ export interface EnableKinesisStreamingDestinationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts table data replication to the specified Kinesis data stream at a timestamp
  *             chosen during the enable workflow. If this operation doesn't return results immediately,
  *             use DescribeKinesisStreamingDestination to check if streaming to the Kinesis data stream
@@ -102,6 +101,7 @@ export interface EnableKinesisStreamingDestinationCommandOutput
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * @public
  */
 export class EnableKinesisStreamingDestinationCommand extends $Command
   .classBuilder<

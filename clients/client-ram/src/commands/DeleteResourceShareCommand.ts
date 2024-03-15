@@ -27,7 +27,6 @@ export interface DeleteResourceShareCommandInput extends DeleteResourceShareRequ
 export interface DeleteResourceShareCommandOutput extends DeleteResourceShareResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified resource share.</p>
  *          <important>
  *             <p>This doesn't delete any of the resources that were associated with the resource share; it
@@ -93,6 +92,7 @@ export interface DeleteResourceShareCommandOutput extends DeleteResourceShareRes
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * @public
  */
 export class DeleteResourceShareCommand extends $Command
   .classBuilder<

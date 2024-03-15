@@ -31,7 +31,6 @@ export interface GetAgentVersionCommandInput extends GetAgentVersionRequest {}
 export interface GetAgentVersionCommandOutput extends GetAgentVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * Gets an Agent version for existing Amazon Bedrock Agent
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -116,6 +115,7 @@ export interface GetAgentVersionCommandOutput extends GetAgentVersionResponse, _
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ * @public
  */
 export class GetAgentVersionCommand extends $Command
   .classBuilder<

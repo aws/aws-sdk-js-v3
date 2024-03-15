@@ -32,7 +32,6 @@ export interface DescribeRescoreExecutionPlanCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a rescore execution plan. A rescore
  *             execution plan is an Amazon Kendra Intelligent Ranking
  *             resource used for provisioning the <code>Rescore</code> API.</p>
@@ -98,6 +97,7 @@ export interface DescribeRescoreExecutionPlanCommandOutput
  * @throws {@link KendraRankingServiceException}
  * <p>Base exception class for all service exceptions from KendraRanking service.</p>
  *
+ * @public
  */
 export class DescribeRescoreExecutionPlanCommand extends $Command
   .classBuilder<

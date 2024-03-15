@@ -31,7 +31,6 @@ export interface BatchUpdateAttendeeCapabilitiesExceptCommandInput
 export interface BatchUpdateAttendeeCapabilitiesExceptCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates <code>AttendeeCapabilities</code> except the capabilities listed in an <code>ExcludedAttendeeIds</code> table.</p>
  *          <note>
  *             <p>You use the capabilities with a set of values that control what the capabilities can do, such as <code>SendReceive</code> data. For more information about those values, see
@@ -119,6 +118,7 @@ export interface BatchUpdateAttendeeCapabilitiesExceptCommandOutput extends __Me
  * @throws {@link ChimeSDKMeetingsServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
+ * @public
  */
 export class BatchUpdateAttendeeCapabilitiesExceptCommand extends $Command
   .classBuilder<

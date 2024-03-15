@@ -27,7 +27,6 @@ export interface GetCheckerIpRangesCommandInput extends GetCheckerIpRangesReques
 export interface GetCheckerIpRangesCommandOutput extends GetCheckerIpRangesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Route 53 does not perform authorization for this API because it retrieves information
  * 			that is already available to the public.</p>
  *          <important>
@@ -64,6 +63,7 @@ export interface GetCheckerIpRangesCommandOutput extends GetCheckerIpRangesRespo
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class GetCheckerIpRangesCommand extends $Command
   .classBuilder<

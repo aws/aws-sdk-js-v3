@@ -27,7 +27,6 @@ export interface GetAuthorizersCommandInput extends GetAuthorizersRequest {}
 export interface GetAuthorizersCommandOutput extends GetAuthorizersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the Authorizers for an API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface GetAuthorizersCommandOutput extends GetAuthorizersResponse, __M
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ * @public
  */
 export class GetAuthorizersCommand extends $Command
   .classBuilder<

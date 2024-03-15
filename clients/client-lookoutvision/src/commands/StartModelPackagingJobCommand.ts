@@ -27,7 +27,6 @@ export interface StartModelPackagingJobCommandInput extends StartModelPackagingJ
 export interface StartModelPackagingJobCommandOutput extends StartModelPackagingJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts an Amazon Lookout for Vision model packaging job. A model packaging job creates an AWS IoT Greengrass component for
  *    a Lookout for Vision model. You can use the component to deploy your model to an edge device managed by Greengrass.
  * </p>
@@ -152,6 +151,7 @@ export interface StartModelPackagingJobCommandOutput extends StartModelPackaging
  * @throws {@link LookoutVisionServiceException}
  * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
+ * @public
  */
 export class StartModelPackagingJobCommand extends $Command
   .classBuilder<

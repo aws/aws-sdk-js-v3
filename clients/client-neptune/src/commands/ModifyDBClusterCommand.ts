@@ -27,7 +27,6 @@ export interface ModifyDBClusterCommandInput extends ModifyDBClusterMessage {}
 export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modify a setting for a DB cluster. You can change one or more database configuration
  *       parameters by specifying these parameters and the new values in the request.</p>
  * @example
@@ -225,6 +224,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class ModifyDBClusterCommand extends $Command
   .classBuilder<

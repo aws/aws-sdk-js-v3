@@ -27,7 +27,6 @@ export interface DeleteDistributionCommandInput extends DeleteDistributionReques
 export interface DeleteDistributionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete a distribution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -71,6 +70,7 @@ export interface DeleteDistributionCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class DeleteDistributionCommand extends $Command
   .classBuilder<

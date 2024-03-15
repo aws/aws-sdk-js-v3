@@ -31,7 +31,6 @@ export interface CreateNetworkCommandInput extends CreateNetworkInput {}
 export interface CreateNetworkCommandOutput extends CreateNetworkOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new blockchain network using Amazon Managed Blockchain.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
@@ -128,6 +127,7 @@ export interface CreateNetworkCommandOutput extends CreateNetworkOutput, __Metad
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ * @public
  */
 export class CreateNetworkCommand extends $Command
   .classBuilder<

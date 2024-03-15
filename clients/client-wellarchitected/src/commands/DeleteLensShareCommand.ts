@@ -27,7 +27,6 @@ export interface DeleteLensShareCommandInput extends DeleteLensShareInput {}
 export interface DeleteLensShareCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete a lens share.</p>
  *          <p>After the lens share is deleted,  Amazon Web Services accounts, users, organizations,
  *             and organizational units (OUs)
@@ -87,6 +86,7 @@ export interface DeleteLensShareCommandOutput extends __MetadataBearer {}
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * @public
  */
 export class DeleteLensShareCommand extends $Command
   .classBuilder<

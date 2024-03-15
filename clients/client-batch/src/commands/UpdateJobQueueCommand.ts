@@ -27,7 +27,6 @@ export interface UpdateJobQueueCommandInput extends UpdateJobQueueRequest {}
 export interface UpdateJobQueueCommandOutput extends UpdateJobQueueResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a job queue.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface UpdateJobQueueCommandOutput extends UpdateJobQueueResponse, __M
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ * @public
  * @example To update a job queue
  * ```javascript
  * // This example disables a job queue so that it can be deleted.

@@ -27,7 +27,6 @@ export interface DeleteVpcConnectorCommandInput extends DeleteVpcConnectorReques
 export interface DeleteVpcConnectorCommandOutput extends DeleteVpcConnectorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Delete an App Runner VPC connector resource. You can't delete a
  *       connector that's used by one or more App Runner services.</p>
  * @example
@@ -78,6 +77,7 @@ export interface DeleteVpcConnectorCommandOutput extends DeleteVpcConnectorRespo
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ * @public
  */
 export class DeleteVpcConnectorCommand extends $Command
   .classBuilder<

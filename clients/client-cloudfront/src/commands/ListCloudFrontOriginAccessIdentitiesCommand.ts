@@ -35,7 +35,6 @@ export interface ListCloudFrontOriginAccessIdentitiesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists origin access identities.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface ListCloudFrontOriginAccessIdentitiesCommandOutput
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class ListCloudFrontOriginAccessIdentitiesCommand extends $Command
   .classBuilder<

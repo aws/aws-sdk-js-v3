@@ -35,7 +35,6 @@ export interface GetConformancePackComplianceSummaryCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns compliance details for the conformance pack based on the cumulative compliance results of all the rules in that conformance pack.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface GetConformancePackComplianceSummaryCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class GetConformancePackComplianceSummaryCommand extends $Command
   .classBuilder<

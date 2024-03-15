@@ -27,7 +27,6 @@ export interface DescribeActionCommandInput extends DescribeActionRequest {}
 export interface DescribeActionCommandOutput extends DescribeActionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about an action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface DescribeActionCommandOutput extends DescribeActionResponse, __M
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * @public
  */
 export class DescribeActionCommand extends $Command
   .classBuilder<

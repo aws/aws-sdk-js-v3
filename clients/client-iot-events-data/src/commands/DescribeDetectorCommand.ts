@@ -27,7 +27,6 @@ export interface DescribeDetectorCommandInput extends DescribeDetectorRequest {}
 export interface DescribeDetectorCommandOutput extends DescribeDetectorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the specified detector (instance).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface DescribeDetectorCommandOutput extends DescribeDetectorResponse,
  * @throws {@link IoTEventsDataServiceException}
  * <p>Base exception class for all service exceptions from IoTEventsData service.</p>
  *
+ * @public
  */
 export class DescribeDetectorCommand extends $Command
   .classBuilder<

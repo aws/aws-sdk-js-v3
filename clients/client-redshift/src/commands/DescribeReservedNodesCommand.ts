@@ -27,7 +27,6 @@ export interface DescribeReservedNodesCommandInput extends DescribeReservedNodes
 export interface DescribeReservedNodesCommandOutput extends ReservedNodesMessage, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the descriptions of the reserved nodes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface DescribeReservedNodesCommandOutput extends ReservedNodesMessage
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class DescribeReservedNodesCommand extends $Command
   .classBuilder<

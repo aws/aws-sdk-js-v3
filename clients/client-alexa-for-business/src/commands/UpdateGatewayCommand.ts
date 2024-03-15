@@ -27,9 +27,6 @@ export interface UpdateGatewayCommandInput extends UpdateGatewayRequest {}
 export interface UpdateGatewayCommandOutput extends UpdateGatewayResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Alexa For Business is no longer supported
- *
  * <p>Updates the details of a gateway. If any optional field is not provided, the existing
  *          corresponding value is left unmodified.</p>
  * @example
@@ -65,6 +62,8 @@ export interface UpdateGatewayCommandOutput extends UpdateGatewayResponse, __Met
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
+ * @deprecated Alexa For Business is no longer supported
  */
 export class UpdateGatewayCommand extends $Command
   .classBuilder<

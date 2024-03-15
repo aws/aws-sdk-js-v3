@@ -298,7 +298,6 @@ export interface EMRServerless {
 }
 
 /**
- * @public
  * <p>Amazon EMR Serverless is a new deployment option for Amazon EMR. Amazon EMR Serverless provides a serverless runtime environment that simplifies running
  *          analytics applications using the latest open source frameworks such as Apache Spark and
  *          Apache Hive. With Amazon EMR Serverless, you don’t have to configure, optimize,
@@ -320,6 +319,7 @@ export interface EMRServerless {
  *                example, <code>emr-serverless.us-east-2.amazonaws.com</code>.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class EMRServerless extends EMRServerlessClient implements EMRServerless {}
 createAggregatedClient(commands, EMRServerless);

@@ -29,7 +29,6 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new DB cluster from a DB snapshot or DB cluster snapshot.</p>
  *          <p>If a DB snapshot is specified, the target DB cluster is created from the source DB
  *       snapshot with a default configuration and default security group.</p>
@@ -247,6 +246,7 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class RestoreDBClusterFromSnapshotCommand extends $Command
   .classBuilder<

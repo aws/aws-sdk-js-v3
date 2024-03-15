@@ -31,7 +31,6 @@ export interface ListScheduledActionsCommandInput extends ListScheduledActionsRe
 export interface ListScheduledActionsCommandOutput extends ListScheduledActionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of scheduled actions. You can use the flags to filter the list of returned scheduled actions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface ListScheduledActionsCommandOutput extends ListScheduledActionsR
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * @public
  */
 export class ListScheduledActionsCommand extends $Command
   .classBuilder<

@@ -32,7 +32,6 @@ export interface ListDelegatedServicesForAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>List the Amazon Web Services services for which the specified account is a delegated
  *             administrator.</p>
  *          <p>This operation can be called only from the organization's
@@ -404,6 +403,7 @@ export interface ListDelegatedServicesForAccountCommandOutput
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  */
 export class ListDelegatedServicesForAccountCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteCacheSubnetGroupCommandInput extends DeleteCacheSubnetGro
 export interface DeleteCacheSubnetGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a cache subnet group.</p>
  *          <note>
  *             <p>You cannot delete a default cache subnet group or one that is associated with any
@@ -64,6 +63,7 @@ export interface DeleteCacheSubnetGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * @public
  * @example DeleteCacheSubnetGroup
  * ```javascript
  * // Deletes the Amazon ElastiCache subnet group my-subnet-group.

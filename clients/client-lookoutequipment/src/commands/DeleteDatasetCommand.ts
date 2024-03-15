@@ -27,7 +27,6 @@ export interface DeleteDatasetCommandInput extends DeleteDatasetRequest {}
 export interface DeleteDatasetCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p> Deletes a dataset and associated artifacts. The operation will check to see if any
  *          inference scheduler or data ingestion job is currently using the dataset, and if there
  *          isn't, the dataset, its metadata, and any associated data stored in S3 will be deleted.
@@ -80,6 +79,7 @@ export interface DeleteDatasetCommandOutput extends __MetadataBearer {}
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  */
 export class DeleteDatasetCommand extends $Command
   .classBuilder<

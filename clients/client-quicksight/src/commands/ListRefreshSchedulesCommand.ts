@@ -27,7 +27,6 @@ export interface ListRefreshSchedulesCommandInput extends ListRefreshSchedulesRe
 export interface ListRefreshSchedulesCommandOutput extends ListRefreshSchedulesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the refresh schedules of a dataset. Each dataset can have up to 5 schedules. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface ListRefreshSchedulesCommandOutput extends ListRefreshSchedulesR
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class ListRefreshSchedulesCommand extends $Command
   .classBuilder<

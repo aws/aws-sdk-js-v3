@@ -32,9 +32,6 @@ export interface GetMessagingSessionEndpointCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by GetMessagingSessionEndpoint in the Amazon Chime SDK Messaging Namespace
- *
  * <p>The details of the endpoint for the messaging session.</p>
  *          <important>
  *             <p>
@@ -84,6 +81,8 @@ export interface GetMessagingSessionEndpointCommandOutput
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by GetMessagingSessionEndpoint in the Amazon Chime SDK Messaging Namespace
  */
 export class GetMessagingSessionEndpointCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CancelTransactionCommandInput extends CancelTransactionRequest 
 export interface CancelTransactionCommandOutput extends CancelTransactionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Attempts to cancel the specified transaction. Returns an exception if the transaction was previously committed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface CancelTransactionCommandOutput extends CancelTransactionRespons
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * @public
  */
 export class CancelTransactionCommand extends $Command
   .classBuilder<

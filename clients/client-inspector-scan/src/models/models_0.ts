@@ -6,9 +6,9 @@ import { DocumentType as __DocumentType } from "@smithy/types";
 import { InspectorScanServiceException as __BaseException } from "./InspectorScanServiceException";
 
 /**
- * @public
  * <p>You do not have sufficient access to perform this action.
  *   </p>
+ * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -42,24 +42,24 @@ export type InternalServerExceptionReason =
   (typeof InternalServerExceptionReason)[keyof typeof InternalServerExceptionReason];
 
 /**
- * @public
  * <p>The request processing has failed because of an unknown error, exception or failure.
  *
  *   </p>
+ * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
   $retryable = {};
   /**
-   * @public
    * <p>The reason for the validation failure.</p>
+   * @public
    */
   reason: InternalServerExceptionReason | undefined;
 
   /**
-   * @public
    * <p>The number of seconds to wait before retrying the request.</p>
+   * @public
    */
   retryAfterSeconds?: number;
 
@@ -97,14 +97,14 @@ export type OutputFormat = (typeof OutputFormat)[keyof typeof OutputFormat];
  */
 export interface ScanSbomRequest {
   /**
-   * @public
    * <p>The JSON file for the SBOM you want to scan. The SBOM must be in CycloneDX 1.5 format.</p>
+   * @public
    */
   sbom: __DocumentType | undefined;
 
   /**
-   * @public
    * <p>The output format for the vulnerability report.</p>
+   * @public
    */
   outputFormat?: OutputFormat;
 }
@@ -114,17 +114,17 @@ export interface ScanSbomRequest {
  */
 export interface ScanSbomResponse {
   /**
-   * @public
    * <p>The vulnerability report for the scanned SBOM.</p>
+   * @public
    */
   sbom?: __DocumentType;
 }
 
 /**
- * @public
  * <p>The request was denied due to request throttling.
  *
  *   </p>
+ * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
@@ -133,8 +133,8 @@ export class ThrottlingException extends __BaseException {
     throttling: true,
   };
   /**
-   * @public
    * <p>The number of seconds to wait before retrying the request.</p>
+   * @public
    */
   retryAfterSeconds?: number;
 
@@ -153,23 +153,23 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The request has failed validation due to missing required fields or having invalid inputs.
  *    </p>
+ * @public
  */
 export interface ValidationExceptionField {
   /**
-   * @public
    * <p>The name of the validation exception.
    *
    *   </p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The validation exception message.
    *   </p>
+   * @public
    */
   message: string | undefined;
 }
@@ -192,21 +192,21 @@ export const ValidationExceptionReason = {
 export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
 
 /**
- * @public
  * <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+ * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
-   * @public
    * <p>The reason for the validation failure.</p>
+   * @public
    */
   reason: ValidationExceptionReason | undefined;
 
   /**
-   * @public
    * <p>The fields that failed validation.</p>
+   * @public
    */
   fields?: ValidationExceptionField[];
 

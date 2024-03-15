@@ -27,7 +27,6 @@ export interface DeleteSourceServerCommandInput extends DeleteSourceServerReques
 export interface DeleteSourceServerCommandOutput extends DeleteSourceServerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a single source server by ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +62,7 @@ export interface DeleteSourceServerCommandOutput extends DeleteSourceServerRespo
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * @public
  */
 export class DeleteSourceServerCommand extends $Command
   .classBuilder<

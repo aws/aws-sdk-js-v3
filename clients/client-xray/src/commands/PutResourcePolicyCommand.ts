@@ -27,7 +27,6 @@ export interface PutResourcePolicyCommandInput extends PutResourcePolicyRequest 
 export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *             Sets the resource policy to grant one or more Amazon Web Services services and accounts permissions to
  *             access X-Ray. Each resource policy will be associated with a specific Amazon Web Services account.
@@ -87,6 +86,7 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResult,
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ * @public
  */
 export class PutResourcePolicyCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface BatchGetFindingDetailsCommandInput extends BatchGetFindingDetai
 export interface BatchGetFindingDetailsCommandOutput extends BatchGetFindingDetailsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets vulnerability details for findings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -111,6 +110,7 @@ export interface BatchGetFindingDetailsCommandOutput extends BatchGetFindingDeta
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * @public
  */
 export class BatchGetFindingDetailsCommand extends $Command
   .classBuilder<

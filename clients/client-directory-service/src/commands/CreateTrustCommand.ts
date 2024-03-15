@@ -27,7 +27,6 @@ export interface CreateTrustCommandInput extends CreateTrustRequest {}
 export interface CreateTrustCommandOutput extends CreateTrustResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Directory Service for Microsoft Active Directory allows you to configure trust relationships. For
  *       example, you can establish a trust between your Managed Microsoft AD directory, and your existing
  *       self-managed Microsoft Active Directory. This would allow you to provide users and groups
@@ -87,6 +86,7 @@ export interface CreateTrustCommandOutput extends CreateTrustResult, __MetadataB
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class CreateTrustCommand extends $Command
   .classBuilder<

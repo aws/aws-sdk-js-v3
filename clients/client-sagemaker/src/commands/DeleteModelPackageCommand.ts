@@ -27,7 +27,6 @@ export interface DeleteModelPackageCommandInput extends DeleteModelPackageInput 
 export interface DeleteModelPackageCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a model package.</p>
  *          <p>A model package is used to create SageMaker models or list on Amazon Web Services Marketplace. Buyers can
  *             subscribe to model packages listed on Amazon Web Services Marketplace to create models in SageMaker.</p>
@@ -59,6 +58,7 @@ export interface DeleteModelPackageCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteModelPackageCommand extends $Command
   .classBuilder<

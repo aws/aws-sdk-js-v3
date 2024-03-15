@@ -31,7 +31,6 @@ export interface GetAssociatedResourceCommandInput extends GetAssociatedResource
 export interface GetAssociatedResourceCommandOutput extends GetAssociatedResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the resource associated with the application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -102,6 +101,7 @@ export interface GetAssociatedResourceCommandOutput extends GetAssociatedResourc
  * @throws {@link ServiceCatalogAppRegistryServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
+ * @public
  */
 export class GetAssociatedResourceCommand extends $Command
   .classBuilder<

@@ -28,7 +28,6 @@ export interface ListPartsCommandInput extends ListPartsRequest {}
 export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the parts that have been uploaded for a specific multipart upload.</p>
  *          <p>To use this operation, you must provide the <code>upload ID</code> in the request. You obtain this uploadID by sending the initiate multipart upload
  *          request through <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html">CreateMultipartUpload</a>.</p>
@@ -177,6 +176,7 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example To list parts of a multipart upload.
  * ```javascript
  * // The following example lists parts uploaded for a specific multipart upload.

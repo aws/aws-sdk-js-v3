@@ -27,7 +27,6 @@ export interface ListSpeakersCommandInput extends ListSpeakersRequest {}
 export interface ListSpeakersCommandOutput extends ListSpeakersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all speakers in a specified domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface ListSpeakersCommandOutput extends ListSpeakersResponse, __Metad
  * @throws {@link VoiceIDServiceException}
  * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
+ * @public
  */
 export class ListSpeakersCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeModelCommandInput extends DescribeModelRequest {}
 export interface DescribeModelCommandOutput extends DescribeModelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides a JSON containing the overall information about a specific machine learning
  *          model, including model name and ARN, dataset, training and evaluation information, status,
  *          and so on. </p>
@@ -131,6 +130,7 @@ export interface DescribeModelCommandOutput extends DescribeModelResponse, __Met
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  */
 export class DescribeModelCommand extends $Command
   .classBuilder<

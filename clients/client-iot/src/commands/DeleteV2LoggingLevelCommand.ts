@@ -27,7 +27,6 @@ export interface DeleteV2LoggingLevelCommandInput extends DeleteV2LoggingLevelRe
 export interface DeleteV2LoggingLevelCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a logging level.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteV2LoggingLevel</a> action.</p>
  * @example
@@ -64,6 +63,7 @@ export interface DeleteV2LoggingLevelCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DeleteV2LoggingLevelCommand extends $Command
   .classBuilder<

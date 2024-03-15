@@ -27,7 +27,6 @@ export interface CreateRemoteAccessSessionCommandInput extends CreateRemoteAcces
 export interface CreateRemoteAccessSessionCommandOutput extends CreateRemoteAccessSessionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Specifies and starts a remote access session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -167,6 +166,7 @@ export interface CreateRemoteAccessSessionCommandOutput extends CreateRemoteAcce
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  * @example To create a remote access session
  * ```javascript
  * // The following example creates a remote access session named MySession.

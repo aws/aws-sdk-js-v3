@@ -27,7 +27,6 @@ export interface GetGcmChannelCommandInput extends GetGcmChannelRequest {}
 export interface GetGcmChannelCommandOutput extends GetGcmChannelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the status and settings of the GCM channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface GetGcmChannelCommandOutput extends GetGcmChannelResponse, __Met
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class GetGcmChannelCommand extends $Command
   .classBuilder<

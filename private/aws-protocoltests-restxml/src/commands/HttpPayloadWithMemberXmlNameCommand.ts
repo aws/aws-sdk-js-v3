@@ -30,7 +30,6 @@ export interface HttpPayloadWithMemberXmlNameCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * The following example serializes a payload that uses an XML name
  * on the member, changing the wrapper name.
  * @example
@@ -63,6 +62,7 @@ export interface HttpPayloadWithMemberXmlNameCommandOutput
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ * @public
  */
 export class HttpPayloadWithMemberXmlNameCommand extends $Command
   .classBuilder<

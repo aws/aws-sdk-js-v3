@@ -27,7 +27,6 @@ export interface DescribeTagsCommandInput extends DescribeTagsInput {}
 export interface DescribeTagsCommandOutput extends DescribeTagsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes one or more of the tags for your Amazon ML object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface DescribeTagsCommandOutput extends DescribeTagsOutput, __Metadat
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * @public
  */
 export class DescribeTagsCommand extends $Command
   .classBuilder<

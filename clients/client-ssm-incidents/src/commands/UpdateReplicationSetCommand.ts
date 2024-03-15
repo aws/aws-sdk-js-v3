@@ -27,7 +27,6 @@ export interface UpdateReplicationSetCommandInput extends UpdateReplicationSetIn
 export interface UpdateReplicationSetCommandOutput extends UpdateReplicationSetOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Add or delete Regions from your replication set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,6 +84,7 @@ export interface UpdateReplicationSetCommandOutput extends UpdateReplicationSetO
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ * @public
  */
 export class UpdateReplicationSetCommand extends $Command
   .classBuilder<

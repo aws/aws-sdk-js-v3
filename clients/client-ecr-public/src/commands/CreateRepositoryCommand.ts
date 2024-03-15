@@ -27,7 +27,6 @@ export interface CreateRepositoryCommandInput extends CreateRepositoryRequest {}
 export interface CreateRepositoryCommandOutput extends CreateRepositoryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a repository in a public registry. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html">Amazon ECR
  *             repositories</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
  * @example
@@ -118,6 +117,7 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryResponse,
  * @throws {@link ECRPUBLICServiceException}
  * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
+ * @public
  */
 export class CreateRepositoryCommand extends $Command
   .classBuilder<

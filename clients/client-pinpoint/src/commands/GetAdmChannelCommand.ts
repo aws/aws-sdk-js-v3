@@ -27,7 +27,6 @@ export interface GetAdmChannelCommandInput extends GetAdmChannelRequest {}
 export interface GetAdmChannelCommandOutput extends GetAdmChannelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about the status and settings of the ADM channel for an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface GetAdmChannelCommandOutput extends GetAdmChannelResponse, __Met
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * @public
  */
 export class GetAdmChannelCommand extends $Command
   .classBuilder<

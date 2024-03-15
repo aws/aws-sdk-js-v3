@@ -27,7 +27,6 @@ export interface DescribeWarmPoolCommandInput extends DescribeWarmPoolType {}
 export interface DescribeWarmPoolCommandOutput extends DescribeWarmPoolAnswer, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a warm pool and its instances.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html">Warm pools for
  *                 Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -98,6 +97,7 @@ export interface DescribeWarmPoolCommandOutput extends DescribeWarmPoolAnswer, _
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  */
 export class DescribeWarmPoolCommand extends $Command
   .classBuilder<

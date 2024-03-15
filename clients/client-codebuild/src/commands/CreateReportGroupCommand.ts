@@ -27,7 +27,6 @@ export interface CreateReportGroupCommandInput extends CreateReportGroupInput {}
 export interface CreateReportGroupCommandOutput extends CreateReportGroupOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *       Creates a report group. A report group contains a collection of reports.
  *     </p>
@@ -109,6 +108,7 @@ export interface CreateReportGroupCommandOutput extends CreateReportGroupOutput,
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * @public
  */
 export class CreateReportGroupCommand extends $Command
   .classBuilder<

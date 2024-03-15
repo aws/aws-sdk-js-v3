@@ -27,7 +27,6 @@ export interface GetLayerVersionByArnCommandInput extends GetLayerVersionByArnRe
 export interface GetLayerVersionByArnCommandOutput extends GetLayerVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
  *         layer</a>, with a link to download the layer archive
  *         that's valid for 10 minutes.</p>
@@ -87,6 +86,7 @@ export interface GetLayerVersionByArnCommandOutput extends GetLayerVersionRespon
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class GetLayerVersionByArnCommand extends $Command
   .classBuilder<

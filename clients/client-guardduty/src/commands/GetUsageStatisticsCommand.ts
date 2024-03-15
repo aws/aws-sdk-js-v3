@@ -27,7 +27,6 @@ export interface GetUsageStatisticsCommandInput extends GetUsageStatisticsReques
 export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists Amazon GuardDuty usage statistics over the last 30 days for the specified detector
  *       ID. For newly enabled detectors or data sources, the cost returned will include only the usage
  *       so far under 30 days. This may differ from the cost metrics in the console, which project
@@ -140,6 +139,7 @@ export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsRespo
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * @public
  */
 export class GetUsageStatisticsCommand extends $Command
   .classBuilder<

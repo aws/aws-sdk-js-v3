@@ -27,7 +27,6 @@ export interface UpdateAlarmModelCommandInput extends UpdateAlarmModelRequest {}
 export interface UpdateAlarmModelCommandOutput extends UpdateAlarmModelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an alarm model. Any alarms that were created based on the previous version are
  *       deleted and then created again as new data arrives.</p>
  * @example
@@ -223,6 +222,7 @@ export interface UpdateAlarmModelCommandOutput extends UpdateAlarmModelResponse,
  * @throws {@link IoTEventsServiceException}
  * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
+ * @public
  */
 export class UpdateAlarmModelCommand extends $Command
   .classBuilder<

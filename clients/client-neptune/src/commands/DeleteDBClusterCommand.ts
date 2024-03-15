@@ -27,7 +27,6 @@ export interface DeleteDBClusterCommandInput extends DeleteDBClusterMessage {}
 export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>The DeleteDBCluster action deletes a previously provisioned DB cluster. When you delete a
  *       DB cluster, all automated backups for that DB cluster are deleted and can't be recovered.
  *       Manual DB cluster snapshots of the specified DB cluster are not deleted.</p>
@@ -172,6 +171,7 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * @public
  */
 export class DeleteDBClusterCommand extends $Command
   .classBuilder<

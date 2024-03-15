@@ -27,7 +27,6 @@ export interface GetDeliveryDestinationCommandInput extends GetDeliveryDestinati
 export interface GetDeliveryDestinationCommandOutput extends GetDeliveryDestinationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves complete information about one delivery destination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface GetDeliveryDestinationCommandOutput extends GetDeliveryDestinat
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class GetDeliveryDestinationCommand extends $Command
   .classBuilder<

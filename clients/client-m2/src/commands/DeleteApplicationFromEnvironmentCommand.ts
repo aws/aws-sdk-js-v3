@@ -32,7 +32,6 @@ export interface DeleteApplicationFromEnvironmentCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specific application from the specific runtime environment where it was
  *          previously deployed. You cannot delete a runtime environment using DeleteEnvironment if any
  *          application has ever been deployed to it. This API removes the association of the
@@ -80,6 +79,7 @@ export interface DeleteApplicationFromEnvironmentCommandOutput
  * @throws {@link M2ServiceException}
  * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ * @public
  */
 export class DeleteApplicationFromEnvironmentCommand extends $Command
   .classBuilder<

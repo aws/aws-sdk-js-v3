@@ -27,7 +27,6 @@ export interface DeletePolicyCommandInput extends DeletePolicyRequest {}
 export interface DeletePolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified policy.</p>
  *          <p>A policy cannot be deleted if it has non-default versions or it is attached to any
  *          certificate.</p>
@@ -87,6 +86,7 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DeletePolicyCommand extends $Command
   .classBuilder<

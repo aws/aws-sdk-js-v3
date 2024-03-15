@@ -27,7 +27,6 @@ export interface CreateLicenseCommandInput extends CreateLicenseRequest {}
 export interface CreateLicenseCommandOutput extends CreateLicenseResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a license.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -118,6 +117,7 @@ export interface CreateLicenseCommandOutput extends CreateLicenseResponse, __Met
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * @public
  */
 export class CreateLicenseCommand extends $Command
   .classBuilder<

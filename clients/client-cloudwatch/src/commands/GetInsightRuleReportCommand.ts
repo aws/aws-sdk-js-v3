@@ -27,7 +27,6 @@ export interface GetInsightRuleReportCommandInput extends GetInsightRuleReportIn
 export interface GetInsightRuleReportCommandOutput extends GetInsightRuleReportOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation returns the time series data collected by a Contributor Insights rule. The data includes the identity and number of
  * 		contributors to the log group.</p>
  *          <p>You can also optionally return one or more statistics about each data point in the time series. These statistics can include the following:</p>
@@ -139,6 +138,7 @@ export interface GetInsightRuleReportCommandOutput extends GetInsightRuleReportO
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * @public
  */
 export class GetInsightRuleReportCommand extends $Command
   .classBuilder<

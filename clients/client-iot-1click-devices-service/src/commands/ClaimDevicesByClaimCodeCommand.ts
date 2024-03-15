@@ -31,7 +31,6 @@ export interface ClaimDevicesByClaimCodeCommandInput extends ClaimDevicesByClaim
 export interface ClaimDevicesByClaimCodeCommandOutput extends ClaimDevicesByClaimCodeResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Adds device(s) to your account (i.e., claim one or more devices) if and only if you
  *  received a claim code with the device(s).</p>
  * @example
@@ -67,6 +66,7 @@ export interface ClaimDevicesByClaimCodeCommandOutput extends ClaimDevicesByClai
  * @throws {@link IoT1ClickDevicesServiceServiceException}
  * <p>Base exception class for all service exceptions from IoT1ClickDevicesService service.</p>
  *
+ * @public
  */
 export class ClaimDevicesByClaimCodeCommand extends $Command
   .classBuilder<

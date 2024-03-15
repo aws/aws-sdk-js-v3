@@ -378,7 +378,6 @@ export type GreengrassV2ClientResolvedConfigType = __SmithyResolvedConfiguration
 export interface GreengrassV2ClientResolvedConfig extends GreengrassV2ClientResolvedConfigType {}
 
 /**
- * @public
  * <p>IoT Greengrass brings local compute, messaging, data management, sync, and ML inference capabilities
  *       to edge devices. This enables devices to collect and analyze data closer to the source of
  *       information, react autonomously to local events, and communicate securely with each other on
@@ -390,6 +389,7 @@ export interface GreengrassV2ClientResolvedConfig extends GreengrassV2ClientReso
  *       manage deployments, and core devices.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/what-is-iot-greengrass.html">What is IoT Greengrass?</a> in the
  *         <i>IoT Greengrass V2 Developer Guide</i>.</p>
+ * @public
  */
 export class GreengrassV2Client extends __Client<
   __HttpHandlerOptions,

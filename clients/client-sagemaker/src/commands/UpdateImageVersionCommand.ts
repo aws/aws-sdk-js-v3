@@ -27,7 +27,6 @@ export interface UpdateImageVersionCommandInput extends UpdateImageVersionReques
 export interface UpdateImageVersionCommandOutput extends UpdateImageVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the properties of a SageMaker image version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface UpdateImageVersionCommandOutput extends UpdateImageVersionRespo
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class UpdateImageVersionCommand extends $Command
   .classBuilder<

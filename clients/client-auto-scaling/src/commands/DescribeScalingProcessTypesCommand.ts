@@ -27,7 +27,6 @@ export interface DescribeScalingProcessTypesCommandInput {}
 export interface DescribeScalingProcessTypesCommandOutput extends ProcessesType, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the scaling process types for use with the <a>ResumeProcesses</a>
  *             and <a>SuspendProcesses</a> APIs.</p>
  * @example
@@ -62,6 +61,7 @@ export interface DescribeScalingProcessTypesCommandOutput extends ProcessesType,
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * @public
  * @example To describe the Auto Scaling process types
  * ```javascript
  * // This example describes the Auto Scaling process types.

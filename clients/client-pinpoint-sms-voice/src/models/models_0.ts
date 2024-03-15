@@ -4,8 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { PinpointSMSVoiceServiceException as __BaseException } from "./PinpointSMSVoiceServiceException";
 
 /**
- * @public
  * The resource specified in your request already exists.
+ * @public
  */
 export class AlreadyExistsException extends __BaseException {
   readonly name: "AlreadyExistsException" = "AlreadyExistsException";
@@ -26,8 +26,8 @@ export class AlreadyExistsException extends __BaseException {
 }
 
 /**
- * @public
  * The input you provided is invalid.
+ * @public
  */
 export class BadRequestException extends __BaseException {
   readonly name: "BadRequestException" = "BadRequestException";
@@ -48,56 +48,56 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * @public
  * An object that defines a message that contains text formatted using Amazon Pinpoint Voice Instructions markup.
+ * @public
  */
 export interface CallInstructionsMessageType {
   /**
-   * @public
    * The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide.
+   * @public
    */
   Text?: string;
 }
 
 /**
- * @public
  * An object that contains information about an event destination that sends data to Amazon CloudWatch Logs.
+ * @public
  */
 export interface CloudWatchLogsDestination {
   /**
-   * @public
    * The Amazon Resource Name (ARN) of an Amazon Identity and Access Management (IAM) role that is able to write event data to an Amazon CloudWatch destination.
+   * @public
    */
   IamRoleArn?: string;
 
   /**
-   * @public
    * The name of the Amazon CloudWatch Log Group that you want to record events in.
+   * @public
    */
   LogGroupArn?: string;
 }
 
 /**
- * @public
  * A request to create a new configuration set.
+ * @public
  */
 export interface CreateConfigurationSetRequest {
   /**
-   * @public
    * The name that you want to give the configuration set.
+   * @public
    */
   ConfigurationSetName?: string;
 }
 
 /**
- * @public
  * An empty object that indicates that the configuration set was successfully created.
+ * @public
  */
 export interface CreateConfigurationSetResponse {}
 
 /**
- * @public
  * The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.
+ * @public
  */
 export class InternalServiceErrorException extends __BaseException {
   readonly name: "InternalServiceErrorException" = "InternalServiceErrorException";
@@ -118,8 +118,8 @@ export class InternalServiceErrorException extends __BaseException {
 }
 
 /**
- * @public
  * There are too many instances of the specified resource type.
+ * @public
  */
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
@@ -140,8 +140,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * @public
  * You've issued too many requests to the resource. Wait a few minutes, and then try again.
+ * @public
  */
 export class TooManyRequestsException extends __BaseException {
   readonly name: "TooManyRequestsException" = "TooManyRequestsException";
@@ -162,19 +162,19 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * @public
  * An object that contains information about an event destination that sends data to Amazon Kinesis Data Firehose.
+ * @public
  */
 export interface KinesisFirehoseDestination {
   /**
-   * @public
    * The Amazon Resource Name (ARN) of an IAM role that can write data to an Amazon Kinesis Data Firehose stream.
+   * @public
    */
   DeliveryStreamArn?: string;
 
   /**
-   * @public
    * The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose destination that you want to use in the event destination.
+   * @public
    */
   IamRoleArn?: string;
 }
@@ -199,86 +199,86 @@ export const EventType = {
 export type EventType = (typeof EventType)[keyof typeof EventType];
 
 /**
- * @public
  * An object that contains information about an event destination that sends data to Amazon SNS.
+ * @public
  */
 export interface SnsDestination {
   /**
-   * @public
    * The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish events to.
+   * @public
    */
   TopicArn?: string;
 }
 
 /**
- * @public
  * An object that defines a single event destination.
+ * @public
  */
 export interface EventDestinationDefinition {
   /**
-   * @public
    * An object that contains information about an event destination that sends data to Amazon CloudWatch Logs.
+   * @public
    */
   CloudWatchLogsDestination?: CloudWatchLogsDestination;
 
   /**
-   * @public
    * Indicates whether or not the event destination is enabled. If the event destination is enabled, then Amazon Pinpoint sends response data to the specified event destination.
+   * @public
    */
   Enabled?: boolean;
 
   /**
-   * @public
    * An object that contains information about an event destination that sends data to Amazon Kinesis Data Firehose.
+   * @public
    */
   KinesisFirehoseDestination?: KinesisFirehoseDestination;
 
   /**
-   * @public
    * An array of EventDestination objects. Each EventDestination object includes ARNs and other information that define an event destination.
+   * @public
    */
   MatchingEventTypes?: EventType[];
 
   /**
-   * @public
    * An object that contains information about an event destination that sends data to Amazon SNS.
+   * @public
    */
   SnsDestination?: SnsDestination;
 }
 
 /**
- * @public
  * Create a new event destination in a configuration set.
+ * @public
  */
 export interface CreateConfigurationSetEventDestinationRequest {
   /**
-   * @public
    * ConfigurationSetName
+   * @public
    */
   ConfigurationSetName: string | undefined;
 
   /**
-   * @public
    * An object that defines a single event destination.
+   * @public
    */
   EventDestination?: EventDestinationDefinition;
 
   /**
-   * @public
    * A name that identifies the event destination.
+   * @public
    */
   EventDestinationName?: string;
 }
 
 /**
- * @public
  * An empty object that indicates that the event destination was created successfully.
+ * @public
  */
 export interface CreateConfigurationSetEventDestinationResponse {}
 
 /**
- * @public
  * The resource you attempted to access doesn't exist.
+ * @public
  */
 export class NotFoundException extends __BaseException {
   readonly name: "NotFoundException" = "NotFoundException";
@@ -303,15 +303,15 @@ export class NotFoundException extends __BaseException {
  */
 export interface DeleteConfigurationSetRequest {
   /**
-   * @public
    * ConfigurationSetName
+   * @public
    */
   ConfigurationSetName: string | undefined;
 }
 
 /**
- * @public
  * An empty object that indicates that the configuration set was deleted successfully.
+ * @public
  */
 export interface DeleteConfigurationSetResponse {}
 
@@ -320,62 +320,62 @@ export interface DeleteConfigurationSetResponse {}
  */
 export interface DeleteConfigurationSetEventDestinationRequest {
   /**
-   * @public
    * ConfigurationSetName
+   * @public
    */
   ConfigurationSetName: string | undefined;
 
   /**
-   * @public
    * EventDestinationName
+   * @public
    */
   EventDestinationName: string | undefined;
 }
 
 /**
- * @public
  * An empty object that indicates that the event destination was deleted successfully.
+ * @public
  */
 export interface DeleteConfigurationSetEventDestinationResponse {}
 
 /**
- * @public
  * An object that defines an event destination.
+ * @public
  */
 export interface EventDestination {
   /**
-   * @public
    * An object that contains information about an event destination that sends data to Amazon CloudWatch Logs.
+   * @public
    */
   CloudWatchLogsDestination?: CloudWatchLogsDestination;
 
   /**
-   * @public
    * Indicates whether or not the event destination is enabled. If the event destination is enabled, then Amazon Pinpoint sends response data to the specified event destination.
+   * @public
    */
   Enabled?: boolean;
 
   /**
-   * @public
    * An object that contains information about an event destination that sends data to Amazon Kinesis Data Firehose.
+   * @public
    */
   KinesisFirehoseDestination?: KinesisFirehoseDestination;
 
   /**
-   * @public
    * An array of EventDestination objects. Each EventDestination object includes ARNs and other information that define an event destination.
+   * @public
    */
   MatchingEventTypes?: EventType[];
 
   /**
-   * @public
    * A name that identifies the event destination configuration.
+   * @public
    */
   Name?: string;
 
   /**
-   * @public
    * An object that contains information about an event destination that sends data to Amazon SNS.
+   * @public
    */
   SnsDestination?: SnsDestination;
 }
@@ -385,20 +385,20 @@ export interface EventDestination {
  */
 export interface GetConfigurationSetEventDestinationsRequest {
   /**
-   * @public
    * ConfigurationSetName
+   * @public
    */
   ConfigurationSetName: string | undefined;
 }
 
 /**
- * @public
  * An object that contains information about an event destination.
+ * @public
  */
 export interface GetConfigurationSetEventDestinationsResponse {
   /**
-   * @public
    * An array of EventDestination objects. Each EventDestination object includes ARNs and other information that define an event destination.
+   * @public
    */
   EventDestinations?: EventDestination[];
 }
@@ -408,182 +408,182 @@ export interface GetConfigurationSetEventDestinationsResponse {
  */
 export interface ListConfigurationSetsRequest {
   /**
-   * @public
    * A token returned from a previous call to the API that indicates the position in the list of results.
+   * @public
    */
   NextToken?: string;
 
   /**
-   * @public
    * Used to specify the number of items that should be returned in the response.
+   * @public
    */
   PageSize?: string;
 }
 
 /**
- * @public
  * An object that contains information about the configuration sets for your account in the current region.
+ * @public
  */
 export interface ListConfigurationSetsResponse {
   /**
-   * @public
    * An object that contains a list of configuration sets for your account in the current region.
+   * @public
    */
   ConfigurationSets?: string[];
 
   /**
-   * @public
    * A token returned from a previous call to ListConfigurationSets to indicate the position in the list of configuration sets.
+   * @public
    */
   NextToken?: string;
 }
 
 /**
- * @public
  * An object that defines a message that contains unformatted text.
+ * @public
  */
 export interface PlainTextMessageType {
   /**
-   * @public
    * The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide.
+   * @public
    */
   LanguageCode?: string;
 
   /**
-   * @public
    * The plain (not SSML-formatted) text to deliver to the recipient.
+   * @public
    */
   Text?: string;
 
   /**
-   * @public
    * The name of the voice that you want to use to deliver the message. For a complete list of supported voices, see the Amazon Polly Developer Guide.
+   * @public
    */
   VoiceId?: string;
 }
 
 /**
- * @public
  * An object that defines a message that contains SSML-formatted text.
+ * @public
  */
 export interface SSMLMessageType {
   /**
-   * @public
    * The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide.
+   * @public
    */
   LanguageCode?: string;
 
   /**
-   * @public
    * The SSML-formatted text to deliver to the recipient.
+   * @public
    */
   Text?: string;
 
   /**
-   * @public
    * The name of the voice that you want to use to deliver the message. For a complete list of supported voices, see the Amazon Polly Developer Guide.
+   * @public
    */
   VoiceId?: string;
 }
 
 /**
- * @public
  * An object that contains a voice message and information about the recipient that you want to send it to.
+ * @public
  */
 export interface VoiceMessageContent {
   /**
-   * @public
    * An object that defines a message that contains text formatted using Amazon Pinpoint Voice Instructions markup.
+   * @public
    */
   CallInstructionsMessage?: CallInstructionsMessageType;
 
   /**
-   * @public
    * An object that defines a message that contains unformatted text.
+   * @public
    */
   PlainTextMessage?: PlainTextMessageType;
 
   /**
-   * @public
    * An object that defines a message that contains SSML-formatted text.
+   * @public
    */
   SSMLMessage?: SSMLMessageType;
 }
 
 /**
- * @public
  * SendVoiceMessageRequest
+ * @public
  */
 export interface SendVoiceMessageRequest {
   /**
-   * @public
    * The phone number that appears on recipients' devices when they receive the message.
+   * @public
    */
   CallerId?: string;
 
   /**
-   * @public
    * The name of the configuration set that you want to use to send the message.
+   * @public
    */
   ConfigurationSetName?: string;
 
   /**
-   * @public
    * An object that contains a voice message and information about the recipient that you want to send it to.
+   * @public
    */
   Content?: VoiceMessageContent;
 
   /**
-   * @public
    * The phone number that you want to send the voice message to.
+   * @public
    */
   DestinationPhoneNumber?: string;
 
   /**
-   * @public
    * The phone number that Amazon Pinpoint should use to send the voice message. This isn't necessarily the phone number that appears on recipients' devices when they receive the message, because you can specify a CallerId parameter in the request.
+   * @public
    */
   OriginationPhoneNumber?: string;
 }
 
 /**
- * @public
  * An object that that contains the Message ID of a Voice message that was sent successfully.
+ * @public
  */
 export interface SendVoiceMessageResponse {
   /**
-   * @public
    * A unique identifier for the voice message.
+   * @public
    */
   MessageId?: string;
 }
 
 /**
- * @public
  * UpdateConfigurationSetEventDestinationRequest
+ * @public
  */
 export interface UpdateConfigurationSetEventDestinationRequest {
   /**
-   * @public
    * ConfigurationSetName
+   * @public
    */
   ConfigurationSetName: string | undefined;
 
   /**
-   * @public
    * An object that defines a single event destination.
+   * @public
    */
   EventDestination?: EventDestinationDefinition;
 
   /**
-   * @public
    * EventDestinationName
+   * @public
    */
   EventDestinationName: string | undefined;
 }
 
 /**
- * @public
  * An empty object that indicates that the event destination was updated successfully.
+ * @public
  */
 export interface UpdateConfigurationSetEventDestinationResponse {}

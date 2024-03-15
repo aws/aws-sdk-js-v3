@@ -27,7 +27,6 @@ export interface AssociateResolverRuleCommandInput extends AssociateResolverRule
 export interface AssociateResolverRuleCommandOutput extends AssociateResolverRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a Resolver rule with a VPC. When you associate a rule with a VPC, Resolver forwards all DNS queries
  * 			for the domain name that is specified in the rule and that originate in the VPC. The queries are forwarded to the
  * 			IP addresses for the DNS resolvers that are specified in the rule. For more information about rules, see
@@ -91,6 +90,7 @@ export interface AssociateResolverRuleCommandOutput extends AssociateResolverRul
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class AssociateResolverRuleCommand extends $Command
   .classBuilder<

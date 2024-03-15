@@ -27,7 +27,6 @@ export interface DeleteIdentitiesCommandInput extends DeleteIdentitiesInput {}
 export interface DeleteIdentitiesCommandOutput extends DeleteIdentitiesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes identities from an identity pool. You can specify a list of 1-60 identities
  *          that you want to delete.</p>
  *          <p>You must use AWS Developer credentials to call this API.</p>
@@ -73,6 +72,7 @@ export interface DeleteIdentitiesCommandOutput extends DeleteIdentitiesResponse,
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ * @public
  */
 export class DeleteIdentitiesCommand extends $Command
   .classBuilder<

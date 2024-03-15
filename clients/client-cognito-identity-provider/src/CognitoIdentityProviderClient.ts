@@ -729,7 +729,6 @@ export type CognitoIdentityProviderClientResolvedConfigType = __SmithyResolvedCo
 export interface CognitoIdentityProviderClientResolvedConfig extends CognitoIdentityProviderClientResolvedConfigType {}
 
 /**
- * @public
  * <p>With the Amazon Cognito user pools API, you can configure user pools and authenticate users. To
  *             authenticate users from third-party identity providers (IdPs) in this API, you can
  *                 <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation-consolidate-users.html">link IdP users to native user profiles</a>. Learn more
@@ -813,6 +812,7 @@ export interface CognitoIdentityProviderClientResolvedConfig extends CognitoIden
  *          </ul>
  *          <p>To get started with an Amazon Web Services SDK, see <a href="http://aws.amazon.com/developer/tools/">Tools to Build on Amazon Web Services</a>. For example actions and scenarios, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/service_code_examples_cognito-identity-provider.html">Code examples for Amazon Cognito Identity Provider using Amazon Web Services
  *                 SDKs</a>.</p>
+ * @public
  */
 export class CognitoIdentityProviderClient extends __Client<
   __HttpHandlerOptions,

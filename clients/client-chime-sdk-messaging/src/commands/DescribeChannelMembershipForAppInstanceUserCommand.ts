@@ -41,7 +41,6 @@ export interface DescribeChannelMembershipForAppInstanceUserCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns the details of a channel based on the membership of the specified
  *             <code>AppInstanceUser</code> or <code>AppInstanceBot</code>.</p>
  *          <note>
@@ -109,6 +108,7 @@ export interface DescribeChannelMembershipForAppInstanceUserCommandOutput
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * @public
  */
 export class DescribeChannelMembershipForAppInstanceUserCommand extends $Command
   .classBuilder<

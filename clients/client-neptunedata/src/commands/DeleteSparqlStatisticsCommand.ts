@@ -27,7 +27,6 @@ export interface DeleteSparqlStatisticsCommandInput {}
 export interface DeleteSparqlStatisticsCommandOutput extends DeleteSparqlStatisticsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes SPARQL statistics</p>
  *          <p>When invoking this operation in a Neptune cluster that has IAM
  *       authentication enabled, the IAM user or role making the request must
@@ -101,6 +100,7 @@ export interface DeleteSparqlStatisticsCommandOutput extends DeleteSparqlStatist
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * @public
  */
 export class DeleteSparqlStatisticsCommand extends $Command
   .classBuilder<

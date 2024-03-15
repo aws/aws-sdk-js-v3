@@ -32,7 +32,6 @@ export interface ConfirmPrivateVirtualInterfaceCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Accepts ownership of a private virtual interface created by another Amazon Web Services account.</p>
  *          <p>After the virtual interface owner makes this call, the virtual interface is
  *       created and attached to the specified virtual private gateway or Direct Connect gateway, and is
@@ -71,6 +70,7 @@ export interface ConfirmPrivateVirtualInterfaceCommandOutput
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class ConfirmPrivateVirtualInterfaceCommand extends $Command
   .classBuilder<

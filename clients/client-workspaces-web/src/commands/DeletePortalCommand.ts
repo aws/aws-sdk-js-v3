@@ -27,7 +27,6 @@ export interface DeletePortalCommandInput extends DeletePortalRequest {}
 export interface DeletePortalCommandOutput extends DeletePortalResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a web portal.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DeletePortalCommandOutput extends DeletePortalResponse, __Metad
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * @public
  */
 export class DeletePortalCommand extends $Command
   .classBuilder<

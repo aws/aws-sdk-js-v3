@@ -27,7 +27,6 @@ export interface DeletePrincipalMappingCommandInput extends DeletePrincipalMappi
 export interface DeletePrincipalMappingCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a group so that all users and sub groups that belong to the group can no
  *             longer access documents only available to that group.</p>
  *          <p>For example, after deleting the group "Summer Interns", all interns who belonged to
@@ -92,6 +91,7 @@ export interface DeletePrincipalMappingCommandOutput extends __MetadataBearer {}
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class DeletePrincipalMappingCommand extends $Command
   .classBuilder<

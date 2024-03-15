@@ -32,7 +32,6 @@ export interface CreateWorkspaceCommandInput extends CreateWorkspaceRequest {}
 export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a <i>workspace</i>. In a workspace, you can create Grafana
  *             dashboards and visualizations to analyze your metrics, logs, and traces. You don't have
  *             to build, package, or deploy any hardware to run the Grafana server.</p>
@@ -175,6 +174,7 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
  * @throws {@link GrafanaServiceException}
  * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
+ * @public
  */
 export class CreateWorkspaceCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteRepositoryPolicyCommandInput extends DeleteRepositoryPoli
 export interface DeleteRepositoryPolicyCommandOutput extends DeleteRepositoryPolicyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the repository policy that's associated with the specified repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface DeleteRepositoryPolicyCommandOutput extends DeleteRepositoryPol
  * @throws {@link ECRPUBLICServiceException}
  * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
+ * @public
  */
 export class DeleteRepositoryPolicyCommand extends $Command
   .classBuilder<

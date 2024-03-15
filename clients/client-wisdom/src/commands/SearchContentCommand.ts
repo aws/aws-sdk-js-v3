@@ -27,7 +27,6 @@ export interface SearchContentCommandInput extends SearchContentRequest {}
 export interface SearchContentCommandOutput extends SearchContentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Searches for content in a specified knowledge base. Can be used to get a specific content
  *       resource by its name.</p>
  * @example
@@ -95,6 +94,7 @@ export interface SearchContentCommandOutput extends SearchContentResponse, __Met
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ * @public
  */
 export class SearchContentCommand extends $Command
   .classBuilder<

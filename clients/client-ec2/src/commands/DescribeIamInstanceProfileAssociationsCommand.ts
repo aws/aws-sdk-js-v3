@@ -36,7 +36,6 @@ export interface DescribeIamInstanceProfileAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes your IAM instance profile associations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface DescribeIamInstanceProfileAssociationsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To describe an IAM instance profile association
  * ```javascript
  * // This example describes the specified IAM instance profile association.

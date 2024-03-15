@@ -27,7 +27,6 @@ export interface ListApplicationsCommandInput extends ListApplicationsRequest {}
 export interface ListApplicationsCommandOutput extends ListApplicationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the applications associated with a specific Amazon Web Services account. You can provide the
  *          unique identifier of a specific runtime environment in a query parameter to see all
  *          applications associated with that environment.</p>
@@ -91,6 +90,7 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * @throws {@link M2ServiceException}
  * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ * @public
  */
 export class ListApplicationsCommand extends $Command
   .classBuilder<

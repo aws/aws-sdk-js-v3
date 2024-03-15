@@ -27,7 +27,6 @@ export interface ListHarvestJobsCommandInput extends ListHarvestJobsRequest {}
 export interface ListHarvestJobsCommandOutput extends ListHarvestJobsResponse, __MetadataBearer {}
 
 /**
- * @public
  * Returns a collection of HarvestJob records.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface ListHarvestJobsCommandOutput extends ListHarvestJobsResponse, _
  * @throws {@link MediaPackageServiceException}
  * <p>Base exception class for all service exceptions from MediaPackage service.</p>
  *
+ * @public
  */
 export class ListHarvestJobsCommand extends $Command
   .classBuilder<

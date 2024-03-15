@@ -31,7 +31,6 @@ export interface GetServerStrategiesCommandInput extends GetServerStrategiesRequ
 export interface GetServerStrategiesCommandOutput extends GetServerStrategiesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Retrieves recommended strategies and tools for the specified server. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface GetServerStrategiesCommandOutput extends GetServerStrategiesRes
  * @throws {@link MigrationHubStrategyServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ * @public
  */
 export class GetServerStrategiesCommand extends $Command
   .classBuilder<

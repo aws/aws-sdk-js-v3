@@ -37,7 +37,6 @@ export interface AssociateSourceNetworkStackCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Associate a Source Network to an existing CloudFormation Stack and modify launch templates to use this network. Can be used for reverting to previously deployed CloudFormation stacks.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -141,6 +140,7 @@ export interface AssociateSourceNetworkStackCommandOutput
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * @public
  */
 export class AssociateSourceNetworkStackCommand extends $Command
   .classBuilder<

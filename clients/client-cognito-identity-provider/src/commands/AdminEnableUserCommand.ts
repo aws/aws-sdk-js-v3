@@ -35,7 +35,6 @@ export interface AdminEnableUserCommandInput extends AdminEnableUserRequest {}
 export interface AdminEnableUserCommandOutput extends AdminEnableUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Enables the specified user as an administrator. Works on any user.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
@@ -103,6 +102,7 @@ export interface AdminEnableUserCommandOutput extends AdminEnableUserResponse, _
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class AdminEnableUserCommand extends $Command
   .classBuilder<

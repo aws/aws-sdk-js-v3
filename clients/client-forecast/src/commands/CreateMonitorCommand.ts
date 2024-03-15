@@ -31,7 +31,6 @@ export interface CreateMonitorCommandInput extends CreateMonitorRequest {}
 export interface CreateMonitorCommandOutput extends CreateMonitorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a predictor monitor resource for an existing auto predictor. Predictor monitoring allows you to see how your predictor's performance changes over time.
  *            For more information, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/predictor-monitoring.html">Predictor Monitoring</a>.
  *        </p>
@@ -85,6 +84,7 @@ export interface CreateMonitorCommandOutput extends CreateMonitorResponse, __Met
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class CreateMonitorCommand extends $Command
   .classBuilder<

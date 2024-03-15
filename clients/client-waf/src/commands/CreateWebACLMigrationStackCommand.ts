@@ -27,7 +27,6 @@ export interface CreateWebACLMigrationStackCommandInput extends CreateWebACLMigr
 export interface CreateWebACLMigrationStackCommandOutput extends CreateWebACLMigrationStackResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an AWS CloudFormation WAFV2 template for the specified web ACL in the specified Amazon S3 bucket.
  *            Then, in CloudFormation, you create a stack from the template, to create the web ACL and its resources in AWS WAFV2.
  *            Use this to migrate your AWS WAF Classic web ACL to the latest version of AWS WAF.</p>
@@ -166,6 +165,7 @@ export interface CreateWebACLMigrationStackCommandOutput extends CreateWebACLMig
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
+ * @public
  */
 export class CreateWebACLMigrationStackCommand extends $Command
   .classBuilder<

@@ -35,7 +35,6 @@ export interface SetUserMFAPreferenceCommandInput extends SetUserMFAPreferenceRe
 export interface SetUserMFAPreferenceCommandOutput extends SetUserMFAPreferenceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Set the user's multi-factor authentication (MFA) method preference, including which
  *             MFA factors are activated and if any are preferred. Only one factor can be set as
  *             preferred. The preferred MFA factor will be used to authenticate a user if multiple
@@ -111,6 +110,7 @@ export interface SetUserMFAPreferenceCommandOutput extends SetUserMFAPreferenceR
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class SetUserMFAPreferenceCommand extends $Command
   .classBuilder<

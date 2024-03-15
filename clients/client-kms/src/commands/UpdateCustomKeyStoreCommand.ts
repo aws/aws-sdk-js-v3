@@ -31,7 +31,6 @@ export interface UpdateCustomKeyStoreCommandInput extends UpdateCustomKeyStoreRe
 export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Changes the properties of a custom key store. You can use this operation to change the
  *       properties of an CloudHSM key store or an external key store.</p>
  *          <p>Use the required <code>CustomKeyStoreId</code> parameter to identify the custom key store.
@@ -319,6 +318,7 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To edit the friendly name of a custom key store
  * ```javascript
  * // This example changes the friendly name of the AWS KMS custom key store to the name that you specify. This operation does not return any data. To verify that the operation worked, use the DescribeCustomKeyStores operation.

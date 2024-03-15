@@ -27,7 +27,6 @@ export interface GetAssetTypeCommandInput extends GetAssetTypeInput {}
 export interface GetAssetTypeCommandOutput extends GetAssetTypeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets an Amazon DataZone asset type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,6 +91,7 @@ export interface GetAssetTypeCommandOutput extends GetAssetTypeOutput, __Metadat
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ * @public
  */
 export class GetAssetTypeCommand extends $Command
   .classBuilder<

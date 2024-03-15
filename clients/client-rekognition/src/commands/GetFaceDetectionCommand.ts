@@ -27,7 +27,6 @@ export interface GetFaceDetectionCommandInput extends GetFaceDetectionRequest {}
 export interface GetFaceDetectionCommandOutput extends GetFaceDetectionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets face detection results for a Amazon Rekognition Video analysis started by <a>StartFaceDetection</a>.</p>
  *          <p>Face detection with Amazon Rekognition Video is an asynchronous operation. You start face detection by calling <a>StartFaceDetection</a>
  *      which returns a job identifier (<code>JobId</code>). When the face detection operation finishes, Amazon Rekognition Video publishes a completion status to
@@ -195,6 +194,7 @@ export interface GetFaceDetectionCommandOutput extends GetFaceDetectionResponse,
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  */
 export class GetFaceDetectionCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface CreateProfileShareCommandInput extends CreateProfileShareInput 
 export interface CreateProfileShareCommandOutput extends CreateProfileShareOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Create a profile share.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface CreateProfileShareCommandOutput extends CreateProfileShareOutpu
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * @public
  */
 export class CreateProfileShareCommand extends $Command
   .classBuilder<

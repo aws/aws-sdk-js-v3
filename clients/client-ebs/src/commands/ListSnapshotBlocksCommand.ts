@@ -31,7 +31,6 @@ export interface ListSnapshotBlocksCommandInput extends ListSnapshotBlocksReques
 export interface ListSnapshotBlocksCommandOutput extends ListSnapshotBlocksResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about the blocks in an Amazon Elastic Block Store snapshot.</p>
  *          <note>
  *             <p>You should always retry requests that receive server (<code>5xx</code>)
@@ -96,6 +95,7 @@ export interface ListSnapshotBlocksCommandOutput extends ListSnapshotBlocksRespo
  * @throws {@link EBSServiceException}
  * <p>Base exception class for all service exceptions from EBS service.</p>
  *
+ * @public
  */
 export class ListSnapshotBlocksCommand extends $Command
   .classBuilder<

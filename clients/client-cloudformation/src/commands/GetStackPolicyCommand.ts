@@ -27,7 +27,6 @@ export interface GetStackPolicyCommandInput extends GetStackPolicyInput {}
 export interface GetStackPolicyCommandOutput extends GetStackPolicyOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the stack policy for a specified stack. If a stack doesn't have a policy, a null value is
  *    returned.</p>
  * @example
@@ -56,6 +55,7 @@ export interface GetStackPolicyCommandOutput extends GetStackPolicyOutput, __Met
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * @public
  */
 export class GetStackPolicyCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeClientBrandingCommandInput extends DescribeClientBrandi
 export interface DescribeClientBrandingCommandOutput extends DescribeClientBrandingResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified client branding. Client branding allows you to customize the log
  *          in page of various device types for your users. You can add your company logo, the support
  *          email address, support link, link to reset password, and a custom message for users trying
@@ -124,6 +123,7 @@ export interface DescribeClientBrandingCommandOutput extends DescribeClientBrand
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class DescribeClientBrandingCommand extends $Command
   .classBuilder<

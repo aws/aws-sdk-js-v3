@@ -27,7 +27,6 @@ export interface DeleteAssessmentFrameworkCommandInput extends DeleteAssessmentF
 export interface DeleteAssessmentFrameworkCommandOutput extends DeleteAssessmentFrameworkResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Deletes a custom framework in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +66,7 @@ export interface DeleteAssessmentFrameworkCommandOutput extends DeleteAssessment
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class DeleteAssessmentFrameworkCommand extends $Command
   .classBuilder<

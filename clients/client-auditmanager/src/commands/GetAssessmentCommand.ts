@@ -31,7 +31,6 @@ export interface GetAssessmentCommandInput extends GetAssessmentRequest {}
 export interface GetAssessmentCommandOutput extends GetAssessmentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a specified assessment. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -193,6 +192,7 @@ export interface GetAssessmentCommandOutput extends GetAssessmentResponse, __Met
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * @public
  */
 export class GetAssessmentCommand extends $Command
   .classBuilder<

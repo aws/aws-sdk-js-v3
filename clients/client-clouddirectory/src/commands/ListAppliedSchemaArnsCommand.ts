@@ -27,7 +27,6 @@ export interface ListAppliedSchemaArnsCommandInput extends ListAppliedSchemaArns
 export interface ListAppliedSchemaArnsCommandOutput extends ListAppliedSchemaArnsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists schema major versions applied to a directory. If <code>SchemaArn</code> is provided, lists the minor version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface ListAppliedSchemaArnsCommandOutput extends ListAppliedSchemaArn
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ * @public
  */
 export class ListAppliedSchemaArnsCommand extends $Command
   .classBuilder<

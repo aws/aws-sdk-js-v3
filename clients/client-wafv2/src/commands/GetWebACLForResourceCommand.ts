@@ -27,7 +27,6 @@ export interface GetWebACLForResourceCommandInput extends GetWebACLForResourceRe
 export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the <a>WebACL</a> for the specified resource. </p>
  *          <p>This call uses <code>GetWebACL</code>, to verify that your account has permission to access the retrieved web ACL.
  *           If you get an error that indicates that your account isn't authorized to perform <code>wafv2:GetWebACL</code> on the resource,
@@ -1280,6 +1279,7 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class GetWebACLForResourceCommand extends $Command
   .classBuilder<

@@ -28,7 +28,6 @@ export interface ListQueryLoggingConfigsCommandInput extends ListQueryLoggingCon
 export interface ListQueryLoggingConfigsCommandOutput extends ListQueryLoggingConfigsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the configurations for DNS query logging that are associated with the current
  * 				Amazon Web Services account or the configuration that is associated with a specified
  * 			hosted zone.</p>
@@ -80,6 +79,7 @@ export interface ListQueryLoggingConfigsCommandOutput extends ListQueryLoggingCo
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * @public
  */
 export class ListQueryLoggingConfigsCommand extends $Command
   .classBuilder<

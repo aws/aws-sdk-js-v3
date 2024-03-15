@@ -31,7 +31,6 @@ export interface StopVectorEnrichmentJobCommandInput extends StopVectorEnrichmen
 export interface StopVectorEnrichmentJobCommandOutput extends StopVectorEnrichmentJobOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops the  Vector Enrichment job for a given job ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +74,7 @@ export interface StopVectorEnrichmentJobCommandOutput extends StopVectorEnrichme
  * @throws {@link SageMakerGeospatialServiceException}
  * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
+ * @public
  */
 export class StopVectorEnrichmentJobCommand extends $Command
   .classBuilder<

@@ -32,9 +32,6 @@ export interface ListChannelsCommandInput extends ListChannelsRequest {}
 export interface ListChannelsCommandOutput extends ListChannelsResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by ListChannels in the Amazon Chime SDK Messaging Namespace
- *
  * <p>Lists all Channels created under a single Chime App as a paginated list. You can specify
  *          filters to narrow results.</p>
  *          <p class="title">
@@ -120,6 +117,8 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by ListChannels in the Amazon Chime SDK Messaging Namespace
  */
 export class ListChannelsCommand extends $Command
   .classBuilder<

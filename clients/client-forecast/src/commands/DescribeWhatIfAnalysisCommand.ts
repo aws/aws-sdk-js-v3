@@ -27,7 +27,6 @@ export interface DescribeWhatIfAnalysisCommandInput extends DescribeWhatIfAnalys
 export interface DescribeWhatIfAnalysisCommandOutput extends DescribeWhatIfAnalysisResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the what-if analysis created using the <a>CreateWhatIfAnalysis</a> operation.</p>
  *          <p>In addition to listing the properties provided in the <code>CreateWhatIfAnalysis</code> request, this operation lists the following properties:</p>
  *          <ul>
@@ -112,6 +111,7 @@ export interface DescribeWhatIfAnalysisCommandOutput extends DescribeWhatIfAnaly
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * @public
  */
 export class DescribeWhatIfAnalysisCommand extends $Command
   .classBuilder<

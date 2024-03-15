@@ -37,7 +37,6 @@ export interface DescribeReplicationConfigurationTemplatesCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all ReplicationConfigurationTemplates, filtered by Source Server IDs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -119,6 +118,7 @@ export interface DescribeReplicationConfigurationTemplatesCommandOutput
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * @public
  */
 export class DescribeReplicationConfigurationTemplatesCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DescribeActionTargetsCommandInput extends DescribeActionTargets
 export interface DescribeActionTargetsCommandOutput extends DescribeActionTargetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the custom action targets in Security Hub in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface DescribeActionTargetsCommandOutput extends DescribeActionTarget
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To return custom action targets
  * ```javascript
  * // The following example returns a list of custom action targets. You use custom actions on findings and insights in Security Hub to trigger target actions in Amazon CloudWatch Events.

@@ -37,9 +37,6 @@ export interface GetAppInstanceStreamingConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by GetAppInstanceStreamingConfigurations in the Amazon Chime SDK Messaging Namespace
- *
  * <p>Gets the streaming settings for an <code>AppInstance</code>.</p>
  *          <important>
  *             <p>
@@ -100,6 +97,8 @@ export interface GetAppInstanceStreamingConfigurationsCommandOutput
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by GetAppInstanceStreamingConfigurations in the Amazon Chime SDK Messaging Namespace
  */
 export class GetAppInstanceStreamingConfigurationsCommand extends $Command
   .classBuilder<

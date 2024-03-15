@@ -28,7 +28,6 @@ export interface ModifyDBClusterEndpointCommandInput extends ModifyDBClusterEndp
 export interface ModifyDBClusterEndpointCommandOutput extends DBClusterEndpoint, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the properties of an endpoint in an Amazon Aurora DB cluster.</p>
  *          <note>
  *             <p>This operation only applies to Aurora DB clusters.</p>
@@ -95,6 +94,7 @@ export interface ModifyDBClusterEndpointCommandOutput extends DBClusterEndpoint,
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To modify a custom DB cluster endpoint
  * ```javascript
  * // The following example modifies the specified custom DB cluster endpoint.

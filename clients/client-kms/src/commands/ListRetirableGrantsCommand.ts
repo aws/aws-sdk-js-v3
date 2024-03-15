@@ -27,7 +27,6 @@ export interface ListRetirableGrantsCommandInput extends ListRetirableGrantsRequ
 export interface ListRetirableGrantsCommandOutput extends ListGrantsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns information about all grants in the Amazon Web Services account and Region that have the
  *       specified retiring principal. </p>
  *          <p>You can specify any principal in your Amazon Web Services account. The grants that are returned include
@@ -154,6 +153,7 @@ export interface ListRetirableGrantsCommandOutput extends ListGrantsResponse, __
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * @public
  * @example To list grants that the specified principal can retire
  * ```javascript
  * // The following example lists the grants that the specified principal (identity) can retire.

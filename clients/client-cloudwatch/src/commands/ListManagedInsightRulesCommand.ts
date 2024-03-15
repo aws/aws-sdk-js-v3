@@ -27,7 +27,6 @@ export interface ListManagedInsightRulesCommandInput extends ListManagedInsightR
 export interface ListManagedInsightRulesCommandOutput extends ListManagedInsightRulesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>
  * 			Returns a list
  * 			that contains the number
@@ -82,6 +81,7 @@ export interface ListManagedInsightRulesCommandOutput extends ListManagedInsight
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * @public
  */
 export class ListManagedInsightRulesCommand extends $Command
   .classBuilder<

@@ -36,7 +36,6 @@ export interface DeleteReplicationSubnetGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a subnet group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +67,7 @@ export interface DeleteReplicationSubnetGroupCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Delete Replication Subnet Group
  * ```javascript
  * // Deletes a replication subnet group.

@@ -27,7 +27,6 @@ export interface CreateMissionProfileCommandInput extends CreateMissionProfileRe
 export interface CreateMissionProfileCommandOutput extends MissionProfileIdResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a mission profile.</p>
  *          <p>
  *             <code>dataflowEdges</code> is a list of lists of strings. Each lower level list of strings
@@ -85,6 +84,7 @@ export interface CreateMissionProfileCommandOutput extends MissionProfileIdRespo
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ * @public
  */
 export class CreateMissionProfileCommand extends $Command
   .classBuilder<

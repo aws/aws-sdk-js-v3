@@ -27,7 +27,6 @@ export interface GetOperationDetailCommandInput extends GetOperationDetailReques
 export interface GetOperationDetailCommandOutput extends GetOperationDetailResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation returns the current status of an operation that is not
  * 			completed.</p>
  * @example
@@ -69,6 +68,7 @@ export interface GetOperationDetailCommandOutput extends GetOperationDetailRespo
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * @public
  */
 export class GetOperationDetailCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetNotebookMetadataCommandInput extends GetNotebookMetadataInpu
 export interface GetNotebookMetadataCommandOutput extends GetNotebookMetadataOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves notebook metadata for the specified notebook ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -73,6 +72,7 @@ export interface GetNotebookMetadataCommandOutput extends GetNotebookMetadataOut
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class GetNotebookMetadataCommand extends $Command
   .classBuilder<

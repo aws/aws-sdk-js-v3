@@ -27,7 +27,6 @@ export interface CreatePullThroughCacheRuleCommandInput extends CreatePullThroug
 export interface CreatePullThroughCacheRuleCommandOutput extends CreatePullThroughCacheRuleResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a pull through cache rule. A pull through cache rule provides a way to cache
  *             images from an upstream registry source in your Amazon ECR private registry. For more
  *             information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache.html">Using pull through cache
@@ -101,6 +100,7 @@ export interface CreatePullThroughCacheRuleCommandOutput extends CreatePullThrou
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * @public
  */
 export class CreatePullThroughCacheRuleCommand extends $Command
   .classBuilder<

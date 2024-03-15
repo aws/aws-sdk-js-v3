@@ -32,7 +32,6 @@ export interface UpdateDocumentDefaultVersionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Set the default version of a document. </p>
  *          <note>
  *             <p>If you change a document version for a State Manager association, Systems Manager immediately runs
@@ -82,6 +81,7 @@ export interface UpdateDocumentDefaultVersionCommandOutput
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class UpdateDocumentDefaultVersionCommand extends $Command
   .classBuilder<

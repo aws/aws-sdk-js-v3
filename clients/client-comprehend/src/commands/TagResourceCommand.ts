@@ -27,7 +27,6 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a specific tag with an Amazon Comprehend resource. A tag is a key-value pair
  *       that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with
  *       "Sales" as the key might be added to a resource to indicate its use by the sales department.
@@ -80,6 +79,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

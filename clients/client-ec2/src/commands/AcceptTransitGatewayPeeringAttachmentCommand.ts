@@ -36,7 +36,6 @@ export interface AcceptTransitGatewayPeeringAttachmentCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Accepts a transit gateway peering attachment request. The peering attachment must be
  *             in the <code>pendingAcceptance</code> state.</p>
  * @example
@@ -96,6 +95,7 @@ export interface AcceptTransitGatewayPeeringAttachmentCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class AcceptTransitGatewayPeeringAttachmentCommand extends $Command
   .classBuilder<

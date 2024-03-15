@@ -27,7 +27,6 @@ export interface DeleteBotReplicaCommandInput extends DeleteBotReplicaRequest {}
 export interface DeleteBotReplicaCommandOutput extends DeleteBotReplicaResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>The action to delete the replicated bot in the secondary region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +82,7 @@ export interface DeleteBotReplicaCommandOutput extends DeleteBotReplicaResponse,
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * @public
  */
 export class DeleteBotReplicaCommand extends $Command
   .classBuilder<

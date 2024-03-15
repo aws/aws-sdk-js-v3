@@ -1661,7 +1661,6 @@ export interface SSOAdmin {
 }
 
 /**
- * @public
  * <p>IAM Identity Center (successor to Single Sign-On) helps you securely create, or connect, your workforce identities and manage
  *             their access centrally across Amazon Web Services accounts and applications. IAM Identity Center is the recommended
  *             approach for workforce authentication and authorization in Amazon Web Services, for organizations of
@@ -1686,6 +1685,7 @@ export interface SSOAdmin {
  *                 install them, see <a href="http://aws.amazon.com/tools/">Tools for Amazon Web
  *                     Services</a>.</p>
  *          </note>
+ * @public
  */
 export class SSOAdmin extends SSOAdminClient implements SSOAdmin {}
 createAggregatedClient(commands, SSOAdmin);

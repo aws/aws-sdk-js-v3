@@ -27,7 +27,6 @@ export interface DescribeFeaturedResultsSetCommandInput extends DescribeFeatured
 export interface DescribeFeaturedResultsSetCommandOutput extends DescribeFeaturedResultsSetResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a set of featured results. Features results are placed
  *             above all other results for certain queries. If there's an exact match of a query,
  *             then one or more specific documents are featured in the search results.</p>
@@ -98,6 +97,7 @@ export interface DescribeFeaturedResultsSetCommandOutput extends DescribeFeature
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class DescribeFeaturedResultsSetCommand extends $Command
   .classBuilder<

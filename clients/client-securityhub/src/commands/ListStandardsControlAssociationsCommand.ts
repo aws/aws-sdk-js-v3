@@ -32,7 +32,6 @@ export interface ListStandardsControlAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>
  *          Specifies whether a control is currently enabled or disabled in each enabled standard in the calling account.
  *       </p>
@@ -93,6 +92,7 @@ export interface ListStandardsControlAssociationsCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * @public
  * @example To say whether standard
  * ```javascript
  * // The following example specifies whether a control is currently enabled or disabled in each enabled standard in the calling account. The response also provides other details about the control.

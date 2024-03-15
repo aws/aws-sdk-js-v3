@@ -27,7 +27,6 @@ export interface DescribeInternetGatewaysCommandInput extends DescribeInternetGa
 export interface DescribeInternetGatewaysCommandOutput extends DescribeInternetGatewaysResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes one or more of your internet gateways.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +85,7 @@ export interface DescribeInternetGatewaysCommandOutput extends DescribeInternetG
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To describe the Internet gateway for a VPC
  * ```javascript
  * // This example describes the Internet gateway for the specified VPC.

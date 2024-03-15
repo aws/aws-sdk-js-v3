@@ -534,7 +534,6 @@ export type FraudDetectorClientResolvedConfigType = __SmithyResolvedConfiguratio
 export interface FraudDetectorClientResolvedConfig extends FraudDetectorClientResolvedConfigType {}
 
 /**
- * @public
  * <p>This is the Amazon Fraud Detector API Reference. This guide is for developers who need
  *             detailed information about Amazon Fraud Detector API actions, data types, and errors. For
  *             more information about Amazon Fraud Detector features, see the <a href="https://docs.aws.amazon.com/frauddetector/latest/ug/">Amazon Fraud Detector User Guide</a>.</p>
@@ -545,6 +544,7 @@ export interface FraudDetectorClientResolvedConfig extends FraudDetectorClientRe
  *             handling error responses, so that it is easier for you to get started. For more information about the AWS SDKs, go to <a href="https://aws.amazon.com/developer/tools/">Tools to build on AWS</a> page,
  *             scroll down to the <b>SDK</b> section, and choose plus (+) sign to expand the section.
  *             </p>
+ * @public
  */
 export class FraudDetectorClient extends __Client<
   __HttpHandlerOptions,

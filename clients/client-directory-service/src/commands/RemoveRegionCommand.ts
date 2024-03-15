@@ -27,7 +27,6 @@ export interface RemoveRegionCommandInput extends RemoveRegionRequest {}
 export interface RemoveRegionCommandOutput extends RemoveRegionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops all replication and removes the domain controllers from the specified Region. You
  *       cannot remove the primary Region with this operation. Instead, use the
  *         <code>DeleteDirectory</code> API.</p>
@@ -73,6 +72,7 @@ export interface RemoveRegionCommandOutput extends RemoveRegionResult, __Metadat
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class RemoveRegionCommand extends $Command
   .classBuilder<

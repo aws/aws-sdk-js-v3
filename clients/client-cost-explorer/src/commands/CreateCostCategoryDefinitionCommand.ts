@@ -32,7 +32,6 @@ export interface CreateCostCategoryDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new Cost Category with the requested name and rules.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -171,6 +170,7 @@ export interface CreateCostCategoryDefinitionCommandOutput
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * @public
  */
 export class CreateCostCategoryDefinitionCommand extends $Command
   .classBuilder<

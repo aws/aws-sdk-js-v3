@@ -27,7 +27,6 @@ export interface GetFeatureCommandInput extends GetFeatureRequest {}
 export interface GetFeatureCommandOutput extends GetFeatureResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the details about one feature. You must already know the feature name. To
  *       retrieve a list of features in your account, use <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListFeatures.html">ListFeatures</a>.</p>
  * @example
@@ -103,6 +102,7 @@ export interface GetFeatureCommandOutput extends GetFeatureResponse, __MetadataB
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ * @public
  */
 export class GetFeatureCommand extends $Command
   .classBuilder<

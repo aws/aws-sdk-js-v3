@@ -27,7 +27,6 @@ export interface DescribeFolderPermissionsCommandInput extends DescribeFolderPer
 export interface DescribeFolderPermissionsCommandOutput extends DescribeFolderPermissionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes permissions for a folder.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,6 +97,7 @@ export interface DescribeFolderPermissionsCommandOutput extends DescribeFolderPe
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * @public
  */
 export class DescribeFolderPermissionsCommand extends $Command
   .classBuilder<

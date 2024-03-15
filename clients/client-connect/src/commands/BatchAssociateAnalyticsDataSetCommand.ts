@@ -32,7 +32,6 @@ export interface BatchAssociateAnalyticsDataSetCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Associates a list of analytics datasets for a given Amazon Connect instance to a target
  *    account. You can associate multiple datasets in a single call.</p>
@@ -94,6 +93,7 @@ export interface BatchAssociateAnalyticsDataSetCommandOutput
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class BatchAssociateAnalyticsDataSetCommand extends $Command
   .classBuilder<

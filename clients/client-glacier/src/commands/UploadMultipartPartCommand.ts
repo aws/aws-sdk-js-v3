@@ -34,7 +34,6 @@ export interface UploadMultipartPartCommandInput extends Omit<UploadMultipartPar
 export interface UploadMultipartPartCommandOutput extends UploadMultipartPartOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation uploads a part of an archive. You can upload archive parts in any
  *          order. You can also upload them in parallel. You can upload up to 10,000 parts for a
  *          multipart upload.</p>
@@ -134,6 +133,7 @@ export interface UploadMultipartPartCommandOutput extends UploadMultipartPartOut
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * @public
  * @example To upload the first part of an archive
  * ```javascript
  * // The example uploads the first 1 MiB (1024 x 1024 bytes) part of an archive.

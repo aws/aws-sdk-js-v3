@@ -27,7 +27,6 @@ export interface ListSimulationsCommandInput extends ListSimulationsInput {}
 export interface ListSimulationsCommandOutput extends ListSimulationsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the SimSpace Weaver simulations in the Amazon Web Services account used to make the API call.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface ListSimulationsCommandOutput extends ListSimulationsOutput, __M
  * @throws {@link SimSpaceWeaverServiceException}
  * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
+ * @public
  */
 export class ListSimulationsCommand extends $Command
   .classBuilder<

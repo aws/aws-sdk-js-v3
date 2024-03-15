@@ -27,7 +27,6 @@ export interface CreateModelCommandInput extends CreateModelRequest {}
 export interface CreateModelCommandOutput extends CreateModelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new version of a model within an an Amazon Lookout for Vision project.
  *       <code>CreateModel</code> is an asynchronous operation in which Amazon Lookout for Vision trains, tests,
  *        and evaluates a new version of a model. </p>
@@ -118,6 +117,7 @@ export interface CreateModelCommandOutput extends CreateModelResponse, __Metadat
  * @throws {@link LookoutVisionServiceException}
  * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
+ * @public
  */
 export class CreateModelCommand extends $Command
   .classBuilder<

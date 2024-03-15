@@ -27,7 +27,6 @@ export interface DisassociateAdminAccountCommandInput extends DisassociateAdminA
 export interface DisassociateAdminAccountCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Disassociates an Firewall Manager administrator account. To set a different account as an Firewall Manager administrator, submit a <a>PutAdminAccount</a> request. To set an account as a default administrator account, you must submit an <a>AssociateAdminAccount</a> request.</p>
  *          <p>Disassociation of the default administrator account follows the first in, last out principle. If you are the default administrator, all Firewall Manager administrators within the organization must first disassociate their accounts before you can disassociate your account.</p>
  * @example
@@ -66,6 +65,7 @@ export interface DisassociateAdminAccountCommandOutput extends __MetadataBearer 
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * @public
  */
 export class DisassociateAdminAccountCommand extends $Command
   .classBuilder<

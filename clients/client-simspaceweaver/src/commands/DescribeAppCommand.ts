@@ -27,7 +27,6 @@ export interface DescribeAppCommandInput extends DescribeAppInput {}
 export interface DescribeAppCommandOutput extends DescribeAppOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the state of the given custom app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +87,7 @@ export interface DescribeAppCommandOutput extends DescribeAppOutput, __MetadataB
  * @throws {@link SimSpaceWeaverServiceException}
  * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
+ * @public
  */
 export class DescribeAppCommand extends $Command
   .classBuilder<

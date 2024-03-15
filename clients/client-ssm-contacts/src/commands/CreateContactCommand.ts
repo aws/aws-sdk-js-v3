@@ -27,7 +27,6 @@ export interface CreateContactCommandInput extends CreateContactRequest {}
 export interface CreateContactCommandOutput extends CreateContactResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Contacts are either the contacts that Incident Manager engages during an incident or the
  *          escalation plans that Incident Manager uses to engage contacts in phases during an
  *          incident.</p>
@@ -110,6 +109,7 @@ export interface CreateContactCommandOutput extends CreateContactResult, __Metad
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ * @public
  */
 export class CreateContactCommand extends $Command
   .classBuilder<

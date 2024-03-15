@@ -31,7 +31,6 @@ export interface StartHumanLoopCommandInput extends StartHumanLoopRequest {}
 export interface StartHumanLoopCommandOutput extends StartHumanLoopResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a human loop, provided that at least one activation condition is met.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface StartHumanLoopCommandOutput extends StartHumanLoopResponse, __M
  * @throws {@link SageMakerA2IRuntimeServiceException}
  * <p>Base exception class for all service exceptions from SageMakerA2IRuntime service.</p>
  *
+ * @public
  */
 export class StartHumanLoopCommand extends $Command
   .classBuilder<

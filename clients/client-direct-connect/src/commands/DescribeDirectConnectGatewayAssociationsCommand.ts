@@ -36,7 +36,6 @@ export interface DescribeDirectConnectGatewayAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the associations between your Direct Connect gateways and virtual private gateways and transit gateways. You must specify one of the following:</p>
  *          <ul>
  *             <li>
@@ -120,6 +119,7 @@ export interface DescribeDirectConnectGatewayAssociationsCommandOutput
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * @public
  */
 export class DescribeDirectConnectGatewayAssociationsCommand extends $Command
   .classBuilder<

@@ -468,9 +468,9 @@ export type LookoutEquipmentClientResolvedConfigType = __SmithyResolvedConfigura
 export interface LookoutEquipmentClientResolvedConfig extends LookoutEquipmentClientResolvedConfigType {}
 
 /**
- * @public
  * <p>Amazon Lookout for Equipment is a machine learning service that uses advanced analytics to identify
  *          anomalies in machines from sensor data for use in predictive maintenance. </p>
+ * @public
  */
 export class LookoutEquipmentClient extends __Client<
   __HttpHandlerOptions,

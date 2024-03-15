@@ -27,7 +27,6 @@ export interface UpdateInputSecurityGroupCommandInput extends UpdateInputSecurit
 export interface UpdateInputSecurityGroupCommandOutput extends UpdateInputSecurityGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * Update an Input Security Group's Whilelists.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -99,6 +98,7 @@ export interface UpdateInputSecurityGroupCommandOutput extends UpdateInputSecuri
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * @public
  */
 export class UpdateInputSecurityGroupCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface PutNotificationSettingsCommandInput extends PutNotificationSett
 export interface PutNotificationSettingsCommandOutput extends PutNotificationSettingsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches a list of <i>notification settings</i> to a trust anchor.</p>
  *          <p>A notification setting includes information such as event name, threshold, status of
  *          the notification setting, and the channel to notify.</p>
@@ -101,6 +100,7 @@ export interface PutNotificationSettingsCommandOutput extends PutNotificationSet
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ * @public
  */
 export class PutNotificationSettingsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ModifyLaunchTemplateCommandInput extends ModifyLaunchTemplateRe
 export interface ModifyLaunchTemplateCommandOutput extends ModifyLaunchTemplateResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies a launch template. You can specify which version of the launch template to
  *             set as the default version. When launching an instance, the default version applies when
  *             a launch template version is not specified.</p>
@@ -74,6 +73,7 @@ export interface ModifyLaunchTemplateCommandOutput extends ModifyLaunchTemplateR
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To change the default version of a launch template
  * ```javascript
  * // This example specifies version 2 as the default version of the specified launch template.

@@ -27,7 +27,6 @@ export interface DescribeInferenceSchedulerCommandInput extends DescribeInferenc
 export interface DescribeInferenceSchedulerCommandOutput extends DescribeInferenceSchedulerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Specifies information about the inference scheduler being used, including name, model,
  *          status, and associated metadata </p>
  * @example
@@ -104,6 +103,7 @@ export interface DescribeInferenceSchedulerCommandOutput extends DescribeInferen
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * @public
  */
 export class DescribeInferenceSchedulerCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface StopMatchmakingCommandInput extends StopMatchmakingInput {}
 export interface StopMatchmakingCommandOutput extends StopMatchmakingOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels a matchmaking ticket or match backfill ticket that is currently being
  *             processed. To stop the matchmaking operation, specify the ticket ID. If successful, work
  *             on the ticket is stopped, and the ticket status is changed to
@@ -85,6 +84,7 @@ export interface StopMatchmakingCommandOutput extends StopMatchmakingOutput, __M
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class StopMatchmakingCommand extends $Command
   .classBuilder<

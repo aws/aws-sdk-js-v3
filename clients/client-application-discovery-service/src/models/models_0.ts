@@ -4,48 +4,48 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { ApplicationDiscoveryServiceServiceException as __BaseException } from "./ApplicationDiscoveryServiceServiceException";
 
 /**
- * @public
  * <p>Information about agents that were instructed to start collecting data.
  *       Information includes the agent ID, a description of the operation, and whether the
  *       agent configuration was updated.</p>
+ * @public
  */
 export interface AgentConfigurationStatus {
   /**
-   * @public
    * <p>The agent ID.</p>
+   * @public
    */
   agentId?: string;
 
   /**
-   * @public
    * <p>Information about the status of the <code>StartDataCollection</code> and
    *         <code>StopDataCollection</code> operations. The system has recorded the data collection
    *       operation. The agent receives this command the next time it polls for a new command.
    *     </p>
+   * @public
    */
   operationSucceeded?: boolean;
 
   /**
-   * @public
    * <p>A description of the operation performed.</p>
+   * @public
    */
   description?: string;
 }
 
 /**
- * @public
  * <p>Network details about the host where the agent/collector resides.</p>
+ * @public
  */
 export interface AgentNetworkInfo {
   /**
-   * @public
    * <p>The IP address for the host where the agent/collector resides.</p>
+   * @public
    */
   ipAddress?: string;
 
   /**
-   * @public
    * <p>The MAC address for the host where the agent/collector resides.</p>
+   * @public
    */
   macAddress?: string;
 }
@@ -69,71 +69,71 @@ export const AgentStatus = {
 export type AgentStatus = (typeof AgentStatus)[keyof typeof AgentStatus];
 
 /**
- * @public
  * <p>Information about agents associated with the user’s Amazon Web Services account.
  *       Information includes agent IDs, IP addresses, media access control (MAC)
  *       addresses, agent or collector status, hostname where the agent resides, and agent
  *       version for each agent.</p>
+ * @public
  */
 export interface AgentInfo {
   /**
-   * @public
    * <p>The agent or collector ID.</p>
+   * @public
    */
   agentId?: string;
 
   /**
-   * @public
    * <p>The name of the host where the agent or collector resides. The host can be a server or
    *       virtual machine.</p>
+   * @public
    */
   hostName?: string;
 
   /**
-   * @public
    * <p>Network details about the host where the agent or collector resides.</p>
+   * @public
    */
   agentNetworkInfoList?: AgentNetworkInfo[];
 
   /**
-   * @public
    * <p>The ID of the connector.</p>
+   * @public
    */
   connectorId?: string;
 
   /**
-   * @public
    * <p>The agent or collector version.</p>
+   * @public
    */
   version?: string;
 
   /**
-   * @public
    * <p>The health of the agent.</p>
+   * @public
    */
   health?: AgentStatus;
 
   /**
-   * @public
    * <p>Time since agent health was reported.</p>
+   * @public
    */
   lastHealthPingTime?: string;
 
   /**
-   * @public
    * <p>Status of the collection process for an agent.</p>
+   * @public
    */
   collectionStatus?: string;
 
   /**
-   * @public
    * <p>Type of agent.</p>
+   * @public
    */
   agentType?: string;
 
   /**
-   * @public
    * <p>Agent's first registration timestamp in UTC.</p>
+   * @public
    */
   registeredTime?: string;
 }
@@ -143,14 +143,14 @@ export interface AgentInfo {
  */
 export interface AssociateConfigurationItemsToApplicationRequest {
   /**
-   * @public
    * <p>The configuration ID of an application with which items are to be associated.</p>
+   * @public
    */
   applicationConfigurationId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of each configuration item to be associated with an application.</p>
+   * @public
    */
   configurationIds: string[] | undefined;
 }
@@ -161,9 +161,9 @@ export interface AssociateConfigurationItemsToApplicationRequest {
 export interface AssociateConfigurationItemsToApplicationResponse {}
 
 /**
- * @public
  * <p>The user does not have permission to perform the action. Check the IAM
  *       policy associated with this user.</p>
+ * @public
  */
 export class AuthorizationErrorException extends __BaseException {
   readonly name: "AuthorizationErrorException" = "AuthorizationErrorException";
@@ -182,8 +182,8 @@ export class AuthorizationErrorException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The home Region is not set. Set the home Region to continue.</p>
+ * @public
  */
 export class HomeRegionNotSetException extends __BaseException {
   readonly name: "HomeRegionNotSetException" = "HomeRegionNotSetException";
@@ -202,8 +202,8 @@ export class HomeRegionNotSetException extends __BaseException {
 }
 
 /**
- * @public
  * <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+ * @public
  */
 export class InvalidParameterException extends __BaseException {
   readonly name: "InvalidParameterException" = "InvalidParameterException";
@@ -222,9 +222,9 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The value of one or more parameters are either invalid or out of range. Verify the
  *       parameter values and try again.</p>
+ * @public
  */
 export class InvalidParameterValueException extends __BaseException {
   readonly name: "InvalidParameterValueException" = "InvalidParameterValueException";
@@ -243,8 +243,8 @@ export class InvalidParameterValueException extends __BaseException {
 }
 
 /**
- * @public
  * <p>The server experienced an internal error. Try again.</p>
+ * @public
  */
 export class ServerInternalErrorException extends __BaseException {
   readonly name: "ServerInternalErrorException" = "ServerInternalErrorException";
@@ -263,28 +263,28 @@ export class ServerInternalErrorException extends __BaseException {
 }
 
 /**
- * @public
  * <p>
  *       An object representing the agent or data collector to be deleted along with
  *       the optional configurations for error handling.
  *     </p>
+ * @public
  */
 export interface DeleteAgent {
   /**
-   * @public
    * <p>
    *       The ID of the agent or data collector to delete.
    *     </p>
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * <p>
    *       Optional flag used to force delete an agent or data collector. It is needed to delete any agent in
    *       HEALTHY/UNHEALTHY/RUNNING status. Note that deleting an agent that is actively reporting health causes it
    *       to be re-registered with a different agent ID after data collector re-connects with Amazon Web Services.
    *     </p>
+   * @public
    */
   force?: boolean;
 }
@@ -294,10 +294,10 @@ export interface DeleteAgent {
  */
 export interface BatchDeleteAgentsRequest {
   /**
-   * @public
    * <p>
    *       The list of agents to delete.
    *     </p>
+   * @public
    */
   deleteAgents: DeleteAgent[] | undefined;
 }
@@ -318,35 +318,35 @@ export const DeleteAgentErrorCode = {
 export type DeleteAgentErrorCode = (typeof DeleteAgentErrorCode)[keyof typeof DeleteAgentErrorCode];
 
 /**
- * @public
  * <p>
  *       An object representing the agent or data collector that failed to delete, each containing agentId,
  *       errorMessage, and errorCode.
  *     </p>
+ * @public
  */
 export interface BatchDeleteAgentError {
   /**
-   * @public
    * <p>
    *       The ID of the agent or data collector to delete.
    *     </p>
+   * @public
    */
   agentId: string | undefined;
 
   /**
-   * @public
    * <p>
    *       The description of the error that occurred for the delete failed agent.
    *     </p>
+   * @public
    */
   errorMessage: string | undefined;
 
   /**
-   * @public
    * <p>
    *       The type of error that occurred for the delete failed agent.
    *       Valid status are: AGENT_IN_USE | NOT_FOUND | INTERNAL_SERVER_ERROR.
    *     </p>
+   * @public
    */
   errorCode: DeleteAgentErrorCode | undefined;
 }
@@ -356,10 +356,10 @@ export interface BatchDeleteAgentError {
  */
 export interface BatchDeleteAgentsResponse {
   /**
-   * @public
    * <p>
    *       A list of agent IDs that failed to delete during the deletion task, each paired with an error message.
    *     </p>
+   * @public
    */
   errors?: BatchDeleteAgentError[];
 }
@@ -369,17 +369,17 @@ export interface BatchDeleteAgentsResponse {
  */
 export interface BatchDeleteImportDataRequest {
   /**
-   * @public
    * <p>The IDs for the import tasks that you want to delete.</p>
+   * @public
    */
   importTaskIds: string[] | undefined;
 
   /**
-   * @public
    * <p>
    *       Set to <code>true</code> to remove the deleted import task from
    *       <a>DescribeImportTasks</a>.
    *     </p>
+   * @public
    */
   deleteHistory?: boolean;
 }
@@ -401,26 +401,26 @@ export type BatchDeleteImportDataErrorCode =
   (typeof BatchDeleteImportDataErrorCode)[keyof typeof BatchDeleteImportDataErrorCode];
 
 /**
- * @public
  * <p>Error messages returned for each import task that you deleted as a response for this
  *       command.</p>
+ * @public
  */
 export interface BatchDeleteImportDataError {
   /**
-   * @public
    * <p>The unique import ID associated with the error that occurred.</p>
+   * @public
    */
   importTaskId?: string;
 
   /**
-   * @public
    * <p>The type of error that occurred for a specific import task.</p>
+   * @public
    */
   errorCode?: BatchDeleteImportDataErrorCode;
 
   /**
-   * @public
    * <p>The description of the error that occurred for a specific import task.</p>
+   * @public
    */
   errorDescription?: string;
 }
@@ -430,9 +430,9 @@ export interface BatchDeleteImportDataError {
  */
 export interface BatchDeleteImportDataResponse {
   /**
-   * @public
    * <p>Error messages returned for each import task that you deleted as a response for this
    *       command.</p>
+   * @public
    */
   errors?: BatchDeleteImportDataError[];
 }
@@ -442,14 +442,14 @@ export interface BatchDeleteImportDataResponse {
  */
 export interface CreateApplicationRequest {
   /**
-   * @public
    * <p>Name of the application to be created.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Description of the application to be created.</p>
+   * @public
    */
   description?: string;
 }
@@ -459,29 +459,29 @@ export interface CreateApplicationRequest {
  */
 export interface CreateApplicationResponse {
   /**
-   * @public
    * <p>Configuration ID of an application to be created.</p>
+   * @public
    */
   configurationId?: string;
 }
 
 /**
- * @public
  * <p>Metadata that help you categorize IT assets.</p>
  *          <important>
  *             <p>Do not store sensitive information (like personal data) in tags.</p>
  *          </important>
+ * @public
  */
 export interface Tag {
   /**
-   * @public
    * <p>The type of tag on which to filter.</p>
+   * @public
    */
   key: string | undefined;
 
   /**
-   * @public
    * <p>A value for a tag key on which to filter.</p>
+   * @public
    */
   value: string | undefined;
 }
@@ -491,19 +491,19 @@ export interface Tag {
  */
 export interface CreateTagsRequest {
   /**
-   * @public
    * <p>A list of configuration items that you want to tag.</p>
+   * @public
    */
   configurationIds: string[] | undefined;
 
   /**
-   * @public
    * <p>Tags that you want to associate with one or more configuration items. Specify the tags
    *       that you want to create in a <i>key</i>-<i>value</i> format. For
    *       example:</p>
    *          <p>
    *             <code>\{"key": "serverType", "value": "webServer"\}</code>
    *          </p>
+   * @public
    */
   tags: Tag[] | undefined;
 }
@@ -514,9 +514,9 @@ export interface CreateTagsRequest {
 export interface CreateTagsResponse {}
 
 /**
- * @public
  * <p>The specified configuration ID was not located. Verify the configuration ID and try
  *       again.</p>
+ * @public
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -539,8 +539,8 @@ export class ResourceNotFoundException extends __BaseException {
  */
 export interface DeleteApplicationsRequest {
   /**
-   * @public
    * <p>Configuration ID of an application to be deleted.</p>
+   * @public
    */
   configurationIds: string[] | undefined;
 }
@@ -555,19 +555,19 @@ export interface DeleteApplicationsResponse {}
  */
 export interface DeleteTagsRequest {
   /**
-   * @public
    * <p>A list of configuration items with tags that you want to delete.</p>
+   * @public
    */
   configurationIds: string[] | undefined;
 
   /**
-   * @public
    * <p>Tags that you want to delete from one or more configuration items. Specify the tags
    *       that you want to delete in a <i>key</i>-<i>value</i> format. For
    *       example:</p>
    *          <p>
    *             <code>\{"key": "serverType", "value": "webServer"\}</code>
    *          </p>
+   * @public
    */
   tags?: Tag[];
 }
@@ -578,35 +578,35 @@ export interface DeleteTagsRequest {
 export interface DeleteTagsResponse {}
 
 /**
- * @public
  * <p>A filter that can use conditional operators.</p>
  *          <p>For more information about filters, see <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html">Querying Discovered
  *         Configuration Items</a> in the <i>Amazon Web Services Application Discovery Service User
  *         Guide</i>. </p>
+ * @public
  */
 export interface Filter {
   /**
-   * @public
    * <p>The name of the filter.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>A string value on which to filter. For example, if you choose the
    *         <code>destinationServer.osVersion</code> filter name, you could specify <code>Ubuntu</code>
    *       for the value.</p>
+   * @public
    */
   values: string[] | undefined;
 
   /**
-   * @public
    * <p>A conditional operator. The following operators are valid: EQUALS, NOT_EQUALS,
    *       CONTAINS, NOT_CONTAINS. If you specify multiple filters, the system utilizes all filters as
    *       though concatenated by <i>AND</i>. If you specify multiple values for a
    *       particular filter, the system differentiates the values using <i>OR</i>. Calling
    *       either <i>DescribeConfigurations</i> or <i>ListConfigurations</i>
    *       returns attributes of matching configuration items.</p>
+   * @public
    */
   condition: string | undefined;
 }
@@ -616,35 +616,35 @@ export interface Filter {
  */
 export interface DescribeAgentsRequest {
   /**
-   * @public
    * <p>The agent or the collector IDs for which you want information. If you specify no IDs,
    *       the system returns information about all agents/collectors associated with your user.</p>
+   * @public
    */
   agentIds?: string[];
 
   /**
-   * @public
    * <p>You can filter the request using various logical operators and a
    *         <i>key</i>-<i>value</i> format. For example: </p>
    *          <p>
    *             <code>\{"key": "collectionStatus", "value": "STARTED"\}</code>
    *          </p>
+   * @public
    */
   filters?: Filter[];
 
   /**
-   * @public
    * <p>The total number of agents/collectors to return in a single page of output. The maximum
    *       value is 100.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>Token to retrieve the next set of results. For example, if you previously specified 100
    *       IDs for <code>DescribeAgentsRequest$agentIds</code> but set
    *         <code>DescribeAgentsRequest$maxResults</code> to 10, you received a set of 10 results along
    *       with a token. Use that token in this query to get the next set of 10.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -654,20 +654,20 @@ export interface DescribeAgentsRequest {
  */
 export interface DescribeAgentsResponse {
   /**
-   * @public
    * <p>Lists agents or the collector by ID or lists all agents/collectors associated with your
    *       user, if you did not specify an agent/collector ID. The output includes agent/collector
    *       IDs, IP addresses, media access control (MAC) addresses, agent/collector health, host name
    *       where the agent/collector resides, and the version number of each agent/collector.</p>
+   * @public
    */
   agentsInfo?: AgentInfo[];
 
   /**
-   * @public
    * <p>Token to retrieve the next set of results. For example, if you specified 100 IDs for
    *         <code>DescribeAgentsRequest$agentIds</code> but set
    *         <code>DescribeAgentsRequest$maxResults</code> to 10, you received a set of 10 results along
    *       with this token. Use this token in the next query to retrieve the next set of 10.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -677,10 +677,10 @@ export interface DescribeAgentsResponse {
  */
 export interface DescribeBatchDeleteConfigurationTaskRequest {
   /**
-   * @public
    * <p>
    *         The ID of the task to delete.
    *       </p>
+   * @public
    */
   taskId: string | undefined;
 }
@@ -700,65 +700,65 @@ export type DeletionConfigurationItemType =
   (typeof DeletionConfigurationItemType)[keyof typeof DeletionConfigurationItemType];
 
 /**
- * @public
  * <p>
  *       A configuration ID paired with a warning message.
  *     </p>
+ * @public
  */
 export interface DeletionWarning {
   /**
-   * @public
    * <p>
    *       The unique identifier of the configuration that produced a warning.
    *     </p>
+   * @public
    */
   configurationId?: string;
 
   /**
-   * @public
    * <p>
    *       The integer warning code associated with the warning message.
    *     </p>
+   * @public
    */
   warningCode?: number;
 
   /**
-   * @public
    * <p>
    *       A descriptive message of the warning the associated configuration ID produced.
    *     </p>
+   * @public
    */
   warningText?: string;
 }
 
 /**
- * @public
  * <p>
  *       A configuration ID paired with an error message.
  *     </p>
+ * @public
  */
 export interface FailedConfiguration {
   /**
-   * @public
    * <p>
    *       The unique identifier of the configuration the failed to delete.
    *     </p>
+   * @public
    */
   configurationId?: string;
 
   /**
-   * @public
    * <p>
    *       The integer error code associated with the error message.
    *     </p>
+   * @public
    */
   errorStatusCode?: number;
 
   /**
-   * @public
    * <p>
    *       A descriptive message indicating why the associated configuration failed to delete.
    *     </p>
+   * @public
    */
   errorMessage?: string;
 }
@@ -782,84 +782,84 @@ export type BatchDeleteConfigurationTaskStatus =
   (typeof BatchDeleteConfigurationTaskStatus)[keyof typeof BatchDeleteConfigurationTaskStatus];
 
 /**
- * @public
  * <p>
  *       A metadata object that represents the deletion task being executed.
  *     </p>
+ * @public
  */
 export interface BatchDeleteConfigurationTask {
   /**
-   * @public
    * <p>
    *       The deletion task's unique identifier.
    *     </p>
+   * @public
    */
   taskId?: string;
 
   /**
-   * @public
    * <p>
    *       The current execution status of the deletion task.
    *       Valid status are: INITIALIZING | VALIDATING | DELETING | COMPLETED | FAILED.
    *     </p>
+   * @public
    */
   status?: BatchDeleteConfigurationTaskStatus;
 
   /**
-   * @public
    * <p>
    *       An epoch seconds timestamp (UTC) of when the deletion task was started.
    *     </p>
+   * @public
    */
   startTime?: Date;
 
   /**
-   * @public
    * <p>
    *       An epoch seconds timestamp (UTC) of when the deletion task was completed or failed.
    *     </p>
+   * @public
    */
   endTime?: Date;
 
   /**
-   * @public
    * <p>
    *       The type of configuration item to delete. Supported types are: SERVER.
    *     </p>
+   * @public
    */
   configurationType?: DeletionConfigurationItemType;
 
   /**
-   * @public
    * <p>
    *       The list of configuration IDs that were originally requested to be deleted by the deletion task.
    *     </p>
+   * @public
    */
   requestedConfigurations?: string[];
 
   /**
-   * @public
    * <p>
    *       The list of configuration IDs that were successfully deleted by the deletion task.
    *     </p>
+   * @public
    */
   deletedConfigurations?: string[];
 
   /**
-   * @public
    * <p>
    *       A list of configuration IDs that failed to delete during the deletion task,
    *       each paired with an error message.
    *     </p>
+   * @public
    */
   failedConfigurations?: FailedConfiguration[];
 
   /**
-   * @public
    * <p>
    *       A list of configuration IDs that produced warnings regarding their deletion,
    *       paired with a warning message.
    *     </p>
+   * @public
    */
   deletionWarnings?: DeletionWarning[];
 }
@@ -869,10 +869,10 @@ export interface BatchDeleteConfigurationTask {
  */
 export interface DescribeBatchDeleteConfigurationTaskResponse {
   /**
-   * @public
    * <p>
    *         The <code>BatchDeleteConfigurationTask</code> that represents the deletion task being executed.
    *       </p>
+   * @public
    */
   task?: BatchDeleteConfigurationTask;
 }
@@ -882,8 +882,8 @@ export interface DescribeBatchDeleteConfigurationTaskResponse {
  */
 export interface DescribeConfigurationsRequest {
   /**
-   * @public
    * <p>One or more configuration IDs.</p>
+   * @public
    */
   configurationIds: string[] | undefined;
 }
@@ -893,8 +893,8 @@ export interface DescribeConfigurationsRequest {
  */
 export interface DescribeConfigurationsResponse {
   /**
-   * @public
    * <p>A key in the response map. The value is an array of data.</p>
+   * @public
    */
   configurations?: Record<string, string>[];
 }
@@ -904,21 +904,21 @@ export interface DescribeConfigurationsResponse {
  */
 export interface DescribeContinuousExportsRequest {
   /**
-   * @public
    * <p>The unique IDs assigned to the exports.</p>
+   * @public
    */
   exportIds?: string[];
 
   /**
-   * @public
    * <p>A number between 1 and 100 specifying the maximum number of continuous export
    *       descriptions returned.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The token from the previous call to <code>DescribeExportTasks</code>.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -956,18 +956,17 @@ export const ContinuousExportStatus = {
 export type ContinuousExportStatus = (typeof ContinuousExportStatus)[keyof typeof ContinuousExportStatus];
 
 /**
- * @public
  * <p>A list of continuous export descriptions.</p>
+ * @public
  */
 export interface ContinuousExportDescription {
   /**
-   * @public
    * <p>The unique ID assigned to this export.</p>
+   * @public
    */
   exportId?: string;
 
   /**
-   * @public
    * <p>Describes the status of the export. Can be one of the following values:</p>
    *          <ul>
    *             <li>
@@ -996,11 +995,11 @@ export interface ContinuousExportDescription {
    *           to the customer bucket.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   status?: ContinuousExportStatus;
 
   /**
-   * @public
    * <p>Contains information about any errors that have occurred. This data type can have the
    *       following values:</p>
    *          <ul>
@@ -1077,36 +1076,36 @@ export interface ContinuousExportDescription {
    *           must sign up before you can use Amazon S3. You can sign up at the following URL: <a href="https://aws.amazon.com/s3">https://aws.amazon.com/s3</a>.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   statusDetail?: string;
 
   /**
-   * @public
    * <p>The name of the s3 bucket where the export data parquet files are stored.</p>
+   * @public
    */
   s3Bucket?: string;
 
   /**
-   * @public
    * <p>The timestamp representing when the continuous export was started.</p>
+   * @public
    */
   startTime?: Date;
 
   /**
-   * @public
    * <p>The timestamp that represents when this continuous export was stopped.</p>
+   * @public
    */
   stopTime?: Date;
 
   /**
-   * @public
    * <p>The type of data collector used to gather this data (currently only offered for
    *       AGENT).</p>
+   * @public
    */
   dataSource?: DataSource;
 
   /**
-   * @public
    * <p>An object which describes how the data is stored.</p>
    *          <ul>
    *             <li>
@@ -1115,6 +1114,7 @@ export interface ContinuousExportDescription {
    *           schema.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   schemaStorageConfig?: Record<string, string>;
 }
@@ -1124,21 +1124,21 @@ export interface ContinuousExportDescription {
  */
 export interface DescribeContinuousExportsResponse {
   /**
-   * @public
    * <p>A list of continuous export descriptions.</p>
+   * @public
    */
   descriptions?: ContinuousExportDescription[];
 
   /**
-   * @public
    * <p>The token from the previous call to <code>DescribeExportTasks</code>.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>This operation is not permitted.</p>
+ * @public
  */
 export class OperationNotPermittedException extends __BaseException {
   readonly name: "OperationNotPermittedException" = "OperationNotPermittedException";
@@ -1161,21 +1161,21 @@ export class OperationNotPermittedException extends __BaseException {
  */
 export interface DescribeExportConfigurationsRequest {
   /**
-   * @public
    * <p>A list of continuous export IDs to search for.</p>
+   * @public
    */
   exportIds?: string[];
 
   /**
-   * @public
    * <p>A number between 1 and 100 specifying the maximum number of continuous export
    *       descriptions returned.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The token from the previous call to describe-export-tasks.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1196,64 +1196,64 @@ export const ExportStatus = {
 export type ExportStatus = (typeof ExportStatus)[keyof typeof ExportStatus];
 
 /**
- * @public
  * <p>Information regarding the export status of discovered data. The value is an array of
  *       objects.</p>
+ * @public
  */
 export interface ExportInfo {
   /**
-   * @public
    * <p>A unique identifier used to query an export.</p>
+   * @public
    */
   exportId: string | undefined;
 
   /**
-   * @public
    * <p>The status of the data export job.</p>
+   * @public
    */
   exportStatus: ExportStatus | undefined;
 
   /**
-   * @public
    * <p>A status message provided for API callers.</p>
+   * @public
    */
   statusMessage: string | undefined;
 
   /**
-   * @public
    * <p>A URL for an Amazon S3 bucket where you can review the exported data. The URL is
    *       displayed only if the export succeeded.</p>
+   * @public
    */
   configurationsDownloadUrl?: string;
 
   /**
-   * @public
    * <p>The time that the data export was initiated.</p>
+   * @public
    */
   exportRequestTime: Date | undefined;
 
   /**
-   * @public
    * <p>If true, the export of agent information exceeded the size limit for a single export
    *       and the exported data is incomplete for the requested time range. To address this, select a
    *       smaller time range for the export by using <code>startDate</code> and
    *       <code>endDate</code>.</p>
+   * @public
    */
   isTruncated?: boolean;
 
   /**
-   * @public
    * <p>The value of <code>startTime</code> parameter in the <code>StartExportTask</code>
    *       request. If no <code>startTime</code> was requested, this result does not appear in
    *         <code>ExportInfo</code>.</p>
+   * @public
    */
   requestedStartTime?: Date;
 
   /**
-   * @public
    * <p>The <code>endTime</code> used in the <code>StartExportTask</code> request. If no
    *         <code>endTime</code> was requested, this result does not appear in
    *       <code>ExportInfo</code>.</p>
+   * @public
    */
   requestedEndTime?: Date;
 }
@@ -1263,42 +1263,42 @@ export interface ExportInfo {
  */
 export interface DescribeExportConfigurationsResponse {
   /**
-   * @public
    * <p></p>
+   * @public
    */
   exportsInfo?: ExportInfo[];
 
   /**
-   * @public
    * <p>The token from the previous call to describe-export-tasks.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>Used to select which agent's data is to be exported. A single agent ID may be selected
  *       for export using the <a href="http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_StartExportTask.html">StartExportTask</a> action.</p>
+ * @public
  */
 export interface ExportFilter {
   /**
-   * @public
    * <p>A single <code>ExportFilter</code> name. Supported filters:
    *       <code>agentIds</code>.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>A single agent ID for a Discovery Agent. An agent ID can be found using the <a href="http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeAgents.html">DescribeAgents</a> action. Typically an ADS agent ID is in the form
    *         <code>o-0123456789abcdef0</code>.</p>
+   * @public
    */
   values: string[] | undefined;
 
   /**
-   * @public
    * <p>Supported condition: <code>EQUALS</code>
    *          </p>
+   * @public
    */
   condition: string | undefined;
 }
@@ -1308,13 +1308,12 @@ export interface ExportFilter {
  */
 export interface DescribeExportTasksRequest {
   /**
-   * @public
    * <p>One or more unique identifiers used to query the status of an export request.</p>
+   * @public
    */
   exportIds?: string[];
 
   /**
-   * @public
    * <p>One or more filters.</p>
    *          <ul>
    *             <li>
@@ -1323,25 +1322,26 @@ export interface DescribeExportTasksRequest {
    *           exported</p>
    *             </li>
    *          </ul>
+   * @public
    */
   filters?: ExportFilter[];
 
   /**
-   * @public
    * <p>The maximum number of volume results returned by <code>DescribeExportTasks</code> in
    *       paginated output. When this parameter is used, <code>DescribeExportTasks</code> only returns
    *         <code>maxResults</code> results in a single page along with a <code>nextToken</code>
    *       response element.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The <code>nextToken</code> value returned from a previous paginated
    *         <code>DescribeExportTasks</code> request where <code>maxResults</code> was used and the
    *       results exceeded the value of that parameter. Pagination continues from the end of the
    *       previous results that returned the <code>nextToken</code> value. This value is null when there
    *       are no more results to return.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1351,20 +1351,20 @@ export interface DescribeExportTasksRequest {
  */
 export interface DescribeExportTasksResponse {
   /**
-   * @public
    * <p>Contains one or more sets of export request details. When the status of a request is
    *         <code>SUCCEEDED</code>, the response includes a URL for an Amazon S3 bucket where you can
    *       view the data in a CSV file.</p>
+   * @public
    */
   exportsInfo?: ExportInfo[];
 
   /**
-   * @public
    * <p>The <code>nextToken</code> value to include in a future
    *         <code>DescribeExportTasks</code> request. When the results of a
    *         <code>DescribeExportTasks</code> request exceed <code>maxResults</code>, this value can be
    *       used to retrieve the next page of results. This value is null when there are no more results
    *       to return.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1385,24 +1385,24 @@ export const ImportTaskFilterName = {
 export type ImportTaskFilterName = (typeof ImportTaskFilterName)[keyof typeof ImportTaskFilterName];
 
 /**
- * @public
  * <p>A name-values pair of elements you can use to filter the results when querying your import
  *       tasks. Currently, wildcards are not supported for filters.</p>
  *          <note>
  *             <p>When filtering by import status, all other filter values are ignored.</p>
  *          </note>
+ * @public
  */
 export interface ImportTaskFilter {
   /**
-   * @public
    * <p>The name, status, or import task ID for a specific import task.</p>
+   * @public
    */
   name?: ImportTaskFilterName;
 
   /**
-   * @public
    * <p>An array of strings that you can provide to match against a specific name, status, or
    *       import task ID to filter the results for your import task queries.</p>
+   * @public
    */
   values?: string[];
 }
@@ -1412,22 +1412,22 @@ export interface ImportTaskFilter {
  */
 export interface DescribeImportTasksRequest {
   /**
-   * @public
    * <p>An array of name-value pairs that you provide to filter the results for the
    *         <code>DescribeImportTask</code> request to a specific subset of results. Currently, wildcard
    *       values aren't supported for filters.</p>
+   * @public
    */
   filters?: ImportTaskFilter[];
 
   /**
-   * @public
    * <p>The maximum number of results that you want this request to return, up to 100.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>The token to request a specific page of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1456,100 +1456,99 @@ export const ImportStatus = {
 export type ImportStatus = (typeof ImportStatus)[keyof typeof ImportStatus];
 
 /**
- * @public
  * <p>An array of information related to the import task request that includes status
  *       information, times, IDs, the Amazon S3 Object URL for the import file, and more.</p>
+ * @public
  */
 export interface ImportTask {
   /**
-   * @public
    * <p>The unique ID for a specific import task. These IDs aren't globally unique, but they are
    *       unique within an Amazon Web Services account.</p>
+   * @public
    */
   importTaskId?: string;
 
   /**
-   * @public
    * <p>A unique token used to prevent the same import request from occurring more than once. If
    *       you didn't provide a token, a token was automatically generated when the import task request
    *       was sent.</p>
+   * @public
    */
   clientRequestToken?: string;
 
   /**
-   * @public
    * <p>A descriptive name for an import task. You can use this name to filter future requests
    *       related to this import task, such as identifying applications and servers that were included
    *       in this import task. We recommend that you use a meaningful name for each import task.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>The URL for your import file that you've uploaded to Amazon S3.</p>
+   * @public
    */
   importUrl?: string;
 
   /**
-   * @public
    * <p>The status of the import task. An import can have the status of
    *         <code>IMPORT_COMPLETE</code> and still have some records fail to import from the overall
    *       request. More information can be found in the downloadable archive defined in the
    *         <code>errorsAndFailedEntriesZip</code> field, or in the Migration Hub management
    *       console.</p>
+   * @public
    */
   status?: ImportStatus;
 
   /**
-   * @public
    * <p>The time that the import task request was made, presented in the Unix time stamp
    *       format.</p>
+   * @public
    */
   importRequestTime?: Date;
 
   /**
-   * @public
    * <p>The time that the import task request finished, presented in the Unix time stamp
    *       format.</p>
+   * @public
    */
   importCompletionTime?: Date;
 
   /**
-   * @public
    * <p>The time that the import task request was deleted, presented in the Unix time stamp
    *       format.</p>
+   * @public
    */
   importDeletedTime?: Date;
 
   /**
-   * @public
    * <p>The total number of server records in the import file that were successfully
    *       imported.</p>
+   * @public
    */
   serverImportSuccess?: number;
 
   /**
-   * @public
    * <p>The total number of server records in the import file that failed to be imported.</p>
+   * @public
    */
   serverImportFailure?: number;
 
   /**
-   * @public
    * <p>The total number of application records in the import file that were successfully
    *       imported.</p>
+   * @public
    */
   applicationImportSuccess?: number;
 
   /**
-   * @public
    * <p>The total number of application records in the import file that failed to be
    *       imported.</p>
+   * @public
    */
   applicationImportFailure?: number;
 
   /**
-   * @public
    * <p>A link to a compressed archive folder (in the ZIP format) that contains an error log and a
    *       file of failed records. You can use these two files to quickly identify records that failed,
    *       why they failed, and correct those records. Afterward, you can upload the corrected file to
@@ -1559,6 +1558,7 @@ export interface ImportTask {
    *          <p>If some records failed to be imported we recommend that you correct the records in the
    *       failed entries file and then imports that failed entries file. This prevents you from having
    *       to correct and update the larger original file and attempt importing it again.</p>
+   * @public
    */
   errorsAndFailedEntriesZip?: string;
 }
@@ -1568,34 +1568,34 @@ export interface ImportTask {
  */
 export interface DescribeImportTasksResponse {
   /**
-   * @public
    * <p>The token to request the next page of results.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>A returned array of import tasks that match any applied filters, up to the specified
    *       number of maximum results.</p>
+   * @public
    */
   tasks?: ImportTask[];
 }
 
 /**
- * @public
  * <p>The tag filter. Valid names are: <code>tagKey</code>, <code>tagValue</code>,
  *         <code>configurationId</code>.</p>
+ * @public
  */
 export interface TagFilter {
   /**
-   * @public
    * <p>A name of the tag filter.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>Values for the tag filter.</p>
+   * @public
    */
   values: string[] | undefined;
 }
@@ -1605,23 +1605,23 @@ export interface TagFilter {
  */
 export interface DescribeTagsRequest {
   /**
-   * @public
    * <p>You can filter the list using a <i>key</i>-<i>value</i>
    *       format. You can separate these items by using logical operators. Allowed filters include
    *         <code>tagKey</code>, <code>tagValue</code>, and <code>configurationId</code>. </p>
+   * @public
    */
   filters?: TagFilter[];
 
   /**
-   * @public
    * <p>The total number of items to return in a single page of output. The maximum value is
    *       100.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>A token to start the list. Use this token to get the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1643,42 +1643,42 @@ export const ConfigurationItemType = {
 export type ConfigurationItemType = (typeof ConfigurationItemType)[keyof typeof ConfigurationItemType];
 
 /**
- * @public
  * <p>Tags for a configuration item. Tags are metadata that help you categorize IT
  *       assets.</p>
+ * @public
  */
 export interface ConfigurationTag {
   /**
-   * @public
    * <p>A type of IT asset to tag.</p>
+   * @public
    */
   configurationType?: ConfigurationItemType;
 
   /**
-   * @public
    * <p>The configuration ID for the item to tag. You can specify a list of keys and
    *       values.</p>
+   * @public
    */
   configurationId?: string;
 
   /**
-   * @public
    * <p>A type of tag on which to filter. For example,
    *       <i>serverType</i>.</p>
+   * @public
    */
   key?: string;
 
   /**
-   * @public
    * <p>A value on which to filter. For example <i>key = serverType</i> and
    *         <i>value = web server</i>.</p>
+   * @public
    */
   value?: string;
 
   /**
-   * @public
    * <p>The time the configuration tag was created in Coordinated Universal Time
    *       (UTC).</p>
+   * @public
    */
   timeOfCreation?: Date;
 }
@@ -1688,15 +1688,15 @@ export interface ConfigurationTag {
  */
 export interface DescribeTagsResponse {
   /**
-   * @public
    * <p>Depending on the input, this is a list of configuration items tagged with a specific
    *       tag, or a list of tags for a specific configuration item.</p>
+   * @public
    */
   tags?: ConfigurationTag[];
 
   /**
-   * @public
    * <p>The call returns a token. Use this token to get the next set of results.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -1706,14 +1706,14 @@ export interface DescribeTagsResponse {
  */
 export interface DisassociateConfigurationItemsFromApplicationRequest {
   /**
-   * @public
    * <p>Configuration ID of an application from which each item is disassociated.</p>
+   * @public
    */
   applicationConfigurationId: string | undefined;
 
   /**
-   * @public
    * <p>Configuration ID of each item to be disassociated from an application.</p>
+   * @public
    */
   configurationIds: string[] | undefined;
 }
@@ -1728,8 +1728,8 @@ export interface DisassociateConfigurationItemsFromApplicationResponse {}
  */
 export interface ExportConfigurationsResponse {
   /**
-   * @public
    * <p>A unique identifier that you can use to query the export status.</p>
+   * @public
    */
   exportId?: string;
 }
@@ -1740,194 +1740,194 @@ export interface ExportConfigurationsResponse {
 export interface GetDiscoverySummaryRequest {}
 
 /**
- * @public
  * <p>The inventory data for installed Agentless Collector collectors. </p>
+ * @public
  */
 export interface CustomerAgentlessCollectorInfo {
   /**
-   * @public
    * <p>The number of active Agentless Collector collectors. </p>
+   * @public
    */
   activeAgentlessCollectors: number | undefined;
 
   /**
-   * @public
    * <p>The number of healthy Agentless Collector collectors. </p>
+   * @public
    */
   healthyAgentlessCollectors: number | undefined;
 
   /**
-   * @public
    * <p>The number of deny-listed Agentless Collector collectors. </p>
+   * @public
    */
   denyListedAgentlessCollectors: number | undefined;
 
   /**
-   * @public
    * <p>The number of Agentless Collector collectors with <code>SHUTDOWN</code> status.
    *     </p>
+   * @public
    */
   shutdownAgentlessCollectors: number | undefined;
 
   /**
-   * @public
    * <p> The number of unhealthy Agentless Collector collectors. </p>
+   * @public
    */
   unhealthyAgentlessCollectors: number | undefined;
 
   /**
-   * @public
    * <p> The total number of Agentless Collector collectors. </p>
+   * @public
    */
   totalAgentlessCollectors: number | undefined;
 
   /**
-   * @public
    * <p> The number of unknown Agentless Collector collectors. </p>
+   * @public
    */
   unknownAgentlessCollectors: number | undefined;
 }
 
 /**
- * @public
  * <p>Inventory data for installed discovery agents.</p>
+ * @public
  */
 export interface CustomerAgentInfo {
   /**
-   * @public
    * <p>Number of active discovery agents.</p>
+   * @public
    */
   activeAgents: number | undefined;
 
   /**
-   * @public
    * <p>Number of healthy discovery agents</p>
+   * @public
    */
   healthyAgents: number | undefined;
 
   /**
-   * @public
    * <p>Number of blacklisted discovery agents.</p>
+   * @public
    */
   blackListedAgents: number | undefined;
 
   /**
-   * @public
    * <p>Number of discovery agents with status SHUTDOWN.</p>
+   * @public
    */
   shutdownAgents: number | undefined;
 
   /**
-   * @public
    * <p>Number of unhealthy discovery agents.</p>
+   * @public
    */
   unhealthyAgents: number | undefined;
 
   /**
-   * @public
    * <p>Total number of discovery agents.</p>
+   * @public
    */
   totalAgents: number | undefined;
 
   /**
-   * @public
    * <p>Number of unknown discovery agents.</p>
+   * @public
    */
   unknownAgents: number | undefined;
 }
 
 /**
- * @public
  * <p>Inventory data for installed discovery connectors.</p>
+ * @public
  */
 export interface CustomerConnectorInfo {
   /**
-   * @public
    * <p>Number of active discovery connectors.</p>
+   * @public
    */
   activeConnectors: number | undefined;
 
   /**
-   * @public
    * <p>Number of healthy discovery connectors.</p>
+   * @public
    */
   healthyConnectors: number | undefined;
 
   /**
-   * @public
    * <p>Number of blacklisted discovery connectors.</p>
+   * @public
    */
   blackListedConnectors: number | undefined;
 
   /**
-   * @public
    * <p>Number of discovery connectors with status SHUTDOWN,</p>
+   * @public
    */
   shutdownConnectors: number | undefined;
 
   /**
-   * @public
    * <p>Number of unhealthy discovery connectors.</p>
+   * @public
    */
   unhealthyConnectors: number | undefined;
 
   /**
-   * @public
    * <p>Total number of discovery connectors.</p>
+   * @public
    */
   totalConnectors: number | undefined;
 
   /**
-   * @public
    * <p>Number of unknown discovery connectors.</p>
+   * @public
    */
   unknownConnectors: number | undefined;
 }
 
 /**
- * @public
  * <p> The inventory data for installed Migration Evaluator collectors. </p>
+ * @public
  */
 export interface CustomerMeCollectorInfo {
   /**
-   * @public
    * <p> The number of active Migration Evaluator collectors. </p>
+   * @public
    */
   activeMeCollectors: number | undefined;
 
   /**
-   * @public
    * <p> The number of healthy Migration Evaluator collectors. </p>
+   * @public
    */
   healthyMeCollectors: number | undefined;
 
   /**
-   * @public
    * <p> The number of deny-listed Migration Evaluator collectors. </p>
+   * @public
    */
   denyListedMeCollectors: number | undefined;
 
   /**
-   * @public
    * <p> The number of Migration Evaluator collectors with <code>SHUTDOWN</code> status. </p>
+   * @public
    */
   shutdownMeCollectors: number | undefined;
 
   /**
-   * @public
    * <p> The number of unhealthy Migration Evaluator collectors. </p>
+   * @public
    */
   unhealthyMeCollectors: number | undefined;
 
   /**
-   * @public
    * <p> The total number of Migration Evaluator collectors. </p>
+   * @public
    */
   totalMeCollectors: number | undefined;
 
   /**
-   * @public
    * <p> The number of unknown Migration Evaluator collectors. </p>
+   * @public
    */
   unknownMeCollectors: number | undefined;
 }
@@ -1937,50 +1937,50 @@ export interface CustomerMeCollectorInfo {
  */
 export interface GetDiscoverySummaryResponse {
   /**
-   * @public
    * <p>The number of servers discovered.</p>
+   * @public
    */
   servers?: number;
 
   /**
-   * @public
    * <p>The number of applications discovered.</p>
+   * @public
    */
   applications?: number;
 
   /**
-   * @public
    * <p>The number of servers mapped to applications.</p>
+   * @public
    */
   serversMappedToApplications?: number;
 
   /**
-   * @public
    * <p>The number of servers mapped to tags.</p>
+   * @public
    */
   serversMappedtoTags?: number;
 
   /**
-   * @public
    * <p>Details about discovered agents, including agent status and health.</p>
+   * @public
    */
   agentSummary?: CustomerAgentInfo;
 
   /**
-   * @public
    * <p>Details about discovered connectors, including connector status and health.</p>
+   * @public
    */
   connectorSummary?: CustomerConnectorInfo;
 
   /**
-   * @public
    * <p> Details about Migration Evaluator collectors, including collector status and health. </p>
+   * @public
    */
   meCollectorSummary?: CustomerMeCollectorInfo;
 
   /**
-   * @public
    * <p> Details about Agentless Collector collectors, including status. </p>
+   * @public
    */
   agentlessCollectorSummary?: CustomerAgentlessCollectorInfo;
 }
@@ -2000,19 +2000,19 @@ export const OrderString = {
 export type OrderString = (typeof OrderString)[keyof typeof OrderString];
 
 /**
- * @public
  * <p>A field and direction for ordered output.</p>
+ * @public
  */
 export interface OrderByElement {
   /**
-   * @public
    * <p>The field on which to order.</p>
+   * @public
    */
   fieldName: string | undefined;
 
   /**
-   * @public
    * <p>Ordering direction.</p>
+   * @public
    */
   sortOrder?: OrderString;
 }
@@ -2022,13 +2022,12 @@ export interface OrderByElement {
  */
 export interface ListConfigurationsRequest {
   /**
-   * @public
    * <p>A valid configuration identified by Application Discovery Service. </p>
+   * @public
    */
   configurationType: ConfigurationItemType | undefined;
 
   /**
-   * @public
    * <p>You can filter the request using various logical operators and a
    *         <i>key</i>-<i>value</i> format. For example: </p>
    *          <p>
@@ -2037,29 +2036,30 @@ export interface ListConfigurationsRequest {
    *          <p>For a complete list of filter options and guidance about using them with this action,
    *       see <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations">Using the ListConfigurations Action</a> in the <i>Amazon Web Services Application Discovery
    *         Service User Guide</i>.</p>
+   * @public
    */
   filters?: Filter[];
 
   /**
-   * @public
    * <p>The total number of items to return. The maximum value is 100.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>Token to retrieve the next set of results. For example, if a previous call to
    *       ListConfigurations returned 100 items, but you set
    *         <code>ListConfigurationsRequest$maxResults</code> to 10, you received a set of 10 results
    *       along with a token. Use that token in this query to get the next set of 10.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Certain filter criteria return output that can be sorted in ascending or descending
    *       order. For a list of output characteristics for each filter, see <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations">Using the ListConfigurations Action</a> in the <i>Amazon Web Services Application Discovery
    *         Service User Guide</i>.</p>
+   * @public
    */
   orderBy?: OrderByElement[];
 }
@@ -2069,19 +2069,19 @@ export interface ListConfigurationsRequest {
  */
 export interface ListConfigurationsResponse {
   /**
-   * @public
    * <p>Returns configuration details, including the configuration ID, attribute names, and
    *       attribute values.</p>
+   * @public
    */
   configurations?: Record<string, string>[];
 
   /**
-   * @public
    * <p>Token to retrieve the next set of results. For example, if your call to
    *       ListConfigurations returned 100 items, but you set
    *         <code>ListConfigurationsRequest$maxResults</code> to 10, you received a set of 10 results
    *       along with this token. Use this token in the next query to retrieve the next set of
    *       10.</p>
+   * @public
    */
   nextToken?: string;
 }
@@ -2091,72 +2091,72 @@ export interface ListConfigurationsResponse {
  */
 export interface ListServerNeighborsRequest {
   /**
-   * @public
    * <p>Configuration ID of the server for which neighbors are being listed.</p>
+   * @public
    */
   configurationId: string | undefined;
 
   /**
-   * @public
    * <p>Flag to indicate if port and protocol information is needed as part of the
    *       response.</p>
+   * @public
    */
   portInformationNeeded?: boolean;
 
   /**
-   * @public
    * <p>List of configuration IDs to test for one-hop-away.</p>
+   * @public
    */
   neighborConfigurationIds?: string[];
 
   /**
-   * @public
    * <p>Maximum number of results to return in a single page of output.</p>
+   * @public
    */
   maxResults?: number;
 
   /**
-   * @public
    * <p>Token to retrieve the next set of results. For example, if you previously specified 100
    *       IDs for <code>ListServerNeighborsRequest$neighborConfigurationIds</code> but set
    *         <code>ListServerNeighborsRequest$maxResults</code> to 10, you received a set of 10 results
    *       along with a token. Use that token in this query to get the next set of 10.</p>
+   * @public
    */
   nextToken?: string;
 }
 
 /**
- * @public
  * <p>Details about neighboring servers.</p>
+ * @public
  */
 export interface NeighborConnectionDetail {
   /**
-   * @public
    * <p>The ID of the server that opened the network connection.</p>
+   * @public
    */
   sourceServerId: string | undefined;
 
   /**
-   * @public
    * <p>The ID of the server that accepted the network connection.</p>
+   * @public
    */
   destinationServerId: string | undefined;
 
   /**
-   * @public
    * <p>The destination network port for the connection.</p>
+   * @public
    */
   destinationPort?: number;
 
   /**
-   * @public
    * <p>The network protocol used for the connection.</p>
+   * @public
    */
   transportProtocol?: string;
 
   /**
-   * @public
    * <p>The number of open network connections with the neighboring server.</p>
+   * @public
    */
   connectionsCount: number | undefined;
 }
@@ -2166,33 +2166,33 @@ export interface NeighborConnectionDetail {
  */
 export interface ListServerNeighborsResponse {
   /**
-   * @public
    * <p>List of distinct servers that are one hop away from the given server.</p>
+   * @public
    */
   neighbors: NeighborConnectionDetail[] | undefined;
 
   /**
-   * @public
    * <p>Token to retrieve the next set of results. For example, if you specified 100 IDs for
    *         <code>ListServerNeighborsRequest$neighborConfigurationIds</code> but set
    *         <code>ListServerNeighborsRequest$maxResults</code> to 10, you received a set of 10 results
    *       along with this token. Use this token in the next query to retrieve the next set of
    *       10.</p>
+   * @public
    */
   nextToken?: string;
 
   /**
-   * @public
    * <p>Count of distinct servers that are one hop away from the given server.</p>
+   * @public
    */
   knownDependencyCount?: number;
 }
 
 /**
- * @public
  * <p>
  *       The limit of 200 configuration IDs per request has been exceeded.
  *     </p>
+ * @public
  */
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
@@ -2215,18 +2215,18 @@ export class LimitExceededException extends __BaseException {
  */
 export interface StartBatchDeleteConfigurationTaskRequest {
   /**
-   * @public
    * <p>
    *         The type of configuration item to delete. Supported types are: SERVER.
    *       </p>
+   * @public
    */
   configurationType: DeletionConfigurationItemType | undefined;
 
   /**
-   * @public
    * <p>
    *         The list of configuration IDs that will be deleted by the task.
    *       </p>
+   * @public
    */
   configurationIds: string[] | undefined;
 }
@@ -2236,17 +2236,17 @@ export interface StartBatchDeleteConfigurationTaskRequest {
  */
 export interface StartBatchDeleteConfigurationTaskResponse {
   /**
-   * @public
    * <p>
    *         The unique identifier associated with the newly started deletion task.
    *       </p>
+   * @public
    */
   taskId?: string;
 }
 
 /**
- * @public
  * <p>Conflict error.</p>
+ * @public
  */
 export class ConflictErrorException extends __BaseException {
   readonly name: "ConflictErrorException" = "ConflictErrorException";
@@ -2265,12 +2265,12 @@ export class ConflictErrorException extends __BaseException {
 }
 
 /**
- * @public
  * <p>This issue occurs when the same <code>clientRequestToken</code> is used with the
  *         <code>StartImportTask</code> action, but with different parameters. For example, you use the
  *       same request token but have two different import URLs, you can encounter this issue. If the
  *       import tasks are meant to be different, use a different <code>clientRequestToken</code>, and
  *       try again.</p>
+ * @public
  */
 export class ResourceInUseException extends __BaseException {
   readonly name: "ResourceInUseException" = "ResourceInUseException";
@@ -2298,32 +2298,31 @@ export interface StartContinuousExportRequest {}
  */
 export interface StartContinuousExportResponse {
   /**
-   * @public
    * <p>The unique ID assigned to this export.</p>
+   * @public
    */
   exportId?: string;
 
   /**
-   * @public
    * <p>The name of the s3 bucket where the export data parquet files are stored.</p>
+   * @public
    */
   s3Bucket?: string;
 
   /**
-   * @public
    * <p>The timestamp representing when the continuous export was started.</p>
+   * @public
    */
   startTime?: Date;
 
   /**
-   * @public
    * <p>The type of data collector used to gather this data (currently only offered for
    *       AGENT).</p>
+   * @public
    */
   dataSource?: DataSource;
 
   /**
-   * @public
    * <p>A dictionary which describes how the data is stored.</p>
    *          <ul>
    *             <li>
@@ -2332,6 +2331,7 @@ export interface StartContinuousExportResponse {
    *           schema.</p>
    *             </li>
    *          </ul>
+   * @public
    */
   schemaStorageConfig?: Record<string, string>;
 }
@@ -2341,7 +2341,6 @@ export interface StartContinuousExportResponse {
  */
 export interface StartDataCollectionByAgentIdsRequest {
   /**
-   * @public
    * <p>The IDs of the agents from which to start collecting data. If you send a request to an
    *       agent ID that you do not have permission to contact, according to your Amazon Web Services account, the
    *       service does not throw an exception. Instead, it returns the error in the
@@ -2349,6 +2348,7 @@ export interface StartDataCollectionByAgentIdsRequest {
    *       not have permission to contact some of those agents, the system does not throw an exception.
    *       Instead, the system shows <code>Failed</code> in the <i>Description</i>
    *       field.</p>
+   * @public
    */
   agentIds: string[] | undefined;
 }
@@ -2358,10 +2358,10 @@ export interface StartDataCollectionByAgentIdsRequest {
  */
 export interface StartDataCollectionByAgentIdsResponse {
   /**
-   * @public
    * <p>Information about agents that were instructed to start collecting data. Information
    *       includes the agent ID, a description of the operation performed, and whether the agent
    *       configuration was updated.</p>
+   * @public
    */
   agentsConfigurationStatus?: AgentConfigurationStatus[];
 }
@@ -2380,25 +2380,25 @@ export const ExportDataFormat = {
 export type ExportDataFormat = (typeof ExportDataFormat)[keyof typeof ExportDataFormat];
 
 /**
- * @public
  * <p>
  *       Specifies the performance metrics to use for the server that is used for recommendations.
  *     </p>
+ * @public
  */
 export interface UsageMetricBasis {
   /**
-   * @public
    * <p>
    *       A utilization metric that is used by the recommendations.
    *     </p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>
    *       Specifies the percentage of the specified utilization metric that is used by the recommendations.
    *     </p>
+   * @public
    */
   percentageAdjust?: number;
 }
@@ -2447,33 +2447,33 @@ export const TermLength = {
 export type TermLength = (typeof TermLength)[keyof typeof TermLength];
 
 /**
- * @public
  * <p>
  *       Used to provide Reserved Instance preferences for the recommendation.
  *     </p>
+ * @public
  */
 export interface ReservedInstanceOptions {
   /**
-   * @public
    * <p>
    *       The payment plan to use for your Reserved Instance.
    *     </p>
+   * @public
    */
   purchasingOption: PurchasingOption | undefined;
 
   /**
-   * @public
    * <p>
    *     The flexibility to change the instance types needed for your Reserved Instance.
    *     </p>
+   * @public
    */
   offeringClass: OfferingClass | undefined;
 
   /**
-   * @public
    * <p>
    *       The preferred duration of the Reserved Instance term.
    *     </p>
+   * @public
    */
   termLength: TermLength | undefined;
 }
@@ -2493,82 +2493,82 @@ export const Tenancy = {
 export type Tenancy = (typeof Tenancy)[keyof typeof Tenancy];
 
 /**
- * @public
  * <p>
  *       Indicates that the exported data must include EC2 instance type matches for on-premises servers
  *       that are discovered through Amazon Web Services Application Discovery Service.
  *     </p>
+ * @public
  */
 export interface Ec2RecommendationsExportPreferences {
   /**
-   * @public
    * <p>
    *       If set to true, the export
    *       <a href="https://docs.aws.amazon.com/application-discovery/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestSyntax">preferences</a>
    *       is set to <code>Ec2RecommendationsExportPreferences</code>.
    *     </p>
+   * @public
    */
   enabled?: boolean;
 
   /**
-   * @public
    * <p>
    *       The recommended EC2 instance type that matches the CPU usage metric of server performance data.
    *     </p>
+   * @public
    */
   cpuPerformanceMetricBasis?: UsageMetricBasis;
 
   /**
-   * @public
    * <p>
    *       The recommended EC2 instance type that matches the Memory usage metric of server performance data.
    *     </p>
+   * @public
    */
   ramPerformanceMetricBasis?: UsageMetricBasis;
 
   /**
-   * @public
    * <p>
    *       The target tenancy to use for your recommended EC2 instances.
    *     </p>
+   * @public
    */
   tenancy?: Tenancy;
 
   /**
-   * @public
    * <p>
    *       An array of instance types to exclude from recommendations.
    *     </p>
+   * @public
    */
   excludedInstanceTypes?: string[];
 
   /**
-   * @public
    * <p>
    *       The target Amazon Web Services Region for the recommendations.
    *       You can use any of the Region codes available for the chosen service,
    *       as listed in <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Amazon Web Services service endpoints</a> in the <i>Amazon Web Services General Reference</i>.
    *     </p>
+   * @public
    */
   preferredRegion?: string;
 
   /**
-   * @public
    * <p>
    *       The contract type for a reserved instance.
    *       If blank, we assume an On-Demand instance is preferred.
    *     </p>
+   * @public
    */
   reservedInstanceOptions?: ReservedInstanceOptions;
 }
 
 /**
- * @public
  * <p>
  *       Indicates the type of data that is being exported. Only one
  *       <code>ExportPreferences</code> can be enabled for a
  *       <a href="https://docs.aws.amazon.com/application-discovery/latest/APIReference/API_StartExportTask.html">StartExportTask</a> action.
  *     </p>
+ * @public
  */
 export type ExportPreferences =
   | ExportPreferences.Ec2RecommendationsPreferencesMember
@@ -2579,11 +2579,11 @@ export type ExportPreferences =
  */
 export namespace ExportPreferences {
   /**
-   * @public
    * <p>
    *       If enabled, exported data includes EC2 instance type matches for on-premises servers
    *       discovered through Amazon Web Services Application Discovery Service.
    *     </p>
+   * @public
    */
   export interface Ec2RecommendationsPreferencesMember {
     ec2RecommendationsPreferences: Ec2RecommendationsExportPreferences;
@@ -2615,49 +2615,49 @@ export namespace ExportPreferences {
  */
 export interface StartExportTaskRequest {
   /**
-   * @public
    * <p>The file format for the returned export data. Default value is <code>CSV</code>.
    *         <b>Note:</b>
    *             <i>The</i>
    *             <code>GRAPHML</code>
    *             <i>option has been deprecated.</i>
    *          </p>
+   * @public
    */
   exportDataFormat?: ExportDataFormat[];
 
   /**
-   * @public
    * <p>If a filter is present, it selects the single <code>agentId</code> of the Application
    *       Discovery Agent for which data is exported. The <code>agentId</code> can be found in the
    *       results of the <code>DescribeAgents</code> API or CLI. If no filter is present,
    *         <code>startTime</code> and <code>endTime</code> are ignored and exported data includes both
    *       Amazon Web Services Application Discovery Service Agentless Collector collectors data and summary data from Application Discovery
    *       Agent agents. </p>
+   * @public
    */
   filters?: ExportFilter[];
 
   /**
-   * @public
    * <p>The start timestamp for exported data from the single Application Discovery Agent
    *       selected in the filters. If no value is specified, data is exported starting from the first
    *       data collected by the agent.</p>
+   * @public
    */
   startTime?: Date;
 
   /**
-   * @public
    * <p>The end timestamp for exported data from the single Application Discovery Agent
    *       selected in the filters. If no value is specified, exported data includes the most recent data
    *       collected by the agent.</p>
+   * @public
    */
   endTime?: Date;
 
   /**
-   * @public
    * <p>
    *       Indicates the type of data that needs to be exported. Only one
    *       <a href="https://docs.aws.amazon.com/application-discovery/latest/APIReference/API_ExportPreferences.html">ExportPreferences</a> can be enabled at any time.
    *     </p>
+   * @public
    */
   preferences?: ExportPreferences;
 }
@@ -2667,8 +2667,8 @@ export interface StartExportTaskRequest {
  */
 export interface StartExportTaskResponse {
   /**
-   * @public
    * <p>A unique identifier used to query the status of an export request.</p>
+   * @public
    */
   exportId?: string;
 }
@@ -2678,32 +2678,32 @@ export interface StartExportTaskResponse {
  */
 export interface StartImportTaskRequest {
   /**
-   * @public
    * <p>Optional. A unique token that you can provide to prevent the same import request from
    *       occurring more than once. If you don't provide a token, a token is automatically
    *       generated.</p>
    *          <p>Sending more than one <code>StartImportTask</code> request with the same client request
    *       token will return information about the original import task with that client request
    *       token.</p>
+   * @public
    */
   clientRequestToken?: string;
 
   /**
-   * @public
    * <p>A descriptive name for this request. You can use this name to filter future requests
    *       related to this import task, such as identifying applications and servers that were included
    *       in this import task. We recommend that you use a meaningful name for each import task.</p>
+   * @public
    */
   name: string | undefined;
 
   /**
-   * @public
    * <p>The URL for your import file that you've uploaded to Amazon S3.</p>
    *          <note>
    *             <p>If you're using the Amazon Web Services CLI, this URL is structured as follows:
    *           <code>s3://BucketName/ImportFileName.CSV</code>
    *             </p>
    *          </note>
+   * @public
    */
   importUrl: string | undefined;
 }
@@ -2713,9 +2713,9 @@ export interface StartImportTaskRequest {
  */
 export interface StartImportTaskResponse {
   /**
-   * @public
    * <p>An array of information related to the import task request including status information,
    *       times, IDs, the Amazon S3 Object URL for the import file, and more. </p>
+   * @public
    */
   task?: ImportTask;
 }
@@ -2725,8 +2725,8 @@ export interface StartImportTaskResponse {
  */
 export interface StopContinuousExportRequest {
   /**
-   * @public
    * <p>The unique ID assigned to this export.</p>
+   * @public
    */
   exportId: string | undefined;
 }
@@ -2736,15 +2736,15 @@ export interface StopContinuousExportRequest {
  */
 export interface StopContinuousExportResponse {
   /**
-   * @public
    * <p>Timestamp that represents when this continuous export started collecting
    *       data.</p>
+   * @public
    */
   startTime?: Date;
 
   /**
-   * @public
    * <p>Timestamp that represents when this continuous export was stopped.</p>
+   * @public
    */
   stopTime?: Date;
 }
@@ -2754,8 +2754,8 @@ export interface StopContinuousExportResponse {
  */
 export interface StopDataCollectionByAgentIdsRequest {
   /**
-   * @public
    * <p>The IDs of the agents from which to stop collecting data.</p>
+   * @public
    */
   agentIds: string[] | undefined;
 }
@@ -2765,10 +2765,10 @@ export interface StopDataCollectionByAgentIdsRequest {
  */
 export interface StopDataCollectionByAgentIdsResponse {
   /**
-   * @public
    * <p>Information about the agents that were instructed to stop collecting data. Information
    *       includes the agent ID, a description of the operation performed, and whether the agent
    *       configuration was updated.</p>
+   * @public
    */
   agentsConfigurationStatus?: AgentConfigurationStatus[];
 }
@@ -2778,20 +2778,20 @@ export interface StopDataCollectionByAgentIdsResponse {
  */
 export interface UpdateApplicationRequest {
   /**
-   * @public
    * <p>Configuration ID of the application to be updated.</p>
+   * @public
    */
   configurationId: string | undefined;
 
   /**
-   * @public
    * <p>New name of the application to be updated.</p>
+   * @public
    */
   name?: string;
 
   /**
-   * @public
    * <p>New description of the application to be updated.</p>
+   * @public
    */
   description?: string;
 }

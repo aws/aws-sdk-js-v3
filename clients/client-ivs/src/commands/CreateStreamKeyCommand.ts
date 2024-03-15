@@ -31,7 +31,6 @@ export interface CreateStreamKeyCommandInput extends CreateStreamKeyRequest {}
 export interface CreateStreamKeyCommandOutput extends CreateStreamKeyResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a stream key, used to initiate a stream, for the specified channel ARN.</p>
  *          <p>Note that <a>CreateChannel</a> creates a stream key. If you subsequently use
  *       CreateStreamKey on the same channel, it will fail because a stream key already exists and
@@ -87,6 +86,7 @@ export interface CreateStreamKeyCommandOutput extends CreateStreamKeyResponse, _
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ * @public
  */
 export class CreateStreamKeyCommand extends $Command
   .classBuilder<

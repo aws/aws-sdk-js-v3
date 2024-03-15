@@ -31,7 +31,6 @@ export interface ListBillingGroupsCommandInput extends ListBillingGroupsInput {}
 export interface ListBillingGroupsCommandOutput extends ListBillingGroupsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>A paginated call to retrieve a list of billing groups for the given billing period. If you don't provide a billing group, the current billing period is used.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -109,6 +108,7 @@ export interface ListBillingGroupsCommandOutput extends ListBillingGroupsOutput,
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ * @public
  */
 export class ListBillingGroupsCommand extends $Command
   .classBuilder<

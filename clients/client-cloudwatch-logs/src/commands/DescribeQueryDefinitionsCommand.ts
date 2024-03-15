@@ -27,7 +27,6 @@ export interface DescribeQueryDefinitionsCommandInput extends DescribeQueryDefin
 export interface DescribeQueryDefinitionsCommandOutput extends DescribeQueryDefinitionsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation returns a paginated list of your saved CloudWatch Logs Insights query definitions. You can
  *     retrieve query definitions from the current account or from a source account that is linked to the current account.</p>
  *          <p>You can use the <code>queryDefinitionNamePrefix</code> parameter to limit the results to only the
@@ -77,6 +76,7 @@ export interface DescribeQueryDefinitionsCommandOutput extends DescribeQueryDefi
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * @public
  */
 export class DescribeQueryDefinitionsCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeletePackageCommandInput extends DeletePackageRequest {}
 export interface DeletePackageCommandOutput extends DeletePackageResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a specific version from a software package.</p>
  *          <p>
  *             <b>Note:</b> All package versions must be deleted before deleting the software package.</p>
@@ -67,6 +66,7 @@ export interface DeletePackageCommandOutput extends DeletePackageResponse, __Met
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DeletePackageCommand extends $Command
   .classBuilder<

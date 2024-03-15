@@ -27,7 +27,6 @@ export interface ListDocumentVersionsCommandInput extends ListDocumentVersionsRe
 export interface ListDocumentVersionsCommandOutput extends ListDocumentVersionsResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>List all versions for a document.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface ListDocumentVersionsCommandOutput extends ListDocumentVersionsR
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class ListDocumentVersionsCommand extends $Command
   .classBuilder<

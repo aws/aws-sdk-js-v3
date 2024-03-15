@@ -27,7 +27,6 @@ export interface DeletePolicyCommandInput extends DeletePolicyRequest {}
 export interface DeletePolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified policy from your organization. Before you perform this
  *             operation, you must first detach the policy from all organizational units (OUs), roots,
  *             and accounts.</p>
@@ -195,6 +194,7 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  * @example To delete a policy
  * ```javascript
  * // The following example shows how to delete a policy from an organization. The example assumes that you previously detached the policy from all entities:

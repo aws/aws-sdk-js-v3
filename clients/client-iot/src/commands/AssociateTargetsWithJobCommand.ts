@@ -27,7 +27,6 @@ export interface AssociateTargetsWithJobCommandInput extends AssociateTargetsWit
 export interface AssociateTargetsWithJobCommandOutput extends AssociateTargetsWithJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates a group with a continuous job. The following criteria must be met: </p>
  *          <ul>
  *             <li>
@@ -90,6 +89,7 @@ export interface AssociateTargetsWithJobCommandOutput extends AssociateTargetsWi
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class AssociateTargetsWithJobCommand extends $Command
   .classBuilder<

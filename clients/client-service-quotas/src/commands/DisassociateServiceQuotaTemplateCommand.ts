@@ -32,7 +32,6 @@ export interface DisassociateServiceQuotaTemplateCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables your quota request template. After a template is disabled, the quota increase
  *             requests in the template are not applied to new Amazon Web Services accounts in your organization.
  *             Disabling a quota request template does not apply its quota increase requests.</p>
@@ -84,6 +83,7 @@ export interface DisassociateServiceQuotaTemplateCommandOutput
  * @throws {@link ServiceQuotasServiceException}
  * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
+ * @public
  */
 export class DisassociateServiceQuotaTemplateCommand extends $Command
   .classBuilder<

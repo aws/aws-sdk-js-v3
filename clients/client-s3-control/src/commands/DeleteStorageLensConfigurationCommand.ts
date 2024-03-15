@@ -31,7 +31,6 @@ export interface DeleteStorageLensConfigurationCommandInput extends DeleteStorag
 export interface DeleteStorageLensConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <note>
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
@@ -69,6 +68,7 @@ export interface DeleteStorageLensConfigurationCommandOutput extends __MetadataB
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * @public
  */
 export class DeleteStorageLensConfigurationCommand extends $Command
   .classBuilder<

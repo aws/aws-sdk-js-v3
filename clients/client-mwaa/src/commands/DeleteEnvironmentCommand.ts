@@ -27,7 +27,6 @@ export interface DeleteEnvironmentCommandInput extends DeleteEnvironmentInput {}
 export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an Amazon Managed Workflows for Apache Airflow (MWAA) environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -62,6 +61,7 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentOutput,
  * @throws {@link MWAAServiceException}
  * <p>Base exception class for all service exceptions from MWAA service.</p>
  *
+ * @public
  */
 export class DeleteEnvironmentCommand extends $Command
   .classBuilder<

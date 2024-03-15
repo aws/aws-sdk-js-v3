@@ -31,7 +31,6 @@ export interface SearchAgreementsCommandInput extends SearchAgreementsInput {}
 export interface SearchAgreementsCommandOutput extends SearchAgreementsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Searches across all agreements that a proposer or an acceptor has in AWS Marketplace. The search returns a list of agreements with basic agreement information.</p>
  *          <p>The following filter combinations are supported:</p>
  *          <ul>
@@ -199,6 +198,7 @@ export interface SearchAgreementsCommandOutput extends SearchAgreementsOutput, _
  * @throws {@link MarketplaceAgreementServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceAgreement service.</p>
  *
+ * @public
  */
 export class SearchAgreementsCommand extends $Command
   .classBuilder<

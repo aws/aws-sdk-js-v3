@@ -30,7 +30,6 @@ export interface DeleteAggregationAuthorizationCommandInput extends DeleteAggreg
 export interface DeleteAggregationAuthorizationCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the authorization granted to the specified
  * 			configuration aggregator account in a specified region.</p>
  * @example
@@ -62,6 +61,7 @@ export interface DeleteAggregationAuthorizationCommandOutput extends __MetadataB
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * @public
  */
 export class DeleteAggregationAuthorizationCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListVodSourcesCommandInput extends ListVodSourcesRequest {}
 export interface ListVodSourcesCommandOutput extends ListVodSourcesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the VOD sources contained in a source location. A source represents a piece of content.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface ListVodSourcesCommandOutput extends ListVodSourcesResponse, __M
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ * @public
  */
 export class ListVodSourcesCommand extends $Command
   .classBuilder<

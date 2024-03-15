@@ -27,7 +27,6 @@ export interface DescribeModelPackagingJobCommandInput extends DescribeModelPack
 export interface DescribeModelPackagingJobCommandOutput extends DescribeModelPackagingJobResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes an Amazon Lookout for Vision model packaging job.
  * </p>
  *          <p>This operation requires permissions to perform the
@@ -118,6 +117,7 @@ export interface DescribeModelPackagingJobCommandOutput extends DescribeModelPac
  * @throws {@link LookoutVisionServiceException}
  * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
+ * @public
  */
 export class DescribeModelPackagingJobCommand extends $Command
   .classBuilder<

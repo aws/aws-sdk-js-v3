@@ -37,7 +37,6 @@ export interface UpdateMaintenanceWindowTargetCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the target of an existing maintenance window. You
  *    can change the following:</p>
  *          <ul>
@@ -124,6 +123,7 @@ export interface UpdateMaintenanceWindowTargetCommandOutput
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * @public
  */
 export class UpdateMaintenanceWindowTargetCommand extends $Command
   .classBuilder<

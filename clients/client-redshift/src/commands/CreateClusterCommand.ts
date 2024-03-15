@@ -32,7 +32,6 @@ export interface CreateClusterCommandInput extends CreateClusterMessage {}
 export interface CreateClusterCommandOutput extends CreateClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new cluster with the specified parameters.</p>
  *          <p>To create a cluster in Virtual Private Cloud (VPC), you must provide a cluster
  *             subnet group name. The cluster subnet group identifies the subnets of your VPC that
@@ -394,6 +393,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * @public
  */
 export class CreateClusterCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface ListDashboardsCommandInput extends ListDashboardsInput {}
 export interface ListDashboardsCommandOutput extends ListDashboardsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of the dashboards for your account. If you include <code>DashboardNamePrefix</code>, only
  * 			those dashboards with names starting with the prefix are listed. Otherwise, all dashboards in your account are
  * 			listed.
@@ -78,6 +77,7 @@ export interface ListDashboardsCommandOutput extends ListDashboardsOutput, __Met
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * @public
  */
 export class ListDashboardsCommand extends $Command
   .classBuilder<

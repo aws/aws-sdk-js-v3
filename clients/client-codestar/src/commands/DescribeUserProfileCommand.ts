@@ -31,7 +31,6 @@ export interface DescribeUserProfileCommandInput extends DescribeUserProfileRequ
 export interface DescribeUserProfileCommandOutput extends DescribeUserProfileResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a user in AWS CodeStar and the user attributes across all projects.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface DescribeUserProfileCommandOutput extends DescribeUserProfileRes
  * @throws {@link CodeStarServiceException}
  * <p>Base exception class for all service exceptions from CodeStar service.</p>
  *
+ * @public
  */
 export class DescribeUserProfileCommand extends $Command
   .classBuilder<

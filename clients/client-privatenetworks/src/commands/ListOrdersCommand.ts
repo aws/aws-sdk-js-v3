@@ -27,7 +27,6 @@ export interface ListOrdersCommandInput extends ListOrdersRequest {}
 export interface ListOrdersCommandOutput extends ListOrdersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists orders. Add filters to your request to return a more specific list of results.
  *             Use filters to match the Amazon Resource Name (ARN) of the network site or the status of
  *             the order.</p>
@@ -112,6 +111,7 @@ export interface ListOrdersCommandOutput extends ListOrdersResponse, __MetadataB
  * @throws {@link PrivateNetworksServiceException}
  * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
+ * @public
  */
 export class ListOrdersCommand extends $Command
   .classBuilder<

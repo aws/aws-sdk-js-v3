@@ -31,7 +31,6 @@ export interface ListHandshakesForAccountCommandInput extends ListHandshakesForA
 export interface ListHandshakesForAccountCommandOutput extends ListHandshakesForAccountResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the current handshakes that are associated with the account of the requesting
  *             user.</p>
  *          <p>Handshakes that are <code>ACCEPTED</code>, <code>DECLINED</code>,
@@ -231,6 +230,7 @@ export interface ListHandshakesForAccountCommandOutput extends ListHandshakesFor
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * @public
  * @example To retrieve a list of the handshakes sent to an account
  * ```javascript
  * // The following example shows you how to get a list of handshakes that are associated with the account of the credentials used to call the operation:

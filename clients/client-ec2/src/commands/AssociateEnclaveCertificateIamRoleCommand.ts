@@ -35,7 +35,6 @@ export interface AssociateEnclaveCertificateIamRoleCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Associates an Identity and Access Management (IAM) role with an Certificate Manager (ACM) certificate.
  * 			This enables the certificate to be used by the ACM for Nitro Enclaves application inside an enclave. For more
  * 			information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html">Certificate Manager for Nitro Enclaves</a> in the <i>Amazon Web Services Nitro Enclaves
@@ -79,6 +78,7 @@ export interface AssociateEnclaveCertificateIamRoleCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class AssociateEnclaveCertificateIamRoleCommand extends $Command
   .classBuilder<

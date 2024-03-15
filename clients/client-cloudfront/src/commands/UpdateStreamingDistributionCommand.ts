@@ -27,7 +27,6 @@ export interface UpdateStreamingDistributionCommandInput extends UpdateStreaming
 export interface UpdateStreamingDistributionCommandOutput extends UpdateStreamingDistributionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Update a streaming distribution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -179,6 +178,7 @@ export interface UpdateStreamingDistributionCommandOutput extends UpdateStreamin
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class UpdateStreamingDistributionCommand extends $Command
   .classBuilder<

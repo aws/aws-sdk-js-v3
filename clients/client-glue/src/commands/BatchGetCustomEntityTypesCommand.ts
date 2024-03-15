@@ -27,7 +27,6 @@ export interface BatchGetCustomEntityTypesCommandInput extends BatchGetCustomEnt
 export interface BatchGetCustomEntityTypesCommandOutput extends BatchGetCustomEntityTypesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the details for the custom patterns specified by a list of names.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface BatchGetCustomEntityTypesCommandOutput extends BatchGetCustomEn
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * @public
  */
 export class BatchGetCustomEntityTypesCommand extends $Command
   .classBuilder<

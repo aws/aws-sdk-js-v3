@@ -31,7 +31,6 @@ export interface CreateWebLoginTokenCommandInput extends CreateWebLoginTokenRequ
 export interface CreateWebLoginTokenCommandOutput extends CreateWebLoginTokenResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a web login token for the Airflow Web UI. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/call-mwaa-apis-web.html">Creating an Apache Airflow web login token</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +73,7 @@ export interface CreateWebLoginTokenCommandOutput extends CreateWebLoginTokenRes
  * @throws {@link MWAAServiceException}
  * <p>Base exception class for all service exceptions from MWAA service.</p>
  *
+ * @public
  */
 export class CreateWebLoginTokenCommand extends $Command
   .classBuilder<

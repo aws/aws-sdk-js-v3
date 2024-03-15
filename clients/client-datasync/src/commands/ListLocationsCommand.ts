@@ -27,7 +27,6 @@ export interface ListLocationsCommandInput extends ListLocationsRequest {}
 export interface ListLocationsCommandOutput extends ListLocationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of source and destination locations.</p>
  *          <p>If you have more locations than are returned in a response (that is, the response
  *       returns only a truncated list of your agents), the response contains a token that you can
@@ -81,6 +80,7 @@ export interface ListLocationsCommandOutput extends ListLocationsResponse, __Met
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * @public
  */
 export class ListLocationsCommand extends $Command
   .classBuilder<

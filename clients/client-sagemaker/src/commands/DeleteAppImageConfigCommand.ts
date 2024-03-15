@@ -27,7 +27,6 @@ export interface DeleteAppImageConfigCommandInput extends DeleteAppImageConfigRe
 export interface DeleteAppImageConfigCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an AppImageConfig.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,6 +55,7 @@ export interface DeleteAppImageConfigCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class DeleteAppImageConfigCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface GetDashboardForJobRunCommandInput extends GetDashboardForJobRun
 export interface GetDashboardForJobRunCommandOutput extends GetDashboardForJobRunResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates and returns a URL that you can use to access the application UIs for a job
  *          run.</p>
  *          <p>For jobs in a running state, the application UI is a live user interface such as the
@@ -74,6 +73,7 @@ export interface GetDashboardForJobRunCommandOutput extends GetDashboardForJobRu
  * @throws {@link EMRServerlessServiceException}
  * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
+ * @public
  */
 export class GetDashboardForJobRunCommand extends $Command
   .classBuilder<

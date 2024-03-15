@@ -27,7 +27,6 @@ export interface ResolveAliasCommandInput extends ResolveAliasInput {}
 export interface ResolveAliasCommandOutput extends ResolveAliasOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves the fleet ID that an alias is currently pointing to.</p>
  *          <p>
  *             <b>Related actions</b>
@@ -82,6 +81,7 @@ export interface ResolveAliasCommandOutput extends ResolveAliasOutput, __Metadat
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class ResolveAliasCommand extends $Command
   .classBuilder<

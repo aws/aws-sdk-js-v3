@@ -27,7 +27,6 @@ export interface UpdateResolverDnssecConfigCommandInput extends UpdateResolverDn
 export interface UpdateResolverDnssecConfigCommandOutput extends UpdateResolverDnssecConfigResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an existing DNSSEC validation configuration. If there is no existing DNSSEC validation configuration, one is created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +78,7 @@ export interface UpdateResolverDnssecConfigCommandOutput extends UpdateResolverD
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class UpdateResolverDnssecConfigCommand extends $Command
   .classBuilder<

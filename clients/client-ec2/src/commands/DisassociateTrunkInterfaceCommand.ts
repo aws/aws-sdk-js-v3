@@ -27,7 +27,6 @@ export interface DisassociateTrunkInterfaceCommandInput extends DisassociateTrun
 export interface DisassociateTrunkInterfaceCommandOutput extends DisassociateTrunkInterfaceResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Removes an association between a branch network interface with a trunk network interface.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -58,6 +57,7 @@ export interface DisassociateTrunkInterfaceCommandOutput extends DisassociateTru
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class DisassociateTrunkInterfaceCommand extends $Command
   .classBuilder<

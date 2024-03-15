@@ -31,7 +31,6 @@ export interface InvokeDeviceMethodCommandInput extends InvokeDeviceMethodReques
 export interface InvokeDeviceMethodCommandOutput extends InvokeDeviceMethodResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Given a device ID, issues a request to invoke a named device method (with possible
  *  parameters). See the "Example POST" code snippet below.</p>
  * @example
@@ -77,6 +76,7 @@ export interface InvokeDeviceMethodCommandOutput extends InvokeDeviceMethodRespo
  * @throws {@link IoT1ClickDevicesServiceServiceException}
  * <p>Base exception class for all service exceptions from IoT1ClickDevicesService service.</p>
  *
+ * @public
  */
 export class InvokeDeviceMethodCommand extends $Command
   .classBuilder<

@@ -29,7 +29,6 @@ export interface GetReadSetCommandOutput extends Omit<GetReadSetResponse, "paylo
 }
 
 /**
- * @public
  * <p>Gets a file from a read set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface GetReadSetCommandOutput extends Omit<GetReadSetResponse, "paylo
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ * @public
  */
 export class GetReadSetCommand extends $Command
   .classBuilder<

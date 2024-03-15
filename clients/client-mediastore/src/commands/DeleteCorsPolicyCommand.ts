@@ -27,7 +27,6 @@ export interface DeleteCorsPolicyCommandInput extends DeleteCorsPolicyInput {}
 export interface DeleteCorsPolicyCommandOutput extends DeleteCorsPolicyOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the cross-origin resource sharing (CORS) configuration information that is
  *          set for the container.</p>
  *          <p>To use this operation, you must have permission to perform the
@@ -70,6 +69,7 @@ export interface DeleteCorsPolicyCommandOutput extends DeleteCorsPolicyOutput, _
  * @throws {@link MediaStoreServiceException}
  * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ * @public
  */
 export class DeleteCorsPolicyCommand extends $Command
   .classBuilder<

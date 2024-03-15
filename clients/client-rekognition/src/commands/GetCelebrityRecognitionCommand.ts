@@ -27,7 +27,6 @@ export interface GetCelebrityRecognitionCommandInput extends GetCelebrityRecogni
 export interface GetCelebrityRecognitionCommandOutput extends GetCelebrityRecognitionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the celebrity recognition results for a Amazon Rekognition Video analysis started by
  *      <a>StartCelebrityRecognition</a>.</p>
  *          <p>Celebrity recognition in a video is an asynchronous operation. Analysis is started by a
@@ -237,6 +236,7 @@ export interface GetCelebrityRecognitionCommandOutput extends GetCelebrityRecogn
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * @public
  */
 export class GetCelebrityRecognitionCommand extends $Command
   .classBuilder<

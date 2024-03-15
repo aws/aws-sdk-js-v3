@@ -27,7 +27,6 @@ export interface DescribeInstancesCommandInput extends DescribeInstancesRequest 
 export interface DescribeInstancesCommandOutput extends DescribeInstancesResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes the specified instances or all instances.</p>
  *          <p>If you specify instance IDs, the output includes information for only the specified
  *             instances. If you specify filters, the output includes information for only those
@@ -326,6 +325,7 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesResult,
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To describe an Amazon EC2 instance
  * ```javascript
  * // This example describes the specified instance.

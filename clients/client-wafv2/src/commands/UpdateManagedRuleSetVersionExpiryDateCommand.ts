@@ -36,7 +36,6 @@ export interface UpdateManagedRuleSetVersionExpiryDateCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the expiration information for your managed rule set. Use this to initiate the
  *          expiration of a managed rule group version. After you initiate expiration for a version,
  *          WAF excludes it from the response to <a>ListAvailableManagedRuleGroupVersions</a> for the managed rule group. </p>
@@ -116,6 +115,7 @@ export interface UpdateManagedRuleSetVersionExpiryDateCommandOutput
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class UpdateManagedRuleSetVersionExpiryDateCommand extends $Command
   .classBuilder<

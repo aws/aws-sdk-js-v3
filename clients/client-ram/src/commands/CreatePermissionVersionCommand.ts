@@ -27,7 +27,6 @@ export interface CreatePermissionVersionCommandInput extends CreatePermissionVer
 export interface CreatePermissionVersionCommandOutput extends CreatePermissionVersionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates a new version of the specified customer managed permission. The new version is automatically set as
  *             the default version of the customer managed permission. New resource shares automatically use the default
  *             permission. Existing resource shares continue to use their original permission versions,
@@ -118,6 +117,7 @@ export interface CreatePermissionVersionCommandOutput extends CreatePermissionVe
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * @public
  */
 export class CreatePermissionVersionCommand extends $Command
   .classBuilder<

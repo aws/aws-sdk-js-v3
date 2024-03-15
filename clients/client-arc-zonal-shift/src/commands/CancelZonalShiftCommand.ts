@@ -27,7 +27,6 @@ export interface CancelZonalShiftCommandInput extends CancelZonalShiftRequest {}
 export interface CancelZonalShiftCommandOutput extends ZonalShift, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancel a zonal shift in Amazon Route 53 Application Recovery Controller. To cancel the zonal shift, specify the zonal shift ID.</p>
  *          <p>A zonal shift can be one that you've started for a resource in your Amazon Web Services account
  *   		in an Amazon Web Services Region, or it can be a zonal shift started by a practice run with zonal
@@ -82,6 +81,7 @@ export interface CancelZonalShiftCommandOutput extends ZonalShift, __MetadataBea
  * @throws {@link ARCZonalShiftServiceException}
  * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
+ * @public
  */
 export class CancelZonalShiftCommand extends $Command
   .classBuilder<

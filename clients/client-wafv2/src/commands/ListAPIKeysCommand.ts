@@ -27,7 +27,6 @@ export interface ListAPIKeysCommandInput extends ListAPIKeysRequest {}
 export interface ListAPIKeysCommandOutput extends ListAPIKeysResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list of the API keys that you've defined for the specified scope. </p>
  *          <p>API keys are required for the integration of the CAPTCHA API in your JavaScript client applications.
  *            The API lets you customize the placement and characteristics of the CAPTCHA puzzle for your end users.
@@ -103,6 +102,7 @@ export interface ListAPIKeysCommandOutput extends ListAPIKeysResponse, __Metadat
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * @public
  */
 export class ListAPIKeysCommand extends $Command
   .classBuilder<

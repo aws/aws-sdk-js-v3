@@ -32,7 +32,6 @@ export interface UpdateConfigurationProfileCommandInput extends UpdateConfigurat
 export interface UpdateConfigurationProfileCommandOutput extends ConfigurationProfile, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a configuration profile.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface UpdateConfigurationProfileCommandOutput extends ConfigurationPr
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  * @example To update a configuration profile
  * ```javascript
  * // The following update-configuration-profile example updates the description of the specified configuration profile.

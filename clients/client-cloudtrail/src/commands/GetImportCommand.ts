@@ -27,7 +27,6 @@ export interface GetImportCommandInput extends GetImportRequest {}
 export interface GetImportCommandOutput extends GetImportResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p> Returns information about a specific import. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface GetImportCommandOutput extends GetImportResponse, __MetadataBea
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * @public
  */
 export class GetImportCommand extends $Command
   .classBuilder<

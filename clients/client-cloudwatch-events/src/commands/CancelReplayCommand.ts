@@ -27,7 +27,6 @@ export interface CancelReplayCommandInput extends CancelReplayRequest {}
 export interface CancelReplayCommandOutput extends CancelReplayResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Cancels the specified replay.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +69,7 @@ export interface CancelReplayCommandOutput extends CancelReplayResponse, __Metad
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ * @public
  */
 export class CancelReplayCommand extends $Command
   .classBuilder<

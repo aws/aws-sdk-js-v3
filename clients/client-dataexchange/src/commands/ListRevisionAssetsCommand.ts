@@ -27,7 +27,6 @@ export interface ListRevisionAssetsCommandInput extends ListRevisionAssetsReques
 export interface ListRevisionAssetsCommandOutput extends ListRevisionAssetsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>This operation lists a revision's assets sorted alphabetically in descending order.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -153,6 +152,7 @@ export interface ListRevisionAssetsCommandOutput extends ListRevisionAssetsRespo
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ * @public
  */
 export class ListRevisionAssetsCommand extends $Command
   .classBuilder<

@@ -34,7 +34,6 @@ export interface UploadPartCopyCommandInput extends UploadPartCopyRequest {}
 export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Uploads a part by copying data from an existing object as data source. To specify the
  *          data source, you add the request header <code>x-amz-copy-source</code> in your request. To specify
  *          a byte range, you add the request header <code>x-amz-copy-source-range</code> in your
@@ -271,6 +270,7 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * @public
  * @example To upload a part by copying byte range from an existing object as data source
  * ```javascript
  * // The following example uploads a part of a multipart upload by copying a specified byte range from an existing object as data source.

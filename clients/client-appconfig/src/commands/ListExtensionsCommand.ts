@@ -27,7 +27,6 @@ export interface ListExtensionsCommandInput extends ListExtensionsRequest {}
 export interface ListExtensionsCommandOutput extends Extensions, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists all custom and Amazon Web Services authored AppConfig extensions in the
  *          account. For more information about extensions, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Extending
  *             workflows</a> in the <i>AppConfig User Guide</i>.</p>
@@ -74,6 +73,7 @@ export interface ListExtensionsCommandOutput extends Extensions, __MetadataBeare
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * @public
  */
 export class ListExtensionsCommand extends $Command
   .classBuilder<

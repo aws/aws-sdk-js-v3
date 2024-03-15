@@ -27,7 +27,6 @@ export interface DeleteDataCatalogCommandInput extends DeleteDataCatalogInput {}
 export interface DeleteDataCatalogCommandOutput extends DeleteDataCatalogOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a data catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,6 +60,7 @@ export interface DeleteDataCatalogCommandOutput extends DeleteDataCatalogOutput,
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class DeleteDataCatalogCommand extends $Command
   .classBuilder<

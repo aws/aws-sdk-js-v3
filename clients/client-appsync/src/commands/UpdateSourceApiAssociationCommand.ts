@@ -27,7 +27,6 @@ export interface UpdateSourceApiAssociationCommandInput extends UpdateSourceApiA
 export interface UpdateSourceApiAssociationCommandOutput extends UpdateSourceApiAssociationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates some of the configuration choices of a particular source API association.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,6 +90,7 @@ export interface UpdateSourceApiAssociationCommandOutput extends UpdateSourceApi
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * @public
  */
 export class UpdateSourceApiAssociationCommand extends $Command
   .classBuilder<

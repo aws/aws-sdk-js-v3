@@ -27,7 +27,6 @@ export interface DeleteSolutionCommandInput extends DeleteSolutionRequest {}
 export interface DeleteSolutionCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes all versions of a solution and the <code>Solution</code> object itself.
  *       Before deleting a solution, you must delete all campaigns based on
  *       the solution. To determine what campaigns are using the solution, call
@@ -68,6 +67,7 @@ export interface DeleteSolutionCommandOutput extends __MetadataBearer {}
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * @public
  */
 export class DeleteSolutionCommand extends $Command
   .classBuilder<

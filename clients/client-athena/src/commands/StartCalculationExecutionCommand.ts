@@ -27,7 +27,6 @@ export interface StartCalculationExecutionCommandInput extends StartCalculationE
 export interface StartCalculationExecutionCommandOutput extends StartCalculationExecutionResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Submits calculations for execution within a session. You can supply the code to run as
  *             an inline code block within the request.</p>
  *          <note>
@@ -80,6 +79,7 @@ export interface StartCalculationExecutionCommandOutput extends StartCalculation
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * @public
  */
 export class StartCalculationExecutionCommand extends $Command
   .classBuilder<

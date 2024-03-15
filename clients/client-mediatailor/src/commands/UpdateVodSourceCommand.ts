@@ -27,7 +27,6 @@ export interface UpdateVodSourceCommandInput extends UpdateVodSourceRequest {}
 export interface UpdateVodSourceCommandOutput extends UpdateVodSourceResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a VOD source's configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +76,7 @@ export interface UpdateVodSourceCommandOutput extends UpdateVodSourceResponse, _
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ * @public
  */
 export class UpdateVodSourceCommand extends $Command
   .classBuilder<

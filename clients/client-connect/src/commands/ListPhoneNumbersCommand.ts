@@ -27,7 +27,6 @@ export interface ListPhoneNumbersCommandInput extends ListPhoneNumbersRequest {}
 export interface ListPhoneNumbersCommandOutput extends ListPhoneNumbersResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Provides information about the phone numbers for the specified Amazon Connect instance. </p>
  *          <p>For more information about phone numbers, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">Set Up Phone Numbers for Your
  *     Contact Center</a> in the <i>Amazon Connect Administrator
@@ -107,6 +106,7 @@ export interface ListPhoneNumbersCommandOutput extends ListPhoneNumbersResponse,
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class ListPhoneNumbersCommand extends $Command
   .classBuilder<

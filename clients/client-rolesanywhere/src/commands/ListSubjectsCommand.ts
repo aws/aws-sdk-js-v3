@@ -27,7 +27,6 @@ export interface ListSubjectsCommandInput extends ListRequest {}
 export interface ListSubjectsCommandOutput extends ListSubjectsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the subjects in the authenticated account and Amazon Web Services Region.</p>
  *          <p>
  *             <b>Required permissions: </b>
@@ -77,6 +76,7 @@ export interface ListSubjectsCommandOutput extends ListSubjectsResponse, __Metad
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ * @public
  */
 export class ListSubjectsCommand extends $Command
   .classBuilder<

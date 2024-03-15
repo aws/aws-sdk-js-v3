@@ -27,7 +27,6 @@ export interface PutEncryptionConfigCommandInput extends PutEncryptionConfigRequ
 export interface PutEncryptionConfigCommandOutput extends PutEncryptionConfigResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the encryption configuration for X-Ray data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface PutEncryptionConfigCommandOutput extends PutEncryptionConfigRes
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ * @public
  */
 export class PutEncryptionConfigCommand extends $Command
   .classBuilder<

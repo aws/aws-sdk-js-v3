@@ -27,7 +27,6 @@ export interface GetPipelineDefinitionCommandInput extends GetPipelineDefinition
 export interface GetPipelineDefinitionCommandOutput extends GetPipelineDefinitionOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the definition of the specified pipeline. You can call <code>GetPipelineDefinition</code> to retrieve
  *             the pipeline definition that you provided using <a>PutPipelineDefinition</a>.</p>
  *
@@ -161,6 +160,7 @@ export interface GetPipelineDefinitionCommandOutput extends GetPipelineDefinitio
  * @throws {@link DataPipelineServiceException}
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ * @public
  */
 export class GetPipelineDefinitionCommand extends $Command
   .classBuilder<

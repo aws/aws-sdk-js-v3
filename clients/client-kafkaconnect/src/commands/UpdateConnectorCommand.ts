@@ -27,7 +27,6 @@ export interface UpdateConnectorCommandInput extends UpdateConnectorRequest {}
 export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the specified connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -101,6 +100,7 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  * @throws {@link KafkaConnectServiceException}
  * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
+ * @public
  */
 export class UpdateConnectorCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DeleteStreamCommandInput extends DeleteStreamRequest {}
 export interface DeleteStreamCommandOutput extends DeleteStreamResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a stream.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteStream</a> action.</p>
  * @example
@@ -76,6 +75,7 @@ export interface DeleteStreamCommandOutput extends DeleteStreamResponse, __Metad
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DeleteStreamCommand extends $Command
   .classBuilder<

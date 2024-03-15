@@ -234,7 +234,6 @@ export interface Braket {
 }
 
 /**
- * @public
  * <p>The Amazon Braket API Reference provides information about the operations and structures
  *          supported in Amazon Braket.</p>
  *          <p>Additional Resources:</p>
@@ -245,6 +244,7 @@ export interface Braket {
  *                </p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class Braket extends BraketClient implements Braket {}
 createAggregatedClient(commands, Braket);

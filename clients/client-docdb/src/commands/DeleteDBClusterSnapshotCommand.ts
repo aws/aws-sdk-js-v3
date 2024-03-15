@@ -27,7 +27,6 @@ export interface DeleteDBClusterSnapshotCommandInput extends DeleteDBClusterSnap
 export interface DeleteDBClusterSnapshotCommandOutput extends DeleteDBClusterSnapshotResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a cluster snapshot. If the snapshot is being copied, the copy operation is terminated.</p>
  *          <note>
  *             <p>The cluster snapshot must be in the <code>available</code> state to be deleted.</p>
@@ -86,6 +85,7 @@ export interface DeleteDBClusterSnapshotCommandOutput extends DeleteDBClusterSna
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * @public
  */
 export class DeleteDBClusterSnapshotCommand extends $Command
   .classBuilder<

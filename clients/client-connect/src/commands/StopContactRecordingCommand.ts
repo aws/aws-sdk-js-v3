@@ -27,7 +27,6 @@ export interface StopContactRecordingCommandInput extends StopContactRecordingRe
 export interface StopContactRecordingCommandOutput extends StopContactRecordingResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Stops recording a call when a contact is being recorded. StopContactRecording is a one-time
  *    action. If you use StopContactRecording to stop recording an ongoing call, you can't use
  *    StartContactRecording to restart it. For scenarios where the recording has started and you want
@@ -69,6 +68,7 @@ export interface StopContactRecordingCommandOutput extends StopContactRecordingR
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * @public
  */
 export class StopContactRecordingCommand extends $Command
   .classBuilder<

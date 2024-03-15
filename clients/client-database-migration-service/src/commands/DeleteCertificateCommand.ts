@@ -31,7 +31,6 @@ export interface DeleteCertificateCommandInput extends DeleteCertificateMessage 
 export interface DeleteCertificateCommandOutput extends DeleteCertificateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified certificate. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface DeleteCertificateCommandOutput extends DeleteCertificateRespons
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @public
  * @example Delete Certificate
  * ```javascript
  * // Deletes the specified certificate.

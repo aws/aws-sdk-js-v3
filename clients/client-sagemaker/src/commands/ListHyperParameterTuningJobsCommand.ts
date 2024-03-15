@@ -32,7 +32,6 @@ export interface ListHyperParameterTuningJobsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a list of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobSummary.html">HyperParameterTuningJobSummary</a> objects that
  *             describe
  *             the hyperparameter tuning jobs launched in your account.</p>
@@ -99,6 +98,7 @@ export interface ListHyperParameterTuningJobsCommandOutput
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * @public
  */
 export class ListHyperParameterTuningJobsCommand extends $Command
   .classBuilder<

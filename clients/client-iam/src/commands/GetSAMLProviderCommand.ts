@@ -27,7 +27,6 @@ export interface GetSAMLProviderCommandInput extends GetSAMLProviderRequest {}
 export interface GetSAMLProviderCommandOutput extends GetSAMLProviderResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the SAML provider metadocument that was uploaded when the IAM SAML provider
  *             resource object was created or updated.</p>
  *          <note>
@@ -79,6 +78,7 @@ export interface GetSAMLProviderCommandOutput extends GetSAMLProviderResponse, _
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * @public
  */
 export class GetSAMLProviderCommand extends $Command
   .classBuilder<

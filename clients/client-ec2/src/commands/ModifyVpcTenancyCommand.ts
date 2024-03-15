@@ -27,7 +27,6 @@ export interface ModifyVpcTenancyCommandInput extends ModifyVpcTenancyRequest {}
 export interface ModifyVpcTenancyCommandOutput extends ModifyVpcTenancyResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the instance tenancy attribute of the specified VPC. You can change the
  *             instance tenancy attribute of a VPC to <code>default</code> only. You cannot change the
  *             instance tenancy attribute to <code>dedicated</code>.</p>
@@ -64,6 +63,7 @@ export interface ModifyVpcTenancyCommandOutput extends ModifyVpcTenancyResult, _
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class ModifyVpcTenancyCommand extends $Command
   .classBuilder<

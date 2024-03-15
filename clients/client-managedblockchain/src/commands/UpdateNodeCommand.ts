@@ -31,7 +31,6 @@ export interface UpdateNodeCommandInput extends UpdateNodeInput {}
 export interface UpdateNodeCommandOutput extends UpdateNodeOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a node configuration with new parameters.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
@@ -92,6 +91,7 @@ export interface UpdateNodeCommandOutput extends UpdateNodeOutput, __MetadataBea
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ * @public
  */
 export class UpdateNodeCommand extends $Command
   .classBuilder<

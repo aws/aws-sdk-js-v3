@@ -31,7 +31,6 @@ export interface UpdateEndpointAccessCommandInput extends UpdateEndpointAccessRe
 export interface UpdateEndpointAccessCommandOutput extends UpdateEndpointAccessResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates an Amazon Redshift Serverless managed endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +105,7 @@ export interface UpdateEndpointAccessCommandOutput extends UpdateEndpointAccessR
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * @public
  */
 export class UpdateEndpointAccessCommand extends $Command
   .classBuilder<

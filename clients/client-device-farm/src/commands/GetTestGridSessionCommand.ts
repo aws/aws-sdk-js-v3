@@ -27,7 +27,6 @@ export interface GetTestGridSessionCommandInput extends GetTestGridSessionReques
 export interface GetTestGridSessionCommandOutput extends GetTestGridSessionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>A session is an instance of a browser created through a <code>RemoteWebDriver</code> with the URL from <a>CreateTestGridUrlResult$url</a>. You can use the following to look up sessions:</p>
  *          <ul>
  *             <li>
@@ -83,6 +82,7 @@ export interface GetTestGridSessionCommandOutput extends GetTestGridSessionResul
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * @public
  */
 export class GetTestGridSessionCommand extends $Command
   .classBuilder<

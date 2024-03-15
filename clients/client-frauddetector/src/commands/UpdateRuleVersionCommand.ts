@@ -31,7 +31,6 @@ export interface UpdateRuleVersionCommandInput extends UpdateRuleVersionRequest 
 export interface UpdateRuleVersionCommandOutput extends UpdateRuleVersionResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a rule version resulting in a new rule version. Updates a rule version resulting in a new rule version (version 1, 2, 3 ...). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -97,6 +96,7 @@ export interface UpdateRuleVersionCommandOutput extends UpdateRuleVersionResult,
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class UpdateRuleVersionCommand extends $Command
   .classBuilder<

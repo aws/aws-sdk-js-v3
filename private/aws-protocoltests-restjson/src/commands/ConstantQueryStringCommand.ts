@@ -25,7 +25,6 @@ export interface ConstantQueryStringCommandInput extends ConstantQueryStringInpu
 export interface ConstantQueryStringCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * This example uses a constant query string parameters and a label.
  * This simply tests that labels and query string parameters are
  * compatible. The fixed query string parameter named "hello" should
@@ -54,6 +53,7 @@ export interface ConstantQueryStringCommandOutput extends __MetadataBearer {}
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ * @public
  */
 export class ConstantQueryStringCommand extends $Command
   .classBuilder<

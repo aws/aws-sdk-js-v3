@@ -27,7 +27,6 @@ export interface DeleteWorkspaceCommandInput extends DeleteWorkspaceRequest {}
 export interface DeleteWorkspaceCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an existing workspace. </p>
  *          <note>
  *             <p>When you delete a workspace, the data that has been ingested into it is not
@@ -77,6 +76,7 @@ export interface DeleteWorkspaceCommandOutput extends __MetadataBearer {}
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ * @public
  */
 export class DeleteWorkspaceCommand extends $Command
   .classBuilder<

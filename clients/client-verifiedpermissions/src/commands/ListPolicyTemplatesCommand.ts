@@ -35,7 +35,6 @@ export interface ListPolicyTemplatesCommandInput extends ListPolicyTemplatesInpu
 export interface ListPolicyTemplatesCommandOutput extends ListPolicyTemplatesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a paginated list of all policy templates in the specified policy store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -170,6 +169,7 @@ export interface ListPolicyTemplatesCommandOutput extends ListPolicyTemplatesOut
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
+ * @public
  */
 export class ListPolicyTemplatesCommand extends $Command
   .classBuilder<

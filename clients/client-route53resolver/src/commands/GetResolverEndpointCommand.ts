@@ -27,7 +27,6 @@ export interface GetResolverEndpointCommandInput extends GetResolverEndpointRequ
 export interface GetResolverEndpointCommandOutput extends GetResolverEndpointResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets information about a specified Resolver endpoint, such as whether it's an inbound or an outbound Resolver endpoint, and the
  * 			current status of the endpoint.</p>
  * @example
@@ -89,6 +88,7 @@ export interface GetResolverEndpointCommandOutput extends GetResolverEndpointRes
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ * @public
  */
 export class GetResolverEndpointCommand extends $Command
   .classBuilder<

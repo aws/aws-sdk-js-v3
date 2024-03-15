@@ -27,7 +27,6 @@ export interface UpdateDomainEntryCommandInput extends UpdateDomainEntryRequest 
 export interface UpdateDomainEntryCommandOutput extends UpdateDomainEntryResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates a domain recordset after it is created.</p>
  *          <p>The <code>update domain entry</code> operation supports tag-based access control via
  *       resource tags applied to the resource identified by <code>domain name</code>. For more
@@ -116,6 +115,7 @@ export interface UpdateDomainEntryCommandOutput extends UpdateDomainEntryResult,
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * @public
  */
 export class UpdateDomainEntryCommand extends $Command
   .classBuilder<

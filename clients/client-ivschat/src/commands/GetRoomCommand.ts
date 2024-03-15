@@ -27,7 +27,6 @@ export interface GetRoomCommandInput extends GetRoomRequest {}
 export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the specified room.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +79,7 @@ export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer 
  * @throws {@link IvschatServiceException}
  * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
+ * @public
  */
 export class GetRoomCommand extends $Command
   .classBuilder<

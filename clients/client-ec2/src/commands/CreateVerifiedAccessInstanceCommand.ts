@@ -29,7 +29,6 @@ export interface CreateVerifiedAccessInstanceCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>An Amazon Web Services Verified Access instance is a regional entity that evaluates application requests and grants
  *          access only when your security requirements are met.</p>
  * @example
@@ -93,6 +92,7 @@ export interface CreateVerifiedAccessInstanceCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  */
 export class CreateVerifiedAccessInstanceCommand extends $Command
   .classBuilder<

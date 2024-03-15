@@ -27,7 +27,6 @@ export interface SampleChannelDataCommandInput extends SampleChannelDataRequest 
 export interface SampleChannelDataCommandOutput extends SampleChannelDataResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a sample of messages from the specified channel ingested during the specified
  *       timeframe. Up to 10 messages can be retrieved.</p>
  * @example
@@ -76,6 +75,7 @@ export interface SampleChannelDataCommandOutput extends SampleChannelDataRespons
  * @throws {@link IoTAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
+ * @public
  */
 export class SampleChannelDataCommand extends $Command
   .classBuilder<

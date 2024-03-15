@@ -35,7 +35,6 @@ export interface ListEnvironmentsCommandInput extends ListEnvironmentsRequest {}
 export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists Amazon Web Services Migration Hub Refactor Spaces environments owned by a caller account or shared with the caller
  *       account. </p>
  * @example
@@ -108,6 +107,7 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse,
  * @throws {@link MigrationHubRefactorSpacesServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
+ * @public
  */
 export class ListEnvironmentsCommand extends $Command
   .classBuilder<

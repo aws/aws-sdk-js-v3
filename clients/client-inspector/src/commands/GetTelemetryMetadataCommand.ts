@@ -27,7 +27,6 @@ export interface GetTelemetryMetadataCommandInput extends GetTelemetryMetadataRe
 export interface GetTelemetryMetadataCommandOutput extends GetTelemetryMetadataResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Information about the data that is collected for the specified assessment
  *          run.</p>
  * @example
@@ -76,6 +75,7 @@ export interface GetTelemetryMetadataCommandOutput extends GetTelemetryMetadataR
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * @public
  * @example Get telemetry metadata
  * ```javascript
  * // Information about the data that is collected for the specified assessment run.

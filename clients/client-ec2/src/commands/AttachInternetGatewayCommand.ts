@@ -27,7 +27,6 @@ export interface AttachInternetGatewayCommandInput extends AttachInternetGateway
 export interface AttachInternetGatewayCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches an internet gateway or a virtual private gateway to a VPC, enabling connectivity
  * 		        between the internet and the VPC. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html">Internet gateways</a> in the
  * 		        <i>Amazon VPC User Guide</i>.</p>
@@ -57,6 +56,7 @@ export interface AttachInternetGatewayCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To attach an Internet gateway to a VPC
  * ```javascript
  * // This example attaches the specified Internet gateway to the specified VPC.

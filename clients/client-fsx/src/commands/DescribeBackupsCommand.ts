@@ -31,7 +31,6 @@ export interface DescribeBackupsCommandInput extends DescribeBackupsRequest {}
 export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the description of a specific Amazon FSx backup, if a
  *                 <code>BackupIds</code> value is provided for that backup. Otherwise, it returns all
  *             backups owned by your Amazon Web Services account in the Amazon Web Services Region of the
@@ -693,6 +692,7 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * @public
  * @example To describe Amazon FSx backups
  * ```javascript
  * // This operation describes all of the Amazon FSx backups in an account.

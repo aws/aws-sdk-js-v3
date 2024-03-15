@@ -32,7 +32,6 @@ export interface DescribeNetworkInterfaceAttributeCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Describes a network interface attribute. You can specify only one attribute at a time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +89,7 @@ export interface DescribeNetworkInterfaceAttributeCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To describe the attachment attribute of a network interface
  * ```javascript
  * // This example describes the attachment attribute of the specified network interface.

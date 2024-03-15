@@ -31,7 +31,6 @@ export interface DeleteAttributeGroupCommandInput extends DeleteAttributeGroupRe
 export interface DeleteAttributeGroupCommandOutput extends DeleteAttributeGroupResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an attribute group, specified either by its attribute group ID, name, or ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +75,7 @@ export interface DeleteAttributeGroupCommandOutput extends DeleteAttributeGroupR
  * @throws {@link ServiceCatalogAppRegistryServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
+ * @public
  */
 export class DeleteAttributeGroupCommand extends $Command
   .classBuilder<

@@ -27,7 +27,6 @@ export interface DisableClientAuthenticationCommandInput extends DisableClientAu
 export interface DisableClientAuthenticationCommandOutput extends DisableClientAuthenticationResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Disables alternative client authentication methods for the specified directory. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +71,7 @@ export interface DisableClientAuthenticationCommandOutput extends DisableClientA
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * @public
  */
 export class DisableClientAuthenticationCommand extends $Command
   .classBuilder<

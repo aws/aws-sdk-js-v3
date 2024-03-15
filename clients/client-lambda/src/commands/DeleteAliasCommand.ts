@@ -27,7 +27,6 @@ export interface DeleteAliasCommandInput extends DeleteAliasRequest {}
 export interface DeleteAliasCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,6 +65,7 @@ export interface DeleteAliasCommandOutput extends __MetadataBearer {}
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ * @public
  */
 export class DeleteAliasCommand extends $Command
   .classBuilder<

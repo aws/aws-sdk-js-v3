@@ -35,7 +35,6 @@ export interface DescribeTLSInspectionConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the data objects for the specified TLS inspection configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -168,6 +167,7 @@ export interface DescribeTLSInspectionConfigurationCommandOutput
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ * @public
  */
 export class DescribeTLSInspectionConfigurationCommand extends $Command
   .classBuilder<

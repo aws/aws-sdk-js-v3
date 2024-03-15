@@ -29,7 +29,6 @@ export interface ResetDBClusterParameterGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the parameters of a DB cluster parameter group to the default value. To
  *             reset specific parameters submit a list of the following: <code>ParameterName</code>
  *             and <code>ApplyMethod</code>. To reset the
@@ -100,6 +99,7 @@ export interface ResetDBClusterParameterGroupCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To reset all parameters to their default values
  * ```javascript
  * // The following example resets all parameter values in a customer-created DB cluster parameter group to their default values.

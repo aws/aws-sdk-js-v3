@@ -27,7 +27,6 @@ export interface DeleteOutcomeCommandInput extends DeleteOutcomeRequest {}
 export interface DeleteOutcomeCommandOutput extends DeleteOutcomeResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes an outcome.</p>
  *          <p>You cannot delete an outcome that is used in a rule version.</p>
  *          <p>When you delete an outcome, Amazon Fraud Detector permanently deletes that outcome and the data is no longer stored in Amazon Fraud Detector.</p>
@@ -70,6 +69,7 @@ export interface DeleteOutcomeCommandOutput extends DeleteOutcomeResult, __Metad
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * @public
  */
 export class DeleteOutcomeCommand extends $Command
   .classBuilder<

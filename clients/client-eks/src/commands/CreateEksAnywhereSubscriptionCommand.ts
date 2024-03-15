@@ -32,7 +32,6 @@ export interface CreateEksAnywhereSubscriptionCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an EKS Anywhere subscription. When a subscription is created, it is a contract
  *             agreement for the length of the term specified in the request. Licenses that are used to
  *             validate support are provisioned in Amazon Web Services License Manager and the caller account is
@@ -112,6 +111,7 @@ export interface CreateEksAnywhereSubscriptionCommandOutput
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * @public
  */
 export class CreateEksAnywhereSubscriptionCommand extends $Command
   .classBuilder<

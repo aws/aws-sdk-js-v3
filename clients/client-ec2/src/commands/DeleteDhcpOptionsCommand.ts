@@ -27,7 +27,6 @@ export interface DeleteDhcpOptionsCommandInput extends DeleteDhcpOptionsRequest 
 export interface DeleteDhcpOptionsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes the specified set of DHCP options. You must disassociate the set of DHCP options before you can delete it. You can disassociate the set of DHCP options by associating either a new set of options or the default set of options with the VPC.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -54,6 +53,7 @@ export interface DeleteDhcpOptionsCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To delete a DHCP options set
  * ```javascript
  * // This example deletes the specified DHCP options set.

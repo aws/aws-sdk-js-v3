@@ -32,7 +32,6 @@ export interface DescribeAccountModificationsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves a list that describes modifications to the configuration of Bring Your Own
  *          License (BYOL) for the specified account.</p>
  * @example
@@ -74,6 +73,7 @@ export interface DescribeAccountModificationsCommandOutput
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * @public
  */
 export class DescribeAccountModificationsCommand extends $Command
   .classBuilder<

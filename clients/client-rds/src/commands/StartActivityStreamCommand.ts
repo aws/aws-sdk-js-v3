@@ -27,7 +27,6 @@ export interface StartActivityStreamCommandInput extends StartActivityStreamRequ
 export interface StartActivityStreamCommandOutput extends StartActivityStreamResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Starts a database activity stream to monitor activity on the database.
  *             For more information, see
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html">
@@ -91,6 +90,7 @@ export interface StartActivityStreamCommandOutput extends StartActivityStreamRes
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To start a database activity stream
  * ```javascript
  * // The following example starts an asynchronous activity stream to monitor an Aurora cluster named my-pg-cluster.

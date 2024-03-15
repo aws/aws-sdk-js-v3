@@ -31,7 +31,6 @@ export interface ListExperienceEntitiesCommandInput extends ListExperienceEntiti
 export interface ListExperienceEntitiesCommandOutput extends ListExperienceEntitiesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists users or groups in your IAM Identity Center identity source that are
  *             granted access to your Amazon Kendra experience. You can create an Amazon Kendra experience
  *             such as a search application. For more information on creating a search
@@ -98,6 +97,7 @@ export interface ListExperienceEntitiesCommandOutput extends ListExperienceEntit
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * @public
  */
 export class ListExperienceEntitiesCommand extends $Command
   .classBuilder<

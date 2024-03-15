@@ -27,7 +27,6 @@ export interface GetBucketsAggregationCommandInput extends GetBucketsAggregation
 export interface GetBucketsAggregationCommandOutput extends GetBucketsAggregationResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Aggregates on indexed data with search queries pertaining to particular fields. </p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetBucketsAggregation</a> action.</p>
  * @example
@@ -97,6 +96,7 @@ export interface GetBucketsAggregationCommandOutput extends GetBucketsAggregatio
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class GetBucketsAggregationCommand extends $Command
   .classBuilder<

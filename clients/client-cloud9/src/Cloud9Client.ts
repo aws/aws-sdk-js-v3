@@ -309,7 +309,6 @@ export type Cloud9ClientResolvedConfigType = __SmithyResolvedConfiguration<__Htt
 export interface Cloud9ClientResolvedConfig extends Cloud9ClientResolvedConfigType {}
 
 /**
- * @public
  * <fullname>Cloud9</fullname>
  *          <p>Cloud9 is a collection of tools that you can use to code, build, run, test, debug, and
  *       release software in the cloud.</p>
@@ -377,6 +376,7 @@ export interface Cloud9ClientResolvedConfig extends Cloud9ClientResolvedConfigTy
  *           environment member for an environment.</p>
  *             </li>
  *          </ul>
+ * @public
  */
 export class Cloud9Client extends __Client<
   __HttpHandlerOptions,

@@ -27,7 +27,6 @@ export interface ListApplicationInstancesCommandInput extends ListApplicationIns
 export interface ListApplicationInstancesCommandOutput extends ListApplicationInstancesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of application instances.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -89,6 +88,7 @@ export interface ListApplicationInstancesCommandOutput extends ListApplicationIn
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ * @public
  */
 export class ListApplicationInstancesCommand extends $Command
   .classBuilder<

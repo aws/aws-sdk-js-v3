@@ -32,9 +32,6 @@ export interface ListAppInstanceAdminsCommandInput extends ListAppInstanceAdmins
 export interface ListAppInstanceAdminsCommandOutput extends ListAppInstanceAdminsResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by ListAppInstanceAdmins in the Amazon Chime SDK Identity Namespace
- *
  * <p>Returns a list of the administrators in the <code>AppInstance</code>.</p>
  *          <important>
  *             <p>
@@ -98,6 +95,8 @@ export interface ListAppInstanceAdminsCommandOutput extends ListAppInstanceAdmin
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by ListAppInstanceAdmins in the Amazon Chime SDK Identity Namespace
  */
 export class ListAppInstanceAdminsCommand extends $Command
   .classBuilder<

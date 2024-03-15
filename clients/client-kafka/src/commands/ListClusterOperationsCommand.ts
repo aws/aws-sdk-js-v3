@@ -27,7 +27,6 @@ export interface ListClusterOperationsCommandInput extends ListClusterOperations
 export interface ListClusterOperationsCommandOutput extends ListClusterOperationsResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of all the operations that have been performed on the specified MSK cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -293,6 +292,7 @@ export interface ListClusterOperationsCommandOutput extends ListClusterOperation
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ * @public
  */
 export class ListClusterOperationsCommand extends $Command
   .classBuilder<

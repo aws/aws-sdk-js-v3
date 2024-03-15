@@ -27,7 +27,6 @@ export interface DeleteDBClusterCommandInput extends DeleteDBClusterMessage {}
 export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __MetadataBearer {}
 
 /**
- * @public
  * <p>The DeleteDBCluster action deletes a previously provisioned DB cluster.
  *           When you delete a DB cluster, all automated backups for that DB cluster are deleted and can't be recovered.
  *           Manual DB cluster snapshots of the specified DB cluster are not deleted.</p>
@@ -274,6 +273,7 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * @public
  * @example To delete a DB cluster
  * ```javascript
  * // The following example deletes the DB cluster named mycluster and takes a final snapshot named mycluster-final-snapshot. The status of the DB cluster is available while the snapshot is being taken.

@@ -27,7 +27,6 @@ export interface CreateAliasCommandInput extends CreateAliasInput {}
 export interface CreateAliasCommandOutput extends CreateAliasOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Creates an alias for a fleet. In most situations, you can use an alias ID in place of
  *             a fleet ID. An alias provides a level of abstraction for a fleet that is useful when
  *             redirecting player traffic from one fleet to another, such as when updating your game
@@ -124,6 +123,7 @@ export interface CreateAliasCommandOutput extends CreateAliasOutput, __MetadataB
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * @public
  */
 export class CreateAliasCommand extends $Command
   .classBuilder<

@@ -34,9 +34,6 @@ export interface DeleteVoiceConnectorTerminationCredentialsCommandInput
 export interface DeleteVoiceConnectorTerminationCredentialsCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
- * @deprecated Replaced by DeleteVoiceConnectorTerminationCredentials in the Amazon Chime SDK Voice Namespace
- *
  * <p>Deletes the specified SIP credentials used by your equipment to authenticate during call termination.</p>
  *          <important>
  *             <p>
@@ -93,6 +90,8 @@ export interface DeleteVoiceConnectorTerminationCredentialsCommandOutput extends
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * @public
+ * @deprecated Replaced by DeleteVoiceConnectorTerminationCredentials in the Amazon Chime SDK Voice Namespace
  */
 export class DeleteVoiceConnectorTerminationCredentialsCommand extends $Command
   .classBuilder<

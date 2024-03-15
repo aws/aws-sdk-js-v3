@@ -27,7 +27,6 @@ export interface UpdateTrustedTokenIssuerCommandInput extends UpdateTrustedToken
 export interface UpdateTrustedTokenIssuerCommandOutput extends UpdateTrustedTokenIssuerResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Updates the name of the trusted token issuer, or the path of a source attribute or destination attribute for a trusted token issuer configuration.</p>
  *          <note>
  *             <p>Updating this trusted token issuer configuration might cause users to lose access to any applications that are configured to use the trusted token issuer.</p>
@@ -87,6 +86,7 @@ export interface UpdateTrustedTokenIssuerCommandOutput extends UpdateTrustedToke
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * @public
  */
 export class UpdateTrustedTokenIssuerCommand extends $Command
   .classBuilder<

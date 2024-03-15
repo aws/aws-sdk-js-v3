@@ -27,7 +27,6 @@ export interface SendAnnouncementCommandInput extends SendAnnouncementRequest {}
 export interface SendAnnouncementCommandOutput extends SendAnnouncementResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Triggers an asynchronous flow to send text, SSML, or audio announcements to rooms that
  *          are identified by a search or filter. </p>
  * @example
@@ -91,6 +90,7 @@ export interface SendAnnouncementCommandOutput extends SendAnnouncementResponse,
  * @throws {@link AlexaForBusinessServiceException}
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
+ * @public
  */
 export class SendAnnouncementCommand extends $Command
   .classBuilder<

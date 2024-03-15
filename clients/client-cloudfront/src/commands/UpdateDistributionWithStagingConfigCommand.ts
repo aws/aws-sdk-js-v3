@@ -36,7 +36,6 @@ export interface UpdateDistributionWithStagingConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Copies the staging distribution's configuration to its corresponding primary
  * 			distribution. The primary distribution retains its <code>Aliases</code> (also known as
  * 			alternate domain names or CNAMEs) and <code>ContinuousDeploymentPolicyId</code> value,
@@ -639,6 +638,7 @@ export interface UpdateDistributionWithStagingConfigCommandOutput
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @public
  */
 export class UpdateDistributionWithStagingConfigCommand extends $Command
   .classBuilder<

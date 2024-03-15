@@ -28,7 +28,6 @@ export interface RunInstancesCommandInput extends RunInstancesRequest {}
 export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer {}
 
 /**
- * @public
  * <p>Launches the specified number of instances using an AMI for which you have
  *             permissions.</p>
  *          <p>You can specify a number of options, or leave the default options. The following rules
@@ -535,6 +534,7 @@ export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To launch an instance
  * ```javascript
  * // This example launches an instance using the specified AMI, instance type, security group, subnet, block device mapping, and tags.

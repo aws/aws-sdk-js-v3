@@ -27,7 +27,6 @@ export interface GetContentCommandInput extends GetContentRequest {}
 export interface GetContentCommandOutput extends GetContentResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves content, including a pre-signed URL to download the content.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +83,7 @@ export interface GetContentCommandOutput extends GetContentResponse, __MetadataB
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ * @public
  */
 export class GetContentCommand extends $Command
   .classBuilder<

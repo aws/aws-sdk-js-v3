@@ -27,7 +27,6 @@ export interface DeleteCACertificateCommandInput extends DeleteCACertificateRequ
 export interface DeleteCACertificateCommandOutput extends DeleteCACertificateResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Deletes a registered CA certificate.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteCACertificate</a> action.</p>
  * @example
@@ -75,6 +74,7 @@ export interface DeleteCACertificateCommandOutput extends DeleteCACertificateRes
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * @public
  */
 export class DeleteCACertificateCommand extends $Command
   .classBuilder<

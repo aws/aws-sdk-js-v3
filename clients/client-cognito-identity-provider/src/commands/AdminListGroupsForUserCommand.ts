@@ -35,7 +35,6 @@ export interface AdminListGroupsForUserCommandInput extends AdminListGroupsForUs
 export interface AdminListGroupsForUserCommandOutput extends AdminListGroupsForUserResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the groups that a user belongs to.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
@@ -118,6 +117,7 @@ export interface AdminListGroupsForUserCommandOutput extends AdminListGroupsForU
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @public
  */
 export class AdminListGroupsForUserCommand extends $Command
   .classBuilder<

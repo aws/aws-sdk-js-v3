@@ -27,7 +27,6 @@ export interface PutGroupConfigurationCommandInput extends PutGroupConfiguration
 export interface PutGroupConfigurationCommandOutput extends PutGroupConfigurationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Attaches a service configuration to the specified group. This occurs asynchronously,
  *             and can take time to complete. You can use <a>GetGroupConfiguration</a> to
  *             check the status of the update.</p>
@@ -98,6 +97,7 @@ export interface PutGroupConfigurationCommandOutput extends PutGroupConfiguratio
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ * @public
  */
 export class PutGroupConfigurationCommand extends $Command
   .classBuilder<

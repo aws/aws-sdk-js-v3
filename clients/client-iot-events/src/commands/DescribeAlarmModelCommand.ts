@@ -27,7 +27,6 @@ export interface DescribeAlarmModelCommandInput extends DescribeAlarmModelReques
 export interface DescribeAlarmModelCommandOutput extends DescribeAlarmModelResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Retrieves information about an alarm model. If you don't specify a value for the
  *         <code>alarmModelVersion</code> parameter, the latest version is returned.</p>
  * @example
@@ -224,6 +223,7 @@ export interface DescribeAlarmModelCommandOutput extends DescribeAlarmModelRespo
  * @throws {@link IoTEventsServiceException}
  * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
+ * @public
  */
 export class DescribeAlarmModelCommand extends $Command
   .classBuilder<

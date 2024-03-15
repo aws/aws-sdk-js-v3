@@ -31,7 +31,6 @@ export interface GetSyncConfigurationCommandInput extends GetSyncConfigurationIn
 export interface GetSyncConfigurationCommandOutput extends GetSyncConfigurationOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns details about a sync configuration, including the sync type and resource name. A sync configuration allows the configuration to sync (push and pull) changes from the remote repository for a specified branch in a Git repository.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +86,7 @@ export interface GetSyncConfigurationCommandOutput extends GetSyncConfigurationO
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ * @public
  */
 export class GetSyncConfigurationCommand extends $Command
   .classBuilder<

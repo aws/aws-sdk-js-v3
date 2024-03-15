@@ -27,7 +27,6 @@ export interface GetAccountSendingEnabledCommandInput {}
 export interface GetAccountSendingEnabledCommandOutput extends GetAccountSendingEnabledResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns the email sending status of the Amazon SES account for the current Region.</p>
  *          <p>You can execute this operation no more than once per second.</p>
  * @example
@@ -54,6 +53,7 @@ export interface GetAccountSendingEnabledCommandOutput extends GetAccountSending
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * @public
  * @example GetAccountSendingEnabled
  * ```javascript
  * // The following example returns if sending status for an account is enabled. (true / false):

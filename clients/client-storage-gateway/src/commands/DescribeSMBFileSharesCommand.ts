@@ -27,7 +27,6 @@ export interface DescribeSMBFileSharesCommandInput extends DescribeSMBFileShares
 export interface DescribeSMBFileSharesCommandOutput extends DescribeSMBFileSharesOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets a description for one or more Server Message Block (SMB) file shares from a S3 File
  *          Gateway. This operation is only supported for S3 File Gateways.</p>
  * @example
@@ -111,6 +110,7 @@ export interface DescribeSMBFileSharesCommandOutput extends DescribeSMBFileShare
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * @public
  */
 export class DescribeSMBFileSharesCommand extends $Command
   .classBuilder<

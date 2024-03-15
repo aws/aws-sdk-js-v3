@@ -35,7 +35,6 @@ export interface DescribeNotificationSubscriptionsCommandOutput
     __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists the specified notification subscriptions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -81,6 +80,7 @@ export interface DescribeNotificationSubscriptionsCommandOutput
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * @public
  */
 export class DescribeNotificationSubscriptionsCommand extends $Command
   .classBuilder<

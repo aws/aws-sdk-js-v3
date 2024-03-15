@@ -27,7 +27,6 @@ export interface ModifyImageAttributeCommandInput extends ModifyImageAttributeRe
 export interface ModifyImageAttributeCommandOutput extends __MetadataBearer {}
 
 /**
- * @public
  * <p>Modifies the specified attribute of the specified AMI. You can specify only one attribute at a time.</p>
  *          <p>To specify the attribute, you can use the <code>Attribute</code> parameter, or one of the following parameters:
  *        <code>Description</code>, <code>ImdsSupport</code>, or <code>LaunchPermission</code>.</p>
@@ -101,6 +100,7 @@ export interface ModifyImageAttributeCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * @public
  * @example To make an AMI public
  * ```javascript
  * // This example makes the specified AMI public.

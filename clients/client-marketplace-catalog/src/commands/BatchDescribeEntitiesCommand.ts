@@ -31,7 +31,6 @@ export interface BatchDescribeEntitiesCommandInput extends BatchDescribeEntities
 export interface BatchDescribeEntitiesCommandOutput extends BatchDescribeEntitiesResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns metadata and content for multiple entities. This is the Batch version of the <code>DescribeEntity</code> API and uses the same IAM permission action as <code>DescribeEntity</code> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +93,7 @@ export interface BatchDescribeEntitiesCommandOutput extends BatchDescribeEntitie
  * @throws {@link MarketplaceCatalogServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceCatalog service.</p>
  *
+ * @public
  */
 export class BatchDescribeEntitiesCommand extends $Command
   .classBuilder<

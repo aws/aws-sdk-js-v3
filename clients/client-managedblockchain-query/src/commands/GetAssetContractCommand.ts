@@ -31,7 +31,6 @@ export interface GetAssetContractCommandInput extends GetAssetContractInput {}
 export interface GetAssetContractCommandOutput extends GetAssetContractOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Gets the information about a specific contract deployed on the blockchain.</p>
  *          <note>
  *             <ul>
@@ -105,6 +104,7 @@ export interface GetAssetContractCommandOutput extends GetAssetContractOutput, _
  * @throws {@link ManagedBlockchainQueryServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchainQuery service.</p>
  *
+ * @public
  */
 export class GetAssetContractCommand extends $Command
   .classBuilder<

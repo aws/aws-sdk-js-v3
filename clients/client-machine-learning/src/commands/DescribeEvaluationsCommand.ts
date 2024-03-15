@@ -27,7 +27,6 @@ export interface DescribeEvaluationsCommandInput extends DescribeEvaluationsInpu
 export interface DescribeEvaluationsCommandOutput extends DescribeEvaluationsOutput, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a list of <code>DescribeEvaluations</code> that match the search criteria in the request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -93,6 +92,7 @@ export interface DescribeEvaluationsCommandOutput extends DescribeEvaluationsOut
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * @public
  */
 export class DescribeEvaluationsCommand extends $Command
   .classBuilder<

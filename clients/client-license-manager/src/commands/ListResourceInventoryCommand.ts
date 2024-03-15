@@ -27,7 +27,6 @@ export interface ListResourceInventoryCommandInput extends ListResourceInventory
 export interface ListResourceInventoryCommandOutput extends ListResourceInventoryResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Lists resources managed using Systems Manager inventory.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +94,7 @@ export interface ListResourceInventoryCommandOutput extends ListResourceInventor
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * @public
  */
 export class ListResourceInventoryCommand extends $Command
   .classBuilder<

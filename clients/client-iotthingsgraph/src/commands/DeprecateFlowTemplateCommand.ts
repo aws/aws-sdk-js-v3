@@ -27,9 +27,6 @@ export interface DeprecateFlowTemplateCommandInput extends DeprecateFlowTemplate
 export interface DeprecateFlowTemplateCommandOutput extends DeprecateFlowTemplateResponse, __MetadataBearer {}
 
 /**
- * @public
- * @deprecated since: 2022-08-30
- *
  * <p>Deprecates the specified workflow. This action marks the workflow for deletion. Deprecated flows can't be deployed, but existing deployments will continue to run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -67,6 +64,8 @@ export interface DeprecateFlowTemplateCommandOutput extends DeprecateFlowTemplat
  * @throws {@link IoTThingsGraphServiceException}
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ * @public
+ * @deprecated since: 2022-08-30
  */
 export class DeprecateFlowTemplateCommand extends $Command
   .classBuilder<
