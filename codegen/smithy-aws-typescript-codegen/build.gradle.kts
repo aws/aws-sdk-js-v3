@@ -51,6 +51,8 @@ tasks.register("set-aws-sdk-versions") {
         mkdir("$buildDir/generated/resources/software/amazon/smithy/aws/typescript/codegen")
         var versionsFile =
                 file("$buildDir/generated/resources/software/amazon/smithy/aws/typescript/codegen/sdkVersions.properties")
+        versionsFile.printWriter().close()
+
         var roots = project.file("../../packages").listFiles().toMutableList() + project.file("../../clients").listFiles().toList()
         roots.forEach { packageDir ->
             var packageJsonFile = File(packageDir, "package.json")
