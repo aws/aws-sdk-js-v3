@@ -75,6 +75,8 @@ export interface DescribeIntegrationsCommandOutput extends DescribeIntegrationsR
  * //           ErrorMessage: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       DataFilter: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

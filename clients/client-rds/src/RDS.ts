@@ -633,6 +633,11 @@ import {
   ModifyGlobalClusterCommandOutput,
 } from "./commands/ModifyGlobalClusterCommand";
 import {
+  ModifyIntegrationCommand,
+  ModifyIntegrationCommandInput,
+  ModifyIntegrationCommandOutput,
+} from "./commands/ModifyIntegrationCommand";
+import {
   ModifyOptionGroupCommand,
   ModifyOptionGroupCommandInput,
   ModifyOptionGroupCommandOutput,
@@ -936,6 +941,7 @@ const commands = {
   ModifyDBSubnetGroupCommand,
   ModifyEventSubscriptionCommand,
   ModifyGlobalClusterCommand,
+  ModifyIntegrationCommand,
   ModifyOptionGroupCommand,
   ModifyTenantDatabaseCommand,
   PromoteReadReplicaCommand,
@@ -3115,6 +3121,23 @@ export interface RDS {
     args: ModifyGlobalClusterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ModifyGlobalClusterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyIntegrationCommand}
+   */
+  modifyIntegration(
+    args: ModifyIntegrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyIntegrationCommandOutput>;
+  modifyIntegration(
+    args: ModifyIntegrationCommandInput,
+    cb: (err: any, data?: ModifyIntegrationCommandOutput) => void
+  ): void;
+  modifyIntegration(
+    args: ModifyIntegrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyIntegrationCommandOutput) => void
   ): void;
 
   /**

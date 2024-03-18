@@ -1266,6 +1266,14 @@ ModifyGlobalCluster
 </details>
 <details>
 <summary>
+ModifyIntegration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rds/command/ModifyIntegrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rds/Interface/ModifyIntegrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rds/Interface/ModifyIntegrationCommandOutput/)
+
+</details>
+<details>
+<summary>
 ModifyOptionGroup
 </summary>
 

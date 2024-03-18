@@ -48,6 +48,8 @@ export interface CreateIntegrationCommandOutput extends Integration, __MetadataB
  *       Value: "STRING_VALUE",
  *     },
  *   ],
+ *   DataFilter: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
  * };
  * const command = new CreateIntegrationCommand(input);
  * const response = await client.send(command);
@@ -74,6 +76,8 @@ export interface CreateIntegrationCommandOutput extends Integration, __MetadataB
  * //       ErrorMessage: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   DataFilter: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
  * // };
  *
  * ```

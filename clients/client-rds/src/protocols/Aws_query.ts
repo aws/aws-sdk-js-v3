@@ -431,6 +431,7 @@ import {
   ModifyGlobalClusterCommandInput,
   ModifyGlobalClusterCommandOutput,
 } from "../commands/ModifyGlobalClusterCommand";
+import { ModifyIntegrationCommandInput, ModifyIntegrationCommandOutput } from "../commands/ModifyIntegrationCommand";
 import { ModifyOptionGroupCommandInput, ModifyOptionGroupCommandOutput } from "../commands/ModifyOptionGroupCommand";
 import {
   ModifyTenantDatabaseCommandInput,
@@ -998,6 +999,7 @@ import {
   ModifyEventSubscriptionResult,
   ModifyGlobalClusterMessage,
   ModifyGlobalClusterResult,
+  ModifyIntegrationMessage,
   ModifyOptionGroupMessage,
   ModifyOptionGroupResult,
   ModifyTenantDatabaseMessage,
@@ -3240,6 +3242,23 @@ export const se_ModifyGlobalClusterCommand = async (
   body = buildFormUrlencodedString({
     ...se_ModifyGlobalClusterMessage(input, context),
     [_A]: _MGC,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryModifyIntegrationCommand
+ */
+export const se_ModifyIntegrationCommand = async (
+  input: ModifyIntegrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ModifyIntegrationMessage(input, context),
+    [_A]: _MI,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6333,6 +6352,26 @@ export const de_ModifyGlobalClusterCommand = async (
   let contents: any = {};
   contents = de_ModifyGlobalClusterResult(data.ModifyGlobalClusterResult, context);
   const response: ModifyGlobalClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyIntegrationCommand
+ */
+export const de_ModifyIntegrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyIntegrationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_Integration(data.ModifyIntegrationResult, context);
+  const response: ModifyIntegrationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -10495,8 +10534,8 @@ const se_CreateDBClusterMessage = (input: CreateDBClusterMessage, context: __Ser
   if (input[_AMVU] != null) {
     entries[_AMVU] = input[_AMVU];
   }
-  if (input[_MI] != null) {
-    entries[_MI] = input[_MI];
+  if (input[_MIo] != null) {
+    entries[_MIo] = input[_MIo];
   }
   if (input[_MRA] != null) {
     entries[_MRA] = input[_MRA];
@@ -10742,8 +10781,8 @@ const se_CreateDBInstanceMessage = (input: CreateDBInstanceMessage, context: __S
   if (input[_CTTS] != null) {
     entries[_CTTS] = input[_CTTS];
   }
-  if (input[_MI] != null) {
-    entries[_MI] = input[_MI];
+  if (input[_MIo] != null) {
+    entries[_MIo] = input[_MIo];
   }
   if (input[_MRA] != null) {
     entries[_MRA] = input[_MRA];
@@ -10901,8 +10940,8 @@ const se_CreateDBInstanceReadReplicaMessage = (
   if (input[_CTTS] != null) {
     entries[_CTTS] = input[_CTTS];
   }
-  if (input[_MI] != null) {
-    entries[_MI] = input[_MI];
+  if (input[_MIo] != null) {
+    entries[_MIo] = input[_MIo];
   }
   if (input[_MRA] != null) {
     entries[_MRA] = input[_MRA];
@@ -11366,6 +11405,12 @@ const se_CreateIntegrationMessage = (input: CreateIntegrationMessage, context: _
       const loc = `Tags.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input[_DFa] != null) {
+    entries[_DFa] = input[_DFa];
+  }
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
   return entries;
 };
@@ -13614,8 +13659,8 @@ const se_ModifyDBClusterMessage = (input: ModifyDBClusterMessage, context: __Ser
   if (input[_AMVU] != null) {
     entries[_AMVU] = input[_AMVU];
   }
-  if (input[_MI] != null) {
-    entries[_MI] = input[_MI];
+  if (input[_MIo] != null) {
+    entries[_MIo] = input[_MIo];
   }
   if (input[_MRA] != null) {
     entries[_MRA] = input[_MRA];
@@ -13846,8 +13891,8 @@ const se_ModifyDBInstanceMessage = (input: ModifyDBInstanceMessage, context: __S
   if (input[_CTTS] != null) {
     entries[_CTTS] = input[_CTTS];
   }
-  if (input[_MI] != null) {
-    entries[_MI] = input[_MI];
+  if (input[_MIo] != null) {
+    entries[_MIo] = input[_MIo];
   }
   if (input[_DBPNo] != null) {
     entries[_DBPNo] = input[_DBPNo];
@@ -14230,6 +14275,26 @@ const se_ModifyGlobalClusterMessage = (input: ModifyGlobalClusterMessage, contex
   }
   if (input[_AMVUl] != null) {
     entries[_AMVUl] = input[_AMVUl];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryModifyIntegrationMessage
+ */
+const se_ModifyIntegrationMessage = (input: ModifyIntegrationMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_IIn] != null) {
+    entries[_IIn] = input[_IIn];
+  }
+  if (input[_IN] != null) {
+    entries[_IN] = input[_IN];
+  }
+  if (input[_DFa] != null) {
+    entries[_DFa] = input[_DFa];
+  }
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
   }
   return entries;
 };
@@ -15535,8 +15600,8 @@ const se_RestoreDBInstanceFromS3Message = (input: RestoreDBInstanceFromS3Message
   if (input[_CTTS] != null) {
     entries[_CTTS] = input[_CTTS];
   }
-  if (input[_MI] != null) {
-    entries[_MI] = input[_MI];
+  if (input[_MIo] != null) {
+    entries[_MIo] = input[_MIo];
   }
   if (input[_MRA] != null) {
     entries[_MRA] = input[_MRA];
@@ -17270,8 +17335,8 @@ const de_DBCluster = (output: any, context: __SerdeContext): DBCluster => {
   if (output[_AMVU] != null) {
     contents[_AMVU] = __parseBoolean(output[_AMVU]);
   }
-  if (output[_MI] != null) {
-    contents[_MI] = __strictParseInt32(output[_MI]) as number;
+  if (output[_MIo] != null) {
+    contents[_MIo] = __strictParseInt32(output[_MIo]) as number;
   }
   if (output[_MRA] != null) {
     contents[_MRA] = __expectString(output[_MRA]);
@@ -18454,8 +18519,8 @@ const de_DBInstance = (output: any, context: __SerdeContext): DBInstance => {
   if (output[_CTTS] != null) {
     contents[_CTTS] = __parseBoolean(output[_CTTS]);
   }
-  if (output[_MI] != null) {
-    contents[_MI] = __strictParseInt32(output[_MI]) as number;
+  if (output[_MIo] != null) {
+    contents[_MIo] = __strictParseInt32(output[_MIo]) as number;
   }
   if (output[_EMRA] != null) {
     contents[_EMRA] = __expectString(output[_EMRA]);
@@ -21391,6 +21456,12 @@ const de_Integration = (output: any, context: __SerdeContext): Integration => {
     contents[_Er] = [];
   } else if (output[_Er] != null && output[_Er][_IE] != null) {
     contents[_Er] = de_IntegrationErrorList(__getArrayIfSingleItem(output[_Er][_IE]), context);
+  }
+  if (output[_DFa] != null) {
+    contents[_DFa] = __expectString(output[_DFa]);
+  }
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
   return contents;
 };
@@ -25091,6 +25162,7 @@ const _DES = "DeleteEventSubscription";
 const _DESe = "DescribeEventSubscriptions";
 const _DET = "DescribeExportTasks";
 const _DF = "DomainFqdn";
+const _DFa = "DataFilter";
 const _DGC = "DeleteGlobalCluster";
 const _DGCe = "DescribeGlobalClusters";
 const _DHE = "DisableHttpEndpoint";
@@ -25303,12 +25375,13 @@ const _MEV = "MajorEngineVersion";
 const _MEVPAV = "MinimumEngineVersionPerAllowedValue";
 const _MEVi = "MinimumEngineVersion";
 const _MGC = "ModifyGlobalCluster";
-const _MI = "MonitoringInterval";
+const _MI = "ModifyIntegration";
 const _MICP = "MaxIdleConnectionsPercent";
 const _MIPDI = "MinIopsPerDbInstance";
 const _MIPDIa = "MaxIopsPerDbInstance";
 const _MIPG = "MinIopsPerGib";
 const _MIPGa = "MaxIopsPerGib";
+const _MIo = "MonitoringInterval";
 const _MMUP = "ManageMasterUserPassword";
 const _MOG = "ModifyOptionGroup";
 const _MQ = "MetricQuery";

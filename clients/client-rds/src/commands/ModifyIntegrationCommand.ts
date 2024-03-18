@@ -5,8 +5,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteIntegrationMessage, Integration } from "../models/models_0";
-import { de_DeleteIntegrationCommand, se_DeleteIntegrationCommand } from "../protocols/Aws_query";
+import { Integration } from "../models/models_0";
+import { ModifyIntegrationMessage } from "../models/models_1";
+import { de_ModifyIntegrationCommand, se_ModifyIntegrationCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 /**
@@ -16,28 +17,34 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeleteIntegrationCommand}.
+ * The input for {@link ModifyIntegrationCommand}.
  */
-export interface DeleteIntegrationCommandInput extends DeleteIntegrationMessage {}
+export interface ModifyIntegrationCommandInput extends ModifyIntegrationMessage {}
 /**
  * @public
  *
- * The output of {@link DeleteIntegrationCommand}.
+ * The output of {@link ModifyIntegrationCommand}.
  */
-export interface DeleteIntegrationCommandOutput extends Integration, __MetadataBearer {}
+export interface ModifyIntegrationCommandOutput extends Integration, __MetadataBearer {}
 
 /**
- * <p>Deletes a zero-ETL integration with Amazon Redshift.</p>
+ * <p>Modifies a zero-ETL integration with Amazon Redshift.</p>
+ *          <note>
+ *             <p>Currently, you can only modify integrations that have Aurora MySQL source DB clusters. Integrations with Aurora PostgreSQL and RDS sources currently don't support modifying the integration.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DeleteIntegrationCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DeleteIntegrationCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, ModifyIntegrationCommand } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, ModifyIntegrationCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const input = { // DeleteIntegrationMessage
+ * const input = { // ModifyIntegrationMessage
  *   IntegrationIdentifier: "STRING_VALUE", // required
+ *   IntegrationName: "STRING_VALUE",
+ *   DataFilter: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
  * };
- * const command = new DeleteIntegrationCommand(input);
+ * const command = new ModifyIntegrationCommand(input);
  * const response = await client.send(command);
  * // { // Integration
  * //   SourceArn: "STRING_VALUE",
@@ -68,10 +75,10 @@ export interface DeleteIntegrationCommandOutput extends Integration, __MetadataB
  *
  * ```
  *
- * @param DeleteIntegrationCommandInput - {@link DeleteIntegrationCommandInput}
- * @returns {@link DeleteIntegrationCommandOutput}
- * @see {@link DeleteIntegrationCommandInput} for command's `input` shape.
- * @see {@link DeleteIntegrationCommandOutput} for command's `response` shape.
+ * @param ModifyIntegrationCommandInput - {@link ModifyIntegrationCommandInput}
+ * @returns {@link ModifyIntegrationCommandOutput}
+ * @see {@link ModifyIntegrationCommandInput} for command's `input` shape.
+ * @see {@link ModifyIntegrationCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link IntegrationConflictOperationFault} (client fault)
@@ -89,33 +96,11 @@ export interface DeleteIntegrationCommandOutput extends Integration, __MetadataB
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
  * @public
- * @example To delete a zero-ETL integration
- * ```javascript
- * // The following example deletes a zero-ETL integration with Amazon Redshift.
- * const input = {
- *   "IntegrationIdentifier": "5b9f3d79-7392-4a3e-896c-58eaa1b53231"
- * };
- * const command = new DeleteIntegrationCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "CreateTime": "2023-12-28T17:20:20.629Z",
- *   "IntegrationName": "my-integration",
- *   "KMSKeyId": "arn:aws:kms:us-east-1:123456789012:key/a1b2c3d4-5678-90ab-cdef-EXAMPLEaaaaa",
- *   "SourceArn": "arn:aws:rds:us-east-1:123456789012:cluster:my-cluster",
- *   "Status": "deleting",
- *   "Tags": [],
- *   "TargetArn": "arn:aws:redshift-serverless:us-east-1:123456789012:namespace/62c70612-0302-4db7-8414-b5e3e049f0d8"
- * }
- * *\/
- * // example id: to-delete-a-zero-etl-integration-1679688377231
- * ```
- *
  */
-export class DeleteIntegrationCommand extends $Command
+export class ModifyIntegrationCommand extends $Command
   .classBuilder<
-    DeleteIntegrationCommandInput,
-    DeleteIntegrationCommandOutput,
+    ModifyIntegrationCommandInput,
+    ModifyIntegrationCommandOutput,
     RDSClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -129,9 +114,9 @@ export class DeleteIntegrationCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonRDSv19", "DeleteIntegration", {})
-  .n("RDSClient", "DeleteIntegrationCommand")
+  .s("AmazonRDSv19", "ModifyIntegration", {})
+  .n("RDSClient", "ModifyIntegrationCommand")
   .f(void 0, void 0)
-  .ser(se_DeleteIntegrationCommand)
-  .de(de_DeleteIntegrationCommand)
+  .ser(se_ModifyIntegrationCommand)
+  .de(de_ModifyIntegrationCommand)
   .build() {}

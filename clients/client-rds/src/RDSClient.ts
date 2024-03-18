@@ -461,6 +461,7 @@ import {
   ModifyGlobalClusterCommandInput,
   ModifyGlobalClusterCommandOutput,
 } from "./commands/ModifyGlobalClusterCommand";
+import { ModifyIntegrationCommandInput, ModifyIntegrationCommandOutput } from "./commands/ModifyIntegrationCommand";
 import { ModifyOptionGroupCommandInput, ModifyOptionGroupCommandOutput } from "./commands/ModifyOptionGroupCommand";
 import {
   ModifyTenantDatabaseCommandInput,
@@ -709,6 +710,7 @@ export type ServiceInputTypes =
   | ModifyDBSubnetGroupCommandInput
   | ModifyEventSubscriptionCommandInput
   | ModifyGlobalClusterCommandInput
+  | ModifyIntegrationCommandInput
   | ModifyOptionGroupCommandInput
   | ModifyTenantDatabaseCommandInput
   | PromoteReadReplicaCommandInput
@@ -875,6 +877,7 @@ export type ServiceOutputTypes =
   | ModifyDBSubnetGroupCommandOutput
   | ModifyEventSubscriptionCommandOutput
   | ModifyGlobalClusterCommandOutput
+  | ModifyIntegrationCommandOutput
   | ModifyOptionGroupCommandOutput
   | ModifyTenantDatabaseCommandOutput
   | PromoteReadReplicaCommandOutput

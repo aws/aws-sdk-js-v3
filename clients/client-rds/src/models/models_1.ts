@@ -9982,6 +9982,36 @@ export interface ModifyGlobalClusterResult {
 }
 
 /**
+ * @public
+ */
+export interface ModifyIntegrationMessage {
+  /**
+   * <p>The unique identifier of the integration to modify.</p>
+   * @public
+   */
+  IntegrationIdentifier: string | undefined;
+
+  /**
+   * <p>A new name for the integration.</p>
+   * @public
+   */
+  IntegrationName?: string;
+
+  /**
+   * <p>A new data filter for the integration. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Zero_ETL_Filtering.html">Data filtering for Aurora zero-ETL integrations with Amazon Redshift</a>.</p>
+   * @public
+   */
+  DataFilter?: string;
+
+  /**
+   * <p>A new description for the integration.</p>
+   * @public
+   */
+  Description?: string;
+}
+
+/**
  * <p>A list of all available options</p>
  * @public
  */

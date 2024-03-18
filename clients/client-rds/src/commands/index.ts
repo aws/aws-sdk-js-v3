@@ -125,6 +125,7 @@ export * from "./ModifyDBSnapshotCommand";
 export * from "./ModifyDBSubnetGroupCommand";
 export * from "./ModifyEventSubscriptionCommand";
 export * from "./ModifyGlobalClusterCommand";
+export * from "./ModifyIntegrationCommand";
 export * from "./ModifyOptionGroupCommand";
 export * from "./ModifyTenantDatabaseCommand";
 export * from "./PromoteReadReplicaCommand";

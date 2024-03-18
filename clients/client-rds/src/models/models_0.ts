@@ -12243,6 +12243,21 @@ export interface CreateIntegrationMessage {
    * @public
    */
   Tags?: Tag[];
+
+  /**
+   * <p>Data filtering options for the integration. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html">Data filtering for Aurora zero-ETL integrations with Amazon Redshift</a>.
+   *         </p>
+   *          <p>Valid for: Integrations with Aurora MySQL source DB clusters only</p>
+   * @public
+   */
+  DataFilter?: string;
+
+  /**
+   * <p>A description of the integration.</p>
+   * @public
+   */
+  Description?: string;
 }
 
 /**
@@ -12352,6 +12367,20 @@ export interface Integration {
    * @public
    */
   Errors?: IntegrationError[];
+
+  /**
+   * <p>Data filters for the integration. These filters determine which tables
+   *             from the source database are sent to the target Amazon Redshift data warehouse.
+   *         </p>
+   * @public
+   */
+  DataFilter?: string;
+
+  /**
+   * <p>A description of the integration.</p>
+   * @public
+   */
+  Description?: string;
 }
 
 /**
