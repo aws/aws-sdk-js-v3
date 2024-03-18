@@ -2890,10 +2890,75 @@
         }
       }
     },
+    "com.amazonaws.sqs#MessageSystemAttributeNameRequest": {
+      "type": "enum",
+      "members": {
+        "All": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "All"
+          }
+        },
+        "SenderId": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SenderId"
+          }
+        },
+        "SentTimestamp": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SentTimestamp"
+          }
+        },
+        "ApproximateReceiveCount": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ApproximateReceiveCount"
+          }
+        },
+        "ApproximateFirstReceiveTimestamp": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ApproximateFirstReceiveTimestamp"
+          }
+        },
+        "SequenceNumber": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SequenceNumber"
+          }
+        },
+        "MessageDeduplicationId": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MessageDeduplicationId"
+          }
+        },
+        "MessageGroupId": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MessageGroupId"
+          }
+        },
+        "AWSTraceHeader": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AWSTraceHeader"
+          }
+        },
+        "DeadLetterQueueSourceArn": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DeadLetterQueueSourceArn"
+          }
+        }
+      }
+    },
     "com.amazonaws.sqs#MessageSystemAttributeNameList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.sqs#MessageSystemAttributeName"
+        "target": "com.amazonaws.sqs#MessageSystemAttributeNameRequest"
       }
     },
     "com.amazonaws.sqs#MessageSystemAttributeNameForSends": {
