@@ -46,12 +46,13 @@ export interface GetKeyPolicyCommandOutput extends GetKeyPolicyResponse, __Metad
  * const client = new KMSClient(config);
  * const input = { // GetKeyPolicyRequest
  *   KeyId: "STRING_VALUE", // required
- *   PolicyName: "STRING_VALUE", // required
+ *   PolicyName: "STRING_VALUE",
  * };
  * const command = new GetKeyPolicyCommand(input);
  * const response = await client.send(command);
  * // { // GetKeyPolicyResponse
  * //   Policy: "STRING_VALUE",
+ * //   PolicyName: "STRING_VALUE",
  * // };
  *
  * ```

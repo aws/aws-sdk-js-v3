@@ -40,7 +40,7 @@ export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialRespons
  *         the same key material</a> into that KMS key, but you cannot import different key
  *       material. You might reimport key material to replace key material that expired or key material
  *       that you deleted. You might also reimport key material to change the expiration model or
- *       expiration date of the key material. Before reimporting key material, if necessary, call <a>DeleteImportedKeyMaterial</a> to delete the current imported key material. </p>
+ *       expiration date of the key material. </p>
  *          <p>Each time you import key material into KMS, you can determine whether
  *         (<code>ExpirationModel</code>) and when (<code>ValidTo</code>) the key material expires. To
  *       change the expiration of your key material, you must import it again, either by calling

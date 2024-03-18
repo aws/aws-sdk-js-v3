@@ -51,7 +51,7 @@ export interface PutKeyPolicyCommandOutput extends __MetadataBearer {}
  * const client = new KMSClient(config);
  * const input = { // PutKeyPolicyRequest
  *   KeyId: "STRING_VALUE", // required
- *   PolicyName: "STRING_VALUE", // required
+ *   PolicyName: "STRING_VALUE",
  *   Policy: "STRING_VALUE", // required
  *   BypassPolicyLockoutSafetyCheck: true || false,
  * };

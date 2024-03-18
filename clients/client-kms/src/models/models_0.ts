@@ -4078,11 +4078,11 @@ export interface GetKeyPolicyRequest {
   KeyId: string | undefined;
 
   /**
-   * <p>Specifies the name of the key policy. The only valid name is <code>default</code>. To get
+   * <p>Specifies the name of the key policy. If no policy name is specified, the default value is <code>default</code>. The only valid name is <code>default</code>. To get
    *       the names of key policies, use <a>ListKeyPolicies</a>.</p>
    * @public
    */
-  PolicyName: string | undefined;
+  PolicyName?: string;
 }
 
 /**
@@ -4094,6 +4094,12 @@ export interface GetKeyPolicyResponse {
    * @public
    */
   Policy?: string;
+
+  /**
+   * <p>The name of the key policy. The only valid value is <code>default</code>.</p>
+   * @public
+   */
+  PolicyName?: string;
 }
 
 /**
@@ -5062,10 +5068,10 @@ export interface PutKeyPolicyRequest {
   KeyId: string | undefined;
 
   /**
-   * <p>The name of the key policy. The only valid value is <code>default</code>.</p>
+   * <p>The name of the key policy. If no policy name is specified, the default value is <code>default</code>. The only valid value is <code>default</code>.</p>
    * @public
    */
-  PolicyName: string | undefined;
+  PolicyName?: string;
 
   /**
    * <p>The key policy to attach to the KMS key.</p>
