@@ -86,9 +86,64 @@ export interface DescribeProgramCommandOutput extends DescribeProgramResponse, _
  * //   SourceLocationName: "STRING_VALUE",
  * //   VodSourceName: "STRING_VALUE",
  * //   ClipRange: { // ClipRange
- * //     EndOffsetMillis: Number("long"), // required
+ * //     EndOffsetMillis: Number("long"),
+ * //     StartOffsetMillis: Number("long"),
  * //   },
  * //   DurationMillis: Number("long"),
+ * //   AudienceMedia: [ // __listOfAudienceMedia
+ * //     { // AudienceMedia
+ * //       Audience: "STRING_VALUE",
+ * //       AlternateMedia: [ // __listOfAlternateMedia
+ * //         { // AlternateMedia
+ * //           SourceLocationName: "STRING_VALUE",
+ * //           LiveSourceName: "STRING_VALUE",
+ * //           VodSourceName: "STRING_VALUE",
+ * //           ClipRange: {
+ * //             EndOffsetMillis: Number("long"),
+ * //             StartOffsetMillis: Number("long"),
+ * //           },
+ * //           ScheduledStartTimeMillis: Number("long"),
+ * //           AdBreaks: [
+ * //             {
+ * //               MessageType: "SPLICE_INSERT" || "TIME_SIGNAL",
+ * //               OffsetMillis: Number("long"), // required
+ * //               Slate: {
+ * //                 SourceLocationName: "STRING_VALUE",
+ * //                 VodSourceName: "STRING_VALUE",
+ * //               },
+ * //               SpliceInsertMessage: {
+ * //                 AvailNum: Number("int"),
+ * //                 AvailsExpected: Number("int"),
+ * //                 SpliceEventId: Number("int"),
+ * //                 UniqueProgramId: Number("int"),
+ * //               },
+ * //               TimeSignalMessage: {
+ * //                 SegmentationDescriptors: [
+ * //                   {
+ * //                     SegmentationEventId: Number("int"),
+ * //                     SegmentationUpidType: Number("int"),
+ * //                     SegmentationUpid: "STRING_VALUE",
+ * //                     SegmentationTypeId: Number("int"),
+ * //                     SegmentNum: Number("int"),
+ * //                     SegmentsExpected: Number("int"),
+ * //                     SubSegmentNum: Number("int"),
+ * //                     SubSegmentsExpected: Number("int"),
+ * //                   },
+ * //                 ],
+ * //               },
+ * //               AdBreakMetadata: [
+ * //                 {
+ * //                   Key: "STRING_VALUE", // required
+ * //                   Value: "STRING_VALUE", // required
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
+ * //           DurationMillis: Number("long"),
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
  * // };
  *
  * ```

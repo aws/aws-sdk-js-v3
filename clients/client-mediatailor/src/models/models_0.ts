@@ -256,6 +256,90 @@ export interface Alert {
 }
 
 /**
+ * <p>Clip range configuration for the VOD source associated with the program.</p>
+ * @public
+ */
+export interface ClipRange {
+  /**
+   * <p>The end offset of the clip range, in milliseconds, starting from the beginning of the VOD source associated with the program.</p>
+   * @public
+   */
+  EndOffsetMillis?: number;
+
+  /**
+   * <p>The start offset of the clip range, in milliseconds. This offset truncates the start at the number of milliseconds into the duration of the VOD source.</p>
+   * @public
+   */
+  StartOffsetMillis?: number;
+}
+
+/**
+ * <p>A playlist of media (VOD and/or live) to be played instead of the default media on a particular program.</p>
+ * @public
+ */
+export interface AlternateMedia {
+  /**
+   * <p>The name of the source location for alternateMedia.</p>
+   * @public
+   */
+  SourceLocationName?: string;
+
+  /**
+   * <p>The name of the live source for alternateMedia.</p>
+   * @public
+   */
+  LiveSourceName?: string;
+
+  /**
+   * <p>The name of the VOD source for alternateMedia.</p>
+   * @public
+   */
+  VodSourceName?: string;
+
+  /**
+   * <p>Clip range configuration for the VOD source associated with the program.</p>
+   * @public
+   */
+  ClipRange?: ClipRange;
+
+  /**
+   * <p>The date and time that the alternateMedia is scheduled to start, in epoch milliseconds.</p>
+   * @public
+   */
+  ScheduledStartTimeMillis?: number;
+
+  /**
+   * <p>Ad break configuration parameters defined in AlternateMedia.</p>
+   * @public
+   */
+  AdBreaks?: AdBreak[];
+
+  /**
+   * <p>The duration of the alternateMedia in milliseconds.</p>
+   * @public
+   */
+  DurationMillis?: number;
+}
+
+/**
+ * <p>An AudienceMedia object contains an Audience and a list of AlternateMedia.</p>
+ * @public
+ */
+export interface AudienceMedia {
+  /**
+   * <p>The Audience defined in AudienceMedia.</p>
+   * @public
+   */
+  Audience?: string;
+
+  /**
+   * <p>The list of AlternateMedia defined in AudienceMedia.</p>
+   * @public
+   */
+  AlternateMedia?: AlternateMedia[];
+}
+
+/**
  * @public
  * @enum
  */
@@ -488,6 +572,12 @@ export interface Channel {
    * @public
    */
   LogConfiguration: LogConfigurationForChannel | undefined;
+
+  /**
+   * <p>The list of audiences defined in channel.</p>
+   * @public
+   */
+  Audiences?: string[];
 }
 
 /**
@@ -1019,6 +1109,7 @@ export interface ScheduleAdBreak {
  * @enum
  */
 export const ScheduleEntryType = {
+  ALTERNATE_MEDIA: "ALTERNATE_MEDIA",
   FILLER_SLATE: "FILLER_SLATE",
   PROGRAM: "PROGRAM",
 } as const;
@@ -1092,6 +1183,12 @@ export interface ScheduleEntry {
    * @public
    */
   VodSourceName?: string;
+
+  /**
+   * <p>The list of audiences defined in ScheduleEntry.</p>
+   * @public
+   */
+  Audiences?: string[];
 }
 
 /**
@@ -1573,6 +1670,12 @@ export interface CreateChannelRequest {
    * @public
    */
   TimeShiftConfiguration?: TimeShiftConfiguration;
+
+  /**
+   * <p>The list of audiences defined in channel.</p>
+   * @public
+   */
+  Audiences?: string[];
 }
 
 /**
@@ -1660,6 +1763,12 @@ export interface CreateChannelResponse {
    * @public
    */
   TimeShiftConfiguration?: TimeShiftConfiguration;
+
+  /**
+   * <p>The list of audiences defined in channel.</p>
+   * @public
+   */
+  Audiences?: string[];
 }
 
 /**
@@ -1766,6 +1875,12 @@ export interface DescribeChannelResponse {
    * @public
    */
   TimeShiftConfiguration?: TimeShiftConfiguration;
+
+  /**
+   * <p>The list of audiences defined in channel.</p>
+   * @public
+   */
+  Audiences?: string[];
 }
 
 /**
@@ -1798,6 +1913,12 @@ export interface GetChannelScheduleRequest {
    * @public
    */
   NextToken?: string;
+
+  /**
+   * <p>The single audience for GetChannelScheduleRequest.</p>
+   * @public
+   */
+  Audience?: string;
 }
 
 /**
@@ -1849,18 +1970,6 @@ export interface ListChannelsResponse {
    * @public
    */
   NextToken?: string;
-}
-
-/**
- * <p>Clip range configuration for the VOD source associated with the program.</p>
- * @public
- */
-export interface ClipRange {
-  /**
-   * <p>The end offset of the clip range, in milliseconds, starting from the beginning of the VOD source associated with the program.</p>
-   * @public
-   */
-  EndOffsetMillis: number | undefined;
 }
 
 /**
@@ -1984,6 +2093,12 @@ export interface CreateProgramRequest {
    * @public
    */
   VodSourceName?: string;
+
+  /**
+   * <p>The list of AudienceMedia defined in program.</p>
+   * @public
+   */
+  AudienceMedia?: AudienceMedia[];
 }
 
 /**
@@ -2055,6 +2170,12 @@ export interface CreateProgramResponse {
    * @public
    */
   DurationMillis?: number;
+
+  /**
+   * <p>The list of AudienceMedia defined in program.</p>
+   * @public
+   */
+  AudienceMedia?: AudienceMedia[];
 }
 
 /**
@@ -2165,6 +2286,12 @@ export interface DescribeProgramResponse {
    * @public
    */
   DurationMillis?: number;
+
+  /**
+   * <p>The list of AudienceMedia defined in program.</p>
+   * @public
+   */
+  AudienceMedia?: AudienceMedia[];
 }
 
 /**
@@ -2230,6 +2357,12 @@ export interface UpdateProgramRequest {
    * @public
    */
   ScheduleConfiguration: UpdateProgramScheduleConfiguration | undefined;
+
+  /**
+   * <p>The list of AudienceMedia defined in program.</p>
+   * @public
+   */
+  AudienceMedia?: AudienceMedia[];
 }
 
 /**
@@ -2301,6 +2434,12 @@ export interface UpdateProgramResponse {
    * @public
    */
   ScheduledStartTime?: Date;
+
+  /**
+   * <p>The list of AudienceMedia defined in program.</p>
+   * @public
+   */
+  AudienceMedia?: AudienceMedia[];
 }
 
 /**
@@ -2366,6 +2505,12 @@ export interface UpdateChannelRequest {
    * @public
    */
   TimeShiftConfiguration?: TimeShiftConfiguration;
+
+  /**
+   * <p>The list of audiences defined in channel.</p>
+   * @public
+   */
+  Audiences?: string[];
 }
 
 /**
@@ -2445,6 +2590,12 @@ export interface UpdateChannelResponse {
    * @public
    */
   TimeShiftConfiguration?: TimeShiftConfiguration;
+
+  /**
+   * <p>The list of audiences defined in channel.</p>
+   * @public
+   */
+  Audiences?: string[];
 }
 
 /**

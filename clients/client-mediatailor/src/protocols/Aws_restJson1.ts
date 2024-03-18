@@ -127,6 +127,8 @@ import {
   AdMarkerPassthrough,
   AdMarkupType,
   Alert,
+  AlternateMedia,
+  AudienceMedia,
   AvailMatchingCriteria,
   AvailSuppression,
   BadRequestException,
@@ -229,6 +231,7 @@ export const se_CreateChannelCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      Audiences: (_) => _json(_),
       FillerSlate: (_) => _json(_),
       Outputs: (_) => _json(_),
       PlaybackMode: [],
@@ -310,6 +313,7 @@ export const se_CreateProgramCommand = async (
   body = JSON.stringify(
     take(input, {
       AdBreaks: (_) => _json(_),
+      AudienceMedia: (_) => _json(_),
       LiveSourceName: [],
       ScheduleConfiguration: (_) => _json(_),
       SourceLocationName: [],
@@ -618,6 +622,7 @@ export const se_GetChannelScheduleCommand = async (
     [_dM]: [, input[_DM]!],
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_nT]: [, input[_NT]!],
+    [_a]: [, input[_A]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -966,6 +971,7 @@ export const se_UpdateChannelCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      Audiences: (_) => _json(_),
       FillerSlate: (_) => _json(_),
       Outputs: (_) => _json(_),
       TimeShiftConfiguration: (_) => _json(_),
@@ -1017,6 +1023,7 @@ export const se_UpdateProgramCommand = async (
   body = JSON.stringify(
     take(input, {
       AdBreaks: (_) => _json(_),
+      AudienceMedia: (_) => _json(_),
       ScheduleConfiguration: (_) => _json(_),
     })
   );
@@ -1134,6 +1141,7 @@ export const de_CreateChannelCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Arn: __expectString,
+    Audiences: _json,
     ChannelName: __expectString,
     ChannelState: __expectString,
     CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -1219,6 +1227,7 @@ export const de_CreateProgramCommand = async (
   const doc = take(data, {
     AdBreaks: _json,
     Arn: __expectString,
+    AudienceMedia: _json,
     ChannelName: __expectString,
     ClipRange: _json,
     CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -1441,6 +1450,7 @@ export const de_DescribeChannelCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Arn: __expectString,
+    Audiences: _json,
     ChannelName: __expectString,
     ChannelState: __expectString,
     CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -1501,6 +1511,7 @@ export const de_DescribeProgramCommand = async (
   const doc = take(data, {
     AdBreaks: _json,
     Arn: __expectString,
+    AudienceMedia: _json,
     ChannelName: __expectString,
     ClipRange: _json,
     CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -1995,6 +2006,7 @@ export const de_UpdateChannelCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Arn: __expectString,
+    Audiences: _json,
     ChannelName: __expectString,
     ChannelState: __expectString,
     CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -2054,6 +2066,7 @@ export const de_UpdateProgramCommand = async (
   const doc = take(data, {
     AdBreaks: _json,
     Arn: __expectString,
+    AudienceMedia: _json,
     ChannelName: __expectString,
     ClipRange: _json,
     CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -2167,6 +2180,10 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se___listOfAdBreak omitted.
 
+// se___listOfAlternateMedia omitted.
+
+// se___listOfAudienceMedia omitted.
+
 // se___listOfAvailMatchingCriteria omitted.
 
 // se___listOfSegmentDeliveryConfiguration omitted.
@@ -2182,6 +2199,12 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_AdMarkerPassthrough omitted.
 
 // se_adMarkupTypes omitted.
+
+// se_AlternateMedia omitted.
+
+// se_AudienceMedia omitted.
+
+// se_Audiences omitted.
 
 // se_AvailMatchingCriteria omitted.
 
@@ -2282,6 +2305,10 @@ const de___listOfAlert = (output: any, context: __SerdeContext): Alert[] => {
     });
   return retVal;
 };
+
+// de___listOfAlternateMedia omitted.
+
+// de___listOfAudienceMedia omitted.
 
 // de___listOfAvailMatchingCriteria omitted.
 
@@ -2413,6 +2440,12 @@ const de_Alert = (output: any, context: __SerdeContext): Alert => {
   }) as any;
 };
 
+// de_AlternateMedia omitted.
+
+// de_AudienceMedia omitted.
+
+// de_Audiences omitted.
+
 // de_AvailMatchingCriteria omitted.
 
 // de_AvailSuppression omitted.
@@ -2427,6 +2460,7 @@ const de_Alert = (output: any, context: __SerdeContext): Alert => {
 const de_Channel = (output: any, context: __SerdeContext): Channel => {
   return take(output, {
     Arn: __expectString,
+    Audiences: _json,
     ChannelName: __expectString,
     ChannelState: __expectString,
     CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -2574,6 +2608,7 @@ const de_ScheduleEntry = (output: any, context: __SerdeContext): ScheduleEntry =
     ApproximateDurationSeconds: __expectLong,
     ApproximateStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Arn: __expectString,
+    Audiences: _json,
     ChannelName: __expectString,
     LiveSourceName: __expectString,
     ProgramName: __expectString,
@@ -2651,11 +2686,13 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+const _A = "Audience";
 const _DM = "DurationMinutes";
 const _MR = "MaxResults";
 const _NT = "NextToken";
 const _RA = "ResourceArn";
 const _TK = "TagKeys";
+const _a = "audience";
 const _dM = "durationMinutes";
 const _mR = "maxResults";
 const _nT = "nextToken";

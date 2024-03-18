@@ -81,6 +81,9 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * //           "AS_RUN",
  * //         ],
  * //       },
+ * //       Audiences: [ // Audiences
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

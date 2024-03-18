@@ -39,6 +39,7 @@ export interface GetChannelScheduleCommandOutput extends GetChannelScheduleRespo
  *   DurationMinutes: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   Audience: "STRING_VALUE",
  * };
  * const command = new GetChannelScheduleCommand(input);
  * const response = await client.send(command);
@@ -59,9 +60,12 @@ export interface GetChannelScheduleCommandOutput extends GetChannelScheduleRespo
  * //           VodSourceName: "STRING_VALUE",
  * //         },
  * //       ],
- * //       ScheduleEntryType: "PROGRAM" || "FILLER_SLATE",
+ * //       ScheduleEntryType: "PROGRAM" || "FILLER_SLATE" || "ALTERNATE_MEDIA",
  * //       SourceLocationName: "STRING_VALUE", // required
  * //       VodSourceName: "STRING_VALUE",
+ * //       Audiences: [ // Audiences
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

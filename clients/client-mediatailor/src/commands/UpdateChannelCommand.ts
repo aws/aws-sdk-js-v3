@@ -61,6 +61,9 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *   TimeShiftConfiguration: { // TimeShiftConfiguration
  *     MaxTimeDelaySeconds: Number("int"), // required
  *   },
+ *   Audiences: [ // Audiences
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new UpdateChannelCommand(input);
  * const response = await client.send(command);
@@ -101,6 +104,9 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //   TimeShiftConfiguration: { // TimeShiftConfiguration
  * //     MaxTimeDelaySeconds: Number("int"), // required
  * //   },
+ * //   Audiences: [ // Audiences
+ * //     "STRING_VALUE",
+ * //   ],
  * // };
  *
  * ```
