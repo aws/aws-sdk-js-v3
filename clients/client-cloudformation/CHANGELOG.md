@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.536.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.535.0...v3.536.0) (2024-03-18)
+
+
+### Features
+
+* **client-cloudformation:** This release supports for a new API ListStackSetAutoDeploymentTargets, which provider auto-deployment configuration as a describable resource. Customers can now view the specific combinations of regions and OUs that are being auto-deployed. ([29679ab](https://github.com/aws/aws-sdk-js-v3/commit/29679ab8c4de7dc44372d707b64c743919ea4fc5))
+
+
+
+
+
 # [3.535.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.534.0...v3.535.0) (2024-03-15)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudformation

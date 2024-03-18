@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.536.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.535.0...v3.536.0) (2024-03-18)
+
+
+### Features
+
+* **client-mediatailor:** This release adds support to allow customers to show different content within a channel depending on metadata associated with the viewer. ([72ad42d](https://github.com/aws/aws-sdk-js-v3/commit/72ad42dce096bf363152eb9911396f01e8c25f06))
+
+
+
+
+
 # [3.535.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.534.0...v3.535.0) (2024-03-15)
 
 **Note:** Version bump only for package @aws-sdk/client-mediatailor

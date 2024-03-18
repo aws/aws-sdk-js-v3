@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.536.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.535.0...v3.536.0) (2024-03-18)
+
+
+### Features
+
+* **client-cloudformation:** This release supports for a new API ListStackSetAutoDeploymentTargets, which provider auto-deployment configuration as a describable resource. Customers can now view the specific combinations of regions and OUs that are being auto-deployed. ([29679ab](https://github.com/aws/aws-sdk-js-v3/commit/29679ab8c4de7dc44372d707b64c743919ea4fc5))
+* **client-kms:** Adds the ability to use the default policy name by omitting the policyName parameter in calls to PutKeyPolicy and GetKeyPolicy ([8a73474](https://github.com/aws/aws-sdk-js-v3/commit/8a73474fe43db805ab88982b9fb2096aaa23395c))
+* **client-mediatailor:** This release adds support to allow customers to show different content within a channel depending on metadata associated with the viewer. ([72ad42d](https://github.com/aws/aws-sdk-js-v3/commit/72ad42dce096bf363152eb9911396f01e8c25f06))
+* **client-rds:** This release launches the ModifyIntegration API and support for data filtering for zero-ETL Integrations. ([861baa7](https://github.com/aws/aws-sdk-js-v3/commit/861baa753dc3d53f38c4ad122a1d4e01e5e47cdf))
+* **client-s3:** Fix two issues with response root node names. ([cdd51de](https://github.com/aws/aws-sdk-js-v3/commit/cdd51de3139dce0ac85a6ec568116bb9bc637bba))
+* **clients:** update client endpoints as of 2024-03-18 ([e1a2dc2](https://github.com/aws/aws-sdk-js-v3/commit/e1a2dc249fe77ab7a810126af32dcc12dc230f07))
+
+
+
+
+
 # [3.535.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.534.0...v3.535.0) (2024-03-15)
 
 

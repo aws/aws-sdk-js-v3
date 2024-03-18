@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.536.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.535.0...v3.536.0) (2024-03-18)
+
+
+### Features
+
+* **client-rds:** This release launches the ModifyIntegration API and support for data filtering for zero-ETL Integrations. ([861baa7](https://github.com/aws/aws-sdk-js-v3/commit/861baa753dc3d53f38c4ad122a1d4e01e5e47cdf))
+
+
+
+
+
 # [3.535.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.534.0...v3.535.0) (2024-03-15)
 
 **Note:** Version bump only for package @aws-sdk/client-rds
