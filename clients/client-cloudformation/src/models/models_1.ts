@@ -20,6 +20,59 @@ import {
 } from "./models_0";
 
 /**
+ * @public
+ */
+export interface SetTypeDefaultVersionOutput {}
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceSignalStatus = {
+  FAILURE: "FAILURE",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceSignalStatus = (typeof ResourceSignalStatus)[keyof typeof ResourceSignalStatus];
+
+/**
+ * <p>The input for the <a>SignalResource</a> action.</p>
+ * @public
+ */
+export interface SignalResourceInput {
+  /**
+   * <p>The stack name or unique stack ID that includes the resource that you want to signal.</p>
+   * @public
+   */
+  StackName: string | undefined;
+
+  /**
+   * <p>The logical ID of the resource that you want to signal. The logical ID is the name of the resource that given in
+   *    the template.</p>
+   * @public
+   */
+  LogicalResourceId: string | undefined;
+
+  /**
+   * <p>A unique ID of the signal. When you signal Amazon EC2 instances or Auto Scaling groups, specify the
+   *    instance ID that you are signaling as the unique ID. If you send multiple signals to a single resource (such as
+   *    signaling a wait condition), each signal requires a different unique ID.</p>
+   * @public
+   */
+  UniqueId: string | undefined;
+
+  /**
+   * <p>The status of the signal, which is either success or failure. A failure signal causes CloudFormation to immediately
+   *    fail the stack creation or update.</p>
+   * @public
+   */
+  Status: ResourceSignalStatus | undefined;
+}
+
+/**
  * <p>The limit on resource scans has been exceeded. Reasons include:</p>
  *          <ul>
  *             <li>
@@ -311,8 +364,7 @@ export interface UpdateStackInput {
    * <p>A list of <code>Parameter</code> structures that specify input parameters for the stack. For more information,
    *    see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html">
    *                <code>Parameter</code>
-   *             </a>
-   *    data type.</p>
+   *             </a> data type.</p>
    * @public
    */
   Parameters?: Parameter[];
@@ -413,8 +465,8 @@ export interface UpdateStackInput {
    *                      <code>AWS::Include</code>
    *                   </a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">
    *                      <code>AWS::Serverless</code>
-   *                   </a> transforms, which
-   *      are macros hosted by CloudFormation.</p>
+   *                   </a>
+   *      transforms, which are macros hosted by CloudFormation.</p>
    *                <p>If you want to update a stack from a stack template that contains macros <i>and</i> nested
    *      stacks, you must update the stack directly from the template using this capability.</p>
    *                <important>
@@ -615,10 +667,9 @@ export interface UpdateStackInstancesInput {
    *    delete a parameter itself, use <code>UpdateStackSet</code> to update the stack set template. If you add a parameter
    *    to a template, before you can override the parameter value specified in the stack set you must first use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html">
    *                <code>UpdateStackSet</code>
-   *             </a> to
-   *    update all stack instances with the updated template and parameter value specified in the stack set. Once a stack
-   *    instance has been updated with the new parameter, you can then override the parameter value using
-   *    <code>UpdateStackInstances</code>.</p>
+   *             </a> to update all stack instances with the updated template and parameter value
+   *    specified in the stack set. Once a stack instance has been updated with the new parameter, you can then override the
+   *    parameter value using <code>UpdateStackInstances</code>.</p>
    * @public
    */
   ParameterOverrides?: Parameter[];
@@ -817,9 +868,9 @@ export interface UpdateStackSetInput {
    *                         <code>AWS::Include</code>
    *                      </a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">
    *                         <code>AWS::Serverless</code>
-   *                      </a> transforms, which
-   *       are macros hosted by CloudFormation.) Even if you specify this capability for a stack set with service-managed permissions,
-   *       if you reference a macro in your template the stack set operation will fail.</p>
+   *                      </a>
+   *       transforms, which are macros hosted by CloudFormation.) Even if you specify this capability for a stack set with
+   *       service-managed permissions, if you reference a macro in your template the stack set operation will fail.</p>
    *                </important>
    *             </li>
    *          </ul>

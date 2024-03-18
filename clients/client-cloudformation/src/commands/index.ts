@@ -55,6 +55,7 @@ export * from "./ListResourceScansCommand";
 export * from "./ListStackInstanceResourceDriftsCommand";
 export * from "./ListStackInstancesCommand";
 export * from "./ListStackResourcesCommand";
+export * from "./ListStackSetAutoDeploymentTargetsCommand";
 export * from "./ListStackSetOperationResultsCommand";
 export * from "./ListStackSetOperationsCommand";
 export * from "./ListStackSetsCommand";

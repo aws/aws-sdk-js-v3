@@ -49,8 +49,8 @@ export interface RegisterTypeCommandOutput extends RegisterTypeOutput, __Metadat
  *          <p>Once you have initiated a registration request using <a>RegisterType</a>, you can use <a>DescribeTypeRegistration</a> to monitor the progress of the registration request.</p>
  *          <p>Once you have registered a private extension in your account and Region, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html">
  *                <code>SetTypeConfiguration</code>
- *             </a> to specify
- *    configuration properties for the extension. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration">Configuring extensions at
+ *             </a>
+ *    to specify configuration properties for the extension. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration">Configuring extensions at
  *    the account level</a> in the <i>CloudFormation User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

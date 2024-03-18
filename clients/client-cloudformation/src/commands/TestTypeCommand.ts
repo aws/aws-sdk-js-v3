@@ -47,8 +47,8 @@ export interface TestTypeCommandOutput extends TestTypeOutput, __MetadataBearer 
  *          <p>Once you've initiated testing on an extension using <code>TestType</code>, you can pass the returned
  *    <code>TypeVersionArn</code> into <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">
  *                <code>DescribeType</code>
- *             </a> to monitor the current test
- *    status and test status description for the extension.</p>
+ *             </a> to monitor the
+ *    current test status and test status description for the extension.</p>
  *          <p>An extension must have a test status of <code>PASSED</code> before it can be published. For more information,
  *    see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-publish.html">Publishing
  *    extensions to make them available for public use</a> in the <i>CloudFormation CLI User

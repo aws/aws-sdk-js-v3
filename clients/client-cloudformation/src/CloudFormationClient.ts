@@ -201,6 +201,10 @@ import { ListStackInstancesCommandInput, ListStackInstancesCommandOutput } from 
 import { ListStackResourcesCommandInput, ListStackResourcesCommandOutput } from "./commands/ListStackResourcesCommand";
 import { ListStacksCommandInput, ListStacksCommandOutput } from "./commands/ListStacksCommand";
 import {
+  ListStackSetAutoDeploymentTargetsCommandInput,
+  ListStackSetAutoDeploymentTargetsCommandOutput,
+} from "./commands/ListStackSetAutoDeploymentTargetsCommand";
+import {
   ListStackSetOperationResultsCommandInput,
   ListStackSetOperationResultsCommandOutput,
 } from "./commands/ListStackSetOperationResultsCommand";
@@ -325,6 +329,7 @@ export type ServiceInputTypes =
   | ListStackInstanceResourceDriftsCommandInput
   | ListStackInstancesCommandInput
   | ListStackResourcesCommandInput
+  | ListStackSetAutoDeploymentTargetsCommandInput
   | ListStackSetOperationResultsCommandInput
   | ListStackSetOperationsCommandInput
   | ListStackSetsCommandInput
@@ -411,6 +416,7 @@ export type ServiceOutputTypes =
   | ListStackInstanceResourceDriftsCommandOutput
   | ListStackInstancesCommandOutput
   | ListStackResourcesCommandOutput
+  | ListStackSetAutoDeploymentTargetsCommandOutput
   | ListStackSetOperationResultsCommandOutput
   | ListStackSetOperationsCommandOutput
   | ListStackSetsCommandOutput

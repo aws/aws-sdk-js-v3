@@ -37,13 +37,13 @@ export interface UpdateStackInstancesCommandOutput extends UpdateStackInstancesO
  *          <p>You can only update the parameter <i>values</i> that are specified in the stack set; to add or
  *    delete a parameter itself, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html">
  *                <code>UpdateStackSet</code>
- *             </a> to update the stack set
- *    template. If you add a parameter to a template, before you can override the parameter value specified in the stack
- *    set you must first use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html">
+ *             </a> to update the
+ *    stack set template. If you add a parameter to a template, before you can override the parameter value specified in
+ *    the stack set you must first use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html">
  *                <code>UpdateStackSet</code>
- *             </a> to update all stack
- *    instances with the updated template and parameter value specified in the stack set. Once a stack instance has been
- *    updated with the new parameter, you can then override the parameter value using
+ *             </a> to update all
+ *    stack instances with the updated template and parameter value specified in the stack set. Once a stack instance has
+ *    been updated with the new parameter, you can then override the parameter value using
  *    <code>UpdateStackInstances</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -265,6 +265,11 @@ import {
 } from "./commands/ListStackResourcesCommand";
 import { ListStacksCommand, ListStacksCommandInput, ListStacksCommandOutput } from "./commands/ListStacksCommand";
 import {
+  ListStackSetAutoDeploymentTargetsCommand,
+  ListStackSetAutoDeploymentTargetsCommandInput,
+  ListStackSetAutoDeploymentTargetsCommandOutput,
+} from "./commands/ListStackSetAutoDeploymentTargetsCommand";
+import {
   ListStackSetOperationResultsCommand,
   ListStackSetOperationResultsCommandInput,
   ListStackSetOperationResultsCommandOutput,
@@ -427,6 +432,7 @@ const commands = {
   ListStackInstancesCommand,
   ListStackResourcesCommand,
   ListStacksCommand,
+  ListStackSetAutoDeploymentTargetsCommand,
   ListStackSetOperationResultsCommand,
   ListStackSetOperationsCommand,
   ListStackSetsCommand,
@@ -1365,6 +1371,23 @@ export interface CloudFormation {
     args: ListStacksCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListStacksCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListStackSetAutoDeploymentTargetsCommand}
+   */
+  listStackSetAutoDeploymentTargets(
+    args: ListStackSetAutoDeploymentTargetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStackSetAutoDeploymentTargetsCommandOutput>;
+  listStackSetAutoDeploymentTargets(
+    args: ListStackSetAutoDeploymentTargetsCommandInput,
+    cb: (err: any, data?: ListStackSetAutoDeploymentTargetsCommandOutput) => void
+  ): void;
+  listStackSetAutoDeploymentTargets(
+    args: ListStackSetAutoDeploymentTargetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListStackSetAutoDeploymentTargetsCommandOutput) => void
   ): void;
 
   /**

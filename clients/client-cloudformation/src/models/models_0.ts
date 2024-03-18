@@ -1590,7 +1590,8 @@ export interface RollbackTrigger {
   /**
    * <p>The resource type of the rollback trigger. Specify either <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html">
    *                <code>AWS::CloudWatch::Alarm</code>
-   *             </a> or <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html">
+   *             </a> or
+   *    <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html">
    *                <code>AWS::CloudWatch::CompositeAlarm</code>
    *             </a> resource types.</p>
    * @public
@@ -1812,8 +1813,8 @@ export interface CreateChangeSetInput {
    *                      <code>AWS::Include</code>
    *                   </a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">
    *                      <code>AWS::Serverless</code>
-   *                   </a> transforms, which
-   *      are macros hosted by CloudFormation.</p>
+   *                   </a>
+   *      transforms, which are macros hosted by CloudFormation.</p>
    *                <note>
    *                   <p>This capacity doesn't apply to creating change sets, and specifying it when creating change sets has no
    *       effect.</p>
@@ -1930,8 +1931,8 @@ export interface CreateChangeSetInput {
    * <p>Determines what action will be taken if stack creation fails. If this parameter is specified, the
    *    <code>DisableRollback</code> parameter to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html">
    *                <code>ExecuteChangeSet</code>
-   *             </a> API operation must not
-   *    be specified. This must be one of these values:</p>
+   *             </a> API
+   *    operation must not be specified. This must be one of these values:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2269,8 +2270,7 @@ export interface CreateStackInput {
    * <p>A list of <code>Parameter</code> structures that specify input parameters for the stack. For more information,
    *    see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html">
    *                <code>Parameter</code>
-   *             </a>
-   *    data type.</p>
+   *             </a> data type.</p>
    * @public
    */
   Parameters?: Parameter[];
@@ -2337,7 +2337,8 @@ export interface CreateStackInput {
    *                   <li>
    *                      <p>
    *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html">
-   *                            <code>AWS::IAM::AccessKey</code>       AWS::IAM::AccessKey</a>
+   *                            <code>AWS::IAM::AccessKey</code>
+   *                         </a>
    *                      </p>
    *                   </li>
    *                   <li>
@@ -2399,8 +2400,8 @@ export interface CreateStackInput {
    *                      <code>AWS::Include</code>
    *                   </a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">
    *                      <code>AWS::Serverless</code>
-   *                   </a> transforms, which
-   *      are macros hosted by CloudFormation.</p>
+   *                   </a>
+   *      transforms, which are macros hosted by CloudFormation.</p>
    *                <p>If you want to create a stack from a stack template that contains macros <i>and</i> nested
    *      stacks, you must create the stack directly from the template using this capability.</p>
    *                <important>
@@ -2784,8 +2785,8 @@ export interface CreateStackInstancesInput {
    *          <p>You can only override the parameter <i>values</i> that are specified in the stack set; to add or
    *    delete a parameter itself, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html">
    *                <code>UpdateStackSet</code>
-   *             </a> to update the stack set
-   *    template.</p>
+   *             </a> to update the
+   *    stack set template.</p>
    * @public
    */
   ParameterOverrides?: Parameter[];
@@ -3134,9 +3135,9 @@ export interface CreateStackSetInput {
    *                         <code>AWS::Include</code>
    *                      </a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">
    *                         <code>AWS::Serverless</code>
-   *                      </a> transforms, which
-   *       are macros hosted by CloudFormation.) Even if you specify this capability for a stack set with service-managed permissions,
-   *       if you reference a macro in your template the stack set operation will fail.</p>
+   *                      </a>
+   *       transforms, which are macros hosted by CloudFormation.) Even if you specify this capability for a stack set with
+   *       service-managed permissions, if you reference a macro in your template the stack set operation will fail.</p>
    *                </important>
    *             </li>
    *          </ul>
@@ -3837,8 +3838,8 @@ export interface DescribeChangeSetOutput {
    * <p>Determines what action will be taken if stack creation fails. When this parameter is specified, the
    *    <code>DisableRollback</code> parameter to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html">
    *                <code>ExecuteChangeSet</code>
-   *             </a> API operation must not
-   *    be specified. This must be one of these values:</p>
+   *             </a> API
+   *    operation must not be specified. This must be one of these values:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -5022,6 +5023,13 @@ export interface StackInstanceComprehensiveStatus {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>FAILED_IMPORT</code>: The import of the stack instance in the specified account and Region failed and
+   *      left the stack in an unstable state. Once the issues causing the failure are fixed, the import operation can be
+   *      retried. If enough stack set operations fail in enough accounts within a Region, the failure tolerance for the
+   *      stack set operation as a whole might be exceeded.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>INOPERABLE</code>: A <code>DeleteStackInstances</code> operation has failed and left the stack in an
    *      unstable state. Stacks in this state are excluded from further <code>UpdateStackSet</code> operations. You might
    *      need to perform a <code>DeleteStackInstances</code> operation, with <code>RetainStacks</code> set to
@@ -5114,7 +5122,8 @@ export interface StackInstance {
    *                   <code>INOPERABLE</code>: A <code>DeleteStackInstances</code> operation has failed and left the stack in an
    *      unstable state. Stacks in this state are excluded from further <code>UpdateStackSet</code> operations. You might
    *      need to perform a <code>DeleteStackInstances</code> operation, with <code>RetainStacks</code> set to
-   *      <code>true</code>, to delete the stack instance, and then delete the stack manually. <code>INOPERABLE</code> can be
+   *      <code>true</code>, to delete the stack instance, and then delete the stack
+   *      manually. <code>INOPERABLE</code> can be
    *      returned here when the cause is a failed import. If it's due to a failed import, the operation can be retried once
    *      the failures are fixed. To see if this is due to a failed import, look at the <code>DetailedStatus</code> member in
    *      the <code>StackInstanceSummary</code> member that is a peer to this <code>Status</code>
@@ -7141,8 +7150,8 @@ export interface DescribeTypeOutput {
    * <p>A JSON string that represent the current configuration data for the extension in this account and Region.</p>
    *          <p>To set the configuration data for an extension, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html">
    *                <code>SetTypeConfiguration</code>
-   *             </a>. For more
-   *    information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration">Configuring extensions at
+   *             </a>.
+   *    For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration">Configuring extensions at
    *    the account level</a> in the <i>CloudFormation User Guide</i>.</p>
    * @public
    */
@@ -7459,22 +7468,24 @@ export interface ExecuteChangeSetInput {
    * <p>Preserves the state of previously provisioned resources when an operation fails. This parameter can't be
    *    specified when the <code>OnStackFailure</code> parameter to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateChangeSet.html">
    *                <code>CreateChangeSet</code>
-   *             </a> API operation was
-   *    specified.</p>
+   *             </a> API
+   *    operation was specified.</p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <code>True</code> - if the stack creation fails, do nothing. This is equivalent to specifying
    *      <code>DO_NOTHING</code> for the <code>OnStackFailure</code> parameter to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateChangeSet.html">
    *                      <code>CreateChangeSet</code>
-   *                   </a> API operation.</p>
+   *                   </a> API
+   *      operation.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>False</code> - if the stack creation fails, roll back the stack. This is equivalent to specifying
    *      <code>ROLLBACK</code> for the <code>OnStackFailure</code> parameter to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateChangeSet.html">
    *                      <code>CreateChangeSet</code>
-   *                   </a> API operation.</p>
+   *                   </a> API
+   *      operation.</p>
    *             </li>
    *          </ul>
    *          <p>Default: <code>True</code>
@@ -8931,7 +8942,8 @@ export interface StackInstanceSummary {
    *                   <code>INOPERABLE</code>: A <code>DeleteStackInstances</code> operation has failed and left the stack in an
    *      unstable state. Stacks in this state are excluded from further <code>UpdateStackSet</code> operations. You might
    *      need to perform a <code>DeleteStackInstances</code> operation, with <code>RetainStacks</code> set to
-   *      <code>true</code>, to delete the stack instance, and then delete the stack manually. <code>INOPERABLE</code> can be
+   *      <code>true</code>, to delete the stack instance, and then delete the stack
+   *      manually. <code>INOPERABLE</code> can be
    *      returned here when the cause is a failed import. If it's due to a failed import, the operation can be retried once
    *      the failures are fixed.  To see if this is due to a failed import, call the <a>DescribeStackInstance</a>
    *      API operation, look at the <code>DetailedStatus</code> member returned in the <code>StackInstanceSummary</code>
@@ -9349,6 +9361,90 @@ export interface ListStacksOutput {
   /**
    * <p>If the output exceeds 1 MB in size, a string that identifies the next page of stacks. If no additional page
    *    exists, this value is null.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListStackSetAutoDeploymentTargetsInput {
+  /**
+   * <p>The name or unique ID of the stack set that you want to get automatic deployment targets for.</p>
+   * @public
+   */
+  StackSetName: string | undefined;
+
+  /**
+   * <p>A string that identifies the next page of stack set deployment targets that you want to retrieve.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned with a single call. If the number of available results exceeds this
+   *    maximum, the response includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code>
+   *    request parameter to get the next set of results.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account.</p>
+   *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for StackSets with self-managed
+   *    permissions.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you are signed in to the management account, specify <code>SELF</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p>
+   *                <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a delegated
+   *      administrator</a> in the <i>CloudFormation User Guide</i>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CallAs?: CallAs;
+}
+
+/**
+ * <p>One of the targets for the stack set. Returned by the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackSetAutoDeploymentTargets.html">
+ *                <code>ListStackSetAutoDeploymentTargets</code>
+ *             </a> API operation.</p>
+ * @public
+ */
+export interface StackSetAutoDeploymentTargetSummary {
+  /**
+   * <p>The organization root ID or organizational unit (OU) IDs where the stack set is targeted.</p>
+   * @public
+   */
+  OrganizationalUnitId?: string;
+
+  /**
+   * <p>The list of Regions targeted for this organization or OU.</p>
+   * @public
+   */
+  Regions?: string[];
+}
+
+/**
+ * @public
+ */
+export interface ListStackSetAutoDeploymentTargetsOutput {
+  /**
+   * <p>An array of summaries of the deployment targets for the stack set.</p>
+   * @public
+   */
+  Summaries?: StackSetAutoDeploymentTargetSummary[];
+
+  /**
+   * <p>If the request doesn't return all the remaining results, <code>NextToken</code> is set to a token. To retrieve
+   *    the next set of results, call <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackSetAutoDeploymentTargets.html">
+   *                <code>ListStackSetAutoDeploymentTargets</code>
+   *             </a> again and use that value for the <code>NextToken</code>
+   *    parameter. If the request returns all results, <code>NextToken</code> is set to an empty string.</p>
    * @public
    */
   NextToken?: string;
@@ -10868,8 +10964,8 @@ export interface SetTypeConfigurationInput {
    *          <p>The configuration data must be formatted as JSON, and validate against the schema returned in the
    *    <code>ConfigurationSchema</code> response element of <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">
    *                <code>DescribeType</code>
-   *             </a>. For more information, see
-   *    <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-model.html#resource-type-howto-configuration">Defining
+   *             </a>. For more
+   *    information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-model.html#resource-type-howto-configuration">Defining
    *    account-level configuration data for an extension</a> in the <i>CloudFormation CLI User
    *    Guide</i>.</p>
    * @public
@@ -10945,57 +11041,4 @@ export interface SetTypeDefaultVersionInput {
    * @public
    */
   VersionId?: string;
-}
-
-/**
- * @public
- */
-export interface SetTypeDefaultVersionOutput {}
-
-/**
- * @public
- * @enum
- */
-export const ResourceSignalStatus = {
-  FAILURE: "FAILURE",
-  SUCCESS: "SUCCESS",
-} as const;
-
-/**
- * @public
- */
-export type ResourceSignalStatus = (typeof ResourceSignalStatus)[keyof typeof ResourceSignalStatus];
-
-/**
- * <p>The input for the <a>SignalResource</a> action.</p>
- * @public
- */
-export interface SignalResourceInput {
-  /**
-   * <p>The stack name or unique stack ID that includes the resource that you want to signal.</p>
-   * @public
-   */
-  StackName: string | undefined;
-
-  /**
-   * <p>The logical ID of the resource that you want to signal. The logical ID is the name of the resource that given in
-   *    the template.</p>
-   * @public
-   */
-  LogicalResourceId: string | undefined;
-
-  /**
-   * <p>A unique ID of the signal. When you signal Amazon EC2 instances or Auto Scaling groups, specify the
-   *    instance ID that you are signaling as the unique ID. If you send multiple signals to a single resource (such as
-   *    signaling a wait condition), each signal requires a different unique ID.</p>
-   * @public
-   */
-  UniqueId: string | undefined;
-
-  /**
-   * <p>The status of the signal, which is either success or failure. A failure signal causes CloudFormation to immediately
-   *    fail the stack creation or update.</p>
-   * @public
-   */
-  Status: ResourceSignalStatus | undefined;
 }

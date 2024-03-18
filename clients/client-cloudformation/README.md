@@ -673,6 +673,14 @@ ListStacks
 </details>
 <details>
 <summary>
+ListStackSetAutoDeploymentTargets
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudformation/command/ListStackSetAutoDeploymentTargetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/ListStackSetAutoDeploymentTargetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/ListStackSetAutoDeploymentTargetsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListStackSetOperationResults
 </summary>
 

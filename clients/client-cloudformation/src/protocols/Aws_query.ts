@@ -170,6 +170,10 @@ import { ListStackInstancesCommandInput, ListStackInstancesCommandOutput } from 
 import { ListStackResourcesCommandInput, ListStackResourcesCommandOutput } from "../commands/ListStackResourcesCommand";
 import { ListStacksCommandInput, ListStacksCommandOutput } from "../commands/ListStacksCommand";
 import {
+  ListStackSetAutoDeploymentTargetsCommandInput,
+  ListStackSetAutoDeploymentTargetsCommandOutput,
+} from "../commands/ListStackSetAutoDeploymentTargetsCommand";
+import {
   ListStackSetOperationResultsCommandInput,
   ListStackSetOperationResultsCommandOutput,
 } from "../commands/ListStackSetOperationResultsCommand";
@@ -357,6 +361,8 @@ import {
   ListStackInstancesOutput,
   ListStackResourcesInput,
   ListStackResourcesOutput,
+  ListStackSetAutoDeploymentTargetsInput,
+  ListStackSetAutoDeploymentTargetsOutput,
   ListStackSetOperationResultsInput,
   ListStackSetOperationResultsOutput,
   ListStackSetOperationsInput,
@@ -416,8 +422,6 @@ import {
   SetTypeConfigurationInput,
   SetTypeConfigurationOutput,
   SetTypeDefaultVersionInput,
-  SetTypeDefaultVersionOutput,
-  SignalResourceInput,
   Stack,
   StackDriftInformation,
   StackDriftInformationSummary,
@@ -437,6 +441,7 @@ import {
   StackResourceDriftStatus,
   StackResourceSummary,
   StackSet,
+  StackSetAutoDeploymentTargetSummary,
   StackSetDriftDetectionDetails,
   StackSetNotEmptyException,
   StackSetNotFoundException,
@@ -469,6 +474,8 @@ import {
 } from "../models/models_0";
 import {
   ResourceScanLimitExceededException,
+  SetTypeDefaultVersionOutput,
+  SignalResourceInput,
   StartResourceScanInput,
   StartResourceScanOutput,
   StopStackSetOperationInput,
@@ -1454,6 +1461,23 @@ export const se_ListStacksCommand = async (
   body = buildFormUrlencodedString({
     ...se_ListStacksInput(input, context),
     [_A]: _LS,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryListStackSetAutoDeploymentTargetsCommand
+ */
+export const se_ListStackSetAutoDeploymentTargetsCommand = async (
+  input: ListStackSetAutoDeploymentTargetsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ListStackSetAutoDeploymentTargetsInput(input, context),
+    [_A]: _LSSADT,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2992,6 +3016,26 @@ export const de_ListStacksCommand = async (
   let contents: any = {};
   contents = de_ListStacksOutput(data.ListStacksResult, context);
   const response: ListStacksCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryListStackSetAutoDeploymentTargetsCommand
+ */
+export const de_ListStackSetAutoDeploymentTargetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStackSetAutoDeploymentTargetsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListStackSetAutoDeploymentTargetsOutput(data.ListStackSetAutoDeploymentTargetsResult, context);
+  const response: ListStackSetAutoDeploymentTargetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -5517,6 +5561,29 @@ const se_ListStackResourcesInput = (input: ListStackResourcesInput, context: __S
   }
   if (input[_NT] != null) {
     entries[_NT] = input[_NT];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryListStackSetAutoDeploymentTargetsInput
+ */
+const se_ListStackSetAutoDeploymentTargetsInput = (
+  input: ListStackSetAutoDeploymentTargetsInput,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_SSN] != null) {
+    entries[_SSN] = input[_SSN];
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
+  }
+  if (input[_CA] != null) {
+    entries[_CA] = input[_CA];
   }
   return entries;
 };
@@ -8399,6 +8466,25 @@ const de_ListStackResourcesOutput = (output: any, context: __SerdeContext): List
 };
 
 /**
+ * deserializeAws_queryListStackSetAutoDeploymentTargetsOutput
+ */
+const de_ListStackSetAutoDeploymentTargetsOutput = (
+  output: any,
+  context: __SerdeContext
+): ListStackSetAutoDeploymentTargetsOutput => {
+  const contents: any = {};
+  if (output.Summaries === "") {
+    contents[_Su] = [];
+  } else if (output[_Su] != null && output[_Su][_m] != null) {
+    contents[_Su] = de_StackSetAutoDeploymentTargetSummaries(__getArrayIfSingleItem(output[_Su][_m]), context);
+  }
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryListStackSetOperationResultsOutput
  */
 const de_ListStackSetOperationResultsOutput = (
@@ -9989,6 +10075,39 @@ const de_StackSet = (output: any, context: __SerdeContext): StackSet => {
 };
 
 /**
+ * deserializeAws_queryStackSetAutoDeploymentTargetSummaries
+ */
+const de_StackSetAutoDeploymentTargetSummaries = (
+  output: any,
+  context: __SerdeContext
+): StackSetAutoDeploymentTargetSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_StackSetAutoDeploymentTargetSummary(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_queryStackSetAutoDeploymentTargetSummary
+ */
+const de_StackSetAutoDeploymentTargetSummary = (
+  output: any,
+  context: __SerdeContext
+): StackSetAutoDeploymentTargetSummary => {
+  const contents: any = {};
+  if (output[_OUIr] != null) {
+    contents[_OUIr] = __expectString(output[_OUIr]);
+  }
+  if (output.Regions === "") {
+    contents[_Re] = [];
+  } else if (output[_Re] != null && output[_Re][_m] != null) {
+    contents[_Re] = de_RegionList(__getArrayIfSingleItem(output[_Re][_m]), context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryStackSetDriftDetectionDetails
  */
 const de_StackSetDriftDetectionDetails = (output: any, context: __SerdeContext): StackSetDriftDetectionDetails => {
@@ -11101,6 +11220,7 @@ const _LSI = "ListStackInstances";
 const _LSIRD = "ListStackInstanceResourceDrifts";
 const _LSR = "ListStackResources";
 const _LSS = "ListStackSets";
+const _LSSADT = "ListStackSetAutoDeploymentTargets";
 const _LSSO = "ListStackSetOperations";
 const _LSSOR = "ListStackSetOperationResults";
 const _LT = "ListTypes";
