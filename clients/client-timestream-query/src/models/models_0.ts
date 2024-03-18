@@ -249,8 +249,8 @@ export interface SnsConfiguration {
 }
 
 /**
- * <p>Notification configuration for a scheduled query. A notification is sent by
- *             Timestream when a scheduled query is created, its state is updated or when it is deleted. </p>
+ * <p>Notification configuration for a scheduled query. A notification is sent by Timestream
+ *             when a scheduled query is created, its state is updated or when it is deleted. </p>
  * @public
  */
 export interface NotificationConfiguration {
@@ -465,8 +465,8 @@ export interface TimestreamConfiguration {
   DatabaseName: string | undefined;
 
   /**
-   * <p>Name of Timestream table that the query result will be written to. The table should
-   *             be within the same database that is provided in Timestream configuration.</p>
+   * <p>Name of Timestream table that the query result will be written to. The table should be
+   *             within the same database that is provided in Timestream configuration.</p>
    * @public
    */
   TableName: string | undefined;
@@ -527,12 +527,15 @@ export interface CreateScheduledQueryRequest {
   Name: string | undefined;
 
   /**
-   * <p>The query string to run. Parameter
-   *             names can be specified in the query string <code>@</code> character followed by an
-   *             identifier. The named Parameter <code>@scheduled_runtime</code> is reserved and can be used in the query to get the time at which the query is scheduled to run.</p>
-   *          <p>The timestamp calculated according to the ScheduleConfiguration parameter, will be the value of <code>@scheduled_runtime</code> paramater for each query run.
-   *             For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the <code>@scheduled_runtime</code> parameter is
-   *             initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.</p>
+   * <p>The query string to run. Parameter names can be specified in the query string
+   *                 <code>@</code> character followed by an identifier. The named Parameter
+   *                 <code>@scheduled_runtime</code> is reserved and can be used in the query to get the
+   *             time at which the query is scheduled to run.</p>
+   *          <p>The timestamp calculated according to the ScheduleConfiguration parameter, will be the
+   *             value of <code>@scheduled_runtime</code> paramater for each query run. For example,
+   *             consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this
+   *             instance, the <code>@scheduled_runtime</code> parameter is initialized to the timestamp
+   *             2021-12-01 00:00:00 when invoking the query.</p>
    * @public
    */
   QueryString: string | undefined;
@@ -545,7 +548,8 @@ export interface CreateScheduledQueryRequest {
 
   /**
    * <p>Notification configuration for the scheduled query. A notification is sent by
-   *             Timestream when a query run finishes, when the state is updated or when you delete it. </p>
+   *             Timestream when a query run finishes, when the state is updated or when you delete it.
+   *         </p>
    * @public
    */
   NotificationConfiguration: NotificationConfiguration | undefined;
@@ -557,10 +561,9 @@ export interface CreateScheduledQueryRequest {
   TargetConfiguration?: TargetConfiguration;
 
   /**
-   * <p>Using a ClientToken makes the call to CreateScheduledQuery idempotent, in other words, making the same request repeatedly will produce the same result. Making
-   *             multiple identical CreateScheduledQuery requests has the same effect as making a single request.
-   *
-   *  </p>
+   * <p>Using a ClientToken makes the call to CreateScheduledQuery idempotent, in other words,
+   *             making the same request repeatedly will produce the same result. Making multiple
+   *             identical CreateScheduledQuery requests has the same effect as making a single request. </p>
    *          <ul>
    *             <li>
    *                <p> If CreateScheduledQuery is called without a <code>ClientToken</code>, the
@@ -576,7 +579,8 @@ export interface CreateScheduledQueryRequest {
   ClientToken?: string;
 
   /**
-   * <p>The ARN for the IAM role that Timestream will assume when running the scheduled query. </p>
+   * <p>The ARN for the IAM role that Timestream will assume when running the scheduled query.
+   *         </p>
    * @public
    */
   ScheduledQueryExecutionRoleArn: string | undefined;
@@ -588,18 +592,21 @@ export interface CreateScheduledQueryRequest {
   Tags?: Tag[];
 
   /**
-   * <p>The Amazon KMS key used to encrypt the scheduled query resource, at-rest. If the Amazon KMS
-   *             key is not specified, the scheduled query resource will be encrypted with a Timestream
-   *             owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias
-   *             ARN. When using an alias name, prefix the name with <i>alias/</i>
+   * <p>The Amazon KMS key used to encrypt the scheduled query resource, at-rest. If the
+   *             Amazon KMS key is not specified, the scheduled query resource will be encrypted with a
+   *             Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias
+   *             name, or alias ARN. When using an alias name, prefix the name with
+   *                 <i>alias/</i>
    *          </p>
-   *          <p>If ErrorReportConfiguration uses <code>SSE_KMS</code> as encryption type, the same KmsKeyId is used to encrypt the error report at rest.</p>
+   *          <p>If ErrorReportConfiguration uses <code>SSE_KMS</code> as encryption type, the same
+   *             KmsKeyId is used to encrypt the error report at rest.</p>
    * @public
    */
   KmsKeyId?: string;
 
   /**
-   * <p>Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results. </p>
+   * <p>Configuration for error reporting. Error reports will be generated when a problem is
+   *             encountered when writing the query results. </p>
    * @public
    */
   ErrorReportConfiguration: ErrorReportConfiguration | undefined;
@@ -761,7 +768,8 @@ export interface ErrorReportLocation {
  */
 export interface ExecutionStats {
   /**
-   * <p>Total time, measured in milliseconds, that was needed for the scheduled query run to complete.</p>
+   * <p>Total time, measured in milliseconds, that was needed for the scheduled query run to
+   *             complete.</p>
    * @public
    */
   ExecutionTimeInMillis?: number;
@@ -815,7 +823,8 @@ export type ScheduledQueryRunStatus = (typeof ScheduledQueryRunStatus)[keyof typ
 export interface ScheduledQueryRunSummary {
   /**
    * <p>InvocationTime for this run. This is the time at which the query is scheduled to run.
-   *             Parameter <code>@scheduled_runtime</code> can be used in the query to get the value. </p>
+   *             Parameter <code>@scheduled_runtime</code> can be used in the query to get the value.
+   *         </p>
    * @public
    */
   InvocationTime?: Date;
@@ -984,7 +993,8 @@ export interface ExecuteScheduledQueryRequest {
   ScheduledQueryArn: string | undefined;
 
   /**
-   * <p>The timestamp in UTC. Query will be run as if it was invoked at this timestamp. </p>
+   * <p>The timestamp in UTC. Query will be run as if it was invoked at this timestamp.
+   *         </p>
    * @public
    */
   InvocationTime: Date | undefined;
@@ -1448,7 +1458,8 @@ export interface ColumnInfo {
 export interface Type {
   /**
    * <p>Indicates if the column is of type string, integer, Boolean, double, timestamp, date,
-   *             time. </p>
+   *             time. For more information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/supported-data-types.html">Supported data
+   *                 types</a>.</p>
    * @public
    */
   ScalarType?: ScalarType;
