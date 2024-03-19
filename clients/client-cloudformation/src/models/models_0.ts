@@ -427,7 +427,7 @@ export interface AutoDeployment {
   /**
    * <p>If set to <code>true</code>, stack resources are retained when an account is removed from a target organization
    *    or OU. If set to <code>false</code>, stack resources are deleted. Specify only if <code>Enabled</code> is set to
-   *    <code>True</code>.</p>
+   *     <code>True</code>.</p>
    * @public
    */
   RetainStacksOnAccountRemoval?: boolean;
@@ -440,12 +440,9 @@ export interface AutoDeployment {
 export interface TypeConfigurationIdentifier {
   /**
    * <p>The Amazon Resource Name (ARN) for the extension, in this account and Region.</p>
-   *          <p>For public extensions, this will be the ARN assigned when you call the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html">
-   *                <code>ActivateType</code>
-   *             </a> API operation in
-   *    this account and Region. For private extensions, this will be the ARN assigned when you call the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">
-   *                <code>RegisterType</code>
-   *             </a> API operation in this account and Region.</p>
+   *          <p>For public extensions, this will be the ARN assigned when you call the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html">ActivateType</a> API operation in this account
+   *    and Region. For private extensions, this will be the ARN assigned when you call the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">RegisterType</a> API operation in this account
+   *    and Region.</p>
    * @public
    */
   TypeArn?: string;
@@ -546,12 +543,9 @@ export interface TypeConfigurationDetails {
 
   /**
    * <p>The Amazon Resource Name (ARN) for the extension, in this account and Region.</p>
-   *          <p>For public extensions, this will be the ARN assigned when you call the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html">
-   *                <code>ActivateType</code>
-   *             </a> API operation in
-   *    this account and Region. For private extensions, this will be the ARN assigned when you call the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">
-   *                <code>RegisterType</code>
-   *             </a> API operation in this account and Region.</p>
+   *          <p>For public extensions, this will be the ARN assigned when you call the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html">ActivateType</a> API operation in this account
+   *    and Region. For private extensions, this will be the ARN assigned when you call the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">RegisterType</a> API operation in this account
+   *    and Region.</p>
    * @public
    */
   TypeArn?: string;
@@ -1588,12 +1582,7 @@ export interface RollbackTrigger {
   Arn: string | undefined;
 
   /**
-   * <p>The resource type of the rollback trigger. Specify either <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html">
-   *                <code>AWS::CloudWatch::Alarm</code>
-   *             </a> or
-   *    <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html">
-   *                <code>AWS::CloudWatch::CompositeAlarm</code>
-   *             </a> resource types.</p>
+   * <p>The resource type of the rollback trigger. Specify either <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html">AWS::CloudWatch::Alarm</a> or <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html">AWS::CloudWatch::CompositeAlarm</a> resource types.</p>
    * @public
    */
   Type: string | undefined;
@@ -1639,9 +1628,7 @@ export interface RollbackConfiguration {
    *          <p>The default is 0 minutes.</p>
    *          <p>If you specify a monitoring period but don't specify any rollback triggers, CloudFormation still waits the specified
    *    period of time before cleaning up old resources after update operations. You can use this monitoring period to
-   *    perform any manual stack validation desired, and manually cancel the stack creation or update (using <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CancelUpdateStack.html">
-   *                <code>CancelUpdateStack</code>
-   *             </a>, for example) as necessary.</p>
+   *    perform any manual stack validation desired, and manually cancel the stack creation or update (using <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CancelUpdateStack.html">CancelUpdateStack</a>, for example) as necessary.</p>
    *          <p>If you specify 0 for this parameter, CloudFormation still monitors the specified rollback triggers during stack
    *    creation and update operations. Then, for update operations, it begins disposing of old resources immediately once
    *    the operation completes.</p>
@@ -1750,50 +1737,41 @@ export interface CreateChangeSetInput {
    *                   <li>
    *                      <p>
    *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html">
-   *                            <code>AWS::IAM::AccessKey</code>
-   *                         </a>
+   *         AWS::IAM::AccessKey</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
    *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html">
-   *                            <code>AWS::IAM::Group</code>
-   *                         </a>
+   *         AWS::IAM::Group</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html">
-   *                            <code>AWS::IAM::InstanceProfile</code>
-   *                         </a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html">AWS::IAM::InstanceProfile</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
    *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html">
-   *                            <code>AWS::IAM::Policy</code>
-   *                         </a>
+   *         AWS::IAM::Policy</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
    *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html">
-   *                            <code>AWS::IAM::Role</code>
-   *                         </a>
+   *         AWS::IAM::Role</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
    *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html">
-   *                            <code>AWS::IAM::User</code>
-   *                         </a>
+   *         AWS::IAM::User</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html">
-   *                            <code>AWS::IAM::UserToGroupAddition</code>
-   *                         </a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html">AWS::IAM::UserToGroupAddition</a>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -1809,12 +1787,8 @@ export interface CreateChangeSetInput {
    *      users typically create a change set from the processed template, so that they can review the changes resulting from
    *      the macros before actually creating the stack. If your stack template contains one or more macros, and you choose
    *      to create a stack directly from the processed template, without first reviewing the resulting changes in a change
-   *      set, you must acknowledge this capability. This includes the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">
-   *                      <code>AWS::Include</code>
-   *                   </a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">
-   *                      <code>AWS::Serverless</code>
-   *                   </a>
-   *      transforms, which are macros hosted by CloudFormation.</p>
+   *      set, you must acknowledge this capability. This includes the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a> transforms, which
+   *      are macros hosted by CloudFormation.</p>
    *                <note>
    *                   <p>This capacity doesn't apply to creating change sets, and specifying it when creating change sets has no
    *       effect.</p>
@@ -1929,10 +1903,8 @@ export interface CreateChangeSetInput {
 
   /**
    * <p>Determines what action will be taken if stack creation fails. If this parameter is specified, the
-   *    <code>DisableRollback</code> parameter to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html">
-   *                <code>ExecuteChangeSet</code>
-   *             </a> API
-   *    operation must not be specified. This must be one of these values:</p>
+   *     <code>DisableRollback</code> parameter to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html">ExecuteChangeSet</a> API operation must
+   *    not be specified. This must be one of these values:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1943,17 +1915,13 @@ export interface CreateChangeSetInput {
    *             <li>
    *                <p>
    *                   <code>DO_NOTHING</code> - if the stack creation fails, do nothing. This is equivalent to specifying
-   *      <code>true</code> for the <code>DisableRollback</code> parameter to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html">
-   *                      <code>ExecuteChangeSet</code>
-   *                   </a> API
+   *       <code>true</code> for the <code>DisableRollback</code> parameter to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html">ExecuteChangeSet</a> API
    *      operation.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>ROLLBACK</code> - if the stack creation fails, roll back the stack. This is equivalent to specifying
-   *      <code>false</code> for the <code>DisableRollback</code> parameter to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html">
-   *                      <code>ExecuteChangeSet</code>
-   *                   </a> API
+   *       <code>false</code> for the <code>DisableRollback</code> parameter to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html">ExecuteChangeSet</a> API
    *      operation.</p>
    *             </li>
    *          </ul>
@@ -2145,9 +2113,8 @@ export interface TemplateConfiguration {
    *                   <code>RETAIN</code> - retain all resources when the stack is deleted.</p>
    *             </li>
    *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html">
-   *                <code>DeletionPolicy</code>
-   *    attribute</a> in the <i>CloudFormation User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html">DeletionPolicy attribute</a> in the
+   *     <i>CloudFormation User Guide</i>.</p>
    * @public
    */
   DeletionPolicy?: GeneratedTemplateDeletionPolicy;
@@ -2165,9 +2132,8 @@ export interface TemplateConfiguration {
    *                   <code>RETAIN</code> - retain all resources when the resource is replaced during an update operation.</p>
    *             </li>
    *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html">
-   *                <code>UpdateReplacePolicy</code>
-   *    attribute</a> in the <i>CloudFormation User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html">UpdateReplacePolicy
+   *     attribute</a> in the <i>CloudFormation User Guide</i>.</p>
    * @public
    */
   UpdateReplacePolicy?: GeneratedTemplateUpdateReplacePolicy;
@@ -2268,9 +2234,8 @@ export interface CreateStackInput {
 
   /**
    * <p>A list of <code>Parameter</code> structures that specify input parameters for the stack. For more information,
-   *    see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html">
-   *                <code>Parameter</code>
-   *             </a> data type.</p>
+   *    see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html">Parameter</a>
+   *    data type.</p>
    * @public
    */
   Parameters?: Parameter[];
@@ -2336,51 +2301,37 @@ export interface CreateStackInput {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html">
-   *                            <code>AWS::IAM::AccessKey</code>
-   *                         </a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html">AWS::IAM::AccessKey</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html">
-   *                            <code>AWS::IAM::Group</code>
-   *                         </a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html">AWS::IAM::Group</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html">
-   *                            <code>AWS::IAM::InstanceProfile</code>
-   *                         </a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html">AWS::IAM::InstanceProfile</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html">
-   *                            <code>AWS::IAM::Policy</code>
-   *                         </a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html">AWS::IAM::Policy</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html">
-   *                            <code>AWS::IAM::Role</code>
-   *                         </a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html">AWS::IAM::Role</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html">
-   *                            <code>AWS::IAM::User</code>
-   *                         </a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html">AWS::IAM::User</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html">
-   *                            <code>AWS::IAM::UserToGroupAddition</code>
-   *                         </a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html">AWS::IAM::UserToGroupAddition</a>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -2396,12 +2347,8 @@ export interface CreateStackInput {
    *      users typically create a change set from the processed template, so that they can review the changes resulting from
    *      the macros before actually creating the stack. If your stack template contains one or more macros, and you choose
    *      to create a stack directly from the processed template, without first reviewing the resulting changes in a change
-   *      set, you must acknowledge this capability. This includes the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">
-   *                      <code>AWS::Include</code>
-   *                   </a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">
-   *                      <code>AWS::Serverless</code>
-   *                   </a>
-   *      transforms, which are macros hosted by CloudFormation.</p>
+   *      set, you must acknowledge this capability. This includes the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a> transforms, which
+   *      are macros hosted by CloudFormation.</p>
    *                <p>If you want to create a stack from a stack template that contains macros <i>and</i> nested
    *      stacks, you must create the stack directly from the template using this capability.</p>
    *                <important>
@@ -2627,7 +2574,7 @@ export type RegionConcurrencyType = (typeof RegionConcurrencyType)[keyof typeof 
 /**
  * <p>The user-specified preferences for how CloudFormation performs a stack set operation.</p>
  *          <p>For more information about maximum concurrent accounts and failure tolerance, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set operation
- *    options</a>.</p>
+ *     options</a>.</p>
  * @public
  */
 export interface StackSetOperationPreferences {
@@ -2653,7 +2600,7 @@ export interface StackSetOperationPreferences {
    *    that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent
    *    Regions.</p>
    *          <p>Conditional: You must specify either <code>FailureToleranceCount</code> or
-   *    <code>FailureTolerancePercentage</code> (but not both).</p>
+   *     <code>FailureTolerancePercentage</code> (but not both).</p>
    *          <p>By default, <code>0</code> is specified.</p>
    * @public
    */
@@ -2664,9 +2611,9 @@ export interface StackSetOperationPreferences {
    *    in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent
    *    Regions.</p>
    *          <p>When calculating the number of accounts based on the specified percentage, CloudFormation rounds
-   *    <i>down</i> to the next whole number.</p>
+   *     <i>down</i> to the next whole number.</p>
    *          <p>Conditional: You must specify either <code>FailureToleranceCount</code> or
-   *    <code>FailureTolerancePercentage</code>, but not both.</p>
+   *     <code>FailureTolerancePercentage</code>, but not both.</p>
    *          <p>By default, <code>0</code> is specified.</p>
    * @public
    */
@@ -2674,8 +2621,8 @@ export interface StackSetOperationPreferences {
 
   /**
    * <p>The maximum number of accounts in which to perform this operation at one time. This can depend on the value of
-   *    <code>FailureToleranceCount</code> depending on your <code>ConcurrencyMode</code>. <code>MaxConcurrentCount</code> is
-   *    at most one more than the <code>FailureToleranceCount</code> if you're using
+   *     <code>FailureToleranceCount</code> depending on your <code>ConcurrencyMode</code>. <code>MaxConcurrentCount</code>
+   *    is at most one more than the <code>FailureToleranceCount</code> if you're using
    *    <code>STRICT_FAILURE_TOLERANCE</code>.</p>
    *          <p>Note that this setting lets you specify the <i>maximum</i> for operations. For large deployments,
    *    under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service
@@ -2709,7 +2656,7 @@ export interface StackSetOperationPreferences {
    *                   <code>STRICT_FAILURE_TOLERANCE</code>: This option dynamically lowers the concurrency level to ensure the
    *      number of failed accounts never exceeds the value of <code>FailureToleranceCount</code> +1. The initial actual
    *      concurrency is set to the lower of either the value of the <code>MaxConcurrentCount</code>, or the value of
-   *      <code>MaxConcurrentCount</code> +1. The actual concurrency is then reduced proportionally by the number of
+   *       <code>MaxConcurrentCount</code> +1. The actual concurrency is then reduced proportionally by the number of
    *      failures. This is the default behavior.</p>
    *                <p>If failure tolerance or Maximum concurrent accounts are set to percentages, the behavior is similar.</p>
    *             </li>
@@ -2717,7 +2664,7 @@ export interface StackSetOperationPreferences {
    *                <p>
    *                   <code>SOFT_FAILURE_TOLERANCE</code>: This option decouples <code>FailureToleranceCount</code> from the actual
    *      concurrency. This allows stack set operations to run at the concurrency level set by the
-   *      <code>MaxConcurrentCount</code> value, or <code>MaxConcurrentPercentage</code>, regardless of the number of
+   *       <code>MaxConcurrentCount</code> value, or <code>MaxConcurrentPercentage</code>, regardless of the number of
    *      failures.</p>
    *             </li>
    *          </ul>
@@ -2754,7 +2701,7 @@ export interface CreateStackInstancesInput {
 
   /**
    * <p>The names of one or more Amazon Web Services Regions where you want to create stack instances using the specified
-   *    Amazon Web Services accounts.</p>
+   *     Amazon Web Services accounts.</p>
    * @public
    */
   Regions: string[] | undefined;
@@ -2769,8 +2716,8 @@ export interface CreateStackInstancesInput {
    *             </li>
    *             <li>
    *                <p>To leave an overridden parameter set to its present value, include the parameter and specify
-   *      <code>UsePreviousValue</code> as <code>true</code>. (You can't specify both a value and set
-   *      <code>UsePreviousValue</code> to <code>true</code>.)</p>
+   *       <code>UsePreviousValue</code> as <code>true</code>. (You can't specify both a value and set
+   *       <code>UsePreviousValue</code> to <code>true</code>.)</p>
    *             </li>
    *             <li>
    *                <p>To set an overridden parameter back to the value specified in the stack set, specify a parameter list but
@@ -2783,10 +2730,8 @@ export interface CreateStackInstancesInput {
    *          <p>During stack set updates, any parameter values overridden for a stack instance aren't updated, but retain their
    *    overridden value.</p>
    *          <p>You can only override the parameter <i>values</i> that are specified in the stack set; to add or
-   *    delete a parameter itself, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html">
-   *                <code>UpdateStackSet</code>
-   *             </a> to update the
-   *    stack set template.</p>
+   *    delete a parameter itself, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html">UpdateStackSet</a> to update the stack set
+   *    template.</p>
    * @public
    */
   ParameterOverrides?: Parameter[];
@@ -2804,14 +2749,14 @@ export interface CreateStackInstancesInput {
    *    ensure that CloudFormation successfully received them.</p>
    *          <p>If you don't specify an operation ID, the SDK generates one automatically.</p>
    *          <p>Repeating this stack set operation with a new operation ID retries all stack instances whose status is
-   *    <code>OUTDATED</code>.</p>
+   *     <code>OUTDATED</code>.</p>
    * @public
    */
   OperationId?: string;
 
   /**
    * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's
-   *    management account or as a delegated administrator in a member account.</p>
+   *     management account or as a delegated administrator in a member account.</p>
    *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with self-managed
    *    permissions.</p>
    *          <ul>
@@ -2821,7 +2766,7 @@ export interface CreateStackInstancesInput {
    *             <li>
    *                <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p>
    *                <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a delegated
-   *      administrator</a> in the <i>CloudFormation User Guide</i>.</p>
+   *       administrator</a> in the <i>CloudFormation User Guide</i>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -3011,7 +2956,7 @@ export interface CreateStackSetInput {
   /**
    * <p>The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200
    *    bytes. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a> in the
-   *    <i>CloudFormation User Guide</i>.</p>
+   *     <i>CloudFormation User Guide</i>.</p>
    *          <p>Conditional: You must specify either the TemplateBody or the TemplateURL parameter, but not both.</p>
    * @public
    */
@@ -3020,7 +2965,7 @@ export interface CreateStackSetInput {
   /**
    * <p>The location of the file that contains the template body. The URL must point to a template (maximum size:
    *    460,800 bytes) that's located in an Amazon S3 bucket or a Systems Manager document. For more information, see
-   *    <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a>
+   *     <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a>
    *    in the <i>CloudFormation User Guide</i>.</p>
    *          <p>Conditional: You must specify either the TemplateBody or the TemplateURL parameter, but not both.</p>
    * @public
@@ -3051,18 +2996,18 @@ export interface CreateStackSetInput {
    *      for example, by creating new Identity and Access Management (IAM) users. For those stack sets, you must explicitly
    *      acknowledge this by specifying one of these capabilities.</p>
    *                <p>The following IAM resources require you to specify either the <code>CAPABILITY_IAM</code> or
-   *      <code>CAPABILITY_NAMED_IAM</code> capability.</p>
+   *       <code>CAPABILITY_NAMED_IAM</code> capability.</p>
    *                <ul>
    *                   <li>
    *                      <p>If you have IAM resources, you can specify either capability.</p>
    *                   </li>
    *                   <li>
    *                      <p>If you have IAM resources with custom names, you <i>must</i> specify
-   *        <code>CAPABILITY_NAMED_IAM</code>.</p>
+   *         <code>CAPABILITY_NAMED_IAM</code>.</p>
    *                   </li>
    *                   <li>
    *                      <p>If you don't specify either of these capabilities, CloudFormation returns an
-   *        <code>InsufficientCapabilities</code> error.</p>
+   *         <code>InsufficientCapabilities</code> error.</p>
    *                   </li>
    *                </ul>
    *                <p>If your stack template contains these resources, we recommend that you review all permissions associated with
@@ -3070,56 +3015,42 @@ export interface CreateStackSetInput {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html">
-   *                            <code>AWS::IAM::AccessKey</code>
-   *                         </a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html">AWS::IAM::AccessKey</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html">
-   *                            <code>AWS::IAM::Group</code>
-   *                         </a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html">AWS::IAM::Group</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html">
-   *                            <code>AWS::IAM::InstanceProfile</code>
-   *                         </a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html">AWS::IAM::InstanceProfile</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html">
-   *                            <code>AWS::IAM::Policy</code>
-   *                         </a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html">AWS::IAM::Policy</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html">
-   *                            <code>AWS::IAM::Role</code>
-   *                         </a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html">AWS::IAM::Role</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html">
-   *                            <code>AWS::IAM::User</code>
-   *                         </a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html">AWS::IAM::User</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html">
-   *                            <code>AWS::IAM::UserToGroupAddition</code>
-   *                         </a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html">AWS::IAM::UserToGroupAddition</a>
    *                      </p>
    *                   </li>
    *                </ul>
    *                <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging IAM Resources in
-   *      CloudFormation Templates</a>.</p>
+   *       CloudFormation Templates</a>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3128,16 +3059,12 @@ export interface CreateStackSetInput {
    *                <p>Some templates reference macros. If your stack set template references one or more macros, you must create the
    *      stack set directly from the processed template, without first reviewing the resulting changes in a change set. To
    *      create the stack set directly, you must acknowledge this capability. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Using CloudFormation Macros to
-   *      Perform Custom Processing on Templates</a>.</p>
+   *       Perform Custom Processing on Templates</a>.</p>
    *                <important>
    *                   <p>Stack sets with service-managed permissions don't currently support the use of macros in templates. (This
-   *       includes the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">
-   *                         <code>AWS::Include</code>
-   *                      </a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">
-   *                         <code>AWS::Serverless</code>
-   *                      </a>
-   *       transforms, which are macros hosted by CloudFormation.) Even if you specify this capability for a stack set with
-   *       service-managed permissions, if you reference a macro in your template the stack set operation will fail.</p>
+   *       includes the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a> transforms, which
+   *       are macros hosted by CloudFormation.) Even if you specify this capability for a stack set with service-managed permissions,
+   *       if you reference a macro in your template the stack set operation will fail.</p>
    *                </important>
    *             </li>
    *          </ul>
@@ -3151,7 +3078,7 @@ export interface CreateStackSetInput {
    *    specified.</p>
    *          <p>If you specify tags as part of a <code>CreateStackSet</code> action, CloudFormation checks to see if you have the
    *    required IAM permission to tag resources. If you don't, the entire <code>CreateStackSet</code> action fails with an
-   *    <code>access denied</code> error, and the stack set is not created.</p>
+   *     <code>access denied</code> error, and the stack set is not created.</p>
    * @public
    */
   Tags?: Tag[];
@@ -3160,7 +3087,7 @@ export interface CreateStackSetInput {
    * <p>The Amazon Resource Name (ARN) of the IAM role to use to create this stack set.</p>
    *          <p>Specify an IAM role only if you are using customized administrator roles to control which users or groups can
    *    manage specific stack sets within the same administrator account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Prerequisites: Granting
-   *    Permissions for Stack Set Operations</a> in the <i>CloudFormation User Guide</i>.</p>
+   *     Permissions for Stack Set Operations</a> in the <i>CloudFormation User Guide</i>.</p>
    * @public
    */
   AdministrationRoleARN?: string;
@@ -3176,17 +3103,17 @@ export interface CreateStackSetInput {
 
   /**
    * <p>Describes how the IAM roles required for stack set operations are created. By default,
-   *    <code>SELF-MANAGED</code> is specified.</p>
+   *     <code>SELF-MANAGED</code> is specified.</p>
    *          <ul>
    *             <li>
    *                <p>With <code>self-managed</code> permissions, you must create the administrator and execution roles required to
    *      deploy to target accounts. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html">Grant Self-Managed Stack Set
-   *      Permissions</a>.</p>
+   *       Permissions</a>.</p>
    *             </li>
    *             <li>
    *                <p>With <code>service-managed</code> permissions, StackSets automatically creates the IAM roles required to
    *      deploy to accounts managed by Organizations. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html">Grant Service-Managed Stack Set
-   *      Permissions</a>.</p>
+   *       Permissions</a>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -3196,14 +3123,14 @@ export interface CreateStackSetInput {
   /**
    * <p>Describes whether StackSets automatically deploys to Organizations accounts that are added to the target
    *    organization or organizational unit (OU). Specify only if <code>PermissionModel</code> is
-   *    <code>SERVICE_MANAGED</code>.</p>
+   *     <code>SERVICE_MANAGED</code>.</p>
    * @public
    */
   AutoDeployment?: AutoDeployment;
 
   /**
    * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's
-   *    management account or as a delegated administrator in a member account.</p>
+   *     management account or as a delegated administrator in a member account.</p>
    *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with self-managed
    *    permissions.</p>
    *          <ul>
@@ -3216,7 +3143,7 @@ export interface CreateStackSetInput {
    *      specify <code>DELEGATED_ADMIN</code>.</p>
    *                <p>Your Amazon Web Services account must be registered as a delegated admin in the management account.
    *      For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a delegated
-   *      administrator</a> in the <i>CloudFormation User Guide</i>.</p>
+   *       administrator</a> in the <i>CloudFormation User Guide</i>.</p>
    *             </li>
    *          </ul>
    *          <p>Stack sets with service-managed permissions are created in the management account, including stack
@@ -3487,7 +3414,7 @@ export interface DeleteStackInstancesInput {
    * <p>Removes the stack instances from the specified stack set, but doesn't delete the stacks. You can't reassociate a
    *    retained stack or add an existing, saved stack to a new stack set.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set operation
-   *    options</a>.</p>
+   *     options</a>.</p>
    * @public
    */
   RetainStacks: boolean | undefined;
@@ -3499,14 +3426,14 @@ export interface DeleteStackInstancesInput {
    *    operation only once, even if you retry the request multiple times. You can retry stack set operation requests to
    *    ensure that CloudFormation successfully received them.</p>
    *          <p>Repeating this stack set operation with a new operation ID retries all stack instances whose status is
-   *    <code>OUTDATED</code>.</p>
+   *     <code>OUTDATED</code>.</p>
    * @public
    */
   OperationId?: string;
 
   /**
    * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's
-   *    management account or as a delegated administrator in a member account.</p>
+   *     management account or as a delegated administrator in a member account.</p>
    *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with self-managed
    *    permissions.</p>
    *          <ul>
@@ -3516,7 +3443,7 @@ export interface DeleteStackInstancesInput {
    *             <li>
    *                <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p>
    *                <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a delegated
-   *      administrator</a> in the <i>CloudFormation User Guide</i>.</p>
+   *       administrator</a> in the <i>CloudFormation User Guide</i>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -3547,7 +3474,7 @@ export interface DeleteStackSetInput {
 
   /**
    * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's
-   *    management account or as a delegated administrator in a member account.</p>
+   *     management account or as a delegated administrator in a member account.</p>
    *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with self-managed
    *    permissions.</p>
    *          <ul>
@@ -3557,7 +3484,7 @@ export interface DeleteStackSetInput {
    *             <li>
    *                <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p>
    *                <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a delegated
-   *      administrator</a> in the <i>CloudFormation User Guide</i>.</p>
+   *       administrator</a> in the <i>CloudFormation User Guide</i>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -3740,9 +3667,7 @@ export interface DescribeChangeSetOutput {
 
   /**
    * <p>A list of <code>Parameter</code> structures that describes the input parameters and their values used to create
-   *    the change set. For more information, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html">
-   *                <code>Parameter</code>
-   *             </a> data type.</p>
+   *    the change set. For more information, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html">Parameter</a> data type.</p>
    * @public
    */
   Parameters?: Parameter[];
@@ -3836,10 +3761,8 @@ export interface DescribeChangeSetOutput {
 
   /**
    * <p>Determines what action will be taken if stack creation fails. When this parameter is specified, the
-   *    <code>DisableRollback</code> parameter to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html">
-   *                <code>ExecuteChangeSet</code>
-   *             </a> API
-   *    operation must not be specified. This must be one of these values:</p>
+   *     <code>DisableRollback</code> parameter to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html">ExecuteChangeSet</a> API operation must
+   *    not be specified. This must be one of these values:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -3850,17 +3773,13 @@ export interface DescribeChangeSetOutput {
    *             <li>
    *                <p>
    *                   <code>DO_NOTHING</code> - if the stack creation fails, do nothing. This is equivalent to specifying
-   *      <code>true</code> for the <code>DisableRollback</code> parameter to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html">
-   *                      <code>ExecuteChangeSet</code>
-   *                   </a> API
+   *       <code>true</code> for the <code>DisableRollback</code> parameter to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html">ExecuteChangeSet</a> API
    *      operation.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>ROLLBACK</code> - if the stack creation fails, roll back the stack. This is equivalent to specifying
-   *      <code>false</code> for the <code>DisableRollback</code> parameter to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html">
-   *                      <code>ExecuteChangeSet</code>
-   *                   </a> API
+   *       <code>false</code> for the <code>DisableRollback</code> parameter to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html">ExecuteChangeSet</a> API
    *      operation.</p>
    *             </li>
    *          </ul>
@@ -4303,7 +4222,7 @@ export interface DescribeGeneratedTemplateOutput {
 export interface DescribeOrganizationsAccessInput {
   /**
    * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's
-   *    management account or as a delegated administrator in a member account.</p>
+   *     management account or as a delegated administrator in a member account.</p>
    *          <p>By default, <code>SELF</code> is specified.</p>
    *          <ul>
    *             <li>
@@ -4312,7 +4231,7 @@ export interface DescribeOrganizationsAccessInput {
    *             <li>
    *                <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p>
    *                <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a delegated
-   *      administrator</a> in the <i>CloudFormation User Guide</i>.</p>
+   *       administrator</a> in the <i>CloudFormation User Guide</i>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -4963,7 +4882,7 @@ export interface DescribeStackInstanceInput {
 
   /**
    * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's
-   *    management account or as a delegated administrator in a member account.</p>
+   *     management account or as a delegated administrator in a member account.</p>
    *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with self-managed
    *    permissions.</p>
    *          <ul>
@@ -4973,7 +4892,7 @@ export interface DescribeStackInstanceInput {
    *             <li>
    *                <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p>
    *                <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a delegated
-   *      administrator</a> in the <i>CloudFormation User Guide</i>.</p>
+   *       administrator</a> in the <i>CloudFormation User Guide</i>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -5033,7 +4952,7 @@ export interface StackInstanceComprehensiveStatus {
    *                   <code>INOPERABLE</code>: A <code>DeleteStackInstances</code> operation has failed and left the stack in an
    *      unstable state. Stacks in this state are excluded from further <code>UpdateStackSet</code> operations. You might
    *      need to perform a <code>DeleteStackInstances</code> operation, with <code>RetainStacks</code> set to
-   *      <code>true</code>, to delete the stack instance, and then delete the stack manually.</p>
+   *       <code>true</code>, to delete the stack instance, and then delete the stack manually.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5122,12 +5041,11 @@ export interface StackInstance {
    *                   <code>INOPERABLE</code>: A <code>DeleteStackInstances</code> operation has failed and left the stack in an
    *      unstable state. Stacks in this state are excluded from further <code>UpdateStackSet</code> operations. You might
    *      need to perform a <code>DeleteStackInstances</code> operation, with <code>RetainStacks</code> set to
-   *      <code>true</code>, to delete the stack instance, and then delete the stack
-   *      manually. <code>INOPERABLE</code> can be
-   *      returned here when the cause is a failed import. If it's due to a failed import, the operation can be retried once
-   *      the failures are fixed. To see if this is due to a failed import, look at the <code>DetailedStatus</code> member in
-   *      the <code>StackInstanceSummary</code> member that is a peer to this <code>Status</code>
-   *      member.</p>
+   *       <code>true</code>, to delete the stack instance, and then delete the stack manually.
+   *      <code>INOPERABLE</code> can be returned here when the cause is a failed import. If it's due to a failed import, the
+   *      operation can be retried once the failures are fixed. To see if this is due to a failed import, look at the
+   *       <code>DetailedStatus</code> member in the <code>StackInstanceSummary</code> member that is a peer to this
+   *       <code>Status</code> member.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5166,9 +5084,7 @@ export interface StackInstance {
 
   /**
    * <p>[Service-managed permissions] The organization root ID or organizational unit (OU) IDs that you specified for
-   *    <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html">
-   *                <code>DeploymentTargets</code>
-   *             </a>.</p>
+   *    <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html">DeploymentTargets</a>.</p>
    * @public
    */
   OrganizationalUnitId?: string;
@@ -5204,7 +5120,7 @@ export interface StackInstance {
 
   /**
    * <p>Most recent time when CloudFormation performed a drift detection operation on the stack instance. This value will be
-   *    <code>NULL</code> for any stack instance on which drift detection hasn't yet been performed.</p>
+   *     <code>NULL</code> for any stack instance on which drift detection hasn't yet been performed.</p>
    * @public
    */
   LastDriftCheckTimestamp?: Date;
@@ -6187,7 +6103,7 @@ export interface DescribeStackSetInput {
 
   /**
    * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's
-   *    management account or as a delegated administrator in a member account.</p>
+   *     management account or as a delegated administrator in a member account.</p>
    *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with self-managed
    *    permissions.</p>
    *          <ul>
@@ -6197,7 +6113,7 @@ export interface DescribeStackSetInput {
    *             <li>
    *                <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p>
    *                <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a delegated
-   *      administrator</a> in the <i>CloudFormation User Guide</i>.</p>
+   *       administrator</a> in the <i>CloudFormation User Guide</i>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -6305,7 +6221,7 @@ export interface StackSetDriftDetectionDetails {
 
   /**
    * <p>Most recent time when CloudFormation performed a drift detection operation on the stack set. This value will be
-   *    <code>NULL</code> for any stack set on which drift detection hasn't yet been performed.</p>
+   *     <code>NULL</code> for any stack set on which drift detection hasn't yet been performed.</p>
    * @public
    */
   LastDriftCheckTimestamp?: Date;
@@ -6375,7 +6291,7 @@ export type StackSetStatus = (typeof StackSetStatus)[keyof typeof StackSetStatus
 
 /**
  * <p>A structure that contains information about a stack set. A stack set enables you to provision stacks into
- *    Amazon Web Services accounts and across Regions by using a single CloudFormation template. In the stack set, you specify
+ *     Amazon Web Services accounts and across Regions by using a single CloudFormation template. In the stack set, you specify
  *    the template to use, in addition to any parameters and capabilities that the template requires.</p>
  * @public
  */
@@ -6419,7 +6335,7 @@ export interface StackSet {
   /**
    * <p>The capabilities that are allowed in the stack set. Some stack set templates might include resources that can
    *    affect permissions in your Amazon Web Services account—for example, by creating new Identity and Access Management (IAM) users. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging IAM Resources in CloudFormation
-   *    Templates.</a>
+   *     Templates.</a>
    *          </p>
    * @public
    */
@@ -6442,7 +6358,7 @@ export interface StackSet {
    * <p>The Amazon Resource Name (ARN) of the IAM role used to create or update the stack set.</p>
    *          <p>Use customized administrator roles to control which users or groups can manage specific stack sets within the
    *    same administrator account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Prerequisites: Granting Permissions for Stack Set
-   *    Operations</a> in the <i>CloudFormation User Guide</i>.</p>
+   *     Operations</a> in the <i>CloudFormation User Guide</i>.</p>
    * @public
    */
   AdministrationRoleARN?: string;
@@ -6476,12 +6392,12 @@ export interface StackSet {
    *             <li>
    *                <p>With <code>self-managed</code> permissions, you must create the administrator and execution roles required to
    *      deploy to target accounts. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html">Grant Self-Managed Stack Set
-   *      Permissions</a>.</p>
+   *       Permissions</a>.</p>
    *             </li>
    *             <li>
    *                <p>With <code>service-managed</code> permissions, StackSets automatically creates the IAM roles required to
    *      deploy to accounts managed by Organizations. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html">Grant Service-Managed Stack Set
-   *      Permissions</a>.</p>
+   *       Permissions</a>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -6490,9 +6406,7 @@ export interface StackSet {
 
   /**
    * <p>[Service-managed permissions] The organization root ID or organizational unit (OU) IDs that you specified for
-   *    <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html">
-   *                <code>DeploymentTargets</code>
-   *             </a>.</p>
+   *    <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html">DeploymentTargets</a>.</p>
    * @public
    */
   OrganizationalUnitIds?: string[];
@@ -6540,7 +6454,7 @@ export interface DescribeStackSetOperationInput {
 
   /**
    * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's
-   *    management account or as a delegated administrator in a member account.</p>
+   *     management account or as a delegated administrator in a member account.</p>
    *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with self-managed
    *    permissions.</p>
    *          <ul>
@@ -6550,7 +6464,7 @@ export interface DescribeStackSetOperationInput {
    *             <li>
    *                <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p>
    *                <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a delegated
-   *      administrator</a> in the <i>CloudFormation User Guide</i>.</p>
+   *       administrator</a> in the <i>CloudFormation User Guide</i>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -6638,13 +6552,13 @@ export interface StackSetOperation {
    *                   <code>FAILED</code>: The operation exceeded the specified failure tolerance. The failure tolerance value that
    *      you've set for an operation is applied for each Region during stack create and update operations. If the number of
    *      failed stacks within a Region exceeds the failure tolerance, the status of the operation in the Region is set to
-   *      <code>FAILED</code>. This in turn sets the status of the operation as a whole to <code>FAILED</code>, and CloudFormation cancels the operation in any remaining Regions.</p>
+   *       <code>FAILED</code>. This in turn sets the status of the operation as a whole to <code>FAILED</code>, and CloudFormation cancels the operation in any remaining Regions.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>QUEUED</code>: [Service-managed permissions] For automatic deployments that require a sequence of
    *      operations, the operation is queued to be performed. For more information, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-status-codes">stack set operation status
-   *      codes</a> in the <i>CloudFormation User Guide</i>.</p>
+   *       codes</a> in the <i>CloudFormation User Guide</i>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -6686,7 +6600,7 @@ export interface StackSetOperation {
    * <p>The Amazon Resource Name (ARN) of the IAM role used to perform this stack set operation.</p>
    *          <p>Use customized administrator roles to control which users or groups can manage specific stack sets within the
    *    same administrator account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Define Permissions for Multiple
-   *    Administrators</a> in the <i>CloudFormation User Guide</i>.</p>
+   *     Administrators</a> in the <i>CloudFormation User Guide</i>.</p>
    * @public
    */
   AdministrationRoleARN?: string;
@@ -6726,7 +6640,7 @@ export interface StackSetOperation {
    * <p>Detailed information about the drift status of the stack set. This includes information about drift operations
    *    currently being performed on the stack set.</p>
    *          <p>This information will only be present for stack set operations whose <code>Action</code> type is
-   *    <code>DETECT_DRIFT</code>.</p>
+   *     <code>DETECT_DRIFT</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html">Detecting Unmanaged Changes in Stack Sets</a> in
    *    the <i>CloudFormation User Guide</i>.</p>
    * @public
@@ -6921,9 +6835,7 @@ export interface DescribeTypeOutput {
   /**
    * <p>The name of the extension.</p>
    *          <p>If the extension is a public third-party type you have activated with a type name alias, CloudFormation returns the
-   *    type name alias. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html">
-   *                <code>ActivateType</code>
-   *             </a>.</p>
+   *    type name alias. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html">ActivateType</a>.</p>
    * @public
    */
   TypeName?: string;
@@ -6933,9 +6845,7 @@ export interface DescribeTypeOutput {
    *    specified.</p>
    *          <p>This applies only to private extensions you have registered in your account. For public extensions, both those
    *    provided by Amazon Web Services and published by third parties, CloudFormation returns <code>null</code>. For more
-   *    information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">
-   *                <code>RegisterType</code>
-   *             </a>.</p>
+   *    information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">RegisterType</a>.</p>
    *          <p>To set the default version of an extension, use <a>SetTypeDefaultVersion</a>.</p>
    * @public
    */
@@ -7062,9 +6972,7 @@ export interface DescribeTypeOutput {
   /**
    * <p>Contains logging configuration information for private extensions. This applies only to private extensions you
    *    have registered in your account. For public extensions, both those provided by Amazon Web Services and published by
-   *    third parties, CloudFormation returns <code>null</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">
-   *                <code>RegisterType</code>
-   *             </a>.</p>
+   *    third parties, CloudFormation returns <code>null</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">RegisterType</a>.</p>
    * @public
    */
   LoggingConfig?: LoggingConfig;
@@ -7078,9 +6986,7 @@ export interface DescribeTypeOutput {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM execution role used to register the extension. This applies only to
-   *    private extensions you have registered in your account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">
-   *                <code>RegisterType</code>
-   *             </a>.</p>
+   *    private extensions you have registered in your account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">RegisterType</a>.</p>
    *          <p>If the registered extension calls any Amazon Web Services APIs, you must create an <i>
    *                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM execution role</a>
    *             </i> that includes
@@ -7125,15 +7031,11 @@ export interface DescribeTypeOutput {
    * <p>When the specified extension version was registered. This applies only to:</p>
    *          <ul>
    *             <li>
-   *                <p>Private extensions you have registered in your account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">
-   *                      <code>RegisterType</code>
-   *                   </a>.</p>
+   *                <p>Private extensions you have registered in your account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">RegisterType</a>.</p>
    *             </li>
    *             <li>
    *                <p>Public extensions you have activated in your account with auto-update specified. For more information, see
-   *      <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html">
-   *                      <code>ActivateType</code>
-   *                   </a>.</p>
+   *       <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html">ActivateType</a>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -7148,11 +7050,9 @@ export interface DescribeTypeOutput {
 
   /**
    * <p>A JSON string that represent the current configuration data for the extension in this account and Region.</p>
-   *          <p>To set the configuration data for an extension, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html">
-   *                <code>SetTypeConfiguration</code>
-   *             </a>.
-   *    For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration">Configuring extensions at
-   *    the account level</a> in the <i>CloudFormation User Guide</i>.</p>
+   *          <p>To set the configuration data for an extension, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html">SetTypeConfiguration</a>. For more
+   *    information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration">Configuring extensions at
+   *     the account level</a> in the <i>CloudFormation User Guide</i>.</p>
    * @public
    */
   ConfigurationSchema?: string;
@@ -7348,7 +7248,7 @@ export interface DetectStackSetDriftInput {
   /**
    * <p>The user-specified preferences for how CloudFormation performs a stack set operation.</p>
    *          <p>For more information about maximum concurrent accounts and failure tolerance, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set operation
-   *    options</a>.</p>
+   *     options</a>.</p>
    * @public
    */
   OperationPreferences?: StackSetOperationPreferences;
@@ -7363,7 +7263,7 @@ export interface DetectStackSetDriftInput {
 
   /**
    * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's
-   *    management account or as a delegated administrator in a member account.</p>
+   *     management account or as a delegated administrator in a member account.</p>
    *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with self-managed
    *    permissions.</p>
    *          <ul>
@@ -7373,7 +7273,7 @@ export interface DetectStackSetDriftInput {
    *             <li>
    *                <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p>
    *                <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a delegated
-   *      administrator</a> in the <i>CloudFormation User Guide</i>.</p>
+   *       administrator</a> in the <i>CloudFormation User Guide</i>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -7466,26 +7366,18 @@ export interface ExecuteChangeSetInput {
 
   /**
    * <p>Preserves the state of previously provisioned resources when an operation fails. This parameter can't be
-   *    specified when the <code>OnStackFailure</code> parameter to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateChangeSet.html">
-   *                <code>CreateChangeSet</code>
-   *             </a> API
-   *    operation was specified.</p>
+   *    specified when the <code>OnStackFailure</code> parameter to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateChangeSet.html">CreateChangeSet</a> API operation was
+   *    specified.</p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <code>True</code> - if the stack creation fails, do nothing. This is equivalent to specifying
-   *      <code>DO_NOTHING</code> for the <code>OnStackFailure</code> parameter to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateChangeSet.html">
-   *                      <code>CreateChangeSet</code>
-   *                   </a> API
-   *      operation.</p>
+   *       <code>DO_NOTHING</code> for the <code>OnStackFailure</code> parameter to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateChangeSet.html">CreateChangeSet</a> API operation.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>False</code> - if the stack creation fails, roll back the stack. This is equivalent to specifying
-   *      <code>ROLLBACK</code> for the <code>OnStackFailure</code> parameter to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateChangeSet.html">
-   *                      <code>CreateChangeSet</code>
-   *                   </a> API
-   *      operation.</p>
+   *       <code>ROLLBACK</code> for the <code>OnStackFailure</code> parameter to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateChangeSet.html">CreateChangeSet</a> API operation.</p>
    *             </li>
    *          </ul>
    *          <p>Default: <code>True</code>
@@ -7996,7 +7888,7 @@ export interface ImportStacksToStackSetInput {
   /**
    * <p>The user-specified preferences for how CloudFormation performs a stack set operation.</p>
    *          <p>For more information about maximum concurrent accounts and failure tolerance, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set operation
-   *    options</a>.</p>
+   *     options</a>.</p>
    * @public
    */
   OperationPreferences?: StackSetOperationPreferences;
@@ -8630,9 +8522,9 @@ export interface ListStackInstanceResourceDriftsInput {
 
   /**
    * <p>If the previous paginated request didn't return all of the remaining results, the response object's
-   *    <code>NextToken</code> parameter value is set to a token. To retrieve the next set of results, call this action again
-   *    and assign that token to the request object's <code>NextToken</code> parameter. If there are no remaining results,
-   *    the previous response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
+   *     <code>NextToken</code> parameter value is set to a token. To retrieve the next set of results, call this action
+   *    again and assign that token to the request object's <code>NextToken</code> parameter. If there are no remaining
+   *    results, the previous response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
    * @public
    */
   NextToken?: string;
@@ -8690,7 +8582,7 @@ export interface ListStackInstanceResourceDriftsInput {
 
   /**
    * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's
-   *    management account or as a delegated administrator in a member account.</p>
+   *     management account or as a delegated administrator in a member account.</p>
    *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with self-managed
    *    permissions.</p>
    *          <ul>
@@ -8700,7 +8592,7 @@ export interface ListStackInstanceResourceDriftsInput {
    *             <li>
    *                <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p>
    *                <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a delegated
-   *      administrator</a> in the <i>CloudFormation User Guide</i>.</p>
+   *       administrator</a> in the <i>CloudFormation User Guide</i>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -8741,7 +8633,7 @@ export interface StackInstanceResourceDriftsSummary {
 
   /**
    * <p>Type of resource. For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services Resource Types
-   *    Reference</a> in the <i>CloudFormation User Guide</i>.</p>
+   *     Reference</a> in the <i>CloudFormation User Guide</i>.</p>
    * @public
    */
   ResourceType: string | undefined;
@@ -8798,9 +8690,9 @@ export interface ListStackInstanceResourceDriftsOutput {
 
   /**
    * <p>If the previous paginated request didn't return all of the remaining results, the response object's
-   *    <code>NextToken</code> parameter value is set to a token. To retrieve the next set of results, call this action again
-   *    and assign that token to the request object's <code>NextToken</code> parameter. If there are no remaining results,
-   *    the previous response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
+   *     <code>NextToken</code> parameter value is set to a token. To retrieve the next set of results, call this action
+   *    again and assign that token to the request object's <code>NextToken</code> parameter. If there are no remaining
+   *    results, the previous response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
    * @public
    */
   NextToken?: string;
@@ -8886,7 +8778,7 @@ export interface ListStackInstancesInput {
 
   /**
    * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's
-   *    management account or as a delegated administrator in a member account.</p>
+   *     management account or as a delegated administrator in a member account.</p>
    *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with self-managed
    *    permissions.</p>
    *          <ul>
@@ -8896,7 +8788,7 @@ export interface ListStackInstancesInput {
    *             <li>
    *                <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p>
    *                <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a delegated
-   *      administrator</a> in the <i>CloudFormation User Guide</i>.</p>
+   *       administrator</a> in the <i>CloudFormation User Guide</i>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -8942,12 +8834,10 @@ export interface StackInstanceSummary {
    *                   <code>INOPERABLE</code>: A <code>DeleteStackInstances</code> operation has failed and left the stack in an
    *      unstable state. Stacks in this state are excluded from further <code>UpdateStackSet</code> operations. You might
    *      need to perform a <code>DeleteStackInstances</code> operation, with <code>RetainStacks</code> set to
-   *      <code>true</code>, to delete the stack instance, and then delete the stack
-   *      manually. <code>INOPERABLE</code> can be
-   *      returned here when the cause is a failed import. If it's due to a failed import, the operation can be retried once
-   *      the failures are fixed.  To see if this is due to a failed import, call the <a>DescribeStackInstance</a>
-   *      API operation, look at the <code>DetailedStatus</code> member returned in the <code>StackInstanceSummary</code>
-   *      member.</p>
+   *       <code>true</code>, to delete the stack instance, and then delete the stack manually.
+   *      <code>INOPERABLE</code> can be returned here when the cause is a failed import. If it's due to a failed import, the
+   *      operation can be retried once the failures are fixed. To see if this is due to a failed import, call the <a>DescribeStackInstance</a> API operation, look at the <code>DetailedStatus</code> member returned in the
+   *       <code>StackInstanceSummary</code> member.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8986,9 +8876,7 @@ export interface StackInstanceSummary {
 
   /**
    * <p>[Service-managed permissions] The organization root ID or organizational unit (OU) IDs that you specified for
-   *    <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html">
-   *                <code>DeploymentTargets</code>
-   *             </a>.</p>
+   *    <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html">DeploymentTargets</a>.</p>
    * @public
    */
   OrganizationalUnitId?: string;
@@ -9024,7 +8912,7 @@ export interface StackInstanceSummary {
 
   /**
    * <p>Most recent time when CloudFormation performed a drift detection operation on the stack instance. This value will be
-   *    <code>NULL</code> for any stack instance on which drift detection hasn't yet been performed.</p>
+   *     <code>NULL</code> for any stack instance on which drift detection hasn't yet been performed.</p>
    * @public
    */
   LastDriftCheckTimestamp?: Date;
@@ -9050,8 +8938,8 @@ export interface ListStackInstancesOutput {
   /**
    * <p>If the request doesn't return all the remaining results, <code>NextToken</code> is set to a token. To retrieve
    *    the next set of results, call <code>ListStackInstances</code> again and assign that token to the request object's
-   *    <code>NextToken</code> parameter. If the request returns all results, <code>NextToken</code> is set to
-   *    <code>null</code>.</p>
+   *     <code>NextToken</code> parameter. If the request returns all results, <code>NextToken</code> is set to
+   *     <code>null</code>.</p>
    * @public
    */
   NextToken?: string;
@@ -9401,7 +9289,7 @@ export interface ListStackSetAutoDeploymentTargetsInput {
    *             <li>
    *                <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p>
    *                <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a delegated
-   *      administrator</a> in the <i>CloudFormation User Guide</i>.</p>
+   *       administrator</a> in the <i>CloudFormation User Guide</i>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -9410,9 +9298,7 @@ export interface ListStackSetAutoDeploymentTargetsInput {
 }
 
 /**
- * <p>One of the targets for the stack set. Returned by the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackSetAutoDeploymentTargets.html">
- *                <code>ListStackSetAutoDeploymentTargets</code>
- *             </a> API operation.</p>
+ * <p>One of the targets for the stack set. Returned by the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackSetAutoDeploymentTargets.html">ListStackSetAutoDeploymentTargets</a> API operation.</p>
  * @public
  */
 export interface StackSetAutoDeploymentTargetSummary {
@@ -9441,10 +9327,8 @@ export interface ListStackSetAutoDeploymentTargetsOutput {
 
   /**
    * <p>If the request doesn't return all the remaining results, <code>NextToken</code> is set to a token. To retrieve
-   *    the next set of results, call <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackSetAutoDeploymentTargets.html">
-   *                <code>ListStackSetAutoDeploymentTargets</code>
-   *             </a> again and use that value for the <code>NextToken</code>
-   *    parameter. If the request returns all results, <code>NextToken</code> is set to an empty string.</p>
+   *    the next set of results, call <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackSetAutoDeploymentTargets.html">ListStackSetAutoDeploymentTargets</a> again and use that value for the <code>NextToken</code> parameter. If the
+   *    request returns all results, <code>NextToken</code> is set to an empty string.</p>
    * @public
    */
   NextToken?: string;
@@ -9500,7 +9384,7 @@ export interface ListStackSetOperationResultsInput {
   /**
    * <p>If the previous request didn't return all the remaining results, the response object's <code>NextToken</code>
    *    parameter value is set to a token. To retrieve the next set of results, call
-   *    <code>ListStackSetOperationResults</code> again and assign that token to the request object's <code>NextToken</code>
+   *     <code>ListStackSetOperationResults</code> again and assign that token to the request object's <code>NextToken</code>
    *    parameter. If there are no remaining results, the previous response object's <code>NextToken</code> parameter is set
    *    to <code>null</code>.</p>
    * @public
@@ -9517,7 +9401,7 @@ export interface ListStackSetOperationResultsInput {
 
   /**
    * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's
-   *    management account or as a delegated administrator in a member account.</p>
+   *     management account or as a delegated administrator in a member account.</p>
    *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with self-managed
    *    permissions.</p>
    *          <ul>
@@ -9527,7 +9411,7 @@ export interface ListStackSetOperationResultsInput {
    *             <li>
    *                <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p>
    *                <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a delegated
-   *      administrator</a> in the <i>CloudFormation User Guide</i>.</p>
+   *       administrator</a> in the <i>CloudFormation User Guide</i>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -9624,9 +9508,7 @@ export interface StackSetOperationResultSummary {
 
   /**
    * <p>[Service-managed permissions] The organization root ID or organizational unit (OU) IDs that you specified for
-   *    <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html">
-   *                <code>DeploymentTargets</code>
-   *             </a>.</p>
+   *    <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html">DeploymentTargets</a>.</p>
    * @public
    */
   OrganizationalUnitId?: string;
@@ -9646,8 +9528,8 @@ export interface ListStackSetOperationResultsOutput {
   /**
    * <p>If the request doesn't return all results, <code>NextToken</code> is set to a token. To retrieve the next set of
    *    results, call <code>ListOperationResults</code> again and assign that token to the request object's
-   *    <code>NextToken</code> parameter. If there are no remaining results, <code>NextToken</code> is set to
-   *    <code>null</code>.</p>
+   *     <code>NextToken</code> parameter. If there are no remaining results, <code>NextToken</code> is set to
+   *     <code>null</code>.</p>
    * @public
    */
   NextToken?: string;
@@ -9665,8 +9547,8 @@ export interface ListStackSetOperationsInput {
 
   /**
    * <p>If the previous paginated request didn't return all of the remaining results, the response object's
-   *    <code>NextToken</code> parameter value is set to a token. To retrieve the next set of results, call
-   *    <code>ListStackSetOperations</code> again and assign that token to the request object's <code>NextToken</code>
+   *     <code>NextToken</code> parameter value is set to a token. To retrieve the next set of results, call
+   *     <code>ListStackSetOperations</code> again and assign that token to the request object's <code>NextToken</code>
    *    parameter. If there are no remaining results, the previous response object's <code>NextToken</code> parameter is set
    *    to <code>null</code>.</p>
    * @public
@@ -9683,7 +9565,7 @@ export interface ListStackSetOperationsInput {
 
   /**
    * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's
-   *    management account or as a delegated administrator in a member account.</p>
+   *     management account or as a delegated administrator in a member account.</p>
    *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with self-managed
    *    permissions.</p>
    *          <ul>
@@ -9693,7 +9575,7 @@ export interface ListStackSetOperationsInput {
    *             <li>
    *                <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p>
    *                <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a delegated
-   *      administrator</a> in the <i>CloudFormation User Guide</i>.</p>
+   *       administrator</a> in the <i>CloudFormation User Guide</i>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -9728,13 +9610,13 @@ export interface StackSetOperationSummary {
    *                   <code>FAILED</code>: The operation exceeded the specified failure tolerance. The failure tolerance value that
    *      you've set for an operation is applied for each Region during stack create and update operations. If the number of
    *      failed stacks within a Region exceeds the failure tolerance, the status of the operation in the Region is set to
-   *      <code>FAILED</code>. This in turn sets the status of the operation as a whole to <code>FAILED</code>, and CloudFormation cancels the operation in any remaining Regions.</p>
+   *       <code>FAILED</code>. This in turn sets the status of the operation as a whole to <code>FAILED</code>, and CloudFormation cancels the operation in any remaining Regions.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>QUEUED</code>: [Service-managed permissions] For automatic deployments that require a sequence of
    *      operations, the operation is queued to be performed. For more information, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-status-codes">stack set operation status
-   *      codes</a> in the <i>CloudFormation User Guide</i>.</p>
+   *       codes</a> in the <i>CloudFormation User Guide</i>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -9790,7 +9672,7 @@ export interface StackSetOperationSummary {
   /**
    * <p>The user-specified preferences for how CloudFormation performs a stack set operation.</p>
    *          <p>For more information about maximum concurrent accounts and failure tolerance, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set operation
-   *    options</a>.</p>
+   *     options</a>.</p>
    * @public
    */
   OperationPreferences?: StackSetOperationPreferences;
@@ -9810,8 +9692,8 @@ export interface ListStackSetOperationsOutput {
   /**
    * <p>If the request doesn't return all results, <code>NextToken</code> is set to a token. To retrieve the next set of
    *    results, call <code>ListOperationResults</code> again and assign that token to the request object's
-   *    <code>NextToken</code> parameter. If there are no remaining results, <code>NextToken</code> is set to
-   *    <code>null</code>.</p>
+   *     <code>NextToken</code> parameter. If there are no remaining results, <code>NextToken</code> is set to
+   *     <code>null</code>.</p>
    * @public
    */
   NextToken?: string;
@@ -9823,10 +9705,10 @@ export interface ListStackSetOperationsOutput {
 export interface ListStackSetsInput {
   /**
    * <p>If the previous paginated request didn't return all the remaining results, the response object's
-   *    <code>NextToken</code> parameter value is set to a token. To retrieve the next set of results, call
-   *    <code>ListStackSets</code> again and assign that token to the request object's <code>NextToken</code> parameter. If
+   *     <code>NextToken</code> parameter value is set to a token. To retrieve the next set of results, call
+   *     <code>ListStackSets</code> again and assign that token to the request object's <code>NextToken</code> parameter. If
    *    there are no remaining results, the previous response object's <code>NextToken</code> parameter is set to
-   *    <code>null</code>.</p>
+   *     <code>null</code>.</p>
    * @public
    */
   NextToken?: string;
@@ -9856,7 +9738,7 @@ export interface ListStackSetsInput {
    *             <li>
    *                <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p>
    *                <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a delegated
-   *      administrator</a> in the <i>CloudFormation User Guide</i>.</p>
+   *       administrator</a> in the <i>CloudFormation User Guide</i>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -9906,12 +9788,12 @@ export interface StackSetSummary {
    *             <li>
    *                <p>With <code>self-managed</code> permissions, you must create the administrator and execution roles required to
    *      deploy to target accounts. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html">Grant Self-Managed Stack Set
-   *      Permissions</a>.</p>
+   *       Permissions</a>.</p>
    *             </li>
    *             <li>
    *                <p>With <code>service-managed</code> permissions, StackSets automatically creates the IAM roles required to
    *      deploy to accounts managed by Organizations. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html">Grant Service-Managed Stack Set
-   *      Permissions</a>.</p>
+   *       Permissions</a>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -9949,7 +9831,7 @@ export interface StackSetSummary {
 
   /**
    * <p>Most recent time when CloudFormation performed a drift detection operation on the stack set. This value will be
-   *    <code>NULL</code> for any stack set on which drift detection hasn't yet been performed.</p>
+   *     <code>NULL</code> for any stack set on which drift detection hasn't yet been performed.</p>
    * @public
    */
   LastDriftCheckTimestamp?: Date;
@@ -9976,7 +9858,7 @@ export interface ListStackSetsOutput {
    * <p>If the request doesn't return all of the remaining results, <code>NextToken</code> is set to a token. To
    *    retrieve the next set of results, call <code>ListStackInstances</code> again and assign that token to the request
    *    object's <code>NextToken</code> parameter. If the request returns all results, <code>NextToken</code> is set to
-   *    <code>null</code>.</p>
+   *     <code>null</code>.</p>
    * @public
    */
   NextToken?: string;
@@ -10226,10 +10108,8 @@ export interface TypeSummary {
 
   /**
    * <p>The name of the extension.</p>
-   *          <p>If you specified a <code>TypeNameAlias</code> when you call the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html">
-   *                <code>ActivateType</code>
-   *             </a> API operation in
-   *    your account and Region, CloudFormation considers that alias as the type name.</p>
+   *          <p>If you specified a <code>TypeNameAlias</code> when you call the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html">ActivateType</a> API operation in your account
+   *    and Region, CloudFormation considers that alias as the type name.</p>
    * @public
    */
   TypeName?: string;
@@ -10239,9 +10119,7 @@ export interface TypeSummary {
    *    specified.</p>
    *          <p>This applies only to private extensions you have registered in your account. For public extensions, both those
    *    provided by Amazon and published by third parties, CloudFormation returns <code>null</code>. For more information, see
-   *    <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">
-   *                <code>RegisterType</code>
-   *             </a>.</p>
+   *     <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">RegisterType</a>.</p>
    *          <p>To set the default version of an extension, use <a>SetTypeDefaultVersion</a>.</p>
    * @public
    */
@@ -10257,15 +10135,11 @@ export interface TypeSummary {
    * <p>When the specified extension version was registered. This applies only to:</p>
    *          <ul>
    *             <li>
-   *                <p>Private extensions you have registered in your account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">
-   *                      <code>RegisterType</code>
-   *                   </a>.</p>
+   *                <p>Private extensions you have registered in your account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">RegisterType</a>.</p>
    *             </li>
    *             <li>
    *                <p>Public extensions you have activated in your account with auto-update specified. For more information, see
-   *      <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html">
-   *                      <code>ActivateType</code>
-   *                   </a>.</p>
+   *       <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html">ActivateType</a>.</p>
    *             </li>
    *          </ul>
    *          <p>For all other extension types, CloudFormation returns <code>null</code>.</p>
@@ -10947,12 +10821,9 @@ export interface SetStackPolicyInput {
 export interface SetTypeConfigurationInput {
   /**
    * <p>The Amazon Resource Name (ARN) for the extension, in this account and Region.</p>
-   *          <p>For public extensions, this will be the ARN assigned when you call the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html">
-   *                <code>ActivateType</code>
-   *             </a> API operation
-   *       in this account and Region. For private extensions, this will be the ARN assigned when you call the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">
-   *                <code>RegisterType</code>
-   *             </a> API operation in this account and Region.</p>
+   *          <p>For public extensions, this will be the ARN assigned when you call the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html">ActivateType</a> API operation in this account
+   *    and Region. For private extensions, this will be the ARN assigned when you call the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">RegisterType</a> API operation in this account
+   *    and Region.</p>
    *          <p>Do not include the extension versions suffix at the end of the ARN. You can set the configuration for an
    *    extension, but not for a specific extension version.</p>
    * @public
@@ -10962,11 +10833,9 @@ export interface SetTypeConfigurationInput {
   /**
    * <p>The configuration data for the extension, in this account and Region.</p>
    *          <p>The configuration data must be formatted as JSON, and validate against the schema returned in the
-   *    <code>ConfigurationSchema</code> response element of <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">
-   *                <code>DescribeType</code>
-   *             </a>. For more
-   *    information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-model.html#resource-type-howto-configuration">Defining
-   *    account-level configuration data for an extension</a> in the <i>CloudFormation CLI User
+   *     <code>ConfigurationSchema</code> response element of <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">DescribeType</a>. For more information, see
+   *     <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-model.html#resource-type-howto-configuration">Defining
+   *     account-level configuration data for an extension</a> in the <i>CloudFormation CLI User
    *    Guide</i>.</p>
    * @public
    */

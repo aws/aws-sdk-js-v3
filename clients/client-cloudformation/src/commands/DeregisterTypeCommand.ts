@@ -35,9 +35,7 @@ export interface DeregisterTypeCommandOutput extends DeregisterTypeOutput, __Met
  *          <p>You can't deregister the default version of an extension if there are other active version of that extension. If
  *    you do deregister the default version of an extension, the extension type itself is deregistered as well and marked
  *    as deprecated.</p>
- *          <p>To view the deprecation status of an extension or extension version, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">
- *                <code>DescribeType</code>
- *             </a>.</p>
+ *          <p>To view the deprecation status of an extension or extension version, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">DescribeType</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
