@@ -29,7 +29,7 @@ export interface PutDeliveryDestinationCommandOutput extends PutDeliveryDestinat
 /**
  * <p>Creates or updates a logical <i>delivery destination</i>. A delivery destination is an Amazon Web Services resource that represents an
  *        Amazon Web Services service that logs can be sent to. CloudWatch Logs, Amazon S3, and
- *        Kinesis Data Firehose are supported as logs delivery destinations.</p>
+ *        Firehose are supported as logs delivery destinations.</p>
  *          <p>To configure logs delivery between a supported Amazon Web Services service and a destination, you must do the following:</p>
  *          <ul>
  *             <li>

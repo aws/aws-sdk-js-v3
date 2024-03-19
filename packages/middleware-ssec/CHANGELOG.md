@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.537.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.536.0...v3.537.0) (2024-03-19)
+
+
+### Bug Fixes
+
+* **middleware-ssec:** ssecMiddleware with strict base64 validation ([#5875](https://github.com/aws/aws-sdk-js-v3/issues/5875)) ([28dcfa3](https://github.com/aws/aws-sdk-js-v3/commit/28dcfa35c6f8d531a17857f73107438b102c236b))
+
+
+
+
+
 # [3.535.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.534.0...v3.535.0) (2024-03-15)
 
 **Note:** Version bump only for package @aws-sdk/middleware-ssec

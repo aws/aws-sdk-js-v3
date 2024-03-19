@@ -65,7 +65,7 @@ export interface PutAccountPolicyCommandOutput extends PutAccountPolicyResponse,
  *          </p>
  *          <p>A subscription filter policy sets up a real-time feed of log events from CloudWatch Logs to other Amazon Web Services services.
  *       Account-level subscription filter policies apply to both existing log groups and log groups that are created later in
- *       this account. Supported destinations are Kinesis Data Streams, Kinesis Data Firehose, and
+ *       this account. Supported destinations are Kinesis Data Streams, Firehose, and
  *       Lambda. When log events are sent to the receiving service, they are Base64 encoded and
  *       compressed with the GZIP format.</p>
  *          <p>The following destinations are supported for subscription filters:</p>
@@ -74,14 +74,14 @@ export interface PutAccountPolicyCommandOutput extends PutAccountPolicyResponse,
  *                <p>An Kinesis Data Streams data stream in the same account as the subscription policy, for same-account delivery.</p>
  *             </li>
  *             <li>
- *                <p>An Kinesis Data Firehose data stream in the same account as the subscription policy, for same-account delivery.</p>
+ *                <p>An Firehose data stream in the same account as the subscription policy, for same-account delivery.</p>
  *             </li>
  *             <li>
  *                <p>A Lambda function in the same account as the subscription policy, for same-account delivery.</p>
  *             </li>
  *             <li>
  *                <p>A logical destination in a different account created with <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestination.html">PutDestination</a>, for cross-account
- *         delivery. Kinesis Data Streams and Kinesis Data Firehose are supported as logical destinations.</p>
+ *         delivery. Kinesis Data Streams and Firehose are supported as logical destinations.</p>
  *             </li>
  *          </ul>
  *          <p>Each account can have one account-level subscription filter policy.

@@ -63,6 +63,7 @@ export interface UpdateKxClusterDatabasesCommandOutput extends UpdateKxClusterDa
  *               "STRING_VALUE",
  *             ],
  *             volumeName: "STRING_VALUE", // required
+ *             onDemand: true || false,
  *           },
  *         ],
  *       },

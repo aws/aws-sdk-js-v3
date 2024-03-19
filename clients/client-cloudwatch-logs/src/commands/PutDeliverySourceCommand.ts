@@ -28,7 +28,7 @@ export interface PutDeliverySourceCommandOutput extends PutDeliverySourceRespons
 
 /**
  * <p>Creates or updates a logical <i>delivery source</i>. A delivery source represents an Amazon Web Services resource that sends logs to an
- *        logs delivery destination. The destination can be CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.</p>
+ *        logs delivery destination. The destination can be CloudWatch Logs, Amazon S3, or Firehose.</p>
  *          <p>To configure logs delivery between a delivery destination and an Amazon Web Services service that is supported as a delivery source, you must do the following:</p>
  *          <ul>
  *             <li>

@@ -251,6 +251,14 @@ ListAssetContracts
 </details>
 <details>
 <summary>
+ListFilteredTransactionEvents
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/managedblockchain-query/command/ListFilteredTransactionEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-managedblockchain-query/Interface/ListFilteredTransactionEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-managedblockchain-query/Interface/ListFilteredTransactionEventsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListTokenBalances
 </summary>
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.537.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.536.0...v3.537.0) (2024-03-19)
+
+
+### Features
+
+* **client-finspace:** Adding new attributes readWrite and onDemand to dataview models for Database Maintenance operations. ([38c6f75](https://github.com/aws/aws-sdk-js-v3/commit/38c6f75e4f8920ff662d98d7093a2ef7c932f37d))
+
+
+
+
+
 # [3.536.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.535.0...v3.536.0) (2024-03-18)
 
 **Note:** Version bump only for package @aws-sdk/client-finspace

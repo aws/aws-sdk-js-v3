@@ -35,7 +35,7 @@ export interface CreateDeliveryCommandOutput extends CreateDeliveryResponse, __M
  *        <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html">Enabling
  *          logging from Amazon Web Services services.</a>
  *          </p>
- *          <p>A delivery destination can represent a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Kinesis Data Firehose.</p>
+ *          <p>A delivery destination can represent a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Firehose.</p>
  *          <p>To configure logs delivery between a supported Amazon Web Services service and a destination, you must do the following:</p>
  *          <ul>
  *             <li>

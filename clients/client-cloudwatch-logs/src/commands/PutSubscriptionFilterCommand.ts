@@ -40,7 +40,7 @@ export interface PutSubscriptionFilterCommandOutput extends __MetadataBearer {}
  *             </li>
  *             <li>
  *                <p>A logical destination created with <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestination.html">PutDestination</a> that belongs to a different account, for cross-account delivery.
- *           We currently support Kinesis Data Streams and Kinesis Data Firehose as logical destinations.</p>
+ *           We currently support Kinesis Data Streams and Firehose as logical destinations.</p>
  *             </li>
  *             <li>
  *                <p>An Amazon Kinesis Data Firehose delivery stream that belongs to the same account as

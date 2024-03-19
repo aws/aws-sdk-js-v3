@@ -150,7 +150,7 @@ export interface StopStackSetOperationInput {
 
   /**
    * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's
-   *    management account or as a delegated administrator in a member account.</p>
+   *     management account or as a delegated administrator in a member account.</p>
    *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with self-managed
    *    permissions.</p>
    *          <ul>
@@ -160,7 +160,7 @@ export interface StopStackSetOperationInput {
    *             <li>
    *                <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p>
    *                <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a delegated
-   *      administrator</a> in the <i>CloudFormation User Guide</i>.</p>
+   *       administrator</a> in the <i>CloudFormation User Guide</i>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -362,9 +362,8 @@ export interface UpdateStackInput {
 
   /**
    * <p>A list of <code>Parameter</code> structures that specify input parameters for the stack. For more information,
-   *    see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html">
-   *                <code>Parameter</code>
-   *             </a> data type.</p>
+   *    see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html">Parameter</a>
+   *    data type.</p>
    * @public
    */
   Parameters?: Parameter[];
@@ -401,51 +400,40 @@ export interface UpdateStackInput {
    *                   <li>
    *                      <p>
    *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html">
-   *                            <code>AWS::IAM::AccessKey</code>
-   *                         </a>
+   *         AWS::IAM::AccessKey</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
    *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html">
-   *                            <code>AWS::IAM::Group</code>
-   *                         </a>
+   *         AWS::IAM::Group</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html">
-   *                            <code>AWS::IAM::InstanceProfile</code>
-   *                         </a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html">AWS::IAM::InstanceProfile</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html">
-   *                            <code>
-   *        AWS::IAM::Policy</code>
-   *                         </a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html">AWS::IAM::Policy</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
    *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html">
-   *                            <code>AWS::IAM::Role</code>
-   *                         </a>
+   *         AWS::IAM::Role</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
    *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html">
-   *                            <code>AWS::IAM::User</code>
-   *                         </a>
+   *         AWS::IAM::User</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html">
-   *                            <code>AWS::IAM::UserToGroupAddition</code>
-   *                         </a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html">AWS::IAM::UserToGroupAddition</a>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -461,12 +449,8 @@ export interface UpdateStackInput {
    *      users typically create a change set from the processed template, so that they can review the changes resulting from
    *      the macros before actually updating the stack. If your stack template contains one or more macros, and you choose
    *      to update a stack directly from the processed template, without first reviewing the resulting changes in a change
-   *      set, you must acknowledge this capability. This includes the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">
-   *                      <code>AWS::Include</code>
-   *                   </a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">
-   *                      <code>AWS::Serverless</code>
-   *                   </a>
-   *      transforms, which are macros hosted by CloudFormation.</p>
+   *      set, you must acknowledge this capability. This includes the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a> transforms, which
+   *      are macros hosted by CloudFormation.</p>
    *                <p>If you want to update a stack from a stack template that contains macros <i>and</i> nested
    *      stacks, you must update the stack directly from the template using this capability.</p>
    *                <important>
@@ -635,7 +619,7 @@ export interface UpdateStackInstancesInput {
   /**
    * <p>The names of one or more Amazon Web Services Regions in which you want to update parameter values for stack
    *    instances. The overridden parameter values will be applied to all stack instances in the specified accounts and
-   *    Amazon Web Services Regions.</p>
+   *     Amazon Web Services Regions.</p>
    * @public
    */
   Regions: string[] | undefined;
@@ -650,8 +634,8 @@ export interface UpdateStackInstancesInput {
    *             </li>
    *             <li>
    *                <p>To leave an overridden parameter set to its present value, include the parameter and specify
-   *      <code>UsePreviousValue</code> as <code>true</code>. (You can't specify both a value and set
-   *      <code>UsePreviousValue</code> to <code>true</code>.)</p>
+   *       <code>UsePreviousValue</code> as <code>true</code>. (You can't specify both a value and set
+   *       <code>UsePreviousValue</code> to <code>true</code>.)</p>
    *             </li>
    *             <li>
    *                <p>To set an overridden parameter back to the value specified in the stack set, specify a parameter list but
@@ -665,11 +649,10 @@ export interface UpdateStackInstancesInput {
    *    overridden value.</p>
    *          <p>You can only override the parameter <i>values</i> that are specified in the stack set; to add or
    *    delete a parameter itself, use <code>UpdateStackSet</code> to update the stack set template. If you add a parameter
-   *    to a template, before you can override the parameter value specified in the stack set you must first use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html">
-   *                <code>UpdateStackSet</code>
-   *             </a> to update all stack instances with the updated template and parameter value
-   *    specified in the stack set. Once a stack instance has been updated with the new parameter, you can then override the
-   *    parameter value using <code>UpdateStackInstances</code>.</p>
+   *    to a template, before you can override the parameter value specified in the stack set you must first use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html">UpdateStackSet</a> to
+   *    update all stack instances with the updated template and parameter value specified in the stack set. Once a stack
+   *    instance has been updated with the new parameter, you can then override the parameter value using
+   *    <code>UpdateStackInstances</code>.</p>
    * @public
    */
   ParameterOverrides?: Parameter[];
@@ -692,7 +675,7 @@ export interface UpdateStackInstancesInput {
 
   /**
    * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's
-   *    management account or as a delegated administrator in a member account.</p>
+   *     management account or as a delegated administrator in a member account.</p>
    *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with self-managed
    *    permissions.</p>
    *          <ul>
@@ -702,7 +685,7 @@ export interface UpdateStackInstancesInput {
    *             <li>
    *                <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p>
    *                <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a delegated
-   *      administrator</a> in the <i>CloudFormation User Guide</i>.</p>
+   *       administrator</a> in the <i>CloudFormation User Guide</i>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -740,9 +723,9 @@ export interface UpdateStackSetInput {
   /**
    * <p>The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200
    *    bytes. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a> in the
-   *    <i>CloudFormation User Guide</i>.</p>
+   *     <i>CloudFormation User Guide</i>.</p>
    *          <p>Conditional: You must specify only one of the following parameters: <code>TemplateBody</code> or
-   *    <code>TemplateURL</code>—or set <code>UsePreviousTemplate</code> to true.</p>
+   *     <code>TemplateURL</code>—or set <code>UsePreviousTemplate</code> to true.</p>
    * @public
    */
   TemplateBody?: string;
@@ -751,9 +734,9 @@ export interface UpdateStackSetInput {
    * <p>The location of the file that contains the template body. The URL must point to a template (maximum size:
    *    460,800 bytes) that is located in an Amazon S3 bucket or a Systems Manager document. For more information,
    *    see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
-   *    Anatomy</a> in the <i>CloudFormation User Guide</i>.</p>
+   *     Anatomy</a> in the <i>CloudFormation User Guide</i>.</p>
    *          <p>Conditional: You must specify only one of the following parameters: <code>TemplateBody</code> or
-   *    <code>TemplateURL</code>—or set <code>UsePreviousTemplate</code> to true.</p>
+   *     <code>TemplateURL</code>—or set <code>UsePreviousTemplate</code> to true.</p>
    * @public
    */
   TemplateURL?: string;
@@ -761,7 +744,7 @@ export interface UpdateStackSetInput {
   /**
    * <p>Use the existing template that's associated with the stack set that you're updating.</p>
    *          <p>Conditional: You must specify only one of the following parameters: <code>TemplateBody</code> or
-   *    <code>TemplateURL</code>—or set <code>UsePreviousTemplate</code> to true.</p>
+   *     <code>TemplateURL</code>—or set <code>UsePreviousTemplate</code> to true.</p>
    * @public
    */
   UsePreviousTemplate?: boolean;
@@ -784,18 +767,18 @@ export interface UpdateStackSetInput {
    *      for example, by creating new Identity and Access Management (IAM) users. For those stacks sets, you must explicitly
    *      acknowledge this by specifying one of these capabilities.</p>
    *                <p>The following IAM resources require you to specify either the <code>CAPABILITY_IAM</code> or
-   *      <code>CAPABILITY_NAMED_IAM</code> capability.</p>
+   *       <code>CAPABILITY_NAMED_IAM</code> capability.</p>
    *                <ul>
    *                   <li>
    *                      <p>If you have IAM resources, you can specify either capability.</p>
    *                   </li>
    *                   <li>
    *                      <p>If you have IAM resources with custom names, you <i>must</i> specify
-   *        <code>CAPABILITY_NAMED_IAM</code>.</p>
+   *         <code>CAPABILITY_NAMED_IAM</code>.</p>
    *                   </li>
    *                   <li>
    *                      <p>If you don't specify either of these capabilities, CloudFormation returns an
-   *        <code>InsufficientCapabilities</code> error.</p>
+   *         <code>InsufficientCapabilities</code> error.</p>
    *                   </li>
    *                </ul>
    *                <p>If your stack template contains these resources, we recommend that you review all permissions associated with
@@ -803,56 +786,42 @@ export interface UpdateStackSetInput {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html">
-   *                            <code>AWS::IAM::AccessKey</code>
-   *                         </a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html">AWS::IAM::AccessKey</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html">
-   *                            <code>AWS::IAM::Group</code>
-   *                         </a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html">AWS::IAM::Group</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html">
-   *                            <code>AWS::IAM::InstanceProfile</code>
-   *                         </a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html">AWS::IAM::InstanceProfile</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html">
-   *                            <code>AWS::IAM::Policy</code>
-   *                         </a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html">AWS::IAM::Policy</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html">
-   *                            <code>AWS::IAM::Role</code>
-   *                         </a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html">AWS::IAM::Role</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html">
-   *                            <code>AWS::IAM::User</code>
-   *                         </a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html">AWS::IAM::User</a>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html">
-   *                            <code>AWS::IAM::UserToGroupAddition</code>
-   *                         </a>
+   *                         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html">AWS::IAM::UserToGroupAddition</a>
    *                      </p>
    *                   </li>
    *                </ul>
    *                <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging IAM Resources in
-   *      CloudFormation Templates</a>.</p>
+   *       CloudFormation Templates</a>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -861,16 +830,12 @@ export interface UpdateStackSetInput {
    *                <p>Some templates reference macros. If your stack set template references one or more macros, you must update the
    *      stack set directly from the processed template, without first reviewing the resulting changes in a change set. To
    *      update the stack set directly, you must acknowledge this capability. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Using CloudFormation Macros to
-   *      Perform Custom Processing on Templates</a>.</p>
+   *       Perform Custom Processing on Templates</a>.</p>
    *                <important>
    *                   <p>Stack sets with service-managed permissions do not currently support the use of macros in templates. (This
-   *       includes the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">
-   *                         <code>AWS::Include</code>
-   *                      </a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">
-   *                         <code>AWS::Serverless</code>
-   *                      </a>
-   *       transforms, which are macros hosted by CloudFormation.) Even if you specify this capability for a stack set with
-   *       service-managed permissions, if you reference a macro in your template the stack set operation will fail.</p>
+   *       includes the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a> transforms, which
+   *       are macros hosted by CloudFormation.) Even if you specify this capability for a stack set with service-managed permissions,
+   *       if you reference a macro in your template the stack set operation will fail.</p>
    *                </important>
    *             </li>
    *          </ul>
@@ -901,7 +866,7 @@ export interface UpdateStackSetInput {
    *    required IAM permission to tag resources. If you omit tags that are currently associated with the stack set from
    *    the list of tags you specify, CloudFormation assumes that you want to remove those tags from the stack set, and checks to see
    *    if you have permission to untag resources. If you don't have the necessary permission(s), the entire
-   *    <code>UpdateStackSet</code> action fails with an <code>access denied</code> error, and the stack set is not
+   *     <code>UpdateStackSet</code> action fails with an <code>access denied</code> error, and the stack set is not
    *    updated.</p>
    * @public
    */
@@ -917,7 +882,7 @@ export interface UpdateStackSetInput {
    * <p>The Amazon Resource Name (ARN) of the IAM role to use to update this stack set.</p>
    *          <p>Specify an IAM role only if you are using customized administrator roles to control which users or groups can
    *    manage specific stack sets within the same administrator account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Granting Permissions for Stack
-   *    Set Operations</a> in the <i>CloudFormation User Guide</i>.</p>
+   *     Set Operations</a> in the <i>CloudFormation User Guide</i>.</p>
    *          <p>If you specified a customized administrator role when you created the stack set, you must specify a customized
    *    administrator role, even if it is the same customized administrator role used with this stack set previously.</p>
    * @public
@@ -942,27 +907,27 @@ export interface UpdateStackSetInput {
    *          <p>To update all the stack instances associated with this stack set, do not specify <code>DeploymentTargets</code>
    *    or <code>Regions</code>.</p>
    *          <p>If the stack set update includes changes to the template (that is, if <code>TemplateBody</code> or
-   *    <code>TemplateURL</code> is specified), or the <code>Parameters</code>, CloudFormation marks all stack instances with a status
-   *    of <code>OUTDATED</code> prior to updating the stack instances in the specified accounts and Amazon Web Services Regions. If the stack set update doesn't include changes to the template or parameters, CloudFormation updates the stack instances
-   *    in the specified accounts and Regions, while leaving all other stack instances with their existing stack instance
-   *    status.</p>
+   *     <code>TemplateURL</code> is specified), or the <code>Parameters</code>, CloudFormation marks all stack instances with a
+   *    status of <code>OUTDATED</code> prior to updating the stack instances in the specified accounts and Amazon Web Services Regions. If the stack set update doesn't include changes to the template or parameters, CloudFormation updates the
+   *    stack instances in the specified accounts and Regions, while leaving all other stack instances with their existing
+   *    stack instance status.</p>
    * @public
    */
   DeploymentTargets?: DeploymentTargets;
 
   /**
    * <p>Describes how the IAM roles required for stack set operations are created. You cannot modify
-   *    <code>PermissionModel</code> if there are stack instances associated with your stack set.</p>
+   *     <code>PermissionModel</code> if there are stack instances associated with your stack set.</p>
    *          <ul>
    *             <li>
    *                <p>With <code>self-managed</code> permissions, you must create the administrator and execution roles required to
    *      deploy to target accounts. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html">Grant Self-Managed Stack Set
-   *      Permissions</a>.</p>
+   *       Permissions</a>.</p>
    *             </li>
    *             <li>
    *                <p>With <code>service-managed</code> permissions, StackSets automatically creates the IAM roles required to
    *      deploy to accounts managed by Organizations. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html">Grant Service-Managed Stack Set
-   *      Permissions</a>.</p>
+   *       Permissions</a>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -985,7 +950,7 @@ export interface UpdateStackSetInput {
    *    ensure that CloudFormation successfully received them.</p>
    *          <p>If you don't specify an operation ID, CloudFormation generates one automatically.</p>
    *          <p>Repeating this stack set operation with a new operation ID retries all stack instances whose status is
-   *    <code>OUTDATED</code>.</p>
+   *     <code>OUTDATED</code>.</p>
    * @public
    */
   OperationId?: string;
@@ -994,11 +959,11 @@ export interface UpdateStackSetInput {
    * <p>[Self-managed permissions] The accounts in which to update associated stack instances. If you specify accounts,
    *    you must also specify the Amazon Web Services Regions in which to update stack set instances.</p>
    *          <p>To update <i>all</i> the stack instances associated with this stack set, don't specify the
-   *    <code>Accounts</code> or <code>Regions</code> properties.</p>
+   *     <code>Accounts</code> or <code>Regions</code> properties.</p>
    *          <p>If the stack set update includes changes to the template (that is, if the <code>TemplateBody</code> or
-   *    <code>TemplateURL</code> properties are specified), or the <code>Parameters</code> property, CloudFormation marks all stack
+   *     <code>TemplateURL</code> properties are specified), or the <code>Parameters</code> property, CloudFormation marks all stack
    *    instances with a status of <code>OUTDATED</code> prior to updating the stack instances in the specified accounts and
-   *    Amazon Web Services Regions. If the stack set update does not include changes to the template or parameters, CloudFormation
+   *     Amazon Web Services Regions. If the stack set update does not include changes to the template or parameters, CloudFormation
    *    updates the stack instances in the specified accounts and Amazon Web Services Regions, while leaving all other stack
    *    instances with their existing stack instance status.</p>
    * @public
@@ -1009,9 +974,9 @@ export interface UpdateStackSetInput {
    * <p>The Amazon Web Services Regions in which to update associated stack instances. If you specify Regions, you must
    *    also specify accounts in which to update stack set instances.</p>
    *          <p>To update <i>all</i> the stack instances associated with this stack set, do not specify the
-   *    <code>Accounts</code> or <code>Regions</code> properties.</p>
+   *     <code>Accounts</code> or <code>Regions</code> properties.</p>
    *          <p>If the stack set update includes changes to the template (that is, if the <code>TemplateBody</code> or
-   *    <code>TemplateURL</code> properties are specified), or the <code>Parameters</code> property, CloudFormation marks all stack
+   *     <code>TemplateURL</code> properties are specified), or the <code>Parameters</code> property, CloudFormation marks all stack
    *    instances with a status of <code>OUTDATED</code> prior to updating the stack instances in the specified accounts and
    *    Regions. If the stack set update does not include changes to the template or parameters, CloudFormation updates the stack
    *    instances in the specified accounts and Regions, while leaving all other stack instances with their existing stack
@@ -1022,7 +987,7 @@ export interface UpdateStackSetInput {
 
   /**
    * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's
-   *    management account or as a delegated administrator in a member account.</p>
+   *     management account or as a delegated administrator in a member account.</p>
    *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with self-managed
    *    permissions.</p>
    *          <ul>
@@ -1032,7 +997,7 @@ export interface UpdateStackSetInput {
    *             <li>
    *                <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p>
    *                <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a delegated
-   *      administrator</a> in the <i>CloudFormation User Guide</i>.</p>
+   *       administrator</a> in the <i>CloudFormation User Guide</i>.</p>
    *             </li>
    *          </ul>
    * @public

@@ -31,7 +31,7 @@ export interface ListTransactionsCommandInput extends ListTransactionsInput {}
 export interface ListTransactionsCommandOutput extends ListTransactionsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists all of the transactions on a given wallet address or to a specific contract.</p>
+ * <p>Lists all the transaction events for a transaction.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -3479,6 +3479,8 @@ const de_GetQueryResultsResponse = (output: any, context: __SerdeContext): GetQu
 
 // de_LiveTailSessionUpdate omitted.
 
+// de_LogEvent omitted.
+
 // de_LogGroup omitted.
 
 // de_LogGroupArnList omitted.

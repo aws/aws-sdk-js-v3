@@ -34,9 +34,7 @@ export interface DescribePublisherCommandOutput extends DescribePublisherOutput,
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterPublisher.html">
- *                      <code>RegisterPublisher</code>
- *                   </a>
+ *                   <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterPublisher.html">RegisterPublisher</a>
  *                </p>
  *             </li>
  *             <li>

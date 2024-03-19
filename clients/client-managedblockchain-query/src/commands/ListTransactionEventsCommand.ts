@@ -31,8 +31,7 @@ export interface ListTransactionEventsCommandInput extends ListTransactionEvents
 export interface ListTransactionEventsCommandOutput extends ListTransactionEventsOutput, __MetadataBearer {}
 
 /**
- * <p>An array of <code>TransactionEvent</code> objects. Each object contains details
- *          about the transaction event.</p>
+ * <p>Lists all the transaction events for a transaction </p>
  *          <note>
  *             <p>This action will return transaction details for all transactions
  *          that are <i>confirmed</i> on the blockchain, even if they have not reached
@@ -46,7 +45,8 @@ export interface ListTransactionEventsCommandOutput extends ListTransactionEvent
  * // const { ManagedBlockchainQueryClient, ListTransactionEventsCommand } = require("@aws-sdk/client-managedblockchain-query"); // CommonJS import
  * const client = new ManagedBlockchainQueryClient(config);
  * const input = { // ListTransactionEventsInput
- *   transactionHash: "STRING_VALUE", // required
+ *   transactionHash: "STRING_VALUE",
+ *   transactionId: "STRING_VALUE",
  *   network: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
@@ -66,6 +66,14 @@ export interface ListTransactionEventsCommandOutput extends ListTransactionEvent
  * //       tokenId: "STRING_VALUE",
  * //       transactionId: "STRING_VALUE",
  * //       voutIndex: Number("int"),
+ * //       voutSpent: true || false,
+ * //       spentVoutTransactionId: "STRING_VALUE",
+ * //       spentVoutTransactionHash: "STRING_VALUE",
+ * //       spentVoutIndex: Number("int"),
+ * //       blockchainInstant: { // BlockchainInstant
+ * //         time: new Date("TIMESTAMP"),
+ * //       },
+ * //       confirmationStatus: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

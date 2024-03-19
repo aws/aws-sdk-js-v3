@@ -28,6 +28,11 @@ import {
   ListAssetContractsCommandOutput,
 } from "./commands/ListAssetContractsCommand";
 import {
+  ListFilteredTransactionEventsCommand,
+  ListFilteredTransactionEventsCommandInput,
+  ListFilteredTransactionEventsCommandOutput,
+} from "./commands/ListFilteredTransactionEventsCommand";
+import {
   ListTokenBalancesCommand,
   ListTokenBalancesCommandInput,
   ListTokenBalancesCommandOutput,
@@ -50,6 +55,7 @@ const commands = {
   GetTokenBalanceCommand,
   GetTransactionCommand,
   ListAssetContractsCommand,
+  ListFilteredTransactionEventsCommand,
   ListTokenBalancesCommand,
   ListTransactionEventsCommand,
   ListTransactionsCommand,
@@ -134,6 +140,23 @@ export interface ManagedBlockchainQuery {
     args: ListAssetContractsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAssetContractsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListFilteredTransactionEventsCommand}
+   */
+  listFilteredTransactionEvents(
+    args: ListFilteredTransactionEventsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFilteredTransactionEventsCommandOutput>;
+  listFilteredTransactionEvents(
+    args: ListFilteredTransactionEventsCommandInput,
+    cb: (err: any, data?: ListFilteredTransactionEventsCommandOutput) => void
+  ): void;
+  listFilteredTransactionEvents(
+    args: ListFilteredTransactionEventsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFilteredTransactionEventsCommandOutput) => void
   ): void;
 
   /**

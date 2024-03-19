@@ -6548,6 +6548,91 @@ export interface DescribeLockedSnapshotsResult {
 /**
  * @public
  */
+export interface DescribeMacHostsRequest {
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The Availability Zone of the EC2 Mac Dedicated Host.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-type</code> - The instance type size that the EC2 Mac Dedicated Host is
+   *                         configured to support.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>
+   *             The IDs of the EC2 Mac Dedicated Hosts.
+   *         </p>
+   * @public
+   */
+  HostIds?: string[];
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>
+ *             Information about the EC2 Mac Dedicated Host.
+ *         </p>
+ * @public
+ */
+export interface MacHost {
+  /**
+   * <p>
+   *             The EC2 Mac Dedicated Host ID.
+   *         </p>
+   * @public
+   */
+  HostId?: string;
+
+  /**
+   * <p>
+   *             The latest macOS versions that the EC2 Mac Dedicated Host can launch without being upgraded.
+   *         </p>
+   * @public
+   */
+  MacOSLatestSupportedVersions?: string[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeMacHostsResult {
+  /**
+   * <p>
+   *             Information about the EC2 Mac Dedicated Hosts.
+   *         </p>
+   * @public
+   */
+  MacHosts?: MacHost[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface DescribeManagedPrefixListsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -12633,104 +12718,6 @@ export interface DescribeSpotPriceHistoryRequest {
    * @public
    */
   StartTime?: Date;
-}
-
-/**
- * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend
- *             using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
- *          <important>
- *             <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>
- *          </important>
- * @public
- */
-export interface SpotPrice {
-  /**
-   * <p>The Availability Zone.</p>
-   * @public
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The instance type.</p>
-   * @public
-   */
-  InstanceType?: _InstanceType;
-
-  /**
-   * <p>A general description of the AMI.</p>
-   * @public
-   */
-  ProductDescription?: RIProductDescription;
-
-  /**
-   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend
-   *             using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
-   *          <important>
-   *             <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>
-   *          </important>
-   * @public
-   */
-  SpotPrice?: string;
-
-  /**
-   * <p>The date and time the request was created, in UTC format (for example,
-   *                 <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
-   * @public
-   */
-  Timestamp?: Date;
-}
-
-/**
- * <p>Contains the output of DescribeSpotPriceHistory.</p>
- * @public
- */
-export interface DescribeSpotPriceHistoryResult {
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is
-   *             an empty string (<code>""</code>) or <code>null</code> when there are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The historical Spot prices.</p>
-   * @public
-   */
-  SpotPriceHistory?: SpotPrice[];
-}
-
-/**
- * @public
- */
-export interface DescribeStaleSecurityGroupsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The maximum number of items to return for this request. To get the next page of items,
-   *           make another request with the token returned in the output. For more information,
-   *           see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token returned from a previous paginated request.
-   *           Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   * @public
-   */
-  VpcId: string | undefined;
 }
 
 /**

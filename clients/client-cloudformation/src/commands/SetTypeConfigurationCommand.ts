@@ -29,10 +29,8 @@ export interface SetTypeConfigurationCommandOutput extends SetTypeConfigurationO
 /**
  * <p>Specifies the configuration data for a registered CloudFormation extension, in the given account and Region.</p>
  *          <p>To view the current configuration data for an extension, refer to the <code>ConfigurationSchema</code> element
- *    of <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">
- *                <code>DescribeType</code>
- *             </a>. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration">Configuring extensions at
- *    the account level</a> in the <i>CloudFormation User Guide</i>.</p>
+ *    of <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">DescribeType</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration">Configuring extensions at
+ *     the account level</a> in the <i>CloudFormation User Guide</i>.</p>
  *          <important>
  *             <p>It's strongly recommended that you use dynamic references to restrict sensitive configuration definitions, such
  *     as third-party credentials. For more details on dynamic references, see <a href="https://docs.aws.amazon.com/">Using

@@ -966,6 +966,7 @@ import {
   DescribeLockedSnapshotsCommandInput,
   DescribeLockedSnapshotsCommandOutput,
 } from "../commands/DescribeLockedSnapshotsCommand";
+import { DescribeMacHostsCommandInput, DescribeMacHostsCommandOutput } from "../commands/DescribeMacHostsCommand";
 import {
   DescribeManagedPrefixListsCommandInput,
   DescribeManagedPrefixListsCommandOutput,
@@ -3152,6 +3153,8 @@ import {
   DescribeLocalGatewayVirtualInterfacesResult,
   DescribeLockedSnapshotsRequest,
   DescribeLockedSnapshotsResult,
+  DescribeMacHostsRequest,
+  DescribeMacHostsResult,
   DescribeManagedPrefixListsRequest,
   DescribeManagedPrefixListsResult,
   DescribeMovingAddressesRequest,
@@ -3223,8 +3226,6 @@ import {
   DescribeSpotInstanceRequestsRequest,
   DescribeSpotInstanceRequestsResult,
   DescribeSpotPriceHistoryRequest,
-  DescribeSpotPriceHistoryResult,
-  DescribeStaleSecurityGroupsRequest,
   DiskInfo,
   EbsInfo,
   EbsInstanceBlockDevice,
@@ -3280,6 +3281,7 @@ import {
   LocalGatewayVirtualInterface,
   LocalGatewayVirtualInterfaceGroup,
   LockedSnapshotsInfo,
+  MacHost,
   MediaAcceleratorInfo,
   MediaDeviceInfo,
   MediaDeviceMemoryInfo,
@@ -3336,7 +3338,6 @@ import {
   SpotInstanceStatus,
   SpotMaintenanceStrategies,
   SpotPlacement,
-  SpotPrice,
   SupportedAdditionalProcessorFeature,
   TargetGroup,
   TargetGroupsConfig,
@@ -3352,6 +3353,8 @@ import {
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DescribeSpotPriceHistoryResult,
+  DescribeStaleSecurityGroupsRequest,
   DescribeStaleSecurityGroupsResult,
   DescribeStoreImageTasksRequest,
   DescribeStoreImageTasksResult,
@@ -3584,7 +3587,6 @@ import {
   GetIpamDiscoveredAccountsRequest,
   GetIpamDiscoveredAccountsResult,
   GetIpamDiscoveredPublicAddressesRequest,
-  GetIpamDiscoveredPublicAddressesResult,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
   InstanceTypeInfoFromInstanceRequirements,
@@ -3592,16 +3594,15 @@ import {
   IntegrateServices,
   IpamAddressHistoryRecord,
   IpamDiscoveredAccount,
-  IpamDiscoveredPublicAddress,
   IpamDiscoveryFailureReason,
   IpamPublicAddressSecurityGroup,
   IpamPublicAddressTag,
-  IpamPublicAddressTags,
   Ipv6CidrAssociation,
   MetricPoint,
   PrivateDnsDetails,
   Purchase,
   ServiceDetail,
+  SpotPrice,
   StaleIpPermission,
   StaleSecurityGroup,
   StoreImageTaskResult,
@@ -3636,6 +3637,7 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetIpamDiscoveredPublicAddressesResult,
   GetIpamDiscoveredResourceCidrsRequest,
   GetIpamDiscoveredResourceCidrsResult,
   GetIpamPoolAllocationsRequest,
@@ -3713,7 +3715,9 @@ import {
   InstanceMonitoring,
   InstanceRequirementsWithMetadataRequest,
   IpamCidrAuthorizationContext,
+  IpamDiscoveredPublicAddress,
   IpamDiscoveredResourceCidr,
+  IpamPublicAddressTags,
   IpamResourceCidr,
   LaunchPermissionModifications,
   ListImagesInRecycleBinRequest,
@@ -3880,9 +3884,6 @@ import {
   PurchaseScheduledInstancesRequest,
   PurchaseScheduledInstancesResult,
   RebootInstancesRequest,
-  RegisterImageRequest,
-  RegisterImageResult,
-  RegisterInstanceTagAttributeRequest,
   RemoveIpamOperatingRegion,
   RemovePrefixListEntry,
   ReservationValue,
@@ -3929,8 +3930,11 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  RegisterImageRequest,
+  RegisterImageResult,
   RegisterInstanceEventNotificationAttributesRequest,
   RegisterInstanceEventNotificationAttributesResult,
+  RegisterInstanceTagAttributeRequest,
   RegisterTransitGatewayMulticastGroupMembersRequest,
   RegisterTransitGatewayMulticastGroupMembersResult,
   RegisterTransitGatewayMulticastGroupSourcesRequest,
@@ -9010,6 +9014,23 @@ export const se_DescribeLockedSnapshotsCommand = async (
   body = buildFormUrlencodedString({
     ...se_DescribeLockedSnapshotsRequest(input, context),
     [_A]: _DLS,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2DescribeMacHostsCommand
+ */
+export const se_DescribeMacHostsCommand = async (
+  input: DescribeMacHostsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeMacHostsRequest(input, context),
+    [_A]: _DMH,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -20259,6 +20280,26 @@ export const de_DescribeLockedSnapshotsCommand = async (
   let contents: any = {};
   contents = de_DescribeLockedSnapshotsResult(data, context);
   const response: DescribeLockedSnapshotsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DescribeMacHostsCommand
+ */
+export const de_DescribeMacHostsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMacHostsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeMacHostsResult(data, context);
+  const response: DescribeMacHostsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -36905,6 +36946,40 @@ const se_DescribeLockedSnapshotsRequest = (input: DescribeLockedSnapshotsRequest
   }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DescribeMacHostsRequest
+ */
+const se_DescribeMacHostsRequest = (input: DescribeMacHostsRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
+      entries.Filter = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_HI] != null) {
+    const memberEntries = se_RequestHostIdList(input[_HI], context);
+    if (input[_HI]?.length === 0) {
+      entries.HostId = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `HostId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
   return entries;
 };
@@ -62214,6 +62289,22 @@ const de_DescribeLockedSnapshotsResult = (output: any, context: __SerdeContext):
 };
 
 /**
+ * deserializeAws_ec2DescribeMacHostsResult
+ */
+const de_DescribeMacHostsResult = (output: any, context: __SerdeContext): DescribeMacHostsResult => {
+  const contents: any = {};
+  if (output.macHostSet === "") {
+    contents[_MHa] = [];
+  } else if (output[_mHS] != null && output[_mHS][_i] != null) {
+    contents[_MHa] = de_MacHostList(__getArrayIfSingleItem(output[_mHS][_i]), context);
+  }
+  if (output[_nTe] != null) {
+    contents[_NT] = __expectString(output[_nTe]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2DescribeManagedPrefixListsResult
  */
 const de_DescribeManagedPrefixListsResult = (
@@ -72528,6 +72619,44 @@ const de_LockSnapshotResult = (output: any, context: __SerdeContext): LockSnapsh
     contents[_LDST] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_lDST]));
   }
   return contents;
+};
+
+/**
+ * deserializeAws_ec2MacHost
+ */
+const de_MacHost = (output: any, context: __SerdeContext): MacHost => {
+  const contents: any = {};
+  if (output[_hI] != null) {
+    contents[_HIo] = __expectString(output[_hI]);
+  }
+  if (output.macOSLatestSupportedVersionSet === "") {
+    contents[_MOSLSV] = [];
+  } else if (output[_mOSLSVS] != null && output[_mOSLSVS][_i] != null) {
+    contents[_MOSLSV] = de_MacOSVersionStringList(__getArrayIfSingleItem(output[_mOSLSVS][_i]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2MacHostList
+ */
+const de_MacHostList = (output: any, context: __SerdeContext): MacHost[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_MacHost(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2MacOSVersionStringList
+ */
+const de_MacOSVersionStringList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
 };
 
 /**
@@ -83864,6 +83993,7 @@ const _DLTe = "DescribeLaunchTemplates";
 const _DMA = "DescribeMovingAddresses";
 const _DMGM = "DeregisteredMulticastGroupMembers";
 const _DMGS = "DeregisteredMulticastGroupSources";
+const _DMH = "DescribeMacHosts";
 const _DMPL = "DeleteManagedPrefixList";
 const _DMPLe = "DescribeManagedPrefixLists";
 const _DN = "DeviceName";
@@ -84709,6 +84839,7 @@ const _MFIA = "ModifyFpgaImageAttribute";
 const _MG = "MulticastGroups";
 const _MGBPVC = "MemoryGiBPerVCpu";
 const _MH = "ModifyHosts";
+const _MHa = "MacHosts";
 const _MI = "ModifyIpam";
 const _MIA = "ModifyImageAttribute";
 const _MIAo = "ModifyInstanceAttribute";
@@ -84738,6 +84869,7 @@ const _MNI = "MaximumNetworkInterfaces";
 const _MNIA = "ModifyNetworkInterfaceAttribute";
 const _MO = "MetadataOptions";
 const _MOSLRG = "MemberOfServiceLinkedResourceGroup";
+const _MOSLSV = "MacOSLatestSupportedVersions";
 const _MOa = "MaintenanceOptions";
 const _MP = "MatchPaths";
 const _MPDNO = "ModifyPrivateDnsNameOptions";
@@ -86593,6 +86725,7 @@ const _mE = "maxEntries";
 const _mEI = "maximumEfaInterfaces";
 const _mG = "multicastGroups";
 const _mGBPVC = "memoryGiBPerVCpu";
+const _mHS = "macHostSet";
 const _mI = "maximumIops";
 const _mIe = "memoryInfo";
 const _mMB = "memoryMiB";
@@ -86600,6 +86733,7 @@ const _mNC = "maximumNetworkCards";
 const _mNI = "maximumNetworkInterfaces";
 const _mO = "metadataOptions";
 const _mOSLRG = "memberOfServiceLinkedResourceGroup";
+const _mOSLSVS = "macOSLatestSupportedVersionSet";
 const _mOa = "maintenanceOptions";
 const _mP = "maxPrice";
 const _mPIOL = "mapPublicIpOnLaunch";

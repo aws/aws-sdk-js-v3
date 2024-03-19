@@ -28,7 +28,7 @@ export interface DescribeStackInstanceCommandOutput extends DescribeStackInstanc
 
 /**
  * <p>Returns the stack instance that's associated with the specified StackSet, Amazon Web Services account, and
- *    Amazon Web Services Region.</p>
+ *     Amazon Web Services Region.</p>
  *          <p>For a list of stack instances that are associated with a specific StackSet, use <a>ListStackInstances</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

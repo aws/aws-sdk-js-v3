@@ -62,6 +62,7 @@ export * from "./DescribeLocalGatewayRouteTablesPaginator";
 export * from "./DescribeLocalGatewayVirtualInterfaceGroupsPaginator";
 export * from "./DescribeLocalGatewayVirtualInterfacesPaginator";
 export * from "./DescribeLocalGatewaysPaginator";
+export * from "./DescribeMacHostsPaginator";
 export * from "./DescribeManagedPrefixListsPaginator";
 export * from "./DescribeMovingAddressesPaginator";
 export * from "./DescribeNatGatewaysPaginator";

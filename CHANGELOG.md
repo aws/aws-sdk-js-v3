@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.537.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.536.0...v3.537.0) (2024-03-19)
+
+
+### Bug Fixes
+
+* **middleware-ssec:** ssecMiddleware with strict base64 validation ([#5875](https://github.com/aws/aws-sdk-js-v3/issues/5875)) ([28dcfa3](https://github.com/aws/aws-sdk-js-v3/commit/28dcfa35c6f8d531a17857f73107438b102c236b))
+
+
+### Features
+
+* **client-cloudwatch-logs:** Update LogSamples field in Anomaly model to be a list of LogEvent ([d5823e3](https://github.com/aws/aws-sdk-js-v3/commit/d5823e323db50ab81ba22161f5ccacb0c4324c84))
+* **client-ec2:** This release adds the new DescribeMacHosts API operation for getting information about EC2 Mac Dedicated Hosts. Users can now see the latest macOS versions that their underlying Apple Mac can support without needing to be updated. ([b2f3261](https://github.com/aws/aws-sdk-js-v3/commit/b2f3261a37a5edfc0c8b1664f9cb8e4609dcd798))
+* **client-finspace:** Adding new attributes readWrite and onDemand to dataview models for Database Maintenance operations. ([38c6f75](https://github.com/aws/aws-sdk-js-v3/commit/38c6f75e4f8920ff662d98d7093a2ef7c932f37d))
+* **client-managedblockchain-query:** Introduces a new API for Amazon Managed Blockchain Query: ListFilteredTransactionEvents. ([487e1dd](https://github.com/aws/aws-sdk-js-v3/commit/487e1dd28054aeff22ebdd5c715d890c5ca827d8))
+* **clients:** update command documentation examples as of 2024-03-19 ([5b3c7e9](https://github.com/aws/aws-sdk-js-v3/commit/5b3c7e9b9fd483aaa7cf3c2f7720e1fe1344ebaa))
+* **ec2-metadata-service:** implement utils for ec2 metadata service (imds) ([#5796](https://github.com/aws/aws-sdk-js-v3/issues/5796)) ([aee792e](https://github.com/aws/aws-sdk-js-v3/commit/aee792e155be1ffd48b7e8a2efb2edd678bc5a2d))
+
+
+
+
+
 # [3.536.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.535.0...v3.536.0) (2024-03-18)
 
 
