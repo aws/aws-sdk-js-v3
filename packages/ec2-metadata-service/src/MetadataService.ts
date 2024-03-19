@@ -1,7 +1,7 @@
-import { HttpRequest } from "@aws-sdk/protocol-http";
 import { HttpHandlerOptions } from "@aws-sdk/types";
 import { loadConfig } from "@smithy/node-config-provider";
 import { NodeHttpHandler } from "@smithy/node-http-handler";
+import { HttpRequest } from "@smithy/protocol-http";
 import { sdkStreamMixin } from "@smithy/util-stream";
 
 import { ENDPOINT_SELECTORS, IMDSv1_DISABLED_SELECTORS } from "./ConfigLoaders";
