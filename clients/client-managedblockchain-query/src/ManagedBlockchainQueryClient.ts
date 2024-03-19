@@ -61,6 +61,10 @@ import { GetAssetContractCommandInput, GetAssetContractCommandOutput } from "./c
 import { GetTokenBalanceCommandInput, GetTokenBalanceCommandOutput } from "./commands/GetTokenBalanceCommand";
 import { GetTransactionCommandInput, GetTransactionCommandOutput } from "./commands/GetTransactionCommand";
 import { ListAssetContractsCommandInput, ListAssetContractsCommandOutput } from "./commands/ListAssetContractsCommand";
+import {
+  ListFilteredTransactionEventsCommandInput,
+  ListFilteredTransactionEventsCommandOutput,
+} from "./commands/ListFilteredTransactionEventsCommand";
 import { ListTokenBalancesCommandInput, ListTokenBalancesCommandOutput } from "./commands/ListTokenBalancesCommand";
 import {
   ListTransactionEventsCommandInput,
@@ -87,6 +91,7 @@ export type ServiceInputTypes =
   | GetTokenBalanceCommandInput
   | GetTransactionCommandInput
   | ListAssetContractsCommandInput
+  | ListFilteredTransactionEventsCommandInput
   | ListTokenBalancesCommandInput
   | ListTransactionEventsCommandInput
   | ListTransactionsCommandInput;
@@ -100,6 +105,7 @@ export type ServiceOutputTypes =
   | GetTokenBalanceCommandOutput
   | GetTransactionCommandOutput
   | ListAssetContractsCommandOutput
+  | ListFilteredTransactionEventsCommandOutput
   | ListTokenBalancesCommandOutput
   | ListTransactionEventsCommandOutput
   | ListTransactionsCommandOutput;

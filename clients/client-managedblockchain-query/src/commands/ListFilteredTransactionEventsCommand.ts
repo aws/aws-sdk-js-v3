@@ -10,8 +10,11 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainQueryClient";
-import { ListTransactionEventsInput, ListTransactionEventsOutput } from "../models/models_0";
-import { de_ListTransactionEventsCommand, se_ListTransactionEventsCommand } from "../protocols/Aws_restJson1";
+import { ListFilteredTransactionEventsInput, ListFilteredTransactionEventsOutput } from "../models/models_0";
+import {
+  de_ListFilteredTransactionEventsCommand,
+  se_ListFilteredTransactionEventsCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -20,40 +23,62 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListTransactionEventsCommand}.
+ * The input for {@link ListFilteredTransactionEventsCommand}.
  */
-export interface ListTransactionEventsCommandInput extends ListTransactionEventsInput {}
+export interface ListFilteredTransactionEventsCommandInput extends ListFilteredTransactionEventsInput {}
 /**
  * @public
  *
- * The output of {@link ListTransactionEventsCommand}.
+ * The output of {@link ListFilteredTransactionEventsCommand}.
  */
-export interface ListTransactionEventsCommandOutput extends ListTransactionEventsOutput, __MetadataBearer {}
+export interface ListFilteredTransactionEventsCommandOutput
+  extends ListFilteredTransactionEventsOutput,
+    __MetadataBearer {}
 
 /**
- * <p>Lists all the transaction events for a transaction </p>
+ * <p>Lists all the transaction events for an address on the blockchain.</p>
  *          <note>
- *             <p>This action will return transaction details for all transactions
- *          that are <i>confirmed</i> on the blockchain, even if they have not reached
- *          <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ambq-dg/key-concepts.html#finality">finality</a>.
- *       </p>
+ *             <p>This operation is only supported on the Bitcoin networks.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ManagedBlockchainQueryClient, ListTransactionEventsCommand } from "@aws-sdk/client-managedblockchain-query"; // ES Modules import
- * // const { ManagedBlockchainQueryClient, ListTransactionEventsCommand } = require("@aws-sdk/client-managedblockchain-query"); // CommonJS import
+ * import { ManagedBlockchainQueryClient, ListFilteredTransactionEventsCommand } from "@aws-sdk/client-managedblockchain-query"; // ES Modules import
+ * // const { ManagedBlockchainQueryClient, ListFilteredTransactionEventsCommand } = require("@aws-sdk/client-managedblockchain-query"); // CommonJS import
  * const client = new ManagedBlockchainQueryClient(config);
- * const input = { // ListTransactionEventsInput
- *   transactionHash: "STRING_VALUE",
- *   transactionId: "STRING_VALUE",
+ * const input = { // ListFilteredTransactionEventsInput
  *   network: "STRING_VALUE", // required
+ *   addressIdentifierFilter: { // AddressIdentifierFilter
+ *     transactionEventToAddress: [ // ChainAddresses // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   timeFilter: { // TimeFilter
+ *     from: { // BlockchainInstant
+ *       time: new Date("TIMESTAMP"),
+ *     },
+ *     to: {
+ *       time: new Date("TIMESTAMP"),
+ *     },
+ *   },
+ *   voutFilter: { // VoutFilter
+ *     voutSpent: true || false, // required
+ *   },
+ *   confirmationStatusFilter: { // ConfirmationStatusFilter
+ *     include: [ // ConfirmationStatusIncludeList // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   sort: { // ListFilteredTransactionEventsSort
+ *     sortBy: "STRING_VALUE",
+ *     sortOrder: "STRING_VALUE",
+ *   },
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };
- * const command = new ListTransactionEventsCommand(input);
+ * const command = new ListFilteredTransactionEventsCommand(input);
  * const response = await client.send(command);
- * // { // ListTransactionEventsOutput
+ * // { // ListFilteredTransactionEventsOutput
  * //   events: [ // TransactionEventList // required
  * //     { // TransactionEvent
  * //       network: "STRING_VALUE", // required
@@ -81,10 +106,10 @@ export interface ListTransactionEventsCommandOutput extends ListTransactionEvent
  *
  * ```
  *
- * @param ListTransactionEventsCommandInput - {@link ListTransactionEventsCommandInput}
- * @returns {@link ListTransactionEventsCommandOutput}
- * @see {@link ListTransactionEventsCommandInput} for command's `input` shape.
- * @see {@link ListTransactionEventsCommandOutput} for command's `response` shape.
+ * @param ListFilteredTransactionEventsCommandInput - {@link ListFilteredTransactionEventsCommandInput}
+ * @returns {@link ListFilteredTransactionEventsCommandOutput}
+ * @see {@link ListFilteredTransactionEventsCommandInput} for command's `input` shape.
+ * @see {@link ListFilteredTransactionEventsCommandOutput} for command's `response` shape.
  * @see {@link ManagedBlockchainQueryClientResolvedConfig | config} for ManagedBlockchainQueryClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -110,10 +135,10 @@ export interface ListTransactionEventsCommandOutput extends ListTransactionEvent
  *
  * @public
  */
-export class ListTransactionEventsCommand extends $Command
+export class ListFilteredTransactionEventsCommand extends $Command
   .classBuilder<
-    ListTransactionEventsCommandInput,
-    ListTransactionEventsCommandOutput,
+    ListFilteredTransactionEventsCommandInput,
+    ListFilteredTransactionEventsCommandOutput,
     ManagedBlockchainQueryClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -127,9 +152,9 @@ export class ListTransactionEventsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("TietonChainQueryService", "ListTransactionEvents", {})
-  .n("ManagedBlockchainQueryClient", "ListTransactionEventsCommand")
+  .s("TietonChainQueryService", "ListFilteredTransactionEvents", {})
+  .n("ManagedBlockchainQueryClient", "ListFilteredTransactionEventsCommand")
   .f(void 0, void 0)
-  .ser(se_ListTransactionEventsCommand)
-  .de(de_ListTransactionEventsCommand)
+  .ser(se_ListFilteredTransactionEventsCommand)
+  .de(de_ListFilteredTransactionEventsCommand)
   .build() {}

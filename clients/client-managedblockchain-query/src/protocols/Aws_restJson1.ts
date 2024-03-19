@@ -6,6 +6,7 @@ import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
@@ -32,6 +33,10 @@ import { GetAssetContractCommandInput, GetAssetContractCommandOutput } from "../
 import { GetTokenBalanceCommandInput, GetTokenBalanceCommandOutput } from "../commands/GetTokenBalanceCommand";
 import { GetTransactionCommandInput, GetTransactionCommandOutput } from "../commands/GetTransactionCommand";
 import { ListAssetContractsCommandInput, ListAssetContractsCommandOutput } from "../commands/ListAssetContractsCommand";
+import {
+  ListFilteredTransactionEventsCommandInput,
+  ListFilteredTransactionEventsCommandOutput,
+} from "../commands/ListFilteredTransactionEventsCommand";
 import { ListTokenBalancesCommandInput, ListTokenBalancesCommandOutput } from "../commands/ListTokenBalancesCommand";
 import {
   ListTransactionEventsCommandInput,
@@ -41,6 +46,7 @@ import { ListTransactionsCommandInput, ListTransactionsCommandOutput } from "../
 import { ManagedBlockchainQueryServiceException as __BaseException } from "../models/ManagedBlockchainQueryServiceException";
 import {
   AccessDeniedException,
+  AddressIdentifierFilter,
   BatchGetTokenBalanceErrorItem,
   BatchGetTokenBalanceInputItem,
   BatchGetTokenBalanceOutputItem,
@@ -50,18 +56,22 @@ import {
   ContractFilter,
   ContractIdentifier,
   InternalServerException,
+  ListFilteredTransactionEventsSort,
   ListTransactionsSort,
   OwnerFilter,
   OwnerIdentifier,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
   ThrottlingException,
+  TimeFilter,
   TokenBalance,
   TokenFilter,
   TokenIdentifier,
   Transaction,
+  TransactionEvent,
   TransactionOutputItem,
   ValidationException,
+  VoutFilter,
 } from "../models/models_0";
 
 /**
@@ -180,6 +190,35 @@ export const se_ListAssetContractsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListFilteredTransactionEventsCommand
+ */
+export const se_ListFilteredTransactionEventsCommand = async (
+  input: ListFilteredTransactionEventsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/list-filtered-transaction-events");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      addressIdentifierFilter: (_) => _json(_),
+      confirmationStatusFilter: (_) => _json(_),
+      maxResults: [],
+      network: [],
+      nextToken: [],
+      sort: (_) => _json(_),
+      timeFilter: (_) => se_TimeFilter(_, context),
+      voutFilter: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListTokenBalancesCommand
  */
 export const se_ListTokenBalancesCommand = async (
@@ -223,6 +262,7 @@ export const se_ListTransactionEventsCommand = async (
       network: [],
       nextToken: [],
       transactionHash: [],
+      transactionId: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -373,6 +413,28 @@ export const de_ListAssetContractsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListFilteredTransactionEventsCommand
+ */
+export const de_ListFilteredTransactionEventsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFilteredTransactionEventsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    events: (_) => de_TransactionEventList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListTokenBalancesCommand
  */
 export const de_ListTokenBalancesCommand = async (
@@ -409,7 +471,7 @@ export const de_ListTransactionEventsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    events: _json,
+    events: (_) => de_TransactionEventList(_, context),
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -605,6 +667,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_AddressIdentifierFilter omitted.
+
 /**
  * serializeAws_restJson1BatchGetTokenBalanceInputItem
  */
@@ -625,6 +689,8 @@ const se_BlockchainInstant = (input: BlockchainInstant, context: __SerdeContext)
   });
 };
 
+// se_ChainAddresses omitted.
+
 // se_ConfirmationStatusFilter omitted.
 
 // se_ConfirmationStatusIncludeList omitted.
@@ -644,15 +710,29 @@ const se_GetTokenBalanceInputList = (input: BatchGetTokenBalanceInputItem[], con
     });
 };
 
+// se_ListFilteredTransactionEventsSort omitted.
+
 // se_ListTransactionsSort omitted.
 
 // se_OwnerFilter omitted.
 
 // se_OwnerIdentifier omitted.
 
+/**
+ * serializeAws_restJson1TimeFilter
+ */
+const se_TimeFilter = (input: TimeFilter, context: __SerdeContext): any => {
+  return take(input, {
+    from: (_) => se_BlockchainInstant(_, context),
+    to: (_) => se_BlockchainInstant(_, context),
+  });
+};
+
 // se_TokenFilter omitted.
 
 // se_TokenIdentifier omitted.
+
+// se_VoutFilter omitted.
 
 // de_AssetContract omitted.
 
@@ -779,9 +859,41 @@ const de_Transaction = (output: any, context: __SerdeContext): Transaction => {
   }) as any;
 };
 
-// de_TransactionEvent omitted.
+/**
+ * deserializeAws_restJson1TransactionEvent
+ */
+const de_TransactionEvent = (output: any, context: __SerdeContext): TransactionEvent => {
+  return take(output, {
+    blockchainInstant: (_: any) => de_BlockchainInstant(_, context),
+    confirmationStatus: __expectString,
+    contractAddress: __expectString,
+    eventType: __expectString,
+    from: __expectString,
+    network: __expectString,
+    spentVoutIndex: __expectInt32,
+    spentVoutTransactionHash: __expectString,
+    spentVoutTransactionId: __expectString,
+    to: __expectString,
+    tokenId: __expectString,
+    transactionHash: __expectString,
+    transactionId: __expectString,
+    value: __expectString,
+    voutIndex: __expectInt32,
+    voutSpent: __expectBoolean,
+  }) as any;
+};
 
-// de_TransactionEventList omitted.
+/**
+ * deserializeAws_restJson1TransactionEventList
+ */
+const de_TransactionEventList = (output: any, context: __SerdeContext): TransactionEvent[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_TransactionEvent(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1TransactionOutputItem
