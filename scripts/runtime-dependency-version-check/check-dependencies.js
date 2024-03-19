@@ -23,6 +23,7 @@ const node_libraries = [
   "http",
   "http2",
   "https",
+  "net",
   "os",
   "path",
   "path/posix",

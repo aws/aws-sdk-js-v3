@@ -26,7 +26,7 @@ module.exports = function (pkgJsonFilePath, overwrite = false) {
   const errors = [];
 
   const pkgJson = require(pkgJsonFilePath);
-  if (!pkgJson.name.endsWith("/core")) {
+  if (!pkgJson.name.endsWith("/core") && !pkgJson.name.endsWith("/external")) {
     if ("exports" in pkgJson) {
       errors.push(`${pkgJson.name} must not have an 'exports' field.`);
       if (overwrite) {

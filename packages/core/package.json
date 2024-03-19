@@ -25,12 +25,12 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/external": "*",
     "@smithy/core": "^1.4.0",
     "@smithy/protocol-http": "^3.3.0",
     "@smithy/signature-v4": "^2.2.0",
     "@smithy/smithy-client": "^2.5.0",
     "@smithy/types": "^2.12.0",
-    "fast-xml-parser": "4.2.5",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
