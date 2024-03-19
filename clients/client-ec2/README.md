@@ -2544,6 +2544,14 @@ DescribeLockedSnapshots
 </details>
 <details>
 <summary>
+DescribeMacHosts
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeMacHostsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeMacHostsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeMacHostsCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeManagedPrefixLists
 </summary>
 

@@ -291,6 +291,7 @@ export * from "./DescribeLocalGatewayVirtualInterfaceGroupsCommand";
 export * from "./DescribeLocalGatewayVirtualInterfacesCommand";
 export * from "./DescribeLocalGatewaysCommand";
 export * from "./DescribeLockedSnapshotsCommand";
+export * from "./DescribeMacHostsCommand";
 export * from "./DescribeManagedPrefixListsCommand";
 export * from "./DescribeMovingAddressesCommand";
 export * from "./DescribeNatGatewaysCommand";

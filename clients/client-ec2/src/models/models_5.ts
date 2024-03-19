@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import {
+  _InstanceType,
   AddressTransfer,
   AllowedPrincipal,
   AsnAssociation,
@@ -80,7 +81,105 @@ import {
   VirtualizationType,
 } from "./models_3";
 
-import { ArchitectureType, AttributeBooleanValue } from "./models_4";
+import { ArchitectureType, AttributeBooleanValue, RIProductDescription } from "./models_4";
+
+/**
+ * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend
+ *             using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
+ *          <important>
+ *             <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>
+ *          </important>
+ * @public
+ */
+export interface SpotPrice {
+  /**
+   * <p>The Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The instance type.</p>
+   * @public
+   */
+  InstanceType?: _InstanceType;
+
+  /**
+   * <p>A general description of the AMI.</p>
+   * @public
+   */
+  ProductDescription?: RIProductDescription;
+
+  /**
+   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend
+   *             using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
+   *          <important>
+   *             <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>
+   *          </important>
+   * @public
+   */
+  SpotPrice?: string;
+
+  /**
+   * <p>The date and time the request was created, in UTC format (for example,
+   *                 <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   * @public
+   */
+  Timestamp?: Date;
+}
+
+/**
+ * <p>Contains the output of DescribeSpotPriceHistory.</p>
+ * @public
+ */
+export interface DescribeSpotPriceHistoryResult {
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is
+   *             an empty string (<code>""</code>) or <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The historical Spot prices.</p>
+   * @public
+   */
+  SpotPriceHistory?: SpotPrice[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeStaleSecurityGroupsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of items,
+   *           make another request with the token returned in the output. For more information,
+   *           see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token returned from a previous paginated request.
+   *           Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   * @public
+   */
+  VpcId: string | undefined;
+}
 
 /**
  * <p>Describes a stale rule in a security group.</p>
@@ -8635,161 +8734,6 @@ export interface IpamPublicAddressTag {
    * @public
    */
   Value?: string;
-}
-
-/**
- * <p>Tags for a public IP address discovered by IPAM.</p>
- * @public
- */
-export interface IpamPublicAddressTags {
-  /**
-   * <p>Tags for an Elastic IP address.</p>
-   * @public
-   */
-  EipTags?: IpamPublicAddressTag[];
-}
-
-/**
- * <p>A public IP Address discovered by IPAM.</p>
- * @public
- */
-export interface IpamDiscoveredPublicAddress {
-  /**
-   * <p>The resource discovery ID.</p>
-   * @public
-   */
-  IpamResourceDiscoveryId?: string;
-
-  /**
-   * <p>The Region of the resource the IP address is assigned to.</p>
-   * @public
-   */
-  AddressRegion?: string;
-
-  /**
-   * <p>The IP address.</p>
-   * @public
-   */
-  Address?: string;
-
-  /**
-   * <p>The ID of the owner of the resource the IP address is assigned to.</p>
-   * @public
-   */
-  AddressOwnerId?: string;
-
-  /**
-   * <p>The allocation ID of the resource the IP address is assigned to.</p>
-   * @public
-   */
-  AddressAllocationId?: string;
-
-  /**
-   * <p>The association status.</p>
-   * @public
-   */
-  AssociationStatus?: IpamPublicAddressAssociationStatus;
-
-  /**
-   * <p>The IP address type.</p>
-   * @public
-   */
-  AddressType?: IpamPublicAddressType;
-
-  /**
-   * <p>The Amazon Web Services service associated with the IP address.</p>
-   * @public
-   */
-  Service?: IpamPublicAddressAwsService;
-
-  /**
-   * <p>The resource ARN or ID.</p>
-   * @public
-   */
-  ServiceResource?: string;
-
-  /**
-   * <p>The ID of the VPC that the resource with the assigned IP address is in.</p>
-   * @public
-   */
-  VpcId?: string;
-
-  /**
-   * <p>The ID of the subnet that the resource with the assigned IP address is in.</p>
-   * @public
-   */
-  SubnetId?: string;
-
-  /**
-   * <p>The ID of the public IPv4 pool that the resource with the assigned IP address is from.</p>
-   * @public
-   */
-  PublicIpv4PoolId?: string;
-
-  /**
-   * <p>The network interface ID of the resource with the assigned IP address.</p>
-   * @public
-   */
-  NetworkInterfaceId?: string;
-
-  /**
-   * <p>The description of the network interface that IP address is assigned to.</p>
-   * @public
-   */
-  NetworkInterfaceDescription?: string;
-
-  /**
-   * <p>The instance ID of the instance the assigned IP address is assigned to.</p>
-   * @public
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>Tags associated with the IP address.</p>
-   * @public
-   */
-  Tags?: IpamPublicAddressTags;
-
-  /**
-   * <p>The network border group that the resource that the IP address is assigned to is in.</p>
-   * @public
-   */
-  NetworkBorderGroup?: string;
-
-  /**
-   * <p>Security groups associated with the resource that the IP address is assigned to.</p>
-   * @public
-   */
-  SecurityGroups?: IpamPublicAddressSecurityGroup[];
-
-  /**
-   * <p>The last successful resource discovery time.</p>
-   * @public
-   */
-  SampleTime?: Date;
-}
-
-/**
- * @public
- */
-export interface GetIpamDiscoveredPublicAddressesResult {
-  /**
-   * <p>IPAM discovered public addresses.</p>
-   * @public
-   */
-  IpamDiscoveredPublicAddresses?: IpamDiscoveredPublicAddress[];
-
-  /**
-   * <p>The oldest successful resource discovery time.</p>
-   * @public
-   */
-  OldestSampleTime?: Date;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string;
 }
 
 /**

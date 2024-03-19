@@ -996,6 +996,7 @@ import {
   DescribeLockedSnapshotsCommandInput,
   DescribeLockedSnapshotsCommandOutput,
 } from "./commands/DescribeLockedSnapshotsCommand";
+import { DescribeMacHostsCommandInput, DescribeMacHostsCommandOutput } from "./commands/DescribeMacHostsCommand";
 import {
   DescribeManagedPrefixListsCommandInput,
   DescribeManagedPrefixListsCommandOutput,
@@ -2439,6 +2440,7 @@ export type ServiceInputTypes =
   | DescribeLocalGatewayVirtualInterfacesCommandInput
   | DescribeLocalGatewaysCommandInput
   | DescribeLockedSnapshotsCommandInput
+  | DescribeMacHostsCommandInput
   | DescribeManagedPrefixListsCommandInput
   | DescribeMovingAddressesCommandInput
   | DescribeNatGatewaysCommandInput
@@ -3059,6 +3061,7 @@ export type ServiceOutputTypes =
   | DescribeLocalGatewayVirtualInterfacesCommandOutput
   | DescribeLocalGatewaysCommandOutput
   | DescribeLockedSnapshotsCommandOutput
+  | DescribeMacHostsCommandOutput
   | DescribeManagedPrefixListsCommandOutput
   | DescribeMovingAddressesCommandOutput
   | DescribeNatGatewaysCommandOutput

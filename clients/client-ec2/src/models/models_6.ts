@@ -41,7 +41,6 @@ import {
 
 import {
   AttributeValue,
-  BlockDeviceMapping,
   CapacityReservationPreference,
   CapacityReservationTarget,
   ClientConnectOptions,
@@ -120,14 +119,12 @@ import {
   Filter,
   FpgaImageAttribute,
   FpgaImageAttributeName,
-  ImdsSupportValues,
   ImportImageLicenseConfigurationResponse,
   IpamPoolCidr,
   LaunchPermission,
   PermissionGroup,
   SnapshotDetail,
   SnapshotDetailFilterSensitiveLog,
-  TpmSupportValues,
   VirtualizationType,
 } from "./models_3";
 
@@ -160,6 +157,11 @@ import {
   InstanceFamilyCreditSpecification,
   IpamComplianceStatus,
   IpamOverlapStatus,
+  IpamPublicAddressAssociationStatus,
+  IpamPublicAddressAwsService,
+  IpamPublicAddressSecurityGroup,
+  IpamPublicAddressTag,
+  IpamPublicAddressType,
   Purchase,
   SnapshotBlockPublicAccessState,
   TransitGatewayPropagationState,
@@ -167,6 +169,161 @@ import {
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
 } from "./models_5";
+
+/**
+ * <p>Tags for a public IP address discovered by IPAM.</p>
+ * @public
+ */
+export interface IpamPublicAddressTags {
+  /**
+   * <p>Tags for an Elastic IP address.</p>
+   * @public
+   */
+  EipTags?: IpamPublicAddressTag[];
+}
+
+/**
+ * <p>A public IP Address discovered by IPAM.</p>
+ * @public
+ */
+export interface IpamDiscoveredPublicAddress {
+  /**
+   * <p>The resource discovery ID.</p>
+   * @public
+   */
+  IpamResourceDiscoveryId?: string;
+
+  /**
+   * <p>The Region of the resource the IP address is assigned to.</p>
+   * @public
+   */
+  AddressRegion?: string;
+
+  /**
+   * <p>The IP address.</p>
+   * @public
+   */
+  Address?: string;
+
+  /**
+   * <p>The ID of the owner of the resource the IP address is assigned to.</p>
+   * @public
+   */
+  AddressOwnerId?: string;
+
+  /**
+   * <p>The allocation ID of the resource the IP address is assigned to.</p>
+   * @public
+   */
+  AddressAllocationId?: string;
+
+  /**
+   * <p>The association status.</p>
+   * @public
+   */
+  AssociationStatus?: IpamPublicAddressAssociationStatus;
+
+  /**
+   * <p>The IP address type.</p>
+   * @public
+   */
+  AddressType?: IpamPublicAddressType;
+
+  /**
+   * <p>The Amazon Web Services service associated with the IP address.</p>
+   * @public
+   */
+  Service?: IpamPublicAddressAwsService;
+
+  /**
+   * <p>The resource ARN or ID.</p>
+   * @public
+   */
+  ServiceResource?: string;
+
+  /**
+   * <p>The ID of the VPC that the resource with the assigned IP address is in.</p>
+   * @public
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The ID of the subnet that the resource with the assigned IP address is in.</p>
+   * @public
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>The ID of the public IPv4 pool that the resource with the assigned IP address is from.</p>
+   * @public
+   */
+  PublicIpv4PoolId?: string;
+
+  /**
+   * <p>The network interface ID of the resource with the assigned IP address.</p>
+   * @public
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   * <p>The description of the network interface that IP address is assigned to.</p>
+   * @public
+   */
+  NetworkInterfaceDescription?: string;
+
+  /**
+   * <p>The instance ID of the instance the assigned IP address is assigned to.</p>
+   * @public
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>Tags associated with the IP address.</p>
+   * @public
+   */
+  Tags?: IpamPublicAddressTags;
+
+  /**
+   * <p>The network border group that the resource that the IP address is assigned to is in.</p>
+   * @public
+   */
+  NetworkBorderGroup?: string;
+
+  /**
+   * <p>Security groups associated with the resource that the IP address is assigned to.</p>
+   * @public
+   */
+  SecurityGroups?: IpamPublicAddressSecurityGroup[];
+
+  /**
+   * <p>The last successful resource discovery time.</p>
+   * @public
+   */
+  SampleTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface GetIpamDiscoveredPublicAddressesResult {
+  /**
+   * <p>IPAM discovered public addresses.</p>
+   * @public
+   */
+  IpamDiscoveredPublicAddresses?: IpamDiscoveredPublicAddress[];
+
+  /**
+   * <p>The oldest successful resource discovery time.</p>
+   * @public
+   */
+  OldestSampleTime?: Date;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string;
+}
 
 /**
  * @public
@@ -9386,197 +9543,6 @@ export interface RebootInstancesRequest {
    * @public
    */
   DryRun?: boolean;
-}
-
-/**
- * <p>Contains the parameters for RegisterImage.</p>
- * @public
- */
-export interface RegisterImageRequest {
-  /**
-   * <p>The full path to your AMI manifest in Amazon S3 storage. The specified bucket must have the
-   *    		<code>aws-exec-read</code> canned access control list (ACL) to ensure that it can be accessed
-   *    		by Amazon EC2. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">Canned ACLs</a> in the
-   *    		<i>Amazon S3 Service Developer Guide</i>.</p>
-   * @public
-   */
-  ImageLocation?: string;
-
-  /**
-   * <p>The architecture of the AMI.</p>
-   *          <p>Default: For Amazon EBS-backed AMIs, <code>i386</code>.
-   *         For instance store-backed AMIs, the architecture specified in the manifest file.</p>
-   * @public
-   */
-  Architecture?: ArchitectureValues;
-
-  /**
-   * <p>The block device mapping entries.</p>
-   *          <p>If you specify an Amazon EBS volume using the ID of an Amazon EBS snapshot, you can't specify the encryption state of the volume.</p>
-   *          <p>If you create an AMI on an Outpost, then all backing snapshots must be on the same
-   *       Outpost or in the Region of that Outpost. AMIs on an Outpost that include local snapshots can
-   *       be used to launch instances on the same Outpost only. For more information, <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#ami">Amazon EBS local
-   *         snapshots on Outposts</a> in the <i>Amazon EBS User Guide</i>.</p>
-   * @public
-   */
-  BlockDeviceMappings?: BlockDeviceMapping[];
-
-  /**
-   * <p>A description for your AMI.</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Set to <code>true</code> to enable enhanced networking with ENA for the AMI and any instances that you launch from the AMI.</p>
-   *          <p>This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.</p>
-   * @public
-   */
-  EnaSupport?: boolean;
-
-  /**
-   * <p>The ID of the kernel.</p>
-   * @public
-   */
-  KernelId?: string;
-
-  /**
-   * <p>A name for your AMI.</p>
-   *          <p>Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The billing product codes. Your account must be authorized to specify billing product codes.</p>
-   *          <p>If your account is not authorized to specify billing product codes, you can publish AMIs
-   *       that include billable software and list them on the Amazon Web Services Marketplace. You must first register as a seller
-   *       on the Amazon Web Services Marketplace. For more information, see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/user-guide-for-sellers.html">Getting started as a
-   *         seller</a> and <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/ami-products.html">AMI-based
-   *         products</a> in the <i>Amazon Web Services Marketplace Seller Guide</i>.</p>
-   * @public
-   */
-  BillingProducts?: string[];
-
-  /**
-   * <p>The ID of the RAM disk.</p>
-   * @public
-   */
-  RamdiskId?: string;
-
-  /**
-   * <p>The device name of the root device volume (for example, <code>/dev/sda1</code>).</p>
-   * @public
-   */
-  RootDeviceName?: string;
-
-  /**
-   * <p>Set to <code>simple</code> to enable enhanced networking with the Intel 82599 Virtual Function interface for the AMI and any instances that you launch from the AMI.</p>
-   *          <p>There is no way to disable <code>sriovNetSupport</code> at this time.</p>
-   *          <p>This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.</p>
-   * @public
-   */
-  SriovNetSupport?: string;
-
-  /**
-   * <p>The type of virtualization (<code>hvm</code> | <code>paravirtual</code>).</p>
-   *          <p>Default: <code>paravirtual</code>
-   *          </p>
-   * @public
-   */
-  VirtualizationType?: string;
-
-  /**
-   * <p>The boot mode of the AMI. A value of <code>uefi-preferred</code> indicates that the AMI supports both UEFI and Legacy BIOS.</p>
-   *          <note>
-   *             <p>The operating system contained in the AMI must be configured to support the specified boot mode.</p>
-   *          </note>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
-   *         <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  BootMode?: BootModeValues;
-
-  /**
-   * <p>Set to <code>v2.0</code> to enable Trusted Platform Module (TPM) support. For more
-   *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html">NitroTPM</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  TpmSupport?: TpmSupportValues;
-
-  /**
-   * <p>Base64 representation of the non-volatile UEFI variable store. To retrieve the UEFI data,
-   *       use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceUefiData">GetInstanceUefiData</a> command. You can inspect and modify the UEFI data by using the
-   *         <a href="https://github.com/awslabs/python-uefivars">python-uefivars tool</a> on
-   *       GitHub. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html">UEFI Secure Boot</a> in the
-   *         <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  UefiData?: string;
-
-  /**
-   * <p>Set to <code>v2.0</code> to indicate that IMDSv2 is specified in the AMI. Instances
-   *       launched from this AMI will have <code>HttpTokens</code> automatically set to
-   *         <code>required</code> so that, by default, the instance requires that IMDSv2 is used when
-   *       requesting instance metadata. In addition, <code>HttpPutResponseHopLimit</code> is set to
-   *         <code>2</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure
-   *         the AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *          <note>
-   *             <p>If you set the value to <code>v2.0</code>, make sure that your AMI software can support IMDSv2.</p>
-   *          </note>
-   * @public
-   */
-  ImdsSupport?: ImdsSupportValues;
-
-  /**
-   * <p>The tags to apply to the AMI.</p>
-   *          <p>To tag the AMI, the value for <code>ResourceType</code> must be <code>image</code>. If you
-   *       specify another value for <code>ResourceType</code>, the request fails.</p>
-   *          <p>To tag an AMI after it has been registered, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[];
-}
-
-/**
- * <p>Contains the output of RegisterImage.</p>
- * @public
- */
-export interface RegisterImageResult {
-  /**
-   * <p>The ID of the newly registered AMI.</p>
-   * @public
-   */
-  ImageId?: string;
-}
-
-/**
- * <p>Information about the tag keys to register for the current Region. You can either specify
- *       	individual tag keys or register all tag keys in the current Region. You must specify either
- *       	<code>IncludeAllTagsOfInstance</code> or <code>InstanceTagKeys</code> in the request</p>
- * @public
- */
-export interface RegisterInstanceTagAttributeRequest {
-  /**
-   * <p>Indicates whether to register all tag keys in the current Region. Specify <code>true</code>
-   *       	to register all tag keys.</p>
-   * @public
-   */
-  IncludeAllTagsOfInstance?: boolean;
-
-  /**
-   * <p>The tag keys to register.</p>
-   * @public
-   */
-  InstanceTagKeys?: string[];
 }
 
 /**

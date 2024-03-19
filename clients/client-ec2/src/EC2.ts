@@ -1419,6 +1419,11 @@ import {
   DescribeLockedSnapshotsCommandOutput,
 } from "./commands/DescribeLockedSnapshotsCommand";
 import {
+  DescribeMacHostsCommand,
+  DescribeMacHostsCommandInput,
+  DescribeMacHostsCommandOutput,
+} from "./commands/DescribeMacHostsCommand";
+import {
   DescribeManagedPrefixListsCommand,
   DescribeManagedPrefixListsCommandInput,
   DescribeManagedPrefixListsCommandOutput,
@@ -3304,6 +3309,7 @@ const commands = {
   DescribeLocalGatewayVirtualInterfaceGroupsCommand,
   DescribeLocalGatewayVirtualInterfacesCommand,
   DescribeLockedSnapshotsCommand,
+  DescribeMacHostsCommand,
   DescribeManagedPrefixListsCommand,
   DescribeMovingAddressesCommand,
   DescribeNatGatewaysCommand,
@@ -8473,6 +8479,24 @@ export interface EC2 {
     args: DescribeLockedSnapshotsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeLockedSnapshotsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeMacHostsCommand}
+   */
+  describeMacHosts(): Promise<DescribeMacHostsCommandOutput>;
+  describeMacHosts(
+    args: DescribeMacHostsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMacHostsCommandOutput>;
+  describeMacHosts(
+    args: DescribeMacHostsCommandInput,
+    cb: (err: any, data?: DescribeMacHostsCommandOutput) => void
+  ): void;
+  describeMacHosts(
+    args: DescribeMacHostsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMacHostsCommandOutput) => void
   ): void;
 
   /**
