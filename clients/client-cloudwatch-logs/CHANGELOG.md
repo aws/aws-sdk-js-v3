@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.537.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.536.0...v3.537.0) (2024-03-19)
+
+
+### Features
+
+* **client-cloudwatch-logs:** Update LogSamples field in Anomaly model to be a list of LogEvent ([d5823e3](https://github.com/aws/aws-sdk-js-v3/commit/d5823e323db50ab81ba22161f5ccacb0c4324c84))
+
+
+
+
+
 # [3.536.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.535.0...v3.536.0) (2024-03-18)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatch-logs

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.537.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.536.0...v3.537.0) (2024-03-19)
+
+
+### Features
+
+* **client-managedblockchain-query:** Introduces a new API for Amazon Managed Blockchain Query: ListFilteredTransactionEvents. ([487e1dd](https://github.com/aws/aws-sdk-js-v3/commit/487e1dd28054aeff22ebdd5c715d890c5ca827d8))
+
+
+
+
+
 # [3.535.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.534.0...v3.535.0) (2024-03-15)
 
 **Note:** Version bump only for package @aws-sdk/client-managedblockchain-query
