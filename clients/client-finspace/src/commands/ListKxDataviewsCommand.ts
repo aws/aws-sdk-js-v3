@@ -58,6 +58,7 @@ export interface ListKxDataviewsCommandOutput extends ListKxDataviewsResponse, _
  * //             "STRING_VALUE",
  * //           ],
  * //           volumeName: "STRING_VALUE", // required
+ * //           onDemand: true || false,
  * //         },
  * //       ],
  * //       activeVersions: [ // KxDataviewActiveVersionList
@@ -69,6 +70,7 @@ export interface ListKxDataviewsCommandOutput extends ListKxDataviewsResponse, _
  * //                 "STRING_VALUE",
  * //               ],
  * //               volumeName: "STRING_VALUE", // required
+ * //               onDemand: true || false,
  * //             },
  * //           ],
  * //           attachedClusters: [ // AttachedClusterList
@@ -81,6 +83,7 @@ export interface ListKxDataviewsCommandOutput extends ListKxDataviewsResponse, _
  * //       status: "CREATING" || "ACTIVE" || "UPDATING" || "FAILED" || "DELETING",
  * //       description: "STRING_VALUE",
  * //       autoUpdate: true || false,
+ * //       readWrite: true || false,
  * //       createdTimestamp: new Date("TIMESTAMP"),
  * //       lastModifiedTimestamp: new Date("TIMESTAMP"),
  * //       statusReason: "STRING_VALUE",

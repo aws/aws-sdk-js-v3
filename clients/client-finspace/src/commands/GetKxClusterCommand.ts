@@ -80,6 +80,7 @@ export interface GetKxClusterCommandOutput extends GetKxClusterResponse, __Metad
  * //               "STRING_VALUE",
  * //             ],
  * //             volumeName: "STRING_VALUE", // required
+ * //             onDemand: true || false,
  * //           },
  * //         ],
  * //       },

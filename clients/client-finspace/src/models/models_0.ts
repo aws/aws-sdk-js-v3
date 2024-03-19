@@ -862,6 +862,15 @@ export interface KxDataviewSegmentConfiguration {
    * @public
    */
   volumeName: string | undefined;
+
+  /**
+   * <p>Enables on-demand caching on the selected database path when a particular file or a
+   *          column of the database is accessed. When on demand caching is <b>True</b>, dataviews perform minimal loading of files on the filesystem as
+   *          needed. When it is set to <b>False</b>, everything is cached. The
+   *          default value is <b>False</b>. </p>
+   * @public
+   */
+  onDemand?: boolean;
 }
 
 /**
@@ -1653,17 +1662,7 @@ export interface CreateKxDataviewRequest {
   dataviewName: string | undefined;
 
   /**
-   * <p>The number of availability zones you want to assign per cluster. This can be one of the following </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SINGLE</code> – Assigns one availability zone per cluster.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MULTI</code> – Assigns all the availability zones per cluster.</p>
-   *             </li>
-   *          </ul>
+   * <p>The number of availability zones you want to assign per volume. Currently, FinSpace only supports <code>SINGLE</code> for volumes. This places dataview in a single AZ.</p>
    * @public
    */
   azMode: KxAzMode | undefined;
@@ -1695,6 +1694,32 @@ export interface CreateKxDataviewRequest {
    * @public
    */
   autoUpdate?: boolean;
+
+  /**
+   * <p>
+   *          The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.  </p>
+   *          <ul>
+   *             <li>
+   *                <p>You cannot create partial writable dataviews. When you create writeable dataviews you must
+   *                provide the entire database path.</p>
+   *             </li>
+   *             <li>
+   *                <p>You cannot perform updates on a writeable dataview. Hence, <code>autoUpdate</code> must be set
+   *             as <b>False</b> if <code>readWrite</code> is <b>True</b> for a dataview.</p>
+   *             </li>
+   *             <li>
+   *                <p>You must also use a unique volume for creating a writeable dataview. So, if you choose a
+   *                volume that is already in use by another dataview, the dataview creation
+   *                fails.</p>
+   *             </li>
+   *             <li>
+   *                <p>Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot
+   *                update the <code>readWrite</code> parameter later.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  readWrite?: boolean;
 
   /**
    * <p>A description of the dataview.</p>
@@ -1757,17 +1782,7 @@ export interface CreateKxDataviewResponse {
   environmentId?: string;
 
   /**
-   * <p>The number of availability zones you want to assign per cluster. This can be one of the following </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SINGLE</code> – Assigns one availability zone per cluster.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MULTI</code> – Assigns all the availability zones per cluster.</p>
-   *             </li>
-   *          </ul>
+   * <p>The number of availability zones you want to assign per volume. Currently, FinSpace only supports <code>SINGLE</code> for volumes. This places dataview in a single AZ.</p>
    * @public
    */
   azMode?: KxAzMode;
@@ -1804,6 +1819,12 @@ export interface CreateKxDataviewResponse {
    * @public
    */
   autoUpdate?: boolean;
+
+  /**
+   * <p>Returns True if the dataview is created as writeable and False otherwise. </p>
+   * @public
+   */
+  readWrite?: boolean;
 
   /**
    * <p>
@@ -1972,9 +1993,34 @@ export interface CreateKxScalingGroupRequest {
 
   /**
    * <p>
-   *    The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
-   *
-   * </p>
+   *    The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.</p>
+   *          <p>You can add one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>kx.sg.4xlarge</code> – The host type with a configuration of 108 GiB memory and 16 vCPUs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>kx.sg.8xlarge</code> – The host type with a configuration of 216 GiB memory and 32 vCPUs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>kx.sg.16xlarge</code> – The host type with a configuration of 432 GiB memory and 64 vCPUs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>kx.sg.32xlarge</code> – The host type with a configuration of 864 GiB memory and 128 vCPUs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>kx.sg1.16xlarge</code> – The host type with a configuration of 1949 GiB memory and 64 vCPUs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>kx.sg1.24xlarge</code> – The host type with a configuration of 2948 GiB memory and 96 vCPUs.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   hostType: string | undefined;
@@ -2254,7 +2300,7 @@ export interface CreateKxVolumeRequest {
   nas1Configuration?: KxNAS1Configuration;
 
   /**
-   * <p>The number of availability zones you want to assign per cluster. Currently, FinSpace only support <code>SINGLE</code> for volumes.</p>
+   * <p>The number of availability zones you want to assign per volume. Currently, FinSpace only supports <code>SINGLE</code> for volumes. This places dataview in a single AZ.</p>
    * @public
    */
   azMode: KxAzMode | undefined;
@@ -2375,7 +2421,7 @@ export interface CreateKxVolumeResponse {
   statusReason?: string;
 
   /**
-   * <p>The number of availability zones you want to assign per cluster. Currently, FinSpace only support <code>SINGLE</code> for volumes.</p>
+   * <p>The number of availability zones you want to assign per volume. Currently, FinSpace only supports <code>SINGLE</code> for volumes. This places dataview in a single AZ.</p>
    * @public
    */
   azMode?: KxAzMode;
@@ -3244,17 +3290,7 @@ export interface GetKxDataviewResponse {
   dataviewName?: string;
 
   /**
-   * <p>The number of availability zones you want to assign per cluster. This can be one of the following </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SINGLE</code> – Assigns one availability zone per cluster.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MULTI</code> – Assigns all the availability zones per cluster.</p>
-   *             </li>
-   *          </ul>
+   * <p>The number of availability zones you want to assign per volume. Currently, FinSpace only supports <code>SINGLE</code> for volumes. This places dataview in a single AZ.</p>
    * @public
    */
   azMode?: KxAzMode;
@@ -3301,6 +3337,12 @@ export interface GetKxDataviewResponse {
    * @public
    */
   autoUpdate?: boolean;
+
+  /**
+   * <p>Returns True if the dataview is created as writeable and False otherwise. </p>
+   * @public
+   */
+  readWrite?: boolean;
 
   /**
    * <p>A unique identifier for the kdb environment, from where you want to retrieve the dataview details.</p>
@@ -3705,9 +3747,34 @@ export interface GetKxScalingGroupResponse {
 
   /**
    * <p>
-   *    The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
-   *
-   * </p>
+   *       The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.</p>
+   *          <p>It can have one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>kx.sg.4xlarge</code> – The host type with a configuration of 108 GiB memory and 16 vCPUs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>kx.sg.8xlarge</code> – The host type with a configuration of 216 GiB memory and 32 vCPUs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>kx.sg.16xlarge</code> – The host type with a configuration of 432 GiB memory and 64 vCPUs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>kx.sg.32xlarge</code> – The host type with a configuration of 864 GiB memory and 128 vCPUs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>kx.sg1.16xlarge</code> – The host type with a configuration of 1949 GiB memory and 64 vCPUs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>kx.sg1.24xlarge</code> – The host type with a configuration of 2948 GiB memory and 96 vCPUs.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   hostType?: string;
@@ -3995,7 +4062,7 @@ export interface GetKxVolumeResponse {
   description?: string;
 
   /**
-   * <p>The number of availability zones you want to assign per cluster. Currently, FinSpace only support <code>SINGLE</code> for volumes.</p>
+   * <p>The number of availability zones you want to assign per volume. Currently, FinSpace only supports <code>SINGLE</code> for volumes. This places dataview in a single AZ.</p>
    * @public
    */
   azMode?: KxAzMode;
@@ -4561,17 +4628,7 @@ export interface KxDataviewListEntry {
   dataviewName?: string;
 
   /**
-   * <p>The number of availability zones you want to assign per cluster. This can be one of the following </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SINGLE</code> – Assigns one availability zone per cluster.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MULTI</code> – Assigns all the availability zones per cluster.</p>
-   *             </li>
-   *          </ul>
+   * <p>The number of availability zones you want to assign per volume. Currently, FinSpace only supports <code>SINGLE</code> for volumes. This places dataview in a single AZ.</p>
    * @public
    */
   azMode?: KxAzMode;
@@ -4629,6 +4686,12 @@ export interface KxDataviewListEntry {
    * @public
    */
   autoUpdate?: boolean;
+
+  /**
+   * <p> Returns True if the dataview is created as writeable and False otherwise.  </p>
+   * @public
+   */
+  readWrite?: boolean;
 
   /**
    * <p>
@@ -4881,9 +4944,34 @@ export interface KxScalingGroup {
 
   /**
    * <p>
-   *    The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
-   *
-   * </p>
+   *    The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.</p>
+   *          <p>You can add one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>kx.sg.4xlarge</code> – The host type with a configuration of 108 GiB memory and 16 vCPUs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>kx.sg.8xlarge</code> – The host type with a configuration of 216 GiB memory and 32 vCPUs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>kx.sg.16xlarge</code> – The host type with a configuration of 432 GiB memory and 64 vCPUs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>kx.sg.32xlarge</code> – The host type with a configuration of 864 GiB memory and 128 vCPUs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>kx.sg1.16xlarge</code> – The host type with a configuration of 1949 GiB memory and 64 vCPUs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>kx.sg1.24xlarge</code> – The host type with a configuration of 2948 GiB memory and 96 vCPUs.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   hostType?: string;
@@ -5135,9 +5223,7 @@ export interface KxVolume {
   statusReason?: string;
 
   /**
-   * <p>
-   * The number of availability zones assigned to the volume. Currently, only <code>SINGLE</code> is supported.
-   * </p>
+   * <p>The number of availability zones you want to assign per volume. Currently, FinSpace only supports <code>SINGLE</code> for volumes. This places dataview in a single AZ.</p>
    * @public
    */
   azMode?: KxAzMode;
@@ -5649,17 +5735,7 @@ export interface UpdateKxDataviewResponse {
   dataviewName?: string;
 
   /**
-   * <p>The number of availability zones you want to assign per cluster. This can be one of the following </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SINGLE</code> – Assigns one availability zone per cluster.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MULTI</code> – Assigns all the availability zones per cluster.</p>
-   *             </li>
-   *          </ul>
+   * <p>The number of availability zones you want to assign per volume. Currently, FinSpace only supports <code>SINGLE</code> for volumes. This places dataview in a single AZ.</p>
    * @public
    */
   azMode?: KxAzMode;
@@ -5720,6 +5796,12 @@ export interface UpdateKxDataviewResponse {
    * @public
    */
   autoUpdate?: boolean;
+
+  /**
+   * <p>Returns True if the dataview is created as writeable and False otherwise. </p>
+   * @public
+   */
+  readWrite?: boolean;
 
   /**
    * <p>A description of the dataview.</p>
@@ -6197,7 +6279,7 @@ export interface UpdateKxVolumeResponse {
   createdTimestamp?: Date;
 
   /**
-   * <p>The number of availability zones you want to assign per cluster. Currently, FinSpace only support <code>SINGLE</code> for volumes.</p>
+   * <p>The number of availability zones you want to assign per volume. Currently, FinSpace only supports <code>SINGLE</code> for volumes. This places dataview in a single AZ.</p>
    * @public
    */
   azMode?: KxAzMode;

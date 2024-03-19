@@ -305,6 +305,7 @@ export const se_CreateKxDataviewCommand = async (
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       dataviewName: [],
       description: [],
+      readWrite: [],
       segmentConfigurations: (_) => _json(_),
       tags: (_) => _json(_),
     })
@@ -1395,6 +1396,7 @@ export const de_CreateKxDataviewCommand = async (
     description: __expectString,
     environmentId: __expectString,
     lastModifiedTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    readWrite: __expectBoolean,
     segmentConfigurations: _json,
     status: __expectString,
   });
@@ -1817,6 +1819,7 @@ export const de_GetKxDataviewCommand = async (
     description: __expectString,
     environmentId: __expectString,
     lastModifiedTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    readWrite: __expectBoolean,
     segmentConfigurations: _json,
     status: __expectString,
     statusReason: __expectString,
@@ -2328,6 +2331,7 @@ export const de_UpdateKxDataviewCommand = async (
     description: __expectString,
     environmentId: __expectString,
     lastModifiedTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    readWrite: __expectBoolean,
     segmentConfigurations: _json,
     status: __expectString,
   });
@@ -3002,6 +3006,7 @@ const de_KxDataviewListEntry = (output: any, context: __SerdeContext): KxDatavie
     description: __expectString,
     environmentId: __expectString,
     lastModifiedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    readWrite: __expectBoolean,
     segmentConfigurations: _json,
     status: __expectString,
     statusReason: __expectString,

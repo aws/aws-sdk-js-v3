@@ -68,6 +68,7 @@ export interface CreateKxClusterCommandOutput extends CreateKxClusterResponse, _
  *               "STRING_VALUE",
  *             ],
  *             volumeName: "STRING_VALUE", // required
+ *             onDemand: true || false,
  *           },
  *         ],
  *       },
@@ -177,6 +178,7 @@ export interface CreateKxClusterCommandOutput extends CreateKxClusterResponse, _
  * //               "STRING_VALUE",
  * //             ],
  * //             volumeName: "STRING_VALUE", // required
+ * //             onDemand: true || false,
  * //           },
  * //         ],
  * //       },

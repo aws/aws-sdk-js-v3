@@ -47,6 +47,7 @@ export interface UpdateKxDataviewCommandOutput extends UpdateKxDataviewResponse,
  *         "STRING_VALUE",
  *       ],
  *       volumeName: "STRING_VALUE", // required
+ *       onDemand: true || false,
  *     },
  *   ],
  *   clientToken: "STRING_VALUE", // required
@@ -66,6 +67,7 @@ export interface UpdateKxDataviewCommandOutput extends UpdateKxDataviewResponse,
  * //         "STRING_VALUE",
  * //       ],
  * //       volumeName: "STRING_VALUE", // required
+ * //       onDemand: true || false,
  * //     },
  * //   ],
  * //   activeVersions: [ // KxDataviewActiveVersionList
@@ -77,6 +79,7 @@ export interface UpdateKxDataviewCommandOutput extends UpdateKxDataviewResponse,
  * //             "STRING_VALUE",
  * //           ],
  * //           volumeName: "STRING_VALUE", // required
+ * //           onDemand: true || false,
  * //         },
  * //       ],
  * //       attachedClusters: [ // AttachedClusterList
@@ -88,6 +91,7 @@ export interface UpdateKxDataviewCommandOutput extends UpdateKxDataviewResponse,
  * //   ],
  * //   status: "CREATING" || "ACTIVE" || "UPDATING" || "FAILED" || "DELETING",
  * //   autoUpdate: true || false,
+ * //   readWrite: true || false,
  * //   description: "STRING_VALUE",
  * //   createdTimestamp: new Date("TIMESTAMP"),
  * //   lastModifiedTimestamp: new Date("TIMESTAMP"),
