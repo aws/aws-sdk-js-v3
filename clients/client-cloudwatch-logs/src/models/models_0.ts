@@ -100,6 +100,25 @@ export interface AccountPolicy {
 }
 
 /**
+ * <p>This structure contains the information for one sample log event that is associated
+ *     with an anomaly found by a log anomaly detector.</p>
+ * @public
+ */
+export interface LogEvent {
+  /**
+   * <p>The time stamp of the log event.</p>
+   * @public
+   */
+  timestamp?: number;
+
+  /**
+   * <p>The message content of the log event.</p>
+   * @public
+   */
+  message?: string;
+}
+
+/**
  * <p>A tructures that contains information about one pattern token related to
  *        an anomaly.</p>
  *          <p>For more information about patterns and tokens, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateLogAnomalyDetector.html">CreateLogAnomalyDetector</a>.
@@ -247,7 +266,7 @@ export interface Anomaly {
    * <p>An array of sample log event messages that are considered to be part of this anomaly.</p>
    * @public
    */
-  logSamples: string[] | undefined;
+  logSamples: LogEvent[] | undefined;
 
   /**
    * <p>An array of structures where each structure contains information about one token that makes up the pattern.</p>
@@ -654,7 +673,7 @@ export interface Delivery {
   deliveryDestinationArn?: string;
 
   /**
-   * <p>Displays whether the delivery destination associated with this delivery is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.</p>
+   * <p>Displays whether the delivery destination associated with this delivery is CloudWatch Logs, Amazon S3, or Firehose.</p>
    * @public
    */
   deliveryDestinationType?: DeliveryDestinationType;
@@ -1262,7 +1281,7 @@ export interface DeleteSubscriptionFilterRequest {
 export interface DeliveryDestinationConfiguration {
   /**
    * <p>The ARN of the Amazon Web Services destination that this delivery destination represents. That Amazon Web Services destination
-   *        can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Kinesis Data Firehose.</p>
+   *        can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Firehose.</p>
    * @public
    */
   destinationResourceArn: string | undefined;
@@ -1288,7 +1307,7 @@ export type OutputFormat = (typeof OutputFormat)[keyof typeof OutputFormat];
 /**
  * <p>This structure contains information about one <i>delivery destination</i> in your account.
  *      A delivery destination is an Amazon Web Services resource that represents an
- *      Amazon Web Services service that logs can be sent to. CloudWatch Logs, Amazon S3, are supported as Kinesis Data Firehose delivery destinations.</p>
+ *      Amazon Web Services service that logs can be sent to. CloudWatch Logs, Amazon S3, are supported as Firehose delivery destinations.</p>
  *          <p>To configure logs delivery between a supported Amazon Web Services service and a destination, you must do the following:</p>
  *          <ul>
  *             <li>
@@ -1330,7 +1349,7 @@ export interface DeliveryDestination {
   arn?: string;
 
   /**
-   * <p>Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.</p>
+   * <p>Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Firehose.</p>
    * @public
    */
   deliveryDestinationType?: DeliveryDestinationType;
@@ -1357,7 +1376,7 @@ export interface DeliveryDestination {
 /**
  * <p>This structure contains information about one <i>delivery source</i> in your account.
  *        A delivery source is an Amazon Web Services resource that sends logs to an
- *        Amazon Web Services destination. The destination can be CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.</p>
+ *        Amazon Web Services destination. The destination can be CloudWatch Logs, Amazon S3, or Firehose.</p>
  *          <p>Only some Amazon Web Services services support being configured as a delivery source. These services are listed
  *        as <b>Supported [V2 Permissions]</b> in the table at
  *        <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html">Enabling
@@ -3928,7 +3947,7 @@ export interface PutAccountPolicyRequest {
    *           sensitive data terms. This <code>Audit</code> action must contain a <code>FindingsDestination</code>
    *           object. You can optionally use that <code>FindingsDestination</code> object to list one or more
    *           destinations to send audit findings to. If you specify destinations such as log groups,
-   *           Kinesis Data Firehose streams, and S3 buckets, they must already exist.</p>
+   *           Firehose streams, and S3 buckets, they must already exist.</p>
    *             </li>
    *             <li>
    *                <p>The second block must include both a <code>DataIdentifer</code> array and an
@@ -3965,14 +3984,14 @@ export interface PutAccountPolicyRequest {
    *                      <p>An Kinesis Data Streams data stream in the same account as the subscription policy, for same-account delivery.</p>
    *                   </li>
    *                   <li>
-   *                      <p>An Kinesis Data Firehose data stream in the same account as the subscription policy, for same-account delivery.</p>
+   *                      <p>An Firehose data stream in the same account as the subscription policy, for same-account delivery.</p>
    *                   </li>
    *                   <li>
    *                      <p>A Lambda function in the same account as the subscription policy, for same-account delivery.</p>
    *                   </li>
    *                   <li>
    *                      <p>A logical destination in a different account created with <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestination.html">PutDestination</a>, for cross-account
-   *             delivery. Kinesis Data Streams and Kinesis Data Firehose are supported as logical destinations.</p>
+   *             delivery. Kinesis Data Streams and Firehose are supported as logical destinations.</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -4060,7 +4079,7 @@ export interface PutDataProtectionPolicyRequest {
    *           sensitive data terms. This <code>Audit</code> action must contain a <code>FindingsDestination</code>
    *           object. You can optionally use that <code>FindingsDestination</code> object to list one or more
    *           destinations to send audit findings to. If you specify destinations such as log groups,
-   *           Kinesis Data Firehose streams, and S3 buckets, they must already exist.</p>
+   *           Firehose streams, and S3 buckets, they must already exist.</p>
    *             </li>
    *             <li>
    *                <p>The second block must include both a <code>DataIdentifer</code> array and an
@@ -4200,8 +4219,21 @@ export interface PutDeliverySourceRequest {
   resourceArn: string | undefined;
 
   /**
-   * <p>Defines the type of log that the source is sending. For Amazon CodeWhisperer, the valid value is
+   * <p>Defines the type of log that the source is sending.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For Amazon CodeWhisperer, the valid value is
    *         <code>EVENT_LOGS</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For IAM Identity Centerr, the valid value is
+   *          <code>ERROR_LOGS</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Amazon WorkMail, the valid values are
+   *          <code>ACCESS_CONTROL_LOGS</code>, <code>AUTHENTICATION_LOGS</code>, <code>WORKMAIL_AVAILABILITY_PROVIDER_LOGS</code>, and <code>WORKMAIL_MAILBOX_ACCESS_LOGS</code>.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   logType: string | undefined;
@@ -4347,13 +4379,13 @@ export interface PutLogEventsRequest {
  */
 export interface RejectedLogEventsInfo {
   /**
-   * <p>The log events that are too new.</p>
+   * <p>The index of the first log event that is too new. This field is inclusive.</p>
    * @public
    */
   tooNewLogEventStartIndex?: number;
 
   /**
-   * <p>The log events that are dated too far in the past.</p>
+   * <p>The index of the last log event that is too old. This field is exclusive.</p>
    * @public
    */
   tooOldLogEventEndIndex?: number;

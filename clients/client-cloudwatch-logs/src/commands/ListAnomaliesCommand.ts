@@ -61,7 +61,10 @@ export interface ListAnomaliesCommandOutput extends ListAnomaliesResponse, __Met
  * //         "<keys>": Number("long"),
  * //       },
  * //       logSamples: [ // LogSamples // required
- * //         "STRING_VALUE",
+ * //         { // LogEvent
+ * //           timestamp: Number("long"),
+ * //           message: "STRING_VALUE",
+ * //         },
  * //       ],
  * //       patternTokens: [ // PatternTokens // required
  * //         { // PatternToken
