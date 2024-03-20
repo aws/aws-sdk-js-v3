@@ -1207,7 +1207,7 @@ export interface Capacity {
  */
 export interface ConsumedCapacity {
   /**
-   * <p>The name of the table that was affected by the operation.</p>
+   * <p>The name of the table that was affected by the operation. If you had specified the Amazon Resource Name (ARN) of a table in the input, you'll see the table ARN in the response.</p>
    * @public
    */
   TableName?: string;
@@ -1664,7 +1664,7 @@ export interface ContributorInsightsSummary {
  */
 export interface CreateBackupInput {
   /**
-   * <p>The name of the table.</p>
+   * <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -2372,7 +2372,7 @@ export interface CreateTableInput {
   AttributeDefinitions: AttributeDefinition[] | undefined;
 
   /**
-   * <p>The name of the table to create.</p>
+   * <p>The name of the table to create. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -2652,6 +2652,14 @@ export interface CreateTableInput {
    * @public
    */
   DeletionProtectionEnabled?: boolean;
+
+  /**
+   * <p>An Amazon Web Services resource-based policy document in JSON format that will be attached to the table.</p>
+   *          <p>When you attach a resource-based policy while creating a table, the policy creation is <i>strongly consistent</i>.</p>
+   *          <p>The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. You can’t request an increase for this limit. For a full list of all considerations that you should keep in mind while attaching a resource-based policy, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html">Resource-based policy considerations</a>.</p>
+   * @public
+   */
+  ResourcePolicy?: string;
 }
 
 /**
@@ -3535,12 +3543,62 @@ export interface DeleteReplicationGroupMemberAction {
 }
 
 /**
+ * @public
+ */
+export interface DeleteResourcePolicyInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the DynamoDB resource from which the policy will be removed. The resources you can specify include tables and streams. If you remove the policy of a table, it will also remove the permissions for the table's indexes defined in that policy document. This is because index permissions are defined in the table's policy.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>A string value that you can use to conditionally delete your policy. When you provide an expected revision ID, if the revision ID of the existing policy on the resource doesn't match or if there's no policy attached to the resource, the request will fail and return a <code>PolicyNotFoundException</code>.</p>
+   * @public
+   */
+  ExpectedRevisionId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteResourcePolicyOutput {
+  /**
+   * <p>A unique string that represents the revision ID of the policy. If you are comparing revision IDs, make sure to always use string comparison logic.</p>
+   *          <p>This value will be empty if you make a request against a resource without a policy.</p>
+   * @public
+   */
+  RevisionId?: string;
+}
+
+/**
+ * <p>The operation tried to access a nonexistent resource-based policy.</p>
+ *          <p>If you specified an <code>ExpectedRevisionId</code>, it's possible that a policy is present for the resource but its revision ID didn't match the expected value.</p>
+ * @public
+ */
+export class PolicyNotFoundException extends __BaseException {
+  readonly name: "PolicyNotFoundException" = "PolicyNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PolicyNotFoundException, __BaseException>) {
+    super({
+      name: "PolicyNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PolicyNotFoundException.prototype);
+  }
+}
+
+/**
  * <p>Represents the input of a <code>DeleteTable</code> operation.</p>
  * @public
  */
 export interface DeleteTableInput {
   /**
-   * <p>The name of the table to delete.</p>
+   * <p>The name of the table to delete. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -3587,6 +3645,7 @@ export interface DescribeContinuousBackupsInput {
   /**
    * <p>Name of the table for which the customer wants to check the continuous backups and
    *             point in time recovery settings.</p>
+   *          <p>You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -3609,7 +3668,7 @@ export interface DescribeContinuousBackupsOutput {
  */
 export interface DescribeContributorInsightsInput {
   /**
-   * <p>The name of the table to describe.</p>
+   * <p>The name of the table to describe. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -4566,7 +4625,7 @@ export class ImportNotFoundException extends __BaseException {
  */
 export interface DescribeKinesisStreamingDestinationInput {
   /**
-   * <p>The name of the table being described.</p>
+   * <p>The name of the table being described. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -4686,7 +4745,7 @@ export interface DescribeLimitsOutput {
  */
 export interface DescribeTableInput {
   /**
-   * <p>The name of the table to describe.</p>
+   * <p>The name of the table to describe. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -4709,7 +4768,7 @@ export interface DescribeTableOutput {
  */
 export interface DescribeTableReplicaAutoScalingInput {
   /**
-   * <p>The name of the table.</p>
+   * <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -4882,7 +4941,7 @@ export interface DescribeTableReplicaAutoScalingOutput {
  */
 export interface DescribeTimeToLiveInput {
   /**
-   * <p>The name of the table to be described.</p>
+   * <p>The name of the table to be described. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -4916,7 +4975,7 @@ export interface EnableKinesisStreamingConfiguration {
  */
 export interface KinesisStreamingDestinationInput {
   /**
-   * <p>The name of the DynamoDB table.</p>
+   * <p>The name of the DynamoDB table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -5266,6 +5325,34 @@ export class PointInTimeRecoveryUnavailableException extends __BaseException {
 }
 
 /**
+ * @public
+ */
+export interface GetResourcePolicyInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy is attached. The resources you can specify include tables and streams.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcePolicyOutput {
+  /**
+   * <p>The resource-based policy document attached to the resource, which can be a table or stream, in JSON format.</p>
+   * @public
+   */
+  Policy?: string;
+
+  /**
+   * <p>A unique string that represents the revision ID of the policy. If you are comparing revision IDs, make sure to always use string comparison logic.</p>
+   * @public
+   */
+  RevisionId?: string;
+}
+
+/**
  * <p>
  *             There was a conflict when importing from the specified S3 source.
  *             This can occur when the current import conflicts with a previous import request
@@ -5358,7 +5445,7 @@ export interface ImportTableOutput {
  */
 export interface ListBackupsInput {
   /**
-   * <p>The backups from the table specified by <code>TableName</code> are listed. </p>
+   * <p>Lists the backups from the table specified in <code>TableName</code>. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName?: string;
@@ -5447,7 +5534,7 @@ export interface ListBackupsOutput {
  */
 export interface ListContributorInsightsInput {
   /**
-   * <p>The name of the table.</p>
+   * <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName?: string;
@@ -5806,6 +5893,49 @@ export interface ListTagsOfResourceOutput {
 
 /**
  * @public
+ */
+export interface PutResourcePolicyInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy will be attached. The resources you can specify include tables and streams.</p>
+   *          <p>You can control index permissions using the base table's policy. To specify the same permission level for your table and its indexes, you can provide both the table and index Amazon Resource Name (ARN)s in the <code>Resource</code> field of a given <code>Statement</code> in your policy document. Alternatively, to specify different permissions for your table, indexes, or both, you can define multiple <code>Statement</code> fields in your policy document.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>An Amazon Web Services resource-based policy document in JSON format.</p>
+   *          <p>The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. For a full list of all considerations that you should keep in mind while attaching a resource-based policy, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html">Resource-based policy considerations</a>.</p>
+   * @public
+   */
+  Policy: string | undefined;
+
+  /**
+   * <p>A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy. When you provide an expected revision ID, if the revision ID of the existing policy on the resource doesn't match or if there's no policy attached to the resource, your request will be rejected with a <code>PolicyNotFoundException</code>.</p>
+   *          <p>To conditionally put a policy when no policy exists for the resource, specify <code>NO_POLICY</code> for the revision ID.</p>
+   * @public
+   */
+  ExpectedRevisionId?: string;
+
+  /**
+   * <p>Set this parameter to <code>true</code> to confirm that you want to remove your permissions to change the policy of this resource in the future.</p>
+   * @public
+   */
+  ConfirmRemoveSelfResourceAccess?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface PutResourcePolicyOutput {
+  /**
+   * <p>A unique string that represents the revision ID of the policy. If you are comparing revision IDs, make sure to always use string comparison logic.</p>
+   * @public
+   */
+  RevisionId?: string;
+}
+
+/**
+ * @public
  * @enum
  */
 export const Select = {
@@ -6060,7 +6190,7 @@ export interface PointInTimeRecoverySpecification {
  */
 export interface UpdateContinuousBackupsInput {
   /**
-   * <p>The name of the table.</p>
+   * <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -6089,7 +6219,7 @@ export interface UpdateContinuousBackupsOutput {
  */
 export interface UpdateContributorInsightsInput {
   /**
-   * <p>The name of the table.</p>
+   * <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -6439,13 +6569,13 @@ export interface UpdateKinesisStreamingConfiguration {
  */
 export interface UpdateKinesisStreamingDestinationInput {
   /**
-   * <p>The table name for the Kinesis streaming destination input.</p>
+   * <p>The table name for the Kinesis streaming destination input. You can also provide the ARN of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
 
   /**
-   * <p>The ARN for the Kinesis stream input.</p>
+   * <p>The Amazon Resource Name (ARN) for the Kinesis stream input.</p>
    * @public
    */
   StreamArn: string | undefined;
@@ -6675,7 +6805,7 @@ export interface UpdateTableInput {
   AttributeDefinitions?: AttributeDefinition[];
 
   /**
-   * <p>The name of the table to be updated.</p>
+   * <p>The name of the table to be updated. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -6868,7 +6998,7 @@ export interface UpdateTableReplicaAutoScalingInput {
   GlobalSecondaryIndexUpdates?: GlobalSecondaryIndexAutoScalingUpdate[];
 
   /**
-   * <p>The name of the global table to be updated.</p>
+   * <p>The name of the global table to be updated. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -6925,7 +7055,7 @@ export interface TimeToLiveSpecification {
  */
 export interface UpdateTimeToLiveInput {
   /**
-   * <p>The name of the table to be configured.</p>
+   * <p>The name of the table to be configured. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -7813,7 +7943,7 @@ export interface Get {
   Key: Record<string, AttributeValue> | undefined;
 
   /**
-   * <p>The name of the table from which to retrieve the specified item.</p>
+   * <p>The name of the table from which to retrieve the specified item. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -7841,7 +7971,7 @@ export interface Get {
  */
 export interface GetItemInput {
   /**
-   * <p>The name of the table containing the requested item.</p>
+   * <p>The name of the table containing the requested item. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -8579,8 +8709,8 @@ export class TransactionCanceledException extends __BaseException {
  */
 export interface BatchGetItemInput {
   /**
-   * <p>A map of one or more table names and, for each table, a map that describes one or more
-   *             items to retrieve from that table. Each table name can be used only once per
+   * <p>A map of one or more table names or table ARNs and, for each table, a map that describes one or more
+   *             items to retrieve from that table. Each table name or ARN can be used only once per
    *                 <code>BatchGetItem</code> request.</p>
    *          <p>Each element in the map of items to retrieve consists of the following:</p>
    *          <ul>
@@ -9054,7 +9184,7 @@ export interface ConditionCheck {
   Key: Record<string, AttributeValue> | undefined;
 
   /**
-   * <p>Name of the table for the check item request.</p>
+   * <p>Name of the table for the check item request. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -9104,7 +9234,7 @@ export interface Delete {
   Key: Record<string, AttributeValue> | undefined;
 
   /**
-   * <p>Name of the table in which the item to be deleted resides.</p>
+   * <p>Name of the table in which the item to be deleted resides. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -9154,7 +9284,7 @@ export interface Put {
   Item: Record<string, AttributeValue> | undefined;
 
   /**
-   * <p>Name of the table in which to write the item.</p>
+   * <p>Name of the table in which to write the item. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -9208,7 +9338,7 @@ export interface Update {
   UpdateExpression: string | undefined;
 
   /**
-   * <p>Name of the table for the <code>UpdateItem</code> request.</p>
+   * <p>Name of the table for the <code>UpdateItem</code> request. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -9641,8 +9771,8 @@ export interface BatchExecuteStatementOutput {
  */
 export interface BatchGetItemOutput {
   /**
-   * <p>A map of table name to a list of items. Each object in <code>Responses</code> consists
-   *             of a table name, along with a map of attribute data consisting of the data type and
+   * <p>A map of table name or table ARN to a list of items. Each object in <code>Responses</code> consists
+   *             of a table name or ARN, along with a map of attribute data consisting of the data type and
    *             attribute value.</p>
    * @public
    */
@@ -9706,8 +9836,9 @@ export interface BatchGetItemOutput {
  */
 export interface ScanInput {
   /**
-   * <p>The name of the table containing the requested items; or, if you provide
-   *                 <code>IndexName</code>, the name of the table to which that index belongs.</p>
+   * <p>The name of the table containing the requested items or if you provide
+   *             <code>IndexName</code>, the name of the table to which that index belongs.</p>
+   *          <p>You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -10030,7 +10161,7 @@ export interface ScanInput {
  */
 export interface BatchWriteItemInput {
   /**
-   * <p>A map of one or more table names and, for each table, a list of operations to be
+   * <p>A map of one or more table names or table ARNs and, for each table, a list of operations to be
    *             performed (<code>DeleteRequest</code> or <code>PutRequest</code>). Each element in the
    *             map consists of the following:</p>
    *          <ul>
@@ -10123,7 +10254,7 @@ export interface BatchWriteItemInput {
  */
 export interface DeleteItemInput {
   /**
-   * <p>The name of the table from which to delete the item.</p>
+   * <p>The name of the table from which to delete the item. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -10346,7 +10477,7 @@ export interface DeleteItemInput {
  */
 export interface PutItemInput {
   /**
-   * <p>The name of the table to contain the item.</p>
+   * <p>The name of the table to contain the item. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -10583,7 +10714,7 @@ export interface PutItemInput {
  */
 export interface QueryInput {
   /**
-   * <p>The name of the table containing the requested items.</p>
+   * <p>The name of the table containing the requested items. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -11006,7 +11137,7 @@ export interface BatchWriteItemOutput {
    *             <code>RequestItems</code>, so you can provide this value directly to a subsequent
    *                 <code>BatchWriteItem</code> operation. For more information, see
    *                 <code>RequestItems</code> in the Request Parameters section.</p>
-   *          <p>Each <code>UnprocessedItems</code> entry consists of a table name and, for that table,
+   *          <p>Each <code>UnprocessedItems</code> entry consists of a table name or table ARN and, for that table,
    *             a list of operations to perform (<code>DeleteRequest</code> or
    *             <code>PutRequest</code>).</p>
    *          <ul>
@@ -11104,7 +11235,7 @@ export interface BatchWriteItemOutput {
  */
 export interface UpdateItemInput {
   /**
-   * <p>The name of the table containing the item to update.</p>
+   * <p>The name of the table containing the item to update. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;

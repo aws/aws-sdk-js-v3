@@ -69,6 +69,10 @@ import { CreateGlobalTableCommandInput, CreateGlobalTableCommandOutput } from ".
 import { CreateTableCommandInput, CreateTableCommandOutput } from "./commands/CreateTableCommand";
 import { DeleteBackupCommandInput, DeleteBackupCommandOutput } from "./commands/DeleteBackupCommand";
 import { DeleteItemCommandInput, DeleteItemCommandOutput } from "./commands/DeleteItemCommand";
+import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
 import { DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand";
 import { DescribeBackupCommandInput, DescribeBackupCommandOutput } from "./commands/DescribeBackupCommand";
 import {
@@ -120,6 +124,7 @@ import {
   ExportTableToPointInTimeCommandOutput,
 } from "./commands/ExportTableToPointInTimeCommand";
 import { GetItemCommandInput, GetItemCommandOutput } from "./commands/GetItemCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
 import { ImportTableCommandInput, ImportTableCommandOutput } from "./commands/ImportTableCommand";
 import { ListBackupsCommandInput, ListBackupsCommandOutput } from "./commands/ListBackupsCommand";
 import {
@@ -132,6 +137,7 @@ import { ListImportsCommandInput, ListImportsCommandOutput } from "./commands/Li
 import { ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand";
 import { ListTagsOfResourceCommandInput, ListTagsOfResourceCommandOutput } from "./commands/ListTagsOfResourceCommand";
 import { PutItemCommandInput, PutItemCommandOutput } from "./commands/PutItemCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
 import { QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
 import {
   RestoreTableFromBackupCommandInput,
@@ -193,6 +199,7 @@ export type ServiceInputTypes =
   | CreateTableCommandInput
   | DeleteBackupCommandInput
   | DeleteItemCommandInput
+  | DeleteResourcePolicyCommandInput
   | DeleteTableCommandInput
   | DescribeBackupCommandInput
   | DescribeContinuousBackupsCommandInput
@@ -213,6 +220,7 @@ export type ServiceInputTypes =
   | ExecuteTransactionCommandInput
   | ExportTableToPointInTimeCommandInput
   | GetItemCommandInput
+  | GetResourcePolicyCommandInput
   | ImportTableCommandInput
   | ListBackupsCommandInput
   | ListContributorInsightsCommandInput
@@ -222,6 +230,7 @@ export type ServiceInputTypes =
   | ListTablesCommandInput
   | ListTagsOfResourceCommandInput
   | PutItemCommandInput
+  | PutResourcePolicyCommandInput
   | QueryCommandInput
   | RestoreTableFromBackupCommandInput
   | RestoreTableToPointInTimeCommandInput
@@ -252,6 +261,7 @@ export type ServiceOutputTypes =
   | CreateTableCommandOutput
   | DeleteBackupCommandOutput
   | DeleteItemCommandOutput
+  | DeleteResourcePolicyCommandOutput
   | DeleteTableCommandOutput
   | DescribeBackupCommandOutput
   | DescribeContinuousBackupsCommandOutput
@@ -272,6 +282,7 @@ export type ServiceOutputTypes =
   | ExecuteTransactionCommandOutput
   | ExportTableToPointInTimeCommandOutput
   | GetItemCommandOutput
+  | GetResourcePolicyCommandOutput
   | ImportTableCommandOutput
   | ListBackupsCommandOutput
   | ListContributorInsightsCommandOutput
@@ -281,6 +292,7 @@ export type ServiceOutputTypes =
   | ListTablesCommandOutput
   | ListTagsOfResourceCommandOutput
   | PutItemCommandOutput
+  | PutResourcePolicyCommandOutput
   | QueryCommandOutput
   | RestoreTableFromBackupCommandOutput
   | RestoreTableToPointInTimeCommandOutput

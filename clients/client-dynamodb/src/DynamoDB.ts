@@ -34,6 +34,11 @@ import {
   DeleteBackupCommandOutput,
 } from "./commands/DeleteBackupCommand";
 import { DeleteItemCommand, DeleteItemCommandInput, DeleteItemCommandOutput } from "./commands/DeleteItemCommand";
+import {
+  DeleteResourcePolicyCommand,
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
 import { DeleteTableCommand, DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand";
 import {
   DescribeBackupCommand,
@@ -126,6 +131,11 @@ import {
   ExportTableToPointInTimeCommandOutput,
 } from "./commands/ExportTableToPointInTimeCommand";
 import { GetItemCommand, GetItemCommandInput, GetItemCommandOutput } from "./commands/GetItemCommand";
+import {
+  GetResourcePolicyCommand,
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
 import { ImportTableCommand, ImportTableCommandInput, ImportTableCommandOutput } from "./commands/ImportTableCommand";
 import { ListBackupsCommand, ListBackupsCommandInput, ListBackupsCommandOutput } from "./commands/ListBackupsCommand";
 import {
@@ -147,6 +157,11 @@ import {
   ListTagsOfResourceCommandOutput,
 } from "./commands/ListTagsOfResourceCommand";
 import { PutItemCommand, PutItemCommandInput, PutItemCommandOutput } from "./commands/PutItemCommand";
+import {
+  PutResourcePolicyCommand,
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
 import { QueryCommand, QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
 import {
   RestoreTableFromBackupCommand,
@@ -223,6 +238,7 @@ const commands = {
   CreateTableCommand,
   DeleteBackupCommand,
   DeleteItemCommand,
+  DeleteResourcePolicyCommand,
   DeleteTableCommand,
   DescribeBackupCommand,
   DescribeContinuousBackupsCommand,
@@ -243,6 +259,7 @@ const commands = {
   ExecuteTransactionCommand,
   ExportTableToPointInTimeCommand,
   GetItemCommand,
+  GetResourcePolicyCommand,
   ImportTableCommand,
   ListBackupsCommand,
   ListContributorInsightsCommand,
@@ -252,6 +269,7 @@ const commands = {
   ListTablesCommand,
   ListTagsOfResourceCommand,
   PutItemCommand,
+  PutResourcePolicyCommand,
   QueryCommand,
   RestoreTableFromBackupCommand,
   RestoreTableToPointInTimeCommand,
@@ -373,6 +391,23 @@ export interface DynamoDB {
     args: DeleteItemCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteItemCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteResourcePolicyCommand}
+   */
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourcePolicyCommandOutput>;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
   ): void;
 
   /**
@@ -688,6 +723,23 @@ export interface DynamoDB {
   ): void;
 
   /**
+   * @see {@link GetResourcePolicyCommand}
+   */
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcePolicyCommandOutput>;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ImportTableCommand}
    */
   importTable(args: ImportTableCommandInput, options?: __HttpHandlerOptions): Promise<ImportTableCommandOutput>;
@@ -808,6 +860,23 @@ export interface DynamoDB {
     args: PutItemCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutItemCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutResourcePolicyCommand}
+   */
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutResourcePolicyCommandOutput>;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): void;
 
   /**

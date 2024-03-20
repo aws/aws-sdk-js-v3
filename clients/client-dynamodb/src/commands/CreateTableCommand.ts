@@ -120,6 +120,7 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  *   ],
  *   TableClass: "STANDARD" || "STANDARD_INFREQUENT_ACCESS",
  *   DeletionProtectionEnabled: true || false,
+ *   ResourcePolicy: "STRING_VALUE",
  * };
  * const command = new CreateTableCommand(input);
  * const response = await client.send(command);

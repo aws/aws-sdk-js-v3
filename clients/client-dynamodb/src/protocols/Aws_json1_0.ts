@@ -41,6 +41,10 @@ import { CreateGlobalTableCommandInput, CreateGlobalTableCommandOutput } from ".
 import { CreateTableCommandInput, CreateTableCommandOutput } from "../commands/CreateTableCommand";
 import { DeleteBackupCommandInput, DeleteBackupCommandOutput } from "../commands/DeleteBackupCommand";
 import { DeleteItemCommandInput, DeleteItemCommandOutput } from "../commands/DeleteItemCommand";
+import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "../commands/DeleteResourcePolicyCommand";
 import { DeleteTableCommandInput, DeleteTableCommandOutput } from "../commands/DeleteTableCommand";
 import { DescribeBackupCommandInput, DescribeBackupCommandOutput } from "../commands/DescribeBackupCommand";
 import {
@@ -88,6 +92,7 @@ import {
   ExportTableToPointInTimeCommandOutput,
 } from "../commands/ExportTableToPointInTimeCommand";
 import { GetItemCommandInput, GetItemCommandOutput } from "../commands/GetItemCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "../commands/GetResourcePolicyCommand";
 import { ImportTableCommandInput, ImportTableCommandOutput } from "../commands/ImportTableCommand";
 import { ListBackupsCommandInput, ListBackupsCommandOutput } from "../commands/ListBackupsCommand";
 import {
@@ -100,6 +105,7 @@ import { ListImportsCommandInput, ListImportsCommandOutput } from "../commands/L
 import { ListTablesCommandInput, ListTablesCommandOutput } from "../commands/ListTablesCommand";
 import { ListTagsOfResourceCommandInput, ListTagsOfResourceCommandOutput } from "../commands/ListTagsOfResourceCommand";
 import { PutItemCommandInput, PutItemCommandOutput } from "../commands/PutItemCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
 import { QueryCommandInput, QueryCommandOutput } from "../commands/QueryCommand";
 import {
   RestoreTableFromBackupCommandInput,
@@ -192,6 +198,7 @@ import {
   DeleteReplicaAction,
   DeleteReplicationGroupMemberAction,
   DeleteRequest,
+  DeleteResourcePolicyInput,
   DeleteTableInput,
   DeleteTableOutput,
   DescribeBackupInput,
@@ -231,6 +238,7 @@ import {
   Get,
   GetItemInput,
   GetItemOutput,
+  GetResourcePolicyInput,
   GlobalSecondaryIndex,
   GlobalSecondaryIndexAutoScalingUpdate,
   GlobalSecondaryIndexDescription,
@@ -274,6 +282,7 @@ import {
   PointInTimeRecoveryDescription,
   PointInTimeRecoverySpecification,
   PointInTimeRecoveryUnavailableException,
+  PolicyNotFoundException,
   Projection,
   ProvisionedThroughput,
   ProvisionedThroughputDescription,
@@ -283,6 +292,7 @@ import {
   PutItemInput,
   PutItemOutput,
   PutRequest,
+  PutResourcePolicyInput,
   QueryInput,
   QueryOutput,
   Replica,
@@ -459,6 +469,19 @@ export const se_DeleteItemCommand = async (
   const headers: __HeaderBag = sharedHeaders("DeleteItem");
   let body: any;
   body = JSON.stringify(se_DeleteItemInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DeleteResourcePolicyCommand
+ */
+export const se_DeleteResourcePolicyCommand = async (
+  input: DeleteResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteResourcePolicy");
+  let body: any;
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -723,6 +746,19 @@ export const se_GetItemCommand = async (
 };
 
 /**
+ * serializeAws_json1_0GetResourcePolicyCommand
+ */
+export const se_GetResourcePolicyCommand = async (
+  input: GetResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetResourcePolicy");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0ImportTableCommand
  */
 export const se_ImportTableCommand = async (
@@ -836,6 +872,19 @@ export const se_PutItemCommand = async (
   const headers: __HeaderBag = sharedHeaders("PutItem");
   let body: any;
   body = JSON.stringify(se_PutItemInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0PutResourcePolicyCommand
+ */
+export const se_PutResourcePolicyCommand = async (
+  input: PutResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("PutResourcePolicy");
+  let body: any;
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1208,6 +1257,26 @@ export const de_DeleteItemCommand = async (
   let contents: any = {};
   contents = de_DeleteItemOutput(data, context);
   const response: DeleteItemCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DeleteResourcePolicyCommand
+ */
+export const de_DeleteResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1615,6 +1684,26 @@ export const de_GetItemCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0GetResourcePolicyCommand
+ */
+export const de_GetResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0ImportTableCommand
  */
 export const de_ImportTableCommand = async (
@@ -1788,6 +1877,26 @@ export const de_PutItemCommand = async (
   let contents: any = {};
   contents = de_PutItemOutput(data, context);
   const response: PutItemCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0PutResourcePolicyCommand
+ */
+export const de_PutResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2180,6 +2289,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "TransactionConflictException":
     case "com.amazonaws.dynamodb#TransactionConflictException":
       throw await de_TransactionConflictExceptionRes(parsedOutput, context);
+    case "PolicyNotFoundException":
+    case "com.amazonaws.dynamodb#PolicyNotFoundException":
+      throw await de_PolicyNotFoundExceptionRes(parsedOutput, context);
     case "ExportNotFoundException":
     case "com.amazonaws.dynamodb#ExportNotFoundException":
       throw await de_ExportNotFoundExceptionRes(parsedOutput, context);
@@ -2549,6 +2661,22 @@ const de_PointInTimeRecoveryUnavailableExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new PointInTimeRecoveryUnavailableException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_0PolicyNotFoundExceptionRes
+ */
+const de_PolicyNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<PolicyNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new PolicyNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -3012,6 +3140,8 @@ const se_DeleteRequest = (input: DeleteRequest, context: __SerdeContext): any =>
   });
 };
 
+// se_DeleteResourcePolicyInput omitted.
+
 // se_DeleteTableInput omitted.
 
 // se_DescribeBackupInput omitted.
@@ -3166,6 +3296,8 @@ const se_GetItemInput = (input: GetItemInput, context: __SerdeContext): any => {
     TableName: [],
   });
 };
+
+// se_GetResourcePolicyInput omitted.
 
 // se_GlobalSecondaryIndex omitted.
 
@@ -3477,6 +3609,8 @@ const se_PutRequest = (input: PutRequest, context: __SerdeContext): any => {
     Item: (_) => se_PutItemInputAttributeMap(_, context),
   });
 };
+
+// se_PutResourcePolicyInput omitted.
 
 /**
  * serializeAws_json1_0QueryInput
@@ -4316,6 +4450,8 @@ const de_DeleteRequest = (output: any, context: __SerdeContext): DeleteRequest =
   }) as any;
 };
 
+// de_DeleteResourcePolicyOutput omitted.
+
 /**
  * deserializeAws_json1_0DeleteTableOutput
  */
@@ -4518,6 +4654,8 @@ const de_GetItemOutput = (output: any, context: __SerdeContext): GetItemOutput =
     Item: (_: any) => de_AttributeMap(_, context),
   }) as any;
 };
+
+// de_GetResourcePolicyOutput omitted.
 
 // de_GlobalSecondaryIndex omitted.
 
@@ -4913,6 +5051,8 @@ const de_PointInTimeRecoveryDescription = (output: any, context: __SerdeContext)
 
 // de_PointInTimeRecoveryUnavailableException omitted.
 
+// de_PolicyNotFoundException omitted.
+
 // de_Projection omitted.
 
 // de_ProvisionedThroughput omitted.
@@ -4969,6 +5109,8 @@ const de_PutRequest = (output: any, context: __SerdeContext): PutRequest => {
     Item: (_: any) => de_PutItemInputAttributeMap(_, context),
   }) as any;
 };
+
+// de_PutResourcePolicyOutput omitted.
 
 /**
  * deserializeAws_json1_0QueryOutput
