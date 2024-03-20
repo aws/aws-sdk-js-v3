@@ -21,7 +21,7 @@
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
   "dependencies": {
-    "@aws-sdk/protocol-http": "*",
+    "@smithy/protocol-http": "^3.3.0",
     "@aws-sdk/types": "*",
     "@smithy/node-config-provider": "^2.3.0",
     "@smithy/node-http-handler": "^2.5.0",
