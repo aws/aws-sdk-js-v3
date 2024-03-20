@@ -106,6 +106,8 @@ import {
   Configuration,
   ConflictException,
   Criterion,
+  DynamodbStreamConfiguration,
+  DynamodbTableConfiguration,
   EbsSnapshotConfiguration,
   EcrRepositoryConfiguration,
   EfsFileSystemConfiguration,
@@ -1778,6 +1780,10 @@ const se_CloudTrailDetails = (input: CloudTrailDetails, context: __SerdeContext)
 
 // se_Criterion omitted.
 
+// se_DynamodbStreamConfiguration omitted.
+
+// se_DynamodbTableConfiguration omitted.
+
 // se_EbsGroupList omitted.
 
 // se_EbsSnapshotConfiguration omitted.
@@ -2047,6 +2053,10 @@ const de_CloudTrailProperties = (output: any, context: __SerdeContext): CloudTra
 // de_ConfigurationsMap omitted.
 
 // de_Criterion omitted.
+
+// de_DynamodbStreamConfiguration omitted.
+
+// de_DynamodbTableConfiguration omitted.
 
 // de_EbsGroupList omitted.
 

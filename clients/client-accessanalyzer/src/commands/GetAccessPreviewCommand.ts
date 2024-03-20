@@ -151,6 +151,12 @@ export interface GetAccessPreviewCommandOutput extends GetAccessPreviewResponse,
  * //         s3ExpressDirectoryBucket: { // S3ExpressDirectoryBucketConfiguration
  * //           bucketPolicy: "STRING_VALUE",
  * //         },
+ * //         dynamodbStream: { // DynamodbStreamConfiguration
+ * //           streamPolicy: "STRING_VALUE",
+ * //         },
+ * //         dynamodbTable: { // DynamodbTableConfiguration
+ * //           tablePolicy: "STRING_VALUE",
+ * //         },
  * //       },
  * //     },
  * //     createdAt: new Date("TIMESTAMP"), // required

@@ -577,7 +577,7 @@ export interface CreateAnalyzerRequest {
 
   /**
    * <p>The type of analyzer to create. Only <code>ACCOUNT</code>, <code>ORGANIZATION</code>,
-   *          <code>ACCOUNT_UNUSED_ACCESS</code>, and <code>ORGANIZATION_UNUSED_ACCESS</code>
+   *             <code>ACCOUNT_UNUSED_ACCESS</code>, and <code>ORGANIZATION_UNUSED_ACCESS</code>
    *          analyzers are supported. You can create only one analyzer per account per Region. You can
    *          create up to 5 analyzers per organization per Region.</p>
    * @public
@@ -1072,6 +1072,64 @@ export interface CheckNoNewAccessResponse {
    * @public
    */
   reasons?: ReasonSummary[];
+}
+
+/**
+ * <p>The proposed access control configuration for a DynamoDB stream. You can propose a
+ *          configuration for a new DynamoDB stream or an existing DynamoDB stream that you own by specifying
+ *          the policy for the DynamoDB stream. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutResourcePolicy.html">PutResourcePolicy</a>.</p>
+ *          <ul>
+ *             <li>
+ *                <p>If the configuration is for an existing DynamoDB stream and you do not specify the
+ *                DynamoDB policy, then the access preview uses the existing DynamoDB policy for the
+ *                stream.</p>
+ *             </li>
+ *             <li>
+ *                <p>If the access preview is for a new resource and you do not specify the policy,
+ *                then the access preview assumes a DynamoDB stream without a policy.</p>
+ *             </li>
+ *             <li>
+ *                <p>To propose deletion of an existing DynamoDB stream policy, you can specify an empty
+ *                string for the DynamoDB policy.</p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface DynamodbStreamConfiguration {
+  /**
+   * <p>The proposed resource policy defining who can access or manage the DynamoDB stream.</p>
+   * @public
+   */
+  streamPolicy?: string;
+}
+
+/**
+ * <p>The proposed access control configuration for a DynamoDB table or index. You can propose a
+ *          configuration for a new DynamoDB table or index or an existing DynamoDB table or index that you
+ *          own by specifying the policy for the DynamoDB table or index. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutResourcePolicy.html">PutResourcePolicy</a>.</p>
+ *          <ul>
+ *             <li>
+ *                <p>If the configuration is for an existing DynamoDB table or index and you do not
+ *                specify the DynamoDB policy, then the access preview uses the existing DynamoDB policy for
+ *                the table or index.</p>
+ *             </li>
+ *             <li>
+ *                <p>If the access preview is for a new resource and you do not specify the policy,
+ *                then the access preview assumes a DynamoDB table without a policy.</p>
+ *             </li>
+ *             <li>
+ *                <p>To propose deletion of an existing DynamoDB table or index policy, you can specify an
+ *                empty string for the DynamoDB policy.</p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface DynamodbTableConfiguration {
+  /**
+   * <p>The proposed resource policy defining who can access or manage the DynamoDB table.</p>
+   * @public
+   */
+  tablePolicy?: string;
 }
 
 /**
@@ -1927,6 +1985,8 @@ export interface SqsQueueConfiguration {
  * @public
  */
 export type Configuration =
+  | Configuration.DynamodbStreamMember
+  | Configuration.DynamodbTableMember
   | Configuration.EbsSnapshotMember
   | Configuration.EcrRepositoryMember
   | Configuration.EfsFileSystemMember
@@ -1962,6 +2022,8 @@ export namespace Configuration {
     snsTopic?: never;
     sqsQueue?: never;
     s3ExpressDirectoryBucket?: never;
+    dynamodbStream?: never;
+    dynamodbTable?: never;
     $unknown?: never;
   }
 
@@ -1982,6 +2044,8 @@ export namespace Configuration {
     snsTopic?: never;
     sqsQueue?: never;
     s3ExpressDirectoryBucket?: never;
+    dynamodbStream?: never;
+    dynamodbTable?: never;
     $unknown?: never;
   }
 
@@ -2002,6 +2066,8 @@ export namespace Configuration {
     snsTopic?: never;
     sqsQueue?: never;
     s3ExpressDirectoryBucket?: never;
+    dynamodbStream?: never;
+    dynamodbTable?: never;
     $unknown?: never;
   }
 
@@ -2022,6 +2088,8 @@ export namespace Configuration {
     snsTopic?: never;
     sqsQueue?: never;
     s3ExpressDirectoryBucket?: never;
+    dynamodbStream?: never;
+    dynamodbTable?: never;
     $unknown?: never;
   }
 
@@ -2042,6 +2110,8 @@ export namespace Configuration {
     snsTopic?: never;
     sqsQueue?: never;
     s3ExpressDirectoryBucket?: never;
+    dynamodbStream?: never;
+    dynamodbTable?: never;
     $unknown?: never;
   }
 
@@ -2062,6 +2132,8 @@ export namespace Configuration {
     snsTopic?: never;
     sqsQueue?: never;
     s3ExpressDirectoryBucket?: never;
+    dynamodbStream?: never;
+    dynamodbTable?: never;
     $unknown?: never;
   }
 
@@ -2082,6 +2154,8 @@ export namespace Configuration {
     snsTopic?: never;
     sqsQueue?: never;
     s3ExpressDirectoryBucket?: never;
+    dynamodbStream?: never;
+    dynamodbTable?: never;
     $unknown?: never;
   }
 
@@ -2102,6 +2176,8 @@ export namespace Configuration {
     snsTopic?: never;
     sqsQueue?: never;
     s3ExpressDirectoryBucket?: never;
+    dynamodbStream?: never;
+    dynamodbTable?: never;
     $unknown?: never;
   }
 
@@ -2122,6 +2198,8 @@ export namespace Configuration {
     snsTopic?: never;
     sqsQueue?: never;
     s3ExpressDirectoryBucket?: never;
+    dynamodbStream?: never;
+    dynamodbTable?: never;
     $unknown?: never;
   }
 
@@ -2142,6 +2220,8 @@ export namespace Configuration {
     snsTopic: SnsTopicConfiguration;
     sqsQueue?: never;
     s3ExpressDirectoryBucket?: never;
+    dynamodbStream?: never;
+    dynamodbTable?: never;
     $unknown?: never;
   }
 
@@ -2162,6 +2242,8 @@ export namespace Configuration {
     snsTopic?: never;
     sqsQueue: SqsQueueConfiguration;
     s3ExpressDirectoryBucket?: never;
+    dynamodbStream?: never;
+    dynamodbTable?: never;
     $unknown?: never;
   }
 
@@ -2182,6 +2264,52 @@ export namespace Configuration {
     snsTopic?: never;
     sqsQueue?: never;
     s3ExpressDirectoryBucket: S3ExpressDirectoryBucketConfiguration;
+    dynamodbStream?: never;
+    dynamodbTable?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The access control configuration is for a DynamoDB stream.</p>
+   * @public
+   */
+  export interface DynamodbStreamMember {
+    ebsSnapshot?: never;
+    ecrRepository?: never;
+    iamRole?: never;
+    efsFileSystem?: never;
+    kmsKey?: never;
+    rdsDbClusterSnapshot?: never;
+    rdsDbSnapshot?: never;
+    secretsManagerSecret?: never;
+    s3Bucket?: never;
+    snsTopic?: never;
+    sqsQueue?: never;
+    s3ExpressDirectoryBucket?: never;
+    dynamodbStream: DynamodbStreamConfiguration;
+    dynamodbTable?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The access control configuration is for a DynamoDB table or index.</p>
+   * @public
+   */
+  export interface DynamodbTableMember {
+    ebsSnapshot?: never;
+    ecrRepository?: never;
+    iamRole?: never;
+    efsFileSystem?: never;
+    kmsKey?: never;
+    rdsDbClusterSnapshot?: never;
+    rdsDbSnapshot?: never;
+    secretsManagerSecret?: never;
+    s3Bucket?: never;
+    snsTopic?: never;
+    sqsQueue?: never;
+    s3ExpressDirectoryBucket?: never;
+    dynamodbStream?: never;
+    dynamodbTable: DynamodbTableConfiguration;
     $unknown?: never;
   }
 
@@ -2201,6 +2329,8 @@ export namespace Configuration {
     snsTopic?: never;
     sqsQueue?: never;
     s3ExpressDirectoryBucket?: never;
+    dynamodbStream?: never;
+    dynamodbTable?: never;
     $unknown: [string, any];
   }
 
@@ -2217,6 +2347,8 @@ export namespace Configuration {
     snsTopic: (value: SnsTopicConfiguration) => T;
     sqsQueue: (value: SqsQueueConfiguration) => T;
     s3ExpressDirectoryBucket: (value: S3ExpressDirectoryBucketConfiguration) => T;
+    dynamodbStream: (value: DynamodbStreamConfiguration) => T;
+    dynamodbTable: (value: DynamodbTableConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -2234,6 +2366,8 @@ export namespace Configuration {
     if (value.sqsQueue !== undefined) return visitor.sqsQueue(value.sqsQueue);
     if (value.s3ExpressDirectoryBucket !== undefined)
       return visitor.s3ExpressDirectoryBucket(value.s3ExpressDirectoryBucket);
+    if (value.dynamodbStream !== undefined) return visitor.dynamodbStream(value.dynamodbStream);
+    if (value.dynamodbTable !== undefined) return visitor.dynamodbTable(value.dynamodbTable);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -2435,6 +2569,8 @@ export interface GetAnalyzedResourceRequest {
  * @public
  */
 export type ResourceType =
+  | "AWS::DynamoDB::Stream"
+  | "AWS::DynamoDB::Table"
   | "AWS::EC2::Snapshot"
   | "AWS::ECR::Repository"
   | "AWS::EFS::FileSystem"
@@ -4399,6 +4535,7 @@ export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];
  * @enum
  */
 export const ValidatePolicyResourceType = {
+  DYNAMODB_TABLE: "AWS::DynamoDB::Table",
   ROLE_TRUST: "AWS::IAM::AssumeRolePolicyDocument",
   S3_ACCESS_POINT: "AWS::S3::AccessPoint",
   S3_BUCKET: "AWS::S3::Bucket",

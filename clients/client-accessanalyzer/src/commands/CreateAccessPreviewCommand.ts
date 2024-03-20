@@ -144,6 +144,12 @@ export interface CreateAccessPreviewCommandOutput extends CreateAccessPreviewRes
  *       s3ExpressDirectoryBucket: { // S3ExpressDirectoryBucketConfiguration
  *         bucketPolicy: "STRING_VALUE",
  *       },
+ *       dynamodbStream: { // DynamodbStreamConfiguration
+ *         streamPolicy: "STRING_VALUE",
+ *       },
+ *       dynamodbTable: { // DynamodbTableConfiguration
+ *         tablePolicy: "STRING_VALUE",
+ *       },
  *     },
  *   },
  *   clientToken: "STRING_VALUE",
