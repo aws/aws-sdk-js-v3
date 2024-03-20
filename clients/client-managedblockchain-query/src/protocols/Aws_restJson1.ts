@@ -159,6 +159,7 @@ export const se_GetTransactionCommand = async (
     take(input, {
       network: [],
       transactionHash: [],
+      transactionId: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -903,6 +904,7 @@ const de_TransactionOutputItem = (output: any, context: __SerdeContext): Transac
     confirmationStatus: __expectString,
     network: __expectString,
     transactionHash: __expectString,
+    transactionId: __expectString,
     transactionTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };

@@ -790,7 +790,17 @@ export interface GetTransactionInput {
    * <p>The hash of a transaction. It is generated when a transaction is created.</p>
    * @public
    */
-  transactionHash: string | undefined;
+  transactionHash?: string;
+
+  /**
+   * <p>The identifier of a Bitcoin transaction. It is generated when a transaction is created.</p>
+   *          <note>
+   *             <p>
+   *                <code>transactionId</code> is only supported on the Bitcoin networks.</p>
+   *          </note>
+   * @public
+   */
+  transactionId?: string;
 
   /**
    * <p>The blockchain network where the transaction occurred.</p>
@@ -1669,6 +1679,12 @@ export interface TransactionOutputItem {
    * @public
    */
   transactionHash: string | undefined;
+
+  /**
+   * <p>The identifier of a Bitcoin transaction. It is generated when a transaction is created.</p>
+   * @public
+   */
+  transactionId?: string;
 
   /**
    * <p>The blockchain network where the transaction occurred.</p>

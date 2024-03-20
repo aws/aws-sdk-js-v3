@@ -65,6 +65,7 @@ export interface ListTransactionsCommandOutput extends ListTransactionsOutput, _
  * //   transactions: [ // TransactionOutputList // required
  * //     { // TransactionOutputItem
  * //       transactionHash: "STRING_VALUE", // required
+ * //       transactionId: "STRING_VALUE",
  * //       network: "STRING_VALUE", // required
  * //       transactionTimestamp: new Date("TIMESTAMP"), // required
  * //       confirmationStatus: "STRING_VALUE",

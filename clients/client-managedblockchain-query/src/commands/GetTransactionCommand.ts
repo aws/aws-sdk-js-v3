@@ -45,7 +45,8 @@ export interface GetTransactionCommandOutput extends GetTransactionOutput, __Met
  * // const { ManagedBlockchainQueryClient, GetTransactionCommand } = require("@aws-sdk/client-managedblockchain-query"); // CommonJS import
  * const client = new ManagedBlockchainQueryClient(config);
  * const input = { // GetTransactionInput
- *   transactionHash: "STRING_VALUE", // required
+ *   transactionHash: "STRING_VALUE",
+ *   transactionId: "STRING_VALUE",
  *   network: "STRING_VALUE", // required
  * };
  * const command = new GetTransactionCommand(input);
