@@ -37,6 +37,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ReturnSavingsPlanCommand,
+  ReturnSavingsPlanCommandInput,
+  ReturnSavingsPlanCommandOutput,
+} from "./commands/ReturnSavingsPlanCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -53,6 +58,7 @@ const commands = {
   DescribeSavingsPlansOfferingRatesCommand,
   DescribeSavingsPlansOfferingsCommand,
   ListTagsForResourceCommand,
+  ReturnSavingsPlanCommand,
   TagResourceCommand,
   UntagResourceCommand,
 };
@@ -181,6 +187,23 @@ export interface Savingsplans {
   ): void;
 
   /**
+   * @see {@link ReturnSavingsPlanCommand}
+   */
+  returnSavingsPlan(
+    args: ReturnSavingsPlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ReturnSavingsPlanCommandOutput>;
+  returnSavingsPlan(
+    args: ReturnSavingsPlanCommandInput,
+    cb: (err: any, data?: ReturnSavingsPlanCommandOutput) => void
+  ): void;
+  returnSavingsPlan(
+    args: ReturnSavingsPlanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ReturnSavingsPlanCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link TagResourceCommand}
    */
   tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -204,10 +227,10 @@ export interface Savingsplans {
 }
 
 /**
- * <p>Savings Plans are a pricing model that offer significant savings on AWS usage (for
- *         example, on Amazon EC2 instances). You commit to a consistent amount of usage, in USD
- *         per hour, for a term of 1 or 3 years, and receive a lower price for that usage. For
- *         more information, see the <a href="https://docs.aws.amazon.com/savingsplans/latest/userguide/">AWS Savings Plans User Guide</a>.</p>
+ * <p>Savings Plans are a pricing model that offer significant savings on Amazon Web Services usage (for example, on Amazon EC2 instances). You commit to a consistent
+ *          amount of usage per hour, in the specified currency, for a term of one or three years, and
+ *          receive a lower price for that usage. For more information, see the <a href="https://docs.aws.amazon.com/savingsplans/latest/userguide/">Amazon Web Services
+ *             Savings Plans User Guide</a>.</p>
  * @public
  */
 export class Savingsplans extends SavingsplansClient implements Savingsplans {}

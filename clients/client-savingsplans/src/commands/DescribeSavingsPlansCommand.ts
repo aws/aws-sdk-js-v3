@@ -44,7 +44,7 @@ export interface DescribeSavingsPlansCommandOutput extends DescribeSavingsPlansR
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   states: [ // SavingsPlanStateList
- *     "payment-pending" || "payment-failed" || "active" || "retired" || "queued" || "queued-deleted",
+ *     "payment-pending" || "payment-failed" || "active" || "retired" || "queued" || "queued-deleted" || "pending-return" || "returned",
  *   ],
  *   filters: [ // SavingsPlanFilterList
  *     { // SavingsPlanFilter
@@ -66,7 +66,7 @@ export interface DescribeSavingsPlansCommandOutput extends DescribeSavingsPlansR
  * //       description: "STRING_VALUE",
  * //       start: "STRING_VALUE",
  * //       end: "STRING_VALUE",
- * //       state: "payment-pending" || "payment-failed" || "active" || "retired" || "queued" || "queued-deleted",
+ * //       state: "payment-pending" || "payment-failed" || "active" || "retired" || "queued" || "queued-deleted" || "pending-return" || "returned",
  * //       region: "STRING_VALUE",
  * //       ec2InstanceFamily: "STRING_VALUE",
  * //       savingsPlanType: "Compute" || "EC2Instance" || "SageMaker",
@@ -82,6 +82,7 @@ export interface DescribeSavingsPlansCommandOutput extends DescribeSavingsPlansR
  * //       tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       returnableUntil: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

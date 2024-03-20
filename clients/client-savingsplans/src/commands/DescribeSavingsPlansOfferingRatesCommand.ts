@@ -35,7 +35,7 @@ export interface DescribeSavingsPlansOfferingRatesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Describes the specified Savings Plans offering rates.</p>
+ * <p>Describes the offering rates for the specified Savings Plans.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

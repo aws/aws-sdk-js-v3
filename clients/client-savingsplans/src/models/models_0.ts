@@ -14,27 +14,31 @@ export interface CreateSavingsPlanRequest {
   savingsPlanOfferingId: string | undefined;
 
   /**
-   * <p>The hourly commitment, in USD. This is a value between 0.001 and 1 million. You cannot specify more
-   *         than five digits after the decimal point.</p>
+   * <p>The hourly commitment, in the same currency of the <code>savingsPlanOfferingId</code>.
+   *          This is a value between 0.001 and 1 million. You cannot specify more than five digits after
+   *          the decimal point.</p>
    * @public
    */
   commitment: string | undefined;
 
   /**
-   * <p>The up-front payment amount. This is a whole number between 50 and 99 percent of the total value of the Savings Plan.
-   *        This parameter is supported only if the payment option is <code>Partial Upfront</code>.</p>
+   * <p>The up-front payment amount. This is a whole number between 50 and 99 percent of the
+   *          total value of the Savings Plan. This parameter is only supported if the
+   *          payment option is <code>Partial Upfront</code>.</p>
    * @public
    */
   upfrontPaymentAmount?: string;
 
   /**
-   * <p>The time at which to purchase the Savings Plan, in UTC format (YYYY-MM-DDTHH:MM:SSZ).</p>
+   * <p>The purchase time of the Savings Plan in UTC format
+   *          (YYYY-MM-DDTHH:MM:SSZ).</p>
    * @public
    */
   purchaseTime?: Date;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *          request.</p>
    * @public
    */
   clientToken?: string;
@@ -174,7 +178,7 @@ export const SavingsPlanRateFilterName = {
 export type SavingsPlanRateFilterName = (typeof SavingsPlanRateFilterName)[keyof typeof SavingsPlanRateFilterName];
 
 /**
- * <p>Information about a filter.</p>
+ * <p>Information about a Savings Plan rate filter.</p>
  * @public
  */
 export interface SavingsPlanRateFilter {
@@ -214,8 +218,8 @@ export interface DescribeSavingsPlanRatesRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to return with a single call. To retrieve additional results, make another
-   *          call with the returned token value.</p>
+   * <p>The maximum number of results to return with a single call. To retrieve additional
+   *          results, make another call with the returned token value.</p>
    * @public
    */
   maxResults?: number;
@@ -269,7 +273,7 @@ export const SavingsPlanRatePropertyKey = {
 export type SavingsPlanRatePropertyKey = (typeof SavingsPlanRatePropertyKey)[keyof typeof SavingsPlanRatePropertyKey];
 
 /**
- * <p>Information about a property.</p>
+ * <p>Information about a Savings Plan rate property.</p>
  * @public
  */
 export interface SavingsPlanRateProperty {
@@ -360,7 +364,8 @@ export interface SavingsPlanRate {
   usageType?: string;
 
   /**
-   * <p>The specific AWS operation for the line item in the billing report.</p>
+   * <p>The specific Amazon Web Services operation for the line item in the billing
+   *          report.</p>
    * @public
    */
   operation?: string;
@@ -383,14 +388,14 @@ export interface DescribeSavingsPlanRatesResponse {
   savingsPlanId?: string;
 
   /**
-   * <p>Information about the Savings Plans rates.</p>
+   * <p>Information about the Savings Plan rates.</p>
    * @public
    */
   searchResults?: SavingsPlanRate[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are no more
-   *          results to return. </p>
+   * <p>The token to use to retrieve the next page of results. This value is null when there are
+   *          no more results to return.</p>
    * @public
    */
   nextToken?: string;
@@ -418,7 +423,7 @@ export const SavingsPlansFilterName = {
 export type SavingsPlansFilterName = (typeof SavingsPlansFilterName)[keyof typeof SavingsPlansFilterName];
 
 /**
- * <p>Information about a filter.</p>
+ * <p>Information about a Savings Plan filter.</p>
  * @public
  */
 export interface SavingsPlanFilter {
@@ -443,9 +448,11 @@ export const SavingsPlanState = {
   ACTIVE: "active",
   PAYMENT_FAILED: "payment-failed",
   PAYMENT_PENDING: "payment-pending",
+  PENDING_RETURN: "pending-return",
   QUEUED: "queued",
   QUEUED_DELETED: "queued-deleted",
   RETIRED: "retired",
+  RETURNED: "returned",
 } as const;
 
 /**
@@ -476,14 +483,14 @@ export interface DescribeSavingsPlansRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to return with a single call. To retrieve additional results, make another
-   *        call with the returned token value.</p>
+   * <p>The maximum number of results to return with a single call. To retrieve additional
+   *          results, make another call with the returned token value.</p>
    * @public
    */
   maxResults?: number;
 
   /**
-   * <p>The states.</p>
+   * <p>The current states of the Savings Plans.</p>
    * @public
    */
   states?: SavingsPlanState[];
@@ -567,13 +574,13 @@ export interface SavingsPlan {
   end?: string;
 
   /**
-   * <p>The state.</p>
+   * <p>The current state.</p>
    * @public
    */
   state?: SavingsPlanState;
 
   /**
-   * <p>The AWS Region.</p>
+   * <p>The Amazon Web Services Region.</p>
    * @public
    */
   region?: string;
@@ -609,7 +616,7 @@ export interface SavingsPlan {
   currency?: CurrencyCode;
 
   /**
-   * <p>The hourly commitment, in USD.</p>
+   * <p>The hourly commitment amount in the specified currency.</p>
    * @public
    */
   commitment?: string;
@@ -637,6 +644,13 @@ export interface SavingsPlan {
    * @public
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>The time until when a return for the Savings Plan can be requested. If the
+   *             Savings Plan is not returnable, the field reflects the Savings Plan start time.</p>
+   * @public
+   */
+  returnableUntil?: string;
 }
 
 /**
@@ -650,8 +664,8 @@ export interface DescribeSavingsPlansResponse {
   savingsPlans?: SavingsPlan[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are no more
-   *        results to return.</p>
+   * <p>The token to use to retrieve the next page of results. This value is null when there are
+   *          no more results to return.</p>
    * @public
    */
   nextToken?: string;
@@ -677,7 +691,7 @@ export type SavingsPlanRateFilterAttribute =
   (typeof SavingsPlanRateFilterAttribute)[keyof typeof SavingsPlanRateFilterAttribute];
 
 /**
- * <p>Information about a filter.</p>
+ * <p>Information about a Savings Plan offering rate filter.</p>
  * @public
  */
 export interface SavingsPlanOfferingRateFilterElement {
@@ -717,7 +731,7 @@ export interface DescribeSavingsPlansOfferingRatesRequest {
   savingsPlanTypes?: SavingsPlanType[];
 
   /**
-   * <p>The AWS products.</p>
+   * <p>The Amazon Web Services products.</p>
    * @public
    */
   products?: SavingsPlanProductType[];
@@ -735,7 +749,8 @@ export interface DescribeSavingsPlansOfferingRatesRequest {
   usageTypes?: string[];
 
   /**
-   * <p>The specific AWS operation for the line item in the billing report.</p>
+   * <p>The specific Amazon Web Services operation for the line item in the billing
+   *          report.</p>
    * @public
    */
   operations?: string[];
@@ -753,15 +768,15 @@ export interface DescribeSavingsPlansOfferingRatesRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to return with a single call. To retrieve additional results, make another
-   *        call with the returned token value.</p>
+   * <p>The maximum number of results to return with a single call. To retrieve additional
+   *          results, make another call with the returned token value.</p>
    * @public
    */
   maxResults?: number;
 }
 
 /**
- * <p>Information about a property.</p>
+ * <p>Information about a Savings Plan offering rate property.</p>
  * @public
  */
 export interface SavingsPlanOfferingRateProperty {
@@ -862,7 +877,8 @@ export interface SavingsPlanOfferingRate {
   usageType?: string;
 
   /**
-   * <p>The specific AWS operation for the line item in the billing report.</p>
+   * <p>The specific Amazon Web Services operation for the line item in the billing
+   *          report.</p>
    * @public
    */
   operation?: string;
@@ -885,8 +901,8 @@ export interface DescribeSavingsPlansOfferingRatesResponse {
   searchResults?: SavingsPlanOfferingRate[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are no more
-   *        results to return.</p>
+   * <p>The token to use to retrieve the next page of results. This value is null when there are
+   *          no more results to return.</p>
    * @public
    */
   nextToken?: string;
@@ -908,7 +924,7 @@ export type SavingsPlanOfferingFilterAttribute =
   (typeof SavingsPlanOfferingFilterAttribute)[keyof typeof SavingsPlanOfferingFilterAttribute];
 
 /**
- * <p>Information about a filter.</p>
+ * <p>Information about a Savings Plan offering filter.</p>
  * @public
  */
 export interface SavingsPlanOfferingFilterElement {
@@ -948,13 +964,13 @@ export interface DescribeSavingsPlansOfferingsRequest {
   productType?: SavingsPlanProductType;
 
   /**
-   * <p>The plan type.</p>
+   * <p>The plan types.</p>
    * @public
    */
   planTypes?: SavingsPlanType[];
 
   /**
-   * <p>The durations, in seconds.</p>
+   * <p>The duration, in seconds.</p>
    * @public
    */
   durations?: number[];
@@ -984,7 +1000,8 @@ export interface DescribeSavingsPlansOfferingsRequest {
   usageTypes?: string[];
 
   /**
-   * <p>The specific AWS operation for the line item in the billing report.</p>
+   * <p>The specific Amazon Web Services operation for the line item in the billing
+   *          report.</p>
    * @public
    */
   operations?: string[];
@@ -1002,8 +1019,8 @@ export interface DescribeSavingsPlansOfferingsRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to return with a single call. To retrieve additional results, make another
-   *        call with the returned token value.</p>
+   * <p>The maximum number of results to return with a single call. To retrieve additional
+   *          results, make another call with the returned token value.</p>
    * @public
    */
   maxResults?: number;
@@ -1025,7 +1042,7 @@ export type SavingsPlanOfferingPropertyKey =
   (typeof SavingsPlanOfferingPropertyKey)[keyof typeof SavingsPlanOfferingPropertyKey];
 
 /**
- * <p>Information about a property.</p>
+ * <p>Information about a Savings Plan offering property.</p>
  * @public
  */
 export interface SavingsPlanOfferingProperty {
@@ -1102,7 +1119,8 @@ export interface SavingsPlanOffering {
   usageType?: string;
 
   /**
-   * <p>The specific AWS operation for the line item in the billing report.</p>
+   * <p>The specific Amazon Web Services operation for the line item in the billing
+   *          report.</p>
    * @public
    */
   operation?: string;
@@ -1125,8 +1143,8 @@ export interface DescribeSavingsPlansOfferingsResponse {
   searchResults?: SavingsPlanOffering[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are no more
-   *        results to return.</p>
+   * <p>The token to use to retrieve the next page of results. This value is null when there are
+   *          no more results to return.</p>
    * @public
    */
   nextToken?: string;
@@ -1152,6 +1170,35 @@ export interface ListTagsForResourceResponse {
    * @public
    */
   tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface ReturnSavingsPlanRequest {
+  /**
+   * <p>The ID of the Savings Plan.</p>
+   * @public
+   */
+  savingsPlanId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *          request.</p>
+   * @public
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ReturnSavingsPlanResponse {
+  /**
+   * <p>The ID of the Savings Plan.</p>
+   * @public
+   */
+  savingsPlanId?: string;
 }
 
 /**
