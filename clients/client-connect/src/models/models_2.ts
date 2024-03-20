@@ -4067,7 +4067,8 @@ export interface UpdateSecurityProfileRequest {
   HierarchyRestrictedResources?: string[];
 
   /**
-   * <p>The identifier of the hierarchy group that a security profile uses to restrict access to resources in Amazon Connect.</p>
+   * <p>The identifier of the hierarchy group that a security profile uses to restrict access to
+   *    resources in Amazon Connect.</p>
    * @public
    */
   AllowedAccessControlHierarchyGroupId?: string;

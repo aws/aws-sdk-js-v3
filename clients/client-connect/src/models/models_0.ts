@@ -1002,7 +1002,9 @@ export const InstanceStorageResourceType = {
   CONTACT_EVALUATIONS: "CONTACT_EVALUATIONS",
   CONTACT_TRACE_RECORDS: "CONTACT_TRACE_RECORDS",
   MEDIA_STREAMS: "MEDIA_STREAMS",
+  REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS: "REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS",
   REAL_TIME_CONTACT_ANALYSIS_SEGMENTS: "REAL_TIME_CONTACT_ANALYSIS_SEGMENTS",
+  REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS: "REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS",
   SCHEDULED_REPORTS: "SCHEDULED_REPORTS",
   SCREEN_RECORDINGS: "SCREEN_RECORDINGS",
 } as const;
@@ -1195,7 +1197,24 @@ export interface AssociateInstanceStorageConfigRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>A valid resource type.</p>
+   * <p>A valid resource type. To <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-contact-analysis-segment-streams.html">enable streaming
+   *     for real-time analysis of contacts</a>, use the following types:</p>
+   *          <ul>
+   *             <li>
+   *                <p>For chat contacts, use <code>REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For voice contacts, use <code>REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>
+   *                <code>REAL_TIME_CONTACT_ANALYSIS_SEGMENTS</code> is deprecated, but it is still
+   *     supported and will apply only to VOICE channel contacts. Use
+   *     <code>REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS</code> for voice contacts moving forward.</p>
+   *             <p>If you have previously associated a stream with <code>REAL_TIME_CONTACT_ANALYSIS_SEGMENTS</code>, no
+   *     action is needed to update the stream to <code>REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS</code>.</p>
+   *          </note>
    * @public
    */
   ResourceType: InstanceStorageResourceType | undefined;
@@ -4396,7 +4415,8 @@ export interface CreateSecurityProfileRequest {
   HierarchyRestrictedResources?: string[];
 
   /**
-   * <p>The identifier of the hierarchy group that a security profile uses to restrict access to resources in Amazon Connect.</p>
+   * <p>The identifier of the hierarchy group that a security profile uses to restrict access to
+   *    resources in Amazon Connect.</p>
    * @public
    */
   AllowedAccessControlHierarchyGroupId?: string;
