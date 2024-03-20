@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.538.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.537.0...v3.538.0) (2024-03-20)
+
+
+### Features
+
+* **client-accessanalyzer:** This release adds support for policy validation and external access findings for DynamoDB tables and streams. IAM Access Analyzer helps you author functional and secure resource-based policies and identify cross-account access. Updated service API, documentation, and paginators. ([1ddab5a](https://github.com/aws/aws-sdk-js-v3/commit/1ddab5acb5a17d8f40c788f3031296eb4f91b8ea))
+* **client-connect:** This release updates the *InstanceStorageConfig APIs to support a new ResourceType: REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS. Use this resource type to enable streaming for real-time analysis of chat contacts and to associate a Kinesis stream where real-time analysis chat segments will be published. ([4a81d90](https://github.com/aws/aws-sdk-js-v3/commit/4a81d90279a959de118c17035b86d6f8291b9f3c))
+* **client-dynamodb:** This release introduces 3 new APIs ('GetResourcePolicy', 'PutResourcePolicy' and 'DeleteResourcePolicy') and modifies the existing 'CreateTable' API for the resource-based policy support. It also modifies several APIs to accept a 'TableArn' for the 'TableName' parameter. ([4ce662f](https://github.com/aws/aws-sdk-js-v3/commit/4ce662f26a06f1ec0dfd8bc0d7efcb8dc29cf357))
+* **client-managedblockchain-query:** AMB Query: update GetTransaction to include transactionId as input ([df1bff4](https://github.com/aws/aws-sdk-js-v3/commit/df1bff4d1cbb4d6f795f3790000501052300a652))
+* **client-savingsplans:** Introducing the Savings Plans Return feature enabling customers to return their Savings Plans within 7 days of purchase. ([9a836b2](https://github.com/aws/aws-sdk-js-v3/commit/9a836b2a228c779cd6976039261539b95532ecb5))
+
+
+
+
+
 # [3.537.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.536.0...v3.537.0) (2024-03-19)
 
 

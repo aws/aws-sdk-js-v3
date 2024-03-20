@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.538.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.537.0...v3.538.0) (2024-03-20)
+
+
+### Features
+
+* **client-managedblockchain-query:** AMB Query: update GetTransaction to include transactionId as input ([df1bff4](https://github.com/aws/aws-sdk-js-v3/commit/df1bff4d1cbb4d6f795f3790000501052300a652))
+
+
+
+
+
 # [3.537.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.536.0...v3.537.0) (2024-03-19)
 
 

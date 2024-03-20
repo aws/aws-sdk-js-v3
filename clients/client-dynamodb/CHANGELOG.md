@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.538.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.537.0...v3.538.0) (2024-03-20)
+
+
+### Features
+
+* **client-dynamodb:** This release introduces 3 new APIs ('GetResourcePolicy', 'PutResourcePolicy' and 'DeleteResourcePolicy') and modifies the existing 'CreateTable' API for the resource-based policy support. It also modifies several APIs to accept a 'TableArn' for the 'TableName' parameter. ([4ce662f](https://github.com/aws/aws-sdk-js-v3/commit/4ce662f26a06f1ec0dfd8bc0d7efcb8dc29cf357))
+
+
+
+
+
 # [3.535.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.534.0...v3.535.0) (2024-03-15)
 
 **Note:** Version bump only for package @aws-sdk/client-dynamodb
