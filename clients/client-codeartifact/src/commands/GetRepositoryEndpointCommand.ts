@@ -34,6 +34,11 @@ export interface GetRepositoryEndpointCommandOutput extends GetRepositoryEndpoin
  *          <ul>
  *             <li>
  *                <p>
+ *                   <code>generic</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>maven</code>
  *                </p>
  *             </li>
@@ -50,6 +55,11 @@ export interface GetRepositoryEndpointCommandOutput extends GetRepositoryEndpoin
  *             <li>
  *                <p>
  *                   <code>pypi</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>swift</code>
  *                </p>
  *             </li>
  *          </ul>

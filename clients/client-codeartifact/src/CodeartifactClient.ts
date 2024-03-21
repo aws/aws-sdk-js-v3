@@ -63,6 +63,7 @@ import {
   CopyPackageVersionsCommandOutput,
 } from "./commands/CopyPackageVersionsCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
+import { CreatePackageGroupCommandInput, CreatePackageGroupCommandOutput } from "./commands/CreatePackageGroupCommand";
 import { CreateRepositoryCommandInput, CreateRepositoryCommandOutput } from "./commands/CreateRepositoryCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
 import {
@@ -70,6 +71,7 @@ import {
   DeleteDomainPermissionsPolicyCommandOutput,
 } from "./commands/DeleteDomainPermissionsPolicyCommand";
 import { DeletePackageCommandInput, DeletePackageCommandOutput } from "./commands/DeletePackageCommand";
+import { DeletePackageGroupCommandInput, DeletePackageGroupCommandOutput } from "./commands/DeletePackageGroupCommand";
 import {
   DeletePackageVersionsCommandInput,
   DeletePackageVersionsCommandOutput,
@@ -81,6 +83,10 @@ import {
 } from "./commands/DeleteRepositoryPermissionsPolicyCommand";
 import { DescribeDomainCommandInput, DescribeDomainCommandOutput } from "./commands/DescribeDomainCommand";
 import { DescribePackageCommandInput, DescribePackageCommandOutput } from "./commands/DescribePackageCommand";
+import {
+  DescribePackageGroupCommandInput,
+  DescribePackageGroupCommandOutput,
+} from "./commands/DescribePackageGroupCommand";
 import {
   DescribePackageVersionCommandInput,
   DescribePackageVersionCommandOutput,
@@ -94,6 +100,10 @@ import {
   DisposePackageVersionsCommandInput,
   DisposePackageVersionsCommandOutput,
 } from "./commands/DisposePackageVersionsCommand";
+import {
+  GetAssociatedPackageGroupCommandInput,
+  GetAssociatedPackageGroupCommandOutput,
+} from "./commands/GetAssociatedPackageGroupCommand";
 import {
   GetAuthorizationTokenCommandInput,
   GetAuthorizationTokenCommandOutput,
@@ -118,7 +128,16 @@ import {
   GetRepositoryPermissionsPolicyCommandInput,
   GetRepositoryPermissionsPolicyCommandOutput,
 } from "./commands/GetRepositoryPermissionsPolicyCommand";
+import {
+  ListAllowedRepositoriesForGroupCommandInput,
+  ListAllowedRepositoriesForGroupCommandOutput,
+} from "./commands/ListAllowedRepositoriesForGroupCommand";
+import {
+  ListAssociatedPackagesCommandInput,
+  ListAssociatedPackagesCommandOutput,
+} from "./commands/ListAssociatedPackagesCommand";
 import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
+import { ListPackageGroupsCommandInput, ListPackageGroupsCommandOutput } from "./commands/ListPackageGroupsCommand";
 import { ListPackagesCommandInput, ListPackagesCommandOutput } from "./commands/ListPackagesCommand";
 import {
   ListPackageVersionAssetsCommandInput,
@@ -137,6 +156,10 @@ import {
   ListRepositoriesInDomainCommandInput,
   ListRepositoriesInDomainCommandOutput,
 } from "./commands/ListRepositoriesInDomainCommand";
+import {
+  ListSubPackageGroupsCommandInput,
+  ListSubPackageGroupsCommandOutput,
+} from "./commands/ListSubPackageGroupsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -159,6 +182,11 @@ import {
 } from "./commands/PutRepositoryPermissionsPolicyCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdatePackageGroupCommandInput, UpdatePackageGroupCommandOutput } from "./commands/UpdatePackageGroupCommand";
+import {
+  UpdatePackageGroupOriginConfigurationCommandInput,
+  UpdatePackageGroupOriginConfigurationCommandOutput,
+} from "./commands/UpdatePackageGroupOriginConfigurationCommand";
 import {
   UpdatePackageVersionsStatusCommandInput,
   UpdatePackageVersionsStatusCommandOutput,
@@ -182,32 +210,40 @@ export type ServiceInputTypes =
   | AssociateExternalConnectionCommandInput
   | CopyPackageVersionsCommandInput
   | CreateDomainCommandInput
+  | CreatePackageGroupCommandInput
   | CreateRepositoryCommandInput
   | DeleteDomainCommandInput
   | DeleteDomainPermissionsPolicyCommandInput
   | DeletePackageCommandInput
+  | DeletePackageGroupCommandInput
   | DeletePackageVersionsCommandInput
   | DeleteRepositoryCommandInput
   | DeleteRepositoryPermissionsPolicyCommandInput
   | DescribeDomainCommandInput
   | DescribePackageCommandInput
+  | DescribePackageGroupCommandInput
   | DescribePackageVersionCommandInput
   | DescribeRepositoryCommandInput
   | DisassociateExternalConnectionCommandInput
   | DisposePackageVersionsCommandInput
+  | GetAssociatedPackageGroupCommandInput
   | GetAuthorizationTokenCommandInput
   | GetDomainPermissionsPolicyCommandInput
   | GetPackageVersionAssetCommandInput
   | GetPackageVersionReadmeCommandInput
   | GetRepositoryEndpointCommandInput
   | GetRepositoryPermissionsPolicyCommandInput
+  | ListAllowedRepositoriesForGroupCommandInput
+  | ListAssociatedPackagesCommandInput
   | ListDomainsCommandInput
+  | ListPackageGroupsCommandInput
   | ListPackageVersionAssetsCommandInput
   | ListPackageVersionDependenciesCommandInput
   | ListPackageVersionsCommandInput
   | ListPackagesCommandInput
   | ListRepositoriesCommandInput
   | ListRepositoriesInDomainCommandInput
+  | ListSubPackageGroupsCommandInput
   | ListTagsForResourceCommandInput
   | PublishPackageVersionCommandInput
   | PutDomainPermissionsPolicyCommandInput
@@ -215,6 +251,8 @@ export type ServiceInputTypes =
   | PutRepositoryPermissionsPolicyCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdatePackageGroupCommandInput
+  | UpdatePackageGroupOriginConfigurationCommandInput
   | UpdatePackageVersionsStatusCommandInput
   | UpdateRepositoryCommandInput;
 
@@ -225,32 +263,40 @@ export type ServiceOutputTypes =
   | AssociateExternalConnectionCommandOutput
   | CopyPackageVersionsCommandOutput
   | CreateDomainCommandOutput
+  | CreatePackageGroupCommandOutput
   | CreateRepositoryCommandOutput
   | DeleteDomainCommandOutput
   | DeleteDomainPermissionsPolicyCommandOutput
   | DeletePackageCommandOutput
+  | DeletePackageGroupCommandOutput
   | DeletePackageVersionsCommandOutput
   | DeleteRepositoryCommandOutput
   | DeleteRepositoryPermissionsPolicyCommandOutput
   | DescribeDomainCommandOutput
   | DescribePackageCommandOutput
+  | DescribePackageGroupCommandOutput
   | DescribePackageVersionCommandOutput
   | DescribeRepositoryCommandOutput
   | DisassociateExternalConnectionCommandOutput
   | DisposePackageVersionsCommandOutput
+  | GetAssociatedPackageGroupCommandOutput
   | GetAuthorizationTokenCommandOutput
   | GetDomainPermissionsPolicyCommandOutput
   | GetPackageVersionAssetCommandOutput
   | GetPackageVersionReadmeCommandOutput
   | GetRepositoryEndpointCommandOutput
   | GetRepositoryPermissionsPolicyCommandOutput
+  | ListAllowedRepositoriesForGroupCommandOutput
+  | ListAssociatedPackagesCommandOutput
   | ListDomainsCommandOutput
+  | ListPackageGroupsCommandOutput
   | ListPackageVersionAssetsCommandOutput
   | ListPackageVersionDependenciesCommandOutput
   | ListPackageVersionsCommandOutput
   | ListPackagesCommandOutput
   | ListRepositoriesCommandOutput
   | ListRepositoriesInDomainCommandOutput
+  | ListSubPackageGroupsCommandOutput
   | ListTagsForResourceCommandOutput
   | PublishPackageVersionCommandOutput
   | PutDomainPermissionsPolicyCommandOutput
@@ -258,6 +304,8 @@ export type ServiceOutputTypes =
   | PutRepositoryPermissionsPolicyCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdatePackageGroupCommandOutput
+  | UpdatePackageGroupOriginConfigurationCommandOutput
   | UpdatePackageVersionsStatusCommandOutput
   | UpdateRepositoryCommandOutput;
 
@@ -446,9 +494,8 @@ export interface CodeartifactClientResolvedConfig extends CodeartifactClientReso
  *       repository and another repository, which effectively merges their contents from the point of
  *       view of a package manager client. </p>
  *          <p>
- *             <b>CodeArtifact Components</b>
+ *             <b>CodeArtifact concepts</b>
  *          </p>
- *          <p>Use the information in this guide to help you work with the following CodeArtifact components:</p>
  *          <ul>
  *             <li>
  *                <p>
@@ -462,7 +509,10 @@ export interface CodeartifactClientResolvedConfig extends CodeartifactClientReso
  *                      <code>mvn</code>
  *                   </b>), Python CLIs (<b>
  *                      <code>pip</code>
- *                   </b> and <code>twine</code>), and NuGet CLIs (<code>nuget</code> and <code>dotnet</code>).</p>
+ *                   </b> and <code>twine</code>), NuGet CLIs (<code>nuget</code> and <code>dotnet</code>), and
+ *           the Swift package manager (<b>
+ *                      <code>swift</code>
+ *                   </b>).</p>
  *             </li>
  *             <li>
  *                <p>
@@ -484,7 +534,7 @@ export interface CodeartifactClientResolvedConfig extends CodeartifactClientReso
  *             <li>
  *                <p>
  *                   <b>Package</b>: A <i>package</i> is a bundle of software and the metadata required to
- *           resolve dependencies and install the software. CodeArtifact supports <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-npm.html">npm</a>, <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-python.html">PyPI</a>, <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-maven">Maven</a>, and <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-nuget">NuGet</a> package formats.</p>
+ *           resolve dependencies and install the software. CodeArtifact supports <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-npm.html">npm</a>, <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-python.html">PyPI</a>, <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-maven">Maven</a>, <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-nuget">NuGet</a>, <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-swift">Swift</a>, and <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-generic">generic</a> package formats.</p>
  *                <p>In CodeArtifact, a package consists of:</p>
  *                <ul>
  *                   <li>
@@ -502,6 +552,14 @@ export interface CodeartifactClientResolvedConfig extends CodeartifactClientReso
  *                      <p> Package-level metadata (for example, npm tags)</p>
  *                   </li>
  *                </ul>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Package group</b>: A group of packages that match a specified definition. Package
+ *           groups can be used to apply configuration to multiple packages that match a defined pattern using
+ *           package format, package namespace, and package name. You can use package groups to more conveniently
+ *           configure package origin controls for multiple packages. Package origin controls are used to block or allow ingestion or publishing
+ *           of new package versions, which protects users from malicious actions known as dependency substitution attacks.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -524,7 +582,9 @@ export interface CodeartifactClientResolvedConfig extends CodeartifactClientReso
  *             <code>.tgz</code> file or Maven POM and JAR files.</p>
  *             </li>
  *          </ul>
- *          <p>CodeArtifact supports these operations:</p>
+ *          <p>
+ *             <b>CodeArtifact supported API operations</b>
+ *          </p>
  *          <ul>
  *             <li>
  *                <p>
@@ -539,7 +599,11 @@ export interface CodeartifactClientResolvedConfig extends CodeartifactClientReso
  *             </li>
  *             <li>
  *                <p>
- *                   <code>CreateDomain</code>: Creates a domain</p>
+ *                   <code>CreateDomain</code>: Creates a domain.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>CreatePackageGroup</code>: Creates a package group.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -557,6 +621,10 @@ export interface CodeartifactClientResolvedConfig extends CodeartifactClientReso
  *             <li>
  *                <p>
  *                   <code>DeletePackage</code>: Deletes a package and all associated package versions.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DeletePackageGroup</code>: Deletes a package group. Does not delete packages or package versions that are associated with a package group.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -585,6 +653,11 @@ export interface CodeartifactClientResolvedConfig extends CodeartifactClientReso
  *             </li>
  *             <li>
  *                <p>
+ *                   <code>DescribePackageGroup</code>: Returns a <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageGroup.html">PackageGroup</a>
+ *           object that contains details about a package group. </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>DescribePackageVersion</code>: Returns a <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html">PackageVersionDescription</a>
  *           object that contains details about a package version. </p>
  *             </li>
@@ -603,6 +676,10 @@ export interface CodeartifactClientResolvedConfig extends CodeartifactClientReso
  *                <p>
  *                   <code>DisassociateExternalConnection</code>: Removes an existing external connection from a repository.
  *         </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>GetAssociatedPackageGroup</code>: Returns the most closely associated package group to the specified package.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -630,6 +707,11 @@ export interface CodeartifactClientResolvedConfig extends CodeartifactClientReso
  *                <ul>
  *                   <li>
  *                      <p>
+ *                         <code>generic</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
  *                         <code>maven</code>
  *                      </p>
  *                   </li>
@@ -648,6 +730,11 @@ export interface CodeartifactClientResolvedConfig extends CodeartifactClientReso
  *                         <code>pypi</code>
  *                      </p>
  *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>swift</code>
+ *                      </p>
+ *                   </li>
  *                </ul>
  *             </li>
  *             <li>
@@ -657,12 +744,24 @@ export interface CodeartifactClientResolvedConfig extends CodeartifactClientReso
  *             </li>
  *             <li>
  *                <p>
+ *                   <code>ListAllowedRepositoriesForGroup</code>: Lists the allowed repositories for a package group that has origin configuration set to <code>ALLOW_SPECIFIC_REPOSITORIES</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ListAssociatedPackages</code>: Returns a list of packages associated with the requested package group.</p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>ListDomains</code>: Returns a list of <code>DomainSummary</code> objects. Each
  *           returned <code>DomainSummary</code> object contains information about a domain.</p>
  *             </li>
  *             <li>
  *                <p>
  *                   <code>ListPackages</code>: Lists the packages in a repository.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ListPackageGroups</code>: Returns a list of package groups in the requested domain.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -688,6 +787,10 @@ export interface CodeartifactClientResolvedConfig extends CodeartifactClientReso
  *             </li>
  *             <li>
  *                <p>
+ *                   <code>ListSubPackageGroups</code>: Returns a list of direct children of the specified package group.</p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>PublishPackageVersion</code>: Creates a new package version containing one or more assets.</p>
  *             </li>
  *             <li>
@@ -703,6 +806,14 @@ export interface CodeartifactClientResolvedConfig extends CodeartifactClientReso
  *                <p>
  *                   <code>PutRepositoryPermissionsPolicy</code>: Sets the resource policy on a repository
  *           that specifies permissions to access it. </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>UpdatePackageGroup</code>: Updates a package group. This API cannot be used to update a package group's origin configuration or pattern.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>UpdatePackageGroupOriginConfiguration</code>: Updates the package origin configuration for a package group.</p>
  *             </li>
  *             <li>
  *                <p>

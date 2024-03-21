@@ -35,6 +35,7 @@ import {
   CopyPackageVersionsCommandOutput,
 } from "../commands/CopyPackageVersionsCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "../commands/CreateDomainCommand";
+import { CreatePackageGroupCommandInput, CreatePackageGroupCommandOutput } from "../commands/CreatePackageGroupCommand";
 import { CreateRepositoryCommandInput, CreateRepositoryCommandOutput } from "../commands/CreateRepositoryCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "../commands/DeleteDomainCommand";
 import {
@@ -42,6 +43,7 @@ import {
   DeleteDomainPermissionsPolicyCommandOutput,
 } from "../commands/DeleteDomainPermissionsPolicyCommand";
 import { DeletePackageCommandInput, DeletePackageCommandOutput } from "../commands/DeletePackageCommand";
+import { DeletePackageGroupCommandInput, DeletePackageGroupCommandOutput } from "../commands/DeletePackageGroupCommand";
 import {
   DeletePackageVersionsCommandInput,
   DeletePackageVersionsCommandOutput,
@@ -53,6 +55,10 @@ import {
 } from "../commands/DeleteRepositoryPermissionsPolicyCommand";
 import { DescribeDomainCommandInput, DescribeDomainCommandOutput } from "../commands/DescribeDomainCommand";
 import { DescribePackageCommandInput, DescribePackageCommandOutput } from "../commands/DescribePackageCommand";
+import {
+  DescribePackageGroupCommandInput,
+  DescribePackageGroupCommandOutput,
+} from "../commands/DescribePackageGroupCommand";
 import {
   DescribePackageVersionCommandInput,
   DescribePackageVersionCommandOutput,
@@ -66,6 +72,10 @@ import {
   DisposePackageVersionsCommandInput,
   DisposePackageVersionsCommandOutput,
 } from "../commands/DisposePackageVersionsCommand";
+import {
+  GetAssociatedPackageGroupCommandInput,
+  GetAssociatedPackageGroupCommandOutput,
+} from "../commands/GetAssociatedPackageGroupCommand";
 import {
   GetAuthorizationTokenCommandInput,
   GetAuthorizationTokenCommandOutput,
@@ -90,7 +100,16 @@ import {
   GetRepositoryPermissionsPolicyCommandInput,
   GetRepositoryPermissionsPolicyCommandOutput,
 } from "../commands/GetRepositoryPermissionsPolicyCommand";
+import {
+  ListAllowedRepositoriesForGroupCommandInput,
+  ListAllowedRepositoriesForGroupCommandOutput,
+} from "../commands/ListAllowedRepositoriesForGroupCommand";
+import {
+  ListAssociatedPackagesCommandInput,
+  ListAssociatedPackagesCommandOutput,
+} from "../commands/ListAssociatedPackagesCommand";
 import { ListDomainsCommandInput, ListDomainsCommandOutput } from "../commands/ListDomainsCommand";
+import { ListPackageGroupsCommandInput, ListPackageGroupsCommandOutput } from "../commands/ListPackageGroupsCommand";
 import { ListPackagesCommandInput, ListPackagesCommandOutput } from "../commands/ListPackagesCommand";
 import {
   ListPackageVersionAssetsCommandInput,
@@ -109,6 +128,10 @@ import {
   ListRepositoriesInDomainCommandInput,
   ListRepositoriesInDomainCommandOutput,
 } from "../commands/ListRepositoriesInDomainCommand";
+import {
+  ListSubPackageGroupsCommandInput,
+  ListSubPackageGroupsCommandOutput,
+} from "../commands/ListSubPackageGroupsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -131,6 +154,11 @@ import {
 } from "../commands/PutRepositoryPermissionsPolicyCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdatePackageGroupCommandInput, UpdatePackageGroupCommandOutput } from "../commands/UpdatePackageGroupCommand";
+import {
+  UpdatePackageGroupOriginConfigurationCommandInput,
+  UpdatePackageGroupOriginConfigurationCommandOutput,
+} from "../commands/UpdatePackageGroupOriginConfigurationCommand";
 import {
   UpdatePackageVersionsStatusCommandInput,
   UpdatePackageVersionsStatusCommandOutput,
@@ -143,6 +171,11 @@ import {
   DomainDescription,
   DomainSummary,
   InternalServerException,
+  PackageGroupAllowedRepository,
+  PackageGroupDescription,
+  PackageGroupOriginRestrictionMode,
+  PackageGroupOriginRestrictionType,
+  PackageGroupSummary,
   PackageOriginRestrictions,
   PackageVersionDescription,
   RepositoryDescription,
@@ -237,6 +270,35 @@ export const se_CreateDomainCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreatePackageGroupCommand
+ */
+export const se_CreatePackageGroupCommand = async (
+  input: CreatePackageGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v1/package-group");
+  const query: any = map({
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      contactInfo: [],
+      description: [],
+      packageGroup: [],
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreateRepositoryCommand
  */
 export const se_CreateRepositoryCommand = async (
@@ -321,6 +383,26 @@ export const se_DeletePackageCommand = async (
     [_f]: [, __expectNonNull(input[_f]!, `format`)],
     [_n]: [, input[_n]!],
     [_p]: [, __expectNonNull(input[_p]!, `package`)],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeletePackageGroupCommand
+ */
+export const se_DeletePackageGroupCommand = async (
+  input: DeletePackageGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v1/package-group");
+  const query: any = map({
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+    [_pg]: [, __expectNonNull(input[_pG]!, `packageGroup`)],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -442,6 +524,26 @@ export const se_DescribePackageCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DescribePackageGroupCommand
+ */
+export const se_DescribePackageGroupCommand = async (
+  input: DescribePackageGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v1/package-group");
+  const query: any = map({
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+    [_pg]: [, __expectNonNull(input[_pG]!, `packageGroup`)],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DescribePackageVersionCommand
  */
 export const se_DescribePackageVersionCommand = async (
@@ -535,6 +637,28 @@ export const se_DisposePackageVersionsCommand = async (
     })
   );
   b.m("POST").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetAssociatedPackageGroupCommand
+ */
+export const se_GetAssociatedPackageGroupCommand = async (
+  input: GetAssociatedPackageGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v1/get-associated-package-group");
+  const query: any = map({
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+    [_f]: [, __expectNonNull(input[_f]!, `format`)],
+    [_n]: [, input[_n]!],
+    [_p]: [, __expectNonNull(input[_p]!, `package`)],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -669,6 +793,52 @@ export const se_GetRepositoryPermissionsPolicyCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListAllowedRepositoriesForGroupCommand
+ */
+export const se_ListAllowedRepositoriesForGroupCommand = async (
+  input: ListAllowedRepositoriesForGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v1/package-group-allowed-repositories");
+  const query: any = map({
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+    [_pg]: [, __expectNonNull(input[_pG]!, `packageGroup`)],
+    [_oRT]: [, __expectNonNull(input[_oRT]!, `originRestrictionType`)],
+    [_mr]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nt]: [, input[_nT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListAssociatedPackagesCommand
+ */
+export const se_ListAssociatedPackagesCommand = async (
+  input: ListAssociatedPackagesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v1/list-associated-packages");
+  const query: any = map({
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+    [_pg]: [, __expectNonNull(input[_pG]!, `packageGroup`)],
+    [_mr]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nt]: [, input[_nT]!],
+    [_pre]: [() => input.preview !== void 0, () => input[_pre]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListDomainsCommand
  */
 export const se_ListDomainsCommand = async (
@@ -688,6 +858,28 @@ export const se_ListDomainsCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListPackageGroupsCommand
+ */
+export const se_ListPackageGroupsCommand = async (
+  input: ListPackageGroupsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v1/package-groups");
+  const query: any = map({
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+    [_mr]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nt]: [, input[_nT]!],
+    [_pref]: [, input[_pref]!],
+  });
+  let body: any;
+  b.m("POST").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -832,6 +1024,28 @@ export const se_ListRepositoriesInDomainCommand = async (
     [_do]: [, input[_dO]!],
     [_aa]: [, input[_aA]!],
     [_rp]: [, input[_rP]!],
+    [_mr]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nt]: [, input[_nT]!],
+  });
+  let body: any;
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListSubPackageGroupsCommand
+ */
+export const se_ListSubPackageGroupsCommand = async (
+  input: ListSubPackageGroupsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v1/package-groups/sub-groups");
+  const query: any = map({
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+    [_pg]: [, __expectNonNull(input[_pG]!, `packageGroup`)],
     [_mr]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nt]: [, input[_nT]!],
   });
@@ -1024,6 +1238,63 @@ export const se_UntagResourceCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdatePackageGroupCommand
+ */
+export const se_UpdatePackageGroupCommand = async (
+  input: UpdatePackageGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v1/package-group");
+  const query: any = map({
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      contactInfo: [],
+      description: [],
+      packageGroup: [],
+    })
+  );
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdatePackageGroupOriginConfigurationCommand
+ */
+export const se_UpdatePackageGroupOriginConfigurationCommand = async (
+  input: UpdatePackageGroupOriginConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v1/package-group-origin-configuration");
+  const query: any = map({
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+    [_pg]: [, __expectNonNull(input[_pG]!, `packageGroup`)],
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      addAllowedRepositories: (_) => _json(_),
+      removeAllowedRepositories: (_) => _json(_),
+      restrictions: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdatePackageVersionsStatusCommand
  */
 export const se_UpdatePackageVersionsStatusCommand = async (
@@ -1149,6 +1420,27 @@ export const de_CreateDomainCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreatePackageGroupCommand
+ */
+export const de_CreatePackageGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePackageGroupCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    packageGroup: (_) => de_PackageGroupDescription(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateRepositoryCommand
  */
 export const de_CreateRepositoryCommand = async (
@@ -1227,6 +1519,27 @@ export const de_DeletePackageCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     deletedPackage: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeletePackageGroupCommand
+ */
+export const de_DeletePackageGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePackageGroupCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    packageGroup: (_) => de_PackageGroupDescription(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -1339,6 +1652,27 @@ export const de_DescribePackageCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DescribePackageGroupCommand
+ */
+export const de_DescribePackageGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribePackageGroupCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    packageGroup: (_) => de_PackageGroupDescription(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DescribePackageVersionCommand
  */
 export const de_DescribePackageVersionCommand = async (
@@ -1418,6 +1752,28 @@ export const de_DisposePackageVersionsCommand = async (
   const doc = take(data, {
     failedVersions: _json,
     successfulVersions: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetAssociatedPackageGroupCommand
+ */
+export const de_GetAssociatedPackageGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAssociatedPackageGroupCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    associationType: __expectString,
+    packageGroup: (_) => de_PackageGroupDescription(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -1557,6 +1913,50 @@ export const de_GetRepositoryPermissionsPolicyCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListAllowedRepositoriesForGroupCommand
+ */
+export const de_ListAllowedRepositoriesForGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAllowedRepositoriesForGroupCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    allowedRepositories: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAssociatedPackagesCommand
+ */
+export const de_ListAssociatedPackagesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAssociatedPackagesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    packages: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListDomainsCommand
  */
 export const de_ListDomainsCommand = async (
@@ -1573,6 +1973,28 @@ export const de_ListDomainsCommand = async (
   const doc = take(data, {
     domains: (_) => de_DomainSummaryList(_, context),
     nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListPackageGroupsCommand
+ */
+export const de_ListPackageGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPackageGroupsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    packageGroups: (_) => de_PackageGroupSummaryList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -1725,6 +2147,28 @@ export const de_ListRepositoriesInDomainCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListSubPackageGroupsCommand
+ */
+export const de_ListSubPackageGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSubPackageGroupsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    packageGroups: (_) => de_PackageGroupSummaryList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -1866,6 +2310,49 @@ export const de_UntagResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdatePackageGroupCommand
+ */
+export const de_UpdatePackageGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePackageGroupCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    packageGroup: (_) => de_PackageGroupDescription(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdatePackageGroupOriginConfigurationCommand
+ */
+export const de_UpdatePackageGroupOriginConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePackageGroupOriginConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    allowedRepositoryUpdates: _json,
+    packageGroup: (_) => de_PackageGroupDescription(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2094,6 +2581,12 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_OriginRestrictions omitted.
+
+// se_PackageGroupAllowedRepository omitted.
+
+// se_PackageGroupAllowedRepositoryList omitted.
+
 // se_PackageOriginRestrictions omitted.
 
 // se_PackageVersionList omitted.
@@ -2115,6 +2608,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // de_AssetSummary omitted.
 
 // de_AssetSummaryList omitted.
+
+// de_AssociatedPackage omitted.
+
+// de_AssociatedPackageList omitted.
 
 /**
  * deserializeAws_restJson1DomainDescription
@@ -2170,6 +2667,64 @@ const de_DomainSummaryList = (output: any, context: __SerdeContext): DomainSumma
 // de_PackageDependencyList omitted.
 
 // de_PackageDescription omitted.
+
+// de_PackageGroupAllowedRepositoryUpdate omitted.
+
+// de_PackageGroupAllowedRepositoryUpdates omitted.
+
+/**
+ * deserializeAws_restJson1PackageGroupDescription
+ */
+const de_PackageGroupDescription = (output: any, context: __SerdeContext): PackageGroupDescription => {
+  return take(output, {
+    arn: __expectString,
+    contactInfo: __expectString,
+    createdTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    domainName: __expectString,
+    domainOwner: __expectString,
+    originConfiguration: _json,
+    parent: _json,
+    pattern: __expectString,
+  }) as any;
+};
+
+// de_PackageGroupOriginConfiguration omitted.
+
+// de_PackageGroupOriginRestriction omitted.
+
+// de_PackageGroupOriginRestrictions omitted.
+
+// de_PackageGroupReference omitted.
+
+/**
+ * deserializeAws_restJson1PackageGroupSummary
+ */
+const de_PackageGroupSummary = (output: any, context: __SerdeContext): PackageGroupSummary => {
+  return take(output, {
+    arn: __expectString,
+    contactInfo: __expectString,
+    createdTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    domainName: __expectString,
+    domainOwner: __expectString,
+    originConfiguration: _json,
+    parent: _json,
+    pattern: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1PackageGroupSummaryList
+ */
+const de_PackageGroupSummaryList = (output: any, context: __SerdeContext): PackageGroupSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_PackageGroupSummary(entry, context);
+    });
+  return retVal;
+};
 
 // de_PackageOriginConfiguration omitted.
 
@@ -2230,6 +2785,8 @@ const de_RepositoryDescription = (output: any, context: __SerdeContext): Reposit
 // de_RepositoryExternalConnectionInfo omitted.
 
 // de_RepositoryExternalConnectionInfoList omitted.
+
+// de_RepositoryNameList omitted.
 
 /**
  * deserializeAws_restJson1RepositorySummary
@@ -2311,14 +2868,19 @@ const _mr = "max-results";
 const _n = "namespace";
 const _nT = "nextToken";
 const _nt = "next-token";
+const _oRT = "originRestrictionType";
 const _oT = "originType";
 const _p = "package";
+const _pG = "packageGroup";
 const _pP = "packagePrefix";
 const _pR = "policyRevision";
 const _pV = "packageVersion";
 const _pVR = "packageVersionRevision";
+const _pg = "package-group";
 const _pp = "package-prefix";
 const _pr = "policy-revision";
+const _pre = "preview";
+const _pref = "prefix";
 const _pu = "publish";
 const _r = "repository";
 const _rA = "resourceArn";

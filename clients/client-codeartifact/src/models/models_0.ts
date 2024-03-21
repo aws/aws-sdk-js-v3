@@ -105,6 +105,98 @@ export interface AssetSummary {
 
 /**
  * @public
+ * @enum
+ */
+export const PackageGroupAssociationType = {
+  STRONG: "STRONG",
+  WEAK: "WEAK",
+} as const;
+
+/**
+ * @public
+ */
+export type PackageGroupAssociationType =
+  (typeof PackageGroupAssociationType)[keyof typeof PackageGroupAssociationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PackageFormat = {
+  GENERIC: "generic",
+  MAVEN: "maven",
+  NPM: "npm",
+  NUGET: "nuget",
+  PYPI: "pypi",
+  SWIFT: "swift",
+} as const;
+
+/**
+ * @public
+ */
+export type PackageFormat = (typeof PackageFormat)[keyof typeof PackageFormat];
+
+/**
+ * <p>
+ *       A package associated with a package group.
+ *     </p>
+ * @public
+ */
+export interface AssociatedPackage {
+  /**
+   * <p>A format that specifies the type of the associated package.</p>
+   * @public
+   */
+  format?: PackageFormat;
+
+  /**
+   * <p>The namespace of the associated package. The package component that specifies its
+   *     namespace depends on its type. For example:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *           The namespace of a Maven package version is its <code>groupId</code>.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           The namespace of an npm or Swift package version is its <code>scope</code>.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>The namespace of a generic package is its <code>namespace</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           Python and NuGet package versions do not contain a corresponding component, package versions
+   *           of those formats do not have a namespace.
+   *         </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  namespace?: string;
+
+  /**
+   * <p>
+   *       The name of the associated package.
+   *     </p>
+   * @public
+   */
+  package?: string;
+
+  /**
+   * <p>Describes the strength of the association between the package and package group. A strong match can be thought of as an
+   *       exact match, and a weak match can be thought of as a variation match, for example, the package name matches a variation of the package group pattern.
+   *       For more information about package group pattern matching, including strong and weak matches, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/package-group-definition-syntax-matching-behavior.html">Package group definition syntax and matching behavior</a>
+   *       in the <i>CodeArtifact User Guide</i>.</p>
+   * @public
+   */
+  associationType?: PackageGroupAssociationType;
+}
+
+/**
+ * @public
  */
 export interface AssociateExternalConnectionRequest {
   /**
@@ -179,24 +271,6 @@ export interface AssociateExternalConnectionRequest {
    */
   externalConnection: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const PackageFormat = {
-  GENERIC: "generic",
-  MAVEN: "maven",
-  NPM: "npm",
-  NUGET: "nuget",
-  PYPI: "pypi",
-  SWIFT: "swift",
-} as const;
-
-/**
- * @public
- */
-export type PackageFormat = (typeof PackageFormat)[keyof typeof PackageFormat];
 
 /**
  * @public
@@ -650,27 +724,40 @@ export interface CopyPackageVersionsRequest {
   format: PackageFormat | undefined;
 
   /**
-   * <p>The namespace of the package versions to be copied. The package version component that specifies its
-   *       namespace depends on its type. For example:</p>
+   * <p>The namespace of the package versions to be copied. The package component that specifies its namespace depends on its type. For example:</p>
+   *          <note>
+   *             <p>The namespace is required when copying package versions of the following formats:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Maven</p>
+   *                </li>
+   *                <li>
+   *                   <p>Swift</p>
+   *                </li>
+   *                <li>
+   *                   <p>generic</p>
+   *                </li>
+   *             </ul>
+   *          </note>
    *          <ul>
    *             <li>
    *                <p>
-   *           The namespace of a Maven package version is its <code>groupId</code>. The namespace is required when copying Maven package versions.
+   *           The namespace of a Maven package version is its <code>groupId</code>.
    *         </p>
    *             </li>
    *             <li>
    *                <p>
-   *           The namespace of an npm package version is its <code>scope</code>.
+   *           The namespace of an npm or Swift package version is its <code>scope</code>.
    *         </p>
+   *             </li>
+   *             <li>
+   *                <p>The namespace of a generic package is its <code>namespace</code>.</p>
    *             </li>
    *             <li>
    *                <p>
    *           Python and NuGet package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
-   *             </li>
-   *             <li>
-   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    * @public
@@ -1056,6 +1143,250 @@ export interface CreateDomainResult {
 }
 
 /**
+ * @public
+ */
+export interface CreatePackageGroupRequest {
+  /**
+   * <p>
+   *       The name of the domain in which you want to create a package group.
+   *     </p>
+   * @public
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
+   *         dashes or spaces.
+   *       </p>
+   * @public
+   */
+  domainOwner?: string;
+
+  /**
+   * <p>The pattern of the package group to create. The pattern is also the identifier of the package group. </p>
+   * @public
+   */
+  packageGroup: string | undefined;
+
+  /**
+   * <p>
+   *       The contact information for the created package group.
+   *     </p>
+   * @public
+   */
+  contactInfo?: string;
+
+  /**
+   * <p>
+   *       A description of the package group.
+   *     </p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>One or more tag key-value pairs for the package group.</p>
+   * @public
+   */
+  tags?: Tag[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PackageGroupOriginRestrictionType = {
+  EXTERNAL_UPSTREAM: "EXTERNAL_UPSTREAM",
+  INTERNAL_UPSTREAM: "INTERNAL_UPSTREAM",
+  PUBLISH: "PUBLISH",
+} as const;
+
+/**
+ * @public
+ */
+export type PackageGroupOriginRestrictionType =
+  (typeof PackageGroupOriginRestrictionType)[keyof typeof PackageGroupOriginRestrictionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PackageGroupOriginRestrictionMode = {
+  ALLOW: "ALLOW",
+  ALLOW_SPECIFIC_REPOSITORIES: "ALLOW_SPECIFIC_REPOSITORIES",
+  BLOCK: "BLOCK",
+  INHERIT: "INHERIT",
+} as const;
+
+/**
+ * @public
+ */
+export type PackageGroupOriginRestrictionMode =
+  (typeof PackageGroupOriginRestrictionMode)[keyof typeof PackageGroupOriginRestrictionMode];
+
+/**
+ * <p>Information about the identifiers of a package group.</p>
+ * @public
+ */
+export interface PackageGroupReference {
+  /**
+   * <p>
+   *       The ARN of the package group.
+   *     </p>
+   * @public
+   */
+  arn?: string;
+
+  /**
+   * <p>
+   *       The pattern of the package group. The pattern determines which packages are associated with the package group, and is
+   *       also the identifier of the package group.
+   *     </p>
+   * @public
+   */
+  pattern?: string;
+}
+
+/**
+ * <p>Contains information about the configured restrictions of the origin controls of a package group.</p>
+ * @public
+ */
+export interface PackageGroupOriginRestriction {
+  /**
+   * <p>The package group origin restriction setting. If the value of <code>mode</code> is <code>ALLOW</code>,
+   *       <code>ALLOW_SPECIFIC_REPOSITORIES</code>, or <code>BLOCK</code>, then the value of <code>effectiveMode</code>
+   *     is the same. Otherwise, when the value is <code>INHERIT</code>, then the value of <code>effectiveMode</code> is the value of
+   *     <code>mode</code> of the first parent group which does not have a value of <code>INHERIT</code>.</p>
+   * @public
+   */
+  mode?: PackageGroupOriginRestrictionMode;
+
+  /**
+   * <p>The effective package group origin restriction setting. If the value of <code>mode</code> is <code>ALLOW</code>,
+   *       <code>ALLOW_SPECIFIC_REPOSITORIES</code>, or <code>BLOCK</code>, then the value of <code>effectiveMode</code>
+   *       is the same. Otherwise, when the value of <code>mode</code> is <code>INHERIT</code>, then the value of <code>effectiveMode</code> is the value of
+   *       <code>mode</code> of the first parent group which does not have a value of <code>INHERIT</code>.</p>
+   * @public
+   */
+  effectiveMode?: PackageGroupOriginRestrictionMode;
+
+  /**
+   * <p>The parent package group that the package group origin restrictions are inherited from.</p>
+   * @public
+   */
+  inheritedFrom?: PackageGroupReference;
+
+  /**
+   * <p>The number of repositories in the allowed repository list.</p>
+   * @public
+   */
+  repositoriesCount?: number;
+}
+
+/**
+ * <p>The package group origin configuration that determines how package versions can enter repositories.</p>
+ * @public
+ */
+export interface PackageGroupOriginConfiguration {
+  /**
+   * <p>The origin configuration settings that determine how package versions can enter repositories.</p>
+   * @public
+   */
+  restrictions?: Partial<Record<PackageGroupOriginRestrictionType, PackageGroupOriginRestriction>>;
+}
+
+/**
+ * <p>
+ *       The description of the package group.
+ *     </p>
+ * @public
+ */
+export interface PackageGroupDescription {
+  /**
+   * <p>
+   *       The ARN of the package group.
+   *     </p>
+   * @public
+   */
+  arn?: string;
+
+  /**
+   * <p>
+   *       The pattern of the package group. The pattern determines which packages are associated with the package group.
+   *     </p>
+   * @public
+   */
+  pattern?: string;
+
+  /**
+   * <p>
+   *       The name of the domain that contains the package group.
+   *     </p>
+   * @public
+   */
+  domainName?: string;
+
+  /**
+   * <p>
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
+   *         dashes or spaces.
+   *       </p>
+   * @public
+   */
+  domainOwner?: string;
+
+  /**
+   * <p>A timestamp that represents the date and time the package group was created.</p>
+   * @public
+   */
+  createdTime?: Date;
+
+  /**
+   * <p>
+   *       The contact information of the package group.
+   *     </p>
+   * @public
+   */
+  contactInfo?: string;
+
+  /**
+   * <p>
+   *       The description of the package group.
+   *     </p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>The package group origin configuration that determines how package versions can enter repositories.</p>
+   * @public
+   */
+  originConfiguration?: PackageGroupOriginConfiguration;
+
+  /**
+   * <p>
+   *       The direct parent package group of the package group.
+   *     </p>
+   * @public
+   */
+  parent?: PackageGroupReference;
+}
+
+/**
+ * @public
+ */
+export interface CreatePackageGroupResult {
+  /**
+   * <p>
+   *       Information about the created package group after processing the request.
+   *     </p>
+   * @public
+   */
+  packageGroup?: PackageGroupDescription;
+}
+
+/**
  * <p>
  *        Information about an upstream repository. A list of <code>UpstreamRepository</code> objects is an input parameter to
  *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_CreateRepository.html">CreateRepository</a>
@@ -1093,7 +1424,7 @@ export interface CreateRepositoryRequest {
   domainOwner?: string;
 
   /**
-   * <p> The name of the repository to create. </p>
+   * <p>The name of the repository to create. </p>
    * @public
    */
   repository: string | undefined;
@@ -1278,22 +1609,39 @@ export interface DeletePackageRequest {
 
   /**
    * <p>The namespace of the package to delete. The package component that specifies its namespace depends on its type. For example:</p>
+   *          <note>
+   *             <p>The namespace is required when deleting packages of the following formats:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Maven</p>
+   *                </li>
+   *                <li>
+   *                   <p>Swift</p>
+   *                </li>
+   *                <li>
+   *                   <p>generic</p>
+   *                </li>
+   *             </ul>
+   *          </note>
    *          <ul>
    *             <li>
    *                <p>
-   *           The namespace of a Maven package is its <code>groupId</code>. The namespace is required when deleting Maven package versions.
+   *           The namespace of a Maven package version is its <code>groupId</code>.
    *         </p>
-   *             </li>
-   *             <li>
-   *                <p> The namespace of an npm package is its <code>scope</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *           Python and NuGet packages do not contain corresponding components, packages of those formats do not have a namespace.
+   *           The namespace of an npm or Swift package version is its <code>scope</code>.
    *         </p>
    *             </li>
    *             <li>
-   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
+   *                <p>The namespace of a generic package is its <code>namespace</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           Python and NuGet package versions do not contain a corresponding component, package versions
+   *           of those formats do not have a namespace.
+   *         </p>
    *             </li>
    *          </ul>
    * @public
@@ -1361,22 +1709,22 @@ export interface PackageSummary {
    *          <ul>
    *             <li>
    *                <p>
-   *           The namespace of a Maven package is its <code>groupId</code>.
+   *           The namespace of a Maven package version is its <code>groupId</code>.
    *         </p>
    *             </li>
    *             <li>
    *                <p>
-   *           The namespace of an npm package is its <code>scope</code>.
+   *           The namespace of an npm or Swift package version is its <code>scope</code>.
    *         </p>
    *             </li>
    *             <li>
+   *                <p>The namespace of a generic package is its <code>namespace</code>.</p>
+   *             </li>
+   *             <li>
    *                <p>
-   *           Python and NuGet packages do not contain a corresponding component, packages
+   *           Python and NuGet package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
-   *             </li>
-   *             <li>
-   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    * @public
@@ -1411,6 +1759,47 @@ export interface DeletePackageResult {
    * @public
    */
   deletedPackage?: PackageSummary;
+}
+
+/**
+ * @public
+ */
+export interface DeletePackageGroupRequest {
+  /**
+   * <p>
+   *       The domain that contains the package group to be deleted.
+   *     </p>
+   * @public
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
+   *         dashes or spaces.
+   *       </p>
+   * @public
+   */
+  domainOwner?: string;
+
+  /**
+   * <p>The pattern of the package group to be deleted.</p>
+   * @public
+   */
+  packageGroup: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePackageGroupResult {
+  /**
+   * <p>
+   *       Information about the deleted package group after processing the request.
+   *     </p>
+   * @public
+   */
+  packageGroup?: PackageGroupDescription;
 }
 
 /**
@@ -1451,27 +1840,40 @@ export interface DeletePackageVersionsRequest {
   format: PackageFormat | undefined;
 
   /**
-   * <p>The namespace of the package versions to be deleted. The package version component that specifies its
-   *         namespace depends on its type. For example:</p>
+   * <p>The namespace of the package versions to be deleted. The package component that specifies its namespace depends on its type. For example:</p>
+   *          <note>
+   *             <p>The namespace is required when deleting package versions of the following formats:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Maven</p>
+   *                </li>
+   *                <li>
+   *                   <p>Swift</p>
+   *                </li>
+   *                <li>
+   *                   <p>generic</p>
+   *                </li>
+   *             </ul>
+   *          </note>
    *          <ul>
    *             <li>
    *                <p>
-   *             The namespace of a Maven package version is its <code>groupId</code>. The namespace is required when deleting Maven package versions.
-   *           </p>
+   *           The namespace of a Maven package version is its <code>groupId</code>.
+   *         </p>
    *             </li>
    *             <li>
    *                <p>
-   *             The namespace of an npm package version is its <code>scope</code>.
-   *           </p>
+   *           The namespace of an npm or Swift package version is its <code>scope</code>.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>The namespace of a generic package is its <code>namespace</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *             Python and NuGet package versions do not contain a corresponding component, package versions
-   *             of those formats do not have a namespace.
-   *           </p>
-   *             </li>
-   *             <li>
-   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
+   *           Python and NuGet package versions do not contain a corresponding component, package versions
+   *           of those formats do not have a namespace.
+   *         </p>
    *             </li>
    *          </ul>
    * @public
@@ -1719,27 +2121,40 @@ export interface DescribePackageRequest {
   format: PackageFormat | undefined;
 
   /**
-   * <p>The namespace of the requested package. The package component that specifies its
-   *       namespace depends on its type. For example:</p>
+   * <p>The namespace of the requested package. The package component that specifies its namespace depends on its type. For example:</p>
+   *          <note>
+   *             <p>The namespace is required when requesting packages of the following formats:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Maven</p>
+   *                </li>
+   *                <li>
+   *                   <p>Swift</p>
+   *                </li>
+   *                <li>
+   *                   <p>generic</p>
+   *                </li>
+   *             </ul>
+   *          </note>
    *          <ul>
    *             <li>
    *                <p>
-   *           The namespace of a Maven package is its <code>groupId</code>. The namespace is required when requesting Maven packages.
+   *           The namespace of a Maven package version is its <code>groupId</code>.
    *         </p>
    *             </li>
    *             <li>
    *                <p>
-   *           The namespace of an npm package is its <code>scope</code>.
+   *           The namespace of an npm or Swift package version is its <code>scope</code>.
    *         </p>
    *             </li>
    *             <li>
+   *                <p>The namespace of a generic package is its <code>namespace</code>.</p>
+   *             </li>
+   *             <li>
    *                <p>
-   *           Python and NuGet packages do not contain a corresponding component, packages
+   *           Python and NuGet package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
-   *             </li>
-   *             <li>
-   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    * @public
@@ -1770,22 +2185,22 @@ export interface PackageDescription {
    *          <ul>
    *             <li>
    *                <p>
-   *           The namespace of a Maven package is its <code>groupId</code>.
+   *           The namespace of a Maven package version is its <code>groupId</code>.
    *         </p>
    *             </li>
    *             <li>
    *                <p>
-   *           The namespace of an npm package is its <code>scope</code>.
+   *           The namespace of an npm or Swift package version is its <code>scope</code>.
    *         </p>
    *             </li>
    *             <li>
+   *                <p>The namespace of a generic package is its <code>namespace</code>.</p>
+   *             </li>
+   *             <li>
    *                <p>
-   *           Python and NuGet packages do not contain a corresponding component, packages
+   *           Python and NuGet package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
-   *             </li>
-   *             <li>
-   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    * @public
@@ -1815,6 +2230,46 @@ export interface DescribePackageResult {
    * @public
    */
   package: PackageDescription | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribePackageGroupRequest {
+  /**
+   * <p>
+   *       The name of the domain that contains the package group.
+   *     </p>
+   * @public
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
+   *         dashes or spaces.
+   *       </p>
+   * @public
+   */
+  domainOwner?: string;
+
+  /**
+   * <p>The pattern of the requested package group.</p>
+   * @public
+   */
+  packageGroup: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribePackageGroupResult {
+  /**
+   * <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageGroupDescription.html">PackageGroupDescription</a> object
+   *     that contains information about the requested package group.</p>
+   * @public
+   */
+  packageGroup?: PackageGroupDescription;
 }
 
 /**
@@ -1853,8 +2308,22 @@ export interface DescribePackageVersionRequest {
   format: PackageFormat | undefined;
 
   /**
-   * <p>The namespace of the requested package version. The package version component that specifies its
+   * <p>The namespace of the requested package version. The package component that specifies its
    *       namespace depends on its type. For example:</p>
+   *          <note>
+   *             <p>The namespace is required when requesting package versions of the following formats:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Maven</p>
+   *                </li>
+   *                <li>
+   *                   <p>Swift</p>
+   *                </li>
+   *                <li>
+   *                   <p>generic</p>
+   *                </li>
+   *             </ul>
+   *          </note>
    *          <ul>
    *             <li>
    *                <p>
@@ -1863,17 +2332,17 @@ export interface DescribePackageVersionRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           The namespace of an npm package version is its <code>scope</code>.
+   *           The namespace of an npm or Swift package version is its <code>scope</code>.
    *         </p>
+   *             </li>
+   *             <li>
+   *                <p>The namespace of a generic package is its <code>namespace</code>.</p>
    *             </li>
    *             <li>
    *                <p>
    *           Python and NuGet package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
-   *             </li>
-   *             <li>
-   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    * @public
@@ -1923,6 +2392,10 @@ export interface LicenseInfo {
  * <p>Information about how a package originally entered the CodeArtifact domain. For packages published directly to CodeArtifact, the entry point is the repository it was published to.
  *       For packages ingested from an external repository, the entry point is the external connection that it was ingested from. An external
  *     connection is a CodeArtifact repository that is connected to an external repository such as the npm registry or NuGet gallery.</p>
+ *          <note>
+ *             <p>If a package version exists in a repository and is updated, for example if a package of the same version is added
+ *       with additional assets, the package version's <code>DomainEntryPoint</code> will not change from the original package version's value.</p>
+ *          </note>
  * @public
  */
 export interface DomainEntryPoint {
@@ -1990,7 +2463,7 @@ export interface PackageVersionDescription {
   format?: PackageFormat;
 
   /**
-   * <p>The namespace of the package version. The package version component that specifies its
+   * <p>The namespace of the package version. The package component that specifies its
    *       namespace depends on its type. For example:</p>
    *          <ul>
    *             <li>
@@ -2000,17 +2473,17 @@ export interface PackageVersionDescription {
    *             </li>
    *             <li>
    *                <p>
-   *           The namespace of an npm package version is its <code>scope</code>.
+   *           The namespace of an npm or Swift package version is its <code>scope</code>.
    *         </p>
+   *             </li>
+   *             <li>
+   *                <p>The namespace of a generic package is its <code>namespace</code>.</p>
    *             </li>
    *             <li>
    *                <p>
    *           Python and NuGet package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
-   *             </li>
-   *             <li>
-   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    * @public
@@ -2250,8 +2723,22 @@ export interface DisposePackageVersionsRequest {
   format: PackageFormat | undefined;
 
   /**
-   * <p>The namespace of the package versions to be disposed. The package version component that specifies its
+   * <p>The namespace of the package versions to be disposed. The package component that specifies its
    *       namespace depends on its type. For example:</p>
+   *          <note>
+   *             <p>The namespace is required when disposing package versions of the following formats:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Maven</p>
+   *                </li>
+   *                <li>
+   *                   <p>Swift</p>
+   *                </li>
+   *                <li>
+   *                   <p>generic</p>
+   *                </li>
+   *             </ul>
+   *          </note>
    *          <ul>
    *             <li>
    *                <p>
@@ -2260,17 +2747,17 @@ export interface DisposePackageVersionsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           The namespace of an npm package version is its <code>scope</code>.
+   *           The namespace of an npm or Swift package version is its <code>scope</code>.
    *         </p>
+   *             </li>
+   *             <li>
+   *                <p>The namespace of a generic package is its <code>namespace</code>.</p>
    *             </li>
    *             <li>
    *                <p>
    *           Python and NuGet package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
-   *             </li>
-   *             <li>
-   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    * @public
@@ -2362,6 +2849,104 @@ export interface DisposePackageVersionsResult {
    * @public
    */
   failedVersions?: Record<string, PackageVersionError>;
+}
+
+/**
+ * @public
+ */
+export interface GetAssociatedPackageGroupRequest {
+  /**
+   * <p>
+   *       The name of the domain that contains the package from which to get the associated package group.
+   *     </p>
+   * @public
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
+   *         dashes or spaces.
+   *       </p>
+   * @public
+   */
+  domainOwner?: string;
+
+  /**
+   * <p>
+   *       The format of the package from which to get the associated package group.
+   *     </p>
+   * @public
+   */
+  format: PackageFormat | undefined;
+
+  /**
+   * <p>The namespace of the package from which to get the associated package group. The package component that specifies its
+   *       namespace depends on its type. For example:</p>
+   *          <note>
+   *             <p>The namespace is required when getting associated package groups from packages of the following formats:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Maven</p>
+   *                </li>
+   *                <li>
+   *                   <p>Swift</p>
+   *                </li>
+   *                <li>
+   *                   <p>generic</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *           The namespace of a Maven package version is its <code>groupId</code>.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           The namespace of an npm or Swift package version is its <code>scope</code>.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>The namespace of a generic package is its <code>namespace</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           Python and NuGet package versions do not contain a corresponding component, package versions
+   *           of those formats do not have a namespace.
+   *         </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  namespace?: string;
+
+  /**
+   * <p>
+   *       The package from which to get the associated package group.
+   *     </p>
+   * @public
+   */
+  package: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAssociatedPackageGroupResult {
+  /**
+   * <p>The package group that is associated with the requested package.</p>
+   * @public
+   */
+  packageGroup?: PackageGroupDescription;
+
+  /**
+   * <p>Describes the strength of the association between the package and package group. A strong match is also known as an
+   *     exact match, and a weak match is known as a relative match.</p>
+   * @public
+   */
+  associationType?: PackageGroupAssociationType;
 }
 
 /**
@@ -2489,8 +3074,22 @@ export interface GetPackageVersionAssetRequest {
   format: PackageFormat | undefined;
 
   /**
-   * <p>The namespace of the package version with the requested asset file. The package version component that specifies its
+   * <p>The namespace of the package version with the requested asset file. The package component that specifies its
    *       namespace depends on its type. For example:</p>
+   *          <note>
+   *             <p>The namespace is required when requesting assets from package versions of the following formats:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Maven</p>
+   *                </li>
+   *                <li>
+   *                   <p>Swift</p>
+   *                </li>
+   *                <li>
+   *                   <p>generic</p>
+   *                </li>
+   *             </ul>
+   *          </note>
    *          <ul>
    *             <li>
    *                <p>
@@ -2499,17 +3098,17 @@ export interface GetPackageVersionAssetRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           The namespace of an npm package version is its <code>scope</code>.
+   *           The namespace of an npm or Swift package version is its <code>scope</code>.
    *         </p>
+   *             </li>
+   *             <li>
+   *                <p>The namespace of a generic package is its <code>namespace</code>.</p>
    *             </li>
    *             <li>
    *                <p>
    *           Python and NuGet package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
-   *             </li>
-   *             <li>
-   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    * @public
@@ -2622,15 +3221,41 @@ export interface GetPackageVersionReadmeRequest {
   format: PackageFormat | undefined;
 
   /**
-   * <p>The namespace of the package version with the requested readme file. The package version component that specifies its
+   * <p>The namespace of the package version with the requested readme file. The package component that specifies its
    *       namespace depends on its type. For example:</p>
+   *          <note>
+   *             <p>The namespace is required when requesting the readme from package versions of the following formats:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Maven</p>
+   *                </li>
+   *                <li>
+   *                   <p>Swift</p>
+   *                </li>
+   *                <li>
+   *                   <p>generic</p>
+   *                </li>
+   *             </ul>
+   *          </note>
    *          <ul>
    *             <li>
-   *                <p> The namespace of an npm package version is its <code>scope</code>. </p>
+   *                <p>
+   *           The namespace of a Maven package version is its <code>groupId</code>.
+   *         </p>
    *             </li>
    *             <li>
-   *                <p> Python and NuGet package versions do not contain a corresponding component, package
-   *           versions of those formats do not have a namespace. </p>
+   *                <p>
+   *           The namespace of an npm or Swift package version is its <code>scope</code>.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>The namespace of a generic package is its <code>namespace</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *           Python and NuGet package versions do not contain a corresponding component, package versions
+   *           of those formats do not have a namespace.
+   *         </p>
    *             </li>
    *          </ul>
    * @public
@@ -2667,7 +3292,7 @@ export interface GetPackageVersionReadmeResult {
   format?: PackageFormat;
 
   /**
-   * <p>The namespace of the package version with the requested readme file. The package version component that specifies its
+   * <p>The namespace of the package version with the requested readme file. The package component that specifies its
    *       namespace depends on its type. For example:</p>
    *          <ul>
    *             <li>
@@ -2677,8 +3302,11 @@ export interface GetPackageVersionReadmeResult {
    *             </li>
    *             <li>
    *                <p>
-   *           The namespace of an npm package version is its <code>scope</code>.
+   *           The namespace of an npm or Swift package version is its <code>scope</code>.
    *         </p>
+   *             </li>
+   *             <li>
+   *                <p>The namespace of a generic package is its <code>namespace</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2822,6 +3450,151 @@ export interface GetRepositoryPermissionsPolicyResult {
 /**
  * @public
  */
+export interface ListAllowedRepositoriesForGroupRequest {
+  /**
+   * <p>
+   *       The name of the domain that contains the package group from which to list allowed repositories.
+   *     </p>
+   * @public
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
+   *         dashes or spaces.
+   *       </p>
+   * @public
+   */
+  domainOwner?: string;
+
+  /**
+   * <p>The pattern of the package group from which to list allowed repositories.</p>
+   * @public
+   */
+  packageGroup: string | undefined;
+
+  /**
+   * <p>The origin configuration restriction type of which to list allowed repositories.</p>
+   * @public
+   */
+  originRestrictionType: PackageGroupOriginRestrictionType | undefined;
+
+  /**
+   * <p>
+   *         The maximum number of results to return per page.
+   *        </p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>
+   *         The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *        </p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListAllowedRepositoriesForGroupResult {
+  /**
+   * <p>The list of allowed repositories for the package group and origin configuration restriction type.</p>
+   * @public
+   */
+  allowedRepositories?: string[];
+
+  /**
+   * <p>
+   *         The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *        </p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListAssociatedPackagesRequest {
+  /**
+   * <p>
+   *       The name of the domain that contains the package group from which to list associated packages.
+   *     </p>
+   * @public
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
+   *         dashes or spaces.
+   *       </p>
+   * @public
+   */
+  domainOwner?: string;
+
+  /**
+   * <p>
+   *       The pattern of the package group from which to list associated packages.
+   *     </p>
+   * @public
+   */
+  packageGroup: string | undefined;
+
+  /**
+   * <p>
+   *         The maximum number of results to return per page.
+   *        </p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>
+   *         The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *        </p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>
+   *       When this flag is included, <code>ListAssociatedPackages</code> will return a list of packages that would be associated with a package
+   *       group, even if it does not exist.
+   *     </p>
+   * @public
+   */
+  preview?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface ListAssociatedPackagesResult {
+  /**
+   * <p>
+   *       The list of packages associated with the requested package group.
+   *     </p>
+   * @public
+   */
+  packages?: AssociatedPackage[];
+
+  /**
+   * <p>
+   *         The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *        </p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListDomainsRequest {
   /**
    * <p>
@@ -2921,6 +3694,149 @@ export interface ListDomainsResult {
 /**
  * @public
  */
+export interface ListPackageGroupsRequest {
+  /**
+   * <p>
+   *       The domain for which you want to list package groups.
+   *     </p>
+   * @public
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
+   *         dashes or spaces.
+   *       </p>
+   * @public
+   */
+  domainOwner?: string;
+
+  /**
+   * <p>
+   *         The maximum number of results to return per page.
+   *        </p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>
+   *         The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *        </p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>
+   *       A prefix for which to search package groups. When included, <code>ListPackageGroups</code> will return only
+   *       package groups with patterns that match the prefix.
+   *     </p>
+   * @public
+   */
+  prefix?: string;
+}
+
+/**
+ * <p>Details about a package group.</p>
+ * @public
+ */
+export interface PackageGroupSummary {
+  /**
+   * <p>
+   *       The ARN of the package group.
+   *     </p>
+   * @public
+   */
+  arn?: string;
+
+  /**
+   * <p>
+   *       The pattern of the package group. The pattern determines which packages are associated with the package group.
+   *     </p>
+   * @public
+   */
+  pattern?: string;
+
+  /**
+   * <p>
+   *       The domain that contains the package group.
+   *     </p>
+   * @public
+   */
+  domainName?: string;
+
+  /**
+   * <p>
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
+   *         dashes or spaces.
+   *       </p>
+   * @public
+   */
+  domainOwner?: string;
+
+  /**
+   * <p>A timestamp that represents the date and time the repository was created.</p>
+   * @public
+   */
+  createdTime?: Date;
+
+  /**
+   * <p>
+   *       The contact information of the package group.
+   *     </p>
+   * @public
+   */
+  contactInfo?: string;
+
+  /**
+   * <p>
+   *       The description of the package group.
+   *     </p>
+   * @public
+   */
+  description?: string;
+
+  /**
+   * <p>Details about the package origin configuration of a package group.</p>
+   * @public
+   */
+  originConfiguration?: PackageGroupOriginConfiguration;
+
+  /**
+   * <p>
+   *       The direct parent package group of the package group.
+   *     </p>
+   * @public
+   */
+  parent?: PackageGroupReference;
+}
+
+/**
+ * @public
+ */
+export interface ListPackageGroupsResult {
+  /**
+   * <p>
+   *       The list of package groups in the requested domain.
+   *     </p>
+   * @public
+   */
+  packageGroups?: PackageGroupSummary[];
+
+  /**
+   * <p>
+   *         The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *        </p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListPackagesRequest {
   /**
    * <p>
@@ -2954,27 +3870,29 @@ export interface ListPackagesRequest {
   format?: PackageFormat;
 
   /**
-   * <p>The namespace prefix used to filter requested packages. Only packages with a namespace that starts with the provided string value are returned. Note that although this option is called <code>--namespace</code> and not <code>--namespace-prefix</code>, it has prefix-matching behavior.</p>
+   * <p>The namespace prefix used to filter requested packages.
+   *       Only packages with a namespace that starts with the provided string value are returned.
+   *       Note that although this option is called <code>--namespace</code> and not <code>--namespace-prefix</code>, it has prefix-matching behavior.</p>
    *          <p>Each package format uses namespace as follows:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *           The namespace of a Maven package is its <code>groupId</code>.
+   *           The namespace of a Maven package version is its <code>groupId</code>.
    *         </p>
    *             </li>
    *             <li>
    *                <p>
-   *           The namespace of an npm package is its <code>scope</code>.
+   *           The namespace of an npm or Swift package version is its <code>scope</code>.
    *         </p>
    *             </li>
    *             <li>
+   *                <p>The namespace of a generic package is its <code>namespace</code>.</p>
+   *             </li>
+   *             <li>
    *                <p>
-   *           Python and NuGet packages do not contain a corresponding component, packages
+   *           Python and NuGet package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
-   *             </li>
-   *             <li>
-   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    * @public
@@ -3082,8 +4000,22 @@ export interface ListPackageVersionAssetsRequest {
   format: PackageFormat | undefined;
 
   /**
-   * <p>The namespace of the package version that contains the requested package version assets. The package version component that specifies its
+   * <p>The namespace of the package version that contains the requested package version assets. The package component that specifies its
    *       namespace depends on its type. For example:</p>
+   *          <note>
+   *             <p>The namespace is required requesting assets from package versions of the following formats:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Maven</p>
+   *                </li>
+   *                <li>
+   *                   <p>Swift</p>
+   *                </li>
+   *                <li>
+   *                   <p>generic</p>
+   *                </li>
+   *             </ul>
+   *          </note>
    *          <ul>
    *             <li>
    *                <p>
@@ -3092,17 +4024,17 @@ export interface ListPackageVersionAssetsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           The namespace of an npm package version is its <code>scope</code>.
+   *           The namespace of an npm or Swift package version is its <code>scope</code>.
    *         </p>
+   *             </li>
+   *             <li>
+   *                <p>The namespace of a generic package is its <code>namespace</code>.</p>
    *             </li>
    *             <li>
    *                <p>
    *           Python and NuGet package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
-   *             </li>
-   *             <li>
-   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    * @public
@@ -3155,24 +4087,27 @@ export interface ListPackageVersionAssetsResult {
   format?: PackageFormat;
 
   /**
-   * <p>The namespace of the package version that contains the requested package version assets. The package version component that specifies its
+   * <p>The namespace of the package version that contains the requested package version assets. The package component that specifies its
    *        namespace depends on its type. For example:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *            The namespace of a Maven package version is its <code>groupId</code>.
-   *          </p>
+   *           The namespace of a Maven package version is its <code>groupId</code>.
+   *         </p>
    *             </li>
    *             <li>
    *                <p>
-   *            The namespace of an npm package version is its <code>scope</code>.
-   *          </p>
+   *           The namespace of an npm or Swift package version is its <code>scope</code>.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>The namespace of a generic package is its <code>namespace</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *            Python and NuGet package versions do not contain a corresponding component, package versions
-   *            of those formats do not have a namespace.
-   *          </p>
+   *           Python and NuGet package versions do not contain a corresponding component, package versions
+   *           of those formats do not have a namespace.
+   *         </p>
    *             </li>
    *          </ul>
    * @public
@@ -3258,8 +4193,22 @@ export interface ListPackageVersionDependenciesRequest {
   format: PackageFormat | undefined;
 
   /**
-   * <p>The namespace of the package version with the requested dependencies. The package version component that specifies its
+   * <p>The namespace of the package version with the requested dependencies. The package component that specifies its
    *       namespace depends on its type. For example:</p>
+   *          <note>
+   *             <p>The namespace is required when listing dependencies from package versions of the following formats:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Maven</p>
+   *                </li>
+   *                <li>
+   *                   <p>Swift</p>
+   *                </li>
+   *                <li>
+   *                   <p>generic</p>
+   *                </li>
+   *             </ul>
+   *          </note>
    *          <ul>
    *             <li>
    *                <p>
@@ -3268,17 +4217,17 @@ export interface ListPackageVersionDependenciesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           The namespace of an npm package version is its <code>scope</code>.
+   *           The namespace of an npm or Swift package version is its <code>scope</code>.
    *         </p>
+   *             </li>
+   *             <li>
+   *                <p>The namespace of a generic package is its <code>namespace</code>.</p>
    *             </li>
    *             <li>
    *                <p>
    *           Python and NuGet package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
-   *             </li>
-   *             <li>
-   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    * @public
@@ -3323,19 +4272,22 @@ export interface PackageDependency {
    *          <ul>
    *             <li>
    *                <p>
-   *            The namespace of a Maven package is its <code>groupId</code>.
-   *          </p>
+   *           The namespace of a Maven package version is its <code>groupId</code>.
+   *         </p>
    *             </li>
    *             <li>
    *                <p>
-   *            The namespace of an npm package is its <code>scope</code>.
-   *          </p>
+   *           The namespace of an npm or Swift package version is its <code>scope</code>.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>The namespace of a generic package is its <code>namespace</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *            Python and NuGet packages do not contain a corresponding component, packages
-   *            of those formats do not have a namespace.
-   *          </p>
+   *           Python and NuGet package versions do not contain a corresponding component, package versions
+   *           of those formats do not have a namespace.
+   *         </p>
    *             </li>
    *          </ul>
    * @public
@@ -3399,7 +4351,7 @@ export interface ListPackageVersionDependenciesResult {
   format?: PackageFormat;
 
   /**
-   * <p>The namespace of the package version that contains the returned dependencies. The package version component that specifies its
+   * <p>The namespace of the package version that contains the returned dependencies. The package component that specifies its
    *       namespace depends on its type. For example:</p>
    *          <ul>
    *             <li>
@@ -3409,8 +4361,11 @@ export interface ListPackageVersionDependenciesResult {
    *             </li>
    *             <li>
    *                <p>
-   *           The namespace of an npm package version is its <code>scope</code>.
+   *           The namespace of an npm or Swift package version is its <code>scope</code>.
    *         </p>
+   *             </li>
+   *             <li>
+   *                <p>The namespace of a generic package is its <code>namespace</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3517,25 +4472,39 @@ export interface ListPackageVersionsRequest {
   /**
    * <p>The namespace of the package that contains the requested package versions. The package component that specifies its
    *       namespace depends on its type. For example:</p>
+   *          <note>
+   *             <p>The namespace is required when deleting package versions of the following formats:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Maven</p>
+   *                </li>
+   *                <li>
+   *                   <p>Swift</p>
+   *                </li>
+   *                <li>
+   *                   <p>generic</p>
+   *                </li>
+   *             </ul>
+   *          </note>
    *          <ul>
    *             <li>
    *                <p>
-   *           The namespace of a Maven package is its <code>groupId</code>.
+   *           The namespace of a Maven package version is its <code>groupId</code>.
    *         </p>
    *             </li>
    *             <li>
    *                <p>
-   *           The namespace of an npm package is its <code>scope</code>.
+   *           The namespace of an npm or Swift package version is its <code>scope</code>.
    *         </p>
    *             </li>
    *             <li>
+   *                <p>The namespace of a generic package is its <code>namespace</code>.</p>
+   *             </li>
+   *             <li>
    *                <p>
-   *           Python and NuGet packages do not contain a corresponding component, packages
+   *           Python and NuGet package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
-   *             </li>
-   *             <li>
-   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    * @public
@@ -3670,17 +4639,20 @@ export interface ListPackageVersionsResult {
    *          <ul>
    *             <li>
    *                <p>
-   *           The namespace of a Maven package is its <code>groupId</code>.
+   *           The namespace of a Maven package version is its <code>groupId</code>.
    *         </p>
    *             </li>
    *             <li>
    *                <p>
-   *           The namespace of an npm package is its <code>scope</code>.
+   *           The namespace of an npm or Swift package version is its <code>scope</code>.
    *         </p>
    *             </li>
    *             <li>
+   *                <p>The namespace of a generic package is its <code>namespace</code>.</p>
+   *             </li>
+   *             <li>
    *                <p>
-   *           Python and NuGet packages do not contain a corresponding component, packages
+   *           Python and NuGet package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
@@ -3906,6 +4878,73 @@ export interface ListRepositoriesInDomainResult {
 /**
  * @public
  */
+export interface ListSubPackageGroupsRequest {
+  /**
+   * <p>
+   *       The name of the domain which contains the package group from which to list sub package groups.
+   *     </p>
+   * @public
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
+   *         dashes or spaces.
+   *       </p>
+   * @public
+   */
+  domainOwner?: string;
+
+  /**
+   * <p>
+   *       The pattern of the package group from which to list sub package groups.
+   *     </p>
+   * @public
+   */
+  packageGroup: string | undefined;
+
+  /**
+   * <p>
+   *         The maximum number of results to return per page.
+   *        </p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>
+   *         The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *        </p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListSubPackageGroupsResult {
+  /**
+   * <p>
+   *       A list of sub package groups for the requested package group.
+   *     </p>
+   * @public
+   */
+  packageGroups?: PackageGroupSummary[];
+
+  /**
+   * <p>
+   *         If there are additional results, this is the token for the next set of results.
+   *        </p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to get tags for.</p>
@@ -3981,7 +5020,7 @@ export interface PublishPackageVersionRequest {
   /**
    * <p>The name of the asset to publish. Asset names can include Unicode letters and numbers, and
    *       the following special characters: <code>~ ! @ ^ & ( ) - ` _ + [ ] \{ \} ; , .
-   *       `</code>
+   *         `</code>
    *          </p>
    * @public
    */
@@ -3990,7 +5029,7 @@ export interface PublishPackageVersionRequest {
   /**
    * <p>The SHA256 hash of the <code>assetContent</code> to publish. This value must be calculated
    *       by the caller and provided with the request (see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-generic.html#publishing-generic-packages">Publishing a generic package</a> in the <i>CodeArtifact User
-   *         Guide</i>).</p>
+   *           Guide</i>).</p>
    *          <p>This value is used as an integrity check to verify that the <code>assetContent</code> has
    *       not changed after it was originally sent.</p>
    * @public
@@ -4000,7 +5039,7 @@ export interface PublishPackageVersionRequest {
   /**
    * <p>Specifies whether the package version should remain in the <code>unfinished</code>
    *       state. If omitted, the package version status will be set to <code>Published</code> (see
-   *         <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/packages-overview.html#package-version-status">Package version status</a> in the <i>CodeArtifact User Guide</i>).</p>
+   *       <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/packages-overview.html#package-version-status">Package version status</a> in the <i>CodeArtifact User Guide</i>).</p>
    *          <p>Valid values: <code>unfinished</code>
    *          </p>
    * @public
@@ -4141,22 +5180,22 @@ export interface PutPackageOriginConfigurationRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *           The namespace of a Maven package is its <code>groupId</code>.
+   *           The namespace of a Maven package version is its <code>groupId</code>.
    *         </p>
    *             </li>
    *             <li>
    *                <p>
-   *           The namespace of an npm package is its <code>scope</code>.
+   *           The namespace of an npm or Swift package version is its <code>scope</code>.
    *         </p>
    *             </li>
    *             <li>
+   *                <p>The namespace of a generic package is its <code>namespace</code>.</p>
+   *             </li>
+   *             <li>
    *                <p>
-   *           Python and NuGet packages do not contain a corresponding component, packages
+   *           Python and NuGet package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
-   *             </li>
-   *             <li>
-   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    * @public
@@ -4297,6 +5336,173 @@ export interface UntagResourceResult {}
 /**
  * @public
  */
+export interface UpdatePackageGroupRequest {
+  /**
+   * <p>
+   *       The name of the domain which contains the package group to be updated.
+   *     </p>
+   * @public
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
+   *         dashes or spaces.
+   *       </p>
+   * @public
+   */
+  domainOwner?: string;
+
+  /**
+   * <p>
+   *       The pattern of the package group to be updated.
+   *     </p>
+   * @public
+   */
+  packageGroup: string | undefined;
+
+  /**
+   * <p>
+   *       Contact information which you want to update the requested package group with.
+   *     </p>
+   * @public
+   */
+  contactInfo?: string;
+
+  /**
+   * <p>
+   *       The description you want to update the requested package group with.
+   *     </p>
+   * @public
+   */
+  description?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePackageGroupResult {
+  /**
+   * <p>
+   *       The package group and information about it after the request has been processed.
+   *     </p>
+   * @public
+   */
+  packageGroup?: PackageGroupDescription;
+}
+
+/**
+ * <p>
+ *       Details about an allowed repository for a package group, including its name and origin configuration.
+ *     </p>
+ * @public
+ */
+export interface PackageGroupAllowedRepository {
+  /**
+   * <p>
+   *       The name of the allowed repository.
+   *     </p>
+   * @public
+   */
+  repositoryName?: string;
+
+  /**
+   * <p>The origin configuration restriction type of the allowed repository.</p>
+   * @public
+   */
+  originRestrictionType?: PackageGroupOriginRestrictionType;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePackageGroupOriginConfigurationRequest {
+  /**
+   * <p>
+   *       The name of the domain which contains the package group for which to update the origin configuration.
+   *     </p>
+   * @public
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>
+   *         The 12-digit account number of the Amazon Web Services account that owns the domain. It does not include
+   *         dashes or spaces.
+   *       </p>
+   * @public
+   */
+  domainOwner?: string;
+
+  /**
+   * <p>
+   *       The pattern of the package group for which to update the origin configuration.
+   *     </p>
+   * @public
+   */
+  packageGroup: string | undefined;
+
+  /**
+   * <p>
+   *         The origin configuration settings that determine how package versions can enter repositories.
+   *       </p>
+   * @public
+   */
+  restrictions?: Partial<Record<PackageGroupOriginRestrictionType, PackageGroupOriginRestrictionMode>>;
+
+  /**
+   * <p>The repository name and restrictions to add to the allowed repository list of the specified package group.</p>
+   * @public
+   */
+  addAllowedRepositories?: PackageGroupAllowedRepository[];
+
+  /**
+   * <p>The repository name and restrictions to remove from the allowed repository list of the specified package group.</p>
+   * @public
+   */
+  removeAllowedRepositories?: PackageGroupAllowedRepository[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PackageGroupAllowedRepositoryUpdateType = {
+  ADDED: "ADDED",
+  REMOVED: "REMOVED",
+} as const;
+
+/**
+ * @public
+ */
+export type PackageGroupAllowedRepositoryUpdateType =
+  (typeof PackageGroupAllowedRepositoryUpdateType)[keyof typeof PackageGroupAllowedRepositoryUpdateType];
+
+/**
+ * @public
+ */
+export interface UpdatePackageGroupOriginConfigurationResult {
+  /**
+   * <p>
+   *       The package group and information about it after processing the request.
+   *     </p>
+   * @public
+   */
+  packageGroup?: PackageGroupDescription;
+
+  /**
+   * <p>Information about the updated allowed repositories after processing the request.</p>
+   * @public
+   */
+  allowedRepositoryUpdates?: Partial<
+    Record<PackageGroupOriginRestrictionType, Partial<Record<PackageGroupAllowedRepositoryUpdateType, string[]>>>
+  >;
+}
+
+/**
+ * @public
+ */
 export interface UpdatePackageVersionsStatusRequest {
   /**
    * <p>
@@ -4332,7 +5538,7 @@ export interface UpdatePackageVersionsStatusRequest {
   format: PackageFormat | undefined;
 
   /**
-   * <p>The namespace of the package version to be updated. The package version component that specifies its
+   * <p>The namespace of the package version to be updated. The package component that specifies its
    *       namespace depends on its type. For example:</p>
    *          <ul>
    *             <li>
@@ -4342,17 +5548,17 @@ export interface UpdatePackageVersionsStatusRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           The namespace of an npm package version is its <code>scope</code>.
+   *           The namespace of an npm or Swift package version is its <code>scope</code>.
    *         </p>
+   *             </li>
+   *             <li>
+   *                <p>The namespace of a generic package is its <code>namespace</code>.</p>
    *             </li>
    *             <li>
    *                <p>
    *           Python and NuGet package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
-   *             </li>
-   *             <li>
-   *                <p> The namespace of a generic package is its <code>namespace</code>. </p>
    *             </li>
    *          </ul>
    * @public
@@ -4480,6 +5686,13 @@ export interface UpdateRepositoryResult {
    */
   repository?: RepositoryDescription;
 }
+
+/**
+ * @internal
+ */
+export const GetAuthorizationTokenResultFilterSensitiveLog = (obj: GetAuthorizationTokenResult): any => ({
+  ...obj,
+});
 
 /**
  * @internal

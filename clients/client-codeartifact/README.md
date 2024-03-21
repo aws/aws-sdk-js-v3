@@ -13,9 +13,8 @@ public and CodeArtifact repositories. You can also create an upstream relationsh
 repository and another repository, which effectively merges their contents from the point of
 view of a package manager client. </p>
 <p>
-<b>CodeArtifact Components</b>
+<b>CodeArtifact concepts</b>
 </p>
-<p>Use the information in this guide to help you work with the following CodeArtifact components:</p>
 <ul>
 <li>
 <p>
@@ -29,7 +28,10 @@ repository exposes endpoints for fetching and publishing packages using tools li
 <code>mvn</code>
 </b>), Python CLIs (<b>
 <code>pip</code>
-</b> and <code>twine</code>), and NuGet CLIs (<code>nuget</code> and <code>dotnet</code>).</p>
+</b> and <code>twine</code>), NuGet CLIs (<code>nuget</code> and <code>dotnet</code>), and
+the Swift package manager (<b>
+<code>swift</code>
+</b>).</p>
 </li>
 <li>
 <p>
@@ -51,7 +53,7 @@ across their organization.</p>
 <li>
 <p>
 <b>Package</b>: A <i>package</i> is a bundle of software and the metadata required to
-resolve dependencies and install the software. CodeArtifact supports <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-npm.html">npm</a>, <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-python.html">PyPI</a>, <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-maven">Maven</a>, and <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-nuget">NuGet</a> package formats.</p>
+resolve dependencies and install the software. CodeArtifact supports <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-npm.html">npm</a>, <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-python.html">PyPI</a>, <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-maven">Maven</a>, <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-nuget">NuGet</a>, <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-swift">Swift</a>, and <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-generic">generic</a> package formats.</p>
 <p>In CodeArtifact, a package consists of:</p>
 <ul>
 <li>
@@ -69,6 +71,14 @@ popular npm package)</p>
 <p> Package-level metadata (for example, npm tags)</p>
 </li>
 </ul>
+</li>
+<li>
+<p>
+<b>Package group</b>: A group of packages that match a specified definition. Package
+groups can be used to apply configuration to multiple packages that match a defined pattern using
+package format, package namespace, and package name. You can use package groups to more conveniently
+configure package origin controls for multiple packages. Package origin controls are used to block or allow ingestion or publishing
+of new package versions, which protects users from malicious actions known as dependency substitution attacks.</p>
 </li>
 <li>
 <p>
@@ -91,7 +101,9 @@ allows creating an upstream relationship between two repositories.</p>
 <code>.tgz</code> file or Maven POM and JAR files.</p>
 </li>
 </ul>
-<p>CodeArtifact supports these operations:</p>
+<p>
+<b>CodeArtifact supported API operations</b>
+</p>
 <ul>
 <li>
 <p>
@@ -106,7 +118,11 @@ repository to another repository in the same domain.</p>
 </li>
 <li>
 <p>
-<code>CreateDomain</code>: Creates a domain</p>
+<code>CreateDomain</code>: Creates a domain.</p>
+</li>
+<li>
+<p>
+<code>CreatePackageGroup</code>: Creates a package group.</p>
 </li>
 <li>
 <p>
@@ -124,6 +140,10 @@ repositories. </p>
 <li>
 <p>
 <code>DeletePackage</code>: Deletes a package and all associated package versions.</p>
+</li>
+<li>
+<p>
+<code>DeletePackageGroup</code>: Deletes a package group. Does not delete packages or package versions that are associated with a package group.</p>
 </li>
 <li>
 <p>
@@ -152,6 +172,11 @@ object that contains details about a package. </p>
 </li>
 <li>
 <p>
+<code>DescribePackageGroup</code>: Returns a <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageGroup.html">PackageGroup</a>
+object that contains details about a package group. </p>
+</li>
+<li>
+<p>
 <code>DescribePackageVersion</code>: Returns a <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html">PackageVersionDescription</a>
 object that contains details about a package version. </p>
 </li>
@@ -170,6 +195,10 @@ permanently removed from storage.</p>
 <p>
 <code>DisassociateExternalConnection</code>: Removes an existing external connection from a repository.
 </p>
+</li>
+<li>
+<p>
+<code>GetAssociatedPackageGroup</code>: Returns the most closely associated package group to the specified package.</p>
 </li>
 <li>
 <p>
@@ -197,6 +226,11 @@ package format:
 <ul>
 <li>
 <p>
+<code>generic</code>
+</p>
+</li>
+<li>
+<p>
 <code>maven</code>
 </p>
 </li>
@@ -215,6 +249,11 @@ package format:
 <code>pypi</code>
 </p>
 </li>
+<li>
+<p>
+<code>swift</code>
+</p>
+</li>
 </ul>
 </li>
 <li>
@@ -224,12 +263,24 @@ package format:
 </li>
 <li>
 <p>
+<code>ListAllowedRepositoriesForGroup</code>: Lists the allowed repositories for a package group that has origin configuration set to <code>ALLOW_SPECIFIC_REPOSITORIES</code>.</p>
+</li>
+<li>
+<p>
+<code>ListAssociatedPackages</code>: Returns a list of packages associated with the requested package group.</p>
+</li>
+<li>
+<p>
 <code>ListDomains</code>: Returns a list of <code>DomainSummary</code> objects. Each
 returned <code>DomainSummary</code> object contains information about a domain.</p>
 </li>
 <li>
 <p>
 <code>ListPackages</code>: Lists the packages in a repository.</p>
+</li>
+<li>
+<p>
+<code>ListPackageGroups</code>: Returns a list of package groups in the requested domain.</p>
 </li>
 <li>
 <p>
@@ -255,6 +306,10 @@ package in a repository.</p>
 </li>
 <li>
 <p>
+<code>ListSubPackageGroups</code>: Returns a list of direct children of the specified package group.</p>
+</li>
+<li>
+<p>
 <code>PublishPackageVersion</code>: Creates a new package version containing one or more assets.</p>
 </li>
 <li>
@@ -270,6 +325,14 @@ how new versions of the package can be added to a specific repository.</p>
 <p>
 <code>PutRepositoryPermissionsPolicy</code>: Sets the resource policy on a repository
 that specifies permissions to access it. </p>
+</li>
+<li>
+<p>
+<code>UpdatePackageGroup</code>: Updates a package group. This API cannot be used to update a package group's origin configuration or pattern.</p>
+</li>
+<li>
+<p>
+<code>UpdatePackageGroupOriginConfiguration</code>: Updates the package origin configuration for a package group.</p>
 </li>
 <li>
 <p>
@@ -502,6 +565,14 @@ CreateDomain
 </details>
 <details>
 <summary>
+CreatePackageGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeartifact/command/CreatePackageGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeartifact/Interface/CreatePackageGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeartifact/Interface/CreatePackageGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateRepository
 </summary>
 
@@ -530,6 +601,14 @@ DeletePackage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeartifact/command/DeletePackageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeartifact/Interface/DeletePackageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeartifact/Interface/DeletePackageCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeletePackageGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeartifact/command/DeletePackageGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeartifact/Interface/DeletePackageGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeartifact/Interface/DeletePackageGroupCommandOutput/)
 
 </details>
 <details>
@@ -574,6 +653,14 @@ DescribePackage
 </details>
 <details>
 <summary>
+DescribePackageGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeartifact/command/DescribePackageGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeartifact/Interface/DescribePackageGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeartifact/Interface/DescribePackageGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribePackageVersion
 </summary>
 
@@ -602,6 +689,14 @@ DisposePackageVersions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeartifact/command/DisposePackageVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeartifact/Interface/DisposePackageVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeartifact/Interface/DisposePackageVersionsCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetAssociatedPackageGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeartifact/command/GetAssociatedPackageGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeartifact/Interface/GetAssociatedPackageGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeartifact/Interface/GetAssociatedPackageGroupCommandOutput/)
 
 </details>
 <details>
@@ -654,10 +749,34 @@ GetRepositoryPermissionsPolicy
 </details>
 <details>
 <summary>
+ListAllowedRepositoriesForGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeartifact/command/ListAllowedRepositoriesForGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeartifact/Interface/ListAllowedRepositoriesForGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeartifact/Interface/ListAllowedRepositoriesForGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListAssociatedPackages
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeartifact/command/ListAssociatedPackagesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeartifact/Interface/ListAssociatedPackagesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeartifact/Interface/ListAssociatedPackagesCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListDomains
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeartifact/command/ListDomainsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeartifact/Interface/ListDomainsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeartifact/Interface/ListDomainsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListPackageGroups
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeartifact/command/ListPackageGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeartifact/Interface/ListPackageGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeartifact/Interface/ListPackageGroupsCommandOutput/)
 
 </details>
 <details>
@@ -706,6 +825,14 @@ ListRepositoriesInDomain
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeartifact/command/ListRepositoriesInDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeartifact/Interface/ListRepositoriesInDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeartifact/Interface/ListRepositoriesInDomainCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListSubPackageGroups
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeartifact/command/ListSubPackageGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeartifact/Interface/ListSubPackageGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeartifact/Interface/ListSubPackageGroupsCommandOutput/)
 
 </details>
 <details>
@@ -762,6 +889,22 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeartifact/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeartifact/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeartifact/Interface/UntagResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdatePackageGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeartifact/command/UpdatePackageGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeartifact/Interface/UpdatePackageGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeartifact/Interface/UpdatePackageGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdatePackageGroupOriginConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeartifact/command/UpdatePackageGroupOriginConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeartifact/Interface/UpdatePackageGroupOriginConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeartifact/Interface/UpdatePackageGroupOriginConfigurationCommandOutput/)
 
 </details>
 <details>

@@ -6,7 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetAuthorizationTokenRequest, GetAuthorizationTokenResult } from "../models/models_0";
+import {
+  GetAuthorizationTokenRequest,
+  GetAuthorizationTokenResult,
+  GetAuthorizationTokenResultFilterSensitiveLog,
+} from "../models/models_0";
 import { de_GetAuthorizationTokenCommand, se_GetAuthorizationTokenCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -121,7 +125,7 @@ export class GetAuthorizationTokenCommand extends $Command
   })
   .s("CodeArtifactControlPlaneService", "GetAuthorizationToken", {})
   .n("CodeartifactClient", "GetAuthorizationTokenCommand")
-  .f(void 0, void 0)
+  .f(void 0, GetAuthorizationTokenResultFilterSensitiveLog)
   .ser(se_GetAuthorizationTokenCommand)
   .de(de_GetAuthorizationTokenCommand)
   .build() {}

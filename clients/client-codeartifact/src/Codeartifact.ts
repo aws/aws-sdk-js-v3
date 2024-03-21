@@ -19,6 +19,11 @@ import {
   CreateDomainCommandOutput,
 } from "./commands/CreateDomainCommand";
 import {
+  CreatePackageGroupCommand,
+  CreatePackageGroupCommandInput,
+  CreatePackageGroupCommandOutput,
+} from "./commands/CreatePackageGroupCommand";
+import {
   CreateRepositoryCommand,
   CreateRepositoryCommandInput,
   CreateRepositoryCommandOutput,
@@ -38,6 +43,11 @@ import {
   DeletePackageCommandInput,
   DeletePackageCommandOutput,
 } from "./commands/DeletePackageCommand";
+import {
+  DeletePackageGroupCommand,
+  DeletePackageGroupCommandInput,
+  DeletePackageGroupCommandOutput,
+} from "./commands/DeletePackageGroupCommand";
 import {
   DeletePackageVersionsCommand,
   DeletePackageVersionsCommandInput,
@@ -64,6 +74,11 @@ import {
   DescribePackageCommandOutput,
 } from "./commands/DescribePackageCommand";
 import {
+  DescribePackageGroupCommand,
+  DescribePackageGroupCommandInput,
+  DescribePackageGroupCommandOutput,
+} from "./commands/DescribePackageGroupCommand";
+import {
   DescribePackageVersionCommand,
   DescribePackageVersionCommandInput,
   DescribePackageVersionCommandOutput,
@@ -83,6 +98,11 @@ import {
   DisposePackageVersionsCommandInput,
   DisposePackageVersionsCommandOutput,
 } from "./commands/DisposePackageVersionsCommand";
+import {
+  GetAssociatedPackageGroupCommand,
+  GetAssociatedPackageGroupCommandInput,
+  GetAssociatedPackageGroupCommandOutput,
+} from "./commands/GetAssociatedPackageGroupCommand";
 import {
   GetAuthorizationTokenCommand,
   GetAuthorizationTokenCommandInput,
@@ -113,7 +133,22 @@ import {
   GetRepositoryPermissionsPolicyCommandInput,
   GetRepositoryPermissionsPolicyCommandOutput,
 } from "./commands/GetRepositoryPermissionsPolicyCommand";
+import {
+  ListAllowedRepositoriesForGroupCommand,
+  ListAllowedRepositoriesForGroupCommandInput,
+  ListAllowedRepositoriesForGroupCommandOutput,
+} from "./commands/ListAllowedRepositoriesForGroupCommand";
+import {
+  ListAssociatedPackagesCommand,
+  ListAssociatedPackagesCommandInput,
+  ListAssociatedPackagesCommandOutput,
+} from "./commands/ListAssociatedPackagesCommand";
 import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
+import {
+  ListPackageGroupsCommand,
+  ListPackageGroupsCommandInput,
+  ListPackageGroupsCommandOutput,
+} from "./commands/ListPackageGroupsCommand";
 import {
   ListPackagesCommand,
   ListPackagesCommandInput,
@@ -144,6 +179,11 @@ import {
   ListRepositoriesInDomainCommandInput,
   ListRepositoriesInDomainCommandOutput,
 } from "./commands/ListRepositoriesInDomainCommand";
+import {
+  ListSubPackageGroupsCommand,
+  ListSubPackageGroupsCommandInput,
+  ListSubPackageGroupsCommandOutput,
+} from "./commands/ListSubPackageGroupsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -176,6 +216,16 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdatePackageGroupCommand,
+  UpdatePackageGroupCommandInput,
+  UpdatePackageGroupCommandOutput,
+} from "./commands/UpdatePackageGroupCommand";
+import {
+  UpdatePackageGroupOriginConfigurationCommand,
+  UpdatePackageGroupOriginConfigurationCommandInput,
+  UpdatePackageGroupOriginConfigurationCommandOutput,
+} from "./commands/UpdatePackageGroupOriginConfigurationCommand";
+import {
   UpdatePackageVersionsStatusCommand,
   UpdatePackageVersionsStatusCommandInput,
   UpdatePackageVersionsStatusCommandOutput,
@@ -190,32 +240,40 @@ const commands = {
   AssociateExternalConnectionCommand,
   CopyPackageVersionsCommand,
   CreateDomainCommand,
+  CreatePackageGroupCommand,
   CreateRepositoryCommand,
   DeleteDomainCommand,
   DeleteDomainPermissionsPolicyCommand,
   DeletePackageCommand,
+  DeletePackageGroupCommand,
   DeletePackageVersionsCommand,
   DeleteRepositoryCommand,
   DeleteRepositoryPermissionsPolicyCommand,
   DescribeDomainCommand,
   DescribePackageCommand,
+  DescribePackageGroupCommand,
   DescribePackageVersionCommand,
   DescribeRepositoryCommand,
   DisassociateExternalConnectionCommand,
   DisposePackageVersionsCommand,
+  GetAssociatedPackageGroupCommand,
   GetAuthorizationTokenCommand,
   GetDomainPermissionsPolicyCommand,
   GetPackageVersionAssetCommand,
   GetPackageVersionReadmeCommand,
   GetRepositoryEndpointCommand,
   GetRepositoryPermissionsPolicyCommand,
+  ListAllowedRepositoriesForGroupCommand,
+  ListAssociatedPackagesCommand,
   ListDomainsCommand,
+  ListPackageGroupsCommand,
   ListPackagesCommand,
   ListPackageVersionAssetsCommand,
   ListPackageVersionDependenciesCommand,
   ListPackageVersionsCommand,
   ListRepositoriesCommand,
   ListRepositoriesInDomainCommand,
+  ListSubPackageGroupsCommand,
   ListTagsForResourceCommand,
   PublishPackageVersionCommand,
   PutDomainPermissionsPolicyCommand,
@@ -223,6 +281,8 @@ const commands = {
   PutRepositoryPermissionsPolicyCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdatePackageGroupCommand,
+  UpdatePackageGroupOriginConfigurationCommand,
   UpdatePackageVersionsStatusCommand,
   UpdateRepositoryCommand,
 };
@@ -271,6 +331,23 @@ export interface Codeartifact {
     args: CreateDomainCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateDomainCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreatePackageGroupCommand}
+   */
+  createPackageGroup(
+    args: CreatePackageGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePackageGroupCommandOutput>;
+  createPackageGroup(
+    args: CreatePackageGroupCommandInput,
+    cb: (err: any, data?: CreatePackageGroupCommandOutput) => void
+  ): void;
+  createPackageGroup(
+    args: CreatePackageGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePackageGroupCommandOutput) => void
   ): void;
 
   /**
@@ -327,6 +404,23 @@ export interface Codeartifact {
     args: DeletePackageCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeletePackageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeletePackageGroupCommand}
+   */
+  deletePackageGroup(
+    args: DeletePackageGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePackageGroupCommandOutput>;
+  deletePackageGroup(
+    args: DeletePackageGroupCommandInput,
+    cb: (err: any, data?: DeletePackageGroupCommandOutput) => void
+  ): void;
+  deletePackageGroup(
+    args: DeletePackageGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePackageGroupCommandOutput) => void
   ): void;
 
   /**
@@ -409,6 +503,23 @@ export interface Codeartifact {
   ): void;
 
   /**
+   * @see {@link DescribePackageGroupCommand}
+   */
+  describePackageGroup(
+    args: DescribePackageGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribePackageGroupCommandOutput>;
+  describePackageGroup(
+    args: DescribePackageGroupCommandInput,
+    cb: (err: any, data?: DescribePackageGroupCommandOutput) => void
+  ): void;
+  describePackageGroup(
+    args: DescribePackageGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribePackageGroupCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribePackageVersionCommand}
    */
   describePackageVersion(
@@ -474,6 +585,23 @@ export interface Codeartifact {
     args: DisposePackageVersionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DisposePackageVersionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAssociatedPackageGroupCommand}
+   */
+  getAssociatedPackageGroup(
+    args: GetAssociatedPackageGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAssociatedPackageGroupCommandOutput>;
+  getAssociatedPackageGroup(
+    args: GetAssociatedPackageGroupCommandInput,
+    cb: (err: any, data?: GetAssociatedPackageGroupCommandOutput) => void
+  ): void;
+  getAssociatedPackageGroup(
+    args: GetAssociatedPackageGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAssociatedPackageGroupCommandOutput) => void
   ): void;
 
   /**
@@ -579,6 +707,40 @@ export interface Codeartifact {
   ): void;
 
   /**
+   * @see {@link ListAllowedRepositoriesForGroupCommand}
+   */
+  listAllowedRepositoriesForGroup(
+    args: ListAllowedRepositoriesForGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAllowedRepositoriesForGroupCommandOutput>;
+  listAllowedRepositoriesForGroup(
+    args: ListAllowedRepositoriesForGroupCommandInput,
+    cb: (err: any, data?: ListAllowedRepositoriesForGroupCommandOutput) => void
+  ): void;
+  listAllowedRepositoriesForGroup(
+    args: ListAllowedRepositoriesForGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAllowedRepositoriesForGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAssociatedPackagesCommand}
+   */
+  listAssociatedPackages(
+    args: ListAssociatedPackagesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAssociatedPackagesCommandOutput>;
+  listAssociatedPackages(
+    args: ListAssociatedPackagesCommandInput,
+    cb: (err: any, data?: ListAssociatedPackagesCommandOutput) => void
+  ): void;
+  listAssociatedPackages(
+    args: ListAssociatedPackagesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAssociatedPackagesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListDomainsCommand}
    */
   listDomains(): Promise<ListDomainsCommandOutput>;
@@ -588,6 +750,23 @@ export interface Codeartifact {
     args: ListDomainsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDomainsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPackageGroupsCommand}
+   */
+  listPackageGroups(
+    args: ListPackageGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPackageGroupsCommandOutput>;
+  listPackageGroups(
+    args: ListPackageGroupsCommandInput,
+    cb: (err: any, data?: ListPackageGroupsCommandOutput) => void
+  ): void;
+  listPackageGroups(
+    args: ListPackageGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPackageGroupsCommandOutput) => void
   ): void;
 
   /**
@@ -685,6 +864,23 @@ export interface Codeartifact {
     args: ListRepositoriesInDomainCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListRepositoriesInDomainCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSubPackageGroupsCommand}
+   */
+  listSubPackageGroups(
+    args: ListSubPackageGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSubPackageGroupsCommandOutput>;
+  listSubPackageGroups(
+    args: ListSubPackageGroupsCommandInput,
+    cb: (err: any, data?: ListSubPackageGroupsCommandOutput) => void
+  ): void;
+  listSubPackageGroups(
+    args: ListSubPackageGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSubPackageGroupsCommandOutput) => void
   ): void;
 
   /**
@@ -795,6 +991,40 @@ export interface Codeartifact {
   ): void;
 
   /**
+   * @see {@link UpdatePackageGroupCommand}
+   */
+  updatePackageGroup(
+    args: UpdatePackageGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePackageGroupCommandOutput>;
+  updatePackageGroup(
+    args: UpdatePackageGroupCommandInput,
+    cb: (err: any, data?: UpdatePackageGroupCommandOutput) => void
+  ): void;
+  updatePackageGroup(
+    args: UpdatePackageGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePackageGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdatePackageGroupOriginConfigurationCommand}
+   */
+  updatePackageGroupOriginConfiguration(
+    args: UpdatePackageGroupOriginConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePackageGroupOriginConfigurationCommandOutput>;
+  updatePackageGroupOriginConfiguration(
+    args: UpdatePackageGroupOriginConfigurationCommandInput,
+    cb: (err: any, data?: UpdatePackageGroupOriginConfigurationCommandOutput) => void
+  ): void;
+  updatePackageGroupOriginConfiguration(
+    args: UpdatePackageGroupOriginConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePackageGroupOriginConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdatePackageVersionsStatusCommand}
    */
   updatePackageVersionsStatus(
@@ -837,9 +1067,8 @@ export interface Codeartifact {
  *       repository and another repository, which effectively merges their contents from the point of
  *       view of a package manager client. </p>
  *          <p>
- *             <b>CodeArtifact Components</b>
+ *             <b>CodeArtifact concepts</b>
  *          </p>
- *          <p>Use the information in this guide to help you work with the following CodeArtifact components:</p>
  *          <ul>
  *             <li>
  *                <p>
@@ -853,7 +1082,10 @@ export interface Codeartifact {
  *                      <code>mvn</code>
  *                   </b>), Python CLIs (<b>
  *                      <code>pip</code>
- *                   </b> and <code>twine</code>), and NuGet CLIs (<code>nuget</code> and <code>dotnet</code>).</p>
+ *                   </b> and <code>twine</code>), NuGet CLIs (<code>nuget</code> and <code>dotnet</code>), and
+ *           the Swift package manager (<b>
+ *                      <code>swift</code>
+ *                   </b>).</p>
  *             </li>
  *             <li>
  *                <p>
@@ -875,7 +1107,7 @@ export interface Codeartifact {
  *             <li>
  *                <p>
  *                   <b>Package</b>: A <i>package</i> is a bundle of software and the metadata required to
- *           resolve dependencies and install the software. CodeArtifact supports <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-npm.html">npm</a>, <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-python.html">PyPI</a>, <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-maven">Maven</a>, and <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-nuget">NuGet</a> package formats.</p>
+ *           resolve dependencies and install the software. CodeArtifact supports <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-npm.html">npm</a>, <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-python.html">PyPI</a>, <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-maven">Maven</a>, <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-nuget">NuGet</a>, <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-swift">Swift</a>, and <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-generic">generic</a> package formats.</p>
  *                <p>In CodeArtifact, a package consists of:</p>
  *                <ul>
  *                   <li>
@@ -893,6 +1125,14 @@ export interface Codeartifact {
  *                      <p> Package-level metadata (for example, npm tags)</p>
  *                   </li>
  *                </ul>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Package group</b>: A group of packages that match a specified definition. Package
+ *           groups can be used to apply configuration to multiple packages that match a defined pattern using
+ *           package format, package namespace, and package name. You can use package groups to more conveniently
+ *           configure package origin controls for multiple packages. Package origin controls are used to block or allow ingestion or publishing
+ *           of new package versions, which protects users from malicious actions known as dependency substitution attacks.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -915,7 +1155,9 @@ export interface Codeartifact {
  *             <code>.tgz</code> file or Maven POM and JAR files.</p>
  *             </li>
  *          </ul>
- *          <p>CodeArtifact supports these operations:</p>
+ *          <p>
+ *             <b>CodeArtifact supported API operations</b>
+ *          </p>
  *          <ul>
  *             <li>
  *                <p>
@@ -930,7 +1172,11 @@ export interface Codeartifact {
  *             </li>
  *             <li>
  *                <p>
- *                   <code>CreateDomain</code>: Creates a domain</p>
+ *                   <code>CreateDomain</code>: Creates a domain.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>CreatePackageGroup</code>: Creates a package group.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -948,6 +1194,10 @@ export interface Codeartifact {
  *             <li>
  *                <p>
  *                   <code>DeletePackage</code>: Deletes a package and all associated package versions.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DeletePackageGroup</code>: Deletes a package group. Does not delete packages or package versions that are associated with a package group.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -976,6 +1226,11 @@ export interface Codeartifact {
  *             </li>
  *             <li>
  *                <p>
+ *                   <code>DescribePackageGroup</code>: Returns a <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageGroup.html">PackageGroup</a>
+ *           object that contains details about a package group. </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>DescribePackageVersion</code>: Returns a <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html">PackageVersionDescription</a>
  *           object that contains details about a package version. </p>
  *             </li>
@@ -994,6 +1249,10 @@ export interface Codeartifact {
  *                <p>
  *                   <code>DisassociateExternalConnection</code>: Removes an existing external connection from a repository.
  *         </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>GetAssociatedPackageGroup</code>: Returns the most closely associated package group to the specified package.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -1021,6 +1280,11 @@ export interface Codeartifact {
  *                <ul>
  *                   <li>
  *                      <p>
+ *                         <code>generic</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
  *                         <code>maven</code>
  *                      </p>
  *                   </li>
@@ -1039,6 +1303,11 @@ export interface Codeartifact {
  *                         <code>pypi</code>
  *                      </p>
  *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>swift</code>
+ *                      </p>
+ *                   </li>
  *                </ul>
  *             </li>
  *             <li>
@@ -1048,12 +1317,24 @@ export interface Codeartifact {
  *             </li>
  *             <li>
  *                <p>
+ *                   <code>ListAllowedRepositoriesForGroup</code>: Lists the allowed repositories for a package group that has origin configuration set to <code>ALLOW_SPECIFIC_REPOSITORIES</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ListAssociatedPackages</code>: Returns a list of packages associated with the requested package group.</p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>ListDomains</code>: Returns a list of <code>DomainSummary</code> objects. Each
  *           returned <code>DomainSummary</code> object contains information about a domain.</p>
  *             </li>
  *             <li>
  *                <p>
  *                   <code>ListPackages</code>: Lists the packages in a repository.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ListPackageGroups</code>: Returns a list of package groups in the requested domain.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -1079,6 +1360,10 @@ export interface Codeartifact {
  *             </li>
  *             <li>
  *                <p>
+ *                   <code>ListSubPackageGroups</code>: Returns a list of direct children of the specified package group.</p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>PublishPackageVersion</code>: Creates a new package version containing one or more assets.</p>
  *             </li>
  *             <li>
@@ -1094,6 +1379,14 @@ export interface Codeartifact {
  *                <p>
  *                   <code>PutRepositoryPermissionsPolicy</code>: Sets the resource policy on a repository
  *           that specifies permissions to access it. </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>UpdatePackageGroup</code>: Updates a package group. This API cannot be used to update a package group's origin configuration or pattern.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>UpdatePackageGroupOriginConfiguration</code>: Updates the package origin configuration for a package group.</p>
  *             </li>
  *             <li>
  *                <p>
