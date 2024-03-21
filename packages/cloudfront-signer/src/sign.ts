@@ -87,14 +87,17 @@ export function getSignedUrl({
     });
   }
 
-  const newURL = new URL(url ?? getPolicyResources(policy)[0].replace("*://", "https://"));
-  newURL.search = Array.from(newURL.searchParams.entries())
+  if (!url && !policy) throw new Error("Please provide 'url' or 'policy'");
+
+  const newURL = url ?? getPolicyResources(policy!)[0].replace("*://", "https://");
+  const urlObject = new URL(newURL);
+  urlObject.search = Array.from(urlObject.searchParams.entries())
     .concat(Object.entries(cloudfrontSignBuilder.createCloudfrontAttribute()))
     .filter(([key, value]) => value !== undefined)
     .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
     .join("&");
 
-  return getResource(newURL);
+  return getResource(urlObject);
 }
 
 /**
