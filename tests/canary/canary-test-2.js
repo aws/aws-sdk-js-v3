@@ -8,21 +8,33 @@ const { Lambda } = require("@aws-sdk/client-lambda");
  */
 
 (async () => {
-  const id = await new STS().getCallerIdentity().catch((e) => {
-    console.error("Failed STS::getCallerIdentity");
-    throw e;
-  });
+  const id = await new STS({
+    region: "us-west-2",
+  })
+    .getCallerIdentity()
+    .catch((e) => {
+      console.error("Failed STS::getCallerIdentity");
+      throw e;
+    });
   console.log("STS::getCallerIdentity", id.$metadata.httpStatusCode);
 
-  const buckets = await new S3().listBuckets().catch((e) => {
-    console.error("Failed S3::listBuckets");
-    throw e;
-  });
+  const buckets = await new S3({
+    region: "us-west-2",
+  })
+    .listBuckets()
+    .catch((e) => {
+      console.error("Failed S3::listBuckets");
+      throw e;
+    });
   console.log("S3::listBuckets", buckets.$metadata.httpStatusCode);
 
-  const functions = await new Lambda().listFunctions().catch((e) => {
-    console.error("Failed Lambda::listFunctions");
-    throw e;
-  });
+  const functions = await new Lambda({
+    region: "us-west-2",
+  })
+    .listFunctions()
+    .catch((e) => {
+      console.error("Failed Lambda::listFunctions");
+      throw e;
+    });
   console.log("Lambda::listFunctions", functions.$metadata.httpStatusCode);
 })();
