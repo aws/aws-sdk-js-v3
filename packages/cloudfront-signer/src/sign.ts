@@ -121,9 +121,6 @@ export function getSignedCookies({
   });
   if (policy) {
     cloudfrontSignBuilder.setCustomPolicy(policy);
-    const parsedPolicy = JSON.parse(policy);
-    const policyResource = new URL(parsedPolicy?.Statement[0]?.Resource || "");
-    url = getResource(policyResource);
   } else {
     cloudfrontSignBuilder.setPolicyParameters({
       url,
