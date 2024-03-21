@@ -85,7 +85,7 @@ export function getSignedUrl({
     });
   }
 
-  const newURL = new URL(url);
+  const newURL = new URL(url ?? getPolicyResources(policy)[0].replace("*://", "https://"));
   newURL.search = Array.from(newURL.searchParams.entries())
     .concat(Object.entries(cloudfrontSignBuilder.createCloudfrontAttribute()))
     .filter(([key, value]) => value !== undefined)
@@ -169,6 +169,16 @@ interface CloudfrontAttributes {
   Policy?: string;
   "Key-Pair-Id": string;
   Signature: string;
+}
+
+/**
+ * Utility to get the allowed resources of a policy
+ *
+ * @param policy - The JSON/JSON-encoded policy
+ */
+function getPolicyResources(policy: string | Policy) {
+  const parsedPolicy: Policy = typeof policy === "string" ? JSON.parse(policy) : policy;
+  return parsedPolicy.Statement.map((s) => s.Resource);
 }
 
 function getResource(url: URL): string {
