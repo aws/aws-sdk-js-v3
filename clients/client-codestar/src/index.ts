@@ -102,6 +102,4 @@ export { CodeStarExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { CodeStarServiceException } from "./models/CodeStarServiceException";

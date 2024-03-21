@@ -71,6 +71,4 @@ export { AppConfigDataExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { AppConfigDataServiceException } from "./models/AppConfigDataServiceException";

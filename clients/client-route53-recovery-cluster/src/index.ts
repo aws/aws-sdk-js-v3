@@ -53,6 +53,4 @@ export * from "./commands";
 export * from "./pagination";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { Route53RecoveryClusterServiceException } from "./models/Route53RecoveryClusterServiceException";

@@ -27,6 +27,4 @@ export { RDSDataExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { RDSDataServiceException } from "./models/RDSDataServiceException";

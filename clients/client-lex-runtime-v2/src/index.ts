@@ -13,6 +13,4 @@ export { LexRuntimeV2ExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { LexRuntimeV2ServiceException } from "./models/LexRuntimeV2ServiceException";

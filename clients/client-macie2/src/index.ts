@@ -15,6 +15,4 @@ export * from "./pagination";
 export * from "./waiters";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { Macie2ServiceException } from "./models/Macie2ServiceException";

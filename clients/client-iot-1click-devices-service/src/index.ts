@@ -15,6 +15,4 @@ export { IoT1ClickDevicesServiceExtensionConfiguration } from "./extensionConfig
 export * from "./commands";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { IoT1ClickDevicesServiceServiceException } from "./models/IoT1ClickDevicesServiceServiceException";

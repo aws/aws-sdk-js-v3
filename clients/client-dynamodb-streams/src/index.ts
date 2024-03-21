@@ -17,6 +17,4 @@ export { DynamoDBStreamsExtensionConfiguration } from "./extensionConfiguration"
 export * from "./commands";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { DynamoDBStreamsServiceException } from "./models/DynamoDBStreamsServiceException";

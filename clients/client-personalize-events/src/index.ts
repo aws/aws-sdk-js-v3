@@ -15,6 +15,4 @@ export { PersonalizeEventsExtensionConfiguration } from "./extensionConfiguratio
 export * from "./commands";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { PersonalizeEventsServiceException } from "./models/PersonalizeEventsServiceException";

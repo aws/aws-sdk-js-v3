@@ -13,6 +13,4 @@ export { SageMakerRuntimeExtensionConfiguration } from "./extensionConfiguration
 export * from "./commands";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { SageMakerRuntimeServiceException } from "./models/SageMakerRuntimeServiceException";

@@ -16,6 +16,4 @@ export { SavingsplansExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { SavingsplansServiceException } from "./models/SavingsplansServiceException";

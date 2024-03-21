@@ -47,6 +47,4 @@ export { AutoScalingPlansExtensionConfiguration } from "./extensionConfiguration
 export * from "./commands";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { AutoScalingPlansServiceException } from "./models/AutoScalingPlansServiceException";

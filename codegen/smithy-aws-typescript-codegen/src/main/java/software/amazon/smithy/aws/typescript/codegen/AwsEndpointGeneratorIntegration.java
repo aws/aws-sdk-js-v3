@@ -62,10 +62,17 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
         if (settings.generateClient()
             && isAwsService(settings, model)
             && settings.getService(model).hasTrait(EndpointRuleSetTrait.class)) {
-                writerFactory.accept(Paths.get(CodegenUtils.SOURCE_FOLDER, "index.ts").toString(), writer -> {
-                    writer.addDependency(AwsDependency.UTIL_ENDPOINTS);
-                    writer.write("import $S", AwsDependency.UTIL_ENDPOINTS.packageName);
-                });
+                writerFactory.accept(
+                    Paths.get(CodegenUtils.SOURCE_FOLDER, "endpoint", "endpointResolver.ts").toString(),
+                    writer -> {
+                        writer.addDependency(TypeScriptDependency.UTIL_ENDPOINTS);
+                        writer.addDependency(AwsDependency.UTIL_ENDPOINTS);
+
+                        writer.addImport("customEndpointFunctions", null, TypeScriptDependency.UTIL_ENDPOINTS);
+                        writer.addImport("awsEndpointFunctions", null, AwsDependency.UTIL_ENDPOINTS);
+                        writer.write("customEndpointFunctions.aws = awsEndpointFunctions;");
+                    }
+                );
         }
 
         if (!settings.generateClient()

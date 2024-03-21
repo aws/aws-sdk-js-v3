@@ -75,6 +75,4 @@ export { MarketplaceMeteringExtensionConfiguration } from "./extensionConfigurat
 export * from "./commands";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { MarketplaceMeteringServiceException } from "./models/MarketplaceMeteringServiceException";

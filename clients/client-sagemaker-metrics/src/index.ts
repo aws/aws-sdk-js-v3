@@ -21,6 +21,4 @@ export { SageMakerMetricsExtensionConfiguration } from "./extensionConfiguration
 export * from "./commands";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { SageMakerMetricsServiceException } from "./models/SageMakerMetricsServiceException";

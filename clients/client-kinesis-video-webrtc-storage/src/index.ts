@@ -14,6 +14,4 @@ export { KinesisVideoWebRTCStorageExtensionConfiguration } from "./extensionConf
 export * from "./commands";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { KinesisVideoWebRTCStorageServiceException } from "./models/KinesisVideoWebRTCStorageServiceException";

@@ -34,6 +34,4 @@ export { RekognitionStreamingExtensionConfiguration } from "./extensionConfigura
 export * from "./commands";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { RekognitionStreamingServiceException } from "./models/RekognitionStreamingServiceException";

@@ -13,6 +13,4 @@ export { BedrockRuntimeExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { BedrockRuntimeServiceException } from "./models/BedrockRuntimeServiceException";
