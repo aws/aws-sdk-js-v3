@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.539.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.538.0...v3.539.0) (2024-03-21)
+
+
+### Features
+
+* **client-codeartifact:** This release adds Package groups to CodeArtifact so you can more conveniently configure package origin controls for multiple packages. ([364630f](https://github.com/aws/aws-sdk-js-v3/commit/364630f4a5eca4bf4dbde2b2fdc6a98c59ec1295))
+
+
+
+
+
 # [3.535.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.534.0...v3.535.0) (2024-03-15)
 
 **Note:** Version bump only for package @aws-sdk/client-codeartifact
