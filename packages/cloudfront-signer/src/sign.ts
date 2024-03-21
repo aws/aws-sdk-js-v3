@@ -90,7 +90,7 @@ export function getSignedUrl({
     });
   }
 
-  const newURL = new URL(url);
+  const newURL = new URL(url as string | URL);
   newURL.search = Array.from(newURL.searchParams.entries())
     .concat(Object.entries(cloudfrontSignBuilder.createCloudfrontAttribute()))
     .filter(([key, value]) => value !== undefined)
@@ -121,6 +121,9 @@ export function getSignedCookies({
   });
   if (policy) {
     cloudfrontSignBuilder.setCustomPolicy(policy);
+    const parsedPolicy = JSON.parse(policy);
+    const policyResource = new URL(parsedPolicy?.Statement[0]?.Resource || "");
+    url = getResource(policyResource);
   } else {
     cloudfrontSignBuilder.setPolicyParameters({
       url,
