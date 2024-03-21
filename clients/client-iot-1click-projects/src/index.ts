@@ -14,6 +14,4 @@ export * from "./commands";
 export * from "./pagination";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { IoT1ClickProjectsServiceException } from "./models/IoT1ClickProjectsServiceException";

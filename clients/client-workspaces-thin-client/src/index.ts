@@ -25,8 +25,6 @@ export * from "./commands";
 export * from "./pagination";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { WorkSpacesThinClientServiceException } from "./models/WorkSpacesThinClientServiceException";
 
 import { WorkSpacesThinClient } from "./WorkSpacesThinClient";

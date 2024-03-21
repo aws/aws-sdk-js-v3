@@ -14,6 +14,4 @@ export { AppSyncExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { AppSyncServiceException } from "./models/AppSyncServiceException";

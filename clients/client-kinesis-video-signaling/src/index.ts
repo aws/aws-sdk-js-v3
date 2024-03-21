@@ -15,6 +15,4 @@ export { KinesisVideoSignalingExtensionConfiguration } from "./extensionConfigur
 export * from "./commands";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { KinesisVideoSignalingServiceException } from "./models/KinesisVideoSignalingServiceException";

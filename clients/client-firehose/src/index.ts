@@ -17,6 +17,4 @@ export { FirehoseExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { FirehoseServiceException } from "./models/FirehoseServiceException";

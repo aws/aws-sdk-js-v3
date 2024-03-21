@@ -24,6 +24,4 @@ export * from "./commands";
 export * from "./pagination";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { GreengrassV2ServiceException } from "./models/GreengrassV2ServiceException";

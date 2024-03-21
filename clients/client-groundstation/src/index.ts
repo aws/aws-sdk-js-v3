@@ -18,6 +18,4 @@ export * from "./pagination";
 export * from "./waiters";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { GroundStationServiceException } from "./models/GroundStationServiceException";

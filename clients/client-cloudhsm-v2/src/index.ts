@@ -15,6 +15,4 @@ export * from "./commands";
 export * from "./pagination";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { CloudHSMV2ServiceException } from "./models/CloudHSMV2ServiceException";

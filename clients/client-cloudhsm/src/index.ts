@@ -23,6 +23,4 @@ export { CloudHSMExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { CloudHSMServiceException } from "./models/CloudHSMServiceException";

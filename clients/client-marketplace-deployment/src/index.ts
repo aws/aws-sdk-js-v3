@@ -13,6 +13,4 @@ export { MarketplaceDeploymentExtensionConfiguration } from "./extensionConfigur
 export * from "./commands";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { MarketplaceDeploymentServiceException } from "./models/MarketplaceDeploymentServiceException";

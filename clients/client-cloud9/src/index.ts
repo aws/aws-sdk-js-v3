@@ -80,6 +80,4 @@ export * from "./commands";
 export * from "./pagination";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { Cloud9ServiceException } from "./models/Cloud9ServiceException";

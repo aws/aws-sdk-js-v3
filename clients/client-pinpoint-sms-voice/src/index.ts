@@ -13,6 +13,4 @@ export { PinpointSMSVoiceExtensionConfiguration } from "./extensionConfiguration
 export * from "./commands";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { PinpointSMSVoiceServiceException } from "./models/PinpointSMSVoiceServiceException";

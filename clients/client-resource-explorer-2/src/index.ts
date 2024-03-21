@@ -34,6 +34,4 @@ export * from "./commands";
 export * from "./pagination";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { ResourceExplorer2ServiceException } from "./models/ResourceExplorer2ServiceException";

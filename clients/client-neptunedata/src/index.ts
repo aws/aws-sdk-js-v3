@@ -18,6 +18,4 @@ export { NeptunedataExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { NeptunedataServiceException } from "./models/NeptunedataServiceException";

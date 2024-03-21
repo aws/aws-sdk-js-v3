@@ -14,6 +14,4 @@ export { PaymentCryptographyDataExtensionConfiguration } from "./extensionConfig
 export * from "./commands";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { PaymentCryptographyDataServiceException } from "./models/PaymentCryptographyDataServiceException";

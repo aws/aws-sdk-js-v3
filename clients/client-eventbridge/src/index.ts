@@ -33,6 +33,4 @@ export { EventBridgeExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { EventBridgeServiceException } from "./models/EventBridgeServiceException";

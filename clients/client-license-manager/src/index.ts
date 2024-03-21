@@ -14,6 +14,4 @@ export { LicenseManagerExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { LicenseManagerServiceException } from "./models/LicenseManagerServiceException";

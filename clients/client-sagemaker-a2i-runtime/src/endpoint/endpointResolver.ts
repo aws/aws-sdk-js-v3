@@ -1,6 +1,7 @@
 // smithy-typescript generated code
+import { awsEndpointFunctions } from "@aws-sdk/util-endpoints";
 import { EndpointV2, Logger } from "@smithy/types";
-import { EndpointParams, resolveEndpoint } from "@smithy/util-endpoints";
+import { customEndpointFunctions, EndpointParams, resolveEndpoint } from "@smithy/util-endpoints";
 
 import { EndpointParameters } from "./EndpointParameters";
 import { ruleSet } from "./ruleset";
@@ -14,3 +15,5 @@ export const defaultEndpointResolver = (
     logger: context.logger,
   });
 };
+
+customEndpointFunctions.aws = awsEndpointFunctions;

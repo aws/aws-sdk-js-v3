@@ -13,6 +13,4 @@ export { ApiGatewayManagementApiExtensionConfiguration } from "./extensionConfig
 export * from "./commands";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { ApiGatewayManagementApiServiceException } from "./models/ApiGatewayManagementApiServiceException";

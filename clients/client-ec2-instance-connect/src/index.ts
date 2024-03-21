@@ -22,6 +22,4 @@ export { EC2InstanceConnectExtensionConfiguration } from "./extensionConfigurati
 export * from "./commands";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { EC2InstanceConnectServiceException } from "./models/EC2InstanceConnectServiceException";

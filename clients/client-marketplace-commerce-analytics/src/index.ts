@@ -13,6 +13,4 @@ export { MarketplaceCommerceAnalyticsExtensionConfiguration } from "./extensionC
 export * from "./commands";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { MarketplaceCommerceAnalyticsServiceException } from "./models/MarketplaceCommerceAnalyticsServiceException";

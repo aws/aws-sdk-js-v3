@@ -18,6 +18,4 @@ export { DirectConnectExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 
-import "@aws-sdk/util-endpoints";
-
 export { DirectConnectServiceException } from "./models/DirectConnectServiceException";
