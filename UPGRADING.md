@@ -393,11 +393,11 @@ for more information.
 Retrieves credentials using OIDC token from a file on disk. It's commonly used in EKS.
 
 - **v2**: [`TokenFileWebIdentityCredentials`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/TokenFileWebIdentityCredentials.html).
-- **v3**: [`fromTokenFile`](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_credential_provider_web_identity.html#fromtokenfile-1)
+- **v3**: [`fromTokenFile`](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-credential-providers/#fromtokenfile)
 
   ```javascript
   import { fromTokenFile } from "@aws-sdk/credential-providers"; // ES6 import
-  // const { fromIni } from("@aws-sdk/credential-providers"); // CommonJS import
+  // const { fromTokenFile } from("@aws-sdk/credential-providers"); // CommonJS import
 
   const client = new FooClient({
     credentials: fromTokenFile({
