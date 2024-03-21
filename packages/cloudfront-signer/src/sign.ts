@@ -5,7 +5,7 @@ export type CloudfrontSignInput = CloudfrontSignInputWithParameters | Cloudfront
 
 export interface CloudfrontSignInputBase {
   /** The URL string to sign. */
-  url: string;
+  url?: string;
   /** The ID of the Cloudfront key pair. */
   keyPairId: string;
   /** The content of the Cloudfront private key. */
@@ -21,6 +21,8 @@ export interface CloudfrontSignInputBase {
 }
 
 export type CloudfrontSignInputWithParameters = CloudfrontSignInputBase & {
+  /** For this type url must be provided. */
+  url: string;
   /** The date string for when the signed URL or cookie can no longer be accessed */
   dateLessThan: string;
   /** For this type policy should not be provided. */
