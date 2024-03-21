@@ -4,32 +4,34 @@ import { createSign } from "crypto";
 export type CloudfrontSignInput = CloudfrontSignInputWithParameters | CloudfrontSignInputWithPolicy;
 
 export interface CloudfrontSignInputBase {
-  /** The URL string to sign. */
-  url: string;
   /** The ID of the Cloudfront key pair. */
   keyPairId: string;
   /** The content of the Cloudfront private key. */
   privateKey: string | Buffer;
   /** The passphrase of RSA-SHA1 key*/
   passphrase?: string;
-  /** The date string for when the signed URL or cookie can no longer be accessed. */
-  dateLessThan?: string;
+}
+
+export type CloudfrontSignInputWithParameters = CloudfrontSignInputBase & {
+  /** The URL string to sign. */
+  url: string;
+  /** The date string from when the signed URL or cookie can no longer be accessed */
+  dateLessThan: string;
+  /** For this type policy should not be provided. */
+  policy?: never;
   /** The IP address string to restrict signed URL access to. */
   ipAddress?: string;
   /** The date string for when the signed URL or cookie can start to be accessed. */
   dateGreaterThan?: string;
-}
-
-export type CloudfrontSignInputWithParameters = CloudfrontSignInputBase & {
-  /** The date string for when the signed URL or cookie can no longer be accessed */
-  dateLessThan: string;
-  /** For this type policy should not be provided. */
-  policy?: never;
 };
 
 export type CloudfrontSignInputWithPolicy = CloudfrontSignInputBase & {
   /** The JSON-encoded policy string */
   policy: string;
+  /**
+   * For this type url should not be provided.
+   */
+  url?: never;
   /**
    * For this type dateLessThan should not be provided.
    */
@@ -37,7 +39,7 @@ export type CloudfrontSignInputWithPolicy = CloudfrontSignInputBase & {
   /**
    * For this type ipAddress should not be provided.
    */
-  ipAddress?: string;
+  ipAddress?: never;
   /**
    * For this type dateGreaterThan should not be provided.
    */
@@ -76,6 +78,9 @@ export function getSignedUrl({
   });
   if (policy) {
     cloudfrontSignBuilder.setCustomPolicy(policy);
+    const parsedPolicy = JSON.parse(policy);
+    const policyResource = new URL(parsedPolicy?.Statement[0]?.Resource || "");
+    url = getResource(policyResource);
   } else {
     cloudfrontSignBuilder.setPolicyParameters({
       url,

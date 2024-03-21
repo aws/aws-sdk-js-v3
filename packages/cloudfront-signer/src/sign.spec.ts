@@ -1,8 +1,5 @@
 import { parseUrl } from "@smithy/url-parser";
 import { createSign, createVerify } from "crypto";
-import { mkdtempSync, rmdirSync, writeFileSync } from "fs";
-import { tmpdir } from "os";
-import { resolve } from "path";
 
 import { getSignedCookies, getSignedUrl } from "./index";
 
@@ -328,9 +325,19 @@ describe("getSignedUrl", () => {
     expect(verifySignature(denormalizeBase64(signature), policyStr)).toBeTruthy();
   });
   it("should sign a URL with a policy provided by the user", () => {
-    const policy = '{"foo":"bar"}';
+    const policy = JSON.stringify({
+      Statement: [
+        {
+          Resource: url,
+          Condition: {
+            DateLessThan: {
+              "AWS:EpochTime": 1811044319,
+            },
+          },
+        },
+      ],
+    });
     const result = getSignedUrl({
-      url,
       keyPairId,
       privateKey,
       policy,
@@ -576,7 +583,6 @@ describe("getSignedCookies", () => {
   it("should sign a URL with a policy provided by the user", () => {
     const policy = '{"foo":"bar"}';
     const result = getSignedCookies({
-      url,
       keyPairId,
       privateKey,
       policy,
