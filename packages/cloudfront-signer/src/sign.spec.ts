@@ -341,6 +341,19 @@ describe("getSignedUrl", () => {
     const signatureQueryParam = denormalizeBase64(signature);
     expect(verifySignature(signatureQueryParam, policy)).toBeTruthy();
   });
+  it("should sign a URL automatically extracted from a policy provided by the user", () => {
+    const policy = JSON.stringify({ Statement: [{ Resource: url }] });
+    const result = getSignedUrl({
+      keyPairId,
+      privateKey,
+      policy,
+      passphrase,
+    });
+    const signature = createSignature(policy);
+    expect(result).toBe(`${url}?Policy=${encodeToBase64(policy)}&Key-Pair-Id=${keyPairId}&Signature=${signature}`);
+    const signatureQueryParam = denormalizeBase64(signature);
+    expect(verifySignature(signatureQueryParam, policy)).toBeTruthy();
+  });
 });
 
 describe("getSignedCookies", () => {
@@ -576,7 +589,6 @@ describe("getSignedCookies", () => {
   it("should sign a URL with a policy provided by the user", () => {
     const policy = '{"foo":"bar"}';
     const result = getSignedCookies({
-      url,
       keyPairId,
       privateKey,
       policy,
