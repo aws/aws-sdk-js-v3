@@ -1,20 +1,27 @@
 import { createSign } from "crypto";
 
-/** Input type to getSignedUrl and getSignedCookies. */
+/**
+ * Input type to getSignedUrl and getSignedCookies.
+ * @public
+ */
 export type CloudfrontSignInput = CloudfrontSignInputWithParameters | CloudfrontSignInputWithPolicy;
 
-export interface CloudfrontSignInputBase {
-  /** The URL string to sign. */
-  url?: string;
+/**
+ * @public
+ */
+export type CloudfrontSignerCredentials = {
   /** The ID of the Cloudfront key pair. */
   keyPairId: string;
   /** The content of the Cloudfront private key. */
   privateKey: string | Buffer;
   /** The passphrase of RSA-SHA1 key*/
   passphrase?: string;
-}
+};
 
-export type CloudfrontSignInputWithParameters = CloudfrontSignInputBase & {
+/**
+ * @public
+ */
+export type CloudfrontSignInputWithParameters = CloudfrontSignerCredentials & {
   /** The URL string to sign. */
   url: string;
   /** The date string for when the signed URL or cookie can no longer be accessed */
@@ -23,27 +30,39 @@ export type CloudfrontSignInputWithParameters = CloudfrontSignInputBase & {
   dateGreaterThan?: string;
   /** The IP address string to restrict signed URL access to. */
   ipAddress?: string;
-  /** For this type policy should not be provided. */
+  /**
+   * [policy] should not be provided when using separate
+   * dateLessThan, dateGreaterThan, or ipAddress inputs.
+   */
   policy?: never;
 };
 
-export type CloudfrontSignInputWithPolicy = CloudfrontSignInputBase & {
+/**
+ * @public
+ */
+export type CloudfrontSignInputWithPolicy = CloudfrontSignerCredentials & {
+  /**
+   * The URL string to sign. Optional when policy is provided.
+   *
+   * This will be used as the initial url if calling getSignedUrl
+   * with a policy.
+   *
+   * This will be ignored if calling getSignedCookies with a policy.
+   */
+  url?: string;
   /** The JSON-encoded policy string */
   policy: string;
-  /**
-   * For this type dateLessThan should not be provided.
-   */
+  /** When using a policy, a separate dateLessThan should not be provided. */
   dateLessThan?: never;
-  /**
-   * For this type ipAddress should not be provided.
-   */
-  ipAddress?: never;
-  /**
-   * For this type dateGreaterThan should not be provided.
-   */
+  /** When using a policy, a separate dateGreaterThan should not be provided. */
   dateGreaterThan?: never;
+  /** When using a policy, a separate ipAddress should not be provided.  */
+  ipAddress?: never;
 };
 
+/**
+ * @public
+ */
 export interface CloudfrontSignedCookiesOutput {
   /** ID of the Cloudfront key pair. */
   "CloudFront-Key-Pair-Id": string;
@@ -57,6 +76,7 @@ export interface CloudfrontSignedCookiesOutput {
 
 /**
  * Creates a signed URL string using a canned or custom policy.
+ * @public
  * @returns the input URL with signature attached as query parameters.
  */
 export function getSignedUrl({
@@ -74,6 +94,11 @@ export function getSignedUrl({
     privateKey,
     passphrase,
   });
+
+  if (!url && !policy) {
+    throw new Error("@aws-sdk/cloudfront-signer: Please provide 'url' or 'policy'.");
+  }
+
   if (policy) {
     cloudfrontSignBuilder.setCustomPolicy(policy);
   } else {
@@ -85,21 +110,32 @@ export function getSignedUrl({
     });
   }
 
-  if (!url && !policy) throw new Error("Please provide 'url' or 'policy'");
+  let baseUrl: string | undefined;
+  if (url) {
+    baseUrl = url;
+  } else if (policy) {
+    const resources = getPolicyResources(policy!);
+    if (!resources[0]) {
+      throw new Error(
+        "@aws-sdk/cloudfront-signer: No URL provided and unable to determine URL from first policy statement resource."
+      );
+    }
+    baseUrl = resources[0].replace("*://", "https://");
+  }
 
-  const newURL = url ?? getPolicyResources(policy!)[0].replace("*://", "https://");
-  const urlObject = new URL(newURL);
-  urlObject.search = Array.from(urlObject.searchParams.entries())
+  const newURL = new URL(baseUrl!);
+  newURL.search = Array.from(newURL.searchParams.entries())
     .concat(Object.entries(cloudfrontSignBuilder.createCloudfrontAttribute()))
-    .filter(([key, value]) => value !== undefined)
+    .filter(([, value]) => value !== undefined)
     .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
     .join("&");
 
-  return getResource(urlObject);
+  return getResource(newURL);
 }
 
 /**
  * Creates signed cookies using a canned or custom policy.
+ * @public
  * @returns an object with keys/values that can be added to cookies.
  */
 export function getSignedCookies({
@@ -141,6 +177,9 @@ export function getSignedCookies({
   return cookies;
 }
 
+/**
+ * @internal
+ */
 interface Policy {
   Statement: Array<{
     Resource: string;
@@ -158,15 +197,24 @@ interface Policy {
   }>;
 }
 
+/**
+ * @internal
+ */
 interface PolicyDates {
   dateLessThan: number;
   dateGreaterThan?: number;
 }
 
+/**
+ * @internal
+ */
 interface BuildPolicyInput extends PolicyDates, Pick<CloudfrontSignInput, "ipAddress"> {
   resource: string;
 }
 
+/**
+ * @internal
+ */
 interface CloudfrontAttributes {
   Expires?: number;
   Policy?: string;
@@ -175,15 +223,19 @@ interface CloudfrontAttributes {
 }
 
 /**
- * Utility to get the allowed resources of a policy
+ * Utility to get the allowed resources of a policy.
+ * @internal
  *
  * @param policy - The JSON/JSON-encoded policy
  */
 function getPolicyResources(policy: string | Policy) {
   const parsedPolicy: Policy = typeof policy === "string" ? JSON.parse(policy) : policy;
-  return parsedPolicy.Statement.map((s) => s.Resource);
+  return (parsedPolicy?.Statement ?? []).map((s) => s.Resource);
 }
 
+/**
+ * @internal
+ */
 function getResource(url: URL): string {
   switch (url.protocol) {
     case "http:":
@@ -196,6 +248,9 @@ function getResource(url: URL): string {
   }
 }
 
+/**
+ * @internal
+ */
 class CloudfrontSignBuilder {
   private keyPairId: string;
   private privateKey: string | Buffer;
@@ -203,15 +258,8 @@ class CloudfrontSignBuilder {
   private policy: string;
   private customPolicy = false;
   private dateLessThan?: number | undefined;
-  constructor({
-    privateKey,
-    keyPairId,
-    passphrase,
-  }: {
-    keyPairId: string;
-    privateKey: string | Buffer;
-    passphrase?: string;
-  }) {
+
+  constructor({ privateKey, keyPairId, passphrase }: CloudfrontSignerCredentials) {
     this.keyPairId = keyPairId;
     this.privateKey = privateKey;
     this.policy = "";
@@ -384,3 +432,16 @@ class CloudfrontSignBuilder {
     };
   }
 }
+
+/**
+ * @deprecated use CloudfrontSignInput, CloudfrontSignInputWithParameters, or CloudfrontSignInputWithPolicy.
+ */
+export type CloudfrontSignInputBase = {
+  url: string;
+  keyPairId: string;
+  privateKey: string | Buffer;
+  passphrase?: string;
+  dateLessThan?: string;
+  ipAddress?: string;
+  dateGreaterThan?: string;
+};

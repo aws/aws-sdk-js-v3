@@ -1,8 +1,5 @@
 import { parseUrl } from "@smithy/url-parser";
 import { createSign, createVerify } from "crypto";
-import { mkdtempSync, rmdirSync, writeFileSync } from "fs";
-import { tmpdir } from "os";
-import { resolve } from "path";
 
 import { getSignedCookies, getSignedUrl } from "./index";
 
@@ -586,7 +583,7 @@ describe("getSignedCookies", () => {
     expect(result["CloudFront-Signature"]).toBe(expected["CloudFront-Signature"]);
     expect(verifySignature(denormalizeBase64(result["CloudFront-Signature"]), policyStr)).toBeTruthy();
   });
-  it("should sign a URL with a policy provided by the user", () => {
+  it("should sign cookies with a policy provided by the user without a url", () => {
     const policy = '{"foo":"bar"}';
     const result = getSignedCookies({
       keyPairId,

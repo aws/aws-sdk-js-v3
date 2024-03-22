@@ -84,27 +84,6 @@ const cookies = getSignedCookies({
 });
 ```
 
-### Get signed cookies for a resource
-
-```javascript
-import { getSignedCookies } from "@aws-sdk/cloudfront-signer"; // ESM
-// const { getSignedCookies } = require("@aws-sdk/cloudfront-signer"); // CJS
-
-const cloudfrontDistributionDomain = "https://d111111abcdef8.cloudfront.net";
-const s3ObjectKey = "private-content/private.jpeg";
-const url = `${cloudfrontDistributionDomain}/${s3ObjectKey}`;
-const privateKey = "CONTENTS-OF-PRIVATE-KEY";
-const keyPairId = "PUBLIC-KEY-ID-OF-CLOUDFRONT-KEY-PAIR";
-const dateLessThan = "2022-01-01";
-
-const cookies = getSignedCookies({
-  url,
-  keyPairId,
-  dateLessThan,
-  privateKey,
-});
-```
-
 ### Get signed cookies with a Policy
 
 ```javascript
