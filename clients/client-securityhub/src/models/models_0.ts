@@ -1369,6 +1369,13 @@ export interface NumberFilter {
   Lte?: number;
 
   /**
+   * <p>The equal-to condition to be applied to a single field when querying for
+   *          findings.</p>
+   * @public
+   */
+  Eq?: number;
+
+  /**
    * <p>
    *             The greater-than condition to be applied to a single field when querying for findings.
    *         </p>
@@ -1383,13 +1390,6 @@ export interface NumberFilter {
    * @public
    */
   Lt?: number;
-
-  /**
-   * <p>The equal-to condition to be applied to a single field when querying for
-   *          findings.</p>
-   * @public
-   */
-  Eq?: number;
 }
 
 /**

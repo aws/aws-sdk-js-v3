@@ -120,18 +120,18 @@ export interface CreateAutomationRuleCommandOutput extends CreateAutomationRuleR
  *       { // NumberFilter
  *         Gte: Number("double"),
  *         Lte: Number("double"),
+ *         Eq: Number("double"),
  *         Gt: Number("double"),
  *         Lt: Number("double"),
- *         Eq: Number("double"),
  *       },
  *     ],
  *     Criticality: [
  *       {
  *         Gte: Number("double"),
  *         Lte: Number("double"),
+ *         Eq: Number("double"),
  *         Gt: Number("double"),
  *         Lt: Number("double"),
- *         Eq: Number("double"),
  *       },
  *     ],
  *     Title: "<StringFilterList>",

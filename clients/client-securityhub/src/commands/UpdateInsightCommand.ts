@@ -113,18 +113,18 @@ export interface UpdateInsightCommandOutput extends UpdateInsightResponse, __Met
  *       { // NumberFilter
  *         Gte: Number("double"),
  *         Lte: Number("double"),
+ *         Eq: Number("double"),
  *         Gt: Number("double"),
  *         Lt: Number("double"),
- *         Eq: Number("double"),
  *       },
  *     ],
  *     SeverityNormalized: [
  *       {
  *         Gte: Number("double"),
  *         Lte: Number("double"),
+ *         Eq: Number("double"),
  *         Gt: Number("double"),
  *         Lt: Number("double"),
- *         Eq: Number("double"),
  *       },
  *     ],
  *     SeverityLabel: "<StringFilterList>",
@@ -132,18 +132,18 @@ export interface UpdateInsightCommandOutput extends UpdateInsightResponse, __Met
  *       {
  *         Gte: Number("double"),
  *         Lte: Number("double"),
+ *         Eq: Number("double"),
  *         Gt: Number("double"),
  *         Lt: Number("double"),
- *         Eq: Number("double"),
  *       },
  *     ],
  *     Criticality: [
  *       {
  *         Gte: Number("double"),
  *         Lte: Number("double"),
+ *         Eq: Number("double"),
  *         Gt: Number("double"),
  *         Lt: Number("double"),
- *         Eq: Number("double"),
  *       },
  *     ],
  *     Title: "<StringFilterList>",
@@ -186,9 +186,9 @@ export interface UpdateInsightCommandOutput extends UpdateInsightResponse, __Met
  *       {
  *         Gte: Number("double"),
  *         Lte: Number("double"),
+ *         Eq: Number("double"),
  *         Gt: Number("double"),
  *         Lt: Number("double"),
- *         Eq: Number("double"),
  *       },
  *     ],
  *     NetworkSourceDomain: "<StringFilterList>",

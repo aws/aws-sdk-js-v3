@@ -2501,6 +2501,14 @@ export interface Vulnerability {
   ExploitAvailable?: VulnerabilityExploitAvailable;
 
   /**
+   * <p>
+   *             The date and time of the last exploit associated with a finding discovered in your environment.
+   *         </p>
+   * @public
+   */
+  LastKnownExploitAt?: string;
+
+  /**
    * <p>The vulnerabilities found in your Lambda function code. This field pertains to findings that
    * Security Hub receives from Amazon Inspector.
    *         </p>

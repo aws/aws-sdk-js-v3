@@ -4133,6 +4133,7 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *           FixAvailable: "YES" || "NO" || "PARTIAL",
  *           EpssScore: Number("double"),
  *           ExploitAvailable: "YES" || "NO",
+ *           LastKnownExploitAt: "STRING_VALUE",
  *           CodeVulnerabilities: [ // VulnerabilityCodeVulnerabilitiesList
  *             { // VulnerabilityCodeVulnerabilities
  *               Cwes: "<TypeList>",

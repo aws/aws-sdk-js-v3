@@ -112,18 +112,18 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  *       { // NumberFilter
  *         Gte: Number("double"),
  *         Lte: Number("double"),
+ *         Eq: Number("double"),
  *         Gt: Number("double"),
  *         Lt: Number("double"),
- *         Eq: Number("double"),
  *       },
  *     ],
  *     SeverityNormalized: [
  *       {
  *         Gte: Number("double"),
  *         Lte: Number("double"),
+ *         Eq: Number("double"),
  *         Gt: Number("double"),
  *         Lt: Number("double"),
- *         Eq: Number("double"),
  *       },
  *     ],
  *     SeverityLabel: "<StringFilterList>",
@@ -131,18 +131,18 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  *       {
  *         Gte: Number("double"),
  *         Lte: Number("double"),
+ *         Eq: Number("double"),
  *         Gt: Number("double"),
  *         Lt: Number("double"),
- *         Eq: Number("double"),
  *       },
  *     ],
  *     Criticality: [
  *       {
  *         Gte: Number("double"),
  *         Lte: Number("double"),
+ *         Eq: Number("double"),
  *         Gt: Number("double"),
  *         Lt: Number("double"),
- *         Eq: Number("double"),
  *       },
  *     ],
  *     Title: "<StringFilterList>",
@@ -185,9 +185,9 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  *       {
  *         Gte: Number("double"),
  *         Lte: Number("double"),
+ *         Eq: Number("double"),
  *         Gt: Number("double"),
  *         Lt: Number("double"),
- *         Eq: Number("double"),
  *       },
  *     ],
  *     NetworkSourceDomain: "<StringFilterList>",
@@ -4340,6 +4340,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //           FixAvailable: "YES" || "NO" || "PARTIAL",
  * //           EpssScore: Number("double"),
  * //           ExploitAvailable: "YES" || "NO",
+ * //           LastKnownExploitAt: "STRING_VALUE",
  * //           CodeVulnerabilities: [ // VulnerabilityCodeVulnerabilitiesList
  * //             { // VulnerabilityCodeVulnerabilities
  * //               Cwes: "<TypeList>",
