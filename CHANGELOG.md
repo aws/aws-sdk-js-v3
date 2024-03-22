@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.540.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.539.0...v3.540.0) (2024-03-22)
+
+
+### Bug Fixes
+
+* **util-endpoints:** augment endpointFunctions inline in endpointResolver functions ([#5933](https://github.com/aws/aws-sdk-js-v3/issues/5933)) ([42a791d](https://github.com/aws/aws-sdk-js-v3/commit/42a791defb20c697fefc985f1f2b22fc9e5be388))
+
+
+### Features
+
+* **client-kendra:** Documentation update, March 2024. Corrects some docs for Amazon Kendra. ([9099163](https://github.com/aws/aws-sdk-js-v3/commit/90991637433913861d343f647f0c1561713a724a))
+* **client-pricing:** Add ResourceNotFoundException to ListPriceLists and GetPriceListFileUrl APIs ([816e1f3](https://github.com/aws/aws-sdk-js-v3/commit/816e1f3cb781e5896e07b50e151956bfe3a83a52))
+* **client-rolesanywhere:** This release relaxes constraints on the durationSeconds request parameter for the *Profile APIs that support it. This parameter can now take on values that go up to 43200. ([b6300bc](https://github.com/aws/aws-sdk-js-v3/commit/b6300bcab240338eda13eb59873156fca7d1bd33))
+* **client-securityhub:** Added new resource detail object to ASFF, including resource for LastKnownExploitAt ([671c5f3](https://github.com/aws/aws-sdk-js-v3/commit/671c5f3276db73ed431b832a48e4583ab27d734a))
+
+
+
+
+
 # [3.539.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.538.0...v3.539.0) (2024-03-21)
 
 

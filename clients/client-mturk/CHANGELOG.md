@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.540.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.539.0...v3.540.0) (2024-03-22)
+
+
+### Bug Fixes
+
+* **util-endpoints:** augment endpointFunctions inline in endpointResolver functions ([#5933](https://github.com/aws/aws-sdk-js-v3/issues/5933)) ([42a791d](https://github.com/aws/aws-sdk-js-v3/commit/42a791defb20c697fefc985f1f2b22fc9e5be388))
+
+
+
+
+
 # [3.535.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.534.0...v3.535.0) (2024-03-15)
 
 **Note:** Version bump only for package @aws-sdk/client-mturk
