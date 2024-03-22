@@ -39,6 +39,7 @@ import {
   InvalidParameterException,
   ListPriceListsRequest,
   NotFoundException,
+  ResourceNotFoundException,
   ThrottlingException,
 } from "../models/models_0";
 import { PricingServiceException as __BaseException } from "../models/PricingServiceException";
@@ -239,6 +240,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "AccessDeniedException":
     case "com.amazonaws.pricing#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.pricing#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -343,6 +347,22 @@ const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContex
 };
 
 /**
+ * deserializeAws_json1_1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourceNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ResourceNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1ThrottlingExceptionRes
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
@@ -435,6 +455,8 @@ const de_PriceListJsonItems = (output: any, context: __SerdeContext): (__LazyJso
 };
 
 // de_PriceLists omitted.
+
+// de_ResourceNotFoundException omitted.
 
 // de_Service omitted.
 
