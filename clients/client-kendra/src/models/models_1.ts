@@ -148,7 +148,9 @@ export interface TableExcerpt {
  */
 export interface QueryResultItem {
   /**
-   * <p>The identifier for the query result.</p>
+   * <p>The unique identifier for the query result item id (<code>Id</code>) and the query
+   *          result item document id (<code>DocumentId</code>) combined. The value of this field changes
+   *          with every request, even when you have the same documents.</p>
    * @public
    */
   Id?: string;
@@ -202,18 +204,18 @@ export interface QueryResultItem {
   DocumentURI?: string;
 
   /**
-   * <p>An array of document fields/attributes assigned to a document in the search results.
-   *          For example, the document author (<code>_author</code>) or the source URI
-   *          (<code>_source_uri</code>) of the document.</p>
+   * <p>An array of document fields/attributes assigned to a document in the search results. For
+   *          example, the document author (<code>_author</code>) or the source URI
+   *             (<code>_source_uri</code>) of the document.</p>
    * @public
    */
   DocumentAttributes?: DocumentAttribute[];
 
   /**
-   * <p>Indicates the confidence level of Amazon Kendra providing a relevant result for
-   *          the query. Each result is placed into a bin that indicates the confidence,
-   *             <code>VERY_HIGH</code>, <code>HIGH</code>, <code>MEDIUM</code> and <code>LOW</code>.
-   *          You can use the score to determine if a response meets the confidence needed for your
+   * <p>Indicates the confidence level of Amazon Kendra providing a relevant result for the
+   *          query. Each result is placed into a bin that indicates the confidence,
+   *             <code>VERY_HIGH</code>, <code>HIGH</code>, <code>MEDIUM</code> and <code>LOW</code>. You
+   *          can use the score to determine if a response meets the confidence needed for your
    *          application.</p>
    *          <p>The field is only set to <code>LOW</code> when the <code>Type</code> field is set to
    *             <code>DOCUMENT</code> and Amazon Kendra is not confident that the result is
@@ -224,7 +226,8 @@ export interface QueryResultItem {
 
   /**
    * <p>A token that identifies a particular result from a particular query. Use this token to
-   *          provide click-through feedback for the result. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/submitting-feedback.html">Submitting feedback</a>.</p>
+   *          provide click-through feedback for the result. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/submitting-feedback.html">Submitting
+   *             feedback</a>.</p>
    * @public
    */
   FeedbackToken?: string;
@@ -844,7 +847,7 @@ export interface UpdateIndexRequest {
   Id: string | undefined;
 
   /**
-   * <p>The name of the index you want to update.</p>
+   * <p>A new name for the index.</p>
    * @public
    */
   Name?: string;
@@ -893,8 +896,9 @@ export interface UpdateIndexRequest {
   UserContextPolicy?: UserContextPolicy;
 
   /**
-   * <p>Enables fetching access levels of groups and users from an IAM Identity Center
-   *          identity source. To configure this, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html">UserGroupResolutionConfiguration</a>.</p>
+   * <p>Gets users and groups from IAM Identity Center
+   *          identity source. To configure this, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html">UserGroupResolutionConfiguration</a>. This is useful for user context filtering, where
+   *          search results are filtered based on the user or their group access to documents.</p>
    * @public
    */
   UserGroupResolutionConfiguration?: UserGroupResolutionConfiguration;
@@ -1109,8 +1113,8 @@ export interface Facet {
 }
 
 /**
- * <p>Provides the count of documents that match a particular document attribute or
- *          field when doing a faceted search.</p>
+ * <p>Provides the count of documents that match a particular document attribute or field when
+ *          doing a faceted search.</p>
  * @public
  */
 export interface DocumentAttributeValueCountPair {
@@ -1121,8 +1125,8 @@ export interface DocumentAttributeValueCountPair {
   DocumentAttributeValue?: DocumentAttributeValue;
 
   /**
-   * <p>The number of documents in the response that have the attribute/field value for
-   *          the key.</p>
+   * <p>The number of documents in the response that have the attribute/field value for the
+   *          key.</p>
    * @public
    */
   Count?: number;
@@ -1173,14 +1177,13 @@ export interface FacetResult {
 
 /**
  * <p>Filters the search results based on document attributes or fields.</p>
- *          <p>You can filter results using attributes for your particular documents.
- *          The attributes must exist in your index. For example, if your documents
- *          include the custom attribute "Department", you can filter documents that
- *          belong to the "HR" department. You would use the <code>EqualsTo</code>
- *          operation to filter results or documents with "Department" equals to "HR".</p>
- *          <p>You can use <code>AndAllFilters</code> and <code>AndOrFilters</code> in
- *          combination with each other or with other operations such as <code>EqualsTo</code>.
- *          For example:</p>
+ *          <p>You can filter results using attributes for your particular documents. The attributes
+ *          must exist in your index. For example, if your documents include the custom attribute
+ *          "Department", you can filter documents that belong to the "HR" department. You would use
+ *          the <code>EqualsTo</code> operation to filter results or documents with "Department" equals
+ *          to "HR".</p>
+ *          <p>You can use <code>AndAllFilters</code> and <code>AndOrFilters</code> in combination with
+ *          each other or with other operations such as <code>EqualsTo</code>. For example:</p>
  *          <p>
  *             <code>AndAllFilters</code>
  *          </p>
@@ -1202,18 +1205,18 @@ export interface FacetResult {
  *             </li>
  *          </ul>
  *          <p>This example filters results or documents that belong to the HR department
- *          <i>and</i> belong to projects that contain "new hires"
- *          <i>or</i> "new hiring" in the project name (must use
- *          <code>ContainAny</code> with <code>StringListValue</code>). This example is
- *          filtering with a depth of 2.</p>
+ *             <i>and</i> belong to projects that contain "new hires"
+ *             <i>or</i> "new hiring" in the project name (must use
+ *             <code>ContainAny</code> with <code>StringListValue</code>). This example is filtering
+ *          with a depth of 2.</p>
  *          <p>You cannot filter more than a depth of 2, otherwise you receive a
- *          <code>ValidationException</code> exception with the message "AttributeFilter
- *          cannot have a depth of more than 2." Also, if you use more than 10 attribute
- *          filters in a given list for <code>AndAllFilters</code> or <code>OrAllFilters</code>,
- *          you receive a <code>ValidationException</code> with the message "AttributeFilter
- *          cannot have a length of more than 10".</p>
- *          <p>For examples of using <code>AttributeFilter</code>, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/filtering.html#search-filtering">Using
- *          document attributes to filter search results</a>.</p>
+ *             <code>ValidationException</code> exception with the message "AttributeFilter cannot have
+ *          a depth of more than 2." Also, if you use more than 10 attribute filters in a given list
+ *          for <code>AndAllFilters</code> or <code>OrAllFilters</code>, you receive a
+ *             <code>ValidationException</code> with the message "AttributeFilter cannot have a length
+ *          of more than 10".</p>
+ *          <p>For examples of using <code>AttributeFilter</code>, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/filtering.html#search-filtering">Using document attributes to
+ *             filter search results</a>.</p>
  * @public
  */
 export interface AttributeFilter {
@@ -1256,8 +1259,8 @@ export interface AttributeFilter {
   ContainsAny?: DocumentAttribute;
 
   /**
-   * <p>Performs a greater than operation on document attributes/fields and their
-   *          values. Use with the <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_DocumentAttributeValue.html">document attribute
+   * <p>Performs a greater than operation on document attributes/fields and their values. Use
+   *          with the <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_DocumentAttributeValue.html">document attribute
    *             type</a>
    *             <code>Date</code> or <code>Long</code>.</p>
    * @public
@@ -1265,8 +1268,8 @@ export interface AttributeFilter {
   GreaterThan?: DocumentAttribute;
 
   /**
-   * <p>Performs a greater or equals than operation on document attributes/fields and
-   *          their values. Use with the <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_DocumentAttributeValue.html">document attribute
+   * <p>Performs a greater or equals than operation on document attributes/fields and their
+   *          values. Use with the <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_DocumentAttributeValue.html">document attribute
    *             type</a>
    *             <code>Date</code> or <code>Long</code>.</p>
    * @public
@@ -1274,8 +1277,8 @@ export interface AttributeFilter {
   GreaterThanOrEquals?: DocumentAttribute;
 
   /**
-   * <p>Performs a less than operation on document attributes/fields and their values.
-   *          Use with the <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_DocumentAttributeValue.html">document attribute
+   * <p>Performs a less than operation on document attributes/fields and their values. Use with
+   *          the <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_DocumentAttributeValue.html">document attribute
    *             type</a>
    *             <code>Date</code> or <code>Long</code>.</p>
    * @public
@@ -1283,8 +1286,8 @@ export interface AttributeFilter {
   LessThan?: DocumentAttribute;
 
   /**
-   * <p>Performs a less than or equals operation on document attributes/fields and
-   *          their values. Use with the <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_DocumentAttributeValue.html">document attribute
+   * <p>Performs a less than or equals operation on document attributes/fields and their values.
+   *          Use with the <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_DocumentAttributeValue.html">document attribute
    *             type</a>
    *             <code>Date</code> or <code>Long</code>.</p>
    * @public
@@ -1398,7 +1401,10 @@ export interface RetrieveRequest {
   /**
    * <p>The input query text to retrieve relevant passages for the search. Amazon Kendra
    *             truncates queries at 30 token words, which excludes punctuation and stop words.
-   *             Truncation still applies if you use Boolean or more advanced, complex queries.</p>
+   *             Truncation still applies if you use Boolean or more advanced, complex queries. For
+   *             example, <code>Timeoff AND October AND Category:HR</code> is counted as 3 tokens:
+   *                 <code>timeoff</code>, <code>october</code>, <code>hr</code>. For more information,
+   *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/searching-example.html#searching-index-query-syntax">Searching with advanced query syntax</a> in the Amazon Kendra Developer Guide. </p>
    * @public
    */
   QueryText: string | undefined;
@@ -1521,7 +1527,9 @@ export interface QueryRequest {
   /**
    * <p>The input query text for the search. Amazon Kendra truncates queries at 30 token
    *          words, which excludes punctuation and stop words. Truncation still applies if you use
-   *          Boolean or more advanced, complex queries. </p>
+   *          Boolean or more advanced, complex queries. For example, <code>Timeoff AND October AND
+   *             Category:HR</code> is counted as 3 tokens: <code>timeoff</code>, <code>october</code>,
+   *             <code>hr</code>. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/searching-example.html#searching-index-query-syntax">Searching with advanced query syntax</a> in the Amazon Kendra Developer Guide. </p>
    * @public
    */
   QueryText?: string;

@@ -31,7 +31,7 @@ export interface DescribeIndexCommandInput extends DescribeIndexRequest {}
 export interface DescribeIndexCommandOutput extends DescribeIndexResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about an existing Amazon Kendra index.</p>
+ * <p>Gets information about an Amazon Kendra index.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

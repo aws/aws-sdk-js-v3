@@ -27,7 +27,7 @@ export interface UpdateIndexCommandInput extends UpdateIndexRequest {}
 export interface UpdateIndexCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates an existing Amazon Kendra index.</p>
+ * <p>Updates an Amazon Kendra index.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

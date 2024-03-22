@@ -2707,6 +2707,16 @@ export type FsxFileSystemType = (typeof FsxFileSystemType)[keyof typeof FsxFileS
 /**
  * <p>Provides the configuration information to connect to Amazon FSx as your data
  *             source.</p>
+ *          <note>
+ *             <p>Amazon Kendra now supports an upgraded Amazon FSx Windows connector.</p>
+ *             <p>You must now use the <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_TemplateConfiguration.html">TemplateConfiguration</a> object instead of the
+ *                 <code>FsxConfiguration</code> object to configure your connector.</p>
+ *             <p>Connectors configured using the older console and API architecture will continue to
+ *                 function as configured. However, you won't be able to edit or update them. If you want
+ *                 to edit or update your connector configuration, you must create a new connector.</p>
+ *             <p>We recommended migrating your connector workflow to the upgraded version. Support for
+ *                 connectors configured using the older architecture is scheduled to end by June 2024.</p>
+ *          </note>
  * @public
  */
 export interface FsxConfiguration {
@@ -2854,7 +2864,7 @@ export interface OnPremiseConfiguration {
   HostUrl: string | undefined;
 
   /**
-   * <p>The name of the organization of the GitHub Enterprise Server (in-premise) account you
+   * <p>The name of the organization of the GitHub Enterprise Server (on-premises) account you
    *             want to connect to. You can find your organization name by logging into GitHub desktop
    *             and selecting <b>Your organizations</b> under your profile
    *             picture dropdown.</p>
@@ -2912,6 +2922,18 @@ export type Type = (typeof Type)[keyof typeof Type];
 /**
  * <p>Provides the configuration information to connect to GitHub as your data
  *             source.</p>
+ *          <note>
+ *             <p>Amazon Kendra now supports an upgraded GitHub connector.</p>
+ *             <p>You must now use the <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_TemplateConfiguration.html">TemplateConfiguration</a> object instead of the
+ *                     <code>GitHubConfiguration</code> object to configure your connector.</p>
+ *             <p>Connectors configured using the older console and API architecture will continue
+ *                 to function as configured. However, you won’t be able to edit or update them. If you
+ *                 want to edit or update your connector configuration, you must create a new
+ *                 connector.</p>
+ *             <p>We recommended migrating your connector workflow to the upgraded version. Support
+ *                 for connectors configured using the older architecture is scheduled to end by June
+ *                 2024.</p>
+ *          </note>
  * @public
  */
 export interface GitHubConfiguration {
@@ -3577,6 +3599,16 @@ export interface DocumentsMetadataConfiguration {
 /**
  * <p>Provides the configuration information to connect to an Amazon S3
  *             bucket.</p>
+ *          <note>
+ *             <p>Amazon Kendra now supports an upgraded Amazon S3 connector.</p>
+ *             <p>You must now use the <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_TemplateConfiguration.html">TemplateConfiguration</a> object instead of the
+ *                 <code>S3DataSourceConfiguration</code> object to configure your connector.</p>
+ *             <p>Connectors configured using the older console and API architecture will continue to
+ *                 function as configured. However, you won't be able to edit or update them. If you want
+ *                 to edit or update your connector configuration, you must create a new connector.</p>
+ *             <p>We recommended migrating your connector workflow to the upgraded version. Support for
+ *                 connectors configured using the older architecture is scheduled to end by June 2024.</p>
+ *          </note>
  * @public
  */
 export interface S3DataSourceConfiguration {
@@ -3593,56 +3625,105 @@ export interface S3DataSourceConfiguration {
   InclusionPrefixes?: string[];
 
   /**
-   * <p>A list of glob patterns for documents that should be indexed. If a document that
-   *             matches an inclusion pattern also matches an exclusion pattern, the document is not
-   *             indexed.</p>
-   *          <p>Some <a href="https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters">examples</a>
-   *             are:</p>
+   * <p>A list of glob patterns (patterns that can expand a wildcard pattern into a list of
+   *             path names that match the given pattern) for certain file names and file types to include
+   *             in your index. If a document matches both an inclusion and exclusion prefix or pattern,
+   *             the exclusion prefix takes precendence and the document is not indexed. Examples of glob
+   *             patterns include:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <i>*.txt</i> will include all text files in a directory (files
-   *                     with the extension .txt).</p>
+   *                   <i>/myapp/config/*</i>—All files inside config directory.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>**\/*.txt</i> will include all text files in a directory and
-   *                     its subdirectories.</p>
+   *                   <i>**\/*.png</i>—All .png files in all directories.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>*tax*</i> will include all files in a directory that contain
-   *                     'tax' in the file name, such as 'tax', 'taxes', 'income_tax'.</p>
+   *                   <i>**\/*.\{png, ico, md\}</i>—All .png, .ico or .md files in all
+   *                     directories.</p>
    *             </li>
-   *          </ul>
-   * @public
-   */
-  InclusionPatterns?: string[];
-
-  /**
-   * <p>A list of glob patterns for documents that should not be indexed. If a document that
-   *             matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the
-   *             document is not indexed.</p>
-   *          <p>Some <a href="https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters">examples</a>
-   *             are:</p>
-   *          <ul>
    *             <li>
    *                <p>
-   *                   <i>*.png , *.jpg</i> will exclude all PNG and JPEG image files
+   *                   <i>/myapp/src/**\/*.ts</i>—All .ts files inside src directory (and all
+   *                     its subdirectories).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>**\/!(*.module).ts</i>—All .ts files but not .module.ts</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>*.png , *.jpg</i>—All PNG and JPEG image files
    *                     in a directory (files with the extensions .png and .jpg).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>*internal*</i> will exclude all files in a directory that
+   *                   <i>*internal*</i>—All files in a directory that
    *                     contain 'internal' in the file name, such as 'internal', 'internal_only',
    *                     'company_internal'.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>**\/*internal*</i> will exclude all internal-related files in
+   *                   <i>**\/*internal*</i>—All internal-related files in
    *                     a directory and its subdirectories.</p>
    *             </li>
    *          </ul>
+   *          <p>For more examples, see <a href="https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters">Use of Exclude and
+   *             Include Filters</a> in the Amazon Web Services CLI Command Reference.</p>
+   * @public
+   */
+  InclusionPatterns?: string[];
+
+  /**
+   * <p>A list of glob patterns (patterns that can expand a wildcard pattern into a list of
+   *             path names that match the given pattern) for certain file names and file types to exclude
+   *             from your index. If a document matches both an inclusion and exclusion prefix or pattern,
+   *             the exclusion prefix takes precendence and the document is not indexed. Examples of glob
+   *             patterns include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <i>/myapp/config/*</i>—All files inside config directory.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>**\/*.png</i>—All .png files in all directories.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>**\/*.\{png, ico, md\}</i>—All .png, .ico or .md files in all
+   *                     directories.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>/myapp/src/**\/*.ts</i>—All .ts files inside src directory (and all
+   *                     its subdirectories).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>**\/!(*.module).ts</i>—All .ts files but not .module.ts</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>*.png , *.jpg</i>—All PNG and JPEG image files
+   *                     in a directory (files with the extensions .png and .jpg).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>*internal*</i>—All files in a directory that
+   *                     contain 'internal' in the file name, such as 'internal', 'internal_only',
+   *                     'company_internal'.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>**\/*internal*</i>—All internal-related files in
+   *                     a directory and its subdirectories.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more examples, see <a href="https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters">Use of Exclude and
+   *                 Include Filters</a> in the Amazon Web Services CLI Command Reference.</p>
    * @public
    */
   ExclusionPatterns?: string[];
@@ -4409,6 +4490,16 @@ export type SlackEntity = (typeof SlackEntity)[keyof typeof SlackEntity];
 
 /**
  * <p>Provides the configuration information to connect to Slack as your data source.</p>
+ *          <note>
+ *             <p>Amazon Kendra now supports an upgraded Slack connector.</p>
+ *             <p>You must now use the <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_TemplateConfiguration.html">TemplateConfiguration</a> object instead of the
+ *                 <code>SlackConfiguration</code> object to configure your connector.</p>
+ *             <p>Connectors configured using the older console and API architecture will continue to
+ *                 function as configured. However, you won’t be able to edit or update them. If you want
+ *                 to edit or update your connector configuration, you must create a new connector.</p>
+ *             <p>We recommended migrating your connector workflow to the upgraded version. Support for
+ *                 connectors configured using the older architecture is scheduled to end by June 2024.</p>
+ *          </note>
  * @public
  */
 export interface SlackConfiguration {
@@ -4857,6 +4948,16 @@ export interface DataSourceConfiguration {
   /**
    * <p>Provides the configuration information to connect to an Amazon S3 bucket as your
    *       data source.</p>
+   *          <note>
+   *             <p>Amazon Kendra now supports an upgraded Amazon S3 connector.</p>
+   *             <p>You must now use the <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_TemplateConfiguration.html">TemplateConfiguration</a> object instead of the
+   *         <code>S3DataSourceConfiguration</code> object to configure your connector.</p>
+   *             <p>Connectors configured using the older console and API architecture will continue to
+   *         function as configured. However, you won't be able to edit or update them. If you want
+   *         to edit or update your connector configuration, you must create a new connector.</p>
+   *             <p>We recommended migrating your connector workflow to the upgraded version. Support for
+   *         connectors configured using the older architecture is scheduled to end by June 2024.</p>
+   *          </note>
    * @public
    */
   S3Configuration?: S3DataSourceConfiguration;
@@ -4927,12 +5028,32 @@ export interface DataSourceConfiguration {
   /**
    * <p>Provides the configuration information to connect to Amazon FSx as your data
    *       source.</p>
+   *          <note>
+   *             <p>Amazon Kendra now supports an upgraded Amazon FSx Windows connector.</p>
+   *             <p>You must now use the <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_TemplateConfiguration.html">TemplateConfiguration</a> object instead of the
+   *         <code>FsxConfiguration</code> object to configure your connector.</p>
+   *             <p>Connectors configured using the older console and API architecture will continue to
+   *         function as configured. However, you won't be able to edit or update them. If you want
+   *         to edit or update your connector configuration, you must create a new connector.</p>
+   *             <p>We recommended migrating your connector workflow to the upgraded version. Support for
+   *         connectors configured using the older architecture is scheduled to end by June 2024.</p>
+   *          </note>
    * @public
    */
   FsxConfiguration?: FsxConfiguration;
 
   /**
    * <p>Provides the configuration information to connect to Slack as your data source.</p>
+   *          <note>
+   *             <p>Amazon Kendra now supports an upgraded Slack connector.</p>
+   *             <p>You must now use the <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_TemplateConfiguration.html">TemplateConfiguration</a> object instead of the
+   *         <code>SlackConfiguration</code> object to configure your connector.</p>
+   *             <p>Connectors configured using the older console and API architecture will continue to
+   *         function as configured. However, you won't be able to edit or update them. If you want
+   *         to edit or update your connector configuration, you must create a new connector.</p>
+   *             <p>We recommended migrating your connector workflow to the upgraded version. Support for
+   *         connectors configured using the older architecture is scheduled to end by June 2024.</p>
+   *          </note>
    * @public
    */
   SlackConfiguration?: SlackConfiguration;
@@ -4957,6 +5078,18 @@ export interface DataSourceConfiguration {
 
   /**
    * <p>Provides the configuration information to connect to GitHub as your data source.</p>
+   *          <note>
+   *             <p>Amazon Kendra now supports an upgraded GitHub connector.</p>
+   *             <p>You must now use the <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_TemplateConfiguration.html">TemplateConfiguration</a> object instead of the
+   *         <code>GitHubConfiguration</code> object to configure your connector.</p>
+   *             <p>Connectors configured using the older console and API architecture will continue
+   *         to function as configured. However, you won’t be able to edit or update them. If you
+   *         want to edit or update your connector configuration, you must create a new
+   *         connector.</p>
+   *             <p>We recommended migrating your connector workflow to the upgraded version. Support
+   *         for connectors configured using the older architecture is scheduled to end by June
+   *         2024.</p>
+   *          </note>
    * @public
    */
   GitHubConfiguration?: GitHubConfiguration;
@@ -4965,9 +5098,12 @@ export interface DataSourceConfiguration {
    * @deprecated
    *
    * <p>Provides the configuration information to connect to Alfresco as your data source.</p>
-   *          <p>Support for <code>AlfrescoConfiguration</code> ended May 2023.
-   *       We recommend migrating to or using the Alfresco data source template
-   *       schema / <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_TemplateConfiguration.html">TemplateConfiguration</a> API.</p>
+   *          <note>
+   *             <p>Support for <code>AlfrescoConfiguration</code> ended May 2023.
+   *         We recommend migrating to or using the Alfresco data source template
+   *         schema / <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_TemplateConfiguration.html">TemplateConfiguration</a>
+   *         API.</p>
+   *          </note>
    * @public
    */
   AlfrescoConfiguration?: AlfrescoConfiguration;
@@ -5906,7 +6042,8 @@ export interface CreateIndexRequest {
 
   /**
    * <p>Gets users and groups from IAM Identity Center
-   *          identity source. To configure this, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html">UserGroupResolutionConfiguration</a>.</p>
+   *          identity source. To configure this, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html">UserGroupResolutionConfiguration</a>. This is useful for user context filtering, where
+   *          search results are filtered based on the user or their group access to documents.</p>
    * @public
    */
   UserGroupResolutionConfiguration?: UserGroupResolutionConfiguration;
@@ -6904,8 +7041,7 @@ export interface Relevance {
   /**
    * <p>Indicates that this field determines how "fresh" a document is. For example, if
    *             document 1 was created on November 5, and document 2 was created on October 31, document
-   *             1 is "fresher" than document 2. You can only set the <code>Freshness</code> field on one
-   *                 <code>DATE</code> type field. Only applies to <code>DATE</code> fields.</p>
+   *             1 is "fresher" than document 2. Only applies to <code>DATE</code> fields.</p>
    * @public
    */
   Freshness?: boolean;
@@ -6937,14 +7073,14 @@ export interface Relevance {
    *          <p>When the <code>RankOrder</code> field is <code>DESCENDING</code>, lower numbers are
    *             better. For example, in a task tracking application, a priority 1 task is more important
    *             than a priority 5 task.</p>
-   *          <p>Only applies to <code>LONG</code> and <code>DOUBLE</code> fields.</p>
+   *          <p>Only applies to <code>LONG</code> fields.</p>
    * @public
    */
   RankOrder?: Order;
 
   /**
    * <p>A list of values that should be given a different boost when they appear in the result
-   *             list. For example, if you are boosting a field called "department," query terms that
+   *             list. For example, if you are boosting a field called "department", query terms that
    *             match the department field are boosted in the result. However, you can add entries from
    *             the department field to boost documents with those values higher. </p>
    *          <p>For example, you can add entries to the map with names of departments. If you add
@@ -7133,14 +7269,14 @@ export interface DescribeIndexResponse {
   Edition?: IndexEdition;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that gives Amazon Kendra permission to
-   *       write to your Amazon Cloudwatch logs.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role that gives
+   *       Amazon Kendra permission to write to your Amazon CloudWatch logs.</p>
    * @public
    */
   RoleArn?: string;
 
   /**
-   * <p>The identifier of the KMScustomer master key (CMK) that is used to encrypt
+   * <p>The identifier of the KMS customer master key (CMK) that is used to encrypt
    *       your data. Amazon Kendra doesn't support asymmetric CMKs.</p>
    * @public
    */
@@ -7167,7 +7303,7 @@ export interface DescribeIndexResponse {
   CreatedAt?: Date;
 
   /**
-   * <p>The Unix when the index was last updated.</p>
+   * <p>The Unix timestamp when the index was last updated.</p>
    * @public
    */
   UpdatedAt?: Date;
@@ -7217,8 +7353,9 @@ export interface DescribeIndexResponse {
   UserContextPolicy?: UserContextPolicy;
 
   /**
-   * <p>Whether you have enabled the configuration for fetching access levels of groups and
-   *          users from an IAM Identity Center identity source.</p>
+   * <p>Whether you have enabled IAM Identity Center identity source for your
+   *          users and groups. This is useful for user context filtering, where
+   *          search results are filtered based on the user or their group access to documents.</p>
    * @public
    */
   UserGroupResolutionConfiguration?: UserGroupResolutionConfiguration;

@@ -27,7 +27,7 @@ export interface DescribeThesaurusCommandInput extends DescribeThesaurusRequest 
 export interface DescribeThesaurusCommandOutput extends DescribeThesaurusResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about an existing Amazon Kendra thesaurus.</p>
+ * <p>Gets information about an Amazon Kendra thesaurus.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

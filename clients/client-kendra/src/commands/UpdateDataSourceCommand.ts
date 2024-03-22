@@ -27,7 +27,7 @@ export interface UpdateDataSourceCommandInput extends UpdateDataSourceRequest {}
 export interface UpdateDataSourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates an existing Amazon Kendra data source connector.</p>
+ * <p>Updates an Amazon Kendra data source connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
