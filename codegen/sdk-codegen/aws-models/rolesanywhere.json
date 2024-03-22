@@ -86,10 +86,10 @@
         "durationSeconds": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "<p> The number of seconds the vended session credentials are valid for. </p>",
+            "smithy.api#documentation": "<p> Used to determine how long sessions vended using this profile are valid for. See the <code>Expiration</code> section of the\n            <a href=\"https://docs.aws.amazon.com/rolesanywhere/latest/userguide/authentication-create-session.html#credentials-object\">CreateSession API documentation</a>\npage for more details. </p>",
             "smithy.api#range": {
               "min": 900,
-              "max": 3600
+              "max": 43200
             }
           }
         },
@@ -663,7 +663,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Imports the certificate revocation list (CRL). A CRL is a list of certificates that have\n         been revoked by the issuing certificate Authority (CA). IAM Roles Anywhere\n         validates against the CRL before issuing credentials. </p>\n         <p>\n            <b>Required permissions: </b>\n            <code>rolesanywhere:ImportCrl</code>. \n         </p>",
+        "smithy.api#documentation": "<p>Imports the certificate revocation list (CRL). A CRL is a list of certificates that have\n         been revoked by the issuing certificate Authority (CA).In order to be properly imported, a CRL must be in PEM \n         format. IAM Roles Anywhere\n         validates against the CRL before issuing credentials. </p>\n         <p>\n            <b>Required permissions: </b>\n            <code>rolesanywhere:ImportCrl</code>. \n         </p>",
         "smithy.api#http": {
           "uri": "/crls",
           "method": "POST",
@@ -1341,7 +1341,7 @@
         "durationSeconds": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "<p> The number of seconds the vended session credentials are valid for. </p>"
+            "smithy.api#documentation": "<p> Used to determine how long sessions vended using this profile are valid for. See the <code>Expiration</code> section of the\n            <a href=\"https://docs.aws.amazon.com/rolesanywhere/latest/userguide/authentication-create-session.html#credentials-object\">CreateSession API documentation</a>\npage for more details. </p>"
           }
         }
       },
@@ -3238,10 +3238,10 @@
         "durationSeconds": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "<p> The number of seconds the vended session credentials are valid for. </p>",
+            "smithy.api#documentation": "<p> Used to determine how long sessions vended using this profile are valid for. See the <code>Expiration</code> section of the\n            <a href=\"https://docs.aws.amazon.com/rolesanywhere/latest/userguide/authentication-create-session.html#credentials-object\">CreateSession API documentation</a>\npage for more details. </p>",
             "smithy.api#range": {
               "min": 900,
-              "max": 3600
+              "max": 43200
             }
           }
         }
