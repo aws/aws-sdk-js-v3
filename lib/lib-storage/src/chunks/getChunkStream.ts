@@ -19,7 +19,7 @@ export async function* getChunkStream<T>(
     currentBuffer.chunks.push(datum);
     currentBuffer.length += datum.byteLength;
 
-    while (currentBuffer.length >= partSize) {
+    while (currentBuffer.length > partSize) {
       /**
        * Concat all the buffers together once if there is more than one to concat. Attempt
        * to minimize concats as Buffer.Concat is an extremely expensive operation.
