@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.541.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.540.0...v3.541.0) (2024-03-25)
+
+
+### Features
+
+* **client-medialive:** Exposing TileMedia H265 options ([98c8bf8](https://github.com/aws/aws-sdk-js-v3/commit/98c8bf8f89666c71da47f1142e0b10282bc7a5ba))
+
+
+
+
+
 # [3.540.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.539.0...v3.540.0) (2024-03-22)
 
 

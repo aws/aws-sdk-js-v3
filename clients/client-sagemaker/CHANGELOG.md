@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.541.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.540.0...v3.541.0) (2024-03-25)
+
+
+### Features
+
+* **client-sagemaker:** Introduced support for the following new instance types on SageMaker Studio for JupyterLab and CodeEditor applications: m6i, m6id, m7i, c6i, c6id, c7i, r6i, r6id, r7i, and p5 ([8c6a065](https://github.com/aws/aws-sdk-js-v3/commit/8c6a065f4ccc14167184c575b2cbd08b9b278422))
+
+
+
+
+
 # [3.540.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.539.0...v3.540.0) (2024-03-22)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.541.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.540.0...v3.541.0) (2024-03-25)
+
+
+### Features
+
+* **cloudfront-signer:** allow `url` to be optional when using `policy` ([#5926](https://github.com/aws/aws-sdk-js-v3/issues/5926)) ([92aa194](https://github.com/aws/aws-sdk-js-v3/commit/92aa194d7b2aa28624a3980ce2f16a0889962022))
+
+
+
+
+
 # [3.535.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.534.0...v3.535.0) (2024-03-15)
 
 **Note:** Version bump only for package @aws-sdk/cloudfront-signer

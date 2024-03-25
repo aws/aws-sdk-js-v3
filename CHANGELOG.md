@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.541.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.540.0...v3.541.0) (2024-03-25)
+
+
+### Features
+
+* **client-codebuild:** Supporting GitLab and GitLab Self Managed as source types in AWS CodeBuild. ([e17e527](https://github.com/aws/aws-sdk-js-v3/commit/e17e527c03a595709aafee4e976c2127dc64aa5d))
+* **client-ec2:** Added support for ModifyInstanceMetadataDefaults and GetInstanceMetadataDefaults to set Instance Metadata Service account defaults ([cdacf23](https://github.com/aws/aws-sdk-js-v3/commit/cdacf23276c4ed985d6510f396bde4689d10ef20))
+* **client-emr-containers:** This release increases the number of supported job template parameters from 20 to 100. ([4901f59](https://github.com/aws/aws-sdk-js-v3/commit/4901f5999a05a162b24814fae9ee296703490947))
+* **client-global-accelerator:** AWS Global Accelerator now supports cross-account sharing for bring your own IP addresses. ([39e810c](https://github.com/aws/aws-sdk-js-v3/commit/39e810c4bf4fece46fde3afcd68b566dd503a03c))
+* **client-medialive:** Exposing TileMedia H265 options ([98c8bf8](https://github.com/aws/aws-sdk-js-v3/commit/98c8bf8f89666c71da47f1142e0b10282bc7a5ba))
+* **client-sagemaker:** Introduced support for the following new instance types on SageMaker Studio for JupyterLab and CodeEditor applications: m6i, m6id, m7i, c6i, c6id, c7i, r6i, r6id, r7i, and p5 ([8c6a065](https://github.com/aws/aws-sdk-js-v3/commit/8c6a065f4ccc14167184c575b2cbd08b9b278422))
+* **clients:** update client endpoints as of 2024-03-25 ([cfa5eb2](https://github.com/aws/aws-sdk-js-v3/commit/cfa5eb24deccf3467389e049024f7b2856e6ce61))
+* **cloudfront-signer:** allow `url` to be optional when using `policy` ([#5926](https://github.com/aws/aws-sdk-js-v3/issues/5926)) ([92aa194](https://github.com/aws/aws-sdk-js-v3/commit/92aa194d7b2aa28624a3980ce2f16a0889962022))
+
+
+
+
+
 # [3.540.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.539.0...v3.540.0) (2024-03-22)
 
 

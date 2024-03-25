@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.541.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.540.0...v3.541.0) (2024-03-25)
+
+
+### Features
+
+* **client-global-accelerator:** AWS Global Accelerator now supports cross-account sharing for bring your own IP addresses. ([39e810c](https://github.com/aws/aws-sdk-js-v3/commit/39e810c4bf4fece46fde3afcd68b566dd503a03c))
+
+
+
+
+
 # [3.540.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.539.0...v3.540.0) (2024-03-22)
 
 
