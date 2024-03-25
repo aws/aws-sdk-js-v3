@@ -41,7 +41,7 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  *   projectName: "STRING_VALUE", // required
  *   secondarySourcesOverride: [ // ProjectSources
  *     { // ProjectSource
- *       type: "CODECOMMIT" || "CODEPIPELINE" || "GITHUB" || "S3" || "BITBUCKET" || "GITHUB_ENTERPRISE" || "NO_SOURCE", // required
+ *       type: "CODECOMMIT" || "CODEPIPELINE" || "GITHUB" || "GITLAB" || "GITLAB_SELF_MANAGED" || "S3" || "BITBUCKET" || "GITHUB_ENTERPRISE" || "NO_SOURCE", // required
  *       location: "STRING_VALUE",
  *       gitCloneDepth: Number("int"),
  *       gitSubmodulesConfig: { // GitSubmodulesConfig
@@ -49,7 +49,7 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  *       },
  *       buildspec: "STRING_VALUE",
  *       auth: { // SourceAuth
- *         type: "OAUTH", // required
+ *         type: "OAUTH" || "CODECONNECTIONS", // required
  *         resource: "STRING_VALUE",
  *       },
  *       reportBuildStatus: true || false,
@@ -101,10 +101,10 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  *       type: "PLAINTEXT" || "PARAMETER_STORE" || "SECRETS_MANAGER",
  *     },
  *   ],
- *   sourceTypeOverride: "CODECOMMIT" || "CODEPIPELINE" || "GITHUB" || "S3" || "BITBUCKET" || "GITHUB_ENTERPRISE" || "NO_SOURCE",
+ *   sourceTypeOverride: "CODECOMMIT" || "CODEPIPELINE" || "GITHUB" || "GITLAB" || "GITLAB_SELF_MANAGED" || "S3" || "BITBUCKET" || "GITHUB_ENTERPRISE" || "NO_SOURCE",
  *   sourceLocationOverride: "STRING_VALUE",
  *   sourceAuthOverride: {
- *     type: "OAUTH", // required
+ *     type: "OAUTH" || "CODECONNECTIONS", // required
  *     resource: "STRING_VALUE",
  *   },
  *   gitCloneDepthOverride: Number("int"),
@@ -188,7 +188,7 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  * //       },
  * //     ],
  * //     source: { // ProjectSource
- * //       type: "CODECOMMIT" || "CODEPIPELINE" || "GITHUB" || "S3" || "BITBUCKET" || "GITHUB_ENTERPRISE" || "NO_SOURCE", // required
+ * //       type: "CODECOMMIT" || "CODEPIPELINE" || "GITHUB" || "GITLAB" || "GITLAB_SELF_MANAGED" || "S3" || "BITBUCKET" || "GITHUB_ENTERPRISE" || "NO_SOURCE", // required
  * //       location: "STRING_VALUE",
  * //       gitCloneDepth: Number("int"),
  * //       gitSubmodulesConfig: { // GitSubmodulesConfig
@@ -196,7 +196,7 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  * //       },
  * //       buildspec: "STRING_VALUE",
  * //       auth: { // SourceAuth
- * //         type: "OAUTH", // required
+ * //         type: "OAUTH" || "CODECONNECTIONS", // required
  * //         resource: "STRING_VALUE",
  * //       },
  * //       reportBuildStatus: true || false,
@@ -209,7 +209,7 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  * //     },
  * //     secondarySources: [ // ProjectSources
  * //       {
- * //         type: "CODECOMMIT" || "CODEPIPELINE" || "GITHUB" || "S3" || "BITBUCKET" || "GITHUB_ENTERPRISE" || "NO_SOURCE", // required
+ * //         type: "CODECOMMIT" || "CODEPIPELINE" || "GITHUB" || "GITLAB" || "GITLAB_SELF_MANAGED" || "S3" || "BITBUCKET" || "GITHUB_ENTERPRISE" || "NO_SOURCE", // required
  * //         location: "STRING_VALUE",
  * //         gitCloneDepth: Number("int"),
  * //         gitSubmodulesConfig: {
@@ -217,7 +217,7 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  * //         },
  * //         buildspec: "STRING_VALUE",
  * //         auth: {
- * //           type: "OAUTH", // required
+ * //           type: "OAUTH" || "CODECONNECTIONS", // required
  * //           resource: "STRING_VALUE",
  * //         },
  * //         reportBuildStatus: true || false,

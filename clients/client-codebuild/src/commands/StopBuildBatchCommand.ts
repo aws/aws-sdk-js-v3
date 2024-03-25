@@ -66,7 +66,7 @@ export interface StopBuildBatchCommandOutput extends StopBuildBatchOutput, __Met
  * //       },
  * //     ],
  * //     source: { // ProjectSource
- * //       type: "CODECOMMIT" || "CODEPIPELINE" || "GITHUB" || "S3" || "BITBUCKET" || "GITHUB_ENTERPRISE" || "NO_SOURCE", // required
+ * //       type: "CODECOMMIT" || "CODEPIPELINE" || "GITHUB" || "GITLAB" || "GITLAB_SELF_MANAGED" || "S3" || "BITBUCKET" || "GITHUB_ENTERPRISE" || "NO_SOURCE", // required
  * //       location: "STRING_VALUE",
  * //       gitCloneDepth: Number("int"),
  * //       gitSubmodulesConfig: { // GitSubmodulesConfig
@@ -74,7 +74,7 @@ export interface StopBuildBatchCommandOutput extends StopBuildBatchOutput, __Met
  * //       },
  * //       buildspec: "STRING_VALUE",
  * //       auth: { // SourceAuth
- * //         type: "OAUTH", // required
+ * //         type: "OAUTH" || "CODECONNECTIONS", // required
  * //         resource: "STRING_VALUE",
  * //       },
  * //       reportBuildStatus: true || false,
@@ -87,7 +87,7 @@ export interface StopBuildBatchCommandOutput extends StopBuildBatchOutput, __Met
  * //     },
  * //     secondarySources: [ // ProjectSources
  * //       {
- * //         type: "CODECOMMIT" || "CODEPIPELINE" || "GITHUB" || "S3" || "BITBUCKET" || "GITHUB_ENTERPRISE" || "NO_SOURCE", // required
+ * //         type: "CODECOMMIT" || "CODEPIPELINE" || "GITHUB" || "GITLAB" || "GITLAB_SELF_MANAGED" || "S3" || "BITBUCKET" || "GITHUB_ENTERPRISE" || "NO_SOURCE", // required
  * //         location: "STRING_VALUE",
  * //         gitCloneDepth: Number("int"),
  * //         gitSubmodulesConfig: {
@@ -95,7 +95,7 @@ export interface StopBuildBatchCommandOutput extends StopBuildBatchOutput, __Met
  * //         },
  * //         buildspec: "STRING_VALUE",
  * //         auth: {
- * //           type: "OAUTH", // required
+ * //           type: "OAUTH" || "CODECONNECTIONS", // required
  * //           resource: "STRING_VALUE",
  * //         },
  * //         reportBuildStatus: true || false,

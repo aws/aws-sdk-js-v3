@@ -69,7 +69,7 @@ export interface BatchGetBuildBatchesCommandOutput extends BatchGetBuildBatchesO
  * //         },
  * //       ],
  * //       source: { // ProjectSource
- * //         type: "CODECOMMIT" || "CODEPIPELINE" || "GITHUB" || "S3" || "BITBUCKET" || "GITHUB_ENTERPRISE" || "NO_SOURCE", // required
+ * //         type: "CODECOMMIT" || "CODEPIPELINE" || "GITHUB" || "GITLAB" || "GITLAB_SELF_MANAGED" || "S3" || "BITBUCKET" || "GITHUB_ENTERPRISE" || "NO_SOURCE", // required
  * //         location: "STRING_VALUE",
  * //         gitCloneDepth: Number("int"),
  * //         gitSubmodulesConfig: { // GitSubmodulesConfig
@@ -77,7 +77,7 @@ export interface BatchGetBuildBatchesCommandOutput extends BatchGetBuildBatchesO
  * //         },
  * //         buildspec: "STRING_VALUE",
  * //         auth: { // SourceAuth
- * //           type: "OAUTH", // required
+ * //           type: "OAUTH" || "CODECONNECTIONS", // required
  * //           resource: "STRING_VALUE",
  * //         },
  * //         reportBuildStatus: true || false,
@@ -90,7 +90,7 @@ export interface BatchGetBuildBatchesCommandOutput extends BatchGetBuildBatchesO
  * //       },
  * //       secondarySources: [ // ProjectSources
  * //         {
- * //           type: "CODECOMMIT" || "CODEPIPELINE" || "GITHUB" || "S3" || "BITBUCKET" || "GITHUB_ENTERPRISE" || "NO_SOURCE", // required
+ * //           type: "CODECOMMIT" || "CODEPIPELINE" || "GITHUB" || "GITLAB" || "GITLAB_SELF_MANAGED" || "S3" || "BITBUCKET" || "GITHUB_ENTERPRISE" || "NO_SOURCE", // required
  * //           location: "STRING_VALUE",
  * //           gitCloneDepth: Number("int"),
  * //           gitSubmodulesConfig: {
@@ -98,7 +98,7 @@ export interface BatchGetBuildBatchesCommandOutput extends BatchGetBuildBatchesO
  * //           },
  * //           buildspec: "STRING_VALUE",
  * //           auth: {
- * //             type: "OAUTH", // required
+ * //             type: "OAUTH" || "CODECONNECTIONS", // required
  * //             resource: "STRING_VALUE",
  * //           },
  * //           reportBuildStatus: true || false,

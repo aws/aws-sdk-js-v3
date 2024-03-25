@@ -72,6 +72,7 @@ export type ArtifactsType = (typeof ArtifactsType)[keyof typeof ArtifactsType];
  */
 export const AuthType = {
   BASIC_AUTH: "BASIC_AUTH",
+  CODECONNECTIONS: "CODECONNECTIONS",
   OAUTH: "OAUTH",
   PERSONAL_ACCESS_TOKEN: "PERSONAL_ACCESS_TOKEN",
 } as const;
@@ -1456,6 +1457,7 @@ export interface BuildBatchPhase {
  * @enum
  */
 export const SourceAuthType = {
+  CODECONNECTIONS: "CODECONNECTIONS",
   OAUTH: "OAUTH",
 } as const;
 
@@ -1473,11 +1475,7 @@ export type SourceAuthType = (typeof SourceAuthType)[keyof typeof SourceAuthType
  */
 export interface SourceAuth {
   /**
-   * <note>
-   *             <p> This data type is deprecated and is no longer accurate or used. </p>
-   *          </note>
-   *          <p>The authorization type to use. The only valid value is <code>OAUTH</code>, which
-   *             represents the OAuth authorization type.</p>
+   * <p>The authorization type to use. Valid options are OAUTH or CODECONNECTIONS.</p>
    * @public
    */
   type: SourceAuthType | undefined;
@@ -1557,6 +1555,8 @@ export const SourceType = {
   CODEPIPELINE: "CODEPIPELINE",
   GITHUB: "GITHUB",
   GITHUB_ENTERPRISE: "GITHUB_ENTERPRISE",
+  GITLAB: "GITLAB",
+  GITLAB_SELF_MANAGED: "GITLAB_SELF_MANAGED",
   NO_SOURCE: "NO_SOURCE",
   S3: "S3",
 } as const;
@@ -1590,13 +1590,20 @@ export interface ProjectSource {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>GITHUB</code>: The source code is in a GitHub or GitHub Enterprise Cloud
-   *                     repository.</p>
+   *                   <code>GITHUB</code>: The source code is in a GitHub repository.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>GITHUB_ENTERPRISE</code>: The source code is in a GitHub Enterprise
    *                     Server repository.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GITLAB</code>: The source code is in a GitLab repository.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GITLAB_SELF_MANAGED</code>: The source code is in a self-managed GitLab repository.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1652,6 +1659,18 @@ export interface ProjectSource {
    *                     console.) To instruct CodeBuild to use this connection, in the <code>source</code>
    *                     object, set the <code>auth</code> object's <code>type</code> value to
    *                         <code>OAUTH</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For source code in an GitLab or self-managed GitLab repository, the HTTPS clone URL to the repository
+   *                     that contains the source and the buildspec file. You must connect your Amazon Web Services account
+   *                     to your GitLab account. Use the CodeBuild console to start creating a build
+   *                     project. When you use the console to connect (or reconnect) with GitLab, on the
+   *                     Connections <b>Authorize application</b> page, choose <b>Authorize</b>. Then on the CodeStar Connections <b>Create GitLab connection</b> page,
+   *                     choose <b>Connect to GitLab</b>. (After you have connected to your GitLab account,
+   *                     you do not need to finish creating the build project. You can leave the CodeBuild
+   *                     console.) To instruct CodeBuild to override the default connection and use this connection instead,
+   *                     set the <code>auth</code> object's <code>type</code> value to
+   *                     <code>CODECONNECTIONS</code> in the <code>source</code> object.</p>
    *             </li>
    *             <li>
    *                <p>For source code in a Bitbucket repository, the HTTPS clone URL to the
@@ -1713,7 +1732,7 @@ export interface ProjectSource {
   /**
    * <p> Set to true to report the status of a build's start and finish to your source
    *             provider. This option is valid only when your source provider is GitHub, GitHub
-   *             Enterprise, or Bitbucket. If this is set and you use a different source provider, an
+   *             Enterprise, GitLab, GitLab Self Managed, or Bitbucket. If this is set and you use a different source provider, an
    *             <code>invalidInputException</code> is thrown. </p>
    *          <p>To be able to report the build status to the source provider, the user associated with the source provider must
    * have write access to the repo. If the user does not have write access, the build status cannot be updated. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/access-tokens.html">Source provider access</a> in the <i>CodeBuild User Guide</i>.</p>
@@ -1770,7 +1789,7 @@ export interface ProjectSourceVersion {
    *                <p>For CodeCommit: the commit ID, branch, or Git tag to use.</p>
    *             </li>
    *             <li>
-   *                <p>For GitHub: the commit ID, pull request ID, branch name, or tag name that
+   *                <p>For GitHub or GitLab: the commit ID, pull request ID, branch name, or tag name that
    *                   corresponds to the version of the source code you want to build. If a pull
    *                   request ID is specified, it must use the format <code>pr/pull-request-ID</code>
    *                   (for example, <code>pr/25</code>). If a branch name is specified, the branch's
@@ -2835,6 +2854,10 @@ export interface FleetStatus {
    *             <li>
    *                <p>
    *                   <code>ROTATING</code>: The compute fleet is being rotated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING_DELETION</code>: The compute fleet is pending deletion.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5669,6 +5692,8 @@ export const ServerType = {
   BITBUCKET: "BITBUCKET",
   GITHUB: "GITHUB",
   GITHUB_ENTERPRISE: "GITHUB_ENTERPRISE",
+  GITLAB: "GITLAB",
+  GITLAB_SELF_MANAGED: "GITLAB_SELF_MANAGED",
 } as const;
 
 /**
@@ -6747,7 +6772,7 @@ export interface ListSharedReportGroupsOutput {
 export interface ListSourceCredentialsInput {}
 
 /**
- * <p> Information about the credentials for a GitHub, GitHub Enterprise, or Bitbucket
+ * <p> Information about the credentials for a GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket
  *             repository. </p>
  * @public
  */
@@ -6759,7 +6784,7 @@ export interface SourceCredentialsInfo {
   arn?: string;
 
   /**
-   * <p> The type of source provider. The valid options are GITHUB, GITHUB_ENTERPRISE, or
+   * <p> The type of source provider. The valid options are GITHUB, GITHUB_ENTERPRISE, GITLAB, GITLAB_SELF_MANAGED, or
    *             BITBUCKET. </p>
    * @public
    */
@@ -6767,10 +6792,16 @@ export interface SourceCredentialsInfo {
 
   /**
    * <p> The type of authentication used by the credentials. Valid options are OAUTH,
-   *             BASIC_AUTH, or PERSONAL_ACCESS_TOKEN. </p>
+   *             BASIC_AUTH, PERSONAL_ACCESS_TOKEN, or CODECONNECTIONS. </p>
    * @public
    */
   authType?: AuthType;
+
+  /**
+   * <p>The connection ARN if your serverType type is GITLAB or GITLAB_SELF_MANAGED and your authType is CODECONNECTIONS.</p>
+   * @public
+   */
+  resource?: string;
 }
 
 /**

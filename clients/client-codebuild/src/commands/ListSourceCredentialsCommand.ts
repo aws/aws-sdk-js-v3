@@ -41,8 +41,9 @@ export interface ListSourceCredentialsCommandOutput extends ListSourceCredential
  * //   sourceCredentialsInfos: [ // SourceCredentialsInfos
  * //     { // SourceCredentialsInfo
  * //       arn: "STRING_VALUE",
- * //       serverType: "GITHUB" || "BITBUCKET" || "GITHUB_ENTERPRISE",
- * //       authType: "OAUTH" || "BASIC_AUTH" || "PERSONAL_ACCESS_TOKEN",
+ * //       serverType: "GITHUB" || "BITBUCKET" || "GITHUB_ENTERPRISE" || "GITLAB" || "GITLAB_SELF_MANAGED",
+ * //       authType: "OAUTH" || "BASIC_AUTH" || "PERSONAL_ACCESS_TOKEN" || "CODECONNECTIONS",
+ * //       resource: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

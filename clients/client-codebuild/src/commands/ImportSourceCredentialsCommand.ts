@@ -42,8 +42,8 @@ export interface ImportSourceCredentialsCommandOutput extends ImportSourceCreden
  * const input = { // ImportSourceCredentialsInput
  *   username: "STRING_VALUE",
  *   token: "STRING_VALUE", // required
- *   serverType: "GITHUB" || "BITBUCKET" || "GITHUB_ENTERPRISE", // required
- *   authType: "OAUTH" || "BASIC_AUTH" || "PERSONAL_ACCESS_TOKEN", // required
+ *   serverType: "GITHUB" || "BITBUCKET" || "GITHUB_ENTERPRISE" || "GITLAB" || "GITLAB_SELF_MANAGED", // required
+ *   authType: "OAUTH" || "BASIC_AUTH" || "PERSONAL_ACCESS_TOKEN" || "CODECONNECTIONS", // required
  *   shouldOverwrite: true || false,
  * };
  * const command = new ImportSourceCredentialsCommand(input);
