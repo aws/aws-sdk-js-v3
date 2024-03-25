@@ -57,7 +57,8 @@ export interface DescribeCrossAccountAttachmentCommandOutput
  * //     ],
  * //     Resources: [ // Resources
  * //       { // Resource
- * //         EndpointId: "STRING_VALUE", // required
+ * //         EndpointId: "STRING_VALUE",
+ * //         Cidr: "STRING_VALUE",
  * //         Region: "STRING_VALUE",
  * //       },
  * //     ],

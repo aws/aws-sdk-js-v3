@@ -37,14 +37,23 @@ export interface CreateCrossAccountAttachmentCommandOutput
 
 /**
  * <p>Create a cross-account attachment in Global Accelerator. You create a cross-account attachment to
- * 			specify the <i>principals</i> who have permission to add to accelerators in their own
- * 			account the resources in your account that you also list in the attachment.</p>
+ * 			specify the <i>principals</i> who have permission to work with <i>resources</i>
+ * 			in accelerators in their own account. You specify, in the same attachment, the resources that are shared.</p>
  *          <p>A principal can be an Amazon Web Services account number or the Amazon Resource Name (ARN) for an
- * 			accelerator. For account numbers that are listed as principals, to add a resource listed in the attachment to an accelerator,
- * 			you must sign in to an account specified as a principal. Then you can add the resources that are listed
- * 			to any of your accelerators. If an accelerator ARN is listed in the cross-account attachment as a principal,
- * 			anyone with permission to make updates to the accelerator can add as endpoints resources that are listed in the
+ * 			accelerator. For account numbers that are listed as principals, to work with a resource listed in the attachment,
+ * 			you must sign in to an account specified as a principal. Then, you can work with resources that are listed,
+ * 			with any of your accelerators. If an accelerator ARN is listed in the cross-account attachment as a principal,
+ * 			anyone with permission to make updates to the accelerator can work with resources that are listed in the
  * 			attachment. </p>
+ *          <p>Specify each principal and resource separately. To specify two CIDR address pools, list
+ * 			them individually under <code>Resources</code>, and so on. For a command line operation, for example,
+ * 			you might use a statement like the following:</p>
+ *          <p>
+ *             <code> "Resources": [\{"Cidr": "169.254.60.0/24"\},\{"Cidr": "169.254.59.0/24"\}]</code>
+ *          </p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/cross-account-resources.html">
+ * 			Working with cross-account attachments and resources in Global Accelerator</a> in the <i>
+ * 				Global Accelerator Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,7 +67,8 @@ export interface CreateCrossAccountAttachmentCommandOutput
  *   ],
  *   Resources: [ // Resources
  *     { // Resource
- *       EndpointId: "STRING_VALUE", // required
+ *       EndpointId: "STRING_VALUE",
+ *       Cidr: "STRING_VALUE",
  *       Region: "STRING_VALUE",
  *     },
  *   ],
@@ -81,7 +91,8 @@ export interface CreateCrossAccountAttachmentCommandOutput
  * //     ],
  * //     Resources: [ // Resources
  * //       { // Resource
- * //         EndpointId: "STRING_VALUE", // required
+ * //         EndpointId: "STRING_VALUE",
+ * //         Cidr: "STRING_VALUE",
  * //         Region: "STRING_VALUE",
  * //       },
  * //     ],

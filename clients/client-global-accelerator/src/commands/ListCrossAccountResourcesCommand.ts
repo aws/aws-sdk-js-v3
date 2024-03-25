@@ -31,7 +31,7 @@ export interface ListCrossAccountResourcesCommandInput extends ListCrossAccountR
 export interface ListCrossAccountResourcesCommandOutput extends ListCrossAccountResourcesResponse, __MetadataBearer {}
 
 /**
- * <p>List the cross-account endpoints available to add to an accelerator.</p>
+ * <p>List the cross-account resources available to work with.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,6 +50,7 @@ export interface ListCrossAccountResourcesCommandOutput extends ListCrossAccount
  * //   CrossAccountResources: [ // CrossAccountResources
  * //     { // CrossAccountResource
  * //       EndpointId: "STRING_VALUE",
+ * //       Cidr: "STRING_VALUE",
  * //       AttachmentArn: "STRING_VALUE",
  * //     },
  * //   ],
