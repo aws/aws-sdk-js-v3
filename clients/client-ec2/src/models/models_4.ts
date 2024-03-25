@@ -1873,18 +1873,13 @@ export interface InstanceMetadataOptionsResponse {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>optional</code> - IMDSv2 is optional. You can choose whether to send a
-   *                     session token in your instance metadata retrieval requests. If you retrieve
-   *                     IAM role credentials without a session token, you receive the IMDSv1 role
-   *                     credentials. If you retrieve IAM role credentials using a valid session token,
-   *                     you receive the IMDSv2 role credentials.</p>
+   *                   <code>optional</code> - IMDSv2 is optional, which means that you can use
+   *                     either IMDSv2 or IMDSv1.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>required</code> - IMDSv2 is required. You must send a session token
-   *                     in your instance metadata retrieval requests. With this option, retrieving the
-   *                     IAM role credentials always returns IMDSv2 credentials; IMDSv1 credentials are
-   *                     not available.</p>
+   *                   <code>required</code> - IMDSv2 is required, which means that IMDSv1 is
+   *                     disabled, and you must use IMDSv2.</p>
    *             </li>
    *          </ul>
    * @public
@@ -1892,10 +1887,7 @@ export interface InstanceMetadataOptionsResponse {
   HttpTokens?: HttpTokensState;
 
   /**
-   * <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the
-   *             number, the further instance metadata requests can travel.</p>
-   *          <p>Default: <code>1</code>
-   *          </p>
+   * <p>The maximum number of hops that the metadata token can travel.</p>
    *          <p>Possible values: Integers from <code>1</code> to <code>64</code>
    *          </p>
    * @public

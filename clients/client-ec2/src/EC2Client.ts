@@ -1538,6 +1538,10 @@ import {
   GetImageBlockPublicAccessStateCommandOutput,
 } from "./commands/GetImageBlockPublicAccessStateCommand";
 import {
+  GetInstanceMetadataDefaultsCommandInput,
+  GetInstanceMetadataDefaultsCommandOutput,
+} from "./commands/GetInstanceMetadataDefaultsCommand";
+import {
   GetInstanceTypesFromInstanceRequirementsCommandInput,
   GetInstanceTypesFromInstanceRequirementsCommandOutput,
 } from "./commands/GetInstanceTypesFromInstanceRequirementsCommand";
@@ -1748,6 +1752,10 @@ import {
   ModifyInstanceMaintenanceOptionsCommandInput,
   ModifyInstanceMaintenanceOptionsCommandOutput,
 } from "./commands/ModifyInstanceMaintenanceOptionsCommand";
+import {
+  ModifyInstanceMetadataDefaultsCommandInput,
+  ModifyInstanceMetadataDefaultsCommandOutput,
+} from "./commands/ModifyInstanceMetadataDefaultsCommand";
 import {
   ModifyInstanceMetadataOptionsCommandInput,
   ModifyInstanceMetadataOptionsCommandOutput,
@@ -2588,6 +2596,7 @@ export type ServiceInputTypes =
   | GetGroupsForCapacityReservationCommandInput
   | GetHostReservationPurchasePreviewCommandInput
   | GetImageBlockPublicAccessStateCommandInput
+  | GetInstanceMetadataDefaultsCommandInput
   | GetInstanceTypesFromInstanceRequirementsCommandInput
   | GetInstanceUefiDataCommandInput
   | GetIpamAddressHistoryCommandInput
@@ -2649,6 +2658,7 @@ export type ServiceInputTypes =
   | ModifyInstanceEventStartTimeCommandInput
   | ModifyInstanceEventWindowCommandInput
   | ModifyInstanceMaintenanceOptionsCommandInput
+  | ModifyInstanceMetadataDefaultsCommandInput
   | ModifyInstanceMetadataOptionsCommandInput
   | ModifyInstancePlacementCommandInput
   | ModifyIpamCommandInput
@@ -3209,6 +3219,7 @@ export type ServiceOutputTypes =
   | GetGroupsForCapacityReservationCommandOutput
   | GetHostReservationPurchasePreviewCommandOutput
   | GetImageBlockPublicAccessStateCommandOutput
+  | GetInstanceMetadataDefaultsCommandOutput
   | GetInstanceTypesFromInstanceRequirementsCommandOutput
   | GetInstanceUefiDataCommandOutput
   | GetIpamAddressHistoryCommandOutput
@@ -3270,6 +3281,7 @@ export type ServiceOutputTypes =
   | ModifyInstanceEventStartTimeCommandOutput
   | ModifyInstanceEventWindowCommandOutput
   | ModifyInstanceMaintenanceOptionsCommandOutput
+  | ModifyInstanceMetadataDefaultsCommandOutput
   | ModifyInstanceMetadataOptionsCommandOutput
   | ModifyInstancePlacementCommandOutput
   | ModifyIpamCommandOutput

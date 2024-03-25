@@ -7,6 +7,7 @@ import {
   AddressAttributeName,
   ByoipCidr,
   ClientVpnAuthorizationRuleStatus,
+  CurrencyCodeValues,
   IamInstanceProfileAssociation,
   IamInstanceProfileSpecification,
   IpPermission,
@@ -63,6 +64,7 @@ import {
   NetworkInsightsAccessScopeAnalysis,
   NetworkInsightsAnalysis,
   RunInstancesMonitoringEnabled,
+  ScheduledInstance,
   SnapshotAttributeName,
   SpotFleetRequestConfigData,
   SpotFleetRequestConfigDataFilterSensitiveLog,
@@ -71,7 +73,193 @@ import {
   SpotPlacement,
 } from "./models_4";
 
+import { Purchase } from "./models_5";
+
 import { CapacityReservationSpecification, InstanceMonitoring, Status } from "./models_6";
+
+/**
+ * @public
+ */
+export interface PurchaseHostReservationResult {
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The currency in which the <code>totalUpfrontPrice</code> and
+   *                 <code>totalHourlyPrice</code> amounts are specified. At this time, the only
+   *             supported currency is <code>USD</code>.</p>
+   * @public
+   */
+  CurrencyCode?: CurrencyCodeValues;
+
+  /**
+   * <p>Describes the details of the purchase.</p>
+   * @public
+   */
+  Purchase?: Purchase[];
+
+  /**
+   * <p>The total hourly price of the reservation calculated per hour.</p>
+   * @public
+   */
+  TotalHourlyPrice?: string;
+
+  /**
+   * <p>The total amount charged to your account when you purchase the reservation.</p>
+   * @public
+   */
+  TotalUpfrontPrice?: string;
+}
+
+/**
+ * <p>Describes the limit price of a Reserved Instance offering.</p>
+ * @public
+ */
+export interface ReservedInstanceLimitPrice {
+  /**
+   * <p>Used for Reserved Instance Marketplace offerings. Specifies the limit price on the total order (instanceCount * price).</p>
+   * @public
+   */
+  Amount?: number;
+
+  /**
+   * <p>The currency in which the <code>limitPrice</code> amount is specified.
+   * 				At this time, the only supported currency is <code>USD</code>.</p>
+   * @public
+   */
+  CurrencyCode?: CurrencyCodeValues;
+}
+
+/**
+ * <p>Contains the parameters for PurchaseReservedInstancesOffering.</p>
+ * @public
+ */
+export interface PurchaseReservedInstancesOfferingRequest {
+  /**
+   * <p>The number of Reserved Instances to purchase.</p>
+   * @public
+   */
+  InstanceCount: number | undefined;
+
+  /**
+   * <p>The ID of the Reserved Instance offering to purchase.</p>
+   * @public
+   */
+  ReservedInstancesOfferingId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Specified for Reserved Instance Marketplace offerings to limit the total order and ensure that the Reserved Instances are not purchased at unexpected prices.</p>
+   * @public
+   */
+  LimitPrice?: ReservedInstanceLimitPrice;
+
+  /**
+   * <p>The time at which to purchase the Reserved Instance, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   * @public
+   */
+  PurchaseTime?: Date;
+}
+
+/**
+ * <p>Contains the output of PurchaseReservedInstancesOffering.</p>
+ * @public
+ */
+export interface PurchaseReservedInstancesOfferingResult {
+  /**
+   * <p>The IDs of the purchased Reserved Instances. If your purchase crosses into a discounted
+   *       pricing tier, the final Reserved Instances IDs might change. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-reserved-instances-application.html#crossing-pricing-tiers">Crossing
+   *         pricing tiers</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * @public
+   */
+  ReservedInstancesId?: string;
+}
+
+/**
+ * <p>Describes a request to purchase Scheduled Instances.</p>
+ * @public
+ */
+export interface PurchaseRequest {
+  /**
+   * <p>The number of instances.</p>
+   * @public
+   */
+  InstanceCount: number | undefined;
+
+  /**
+   * <p>The purchase token.</p>
+   * @public
+   */
+  PurchaseToken: string | undefined;
+}
+
+/**
+ * <p>Contains the parameters for PurchaseScheduledInstances.</p>
+ * @public
+ */
+export interface PurchaseScheduledInstancesRequest {
+  /**
+   * <p>Unique, case-sensitive identifier that ensures the idempotency of the request.
+   *          For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The purchase requests.</p>
+   * @public
+   */
+  PurchaseRequests: PurchaseRequest[] | undefined;
+}
+
+/**
+ * <p>Contains the output of PurchaseScheduledInstances.</p>
+ * @public
+ */
+export interface PurchaseScheduledInstancesResult {
+  /**
+   * <p>Information about the Scheduled Instances.</p>
+   * @public
+   */
+  ScheduledInstanceSet?: ScheduledInstance[];
+}
+
+/**
+ * @public
+ */
+export interface RebootInstancesRequest {
+  /**
+   * <p>The instance IDs.</p>
+   * @public
+   */
+  InstanceIds: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+}
 
 /**
  * <p>Contains the parameters for RegisterImage.</p>
@@ -2490,30 +2678,37 @@ export interface InstanceMetadataOptionsRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>optional</code> - IMDSv2 is optional. You can choose whether to send a
-   *                     session token in your instance metadata retrieval requests. If you retrieve
-   *                     IAM role credentials without a session token, you receive the IMDSv1 role
-   *                     credentials. If you retrieve IAM role credentials using a valid session token,
-   *                     you receive the IMDSv2 role credentials.</p>
+   *                   <code>optional</code> - IMDSv2 is optional, which means that you can use
+   *                     either IMDSv2 or IMDSv1.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>required</code> - IMDSv2 is required. You must send a session token
-   *                     in your instance metadata retrieval requests. With this option, retrieving the
-   *                     IAM role credentials always returns IMDSv2 credentials; IMDSv1 credentials are
-   *                     not available.</p>
+   *                   <code>required</code> - IMDSv2 is required, which means that IMDSv1 is
+   *                     disabled, and you must use IMDSv2.</p>
    *             </li>
    *          </ul>
-   *          <p>Default: If the value of <code>ImdsSupport</code> for the Amazon Machine Image (AMI)
-   *             for your instance is <code>v2.0</code>, the default is <code>required</code>.</p>
+   *          <p>Default:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If the value of <code>ImdsSupport</code> for the Amazon Machine Image (AMI)
+   *                     for your instance is <code>v2.0</code> and the account level default is set to
+   *                         <code>no-preference</code>, the default is <code>required</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the value of <code>ImdsSupport</code> for the Amazon Machine Image (AMI)
+   *                     for your instance is <code>v2.0</code>, but the account level default is set to
+   *                         <code>V1 or V2</code>, the default is <code>optional</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The default value can also be affected by other combinations of parameters. For more
+   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html#instance-metadata-options-order-of-precedence">Order of precedence for instance metadata options</a> in the
+   *             <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   HttpTokens?: HttpTokensState;
 
   /**
-   * <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the
-   *             number, the further instance metadata requests can travel.</p>
-   *          <p>Default: 1</p>
+   * <p>The maximum number of hops that the metadata token can travel.</p>
    *          <p>Possible values: Integers from 1 to 64</p>
    * @public
    */
@@ -3714,7 +3909,8 @@ export interface SearchTransitGatewayRoutesRequest {
   Filters: Filter[] | undefined;
 
   /**
-   * <p>The maximum number of routes to return.</p>
+   * <p>The maximum number of routes to return. If a value is not provided, the default is
+   *          1000.</p>
    * @public
    */
   MaxResults?: number;

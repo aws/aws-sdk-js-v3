@@ -1508,6 +1508,10 @@ import {
   GetImageBlockPublicAccessStateCommandOutput,
 } from "../commands/GetImageBlockPublicAccessStateCommand";
 import {
+  GetInstanceMetadataDefaultsCommandInput,
+  GetInstanceMetadataDefaultsCommandOutput,
+} from "../commands/GetInstanceMetadataDefaultsCommand";
+import {
   GetInstanceTypesFromInstanceRequirementsCommandInput,
   GetInstanceTypesFromInstanceRequirementsCommandOutput,
 } from "../commands/GetInstanceTypesFromInstanceRequirementsCommand";
@@ -1718,6 +1722,10 @@ import {
   ModifyInstanceMaintenanceOptionsCommandInput,
   ModifyInstanceMaintenanceOptionsCommandOutput,
 } from "../commands/ModifyInstanceMaintenanceOptionsCommand";
+import {
+  ModifyInstanceMetadataDefaultsCommandInput,
+  ModifyInstanceMetadataDefaultsCommandOutput,
+} from "../commands/ModifyInstanceMetadataDefaultsCommand";
 import {
   ModifyInstanceMetadataOptionsCommandInput,
   ModifyInstanceMetadataOptionsCommandOutput,
@@ -3578,6 +3586,8 @@ import {
   GetHostReservationPurchasePreviewResult,
   GetImageBlockPublicAccessStateRequest,
   GetImageBlockPublicAccessStateResult,
+  GetInstanceMetadataDefaultsRequest,
+  GetInstanceMetadataDefaultsResult,
   GetInstanceTypesFromInstanceRequirementsRequest,
   GetInstanceTypesFromInstanceRequirementsResult,
   GetInstanceUefiDataRequest,
@@ -3589,14 +3599,13 @@ import {
   GetIpamDiscoveredPublicAddressesRequest,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
+  InstanceMetadataDefaultsResponse,
   InstanceTypeInfoFromInstanceRequirements,
   InstanceUsage,
   IntegrateServices,
   IpamAddressHistoryRecord,
   IpamDiscoveredAccount,
   IpamDiscoveryFailureReason,
-  IpamPublicAddressSecurityGroup,
-  IpamPublicAddressTag,
   Ipv6CidrAssociation,
   MetricPoint,
   PrivateDnsDetails,
@@ -3717,6 +3726,8 @@ import {
   IpamCidrAuthorizationContext,
   IpamDiscoveredPublicAddress,
   IpamDiscoveredResourceCidr,
+  IpamPublicAddressSecurityGroup,
+  IpamPublicAddressTag,
   IpamPublicAddressTags,
   IpamResourceCidr,
   LaunchPermissionModifications,
@@ -3763,6 +3774,8 @@ import {
   ModifyInstanceEventWindowResult,
   ModifyInstanceMaintenanceOptionsRequest,
   ModifyInstanceMaintenanceOptionsResult,
+  ModifyInstanceMetadataDefaultsRequest,
+  ModifyInstanceMetadataDefaultsResult,
   ModifyInstanceMetadataOptionsRequest,
   ModifyInstanceMetadataOptionsResult,
   ModifyInstancePlacementRequest,
@@ -3877,17 +3890,9 @@ import {
   PurchaseCapacityBlockRequest,
   PurchaseCapacityBlockResult,
   PurchaseHostReservationRequest,
-  PurchaseHostReservationResult,
-  PurchaseRequest,
-  PurchaseReservedInstancesOfferingRequest,
-  PurchaseReservedInstancesOfferingResult,
-  PurchaseScheduledInstancesRequest,
-  PurchaseScheduledInstancesResult,
-  RebootInstancesRequest,
   RemoveIpamOperatingRegion,
   RemovePrefixListEntry,
   ReservationValue,
-  ReservedInstanceLimitPrice,
   ReservedInstanceReservationValue,
   SecurityGroupForVpc,
   SecurityGroupRuleRequest,
@@ -3930,6 +3935,13 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  PurchaseHostReservationResult,
+  PurchaseRequest,
+  PurchaseReservedInstancesOfferingRequest,
+  PurchaseReservedInstancesOfferingResult,
+  PurchaseScheduledInstancesRequest,
+  PurchaseScheduledInstancesResult,
+  RebootInstancesRequest,
   RegisterImageRequest,
   RegisterImageResult,
   RegisterInstanceEventNotificationAttributesRequest,
@@ -3973,6 +3985,7 @@ import {
   RequestSpotInstancesRequest,
   RequestSpotInstancesResult,
   RequestSpotLaunchSpecification,
+  ReservedInstanceLimitPrice,
   ResetAddressAttributeRequest,
   ResetAddressAttributeResult,
   ResetEbsDefaultKmsKeyIdRequest,
@@ -11536,6 +11549,23 @@ export const se_GetImageBlockPublicAccessStateCommand = async (
 };
 
 /**
+ * serializeAws_ec2GetInstanceMetadataDefaultsCommand
+ */
+export const se_GetInstanceMetadataDefaultsCommand = async (
+  input: GetInstanceMetadataDefaultsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_GetInstanceMetadataDefaultsRequest(input, context),
+    [_A]: _GIMD,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_ec2GetInstanceTypesFromInstanceRequirementsCommand
  */
 export const se_GetInstanceTypesFromInstanceRequirementsCommand = async (
@@ -12567,6 +12597,23 @@ export const se_ModifyInstanceMaintenanceOptionsCommand = async (
   body = buildFormUrlencodedString({
     ...se_ModifyInstanceMaintenanceOptionsRequest(input, context),
     [_A]: _MIMO,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2ModifyInstanceMetadataDefaultsCommand
+ */
+export const se_ModifyInstanceMetadataDefaultsCommand = async (
+  input: ModifyInstanceMetadataDefaultsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ModifyInstanceMetadataDefaultsRequest(input, context),
+    [_A]: _MIMD,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -23223,6 +23270,26 @@ export const de_GetImageBlockPublicAccessStateCommand = async (
 };
 
 /**
+ * deserializeAws_ec2GetInstanceMetadataDefaultsCommand
+ */
+export const de_GetInstanceMetadataDefaultsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetInstanceMetadataDefaultsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetInstanceMetadataDefaultsResult(data, context);
+  const response: GetInstanceMetadataDefaultsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_ec2GetInstanceTypesFromInstanceRequirementsCommand
  */
 export const de_GetInstanceTypesFromInstanceRequirementsCommand = async (
@@ -24424,6 +24491,26 @@ export const de_ModifyInstanceMaintenanceOptionsCommand = async (
   let contents: any = {};
   contents = de_ModifyInstanceMaintenanceOptionsResult(data, context);
   const response: ModifyInstanceMaintenanceOptionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2ModifyInstanceMetadataDefaultsCommand
+ */
+export const de_ModifyInstanceMetadataDefaultsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyInstanceMetadataDefaultsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyInstanceMetadataDefaultsResult(data, context);
+  const response: ModifyInstanceMetadataDefaultsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -42007,6 +42094,20 @@ const se_GetImageBlockPublicAccessStateRequest = (
 };
 
 /**
+ * serializeAws_ec2GetInstanceMetadataDefaultsRequest
+ */
+const se_GetInstanceMetadataDefaultsRequest = (
+  input: GetInstanceMetadataDefaultsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2GetInstanceTypesFromInstanceRequirementsRequest
  */
 const se_GetInstanceTypesFromInstanceRequirementsRequest = (
@@ -46836,6 +46937,32 @@ const se_ModifyInstanceMaintenanceOptionsRequest = (
   }
   if (input[_ARu] != null) {
     entries[_ARu] = input[_ARu];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2ModifyInstanceMetadataDefaultsRequest
+ */
+const se_ModifyInstanceMetadataDefaultsRequest = (
+  input: ModifyInstanceMetadataDefaultsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_HT] != null) {
+    entries[_HT] = input[_HT];
+  }
+  if (input[_HPRHL] != null) {
+    entries[_HPRHL] = input[_HPRHL];
+  }
+  if (input[_HE] != null) {
+    entries[_HE] = input[_HE];
+  }
+  if (input[_IMT] != null) {
+    entries[_IMT] = input[_IMT];
   }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
@@ -66625,6 +66752,20 @@ const de_GetImageBlockPublicAccessStateResult = (
 };
 
 /**
+ * deserializeAws_ec2GetInstanceMetadataDefaultsResult
+ */
+const de_GetInstanceMetadataDefaultsResult = (
+  output: any,
+  context: __SerdeContext
+): GetInstanceMetadataDefaultsResult => {
+  const contents: any = {};
+  if (output[_aL] != null) {
+    contents[_ALc] = de_InstanceMetadataDefaultsResponse(output[_aL], context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2GetInstanceTypesFromInstanceRequirementsResult
  */
 const de_GetInstanceTypesFromInstanceRequirementsResult = (
@@ -69084,6 +69225,29 @@ const de_InstanceMaintenanceOptions = (output: any, context: __SerdeContext): In
   const contents: any = {};
   if (output[_aRu] != null) {
     contents[_ARu] = __expectString(output[_aRu]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2InstanceMetadataDefaultsResponse
+ */
+const de_InstanceMetadataDefaultsResponse = (
+  output: any,
+  context: __SerdeContext
+): InstanceMetadataDefaultsResponse => {
+  const contents: any = {};
+  if (output[_hT] != null) {
+    contents[_HT] = __expectString(output[_hT]);
+  }
+  if (output[_hPRHL] != null) {
+    contents[_HPRHL] = __strictParseInt32(output[_hPRHL]) as number;
+  }
+  if (output[_hE] != null) {
+    contents[_HE] = __expectString(output[_hE]);
+  }
+  if (output[_iMT] != null) {
+    contents[_IMT] = __expectString(output[_iMT]);
   }
   return contents;
 };
@@ -73057,6 +73221,20 @@ const de_ModifyInstanceMaintenanceOptionsResult = (
   }
   if (output[_aRu] != null) {
     contents[_ARu] = __expectString(output[_aRu]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2ModifyInstanceMetadataDefaultsResult
+ */
+const de_ModifyInstanceMetadataDefaultsResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyInstanceMetadataDefaultsResult => {
+  const contents: any = {};
+  if (output[_r] != null) {
+    contents[_Ret] = __parseBoolean(output[_r]);
   }
   return contents;
 };
@@ -81976,8 +82154,8 @@ const de_VerifiedAccessInstanceLoggingConfiguration = (
   if (output[_vAII] != null) {
     contents[_VAII] = __expectString(output[_vAII]);
   }
-  if (output[_aL] != null) {
-    contents[_AL] = de_VerifiedAccessLogs(output[_aL], context);
+  if (output[_aLc] != null) {
+    contents[_AL] = de_VerifiedAccessLogs(output[_aLc], context);
   }
   return contents;
 };
@@ -83421,6 +83599,7 @@ const _AIth = "AthenaIntegrations";
 const _AIu = "AutoImport";
 const _AL = "AccessLogs";
 const _ALI = "AmiLaunchIndex";
+const _ALc = "AccountLevel";
 const _AM = "AcceleratorManufacturers";
 const _AMIT = "AllowsMultipleInstanceTypes";
 const _AMNL = "AllocationMinNetmaskLength";
@@ -84411,6 +84590,7 @@ const _GIBPAS = "GetImageBlockPublicAccessState";
 const _GIDA = "GetIpamDiscoveredAccounts";
 const _GIDPA = "GetIpamDiscoveredPublicAddresses";
 const _GIDRC = "GetIpamDiscoveredResourceCidrs";
+const _GIMD = "GetInstanceMetadataDefaults";
 const _GIPA = "GetIpamPoolAllocations";
 const _GIPC = "GetIpamPoolCidrs";
 const _GIRC = "GetIpamResourceCidrs";
@@ -84850,6 +85030,7 @@ const _MIEST = "ModifyInstanceEventStartTime";
 const _MIEW = "ModifyInstanceEventWindow";
 const _MIF = "ModifyIdFormat";
 const _MIIF = "ModifyIdentityIdFormat";
+const _MIMD = "ModifyInstanceMetadataDefaults";
 const _MIMO = "ModifyInstanceMaintenanceOptions";
 const _MIMOo = "ModifyInstanceMetadataOptions";
 const _MIP = "ModifyInstancePlacement";
@@ -85918,8 +86099,9 @@ const _aIs = "associationId";
 const _aIss = "assetId";
 const _aIt = "attachmentId";
 const _aIu = "autoImport";
-const _aL = "accessLogs";
+const _aL = "accountLevel";
 const _aLI = "amiLaunchIndex";
+const _aLc = "accessLogs";
 const _aMIT = "allowsMultipleInstanceTypes";
 const _aMNL = "allocationMinNetmaskLength";
 const _aMNLl = "allocationMaxNetmaskLength";

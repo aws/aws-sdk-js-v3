@@ -147,7 +147,6 @@ import {
   Monitoring,
   PublicIpv4PoolRange,
   ReservedInstancesConfiguration,
-  ScheduledInstance,
   SnapshotAttributeName,
   SnapshotTaskDetail,
   SnapshotTaskDetailFilterSensitiveLog,
@@ -158,17 +157,71 @@ import {
   IpamComplianceStatus,
   IpamOverlapStatus,
   IpamPublicAddressAssociationStatus,
-  IpamPublicAddressAwsService,
-  IpamPublicAddressSecurityGroup,
-  IpamPublicAddressTag,
   IpamPublicAddressType,
-  Purchase,
   SnapshotBlockPublicAccessState,
   TransitGatewayPropagationState,
   UnlimitedSupportedInstanceFamily,
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
 } from "./models_5";
+
+/**
+ * <p>The security group that the resource with the public IP address is in.</p>
+ * @public
+ */
+export interface IpamPublicAddressSecurityGroup {
+  /**
+   * <p>The security group's name.</p>
+   * @public
+   */
+  GroupName?: string;
+
+  /**
+   * <p>The security group's ID.</p>
+   * @public
+   */
+  GroupId?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IpamPublicAddressAwsService = {
+  AGA: "global-accelerator",
+  DMS: "database-migration-service",
+  EC2_LB: "load-balancer",
+  ECS: "elastic-container-service",
+  NAT_GATEWAY: "nat-gateway",
+  OTHER: "other",
+  RDS: "relational-database-service",
+  REDSHIFT: "redshift",
+  S2S_VPN: "site-to-site-vpn",
+} as const;
+
+/**
+ * @public
+ */
+export type IpamPublicAddressAwsService =
+  (typeof IpamPublicAddressAwsService)[keyof typeof IpamPublicAddressAwsService];
+
+/**
+ * <p>A tag for a public IP address discovered by IPAM.</p>
+ * @public
+ */
+export interface IpamPublicAddressTag {
+  /**
+   * <p>The tag's key.</p>
+   * @public
+   */
+  Key?: string;
+
+  /**
+   * <p>The tag's value.</p>
+   * @public
+   */
+  Value?: string;
+}
 
 /**
  * <p>Tags for a public IP address discovered by IPAM.</p>
@@ -5397,6 +5450,123 @@ export interface ModifyInstanceMaintenanceOptionsResult {
 
 /**
  * @public
+ * @enum
+ */
+export const DefaultInstanceMetadataEndpointState = {
+  disabled: "disabled",
+  enabled: "enabled",
+  no_preference: "no-preference",
+} as const;
+
+/**
+ * @public
+ */
+export type DefaultInstanceMetadataEndpointState =
+  (typeof DefaultInstanceMetadataEndpointState)[keyof typeof DefaultInstanceMetadataEndpointState];
+
+/**
+ * @public
+ * @enum
+ */
+export const MetadataDefaultHttpTokensState = {
+  no_preference: "no-preference",
+  optional: "optional",
+  required: "required",
+} as const;
+
+/**
+ * @public
+ */
+export type MetadataDefaultHttpTokensState =
+  (typeof MetadataDefaultHttpTokensState)[keyof typeof MetadataDefaultHttpTokensState];
+
+/**
+ * @public
+ * @enum
+ */
+export const DefaultInstanceMetadataTagsState = {
+  disabled: "disabled",
+  enabled: "enabled",
+  no_preference: "no-preference",
+} as const;
+
+/**
+ * @public
+ */
+export type DefaultInstanceMetadataTagsState =
+  (typeof DefaultInstanceMetadataTagsState)[keyof typeof DefaultInstanceMetadataTagsState];
+
+/**
+ * @public
+ */
+export interface ModifyInstanceMetadataDefaultsRequest {
+  /**
+   * <p>Indicates whether IMDSv2 is required.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>optional</code> – IMDSv2 is optional, which means that you can
+   *                     use either IMDSv2 or IMDSv1.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>required</code> – IMDSv2 is required, which means that IMDSv1 is
+   *                     disabled, and you must use IMDSv2.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  HttpTokens?: MetadataDefaultHttpTokensState;
+
+  /**
+   * <p>The maximum number of hops that the metadata token can travel.</p>
+   *          <p>Minimum: <code>1</code>
+   *          </p>
+   *          <p>Maximum: <code>64</code>
+   *          </p>
+   * @public
+   */
+  HttpPutResponseHopLimit?: number;
+
+  /**
+   * <p>Enables or disables the IMDS endpoint on an instance. When disabled, the instance
+   *             metadata can't be accessed.</p>
+   * @public
+   */
+  HttpEndpoint?: DefaultInstanceMetadataEndpointState;
+
+  /**
+   * <p>Enables or disables access to an instance's tags from the instance metadata. For more
+   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS">Work with
+   *                 instance tags using the instance metadata</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  InstanceMetadataTags?: DefaultInstanceMetadataTagsState;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface ModifyInstanceMetadataDefaultsResult {
+  /**
+   * <p>If the request succeeds, the response returns <code>true</code>. If the request fails,
+   *             no response is returned, and instead an error message is returned.</p>
+   * @public
+   */
+  Return?: boolean;
+}
+
+/**
+ * @public
  */
 export interface ModifyInstanceMetadataOptionsRequest {
   /**
@@ -5424,8 +5594,22 @@ export interface ModifyInstanceMetadataOptionsRequest {
    *                     not available.</p>
    *             </li>
    *          </ul>
-   *          <p>Default: If the value of <code>ImdsSupport</code> for the Amazon Machine Image (AMI)
-   *             for your instance is <code>v2.0</code>, the default is <code>required</code>.</p>
+   *          <p>Default:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If the value of <code>ImdsSupport</code> for the Amazon Machine Image (AMI)
+   *                     for your instance is <code>v2.0</code> and the account level default is set to
+   *                     <code>no-preference</code>, the default is <code>required</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the value of <code>ImdsSupport</code> for the Amazon Machine Image (AMI)
+   *                     for your instance is <code>v2.0</code>, but the account level default is set to
+   *                     <code>V1 or V2</code>, the default is <code>optional</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The default value can also be affected by other combinations of parameters. For more
+   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html#instance-metadata-options-order-of-precedence">Order of precedence for instance metadata options</a> in the
+   *             <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   HttpTokens?: HttpTokensState;
@@ -9359,190 +9543,6 @@ export interface PurchaseHostReservationRequest {
    * @public
    */
   TagSpecifications?: TagSpecification[];
-}
-
-/**
- * @public
- */
-export interface PurchaseHostReservationResult {
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>The currency in which the <code>totalUpfrontPrice</code> and
-   *                 <code>totalHourlyPrice</code> amounts are specified. At this time, the only
-   *             supported currency is <code>USD</code>.</p>
-   * @public
-   */
-  CurrencyCode?: CurrencyCodeValues;
-
-  /**
-   * <p>Describes the details of the purchase.</p>
-   * @public
-   */
-  Purchase?: Purchase[];
-
-  /**
-   * <p>The total hourly price of the reservation calculated per hour.</p>
-   * @public
-   */
-  TotalHourlyPrice?: string;
-
-  /**
-   * <p>The total amount charged to your account when you purchase the reservation.</p>
-   * @public
-   */
-  TotalUpfrontPrice?: string;
-}
-
-/**
- * <p>Describes the limit price of a Reserved Instance offering.</p>
- * @public
- */
-export interface ReservedInstanceLimitPrice {
-  /**
-   * <p>Used for Reserved Instance Marketplace offerings. Specifies the limit price on the total order (instanceCount * price).</p>
-   * @public
-   */
-  Amount?: number;
-
-  /**
-   * <p>The currency in which the <code>limitPrice</code> amount is specified.
-   * 				At this time, the only supported currency is <code>USD</code>.</p>
-   * @public
-   */
-  CurrencyCode?: CurrencyCodeValues;
-}
-
-/**
- * <p>Contains the parameters for PurchaseReservedInstancesOffering.</p>
- * @public
- */
-export interface PurchaseReservedInstancesOfferingRequest {
-  /**
-   * <p>The number of Reserved Instances to purchase.</p>
-   * @public
-   */
-  InstanceCount: number | undefined;
-
-  /**
-   * <p>The ID of the Reserved Instance offering to purchase.</p>
-   * @public
-   */
-  ReservedInstancesOfferingId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Specified for Reserved Instance Marketplace offerings to limit the total order and ensure that the Reserved Instances are not purchased at unexpected prices.</p>
-   * @public
-   */
-  LimitPrice?: ReservedInstanceLimitPrice;
-
-  /**
-   * <p>The time at which to purchase the Reserved Instance, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
-   * @public
-   */
-  PurchaseTime?: Date;
-}
-
-/**
- * <p>Contains the output of PurchaseReservedInstancesOffering.</p>
- * @public
- */
-export interface PurchaseReservedInstancesOfferingResult {
-  /**
-   * <p>The IDs of the purchased Reserved Instances. If your purchase crosses into a discounted
-   *       pricing tier, the final Reserved Instances IDs might change. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-reserved-instances-application.html#crossing-pricing-tiers">Crossing
-   *         pricing tiers</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   * @public
-   */
-  ReservedInstancesId?: string;
-}
-
-/**
- * <p>Describes a request to purchase Scheduled Instances.</p>
- * @public
- */
-export interface PurchaseRequest {
-  /**
-   * <p>The number of instances.</p>
-   * @public
-   */
-  InstanceCount: number | undefined;
-
-  /**
-   * <p>The purchase token.</p>
-   * @public
-   */
-  PurchaseToken: string | undefined;
-}
-
-/**
- * <p>Contains the parameters for PurchaseScheduledInstances.</p>
- * @public
- */
-export interface PurchaseScheduledInstancesRequest {
-  /**
-   * <p>Unique, case-sensitive identifier that ensures the idempotency of the request.
-   *          For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The purchase requests.</p>
-   * @public
-   */
-  PurchaseRequests: PurchaseRequest[] | undefined;
-}
-
-/**
- * <p>Contains the output of PurchaseScheduledInstances.</p>
- * @public
- */
-export interface PurchaseScheduledInstancesResult {
-  /**
-   * <p>Information about the Scheduled Instances.</p>
-   * @public
-   */
-  ScheduledInstanceSet?: ScheduledInstance[];
-}
-
-/**
- * @public
- */
-export interface RebootInstancesRequest {
-  /**
-   * <p>The instance IDs.</p>
-   * @public
-   */
-  InstanceIds: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
 }
 
 /**

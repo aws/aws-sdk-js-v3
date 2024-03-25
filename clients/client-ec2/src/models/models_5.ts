@@ -81,7 +81,14 @@ import {
   VirtualizationType,
 } from "./models_3";
 
-import { ArchitectureType, AttributeBooleanValue, RIProductDescription } from "./models_4";
+import {
+  ArchitectureType,
+  AttributeBooleanValue,
+  HttpTokensState,
+  InstanceMetadataEndpointState,
+  InstanceMetadataTagsState,
+  RIProductDescription,
+} from "./models_4";
 
 /**
  * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend
@@ -8145,6 +8152,77 @@ export interface GetImageBlockPublicAccessStateResult {
 /**
  * @public
  */
+export interface GetInstanceMetadataDefaultsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * <p>The default instance metadata service (IMDS) settings that were set at the account
+ *             level in the specified Amazon Web Services  Region.</p>
+ * @public
+ */
+export interface InstanceMetadataDefaultsResponse {
+  /**
+   * <p>Indicates whether IMDSv2 is required.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>optional</code> – IMDSv2 is optional, which means that you can
+   *                     use either IMDSv2 or IMDSv1.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>required</code> – IMDSv2 is required, which means that IMDSv1 is
+   *                     disabled, and you must use IMDSv2.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  HttpTokens?: HttpTokensState;
+
+  /**
+   * <p>The maximum number of hops that the metadata token can travel.</p>
+   * @public
+   */
+  HttpPutResponseHopLimit?: number;
+
+  /**
+   * <p>Indicates whether the IMDS endpoint for an instance is enabled or disabled. When disabled, the instance
+   *             metadata can't be accessed.</p>
+   * @public
+   */
+  HttpEndpoint?: InstanceMetadataEndpointState;
+
+  /**
+   * <p>Indicates whether access to instance tags from the instance metadata is enabled or
+   *             disabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS">Work with
+   *                 instance tags using the instance metadata</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  InstanceMetadataTags?: InstanceMetadataTagsState;
+}
+
+/**
+ * @public
+ */
+export interface GetInstanceMetadataDefaultsResult {
+  /**
+   * <p>The account-level default IMDS settings.</p>
+   * @public
+   */
+  AccountLevel?: InstanceMetadataDefaultsResponse;
+}
+
+/**
+ * @public
+ */
 export interface GetInstanceTypesFromInstanceRequirementsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -8677,64 +8755,6 @@ export const IpamPublicAddressAssociationStatus = {
  */
 export type IpamPublicAddressAssociationStatus =
   (typeof IpamPublicAddressAssociationStatus)[keyof typeof IpamPublicAddressAssociationStatus];
-
-/**
- * <p>The security group that the resource with the public IP address is in.</p>
- * @public
- */
-export interface IpamPublicAddressSecurityGroup {
-  /**
-   * <p>The security group's name.</p>
-   * @public
-   */
-  GroupName?: string;
-
-  /**
-   * <p>The security group's ID.</p>
-   * @public
-   */
-  GroupId?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const IpamPublicAddressAwsService = {
-  AGA: "global-accelerator",
-  DMS: "database-migration-service",
-  EC2_LB: "load-balancer",
-  ECS: "elastic-container-service",
-  NAT_GATEWAY: "nat-gateway",
-  OTHER: "other",
-  RDS: "relational-database-service",
-  REDSHIFT: "redshift",
-  S2S_VPN: "site-to-site-vpn",
-} as const;
-
-/**
- * @public
- */
-export type IpamPublicAddressAwsService =
-  (typeof IpamPublicAddressAwsService)[keyof typeof IpamPublicAddressAwsService];
-
-/**
- * <p>A tag for a public IP address discovered by IPAM.</p>
- * @public
- */
-export interface IpamPublicAddressTag {
-  /**
-   * <p>The tag's key.</p>
-   * @public
-   */
-  Key?: string;
-
-  /**
-   * <p>The tag's value.</p>
-   * @public
-   */
-  Value?: string;
-}
 
 /**
  * @internal

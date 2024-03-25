@@ -3728,6 +3728,14 @@ GetImageBlockPublicAccessState
 </details>
 <details>
 <summary>
+GetInstanceMetadataDefaults
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetInstanceMetadataDefaultsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetInstanceMetadataDefaultsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetInstanceMetadataDefaultsCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetInstanceTypesFromInstanceRequirements
 </summary>
 
@@ -4212,6 +4220,14 @@ ModifyInstanceMaintenanceOptions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ModifyInstanceMaintenanceOptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyInstanceMaintenanceOptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyInstanceMaintenanceOptionsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ModifyInstanceMetadataDefaults
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ModifyInstanceMetadataDefaultsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyInstanceMetadataDefaultsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyInstanceMetadataDefaultsCommandOutput/)
 
 </details>
 <details>

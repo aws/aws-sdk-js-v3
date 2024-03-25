@@ -8978,8 +8978,7 @@ export interface Image {
   Hypervisor?: HypervisorType;
 
   /**
-   * <p>The Amazon Web Services account alias (for example, <code>amazon</code>, <code>self</code>) or
-   *        the Amazon Web Services account ID of the AMI owner.</p>
+   * <p>The owner alias (<code>amazon</code> | <code>aws-marketplace</code>).</p>
    * @public
    */
   ImageOwnerAlias?: string;

@@ -2151,6 +2151,11 @@ import {
   GetImageBlockPublicAccessStateCommandOutput,
 } from "./commands/GetImageBlockPublicAccessStateCommand";
 import {
+  GetInstanceMetadataDefaultsCommand,
+  GetInstanceMetadataDefaultsCommandInput,
+  GetInstanceMetadataDefaultsCommandOutput,
+} from "./commands/GetInstanceMetadataDefaultsCommand";
+import {
   GetInstanceTypesFromInstanceRequirementsCommand,
   GetInstanceTypesFromInstanceRequirementsCommandInput,
   GetInstanceTypesFromInstanceRequirementsCommandOutput,
@@ -2443,6 +2448,11 @@ import {
   ModifyInstanceMaintenanceOptionsCommandInput,
   ModifyInstanceMaintenanceOptionsCommandOutput,
 } from "./commands/ModifyInstanceMaintenanceOptionsCommand";
+import {
+  ModifyInstanceMetadataDefaultsCommand,
+  ModifyInstanceMetadataDefaultsCommandInput,
+  ModifyInstanceMetadataDefaultsCommandOutput,
+} from "./commands/ModifyInstanceMetadataDefaultsCommand";
 import {
   ModifyInstanceMetadataOptionsCommand,
   ModifyInstanceMetadataOptionsCommandInput,
@@ -3457,6 +3467,7 @@ const commands = {
   GetGroupsForCapacityReservationCommand,
   GetHostReservationPurchasePreviewCommand,
   GetImageBlockPublicAccessStateCommand,
+  GetInstanceMetadataDefaultsCommand,
   GetInstanceTypesFromInstanceRequirementsCommand,
   GetInstanceUefiDataCommand,
   GetIpamAddressHistoryCommand,
@@ -3518,6 +3529,7 @@ const commands = {
   ModifyInstanceEventStartTimeCommand,
   ModifyInstanceEventWindowCommand,
   ModifyInstanceMaintenanceOptionsCommand,
+  ModifyInstanceMetadataDefaultsCommand,
   ModifyInstanceMetadataOptionsCommand,
   ModifyInstancePlacementCommand,
   ModifyIpamCommand,
@@ -11033,6 +11045,24 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link GetInstanceMetadataDefaultsCommand}
+   */
+  getInstanceMetadataDefaults(): Promise<GetInstanceMetadataDefaultsCommandOutput>;
+  getInstanceMetadataDefaults(
+    args: GetInstanceMetadataDefaultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetInstanceMetadataDefaultsCommandOutput>;
+  getInstanceMetadataDefaults(
+    args: GetInstanceMetadataDefaultsCommandInput,
+    cb: (err: any, data?: GetInstanceMetadataDefaultsCommandOutput) => void
+  ): void;
+  getInstanceMetadataDefaults(
+    args: GetInstanceMetadataDefaultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetInstanceMetadataDefaultsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetInstanceTypesFromInstanceRequirementsCommand}
    */
   getInstanceTypesFromInstanceRequirements(
@@ -12026,6 +12056,24 @@ export interface EC2 {
     args: ModifyInstanceMaintenanceOptionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ModifyInstanceMaintenanceOptionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyInstanceMetadataDefaultsCommand}
+   */
+  modifyInstanceMetadataDefaults(): Promise<ModifyInstanceMetadataDefaultsCommandOutput>;
+  modifyInstanceMetadataDefaults(
+    args: ModifyInstanceMetadataDefaultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyInstanceMetadataDefaultsCommandOutput>;
+  modifyInstanceMetadataDefaults(
+    args: ModifyInstanceMetadataDefaultsCommandInput,
+    cb: (err: any, data?: ModifyInstanceMetadataDefaultsCommandOutput) => void
+  ): void;
+  modifyInstanceMetadataDefaults(
+    args: ModifyInstanceMetadataDefaultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyInstanceMetadataDefaultsCommandOutput) => void
   ): void;
 
   /**
