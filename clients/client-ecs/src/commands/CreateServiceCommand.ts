@@ -32,7 +32,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * 			Amazon ECS runs another copy of the task in the specified cluster. To update an existing
  * 			service, see the <a>UpdateService</a> action.</p>
  *          <note>
- *             <p>Starting April 15, 2023, Amazon Web Services will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service. </p>
+ *             <p>The following change began on March 21, 2024. When the task definition revision is not specified, Amazon ECS resolves the task definition revision before it authorizes the task definition.</p>
  *          </note>
  *          <p>In addition to maintaining the desired count of tasks in your service, you can
  * 			optionally run your service behind one or more load balancers. The load balancers
@@ -107,9 +107,11 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *          <p>When creating a service that uses the <code>EXTERNAL</code> deployment controller, you
  * 			can specify only parameters that aren't controlled at the task set level. The only
  * 			required parameter is the service name. You control your services using the <a>CreateTaskSet</a> operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS deployment types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
- *          <p>When the service scheduler launches new tasks, it determines task placement. For
- * 			information about task placement and task placement strategies, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement.html">Amazon ECS
- * 				task placement</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ *          <p>When the service scheduler launches new tasks, it determines task placement. For information
+ * 			about task placement and task placement strategies, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement.html">Amazon ECS
+ * 				task placement</a> in the <i>Amazon Elastic Container Service Developer Guide</i>
+ *          </p>
+ *          <p>Starting April 15, 2023, Amazon Web Services will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

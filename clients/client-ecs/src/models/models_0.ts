@@ -970,10 +970,10 @@ export interface Attachment {
    *          <p>For Service Connect services, this includes <code>portName</code>,
    * 				<code>clientAliases</code>, <code>discoveryName</code>, and
    * 				<code>ingressPortOverride</code>.</p>
-   *          <p>For elastic block storage, this includes <code>roleArn</code>, <code>encrypted</code>,
-   * 				<code>filesystemType</code>, <code>iops</code>, <code>kmsKeyId</code>,
-   * 				<code>sizeInGiB</code>, <code>snapshotId</code>, <code>tagSpecifications</code>,
-   * 				<code>throughput</code>, and <code>volumeType</code>.</p>
+   *          <p>For Elastic Block Storage, this includes <code>roleArn</code>,
+   * 				<code>deleteOnTermination</code>, <code>volumeName</code>, <code>volumeId</code>,
+   * 			and <code>statusReason</code> (only when the attachment fails to create or
+   * 			attach).</p>
    * @public
    */
   details?: KeyValuePair[];
@@ -2608,7 +2608,7 @@ export interface CreateServiceRequest {
    *          <note>
    *             <p>Fargate Spot infrastructure is available for use but a capacity provider
    * 				strategy must be used. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/fargate-capacity-providers.html">Fargate capacity providers</a> in the
-   * 					<i>Amazon ECS User Guide for Fargate</i>.</p>
+   * 					<i>Amazon ECS Developer Guide</i>.</p>
    *          </note>
    *          <p>The <code>EC2</code> launch type runs your tasks on Amazon EC2 instances registered to your
    * 			cluster.</p>
@@ -2636,8 +2636,7 @@ export interface CreateServiceRequest {
    * <p>The platform version that your tasks in the service are running on. A platform version
    * 			is specified only for tasks using the Fargate launch type. If one isn't
    * 			specified, the <code>LATEST</code> platform version is used. For more information, see
-   * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">Fargate platform
-   * 				versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">Fargate platform versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * @public
    */
   platformVersion?: string;
@@ -2708,13 +2707,11 @@ export interface CreateServiceRequest {
    *          <p>If you do not use an Elastic Load Balancing, we recommend that you use the <code>startPeriod</code> in
    * 			the task definition health check parameters. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_HealthCheck.html">Health
    * 				check</a>.</p>
-   *          <p>If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you
-   * 			can specify a health check grace period of up to
-   * 			2,147,483,647
-   * 			seconds (about 69 years). During that time, the Amazon ECS service
-   * 			scheduler ignores health check status. This grace period can prevent the service
-   * 			scheduler from marking tasks as unhealthy and stopping them before they have time to
-   * 			come up.</p>
+   *          <p>If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you can
+   * 			specify a health check grace period of up to 2,147,483,647 seconds (about 69 years).
+   * 			During that time, the Amazon ECS service scheduler ignores health check status. This grace
+   * 			period can prevent the service scheduler from marking tasks as unhealthy and stopping
+   * 			them before they have time to come up.</p>
    * @public
    */
   healthCheckGracePeriodSeconds?: number;
@@ -2812,6 +2809,7 @@ export interface CreateServiceRequest {
    * <p>Specifies whether to propagate the tags from the task definition to the task. If no
    * 			value is specified, the tags aren't propagated. Tags can only be propagated to the task
    * 			during task creation. To add tags to a task after task creation, use the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TagResource.html">TagResource</a> API action.</p>
+   *          <p>You must set this to a value other than <code>NONE</code> when you use Cost Explorer. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/usage-reports.html">Amazon ECS usage reports</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    *          <p>The default is <code>NONE</code>.</p>
    * @public
    */
@@ -4477,8 +4475,8 @@ export type EnvironmentFileType = (typeof EnvironmentFileType)[keyof typeof Envi
  * 			parameter in a container definition, they take precedence over the variables contained
  * 			within an environment file. If multiple environment files are specified that contain the
  * 			same variable, they're processed from the top down. We recommend that you use unique
- * 			variable names. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html">Specifying environment
- * 				variables</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 			variable names. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/use-environment-file.html">Use a file to pass environment variables to a container</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ *          <p>Environment variable files are objects in Amazon S3 and all Amazon S3 security considerations apply. </p>
  *          <p>You must use the following platforms for the Fargate launch type:</p>
  *          <ul>
  *             <li>
@@ -4511,7 +4509,8 @@ export interface EnvironmentFile {
   value: string | undefined;
 
   /**
-   * <p>The file type to use. The only supported value is <code>s3</code>.</p>
+   * <p>The file type to use.  Environment files are objects in Amazon S3. The only supported value is
+   * 				<code>s3</code>.</p>
    * @public
    */
   type: EnvironmentFileType | undefined;
@@ -4598,6 +4597,8 @@ export interface FirelensConfiguration {
  * 			DescribeTasks API operation or when viewing the task details in the console.</p>
  *          <p>The health check is designed to make sure that your containers survive agent restarts,
  * 			upgrades, or temporary unavailability.</p>
+ *          <p>Amazon ECS performs health checks on containers with the default that launched the
+ * 			container instance or the task.</p>
  *          <p>The following describes the possible <code>healthStatus</code> values for a
  * 			container:</p>
  *          <ul>
@@ -4782,8 +4783,7 @@ export interface HealthCheck {
 }
 
 /**
- * <p>The Linux capabilities for the container that are added to or dropped from the default
- * 			configuration provided by Docker. For more information about the default capabilities
+ * <p>The Linux capabilities to add or remove from the default Docker configuration for a container defined in the task definition. For more information about the default capabilities
  * 			and the non-default available capabilities, see <a href="https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities">Runtime privilege and Linux capabilities</a> in the <i>Docker run
  * 				reference</i>. For more detailed information about these Linux capabilities,
  * 			see the <a href="http://man7.org/linux/man-pages/man7/capabilities.7.html">capabilities(7)</a> Linux manual page.</p>
@@ -6241,8 +6241,8 @@ export interface ContainerDefinition {
  */
 export interface EphemeralStorage {
   /**
-   * <p>The total amount, in GiB, of ephemeral storage to set for the task. The minimum
-   * 			supported value is <code>21</code> GiB and the maximum supported value is
+   * <p>The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported
+   * 			value is <code>20</code> GiB and the maximum supported value is
    * 				<code>200</code> GiB.</p>
    * @public
    */
