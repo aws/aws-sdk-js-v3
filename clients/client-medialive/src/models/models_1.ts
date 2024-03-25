@@ -38,9 +38,6 @@ import {
   InputClass,
   InputDestination,
   InputDestinationRequest,
-  InputDeviceCodec,
-  InputDeviceConfigurableAudioChannelPairConfig,
-  InputDeviceConfiguredInput,
   InputDeviceConnectionState,
   InputDeviceHdSettings,
   InputDeviceNetworkSettings,
@@ -3531,6 +3528,35 @@ export type H265LookAheadRateControl = (typeof H265LookAheadRateControl)[keyof t
  * @public
  * @enum
  */
+export const H265MvOverPictureBoundaries = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type H265MvOverPictureBoundaries =
+  (typeof H265MvOverPictureBoundaries)[keyof typeof H265MvOverPictureBoundaries];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265MvTemporalPredictor = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type H265MvTemporalPredictor = (typeof H265MvTemporalPredictor)[keyof typeof H265MvTemporalPredictor];
+
+/**
+ * @public
+ * @enum
+ */
 export const H265Profile = {
   MAIN: "MAIN",
   MAIN_10BIT: "MAIN_10BIT",
@@ -3602,6 +3628,20 @@ export type H265Tier = (typeof H265Tier)[keyof typeof H265Tier];
  * @public
  * @enum
  */
+export const H265TilePadding = {
+  NONE: "NONE",
+  PADDED: "PADDED",
+} as const;
+
+/**
+ * @public
+ */
+export type H265TilePadding = (typeof H265TilePadding)[keyof typeof H265TilePadding];
+
+/**
+ * @public
+ * @enum
+ */
 export const H265TimecodeInsertionBehavior = {
   DISABLED: "DISABLED",
   PIC_TIMING_SEI: "PIC_TIMING_SEI",
@@ -3612,6 +3652,20 @@ export const H265TimecodeInsertionBehavior = {
  */
 export type H265TimecodeInsertionBehavior =
   (typeof H265TimecodeInsertionBehavior)[keyof typeof H265TimecodeInsertionBehavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const H265TreeblockSize = {
+  AUTO: "AUTO",
+  TREE_SIZE_32X32: "TREE_SIZE_32X32",
+} as const;
+
+/**
+ * @public
+ */
+export type H265TreeblockSize = (typeof H265TreeblockSize)[keyof typeof H265TreeblockSize];
 
 /**
  * H265 Settings
@@ -3815,6 +3869,49 @@ export interface H265Settings {
    * @public
    */
   TimecodeBurninSettings?: TimecodeBurninSettings;
+
+  /**
+   * If you are setting up the picture as a tile, you must set this to "disabled". In all other configurations, you typically enter "enabled".
+   * @public
+   */
+  MvOverPictureBoundaries?: H265MvOverPictureBoundaries;
+
+  /**
+   * If you are setting up the picture as a tile, you must set this to "disabled". In other configurations, you typically enter "enabled".
+   * @public
+   */
+  MvTemporalPredictor?: H265MvTemporalPredictor;
+
+  /**
+   * Set this field to set up the picture as a tile. You must also set tileWidth.
+   * The tile height must result in 22 or fewer rows in the frame. The tile width
+   * must result in 20 or fewer columns in the frame. And finally, the product of the
+   * column count and row count must be 64 of less.
+   * If the tile width and height are specified, MediaLive will override the video
+   * codec slices field with a value that MediaLive calculates
+   * @public
+   */
+  TileHeight?: number;
+
+  /**
+   * Set to "padded" to force MediaLive to add padding to the frame, to obtain a frame that is a whole multiple of the tile size.
+   * If you are setting up the picture as a tile, you must enter "padded".
+   * In all other configurations, you typically enter "none".
+   * @public
+   */
+  TilePadding?: H265TilePadding;
+
+  /**
+   * Set this field to set up the picture as a tile. See tileHeight for more information.
+   * @public
+   */
+  TileWidth?: number;
+
+  /**
+   * Select the tree block size used for encoding. If you enter "auto", the encoder will pick the best size. If you are setting up the picture as a tile, you must set this to 32x32. In all other configurations, you typically enter "auto".
+   * @public
+   */
+  TreeblockSize?: H265TreeblockSize;
 }
 
 /**
@@ -7722,114 +7819,6 @@ export interface DescribeScheduleResponse {
    * @public
    */
   ScheduleActions?: ScheduleAction[];
-}
-
-/**
- * Placeholder documentation for DescribeThumbnailsRequest
- * @public
- */
-export interface DescribeThumbnailsRequest {
-  /**
-   * Unique ID of the channel
-   * @public
-   */
-  ChannelId: string | undefined;
-
-  /**
-   * Pipeline ID ("0" or "1")
-   * @public
-   */
-  PipelineId: string | undefined;
-
-  /**
-   * thumbnail type
-   * @public
-   */
-  ThumbnailType: string | undefined;
-}
-
-/**
- * Placeholder documentation for DescribeThumbnailsResponse
- * @public
- */
-export interface DescribeThumbnailsResponse {
-  /**
-   * Placeholder documentation for __listOfThumbnailDetail
-   * @public
-   */
-  ThumbnailDetails?: ThumbnailDetail[];
-}
-
-/**
- * Parameters required to attach a MediaConnect flow to the device.
- * @public
- */
-export interface InputDeviceMediaConnectConfigurableSettings {
-  /**
-   * The ARN of the MediaConnect flow to attach this device to.
-   * @public
-   */
-  FlowArn?: string;
-
-  /**
-   * The ARN for the role that MediaLive assumes to access the attached flow and secret. For more information about how to create this role, see the MediaLive user guide.
-   * @public
-   */
-  RoleArn?: string;
-
-  /**
-   * The ARN for the secret that holds the encryption key to encrypt the content output by the device.
-   * @public
-   */
-  SecretArn?: string;
-
-  /**
-   * The name of the MediaConnect Flow source to stream to.
-   * @public
-   */
-  SourceName?: string;
-}
-
-/**
- * Configurable settings for the input device.
- * @public
- */
-export interface InputDeviceConfigurableSettings {
-  /**
-   * The input source that you want to use. If the device has a source connected to only one of its input ports, or if you don't care which source the device sends, specify Auto. If the device has sources connected to both its input ports, and you want to use a specific source, specify the source.
-   * @public
-   */
-  ConfiguredInput?: InputDeviceConfiguredInput;
-
-  /**
-   * The maximum bitrate in bits per second. Set a value here to throttle the bitrate of the source video.
-   * @public
-   */
-  MaxBitrate?: number;
-
-  /**
-   * The Link device's buffer size (latency) in milliseconds (ms).
-   * @public
-   */
-  LatencyMs?: number;
-
-  /**
-   * Choose the codec for the video that the device produces. Only UHD devices can specify this parameter.
-   * @public
-   */
-  Codec?: InputDeviceCodec;
-
-  /**
-   * To attach this device to a MediaConnect flow, specify these parameters. To detach an existing flow, enter \{\} for the value of mediaconnectSettings. Only UHD devices can specify this parameter.
-   * @public
-   */
-  MediaconnectSettings?: InputDeviceMediaConnectConfigurableSettings;
-
-  /**
-   * An array of eight audio configurations, one for each audio pair in the source. Set up each audio configuration either to exclude the pair, or to format it and include it in the output from the device. This parameter applies only to UHD devices, and only when the device is configured as the source for a MediaConnect flow. For an HD device, you configure the audio by setting up audio selectors in the channel configuration.
-   * @public
-   */
-  AudioChannelPairs?: InputDeviceConfigurableAudioChannelPairConfig[];
 }
 
 /**

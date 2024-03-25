@@ -844,6 +844,12 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
  * //               Position: "BOTTOM_CENTER" || "BOTTOM_LEFT" || "BOTTOM_RIGHT" || "MIDDLE_CENTER" || "MIDDLE_LEFT" || "MIDDLE_RIGHT" || "TOP_CENTER" || "TOP_LEFT" || "TOP_RIGHT", // required
  * //               Prefix: "STRING_VALUE",
  * //             },
+ * //             MvOverPictureBoundaries: "DISABLED" || "ENABLED",
+ * //             MvTemporalPredictor: "DISABLED" || "ENABLED",
+ * //             TileHeight: Number("int"),
+ * //             TilePadding: "NONE" || "PADDED",
+ * //             TileWidth: Number("int"),
+ * //             TreeblockSize: "AUTO" || "TREE_SIZE_32X32",
  * //           },
  * //           Mpeg2Settings: { // Mpeg2Settings
  * //             AdaptiveQuantization: "AUTO" || "HIGH" || "LOW" || "MEDIUM" || "OFF",

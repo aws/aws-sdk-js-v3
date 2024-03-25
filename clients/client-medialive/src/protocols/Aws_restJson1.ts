@@ -357,8 +357,6 @@ import {
   HtmlMotionGraphicsSettings,
   ImmediateModeScheduleActionStartSettings,
   InputClippingSettings,
-  InputDeviceConfigurableSettings,
-  InputDeviceMediaConnectConfigurableSettings,
   InputLossBehavior,
   InputPrepareScheduleActionSettings,
   InputSwitchScheduleActionSettings,
@@ -433,7 +431,11 @@ import {
   VideoDescription,
   VpcOutputSettings,
 } from "../models/models_1";
-import { MaintenanceUpdateSettings } from "../models/models_2";
+import {
+  InputDeviceConfigurableSettings,
+  InputDeviceMediaConnectConfigurableSettings,
+  MaintenanceUpdateSettings,
+} from "../models/models_2";
 
 /**
  * serializeAws_restJson1AcceptInputDeviceTransferCommand
@@ -4777,6 +4779,8 @@ const se_H265Settings = (input: H265Settings, context: __SerdeContext): any => {
     lookAheadRateControl: [, , `LookAheadRateControl`],
     maxBitrate: [, , `MaxBitrate`],
     minIInterval: [, , `MinIInterval`],
+    mvOverPictureBoundaries: [, , `MvOverPictureBoundaries`],
+    mvTemporalPredictor: [, , `MvTemporalPredictor`],
     parDenominator: [, , `ParDenominator`],
     parNumerator: [, , `ParNumerator`],
     profile: [, , `Profile`],
@@ -4786,8 +4790,12 @@ const se_H265Settings = (input: H265Settings, context: __SerdeContext): any => {
     sceneChangeDetect: [, , `SceneChangeDetect`],
     slices: [, , `Slices`],
     tier: [, , `Tier`],
+    tileHeight: [, , `TileHeight`],
+    tilePadding: [, , `TilePadding`],
+    tileWidth: [, , `TileWidth`],
     timecodeBurninSettings: [, (_) => se_TimecodeBurninSettings(_, context), `TimecodeBurninSettings`],
     timecodeInsertion: [, , `TimecodeInsertion`],
+    treeblockSize: [, , `TreeblockSize`],
   });
 };
 
@@ -7930,6 +7938,8 @@ const de_H265Settings = (output: any, context: __SerdeContext): H265Settings => 
     LookAheadRateControl: [, __expectString, `lookAheadRateControl`],
     MaxBitrate: [, __expectInt32, `maxBitrate`],
     MinIInterval: [, __expectInt32, `minIInterval`],
+    MvOverPictureBoundaries: [, __expectString, `mvOverPictureBoundaries`],
+    MvTemporalPredictor: [, __expectString, `mvTemporalPredictor`],
     ParDenominator: [, __expectInt32, `parDenominator`],
     ParNumerator: [, __expectInt32, `parNumerator`],
     Profile: [, __expectString, `profile`],
@@ -7939,8 +7949,12 @@ const de_H265Settings = (output: any, context: __SerdeContext): H265Settings => 
     SceneChangeDetect: [, __expectString, `sceneChangeDetect`],
     Slices: [, __expectInt32, `slices`],
     Tier: [, __expectString, `tier`],
+    TileHeight: [, __expectInt32, `tileHeight`],
+    TilePadding: [, __expectString, `tilePadding`],
+    TileWidth: [, __expectInt32, `tileWidth`],
     TimecodeBurninSettings: [, (_: any) => de_TimecodeBurninSettings(_, context), `timecodeBurninSettings`],
     TimecodeInsertion: [, __expectString, `timecodeInsertion`],
+    TreeblockSize: [, __expectString, `treeblockSize`],
   }) as any;
 };
 

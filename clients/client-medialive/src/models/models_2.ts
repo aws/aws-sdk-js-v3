@@ -11,6 +11,9 @@ import {
   Input,
   InputAttachment,
   InputDestinationRequest,
+  InputDeviceCodec,
+  InputDeviceConfigurableAudioChannelPairConfig,
+  InputDeviceConfiguredInput,
   InputDeviceConnectionState,
   InputDeviceHdSettings,
   InputDeviceNetworkSettings,
@@ -40,7 +43,6 @@ import {
   AccountConfiguration,
   Channel,
   EncoderSettings,
-  InputDeviceConfigurableSettings,
   Multiplex,
   MultiplexProgram,
   MultiplexProgramSettings,
@@ -48,8 +50,117 @@ import {
   PipelineDetail,
   RenewalSettings,
   Reservation,
+  ThumbnailDetail,
   TransferringInputDeviceSummary,
 } from "./models_1";
+
+/**
+ * Placeholder documentation for DescribeThumbnailsRequest
+ * @public
+ */
+export interface DescribeThumbnailsRequest {
+  /**
+   * Unique ID of the channel
+   * @public
+   */
+  ChannelId: string | undefined;
+
+  /**
+   * Pipeline ID ("0" or "1")
+   * @public
+   */
+  PipelineId: string | undefined;
+
+  /**
+   * thumbnail type
+   * @public
+   */
+  ThumbnailType: string | undefined;
+}
+
+/**
+ * Placeholder documentation for DescribeThumbnailsResponse
+ * @public
+ */
+export interface DescribeThumbnailsResponse {
+  /**
+   * Placeholder documentation for __listOfThumbnailDetail
+   * @public
+   */
+  ThumbnailDetails?: ThumbnailDetail[];
+}
+
+/**
+ * Parameters required to attach a MediaConnect flow to the device.
+ * @public
+ */
+export interface InputDeviceMediaConnectConfigurableSettings {
+  /**
+   * The ARN of the MediaConnect flow to attach this device to.
+   * @public
+   */
+  FlowArn?: string;
+
+  /**
+   * The ARN for the role that MediaLive assumes to access the attached flow and secret. For more information about how to create this role, see the MediaLive user guide.
+   * @public
+   */
+  RoleArn?: string;
+
+  /**
+   * The ARN for the secret that holds the encryption key to encrypt the content output by the device.
+   * @public
+   */
+  SecretArn?: string;
+
+  /**
+   * The name of the MediaConnect Flow source to stream to.
+   * @public
+   */
+  SourceName?: string;
+}
+
+/**
+ * Configurable settings for the input device.
+ * @public
+ */
+export interface InputDeviceConfigurableSettings {
+  /**
+   * The input source that you want to use. If the device has a source connected to only one of its input ports, or if you don't care which source the device sends, specify Auto. If the device has sources connected to both its input ports, and you want to use a specific source, specify the source.
+   * @public
+   */
+  ConfiguredInput?: InputDeviceConfiguredInput;
+
+  /**
+   * The maximum bitrate in bits per second. Set a value here to throttle the bitrate of the source video.
+   * @public
+   */
+  MaxBitrate?: number;
+
+  /**
+   * The Link device's buffer size (latency) in milliseconds (ms).
+   * @public
+   */
+  LatencyMs?: number;
+
+  /**
+   * Choose the codec for the video that the device produces. Only UHD devices can specify this parameter.
+   * @public
+   */
+  Codec?: InputDeviceCodec;
+
+  /**
+   * To attach this device to a MediaConnect flow, specify these parameters. To detach an existing flow, enter \{\} for the value of mediaconnectSettings. Only UHD devices can specify this parameter.
+   * @public
+   */
+  MediaconnectSettings?: InputDeviceMediaConnectConfigurableSettings;
+
+  /**
+   * An array of eight audio configurations, one for each audio pair in the source. Set up each audio configuration either to exclude the pair, or to format it and include it in the output from the device. This parameter applies only to UHD devices, and only when the device is configured as the source for a MediaConnect flow. For an HD device, you configure the audio by setting up audio selectors in the channel configuration.
+   * @public
+   */
+  AudioChannelPairs?: InputDeviceConfigurableAudioChannelPairConfig[];
+}
 
 /**
  * Placeholder documentation for ListChannelsRequest
