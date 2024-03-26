@@ -41,6 +41,7 @@ import {
   BadGatewayException,
   ConflictException,
   DependencyFailedException,
+  GenerationConfiguration,
   InferenceConfiguration,
   InternalServerException,
   KnowledgeBaseQuery,
@@ -53,6 +54,7 @@ import {
   PayloadPart,
   PostProcessingTrace,
   PreProcessingTrace,
+  PromptTemplate,
   ResourceNotFoundException,
   ResponseStream,
   RetrieveAndGenerateConfiguration,
@@ -589,6 +591,8 @@ const de_ValidationException_event = async (output: any, context: __SerdeContext
   };
   return de_ValidationExceptionRes(parsedOutput, context);
 };
+// se_GenerationConfiguration omitted.
+
 // se_KnowledgeBaseQuery omitted.
 
 // se_KnowledgeBaseRetrievalConfiguration omitted.
@@ -598,6 +602,8 @@ const de_ValidationException_event = async (output: any, context: __SerdeContext
 // se_KnowledgeBaseVectorSearchConfiguration omitted.
 
 // se_PromptSessionAttributesMap omitted.
+
+// se_PromptTemplate omitted.
 
 // se_RetrieveAndGenerateConfiguration omitted.
 

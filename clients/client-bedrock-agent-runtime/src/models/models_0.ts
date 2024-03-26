@@ -202,7 +202,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>Contains parameters that specify various attributes that persist across a session or prompt. You can define session state attributes as key-value pairs when writing a <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-lambda.html">Lambda function</a> for an action group or pass them when making an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html">InvokeAgent</a> request. Use session state attributes to control and provide conversational context for your agent and to help customize your agent's behavior. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/sessionstate.html">Session context</a>.</p>
+ * <p>Contains parameters that specify various attributes that persist across a session or prompt. You can define session state attributes as key-value pairs when writing a <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-lambda.html">Lambda function</a> for an action group or pass them when making an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html">InvokeAgent</a> request. Use session state attributes to control and provide conversational context for your agent and to help customize your agent's behavior. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>.</p>
  * @public
  */
 export interface SessionState {
@@ -224,7 +224,7 @@ export interface SessionState {
  */
 export interface InvokeAgentRequest {
   /**
-   * <p>Contains parameters that specify various attributes of the session.</p>
+   * <p>Contains parameters that specify various attributes of the session. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>.</p>
    * @public
    */
   sessionState?: SessionState;
@@ -268,6 +268,17 @@ export interface InvokeAgentRequest {
 
 /**
  * <p>Contains information about where the text with a citation begins and ends in the generated output.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_ResponseSyntax">RetrieveAndGenerate response</a> – in the <code>span</code> field</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>span</code> field</p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export interface Span {
@@ -286,6 +297,17 @@ export interface Span {
 
 /**
  * <p>Contains the part of the generated text that contains a citation, alongside where it begins and ends.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_ResponseSyntax">RetrieveAndGenerate response</a> – in the <code>textResponsePart</code> field</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>textResponsePart</code> field</p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export interface TextResponsePart {
@@ -304,6 +326,17 @@ export interface TextResponsePart {
 
 /**
  * <p>Contains metadata about a part of the generated response that is accompanied by a citation.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>generatedResponsePart</code> field</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_ResponseSyntax">RetrieveAndGenerate response</a> – in the <code>generatedResponsePart</code> field</p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export interface GeneratedResponsePart {
@@ -316,6 +349,21 @@ export interface GeneratedResponsePart {
 
 /**
  * <p>Contains the cited text from the data source.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>content</code> field</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_ResponseSyntax">RetrieveAndGenerate response</a> – in the <code>content</code> field</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>content</code> field</p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export interface RetrievalResultContent {
@@ -328,6 +376,21 @@ export interface RetrievalResultContent {
 
 /**
  * <p>Contains the S3 location of the data source.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>s3Location</code> field</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_ResponseSyntax">RetrieveAndGenerate response</a> – in the <code>s3Location</code> field</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>s3Location</code> field</p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export interface RetrievalResultS3Location {
@@ -354,6 +417,21 @@ export type RetrievalResultLocationType =
 
 /**
  * <p>Contains information about the location of the data source.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>location</code> field</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_ResponseSyntax">RetrieveAndGenerate response</a> – in the <code>location</code> field</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>locatino</code> field</p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export interface RetrievalResultLocation {
@@ -371,7 +449,18 @@ export interface RetrievalResultLocation {
 }
 
 /**
- * <p>Contains metadata about a sources cited for the generated response.</p>
+ * <p>Contains metadata about a source cited for the generated response.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_ResponseSyntax">RetrieveAndGenerate response</a> – in the <code>retrievedReferences</code> field</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>retrievedReferences</code> field</p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export interface RetrievedReference {
@@ -390,6 +479,17 @@ export interface RetrievedReference {
 
 /**
  * <p>An object containing a segment of the generated response that is based on a source in the knowledge base, alongside information about the source.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>citations</code> field</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_ResponseSyntax">RetrieveAndGenerate response</a> – in the <code>citations</code> field</p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export interface Citation {
@@ -1608,6 +1708,13 @@ export interface InvokeAgentResponse {
 
 /**
  * <p>Contains the query made to the knowledge base.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a> – in the <code>input</code> field</p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export interface RetrieveAndGenerateInput {
@@ -1616,6 +1723,59 @@ export interface RetrieveAndGenerateInput {
    * @public
    */
   text: string | undefined;
+}
+
+/**
+ * <p>Contains the template for the prompt that's sent to the model for response generation. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html#kb-test-config-sysprompt">Knowledge base prompt templates</a>.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface PromptTemplate {
+  /**
+   * <p>The template for the prompt that's sent to the model for response generation. You can include prompt placeholders, which become replaced before the prompt is sent to the model to provide instructions and context to the model. In addition, you can include XML tags to delineate meaningful sections of the prompt template.</p>
+   *          <p>For more information, see the following resources:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html#kb-test-config-sysprompt">Knowledge base prompt templates</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.anthropic.com/claude/docs/use-xml-tags">Use XML tags with Anthropic Claude models</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  textPromptTemplate?: string;
+}
+
+/**
+ * <p>Contains configurations for response generation based on the knowledge base query results.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface GenerationConfiguration {
+  /**
+   * <p>Contains the template for the prompt that's sent to the model for response generation.</p>
+   * @public
+   */
+  promptTemplate?: PromptTemplate;
 }
 
 /**
@@ -1633,15 +1793,23 @@ export const SearchType = {
 export type SearchType = (typeof SearchType)[keyof typeof SearchType];
 
 /**
- * <p>Configurations for how to carry out the search.</p>
+ * <p>Configurations for how to perform the search query and return results. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request</a> – in the <code>vectorSearchConfiguration</code> field</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a> – in the <code>vectorSearchConfiguration</code> field</p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export interface KnowledgeBaseVectorSearchConfiguration {
   /**
-   * <p>The number of results to return.</p>
-   *          <note>
-   *             <p>The <code>numberOfResults</code> field is currently unsupported for <code>RetrieveAndGenerate</code>. Don't include it in this field if you are sending a <code>RetrieveAndGenerate</code> request.</p>
-   *          </note>
+   * <p>The number of source chunks to retrieve.</p>
    * @public
    */
   numberOfResults?: number;
@@ -1654,25 +1822,23 @@ export interface KnowledgeBaseVectorSearchConfiguration {
 }
 
 /**
- * <p>Contains details about how the results should be returned.</p>
+ * <p>Contains configurations for the knowledge base query and retrieval process. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>.</p>
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request body</a>
- *                </p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request</a> – in the <code>retrievalConfiguration</code> field</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request body</a>
- *                </p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a> – in the <code>retrievalConfiguration</code> field</p>
  *             </li>
  *          </ul>
  * @public
  */
 export interface KnowledgeBaseRetrievalConfiguration {
   /**
-   * <p>Contains details about how the results from the vector search should be returned.</p>
+   * <p>Contains details about how the results from the vector search should be returned. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>.</p>
    * @public
    */
   vectorSearchConfiguration: KnowledgeBaseVectorSearchConfiguration | undefined;
@@ -1680,6 +1846,17 @@ export interface KnowledgeBaseRetrievalConfiguration {
 
 /**
  * <p>Contains details about the resource being queried.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request</a> – in the <code>knowledgeBaseConfiguration</code> field</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a> – in the <code>knowledgeBaseConfiguration</code> field</p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export interface KnowledgeBaseRetrieveAndGenerateConfiguration {
@@ -1700,6 +1877,12 @@ export interface KnowledgeBaseRetrieveAndGenerateConfiguration {
    * @public
    */
   retrievalConfiguration?: KnowledgeBaseRetrievalConfiguration;
+
+  /**
+   * <p>Contains configurations for response generation based on the knowwledge base query results.</p>
+   * @public
+   */
+  generationConfiguration?: GenerationConfiguration;
 }
 
 /**
@@ -1717,6 +1900,13 @@ export type RetrieveAndGenerateType = (typeof RetrieveAndGenerateType)[keyof typ
 
 /**
  * <p>Contains details about the resource being queried.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a> – in the <code>retrieveAndGenerateConfiguration</code> field</p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export interface RetrieveAndGenerateConfiguration {
@@ -1735,6 +1925,13 @@ export interface RetrieveAndGenerateConfiguration {
 
 /**
  * <p>Contains configuration about the session with the knowledge base.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a> – in the <code>sessionConfiguration</code> field</p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export interface RetrieveAndGenerateSessionConfiguration {
@@ -1756,13 +1953,13 @@ export interface RetrieveAndGenerateRequest {
   sessionId?: string;
 
   /**
-   * <p>Contains the query made to the knowledge base.</p>
+   * <p>Contains the query to be made to the knowledge base.</p>
    * @public
    */
   input: RetrieveAndGenerateInput | undefined;
 
   /**
-   * <p>Contains details about the resource being queried and the foundation model used for generation.</p>
+   * <p>Contains configurations for the knowledge base query and retrieval process. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>.</p>
    * @public
    */
   retrieveAndGenerateConfiguration?: RetrieveAndGenerateConfiguration;
@@ -1776,6 +1973,13 @@ export interface RetrieveAndGenerateRequest {
 
 /**
  * <p>Contains the response generated from querying the knowledge base.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_ResponseSyntax">RetrieveAndGenerate response</a> – in the <code>output</code> field</p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export interface RetrieveAndGenerateOutput {
@@ -1811,6 +2015,13 @@ export interface RetrieveAndGenerateResponse {
 
 /**
  * <p>Contains the query made to the knowledge base.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request</a> – in the <code>retrievalQuery</code> field</p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export interface KnowledgeBaseQuery {
@@ -1832,13 +2043,13 @@ export interface RetrieveRequest {
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The query to send the knowledge base.</p>
+   * <p>Contains the query to send the knowledge base.</p>
    * @public
    */
   retrievalQuery: KnowledgeBaseQuery | undefined;
 
   /**
-   * <p>Contains details about how the results should be returned.</p>
+   * <p>Contains configurations for the knowledge base query and retrieval process. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>.</p>
    * @public
    */
   retrievalConfiguration?: KnowledgeBaseRetrievalConfiguration;
@@ -1852,6 +2063,13 @@ export interface RetrieveRequest {
 
 /**
  * <p>Details about a result from querying the knowledge base.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>retrievalResults</code> field</p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export interface KnowledgeBaseRetrievalResult {
@@ -2191,9 +2409,54 @@ export const RetrieveAndGenerateInputFilterSensitiveLog = (obj: RetrieveAndGener
 /**
  * @internal
  */
+export const PromptTemplateFilterSensitiveLog = (obj: PromptTemplate): any => ({
+  ...obj,
+  ...(obj.textPromptTemplate && { textPromptTemplate: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GenerationConfigurationFilterSensitiveLog = (obj: GenerationConfiguration): any => ({
+  ...obj,
+  ...(obj.promptTemplate && { promptTemplate: PromptTemplateFilterSensitiveLog(obj.promptTemplate) }),
+});
+
+/**
+ * @internal
+ */
+export const KnowledgeBaseRetrieveAndGenerateConfigurationFilterSensitiveLog = (
+  obj: KnowledgeBaseRetrieveAndGenerateConfiguration
+): any => ({
+  ...obj,
+  ...(obj.generationConfiguration && {
+    generationConfiguration: GenerationConfigurationFilterSensitiveLog(obj.generationConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const RetrieveAndGenerateConfigurationFilterSensitiveLog = (obj: RetrieveAndGenerateConfiguration): any => ({
+  ...obj,
+  ...(obj.knowledgeBaseConfiguration && {
+    knowledgeBaseConfiguration: KnowledgeBaseRetrieveAndGenerateConfigurationFilterSensitiveLog(
+      obj.knowledgeBaseConfiguration
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const RetrieveAndGenerateRequestFilterSensitiveLog = (obj: RetrieveAndGenerateRequest): any => ({
   ...obj,
   ...(obj.input && { input: SENSITIVE_STRING }),
+  ...(obj.retrieveAndGenerateConfiguration && {
+    retrieveAndGenerateConfiguration: RetrieveAndGenerateConfigurationFilterSensitiveLog(
+      obj.retrieveAndGenerateConfiguration
+    ),
+  }),
 });
 
 /**
