@@ -1,6 +1,6 @@
+import { XMLParser } from "@aws-sdk/external/fast-xml-parser";
 import { getValueFromTextNode } from "@smithy/smithy-client";
 import type { HttpResponse, SerdeContext } from "@smithy/types";
-import { XMLParser } from "fast-xml-parser";
 
 import { collectBodyString } from "../common";
 

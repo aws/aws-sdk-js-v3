@@ -1,0 +1,63 @@
+{
+  "name": "@aws-sdk/external",
+  "version": "3.0.0",
+  "description": "Centralized provider and transformer for external packages",
+  "scripts": {
+    "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types && yarn build:types:downlevel'",
+    "build:cjs": "node ./scripts/esbuild.js",
+    "build:es": "yarn tsc -p tsconfig.es.json",
+    "build:types": "yarn tsc -p tsconfig.types.json",
+    "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+    "stage-release": "rimraf ./.release && yarn pack && mkdir ./.release && tar zxvf ./package.tgz --directory ./.release && rm ./package.tgz",
+    "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo || exit 0",
+    "lint": "eslint -c ../../.eslintrc.js \"src/**/*.ts\"",
+    "format": "prettier --config ../../prettier.config.js --ignore-path ../.prettierignore --write \"**/*.{ts,md,json}\"",
+    "extract:docs": "api-extractor run --local",
+    "test": "yarn jest --passWithNoTests"
+  },
+  "main": "./dist-cjs/index.js",
+  "module": "./dist-es/index.js",
+  "types": "./dist-types/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    "./fast-xml-parser": {
+      "types": "./dist-types/packages/fast-xml-parser/index.d.ts",
+      "require": "./dist-cjs/packages/fast-xml-parser/index.js",
+      "node": "./dist-cjs/packages/fast-xml-parser/index.js",
+      "default": "./dist-es/packages/fast-xml-parser/index.js"
+    }
+  },
+  "sideEffects": false,
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/javascript/"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "fast-xml-parser": "4.2.5",
+    "tslib": "^2.6.2"
+  },
+  "devDependencies": {
+    "@tsconfig/recommended": "1.0.1",
+    "concurrently": "7.0.0",
+    "downlevel-dts": "0.10.1",
+    "rimraf": "3.0.2",
+    "typescript": "~4.9.5"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "typesVersions": {
+    "<4.0": {
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
+      ]
+    }
+  },
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/external",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "packages/external"
+  }
+}
