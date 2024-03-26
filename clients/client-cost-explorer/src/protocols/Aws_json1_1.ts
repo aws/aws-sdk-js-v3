@@ -104,6 +104,10 @@ import {
 import { GetTagsCommandInput, GetTagsCommandOutput } from "../commands/GetTagsCommand";
 import { GetUsageForecastCommandInput, GetUsageForecastCommandOutput } from "../commands/GetUsageForecastCommand";
 import {
+  ListCostAllocationTagBackfillHistoryCommandInput,
+  ListCostAllocationTagBackfillHistoryCommandOutput,
+} from "../commands/ListCostAllocationTagBackfillHistoryCommand";
+import {
   ListCostAllocationTagsCommandInput,
   ListCostAllocationTagsCommandOutput,
 } from "../commands/ListCostAllocationTagsCommand";
@@ -123,6 +127,10 @@ import {
   ProvideAnomalyFeedbackCommandInput,
   ProvideAnomalyFeedbackCommandOutput,
 } from "../commands/ProvideAnomalyFeedbackCommand";
+import {
+  StartCostAllocationTagBackfillCommandInput,
+  StartCostAllocationTagBackfillCommandOutput,
+} from "../commands/StartCostAllocationTagBackfillCommand";
 import {
   StartSavingsPlansPurchaseRecommendationGenerationCommandInput,
   StartSavingsPlansPurchaseRecommendationGenerationCommandOutput,
@@ -152,6 +160,7 @@ import {
   AnomalyMonitor,
   AnomalyScore,
   AnomalySubscription,
+  BackfillLimitExceededException,
   BillExpirationException,
   CostAllocationTagStatusEntry,
   CostCategory,
@@ -201,6 +210,7 @@ import {
   Impact,
   InvalidNextTokenException,
   LimitExceededException,
+  ListCostAllocationTagBackfillHistoryRequest,
   ListCostAllocationTagsRequest,
   ListCostCategoryDefinitionsRequest,
   ListSavingsPlansPurchaseRecommendationGenerationRequest,
@@ -215,6 +225,7 @@ import {
   ServiceQuotaExceededException,
   ServiceSpecification,
   SortDefinition,
+  StartCostAllocationTagBackfillRequest,
   StartSavingsPlansPurchaseRecommendationGenerationRequest,
   Subscriber,
   TagResourceRequest,
@@ -583,6 +594,19 @@ export const se_GetUsageForecastCommand = async (
 };
 
 /**
+ * serializeAws_json1_1ListCostAllocationTagBackfillHistoryCommand
+ */
+export const se_ListCostAllocationTagBackfillHistoryCommand = async (
+  input: ListCostAllocationTagBackfillHistoryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListCostAllocationTagBackfillHistory");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ListCostAllocationTagsCommand
  */
 export const se_ListCostAllocationTagsCommand = async (
@@ -642,6 +666,19 @@ export const se_ProvideAnomalyFeedbackCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ProvideAnomalyFeedback");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1StartCostAllocationTagBackfillCommand
+ */
+export const se_StartCostAllocationTagBackfillCommand = async (
+  input: StartCostAllocationTagBackfillCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartCostAllocationTagBackfill");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1279,6 +1316,26 @@ export const de_GetUsageForecastCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1ListCostAllocationTagBackfillHistoryCommand
+ */
+export const de_ListCostAllocationTagBackfillHistoryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCostAllocationTagBackfillHistoryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListCostAllocationTagBackfillHistoryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1ListCostAllocationTagsCommand
  */
 export const de_ListCostAllocationTagsCommand = async (
@@ -1372,6 +1429,26 @@ export const de_ProvideAnomalyFeedbackCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: ProvideAnomalyFeedbackCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartCostAllocationTagBackfillCommand
+ */
+export const de_StartCostAllocationTagBackfillCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartCostAllocationTagBackfillCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartCostAllocationTagBackfillCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1558,6 +1635,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "UnresolvableUsageUnitException":
     case "com.amazonaws.costexplorer#UnresolvableUsageUnitException":
       throw await de_UnresolvableUsageUnitExceptionRes(parsedOutput, context);
+    case "BackfillLimitExceededException":
+    case "com.amazonaws.costexplorer#BackfillLimitExceededException":
+      throw await de_BackfillLimitExceededExceptionRes(parsedOutput, context);
     case "GenerationExistsException":
     case "com.amazonaws.costexplorer#GenerationExistsException":
       throw await de_GenerationExistsExceptionRes(parsedOutput, context);
@@ -1572,6 +1652,22 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
         errorCode,
       }) as never;
   }
+};
+
+/**
+ * deserializeAws_json1_1BackfillLimitExceededExceptionRes
+ */
+const de_BackfillLimitExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<BackfillLimitExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new BackfillLimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
 };
 
 /**
@@ -2187,6 +2283,8 @@ const se_GetUsageForecastRequest = (input: GetUsageForecastRequest, context: __S
 
 // se_GroupDefinitions omitted.
 
+// se_ListCostAllocationTagBackfillHistoryRequest omitted.
+
 // se_ListCostAllocationTagsRequest omitted.
 
 // se_ListCostCategoryDefinitionsRequest omitted.
@@ -2220,6 +2318,8 @@ const se_GetUsageForecastRequest = (input: GetUsageForecastRequest, context: __S
 // se_SortDefinition omitted.
 
 // se_SortDefinitions omitted.
+
+// se_StartCostAllocationTagBackfillRequest omitted.
 
 // se_StartSavingsPlansPurchaseRecommendationGenerationRequest omitted.
 
@@ -2384,9 +2484,15 @@ const de_AnomalySubscriptions = (output: any, context: __SerdeContext): AnomalyS
 
 // de_Attributes omitted.
 
+// de_BackfillLimitExceededException omitted.
+
 // de_BillExpirationException omitted.
 
 // de_CostAllocationTag omitted.
+
+// de_CostAllocationTagBackfillRequest omitted.
+
+// de_CostAllocationTagBackfillRequestList omitted.
 
 // de_CostAllocationTagList omitted.
 
@@ -2654,6 +2760,8 @@ const de_Impact = (output: any, context: __SerdeContext): Impact => {
 
 // de_LimitExceededException omitted.
 
+// de_ListCostAllocationTagBackfillHistoryResponse omitted.
+
 // de_ListCostAllocationTagsResponse omitted.
 
 // de_ListCostCategoryDefinitionsResponse omitted.
@@ -2779,6 +2887,8 @@ const de_Impact = (output: any, context: __SerdeContext): Impact => {
 // de_ServiceQuotaExceededException omitted.
 
 // de_ServiceSpecification omitted.
+
+// de_StartCostAllocationTagBackfillResponse omitted.
 
 // de_StartSavingsPlansPurchaseRecommendationGenerationResponse omitted.
 

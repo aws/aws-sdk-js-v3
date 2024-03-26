@@ -134,6 +134,11 @@ import {
   GetUsageForecastCommandOutput,
 } from "./commands/GetUsageForecastCommand";
 import {
+  ListCostAllocationTagBackfillHistoryCommand,
+  ListCostAllocationTagBackfillHistoryCommandInput,
+  ListCostAllocationTagBackfillHistoryCommandOutput,
+} from "./commands/ListCostAllocationTagBackfillHistoryCommand";
+import {
   ListCostAllocationTagsCommand,
   ListCostAllocationTagsCommandInput,
   ListCostAllocationTagsCommandOutput,
@@ -158,6 +163,11 @@ import {
   ProvideAnomalyFeedbackCommandInput,
   ProvideAnomalyFeedbackCommandOutput,
 } from "./commands/ProvideAnomalyFeedbackCommand";
+import {
+  StartCostAllocationTagBackfillCommand,
+  StartCostAllocationTagBackfillCommandInput,
+  StartCostAllocationTagBackfillCommandOutput,
+} from "./commands/StartCostAllocationTagBackfillCommand";
 import {
   StartSavingsPlansPurchaseRecommendationGenerationCommand,
   StartSavingsPlansPurchaseRecommendationGenerationCommandInput,
@@ -219,11 +229,13 @@ const commands = {
   GetSavingsPlansUtilizationDetailsCommand,
   GetTagsCommand,
   GetUsageForecastCommand,
+  ListCostAllocationTagBackfillHistoryCommand,
   ListCostAllocationTagsCommand,
   ListCostCategoryDefinitionsCommand,
   ListSavingsPlansPurchaseRecommendationGenerationCommand,
   ListTagsForResourceCommand,
   ProvideAnomalyFeedbackCommand,
+  StartCostAllocationTagBackfillCommand,
   StartSavingsPlansPurchaseRecommendationGenerationCommand,
   TagResourceCommand,
   UntagResourceCommand,
@@ -678,6 +690,24 @@ export interface CostExplorer {
   ): void;
 
   /**
+   * @see {@link ListCostAllocationTagBackfillHistoryCommand}
+   */
+  listCostAllocationTagBackfillHistory(): Promise<ListCostAllocationTagBackfillHistoryCommandOutput>;
+  listCostAllocationTagBackfillHistory(
+    args: ListCostAllocationTagBackfillHistoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCostAllocationTagBackfillHistoryCommandOutput>;
+  listCostAllocationTagBackfillHistory(
+    args: ListCostAllocationTagBackfillHistoryCommandInput,
+    cb: (err: any, data?: ListCostAllocationTagBackfillHistoryCommandOutput) => void
+  ): void;
+  listCostAllocationTagBackfillHistory(
+    args: ListCostAllocationTagBackfillHistoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCostAllocationTagBackfillHistoryCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListCostAllocationTagsCommand}
    */
   listCostAllocationTags(): Promise<ListCostAllocationTagsCommandOutput>;
@@ -763,6 +793,23 @@ export interface CostExplorer {
     args: ProvideAnomalyFeedbackCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ProvideAnomalyFeedbackCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartCostAllocationTagBackfillCommand}
+   */
+  startCostAllocationTagBackfill(
+    args: StartCostAllocationTagBackfillCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartCostAllocationTagBackfillCommandOutput>;
+  startCostAllocationTagBackfill(
+    args: StartCostAllocationTagBackfillCommandInput,
+    cb: (err: any, data?: StartCostAllocationTagBackfillCommandOutput) => void
+  ): void;
+  startCostAllocationTagBackfill(
+    args: StartCostAllocationTagBackfillCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartCostAllocationTagBackfillCommandOutput) => void
   ): void;
 
   /**

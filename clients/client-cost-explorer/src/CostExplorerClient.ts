@@ -138,6 +138,10 @@ import {
 import { GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCommand";
 import { GetUsageForecastCommandInput, GetUsageForecastCommandOutput } from "./commands/GetUsageForecastCommand";
 import {
+  ListCostAllocationTagBackfillHistoryCommandInput,
+  ListCostAllocationTagBackfillHistoryCommandOutput,
+} from "./commands/ListCostAllocationTagBackfillHistoryCommand";
+import {
   ListCostAllocationTagsCommandInput,
   ListCostAllocationTagsCommandOutput,
 } from "./commands/ListCostAllocationTagsCommand";
@@ -157,6 +161,10 @@ import {
   ProvideAnomalyFeedbackCommandInput,
   ProvideAnomalyFeedbackCommandOutput,
 } from "./commands/ProvideAnomalyFeedbackCommand";
+import {
+  StartCostAllocationTagBackfillCommandInput,
+  StartCostAllocationTagBackfillCommandOutput,
+} from "./commands/StartCostAllocationTagBackfillCommand";
 import {
   StartSavingsPlansPurchaseRecommendationGenerationCommandInput,
   StartSavingsPlansPurchaseRecommendationGenerationCommandOutput,
@@ -221,11 +229,13 @@ export type ServiceInputTypes =
   | GetSavingsPlansUtilizationDetailsCommandInput
   | GetTagsCommandInput
   | GetUsageForecastCommandInput
+  | ListCostAllocationTagBackfillHistoryCommandInput
   | ListCostAllocationTagsCommandInput
   | ListCostCategoryDefinitionsCommandInput
   | ListSavingsPlansPurchaseRecommendationGenerationCommandInput
   | ListTagsForResourceCommandInput
   | ProvideAnomalyFeedbackCommandInput
+  | StartCostAllocationTagBackfillCommandInput
   | StartSavingsPlansPurchaseRecommendationGenerationCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -265,11 +275,13 @@ export type ServiceOutputTypes =
   | GetSavingsPlansUtilizationDetailsCommandOutput
   | GetTagsCommandOutput
   | GetUsageForecastCommandOutput
+  | ListCostAllocationTagBackfillHistoryCommandOutput
   | ListCostAllocationTagsCommandOutput
   | ListCostCategoryDefinitionsCommandOutput
   | ListSavingsPlansPurchaseRecommendationGenerationCommandOutput
   | ListTagsForResourceCommandOutput
   | ProvideAnomalyFeedbackCommandOutput
+  | StartCostAllocationTagBackfillCommandOutput
   | StartSavingsPlansPurchaseRecommendationGenerationCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput

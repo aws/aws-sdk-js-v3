@@ -436,6 +436,14 @@ GetUsageForecast
 </details>
 <details>
 <summary>
+ListCostAllocationTagBackfillHistory
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/ListCostAllocationTagBackfillHistoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/ListCostAllocationTagBackfillHistoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/ListCostAllocationTagBackfillHistoryCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListCostAllocationTags
 </summary>
 
@@ -472,6 +480,14 @@ ProvideAnomalyFeedback
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/ProvideAnomalyFeedbackCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/ProvideAnomalyFeedbackCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/ProvideAnomalyFeedbackCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartCostAllocationTagBackfill
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/StartCostAllocationTagBackfillCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/StartCostAllocationTagBackfillCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/StartCostAllocationTagBackfillCommandOutput/)
 
 </details>
 <details>

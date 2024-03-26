@@ -4475,6 +4475,111 @@ export class UnresolvableUsageUnitException extends __BaseException {
 
 /**
  * @public
+ */
+export interface ListCostAllocationTagBackfillHistoryRequest {
+  /**
+   * <p>
+   *       The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.
+   *     </p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>
+   *       The maximum number of objects that are returned for this request.
+   *     </p>
+   * @public
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CostAllocationTagBackfillStatus = {
+  FAILED: "FAILED",
+  PROCESSING: "PROCESSING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type CostAllocationTagBackfillStatus =
+  (typeof CostAllocationTagBackfillStatus)[keyof typeof CostAllocationTagBackfillStatus];
+
+/**
+ * <p>
+ *             The cost allocation tag backfill request structure that contains metadata and details of a certain backfill.</p>
+ * @public
+ */
+export interface CostAllocationTagBackfillRequest {
+  /**
+   * <p>
+   *             The date the backfill starts from.
+   *         </p>
+   * @public
+   */
+  BackfillFrom?: string;
+
+  /**
+   * <p>
+   *             The time when the backfill was requested.
+   *         </p>
+   * @public
+   */
+  RequestedAt?: string;
+
+  /**
+   * <p>
+   *             The backfill completion time.
+   *         </p>
+   * @public
+   */
+  CompletedAt?: string;
+
+  /**
+   * <p>
+   *             The status of the cost allocation tag backfill request.
+   *         </p>
+   * @public
+   */
+  BackfillStatus?: CostAllocationTagBackfillStatus;
+
+  /**
+   * <p>
+   *             The time when the backfill status was last updated.
+   *         </p>
+   * @public
+   */
+  LastUpdatedAt?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListCostAllocationTagBackfillHistoryResponse {
+  /**
+   * <p>
+   *       The list of historical cost allocation tag backfill requests.
+   *     </p>
+   * @public
+   */
+  BackfillRequests?: CostAllocationTagBackfillRequest[];
+
+  /**
+   * <p>
+   *       The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.
+   *     </p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
  * @enum
  */
 export const CostAllocationTagStatus = {
@@ -4852,6 +4957,55 @@ export interface ProvideAnomalyFeedbackResponse {
    * @public
    */
   AnomalyId: string | undefined;
+}
+
+/**
+ * <p>
+ *             A request to backfill is already in progress. Once the previous request is complete, you can create another request.
+ *         </p>
+ * @public
+ */
+export class BackfillLimitExceededException extends __BaseException {
+  readonly name: "BackfillLimitExceededException" = "BackfillLimitExceededException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BackfillLimitExceededException, __BaseException>) {
+    super({
+      name: "BackfillLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BackfillLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface StartCostAllocationTagBackfillRequest {
+  /**
+   * <p>
+   *       The date you want the backfill to start from. The date can only be a first day of the month (a billing start date). Dates can't precede the previous twelve months, or in the future.</p>
+   * @public
+   */
+  BackfillFrom: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartCostAllocationTagBackfillResponse {
+  /**
+   * <p>
+   *       An object containing detailed metadata of your new backfill request.
+   *     </p>
+   * @public
+   */
+  BackfillRequest?: CostAllocationTagBackfillRequest;
 }
 
 /**
