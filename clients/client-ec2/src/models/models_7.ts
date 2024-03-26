@@ -3909,8 +3909,7 @@ export interface SearchTransitGatewayRoutesRequest {
   Filters: Filter[] | undefined;
 
   /**
-   * <p>The maximum number of routes to return. If a value is not provided, the default is
-   *          1000.</p>
+   * <p>The maximum number of routes to return.</p>
    * @public
    */
   MaxResults?: number;
