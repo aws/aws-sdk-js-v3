@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.542.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.541.0...v3.542.0) (2024-03-26)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** This release adds support to customize prompts sent through the RetrieveAndGenerate API in Agents for Amazon Bedrock. ([05e69da](https://github.com/aws/aws-sdk-js-v3/commit/05e69dacac95fee8e0cdc6b2b6c99f23dc854f5f))
+
+
+
+
+
 # [3.540.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.539.0...v3.540.0) (2024-03-22)
 
 

@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.542.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.541.0...v3.542.0) (2024-03-26)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** This release adds support to customize prompts sent through the RetrieveAndGenerate API in Agents for Amazon Bedrock. ([05e69da](https://github.com/aws/aws-sdk-js-v3/commit/05e69dacac95fee8e0cdc6b2b6c99f23dc854f5f))
+* **client-cost-explorer:** Adds support for backfill of cost allocation tags, with new StartCostAllocationTagBackfill and ListCostAllocationTagBackfillHistory API. ([715a001](https://github.com/aws/aws-sdk-js-v3/commit/715a00104c6af1449ae4a0765863143e26d1c047))
+* **client-ec2:** Documentation updates for Elastic Compute Cloud (EC2). ([5f6803a](https://github.com/aws/aws-sdk-js-v3/commit/5f6803ae75603a4e7e95e020447e676a7a6bf8eb))
+* **client-finspace:** Add new operation delete-kx-cluster-node and add status parameter to list-kx-cluster-node operation. ([a4a4a3e](https://github.com/aws/aws-sdk-js-v3/commit/a4a4a3e8754193f00999c8ecedd3f2b17146e674))
+* **clients:** update client endpoints as of 2024-03-26 ([20e5c4d](https://github.com/aws/aws-sdk-js-v3/commit/20e5c4d8a03055bc5126d21bfa913c5b8f15be9a))
+
+
+
+
+
 # [3.541.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.540.0...v3.541.0) (2024-03-25)
 
 
