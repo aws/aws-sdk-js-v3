@@ -32,7 +32,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * 			Amazon ECS runs another copy of the task in the specified cluster. To update an existing
  * 			service, see the <a>UpdateService</a> action.</p>
  *          <note>
- *             <p>The following change began on March 21, 2024. When the task definition revision is not specified, Amazon ECS resolves the task definition revision before it authorizes the task definition.</p>
+ *             <p>On March 21, 2024, a change was made to resolve the task definition revision before authorization. When a task definition revision is not specified, authorization will occur using the latest revision of a task definition.</p>
  *          </note>
  *          <p>In addition to maintaining the desired count of tasks in your service, you can
  * 			optionally run your service behind one or more load balancers. The load balancers

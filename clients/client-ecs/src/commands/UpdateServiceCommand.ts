@@ -29,7 +29,7 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
 /**
  * <p>Modifies the parameters of a service.</p>
  *          <note>
- *             <p>The following change began on March 21, 2024. When the task definition revision is not specified, Amazon ECS resolves the task definition revision before it authorizes the task definition.</p>
+ *             <p>On March 21, 2024, a change was made to resolve the task definition revision before authorization. When a task definition revision is not specified, authorization will occur using the latest revision of a task definition.</p>
  *          </note>
  *          <p>For services using the rolling update (<code>ECS</code>) you can update the desired
  * 			count, deployment configuration, network configuration, load balancers, service
