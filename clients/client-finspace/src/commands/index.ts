@@ -10,6 +10,7 @@ export * from "./CreateKxUserCommand";
 export * from "./CreateKxVolumeCommand";
 export * from "./DeleteEnvironmentCommand";
 export * from "./DeleteKxClusterCommand";
+export * from "./DeleteKxClusterNodeCommand";
 export * from "./DeleteKxDatabaseCommand";
 export * from "./DeleteKxDataviewCommand";
 export * from "./DeleteKxEnvironmentCommand";

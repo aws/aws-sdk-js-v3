@@ -451,7 +451,7 @@ export interface CreateKxChangesetRequest {
 
   /**
    * <p>A list of change request objects that are run in order. A change request object consists of <code>changeType</code> , <code>s3Path</code>, and <code>dbPath</code>.
-   *       A changeType can has the following values: </p>
+   *       A changeType can have the following values: </p>
    *          <ul>
    *             <li>
    *                <p>PUT – Adds or updates files in a database.</p>
@@ -2234,7 +2234,11 @@ export interface KxNAS1Configuration {
 
   /**
    * <p>
-   * The size of the network attached storage.</p>
+   *    The size of the network attached storage. For storage type
+   *    <code>SSD_1000</code> and <code>SSD_250</code> you can select the
+   *    minimum size as 1200 GB or increments of 2400 GB. For storage type
+   *    <code>HDD_12</code> you can select the minimum size as 6000 GB or increments
+   *    of 6000 GB.</p>
    * @public
    */
   size?: number;
@@ -2490,6 +2494,34 @@ export interface DeleteKxClusterRequest {
  * @public
  */
 export interface DeleteKxClusterResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteKxClusterNodeRequest {
+  /**
+   * <p>A unique identifier for the kdb environment.</p>
+   * @public
+   */
+  environmentId: string | undefined;
+
+  /**
+   * <p>The name of the cluster, for which you want to delete the nodes.</p>
+   * @public
+   */
+  clusterName: string | undefined;
+
+  /**
+   * <p>A unique identifier for the node that you want to delete.</p>
+   * @public
+   */
+  nodeId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteKxClusterNodeResponse {}
 
 /**
  * @public
@@ -4254,6 +4286,20 @@ export interface ListKxClusterNodesRequest {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const KxNodeStatus = {
+  PROVISIONING: "PROVISIONING",
+  RUNNING: "RUNNING",
+} as const;
+
+/**
+ * @public
+ */
+export type KxNodeStatus = (typeof KxNodeStatus)[keyof typeof KxNodeStatus];
+
+/**
  * <p>A structure that stores metadata for a kdb node.</p>
  * @public
  */
@@ -4275,6 +4321,23 @@ export interface KxNode {
    * @public
    */
   launchTime?: Date;
+
+  /**
+   * <p>
+   *          Specifies the status of the cluster nodes.   </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>RUNNING</code> – The node is actively serving.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PROVISIONING</code> – The node is being prepared.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  status?: KxNodeStatus;
 }
 
 /**

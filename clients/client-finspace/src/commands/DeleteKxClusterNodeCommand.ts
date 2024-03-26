@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FinspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceClient";
-import { ListKxClusterNodesRequest, ListKxClusterNodesResponse } from "../models/models_0";
-import { de_ListKxClusterNodesCommand, se_ListKxClusterNodesCommand } from "../protocols/Aws_restJson1";
+import { DeleteKxClusterNodeRequest, DeleteKxClusterNodeResponse } from "../models/models_0";
+import { de_DeleteKxClusterNodeCommand, se_DeleteKxClusterNodeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -16,50 +16,40 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListKxClusterNodesCommand}.
+ * The input for {@link DeleteKxClusterNodeCommand}.
  */
-export interface ListKxClusterNodesCommandInput extends ListKxClusterNodesRequest {}
+export interface DeleteKxClusterNodeCommandInput extends DeleteKxClusterNodeRequest {}
 /**
  * @public
  *
- * The output of {@link ListKxClusterNodesCommand}.
+ * The output of {@link DeleteKxClusterNodeCommand}.
  */
-export interface ListKxClusterNodesCommandOutput extends ListKxClusterNodesResponse, __MetadataBearer {}
+export interface DeleteKxClusterNodeCommandOutput extends DeleteKxClusterNodeResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the nodes in a kdb cluster.</p>
+ * <p>Deletes the specified nodes from a cluster.
+ *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { FinspaceClient, ListKxClusterNodesCommand } from "@aws-sdk/client-finspace"; // ES Modules import
- * // const { FinspaceClient, ListKxClusterNodesCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
+ * import { FinspaceClient, DeleteKxClusterNodeCommand } from "@aws-sdk/client-finspace"; // ES Modules import
+ * // const { FinspaceClient, DeleteKxClusterNodeCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
  * const client = new FinspaceClient(config);
- * const input = { // ListKxClusterNodesRequest
+ * const input = { // DeleteKxClusterNodeRequest
  *   environmentId: "STRING_VALUE", // required
  *   clusterName: "STRING_VALUE", // required
- *   nextToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   nodeId: "STRING_VALUE", // required
  * };
- * const command = new ListKxClusterNodesCommand(input);
+ * const command = new DeleteKxClusterNodeCommand(input);
  * const response = await client.send(command);
- * // { // ListKxClusterNodesResponse
- * //   nodes: [ // KxNodeSummaries
- * //     { // KxNode
- * //       nodeId: "STRING_VALUE",
- * //       availabilityZoneId: "STRING_VALUE",
- * //       launchTime: new Date("TIMESTAMP"),
- * //       status: "RUNNING" || "PROVISIONING",
- * //     },
- * //   ],
- * //   nextToken: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param ListKxClusterNodesCommandInput - {@link ListKxClusterNodesCommandInput}
- * @returns {@link ListKxClusterNodesCommandOutput}
- * @see {@link ListKxClusterNodesCommandInput} for command's `input` shape.
- * @see {@link ListKxClusterNodesCommandOutput} for command's `response` shape.
+ * @param DeleteKxClusterNodeCommandInput - {@link DeleteKxClusterNodeCommandInput}
+ * @returns {@link DeleteKxClusterNodeCommandOutput}
+ * @see {@link DeleteKxClusterNodeCommandInput} for command's `input` shape.
+ * @see {@link DeleteKxClusterNodeCommandOutput} for command's `response` shape.
  * @see {@link FinspaceClientResolvedConfig | config} for FinspaceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -68,9 +58,6 @@ export interface ListKxClusterNodesCommandOutput extends ListKxClusterNodesRespo
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request processing has failed because of an unknown error, exception or
  *          failure.</p>
- *
- * @throws {@link LimitExceededException} (client fault)
- *  <p>A service limit or quota is exceeded.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>One or more resources can't be found.</p>
@@ -86,10 +73,10 @@ export interface ListKxClusterNodesCommandOutput extends ListKxClusterNodesRespo
  *
  * @public
  */
-export class ListKxClusterNodesCommand extends $Command
+export class DeleteKxClusterNodeCommand extends $Command
   .classBuilder<
-    ListKxClusterNodesCommandInput,
-    ListKxClusterNodesCommandOutput,
+    DeleteKxClusterNodeCommandInput,
+    DeleteKxClusterNodeCommandOutput,
     FinspaceClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -103,9 +90,9 @@ export class ListKxClusterNodesCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSHabaneroManagementService", "ListKxClusterNodes", {})
-  .n("FinspaceClient", "ListKxClusterNodesCommand")
+  .s("AWSHabaneroManagementService", "DeleteKxClusterNode", {})
+  .n("FinspaceClient", "DeleteKxClusterNodeCommand")
   .f(void 0, void 0)
-  .ser(se_ListKxClusterNodesCommand)
-  .de(de_ListKxClusterNodesCommand)
+  .ser(se_DeleteKxClusterNodeCommand)
+  .de(de_DeleteKxClusterNodeCommand)
   .build() {}

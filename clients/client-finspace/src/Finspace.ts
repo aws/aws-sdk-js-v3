@@ -58,6 +58,11 @@ import {
   DeleteKxClusterCommandOutput,
 } from "./commands/DeleteKxClusterCommand";
 import {
+  DeleteKxClusterNodeCommand,
+  DeleteKxClusterNodeCommandInput,
+  DeleteKxClusterNodeCommandOutput,
+} from "./commands/DeleteKxClusterNodeCommand";
+import {
   DeleteKxDatabaseCommand,
   DeleteKxDatabaseCommandInput,
   DeleteKxDatabaseCommandOutput,
@@ -245,6 +250,7 @@ const commands = {
   CreateKxVolumeCommand,
   DeleteEnvironmentCommand,
   DeleteKxClusterCommand,
+  DeleteKxClusterNodeCommand,
   DeleteKxDatabaseCommand,
   DeleteKxDataviewCommand,
   DeleteKxEnvironmentCommand,
@@ -456,6 +462,23 @@ export interface Finspace {
     args: DeleteKxClusterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteKxClusterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteKxClusterNodeCommand}
+   */
+  deleteKxClusterNode(
+    args: DeleteKxClusterNodeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteKxClusterNodeCommandOutput>;
+  deleteKxClusterNode(
+    args: DeleteKxClusterNodeCommandInput,
+    cb: (err: any, data?: DeleteKxClusterNodeCommandOutput) => void
+  ): void;
+  deleteKxClusterNode(
+    args: DeleteKxClusterNodeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteKxClusterNodeCommandOutput) => void
   ): void;
 
   /**

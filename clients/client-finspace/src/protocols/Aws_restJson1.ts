@@ -46,6 +46,10 @@ import { CreateKxUserCommandInput, CreateKxUserCommandOutput } from "../commands
 import { CreateKxVolumeCommandInput, CreateKxVolumeCommandOutput } from "../commands/CreateKxVolumeCommand";
 import { DeleteEnvironmentCommandInput, DeleteEnvironmentCommandOutput } from "../commands/DeleteEnvironmentCommand";
 import { DeleteKxClusterCommandInput, DeleteKxClusterCommandOutput } from "../commands/DeleteKxClusterCommand";
+import {
+  DeleteKxClusterNodeCommandInput,
+  DeleteKxClusterNodeCommandOutput,
+} from "../commands/DeleteKxClusterNodeCommand";
 import { DeleteKxDatabaseCommandInput, DeleteKxDatabaseCommandOutput } from "../commands/DeleteKxDatabaseCommand";
 import { DeleteKxDataviewCommandInput, DeleteKxDataviewCommandOutput } from "../commands/DeleteKxDataviewCommand";
 import {
@@ -456,6 +460,24 @@ export const se_DeleteKxClusterCommand = async (
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteKxClusterNodeCommand
+ */
+export const se_DeleteKxClusterNodeCommand = async (
+  input: DeleteKxClusterNodeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/kx/environments/{environmentId}/clusters/{clusterName}/nodes/{nodeId}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.p("nodeId", () => input.nodeId!, "{nodeId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
   return b.build();
 };
 
@@ -1537,6 +1559,23 @@ export const de_DeleteKxClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteKxClusterCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteKxClusterNodeCommand
+ */
+export const de_DeleteKxClusterNodeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteKxClusterNodeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -3076,6 +3115,7 @@ const de_KxNode = (output: any, context: __SerdeContext): KxNode => {
     availabilityZoneId: __expectString,
     launchTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     nodeId: __expectString,
+    status: __expectString,
   }) as any;
 };
 

@@ -293,6 +293,14 @@ DeleteKxCluster
 </details>
 <details>
 <summary>
+DeleteKxClusterNode
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/finspace/command/DeleteKxClusterNodeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/DeleteKxClusterNodeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-finspace/Interface/DeleteKxClusterNodeCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteKxDatabase
 </summary>
 

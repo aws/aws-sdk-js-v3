@@ -70,6 +70,10 @@ import { CreateKxUserCommandInput, CreateKxUserCommandOutput } from "./commands/
 import { CreateKxVolumeCommandInput, CreateKxVolumeCommandOutput } from "./commands/CreateKxVolumeCommand";
 import { DeleteEnvironmentCommandInput, DeleteEnvironmentCommandOutput } from "./commands/DeleteEnvironmentCommand";
 import { DeleteKxClusterCommandInput, DeleteKxClusterCommandOutput } from "./commands/DeleteKxClusterCommand";
+import {
+  DeleteKxClusterNodeCommandInput,
+  DeleteKxClusterNodeCommandOutput,
+} from "./commands/DeleteKxClusterNodeCommand";
 import { DeleteKxDatabaseCommandInput, DeleteKxDatabaseCommandOutput } from "./commands/DeleteKxDatabaseCommand";
 import { DeleteKxDataviewCommandInput, DeleteKxDataviewCommandOutput } from "./commands/DeleteKxDataviewCommand";
 import {
@@ -161,6 +165,7 @@ export type ServiceInputTypes =
   | CreateKxVolumeCommandInput
   | DeleteEnvironmentCommandInput
   | DeleteKxClusterCommandInput
+  | DeleteKxClusterNodeCommandInput
   | DeleteKxDatabaseCommandInput
   | DeleteKxDataviewCommandInput
   | DeleteKxEnvironmentCommandInput
@@ -215,6 +220,7 @@ export type ServiceOutputTypes =
   | CreateKxVolumeCommandOutput
   | DeleteEnvironmentCommandOutput
   | DeleteKxClusterCommandOutput
+  | DeleteKxClusterNodeCommandOutput
   | DeleteKxDatabaseCommandOutput
   | DeleteKxDataviewCommandOutput
   | DeleteKxEnvironmentCommandOutput
