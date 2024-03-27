@@ -337,6 +337,11 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  *       serviceAccountName: "STRING_VALUE",
  *       hostNetwork: true || false,
  *       dnsPolicy: "STRING_VALUE",
+ *       imagePullSecrets: [ // ImagePullSecrets
+ *         { // ImagePullSecret
+ *           name: "STRING_VALUE", // required
+ *         },
+ *       ],
  *       containers: [ // EksContainers
  *         { // EksContainer
  *           name: "STRING_VALUE",
@@ -369,6 +374,7 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  *             runAsUser: Number("long"),
  *             runAsGroup: Number("long"),
  *             privileged: true || false,
+ *             allowPrivilegeEscalation: true || false,
  *             readOnlyRootFilesystem: true || false,
  *             runAsNonRoot: true || false,
  *           },
@@ -406,6 +412,7 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  *             runAsUser: Number("long"),
  *             runAsGroup: Number("long"),
  *             privileged: true || false,
+ *             allowPrivilegeEscalation: true || false,
  *             readOnlyRootFilesystem: true || false,
  *             runAsNonRoot: true || false,
  *           },

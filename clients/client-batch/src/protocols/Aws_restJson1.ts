@@ -127,6 +127,7 @@ import {
   FairsharePolicy,
   FargatePlatformConfiguration,
   Host,
+  ImagePullSecret,
   JobDefinition,
   JobDependency,
   JobDetail,
@@ -1403,6 +1404,10 @@ const se_FairsharePolicy = (input: FairsharePolicy, context: __SerdeContext): an
 
 // se_Host omitted.
 
+// se_ImagePullSecret omitted.
+
+// se_ImagePullSecrets omitted.
+
 // se_JobDependency omitted.
 
 // se_JobDependencyList omitted.
@@ -1668,6 +1673,10 @@ const de_FairsharePolicy = (output: any, context: __SerdeContext): FairsharePoli
 // de_FargatePlatformConfiguration omitted.
 
 // de_Host omitted.
+
+// de_ImagePullSecret omitted.
+
+// de_ImagePullSecrets omitted.
 
 /**
  * deserializeAws_restJson1JobDefinition

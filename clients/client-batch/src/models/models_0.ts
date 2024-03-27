@@ -3354,6 +3354,12 @@ export interface EksContainerSecurityContext {
   privileged?: boolean;
 
   /**
+   * <p>Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is <code>false</code>.</p>
+   * @public
+   */
+  allowPrivilegeEscalation?: boolean;
+
+  /**
    * <p>When this parameter is <code>true</code>, the container is given read-only access to its
    *    root file system. The default value is <code>false</code>. This parameter maps to
    *     <code>ReadOnlyRootFilesystem</code> policy in the <a href="https://kubernetes.io/docs/concepts/security/pod-security-policy/#volumes-and-file-systems">Volumes and file systems pod security policies</a> in the <i>Kubernetes
@@ -3495,6 +3501,18 @@ export interface EksContainer {
    * @public
    */
   securityContext?: EksContainerSecurityContext;
+}
+
+/**
+ * <p>References a Kubernetes configuration resource that holds a list of secrets. These secrets help to gain access to pull an image from a private registry.</p>
+ * @public
+ */
+export interface ImagePullSecret {
+  /**
+   * <p>Provides a unique identifier for the <code>ImagePullSecret</code>. This object is required when <code>EksPodProperties$imagePullSecrets</code> is used.</p>
+   * @public
+   */
+  name: string | undefined;
 }
 
 /**
@@ -3663,6 +3681,14 @@ export interface EksPodProperties {
    * @public
    */
   dnsPolicy?: string;
+
+  /**
+   * <p>References a Kubernetes secret resource. This object must start and end with an alphanumeric character, is required to be lowercase, can include periods (.) and hyphens (-), and can't contain more than 253 characters.</p>
+   *          <p>
+   *             <code>ImagePullSecret$name</code> is required when this object is used.</p>
+   * @public
+   */
+  imagePullSecrets?: ImagePullSecret[];
 
   /**
    * <p>The properties of the container that's used on the Amazon EKS pod.</p>
@@ -5102,6 +5128,12 @@ export interface EksPodPropertiesDetail {
    * @public
    */
   dnsPolicy?: string;
+
+  /**
+   * <p>Displays the reference pointer to the Kubernetes secret resource.</p>
+   * @public
+   */
+  imagePullSecrets?: ImagePullSecret[];
 
   /**
    * <p>The properties of the container that's used on the Amazon EKS pod.</p>
