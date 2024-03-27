@@ -408,8 +408,7 @@ export type BedrockAgentClientResolvedConfigType = __SmithyResolvedConfiguration
 export interface BedrockAgentClientResolvedConfig extends BedrockAgentClientResolvedConfigType {}
 
 /**
- * An example service, deployed with the Octane Service creator,
- * which will echo the string
+ * <p>Describes the API operations for creating and managing Amazon Bedrock agents.</p>
  * @public
  */
 export class BedrockAgentClient extends __Client<

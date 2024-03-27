@@ -32,7 +32,7 @@ export interface AssociateAgentKnowledgeBaseCommandOutput
     __MetadataBearer {}
 
 /**
- * Associate a Knowledge Base to an existing Amazon Bedrock Agent
+ * <p>Associates a knowledge base with an agent. If a knowledge base is associated and its <code>indexState</code> is set to <code>Enabled</code>, the agent queries the knowledge base for information to augment its response to the user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,25 +69,25 @@ export interface AssociateAgentKnowledgeBaseCommandOutput
  * @see {@link BedrockAgentClientResolvedConfig | config} for BedrockAgentClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  This exception is thrown when a request is denied per access permissions
+ *  <p>The request is denied because of missing access permissions.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  This exception is thrown when there is a conflict performing an operation
+ *  <p>There was a conflict performing an operation.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  This exception is thrown if there was an unexpected error during processing of request
+ *  <p>An internal server error occurred. Retry your request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  This exception is thrown when a resource referenced by the operation does not exist
+ *  <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  This exception is thrown when a request is made beyond the service quota
+ *  <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  This exception is thrown when the number of requests exceeds the limit
+ *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  This exception is thrown when the request's input validation fails
+ *  <p>Input validation failed. Check your request parameters and retry the request.</p>
  *
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>

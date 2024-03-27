@@ -31,7 +31,7 @@ export interface GetAgentVersionCommandInput extends GetAgentVersionRequest {}
 export interface GetAgentVersionCommandOutput extends GetAgentVersionResponse, __MetadataBearer {}
 
 /**
- * Gets an Agent version for existing Amazon Bedrock Agent
+ * <p>Gets details about a version of an agent.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -98,19 +98,19 @@ export interface GetAgentVersionCommandOutput extends GetAgentVersionResponse, _
  * @see {@link BedrockAgentClientResolvedConfig | config} for BedrockAgentClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  This exception is thrown when a request is denied per access permissions
+ *  <p>The request is denied because of missing access permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  This exception is thrown if there was an unexpected error during processing of request
+ *  <p>An internal server error occurred. Retry your request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  This exception is thrown when a resource referenced by the operation does not exist
+ *  <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  This exception is thrown when the number of requests exceeds the limit
+ *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  This exception is thrown when the request's input validation fails
+ *  <p>Input validation failed. Check your request parameters and retry the request.</p>
  *
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>

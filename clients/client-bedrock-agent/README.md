@@ -6,8 +6,7 @@
 
 AWS SDK for JavaScript BedrockAgent Client for Node.js, Browser and React Native.
 
-An example service, deployed with the Octane Service creator,
-which will echo the string
+<p>Describes the API operations for creating and managing Amazon Bedrock agents.</p>
 
 ## Installing
 

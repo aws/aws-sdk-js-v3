@@ -4,7 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { BedrockAgentServiceException as __BaseException } from "./BedrockAgentServiceException";
 
 /**
- * This exception is thrown when a request is denied per access permissions
+ * <p>The request is denied because of missing access permissions.</p>
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -24,7 +24,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * Type of Executors for an Action Group
+ * <p>Contains details about the Lambda function containing the business logic that is carried out upon invoking the action.</p>
  * @public
  */
 export type ActionGroupExecutor = ActionGroupExecutor.LambdaMember | ActionGroupExecutor.$UnknownMember;
@@ -34,7 +34,7 @@ export type ActionGroupExecutor = ActionGroupExecutor.LambdaMember | ActionGroup
  */
 export namespace ActionGroupExecutor {
   /**
-   * ARN of a Lambda.
+   * <p>The ARN of the Lambda function containing the business logic that is carried out upon invoking the action.</p>
    * @public
    */
   export interface LambdaMember {
@@ -62,7 +62,7 @@ export namespace ActionGroupExecutor {
 }
 
 /**
- * This exception is thrown when there is a conflict performing an operation
+ * <p>There was a conflict performing an operation.</p>
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -96,25 +96,25 @@ export const ActionGroupState = {
 export type ActionGroupState = (typeof ActionGroupState)[keyof typeof ActionGroupState];
 
 /**
- * The identifier for the S3 resource.
+ * <p>Contains information about the S3 object containing the resource.</p>
  * @public
  */
 export interface S3Identifier {
   /**
-   * A bucket in S3.
+   * <p>The name of the S3 bucket.</p>
    * @public
    */
   s3BucketName?: string;
 
   /**
-   * A object key in S3.
+   * <p>The S3 object key containing the resource.</p>
    * @public
    */
   s3ObjectKey?: string;
 }
 
 /**
- * Contains information about the API Schema for the Action Group
+ * <p>Contains details about the OpenAPI schema for the action group. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html">Action group OpenAPI schemas</a>. You can either include the schema directly in the <code>payload</code> field or you can upload it to an S3 bucket and specify the S3 bucket location in the <code>s3</code> field.</p>
  * @public
  */
 export type APISchema = APISchema.PayloadMember | APISchema.S3Member | APISchema.$UnknownMember;
@@ -124,7 +124,7 @@ export type APISchema = APISchema.PayloadMember | APISchema.S3Member | APISchema
  */
 export namespace APISchema {
   /**
-   * The identifier for the S3 resource.
+   * <p>Contains details about the S3 object containing the OpenAPI schema for the action group. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html">Action group OpenAPI schemas</a>.</p>
    * @public
    */
   export interface S3Member {
@@ -134,7 +134,7 @@ export namespace APISchema {
   }
 
   /**
-   * String OpenAPI Payload
+   * <p>The JSON or YAML-formatted payload defining the OpenAPI schema for the action group. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html">Action group OpenAPI schemas</a>.</p>
    * @public
    */
   export interface PayloadMember {
@@ -179,157 +179,159 @@ export const ActionGroupSignature = {
 export type ActionGroupSignature = (typeof ActionGroupSignature)[keyof typeof ActionGroupSignature];
 
 /**
- * Create Action Group Request
  * @public
  */
 export interface CreateAgentActionGroupRequest {
   /**
-   * Id generated at the server side when an Agent is created
+   * <p>The unique identifier of the agent for which to create the action group.</p>
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * Draft Version of the Agent.
+   * <p>The version of the agent for which to create the action group.</p>
    * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * Name for a resource.
+   * <p>The name to give the action group.</p>
    * @public
    */
   actionGroupName: string | undefined;
 
   /**
-   * Client specified token used for idempotency checks
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
+   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientToken?: string;
 
   /**
-   * Description of the Resource.
+   * <p>A description of the action group.</p>
    * @public
    */
   description?: string;
 
   /**
-   * Action Group Signature for a BuiltIn Action
+   * <p>To allow your agent to request the user for additional information when trying to complete a task, set this field to <code>AMAZON.UserInput</code>. You must leave the <code>description</code>, <code>apiSchema</code>, and <code>actionGroupExecutor</code> fields blank for this action group.</p>
+   *          <p>During orchestration, if your agent determines that it needs to invoke an API in an action group, but doesn't have enough information to complete the API request, it will invoke this action group instead and return an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html">Observation</a> reprompting the user for more information.</p>
    * @public
    */
   parentActionGroupSignature?: ActionGroupSignature;
 
   /**
-   * Type of Executors for an Action Group
+   * <p>The ARN of the Lambda function containing the business logic that is carried out upon invoking the action.</p>
    * @public
    */
   actionGroupExecutor?: ActionGroupExecutor;
 
   /**
-   * Contains information about the API Schema for the Action Group
+   * <p>Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html">Action group OpenAPI schemas</a>.</p>
    * @public
    */
   apiSchema?: APISchema;
 
   /**
-   * State of the action group
+   * <p>Specifies whether the action group is available for the agent to invoke or not when sending an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html">InvokeAgent</a> request.</p>
    * @public
    */
   actionGroupState?: ActionGroupState;
 }
 
 /**
- * Contains the information of an Agent Action Group
+ * <p>Contains details about an action group.</p>
  * @public
  */
 export interface AgentActionGroup {
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the agent to which the action group belongs.</p>
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * Agent Version.
+   * <p>The version of the agent to which the action group belongs.</p>
    * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the action group.</p>
    * @public
    */
   actionGroupId: string | undefined;
 
   /**
-   * Name for a resource.
+   * <p>The name of the action group.</p>
    * @public
    */
   actionGroupName: string | undefined;
 
   /**
-   * Client specified token used for idempotency checks
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
+   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientToken?: string;
 
   /**
-   * Description of the Resource.
+   * <p>The description of the action group.</p>
    * @public
    */
   description?: string;
 
   /**
-   * Time Stamp.
+   * <p>The time at which the action group was created.</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * Time Stamp.
+   * <p>The time at which the action group was last updated.</p>
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * Action Group Signature for a BuiltIn Action
+   * <p>If this field is set as <code>AMAZON.UserInput</code>, the agent can request the user for additional information when trying to complete a task. The <code>description</code>, <code>apiSchema</code>, and <code>actionGroupExecutor</code> fields must be blank for this action group.</p>
+   *          <p>During orchestration, if the agent determines that it needs to invoke an API in an action group, but doesn't have enough information to complete the API request, it will invoke this action group instead and return an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html">Observation</a> reprompting the user for more information.</p>
    * @public
    */
   parentActionSignature?: ActionGroupSignature;
 
   /**
-   * Type of Executors for an Action Group
+   * <p>The ARN of the Lambda function containing the business logic that is carried out upon invoking the action.</p>
    * @public
    */
   actionGroupExecutor?: ActionGroupExecutor;
 
   /**
-   * Contains information about the API Schema for the Action Group
+   * <p>Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html">Action group OpenAPI schemas</a>.</p>
    * @public
    */
   apiSchema?: APISchema;
 
   /**
-   * State of the action group
+   * <p>Specifies whether the action group is available for the agent to invoke or not when sending an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html">InvokeAgent</a> request.</p>
    * @public
    */
   actionGroupState: ActionGroupState | undefined;
 }
 
 /**
- * Create Action Group Response
  * @public
  */
 export interface CreateAgentActionGroupResponse {
   /**
-   * Contains the information of an Agent Action Group
+   * <p>Contains details about the action group that was created.</p>
    * @public
    */
   agentActionGroup: AgentActionGroup | undefined;
 }
 
 /**
- * This exception is thrown if there was an unexpected error during processing of request
+ * <p>An internal server error occurred. Retry your request.</p>
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -349,7 +351,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * This exception is thrown when a resource referenced by the operation does not exist
+ * <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -369,7 +371,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * This exception is thrown when a request is made beyond the service quota
+ * <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -389,7 +391,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * This exception is thrown when the number of requests exceeds the limit
+ * <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -409,32 +411,32 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * Stores information about a field passed inside a request that resulted in an exception
+ * <p>Stores information about a field passed inside a request that resulted in an validation error.</p>
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * Non Blank String
+   * <p>The name of the field.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * Non Blank String
+   * <p>A message describing why this field failed validation.</p>
    * @public
    */
   message: string | undefined;
 }
 
 /**
- * This exception is thrown when the request's input validation fails
+ * <p>Input validation failed. Check your request parameters and retry the request.</p>
  * @public
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   /**
-   * list of ValidationExceptionField
+   * <p>A list of objects containing fields that caused validation errors and their corresponding validation error messages.</p>
    * @public
    */
   fieldList?: ValidationExceptionField[];
@@ -454,228 +456,223 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * Delete Action Group Request
  * @public
  */
 export interface DeleteAgentActionGroupRequest {
   /**
-   * Id generated at the server side when an Agent is created
+   * <p>The unique identifier of the agent that the action group belongs to.</p>
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * Draft Version of the Agent.
+   * <p>The version of the agent that the action group belongs to.</p>
    * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * Id generated at the server side when an Agent ActionGroup is created
+   * <p>The unique identifier of the action group to delete.</p>
    * @public
    */
   actionGroupId: string | undefined;
 
   /**
-   * Skips checking if resource is in use when set to true. Defaults to false
+   * <p>By default, this value is <code>false</code> and deletion is stopped if the resource is in use. If you set it to <code>true</code>, the resource will be deleted even if the resource is in use.</p>
    * @public
    */
   skipResourceInUseCheck?: boolean;
 }
 
 /**
- * Delete Action Group Response
  * @public
  */
 export interface DeleteAgentActionGroupResponse {}
 
 /**
- * Get Action Group Request
  * @public
  */
 export interface GetAgentActionGroupRequest {
   /**
-   * Id generated at the server side when an Agent is created
+   * <p>The unique identifier of the agent that the action group belongs to.</p>
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * Version number generated when a version is created
+   * <p>The version of the agent that the action group belongs to.</p>
    * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * Id generated at the server side when an Agent Action Group is created
+   * <p>The unique identifier of the action group for which to get information.</p>
    * @public
    */
   actionGroupId: string | undefined;
 }
 
 /**
- * Get Action Group Response
  * @public
  */
 export interface GetAgentActionGroupResponse {
   /**
-   * Contains the information of an Agent Action Group
+   * <p>Contains details about the action group.</p>
    * @public
    */
   agentActionGroup: AgentActionGroup | undefined;
 }
 
 /**
- * List Action Groups Request
  * @public
  */
 export interface ListAgentActionGroupsRequest {
   /**
-   * Id generated at the server side when an Agent is Listed
+   * <p>The unique identifier of the agent.</p>
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * Id generated at the server side when an Agent is Listed
+   * <p>The version of the agent.</p>
    * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * Max Results.
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
    * @public
    */
   maxResults?: number;
 
   /**
-   * Opaque continuation token of previous paginated response.
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
    * @public
    */
   nextToken?: string;
 }
 
 /**
- * ActionGroup Summary
+ * <p>Contains details about an action group.</p>
  * @public
  */
 export interface ActionGroupSummary {
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the action group.</p>
    * @public
    */
   actionGroupId: string | undefined;
 
   /**
-   * Name for a resource.
+   * <p>The name of the action group.</p>
    * @public
    */
   actionGroupName: string | undefined;
 
   /**
-   * State of the action group
+   * <p>Specifies whether the action group is available for the agent to invoke or not when
+   *       sending an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html">InvokeAgent</a>
+   *       request.</p>
    * @public
    */
   actionGroupState: ActionGroupState | undefined;
 
   /**
-   * Description of the Resource.
+   * <p>The description of the action group.</p>
    * @public
    */
   description?: string;
 
   /**
-   * Time Stamp.
+   * <p>The time at which the action group was last updated.</p>
    * @public
    */
   updatedAt: Date | undefined;
 }
 
 /**
- * List Action Groups Response
  * @public
  */
 export interface ListAgentActionGroupsResponse {
   /**
-   * List of ActionGroup Summaries
+   * <p>A list of objects, each of which contains information about an action group.</p>
    * @public
    */
   actionGroupSummaries: ActionGroupSummary[] | undefined;
 
   /**
-   * Opaque continuation token of previous paginated response.
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
    * @public
    */
   nextToken?: string;
 }
 
 /**
- * Update Action Group Request
  * @public
  */
 export interface UpdateAgentActionGroupRequest {
   /**
-   * Id generated at the server side when an Agent is created
+   * <p>The unique identifier of the agent for which to update the action group.</p>
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * Draft Version of the Agent.
+   * <p>The unique identifier of the agent version for which to update the action group.</p>
    * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * Id generated at the server side when an Action Group is created under Agent
+   * <p>The unique identifier of the action group.</p>
    * @public
    */
   actionGroupId: string | undefined;
 
   /**
-   * Name for a resource.
+   * <p>Specifies a new name for the action group.</p>
    * @public
    */
   actionGroupName: string | undefined;
 
   /**
-   * Description of the Resource.
+   * <p>Specifies a new name for the action group.</p>
    * @public
    */
   description?: string;
 
   /**
-   * Action Group Signature for a BuiltIn Action
+   * <p>To allow your agent to request the user for additional information when trying to complete a task, set this field to <code>AMAZON.UserInput</code>. You must leave the <code>description</code>, <code>apiSchema</code>, and <code>actionGroupExecutor</code> fields blank for this action group.</p>
+   *          <p>During orchestration, if your agent determines that it needs to invoke an API in an action group, but doesn't have enough information to complete the API request, it will invoke this action group instead and return an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html">Observation</a> reprompting the user for more information.</p>
    * @public
    */
   parentActionGroupSignature?: ActionGroupSignature;
 
   /**
-   * Type of Executors for an Action Group
+   * <p>The ARN of the Lambda function containing the business logic that is carried out upon invoking the action.</p>
    * @public
    */
   actionGroupExecutor?: ActionGroupExecutor;
 
   /**
-   * State of the action group
+   * <p>Specifies whether the action group is available for the agent to invoke or not when sending an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html">InvokeAgent</a> request.</p>
    * @public
    */
   actionGroupState?: ActionGroupState;
 
   /**
-   * Contains information about the API Schema for the Action Group
+   * <p>Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html">Action group OpenAPI schemas</a>.</p>
    * @public
    */
   apiSchema?: APISchema;
 }
 
 /**
- * Update Action Group Response
  * @public
  */
 export interface UpdateAgentActionGroupResponse {
   /**
-   * Contains the information of an Agent Action Group
+   * <p>Contains details about the action group that was updated.</p>
    * @public
    */
   agentActionGroup: AgentActionGroup | undefined;
@@ -702,36 +699,36 @@ export const AgentStatus = {
 export type AgentStatus = (typeof AgentStatus)[keyof typeof AgentStatus];
 
 /**
- * Configuration for inference in prompt configuration
+ * <p>Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the <code>promptType</code>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundation models</a>.</p>
  * @public
  */
 export interface InferenceConfiguration {
   /**
-   * Controls randomness, higher values increase diversity
+   * <p>The likelihood of the model selecting higher-probability options while generating a response. A lower value makes the model more likely to choose higher-probability options, while a higher value makes the model more likely to choose lower-probability options.</p>
    * @public
    */
   temperature?: number;
 
   /**
-   * Cumulative probability cutoff for token selection
+   * <p>While generating a response, the model determines the probability of the following token at each point of generation. The value that you set for <code>Top P</code> determines the number of most-likely candidates from which the model chooses the next token in the sequence. For example, if you set <code>topP</code> to 80, the model only selects the next token from the top 80% of the probability distribution of next tokens.</p>
    * @public
    */
   topP?: number;
 
   /**
-   * Sample from the k most likely next tokens
+   * <p>While generating a response, the model determines the probability of the following token at each point of generation. The value that you set for <code>topK</code> is the number of most-likely candidates from which the model chooses the next token in the sequence. For example, if you set <code>topK</code> to 50, the model selects the next token from among the top 50 most likely choices.</p>
    * @public
    */
   topK?: number;
 
   /**
-   * Maximum length of output
+   * <p>The maximum number of tokens to allow in the generated response.</p>
    * @public
    */
   maximumLength?: number;
 
   /**
-   * List of stop sequences
+   * <p>A list of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.</p>
    * @public
    */
   stopSequences?: string[];
@@ -782,210 +779,257 @@ export const PromptType = {
 export type PromptType = (typeof PromptType)[keyof typeof PromptType];
 
 /**
- * BasePromptConfiguration per Prompt Type.
+ * <p>Contains configurations to override a prompt template in one part of an agent sequence. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced prompts</a>.</p>
  * @public
  */
 export interface PromptConfiguration {
   /**
-   * Prompt Type.
+   * <p>The step in the agent sequence that this prompt configuration applies to.</p>
    * @public
    */
   promptType?: PromptType;
 
   /**
-   * Creation Mode for Prompt Configuration.
+   * <p>Specifies whether to override the default prompt template for this <code>promptType</code>. Set this value to <code>OVERRIDDEN</code> to use the prompt that you provide in the <code>basePromptTemplate</code>. If you leave it as <code>DEFAULT</code>, the agent uses a default prompt template.</p>
    * @public
    */
   promptCreationMode?: CreationMode;
 
   /**
-   * Prompt State.
+   * <p>Specifies whether to allow the agent to carry out the step specified in the <code>promptType</code>. If you set this value to <code>DISABLED</code>, the agent skips that step. The default state for each <code>promptType</code> is as follows.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PRE_PROCESSING</code> – <code>ENABLED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ORCHESTRATION</code> – <code>ENABLED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>KNOWLEDGE_BASE_RESPONSE_GENERATION</code> – <code>ENABLED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>POST_PROCESSING</code> – <code>DISABLED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    * @public
    */
   promptState?: PromptState;
 
   /**
-   * Base Prompt Template.
+   * <p>Defines the prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html">Prompt template placeholder variables</a>.</p>
    * @public
    */
   basePromptTemplate?: string;
 
   /**
-   * Configuration for inference in prompt configuration
+   * <p>Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the <code>promptType</code>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundation models</a>.</p>
    * @public
    */
   inferenceConfiguration?: InferenceConfiguration;
 
   /**
-   * Creation Mode for Prompt Configuration.
+   * <p>Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the <code>promptType</code>. If you set the field as <code>OVERRIDEN</code>, the <code>overrideLambda</code> field in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html">PromptOverrideConfiguration</a> must be specified with the ARN of a Lambda function.</p>
    * @public
    */
   parserMode?: CreationMode;
 }
 
 /**
- * Configuration for prompt override.
+ * <p>Contains configurations to override prompts in different parts of an agent sequence. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced prompts</a>.</p>
  * @public
  */
 export interface PromptOverrideConfiguration {
   /**
-   * List of BasePromptConfiguration
+   * <p>Contains configurations to override a prompt template in one part of an agent sequence. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced prompts</a>.</p>
    * @public
    */
   promptConfigurations: PromptConfiguration[] | undefined;
 
   /**
-   * ARN of a Lambda.
+   * <p>The ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the <code>promptConfigurations</code> must contain a <code>parserMode</code> value that is set to <code>OVERRIDDEN</code>.</p>
    * @public
    */
   overrideLambda?: string;
 }
 
 /**
- * Contains the information of an agent
+ * <p>Contains details about an agent.</p>
  * @public
  */
 export interface Agent {
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the agent.</p>
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * Name for a resource.
+   * <p>The name of the agent.</p>
    * @public
    */
   agentName: string | undefined;
 
   /**
-   * Arn representation of the Agent.
+   * <p>The ARN of the agent.</p>
    * @public
    */
   agentArn: string | undefined;
 
   /**
-   * Draft Agent Version.
+   * <p>The version of the agent.</p>
    * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * Client specified token used for idempotency checks
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
+   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientToken?: string;
 
   /**
-   * Instruction for the agent.
+   * <p>Instructions that tell the agent what it should do and how it should interact with users.</p>
    * @public
    */
   instruction?: string;
 
   /**
-   * Schema Type for Action APIs.
+   * <p>The status of the agent and whether it is ready for use. The following statuses are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>CREATING – The agent is being created.</p>
+   *             </li>
+   *             <li>
+   *                <p>PREPARING – The agent is being prepared.</p>
+   *             </li>
+   *             <li>
+   *                <p>PREPARED – The agent is prepared and ready to be invoked.</p>
+   *             </li>
+   *             <li>
+   *                <p>NOT_PREPARED – The agent has been created but not yet prepared.</p>
+   *             </li>
+   *             <li>
+   *                <p>FAILED – The agent API operation failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>UPDATING – The agent is being updated.</p>
+   *             </li>
+   *             <li>
+   *                <p>DELETING – The agent is being deleted.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   agentStatus: AgentStatus | undefined;
 
   /**
-   * ARN or name of a Bedrock model.
+   * <p>The foundation model used for orchestration by the agent.</p>
    * @public
    */
   foundationModel?: string;
 
   /**
-   * Description of the Resource.
+   * <p>The description of the agent.</p>
    * @public
    */
   description?: string;
 
   /**
-   * Max Session Time.
+   * <p>The number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent.</p>
+   *          <p>A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.</p>
    * @public
    */
   idleSessionTTLInSeconds: number | undefined;
 
   /**
-   * ARN of a IAM role.
+   * <p>The ARN of the IAM role with permissions to call API operations on the agent. The ARN must begin with <code>AmazonBedrockExecutionRoleForAgents_</code>.</p>
    * @public
    */
   agentResourceRoleArn: string | undefined;
 
   /**
-   * A KMS key ARN
+   * <p>The ARN of the KMS key that encrypts the agent.</p>
    * @public
    */
   customerEncryptionKeyArn?: string;
 
   /**
-   * Time Stamp.
+   * <p>The time at which the agent was created.</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * Time Stamp.
+   * <p>The time at which the agent was last updated.</p>
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * Time Stamp.
+   * <p>The time at which the agent was last prepared.</p>
    * @public
    */
   preparedAt?: Date;
 
   /**
-   * Failure Reasons for Error.
+   * <p>Contains reasons that the agent-related API that you invoked failed.</p>
    * @public
    */
   failureReasons?: string[];
 
   /**
-   * The recommended actions users can take to resolve an error in failureReasons.
+   * <p>Contains recommended actions to take for the agent-related API that you invoked to succeed.</p>
    * @public
    */
   recommendedActions?: string[];
 
   /**
-   * Configuration for prompt override.
+   * <p>Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced prompts</a>.</p>
    * @public
    */
   promptOverrideConfiguration?: PromptOverrideConfiguration;
 }
 
 /**
- * Details about the routing configuration for an Agent alias.
+ * <p>Contains details about the routing configuration of the alias.</p>
  * @public
  */
 export interface AgentAliasRoutingConfigurationListItem {
   /**
-   * Agent Version.
+   * <p>The version of the agent with which the alias is associated.</p>
    * @public
    */
   agentVersion: string | undefined;
 }
 
 /**
- * History event for an alias for an Agent.
+ * <p>Contains details about the history of the alias.</p>
  * @public
  */
 export interface AgentAliasHistoryEvent {
   /**
-   * Routing configuration for an Agent alias.
+   * <p>Contains details about the version of the agent with which the alias is associated.</p>
    * @public
    */
   routingConfiguration?: AgentAliasRoutingConfigurationListItem[];
 
   /**
-   * Time Stamp.
+   * <p>The date that the alias stopped being associated to the version in the <code>routingConfiguration</code> object</p>
    * @public
    */
   endDate?: Date;
 
   /**
-   * Time Stamp.
+   * <p>The date that the alias began being associated to the version in the <code>routingConfiguration</code> object.</p>
    * @public
    */
   startDate?: Date;
@@ -1009,120 +1053,138 @@ export const AgentAliasStatus = {
 export type AgentAliasStatus = (typeof AgentAliasStatus)[keyof typeof AgentAliasStatus];
 
 /**
- * Contains the information of an agent alias
+ * <p>Contains details about an alias of an agent.</p>
  * @public
  */
 export interface AgentAlias {
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the agent.</p>
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * Id for an Agent Alias generated at the server side.
+   * <p>The unique identifier of the alias of the agent.</p>
    * @public
    */
   agentAliasId: string | undefined;
 
   /**
-   * Name for a resource.
+   * <p>The name of the alias of the agent.</p>
    * @public
    */
   agentAliasName: string | undefined;
 
   /**
-   * Arn representation of the Agent Alias.
+   * <p>The ARN of the alias of the agent.</p>
    * @public
    */
   agentAliasArn: string | undefined;
 
   /**
-   * Client specified token used for idempotency checks
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
+   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientToken?: string;
 
   /**
-   * Description of the Resource.
+   * <p>The description of the alias of the agent.</p>
    * @public
    */
   description?: string;
 
   /**
-   * Routing configuration for an Agent alias.
+   * <p>Contains details about the routing configuration of the alias.</p>
    * @public
    */
   routingConfiguration: AgentAliasRoutingConfigurationListItem[] | undefined;
 
   /**
-   * Time Stamp.
+   * <p>The time at which the alias of the agent was created.</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * Time Stamp.
+   * <p>The time at which the alias was last updated.</p>
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * The list of history events for an alias for an Agent.
+   * <p>Contains details about the history of the alias.</p>
    * @public
    */
   agentAliasHistoryEvents?: AgentAliasHistoryEvent[];
 
   /**
-   * The statuses an Agent Alias can be in.
+   * <p>The status of the alias of the agent and whether it is ready for use. The following statuses are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>CREATING – The agent alias is being created.</p>
+   *             </li>
+   *             <li>
+   *                <p>PREPARED – The agent alias is finished being created or updated and is ready to be invoked.</p>
+   *             </li>
+   *             <li>
+   *                <p>FAILED – The agent alias API operation failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>UPDATING – The agent alias is being updated.</p>
+   *             </li>
+   *             <li>
+   *                <p>DELETING – The agent alias is being deleted.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   agentAliasStatus: AgentAliasStatus | undefined;
 }
 
 /**
- * Summary of an alias for an Agent.
+ * <p>Contains details about an alias of an agent.</p>
  * @public
  */
 export interface AgentAliasSummary {
   /**
-   * Id for an Agent Alias generated at the server side.
+   * <p>Contains details about </p>
    * @public
    */
   agentAliasId: string | undefined;
 
   /**
-   * Name for a resource.
+   * <p>The name of the alias.</p>
    * @public
    */
   agentAliasName: string | undefined;
 
   /**
-   * Description of the Resource.
+   * <p>The description of the alias.</p>
    * @public
    */
   description?: string;
 
   /**
-   * Routing configuration for an Agent alias.
+   * <p>Contains details about the version of the agent with which the alias is associated.</p>
    * @public
    */
   routingConfiguration?: AgentAliasRoutingConfigurationListItem[];
 
   /**
-   * The statuses an Agent Alias can be in.
+   * <p>The status of the alias.</p>
    * @public
    */
   agentAliasStatus: AgentAliasStatus | undefined;
 
   /**
-   * Time Stamp.
+   * <p>The time at which the alias of the agent was created.</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * Time Stamp.
+   * <p>The time at which the alias was last updated.</p>
    * @public
    */
   updatedAt: Date | undefined;
@@ -1143,786 +1205,769 @@ export const KnowledgeBaseState = {
 export type KnowledgeBaseState = (typeof KnowledgeBaseState)[keyof typeof KnowledgeBaseState];
 
 /**
- * Contains the information of an Agent Knowledge Base.
+ * <p>Contains details about a knowledge base that is associated with an agent.</p>
  * @public
  */
 export interface AgentKnowledgeBase {
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the agent with which the knowledge base is associated.</p>
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * Agent Version.
+   * <p>The version of the agent with which the knowledge base is associated.</p>
    * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the association between the agent and the knowledge base.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * Description of the Resource.
+   * <p>The description of the association between the agent and the knowledge base.</p>
    * @public
    */
   description: string | undefined;
 
   /**
-   * Time Stamp.
+   * <p>The time at which the association between the agent and the knowledge base was created.</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * Time Stamp.
+   * <p>The time at which the association between the agent and the knowledge base was last updated.</p>
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * State of the knowledge base; whether it is enabled or disabled
+   * <p>Specifies whether to use the knowledge base or not when sending an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html">InvokeAgent</a> request.</p>
    * @public
    */
   knowledgeBaseState: KnowledgeBaseState | undefined;
 }
 
 /**
- * Agent Knowledge Base Summary
+ * <p>Contains details about a knowledge base associated with an agent.</p>
  * @public
  */
 export interface AgentKnowledgeBaseSummary {
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the knowledge base associated with an agent.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * Description of the Resource.
+   * <p>The description of the knowledge base associated with an agent.</p>
    * @public
    */
   description?: string;
 
   /**
-   * State of the knowledge base; whether it is enabled or disabled
+   * <p>Specifies whether the agent uses the knowledge base or not when sending an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html">InvokeAgent</a> request.</p>
    * @public
    */
   knowledgeBaseState: KnowledgeBaseState | undefined;
 
   /**
-   * Time Stamp.
+   * <p>The time at which the knowledge base associated with an agent was last updated.</p>
    * @public
    */
   updatedAt: Date | undefined;
 }
 
 /**
- * Create Agent Request
  * @public
  */
 export interface CreateAgentRequest {
   /**
-   * Name for a resource.
+   * <p>A name for the agent that you create.</p>
    * @public
    */
   agentName: string | undefined;
 
   /**
-   * Client specified token used for idempotency checks
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
+   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientToken?: string;
 
   /**
-   * Instruction for the agent.
+   * <p>Instructions that tell the agent what it should do and how it should interact with users.</p>
    * @public
    */
   instruction?: string;
 
   /**
-   * ARN or name of a Bedrock model.
+   * <p>The foundation model to be used for orchestration by the agent you create.</p>
    * @public
    */
   foundationModel?: string;
 
   /**
-   * Description of the Resource.
+   * <p>A description of the agent.</p>
    * @public
    */
   description?: string;
 
   /**
-   * Max Session Time.
+   * <p>The number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent.</p>
+   *          <p>A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.</p>
    * @public
    */
   idleSessionTTLInSeconds?: number;
 
   /**
-   * ARN of a IAM role.
+   * <p>The ARN of the IAM role with permissions to create the agent. The ARN must begin with <code>AmazonBedrockExecutionRoleForAgents_</code>.</p>
    * @public
    */
   agentResourceRoleArn: string | undefined;
 
   /**
-   * A KMS key ARN
+   * <p>The ARN of the KMS key with which to encrypt the agent.</p>
    * @public
    */
   customerEncryptionKeyArn?: string;
 
   /**
-   * A map of tag keys and values
+   * <p>Any tags that you want to attach to the agent.</p>
    * @public
    */
   tags?: Record<string, string>;
 
   /**
-   * Configuration for prompt override.
+   * <p>Contains configurations to override prompts in different parts of an agent sequence. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced prompts</a>.</p>
    * @public
    */
   promptOverrideConfiguration?: PromptOverrideConfiguration;
 }
 
 /**
- * Create Agent Response
  * @public
  */
 export interface CreateAgentResponse {
   /**
-   * Contains the information of an agent
+   * <p>Contains details about the agent created.</p>
    * @public
    */
   agent: Agent | undefined;
 }
 
 /**
- * Delete Agent Request
  * @public
  */
 export interface DeleteAgentRequest {
   /**
-   * Id generated at the server side when an Agent is created
+   * <p>The unique identifier of the agent to delete.</p>
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * Skips checking if resource is in use when set to true. Defaults to false
+   * <p>By default, this value is <code>false</code> and deletion is stopped if the resource is in use. If you set it to <code>true</code>, the resource will be deleted even if the resource is in use.</p>
    * @public
    */
   skipResourceInUseCheck?: boolean;
 }
 
 /**
- * Delete Agent Response
  * @public
  */
 export interface DeleteAgentResponse {
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the agent that was deleted.</p>
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * Schema Type for Action APIs.
+   * <p>The status of the agent.</p>
    * @public
    */
   agentStatus: AgentStatus | undefined;
 }
 
 /**
- * Get Agent Request
  * @public
  */
 export interface GetAgentRequest {
   /**
-   * Id generated at the server side when an Agent is created
+   * <p>The unique identifier of the agent.</p>
    * @public
    */
   agentId: string | undefined;
 }
 
 /**
- * Get Agent Response
  * @public
  */
 export interface GetAgentResponse {
   /**
-   * Contains the information of an agent
+   * <p>Contains details about the agent.</p>
    * @public
    */
   agent: Agent | undefined;
 }
 
 /**
- * List Agent Request
  * @public
  */
 export interface ListAgentsRequest {
   /**
-   * Max Results.
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
    * @public
    */
   maxResults?: number;
 
   /**
-   * Opaque continuation token of previous paginated response.
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
    * @public
    */
   nextToken?: string;
 }
 
 /**
- * Summary of Agent.
+ * <p>Contains details about an agent.</p>
  * @public
  */
 export interface AgentSummary {
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the agent.</p>
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * Name for a resource.
+   * <p>The name of the agent.</p>
    * @public
    */
   agentName: string | undefined;
 
   /**
-   * Schema Type for Action APIs.
+   * <p>The status of the agent.</p>
    * @public
    */
   agentStatus: AgentStatus | undefined;
 
   /**
-   * Description of the Resource.
+   * <p>The description of the agent.</p>
    * @public
    */
   description?: string;
 
   /**
-   * Time Stamp.
+   * <p>The time at which the agent was last updated.</p>
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * Agent Version.
+   * <p>The latest version of the agent.</p>
    * @public
    */
   latestAgentVersion?: string;
 }
 
 /**
- * List Agent Response
  * @public
  */
 export interface ListAgentsResponse {
   /**
-   * List of AgentSummary.
+   * <p>A list of objects, each of which contains information about an agent.</p>
    * @public
    */
   agentSummaries: AgentSummary[] | undefined;
 
   /**
-   * Opaque continuation token of previous paginated response.
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
    * @public
    */
   nextToken?: string;
 }
 
 /**
- * PrepareAgent Request
  * @public
  */
 export interface PrepareAgentRequest {
   /**
-   * Id generated at the server side when an Agent is created
+   * <p>The unique identifier of the agent for which to create a <code>DRAFT</code> version.</p>
    * @public
    */
   agentId: string | undefined;
 }
 
 /**
- * PrepareAgent Response
  * @public
  */
 export interface PrepareAgentResponse {
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the agent for which the <code>DRAFT</code> version was created.</p>
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * Schema Type for Action APIs.
+   * <p>The status of the <code>DRAFT</code> version and whether it is ready for use.</p>
    * @public
    */
   agentStatus: AgentStatus | undefined;
 
   /**
-   * Agent Version.
+   * <p>The version of the agent.</p>
    * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * Time Stamp.
+   * <p>The time at which the <code>DRAFT</code> version of the agent was last prepared.</p>
    * @public
    */
   preparedAt: Date | undefined;
 }
 
 /**
- * Update Agent Request
  * @public
  */
 export interface UpdateAgentRequest {
   /**
-   * Id generated at the server side when an Agent is created
+   * <p>The unique identifier of the agent.</p>
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * Name for a resource.
+   * <p>Specifies a new name for the agent.</p>
    * @public
    */
   agentName: string | undefined;
 
   /**
-   * Instruction for the agent.
+   * <p>Specifies new instructions that tell the agent what it should do and how it should interact with users.</p>
    * @public
    */
   instruction?: string;
 
   /**
-   * ARN or name of a Bedrock model.
+   * <p>Specifies a new foundation model to be used for orchestration by the agent.</p>
    * @public
    */
-  foundationModel?: string;
+  foundationModel: string | undefined;
 
   /**
-   * Description of the Resource.
+   * <p>Specifies a new description of the agent.</p>
    * @public
    */
   description?: string;
 
   /**
-   * Max Session Time.
+   * <p>The number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent.</p>
+   *          <p>A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.</p>
    * @public
    */
   idleSessionTTLInSeconds?: number;
 
   /**
-   * ARN of a IAM role.
+   * <p>The ARN of the IAM role with permissions to update the agent. The ARN must begin with <code>AmazonBedrockExecutionRoleForAgents_</code>.</p>
    * @public
    */
   agentResourceRoleArn: string | undefined;
 
   /**
-   * A KMS key ARN
+   * <p>The ARN of the KMS key with which to encrypt the agent.</p>
    * @public
    */
   customerEncryptionKeyArn?: string;
 
   /**
-   * Configuration for prompt override.
+   * <p>Contains configurations to override prompts in different parts of an agent sequence. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced prompts</a>.</p>
    * @public
    */
   promptOverrideConfiguration?: PromptOverrideConfiguration;
 }
 
 /**
- * Update Agent Response
  * @public
  */
 export interface UpdateAgentResponse {
   /**
-   * Contains the information of an agent
+   * <p>Contains details about the agent that was updated.</p>
    * @public
    */
   agent: Agent | undefined;
 }
 
 /**
- * Contains the information of an agent version.
+ * <p>Contains details about a version of an agent.</p>
  * @public
  */
 export interface AgentVersion {
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the agent that the version belongs to.</p>
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * Name for a resource.
+   * <p>The name of the agent that the version belongs to.</p>
    * @public
    */
   agentName: string | undefined;
 
   /**
-   * Arn representation of the Agent.
+   * <p>The ARN of the agent that the version belongs to.</p>
    * @public
    */
   agentArn: string | undefined;
 
   /**
-   * Numerical Agent Version.
+   * <p>The version number.</p>
    * @public
    */
   version: string | undefined;
 
   /**
-   * Instruction for the agent.
+   * <p>The instructions provided to the agent.</p>
    * @public
    */
   instruction?: string;
 
   /**
-   * Schema Type for Action APIs.
+   * <p>The status of the agent that the version belongs to.</p>
    * @public
    */
   agentStatus: AgentStatus | undefined;
 
   /**
-   * ARN or name of a Bedrock model.
+   * <p>The foundation model that the version invokes.</p>
    * @public
    */
   foundationModel?: string;
 
   /**
-   * Description of the Resource.
+   * <p>The description of the version.</p>
    * @public
    */
   description?: string;
 
   /**
-   * Max Session Time.
+   * <p>The number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent.</p>
+   *          <p>A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.</p>
    * @public
    */
   idleSessionTTLInSeconds: number | undefined;
 
   /**
-   * ARN of a IAM role.
+   * <p>The ARN of the IAM role with permissions to invoke API operations on the agent. The ARN must begin with <code>AmazonBedrockExecutionRoleForAgents_</code>.</p>
    * @public
    */
   agentResourceRoleArn: string | undefined;
 
   /**
-   * A KMS key ARN
+   * <p>The ARN of the KMS key that encrypts the agent.</p>
    * @public
    */
   customerEncryptionKeyArn?: string;
 
   /**
-   * Time Stamp.
+   * <p>The time at which the version was created.</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * Time Stamp.
+   * <p>The time at which the version was last updated.</p>
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * Failure Reasons for Error.
+   * <p>A list of reasons that the API operation on the version failed.</p>
    * @public
    */
   failureReasons?: string[];
 
   /**
-   * The recommended actions users can take to resolve an error in failureReasons.
+   * <p>A list of recommended actions to take for the failed API operation on the version to succeed.</p>
    * @public
    */
   recommendedActions?: string[];
 
   /**
-   * Configuration for prompt override.
+   * <p>Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced prompts</a>.</p>
    * @public
    */
   promptOverrideConfiguration?: PromptOverrideConfiguration;
 }
 
 /**
- * Summary of agent version.
+ * <p>Contains details about a version of an agent.</p>
  * @public
  */
 export interface AgentVersionSummary {
   /**
-   * Name for a resource.
+   * <p>The name of the agent to which the version belongs.</p>
    * @public
    */
   agentName: string | undefined;
 
   /**
-   * Schema Type for Action APIs.
+   * <p>The status of the agent to which the version belongs.</p>
    * @public
    */
   agentStatus: AgentStatus | undefined;
 
   /**
-   * Agent Version.
+   * <p>The version of the agent.</p>
    * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * Time Stamp.
+   * <p>The time at which the version was created.</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * Time Stamp.
+   * <p>The time at which the version was last updated.</p>
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * Description of the Resource.
+   * <p>The description of the version of the agent.</p>
    * @public
    */
   description?: string;
 }
 
 /**
- * Create Agent Alias Request
  * @public
  */
 export interface CreateAgentAliasRequest {
   /**
-   * Id generated at the server side when an Agent is created
+   * <p>The unique identifier of the agent.</p>
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * Name for a resource.
+   * <p>The name of the alias.</p>
    * @public
    */
   agentAliasName: string | undefined;
 
   /**
-   * Client specified token used for idempotency checks
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
+   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientToken?: string;
 
   /**
-   * Description of the Resource.
+   * <p>A description of the alias of the agent.</p>
    * @public
    */
   description?: string;
 
   /**
-   * Routing configuration for an Agent alias.
+   * <p>Contains details about the routing configuration of the alias.</p>
    * @public
    */
   routingConfiguration?: AgentAliasRoutingConfigurationListItem[];
 
   /**
-   * A map of tag keys and values
+   * <p>Any tags that you want to attach to the alias of the agent.</p>
    * @public
    */
   tags?: Record<string, string>;
 }
 
 /**
- * Create Agent Alias Response
  * @public
  */
 export interface CreateAgentAliasResponse {
   /**
-   * Contains the information of an agent alias
+   * <p>Contains details about the alias that was created.</p>
    * @public
    */
   agentAlias: AgentAlias | undefined;
 }
 
 /**
- * Delete Agent Alias Request
  * @public
  */
 export interface DeleteAgentAliasRequest {
   /**
-   * Id generated at the server side when an Agent is created
+   * <p>The unique identifier of the agent that the alias belongs to.</p>
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * Id generated at the server side when an Agent Alias is created
+   * <p>The unique identifier of the alias to delete.</p>
    * @public
    */
   agentAliasId: string | undefined;
 }
 
 /**
- * Delete Agent Alias Response
  * @public
  */
 export interface DeleteAgentAliasResponse {
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the agent that the alias belongs to.</p>
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * Id for an Agent Alias generated at the server side.
+   * <p>The unique identifier of the alias that was deleted.</p>
    * @public
    */
   agentAliasId: string | undefined;
 
   /**
-   * The statuses an Agent Alias can be in.
+   * <p>The status of the alias.</p>
    * @public
    */
   agentAliasStatus: AgentAliasStatus | undefined;
 }
 
 /**
- * Get Agent Alias Request
  * @public
  */
 export interface GetAgentAliasRequest {
   /**
-   * Id generated at the server side when an Agent is created
+   * <p>The unique identifier of the agent to which the alias to get information belongs.</p>
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * Id generated at the server side when an Agent Alias is created
+   * <p>The unique identifier of the alias for which to get information.</p>
    * @public
    */
   agentAliasId: string | undefined;
 }
 
 /**
- * Get Agent Alias Response
  * @public
  */
 export interface GetAgentAliasResponse {
   /**
-   * Contains the information of an agent alias
+   * <p>Contains information about the alias.</p>
    * @public
    */
   agentAlias: AgentAlias | undefined;
 }
 
 /**
- * List Agent Aliases Request
  * @public
  */
 export interface ListAgentAliasesRequest {
   /**
-   * Id generated at the server side when an Agent is created
+   * <p>The unique identifier of the agent.</p>
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * Max Results.
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
    * @public
    */
   maxResults?: number;
 
   /**
-   * Opaque continuation token of previous paginated response.
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
    * @public
    */
   nextToken?: string;
 }
 
 /**
- * List Agent Aliases Response
  * @public
  */
 export interface ListAgentAliasesResponse {
   /**
-   * The list of summaries of all the aliases for an Agent.
+   * <p>A list of objects, each of which contains information about an alias of the agent.</p>
    * @public
    */
   agentAliasSummaries: AgentAliasSummary[] | undefined;
 
   /**
-   * Opaque continuation token of previous paginated response.
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
    * @public
    */
   nextToken?: string;
 }
 
 /**
- * Update Agent Alias Request
  * @public
  */
 export interface UpdateAgentAliasRequest {
   /**
-   * Id generated at the server side when an Agent is created
+   * <p>The unique identifier of the agent.</p>
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * Id generated at the server side when an Agent Alias is created
+   * <p>The unique identifier of the alias.</p>
    * @public
    */
   agentAliasId: string | undefined;
 
   /**
-   * Name for a resource.
+   * <p>Specifies a new name for the alias.</p>
    * @public
    */
   agentAliasName: string | undefined;
 
   /**
-   * Description of the Resource.
+   * <p>Specifies a new description for the alias.</p>
    * @public
    */
   description?: string;
 
   /**
-   * Routing configuration for an Agent alias.
+   * <p>Contains details about the routing configuration of the alias.</p>
    * @public
    */
   routingConfiguration?: AgentAliasRoutingConfigurationListItem[];
 }
 
 /**
- * Update Agent Alias Response
  * @public
  */
 export interface UpdateAgentAliasResponse {
   /**
-   * Contains the information of an agent alias
+   * <p>Contains details about the alias that was updated.</p>
    * @public
    */
   agentAlias: AgentAlias | undefined;
 }
 
 /**
- * Configures an S3 data source location.
+ * <p>Contains information about the S3 configuration of the data source.</p>
  * @public
  */
 export interface S3DataSourceConfiguration {
   /**
-   * A S3 bucket ARN
+   * <p>The ARN of the bucket that contains the data source.</p>
    * @public
    */
   bucketArn: string | undefined;
 
   /**
-   * A list of S3 prefixes.
+   * <p>A list of S3 prefixes that define the object containing the data sources. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html">Organizing objects using prefixes</a>.</p>
    * @public
    */
   inclusionPrefixes?: string[];
@@ -1942,30 +1987,30 @@ export const DataSourceType = {
 export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType];
 
 /**
- * Specifies a raw data source location to ingest.
+ * <p>Contains details about how a data source is stored.</p>
  * @public
  */
 export interface DataSourceConfiguration {
   /**
-   * The type of the data source location.
+   * <p>The type of storage for the data source.</p>
    * @public
    */
   type: DataSourceType | undefined;
 
   /**
-   * Configures an S3 data source location.
+   * <p>Contains details about the configuration of the S3 object containing the data source.</p>
    * @public
    */
   s3Configuration?: S3DataSourceConfiguration;
 }
 
 /**
- * Server-side encryption configuration.
+ * <p>Contains the configuration for server-side encryption.</p>
  * @public
  */
 export interface ServerSideEncryptionConfiguration {
   /**
-   * A KMS key ARN
+   * <p>The ARN of the KMS key used to encrypt the resource.</p>
    * @public
    */
   kmsKeyArn?: string;
@@ -1986,48 +2031,58 @@ export const ChunkingStrategy = {
 export type ChunkingStrategy = (typeof ChunkingStrategy)[keyof typeof ChunkingStrategy];
 
 /**
- * Configures fixed size chunking strategy
+ * <p>Configurations for when you choose fixed-size chunking. If you set the <code>chunkingStrategy</code> as <code>NONE</code>, exclude this field.</p>
  * @public
  */
 export interface FixedSizeChunkingConfiguration {
   /**
-   * The maximum number of tokens per chunk.
+   * <p>The maximum number of tokens to include in a chunk.</p>
    * @public
    */
   maxTokens: number | undefined;
 
   /**
-   * The overlap percentage between adjacent chunks.
+   * <p>The percentage of overlap between adjacent chunks of a data source.</p>
    * @public
    */
   overlapPercentage: number | undefined;
 }
 
 /**
- * Configures chunking strategy
+ * <p>Details about how to chunk the documents in the data source. A <i>chunk</i> refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.</p>
  * @public
  */
 export interface ChunkingConfiguration {
   /**
-   * The type of chunking strategy
+   * <p>Knowledge base can split your source data into chunks. A <i>chunk</i> refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. You have the following options for chunking your data. If you opt for <code>NONE</code>, then you may want to pre-process your files by splitting them up such that each file corresponds to a chunk.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>FIXED_SIZE</code> – Amazon Bedrock splits your source data into chunks of the approximate size that you set in the <code>fixedSizeChunkingConfiguration</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> – Amazon Bedrock treats each file as one chunk. If you choose this option, you may want to pre-process your documents by splitting them into separate files.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   chunkingStrategy: ChunkingStrategy | undefined;
 
   /**
-   * Configures fixed size chunking strategy
+   * <p>Configurations for when you choose fixed-size chunking. If you set the <code>chunkingStrategy</code> as <code>NONE</code>, exclude this field.</p>
    * @public
    */
   fixedSizeChunkingConfiguration?: FixedSizeChunkingConfiguration;
 }
 
 /**
- * Configures ingestion for a vector knowledge base
+ * <p>Contains details about how to ingest the documents in a data source.</p>
  * @public
  */
 export interface VectorIngestionConfiguration {
   /**
-   * Configures chunking strategy
+   * <p>Details about how to chunk the documents in the data source. A <i>chunk</i> refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.</p>
    * @public
    */
   chunkingConfiguration?: ChunkingConfiguration;
@@ -2038,43 +2093,44 @@ export interface VectorIngestionConfiguration {
  */
 export interface CreateDataSourceRequest {
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the knowledge base to which to add the data source.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * Client specified token used for idempotency checks
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
+   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientToken?: string;
 
   /**
-   * Name for a resource.
+   * <p>The name of the data source.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * Description of the Resource.
+   * <p>A description of the data source.</p>
    * @public
    */
   description?: string;
 
   /**
-   * Specifies a raw data source location to ingest.
+   * <p>Contains metadata about where the data source is stored.</p>
    * @public
    */
   dataSourceConfiguration: DataSourceConfiguration | undefined;
 
   /**
-   * Server-side encryption configuration.
+   * <p>Contains details about the server-side encryption for the data source.</p>
    * @public
    */
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
 
   /**
-   * Configures ingestion for a vector knowledge base
+   * <p>Contains details about how to ingest the documents in the data source.</p>
    * @public
    */
   vectorIngestionConfiguration?: VectorIngestionConfiguration;
@@ -2095,66 +2151,74 @@ export const DataSourceStatus = {
 export type DataSourceStatus = (typeof DataSourceStatus)[keyof typeof DataSourceStatus];
 
 /**
- * Contains the information of a data source.
+ * <p>Contains details about a data source.</p>
  * @public
  */
 export interface DataSource {
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the knowledge base to which the data source belongs.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the data source.</p>
    * @public
    */
   dataSourceId: string | undefined;
 
   /**
-   * Name for a resource.
+   * <p>The name of the data source.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * The status of a data source.
+   * <p>The status of the data source. The following statuses are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Available – The data source has been created and is ready for ingestion into the knowledge base.</p>
+   *             </li>
+   *             <li>
+   *                <p>Deleting – The data source is being deleted.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   status: DataSourceStatus | undefined;
 
   /**
-   * Description of the Resource.
+   * <p>The description of the data source.</p>
    * @public
    */
   description?: string;
 
   /**
-   * Specifies a raw data source location to ingest.
+   * <p>Contains details about how the data source is stored.</p>
    * @public
    */
   dataSourceConfiguration: DataSourceConfiguration | undefined;
 
   /**
-   * Server-side encryption configuration.
+   * <p>Contains details about the configuration of the server-side encryption.</p>
    * @public
    */
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
 
   /**
-   * Configures ingestion for a vector knowledge base
+   * <p>Contains details about how to ingest the documents in the data source.</p>
    * @public
    */
   vectorIngestionConfiguration?: VectorIngestionConfiguration;
 
   /**
-   * Time Stamp.
+   * <p>The time at which the data source was created.</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * Time Stamp.
+   * <p>The time at which the data source was last updated.</p>
    * @public
    */
   updatedAt: Date | undefined;
@@ -2165,7 +2229,7 @@ export interface DataSource {
  */
 export interface CreateDataSourceResponse {
   /**
-   * Contains the information of a data source.
+   * <p>Contains details about the data source.</p>
    * @public
    */
   dataSource: DataSource | undefined;
@@ -2176,13 +2240,13 @@ export interface CreateDataSourceResponse {
  */
 export interface DeleteDataSourceRequest {
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the knowledge base from which to delete the data source.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the data source to delete.</p>
    * @public
    */
   dataSourceId: string | undefined;
@@ -2193,19 +2257,19 @@ export interface DeleteDataSourceRequest {
  */
 export interface DeleteDataSourceResponse {
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the knowledge base to which the data source that was deleted belonged.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the data source that was deleted.</p>
    * @public
    */
   dataSourceId: string | undefined;
 
   /**
-   * The status of a data source.
+   * <p>The status of the data source.</p>
    * @public
    */
   status: DataSourceStatus | undefined;
@@ -2216,13 +2280,13 @@ export interface DeleteDataSourceResponse {
  */
 export interface GetDataSourceRequest {
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the knowledge base that the data source was added to.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the data source.</p>
    * @public
    */
   dataSourceId: string | undefined;
@@ -2233,7 +2297,7 @@ export interface GetDataSourceRequest {
  */
 export interface GetDataSourceResponse {
   /**
-   * Contains the information of a data source.
+   * <p>Contains details about the data source.</p>
    * @public
    */
   dataSource: DataSource | undefined;
@@ -2244,61 +2308,61 @@ export interface GetDataSourceResponse {
  */
 export interface ListDataSourcesRequest {
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the knowledge base for which to return a list of information.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * Max Results.
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
    * @public
    */
   maxResults?: number;
 
   /**
-   * Opaque continuation token of previous paginated response.
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
    * @public
    */
   nextToken?: string;
 }
 
 /**
- * Summary information of a data source.
+ * <p>Contains details about a data source.</p>
  * @public
  */
 export interface DataSourceSummary {
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the knowledge base to which the data source belongs.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the data source.</p>
    * @public
    */
   dataSourceId: string | undefined;
 
   /**
-   * Name for a resource.
+   * <p>The name of the data source.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * The status of a data source.
+   * <p>The status of the data source.</p>
    * @public
    */
   status: DataSourceStatus | undefined;
 
   /**
-   * Description of the Resource.
+   * <p>The description of the data source.</p>
    * @public
    */
   description?: string;
 
   /**
-   * Time Stamp.
+   * <p>The time at which the data source was last updated.</p>
    * @public
    */
   updatedAt: Date | undefined;
@@ -2309,13 +2373,13 @@ export interface DataSourceSummary {
  */
 export interface ListDataSourcesResponse {
   /**
-   * list of data source summaries
+   * <p>A list of objects, each of which contains information about a data source.</p>
    * @public
    */
   dataSourceSummaries: DataSourceSummary[] | undefined;
 
   /**
-   * Opaque continuation token of previous paginated response.
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
    * @public
    */
   nextToken?: string;
@@ -2326,43 +2390,43 @@ export interface ListDataSourcesResponse {
  */
 export interface UpdateDataSourceRequest {
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the knowledge base to which the data source belongs.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the data source.</p>
    * @public
    */
   dataSourceId: string | undefined;
 
   /**
-   * Name for a resource.
+   * <p>Specifies a new name for the data source.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * Description of the Resource.
+   * <p>Specifies a new description for the data source.</p>
    * @public
    */
   description?: string;
 
   /**
-   * Specifies a raw data source location to ingest.
+   * <p>Contains details about the storage configuration of the data source.</p>
    * @public
    */
   dataSourceConfiguration: DataSourceConfiguration | undefined;
 
   /**
-   * Server-side encryption configuration.
+   * <p>Contains details about server-side encryption of the data source.</p>
    * @public
    */
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
 
   /**
-   * Configures ingestion for a vector knowledge base
+   * <p>Contains details about how to ingest the documents in the data source.</p>
    * @public
    */
   vectorIngestionConfiguration?: VectorIngestionConfiguration;
@@ -2373,7 +2437,7 @@ export interface UpdateDataSourceRequest {
  */
 export interface UpdateDataSourceResponse {
   /**
-   * Contains the information of a data source.
+   * <p>Contains details about the data source.</p>
    * @public
    */
   dataSource: DataSource | undefined;
@@ -2384,55 +2448,67 @@ export interface UpdateDataSourceResponse {
  */
 export interface GetIngestionJobRequest {
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the knowledge base for which the ingestion job applies.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the data source in the ingestion job.</p>
    * @public
    */
   dataSourceId: string | undefined;
 
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the ingestion job.</p>
    * @public
    */
   ingestionJobId: string | undefined;
 }
 
 /**
- * The document level statistics of an ingestion job
+ * <p>Contains the statistics for the ingestion job.</p>
  * @public
  */
 export interface IngestionJobStatistics {
   /**
-   * Number of scanned documents
+   * <p>The total number of source documents that were scanned. Includes new, updated, and unchanged documents.</p>
    * @public
    */
   numberOfDocumentsScanned?: number;
 
   /**
-   * Number of indexed documents
+   * <p>The total number of metadata files that were scanned. Includes new, updated, and unchanged files.</p>
+   * @public
+   */
+  numberOfMetadataDocumentsScanned?: number;
+
+  /**
+   * <p>The number of new source documents in the data source that were successfully indexed.</p>
    * @public
    */
   numberOfNewDocumentsIndexed?: number;
 
   /**
-   * Number of modified documents indexed
+   * <p>The number of modified source documents in the data source that were successfully indexed.</p>
    * @public
    */
   numberOfModifiedDocumentsIndexed?: number;
 
   /**
-   * Number of deleted documents
+   * <p>The number of metadata files that were updated or deleted.</p>
+   * @public
+   */
+  numberOfMetadataDocumentsModified?: number;
+
+  /**
+   * <p>The number of source documents that was deleted.</p>
    * @public
    */
   numberOfDocumentsDeleted?: number;
 
   /**
-   * Number of failed documents
+   * <p>The number of source documents that failed to be ingested.</p>
    * @public
    */
   numberOfDocumentsFailed?: number;
@@ -2455,60 +2531,78 @@ export const IngestionJobStatus = {
 export type IngestionJobStatus = (typeof IngestionJobStatus)[keyof typeof IngestionJobStatus];
 
 /**
- * Contains the information of an ingestion job.
+ * <p>Contains details about an ingestion job, which converts a data source to embeddings for a vector store in knowledge base.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_StartIngestionJob.html#API_agent_StartIngestionJob_ResponseSyntax">StartIngestionJob response</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetIngestionJob.html#API_agent_GetIngestionJob_ResponseSyntax">GetIngestionJob response</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListIngestionJob.html#API_agent_ListIngestionJob_ResponseSyntax">ListIngestionJob response</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export interface IngestionJob {
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the knowledge base to which the data source is being added.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the ingested data source.</p>
    * @public
    */
   dataSourceId: string | undefined;
 
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the ingestion job.</p>
    * @public
    */
   ingestionJobId: string | undefined;
 
   /**
-   * Description of the Resource.
+   * <p>The description of the ingestion job.</p>
    * @public
    */
   description?: string;
 
   /**
-   * The status of an ingestion job.
+   * <p>The status of the ingestion job.</p>
    * @public
    */
   status: IngestionJobStatus | undefined;
 
   /**
-   * The document level statistics of an ingestion job
+   * <p>Contains statistics about the ingestion job.</p>
    * @public
    */
   statistics?: IngestionJobStatistics;
 
   /**
-   * Failure Reasons for Error.
+   * <p>A list of reasons that the ingestion job failed.</p>
    * @public
    */
   failureReasons?: string[];
 
   /**
-   * Time Stamp.
+   * <p>The time at which the ingestion job started.</p>
    * @public
    */
   startedAt: Date | undefined;
 
   /**
-   * Time Stamp.
+   * <p>The time at which the ingestion job was last updated.</p>
    * @public
    */
   updatedAt: Date | undefined;
@@ -2519,7 +2613,7 @@ export interface IngestionJob {
  */
 export interface GetIngestionJobResponse {
   /**
-   * Contains the information of an ingestion job.
+   * <p>Contains details about the ingestion job.</p>
    * @public
    */
   ingestionJob: IngestionJob | undefined;
@@ -2553,24 +2647,24 @@ export const IngestionJobFilterOperator = {
 export type IngestionJobFilterOperator = (typeof IngestionJobFilterOperator)[keyof typeof IngestionJobFilterOperator];
 
 /**
- * Filters the response returned by ListIngestionJobs operation.
+ * <p>Defines a filter by which to filter the results.</p>
  * @public
  */
 export interface IngestionJobFilter {
   /**
-   * The name of the field to filter ingestion jobs.
+   * <p>The attribute by which to filter the results.</p>
    * @public
    */
   attribute: IngestionJobFilterAttribute | undefined;
 
   /**
-   * The operator used to filter ingestion jobs.
+   * <p>The operation to carry out between the attribute and the values.</p>
    * @public
    */
   operator: IngestionJobFilterOperator | undefined;
 
   /**
-   * The list of values used to filter ingestion jobs.
+   * <p>A list of values for the attribute.</p>
    * @public
    */
   values: string[] | undefined;
@@ -2606,18 +2700,18 @@ export const SortOrder = {
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
- * Sorts the response returned by ListIngestionJobs operation.
+ * <p>Parameters by which to sort the results.</p>
  * @public
  */
 export interface IngestionJobSortBy {
   /**
-   * The name of the field to sort ingestion jobs.
+   * <p>The attribute by which to sort the results.</p>
    * @public
    */
   attribute: IngestionJobSortByAttribute | undefined;
 
   /**
-   * Order to sort results by.
+   * <p>The order by which to sort the results.</p>
    * @public
    */
   order: SortOrder | undefined;
@@ -2628,91 +2722,91 @@ export interface IngestionJobSortBy {
  */
 export interface ListIngestionJobsRequest {
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the knowledge base for which to return ingestion jobs.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the data source for which to return ingestion jobs.</p>
    * @public
    */
   dataSourceId: string | undefined;
 
   /**
-   * List of IngestionJobFilters
+   * <p>Contains a definition of a filter for which to filter the results.</p>
    * @public
    */
   filters?: IngestionJobFilter[];
 
   /**
-   * Sorts the response returned by ListIngestionJobs operation.
+   * <p>Contains details about how to sort the results.</p>
    * @public
    */
   sortBy?: IngestionJobSortBy;
 
   /**
-   * Max Results.
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
    * @public
    */
   maxResults?: number;
 
   /**
-   * Opaque continuation token of previous paginated response.
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
    * @public
    */
   nextToken?: string;
 }
 
 /**
- * Summary information of an ingestion job.
+ * <p>Contains details about an ingestion job.</p>
  * @public
  */
 export interface IngestionJobSummary {
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the knowledge base to which the data source is added.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the data source in the ingestion job.</p>
    * @public
    */
   dataSourceId: string | undefined;
 
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the ingestion job.</p>
    * @public
    */
   ingestionJobId: string | undefined;
 
   /**
-   * Description of the Resource.
+   * <p>The description of the ingestion job.</p>
    * @public
    */
   description?: string;
 
   /**
-   * The status of an ingestion job.
+   * <p>The status of the ingestion job.</p>
    * @public
    */
   status: IngestionJobStatus | undefined;
 
   /**
-   * Time Stamp.
+   * <p>The time at which the ingestion job was started.</p>
    * @public
    */
   startedAt: Date | undefined;
 
   /**
-   * Time Stamp.
+   * <p>The time at which the ingestion job was last updated.</p>
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * The document level statistics of an ingestion job
+   * <p>Contains statistics for the ingestion job.</p>
    * @public
    */
   statistics?: IngestionJobStatistics;
@@ -2723,13 +2817,13 @@ export interface IngestionJobSummary {
  */
 export interface ListIngestionJobsResponse {
   /**
-   * List of IngestionJobSummaries
+   * <p>A list of objects, each of which contains information about an ingestion job.</p>
    * @public
    */
   ingestionJobSummaries: IngestionJobSummary[] | undefined;
 
   /**
-   * Opaque continuation token of previous paginated response.
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
    * @public
    */
   nextToken?: string;
@@ -2740,25 +2834,26 @@ export interface ListIngestionJobsResponse {
  */
 export interface StartIngestionJobRequest {
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the knowledge base to which to add the data source.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the data source to ingest.</p>
    * @public
    */
   dataSourceId: string | undefined;
 
   /**
-   * Client specified token used for idempotency checks
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
+   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientToken?: string;
 
   /**
-   * Description of the Resource.
+   * <p>A description of the ingestion job.</p>
    * @public
    */
   description?: string;
@@ -2769,55 +2864,53 @@ export interface StartIngestionJobRequest {
  */
 export interface StartIngestionJobResponse {
   /**
-   * Contains the information of an ingestion job.
+   * <p>An object containing information about the ingestion job.</p>
    * @public
    */
   ingestionJob: IngestionJob | undefined;
 }
 
 /**
- * Associate Agent Knowledge Base Request
  * @public
  */
 export interface AssociateAgentKnowledgeBaseRequest {
   /**
-   * Id generated at the server side when an Agent is created
+   * <p>The unique identifier of the agent with which you want to associate the knowledge base.</p>
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * Draft Version of the Agent.
+   * <p>The version of the agent with which you want to associate the knowledge base.</p>
    * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the knowledge base to associate with the agent.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * Description of the Resource.
+   * <p>A description of what the agent should use the knowledge base for.</p>
    * @public
    */
   description: string | undefined;
 
   /**
-   * State of the knowledge base; whether it is enabled or disabled
+   * <p>Specifies whether to use the knowledge base or not when sending an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html">InvokeAgent</a> request.</p>
    * @public
    */
   knowledgeBaseState?: KnowledgeBaseState;
 }
 
 /**
- * Associate Agent Knowledge Base Response
  * @public
  */
 export interface AssociateAgentKnowledgeBaseResponse {
   /**
-   * Contains the information of an Agent Knowledge Base.
+   * <p>Contains details about the knowledge base that has been associated with the agent.</p>
    * @public
    */
   agentKnowledgeBase: AgentKnowledgeBase | undefined;
@@ -2837,246 +2930,246 @@ export const KnowledgeBaseType = {
 export type KnowledgeBaseType = (typeof KnowledgeBaseType)[keyof typeof KnowledgeBaseType];
 
 /**
- * Configurations for a vector knowledge base.
+ * <p>Contains details about the model used to create vector embeddings for the knowledge base.</p>
  * @public
  */
 export interface VectorKnowledgeBaseConfiguration {
   /**
-   * Arn of a Bedrock model.
+   * <p>The ARN of the model used to create vector embeddings for the knowledge base.</p>
    * @public
    */
   embeddingModelArn: string | undefined;
 }
 
 /**
- * Configures a bedrock knowledge base.
+ * <p>Contains details about the embeddings configuration of the knowledge base.</p>
  * @public
  */
 export interface KnowledgeBaseConfiguration {
   /**
-   * The type of a knowledge base.
+   * <p>The type of data that the data source is converted into for the knowledge base.</p>
    * @public
    */
   type: KnowledgeBaseType | undefined;
 
   /**
-   * Configurations for a vector knowledge base.
+   * <p>Contains details about the embeddings model that'sused to convert the data source.</p>
    * @public
    */
   vectorKnowledgeBaseConfiguration?: VectorKnowledgeBaseConfiguration;
 }
 
 /**
- * A mapping of Bedrock Knowledge Base fields to OpenSearch Serverless field names
+ * <p>Contains the names of the fields to which to map information about the vector store.</p>
  * @public
  */
 export interface OpenSearchServerlessFieldMapping {
   /**
-   * Name of the field
+   * <p>The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.</p>
    * @public
    */
   vectorField: string | undefined;
 
   /**
-   * Name of the field
+   * <p>The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.</p>
    * @public
    */
   textField: string | undefined;
 
   /**
-   * Name of the field
+   * <p>The name of the field in which Amazon Bedrock stores metadata about the vector store.</p>
    * @public
    */
   metadataField: string | undefined;
 }
 
 /**
- * Contains the configurations to use OpenSearch Serverless to store knowledge base data.
+ * <p>Contains details about the storage configuration of the knowledge base in Amazon OpenSearch Service. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-oss.html">Create a vector index in Amazon OpenSearch Service</a>.</p>
  * @public
  */
 export interface OpenSearchServerlessConfiguration {
   /**
-   * Arn of an OpenSearch Serverless collection.
+   * <p>The ARN of the OpenSearch Service vector store.</p>
    * @public
    */
   collectionArn: string | undefined;
 
   /**
-   * Arn of an OpenSearch Serverless index.
+   * <p>The name of the vector store.</p>
    * @public
    */
   vectorIndexName: string | undefined;
 
   /**
-   * A mapping of Bedrock Knowledge Base fields to OpenSearch Serverless field names
+   * <p>Contains the names of the fields to which to map information about the vector store.</p>
    * @public
    */
   fieldMapping: OpenSearchServerlessFieldMapping | undefined;
 }
 
 /**
- * A mapping of Bedrock Knowledge Base fields to Pinecone field names
+ * <p>Contains the names of the fields to which to map information about the vector store.</p>
  * @public
  */
 export interface PineconeFieldMapping {
   /**
-   * Name of the field
+   * <p>The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.</p>
    * @public
    */
   textField: string | undefined;
 
   /**
-   * Name of the field
+   * <p>The name of the field in which Amazon Bedrock stores metadata about the vector store.</p>
    * @public
    */
   metadataField: string | undefined;
 }
 
 /**
- * Contains the configurations to use Pinecone to store knowledge base data.
+ * <p>Contains details about the storage configuration of the knowledge base in Pinecone. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-pinecone.html">Create a vector index in Pinecone</a>.</p>
  * @public
  */
 export interface PineconeConfiguration {
   /**
-   * Pinecone connection string
+   * <p>The endpoint URL for your index management page.</p>
    * @public
    */
   connectionString: string | undefined;
 
   /**
-   * Arn of a SecretsManager Secret.
+   * <p>The ARN of the secret that you created in Secrets Manager that is linked to your Pinecone API key.</p>
    * @public
    */
   credentialsSecretArn: string | undefined;
 
   /**
-   * Pinecone namespace
+   * <p>The namespace to be used to write new data to your database.</p>
    * @public
    */
   namespace?: string;
 
   /**
-   * A mapping of Bedrock Knowledge Base fields to Pinecone field names
+   * <p>Contains the names of the fields to which to map information about the vector store.</p>
    * @public
    */
   fieldMapping: PineconeFieldMapping | undefined;
 }
 
 /**
- * A mapping of Bedrock Knowledge Base fields to RDS column names
+ * <p>Contains the names of the fields to which to map information about the vector store.</p>
  * @public
  */
 export interface RdsFieldMapping {
   /**
-   * Name of the column
+   * <p>The name of the field in which Amazon Bedrock stores the ID for each entry.</p>
    * @public
    */
   primaryKeyField: string | undefined;
 
   /**
-   * Name of the column
+   * <p>The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.</p>
    * @public
    */
   vectorField: string | undefined;
 
   /**
-   * Name of the column
+   * <p>The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.</p>
    * @public
    */
   textField: string | undefined;
 
   /**
-   * Name of the column
+   * <p>The name of the field in which Amazon Bedrock stores metadata about the vector store.</p>
    * @public
    */
   metadataField: string | undefined;
 }
 
 /**
- * Contains the configurations to use RDS to store knowledge base data.
+ * <p>Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html">Create a vector index in Amazon RDS</a>.</p>
  * @public
  */
 export interface RdsConfiguration {
   /**
-   * Arn of a RDS Resource.
+   * <p>The ARN of the vector store.</p>
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * Arn of a SecretsManager Secret.
+   * <p>The ARN of the secret that you created in Secrets Manager that is linked to your Amazon RDS database.</p>
    * @public
    */
   credentialsSecretArn: string | undefined;
 
   /**
-   * Name of the database within RDS
+   * <p>The name of your Amazon RDS database.</p>
    * @public
    */
   databaseName: string | undefined;
 
   /**
-   * Name of the table within RDS
+   * <p>The name of the table in the database.</p>
    * @public
    */
   tableName: string | undefined;
 
   /**
-   * A mapping of Bedrock Knowledge Base fields to RDS column names
+   * <p>Contains the names of the fields to which to map information about the vector store.</p>
    * @public
    */
   fieldMapping: RdsFieldMapping | undefined;
 }
 
 /**
- * A mapping of Bedrock Knowledge Base fields to Redis Cloud field names
+ * <p>Contains the names of the fields to which to map information about the vector store.</p>
  * @public
  */
 export interface RedisEnterpriseCloudFieldMapping {
   /**
-   * Name of the field
+   * <p>The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.</p>
    * @public
    */
   vectorField: string | undefined;
 
   /**
-   * Name of the field
+   * <p>The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.</p>
    * @public
    */
   textField: string | undefined;
 
   /**
-   * Name of the field
+   * <p>The name of the field in which Amazon Bedrock stores metadata about the vector store.</p>
    * @public
    */
   metadataField: string | undefined;
 }
 
 /**
- * Contains the configurations to use Redis Enterprise Cloud to store knowledge base data.
+ * <p>Contains details about the storage configuration of the knowledge base in Redis Enterprise Cloud. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-oss.html">Create a vector index in Redis Enterprise Cloud</a>.</p>
  * @public
  */
 export interface RedisEnterpriseCloudConfiguration {
   /**
-   * Redis enterprise cloud endpoint
+   * <p>The endpoint URL of the Redis Enterprise Cloud database.</p>
    * @public
    */
   endpoint: string | undefined;
 
   /**
-   * Name of a redis enterprise cloud index
+   * <p>The name of the vector index.</p>
    * @public
    */
   vectorIndexName: string | undefined;
 
   /**
-   * Arn of a SecretsManager Secret.
+   * <p>The ARN of the secret that you created in Secrets Manager that is linked to your Redis Enterprise Cloud database.</p>
    * @public
    */
   credentialsSecretArn: string | undefined;
 
   /**
-   * A mapping of Bedrock Knowledge Base fields to Redis Cloud field names
+   * <p>Contains the names of the fields to which to map information about the vector store.</p>
    * @public
    */
   fieldMapping: RedisEnterpriseCloudFieldMapping | undefined;
@@ -3099,36 +3192,36 @@ export const KnowledgeBaseStorageType = {
 export type KnowledgeBaseStorageType = (typeof KnowledgeBaseStorageType)[keyof typeof KnowledgeBaseStorageType];
 
 /**
- * Configures the physical storage of ingested data in a knowledge base.
+ * <p>Contains the storage configuration of the knowledge base.</p>
  * @public
  */
 export interface StorageConfiguration {
   /**
-   * The storage type of a knowledge base.
+   * <p>The vector store service in which the knowledge base is stored.</p>
    * @public
    */
   type: KnowledgeBaseStorageType | undefined;
 
   /**
-   * Contains the configurations to use OpenSearch Serverless to store knowledge base data.
+   * <p>Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.</p>
    * @public
    */
   opensearchServerlessConfiguration?: OpenSearchServerlessConfiguration;
 
   /**
-   * Contains the configurations to use Pinecone to store knowledge base data.
+   * <p>Contains the storage configuration of the knowledge base in Pinecone.</p>
    * @public
    */
   pineconeConfiguration?: PineconeConfiguration;
 
   /**
-   * Contains the configurations to use Redis Enterprise Cloud to store knowledge base data.
+   * <p>Contains the storage configuration of the knowledge base in Redis Enterprise Cloud.</p>
    * @public
    */
   redisEnterpriseCloudConfiguration?: RedisEnterpriseCloudConfiguration;
 
   /**
-   * Contains the configurations to use RDS to store knowledge base data.
+   * <p>Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html">Create a vector index in Amazon RDS</a>.</p>
    * @public
    */
   rdsConfiguration?: RdsConfiguration;
@@ -3139,43 +3232,44 @@ export interface StorageConfiguration {
  */
 export interface CreateKnowledgeBaseRequest {
   /**
-   * Client specified token used for idempotency checks
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
+   *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
   clientToken?: string;
 
   /**
-   * Name for a resource.
+   * <p>A name for the knowledge base.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * Description of the Resource.
+   * <p>A description of the knowledge base.</p>
    * @public
    */
   description?: string;
 
   /**
-   * ARN of a IAM role.
+   * <p>The ARN of the IAM role with permissions to create the knowledge base.</p>
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * Configures a bedrock knowledge base.
+   * <p>Contains details about the embeddings model used for the knowledge base.</p>
    * @public
    */
   knowledgeBaseConfiguration: KnowledgeBaseConfiguration | undefined;
 
   /**
-   * Configures the physical storage of ingested data in a knowledge base.
+   * <p>Contains details about the configuration of the vector database used for the knowledge base.</p>
    * @public
    */
   storageConfiguration: StorageConfiguration | undefined;
 
   /**
-   * A map of tag keys and values
+   * <p>Specify the key-value pairs for the tags that you want to attach to your knowledge base in this object.</p>
    * @public
    */
   tags?: Record<string, string>;
@@ -3199,72 +3293,89 @@ export const KnowledgeBaseStatus = {
 export type KnowledgeBaseStatus = (typeof KnowledgeBaseStatus)[keyof typeof KnowledgeBaseStatus];
 
 /**
- * Contains the information of a knowledge base.
+ * <p>Contains information about a knowledge base.</p>
  * @public
  */
 export interface KnowledgeBase {
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the knowledge base.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * Name for a resource.
+   * <p>The name of the knowledge base.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * ARN of a KnowledgeBase
+   * <p>The ARN of the knowledge base.</p>
    * @public
    */
   knowledgeBaseArn: string | undefined;
 
   /**
-   * Description of the Resource.
+   * <p>The description of the knowledge base.</p>
    * @public
    */
   description?: string;
 
   /**
-   * ARN of a IAM role.
+   * <p>The ARN of the IAM role with permissions to invoke API operations on the knowledge base. The ARN must begin with <code>AmazonBedrockExecutionRoleForKnowledgeBase_</code>.</p>
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * Configures a bedrock knowledge base.
+   * <p>Contains details about the embeddings configuration of the knowledge base.</p>
    * @public
    */
   knowledgeBaseConfiguration: KnowledgeBaseConfiguration | undefined;
 
   /**
-   * Configures the physical storage of ingested data in a knowledge base.
+   * <p>Contains details about the storage configuration of the knowledge base.</p>
    * @public
    */
   storageConfiguration: StorageConfiguration | undefined;
 
   /**
-   * The status of a knowledge base.
+   * <p>The status of the knowledge base. The following statuses are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>CREATING – The knowledge base is being created.</p>
+   *             </li>
+   *             <li>
+   *                <p>ACTIVE – The knowledge base is ready to be queried.</p>
+   *             </li>
+   *             <li>
+   *                <p>DELETING – The knowledge base is being deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>UPDATING – The knowledge base is being updated.</p>
+   *             </li>
+   *             <li>
+   *                <p>FAILED – The knowledge base API operation failed.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   status: KnowledgeBaseStatus | undefined;
 
   /**
-   * Time Stamp.
+   * <p>The time at which the knowledge base was created.</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * Time Stamp.
+   * <p>The time at which the knowledge base was last updated.</p>
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * Failure Reasons for Error.
+   * <p>A list of reasons that the API operation on the knowledge base failed.</p>
    * @public
    */
   failureReasons?: string[];
@@ -3275,7 +3386,7 @@ export interface KnowledgeBase {
  */
 export interface CreateKnowledgeBaseResponse {
   /**
-   * Contains the information of a knowledge base.
+   * <p>Contains details about the knowledge base.</p>
    * @public
    */
   knowledgeBase: KnowledgeBase | undefined;
@@ -3286,7 +3397,7 @@ export interface CreateKnowledgeBaseResponse {
  */
 export interface DeleteKnowledgeBaseRequest {
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the knowledge base to delete.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -3297,79 +3408,75 @@ export interface DeleteKnowledgeBaseRequest {
  */
 export interface DeleteKnowledgeBaseResponse {
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the knowledge base that was deleted.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * The status of a knowledge base.
+   * <p>The status of the knowledge base and whether it has been successfully deleted.</p>
    * @public
    */
   status: KnowledgeBaseStatus | undefined;
 }
 
 /**
- * Disassociate Agent Knowledge Base Request
  * @public
  */
 export interface DisassociateAgentKnowledgeBaseRequest {
   /**
-   * Id generated at the server side when an Agent is created
+   * <p>The unique identifier of the agent from which to disassociate the knowledge base.</p>
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * Draft Version of the Agent.
+   * <p>The version of the agent from which to disassociate the knowledge base.</p>
    * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * Id generated at the server side when a Knowledge Base is associated to an Agent
+   * <p>The unique identifier of the knowledge base to disassociate.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 }
 
 /**
- * Disassociate Agent Knowledge Base Response
  * @public
  */
 export interface DisassociateAgentKnowledgeBaseResponse {}
 
 /**
- * Get Agent Knowledge Base Request
  * @public
  */
 export interface GetAgentKnowledgeBaseRequest {
   /**
-   * Id generated at the server side when an Agent is created
+   * <p>The unique identifier of the agent with which the knowledge base is associated.</p>
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * Version number generated when a version is created
+   * <p>The version of the agent with which the knowledge base is associated.</p>
    * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * Id generated at the server side when a Knowledge Base is associated
+   * <p>The unique identifier of the knowledge base associated with the agent.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 }
 
 /**
- * Get Agent Knowledge Base Response
  * @public
  */
 export interface GetAgentKnowledgeBaseResponse {
   /**
-   * Contains the information of an Agent Knowledge Base.
+   * <p>Contains details about a knowledge base attached to an agent.</p>
    * @public
    */
   agentKnowledgeBase: AgentKnowledgeBase | undefined;
@@ -3380,7 +3487,7 @@ export interface GetAgentKnowledgeBaseResponse {
  */
 export interface GetKnowledgeBaseRequest {
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the knowledge base for which to get information.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -3391,55 +3498,53 @@ export interface GetKnowledgeBaseRequest {
  */
 export interface GetKnowledgeBaseResponse {
   /**
-   * Contains the information of a knowledge base.
+   * <p>Contains details about the knowledge base.</p>
    * @public
    */
   knowledgeBase: KnowledgeBase | undefined;
 }
 
 /**
- * List Agent Knowledge Bases Request
  * @public
  */
 export interface ListAgentKnowledgeBasesRequest {
   /**
-   * Id generated at the server side when an Agent is created
+   * <p>The unique identifier of the agent for which to return information about knowledge bases associated with it.</p>
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * Version number generated when a version is created
+   * <p>The version of the agent for which to return information about knowledge bases associated with it.</p>
    * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * Max Results.
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
    * @public
    */
   maxResults?: number;
 
   /**
-   * Opaque continuation token of previous paginated response.
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
    * @public
    */
   nextToken?: string;
 }
 
 /**
- * List Agent Knowledge Bases Response
  * @public
  */
 export interface ListAgentKnowledgeBasesResponse {
   /**
-   * List of Agent Knowledge Base Summaries
+   * <p>A list of objects, each of which contains information about a knowledge base associated with the agent.</p>
    * @public
    */
   agentKnowledgeBaseSummaries: AgentKnowledgeBaseSummary[] | undefined;
 
   /**
-   * Opaque continuation token of previous paginated response.
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
    * @public
    */
   nextToken?: string;
@@ -3450,49 +3555,49 @@ export interface ListAgentKnowledgeBasesResponse {
  */
 export interface ListKnowledgeBasesRequest {
   /**
-   * Max Results.
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
    * @public
    */
   maxResults?: number;
 
   /**
-   * Opaque continuation token of previous paginated response.
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
    * @public
    */
   nextToken?: string;
 }
 
 /**
- * Summary information of a knowledge base.
+ * <p>Contains details about a knowledge base.</p>
  * @public
  */
 export interface KnowledgeBaseSummary {
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the knowledge base.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * Name for a resource.
+   * <p>The name of the knowledge base.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * Description of the Resource.
+   * <p>The description of the knowledge base.</p>
    * @public
    */
   description?: string;
 
   /**
-   * The status of a knowledge base.
+   * <p>The status of the knowledge base.</p>
    * @public
    */
   status: KnowledgeBaseStatus | undefined;
 
   /**
-   * Time Stamp.
+   * <p>The time at which the knowledge base was last updated.</p>
    * @public
    */
   updatedAt: Date | undefined;
@@ -3503,61 +3608,59 @@ export interface KnowledgeBaseSummary {
  */
 export interface ListKnowledgeBasesResponse {
   /**
-   * List of KnowledgeBaseSummaries
+   * <p>A list of objects, each of which contains information about a knowledge base.</p>
    * @public
    */
   knowledgeBaseSummaries: KnowledgeBaseSummary[] | undefined;
 
   /**
-   * Opaque continuation token of previous paginated response.
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
    * @public
    */
   nextToken?: string;
 }
 
 /**
- * Update Agent Knowledge Base Request
  * @public
  */
 export interface UpdateAgentKnowledgeBaseRequest {
   /**
-   * Id generated at the server side when an Agent is created
+   * <p>The unique identifier of the agent associated with the knowledge base that you want to update.</p>
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * Draft Version of the Agent.
+   * <p>The version of the agent associated with the knowledge base that you want to update.</p>
    * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * Id generated at the server side when a Knowledge Base is associated to an Agent
+   * <p>The unique identifier of the knowledge base that has been associated with an agent.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * Description of the Resource.
+   * <p>Specifies a new description for the knowledge base associated with an agent.</p>
    * @public
    */
   description?: string;
 
   /**
-   * State of the knowledge base; whether it is enabled or disabled
+   * <p>Specifies whether the agent uses the knowledge base or not when sending an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html">InvokeAgent</a> request.</p>
    * @public
    */
   knowledgeBaseState?: KnowledgeBaseState;
 }
 
 /**
- * Update Agent Knowledge Base Response
  * @public
  */
 export interface UpdateAgentKnowledgeBaseResponse {
   /**
-   * Contains the information of an Agent Knowledge Base.
+   * <p>Contains details about the knowledge base that has been associated with an agent.</p>
    * @public
    */
   agentKnowledgeBase: AgentKnowledgeBase | undefined;
@@ -3568,37 +3671,37 @@ export interface UpdateAgentKnowledgeBaseResponse {
  */
 export interface UpdateKnowledgeBaseRequest {
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the knowledge base to update.</p>
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * Name for a resource.
+   * <p>Specifies a new name for the knowledge base.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * Description of the Resource.
+   * <p>Specifies a new description for the knowledge base.</p>
    * @public
    */
   description?: string;
 
   /**
-   * ARN of a IAM role.
+   * <p>Specifies a different Amazon Resource Name (ARN) of the IAM role with permissions to modify the knowledge base.</p>
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * Configures a bedrock knowledge base.
+   * <p>Specifies the configuration for the embeddings model used for the knowledge base. You must use the same configuration as when the knowledge base was created.</p>
    * @public
    */
   knowledgeBaseConfiguration: KnowledgeBaseConfiguration | undefined;
 
   /**
-   * Configures the physical storage of ingested data in a knowledge base.
+   * <p>Specifies the configuration for the vector store used for the knowledge base. You must use the same configuration as when the knowledge base was created.</p>
    * @public
    */
   storageConfiguration: StorageConfiguration | undefined;
@@ -3609,7 +3712,7 @@ export interface UpdateKnowledgeBaseRequest {
  */
 export interface UpdateKnowledgeBaseResponse {
   /**
-   * Contains the information of a knowledge base.
+   * <p>Contains details about the knowledge base.</p>
    * @public
    */
   knowledgeBase: KnowledgeBase | undefined;
@@ -3620,7 +3723,7 @@ export interface UpdateKnowledgeBaseResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * ARN of Taggable resources: [Agent, AgentAlias, Knowledge-Base]
+   * <p>The ARN of the resource for which to list tags.</p>
    * @public
    */
   resourceArn: string | undefined;
@@ -3631,7 +3734,7 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * A map of tag keys and values
+   * <p>The key-value pairs for the tags associated with the resource.</p>
    * @public
    */
   tags?: Record<string, string>;
@@ -3642,13 +3745,13 @@ export interface ListTagsForResourceResponse {
  */
 export interface TagResourceRequest {
   /**
-   * ARN of Taggable resources: [Agent, AgentAlias, Knowledge-Base]
+   * <p>The ARN of the resource to tag.</p>
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * A map of tag keys and values
+   * <p>An object containing key-value pairs that define the tags to attach to the resource.</p>
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -3664,13 +3767,13 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * ARN of Taggable resources: [Agent, AgentAlias, Knowledge-Base]
+   * <p>The ARN of the resource from which to remove tags.</p>
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * List of Tag Keys
+   * <p>A list of keys of the tags to remove from the resource.</p>
    * @public
    */
   tagKeys: string[] | undefined;
@@ -3682,120 +3785,114 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 /**
- * Delete Agent Version Request
  * @public
  */
 export interface DeleteAgentVersionRequest {
   /**
-   * Id generated at the server side when an Agent is created
+   * <p>The unique identifier of the agent that the version belongs to.</p>
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * Numerical Agent Version.
+   * <p>The version of the agent to delete.</p>
    * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * Skips checking if resource is in use when set to true. Defaults to false
+   * <p>By default, this value is <code>false</code> and deletion is stopped if the resource is in use. If you set it to <code>true</code>, the resource will be deleted even if the resource is in use.</p>
    * @public
    */
   skipResourceInUseCheck?: boolean;
 }
 
 /**
- * Delete Agent Version Response
  * @public
  */
 export interface DeleteAgentVersionResponse {
   /**
-   * Identifier for a resource.
+   * <p>The unique identifier of the agent that the version belongs to.</p>
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * Numerical Agent Version.
+   * <p>The version that was deleted.</p>
    * @public
    */
   agentVersion: string | undefined;
 
   /**
-   * Schema Type for Action APIs.
+   * <p>The status of the agent version.</p>
    * @public
    */
   agentStatus: AgentStatus | undefined;
 }
 
 /**
- * Get Agent Version Request
  * @public
  */
 export interface GetAgentVersionRequest {
   /**
-   * Id generated at the server side when an Agent is created
+   * <p>The unique identifier of the agent.</p>
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * Numerical Agent Version.
+   * <p>The version of the agent.</p>
    * @public
    */
   agentVersion: string | undefined;
 }
 
 /**
- * Get Agent Version Response
  * @public
  */
 export interface GetAgentVersionResponse {
   /**
-   * Contains the information of an agent version.
+   * <p>Contains details about the version of the agent.</p>
    * @public
    */
   agentVersion: AgentVersion | undefined;
 }
 
 /**
- * List Agent Versions Request
  * @public
  */
 export interface ListAgentVersionsRequest {
   /**
-   * Id generated at the server side when an Agent is created
+   * <p>The unique identifier of the agent.</p>
    * @public
    */
   agentId: string | undefined;
 
   /**
-   * Max Results.
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
    * @public
    */
   maxResults?: number;
 
   /**
-   * Opaque continuation token of previous paginated response.
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
    * @public
    */
   nextToken?: string;
 }
 
 /**
- * List Agent Versions Response
  * @public
  */
 export interface ListAgentVersionsResponse {
   /**
-   * List of AgentVersionSummary.
+   * <p>A list of objects, each of which contains information about a version of the agent.</p>
    * @public
    */
   agentVersionSummaries: AgentVersionSummary[] | undefined;
 
   /**
-   * Opaque continuation token of previous paginated response.
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
    * @public
    */
   nextToken?: string;

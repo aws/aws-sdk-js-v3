@@ -27,7 +27,38 @@ export interface CreateKnowledgeBaseCommandInput extends CreateKnowledgeBaseRequ
 export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseResponse, __MetadataBearer {}
 
 /**
- * Create a new knowledge base
+ * <p>Creates a knowledge base that contains data sources from which information can be queried and used by LLMs. To create a knowledge base, you must first set up your data sources and configure a supported vector store. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html">Set up your data for ingestion</a>.</p>
+ *          <note>
+ *             <p>If you prefer to let Amazon Bedrock create and manage a vector store for you in Amazon OpenSearch Service, use the console. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-create">Create a knowledge base</a>.</p>
+ *          </note>
+ *          <ul>
+ *             <li>
+ *                <p>Provide the <code>name</code> and an optional <code>description</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Provide the ARN with permissions to create a knowledge base in the <code>roleArn</code> field.</p>
+ *             </li>
+ *             <li>
+ *                <p>Provide the embedding model to use in the <code>embeddingModelArn</code> field in the <code>knowledgeBaseConfiguration</code> object.</p>
+ *             </li>
+ *             <li>
+ *                <p>Provide the configuration for your vector store in the <code>storageConfiguration</code> object.</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>For an Amazon OpenSearch Service database, use the <code>opensearchServerlessConfiguration</code> object. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-oss.html">Create a vector store in Amazon OpenSearch Service</a>.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>For an Amazon Aurora database, use the <code>RdsConfiguration</code> object. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html">Create a vector store in Amazon Aurora</a>.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>For a Pinecone database, use the <code>pineconeConfiguration</code> object. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-pinecone.html">Create a vector store in Pinecone</a>.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>For a Redis Enterprise Cloud database, use the <code>redisEnterpriseCloudConfiguration</code> object. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-redis.html">Create a vector store in Redis Enterprise Cloud</a>.</p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -168,22 +199,22 @@ export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseRes
  * @see {@link BedrockAgentClientResolvedConfig | config} for BedrockAgentClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  This exception is thrown when a request is denied per access permissions
+ *  <p>The request is denied because of missing access permissions.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  This exception is thrown when there is a conflict performing an operation
+ *  <p>There was a conflict performing an operation.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  This exception is thrown if there was an unexpected error during processing of request
+ *  <p>An internal server error occurred. Retry your request.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  This exception is thrown when a request is made beyond the service quota
+ *  <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  This exception is thrown when the number of requests exceeds the limit
+ *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  This exception is thrown when the request's input validation fails
+ *  <p>Input validation failed. Check your request parameters and retry the request.</p>
  *
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>

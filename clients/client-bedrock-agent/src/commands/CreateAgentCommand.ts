@@ -32,7 +32,30 @@ export interface CreateAgentCommandInput extends CreateAgentRequest {}
 export interface CreateAgentCommandOutput extends CreateAgentResponse, __MetadataBearer {}
 
 /**
- * Creates an Amazon Bedrock Agent
+ * <p>Creates an agent that orchestrates interactions between foundation models, data sources, software applications, user conversations, and APIs to carry out tasks to help customers.</p>
+ *          <ul>
+ *             <li>
+ *                <p>Specify the following fields for security purposes.</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <code>agentResourceRoleArn</code> – The ARN of the role with permissions to create an agent.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>(Optional) <code>customerEncryptionKeyArn</code> – The ARN of a KMS key to encrypt the creation of the agent.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>(Optional) <code>idleSessionTTLinSeconds</code> – Specify the number of seconds for which the agent should maintain session information. After this time expires, the subsequent <code>InvokeAgent</code> request begins a new session.</p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *             <li>
+ *                <p>To override the default prompt behavior for agent orchestration and to use advanced prompts, include a <code>promptOverrideConfiguration</code> object. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced prompts</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>If you agent fails to be created, the response returns a list of <code>failureReasons</code> alongside a list of <code>recommendedActions</code> for you to troubleshoot.</p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -131,22 +154,22 @@ export interface CreateAgentCommandOutput extends CreateAgentResponse, __Metadat
  * @see {@link BedrockAgentClientResolvedConfig | config} for BedrockAgentClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  This exception is thrown when a request is denied per access permissions
+ *  <p>The request is denied because of missing access permissions.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  This exception is thrown when there is a conflict performing an operation
+ *  <p>There was a conflict performing an operation.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  This exception is thrown if there was an unexpected error during processing of request
+ *  <p>An internal server error occurred. Retry your request.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  This exception is thrown when a request is made beyond the service quota
+ *  <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  This exception is thrown when the number of requests exceeds the limit
+ *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  This exception is thrown when the request's input validation fails
+ *  <p>Input validation failed. Check your request parameters and retry the request.</p>
  *
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>

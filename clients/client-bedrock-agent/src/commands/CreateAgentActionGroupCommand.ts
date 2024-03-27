@@ -32,7 +32,8 @@ export interface CreateAgentActionGroupCommandInput extends CreateAgentActionGro
 export interface CreateAgentActionGroupCommandOutput extends CreateAgentActionGroupResponse, __MetadataBearer {}
 
 /**
- * Creates an Action Group for existing Amazon Bedrock Agent
+ * <p>Creates an action group for an agent. An action group represents the actions that an agent can carry out for the customer by defining the APIs that an agent can call and the logic for calling them.</p>
+ *          <p>To allow your agent to request the user for additional information when trying to complete a task, add an action group with the <code>parentActionGroupSignature</code> field set to <code>AMAZON.UserInput</code>. You must leave the <code>description</code>, <code>apiSchema</code>, and <code>actionGroupExecutor</code> fields blank for this action group. During orchestration, if your agent determines that it needs to invoke an API in an action group, but doesn't have enough information to complete the API request, it will invoke this action group instead and return an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html">Observation</a> reprompting the user for more information.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,25 +95,25 @@ export interface CreateAgentActionGroupCommandOutput extends CreateAgentActionGr
  * @see {@link BedrockAgentClientResolvedConfig | config} for BedrockAgentClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  This exception is thrown when a request is denied per access permissions
+ *  <p>The request is denied because of missing access permissions.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  This exception is thrown when there is a conflict performing an operation
+ *  <p>There was a conflict performing an operation.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  This exception is thrown if there was an unexpected error during processing of request
+ *  <p>An internal server error occurred. Retry your request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  This exception is thrown when a resource referenced by the operation does not exist
+ *  <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  This exception is thrown when a request is made beyond the service quota
+ *  <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  This exception is thrown when the number of requests exceeds the limit
+ *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  This exception is thrown when the request's input validation fails
+ *  <p>Input validation failed. Check your request parameters and retry the request.</p>
  *
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>

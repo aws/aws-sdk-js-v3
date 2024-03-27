@@ -27,7 +27,26 @@ export interface UpdateKnowledgeBaseCommandInput extends UpdateKnowledgeBaseRequ
 export interface UpdateKnowledgeBaseCommandOutput extends UpdateKnowledgeBaseResponse, __MetadataBearer {}
 
 /**
- * Update an existing knowledge base
+ * <p>Updates the configuration of a knowledge base with the fields that you specify. Because all fields will be overwritten, you must include the same values for fields that you want to keep the same.</p>
+ *          <p>You can change the following fields:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>name</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>description</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>roleArn</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>You can't change the <code>knowledgeBaseConfiguration</code> or <code>storageConfiguration</code> fields, so you must specify the same configurations as when you created the knowledge base. You can send a <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetKnowledgeBase.html">GetKnowledgeBase</a> request and copy the same configurations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -165,22 +184,22 @@ export interface UpdateKnowledgeBaseCommandOutput extends UpdateKnowledgeBaseRes
  * @see {@link BedrockAgentClientResolvedConfig | config} for BedrockAgentClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  This exception is thrown when a request is denied per access permissions
+ *  <p>The request is denied because of missing access permissions.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  This exception is thrown when there is a conflict performing an operation
+ *  <p>There was a conflict performing an operation.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  This exception is thrown if there was an unexpected error during processing of request
+ *  <p>An internal server error occurred. Retry your request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  This exception is thrown when a resource referenced by the operation does not exist
+ *  <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  This exception is thrown when the number of requests exceeds the limit
+ *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  This exception is thrown when the request's input validation fails
+ *  <p>Input validation failed. Check your request parameters and retry the request.</p>
  *
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>

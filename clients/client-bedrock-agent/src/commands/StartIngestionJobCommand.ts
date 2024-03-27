@@ -27,7 +27,7 @@ export interface StartIngestionJobCommandInput extends StartIngestionJobRequest 
 export interface StartIngestionJobCommandOutput extends StartIngestionJobResponse, __MetadataBearer {}
 
 /**
- * Start a new ingestion job
+ * <p>Begins an ingestion job, in which a data source is added to a knowledge base.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,8 +51,10 @@ export interface StartIngestionJobCommandOutput extends StartIngestionJobRespons
  * //     status: "STARTING" || "IN_PROGRESS" || "COMPLETE" || "FAILED", // required
  * //     statistics: { // IngestionJobStatistics
  * //       numberOfDocumentsScanned: Number("long"),
+ * //       numberOfMetadataDocumentsScanned: Number("long"),
  * //       numberOfNewDocumentsIndexed: Number("long"),
  * //       numberOfModifiedDocumentsIndexed: Number("long"),
+ * //       numberOfMetadataDocumentsModified: Number("long"),
  * //       numberOfDocumentsDeleted: Number("long"),
  * //       numberOfDocumentsFailed: Number("long"),
  * //     },
@@ -73,25 +75,25 @@ export interface StartIngestionJobCommandOutput extends StartIngestionJobRespons
  * @see {@link BedrockAgentClientResolvedConfig | config} for BedrockAgentClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  This exception is thrown when a request is denied per access permissions
+ *  <p>The request is denied because of missing access permissions.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  This exception is thrown when there is a conflict performing an operation
+ *  <p>There was a conflict performing an operation.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  This exception is thrown if there was an unexpected error during processing of request
+ *  <p>An internal server error occurred. Retry your request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  This exception is thrown when a resource referenced by the operation does not exist
+ *  <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  This exception is thrown when a request is made beyond the service quota
+ *  <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  This exception is thrown when the number of requests exceeds the limit
+ *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  This exception is thrown when the request's input validation fails
+ *  <p>Input validation failed. Check your request parameters and retry the request.</p>
  *
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
