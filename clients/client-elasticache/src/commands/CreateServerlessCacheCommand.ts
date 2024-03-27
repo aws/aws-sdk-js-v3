@@ -41,11 +41,13 @@ export interface CreateServerlessCacheCommandOutput extends CreateServerlessCach
  *   MajorEngineVersion: "STRING_VALUE",
  *   CacheUsageLimits: { // CacheUsageLimits
  *     DataStorage: { // DataStorage
- *       Maximum: Number("int"), // required
+ *       Maximum: Number("int"),
+ *       Minimum: Number("int"),
  *       Unit: "GB", // required
  *     },
  *     ECPUPerSecond: { // ECPUPerSecond
- *       Maximum: Number("int"), // required
+ *       Maximum: Number("int"),
+ *       Minimum: Number("int"),
  *     },
  *   },
  *   KmsKeyId: "STRING_VALUE",
@@ -81,11 +83,13 @@ export interface CreateServerlessCacheCommandOutput extends CreateServerlessCach
  * //     FullEngineVersion: "STRING_VALUE",
  * //     CacheUsageLimits: { // CacheUsageLimits
  * //       DataStorage: { // DataStorage
- * //         Maximum: Number("int"), // required
+ * //         Maximum: Number("int"),
+ * //         Minimum: Number("int"),
  * //         Unit: "GB", // required
  * //       },
  * //       ECPUPerSecond: { // ECPUPerSecond
- * //         Maximum: Number("int"), // required
+ * //         Maximum: Number("int"),
+ * //         Minimum: Number("int"),
  * //       },
  * //     },
  * //     KmsKeyId: "STRING_VALUE",

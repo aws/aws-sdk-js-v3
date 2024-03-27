@@ -51,11 +51,13 @@ export interface DeleteServerlessCacheCommandOutput extends DeleteServerlessCach
  * //     FullEngineVersion: "STRING_VALUE",
  * //     CacheUsageLimits: { // CacheUsageLimits
  * //       DataStorage: { // DataStorage
- * //         Maximum: Number("int"), // required
+ * //         Maximum: Number("int"),
+ * //         Minimum: Number("int"),
  * //         Unit: "GB", // required
  * //       },
  * //       ECPUPerSecond: { // ECPUPerSecond
- * //         Maximum: Number("int"), // required
+ * //         Maximum: Number("int"),
+ * //         Minimum: Number("int"),
  * //       },
  * //     },
  * //     KmsKeyId: "STRING_VALUE",

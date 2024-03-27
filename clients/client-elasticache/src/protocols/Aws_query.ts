@@ -5791,6 +5791,9 @@ const se_DataStorage = (input: DataStorage, context: __SerdeContext): any => {
   if (input[_M] != null) {
     entries[_M] = input[_M];
   }
+  if (input[_Mi] != null) {
+    entries[_Mi] = input[_Mi];
+  }
   if (input[_U] != null) {
     entries[_U] = input[_U];
   }
@@ -6566,6 +6569,9 @@ const se_ECPUPerSecond = (input: ECPUPerSecond, context: __SerdeContext): any =>
   const entries: any = {};
   if (input[_M] != null) {
     entries[_M] = input[_M];
+  }
+  if (input[_Mi] != null) {
+    entries[_Mi] = input[_Mi];
   }
   return entries;
 };
@@ -9095,6 +9101,9 @@ const de_DataStorage = (output: any, context: __SerdeContext): DataStorage => {
   if (output[_M] != null) {
     contents[_M] = __strictParseInt32(output[_M]) as number;
   }
+  if (output[_Mi] != null) {
+    contents[_Mi] = __strictParseInt32(output[_Mi]) as number;
+  }
   if (output[_U] != null) {
     contents[_U] = __expectString(output[_U]);
   }
@@ -9416,6 +9425,9 @@ const de_ECPUPerSecond = (output: any, context: __SerdeContext): ECPUPerSecond =
   const contents: any = {};
   if (output[_M] != null) {
     contents[_M] = __strictParseInt32(output[_M]) as number;
+  }
+  if (output[_Mi] != null) {
+    contents[_Mi] = __strictParseInt32(output[_Mi]) as number;
   }
   return contents;
 };
@@ -12401,6 +12413,7 @@ const _MUG = "ModifyUserGroup";
 const _Ma = "Marker";
 const _Me = "Message";
 const _Mem = "Members";
+const _Mi = "Minimum";
 const _N = "Name";
 const _NAZ = "NewAvailabilityZones";
 const _NC = "NotificationConfiguration";

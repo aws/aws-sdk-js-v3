@@ -56,11 +56,13 @@ export interface DescribeServerlessCachesCommandOutput extends DescribeServerles
  * //       FullEngineVersion: "STRING_VALUE",
  * //       CacheUsageLimits: { // CacheUsageLimits
  * //         DataStorage: { // DataStorage
- * //           Maximum: Number("int"), // required
+ * //           Maximum: Number("int"),
+ * //           Minimum: Number("int"),
  * //           Unit: "GB", // required
  * //         },
  * //         ECPUPerSecond: { // ECPUPerSecond
- * //           Maximum: Number("int"), // required
+ * //           Maximum: Number("int"),
+ * //           Minimum: Number("int"),
  * //         },
  * //       },
  * //       KmsKeyId: "STRING_VALUE",

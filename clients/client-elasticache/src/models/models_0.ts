@@ -5704,7 +5704,13 @@ export interface DataStorage {
    * <p>The upper limit for data storage the cache is set to use.</p>
    * @public
    */
-  Maximum: number | undefined;
+  Maximum?: number;
+
+  /**
+   * <p>The lower limit for data storage the cache is set to use.</p>
+   * @public
+   */
+  Minimum?: number;
 
   /**
    * <p>The unit that the storage is measured in, in GB.</p>
@@ -5722,7 +5728,13 @@ export interface ECPUPerSecond {
    * <p>The configuration for the maximum number of ECPUs the cache can consume per second.</p>
    * @public
    */
-  Maximum: number | undefined;
+  Maximum?: number;
+
+  /**
+   * <p>The configuration for the minimum number of ECPUs the cache should be able consume per second.</p>
+   * @public
+   */
+  Minimum?: number;
 }
 
 /**
