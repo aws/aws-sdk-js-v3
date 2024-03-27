@@ -1,5 +1,17 @@
 # Smithy AWS Typescript Codegen Changelog
 
+## 0.20.0 (2024-03-27)
+
+### Features
+* Reduced code size for xml serde ([#5568](https://github.com/aws/aws-sdk-js-v3/pull/5568), [#5566](https://github.com/aws/aws-sdk-js-v3/pull/5566))
+* Reduced generated code size for all clients with library serde helpers ([#5855](https://github.com/aws/aws-sdk-js-v3/pull/5855)) 
+* Implemented lazy-loading of STS & SSO clients in credential providers ([#5681](https://github.com/aws/aws-sdk-js-v3/pull/5681))
+
+### Bug Fixes
+* Fixed an issue that could cause endpoint augmentations not to be applied in certain cases ([#5933](https://github.com/aws/aws-sdk-js-v3/pull/5933))
+* Fixed an issue where the `_json` deser function wouldn't be imported ([#5837](https://github.com/aws/aws-sdk-js-v3/pull/5837))
+* Added string fallback for S3 responses that contain the `Expires` timestamp instead of throwing an exception ([#5715](https://github.com/aws/aws-sdk-js-v3/pull/5715))
+
 ## 0.19.0 (2023-11-03)
 
 ### Features 
