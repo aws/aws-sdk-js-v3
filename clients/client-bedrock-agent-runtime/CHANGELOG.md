@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.543.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.542.0...v3.543.0) (2024-03-27)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** This release introduces filtering support on Retrieve and RetrieveAndGenerate APIs. ([9996a39](https://github.com/aws/aws-sdk-js-v3/commit/9996a3975d111cbdeed755f3a2e32e93e47dfbbc))
+
+
+
+
+
 # [3.542.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.541.0...v3.542.0) (2024-03-26)
 
 

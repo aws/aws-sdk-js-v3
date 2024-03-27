@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.543.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.542.0...v3.543.0) (2024-03-27)
+
+
+### Features
+
+* **client-batch:** This feature allows AWS Batch to support configuration of imagePullSecrets and allowPrivilegeEscalation for jobs running on EKS ([3fe1135](https://github.com/aws/aws-sdk-js-v3/commit/3fe1135403069063f861ea9747f898a64a3610b1))
+
+
+
+
+
 # [3.540.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.539.0...v3.540.0) (2024-03-22)
 
 

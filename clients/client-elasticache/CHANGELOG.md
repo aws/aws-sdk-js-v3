@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.543.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.542.0...v3.543.0) (2024-03-27)
+
+
+### Features
+
+* **client-elasticache:** Added minimum capacity to  Amazon ElastiCache Serverless. This feature allows customer to ensure minimum capacity even without current load ([86e40c9](https://github.com/aws/aws-sdk-js-v3/commit/86e40c9d52e897c95058974ef4e3838acd9b224d))
+
+
+
+
+
 # [3.540.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.539.0...v3.540.0) (2024-03-22)
 
 

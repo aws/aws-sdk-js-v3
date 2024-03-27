@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.543.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.542.0...v3.543.0) (2024-03-27)
+
+
+### Features
+
+* **client-batch:** This feature allows AWS Batch to support configuration of imagePullSecrets and allowPrivilegeEscalation for jobs running on EKS ([3fe1135](https://github.com/aws/aws-sdk-js-v3/commit/3fe1135403069063f861ea9747f898a64a3610b1))
+* **client-bedrock-agent-runtime:** This release introduces filtering support on Retrieve and RetrieveAndGenerate APIs. ([9996a39](https://github.com/aws/aws-sdk-js-v3/commit/9996a3975d111cbdeed755f3a2e32e93e47dfbbc))
+* **client-bedrock-agent:** This changes introduces metadata documents statistics and also updates the documentation for bedrock agent. ([f6cf100](https://github.com/aws/aws-sdk-js-v3/commit/f6cf1003961f860d9be6e98615919937ee22ce78))
+* **client-elasticache:** Added minimum capacity to  Amazon ElastiCache Serverless. This feature allows customer to ensure minimum capacity even without current load ([86e40c9](https://github.com/aws/aws-sdk-js-v3/commit/86e40c9d52e897c95058974ef4e3838acd9b224d))
+* **clients:** update client endpoints as of 2024-03-27 ([b90633b](https://github.com/aws/aws-sdk-js-v3/commit/b90633bae281cbef418301a5a5c2b4a721b8e7dd))
+
+
+
+
+
 # [3.542.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.541.0...v3.542.0) (2024-03-26)
 
 
