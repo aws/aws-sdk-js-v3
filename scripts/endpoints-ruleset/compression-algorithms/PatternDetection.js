@@ -102,6 +102,11 @@ module.exports = class PatternDetection extends CompressionAlgorithm {
     if (carry) {
       this.varName.push(0);
     }
+
+    if (["in", "do", "if", "else", "try", "catch", "return"].includes(out)) {
+      return this.nextVariableName();
+    }
+
     return out;
   }
 
@@ -238,6 +243,7 @@ module.exports = class PatternDetection extends CompressionAlgorithm {
         }
       }
 
+      return aStartChar < bStartChar ? -1 : 1;
       throw new Error(`unexpected start char: ${aStartChar}, ${bStartChar}`);
     });
 
@@ -285,7 +291,8 @@ module.exports = class PatternDetection extends CompressionAlgorithm {
       if (found.length > 1 && key.length * found.length > 8) {
         const symbol = this.nextVariableName();
         keyVarBuffer.push(`${symbol}="${key}"`);
-        buffer = buffer.replaceAll(new RegExp(`"?${key}"?:([^ ])`, "g"), `[${symbol}]:$1`);
+        buffer = buffer.replaceAll(new RegExp(`"${key}":([^ ])`, "g"), `[${symbol}]:$1`);
+        buffer = buffer.replaceAll(new RegExp(`([,{\n])${key}:([^ ])`, "g"), `$1[${symbol}]:$2`);
       }
     }
     if (keyVarBuffer.length > 0) {
