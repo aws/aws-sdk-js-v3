@@ -52,6 +52,54 @@ export interface RetrieveCommandOutput extends RetrieveResponse, __MetadataBeare
  *     vectorSearchConfiguration: { // KnowledgeBaseVectorSearchConfiguration
  *       numberOfResults: Number("int"),
  *       overrideSearchType: "HYBRID" || "SEMANTIC",
+ *       filter: { // RetrievalFilter Union: only one key present
+ *         equals: { // FilterAttribute
+ *           key: "STRING_VALUE", // required
+ *           value: "DOCUMENT_VALUE", // required
+ *         },
+ *         notEquals: {
+ *           key: "STRING_VALUE", // required
+ *           value: "DOCUMENT_VALUE", // required
+ *         },
+ *         greaterThan: {
+ *           key: "STRING_VALUE", // required
+ *           value: "DOCUMENT_VALUE", // required
+ *         },
+ *         greaterThanOrEquals: {
+ *           key: "STRING_VALUE", // required
+ *           value: "DOCUMENT_VALUE", // required
+ *         },
+ *         lessThan: {
+ *           key: "STRING_VALUE", // required
+ *           value: "DOCUMENT_VALUE", // required
+ *         },
+ *         lessThanOrEquals: "<FilterAttribute>",
+ *         in: "<FilterAttribute>",
+ *         notIn: "<FilterAttribute>",
+ *         startsWith: "<FilterAttribute>",
+ *         andAll: [ // RetrievalFilterList
+ *           {//  Union: only one key present
+ *             equals: "<FilterAttribute>",
+ *             notEquals: "<FilterAttribute>",
+ *             greaterThan: "<FilterAttribute>",
+ *             greaterThanOrEquals: "<FilterAttribute>",
+ *             lessThan: "<FilterAttribute>",
+ *             lessThanOrEquals: "<FilterAttribute>",
+ *             in: "<FilterAttribute>",
+ *             notIn: "<FilterAttribute>",
+ *             startsWith: "<FilterAttribute>",
+ *             andAll: [
+ *               "<RetrievalFilter>",
+ *             ],
+ *             orAll: [
+ *               "<RetrievalFilter>",
+ *             ],
+ *           },
+ *         ],
+ *         orAll: [
+ *           "<RetrievalFilter>",
+ *         ],
+ *       },
  *     },
  *   },
  *   nextToken: "STRING_VALUE",
@@ -71,6 +119,9 @@ export interface RetrieveCommandOutput extends RetrieveResponse, __MetadataBeare
  * //         },
  * //       },
  * //       score: Number("double"),
+ * //       metadata: { // RetrievalResultMetadata
+ * //         "<keys>": "DOCUMENT_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

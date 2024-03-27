@@ -36,7 +36,7 @@ export interface RetrieveAndGenerateCommandInput extends RetrieveAndGenerateRequ
 export interface RetrieveAndGenerateCommandOutput extends RetrieveAndGenerateResponse, __MetadataBearer {}
 
 /**
- * <p>Queries a knowledge base and generates responses based on the retrieved results. The response cites up to five sources but only selects the ones that are relevant to the query.</p>
+ * <p>Queries a knowledge base and generates responses based on the retrieved results. The response only cites sources that are relevant to the query.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +57,54 @@ export interface RetrieveAndGenerateCommandOutput extends RetrieveAndGenerateRes
  *         vectorSearchConfiguration: { // KnowledgeBaseVectorSearchConfiguration
  *           numberOfResults: Number("int"),
  *           overrideSearchType: "HYBRID" || "SEMANTIC",
+ *           filter: { // RetrievalFilter Union: only one key present
+ *             equals: { // FilterAttribute
+ *               key: "STRING_VALUE", // required
+ *               value: "DOCUMENT_VALUE", // required
+ *             },
+ *             notEquals: {
+ *               key: "STRING_VALUE", // required
+ *               value: "DOCUMENT_VALUE", // required
+ *             },
+ *             greaterThan: {
+ *               key: "STRING_VALUE", // required
+ *               value: "DOCUMENT_VALUE", // required
+ *             },
+ *             greaterThanOrEquals: {
+ *               key: "STRING_VALUE", // required
+ *               value: "DOCUMENT_VALUE", // required
+ *             },
+ *             lessThan: {
+ *               key: "STRING_VALUE", // required
+ *               value: "DOCUMENT_VALUE", // required
+ *             },
+ *             lessThanOrEquals: "<FilterAttribute>",
+ *             in: "<FilterAttribute>",
+ *             notIn: "<FilterAttribute>",
+ *             startsWith: "<FilterAttribute>",
+ *             andAll: [ // RetrievalFilterList
+ *               {//  Union: only one key present
+ *                 equals: "<FilterAttribute>",
+ *                 notEquals: "<FilterAttribute>",
+ *                 greaterThan: "<FilterAttribute>",
+ *                 greaterThanOrEquals: "<FilterAttribute>",
+ *                 lessThan: "<FilterAttribute>",
+ *                 lessThanOrEquals: "<FilterAttribute>",
+ *                 in: "<FilterAttribute>",
+ *                 notIn: "<FilterAttribute>",
+ *                 startsWith: "<FilterAttribute>",
+ *                 andAll: [
+ *                   "<RetrievalFilter>",
+ *                 ],
+ *                 orAll: [
+ *                   "<RetrievalFilter>",
+ *                 ],
+ *               },
+ *             ],
+ *             orAll: [
+ *               "<RetrievalFilter>",
+ *             ],
+ *           },
  *         },
  *       },
  *       generationConfiguration: { // GenerationConfiguration
@@ -98,6 +146,9 @@ export interface RetrieveAndGenerateCommandOutput extends RetrieveAndGenerateRes
  * //             s3Location: { // RetrievalResultS3Location
  * //               uri: "STRING_VALUE",
  * //             },
+ * //           },
+ * //           metadata: { // RetrievalResultMetadata
+ * //             "<keys>": "DOCUMENT_VALUE",
  * //           },
  * //         },
  * //       ],

@@ -23,6 +23,7 @@ import {
   withBaseException,
 } from "@smithy/smithy-client";
 import {
+  DocumentType as __DocumentType,
   Endpoint as __Endpoint,
   EventStreamSerdeContext as __EventStreamSerdeContext,
   ResponseMetadata as __ResponseMetadata,
@@ -38,18 +39,23 @@ import { RetrieveCommandInput, RetrieveCommandOutput } from "../commands/Retriev
 import { BedrockAgentRuntimeServiceException as __BaseException } from "../models/BedrockAgentRuntimeServiceException";
 import {
   AccessDeniedException,
+  Attribution,
   BadGatewayException,
+  Citation,
   ConflictException,
   DependencyFailedException,
+  FilterAttribute,
   GenerationConfiguration,
   InferenceConfiguration,
   InternalServerException,
+  KnowledgeBaseLookupOutput,
   KnowledgeBaseQuery,
   KnowledgeBaseRetrievalConfiguration,
   KnowledgeBaseRetrievalResult,
   KnowledgeBaseRetrieveAndGenerateConfiguration,
   KnowledgeBaseVectorSearchConfiguration,
   ModelInvocationInput,
+  Observation,
   OrchestrationTrace,
   PayloadPart,
   PostProcessingTrace,
@@ -57,9 +63,11 @@ import {
   PromptTemplate,
   ResourceNotFoundException,
   ResponseStream,
+  RetrievalFilter,
   RetrieveAndGenerateConfiguration,
   RetrieveAndGenerateInput,
   RetrieveAndGenerateSessionConfiguration,
+  RetrievedReference,
   ServiceQuotaExceededException,
   SessionState,
   ThrottlingException,
@@ -113,7 +121,7 @@ export const se_RetrieveCommand = async (
   body = JSON.stringify(
     take(input, {
       nextToken: [],
-      retrievalConfiguration: (_) => _json(_),
+      retrievalConfiguration: (_) => se_KnowledgeBaseRetrievalConfiguration(_, context),
       retrievalQuery: (_) => _json(_),
     })
   );
@@ -137,7 +145,7 @@ export const se_RetrieveAndGenerateCommand = async (
   body = JSON.stringify(
     take(input, {
       input: (_) => _json(_),
-      retrieveAndGenerateConfiguration: (_) => _json(_),
+      retrieveAndGenerateConfiguration: (_) => se_RetrieveAndGenerateConfiguration(_, context),
       sessionConfiguration: (_) => _json(_),
       sessionId: [],
     })
@@ -203,7 +211,7 @@ export const de_RetrieveAndGenerateCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    citations: _json,
+    citations: (_) => de_Citations(_, context),
     output: _json,
     sessionId: __expectString,
   });
@@ -591,21 +599,112 @@ const de_ValidationException_event = async (output: any, context: __SerdeContext
   };
   return de_ValidationExceptionRes(parsedOutput, context);
 };
+/**
+ * serializeAws_restJson1FilterAttribute
+ */
+const se_FilterAttribute = (input: FilterAttribute, context: __SerdeContext): any => {
+  return take(input, {
+    key: [],
+    value: (_) => se_FilterValue(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1FilterValue
+ */
+const se_FilterValue = (input: __DocumentType, context: __SerdeContext): any => {
+  return input;
+};
+
 // se_GenerationConfiguration omitted.
 
 // se_KnowledgeBaseQuery omitted.
 
-// se_KnowledgeBaseRetrievalConfiguration omitted.
+/**
+ * serializeAws_restJson1KnowledgeBaseRetrievalConfiguration
+ */
+const se_KnowledgeBaseRetrievalConfiguration = (
+  input: KnowledgeBaseRetrievalConfiguration,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    vectorSearchConfiguration: (_) => se_KnowledgeBaseVectorSearchConfiguration(_, context),
+  });
+};
 
-// se_KnowledgeBaseRetrieveAndGenerateConfiguration omitted.
+/**
+ * serializeAws_restJson1KnowledgeBaseRetrieveAndGenerateConfiguration
+ */
+const se_KnowledgeBaseRetrieveAndGenerateConfiguration = (
+  input: KnowledgeBaseRetrieveAndGenerateConfiguration,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    generationConfiguration: _json,
+    knowledgeBaseId: [],
+    modelArn: [],
+    retrievalConfiguration: (_) => se_KnowledgeBaseRetrievalConfiguration(_, context),
+  });
+};
 
-// se_KnowledgeBaseVectorSearchConfiguration omitted.
+/**
+ * serializeAws_restJson1KnowledgeBaseVectorSearchConfiguration
+ */
+const se_KnowledgeBaseVectorSearchConfiguration = (
+  input: KnowledgeBaseVectorSearchConfiguration,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    filter: (_) => se_RetrievalFilter(_, context),
+    numberOfResults: [],
+    overrideSearchType: [],
+  });
+};
 
 // se_PromptSessionAttributesMap omitted.
 
 // se_PromptTemplate omitted.
 
-// se_RetrieveAndGenerateConfiguration omitted.
+/**
+ * serializeAws_restJson1RetrievalFilter
+ */
+const se_RetrievalFilter = (input: RetrievalFilter, context: __SerdeContext): any => {
+  return RetrievalFilter.visit(input, {
+    andAll: (value) => ({ andAll: se_RetrievalFilterList(value, context) }),
+    equals: (value) => ({ equals: se_FilterAttribute(value, context) }),
+    greaterThan: (value) => ({ greaterThan: se_FilterAttribute(value, context) }),
+    greaterThanOrEquals: (value) => ({ greaterThanOrEquals: se_FilterAttribute(value, context) }),
+    in: (value) => ({ in: se_FilterAttribute(value, context) }),
+    lessThan: (value) => ({ lessThan: se_FilterAttribute(value, context) }),
+    lessThanOrEquals: (value) => ({ lessThanOrEquals: se_FilterAttribute(value, context) }),
+    notEquals: (value) => ({ notEquals: se_FilterAttribute(value, context) }),
+    notIn: (value) => ({ notIn: se_FilterAttribute(value, context) }),
+    orAll: (value) => ({ orAll: se_RetrievalFilterList(value, context) }),
+    startsWith: (value) => ({ startsWith: se_FilterAttribute(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+/**
+ * serializeAws_restJson1RetrievalFilterList
+ */
+const se_RetrievalFilterList = (input: RetrievalFilter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_RetrievalFilter(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1RetrieveAndGenerateConfiguration
+ */
+const se_RetrieveAndGenerateConfiguration = (input: RetrieveAndGenerateConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    knowledgeBaseConfiguration: (_) => se_KnowledgeBaseRetrieveAndGenerateConfiguration(_, context),
+    type: [],
+  });
+};
 
 // se_RetrieveAndGenerateInput omitted.
 
@@ -619,11 +718,36 @@ const de_ValidationException_event = async (output: any, context: __SerdeContext
 
 // de_ActionGroupInvocationOutput omitted.
 
-// de_Attribution omitted.
+/**
+ * deserializeAws_restJson1Attribution
+ */
+const de_Attribution = (output: any, context: __SerdeContext): Attribution => {
+  return take(output, {
+    citations: (_: any) => de_Citations(_, context),
+  }) as any;
+};
 
-// de_Citation omitted.
+/**
+ * deserializeAws_restJson1Citation
+ */
+const de_Citation = (output: any, context: __SerdeContext): Citation => {
+  return take(output, {
+    generatedResponsePart: _json,
+    retrievedReferences: (_: any) => de_RetrievedReferences(_, context),
+  }) as any;
+};
 
-// de_Citations omitted.
+/**
+ * deserializeAws_restJson1Citations
+ */
+const de_Citations = (output: any, context: __SerdeContext): Citation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Citation(entry, context);
+    });
+  return retVal;
+};
 
 // de_ContentMap omitted.
 
@@ -650,7 +774,14 @@ const de_InferenceConfiguration = (output: any, context: __SerdeContext): Infere
 
 // de_KnowledgeBaseLookupInput omitted.
 
-// de_KnowledgeBaseLookupOutput omitted.
+/**
+ * deserializeAws_restJson1KnowledgeBaseLookupOutput
+ */
+const de_KnowledgeBaseLookupOutput = (output: any, context: __SerdeContext): KnowledgeBaseLookupOutput => {
+  return take(output, {
+    retrievedReferences: (_: any) => de_RetrievedReferences(_, context),
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1KnowledgeBaseRetrievalResult
@@ -659,6 +790,7 @@ const de_KnowledgeBaseRetrievalResult = (output: any, context: __SerdeContext): 
   return take(output, {
     content: _json,
     location: _json,
+    metadata: (_: any) => de_RetrievalResultMetadata(_, context),
     score: __limitedParseDouble,
   }) as any;
 };
@@ -690,7 +822,19 @@ const de_ModelInvocationInput = (output: any, context: __SerdeContext): ModelInv
   }) as any;
 };
 
-// de_Observation omitted.
+/**
+ * deserializeAws_restJson1Observation
+ */
+const de_Observation = (output: any, context: __SerdeContext): Observation => {
+  return take(output, {
+    actionGroupInvocationOutput: _json,
+    finalResponse: _json,
+    knowledgeBaseLookupOutput: (_: any) => de_KnowledgeBaseLookupOutput(_, context),
+    repromptResponse: _json,
+    traceId: __expectString,
+    type: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1OrchestrationTrace
@@ -708,7 +852,7 @@ const de_OrchestrationTrace = (output: any, context: __SerdeContext): Orchestrat
   }
   if (output.observation != null) {
     return {
-      observation: _json(output.observation),
+      observation: de_Observation(output.observation, context),
     };
   }
   if (output.rationale != null) {
@@ -728,7 +872,7 @@ const de_OrchestrationTrace = (output: any, context: __SerdeContext): Orchestrat
  */
 const de_PayloadPart = (output: any, context: __SerdeContext): PayloadPart => {
   return take(output, {
-    attribution: _json,
+    attribution: (_: any) => de_Attribution(_, context),
     bytes: context.base64Decoder,
   }) as any;
 };
@@ -785,13 +929,52 @@ const de_PreProcessingTrace = (output: any, context: __SerdeContext): PreProcess
 
 // de_RetrievalResultLocation omitted.
 
+/**
+ * deserializeAws_restJson1RetrievalResultMetadata
+ */
+const de_RetrievalResultMetadata = (output: any, context: __SerdeContext): Record<string, __DocumentType> => {
+  return Object.entries(output).reduce((acc: Record<string, __DocumentType>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key as string] = de_RetrievalResultMetadataValue(value, context);
+    return acc;
+  }, {} as Record<string, __DocumentType>);
+};
+
+/**
+ * deserializeAws_restJson1RetrievalResultMetadataValue
+ */
+const de_RetrievalResultMetadataValue = (output: any, context: __SerdeContext): __DocumentType => {
+  return output;
+};
+
 // de_RetrievalResultS3Location omitted.
 
 // de_RetrieveAndGenerateOutput omitted.
 
-// de_RetrievedReference omitted.
+/**
+ * deserializeAws_restJson1RetrievedReference
+ */
+const de_RetrievedReference = (output: any, context: __SerdeContext): RetrievedReference => {
+  return take(output, {
+    content: _json,
+    location: _json,
+    metadata: (_: any) => de_RetrievalResultMetadata(_, context),
+  }) as any;
+};
 
-// de_RetrievedReferences omitted.
+/**
+ * deserializeAws_restJson1RetrievedReferences
+ */
+const de_RetrievedReferences = (output: any, context: __SerdeContext): RetrievedReference[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RetrievedReference(entry, context);
+    });
+  return retVal;
+};
 
 // de_Span omitted.
 

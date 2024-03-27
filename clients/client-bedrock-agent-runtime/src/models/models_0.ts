@@ -1,6 +1,8 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
+import { DocumentType as __DocumentType } from "@smithy/types";
+
 import { BedrockAgentRuntimeServiceException as __BaseException } from "./BedrockAgentRuntimeServiceException";
 
 /**
@@ -475,6 +477,12 @@ export interface RetrievedReference {
    * @public
    */
   location?: RetrievalResultLocation;
+
+  /**
+   * <p>Contains metadata attributes and their values for the file in the data source. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-ds.html#kb-ds-metadata">Metadata and filtering</a>.</p>
+   * @public
+   */
+  metadata?: Record<string, __DocumentType>;
 }
 
 /**
@@ -1731,8 +1739,7 @@ export interface RetrieveAndGenerateInput {
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a>
- *                </p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a> – in the <code>filter</code> field</p>
  *             </li>
  *          </ul>
  * @public
@@ -1779,6 +1786,32 @@ export interface GenerationConfiguration {
 }
 
 /**
+ * <p>Specifies the name that the metadata attribute must match and the value to which to compare the value of the metadata attribute. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface FilterAttribute {
+  /**
+   * <p>The name that the metadata attribute must match.</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The value to whcih to compare the value of the metadata attribute.</p>
+   * @public
+   */
+  value: __DocumentType | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -1791,6 +1824,444 @@ export const SearchType = {
  * @public
  */
 export type SearchType = (typeof SearchType)[keyof typeof SearchType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RetrieveAndGenerateType = {
+  KNOWLEDGE_BASE: "KNOWLEDGE_BASE",
+} as const;
+
+/**
+ * @public
+ */
+export type RetrieveAndGenerateType = (typeof RetrieveAndGenerateType)[keyof typeof RetrieveAndGenerateType];
+
+/**
+ * <p>Contains configuration about the session with the knowledge base.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a> – in the <code>sessionConfiguration</code> field</p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface RetrieveAndGenerateSessionConfiguration {
+  /**
+   * <p>The ARN of the KMS key encrypting the session.</p>
+   * @public
+   */
+  kmsKeyArn: string | undefined;
+}
+
+/**
+ * <p>Contains the response generated from querying the knowledge base.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_ResponseSyntax">RetrieveAndGenerate response</a> – in the <code>output</code> field</p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface RetrieveAndGenerateOutput {
+  /**
+   * <p>The response generated from querying the knowledge base.</p>
+   * @public
+   */
+  text: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RetrieveAndGenerateResponse {
+  /**
+   * <p>The unique identifier of the session. Reuse the same value to continue the same session with the knowledge base.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>Contains the response generated from querying the knowledge base.</p>
+   * @public
+   */
+  output: RetrieveAndGenerateOutput | undefined;
+
+  /**
+   * <p>A list of segments of the generated response that are based on sources in the knowledge base, alongside information about the sources.</p>
+   * @public
+   */
+  citations?: Citation[];
+}
+
+/**
+ * <p>Contains the query made to the knowledge base.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request</a> – in the <code>retrievalQuery</code> field</p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface KnowledgeBaseQuery {
+  /**
+   * <p>The text of the query made to the knowledge base.</p>
+   * @public
+   */
+  text: string | undefined;
+}
+
+/**
+ * <p>Details about a result from querying the knowledge base.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>retrievalResults</code> field</p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface KnowledgeBaseRetrievalResult {
+  /**
+   * <p>Contains a chunk of text from a data source in the knowledge base.</p>
+   * @public
+   */
+  content: RetrievalResultContent | undefined;
+
+  /**
+   * <p>Contains information about the location of the data source.</p>
+   * @public
+   */
+  location?: RetrievalResultLocation;
+
+  /**
+   * <p>The level of relevance of the result to the query.</p>
+   * @public
+   */
+  score?: number;
+
+  /**
+   * <p>Contains metadata attributes and their values for the file in the data source. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-ds.html#kb-ds-metadata">Metadata and filtering</a>.</p>
+   * @public
+   */
+  metadata?: Record<string, __DocumentType>;
+}
+
+/**
+ * @public
+ */
+export interface RetrieveResponse {
+  /**
+   * <p>A list of results from querying the knowledge base.</p>
+   * @public
+   */
+  retrievalResults: KnowledgeBaseRetrievalResult[] | undefined;
+
+  /**
+   * <p>If there are more results than can fit in the response, the response returns a <code>nextToken</code>. Use this token in the <code>nextToken</code> field of another request to retrieve the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * <p>Specifies the filters to use on the metadata attributes in the knowledge base data sources before returning results. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>.</p>
+ *          <p>This data type is used in the following API operations:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request</a> – in the <code>filter</code> field</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a> – in the <code>filter</code> field</p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export type RetrievalFilter =
+  | RetrievalFilter.AndAllMember
+  | RetrievalFilter.EqualsMember
+  | RetrievalFilter.GreaterThanMember
+  | RetrievalFilter.GreaterThanOrEqualsMember
+  | RetrievalFilter.InMember
+  | RetrievalFilter.LessThanMember
+  | RetrievalFilter.LessThanOrEqualsMember
+  | RetrievalFilter.NotEqualsMember
+  | RetrievalFilter.NotInMember
+  | RetrievalFilter.OrAllMember
+  | RetrievalFilter.StartsWithMember
+  | RetrievalFilter.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RetrievalFilter {
+  /**
+   * <p>Knowledge base data sources that contain a metadata attribute whose name matches the <code>key</code> and whose value matches the <code>value</code> in this object are returned.</p>
+   * @public
+   */
+  export interface EqualsMember {
+    equals: FilterAttribute;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn?: never;
+    startsWith?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources that contain a metadata attribute whose name matches the <code>key</code> and whose value doesn't match the <code>value</code> in this object are returned.</p>
+   * @public
+   */
+  export interface NotEqualsMember {
+    equals?: never;
+    notEquals: FilterAttribute;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn?: never;
+    startsWith?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources that contain a metadata attribute whose name matches the <code>key</code> and whose value is greater than the <code>value</code> in this object are returned.</p>
+   * @public
+   */
+  export interface GreaterThanMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan: FilterAttribute;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn?: never;
+    startsWith?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources that contain a metadata attribute whose name matches the <code>key</code> and whose value is greater than or equal to the <code>value</code> in this object are returned.</p>
+   * @public
+   */
+  export interface GreaterThanOrEqualsMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals: FilterAttribute;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn?: never;
+    startsWith?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources that contain a metadata attribute whose name matches the <code>key</code> and whose value is less than the <code>value</code> in this object are returned.</p>
+   * @public
+   */
+  export interface LessThanMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan: FilterAttribute;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn?: never;
+    startsWith?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources that contain a metadata attribute whose name matches the <code>key</code> and whose value is less than or equal to the <code>value</code> in this object are returned.</p>
+   * @public
+   */
+  export interface LessThanOrEqualsMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals: FilterAttribute;
+    in?: never;
+    notIn?: never;
+    startsWith?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources that contain a metadata attribute whose name matches the <code>key</code> and whose value is in the list specified in the <code>value</code> in this object are returned.</p>
+   * @public
+   */
+  export interface InMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in: FilterAttribute;
+    notIn?: never;
+    startsWith?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources that contain a metadata attribute whose name matches the <code>key</code> and whose value isn't in the list specified in the <code>value</code> in this object are returned.</p>
+   * @public
+   */
+  export interface NotInMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn: FilterAttribute;
+    startsWith?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources that contain a metadata attribute whose name matches the <code>key</code> and whose value starts with the <code>value</code> in this object are returned. This filter is currently only supported for Amazon OpenSearch Serverless vector stores.</p>
+   * @public
+   */
+  export interface StartsWithMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn?: never;
+    startsWith: FilterAttribute;
+    andAll?: never;
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources whose metadata attributes fulfill all the filter conditions inside this list are returned.</p>
+   * @public
+   */
+  export interface AndAllMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn?: never;
+    startsWith?: never;
+    andAll: RetrievalFilter[];
+    orAll?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Knowledge base data sources whose metadata attributes fulfill at least one of the filter conditions inside this list are returned.</p>
+   * @public
+   */
+  export interface OrAllMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn?: never;
+    startsWith?: never;
+    andAll?: never;
+    orAll: RetrievalFilter[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    equals?: never;
+    notEquals?: never;
+    greaterThan?: never;
+    greaterThanOrEquals?: never;
+    lessThan?: never;
+    lessThanOrEquals?: never;
+    in?: never;
+    notIn?: never;
+    startsWith?: never;
+    andAll?: never;
+    orAll?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    equals: (value: FilterAttribute) => T;
+    notEquals: (value: FilterAttribute) => T;
+    greaterThan: (value: FilterAttribute) => T;
+    greaterThanOrEquals: (value: FilterAttribute) => T;
+    lessThan: (value: FilterAttribute) => T;
+    lessThanOrEquals: (value: FilterAttribute) => T;
+    in: (value: FilterAttribute) => T;
+    notIn: (value: FilterAttribute) => T;
+    startsWith: (value: FilterAttribute) => T;
+    andAll: (value: RetrievalFilter[]) => T;
+    orAll: (value: RetrievalFilter[]) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: RetrievalFilter, visitor: Visitor<T>): T => {
+    if (value.equals !== undefined) return visitor.equals(value.equals);
+    if (value.notEquals !== undefined) return visitor.notEquals(value.notEquals);
+    if (value.greaterThan !== undefined) return visitor.greaterThan(value.greaterThan);
+    if (value.greaterThanOrEquals !== undefined) return visitor.greaterThanOrEquals(value.greaterThanOrEquals);
+    if (value.lessThan !== undefined) return visitor.lessThan(value.lessThan);
+    if (value.lessThanOrEquals !== undefined) return visitor.lessThanOrEquals(value.lessThanOrEquals);
+    if (value.in !== undefined) return visitor.in(value.in);
+    if (value.notIn !== undefined) return visitor.notIn(value.notIn);
+    if (value.startsWith !== undefined) return visitor.startsWith(value.startsWith);
+    if (value.andAll !== undefined) return visitor.andAll(value.andAll);
+    if (value.orAll !== undefined) return visitor.orAll(value.orAll);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
 
 /**
  * <p>Configurations for how to perform the search query and return results. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>.</p>
@@ -1819,6 +2290,12 @@ export interface KnowledgeBaseVectorSearchConfiguration {
    * @public
    */
   overrideSearchType?: SearchType;
+
+  /**
+   * <p>Specifies the filters to use on the metadata in the knowledge base data sources before returning results. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>.</p>
+   * @public
+   */
+  filter?: RetrievalFilter;
 }
 
 /**
@@ -1887,16 +2364,32 @@ export interface KnowledgeBaseRetrieveAndGenerateConfiguration {
 
 /**
  * @public
- * @enum
  */
-export const RetrieveAndGenerateType = {
-  KNOWLEDGE_BASE: "KNOWLEDGE_BASE",
-} as const;
+export interface RetrieveRequest {
+  /**
+   * <p>The unique identifier of the knowledge base to query.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
 
-/**
- * @public
- */
-export type RetrieveAndGenerateType = (typeof RetrieveAndGenerateType)[keyof typeof RetrieveAndGenerateType];
+  /**
+   * <p>Contains the query to send the knowledge base.</p>
+   * @public
+   */
+  retrievalQuery: KnowledgeBaseQuery | undefined;
+
+  /**
+   * <p>Contains configurations for the knowledge base query and retrieval process. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>.</p>
+   * @public
+   */
+  retrievalConfiguration?: KnowledgeBaseRetrievalConfiguration;
+
+  /**
+   * <p>If there are more results than can fit in the response, the response returns a <code>nextToken</code>. Use this token in the <code>nextToken</code> field of another request to retrieve the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string;
+}
 
 /**
  * <p>Contains details about the resource being queried.</p>
@@ -1921,25 +2414,6 @@ export interface RetrieveAndGenerateConfiguration {
    * @public
    */
   knowledgeBaseConfiguration?: KnowledgeBaseRetrieveAndGenerateConfiguration;
-}
-
-/**
- * <p>Contains configuration about the session with the knowledge base.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a> – in the <code>sessionConfiguration</code> field</p>
- *             </li>
- *          </ul>
- * @public
- */
-export interface RetrieveAndGenerateSessionConfiguration {
-  /**
-   * <p>The ARN of the KMS key encrypting the session.</p>
-   * @public
-   */
-  kmsKeyArn: string | undefined;
 }
 
 /**
@@ -1969,144 +2443,6 @@ export interface RetrieveAndGenerateRequest {
    * @public
    */
   sessionConfiguration?: RetrieveAndGenerateSessionConfiguration;
-}
-
-/**
- * <p>Contains the response generated from querying the knowledge base.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_ResponseSyntax">RetrieveAndGenerate response</a> – in the <code>output</code> field</p>
- *             </li>
- *          </ul>
- * @public
- */
-export interface RetrieveAndGenerateOutput {
-  /**
-   * <p>The response generated from querying the knowledge base.</p>
-   * @public
-   */
-  text: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RetrieveAndGenerateResponse {
-  /**
-   * <p>The unique identifier of the session. Reuse the same value to continue the same session with the knowledge base.</p>
-   * @public
-   */
-  sessionId: string | undefined;
-
-  /**
-   * <p>Contains the response generated from querying the knowledge base.</p>
-   * @public
-   */
-  output: RetrieveAndGenerateOutput | undefined;
-
-  /**
-   * <p>A list of segments of the generated response that are based on sources in the knowledge base, alongside information about the sources.</p>
-   * @public
-   */
-  citations?: Citation[];
-}
-
-/**
- * <p>Contains the query made to the knowledge base.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request</a> – in the <code>retrievalQuery</code> field</p>
- *             </li>
- *          </ul>
- * @public
- */
-export interface KnowledgeBaseQuery {
-  /**
-   * <p>The text of the query made to the knowledge base.</p>
-   * @public
-   */
-  text: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RetrieveRequest {
-  /**
-   * <p>The unique identifier of the knowledge base to query.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>Contains the query to send the knowledge base.</p>
-   * @public
-   */
-  retrievalQuery: KnowledgeBaseQuery | undefined;
-
-  /**
-   * <p>Contains configurations for the knowledge base query and retrieval process. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>.</p>
-   * @public
-   */
-  retrievalConfiguration?: KnowledgeBaseRetrievalConfiguration;
-
-  /**
-   * <p>If there are more results than can fit in the response, the response returns a <code>nextToken</code>. Use this token in the <code>nextToken</code> field of another request to retrieve the next batch of results.</p>
-   * @public
-   */
-  nextToken?: string;
-}
-
-/**
- * <p>Details about a result from querying the knowledge base.</p>
- *          <p>This data type is used in the following API operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>retrievalResults</code> field</p>
- *             </li>
- *          </ul>
- * @public
- */
-export interface KnowledgeBaseRetrievalResult {
-  /**
-   * <p>Contains a chunk of text from a data source in the knowledge base.</p>
-   * @public
-   */
-  content: RetrievalResultContent | undefined;
-
-  /**
-   * <p>Contains information about the location of the data source.</p>
-   * @public
-   */
-  location?: RetrievalResultLocation;
-
-  /**
-   * <p>The level of relevance of the result to the query.</p>
-   * @public
-   */
-  score?: number;
-}
-
-/**
- * @public
- */
-export interface RetrieveResponse {
-  /**
-   * <p>A list of results from querying the knowledge base.</p>
-   * @public
-   */
-  retrievalResults: KnowledgeBaseRetrievalResult[] | undefined;
-
-  /**
-   * <p>If there are more results than can fit in the response, the response returns a <code>nextToken</code>. Use this token in the <code>nextToken</code> field of another request to retrieve the next batch of results.</p>
-   * @public
-   */
-  nextToken?: string;
 }
 
 /**
@@ -2171,6 +2507,7 @@ export const RetrievedReferenceFilterSensitiveLog = (obj: RetrievedReference): a
   ...obj,
   ...(obj.content && { content: SENSITIVE_STRING }),
   ...(obj.location && { location: SENSITIVE_STRING }),
+  ...(obj.metadata && { metadata: SENSITIVE_STRING }),
 });
 
 /**
@@ -2425,12 +2762,107 @@ export const GenerationConfigurationFilterSensitiveLog = (obj: GenerationConfigu
 /**
  * @internal
  */
+export const RetrieveAndGenerateOutputFilterSensitiveLog = (obj: RetrieveAndGenerateOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RetrieveAndGenerateResponseFilterSensitiveLog = (obj: RetrieveAndGenerateResponse): any => ({
+  ...obj,
+  ...(obj.output && { output: SENSITIVE_STRING }),
+  ...(obj.citations && { citations: obj.citations.map((item) => CitationFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const KnowledgeBaseQueryFilterSensitiveLog = (obj: KnowledgeBaseQuery): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KnowledgeBaseRetrievalResultFilterSensitiveLog = (obj: KnowledgeBaseRetrievalResult): any => ({
+  ...obj,
+  ...(obj.content && { content: SENSITIVE_STRING }),
+  ...(obj.location && { location: SENSITIVE_STRING }),
+  ...(obj.metadata && { metadata: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RetrieveResponseFilterSensitiveLog = (obj: RetrieveResponse): any => ({
+  ...obj,
+  ...(obj.retrievalResults && { retrievalResults: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RetrievalFilterFilterSensitiveLog = (obj: RetrievalFilter): any => {
+  if (obj.equals !== undefined) return { equals: obj.equals };
+  if (obj.notEquals !== undefined) return { notEquals: obj.notEquals };
+  if (obj.greaterThan !== undefined) return { greaterThan: obj.greaterThan };
+  if (obj.greaterThanOrEquals !== undefined) return { greaterThanOrEquals: obj.greaterThanOrEquals };
+  if (obj.lessThan !== undefined) return { lessThan: obj.lessThan };
+  if (obj.lessThanOrEquals !== undefined) return { lessThanOrEquals: obj.lessThanOrEquals };
+  if (obj.in !== undefined) return { in: obj.in };
+  if (obj.notIn !== undefined) return { notIn: obj.notIn };
+  if (obj.startsWith !== undefined) return { startsWith: obj.startsWith };
+  if (obj.andAll !== undefined) return { andAll: SENSITIVE_STRING };
+  if (obj.orAll !== undefined) return { orAll: SENSITIVE_STRING };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const KnowledgeBaseVectorSearchConfigurationFilterSensitiveLog = (
+  obj: KnowledgeBaseVectorSearchConfiguration
+): any => ({
+  ...obj,
+  ...(obj.filter && { filter: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const KnowledgeBaseRetrievalConfigurationFilterSensitiveLog = (
+  obj: KnowledgeBaseRetrievalConfiguration
+): any => ({
+  ...obj,
+  ...(obj.vectorSearchConfiguration && {
+    vectorSearchConfiguration: KnowledgeBaseVectorSearchConfigurationFilterSensitiveLog(obj.vectorSearchConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const KnowledgeBaseRetrieveAndGenerateConfigurationFilterSensitiveLog = (
   obj: KnowledgeBaseRetrieveAndGenerateConfiguration
 ): any => ({
   ...obj,
+  ...(obj.retrievalConfiguration && {
+    retrievalConfiguration: KnowledgeBaseRetrievalConfigurationFilterSensitiveLog(obj.retrievalConfiguration),
+  }),
   ...(obj.generationConfiguration && {
     generationConfiguration: GenerationConfigurationFilterSensitiveLog(obj.generationConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const RetrieveRequestFilterSensitiveLog = (obj: RetrieveRequest): any => ({
+  ...obj,
+  ...(obj.retrievalQuery && { retrievalQuery: SENSITIVE_STRING }),
+  ...(obj.retrievalConfiguration && {
+    retrievalConfiguration: KnowledgeBaseRetrievalConfigurationFilterSensitiveLog(obj.retrievalConfiguration),
   }),
 });
 
@@ -2457,52 +2889,4 @@ export const RetrieveAndGenerateRequestFilterSensitiveLog = (obj: RetrieveAndGen
       obj.retrieveAndGenerateConfiguration
     ),
   }),
-});
-
-/**
- * @internal
- */
-export const RetrieveAndGenerateOutputFilterSensitiveLog = (obj: RetrieveAndGenerateOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RetrieveAndGenerateResponseFilterSensitiveLog = (obj: RetrieveAndGenerateResponse): any => ({
-  ...obj,
-  ...(obj.output && { output: SENSITIVE_STRING }),
-  ...(obj.citations && { citations: obj.citations.map((item) => CitationFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const KnowledgeBaseQueryFilterSensitiveLog = (obj: KnowledgeBaseQuery): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RetrieveRequestFilterSensitiveLog = (obj: RetrieveRequest): any => ({
-  ...obj,
-  ...(obj.retrievalQuery && { retrievalQuery: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const KnowledgeBaseRetrievalResultFilterSensitiveLog = (obj: KnowledgeBaseRetrievalResult): any => ({
-  ...obj,
-  ...(obj.content && { content: SENSITIVE_STRING }),
-  ...(obj.location && { location: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const RetrieveResponseFilterSensitiveLog = (obj: RetrieveResponse): any => ({
-  ...obj,
-  ...(obj.retrievalResults && { retrievalResults: SENSITIVE_STRING }),
 });

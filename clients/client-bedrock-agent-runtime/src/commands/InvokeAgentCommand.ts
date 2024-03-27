@@ -117,6 +117,9 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //                     uri: "STRING_VALUE",
  * //                   },
  * //                 },
+ * //                 metadata: { // RetrievalResultMetadata
+ * //                   "<keys>": "DOCUMENT_VALUE",
+ * //                 },
  * //               },
  * //             ],
  * //           },
@@ -207,6 +210,9 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //                     s3Location: {
  * //                       uri: "STRING_VALUE",
  * //                     },
+ * //                   },
+ * //                   metadata: {
+ * //                     "<keys>": "DOCUMENT_VALUE",
  * //                   },
  * //                 },
  * //               ],
