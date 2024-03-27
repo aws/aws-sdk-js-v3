@@ -31,19 +31,26 @@ module.exports = class CompressionAlgorithm {
    */
   verifyImplementation() {
     const tempFile = path.join(__dirname, "..", "temp", `__${uuid.v4()}tmp.js`); // defeat require-cache.
-    let original = 0;
-    let compressed = 1;
+    const original = this.data;
+    let compressed = { x: "compressed code string read failure" };
     try {
       fs.writeFileSync(tempFile, this.toCodeString("module.exports = $"), "utf-8");
-      original = this.toJsonString(this.data);
-      compressed = this.toJsonString(require(tempFile));
-    } catch (e) {}
-    fs.rmSync(tempFile);
-    if (original !== compressed) {
-      fs.writeFileSync(path.join(__dirname, "..", "temp", "__original.json"), original);
-      fs.writeFileSync(path.join(__dirname, "..", "temp", "__compressed.json"), compressed);
+      compressed = require(tempFile);
+    } catch (e) {
+      console.error(e);
     }
-    assert(original === compressed, `Compression implementation is not correct for ${this.constructor.name}.`);
+    fs.rmSync(tempFile);
+    try {
+      assert.deepStrictEqual(
+        original,
+        compressed,
+        `Compression implementation is not correct for ${this.constructor.name}.`
+      );
+    } catch (e) {
+      fs.writeFileSync(path.join(__dirname, "..", "temp", "__original.json"), JSON.stringify(original, null, 2));
+      fs.writeFileSync(path.join(__dirname, "..", "temp", "__compressed.json"), JSON.stringify(original, null, 2));
+      throw e;
+    }
   }
 
   /**
@@ -55,6 +62,9 @@ module.exports = class CompressionAlgorithm {
       case "undefined":
         break;
       case "object":
+        if (null === data) {
+          break;
+        }
         if (Array.isArray(data)) {
           buffer += `\n` + indent + `[\n`;
           for (let i = 0; i < data.length; ++i) {
