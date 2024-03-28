@@ -30689,6 +30689,16 @@
             "us-isob-east-1": {}
           }
         },
+        "medialive": {
+          "endpoints": {
+            "us-isob-east-1": {}
+          }
+        },
+        "mediapackage": {
+          "endpoints": {
+            "us-isob-east-1": {}
+          }
+        },
         "metering.marketplace": {
           "defaults": {
             "credentialScope": {
