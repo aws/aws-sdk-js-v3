@@ -4619,6 +4619,8 @@ export const se_UpdateIpRestrictionCommand = async (
     take(input, {
       Enabled: [],
       IpRestrictionRuleMap: (_) => _json(_),
+      VpcEndpointIdRestrictionRuleMap: (_) => _json(_),
+      VpcIdRestrictionRuleMap: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -6959,6 +6961,8 @@ export const de_DescribeIpRestrictionCommand = async (
     Enabled: __expectBoolean,
     IpRestrictionRuleMap: _json,
     RequestId: __expectString,
+    VpcEndpointIdRestrictionRuleMap: _json,
+    VpcIdRestrictionRuleMap: _json,
   });
   Object.assign(contents, doc);
   map(contents, {
@@ -14566,6 +14570,10 @@ const se_VisualList = (input: Visual[], context: __SerdeContext): any => {
 
 // se_VpcConnectionProperties omitted.
 
+// se_VpcEndpointIdRestrictionRuleMap omitted.
+
+// se_VpcIdRestrictionRuleMap omitted.
+
 /**
  * serializeAws_restJson1WaterfallChartAggregatedFieldWells
  */
@@ -20112,6 +20120,10 @@ const de_VPCConnectionSummaryList = (output: any, context: __SerdeContext): VPCC
     });
   return retVal;
 };
+
+// de_VpcEndpointIdRestrictionRuleMap omitted.
+
+// de_VpcIdRestrictionRuleMap omitted.
 
 /**
  * deserializeAws_restJson1WaterfallChartAggregatedFieldWells

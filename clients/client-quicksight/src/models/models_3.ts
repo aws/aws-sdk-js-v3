@@ -5757,6 +5757,18 @@ export interface DescribeIpRestrictionResponse {
   IpRestrictionRuleMap?: Record<string, string>;
 
   /**
+   * <p>A map of allowed VPC IDs and their rule descriptions.</p>
+   * @public
+   */
+  VpcIdRestrictionRuleMap?: Record<string, string>;
+
+  /**
+   * <p>A map of allowed VPC endpoint IDs and their rule descriptions.</p>
+   * @public
+   */
+  VpcEndpointIdRestrictionRuleMap?: Record<string, string>;
+
+  /**
    * <p>A value that specifies whether IP rules are turned on.</p>
    * @public
    */
@@ -7637,8 +7649,8 @@ export interface GenerateEmbedUrlForAnonymousUserRequest {
    *             is authorized to access during the lifetime of the session.</p>
    *          <p>If you choose <code>Dashboard</code> embedding experience, pass the list of dashboard ARNs in the
    *             account that you want the user to be able to view.</p>
-   *          <p>Currently, you can pass up to 25
-   *             dashboard ARNs in each API call.</p>
+   *          <p>If you want to make changes to the theme of your embedded content, pass a list of theme ARNs that the anonymous users need access to.</p>
+   *          <p>Currently, you can pass up to 25 theme ARNs in each API call.</p>
    * @public
    */
   AuthorizedResourceArns: string[] | undefined;

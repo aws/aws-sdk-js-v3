@@ -44,6 +44,12 @@ export interface DescribeIpRestrictionCommandOutput extends DescribeIpRestrictio
  * //   IpRestrictionRuleMap: { // IpRestrictionRuleMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   VpcIdRestrictionRuleMap: { // VpcIdRestrictionRuleMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   VpcEndpointIdRestrictionRuleMap: { // VpcEndpointIdRestrictionRuleMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
  * //   Enabled: true || false,
  * //   RequestId: "STRING_VALUE",
  * //   Status: Number("int"),

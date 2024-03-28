@@ -5523,7 +5523,7 @@ export interface StringDatasetParameter {
 }
 
 /**
- * <p>A dataset parameter.</p>
+ * <p>A parameter that is created in a dataset. The parameter can be a string, integer, decimal, or datetime data type.</p>
  * @public
  */
 export interface DatasetParameter {

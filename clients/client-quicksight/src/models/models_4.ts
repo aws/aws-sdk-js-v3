@@ -3520,6 +3520,18 @@ export interface UpdateIpRestrictionRequest {
   IpRestrictionRuleMap?: Record<string, string>;
 
   /**
+   * <p>A map of VPC IDs and their corresponding rules. When you configure this parameter, traffic from all VPC endpoints that are present in the specified VPC is allowed.</p>
+   * @public
+   */
+  VpcIdRestrictionRuleMap?: Record<string, string>;
+
+  /**
+   * <p>A map of allowed VPC endpoint IDs and their corresponding rule descriptions.</p>
+   * @public
+   */
+  VpcEndpointIdRestrictionRuleMap?: Record<string, string>;
+
+  /**
    * <p>A value that specifies whether IP rules are turned on.</p>
    * @public
    */
