@@ -5854,6 +5854,7 @@ const de_ResourceDetails = (output: any, context: __SerdeContext): ResourceDetai
 const de_RuntimeContext = (output: any, context: __SerdeContext): RuntimeContext => {
   return take(output, {
     AddressFamily: [, __expectString, `addressFamily`],
+    CommandLineExample: [, __expectString, `commandLineExample`],
     FileSystemType: [, __expectString, `fileSystemType`],
     Flags: [, _json, `flags`],
     IanaProtocolNumber: [, __expectInt32, `ianaProtocolNumber`],
@@ -5870,9 +5871,13 @@ const de_RuntimeContext = (output: any, context: __SerdeContext): RuntimeContext
     ReleaseAgentPath: [, __expectString, `releaseAgentPath`],
     RuncBinaryPath: [, __expectString, `runcBinaryPath`],
     ScriptPath: [, __expectString, `scriptPath`],
+    ServiceName: [, __expectString, `serviceName`],
     ShellHistoryFilePath: [, __expectString, `shellHistoryFilePath`],
     SocketPath: [, __expectString, `socketPath`],
     TargetProcess: [, (_: any) => de_ProcessDetails(_, context), `targetProcess`],
+    ThreatFilePath: [, __expectString, `threatFilePath`],
+    ToolCategory: [, __expectString, `toolCategory`],
+    ToolName: [, __expectString, `toolName`],
   }) as any;
 };
 
@@ -6205,6 +6210,7 @@ const de_ThreatDetectedByName = (output: any, context: __SerdeContext): ThreatDe
  */
 const de_ThreatIntelligenceDetail = (output: any, context: __SerdeContext): ThreatIntelligenceDetail => {
   return take(output, {
+    ThreatFileSha256: [, __expectString, `threatFileSha256`],
     ThreatListName: [, __expectString, `threatListName`],
     ThreatNames: [, _json, `threatNames`],
   }) as any;

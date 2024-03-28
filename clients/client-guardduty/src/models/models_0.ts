@@ -659,7 +659,8 @@ export interface DnsRequestAction {
 
   /**
    * <p>The second and top level domain involved in the
-   *       activity that prompted GuardDuty to generate this finding.</p>
+   *       activity that potentially prompted GuardDuty to generate this finding.
+   *       For a list of top-level and second-level domains, see <a href="https://publicsuffix.org/">public suffix list</a>.</p>
    * @public
    */
   DomainWithSuffix?: string;
@@ -1673,13 +1674,7 @@ export const ManagementType = {
 export type ManagementType = (typeof ManagementType)[keyof typeof ManagementType];
 
 /**
- * <note>
- *             <p>This API is also used when you use GuardDuty Runtime Monitoring
- *       for your Amazon EC2 instances (currently in preview
- *       release) and is subject to change. The use of this API is subject to Section 2 of the
- *       <a href="http://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a> ("Betas and Previews").</p>
- *          </note>
- *          <p>Contains information about the Amazon EC2 instance runtime
+ * <p>Contains information about the Amazon EC2 instance runtime
  *     coverage details.</p>
  * @public
  */
@@ -1936,13 +1931,7 @@ export interface CoverageResourceDetails {
   EcsClusterDetails?: CoverageEcsClusterDetails;
 
   /**
-   * <note>
-   *             <p>This API is also used when you use GuardDuty Runtime Monitoring
-   *       for your Amazon EC2 instances (currently in preview
-   *       release) and is subject to change. The use of this API is subject to Section 2 of the
-   *       <a href="http://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a> ("Betas and Previews").</p>
-   *          </note>
-   *          <p>Information about the Amazon EC2 instance assessed
+   * <p>Information about the Amazon EC2 instance assessed
    *       for runtime coverage.</p>
    * @public
    */
@@ -2178,6 +2167,7 @@ export interface DataSourceConfigurations {
  * @enum
  */
 export const FeatureAdditionalConfiguration = {
+  EC2_AGENT_MANAGEMENT: "EC2_AGENT_MANAGEMENT",
   ECS_FARGATE_AGENT_MANAGEMENT: "ECS_FARGATE_AGENT_MANAGEMENT",
   EKS_ADDON_MANAGEMENT: "EKS_ADDON_MANAGEMENT",
 } as const;
@@ -3991,6 +3981,7 @@ export type OrgFeatureStatus = (typeof OrgFeatureStatus)[keyof typeof OrgFeature
  * @enum
  */
 export const OrgFeatureAdditionalConfiguration = {
+  EC2_AGENT_MANAGEMENT: "EC2_AGENT_MANAGEMENT",
   ECS_FARGATE_AGENT_MANAGEMENT: "ECS_FARGATE_AGENT_MANAGEMENT",
   EKS_ADDON_MANAGEMENT: "EKS_ADDON_MANAGEMENT",
 } as const;
@@ -4986,6 +4977,12 @@ export interface ThreatIntelligenceDetail {
    * @public
    */
   ThreatNames?: string[];
+
+  /**
+   * <p>SHA256 of the file that generated the finding.</p>
+   * @public
+   */
+  ThreatFileSha256?: string;
 }
 
 /**
@@ -6029,6 +6026,37 @@ export interface RuntimeContext {
    * @public
    */
   MemoryRegions?: string[];
+
+  /**
+   * <p>Name of the potentially suspicious tool.</p>
+   * @public
+   */
+  ToolName?: string;
+
+  /**
+   * <p>Category that the tool belongs to. Some of the examples
+   *     are Backdoor Tool, Pentest Tool, Network Scanner, and Network Sniffer.</p>
+   * @public
+   */
+  ToolCategory?: string;
+
+  /**
+   * <p>Name of the security service that has been potentially disabled.</p>
+   * @public
+   */
+  ServiceName?: string;
+
+  /**
+   * <p>Example of the command line involved in the suspicious activity.</p>
+   * @public
+   */
+  CommandLineExample?: string;
+
+  /**
+   * <p>The suspicious file path for which the threat intelligence details were found.</p>
+   * @public
+   */
+  ThreatFilePath?: string;
 }
 
 /**

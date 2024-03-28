@@ -54,7 +54,7 @@ export interface GetOrganizationStatisticsCommandOutput extends GetOrganizationS
  * //           EnabledAccountsCount: Number("int"),
  * //           AdditionalConfiguration: [ // OrganizationFeatureStatisticsAdditionalConfigurations
  * //             { // OrganizationFeatureStatisticsAdditionalConfiguration
- * //               Name: "EKS_ADDON_MANAGEMENT" || "ECS_FARGATE_AGENT_MANAGEMENT",
+ * //               Name: "EKS_ADDON_MANAGEMENT" || "ECS_FARGATE_AGENT_MANAGEMENT" || "EC2_AGENT_MANAGEMENT",
  * //               EnabledAccountsCount: Number("int"),
  * //             },
  * //           ],

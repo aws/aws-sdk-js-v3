@@ -578,6 +578,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //               ThreatNames: [ // ThreatNames
  * //                 "STRING_VALUE",
  * //               ],
+ * //               ThreatFileSha256: "STRING_VALUE",
  * //             },
  * //           ],
  * //         },
@@ -744,6 +745,11 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //             MemoryRegions: [ // MemoryRegionsList
  * //               "STRING_VALUE",
  * //             ],
+ * //             ToolName: "STRING_VALUE",
+ * //             ToolCategory: "STRING_VALUE",
+ * //             ServiceName: "STRING_VALUE",
+ * //             CommandLineExample: "STRING_VALUE",
+ * //             ThreatFilePath: "STRING_VALUE",
  * //           },
  * //         },
  * //         Detection: { // Detection

@@ -84,7 +84,7 @@ export interface GetMemberDetectorsCommandOutput extends GetMemberDetectorsRespo
  * //           UpdatedAt: new Date("TIMESTAMP"),
  * //           AdditionalConfiguration: [ // MemberAdditionalConfigurationResults
  * //             { // MemberAdditionalConfigurationResult
- * //               Name: "EKS_ADDON_MANAGEMENT" || "ECS_FARGATE_AGENT_MANAGEMENT",
+ * //               Name: "EKS_ADDON_MANAGEMENT" || "ECS_FARGATE_AGENT_MANAGEMENT" || "EC2_AGENT_MANAGEMENT",
  * //               Status: "ENABLED" || "DISABLED",
  * //               UpdatedAt: new Date("TIMESTAMP"),
  * //             },

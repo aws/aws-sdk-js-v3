@@ -38,6 +38,14 @@ export interface DisassociateMembersCommandOutput extends DisassociateMembersRes
  *          <p>With <code>autoEnableOrganizationMembers</code> configuration for your organization set to
  *         <code>ALL</code>, you'll receive an error if you attempt to disassociate a member account
  *       before removing them from your organization.</p>
+ *          <p>If you disassociate a member account that was added by invitation, the member account details
+ *       obtained from this API, including the associated email addresses, will be retained.
+ *       This is done so that the delegated administrator can invoke the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html">InviteMembers</a> API without the need to invoke the CreateMembers API again. To
+ *       remove the details associated with a member account, the delegated administrator must invoke the
+ *       <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html">DeleteMembers</a> API. </p>
+ *          <p>When the member accounts added through Organizations are later disassociated, you (administrator)
+ *       can't invite them by calling the InviteMembers API. You can create an association with these
+ *       member accounts again only by calling the CreateMembers API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

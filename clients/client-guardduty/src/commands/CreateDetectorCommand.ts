@@ -84,7 +84,7 @@ export interface CreateDetectorCommandOutput extends CreateDetectorResponse, __M
  *       Status: "ENABLED" || "DISABLED",
  *       AdditionalConfiguration: [ // DetectorAdditionalConfigurations
  *         { // DetectorAdditionalConfiguration
- *           Name: "EKS_ADDON_MANAGEMENT" || "ECS_FARGATE_AGENT_MANAGEMENT",
+ *           Name: "EKS_ADDON_MANAGEMENT" || "ECS_FARGATE_AGENT_MANAGEMENT" || "EC2_AGENT_MANAGEMENT",
  *           Status: "ENABLED" || "DISABLED",
  *         },
  *       ],

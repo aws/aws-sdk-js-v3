@@ -74,7 +74,7 @@ export interface UpdateOrganizationConfigurationCommandOutput
  *       AutoEnable: "NEW" || "NONE" || "ALL",
  *       AdditionalConfiguration: [ // OrganizationAdditionalConfigurations
  *         { // OrganizationAdditionalConfiguration
- *           Name: "EKS_ADDON_MANAGEMENT" || "ECS_FARGATE_AGENT_MANAGEMENT",
+ *           Name: "EKS_ADDON_MANAGEMENT" || "ECS_FARGATE_AGENT_MANAGEMENT" || "EC2_AGENT_MANAGEMENT",
  *           AutoEnable: "NEW" || "NONE" || "ALL",
  *         },
  *       ],
