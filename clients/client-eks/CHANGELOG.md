@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.544.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.543.0...v3.544.0) (2024-03-28)
+
+
+### Features
+
+* **client-eks:** Add multiple customer error code to handle customer caused failure when managing EKS node groups ([539621d](https://github.com/aws/aws-sdk-js-v3/commit/539621d9db65f0983ff63710818405d467d49154))
+
+
+
+
+
 # [3.540.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.539.0...v3.540.0) (2024-03-22)
 
 

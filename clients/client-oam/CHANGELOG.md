@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.544.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.543.0...v3.544.0) (2024-03-28)
+
+
+### Features
+
+* **client-oam:** This release adds support for sharing AWS::InternetMonitor::Monitor resources. ([17bc8e1](https://github.com/aws/aws-sdk-js-v3/commit/17bc8e1b3e9026a5a7b430537c5cc9476903fa04))
+
+
+
+
+
 # [3.540.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.539.0...v3.540.0) (2024-03-22)
 
 

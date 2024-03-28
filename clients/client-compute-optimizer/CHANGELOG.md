@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.544.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.543.0...v3.544.0) (2024-03-28)
+
+
+### Features
+
+* **client-compute-optimizer:** This release enables AWS Compute Optimizer to analyze and generate recommendations with a new customization preference, Memory Utilization. ([2f67543](https://github.com/aws/aws-sdk-js-v3/commit/2f67543b31542ae8b0c74df82a5ed7287cedbdfa))
+
+
+
+
+
 # [3.540.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.539.0...v3.540.0) (2024-03-22)
 
 

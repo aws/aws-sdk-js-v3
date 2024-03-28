@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.544.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.543.0...v3.544.0) (2024-03-28)
+
+
+### Features
+
+* **client-codecatalyst:** This release adds support for understanding pending changes to subscriptions by including two new response parameters for the GetSubscription API for Amazon CodeCatalyst. ([42591f5](https://github.com/aws/aws-sdk-js-v3/commit/42591f56b25d76ecbd52dc96d40ba74f5c22a590))
+* **client-compute-optimizer:** This release enables AWS Compute Optimizer to analyze and generate recommendations with a new customization preference, Memory Utilization. ([2f67543](https://github.com/aws/aws-sdk-js-v3/commit/2f67543b31542ae8b0c74df82a5ed7287cedbdfa))
+* **client-ec2:** Amazon EC2 C7gd, M7gd and R7gd metal instances with up to 3.8 TB of local NVMe-based SSD block-level storage have up to 45% improved real-time NVMe storage performance than comparable Graviton2-based instances. ([790018d](https://github.com/aws/aws-sdk-js-v3/commit/790018dce662cdea619ab14a4a0b0df8699bff22))
+* **client-eks:** Add multiple customer error code to handle customer caused failure when managing EKS node groups ([539621d](https://github.com/aws/aws-sdk-js-v3/commit/539621d9db65f0983ff63710818405d467d49154))
+* **client-guardduty:** Add EC2 support for GuardDuty Runtime Monitoring auto management. ([11a2340](https://github.com/aws/aws-sdk-js-v3/commit/11a2340512825d3e847abc9add1777b54bd7d5ed))
+* **client-neptune-graph:** Update ImportTaskCancelled waiter to evaluate task state correctly and minor documentation changes. ([70254e2](https://github.com/aws/aws-sdk-js-v3/commit/70254e298625774bfa2141431c4aac0ca821daa9))
+* **client-oam:** This release adds support for sharing AWS::InternetMonitor::Monitor resources. ([17bc8e1](https://github.com/aws/aws-sdk-js-v3/commit/17bc8e1b3e9026a5a7b430537c5cc9476903fa04))
+* **client-quicksight:** Amazon QuickSight: Adds support for setting up VPC Endpoint restrictions for accessing QuickSight Website. ([0e22651](https://github.com/aws/aws-sdk-js-v3/commit/0e22651ee580d49ea7d870b400b52c1e89eb0bc5))
+* **clients:** update client endpoints as of 2024-03-28 ([d7e1491](https://github.com/aws/aws-sdk-js-v3/commit/d7e1491e2dd3f01f9961dc1871ddd3f0490e26fb))
+
+
+
+
+
 # [3.543.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.542.0...v3.543.0) (2024-03-27)
 
 

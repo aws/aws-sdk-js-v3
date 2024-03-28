@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.544.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.543.0...v3.544.0) (2024-03-28)
+
+
+### Features
+
+* **client-ec2:** Amazon EC2 C7gd, M7gd and R7gd metal instances with up to 3.8 TB of local NVMe-based SSD block-level storage have up to 45% improved real-time NVMe storage performance than comparable Graviton2-based instances. ([790018d](https://github.com/aws/aws-sdk-js-v3/commit/790018dce662cdea619ab14a4a0b0df8699bff22))
+
+
+
+
+
 # [3.542.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.541.0...v3.542.0) (2024-03-26)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.544.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.543.0...v3.544.0) (2024-03-28)
+
+
+### Features
+
+* **client-quicksight:** Amazon QuickSight: Adds support for setting up VPC Endpoint restrictions for accessing QuickSight Website. ([0e22651](https://github.com/aws/aws-sdk-js-v3/commit/0e22651ee580d49ea7d870b400b52c1e89eb0bc5))
+
+
+
+
+
 # [3.540.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.539.0...v3.540.0) (2024-03-22)
 
 

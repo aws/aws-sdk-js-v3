@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.544.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.543.0...v3.544.0) (2024-03-28)
+
+
+### Features
+
+* **client-neptune-graph:** Update ImportTaskCancelled waiter to evaluate task state correctly and minor documentation changes. ([70254e2](https://github.com/aws/aws-sdk-js-v3/commit/70254e298625774bfa2141431c4aac0ca821daa9))
+
+
+
+
+
 # [3.540.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.539.0...v3.540.0) (2024-03-22)
 
 
