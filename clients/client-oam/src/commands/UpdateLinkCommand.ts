@@ -40,7 +40,7 @@ export interface UpdateLinkCommandOutput extends UpdateLinkOutput, __MetadataBea
  * const input = { // UpdateLinkInput
  *   Identifier: "STRING_VALUE", // required
  *   ResourceTypes: [ // ResourceTypesInput // required
- *     "AWS::CloudWatch::Metric" || "AWS::Logs::LogGroup" || "AWS::XRay::Trace" || "AWS::ApplicationInsights::Application",
+ *     "AWS::CloudWatch::Metric" || "AWS::Logs::LogGroup" || "AWS::XRay::Trace" || "AWS::ApplicationInsights::Application" || "AWS::InternetMonitor::Monitor",
  *   ],
  * };
  * const command = new UpdateLinkCommand(input);

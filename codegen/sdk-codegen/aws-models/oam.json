@@ -1225,6 +1225,12 @@
           "traits": {
             "smithy.api#enumValue": "AWS::ApplicationInsights::Application"
           }
+        },
+        "AWS_INTERNETMONITOR_MONITOR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AWS::InternetMonitor::Monitor"
+          }
         }
       }
     },

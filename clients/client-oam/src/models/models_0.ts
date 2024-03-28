@@ -38,6 +38,7 @@ export class ConflictException extends __BaseException {
 export const ResourceType = {
   AWS_APPLICATIONINSIGHTS_APPLICATION: "AWS::ApplicationInsights::Application",
   AWS_CLOUDWATCH_METRIC: "AWS::CloudWatch::Metric",
+  AWS_INTERNETMONITOR_MONITOR: "AWS::InternetMonitor::Monitor",
   AWS_LOGS_LOGGROUP: "AWS::Logs::LogGroup",
   AWS_XRAY_TRACE: "AWS::XRay::Trace",
 } as const;
