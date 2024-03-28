@@ -1,0 +1,28 @@
+name: pre-commit hooks
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  run-pre-commit-hooks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16' 
+          cache: 'yarn'
+      
+      - name: install dependencies
+        run: yarn install --frozen-lockfile
+      
+      - name: run pre-commit hooks
+        run: |
+          yarn lint-staged
+          yarn lint:versions
+          yarn lint:dependencies
