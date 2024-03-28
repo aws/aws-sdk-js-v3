@@ -1164,7 +1164,7 @@ export interface CreateDevEnvironmentRequest {
   persistentStorage: PersistentStorageConfiguration | undefined;
 
   /**
-   * <p>The name of the connection to use connect to a Amazon VPC.</p>
+   * <p>The name of the connection that will be used to connect to Amazon VPC, if any.</p>
    * @public
    */
   vpcConnectionName?: string;
@@ -3115,6 +3115,20 @@ export interface GetSubscriptionResponse {
    * @public
    */
   awsAccountName?: string;
+
+  /**
+   * <p>The type of the billing plan that the space will be changed to at the start of the next billing cycle. This applies
+   *     only to changes that reduce the functionality available for the space. Billing plan changes that increase functionality
+   *     are applied immediately. For more information, see <a href="https://codecatalyst.aws/explore/pricing">Pricing</a>.</p>
+   * @public
+   */
+  pendingSubscriptionType?: string;
+
+  /**
+   * <p>The day and time the pending change will be applied to the space, in coordinated universal time (UTC) timestamp format as specified in <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339</a>.</p>
+   * @public
+   */
+  pendingSubscriptionStartTime?: Date;
 }
 
 /**

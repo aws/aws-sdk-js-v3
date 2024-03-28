@@ -548,6 +548,9 @@
             "smithy.api#timestampFormat": "date-time"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.codecatalyst#CreateAccessTokenResponse": {
@@ -582,6 +585,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.codecatalyst#CreateDevEnvironment": {
@@ -674,9 +680,12 @@
         "vpcConnectionName": {
           "target": "com.amazonaws.codecatalyst#NameString",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the connection to use connect to a Amazon VPC.</p>"
+            "smithy.api#documentation": "<p>The name of the connection that will be used to connect to Amazon VPC, if any.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.codecatalyst#CreateDevEnvironmentResponse": {
@@ -710,6 +719,9 @@
             "smithy.api#documentation": "<p>The name of the connection used to connect to Amazon VPC used when the Dev Environment was created, if any.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.codecatalyst#CreateProject": {
@@ -754,6 +766,9 @@
             "smithy.api#documentation": "<p>The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.codecatalyst#CreateProjectResponse": {
@@ -785,6 +800,9 @@
             "smithy.api#documentation": "<p>The description of the project.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.codecatalyst#CreateSourceRepository": {
@@ -865,6 +883,9 @@
             "smithy.api#documentation": "<p>The commit ID in an existing branch from which you want to create the new branch.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.codecatalyst#CreateSourceRepositoryBranchResponse": {
@@ -895,6 +916,9 @@
             "smithy.api#documentation": "<p>The commit ID of the tip of the newly created branch.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.codecatalyst#CreateSourceRepositoryRequest": {
@@ -1059,6 +1083,9 @@
             "smithy.api#resourceIdentifier": "devEnvironmentId"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.codecatalyst#DeleteDevEnvironmentResponse": {
@@ -1086,6 +1113,9 @@
             "smithy.api#resourceIdentifier": "devEnvironmentId"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.codecatalyst#DeleteProject": {
@@ -1934,6 +1964,9 @@
             "smithy.api#resourceIdentifier": "devEnvironmentId"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.codecatalyst#GetDevEnvironmentResponse": {
@@ -2042,6 +2075,9 @@
             "smithy.api#documentation": "<p>The name of the connection used to connect to Amazon VPC used when the Dev Environment was created, if any.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.codecatalyst#GetProject": {
@@ -2082,6 +2118,9 @@
             "smithy.api#resourceIdentifier": "projectName"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.codecatalyst#GetProjectResponse": {
@@ -2112,6 +2151,9 @@
             "smithy.api#documentation": "<p>The description of the project.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.codecatalyst#GetSourceRepository": {
@@ -2177,6 +2219,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.codecatalyst#GetSourceRepositoryCloneUrlsResponse": {
@@ -2189,6 +2234,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.codecatalyst#GetSourceRepositoryRequest": {
@@ -2303,6 +2351,9 @@
             "smithy.api#resourceIdentifier": "spaceName"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.codecatalyst#GetSpaceResponse": {
@@ -2334,6 +2385,9 @@
             "smithy.api#documentation": "<p>The description of the space.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.codecatalyst#GetSubscription": {
@@ -2365,6 +2419,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.codecatalyst#GetSubscriptionResponse": {
@@ -2381,7 +2438,23 @@
           "traits": {
             "smithy.api#documentation": "<p>The display name of the Amazon Web Services account used for billing for the space.</p>"
           }
+        },
+        "pendingSubscriptionType": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of the billing plan that the space will be changed to at the start of the next billing cycle. This applies\n    only to changes that reduce the functionality available for the space. Billing plan changes that increase functionality\n    are applied immediately. For more information, see <a href=\"https://codecatalyst.aws/explore/pricing\">Pricing</a>.</p>"
+          }
+        },
+        "pendingSubscriptionStartTime": {
+          "target": "com.amazonaws.codecatalyst#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The day and time the pending change will be applied to the space, in coordinated universal time (UTC) timestamp format as specified in <a href=\"https://www.rfc-editor.org/rfc/rfc3339#section-5.6\">RFC 3339</a>.</p>",
+            "smithy.api#timestampFormat": "date-time"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.codecatalyst#GetUserDetails": {
@@ -2425,9 +2498,12 @@
               "min": 3,
               "max": 100
             },
-            "smithy.api#pattern": "^[a-zA-Z0-9]{3,100}$"
+            "smithy.api#pattern": "^[a-zA-Z0-9_.-]{3,100}$"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.codecatalyst#GetUserDetailsResponse": {
@@ -2463,6 +2539,9 @@
             "smithy.api#documentation": "<p/>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.codecatalyst#GetWorkflow": {
@@ -3082,6 +3161,9 @@
             }
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.codecatalyst#ListDevEnvironmentsResponse": {
@@ -3100,6 +3182,9 @@
             "smithy.api#documentation": "<p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.codecatalyst#ListEventLogs": {
@@ -3179,6 +3264,9 @@
             }
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.codecatalyst#ListEventLogsResponse": {
@@ -3197,6 +3285,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.codecatalyst#ListProjects": {
@@ -3260,6 +3351,9 @@
             "smithy.api#documentation": "<p>Information about filters to apply to narrow the results returned in the list.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.codecatalyst#ListProjectsResponse": {
@@ -3277,6 +3371,9 @@
             "smithy.api#documentation": "<p>Information about the projects.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.codecatalyst#ListSourceRepositories": {
@@ -3390,6 +3487,9 @@
             }
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.codecatalyst#ListSourceRepositoriesResponse": {
@@ -3407,6 +3507,9 @@
             "smithy.api#documentation": "<p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.codecatalyst#ListSourceRepositoryBranches": {
@@ -3519,6 +3622,9 @@
             }
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.codecatalyst#ListSourceRepositoryBranchesResponse": {
@@ -3537,6 +3643,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.codecatalyst#ListSpaces": {
@@ -3575,6 +3684,9 @@
             }
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.codecatalyst#ListSpacesResponse": {
@@ -3592,6 +3704,9 @@
             "smithy.api#documentation": "<p>Information about the spaces. </p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.codecatalyst#ListWorkflowRuns": {
@@ -4343,6 +4458,9 @@
             "smithy.api#documentation": "<p>The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.codecatalyst#StartDevEnvironmentResponse": {
@@ -4377,6 +4495,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.codecatalyst#StartDevEnvironmentSession": {
@@ -4430,6 +4551,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.codecatalyst#StartDevEnvironmentSessionResponse": {
@@ -4473,6 +4597,9 @@
             "smithy.api#resourceIdentifier": "devEnvironmentId"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.codecatalyst#StartWorkflowRun": {
@@ -4633,6 +4760,9 @@
             "smithy.api#resourceIdentifier": "devEnvironmentId"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.codecatalyst#StopDevEnvironmentResponse": {
@@ -4667,6 +4797,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.codecatalyst#StopDevEnvironmentSession": {
@@ -4727,6 +4860,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.codecatalyst#StopDevEnvironmentSessionResponse": {
@@ -4765,6 +4901,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.codecatalyst#StringList": {
@@ -4888,6 +5027,9 @@
             "smithy.api#documentation": "<p>A user-specified idempotency token.  Idempotency ensures that an API request completes only once. \n       With an idempotent request, if the original request completes successfully, the subsequent retries return the result from the original successful request and have no additional effect.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.codecatalyst#UpdateDevEnvironmentResponse": {
@@ -4951,6 +5093,9 @@
             "smithy.api#documentation": "<p>A user-specified idempotency token.  Idempotency ensures that an API request completes only once. \n       With an idempotent request, if the original request completes successfully, the subsequent retries return the result from the original successful request and have no additional effect.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.codecatalyst#UpdateProject": {
@@ -5207,6 +5352,9 @@
             }
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.codecatalyst#Workflow": {

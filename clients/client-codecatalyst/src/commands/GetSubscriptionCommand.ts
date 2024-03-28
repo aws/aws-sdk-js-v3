@@ -43,6 +43,8 @@ export interface GetSubscriptionCommandOutput extends GetSubscriptionResponse, _
  * // { // GetSubscriptionResponse
  * //   subscriptionType: "STRING_VALUE",
  * //   awsAccountName: "STRING_VALUE",
+ * //   pendingSubscriptionType: "STRING_VALUE",
+ * //   pendingSubscriptionStartTime: new Date("TIMESTAMP"),
  * // };
  *
  * ```
