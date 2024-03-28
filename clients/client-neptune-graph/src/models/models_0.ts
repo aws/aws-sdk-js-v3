@@ -677,6 +677,7 @@ export const GraphStatus = {
   CREATING: "CREATING",
   DELETING: "DELETING",
   FAILED: "FAILED",
+  IMPORTING: "IMPORTING",
   RESETTING: "RESETTING",
   SNAPSHOTTING: "SNAPSHOTTING",
   UPDATING: "UPDATING",
@@ -731,7 +732,8 @@ export interface CreateGraphOutput {
   createTime?: Date;
 
   /**
-   * <p>The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Min = 128</p>
+   * <p>The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.</p>
+   *          <p>Min = 128</p>
    * @public
    */
   provisionedMemory?: number;
@@ -744,6 +746,9 @@ export interface CreateGraphOutput {
 
   /**
    * <p>Specifies whether or not the graph can be reachable over the internet. All access to graphs is IAM authenticated.</p>
+   *          <note>
+   *             <p>If enabling public connectivity for the first time, there will be a delay while it is enabled.</p>
+   *          </note>
    * @public
    */
   publicConnectivity?: boolean;
@@ -757,6 +762,7 @@ export interface CreateGraphOutput {
 
   /**
    * <p>The number of replicas in other AZs.</p>
+   *          <p>Default: If not specified, the default value is 1.</p>
    * @public
    */
   replicaCount?: number;
@@ -1300,7 +1306,8 @@ export interface RestoreGraphFromSnapshotInput {
   graphName: string | undefined;
 
   /**
-   * <p>The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Min = 128</p>
+   * <p>The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.</p>
+   *          <p>Min = 128</p>
    * @public
    */
   provisionedMemory?: number;
@@ -1446,7 +1453,8 @@ export interface UpdateGraphInput {
   publicConnectivity?: boolean;
 
   /**
-   * <p>The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Min = 128</p>
+   * <p>The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.</p>
+   *          <p>Min = 128</p>
    * @public
    */
   provisionedMemory?: number;

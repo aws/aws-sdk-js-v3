@@ -11,7 +11,7 @@ const checkState = async (client: NeptuneGraphClient, input: GetImportTaskComman
     reason = result;
     try {
       const returnComparator = () => {
-        return result.status != "CANCELLING";
+        return result.status != "CANCELLING" && result.status != "CANCELLED";
       };
       if (returnComparator() == true) {
         return { state: WaiterState.FAILURE, reason };
