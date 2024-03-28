@@ -395,6 +395,7 @@ export interface InstanceSavingsEstimationMode {
  */
 export const CustomizableMetricName = {
   CPU_UTILIZATION: "CpuUtilization",
+  MEMORY_UTILIZATION: "MemoryUtilization",
 } as const;
 
 /**
@@ -408,6 +409,7 @@ export type CustomizableMetricName = (typeof CustomizableMetricName)[keyof typeo
  */
 export const CustomizableMetricHeadroom = {
   PERCENT_0: "PERCENT_0",
+  PERCENT_10: "PERCENT_10",
   PERCENT_20: "PERCENT_20",
   PERCENT_30: "PERCENT_30",
 } as const;
@@ -444,14 +446,28 @@ export interface CustomizableMetricParameters {
    * <p>
    *             The threshold value used for the specified metric parameter.
    *         </p>
+   *          <note>
+   *             <p>You can only specify the threshold value for CPU utilization.</p>
+   *          </note>
    * @public
    */
   threshold?: CustomizableMetricThreshold;
 
   /**
    * <p>
-   *             The headroom threshold value in percentage used for the specified metric parameter.
+   *             The headroom value in percentage used for the specified metric parameter.
    *         </p>
+   *          <p>The following lists the valid values for CPU and memory utilization.</p>
+   *          <ul>
+   *             <li>
+   *                <p>CPU utilization: <code>PERCENT_30 | PERCENT_20 | PERCENT_0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Memory utilization: <code>PERCENT_30 | PERCENT_20 | PERCENT_10</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    * @public
    */
   headroom?: CustomizableMetricHeadroom;
@@ -471,9 +487,6 @@ export interface UtilizationPreference {
    * <p>
    *             The name of the resource utilization metric name to customize.
    *         </p>
-   *          <note>
-   *             <p>Compute Optimizer only supports <code>CpuUtilization</code>.</p>
-   *          </note>
    * @public
    */
   metricName?: CustomizableMetricName;
@@ -555,7 +568,7 @@ export interface EffectiveRecommendationPreferences {
 
   /**
    * <p>
-   *             The resource’s CPU utilization threshold preferences, such as threshold and headroom, that
+   *             The resource’s CPU and memory utilization preferences, such as threshold and headroom, that
    *             are used to generate rightsizing recommendations.
    *         </p>
    *          <note>
@@ -5893,7 +5906,7 @@ export interface GetEffectiveRecommendationPreferencesResponse {
 
   /**
    * <p>
-   *             The resource’s CPU utilization threshold preferences, such as threshold and headroom,
+   *             The resource’s CPU and memory utilization preferences, such as threshold and headroom,
    *             that were used to generate rightsizing recommendations. It considers all applicable preferences
    *             that you set at the resource, account, and organization level.
    *         </p>
@@ -7194,7 +7207,7 @@ export interface RecommendationPreferencesDetail {
 
   /**
    * <p>
-   *             The preference to control the resource’s CPU utilization thresholds - threshold and headroom.
+   *             The preference to control the resource’s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom.
    *             If the preference isn’t set, this object is null.
    *         </p>
    *          <note>
@@ -7648,9 +7661,10 @@ export interface PutRecommendationPreferencesRequest {
 
   /**
    * <p>
-   *             The preference to control the resource’s CPU utilization thresholds - threshold and headroom. When this
-   *             preference isn't specified, we use the following default values:
+   *             The preference to control the resource’s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom. When this
+   *             preference isn't specified, we use the following default values.
    *         </p>
+   *          <p>CPU utilization:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -7658,11 +7672,25 @@ export interface PutRecommendationPreferencesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>PERCENT_17</code> for headroom</p>
+   *                   <code>PERCENT_20</code> for headroom</p>
+   *             </li>
+   *          </ul>
+   *          <p>Memory utilization:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PERCENT_20</code> for headroom</p>
    *             </li>
    *          </ul>
    *          <note>
-   *             <p>You can only set this preference for the Amazon EC2 instance resource type.</p>
+   *             <ul>
+   *                <li>
+   *                   <p>You can only set CPU and memory utilization preferences for the Amazon EC2 instance resource type.</p>
+   *                </li>
+   *                <li>
+   *                   <p>The threshold setting isn’t available for memory utilization.</p>
+   *                </li>
+   *             </ul>
    *          </note>
    * @public
    */

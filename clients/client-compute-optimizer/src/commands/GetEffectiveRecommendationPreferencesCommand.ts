@@ -61,10 +61,10 @@ export interface GetEffectiveRecommendationPreferencesCommandOutput
  * //   lookBackPeriod: "DAYS_14" || "DAYS_32" || "DAYS_93",
  * //   utilizationPreferences: [ // UtilizationPreferences
  * //     { // UtilizationPreference
- * //       metricName: "CpuUtilization",
+ * //       metricName: "CpuUtilization" || "MemoryUtilization",
  * //       metricParameters: { // CustomizableMetricParameters
  * //         threshold: "P90" || "P95" || "P99_5",
- * //         headroom: "PERCENT_30" || "PERCENT_20" || "PERCENT_0",
+ * //         headroom: "PERCENT_30" || "PERCENT_20" || "PERCENT_10" || "PERCENT_0",
  * //       },
  * //     },
  * //   ],
