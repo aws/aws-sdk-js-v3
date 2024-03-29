@@ -53,6 +53,7 @@ export interface StartQueryCommandOutput extends StartQueryOutput, __MetadataBea
  *       ],
  *     },
  *   ],
+ *   LinkedAccountId: "STRING_VALUE",
  * };
  * const command = new StartQueryCommand(input);
  * const response = await client.send(command);

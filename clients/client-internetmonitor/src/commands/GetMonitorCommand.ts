@@ -37,6 +37,7 @@ export interface GetMonitorCommandOutput extends GetMonitorOutput, __MetadataBea
  * const client = new InternetMonitorClient(config);
  * const input = { // GetMonitorInput
  *   MonitorName: "STRING_VALUE", // required
+ *   LinkedAccountId: "STRING_VALUE",
  * };
  * const command = new GetMonitorCommand(input);
  * const response = await client.send(command);

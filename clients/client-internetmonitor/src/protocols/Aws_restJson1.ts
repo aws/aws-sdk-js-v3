@@ -127,8 +127,11 @@ export const se_GetHealthEventCommand = async (
   b.bp("/v20210603/Monitors/{MonitorName}/HealthEvents/{EventId}");
   b.p("MonitorName", () => input.MonitorName!, "{MonitorName}", false);
   b.p("EventId", () => input.EventId!, "{EventId}", false);
+  const query: any = map({
+    [_LAI]: [, input[_LAI]!],
+  });
   let body: any;
-  b.m("GET").h(headers).b(body);
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -143,8 +146,11 @@ export const se_GetMonitorCommand = async (
   const headers: any = {};
   b.bp("/v20210603/Monitors/{MonitorName}");
   b.p("MonitorName", () => input.MonitorName!, "{MonitorName}", false);
+  const query: any = map({
+    [_LAI]: [, input[_LAI]!],
+  });
   let body: any;
-  b.m("GET").h(headers).b(body);
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -203,6 +209,7 @@ export const se_ListHealthEventsCommand = async (
     [_NT]: [, input[_NT]!],
     [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_ES]: [, input[_ES]!],
+    [_LAI]: [, input[_LAI]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -223,6 +230,7 @@ export const se_ListMonitorsCommand = async (
     [_NT]: [, input[_NT]!],
     [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_MS]: [, input[_MS]!],
+    [_ILA]: [() => input.IncludeLinkedAccounts !== void 0, () => input[_ILA]!.toString()],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -263,6 +271,7 @@ export const se_StartQueryCommand = async (
     take(input, {
       EndTime: (_) => _.toISOString().split(".")[0] + "Z",
       FilterParameters: (_) => _json(_),
+      LinkedAccountId: [],
       QueryType: [],
       StartTime: (_) => _.toISOString().split(".")[0] + "Z",
     })
@@ -1147,6 +1156,8 @@ const isSerializableHeaderValue = (value: any): boolean =>
 
 const _ES = "EventStatus";
 const _ET = "EndTime";
+const _ILA = "IncludeLinkedAccounts";
+const _LAI = "LinkedAccountId";
 const _MR = "MaxResults";
 const _MS = "MonitorStatus";
 const _NT = "NextToken";

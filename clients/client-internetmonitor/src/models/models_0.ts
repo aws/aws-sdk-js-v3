@@ -524,6 +524,12 @@ export interface GetHealthEventInput {
    * @public
    */
   EventId: string | undefined;
+
+  /**
+   * <p>TBD </p>
+   * @public
+   */
+  LinkedAccountId?: string;
 }
 
 /**
@@ -907,6 +913,12 @@ export interface GetMonitorInput {
    * @public
    */
   MonitorName: string | undefined;
+
+  /**
+   * <p>TBD </p>
+   * @public
+   */
+  LinkedAccountId?: string;
 }
 
 /**
@@ -1256,6 +1268,12 @@ export interface ListHealthEventsInput {
    * @public
    */
   EventStatus?: HealthEventStatus;
+
+  /**
+   * <p>TBD </p>
+   * @public
+   */
+  LinkedAccountId?: string;
 }
 
 /**
@@ -1384,6 +1402,12 @@ export interface ListMonitorsInput {
    * @public
    */
   MonitorStatus?: string;
+
+  /**
+   * <p>TBD </p>
+   * @public
+   */
+  IncludeLinkedAccounts?: boolean;
 }
 
 /**
@@ -1506,6 +1530,12 @@ export interface StartQueryInput {
    * @public
    */
   FilterParameters?: FilterParameter[];
+
+  /**
+   * <p>TBD </p>
+   * @public
+   */
+  LinkedAccountId?: string;
 }
 
 /**

@@ -45,6 +45,7 @@ export interface ListHealthEventsCommandOutput extends ListHealthEventsOutput, _
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   EventStatus: "STRING_VALUE",
+ *   LinkedAccountId: "STRING_VALUE",
  * };
  * const command = new ListHealthEventsCommand(input);
  * const response = await client.send(command);

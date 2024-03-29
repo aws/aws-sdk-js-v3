@@ -41,6 +41,7 @@ export interface GetHealthEventCommandOutput extends GetHealthEventOutput, __Met
  * const input = { // GetHealthEventInput
  *   MonitorName: "STRING_VALUE", // required
  *   EventId: "STRING_VALUE", // required
+ *   LinkedAccountId: "STRING_VALUE",
  * };
  * const command = new GetHealthEventCommand(input);
  * const response = await client.send(command);

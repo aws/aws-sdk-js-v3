@@ -38,6 +38,7 @@ export interface ListMonitorsCommandOutput extends ListMonitorsOutput, __Metadat
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   MonitorStatus: "STRING_VALUE",
+ *   IncludeLinkedAccounts: true || false,
  * };
  * const command = new ListMonitorsCommand(input);
  * const response = await client.send(command);
