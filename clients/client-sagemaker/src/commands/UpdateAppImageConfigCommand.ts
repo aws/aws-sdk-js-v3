@@ -67,6 +67,24 @@ export interface UpdateAppImageConfigCommandOutput extends UpdateAppImageConfigR
  *       },
  *     },
  *   },
+ *   CodeEditorAppImageConfig: { // CodeEditorAppImageConfig
+ *     FileSystemConfig: {
+ *       MountPath: "STRING_VALUE",
+ *       DefaultUid: Number("int"),
+ *       DefaultGid: Number("int"),
+ *     },
+ *     ContainerConfig: {
+ *       ContainerArguments: [
+ *         "STRING_VALUE",
+ *       ],
+ *       ContainerEntrypoint: [
+ *         "STRING_VALUE",
+ *       ],
+ *       ContainerEnvironmentVariables: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   },
  * };
  * const command = new UpdateAppImageConfigCommand(input);
  * const response = await client.send(command);

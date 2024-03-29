@@ -20,6 +20,7 @@ import {
   CheckpointConfig,
   ClarifyCheckStepMetadata,
   ClusterInstanceGroupSpecification,
+  CodeEditorAppImageConfig,
   ConditionStepMetadata,
   ContainerDefinition,
   InferenceSpecification,
@@ -149,7 +150,6 @@ import {
   LambdaStepMetadata,
   LineageType,
   MetricData,
-  ModelStepMetadata,
   MonitoringAlertSummary,
   ResourceType,
   SecondaryStatus,
@@ -167,6 +167,18 @@ import {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * <p>Metadata for Model steps.</p>
+ * @public
+ */
+export interface ModelStepMetadata {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created model.</p>
+   * @public
+   */
+  Arn?: string;
+}
 
 /**
  * <p>Metadata for a processing job step.</p>
@@ -5785,6 +5797,12 @@ export interface UpdateAppImageConfigRequest {
    * @public
    */
   JupyterLabAppImageConfig?: JupyterLabAppImageConfig;
+
+  /**
+   * <p>The Code Editor app running on the image.</p>
+   * @public
+   */
+  CodeEditorAppImageConfig?: CodeEditorAppImageConfig;
 }
 
 /**

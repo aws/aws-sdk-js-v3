@@ -943,6 +943,7 @@ import {
   ClusterNodeDetails,
   ClusterNodeSummary,
   ClusterSummary,
+  CodeEditorAppImageConfig,
   CodeEditorAppSettings,
   CodeRepository,
   CodeRepositorySummary,
@@ -980,6 +981,7 @@ import {
   CreateClusterResponse,
   CreateCodeRepositoryInput,
   CreateCodeRepositoryOutput,
+  CustomImage,
   DataSource,
   DirectDeploySettings,
   FileSystemConfig,
@@ -1018,8 +1020,6 @@ import {
   MonitoringJsonDatasetFormat,
   MonitoringParquetDatasetFormat,
   MultiModelConfig,
-  NeoVpcConfig,
-  OutputConfig,
   OutputDataConfig,
   OutputParameter,
   ParameterRange,
@@ -1141,10 +1141,8 @@ import {
   CreateSpaceRequest,
   CreateSpaceResponse,
   CreateStudioLifecycleConfigRequest,
-  CreateStudioLifecycleConfigResponse,
   CustomFileSystem,
   CustomFileSystemConfig,
-  CustomImage,
   CustomPosixUserConfig,
   DataCaptureConfig,
   DataCatalogConfig,
@@ -1251,12 +1249,14 @@ import {
   MonitoringScheduleConfig,
   MonitoringStatisticsResource,
   MonitoringStoppingCondition,
+  NeoVpcConfig,
   NetworkConfig,
   NotebookInstanceAcceleratorType,
   NotebookInstanceLifecycleHook,
   OfflineStoreConfig,
   OnlineStoreConfig,
   OnlineStoreSecurityConfig,
+  OutputConfig,
   OwnershipSettings,
   ParallelismConfiguration,
   ParameterRanges,
@@ -1320,6 +1320,7 @@ import {
   UserSettings,
 } from "../models/models_1";
 import {
+  CreateStudioLifecycleConfigResponse,
   CreateTrainingJobRequest,
   CreateTrainingJobResponse,
   CreateTransformJobRequest,
@@ -1514,7 +1515,6 @@ import {
   DescribeProjectInput,
   DescribeProjectOutput,
   DescribeSpaceRequest,
-  DescribeSpaceResponse,
   EdgeDeploymentStatus,
   EdgeModel,
   EdgePresetDeploymentOutput,
@@ -1580,6 +1580,7 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_2";
 import {
+  DescribeSpaceResponse,
   DescribeStudioLifecycleConfigRequest,
   DescribeStudioLifecycleConfigResponse,
   DescribeSubscribedWorkteamRequest,
@@ -1786,7 +1787,6 @@ import {
   ModelMetadataSummary,
   ModelPackageGroupSummary,
   ModelPackageSummary,
-  ModelStepMetadata,
   ModelSummary,
   MonitoringAlertActions,
   MonitoringAlertHistorySummary,
@@ -1866,6 +1866,7 @@ import {
   ModelDashboardMonitoringSchedule,
   ModelPackage,
   ModelPackageGroup,
+  ModelStepMetadata,
   ModelVariantAction,
   NestedFilters,
   OnlineStoreConfigUpdate,
@@ -12710,6 +12711,8 @@ const se_BatchTransformInput = (input: BatchTransformInput, context: __SerdeCont
 
 // se_ClusterLifeCycleConfig omitted.
 
+// se_CodeEditorAppImageConfig omitted.
+
 // se_CodeEditorAppSettings omitted.
 
 // se_CodeRepositories omitted.
@@ -16098,6 +16101,7 @@ const de_AppImageConfigDetails = (output: any, context: __SerdeContext): AppImag
   return take(output, {
     AppImageConfigArn: __expectString,
     AppImageConfigName: __expectString,
+    CodeEditorAppImageConfig: (_: any) => de_CodeEditorAppImageConfig(_, context),
     CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     JupyterLabAppImageConfig: (_: any) => de_JupyterLabAppImageConfig(_, context),
     KernelGatewayImageConfig: (_: any) => de_KernelGatewayImageConfig(_, context),
@@ -17354,10 +17358,21 @@ const de_ClusterSummary = (output: any, context: __SerdeContext): ClusterSummary
 };
 
 /**
+ * deserializeAws_json1_1CodeEditorAppImageConfig
+ */
+const de_CodeEditorAppImageConfig = (output: any, context: __SerdeContext): CodeEditorAppImageConfig => {
+  return take(output, {
+    ContainerConfig: (_: any) => de_ContainerConfig(_, context),
+    FileSystemConfig: (_: any) => de_FileSystemConfig(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1CodeEditorAppSettings
  */
 const de_CodeEditorAppSettings = (output: any, context: __SerdeContext): CodeEditorAppSettings => {
   return take(output, {
+    CustomImages: (_: any) => de_CustomImages(_, context),
     DefaultResourceSpec: (_: any) => de_ResourceSpec(_, context),
     LifecycleConfigArns: (_: any) => de_LifecycleConfigArns(_, context),
   }) as any;
@@ -18856,6 +18871,7 @@ const de_DescribeAppImageConfigResponse = (output: any, context: __SerdeContext)
   return take(output, {
     AppImageConfigArn: __expectString,
     AppImageConfigName: __expectString,
+    CodeEditorAppImageConfig: (_: any) => de_CodeEditorAppImageConfig(_, context),
     CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     JupyterLabAppImageConfig: (_: any) => de_JupyterLabAppImageConfig(_, context),
     KernelGatewayImageConfig: (_: any) => de_KernelGatewayImageConfig(_, context),

@@ -88,6 +88,24 @@ export interface ListAppImageConfigsCommandOutput extends ListAppImageConfigsRes
  * //           },
  * //         },
  * //       },
+ * //       CodeEditorAppImageConfig: { // CodeEditorAppImageConfig
+ * //         FileSystemConfig: {
+ * //           MountPath: "STRING_VALUE",
+ * //           DefaultUid: Number("int"),
+ * //           DefaultGid: Number("int"),
+ * //         },
+ * //         ContainerConfig: {
+ * //           ContainerArguments: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           ContainerEntrypoint: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           ContainerEnvironmentVariables: {
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * // };

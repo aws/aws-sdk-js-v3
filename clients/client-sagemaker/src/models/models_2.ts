@@ -42,6 +42,7 @@ import {
   ClusterInstanceGroupDetails,
   ClusterNodeDetails,
   ClusterStatus,
+  CodeEditorAppImageConfig,
   CognitoConfig,
   CognitoMemberDefinition,
   CollectionConfiguration,
@@ -58,9 +59,7 @@ import {
   ModelApprovalStatus,
   ModelDeployConfig,
   ModelPackageStatus,
-  NeoVpcConfig,
   ObjectiveStatus,
-  OutputConfig,
   OutputDataConfig,
   ProblemType,
   ProductionVariantInstanceType,
@@ -139,12 +138,13 @@ import {
   MonitoringScheduleConfig,
   MonitoringStoppingCondition,
   MonitoringType,
+  NeoVpcConfig,
   NetworkConfig,
   NotebookInstanceAcceleratorType,
   NotebookInstanceLifecycleHook,
   OfflineStoreConfig,
   OnlineStoreConfig,
-  OwnershipSettings,
+  OutputConfig,
   ParallelismConfiguration,
   ProcessingInput,
   ProcessingInstanceType,
@@ -166,12 +166,21 @@ import {
   ShadowModeConfig,
   SkipModelValidation,
   SourceAlgorithmSpecification,
-  SpaceSettings,
-  SpaceSharingSettings,
   ThroughputMode,
   UserSettings,
   VendorGuidance,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CreateStudioLifecycleConfigResponse {
+  /**
+   * <p>The ARN of your created Lifecycle Configuration.</p>
+   * @public
+   */
+  StudioLifecycleConfigArn?: string;
+}
 
 /**
  * <p>Configuration information for the Amazon SageMaker Debugger hook parameters, metric and tensor collections, and
@@ -3082,6 +3091,12 @@ export interface DescribeAppImageConfigResponse {
    * @public
    */
   JupyterLabAppImageConfig?: JupyterLabAppImageConfig;
+
+  /**
+   * <p>The configuration of the Code Editor app.</p>
+   * @public
+   */
+  CodeEditorAppImageConfig?: CodeEditorAppImageConfig;
 }
 
 /**
@@ -10022,104 +10037,6 @@ export const SpaceStatus = {
  * @public
  */
 export type SpaceStatus = (typeof SpaceStatus)[keyof typeof SpaceStatus];
-
-/**
- * @public
- */
-export interface DescribeSpaceResponse {
-  /**
-   * <p>The ID of the associated domain.</p>
-   * @public
-   */
-  DomainId?: string;
-
-  /**
-   * <p>The space's Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  SpaceArn?: string;
-
-  /**
-   * <p>The name of the space.</p>
-   * @public
-   */
-  SpaceName?: string;
-
-  /**
-   * <p>The ID of the space's profile in the Amazon EFS volume.</p>
-   * @public
-   */
-  HomeEfsFileSystemUid?: string;
-
-  /**
-   * <p>The status.</p>
-   * @public
-   */
-  Status?: SpaceStatus;
-
-  /**
-   * <p>The last modified time.</p>
-   * @public
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>The creation time.</p>
-   * @public
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>The failure reason.</p>
-   * @public
-   */
-  FailureReason?: string;
-
-  /**
-   * <p>A collection of space settings.</p>
-   * @public
-   */
-  SpaceSettings?: SpaceSettings;
-
-  /**
-   * <p>The collection of ownership settings for a space.</p>
-   * @public
-   */
-  OwnershipSettings?: OwnershipSettings;
-
-  /**
-   * <p>The collection of space sharing settings for a space.</p>
-   * @public
-   */
-  SpaceSharingSettings?: SpaceSharingSettings;
-
-  /**
-   * <p>The name of the space that appears in the Amazon SageMaker Studio UI.</p>
-   * @public
-   */
-  SpaceDisplayName?: string;
-
-  /**
-   * <p>Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.</p>
-   *          <p>The following application types are supported:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Studio Classic: <code>&redirect=JupyterServer</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>JupyterLab: <code>&redirect=JupyterLab</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Code Editor, based on Code-OSS, Visual Studio Code - Open Source: <code>&redirect=CodeEditor</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Url?: string;
-}
 
 /**
  * @internal
