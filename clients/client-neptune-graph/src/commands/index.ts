@@ -23,6 +23,7 @@ export * from "./ListQueriesCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./ResetGraphCommand";
 export * from "./RestoreGraphFromSnapshotCommand";
+export * from "./StartImportTaskCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateGraphCommand";

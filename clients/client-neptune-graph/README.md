@@ -399,6 +399,14 @@ RestoreGraphFromSnapshot
 </details>
 <details>
 <summary>
+StartImportTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptune-graph/command/StartImportTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune-graph/Interface/StartImportTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune-graph/Interface/StartImportTaskCommandOutput/)
+
+</details>
+<details>
+<summary>
 TagResource
 </summary>
 

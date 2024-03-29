@@ -90,6 +90,11 @@ import {
   RestoreGraphFromSnapshotCommandInput,
   RestoreGraphFromSnapshotCommandOutput,
 } from "./commands/RestoreGraphFromSnapshotCommand";
+import {
+  StartImportTaskCommand,
+  StartImportTaskCommandInput,
+  StartImportTaskCommandOutput,
+} from "./commands/StartImportTaskCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -124,6 +129,7 @@ const commands = {
   ListTagsForResourceCommand,
   ResetGraphCommand,
   RestoreGraphFromSnapshotCommand,
+  StartImportTaskCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateGraphCommand,
@@ -473,6 +479,20 @@ export interface NeptuneGraph {
     args: RestoreGraphFromSnapshotCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RestoreGraphFromSnapshotCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartImportTaskCommand}
+   */
+  startImportTask(
+    args: StartImportTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartImportTaskCommandOutput>;
+  startImportTask(args: StartImportTaskCommandInput, cb: (err: any, data?: StartImportTaskCommandOutput) => void): void;
+  startImportTask(
+    args: StartImportTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartImportTaskCommandOutput) => void
   ): void;
 
   /**

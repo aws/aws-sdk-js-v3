@@ -105,6 +105,7 @@ import {
   RestoreGraphFromSnapshotCommandInput,
   RestoreGraphFromSnapshotCommandOutput,
 } from "./commands/RestoreGraphFromSnapshotCommand";
+import { StartImportTaskCommandInput, StartImportTaskCommandOutput } from "./commands/StartImportTaskCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateGraphCommandInput, UpdateGraphCommandOutput } from "./commands/UpdateGraphCommand";
@@ -147,6 +148,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | ResetGraphCommandInput
   | RestoreGraphFromSnapshotCommandInput
+  | StartImportTaskCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateGraphCommandInput;
@@ -179,6 +181,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | ResetGraphCommandOutput
   | RestoreGraphFromSnapshotCommandOutput
+  | StartImportTaskCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateGraphCommandOutput;

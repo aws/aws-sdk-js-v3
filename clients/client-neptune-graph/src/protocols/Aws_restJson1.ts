@@ -89,6 +89,7 @@ import {
   RestoreGraphFromSnapshotCommandInput,
   RestoreGraphFromSnapshotCommandOutput,
 } from "../commands/RestoreGraphFromSnapshotCommand";
+import { StartImportTaskCommandInput, StartImportTaskCommandOutput } from "../commands/StartImportTaskCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateGraphCommandInput, UpdateGraphCommandOutput } from "../commands/UpdateGraphCommand";
@@ -659,6 +660,33 @@ export const se_RestoreGraphFromSnapshotCommand = async (
       publicConnectivity: [],
       replicaCount: [],
       tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartImportTaskCommand
+ */
+export const se_StartImportTaskCommand = async (
+  input: StartImportTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/graphs/{graphIdentifier}/importtasks");
+  b.p("graphIdentifier", () => input.graphIdentifier!, "{graphIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      failOnError: [],
+      format: [],
+      importOptions: (_) => _json(_),
+      roleArn: [],
+      source: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1355,6 +1383,33 @@ export const de_RestoreGraphFromSnapshotCommand = async (
     status: __expectString,
     statusReason: __expectString,
     vectorSearchConfiguration: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartImportTaskCommand
+ */
+export const de_StartImportTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartImportTaskCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    format: __expectString,
+    graphId: __expectString,
+    importOptions: (_) => _json(__expectUnion(_)),
+    roleArn: __expectString,
+    source: __expectString,
+    status: __expectString,
+    taskId: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
