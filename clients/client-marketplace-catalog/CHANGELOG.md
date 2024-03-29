@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.545.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.544.0...v3.545.0) (2024-03-29)
+
+
+### Features
+
+* **client-marketplace-catalog:** This release enhances the ListEntities API to support ResaleAuthorizationId filter and sort for OfferEntity in the request and the addition of a ResaleAuthorizationId field in the response of OfferSummary. ([f522fa7](https://github.com/aws/aws-sdk-js-v3/commit/f522fa7975562d5d55e8a93d36bc3d41ad37681e))
+
+
+
+
+
 # [3.540.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.539.0...v3.540.0) (2024-03-22)
 
 

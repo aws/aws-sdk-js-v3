@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.545.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.544.0...v3.545.0) (2024-03-29)
+
+
+### Features
+
+* **client-iot-wireless:** Add support for retrieving key historical and live metrics for LoRaWAN devices and gateways ([caa345f](https://github.com/aws/aws-sdk-js-v3/commit/caa345f02fb2add5d1b67502a7abb19b5b34375c))
+
+
+
+
+
 # [3.540.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.539.0...v3.540.0) (2024-03-22)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.545.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.544.0...v3.545.0) (2024-03-29)
+
+
+### Features
+
+* **client-neptune-graph:** Add the new API Start-Import-Task for Amazon Neptune Analytics. ([33c9daf](https://github.com/aws/aws-sdk-js-v3/commit/33c9dafa2877101c627b594482d65ce58ec4aa28))
+
+
+
+
+
 # [3.544.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.543.0...v3.544.0) (2024-03-28)
 
 

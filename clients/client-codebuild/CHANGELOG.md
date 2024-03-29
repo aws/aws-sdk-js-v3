@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.545.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.544.0...v3.545.0) (2024-03-29)
+
+
+### Features
+
+* **client-codebuild:** Add new fleet status code for Reserved Capacity. ([431bd4b](https://github.com/aws/aws-sdk-js-v3/commit/431bd4b3bd351916a819e4550cde7ce22cdd7098))
+
+
+
+
+
 # [3.541.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.540.0...v3.541.0) (2024-03-25)
 
 

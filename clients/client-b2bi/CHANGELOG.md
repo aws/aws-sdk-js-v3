@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.545.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.544.0...v3.545.0) (2024-03-29)
+
+
+### Features
+
+* **client-b2bi:** Supporting new EDI X12 transaction sets for X12 versions 4010, 4030, and 5010. ([fbb70e1](https://github.com/aws/aws-sdk-js-v3/commit/fbb70e172bcf9fbacbd33d8b7e08aaf1dba285ae))
+
+
+
+
+
 # [3.540.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.539.0...v3.540.0) (2024-03-22)
 
 

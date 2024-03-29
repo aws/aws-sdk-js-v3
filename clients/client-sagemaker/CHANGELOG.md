@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.545.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.544.0...v3.545.0) (2024-03-29)
+
+
+### Features
+
+* **client-sagemaker:** This release adds support for custom images for the CodeEditor App on SageMaker Studio ([543b7e9](https://github.com/aws/aws-sdk-js-v3/commit/543b7e96edc5736539f1f06f5e97fe0900da1df9))
+
+
+
+
+
 # [3.541.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.540.0...v3.541.0) (2024-03-25)
 
 

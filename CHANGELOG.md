@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.545.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.544.0...v3.545.0) (2024-03-29)
+
+
+### Features
+
+* **client-b2bi:** Supporting new EDI X12 transaction sets for X12 versions 4010, 4030, and 5010. ([fbb70e1](https://github.com/aws/aws-sdk-js-v3/commit/fbb70e172bcf9fbacbd33d8b7e08aaf1dba285ae))
+* **client-codebuild:** Add new fleet status code for Reserved Capacity. ([431bd4b](https://github.com/aws/aws-sdk-js-v3/commit/431bd4b3bd351916a819e4550cde7ce22cdd7098))
+* **client-codeconnections:** Duplicating the CodeStar Connections service into the new, rebranded AWS CodeConnections service. ([7077ef3](https://github.com/aws/aws-sdk-js-v3/commit/7077ef325a903459e4c67df67b22ae1199604d88))
+* **client-internetmonitor:** This release adds support to allow customers to track cross account monitors through ListMonitor, GetMonitor, ListHealthEvents, GetHealthEvent, StartQuery APIs. ([b7e7b1b](https://github.com/aws/aws-sdk-js-v3/commit/b7e7b1b22d0d6d8f1cecac2e73c329eff2fe485d))
+* **client-iot-wireless:** Add support for retrieving key historical and live metrics for LoRaWAN devices and gateways ([caa345f](https://github.com/aws/aws-sdk-js-v3/commit/caa345f02fb2add5d1b67502a7abb19b5b34375c))
+* **client-marketplace-catalog:** This release enhances the ListEntities API to support ResaleAuthorizationId filter and sort for OfferEntity in the request and the addition of a ResaleAuthorizationId field in the response of OfferSummary. ([f522fa7](https://github.com/aws/aws-sdk-js-v3/commit/f522fa7975562d5d55e8a93d36bc3d41ad37681e))
+* **client-neptune-graph:** Add the new API Start-Import-Task for Amazon Neptune Analytics. ([33c9daf](https://github.com/aws/aws-sdk-js-v3/commit/33c9dafa2877101c627b594482d65ce58ec4aa28))
+* **client-sagemaker:** This release adds support for custom images for the CodeEditor App on SageMaker Studio ([543b7e9](https://github.com/aws/aws-sdk-js-v3/commit/543b7e96edc5736539f1f06f5e97fe0900da1df9))
+* **clients:** update client endpoints as of 2024-03-29 ([a0f3117](https://github.com/aws/aws-sdk-js-v3/commit/a0f3117f516cbcf782d555655438712047864c47))
+
+
+
+
+
 # [3.544.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.543.0...v3.544.0) (2024-03-28)
 
 
