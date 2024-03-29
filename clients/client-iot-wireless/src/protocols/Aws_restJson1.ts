@@ -182,6 +182,11 @@ import {
   GetLogLevelsByResourceTypesCommandInput,
   GetLogLevelsByResourceTypesCommandOutput,
 } from "../commands/GetLogLevelsByResourceTypesCommand";
+import {
+  GetMetricConfigurationCommandInput,
+  GetMetricConfigurationCommandOutput,
+} from "../commands/GetMetricConfigurationCommand";
+import { GetMetricsCommandInput, GetMetricsCommandOutput } from "../commands/GetMetricsCommand";
 import { GetMulticastGroupCommandInput, GetMulticastGroupCommandOutput } from "../commands/GetMulticastGroupCommand";
 import {
   GetMulticastGroupSessionCommandInput,
@@ -360,6 +365,10 @@ import {
   UpdateLogLevelsByResourceTypesCommandOutput,
 } from "../commands/UpdateLogLevelsByResourceTypesCommand";
 import {
+  UpdateMetricConfigurationCommandInput,
+  UpdateMetricConfigurationCommandOutput,
+} from "../commands/UpdateMetricConfigurationCommand";
+import {
   UpdateMulticastGroupCommandInput,
   UpdateMulticastGroupCommandOutput,
 } from "../commands/UpdateMulticastGroupCommand";
@@ -409,6 +418,7 @@ import {
   ConnectionStatusResourceTypeEventConfiguration,
   DeviceRegistrationStateEventConfiguration,
   DeviceRegistrationStateResourceTypeEventConfiguration,
+  Dimension,
   FPorts,
   GatewayListItem,
   GlobalIdentity,
@@ -444,6 +454,7 @@ import {
   LteObj,
   MessageDeliveryStatusEventConfiguration,
   MessageDeliveryStatusResourceTypeEventConfiguration,
+  MetricQueryValue,
   OtaaV1_0_x,
   OtaaV1_1,
   ParticipatingGateways,
@@ -458,6 +469,9 @@ import {
   SidewalkCreateWirelessDevice,
   SidewalkEventNotificationConfigurations,
   SidewalkResourceTypeEventConfiguration,
+  SummaryMetricConfiguration,
+  SummaryMetricQuery,
+  SummaryMetricQueryResult,
   Tag,
   TdscdmaLocalId,
   TdscdmaNmrObj,
@@ -471,7 +485,6 @@ import {
   WcdmaObj,
   WiFiAccessPoint,
   WirelessDeviceEventLogOption,
-  WirelessDeviceImportTask,
   WirelessDeviceLogOption,
   WirelessGatewayEventLogOption,
   WirelessGatewayLogOption,
@@ -492,6 +505,7 @@ import {
   UpdateAbpV1_0_x,
   UpdateAbpV1_1,
   UpdateFPorts,
+  WirelessDeviceImportTask,
   WirelessGatewayStatistics,
   WirelessMetadata,
 } from "../models/models_1";
@@ -1358,6 +1372,46 @@ export const se_GetLogLevelsByResourceTypesCommand = async (
   let body: any;
   body = "";
   b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetMetricConfigurationCommand
+ */
+export const se_GetMetricConfigurationCommand = async (
+  input: GetMetricConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/metric-configuration");
+  let body: any;
+  body = "";
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetMetricsCommand
+ */
+export const se_GetMetricsCommand = async (
+  input: GetMetricsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/metrics");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      SummaryMetricQueries: (_) => se_SummaryMetricQueries(_, context),
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -2525,6 +2579,28 @@ export const se_UpdateLogLevelsByResourceTypesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateMetricConfigurationCommand
+ */
+export const se_UpdateMetricConfigurationCommand = async (
+  input: UpdateMetricConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/metric-configuration");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      SummaryMetric: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateMulticastGroupCommand
  */
 export const se_UpdateMulticastGroupCommand = async (
@@ -3594,6 +3670,48 @@ export const de_GetLogLevelsByResourceTypesCommand = async (
     DefaultLogLevel: __expectString,
     WirelessDeviceLogOptions: _json,
     WirelessGatewayLogOptions: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetMetricConfigurationCommand
+ */
+export const de_GetMetricConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMetricConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    SummaryMetric: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetMetricsCommand
+ */
+export const de_GetMetricsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMetricsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    SummaryMetricQueryResults: (_) => de_SummaryMetricQueryResults(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -4821,6 +4939,23 @@ export const de_UpdateLogLevelsByResourceTypesCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateMetricConfigurationCommand
+ */
+export const de_UpdateMetricConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMetricConfigurationCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateMulticastGroupCommand
  */
 export const de_UpdateMulticastGroupCommand = async (
@@ -5229,6 +5364,10 @@ const se_CellTowers = (input: CellTowers, context: __SerdeContext): any => {
 
 // se_DeviceRegistrationStateResourceTypeEventConfiguration omitted.
 
+// se_Dimension omitted.
+
+// se_Dimensions omitted.
+
 // se_FactoryPresetFreqsList omitted.
 
 // se_FPorts omitted.
@@ -5456,6 +5595,33 @@ const se_PositionCoordinate = (input: number[], context: __SerdeContext): any =>
 
 // se_SubBands omitted.
 
+// se_SummaryMetricConfiguration omitted.
+
+/**
+ * serializeAws_restJson1SummaryMetricQueries
+ */
+const se_SummaryMetricQueries = (input: SummaryMetricQuery[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_SummaryMetricQuery(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1SummaryMetricQuery
+ */
+const se_SummaryMetricQuery = (input: SummaryMetricQuery, context: __SerdeContext): any => {
+  return take(input, {
+    AggregationPeriod: [],
+    Dimensions: _json,
+    EndTimestamp: (_) => Math.round(_.getTime() / 1000),
+    MetricName: [],
+    QueryId: [],
+    StartTimestamp: (_) => Math.round(_.getTime() / 1000),
+  });
+};
+
 // se_Tag omitted.
 
 // se_TagList omitted.
@@ -5563,6 +5729,10 @@ const de_Accuracy = (output: any, context: __SerdeContext): Accuracy => {
 // de_DeviceRegistrationStateEventConfiguration omitted.
 
 // de_DeviceRegistrationStateResourceTypeEventConfiguration omitted.
+
+// de_Dimension omitted.
+
+// de_Dimensions omitted.
 
 // de_DownlinkQueueMessage omitted.
 
@@ -5734,6 +5904,44 @@ const de_LoRaWANMulticastSession = (output: any, context: __SerdeContext): LoRaW
 
 // de_MessageDeliveryStatusResourceTypeEventConfiguration omitted.
 
+/**
+ * deserializeAws_restJson1MetricQueryTimestamps
+ */
+const de_MetricQueryTimestamps = (output: any, context: __SerdeContext): Date[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectNonNull(__parseEpochTimestamp(__expectNumber(entry)));
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1MetricQueryValue
+ */
+const de_MetricQueryValue = (output: any, context: __SerdeContext): MetricQueryValue => {
+  return take(output, {
+    Avg: __limitedParseDouble,
+    Max: __limitedParseDouble,
+    Min: __limitedParseDouble,
+    P90: __limitedParseDouble,
+    Std: __limitedParseDouble,
+    Sum: __limitedParseDouble,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1MetricQueryValues
+ */
+const de_MetricQueryValues = (output: any, context: __SerdeContext): MetricQueryValue[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_MetricQueryValue(entry, context);
+    });
+  return retVal;
+};
+
 // de_MulticastGroup omitted.
 
 // de_MulticastGroupByFuotaTask omitted.
@@ -5813,6 +6021,39 @@ const de_PositionCoordinate = (output: any, context: __SerdeContext): number[] =
 // de_SidewalkResourceTypeEventConfiguration omitted.
 
 // de_SubBands omitted.
+
+// de_SummaryMetricConfiguration omitted.
+
+/**
+ * deserializeAws_restJson1SummaryMetricQueryResult
+ */
+const de_SummaryMetricQueryResult = (output: any, context: __SerdeContext): SummaryMetricQueryResult => {
+  return take(output, {
+    AggregationPeriod: __expectString,
+    Dimensions: _json,
+    EndTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Error: __expectString,
+    MetricName: __expectString,
+    QueryId: __expectString,
+    QueryStatus: __expectString,
+    StartTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Timestamps: (_: any) => de_MetricQueryTimestamps(_, context),
+    Unit: __expectString,
+    Values: (_: any) => de_MetricQueryValues(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1SummaryMetricQueryResults
+ */
+const de_SummaryMetricQueryResults = (output: any, context: __SerdeContext): SummaryMetricQueryResult[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SummaryMetricQueryResult(entry, context);
+    });
+  return retVal;
+};
 
 // de_Tag omitted.
 

@@ -204,6 +204,11 @@ import {
   GetLogLevelsByResourceTypesCommandInput,
   GetLogLevelsByResourceTypesCommandOutput,
 } from "./commands/GetLogLevelsByResourceTypesCommand";
+import {
+  GetMetricConfigurationCommandInput,
+  GetMetricConfigurationCommandOutput,
+} from "./commands/GetMetricConfigurationCommand";
+import { GetMetricsCommandInput, GetMetricsCommandOutput } from "./commands/GetMetricsCommand";
 import { GetMulticastGroupCommandInput, GetMulticastGroupCommandOutput } from "./commands/GetMulticastGroupCommand";
 import {
   GetMulticastGroupSessionCommandInput,
@@ -382,6 +387,10 @@ import {
   UpdateLogLevelsByResourceTypesCommandOutput,
 } from "./commands/UpdateLogLevelsByResourceTypesCommand";
 import {
+  UpdateMetricConfigurationCommandInput,
+  UpdateMetricConfigurationCommandOutput,
+} from "./commands/UpdateMetricConfigurationCommand";
+import {
   UpdateMulticastGroupCommandInput,
   UpdateMulticastGroupCommandOutput,
 } from "./commands/UpdateMulticastGroupCommand";
@@ -472,6 +481,8 @@ export type ServiceInputTypes =
   | GetEventConfigurationByResourceTypesCommandInput
   | GetFuotaTaskCommandInput
   | GetLogLevelsByResourceTypesCommandInput
+  | GetMetricConfigurationCommandInput
+  | GetMetricsCommandInput
   | GetMulticastGroupCommandInput
   | GetMulticastGroupSessionCommandInput
   | GetNetworkAnalyzerConfigurationCommandInput
@@ -529,6 +540,7 @@ export type ServiceInputTypes =
   | UpdateEventConfigurationByResourceTypesCommandInput
   | UpdateFuotaTaskCommandInput
   | UpdateLogLevelsByResourceTypesCommandInput
+  | UpdateMetricConfigurationCommandInput
   | UpdateMulticastGroupCommandInput
   | UpdateNetworkAnalyzerConfigurationCommandInput
   | UpdatePartnerAccountCommandInput
@@ -586,6 +598,8 @@ export type ServiceOutputTypes =
   | GetEventConfigurationByResourceTypesCommandOutput
   | GetFuotaTaskCommandOutput
   | GetLogLevelsByResourceTypesCommandOutput
+  | GetMetricConfigurationCommandOutput
+  | GetMetricsCommandOutput
   | GetMulticastGroupCommandOutput
   | GetMulticastGroupSessionCommandOutput
   | GetNetworkAnalyzerConfigurationCommandOutput
@@ -643,6 +657,7 @@ export type ServiceOutputTypes =
   | UpdateEventConfigurationByResourceTypesCommandOutput
   | UpdateFuotaTaskCommandOutput
   | UpdateLogLevelsByResourceTypesCommandOutput
+  | UpdateMetricConfigurationCommandOutput
   | UpdateMulticastGroupCommandOutput
   | UpdateNetworkAnalyzerConfigurationCommandOutput
   | UpdatePartnerAccountCommandOutput
@@ -838,6 +853,9 @@ export interface IoTWirelessClientResolvedConfig extends IoTWirelessClientResolv
  *             Firmware Updates Over-The-Air (FUOTA) API operations, you can create a FUOTA task and
  *             schedule a session to update the firmware of individual devices or an entire group of
  *             devices in a multicast group.</p>
+ *          <p>To connect to the AWS IoT Wireless Service, use the Service endpoints as described in
+ *                 <a href="https://docs.aws.amazon.com/general/latest/gr/iot-lorawan.html#iot-wireless_region">IoT Wireless Service
+ *                 endpoints</a> in the <i>AWS General Reference</i>.</p>
  * @public
  */
 export class IoTWirelessClient extends __Client<

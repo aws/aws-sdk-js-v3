@@ -148,6 +148,21 @@ export interface Accuracy {
  * @public
  * @enum
  */
+export const AggregationPeriod = {
+  OneDay: "OneDay",
+  OneHour: "OneHour",
+  OneWeek: "OneWeek",
+} as const;
+
+/**
+ * @public
+ */
+export type AggregationPeriod = (typeof AggregationPeriod)[keyof typeof AggregationPeriod];
+
+/**
+ * @public
+ * @enum
+ */
 export const ApplicationConfigType = {
   SemtechGeoLocation: "SemtechGeolocation",
 } as const;
@@ -2132,13 +2147,14 @@ export interface OtaaV1_0_x {
   AppKey?: string;
 
   /**
-   * <p>The AppEUI value.</p>
+   * <p>The AppEUI value. You specify this value when using LoRaWAN versions v1.0.2 or v1.0.3.</p>
    * @public
    */
   AppEui?: string;
 
   /**
-   * <p>The JoinEUI value.</p>
+   * <p>The JoinEUI value. You specify this value instead of the AppEUI when using LoRaWAN
+   *             version v1.0.4.</p>
    * @public
    */
   JoinEui?: string;
@@ -3067,6 +3083,38 @@ export const DeviceState = {
  * @public
  */
 export type DeviceState = (typeof DeviceState)[keyof typeof DeviceState];
+
+/**
+ * @public
+ * @enum
+ */
+export const DimensionName = {
+  DeviceId: "DeviceId",
+  GatewayId: "GatewayId",
+} as const;
+
+/**
+ * @public
+ */
+export type DimensionName = (typeof DimensionName)[keyof typeof DimensionName];
+
+/**
+ * <p>The required list of dimensions for the metric.</p>
+ * @public
+ */
+export interface Dimension {
+  /**
+   * <p>The name of the dimension.</p>
+   * @public
+   */
+  name?: DimensionName;
+
+  /**
+   * <p>The dimension's value.</p>
+   * @public
+   */
+  value?: string;
+}
 
 /**
  * @public
@@ -4108,6 +4156,283 @@ export interface GetLogLevelsByResourceTypesResponse {
    * @public
    */
   WirelessDeviceLogOptions?: WirelessDeviceLogOption[];
+}
+
+/**
+ * @public
+ */
+export interface GetMetricConfigurationRequest {}
+
+/**
+ * @public
+ * @enum
+ */
+export const SummaryMetricConfigurationStatus = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type SummaryMetricConfigurationStatus =
+  (typeof SummaryMetricConfigurationStatus)[keyof typeof SummaryMetricConfigurationStatus];
+
+/**
+ * <p>The configuration of summary metric.</p>
+ * @public
+ */
+export interface SummaryMetricConfiguration {
+  /**
+   * <p>The configuration of summary metric.</p>
+   * @public
+   */
+  Status?: SummaryMetricConfigurationStatus;
+}
+
+/**
+ * @public
+ */
+export interface GetMetricConfigurationResponse {
+  /**
+   * <p>The account's configuration status for summary metric aggregation.</p>
+   * @public
+   */
+  SummaryMetric?: SummaryMetricConfiguration;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MetricName = {
+  AwsAccountActiveDeviceCount: "AwsAccountActiveDeviceCount",
+  AwsAccountActiveGatewayCount: "AwsAccountActiveGatewayCount",
+  AwsAccountDeviceCount: "AwsAccountDeviceCount",
+  AwsAccountDownlinkCount: "AwsAccountDownlinkCount",
+  AwsAccountGatewayCount: "AwsAccountGatewayCount",
+  AwsAccountJoinAcceptCount: "AwsAccountJoinAcceptCount",
+  AwsAccountJoinRequestCount: "AwsAccountJoinRequestCount",
+  AwsAccountRoamingDownlinkCount: "AwsAccountRoamingDownlinkCount",
+  AwsAccountRoamingUplinkCount: "AwsAccountRoamingUplinkCount",
+  AwsAccountUplinkCount: "AwsAccountUplinkCount",
+  AwsAccountUplinkLostCount: "AwsAccountUplinkLostCount",
+  AwsAccountUplinkLostRate: "AwsAccountUplinkLostRate",
+  DeviceDownlinkCount: "DeviceDownlinkCount",
+  DeviceJoinAcceptCount: "DeviceJoinAcceptCount",
+  DeviceJoinRequestCount: "DeviceJoinRequestCount",
+  DeviceRSSI: "DeviceRSSI",
+  DeviceRoamingDownlinkCount: "DeviceRoamingDownlinkCount",
+  DeviceRoamingUplinkCount: "DeviceRoamingUplinkCount",
+  DeviceSNR: "DeviceSNR",
+  DeviceUplinkCount: "DeviceUplinkCount",
+  DeviceUplinkLostCount: "DeviceUplinkLostCount",
+  DeviceUplinkLostRate: "DeviceUplinkLostRate",
+  GatewayDownTime: "GatewayDownTime",
+  GatewayDownlinkCount: "GatewayDownlinkCount",
+  GatewayJoinAcceptCount: "GatewayJoinAcceptCount",
+  GatewayJoinRequestCount: "GatewayJoinRequestCount",
+  GatewayRSSI: "GatewayRSSI",
+  GatewaySNR: "GatewaySNR",
+  GatewayUpTime: "GatewayUpTime",
+  GatewayUplinkCount: "GatewayUplinkCount",
+} as const;
+
+/**
+ * @public
+ */
+export type MetricName = (typeof MetricName)[keyof typeof MetricName];
+
+/**
+ * <p>The metric query object.</p>
+ * @public
+ */
+export interface SummaryMetricQuery {
+  /**
+   * <p>The id of the query.</p>
+   * @public
+   */
+  QueryId?: string;
+
+  /**
+   * <p>The name of the metric.</p>
+   * @public
+   */
+  MetricName?: MetricName;
+
+  /**
+   * <p>The dimensions of the metric.</p>
+   * @public
+   */
+  Dimensions?: Dimension[];
+
+  /**
+   * <p>The aggregation period of the metric.</p>
+   * @public
+   */
+  AggregationPeriod?: AggregationPeriod;
+
+  /**
+   * <p>The start timestamp for summary metric query.</p>
+   * @public
+   */
+  StartTimestamp?: Date;
+
+  /**
+   * <p>The end timestamp for summary metric query.</p>
+   * @public
+   */
+  EndTimestamp?: Date;
+}
+
+/**
+ * @public
+ */
+export interface GetMetricsRequest {
+  /**
+   * <p>The list of queries to retrieve summary metrics.</p>
+   * @public
+   */
+  SummaryMetricQueries?: SummaryMetricQuery[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MetricQueryStatus = {
+  Failed: "Failed",
+  Succeeded: "Succeeded",
+} as const;
+
+/**
+ * @public
+ */
+export type MetricQueryStatus = (typeof MetricQueryStatus)[keyof typeof MetricQueryStatus];
+
+/**
+ * <p>The aggregated values of the metric.</p>
+ * @public
+ */
+export interface MetricQueryValue {
+  /**
+   * <p>The minimum of the values of the all data points collected during the period.</p>
+   * @public
+   */
+  Min?: number;
+
+  /**
+   * <p>The maximum of the values of the all data points collected during the period.</p>
+   * @public
+   */
+  Max?: number;
+
+  /**
+   * <p>The sum of the values of the all data points collected during the period.</p>
+   * @public
+   */
+  Sum?: number;
+
+  /**
+   * <p>The average of the values of the all data points collected during the period.</p>
+   * @public
+   */
+  Avg?: number;
+
+  /**
+   * <p>The standard deviation of the values of the all data points collected during the period.</p>
+   * @public
+   */
+  Std?: number;
+
+  /**
+   * <p>The 90th percentile of the values of the all data points collected during the period.</p>
+   * @public
+   */
+  P90?: number;
+}
+
+/**
+ * <p>The result of metrics aggregation operation.</p>
+ * @public
+ */
+export interface SummaryMetricQueryResult {
+  /**
+   * <p>The id of the query.</p>
+   * @public
+   */
+  QueryId?: string;
+
+  /**
+   * <p>The status of the metric query.</p>
+   * @public
+   */
+  QueryStatus?: MetricQueryStatus;
+
+  /**
+   * <p>The error message for the summary metric query.</p>
+   * @public
+   */
+  Error?: string;
+
+  /**
+   * <p>The name of the metric.</p>
+   * @public
+   */
+  MetricName?: MetricName;
+
+  /**
+   * <p>The dimensions of the metric.</p>
+   * @public
+   */
+  Dimensions?: Dimension[];
+
+  /**
+   * <p>The aggregation period of the metric.</p>
+   * @public
+   */
+  AggregationPeriod?: AggregationPeriod;
+
+  /**
+   * <p>The start timestamp for summary metric query.</p>
+   * @public
+   */
+  StartTimestamp?: Date;
+
+  /**
+   * <p>The end timestamp for summary metric query.</p>
+   * @public
+   */
+  EndTimestamp?: Date;
+
+  /**
+   * <p>The timestamp of each aggregation result.</p>
+   * @public
+   */
+  Timestamps?: Date[];
+
+  /**
+   * <p>The list of aggregated metrics.</p>
+   * @public
+   */
+  Values?: MetricQueryValue[];
+
+  /**
+   * <p>The units of measurement to be used for interpreting the aggregation result.</p>
+   * @public
+   */
+  Unit?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetMetricsResponse {
+  /**
+   * <p>The list of retrieved metrics.</p>
+   * @public
+   */
+  SummaryMetricQueryResults?: SummaryMetricQueryResult[];
 }
 
 /**
@@ -6274,370 +6599,6 @@ export interface ListPositionConfigurationsRequest {
    * @public
    */
   NextToken?: string;
-}
-
-/**
- * <p>The wrapper for a position configuration.</p>
- * @public
- */
-export interface PositionConfigurationItem {
-  /**
-   * <p>Resource identifier for the position configuration.</p>
-   * @public
-   */
-  ResourceIdentifier?: string;
-
-  /**
-   * <p>Resource type of the resource for the position configuration.</p>
-   * @public
-   */
-  ResourceType?: PositionResourceType;
-
-  /**
-   * <p>The details of the positioning solver object used to compute the location.</p>
-   * @public
-   */
-  Solvers?: PositionSolverDetails;
-
-  /**
-   * <p>The position data destination that describes the AWS IoT rule that processes the
-   *             device's position data for use by AWS IoT Core for LoRaWAN.</p>
-   * @public
-   */
-  Destination?: string;
-}
-
-/**
- * @public
- */
-export interface ListPositionConfigurationsResponse {
-  /**
-   * <p>A list of position configurations.</p>
-   * @public
-   */
-  PositionConfigurationList?: PositionConfigurationItem[];
-
-  /**
-   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListQueuedMessagesRequest {
-  /**
-   * <p>The ID of a given wireless device which the downlink message packets are being
-   *             sent.</p>
-   * @public
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous
-   *             response; otherwise <b>null</b> to receive the first set of
-   *             results.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return in this operation.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The wireless device type, whic can be either Sidewalk or LoRaWAN.</p>
-   * @public
-   */
-  WirelessDeviceType?: WirelessDeviceType;
-}
-
-/**
- * @public
- */
-export interface ListQueuedMessagesResponse {
-  /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous
-   *             response; otherwise <b>null</b> to receive the first set of
-   *             results.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The messages in the downlink queue.</p>
-   * @public
-   */
-  DownlinkQueueMessagesList?: DownlinkQueueMessage[];
-}
-
-/**
- * @public
- */
-export interface ListServiceProfilesRequest {
-  /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous
-   *             response; otherwise <b>null</b> to receive the first set of
-   *             results.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return in this operation.</p>
-   * @public
-   */
-  MaxResults?: number;
-}
-
-/**
- * <p>Information about a service profile.</p>
- * @public
- */
-export interface ServiceProfile {
-  /**
-   * <p>The Amazon Resource Name of the resource.</p>
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * <p>The name of the resource.</p>
-   * @public
-   */
-  Name?: string;
-
-  /**
-   * <p>The ID of the service profile.</p>
-   * @public
-   */
-  Id?: string;
-}
-
-/**
- * @public
- */
-export interface ListServiceProfilesResponse {
-  /**
-   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The list of service profiles.</p>
-   * @public
-   */
-  ServiceProfileList?: ServiceProfile[];
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceRequest {
-  /**
-   * <p>The ARN of the resource for which you want to list tags.</p>
-   * @public
-   */
-  ResourceArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceResponse {
-  /**
-   * <p>The tags to attach to the specified resource. Tags are metadata that you can use to
-   *             manage a resource.</p>
-   * @public
-   */
-  Tags?: Tag[];
-}
-
-/**
- * @public
- */
-export interface ListWirelessDeviceImportTasksRequest {
-  /**
-   * <p>The maximum number of results to return in this operation.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous
-   *             response; otherwise <code>null</code> to receive the first set of results.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * <p>Information about an import task for wireless devices.</p>
- * @public
- */
-export interface WirelessDeviceImportTask {
-  /**
-   * <p>The ID of the wireless device import task.</p>
-   * @public
-   */
-  Id?: string;
-
-  /**
-   * <p>The ARN (Amazon Resource Name) of the wireless device import task.</p>
-   * @public
-   */
-  Arn?: string;
-
-  /**
-   * <p>The name of the Sidewalk destination that that describes the IoT rule to route
-   *             messages from the device in the import task that will be onboarded to AWS IoT
-   *             Wireless</p>
-   * @public
-   */
-  DestinationName?: string;
-
-  /**
-   * <p>The Sidewalk-related information of the wireless device import task.</p>
-   * @public
-   */
-  Sidewalk?: SidewalkGetStartImportInfo;
-
-  /**
-   * <p>The time at which the import task was created.</p>
-   * @public
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>The status information of the wireless device import task.</p>
-   * @public
-   */
-  Status?: ImportTaskStatus;
-
-  /**
-   * <p>The reason that provides additional information about the import task status.</p>
-   * @public
-   */
-  StatusReason?: string;
-
-  /**
-   * <p>The summary information of count of wireless devices that are waiting for the control
-   *             log to be added to an import task.</p>
-   * @public
-   */
-  InitializedImportedDeviceCount?: number;
-
-  /**
-   * <p>The summary information of count of wireless devices in an import task that are
-   *             waiting in the queue to be onboarded.</p>
-   * @public
-   */
-  PendingImportedDeviceCount?: number;
-
-  /**
-   * <p>The summary information of count of wireless devices in an import task that have been
-   *             onboarded to the import task.</p>
-   * @public
-   */
-  OnboardedImportedDeviceCount?: number;
-
-  /**
-   * <p>The summary information of count of wireless devices in an import task that failed to
-   *             onboarded to the import task.</p>
-   * @public
-   */
-  FailedImportedDeviceCount?: number;
-}
-
-/**
- * @public
- */
-export interface ListWirelessDeviceImportTasksResponse {
-  /**
-   * <p>The token to use to get the next set of results, or <code>null</code> if there are no
-   *             additional results.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>List of import tasks and summary information of onboarding status of devices in each
-   *             import task.</p>
-   * @public
-   */
-  WirelessDeviceImportTaskList?: WirelessDeviceImportTask[];
-}
-
-/**
- * @public
- */
-export interface ListWirelessDevicesRequest {
-  /**
-   * <p>The maximum number of results to return in this operation.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous
-   *             response; otherwise <b>null</b> to receive the first set of
-   *             results.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>A filter to list only the wireless devices that use this destination.</p>
-   * @public
-   */
-  DestinationName?: string;
-
-  /**
-   * <p>A filter to list only the wireless devices that use this device profile.</p>
-   * @public
-   */
-  DeviceProfileId?: string;
-
-  /**
-   * <p>A filter to list only the wireless devices that use this service profile.</p>
-   * @public
-   */
-  ServiceProfileId?: string;
-
-  /**
-   * <p>A filter to list only the wireless devices that use this wireless device type.</p>
-   * @public
-   */
-  WirelessDeviceType?: WirelessDeviceType;
-
-  /**
-   * <p>The ID of a FUOTA task.</p>
-   * @public
-   */
-  FuotaTaskId?: string;
-
-  /**
-   * <p>The ID of the multicast group.</p>
-   * @public
-   */
-  MulticastGroupId?: string;
-}
-
-/**
- * <p>LoRaWAN object for list functions.</p>
- * @public
- */
-export interface LoRaWANListDevice {
-  /**
-   * <p>The DevEUI value.</p>
-   * @public
-   */
-  DevEui?: string;
 }
 
 /**

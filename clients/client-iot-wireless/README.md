@@ -19,6 +19,9 @@ multicast session for sending a downlink message to devices in the group. By usi
 Firmware Updates Over-The-Air (FUOTA) API operations, you can create a FUOTA task and
 schedule a session to update the firmware of individual devices or an entire group of
 devices in a multicast group.</p>
+<p>To connect to the AWS IoT Wireless Service, use the Service endpoints as described in
+<a href="https://docs.aws.amazon.com/general/latest/gr/iot-lorawan.html#iot-wireless_region">IoT Wireless Service
+endpoints</a> in the <i>AWS General Reference</i>.</p>
 
 ## Installing
 
@@ -561,6 +564,22 @@ GetLogLevelsByResourceTypes
 </details>
 <details>
 <summary>
+GetMetricConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-wireless/command/GetMetricConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-wireless/Interface/GetMetricConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-wireless/Interface/GetMetricConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetMetrics
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-wireless/command/GetMetricsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-wireless/Interface/GetMetricsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-wireless/Interface/GetMetricsCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetMulticastGroup
 </summary>
 
@@ -1013,6 +1032,14 @@ UpdateLogLevelsByResourceTypes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-wireless/command/UpdateLogLevelsByResourceTypesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-wireless/Interface/UpdateLogLevelsByResourceTypesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-wireless/Interface/UpdateLogLevelsByResourceTypesCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateMetricConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-wireless/command/UpdateMetricConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-wireless/Interface/UpdateMetricConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-wireless/Interface/UpdateMetricConfigurationCommandOutput/)
 
 </details>
 <details>

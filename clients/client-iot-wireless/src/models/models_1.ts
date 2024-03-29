@@ -10,17 +10,18 @@ import {
   ConnectionStatusResourceTypeEventConfiguration,
   DeviceRegistrationStateEventConfiguration,
   DeviceRegistrationStateResourceTypeEventConfiguration,
+  DownlinkQueueMessage,
   EventNotificationPartnerType,
   ExpressionType,
   FuotaDeviceStatus,
   IdentifierType,
+  ImportTaskStatus,
   JoinEventConfiguration,
   JoinResourceTypeEventConfiguration,
   LogLevel,
   LoRaWANFuotaTask,
   LoRaWANGateway,
   LoRaWANGatewayVersion,
-  LoRaWANListDevice,
   LoRaWANMulticast,
   LoRaWANMulticastSession,
   LoRaWANSendDataToDevice,
@@ -32,8 +33,11 @@ import {
   Positioning,
   PositioningConfigStatus,
   PositionResourceType,
+  PositionSolverDetails,
   ProximityEventConfiguration,
   ProximityResourceTypeEventConfiguration,
+  SidewalkGetStartImportInfo,
+  SummaryMetricConfiguration,
   Tag,
   TraceContent,
   WirelessDeviceLogOption,
@@ -41,6 +45,370 @@ import {
   WirelessDeviceType,
   WirelessGatewayLogOption,
 } from "./models_0";
+
+/**
+ * <p>The wrapper for a position configuration.</p>
+ * @public
+ */
+export interface PositionConfigurationItem {
+  /**
+   * <p>Resource identifier for the position configuration.</p>
+   * @public
+   */
+  ResourceIdentifier?: string;
+
+  /**
+   * <p>Resource type of the resource for the position configuration.</p>
+   * @public
+   */
+  ResourceType?: PositionResourceType;
+
+  /**
+   * <p>The details of the positioning solver object used to compute the location.</p>
+   * @public
+   */
+  Solvers?: PositionSolverDetails;
+
+  /**
+   * <p>The position data destination that describes the AWS IoT rule that processes the
+   *             device's position data for use by AWS IoT Core for LoRaWAN.</p>
+   * @public
+   */
+  Destination?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListPositionConfigurationsResponse {
+  /**
+   * <p>A list of position configurations.</p>
+   * @public
+   */
+  PositionConfigurationList?: PositionConfigurationItem[];
+
+  /**
+   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListQueuedMessagesRequest {
+  /**
+   * <p>The ID of a given wireless device which the downlink message packets are being
+   *             sent.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous
+   *             response; otherwise <b>null</b> to receive the first set of
+   *             results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in this operation.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The wireless device type, whic can be either Sidewalk or LoRaWAN.</p>
+   * @public
+   */
+  WirelessDeviceType?: WirelessDeviceType;
+}
+
+/**
+ * @public
+ */
+export interface ListQueuedMessagesResponse {
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous
+   *             response; otherwise <b>null</b> to receive the first set of
+   *             results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The messages in the downlink queue.</p>
+   * @public
+   */
+  DownlinkQueueMessagesList?: DownlinkQueueMessage[];
+}
+
+/**
+ * @public
+ */
+export interface ListServiceProfilesRequest {
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous
+   *             response; otherwise <b>null</b> to receive the first set of
+   *             results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in this operation.</p>
+   * @public
+   */
+  MaxResults?: number;
+}
+
+/**
+ * <p>Information about a service profile.</p>
+ * @public
+ */
+export interface ServiceProfile {
+  /**
+   * <p>The Amazon Resource Name of the resource.</p>
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * <p>The name of the resource.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>The ID of the service profile.</p>
+   * @public
+   */
+  Id?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListServiceProfilesResponse {
+  /**
+   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The list of service profiles.</p>
+   * @public
+   */
+  ServiceProfileList?: ServiceProfile[];
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The ARN of the resource for which you want to list tags.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>The tags to attach to the specified resource. Tags are metadata that you can use to
+   *             manage a resource.</p>
+   * @public
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface ListWirelessDeviceImportTasksRequest {
+  /**
+   * <p>The maximum number of results to return in this operation.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous
+   *             response; otherwise <code>null</code> to receive the first set of results.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>Information about an import task for wireless devices.</p>
+ * @public
+ */
+export interface WirelessDeviceImportTask {
+  /**
+   * <p>The ID of the wireless device import task.</p>
+   * @public
+   */
+  Id?: string;
+
+  /**
+   * <p>The ARN (Amazon Resource Name) of the wireless device import task.</p>
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * <p>The name of the Sidewalk destination that that describes the IoT rule to route
+   *             messages from the device in the import task that will be onboarded to AWS IoT
+   *             Wireless</p>
+   * @public
+   */
+  DestinationName?: string;
+
+  /**
+   * <p>The Sidewalk-related information of the wireless device import task.</p>
+   * @public
+   */
+  Sidewalk?: SidewalkGetStartImportInfo;
+
+  /**
+   * <p>The time at which the import task was created.</p>
+   * @public
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The status information of the wireless device import task.</p>
+   * @public
+   */
+  Status?: ImportTaskStatus;
+
+  /**
+   * <p>The reason that provides additional information about the import task status.</p>
+   * @public
+   */
+  StatusReason?: string;
+
+  /**
+   * <p>The summary information of count of wireless devices that are waiting for the control
+   *             log to be added to an import task.</p>
+   * @public
+   */
+  InitializedImportedDeviceCount?: number;
+
+  /**
+   * <p>The summary information of count of wireless devices in an import task that are
+   *             waiting in the queue to be onboarded.</p>
+   * @public
+   */
+  PendingImportedDeviceCount?: number;
+
+  /**
+   * <p>The summary information of count of wireless devices in an import task that have been
+   *             onboarded to the import task.</p>
+   * @public
+   */
+  OnboardedImportedDeviceCount?: number;
+
+  /**
+   * <p>The summary information of count of wireless devices in an import task that failed to
+   *             onboarded to the import task.</p>
+   * @public
+   */
+  FailedImportedDeviceCount?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListWirelessDeviceImportTasksResponse {
+  /**
+   * <p>The token to use to get the next set of results, or <code>null</code> if there are no
+   *             additional results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>List of import tasks and summary information of onboarding status of devices in each
+   *             import task.</p>
+   * @public
+   */
+  WirelessDeviceImportTaskList?: WirelessDeviceImportTask[];
+}
+
+/**
+ * @public
+ */
+export interface ListWirelessDevicesRequest {
+  /**
+   * <p>The maximum number of results to return in this operation.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous
+   *             response; otherwise <b>null</b> to receive the first set of
+   *             results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A filter to list only the wireless devices that use this destination.</p>
+   * @public
+   */
+  DestinationName?: string;
+
+  /**
+   * <p>A filter to list only the wireless devices that use this device profile.</p>
+   * @public
+   */
+  DeviceProfileId?: string;
+
+  /**
+   * <p>A filter to list only the wireless devices that use this service profile.</p>
+   * @public
+   */
+  ServiceProfileId?: string;
+
+  /**
+   * <p>A filter to list only the wireless devices that use this wireless device type.</p>
+   * @public
+   */
+  WirelessDeviceType?: WirelessDeviceType;
+
+  /**
+   * <p>The ID of a FUOTA task.</p>
+   * @public
+   */
+  FuotaTaskId?: string;
+
+  /**
+   * <p>The ID of the multicast group.</p>
+   * @public
+   */
+  MulticastGroupId?: string;
+}
+
+/**
+ * <p>LoRaWAN object for list functions.</p>
+ * @public
+ */
+export interface LoRaWANListDevice {
+  /**
+   * <p>The DevEUI value.</p>
+   * @public
+   */
+  DevEui?: string;
+}
 
 /**
  * <p>Sidewalk object used by list functions.</p>
@@ -1190,6 +1558,22 @@ export interface UpdateLogLevelsByResourceTypesRequest {
  * @public
  */
 export interface UpdateLogLevelsByResourceTypesResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateMetricConfigurationRequest {
+  /**
+   * <p>The value to be used to set summary metric configuration.</p>
+   * @public
+   */
+  SummaryMetric?: SummaryMetricConfiguration;
+}
+
+/**
+ * @public
+ */
+export interface UpdateMetricConfigurationResponse {}
 
 /**
  * @public

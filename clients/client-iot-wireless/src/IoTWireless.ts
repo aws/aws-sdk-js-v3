@@ -218,6 +218,12 @@ import {
   GetLogLevelsByResourceTypesCommandOutput,
 } from "./commands/GetLogLevelsByResourceTypesCommand";
 import {
+  GetMetricConfigurationCommand,
+  GetMetricConfigurationCommandInput,
+  GetMetricConfigurationCommandOutput,
+} from "./commands/GetMetricConfigurationCommand";
+import { GetMetricsCommand, GetMetricsCommandInput, GetMetricsCommandOutput } from "./commands/GetMetricsCommand";
+import {
   GetMulticastGroupCommand,
   GetMulticastGroupCommandInput,
   GetMulticastGroupCommandOutput,
@@ -495,6 +501,11 @@ import {
   UpdateLogLevelsByResourceTypesCommandOutput,
 } from "./commands/UpdateLogLevelsByResourceTypesCommand";
 import {
+  UpdateMetricConfigurationCommand,
+  UpdateMetricConfigurationCommandInput,
+  UpdateMetricConfigurationCommandOutput,
+} from "./commands/UpdateMetricConfigurationCommand";
+import {
   UpdateMulticastGroupCommand,
   UpdateMulticastGroupCommandInput,
   UpdateMulticastGroupCommandOutput,
@@ -585,6 +596,8 @@ const commands = {
   GetEventConfigurationByResourceTypesCommand,
   GetFuotaTaskCommand,
   GetLogLevelsByResourceTypesCommand,
+  GetMetricConfigurationCommand,
+  GetMetricsCommand,
   GetMulticastGroupCommand,
   GetMulticastGroupSessionCommand,
   GetNetworkAnalyzerConfigurationCommand,
@@ -642,6 +655,7 @@ const commands = {
   UpdateEventConfigurationByResourceTypesCommand,
   UpdateFuotaTaskCommand,
   UpdateLogLevelsByResourceTypesCommand,
+  UpdateMetricConfigurationCommand,
   UpdateMulticastGroupCommand,
   UpdateNetworkAnalyzerConfigurationCommand,
   UpdatePartnerAccountCommand,
@@ -1372,6 +1386,36 @@ export interface IoTWireless {
     args: GetLogLevelsByResourceTypesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetLogLevelsByResourceTypesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetMetricConfigurationCommand}
+   */
+  getMetricConfiguration(): Promise<GetMetricConfigurationCommandOutput>;
+  getMetricConfiguration(
+    args: GetMetricConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMetricConfigurationCommandOutput>;
+  getMetricConfiguration(
+    args: GetMetricConfigurationCommandInput,
+    cb: (err: any, data?: GetMetricConfigurationCommandOutput) => void
+  ): void;
+  getMetricConfiguration(
+    args: GetMetricConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMetricConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetMetricsCommand}
+   */
+  getMetrics(): Promise<GetMetricsCommandOutput>;
+  getMetrics(args: GetMetricsCommandInput, options?: __HttpHandlerOptions): Promise<GetMetricsCommandOutput>;
+  getMetrics(args: GetMetricsCommandInput, cb: (err: any, data?: GetMetricsCommandOutput) => void): void;
+  getMetrics(
+    args: GetMetricsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMetricsCommandOutput) => void
   ): void;
 
   /**
@@ -2334,6 +2378,24 @@ export interface IoTWireless {
   ): void;
 
   /**
+   * @see {@link UpdateMetricConfigurationCommand}
+   */
+  updateMetricConfiguration(): Promise<UpdateMetricConfigurationCommandOutput>;
+  updateMetricConfiguration(
+    args: UpdateMetricConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMetricConfigurationCommandOutput>;
+  updateMetricConfiguration(
+    args: UpdateMetricConfigurationCommandInput,
+    cb: (err: any, data?: UpdateMetricConfigurationCommandOutput) => void
+  ): void;
+  updateMetricConfiguration(
+    args: UpdateMetricConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateMetricConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateMulticastGroupCommand}
    */
   updateMulticastGroup(
@@ -2498,6 +2560,9 @@ export interface IoTWireless {
  *             Firmware Updates Over-The-Air (FUOTA) API operations, you can create a FUOTA task and
  *             schedule a session to update the firmware of individual devices or an entire group of
  *             devices in a multicast group.</p>
+ *          <p>To connect to the AWS IoT Wireless Service, use the Service endpoints as described in
+ *                 <a href="https://docs.aws.amazon.com/general/latest/gr/iot-lorawan.html#iot-wireless_region">IoT Wireless Service
+ *                 endpoints</a> in the <i>AWS General Reference</i>.</p>
  * @public
  */
 export class IoTWireless extends IoTWirelessClient implements IoTWireless {}

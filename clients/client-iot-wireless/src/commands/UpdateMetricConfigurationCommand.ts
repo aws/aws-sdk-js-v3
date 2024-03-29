@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_1";
-import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "../protocols/Aws_restJson1";
+import { UpdateMetricConfigurationRequest, UpdateMetricConfigurationResponse } from "../models/models_1";
+import { de_UpdateMetricConfigurationCommand, se_UpdateMetricConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -16,45 +16,43 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link ListTagsForResourceCommand}.
+ * The input for {@link UpdateMetricConfigurationCommand}.
  */
-export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
+export interface UpdateMetricConfigurationCommandInput extends UpdateMetricConfigurationRequest {}
 /**
  * @public
  *
- * The output of {@link ListTagsForResourceCommand}.
+ * The output of {@link UpdateMetricConfigurationCommand}.
  */
-export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
+export interface UpdateMetricConfigurationCommandOutput extends UpdateMetricConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the tags (metadata) you have assigned to the resource.</p>
+ * <p>Update the metric configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, ListTagsForResourceCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, ListTagsForResourceCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, UpdateMetricConfigurationCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
+ * // const { IoTWirelessClient, UpdateMetricConfigurationCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const input = { // ListTagsForResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
+ * const input = { // UpdateMetricConfigurationRequest
+ *   SummaryMetric: { // SummaryMetricConfiguration
+ *     Status: "Enabled" || "Disabled",
+ *   },
  * };
- * const command = new ListTagsForResourceCommand(input);
+ * const command = new UpdateMetricConfigurationCommand(input);
  * const response = await client.send(command);
- * // { // ListTagsForResourceResponse
- * //   Tags: [ // TagList
- * //     { // Tag
- * //       Key: "STRING_VALUE", // required
- * //       Value: "STRING_VALUE", // required
- * //     },
- * //   ],
- * // };
+ * // {};
  *
  * ```
  *
- * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
- * @returns {@link ListTagsForResourceCommandOutput}
- * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
- * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
+ * @param UpdateMetricConfigurationCommandInput - {@link UpdateMetricConfigurationCommandInput}
+ * @returns {@link UpdateMetricConfigurationCommandOutput}
+ * @see {@link UpdateMetricConfigurationCommandInput} for command's `input` shape.
+ * @see {@link UpdateMetricConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>User does not have permission to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
@@ -76,10 +74,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *
  * @public
  */
-export class ListTagsForResourceCommand extends $Command
+export class UpdateMetricConfigurationCommand extends $Command
   .classBuilder<
-    ListTagsForResourceCommandInput,
-    ListTagsForResourceCommandOutput,
+    UpdateMetricConfigurationCommandInput,
+    UpdateMetricConfigurationCommandOutput,
     IoTWirelessClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -93,9 +91,9 @@ export class ListTagsForResourceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("iotwireless", "ListTagsForResource", {})
-  .n("IoTWirelessClient", "ListTagsForResourceCommand")
+  .s("iotwireless", "UpdateMetricConfiguration", {})
+  .n("IoTWirelessClient", "UpdateMetricConfigurationCommand")
   .f(void 0, void 0)
-  .ser(se_ListTagsForResourceCommand)
-  .de(de_ListTagsForResourceCommand)
+  .ser(se_UpdateMetricConfigurationCommand)
+  .de(de_UpdateMetricConfigurationCommand)
   .build() {}
