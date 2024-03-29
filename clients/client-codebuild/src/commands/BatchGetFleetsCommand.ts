@@ -50,7 +50,7 @@ export interface BatchGetFleetsCommandOutput extends BatchGetFleetsOutput, __Met
  * //       created: new Date("TIMESTAMP"),
  * //       lastModified: new Date("TIMESTAMP"),
  * //       status: { // FleetStatus
- * //         statusCode: "CREATING" || "UPDATING" || "ROTATING" || "DELETING" || "CREATE_FAILED" || "UPDATE_ROLLBACK_FAILED" || "ACTIVE",
+ * //         statusCode: "CREATING" || "UPDATING" || "ROTATING" || "PENDING_DELETION" || "DELETING" || "CREATE_FAILED" || "UPDATE_ROLLBACK_FAILED" || "ACTIVE",
  * //         context: "CREATE_FAILED" || "UPDATE_FAILED",
  * //         message: "STRING_VALUE",
  * //       },
