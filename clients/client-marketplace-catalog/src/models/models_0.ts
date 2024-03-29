@@ -1404,6 +1404,22 @@ export interface OfferReleaseDateFilter {
 }
 
 /**
+ * <p>Allows filtering on the <code>ResaleAuthorizationId</code> of an offer.</p>
+ *          <note>
+ *             <p>Not all offers have a <code>ResaleAuthorizationId</code>. The response will only
+ *                 include offers for which you have permissions.</p>
+ *          </note>
+ * @public
+ */
+export interface OfferResaleAuthorizationIdFilter {
+  /**
+   * <p>Allows filtering on the <code>ResaleAuthorizationId</code> of an offer with list input.</p>
+   * @public
+   */
+  ValueList?: string[];
+}
+
+/**
  * @public
  * @enum
  */
@@ -1479,6 +1495,16 @@ export interface OfferFilters {
    * @public
    */
   ProductId?: OfferProductIdFilter;
+
+  /**
+   * <p>Allows filtering on the <code>ResaleAuthorizationId</code> of an offer.</p>
+   *          <note>
+   *             <p>Not all offers have a <code>ResaleAuthorizationId</code>. The response will only
+   *                 include offers for which you have permissions.</p>
+   *          </note>
+   * @public
+   */
+  ResaleAuthorizationId?: OfferResaleAuthorizationIdFilter;
 
   /**
    * <p>Allows filtering on the <code>ReleaseDate</code> of an offer.</p>
@@ -2217,6 +2243,7 @@ export const OfferSortBy = {
   Name: "Name",
   ProductId: "ProductId",
   ReleaseDate: "ReleaseDate",
+  ResaleAuthorizationId: "ResaleAuthorizationId",
   State: "State",
   Targeting: "Targeting",
 } as const;
@@ -2601,6 +2628,12 @@ export interface OfferSummary {
    * @public
    */
   ProductId?: string;
+
+  /**
+   * <p>The ResaleAuthorizationId of the offer.</p>
+   * @public
+   */
+  ResaleAuthorizationId?: string;
 
   /**
    * <p>The release date of the offer.</p>

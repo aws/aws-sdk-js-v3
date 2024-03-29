@@ -91,6 +91,7 @@ import {
   OfferProductIdFilter,
   OfferReleaseDateFilter,
   OfferReleaseDateFilterDateRange,
+  OfferResaleAuthorizationIdFilter,
   OfferSort,
   OfferStateFilter,
   OfferStateString,
@@ -1020,6 +1021,10 @@ const se_JsonDocumentType = (input: __DocumentType, context: __SerdeContext): an
 // se_OfferReleaseDateFilter omitted.
 
 // se_OfferReleaseDateFilterDateRange omitted.
+
+// se_OfferResaleAuthorizationIdFilter omitted.
+
+// se_OfferResaleAuthorizationIdFilterValueList omitted.
 
 // se_OfferSort omitted.
 
