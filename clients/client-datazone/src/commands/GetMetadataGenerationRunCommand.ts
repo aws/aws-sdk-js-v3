@@ -6,8 +6,9 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteListingInput, DeleteListingOutput } from "../models/models_0";
-import { de_DeleteListingCommand, se_DeleteListingCommand } from "../protocols/Aws_restJson1";
+import { GetMetadataGenerationRunInput } from "../models/models_0";
+import { GetMetadataGenerationRunOutput } from "../models/models_1";
+import { de_GetMetadataGenerationRunCommand, se_GetMetadataGenerationRunCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -16,45 +17,55 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeleteListingCommand}.
+ * The input for {@link GetMetadataGenerationRunCommand}.
  */
-export interface DeleteListingCommandInput extends DeleteListingInput {}
+export interface GetMetadataGenerationRunCommandInput extends GetMetadataGenerationRunInput {}
 /**
  * @public
  *
- * The output of {@link DeleteListingCommand}.
+ * The output of {@link GetMetadataGenerationRunCommand}.
  */
-export interface DeleteListingCommandOutput extends DeleteListingOutput, __MetadataBearer {}
+export interface GetMetadataGenerationRunCommandOutput extends GetMetadataGenerationRunOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a listing (a record of an asset at a given time).</p>
+ * <p>Gets a metadata generation run in Amazon DataZone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataZoneClient, DeleteListingCommand } from "@aws-sdk/client-datazone"; // ES Modules import
- * // const { DataZoneClient, DeleteListingCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * import { DataZoneClient, GetMetadataGenerationRunCommand } from "@aws-sdk/client-datazone"; // ES Modules import
+ * // const { DataZoneClient, GetMetadataGenerationRunCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
  * const client = new DataZoneClient(config);
- * const input = { // DeleteListingInput
+ * const input = { // GetMetadataGenerationRunInput
  *   domainIdentifier: "STRING_VALUE", // required
  *   identifier: "STRING_VALUE", // required
  * };
- * const command = new DeleteListingCommand(input);
+ * const command = new GetMetadataGenerationRunCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // GetMetadataGenerationRunOutput
+ * //   domainId: "STRING_VALUE", // required
+ * //   id: "STRING_VALUE", // required
+ * //   target: { // MetadataGenerationRunTarget
+ * //     type: "ASSET", // required
+ * //     identifier: "STRING_VALUE", // required
+ * //     revision: "STRING_VALUE",
+ * //   },
+ * //   status: "SUBMITTED" || "IN_PROGRESS" || "CANCELED" || "SUCCEEDED" || "FAILED",
+ * //   type: "BUSINESS_DESCRIPTIONS",
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   createdBy: "STRING_VALUE",
+ * //   owningProjectId: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *
- * @param DeleteListingCommandInput - {@link DeleteListingCommandInput}
- * @returns {@link DeleteListingCommandOutput}
- * @see {@link DeleteListingCommandInput} for command's `input` shape.
- * @see {@link DeleteListingCommandOutput} for command's `response` shape.
+ * @param GetMetadataGenerationRunCommandInput - {@link GetMetadataGenerationRunCommandInput}
+ * @returns {@link GetMetadataGenerationRunCommandOutput}
+ * @see {@link GetMetadataGenerationRunCommandInput} for command's `input` shape.
+ * @see {@link GetMetadataGenerationRunCommandOutput} for command's `response` shape.
  * @see {@link DataZoneClientResolvedConfig | config} for DataZoneClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
- *
- * @throws {@link ConflictException} (client fault)
- *  <p>There is a conflict while performing this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed because of an unknown error, exception or failure.</p>
@@ -76,10 +87,10 @@ export interface DeleteListingCommandOutput extends DeleteListingOutput, __Metad
  *
  * @public
  */
-export class DeleteListingCommand extends $Command
+export class GetMetadataGenerationRunCommand extends $Command
   .classBuilder<
-    DeleteListingCommandInput,
-    DeleteListingCommandOutput,
+    GetMetadataGenerationRunCommandInput,
+    GetMetadataGenerationRunCommandOutput,
     DataZoneClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -93,9 +104,9 @@ export class DeleteListingCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("DataZone", "DeleteListing", {})
-  .n("DataZoneClient", "DeleteListingCommand")
+  .s("DataZone", "GetMetadataGenerationRun", {})
+  .n("DataZoneClient", "GetMetadataGenerationRunCommand")
   .f(void 0, void 0)
-  .ser(se_DeleteListingCommand)
-  .de(de_DeleteListingCommand)
+  .ser(se_GetMetadataGenerationRunCommand)
+  .de(de_GetMetadataGenerationRunCommand)
   .build() {}

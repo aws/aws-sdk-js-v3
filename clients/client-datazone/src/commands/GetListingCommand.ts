@@ -27,7 +27,7 @@ export interface GetListingCommandInput extends GetListingInput {}
 export interface GetListingCommandOutput extends GetListingOutput, __MetadataBearer {}
 
 /**
- * <p/>
+ * <p>Gets a listing (a record of an asset at a given time).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

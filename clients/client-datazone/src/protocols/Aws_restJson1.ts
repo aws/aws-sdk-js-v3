@@ -38,6 +38,10 @@ import {
   AcceptSubscriptionRequestCommandInput,
   AcceptSubscriptionRequestCommandOutput,
 } from "../commands/AcceptSubscriptionRequestCommand";
+import {
+  CancelMetadataGenerationRunCommandInput,
+  CancelMetadataGenerationRunCommandOutput,
+} from "../commands/CancelMetadataGenerationRunCommand";
 import { CancelSubscriptionCommandInput, CancelSubscriptionCommandOutput } from "../commands/CancelSubscriptionCommand";
 import { CreateAssetCommandInput, CreateAssetCommandOutput } from "../commands/CreateAssetCommand";
 import {
@@ -139,6 +143,10 @@ import {
   GetIamPortalLoginUrlCommandOutput,
 } from "../commands/GetIamPortalLoginUrlCommand";
 import { GetListingCommandInput, GetListingCommandOutput } from "../commands/GetListingCommand";
+import {
+  GetMetadataGenerationRunCommandInput,
+  GetMetadataGenerationRunCommandOutput,
+} from "../commands/GetMetadataGenerationRunCommand";
 import { GetProjectCommandInput, GetProjectCommandOutput } from "../commands/GetProjectCommand";
 import { GetSubscriptionCommandInput, GetSubscriptionCommandOutput } from "../commands/GetSubscriptionCommand";
 import {
@@ -175,6 +183,10 @@ import {
   ListEnvironmentProfilesCommandOutput,
 } from "../commands/ListEnvironmentProfilesCommand";
 import { ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput } from "../commands/ListEnvironmentsCommand";
+import {
+  ListMetadataGenerationRunsCommandInput,
+  ListMetadataGenerationRunsCommandOutput,
+} from "../commands/ListMetadataGenerationRunsCommand";
 import { ListNotificationsCommandInput, ListNotificationsCommandOutput } from "../commands/ListNotificationsCommand";
 import {
   ListProjectMembershipsCommandInput,
@@ -217,6 +229,10 @@ import { SearchListingsCommandInput, SearchListingsCommandOutput } from "../comm
 import { SearchTypesCommandInput, SearchTypesCommandOutput } from "../commands/SearchTypesCommand";
 import { SearchUserProfilesCommandInput, SearchUserProfilesCommandOutput } from "../commands/SearchUserProfilesCommand";
 import { StartDataSourceRunCommandInput, StartDataSourceRunCommandOutput } from "../commands/StartDataSourceRunCommand";
+import {
+  StartMetadataGenerationRunCommandInput,
+  StartMetadataGenerationRunCommandOutput,
+} from "../commands/StartMetadataGenerationRunCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "../commands/UpdateDataSourceCommand";
@@ -287,8 +303,6 @@ import {
   RedshiftRunConfigurationInput,
   RedshiftServerlessStorage,
   RedshiftStorage,
-  RejectChoice,
-  RejectRule,
   RelationalFilterConfiguration,
   ResourceNotFoundException,
   ScheduleConfiguration,
@@ -314,6 +328,10 @@ import {
   FormTypeData,
   GlossaryItem,
   GlossaryTermItem,
+  MetadataGenerationRunItem,
+  MetadataGenerationRunTarget,
+  RejectChoice,
+  RejectRule,
   SearchInItem,
   SearchInventoryResultItem,
   SearchOutputAdditionalAttribute,
@@ -372,6 +390,23 @@ export const se_AcceptSubscriptionRequestCommand = async (
     })
   );
   b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CancelMetadataGenerationRunCommand
+ */
+export const se_CancelMetadataGenerationRunCommand = async (
+  input: CancelMetadataGenerationRunCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/metadata-generation-runs/{identifier}/cancel");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  let body: any;
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -1457,6 +1492,23 @@ export const se_GetListingCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetMetadataGenerationRunCommand
+ */
+export const se_GetMetadataGenerationRunCommand = async (
+  input: GetMetadataGenerationRunCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/metadata-generation-runs/{identifier}");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetProjectCommand
  */
 export const se_GetProjectCommand = async (
@@ -1761,6 +1813,28 @@ export const se_ListEnvironmentsCommand = async (
     [_n]: [, input[_n]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListMetadataGenerationRunsCommand
+ */
+export const se_ListMetadataGenerationRunsCommand = async (
+  input: ListMetadataGenerationRunsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/metadata-generation-runs");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  const query: any = map({
+    [_s]: [, input[_s]!],
+    [_t]: [, input[_t]!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -2229,6 +2303,32 @@ export const se_StartDataSourceRunCommand = async (
 };
 
 /**
+ * serializeAws_restJson1StartMetadataGenerationRunCommand
+ */
+export const se_StartMetadataGenerationRunCommand = async (
+  input: StartMetadataGenerationRunCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/domains/{domainIdentifier}/metadata-generation-runs");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      owningProjectIdentifier: [],
+      target: (_) => _json(_),
+      type: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1TagResourceCommand
  */
 export const se_TagResourceCommand = async (
@@ -2651,6 +2751,23 @@ export const de_AcceptSubscriptionRequestCommand = async (
     updatedBy: __expectString,
   });
   Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CancelMetadataGenerationRunCommand
+ */
+export const de_CancelMetadataGenerationRunCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelMetadataGenerationRunCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -4024,6 +4141,34 @@ export const de_GetListingCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetMetadataGenerationRunCommand
+ */
+export const de_GetMetadataGenerationRunCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMetadataGenerationRunCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdBy: __expectString,
+    domainId: __expectString,
+    id: __expectString,
+    owningProjectId: __expectString,
+    status: __expectString,
+    target: _json,
+    type: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetProjectCommand
  */
 export const de_GetProjectCommand = async (
@@ -4399,6 +4544,28 @@ export const de_ListEnvironmentsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     items: (_) => de_EnvironmentSummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListMetadataGenerationRunsCommand
+ */
+export const de_ListMetadataGenerationRunsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMetadataGenerationRunsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    items: (_) => de_MetadataGenerationRuns(_, context),
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -4835,6 +5002,33 @@ export const de_StartDataSourceRunCommand = async (
     stoppedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     type: __expectString,
     updatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartMetadataGenerationRunCommand
+ */
+export const de_StartMetadataGenerationRunCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMetadataGenerationRunCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdBy: __expectString,
+    domainId: __expectString,
+    id: __expectString,
+    owningProjectId: __expectString,
+    status: __expectString,
+    type: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -5521,6 +5715,8 @@ const se_FilterList = (input: FilterClause[], context: __SerdeContext): any => {
 
 // se_Member omitted.
 
+// se_MetadataGenerationRunTarget omitted.
+
 // se_Model omitted.
 
 // se_PredictionChoices omitted.
@@ -6117,6 +6313,36 @@ const de_ListingItem = (output: any, context: __SerdeContext): ListingItem => {
 // de_ListingRevision omitted.
 
 // de_MemberDetails omitted.
+
+/**
+ * deserializeAws_restJson1MetadataGenerationRunItem
+ */
+const de_MetadataGenerationRunItem = (output: any, context: __SerdeContext): MetadataGenerationRunItem => {
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdBy: __expectString,
+    domainId: __expectString,
+    id: __expectString,
+    owningProjectId: __expectString,
+    status: __expectString,
+    target: _json,
+    type: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1MetadataGenerationRuns
+ */
+const de_MetadataGenerationRuns = (output: any, context: __SerdeContext): MetadataGenerationRunItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_MetadataGenerationRunItem(entry, context);
+    });
+  return retVal;
+};
+
+// de_MetadataGenerationRunTarget omitted.
 
 // de_MetadataMap omitted.
 

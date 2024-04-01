@@ -9,6 +9,7 @@ export * from "./ListEnvironmentBlueprintConfigurationsPaginator";
 export * from "./ListEnvironmentBlueprintsPaginator";
 export * from "./ListEnvironmentProfilesPaginator";
 export * from "./ListEnvironmentsPaginator";
+export * from "./ListMetadataGenerationRunsPaginator";
 export * from "./ListNotificationsPaginator";
 export * from "./ListProjectMembershipsPaginator";
 export * from "./ListProjectsPaginator";

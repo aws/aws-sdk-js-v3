@@ -6,7 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { AcceptPredictionsInput, AcceptPredictionsOutput } from "../models/models_0";
+import {
+  AcceptPredictionsInput,
+  AcceptPredictionsInputFilterSensitiveLog,
+  AcceptPredictionsOutput,
+} from "../models/models_0";
 import { de_AcceptPredictionsCommand, se_AcceptPredictionsCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -45,8 +49,9 @@ export interface AcceptPredictionsCommandOutput extends AcceptPredictionsOutput,
  *   },
  *   acceptChoices: [ // AcceptChoices
  *     { // AcceptChoice
- *       predictionTarget: "STRING_VALUE",
+ *       predictionTarget: "STRING_VALUE", // required
  *       predictionChoice: Number("int"),
+ *       editedValue: "STRING_VALUE",
  *     },
  *   ],
  *   clientToken: "STRING_VALUE",
@@ -112,7 +117,7 @@ export class AcceptPredictionsCommand extends $Command
   })
   .s("DataZone", "AcceptPredictions", {})
   .n("DataZoneClient", "AcceptPredictionsCommand")
-  .f(void 0, void 0)
+  .f(AcceptPredictionsInputFilterSensitiveLog, void 0)
   .ser(se_AcceptPredictionsCommand)
   .de(de_AcceptPredictionsCommand)
   .build() {}

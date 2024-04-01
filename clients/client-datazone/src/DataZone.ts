@@ -13,6 +13,11 @@ import {
   AcceptSubscriptionRequestCommandOutput,
 } from "./commands/AcceptSubscriptionRequestCommand";
 import {
+  CancelMetadataGenerationRunCommand,
+  CancelMetadataGenerationRunCommandInput,
+  CancelMetadataGenerationRunCommandOutput,
+} from "./commands/CancelMetadataGenerationRunCommand";
+import {
   CancelSubscriptionCommand,
   CancelSubscriptionCommandInput,
   CancelSubscriptionCommandOutput,
@@ -234,6 +239,11 @@ import {
   GetIamPortalLoginUrlCommandOutput,
 } from "./commands/GetIamPortalLoginUrlCommand";
 import { GetListingCommand, GetListingCommandInput, GetListingCommandOutput } from "./commands/GetListingCommand";
+import {
+  GetMetadataGenerationRunCommand,
+  GetMetadataGenerationRunCommandInput,
+  GetMetadataGenerationRunCommandOutput,
+} from "./commands/GetMetadataGenerationRunCommand";
 import { GetProjectCommand, GetProjectCommandInput, GetProjectCommandOutput } from "./commands/GetProjectCommand";
 import {
   GetSubscriptionCommand,
@@ -301,6 +311,11 @@ import {
   ListEnvironmentsCommandInput,
   ListEnvironmentsCommandOutput,
 } from "./commands/ListEnvironmentsCommand";
+import {
+  ListMetadataGenerationRunsCommand,
+  ListMetadataGenerationRunsCommandInput,
+  ListMetadataGenerationRunsCommandOutput,
+} from "./commands/ListMetadataGenerationRunsCommand";
 import {
   ListNotificationsCommand,
   ListNotificationsCommandInput,
@@ -383,6 +398,11 @@ import {
   StartDataSourceRunCommandInput,
   StartDataSourceRunCommandOutput,
 } from "./commands/StartDataSourceRunCommand";
+import {
+  StartMetadataGenerationRunCommand,
+  StartMetadataGenerationRunCommandInput,
+  StartMetadataGenerationRunCommandOutput,
+} from "./commands/StartMetadataGenerationRunCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -454,6 +474,7 @@ import { DataZoneClient, DataZoneClientConfig } from "./DataZoneClient";
 const commands = {
   AcceptPredictionsCommand,
   AcceptSubscriptionRequestCommand,
+  CancelMetadataGenerationRunCommand,
   CancelSubscriptionCommand,
   CreateAssetCommand,
   CreateAssetRevisionCommand,
@@ -504,6 +525,7 @@ const commands = {
   GetGroupProfileCommand,
   GetIamPortalLoginUrlCommand,
   GetListingCommand,
+  GetMetadataGenerationRunCommand,
   GetProjectCommand,
   GetSubscriptionCommand,
   GetSubscriptionGrantCommand,
@@ -519,6 +541,7 @@ const commands = {
   ListEnvironmentBlueprintsCommand,
   ListEnvironmentProfilesCommand,
   ListEnvironmentsCommand,
+  ListMetadataGenerationRunsCommand,
   ListNotificationsCommand,
   ListProjectMembershipsCommand,
   ListProjectsCommand,
@@ -537,6 +560,7 @@ const commands = {
   SearchTypesCommand,
   SearchUserProfilesCommand,
   StartDataSourceRunCommand,
+  StartMetadataGenerationRunCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateDataSourceCommand,
@@ -586,6 +610,23 @@ export interface DataZone {
     args: AcceptSubscriptionRequestCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AcceptSubscriptionRequestCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CancelMetadataGenerationRunCommand}
+   */
+  cancelMetadataGenerationRun(
+    args: CancelMetadataGenerationRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelMetadataGenerationRunCommandOutput>;
+  cancelMetadataGenerationRun(
+    args: CancelMetadataGenerationRunCommandInput,
+    cb: (err: any, data?: CancelMetadataGenerationRunCommandOutput) => void
+  ): void;
+  cancelMetadataGenerationRun(
+    args: CancelMetadataGenerationRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelMetadataGenerationRunCommandOutput) => void
   ): void;
 
   /**
@@ -1328,6 +1369,23 @@ export interface DataZone {
   ): void;
 
   /**
+   * @see {@link GetMetadataGenerationRunCommand}
+   */
+  getMetadataGenerationRun(
+    args: GetMetadataGenerationRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMetadataGenerationRunCommandOutput>;
+  getMetadataGenerationRun(
+    args: GetMetadataGenerationRunCommandInput,
+    cb: (err: any, data?: GetMetadataGenerationRunCommandOutput) => void
+  ): void;
+  getMetadataGenerationRun(
+    args: GetMetadataGenerationRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMetadataGenerationRunCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetProjectCommand}
    */
   getProject(args: GetProjectCommandInput, options?: __HttpHandlerOptions): Promise<GetProjectCommandOutput>;
@@ -1560,6 +1618,23 @@ export interface DataZone {
     args: ListEnvironmentsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListEnvironmentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListMetadataGenerationRunsCommand}
+   */
+  listMetadataGenerationRuns(
+    args: ListMetadataGenerationRunsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMetadataGenerationRunsCommandOutput>;
+  listMetadataGenerationRuns(
+    args: ListMetadataGenerationRunsCommandInput,
+    cb: (err: any, data?: ListMetadataGenerationRunsCommandOutput) => void
+  ): void;
+  listMetadataGenerationRuns(
+    args: ListMetadataGenerationRunsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMetadataGenerationRunsCommandOutput) => void
   ): void;
 
   /**
@@ -1845,6 +1920,23 @@ export interface DataZone {
     args: StartDataSourceRunCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartDataSourceRunCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartMetadataGenerationRunCommand}
+   */
+  startMetadataGenerationRun(
+    args: StartMetadataGenerationRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartMetadataGenerationRunCommandOutput>;
+  startMetadataGenerationRun(
+    args: StartMetadataGenerationRunCommandInput,
+    cb: (err: any, data?: StartMetadataGenerationRunCommandOutput) => void
+  ): void;
+  startMetadataGenerationRun(
+    args: StartMetadataGenerationRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartMetadataGenerationRunCommandOutput) => void
   ): void;
 
   /**

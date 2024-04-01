@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RejectPredictionsInput, RejectPredictionsOutput } from "../models/models_1";
-import { de_RejectPredictionsCommand, se_RejectPredictionsCommand } from "../protocols/Aws_restJson1";
+import { StartMetadataGenerationRunInput, StartMetadataGenerationRunOutput } from "../models/models_1";
+import { de_StartMetadataGenerationRunCommand, se_StartMetadataGenerationRunCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -16,57 +16,53 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link RejectPredictionsCommand}.
+ * The input for {@link StartMetadataGenerationRunCommand}.
  */
-export interface RejectPredictionsCommandInput extends RejectPredictionsInput {}
+export interface StartMetadataGenerationRunCommandInput extends StartMetadataGenerationRunInput {}
 /**
  * @public
  *
- * The output of {@link RejectPredictionsCommand}.
+ * The output of {@link StartMetadataGenerationRunCommand}.
  */
-export interface RejectPredictionsCommandOutput extends RejectPredictionsOutput, __MetadataBearer {}
+export interface StartMetadataGenerationRunCommandOutput extends StartMetadataGenerationRunOutput, __MetadataBearer {}
 
 /**
- * <p>Rejects automatically generated business-friendly metadata for your Amazon DataZone
- *          assets.</p>
+ * <p>Starts the metadata generation run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataZoneClient, RejectPredictionsCommand } from "@aws-sdk/client-datazone"; // ES Modules import
- * // const { DataZoneClient, RejectPredictionsCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * import { DataZoneClient, StartMetadataGenerationRunCommand } from "@aws-sdk/client-datazone"; // ES Modules import
+ * // const { DataZoneClient, StartMetadataGenerationRunCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
  * const client = new DataZoneClient(config);
- * const input = { // RejectPredictionsInput
+ * const input = { // StartMetadataGenerationRunInput
  *   domainIdentifier: "STRING_VALUE", // required
- *   identifier: "STRING_VALUE", // required
- *   revision: "STRING_VALUE",
- *   rejectRule: { // RejectRule
- *     rule: "ALL" || "NONE",
- *     threshold: Number("float"),
+ *   type: "BUSINESS_DESCRIPTIONS", // required
+ *   target: { // MetadataGenerationRunTarget
+ *     type: "ASSET", // required
+ *     identifier: "STRING_VALUE", // required
+ *     revision: "STRING_VALUE",
  *   },
- *   rejectChoices: [ // RejectChoices
- *     { // RejectChoice
- *       predictionTarget: "STRING_VALUE", // required
- *       predictionChoices: [ // PredictionChoices
- *         Number("int"),
- *       ],
- *     },
- *   ],
  *   clientToken: "STRING_VALUE",
+ *   owningProjectIdentifier: "STRING_VALUE", // required
  * };
- * const command = new RejectPredictionsCommand(input);
+ * const command = new StartMetadataGenerationRunCommand(input);
  * const response = await client.send(command);
- * // { // RejectPredictionsOutput
+ * // { // StartMetadataGenerationRunOutput
  * //   domainId: "STRING_VALUE", // required
- * //   assetId: "STRING_VALUE", // required
- * //   assetRevision: "STRING_VALUE", // required
+ * //   id: "STRING_VALUE", // required
+ * //   status: "SUBMITTED" || "IN_PROGRESS" || "CANCELED" || "SUCCEEDED" || "FAILED",
+ * //   type: "BUSINESS_DESCRIPTIONS",
+ * //   createdAt: new Date("TIMESTAMP"),
+ * //   createdBy: "STRING_VALUE",
+ * //   owningProjectId: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param RejectPredictionsCommandInput - {@link RejectPredictionsCommandInput}
- * @returns {@link RejectPredictionsCommandOutput}
- * @see {@link RejectPredictionsCommandInput} for command's `input` shape.
- * @see {@link RejectPredictionsCommandOutput} for command's `response` shape.
+ * @param StartMetadataGenerationRunCommandInput - {@link StartMetadataGenerationRunCommandInput}
+ * @returns {@link StartMetadataGenerationRunCommandOutput}
+ * @see {@link StartMetadataGenerationRunCommandInput} for command's `input` shape.
+ * @see {@link StartMetadataGenerationRunCommandOutput} for command's `response` shape.
  * @see {@link DataZoneClientResolvedConfig | config} for DataZoneClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -80,6 +76,9 @@ export interface RejectPredictionsCommandOutput extends RejectPredictionsOutput,
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource cannot be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request has exceeded the specified service quota.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
@@ -95,10 +94,10 @@ export interface RejectPredictionsCommandOutput extends RejectPredictionsOutput,
  *
  * @public
  */
-export class RejectPredictionsCommand extends $Command
+export class StartMetadataGenerationRunCommand extends $Command
   .classBuilder<
-    RejectPredictionsCommandInput,
-    RejectPredictionsCommandOutput,
+    StartMetadataGenerationRunCommandInput,
+    StartMetadataGenerationRunCommandOutput,
     DataZoneClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -112,9 +111,9 @@ export class RejectPredictionsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("DataZone", "RejectPredictions", {})
-  .n("DataZoneClient", "RejectPredictionsCommand")
+  .s("DataZone", "StartMetadataGenerationRun", {})
+  .n("DataZoneClient", "StartMetadataGenerationRunCommand")
   .f(void 0, void 0)
-  .ser(se_RejectPredictionsCommand)
-  .de(de_RejectPredictionsCommand)
+  .ser(se_StartMetadataGenerationRunCommand)
+  .de(de_StartMetadataGenerationRunCommand)
   .build() {}

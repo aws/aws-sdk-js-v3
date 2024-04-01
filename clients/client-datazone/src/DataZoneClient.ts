@@ -58,6 +58,10 @@ import {
   AcceptSubscriptionRequestCommandInput,
   AcceptSubscriptionRequestCommandOutput,
 } from "./commands/AcceptSubscriptionRequestCommand";
+import {
+  CancelMetadataGenerationRunCommandInput,
+  CancelMetadataGenerationRunCommandOutput,
+} from "./commands/CancelMetadataGenerationRunCommand";
 import { CancelSubscriptionCommandInput, CancelSubscriptionCommandOutput } from "./commands/CancelSubscriptionCommand";
 import { CreateAssetCommandInput, CreateAssetCommandOutput } from "./commands/CreateAssetCommand";
 import {
@@ -159,6 +163,10 @@ import {
   GetIamPortalLoginUrlCommandOutput,
 } from "./commands/GetIamPortalLoginUrlCommand";
 import { GetListingCommandInput, GetListingCommandOutput } from "./commands/GetListingCommand";
+import {
+  GetMetadataGenerationRunCommandInput,
+  GetMetadataGenerationRunCommandOutput,
+} from "./commands/GetMetadataGenerationRunCommand";
 import { GetProjectCommandInput, GetProjectCommandOutput } from "./commands/GetProjectCommand";
 import { GetSubscriptionCommandInput, GetSubscriptionCommandOutput } from "./commands/GetSubscriptionCommand";
 import {
@@ -195,6 +203,10 @@ import {
   ListEnvironmentProfilesCommandOutput,
 } from "./commands/ListEnvironmentProfilesCommand";
 import { ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput } from "./commands/ListEnvironmentsCommand";
+import {
+  ListMetadataGenerationRunsCommandInput,
+  ListMetadataGenerationRunsCommandOutput,
+} from "./commands/ListMetadataGenerationRunsCommand";
 import { ListNotificationsCommandInput, ListNotificationsCommandOutput } from "./commands/ListNotificationsCommand";
 import {
   ListProjectMembershipsCommandInput,
@@ -237,6 +249,10 @@ import { SearchListingsCommandInput, SearchListingsCommandOutput } from "./comma
 import { SearchTypesCommandInput, SearchTypesCommandOutput } from "./commands/SearchTypesCommand";
 import { SearchUserProfilesCommandInput, SearchUserProfilesCommandOutput } from "./commands/SearchUserProfilesCommand";
 import { StartDataSourceRunCommandInput, StartDataSourceRunCommandOutput } from "./commands/StartDataSourceRunCommand";
+import {
+  StartMetadataGenerationRunCommandInput,
+  StartMetadataGenerationRunCommandOutput,
+} from "./commands/StartMetadataGenerationRunCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
@@ -280,6 +296,7 @@ export { __Client };
 export type ServiceInputTypes =
   | AcceptPredictionsCommandInput
   | AcceptSubscriptionRequestCommandInput
+  | CancelMetadataGenerationRunCommandInput
   | CancelSubscriptionCommandInput
   | CreateAssetCommandInput
   | CreateAssetRevisionCommandInput
@@ -330,6 +347,7 @@ export type ServiceInputTypes =
   | GetGroupProfileCommandInput
   | GetIamPortalLoginUrlCommandInput
   | GetListingCommandInput
+  | GetMetadataGenerationRunCommandInput
   | GetProjectCommandInput
   | GetSubscriptionCommandInput
   | GetSubscriptionGrantCommandInput
@@ -345,6 +363,7 @@ export type ServiceInputTypes =
   | ListEnvironmentBlueprintsCommandInput
   | ListEnvironmentProfilesCommandInput
   | ListEnvironmentsCommandInput
+  | ListMetadataGenerationRunsCommandInput
   | ListNotificationsCommandInput
   | ListProjectMembershipsCommandInput
   | ListProjectsCommandInput
@@ -363,6 +382,7 @@ export type ServiceInputTypes =
   | SearchTypesCommandInput
   | SearchUserProfilesCommandInput
   | StartDataSourceRunCommandInput
+  | StartMetadataGenerationRunCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateDataSourceCommandInput
@@ -384,6 +404,7 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AcceptPredictionsCommandOutput
   | AcceptSubscriptionRequestCommandOutput
+  | CancelMetadataGenerationRunCommandOutput
   | CancelSubscriptionCommandOutput
   | CreateAssetCommandOutput
   | CreateAssetRevisionCommandOutput
@@ -434,6 +455,7 @@ export type ServiceOutputTypes =
   | GetGroupProfileCommandOutput
   | GetIamPortalLoginUrlCommandOutput
   | GetListingCommandOutput
+  | GetMetadataGenerationRunCommandOutput
   | GetProjectCommandOutput
   | GetSubscriptionCommandOutput
   | GetSubscriptionGrantCommandOutput
@@ -449,6 +471,7 @@ export type ServiceOutputTypes =
   | ListEnvironmentBlueprintsCommandOutput
   | ListEnvironmentProfilesCommandOutput
   | ListEnvironmentsCommandOutput
+  | ListMetadataGenerationRunsCommandOutput
   | ListNotificationsCommandOutput
   | ListProjectMembershipsCommandOutput
   | ListProjectsCommandOutput
@@ -467,6 +490,7 @@ export type ServiceOutputTypes =
   | SearchTypesCommandOutput
   | SearchUserProfilesCommandOutput
   | StartDataSourceRunCommandOutput
+  | StartMetadataGenerationRunCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateDataSourceCommandOutput

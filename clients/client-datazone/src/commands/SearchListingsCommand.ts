@@ -27,7 +27,7 @@ export interface SearchListingsCommandInput extends SearchListingsInput {}
 export interface SearchListingsCommandOutput extends SearchListingsOutput, __MetadataBearer {}
 
 /**
- * <p>Searches listings in Amazon DataZone.</p>
+ * <p>Searches listings (records of an asset at a given time) in Amazon DataZone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

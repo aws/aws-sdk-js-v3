@@ -6,8 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteListingInput, DeleteListingOutput } from "../models/models_0";
-import { de_DeleteListingCommand, se_DeleteListingCommand } from "../protocols/Aws_restJson1";
+import { CancelMetadataGenerationRunInput, CancelMetadataGenerationRunOutput } from "../models/models_0";
+import {
+  de_CancelMetadataGenerationRunCommand,
+  se_CancelMetadataGenerationRunCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -16,38 +19,38 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DeleteListingCommand}.
+ * The input for {@link CancelMetadataGenerationRunCommand}.
  */
-export interface DeleteListingCommandInput extends DeleteListingInput {}
+export interface CancelMetadataGenerationRunCommandInput extends CancelMetadataGenerationRunInput {}
 /**
  * @public
  *
- * The output of {@link DeleteListingCommand}.
+ * The output of {@link CancelMetadataGenerationRunCommand}.
  */
-export interface DeleteListingCommandOutput extends DeleteListingOutput, __MetadataBearer {}
+export interface CancelMetadataGenerationRunCommandOutput extends CancelMetadataGenerationRunOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a listing (a record of an asset at a given time).</p>
+ * <p>Cancels the metadata generation run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataZoneClient, DeleteListingCommand } from "@aws-sdk/client-datazone"; // ES Modules import
- * // const { DataZoneClient, DeleteListingCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * import { DataZoneClient, CancelMetadataGenerationRunCommand } from "@aws-sdk/client-datazone"; // ES Modules import
+ * // const { DataZoneClient, CancelMetadataGenerationRunCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
  * const client = new DataZoneClient(config);
- * const input = { // DeleteListingInput
+ * const input = { // CancelMetadataGenerationRunInput
  *   domainIdentifier: "STRING_VALUE", // required
  *   identifier: "STRING_VALUE", // required
  * };
- * const command = new DeleteListingCommand(input);
+ * const command = new CancelMetadataGenerationRunCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param DeleteListingCommandInput - {@link DeleteListingCommandInput}
- * @returns {@link DeleteListingCommandOutput}
- * @see {@link DeleteListingCommandInput} for command's `input` shape.
- * @see {@link DeleteListingCommandOutput} for command's `response` shape.
+ * @param CancelMetadataGenerationRunCommandInput - {@link CancelMetadataGenerationRunCommandInput}
+ * @returns {@link CancelMetadataGenerationRunCommandOutput}
+ * @see {@link CancelMetadataGenerationRunCommandInput} for command's `input` shape.
+ * @see {@link CancelMetadataGenerationRunCommandOutput} for command's `response` shape.
  * @see {@link DataZoneClientResolvedConfig | config} for DataZoneClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -76,10 +79,10 @@ export interface DeleteListingCommandOutput extends DeleteListingOutput, __Metad
  *
  * @public
  */
-export class DeleteListingCommand extends $Command
+export class CancelMetadataGenerationRunCommand extends $Command
   .classBuilder<
-    DeleteListingCommandInput,
-    DeleteListingCommandOutput,
+    CancelMetadataGenerationRunCommandInput,
+    CancelMetadataGenerationRunCommandOutput,
     DataZoneClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -93,9 +96,9 @@ export class DeleteListingCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("DataZone", "DeleteListing", {})
-  .n("DataZoneClient", "DeleteListingCommand")
+  .s("DataZone", "CancelMetadataGenerationRun", {})
+  .n("DataZoneClient", "CancelMetadataGenerationRunCommand")
   .f(void 0, void 0)
-  .ser(se_DeleteListingCommand)
-  .de(de_DeleteListingCommand)
+  .ser(se_CancelMetadataGenerationRunCommand)
+  .de(de_CancelMetadataGenerationRunCommand)
   .build() {}
