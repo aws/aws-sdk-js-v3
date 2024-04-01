@@ -37,7 +37,7 @@ export interface SetUnhealthyNodeReplacementCommandOutput extends __MetadataBear
  *          <p>If unhealthy node replacement is on, Amazon EMR
  *          notifies YARN and other applications on the cluster to stop scheduling tasks
  *          with these nodes, moves the data, and then terminates the nodes.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/UsingEMR_UnhealthyNodeReplacement.html">graceful
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-node-replacement.html">graceful
  *          node replacement</a> in the <i>Amazon EMR Management Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
