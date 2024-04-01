@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.546.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.545.0...v3.546.0) (2024-04-01)
+
+
+### Features
+
+* **client-cloudwatch:** This release adds support for CloudWatch Anomaly Detection on cross-account metrics. SingleMetricAnomalyDetector and MetricDataQuery inputs to Anomaly Detection APIs now take an optional AccountId field. ([8b556b0](https://github.com/aws/aws-sdk-js-v3/commit/8b556b09e52f5e2163765166ed79e58bae34cd1f))
+
+
+
+
+
 # [3.540.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.539.0...v3.540.0) (2024-03-22)
 
 

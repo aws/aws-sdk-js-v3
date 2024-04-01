@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.546.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.545.0...v3.546.0) (2024-04-01)
+
+
+### Features
+
+* **client-cloudwatch:** This release adds support for CloudWatch Anomaly Detection on cross-account metrics. SingleMetricAnomalyDetector and MetricDataQuery inputs to Anomaly Detection APIs now take an optional AccountId field. ([8b556b0](https://github.com/aws/aws-sdk-js-v3/commit/8b556b09e52f5e2163765166ed79e58bae34cd1f))
+* **client-datazone:** This release supports the feature of AI recommendations for descriptions to enrich the business data catalog in Amazon DataZone. ([1508e72](https://github.com/aws/aws-sdk-js-v3/commit/1508e72a83ea92175315ac3216289191c1932de6))
+* **client-deadline:** AWS Deadline Cloud is a new fully managed service that helps customers set up, deploy, and scale rendering projects in minutes, so they can improve the efficiency of their rendering pipelines and take on more projects. ([faee925](https://github.com/aws/aws-sdk-js-v3/commit/faee9251c25d854aa130cbbbe266a46ace7dd7b0))
+* **client-lightsail:** This release adds support to upgrade the TLS version of the distribution. ([502a221](https://github.com/aws/aws-sdk-js-v3/commit/502a2215bcae371c644b990b1a5b0a3d36c29fa6))
+* **clients:** update client endpoints as of 2024-04-01 ([fc4ce77](https://github.com/aws/aws-sdk-js-v3/commit/fc4ce77e9a6470a248b4c6b075443b7069667458))
+
+
+
+
+
 # [3.545.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.544.0...v3.545.0) (2024-03-29)
 
 
