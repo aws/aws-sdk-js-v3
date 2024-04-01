@@ -18,6 +18,7 @@ import {
   ContactProtocol,
   ContainerImage,
   ContainerService,
+  ContainerServicePower,
   ContainerServicePowerName,
   CostEstimate,
   Disk,
@@ -44,7 +45,20 @@ import {
   ResourceType,
   Tag,
   TreatMissingData,
+  ViewerMinimumTlsProtocolVersionEnum,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface GetContainerServicePowersResult {
+  /**
+   * <p>An array of objects that describe the powers that can be specified for a container
+   *       service.</p>
+   * @public
+   */
+  powers?: ContainerServicePower[];
+}
 
 /**
  * @public
@@ -6540,6 +6554,27 @@ export interface UpdateDistributionRequest {
    * @public
    */
   isEnabled?: boolean;
+
+  /**
+   * <p>Use this parameter to update the minimum TLS protocol version for the SSL/TLS certificate that's attached to the distribution.</p>
+   * @public
+   */
+  viewerMinimumTlsProtocolVersion?: ViewerMinimumTlsProtocolVersionEnum;
+
+  /**
+   * <p>The name of the SSL/TLS certificate that you want to attach to the distribution.</p>
+   *          <p>Only certificates with a status of <code>ISSUED</code> can be attached to a distribution.</p>
+   *          <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetCertificates.html">GetCertificates</a> action to get a list of certificate names that you can specify.</p>
+   * @public
+   */
+  certificateName?: string;
+
+  /**
+   * <p>Indicates whether the default SSL/TLS certificate is attached to the distribution. The default value is <code>true</code>. When <code>true</code>, the distribution uses the default domain name such as <code>d111111abcdef8.cloudfront.net</code>.</p>
+   *          <p> Set this value to <code>false</code> to attach a new certificate to the distribution.</p>
+   * @public
+   */
+  useDefaultCertificate?: boolean;
 }
 
 /**

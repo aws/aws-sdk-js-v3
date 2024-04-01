@@ -620,7 +620,6 @@ import {
   GetContainerServiceMetricDataRequest,
   GetContainerServiceMetricDataResult,
   GetContainerServicePowersRequest,
-  GetContainerServicePowersResult,
   HeaderEnum,
   HeaderObject,
   InputOrigin,
@@ -644,6 +643,7 @@ import {
   UnauthenticatedException,
 } from "../models/models_0";
 import {
+  GetContainerServicePowersResult,
   GetContainerServicesRequest,
   GetCostEstimateRequest,
   GetCostEstimateResult,
@@ -9033,6 +9033,7 @@ const de_LightsailDistribution = (output: any, context: __SerdeContext): Lightsa
     status: __expectString,
     supportCode: __expectString,
     tags: _json,
+    viewerMinimumTlsProtocolVersion: __expectString,
   }) as any;
 };
 
