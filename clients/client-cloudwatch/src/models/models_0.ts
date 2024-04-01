@@ -408,10 +408,19 @@ export interface MetricMathAnomalyDetector {
 
 /**
  * <p>Designates the CloudWatch metric and statistic that provides the time series the anomaly detector
- * 			uses as input.</p>
+ * 			uses as input. If you have enabled unified cross-account observability, and this account is a monitoring
+ * 		account, the metric can be in the same account or a source account.</p>
  * @public
  */
 export interface SingleMetricAnomalyDetector {
+  /**
+   * <p>If the CloudWatch metric that provides the time series that the anomaly detector
+   * 			uses as input is in another account, specify that account ID here. If you omit this parameter,
+   * 		the current account is used.</p>
+   * @public
+   */
+  AccountId?: string;
+
   /**
    * <p>The namespace of the metric to create the anomaly detection model for.</p>
    * @public
@@ -456,6 +465,8 @@ export type AnomalyDetectorStateValue = (typeof AnomalyDetectorStateValue)[keyof
  * <p>An anomaly detection model associated with a particular CloudWatch metric, statistic, or metric math expression.
  * 			You can use the model to display a band of expected, normal values
  * 			when the metric is graphed.</p>
+ *          <p>If you have enabled unified cross-account observability, and this account is a monitoring
+ * 			account, the metric can be in the same account or a source account.</p>
  * @public
  */
 export interface AnomalyDetector {
@@ -2421,6 +2432,7 @@ export interface GetMetricDataInput {
    * <p>The order in which data points should be returned. <code>TimestampDescending</code> returns the newest data first and paginates
    * 			when the <code>MaxDatapoints</code> limit is reached. <code>TimestampAscending</code> returns the oldest data first and paginates
    * 			when the <code>MaxDatapoints</code> limit is reached.</p>
+   *          <p>If you omit this parameter, the default of <code>TimestampDescending</code> is used.</p>
    * @public
    */
   ScanBy?: ScanBy;
@@ -3459,7 +3471,7 @@ export interface PutAnomalyDetectorInput {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>the <code>MetricMatchAnomalyDetector</code> parameters of <code>PutAnomalyDetectorInput</code>
+   *                <p>the <code>MetricMathAnomalyDetector</code> parameters of <code>PutAnomalyDetectorInput</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -3544,9 +3556,39 @@ export interface PutCompositeAlarmInput {
   /**
    * <p>The actions to execute when this alarm transitions to the <code>ALARM</code> state from any other state.
    * 			Each action is specified as an Amazon Resource Name (ARN).</p>
-   *          <p>Valid Values: <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>
+   *          <p>Valid Values: ]</p>
+   *          <p>
+   *             <b>Amazon SNS actions:</b>
+   *          </p>
+   *          <p>
+   *             <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>
    *             </code>
-   * 			| <code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:opsitem:<i>severity</i>
+   *          </p>
+   *          <p>
+   *             <b>Lambda actions:</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>Invoke the latest version of a Lambda function: <code>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Invoke a specific version of a Lambda function: <code>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i>:<i>version-number</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Invoke a function by using an alias Lambda function: <code>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i>:<i>alias-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <b>Systems Manager actions:</b>
+   *          </p>
+   *          <p>
+   *             <code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:opsitem:<i>severity</i>
    *             </code>
    *          </p>
    * @public
@@ -3636,9 +3678,34 @@ export interface PutCompositeAlarmInput {
   /**
    * <p>The actions to execute when this alarm transitions to the <code>INSUFFICIENT_DATA</code> state from any other state.
    * 			Each action is specified as an Amazon Resource Name (ARN).</p>
-   *          <p>Valid Values: <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>
+   *          <p>Valid Values: ]</p>
+   *          <p>
+   *             <b>Amazon SNS actions:</b>
+   *          </p>
+   *          <p>
+   *             <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>
    *             </code>
    *          </p>
+   *          <p>
+   *             <b>Lambda actions:</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>Invoke the latest version of a Lambda function: <code>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Invoke a specific version of a Lambda function: <code>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i>:<i>version-number</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Invoke a function by using an alias Lambda function: <code>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i>:<i>alias-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *          </ul>
    * @public
    */
   InsufficientDataActions?: string[];
@@ -3646,18 +3713,49 @@ export interface PutCompositeAlarmInput {
   /**
    * <p>The actions to execute when this alarm transitions to an <code>OK</code> state
    * 			from any other state. Each action is specified as an Amazon Resource Name (ARN).</p>
-   *          <p>Valid Values: <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>
+   *          <p>Valid Values: ]</p>
+   *          <p>
+   *             <b>Amazon SNS actions:</b>
+   *          </p>
+   *          <p>
+   *             <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>
    *             </code>
    *          </p>
+   *          <p>
+   *             <b>Lambda actions:</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>Invoke the latest version of a Lambda function: <code>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Invoke a specific version of a Lambda function: <code>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i>:<i>version-number</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Invoke a function by using an alias Lambda function: <code>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i>:<i>alias-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *          </ul>
    * @public
    */
   OKActions?: string[];
 
   /**
-   * <p>A list of key-value pairs to associate with the composite alarm. You can associate as many as 50 tags with an alarm.</p>
-   *          <p>Tags can help you organize and categorize your
-   * 			resources. You can also use them to scope user permissions, by granting a user permission to access or change only resources with
-   * 			certain tag values.</p>
+   * <p>A list of key-value pairs to associate with the alarm. You can associate as many as 50 tags with an alarm.
+   * 			To be able to associate tags with the alarm when you create the alarm, you must
+   * 			have the <code>cloudwatch:TagResource</code> permission.</p>
+   *          <p>Tags can help you organize and categorize your resources. You can also use them to scope user
+   * 			permissions by granting a user
+   * 			permission to access or change only resources with certain tag values.</p>
+   *          <p>If you are using this operation to update an existing alarm, any tags
+   * 			you specify in this parameter are ignored. To change the tags of an existing alarm, use
+   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html">TagResource</a>
+   * 			or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html">UntagResource</a>.</p>
    * @public
    */
   Tags?: Tag[];
@@ -3981,12 +4079,32 @@ export interface PutMetricAlarmInput {
    *             </li>
    *          </ul>
    *          <p>
+   *             <b>Lambda actions:</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>Invoke the latest version of a Lambda function: <code>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Invoke a specific version of a Lambda function: <code>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i>:<i>version-number</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Invoke a function by using an alias Lambda function: <code>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i>:<i>alias-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>
    *             <b>SNS notification action:</b>
    *          </p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i>
+   *                   <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>
    *                   </code>
    *                </p>
    *             </li>
@@ -4072,12 +4190,32 @@ export interface PutMetricAlarmInput {
    *             </li>
    *          </ul>
    *          <p>
+   *             <b>Lambda actions:</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>Invoke the latest version of a Lambda function: <code>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Invoke a specific version of a Lambda function: <code>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i>:<i>version-number</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Invoke a function by using an alias Lambda function: <code>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i>:<i>alias-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>
    *             <b>SNS notification action:</b>
    *          </p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i>
+   *                   <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>
    *                   </code>
    *                </p>
    *             </li>
@@ -4163,12 +4301,32 @@ export interface PutMetricAlarmInput {
    *             </li>
    *          </ul>
    *          <p>
+   *             <b>Lambda actions:</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>Invoke the latest version of a Lambda function: <code>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Invoke a specific version of a Lambda function: <code>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i>:<i>version-number</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Invoke a function by using an alias Lambda function: <code>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i>:<i>alias-name</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>
    *             <b>SNS notification action:</b>
    *          </p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i>
+   *                   <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>
    *                   </code>
    *                </p>
    *             </li>

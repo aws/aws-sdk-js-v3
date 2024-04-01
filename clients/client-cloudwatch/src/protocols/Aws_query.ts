@@ -3552,6 +3552,9 @@ const se_SetAlarmStateInput = (input: SetAlarmStateInput, context: __SerdeContex
  */
 const se_SingleMetricAnomalyDetector = (input: SingleMetricAnomalyDetector, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input[_AI] != null) {
+    entries[_AI] = input[_AI];
+  }
   if (input[_N] != null) {
     entries[_N] = input[_N];
   }
@@ -5382,6 +5385,9 @@ const de_ResourceNotFoundException = (output: any, context: __SerdeContext): Res
  */
 const de_SingleMetricAnomalyDetector = (output: any, context: __SerdeContext): SingleMetricAnomalyDetector => {
   const contents: any = {};
+  if (output[_AI] != null) {
+    contents[_AI] = __expectString(output[_AI]);
+  }
   if (output[_N] != null) {
     contents[_N] = __expectString(output[_N]);
   }

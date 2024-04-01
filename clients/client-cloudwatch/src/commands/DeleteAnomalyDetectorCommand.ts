@@ -53,6 +53,7 @@ export interface DeleteAnomalyDetectorCommandOutput extends DeleteAnomalyDetecto
  *   ],
  *   Stat: "STRING_VALUE",
  *   SingleMetricAnomalyDetector: { // SingleMetricAnomalyDetector
+ *     AccountId: "STRING_VALUE",
  *     Namespace: "STRING_VALUE",
  *     MetricName: "STRING_VALUE",
  *     Dimensions: [

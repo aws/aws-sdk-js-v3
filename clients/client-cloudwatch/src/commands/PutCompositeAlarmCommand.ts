@@ -41,8 +41,21 @@ export interface PutCompositeAlarmCommandOutput extends __MetadataBearer {}
  * 			for the composite alarm. For example, you could create a composite
  * 			alarm that goes into ALARM state only when more than one of the underlying metric alarms
  * 			are in ALARM state.</p>
- *          <p>Currently, the only alarm actions that can be taken by composite alarms are notifying
- * 			SNS topics.</p>
+ *          <p>Composite alarms can take the following actions:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Notify Amazon SNS topics.</p>
+ *             </li>
+ *             <li>
+ *                <p>Invoke Lambda functions.</p>
+ *             </li>
+ *             <li>
+ *                <p>Create OpsItems in Systems Manager Ops Center.</p>
+ *             </li>
+ *             <li>
+ *                <p>Create incidents in Systems Manager Incident Manager.</p>
+ *             </li>
+ *          </ul>
  *          <note>
  *             <p>It is possible to create a loop or cycle of composite alarms, where composite alarm A depends on composite alarm B, and
  * 			composite alarm B also depends on composite alarm A. In this scenario, you can't delete any composite alarm that is part of the cycle

@@ -34,7 +34,7 @@ export interface PutMetricDataCommandOutput extends __MetadataBearer {}
  * 			take up to fifteen minutes for the metric to appear in calls to <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html">ListMetrics</a>.</p>
  *          <p>You can publish either individual data points in the <code>Value</code> field, or
  * 		arrays of values and the number of times each value occurred during the period by using the
- * 		<code>Values</code> and <code>Counts</code> fields in the <code>MetricDatum</code> structure. Using
+ * 		<code>Values</code> and <code>Counts</code> fields in the <code>MetricData</code> structure. Using
  * 		the <code>Values</code> and <code>Counts</code> method enables you to publish up to 150 values per metric
  * 			with one <code>PutMetricData</code> request, and
  * 		supports retrieving percentile statistics on this data.</p>
