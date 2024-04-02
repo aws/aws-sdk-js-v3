@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.547.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.546.0...v3.547.0) (2024-04-02)
+
+
+### Features
+
+* **client-sqs:** add option to prevent md5 computation ([#5953](https://github.com/aws/aws-sdk-js-v3/issues/5953)) ([43f401b](https://github.com/aws/aws-sdk-js-v3/commit/43f401b5a473449c0aa892e7cf7df9e86befffee))
+
+
+
+
+
 # [3.535.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.534.0...v3.535.0) (2024-03-15)
 
 **Note:** Version bump only for package @aws-sdk/middleware-sdk-sqs

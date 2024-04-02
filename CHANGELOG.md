@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.547.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.546.0...v3.547.0) (2024-04-02)
+
+
+### Features
+
+* **client-glue:** Adding View related fields to responses of read-only Table APIs. ([813eb4d](https://github.com/aws/aws-sdk-js-v3/commit/813eb4d90045ec16681439017a22bf43f53c118e))
+* **client-rolesanywhere:** This release increases the limit on the roleArns request parameter for the *Profile APIs that support it. This parameter can now take up to 250 role ARNs. ([7f5e108](https://github.com/aws/aws-sdk-js-v3/commit/7f5e108047ec886e98701048bfffa729482ed04c))
+* **client-sqs:** add option to prevent md5 computation ([#5953](https://github.com/aws/aws-sdk-js-v3/issues/5953)) ([43f401b](https://github.com/aws/aws-sdk-js-v3/commit/43f401b5a473449c0aa892e7cf7df9e86befffee))
+* **clients:** update client endpoints as of 2024-04-02 ([1ca0877](https://github.com/aws/aws-sdk-js-v3/commit/1ca087746a6d2f66095179d97ddc9fcfde114d98))
+
+
+
+
+
 # [3.546.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.545.0...v3.546.0) (2024-04-01)
 
 
