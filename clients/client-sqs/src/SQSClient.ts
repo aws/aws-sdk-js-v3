@@ -257,10 +257,9 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
 
   /**
    * A constructor for a class implementing the {@link __Checksum} interface
-   * that computes MD5 hashes.
-   * @internal
+   * that computes MD5 hashes, or false to prevent MD5 computation.
    */
-  md5?: __ChecksumConstructor | __HashConstructor;
+  md5?: __ChecksumConstructor | __HashConstructor | false;
 
   /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header

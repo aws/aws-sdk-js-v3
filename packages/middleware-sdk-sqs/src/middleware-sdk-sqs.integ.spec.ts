@@ -103,8 +103,7 @@ const handlerResponse = (body: string) => {
 };
 
 describe("middleware-sdk-sqs", () => {
-  // TODO: check in CI
-  xdescribe(SQS.name + ` w/ useAwsQuery: ${useAwsQuery}`, () => {
+  describe(SQS.name + ` w/ useAwsQuery: ${useAwsQuery}`, () => {
     describe("correct md5 hashes", () => {
       beforeEach(() => {
         hashError = "";
