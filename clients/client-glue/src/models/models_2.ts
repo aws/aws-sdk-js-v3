@@ -404,6 +404,93 @@ export interface FederatedTable {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const ViewDialect = {
+  ATHENA: "ATHENA",
+  REDSHIFT: "REDSHIFT",
+  SPARK: "SPARK",
+} as const;
+
+/**
+ * @public
+ */
+export type ViewDialect = (typeof ViewDialect)[keyof typeof ViewDialect];
+
+/**
+ * <p>A structure that contains the dialect of the view, and the query that defines the view.</p>
+ * @public
+ */
+export interface ViewRepresentation {
+  /**
+   * <p>The dialect of the query engine.</p>
+   * @public
+   */
+  Dialect?: ViewDialect;
+
+  /**
+   * <p>The version of the dialect of the query engine. For example, 3.0.0.</p>
+   * @public
+   */
+  DialectVersion?: string;
+
+  /**
+   * <p>The <code>SELECT</code> query provided by the customer during <code>CREATE VIEW DDL</code>. This SQL is not used during a query on a view (<code>ViewExpandedText</code> is used instead). <code>ViewOriginalText</code> is used for cases like <code>SHOW CREATE VIEW</code> where users want to see the original DDL command that created the view.</p>
+   * @public
+   */
+  ViewOriginalText?: string;
+
+  /**
+   * <p>The expanded SQL for the view. This SQL is used by engines while processing a query on a view. Engines may perform operations during view creation to transform <code>ViewOriginalText</code> to <code>ViewExpandedText</code>. For example:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Fully qualify identifiers: <code>SELECT * from table1 → SELECT * from db1.table1</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ViewExpandedText?: string;
+
+  /**
+   * <p>Dialects marked as stale are no longer valid and must be updated before they can be queried in their respective query engines.</p>
+   * @public
+   */
+  IsStale?: boolean;
+}
+
+/**
+ * <p>A structure containing details for representations.</p>
+ * @public
+ */
+export interface ViewDefinition {
+  /**
+   * <p>You can set this flag as true to instruct the engine not to push user-provided operations into the logical plan of the view during query planning. However, setting this flag does not guarantee that the engine will comply. Refer to the engine's documentation to understand the guarantees provided, if any.</p>
+   * @public
+   */
+  IsProtected?: boolean;
+
+  /**
+   * <p>The definer of a view in SQL.</p>
+   * @public
+   */
+  Definer?: string;
+
+  /**
+   * <p>A list of table Amazon Resource Names (ARNs).</p>
+   * @public
+   */
+  SubObjects?: string[];
+
+  /**
+   * <p>A list of representations.</p>
+   * @public
+   */
+  Representations?: ViewRepresentation[];
+}
+
+/**
  * <p>Represents a collection of related data organized in columns and rows.</p>
  * @public
  */
@@ -560,6 +647,18 @@ export interface Table {
    * @public
    */
   FederatedTable?: FederatedTable;
+
+  /**
+   * <p>A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query.</p>
+   * @public
+   */
+  ViewDefinition?: ViewDefinition;
+
+  /**
+   * <p>Specifies whether the view supports the SQL dialects of one or more different query engines and can therefore be read by those engines.</p>
+   * @public
+   */
+  IsMultiDialectView?: boolean;
 }
 
 /**
@@ -1274,21 +1373,6 @@ export interface GetUnfilteredPartitionsMetadataResponse {
 }
 
 /**
- * @public
- * @enum
- */
-export const ViewDialect = {
-  ATHENA: "ATHENA",
-  REDSHIFT: "REDSHIFT",
-  SPARK: "SPARK",
-} as const;
-
-/**
- * @public
- */
-export type ViewDialect = (typeof ViewDialect)[keyof typeof ViewDialect];
-
-/**
  * <p>A structure specifying the dialect and dialect version used by the query engine.</p>
  * @public
  */
@@ -1419,10 +1503,22 @@ export interface GetUnfilteredTableMetadataResponse {
   QueryAuthorizationId?: string;
 
   /**
+   * <p>Specifies whether the view supports the SQL dialects of one or more different query engines and can therefore be read by those engines.</p>
+   * @public
+   */
+  IsMultiDialectView?: boolean;
+
+  /**
    * <p>The resource ARN of the parent resource extracted from the request.</p>
    * @public
    */
   ResourceArn?: string;
+
+  /**
+   * <p>A flag that instructs the engine not to push user-provided operations into the logical plan of the view during query planning. However, if set this flag does not guarantee that the engine will comply. Refer to the engine's documentation to understand the guarantees provided, if any.</p>
+   * @public
+   */
+  IsProtected?: boolean;
 
   /**
    * <p>The Lake Formation data permissions of the caller on the table. Used to authorize the call when no view context is found.</p>

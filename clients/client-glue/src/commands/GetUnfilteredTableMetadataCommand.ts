@@ -166,6 +166,23 @@ export interface GetUnfilteredTableMetadataCommandOutput extends GetUnfilteredTa
  * //       DatabaseIdentifier: "STRING_VALUE",
  * //       ConnectionName: "STRING_VALUE",
  * //     },
+ * //     ViewDefinition: { // ViewDefinition
+ * //       IsProtected: true || false,
+ * //       Definer: "STRING_VALUE",
+ * //       SubObjects: [ // ViewSubObjectsList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Representations: [ // ViewRepresentationList
+ * //         { // ViewRepresentation
+ * //           Dialect: "REDSHIFT" || "ATHENA" || "SPARK",
+ * //           DialectVersion: "STRING_VALUE",
+ * //           ViewOriginalText: "STRING_VALUE",
+ * //           ViewExpandedText: "STRING_VALUE",
+ * //           IsStale: true || false,
+ * //         },
+ * //       ],
+ * //     },
+ * //     IsMultiDialectView: true || false,
  * //   },
  * //   AuthorizedColumns: "<NameStringList>",
  * //   IsRegisteredWithLakeFormation: true || false,
@@ -176,7 +193,9 @@ export interface GetUnfilteredTableMetadataCommandOutput extends GetUnfilteredTa
  * //     },
  * //   ],
  * //   QueryAuthorizationId: "STRING_VALUE",
+ * //   IsMultiDialectView: true || false,
  * //   ResourceArn: "STRING_VALUE",
+ * //   IsProtected: true || false,
  * //   Permissions: [ // PermissionList
  * //     "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS",
  * //   ],

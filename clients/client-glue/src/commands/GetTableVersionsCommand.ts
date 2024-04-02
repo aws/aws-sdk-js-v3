@@ -142,6 +142,23 @@ export interface GetTableVersionsCommandOutput extends GetTableVersionsResponse,
  * //           DatabaseIdentifier: "STRING_VALUE",
  * //           ConnectionName: "STRING_VALUE",
  * //         },
+ * //         ViewDefinition: { // ViewDefinition
+ * //           IsProtected: true || false,
+ * //           Definer: "STRING_VALUE",
+ * //           SubObjects: [ // ViewSubObjectsList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           Representations: [ // ViewRepresentationList
+ * //             { // ViewRepresentation
+ * //               Dialect: "REDSHIFT" || "ATHENA" || "SPARK",
+ * //               DialectVersion: "STRING_VALUE",
+ * //               ViewOriginalText: "STRING_VALUE",
+ * //               ViewExpandedText: "STRING_VALUE",
+ * //               IsStale: true || false,
+ * //             },
+ * //           ],
+ * //         },
+ * //         IsMultiDialectView: true || false,
  * //       },
  * //       VersionId: "STRING_VALUE",
  * //     },

@@ -13003,6 +13003,8 @@ const de_GetUnfilteredTableMetadataResponse = (
   return take(output, {
     AuthorizedColumns: _json,
     CellFilters: _json,
+    IsMultiDialectView: __expectBoolean,
+    IsProtected: __expectBoolean,
     IsRegisteredWithLakeFormation: __expectBoolean,
     Permissions: _json,
     QueryAuthorizationId: __expectString,
@@ -14069,6 +14071,7 @@ const de_Table = (output: any, context: __SerdeContext): Table => {
     DatabaseName: __expectString,
     Description: __expectString,
     FederatedTable: _json,
+    IsMultiDialectView: __expectBoolean,
     IsRegisteredWithLakeFormation: __expectBoolean,
     LastAccessTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LastAnalyzedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -14082,6 +14085,7 @@ const de_Table = (output: any, context: __SerdeContext): Table => {
     TargetTable: _json,
     UpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     VersionId: __expectString,
+    ViewDefinition: _json,
     ViewExpandedText: __expectString,
     ViewOriginalText: __expectString,
   }) as any;
@@ -14361,6 +14365,14 @@ const de_UserDefinedFunctionList = (output: any, context: __SerdeContext): UserD
 // de_ValueStringList omitted.
 
 // de_VersionMismatchException omitted.
+
+// de_ViewDefinition omitted.
+
+// de_ViewRepresentation omitted.
+
+// de_ViewRepresentationList omitted.
+
+// de_ViewSubObjectsList omitted.
 
 /**
  * deserializeAws_json1_1Workflow
