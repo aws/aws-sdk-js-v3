@@ -21,6 +21,9 @@ export const sendMessageMiddleware =
   <Output extends MetadataBearer>(next: InitializeHandler<any, Output>): InitializeHandler<any, Output> =>
   async (args: InitializeHandlerArguments<any>): Promise<InitializeHandlerOutput<Output>> => {
     const resp = await next({ ...args });
+    if (options.md5 === false) {
+      return resp;
+    }
     const output = resp.output as SendMessageResult;
     const hash = new options.md5();
     hash.update(toUint8Array(args.input.MessageBody || ""));

@@ -69,4 +69,23 @@ describe("receiveMessageMiddleware", () => {
     expect(mockHashUpdate.mock.calls.length).toBe(2);
     expect(mockHashDigest.mock.calls.length).toBe(2);
   });
+
+  it("ignores checksum if md5=false in config", async () => {
+    const next = jest.fn().mockReturnValue({
+      output: {
+        Messages: [
+          { Body: "foo", MD5OfBody: "XXYYZZ", MessageId: "fooMessage" },
+          { Body: "bar", MD5OfBody: "XXYYZZ", MessageId: "barMessage" },
+        ],
+      },
+    });
+    const handler = receiveMessageMiddleware({
+      md5: false,
+    })(next, {} as any);
+
+    await handler({ input: {} });
+
+    expect(mockHashUpdate.mock.calls.length).toBe(0);
+    expect(mockHashDigest.mock.calls.length).toBe(0);
+  });
 });
