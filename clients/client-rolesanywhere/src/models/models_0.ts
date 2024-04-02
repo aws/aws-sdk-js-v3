@@ -77,8 +77,8 @@ export interface CreateProfileRequest {
 
   /**
    * <p> Used to determine how long sessions vended using this profile are valid for. See the <code>Expiration</code> section of the
-   *             <a href="https://docs.aws.amazon.com/rolesanywhere/latest/userguide/authentication-create-session.html#credentials-object">CreateSession API documentation</a>
-   * page for more details. </p>
+   * <a href="https://docs.aws.amazon.com/rolesanywhere/latest/userguide/authentication-create-session.html#credentials-object">CreateSession API documentation</a>
+   * page for more details. In requests, if this value is not provided, the default value will be 3600. </p>
    * @public
    */
   durationSeconds?: number;
@@ -169,8 +169,8 @@ export interface ProfileDetail {
 
   /**
    * <p> Used to determine how long sessions vended using this profile are valid for. See the <code>Expiration</code> section of the
-   *             <a href="https://docs.aws.amazon.com/rolesanywhere/latest/userguide/authentication-create-session.html#credentials-object">CreateSession API documentation</a>
-   * page for more details. </p>
+   * <a href="https://docs.aws.amazon.com/rolesanywhere/latest/userguide/authentication-create-session.html#credentials-object">CreateSession API documentation</a>
+   * page for more details. In requests, if this value is not provided, the default value will be 3600. </p>
    * @public
    */
   durationSeconds?: number;
@@ -1040,8 +1040,8 @@ export interface UpdateProfileRequest {
 
   /**
    * <p> Used to determine how long sessions vended using this profile are valid for. See the <code>Expiration</code> section of the
-   *             <a href="https://docs.aws.amazon.com/rolesanywhere/latest/userguide/authentication-create-session.html#credentials-object">CreateSession API documentation</a>
-   * page for more details. </p>
+   * <a href="https://docs.aws.amazon.com/rolesanywhere/latest/userguide/authentication-create-session.html#credentials-object">CreateSession API documentation</a>
+   * page for more details. In requests, if this value is not provided, the default value will be 3600. </p>
    * @public
    */
   durationSeconds?: number;
