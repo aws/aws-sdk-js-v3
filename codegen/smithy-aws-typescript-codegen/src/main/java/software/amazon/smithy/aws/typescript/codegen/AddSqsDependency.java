@@ -87,9 +87,8 @@ public class AddSqsDependency implements TypeScriptIntegration {
         writer.addImport("Checksum", "__Checksum", TypeScriptDependency.SMITHY_TYPES);
         writer.addImport("ChecksumConstructor", "__ChecksumConstructor", TypeScriptDependency.SMITHY_TYPES);
         writer.writeDocs("A constructor for a class implementing the {@link __Checksum} interface \n"
-                + "that computes MD5 hashes.\n"
-                + "@internal");
-        writer.write("md5?: __ChecksumConstructor | __HashConstructor;\n");
+                + "that computes MD5 hashes, or false to prevent MD5 computation.");
+        writer.write("md5?: __ChecksumConstructor | __HashConstructor | false;\n");
     }
 
     @Override
