@@ -2126,9 +2126,31 @@ export interface AwsElbLoadBalancerDetails {
 
   /**
    * <p>Indicates when the load balancer was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   CreatedTime?: string;
@@ -2270,9 +2292,31 @@ export interface AwsElbv2LoadBalancerDetails {
 
   /**
    * <p>Indicates when the load balancer was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   CreatedTime?: string;
@@ -2876,9 +2920,31 @@ export interface AwsIamAccessKeySessionContextAttributes {
 
   /**
    * <p>Indicates when the session was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   CreationDate?: string;
@@ -2977,9 +3043,31 @@ export interface AwsIamAccessKeyDetails {
 
   /**
    * <p>Indicates when the IAM access key was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   CreatedAt?: string;
@@ -3064,9 +3152,31 @@ export interface AwsIamGroupDetails {
 
   /**
    * <p>Indicates when the IAM group was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   CreateDate?: string;
@@ -3115,9 +3225,31 @@ export interface AwsIamInstanceProfileRole {
 
   /**
    * <p>Indicates when the role was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   CreateDate?: string;
@@ -3154,9 +3286,31 @@ export interface AwsIamInstanceProfile {
 
   /**
    * <p>Indicates when the instance profile was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   CreateDate?: string;
@@ -3224,9 +3378,31 @@ export interface AwsIamPolicyVersion {
 
   /**
    * <p>Indicates when the version was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   CreateDate?: string;
@@ -3245,9 +3421,31 @@ export interface AwsIamPolicyDetails {
 
   /**
    * <p>When the policy was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   CreateDate?: string;
@@ -3303,9 +3501,31 @@ export interface AwsIamPolicyDetails {
 
   /**
    * <p>When the policy was most recently updated.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   UpdateDate?: string;
@@ -3342,9 +3562,31 @@ export interface AwsIamRoleDetails {
 
   /**
    * <p>Indicates when the role was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   CreateDate?: string;
@@ -3418,9 +3660,31 @@ export interface AwsIamUserDetails {
 
   /**
    * <p>Indicates when the user was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   CreateDate?: string;
@@ -3539,9 +3803,31 @@ export interface AwsKmsKeyDetails {
 
   /**
    * <p>Indicates when the KMS key was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   CreationDate?: number;
@@ -3795,9 +4081,31 @@ export interface AwsLambdaFunctionDetails {
 
   /**
    * <p>Indicates when the function was last updated.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   LastModified?: string;
@@ -3889,12 +4197,10 @@ export interface AwsLambdaLayerVersionDetails {
   Version?: number;
 
   /**
-   * <p>The layer's compatible runtimes. Maximum number of five items.</p>
-   *          <p>Valid values: <code>nodejs10.x</code> | <code>nodejs12.x</code> | <code>java8</code> |
-   *             <code>java11</code> | <code>python2.7</code> | <code>python3.6</code> |
-   *             <code>python3.7</code> | <code>python3.8</code> | <code>dotnetcore1.0</code> |
-   *             <code>dotnetcore2.1</code> | <code>go1.x</code> | <code>ruby2.5</code> |
-   *             <code>provided</code>
+   * <p>The layer's compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">function runtimes</a>.</p>
+   *          <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a> in the <i>Lambda Developer Guide</i>.</p>
+   *          <p>Array Members: Maximum number of 5 items.</p>
+   *          <p>Valid Values: <code>nodejs | nodejs4.3 | nodejs6.10 | nodejs8.10 | nodejs10.x | nodejs12.x | nodejs14.x | nodejs16.x | java8 | java8.al2 | java11 | python2.7 | python3.6 | python3.7 | python3.8 | python3.9 | dotnetcore1.0 | dotnetcore2.0 | dotnetcore2.1 | dotnetcore3.1 | dotnet6 | nodejs4.3-edge | go1.x | ruby2.5 | ruby2.7 | provided | provided.al2 | nodejs18.x | python3.10 | java17 | ruby3.2 | python3.11 | nodejs20.x | provided.al2023 | python3.12 | java21</code>
    *          </p>
    * @public
    */
@@ -3902,9 +4208,31 @@ export interface AwsLambdaLayerVersionDetails {
 
   /**
    * <p>Indicates when the version was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   CreatedDate?: string;
@@ -5574,9 +5902,31 @@ export interface AwsRdsDbClusterDetails {
 
   /**
    * <p>Indicates when the DB cluster was created, in Universal Coordinated Time (UTC).</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   ClusterCreateTime?: string;
@@ -5768,9 +6118,31 @@ export interface AwsRdsDbClusterSnapshotDetails {
 
   /**
    * <p>Indicates when the snapshot was taken.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   SnapshotCreateTime?: string;
@@ -5807,9 +6179,31 @@ export interface AwsRdsDbClusterSnapshotDetails {
 
   /**
    * <p>Indicates when the DB cluster was created, in Universal Coordinated Time (UTC).</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   ClusterCreateTime?: string;
@@ -6344,9 +6738,31 @@ export interface AwsRdsDbInstanceDetails {
 
   /**
    * <p>Indicates when the DB instance was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   InstanceCreateTime?: string;
@@ -6476,9 +6892,31 @@ export interface AwsRdsDbInstanceDetails {
   /**
    * <p>Specifies the latest time to which a database can be restored with point-in-time
    *          restore.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   LatestRestorableTime?: string;
@@ -7054,9 +7492,31 @@ export interface AwsRdsEventSubscriptionDetails {
 
   /**
    * <p>The datetime when the event notification subscription was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *          <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   SubscriptionCreationTime?: string;
@@ -7204,9 +7664,31 @@ export interface AwsRedshiftClusterClusterSnapshotCopyStatus {
 export interface AwsRedshiftClusterDeferredMaintenanceWindow {
   /**
    * <p>The end of the time window for which maintenance was deferred.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   DeferMaintenanceEndTime?: string;
@@ -7219,9 +7701,31 @@ export interface AwsRedshiftClusterDeferredMaintenanceWindow {
 
   /**
    * <p>The start of the time window for which maintenance was deferred.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   DeferMaintenanceStartTime?: string;
@@ -7334,18 +7838,62 @@ export interface AwsRedshiftClusterLoggingStatus {
 
   /**
    * <p>The last time when logs failed to be delivered.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *          <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   LastFailureTime?: string;
 
   /**
    * <p>The last time that logs were delivered successfully.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *          <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   LastSuccessfulDeliveryTime?: string;
@@ -7586,9 +8134,31 @@ export interface AwsRedshiftClusterDetails {
 
   /**
    * <p>Indicates when the cluster was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   ClusterCreateTime?: string;
@@ -7714,9 +8284,31 @@ export interface AwsRedshiftClusterDetails {
   /**
    * <p>Indicates when the next snapshot is expected to be taken. The cluster must have a valid
    *          snapshot schedule and have backups enabled.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   ExpectedNextSnapshotScheduleTime?: string;
@@ -7774,9 +8366,31 @@ export interface AwsRedshiftClusterDetails {
 
   /**
    * <p>Indicates the start of the next maintenance window.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   NextMaintenanceWindowStartTime?: string;
@@ -8280,9 +8894,31 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTr
 export interface AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails {
   /**
    * <p>A date on which to transition objects to the specified storage class. If you provide <code>Date</code>, you cannot provide <code>Days</code>.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *          <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Date?: string;
@@ -8341,9 +8977,31 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesDetails {
 
   /**
    * <p>The date when objects are moved or deleted.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *          <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   ExpirationDate?: string;
@@ -8848,9 +9506,31 @@ export interface AwsS3BucketDetails {
 
   /**
    * <p>Indicates when the S3 bucket was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   CreatedAt?: string;
@@ -8927,9 +9607,31 @@ export interface AwsS3BucketDetails {
 export interface AwsS3ObjectDetails {
   /**
    * <p>Indicates when the object was last modified.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   LastModified?: string;
@@ -9737,10 +10439,32 @@ export interface Note {
   UpdatedBy: string | undefined;
 
   /**
-   * <p>The timestamp of when the note was updated.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   * <p>A timestamp that indicates when the note was updated.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   UpdatedAt: string | undefined;
@@ -9801,18 +10525,62 @@ export interface PatchSummary {
 
   /**
    * <p>Indicates when the operation started.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   OperationStartTime?: string;
 
   /**
    * <p>Indicates when the operation completed.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   OperationEndTime?: string;
@@ -9862,18 +10630,62 @@ export interface ProcessDetails {
 
   /**
    * <p>Indicates when the process was launched.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   LaunchedAt?: string;
 
   /**
    * <p>Indicates when the process was terminated.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>This field accepts only the specified formats. Timestamps
+   * can end with <code>Z</code> or <code>("+" / "-") time-hour [":" time-minute]</code>. The time-secfrac after seconds is limited
+   * to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SSZ</code> (for example, <code>2019-01-31T23:00:00Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ</code> (for example, <code>2019-01-31T23:00:00.123456789Z</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS+HH:MM</code> (for example, <code>2024-01-04T15:25:10+17:59</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS-HHMM</code> (for example, <code>2024-01-04T15:25:10-1759</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM</code> (for example, <code>2024-01-04T15:25:10.123456789+17:59</code>)</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   TerminatedAt?: string;
