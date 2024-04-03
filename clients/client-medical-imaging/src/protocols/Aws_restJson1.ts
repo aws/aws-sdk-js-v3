@@ -91,6 +91,7 @@ import {
   SearchCriteria,
   SearchFilter,
   ServiceQuotaExceededException,
+  Sort,
   ThrottlingException,
   ValidationException,
 } from "../models/models_0";
@@ -858,6 +859,7 @@ export const de_SearchImageSetsCommand = async (
   const doc = take(data, {
     imageSetsMetadataSummaries: (_) => de_ImageSetsMetadataSummaries(_, context),
     nextToken: __expectString,
+    sort: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1159,10 +1161,12 @@ const se_SearchByAttributeValue = (input: SearchByAttributeValue, context: __Ser
   return SearchByAttributeValue.visit(input, {
     DICOMAccessionNumber: (value) => ({ DICOMAccessionNumber: value }),
     DICOMPatientId: (value) => ({ DICOMPatientId: value }),
+    DICOMSeriesInstanceUID: (value) => ({ DICOMSeriesInstanceUID: value }),
     DICOMStudyDateAndTime: (value) => ({ DICOMStudyDateAndTime: _json(value) }),
     DICOMStudyId: (value) => ({ DICOMStudyId: value }),
     DICOMStudyInstanceUID: (value) => ({ DICOMStudyInstanceUID: value }),
     createdAt: (value) => ({ createdAt: Math.round(value.getTime() / 1000) }),
+    updatedAt: (value) => ({ updatedAt: Math.round(value.getTime() / 1000) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
@@ -1184,6 +1188,7 @@ const se_SearchByAttributeValues = (input: SearchByAttributeValue[], context: __
 const se_SearchCriteria = (input: SearchCriteria, context: __SerdeContext): any => {
   return take(input, {
     filters: (_) => se_SearchFilters(_, context),
+    sort: _json,
   });
 };
 
@@ -1207,6 +1212,8 @@ const se_SearchFilters = (input: SearchFilter[], context: __SerdeContext): any =
       return se_SearchFilter(entry, context);
     });
 };
+
+// se_Sort omitted.
 
 // se_TagMap omitted.
 
@@ -1384,6 +1391,8 @@ const de_ImageSetsMetadataSummary = (output: any, context: __SerdeContext): Imag
     version: __expectInt32,
   }) as any;
 };
+
+// de_Sort omitted.
 
 // de_TagMap omitted.
 

@@ -1219,10 +1219,12 @@ export interface DICOMStudyDateAndTime {
 export type SearchByAttributeValue =
   | SearchByAttributeValue.DICOMAccessionNumberMember
   | SearchByAttributeValue.DICOMPatientIdMember
+  | SearchByAttributeValue.DICOMSeriesInstanceUIDMember
   | SearchByAttributeValue.DICOMStudyDateAndTimeMember
   | SearchByAttributeValue.DICOMStudyIdMember
   | SearchByAttributeValue.DICOMStudyInstanceUIDMember
   | SearchByAttributeValue.CreatedAtMember
+  | SearchByAttributeValue.UpdatedAtMember
   | SearchByAttributeValue.$UnknownMember;
 
 /**
@@ -1238,7 +1240,9 @@ export namespace SearchByAttributeValue {
     DICOMAccessionNumber?: never;
     DICOMStudyId?: never;
     DICOMStudyInstanceUID?: never;
+    DICOMSeriesInstanceUID?: never;
     createdAt?: never;
+    updatedAt?: never;
     DICOMStudyDateAndTime?: never;
     $unknown?: never;
   }
@@ -1252,7 +1256,9 @@ export namespace SearchByAttributeValue {
     DICOMAccessionNumber: string;
     DICOMStudyId?: never;
     DICOMStudyInstanceUID?: never;
+    DICOMSeriesInstanceUID?: never;
     createdAt?: never;
+    updatedAt?: never;
     DICOMStudyDateAndTime?: never;
     $unknown?: never;
   }
@@ -1266,7 +1272,9 @@ export namespace SearchByAttributeValue {
     DICOMAccessionNumber?: never;
     DICOMStudyId: string;
     DICOMStudyInstanceUID?: never;
+    DICOMSeriesInstanceUID?: never;
     createdAt?: never;
+    updatedAt?: never;
     DICOMStudyDateAndTime?: never;
     $unknown?: never;
   }
@@ -1280,7 +1288,25 @@ export namespace SearchByAttributeValue {
     DICOMAccessionNumber?: never;
     DICOMStudyId?: never;
     DICOMStudyInstanceUID: string;
+    DICOMSeriesInstanceUID?: never;
     createdAt?: never;
+    updatedAt?: never;
+    DICOMStudyDateAndTime?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Series Instance UID input for search.</p>
+   * @public
+   */
+  export interface DICOMSeriesInstanceUIDMember {
+    DICOMPatientId?: never;
+    DICOMAccessionNumber?: never;
+    DICOMStudyId?: never;
+    DICOMStudyInstanceUID?: never;
+    DICOMSeriesInstanceUID: string;
+    createdAt?: never;
+    updatedAt?: never;
     DICOMStudyDateAndTime?: never;
     $unknown?: never;
   }
@@ -1294,7 +1320,25 @@ export namespace SearchByAttributeValue {
     DICOMAccessionNumber?: never;
     DICOMStudyId?: never;
     DICOMStudyInstanceUID?: never;
+    DICOMSeriesInstanceUID?: never;
     createdAt: Date;
+    updatedAt?: never;
+    DICOMStudyDateAndTime?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The timestamp input for search.</p>
+   * @public
+   */
+  export interface UpdatedAtMember {
+    DICOMPatientId?: never;
+    DICOMAccessionNumber?: never;
+    DICOMStudyId?: never;
+    DICOMStudyInstanceUID?: never;
+    DICOMSeriesInstanceUID?: never;
+    createdAt?: never;
+    updatedAt: Date;
     DICOMStudyDateAndTime?: never;
     $unknown?: never;
   }
@@ -1308,7 +1352,9 @@ export namespace SearchByAttributeValue {
     DICOMAccessionNumber?: never;
     DICOMStudyId?: never;
     DICOMStudyInstanceUID?: never;
+    DICOMSeriesInstanceUID?: never;
     createdAt?: never;
+    updatedAt?: never;
     DICOMStudyDateAndTime: DICOMStudyDateAndTime;
     $unknown?: never;
   }
@@ -1321,7 +1367,9 @@ export namespace SearchByAttributeValue {
     DICOMAccessionNumber?: never;
     DICOMStudyId?: never;
     DICOMStudyInstanceUID?: never;
+    DICOMSeriesInstanceUID?: never;
     createdAt?: never;
+    updatedAt?: never;
     DICOMStudyDateAndTime?: never;
     $unknown: [string, any];
   }
@@ -1331,7 +1379,9 @@ export namespace SearchByAttributeValue {
     DICOMAccessionNumber: (value: string) => T;
     DICOMStudyId: (value: string) => T;
     DICOMStudyInstanceUID: (value: string) => T;
+    DICOMSeriesInstanceUID: (value: string) => T;
     createdAt: (value: Date) => T;
+    updatedAt: (value: Date) => T;
     DICOMStudyDateAndTime: (value: DICOMStudyDateAndTime) => T;
     _: (name: string, value: any) => T;
   }
@@ -1341,7 +1391,9 @@ export namespace SearchByAttributeValue {
     if (value.DICOMAccessionNumber !== undefined) return visitor.DICOMAccessionNumber(value.DICOMAccessionNumber);
     if (value.DICOMStudyId !== undefined) return visitor.DICOMStudyId(value.DICOMStudyId);
     if (value.DICOMStudyInstanceUID !== undefined) return visitor.DICOMStudyInstanceUID(value.DICOMStudyInstanceUID);
+    if (value.DICOMSeriesInstanceUID !== undefined) return visitor.DICOMSeriesInstanceUID(value.DICOMSeriesInstanceUID);
     if (value.createdAt !== undefined) return visitor.createdAt(value.createdAt);
+    if (value.updatedAt !== undefined) return visitor.updatedAt(value.updatedAt);
     if (value.DICOMStudyDateAndTime !== undefined) return visitor.DICOMStudyDateAndTime(value.DICOMStudyDateAndTime);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
@@ -1366,6 +1418,53 @@ export interface SearchFilter {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const SortField = {
+  DICOMStudyDateAndTime: "DICOMStudyDateAndTime",
+  createdAt: "createdAt",
+  updatedAt: "updatedAt",
+} as const;
+
+/**
+ * @public
+ */
+export type SortField = (typeof SortField)[keyof typeof SortField];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASC: "ASC",
+  DESC: "DESC",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * <p>Sort search results.</p>
+ * @public
+ */
+export interface Sort {
+  /**
+   * <p>The sort order for search criteria.</p>
+   * @public
+   */
+  sortOrder: SortOrder | undefined;
+
+  /**
+   * <p>The sort field for search criteria.</p>
+   * @public
+   */
+  sortField: SortField | undefined;
+}
+
+/**
  * <p>The search criteria.</p>
  * @public
  */
@@ -1375,6 +1474,12 @@ export interface SearchCriteria {
    * @public
    */
   filters?: SearchFilter[];
+
+  /**
+   * <p>The sort input for search criteria.</p>
+   * @public
+   */
+  sort?: Sort;
 }
 
 /**
@@ -1438,19 +1543,19 @@ export interface DICOMTags {
   DICOMPatientSex?: string;
 
   /**
-   * <p>The DICOM provided identifier for studyInstanceUid.&gt;</p>
+   * <p>The DICOM provided identifier for the Study Instance UID.</p>
    * @public
    */
   DICOMStudyInstanceUID?: string;
 
   /**
-   * <p>The DICOM provided studyId.</p>
+   * <p>The DICOM provided identifier for the Study ID.</p>
    * @public
    */
   DICOMStudyId?: string;
 
   /**
-   * <p>The description of the study.</p>
+   * <p>The DICOM provided Study Description.</p>
    * @public
    */
   DICOMStudyDescription?: string;
@@ -1472,6 +1577,30 @@ export interface DICOMTags {
    * @public
    */
   DICOMAccessionNumber?: string;
+
+  /**
+   * <p>The DICOM provided identifier for the Series Instance UID.</p>
+   * @public
+   */
+  DICOMSeriesInstanceUID?: string;
+
+  /**
+   * <p>The DICOM provided identifier for the series Modality.</p>
+   * @public
+   */
+  DICOMSeriesModality?: string;
+
+  /**
+   * <p>The DICOM provided identifier for the series Body Part Examined.</p>
+   * @public
+   */
+  DICOMSeriesBodyPart?: string;
+
+  /**
+   * <p>The DICOM provided identifier for the Series Number.</p>
+   * @public
+   */
+  DICOMSeriesNumber?: number;
 
   /**
    * <p>The study date.</p>
@@ -1532,6 +1661,12 @@ export interface SearchImageSetsResponse {
    * @public
    */
   imageSetsMetadataSummaries: ImageSetsMetadataSummary[] | undefined;
+
+  /**
+   * <p>The sort order for image set search results.</p>
+   * @public
+   */
+  sort?: Sort;
 
   /**
    * <p>The token for pagination results.</p>
@@ -1823,7 +1958,9 @@ export const SearchByAttributeValueFilterSensitiveLog = (obj: SearchByAttributeV
   if (obj.DICOMAccessionNumber !== undefined) return { DICOMAccessionNumber: SENSITIVE_STRING };
   if (obj.DICOMStudyId !== undefined) return { DICOMStudyId: SENSITIVE_STRING };
   if (obj.DICOMStudyInstanceUID !== undefined) return { DICOMStudyInstanceUID: SENSITIVE_STRING };
+  if (obj.DICOMSeriesInstanceUID !== undefined) return { DICOMSeriesInstanceUID: SENSITIVE_STRING };
   if (obj.createdAt !== undefined) return { createdAt: obj.createdAt };
+  if (obj.updatedAt !== undefined) return { updatedAt: obj.updatedAt };
   if (obj.DICOMStudyDateAndTime !== undefined)
     return { DICOMStudyDateAndTime: DICOMStudyDateAndTimeFilterSensitiveLog(obj.DICOMStudyDateAndTime) };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
@@ -1866,6 +2003,10 @@ export const DICOMTagsFilterSensitiveLog = (obj: DICOMTags): any => ({
   ...(obj.DICOMStudyId && { DICOMStudyId: SENSITIVE_STRING }),
   ...(obj.DICOMStudyDescription && { DICOMStudyDescription: SENSITIVE_STRING }),
   ...(obj.DICOMAccessionNumber && { DICOMAccessionNumber: SENSITIVE_STRING }),
+  ...(obj.DICOMSeriesInstanceUID && { DICOMSeriesInstanceUID: SENSITIVE_STRING }),
+  ...(obj.DICOMSeriesModality && { DICOMSeriesModality: SENSITIVE_STRING }),
+  ...(obj.DICOMSeriesBodyPart && { DICOMSeriesBodyPart: SENSITIVE_STRING }),
+  ...(obj.DICOMSeriesNumber && { DICOMSeriesNumber: SENSITIVE_STRING }),
   ...(obj.DICOMStudyDate && { DICOMStudyDate: SENSITIVE_STRING }),
   ...(obj.DICOMStudyTime && { DICOMStudyTime: SENSITIVE_STRING }),
 });

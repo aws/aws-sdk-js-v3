@@ -59,7 +59,9 @@ export interface SearchImageSetsCommandOutput extends SearchImageSetsResponse, _
  *             DICOMAccessionNumber: "STRING_VALUE",
  *             DICOMStudyId: "STRING_VALUE",
  *             DICOMStudyInstanceUID: "STRING_VALUE",
+ *             DICOMSeriesInstanceUID: "STRING_VALUE",
  *             createdAt: new Date("TIMESTAMP"),
+ *             updatedAt: new Date("TIMESTAMP"),
  *             DICOMStudyDateAndTime: { // DICOMStudyDateAndTime
  *               DICOMStudyDate: "STRING_VALUE", // required
  *               DICOMStudyTime: "STRING_VALUE",
@@ -69,6 +71,10 @@ export interface SearchImageSetsCommandOutput extends SearchImageSetsResponse, _
  *         operator: "EQUAL" || "BETWEEN", // required
  *       },
  *     ],
+ *     sort: { // Sort
+ *       sortOrder: "ASC" || "DESC", // required
+ *       sortField: "updatedAt" || "createdAt" || "DICOMStudyDateAndTime", // required
+ *     },
  *   },
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
@@ -93,11 +99,19 @@ export interface SearchImageSetsCommandOutput extends SearchImageSetsResponse, _
  * //         DICOMNumberOfStudyRelatedSeries: Number("int"),
  * //         DICOMNumberOfStudyRelatedInstances: Number("int"),
  * //         DICOMAccessionNumber: "STRING_VALUE",
+ * //         DICOMSeriesInstanceUID: "STRING_VALUE",
+ * //         DICOMSeriesModality: "STRING_VALUE",
+ * //         DICOMSeriesBodyPart: "STRING_VALUE",
+ * //         DICOMSeriesNumber: Number("int"),
  * //         DICOMStudyDate: "STRING_VALUE",
  * //         DICOMStudyTime: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],
+ * //   sort: { // Sort
+ * //     sortOrder: "ASC" || "DESC", // required
+ * //     sortField: "updatedAt" || "createdAt" || "DICOMStudyDateAndTime", // required
+ * //   },
  * //   nextToken: "STRING_VALUE",
  * // };
  *
