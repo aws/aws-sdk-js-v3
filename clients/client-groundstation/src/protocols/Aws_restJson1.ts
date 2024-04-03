@@ -1064,6 +1064,8 @@ export const de_DescribeContactCommand = async (
     satelliteArn: __expectString,
     startTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     tags: _json,
+    visibilityEndTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    visibilityStartTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   });
   Object.assign(contents, doc);
   return contents;
@@ -2047,6 +2049,8 @@ const de_ContactData = (output: any, context: __SerdeContext): ContactData => {
     satelliteArn: __expectString,
     startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     tags: _json,
+    visibilityEndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    visibilityStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
 

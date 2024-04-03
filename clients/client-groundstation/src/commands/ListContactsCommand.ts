@@ -73,6 +73,8 @@ export interface ListContactsCommandOutput extends ListContactsResponse, __Metad
  * //       tags: { // TagsMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       visibilityStartTime: new Date("TIMESTAMP"),
+ * //       visibilityEndTime: new Date("TIMESTAMP"),
  * //     },
  * //   ],
  * // };

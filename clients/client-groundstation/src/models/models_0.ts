@@ -1775,6 +1775,28 @@ export interface DescribeContactResponse {
    * @public
    */
   dataflowList?: DataflowDetail[];
+
+  /**
+   * <p>
+   *          Projected time in UTC your satellite will rise above the
+   *          <a href="https://docs.aws.amazon.com/ground-station/latest/ug/site-masks.html">receive mask</a>.
+   *          This time is based on the satellite's current active ephemeris for future contacts and the ephemeris that was
+   *          active during contact execution for completed contacts.
+   *       </p>
+   * @public
+   */
+  visibilityStartTime?: Date;
+
+  /**
+   * <p>
+   *          Projected time in UTC your satellite will set below the
+   *          <a href="https://docs.aws.amazon.com/ground-station/latest/ug/site-masks.html">receive mask</a>.
+   *          This time is based on the satellite's current active ephemeris for future contacts and the ephemeris that was
+   *          active during contact execution for completed contacts.
+   *       </p>
+   * @public
+   */
+  visibilityEndTime?: Date;
 }
 
 /**
@@ -1913,6 +1935,30 @@ export interface ContactData {
    * @public
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>
+   *          Projected time in UTC your satellite will rise above the
+   *          <a href="https://docs.aws.amazon.com/ground-station/latest/ug/site-masks.html">receive mask</a>.
+   *          This time is based on the satellite's current active ephemeris for future contacts and the ephemeris that was
+   *          active during contact execution for completed contacts.
+   *          <i>This field is not present for contacts with a <code>SCHEDULING</code> or <code>SCHEDULED</code> status.</i>
+   *          </p>
+   * @public
+   */
+  visibilityStartTime?: Date;
+
+  /**
+   * <p>
+   *          Projected time in UTC your satellite will set below the
+   *          <a href="https://docs.aws.amazon.com/ground-station/latest/ug/site-masks.html">receive mask</a>.
+   *          This time is based on the satellite's current active ephemeris for future contacts and the ephemeris that was
+   *          active during contact execution for completed contacts.
+   *          <i>This field is not present for contacts with a <code>SCHEDULING</code> or <code>SCHEDULED</code> status.</i>
+   *          </p>
+   * @public
+   */
+  visibilityEndTime?: Date;
 }
 
 /**
@@ -2322,13 +2368,13 @@ export interface CreateMissionProfileRequest {
   name: string | undefined;
 
   /**
-   * <p>Amount of time prior to contact start you’d like to receive a CloudWatch event indicating an upcoming pass.</p>
+   * <p>Amount of time prior to contact start you’d like to receive a Ground Station Contact State Change event indicating an upcoming pass.</p>
    * @public
    */
   contactPrePassDurationSeconds?: number;
 
   /**
-   * <p>Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished.</p>
+   * <p>Amount of time after a contact ends that you’d like to receive a Ground Station Contact State Change event indicating the pass has finished.</p>
    * @public
    */
   contactPostPassDurationSeconds?: number;
@@ -3282,13 +3328,13 @@ export interface UpdateMissionProfileRequest {
   name?: string;
 
   /**
-   * <p>Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished.</p>
+   * <p>Amount of time after a contact ends that you’d like to receive a Ground Station Contact State Change event indicating the pass has finished.</p>
    * @public
    */
   contactPrePassDurationSeconds?: number;
 
   /**
-   * <p>Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished.</p>
+   * <p>Amount of time after a contact ends that you’d like to receive a Ground Station Contact State Change event indicating the pass has finished.</p>
    * @public
    */
   contactPostPassDurationSeconds?: number;
