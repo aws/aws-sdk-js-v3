@@ -87,6 +87,7 @@ export interface DescribeChangeSetCommandOutput extends DescribeChangeSetOutput,
  * //       Type: "Resource",
  * //       HookInvocationCount: Number("int"),
  * //       ResourceChange: { // ResourceChange
+ * //         PolicyAction: "Delete" || "Retain" || "Snapshot" || "ReplaceAndDelete" || "ReplaceAndRetain" || "ReplaceAndSnapshot",
  * //         Action: "Add" || "Modify" || "Remove" || "Import" || "Dynamic",
  * //         LogicalResourceId: "STRING_VALUE",
  * //         PhysicalResourceId: "STRING_VALUE",

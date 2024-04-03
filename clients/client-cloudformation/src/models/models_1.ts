@@ -11,6 +11,7 @@ import {
   ManagedExecution,
   Parameter,
   PermissionModels,
+  RegistryType,
   ResourceDefinition,
   RollbackConfiguration,
   StackSetOperationPreferences,
@@ -18,6 +19,39 @@ import {
   TemplateConfiguration,
   ThirdPartyType,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface SetTypeDefaultVersionInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the extension for which you want version summary information.</p>
+   *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or <code>Arn</code>.</p>
+   * @public
+   */
+  Arn?: string;
+
+  /**
+   * <p>The kind of extension.</p>
+   *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or <code>Arn</code>.</p>
+   * @public
+   */
+  Type?: RegistryType;
+
+  /**
+   * <p>The name of the extension.</p>
+   *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or <code>Arn</code>.</p>
+   * @public
+   */
+  TypeName?: string;
+
+  /**
+   * <p>The ID of a specific version of the extension. The version ID is the value at the end of the Amazon Resource
+   *    Name (ARN) assigned to the extension version when it is registered.</p>
+   * @public
+   */
+  VersionId?: string;
+}
 
 /**
  * @public
