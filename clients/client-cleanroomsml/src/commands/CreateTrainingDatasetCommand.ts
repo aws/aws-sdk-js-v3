@@ -27,7 +27,7 @@ export interface CreateTrainingDatasetCommandInput extends CreateTrainingDataset
 export interface CreateTrainingDatasetCommandOutput extends CreateTrainingDatasetResponse, __MetadataBearer {}
 
 /**
- * <p>Defines the information necessary to create a training dataset, or seed audience. In Clean Rooms ML, the <code>TrainingDataset</code> is metadata that points to a Glue table, which is read only during <code>AudienceModel</code> creation.</p>
+ * <p>Defines the information necessary to create a training dataset. In Clean Rooms ML, the <code>TrainingDataset</code> is metadata that points to a Glue table, which is read only during <code>AudienceModel</code> creation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,7 +82,7 @@ export interface CreateTrainingDatasetCommandOutput extends CreateTrainingDatase
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A resource with that name already exists in this region.</p>
+ *  <p>You can't complete this action because another resource depends on this resource.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The request parameters for this request are incorrect.</p>

@@ -236,7 +236,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>A resource with that name already exists in this region.</p>
+ * <p>You can't complete this action because another resource depends on this resource.</p>
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -374,15 +374,31 @@ export interface AudienceQualityMetrics {
    * @public
    */
   relevanceMetrics: RelevanceMetric[] | undefined;
+
+  /**
+   * <p>The recall score of the generated audience. Recall is the percentage of the most similar users (by default, the most similar 20%) from a sample of the training data that are included in the seed audience by the audience generation job. Values range from 0-1, larger values indicate a better audience. A recall value approximately equal to the maximum bin size indicates that the audience model is equivalent to random selection.
+   *       </p>
+   * @public
+   */
+  recallMetric?: number;
 }
 
 /**
- * <p>Defines the Amazon S3 bucket where the training data for the configured audience is stored.</p>
+ * <p>Defines the Amazon S3 bucket where the seed audience for the generating audience is stored.</p>
  * @public
  */
 export interface AudienceGenerationJobDataSource {
   /**
-   * <p>The Amazon S3 bucket where the training data for the configured audience is stored.</p>
+   * <p>Defines the Amazon S3 bucket where the seed audience for the generating audience is stored. A valid data source is a JSON line file in the following format:</p>
+   *          <p>
+   *             <code>\{"user_id": "111111"\}</code>
+   *          </p>
+   *          <p>
+   *             <code>\{"user_id": "222222"\}</code>
+   *          </p>
+   *          <p>
+   *             <code>...</code>
+   *          </p>
    * @public
    */
   dataSource: S3ConfigMap | undefined;
@@ -485,7 +501,7 @@ export interface GetAudienceGenerationJobResponse {
   collaborationId?: string;
 
   /**
-   * <p>The relevance scores for different audience sizes. </p>
+   * <p>The relevance scores for different audience sizes and the recall score of the generated audience. </p>
    * @public
    */
   metrics?: AudienceQualityMetrics;
@@ -672,7 +688,7 @@ export interface StartAudienceGenerationJobRequest {
    *                <p>Tag keys and values are case sensitive.</p>
    *             </li>
    *             <li>
-   *                <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p>
+   *                <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p>
    *             </li>
    *          </ul>
    * @public
@@ -748,7 +764,7 @@ export interface CreateAudienceModelRequest {
    *                <p>Tag keys and values are case sensitive.</p>
    *             </li>
    *             <li>
-   *                <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p>
+   *                <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p>
    *             </li>
    *          </ul>
    * @public
@@ -793,46 +809,6 @@ export interface GetAudienceModelRequest {
    * @public
    */
   audienceModelArn: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const AudienceModelMetricType = {
-  MEAN_RECIPROCAL_RANK: "MEAN_RECIPROCAL_RANK",
-  NORMALIZED_DISCOUNTED_CUMULATIVE_GAIN: "NORMALIZED_DISCOUNTED_CUMULATIVE_GAIN",
-  PRECISION: "PRECISION",
-  RECALL: "RECALL",
-} as const;
-
-/**
- * @public
- */
-export type AudienceModelMetricType = (typeof AudienceModelMetricType)[keyof typeof AudienceModelMetricType];
-
-/**
- * <p>The audience model metrics.</p>
- * @public
- */
-export interface AudienceModelMetric {
-  /**
-   * <p>The audience model metric.</p>
-   * @public
-   */
-  type: AudienceModelMetricType | undefined;
-
-  /**
-   * <p>The number of users that were used to generate these model metrics.</p>
-   * @public
-   */
-  forTopKItemPredictions: number | undefined;
-
-  /**
-   * <p>The value of the audience model metric</p>
-   * @public
-   */
-  value: number | undefined;
 }
 
 /**
@@ -911,12 +887,6 @@ export interface GetAudienceModelResponse {
    * @public
    */
   statusDetails?: StatusDetails;
-
-  /**
-   * <p>Accuracy metrics for the model.</p>
-   * @public
-   */
-  metrics?: AudienceModelMetric[];
 
   /**
    * <p>The KMS key ARN used for the audience model.</p>
@@ -1120,7 +1090,7 @@ export interface CreateConfiguredAudienceModelRequest {
   sharedAudienceMetrics: SharedAudienceMetrics[] | undefined;
 
   /**
-   * <p>The minimum number of users from the seed audience that must match with users in the training data of the audience model.</p>
+   * <p>The minimum number of users from the seed audience that must match with users in the training data of the audience model. The default value is 500.</p>
    * @public
    */
   minMatchingSeedSize?: number;
@@ -1156,7 +1126,7 @@ export interface CreateConfiguredAudienceModelRequest {
    *                <p>Tag keys and values are case sensitive.</p>
    *             </li>
    *             <li>
-   *                <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p>
+   *                <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p>
    *             </li>
    *          </ul>
    * @public
@@ -1609,7 +1579,7 @@ export interface TagResourceRequest {
    *                <p>Tag keys and values are case sensitive.</p>
    *             </li>
    *             <li>
-   *                <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Forecast considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p>
+   *                <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p>
    *             </li>
    *          </ul>
    * @public

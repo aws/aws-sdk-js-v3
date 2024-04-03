@@ -69,6 +69,7 @@ export interface GetAudienceGenerationJobCommandOutput extends GetAudienceGenera
  * //         score: Number("double"),
  * //       },
  * //     ],
+ * //     recallMetric: Number("double"),
  * //   },
  * //   startedBy: "STRING_VALUE",
  * //   tags: { // TagMap
