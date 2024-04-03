@@ -74,7 +74,7 @@ export interface SearchCommandOutput extends SearchOutput, __MetadataBearer {}
  *     order: "ASCENDING" || "DESCENDING",
  *   },
  *   additionalAttributes: [ // SearchOutputAdditionalAttributes
- *     "FORMS",
+ *     "FORMS" || "TIME_SERIES_DATA_POINT_FORMS",
  *   ],
  * };
  * const command = new SearchCommand(input);
@@ -146,6 +146,16 @@ export interface SearchCommandOutput extends SearchOutput, __MetadataBearer {}
  * //               typeName: "STRING_VALUE",
  * //               typeRevision: "STRING_VALUE",
  * //               content: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           latestTimeSeriesDataPointFormsOutput: [ // TimeSeriesDataPointSummaryFormOutputList
+ * //             { // TimeSeriesDataPointSummaryFormOutput
+ * //               formName: "STRING_VALUE", // required
+ * //               typeIdentifier: "STRING_VALUE", // required
+ * //               typeRevision: "STRING_VALUE",
+ * //               timestamp: new Date("TIMESTAMP"), // required
+ * //               contentSummary: "STRING_VALUE",
+ * //               id: "STRING_VALUE",
  * //             },
  * //           ],
  * //         },

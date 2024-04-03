@@ -78,6 +78,16 @@ export interface GetAssetCommandOutput extends GetAssetOutput, __MetadataBearer 
  * //       content: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   latestTimeSeriesDataPointFormsOutput: [ // TimeSeriesDataPointSummaryFormOutputList
+ * //     { // TimeSeriesDataPointSummaryFormOutput
+ * //       formName: "STRING_VALUE", // required
+ * //       typeIdentifier: "STRING_VALUE", // required
+ * //       typeRevision: "STRING_VALUE",
+ * //       timestamp: new Date("TIMESTAMP"), // required
+ * //       contentSummary: "STRING_VALUE",
+ * //       id: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```

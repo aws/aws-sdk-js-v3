@@ -72,7 +72,7 @@ export interface SearchListingsCommandOutput extends SearchListingsOutput, __Met
  *     order: "ASCENDING" || "DESCENDING",
  *   },
  *   additionalAttributes: [ // SearchOutputAdditionalAttributes
- *     "FORMS",
+ *     "FORMS" || "TIME_SERIES_DATA_POINT_FORMS",
  *   ],
  * };
  * const command = new SearchListingsCommand(input);
@@ -100,6 +100,16 @@ export interface SearchListingsCommandOutput extends SearchListingsOutput, __Met
  * //         owningProjectId: "STRING_VALUE",
  * //         additionalAttributes: { // AssetListingItemAdditionalAttributes
  * //           forms: "STRING_VALUE",
+ * //           latestTimeSeriesDataPointForms: [ // TimeSeriesDataPointSummaryFormOutputList
+ * //             { // TimeSeriesDataPointSummaryFormOutput
+ * //               formName: "STRING_VALUE", // required
+ * //               typeIdentifier: "STRING_VALUE", // required
+ * //               typeRevision: "STRING_VALUE",
+ * //               timestamp: new Date("TIMESTAMP"), // required
+ * //               contentSummary: "STRING_VALUE",
+ * //               id: "STRING_VALUE",
+ * //             },
+ * //           ],
  * //         },
  * //       },
  * //     },

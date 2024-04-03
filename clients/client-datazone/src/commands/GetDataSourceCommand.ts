@@ -66,6 +66,7 @@ export interface GetDataSourceCommandOutput extends GetDataSourceOutput, __Metad
  * //           ],
  * //         },
  * //       ],
+ * //       autoImportDataQualityResult: true || false,
  * //     },
  * //     redshiftRunConfiguration: { // RedshiftRunConfigurationOutput
  * //       accountId: "STRING_VALUE",

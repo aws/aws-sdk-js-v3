@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetMetadataGenerationRunInput, GetMetadataGenerationRunOutput } from "../models/models_1";
-import { de_GetMetadataGenerationRunCommand, se_GetMetadataGenerationRunCommand } from "../protocols/Aws_restJson1";
+import { DeleteTimeSeriesDataPointsInput, DeleteTimeSeriesDataPointsOutput } from "../models/models_0";
+import { de_DeleteTimeSeriesDataPointsCommand, se_DeleteTimeSeriesDataPointsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -16,51 +16,41 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetMetadataGenerationRunCommand}.
+ * The input for {@link DeleteTimeSeriesDataPointsCommand}.
  */
-export interface GetMetadataGenerationRunCommandInput extends GetMetadataGenerationRunInput {}
+export interface DeleteTimeSeriesDataPointsCommandInput extends DeleteTimeSeriesDataPointsInput {}
 /**
  * @public
  *
- * The output of {@link GetMetadataGenerationRunCommand}.
+ * The output of {@link DeleteTimeSeriesDataPointsCommand}.
  */
-export interface GetMetadataGenerationRunCommandOutput extends GetMetadataGenerationRunOutput, __MetadataBearer {}
+export interface DeleteTimeSeriesDataPointsCommandOutput extends DeleteTimeSeriesDataPointsOutput, __MetadataBearer {}
 
 /**
- * <p>Gets a metadata generation run in Amazon DataZone.</p>
+ * <p>Deletes the specified time series form for the specified asset. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataZoneClient, GetMetadataGenerationRunCommand } from "@aws-sdk/client-datazone"; // ES Modules import
- * // const { DataZoneClient, GetMetadataGenerationRunCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * import { DataZoneClient, DeleteTimeSeriesDataPointsCommand } from "@aws-sdk/client-datazone"; // ES Modules import
+ * // const { DataZoneClient, DeleteTimeSeriesDataPointsCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
  * const client = new DataZoneClient(config);
- * const input = { // GetMetadataGenerationRunInput
+ * const input = { // DeleteTimeSeriesDataPointsInput
  *   domainIdentifier: "STRING_VALUE", // required
- *   identifier: "STRING_VALUE", // required
+ *   entityIdentifier: "STRING_VALUE", // required
+ *   entityType: "ASSET" || "LISTING", // required
+ *   formName: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
  * };
- * const command = new GetMetadataGenerationRunCommand(input);
+ * const command = new DeleteTimeSeriesDataPointsCommand(input);
  * const response = await client.send(command);
- * // { // GetMetadataGenerationRunOutput
- * //   domainId: "STRING_VALUE", // required
- * //   id: "STRING_VALUE", // required
- * //   target: { // MetadataGenerationRunTarget
- * //     type: "ASSET", // required
- * //     identifier: "STRING_VALUE", // required
- * //     revision: "STRING_VALUE",
- * //   },
- * //   status: "SUBMITTED" || "IN_PROGRESS" || "CANCELED" || "SUCCEEDED" || "FAILED",
- * //   type: "BUSINESS_DESCRIPTIONS",
- * //   createdAt: new Date("TIMESTAMP"),
- * //   createdBy: "STRING_VALUE",
- * //   owningProjectId: "STRING_VALUE", // required
- * // };
+ * // {};
  *
  * ```
  *
- * @param GetMetadataGenerationRunCommandInput - {@link GetMetadataGenerationRunCommandInput}
- * @returns {@link GetMetadataGenerationRunCommandOutput}
- * @see {@link GetMetadataGenerationRunCommandInput} for command's `input` shape.
- * @see {@link GetMetadataGenerationRunCommandOutput} for command's `response` shape.
+ * @param DeleteTimeSeriesDataPointsCommandInput - {@link DeleteTimeSeriesDataPointsCommandInput}
+ * @returns {@link DeleteTimeSeriesDataPointsCommandOutput}
+ * @see {@link DeleteTimeSeriesDataPointsCommandInput} for command's `input` shape.
+ * @see {@link DeleteTimeSeriesDataPointsCommandOutput} for command's `response` shape.
  * @see {@link DataZoneClientResolvedConfig | config} for DataZoneClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -86,10 +76,10 @@ export interface GetMetadataGenerationRunCommandOutput extends GetMetadataGenera
  *
  * @public
  */
-export class GetMetadataGenerationRunCommand extends $Command
+export class DeleteTimeSeriesDataPointsCommand extends $Command
   .classBuilder<
-    GetMetadataGenerationRunCommandInput,
-    GetMetadataGenerationRunCommandOutput,
+    DeleteTimeSeriesDataPointsCommandInput,
+    DeleteTimeSeriesDataPointsCommandOutput,
     DataZoneClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -103,9 +93,9 @@ export class GetMetadataGenerationRunCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("DataZone", "GetMetadataGenerationRun", {})
-  .n("DataZoneClient", "GetMetadataGenerationRunCommand")
+  .s("DataZone", "DeleteTimeSeriesDataPoints", {})
+  .n("DataZoneClient", "DeleteTimeSeriesDataPointsCommand")
   .f(void 0, void 0)
-  .ser(se_GetMetadataGenerationRunCommand)
-  .de(de_GetMetadataGenerationRunCommand)
+  .ser(se_DeleteTimeSeriesDataPointsCommand)
+  .de(de_DeleteTimeSeriesDataPointsCommand)
   .build() {}

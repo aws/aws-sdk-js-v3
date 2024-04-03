@@ -783,6 +783,48 @@ export interface FormOutput {
 }
 
 /**
+ * <p>The summary of the time series data points form.</p>
+ * @public
+ */
+export interface TimeSeriesDataPointSummaryFormOutput {
+  /**
+   * <p>The name of the time series data points summary form.</p>
+   * @public
+   */
+  formName: string | undefined;
+
+  /**
+   * <p>The type ID of the time series data points summary form.</p>
+   * @public
+   */
+  typeIdentifier: string | undefined;
+
+  /**
+   * <p>The type revision of the time series data points summary form.</p>
+   * @public
+   */
+  typeRevision?: string;
+
+  /**
+   * <p>The timestamp of the time series data points summary form.</p>
+   * @public
+   */
+  timestamp: Date | undefined;
+
+  /**
+   * <p>The content of the summary of the time series data points form.</p>
+   * @public
+   */
+  contentSummary?: string;
+
+  /**
+   * <p>The ID of the time series data points summary form.</p>
+   * @public
+   */
+  id?: string;
+}
+
+/**
  * @public
  */
 export interface CreateAssetOutput {
@@ -887,6 +929,12 @@ export interface CreateAssetOutput {
    * @public
    */
   readOnlyFormsOutput?: FormOutput[];
+
+  /**
+   * <p>The latest data point that was imported into the time series form for the asset. </p>
+   * @public
+   */
+  latestTimeSeriesDataPointFormsOutput?: TimeSeriesDataPointSummaryFormOutput[];
 
   /**
    * <p>The configuration of the automatically generated business-friendly metadata for the
@@ -1085,6 +1133,12 @@ export interface CreateAssetRevisionOutput {
   readOnlyFormsOutput?: FormOutput[];
 
   /**
+   * <p>The latest data point that was imported into the time series form for the asset. </p>
+   * @public
+   */
+  latestTimeSeriesDataPointFormsOutput?: TimeSeriesDataPointSummaryFormOutput[];
+
+  /**
    * <p>The configuration of the automatically generated business-friendly metadata for the
    *          asset.</p>
    * @public
@@ -1242,6 +1296,12 @@ export interface GetAssetOutput {
    * @public
    */
   readOnlyFormsOutput?: FormOutput[];
+
+  /**
+   * <p>The latest data point that was imported into the time series form for the asset. </p>
+   * @public
+   */
+  latestTimeSeriesDataPointFormsOutput?: TimeSeriesDataPointSummaryFormOutput[];
 }
 
 /**
@@ -1260,6 +1320,13 @@ export interface AssetItemAdditionalAttributes {
    * @public
    */
   readOnlyFormsOutput?: FormOutput[];
+
+  /**
+   * <p>The latest time series data points forms included in the additional attributes of an
+   *          asset.</p>
+   * @public
+   */
+  latestTimeSeriesDataPointFormsOutput?: TimeSeriesDataPointSummaryFormOutput[];
 }
 
 /**
@@ -1388,6 +1455,13 @@ export interface AssetListing {
   forms?: string;
 
   /**
+   * <p>The latest time series data points forms included in the additional attributes of an
+   *          asset.</p>
+   * @public
+   */
+  latestTimeSeriesDataPointForms?: TimeSeriesDataPointSummaryFormOutput[];
+
+  /**
    * <p>The glossary terms attached to an asset published in an Amazon DataZone catalog. </p>
    * @public
    */
@@ -1411,6 +1485,13 @@ export interface AssetListingItemAdditionalAttributes {
    * @public
    */
   forms?: string;
+
+  /**
+   * <p>The latest time series data points forms included in the additional attributes of an
+   *          asset.</p>
+   * @public
+   */
+  latestTimeSeriesDataPointForms?: TimeSeriesDataPointSummaryFormOutput[];
 }
 
 /**
@@ -2220,6 +2301,13 @@ export interface GlueRunConfigurationInput {
    * @public
    */
   relationalFilterConfigurations: RelationalFilterConfiguration[] | undefined;
+
+  /**
+   * <p>Specifies whether to automatically import data quality metrics as part of the data
+   *          source run.</p>
+   * @public
+   */
+  autoImportDataQualityResult?: boolean;
 }
 
 /**
@@ -2648,6 +2736,13 @@ export interface GlueRunConfigurationOutput {
    * @public
    */
   relationalFilterConfigurations: RelationalFilterConfiguration[] | undefined;
+
+  /**
+   * <p>Specifies whether to automatically import data quality metrics as part of the data
+   *          source run.</p>
+   * @public
+   */
+  autoImportDataQualityResult?: boolean;
 }
 
 /**
@@ -6819,6 +6914,62 @@ export interface DeleteSubscriptionTargetInput {
 
 /**
  * @public
+ * @enum
+ */
+export const TimeSeriesEntityType = {
+  ASSET: "ASSET",
+  LISTING: "LISTING",
+} as const;
+
+/**
+ * @public
+ */
+export type TimeSeriesEntityType = (typeof TimeSeriesEntityType)[keyof typeof TimeSeriesEntityType];
+
+/**
+ * @public
+ */
+export interface DeleteTimeSeriesDataPointsInput {
+  /**
+   * <p>The ID of the Amazon DataZone domain that houses the asset for which you want to delete
+   *          a time series form.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the asset for which you want to delete a time series form.</p>
+   * @public
+   */
+  entityIdentifier: string | undefined;
+
+  /**
+   * <p>The type of the asset for which you want to delete a time series form.</p>
+   * @public
+   */
+  entityType: TimeSeriesEntityType | undefined;
+
+  /**
+   * <p>The name of the time series form that you want to delete.</p>
+   * @public
+   */
+  formName: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is
+   *          automatically populated if not provided.</p>
+   * @public
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTimeSeriesDataPointsOutput {}
+
+/**
+ * @public
  */
 export interface DeleteDomainInput {
   /**
@@ -8449,6 +8600,120 @@ export interface GetSubscriptionTargetOutput {
    * @public
    */
   provider: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTimeSeriesDataPointInput {
+  /**
+   * <p>The ID of the Amazon DataZone domain that houses the asset for which you want to get the
+   *          data point.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the asset for which you want to get the data point.</p>
+   * @public
+   */
+  entityIdentifier: string | undefined;
+
+  /**
+   * <p>The type of the asset for which you want to get the data point.</p>
+   * @public
+   */
+  entityType: TimeSeriesEntityType | undefined;
+
+  /**
+   * <p>The ID of the data point that you want to get.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The name of the time series form that houses the data point that you want to get.</p>
+   * @public
+   */
+  formName: string | undefined;
+}
+
+/**
+ * <p>The time series data points form.</p>
+ * @public
+ */
+export interface TimeSeriesDataPointFormOutput {
+  /**
+   * <p>The name of the time series data points form.</p>
+   * @public
+   */
+  formName: string | undefined;
+
+  /**
+   * <p>The ID of the type of the time series data points form.</p>
+   * @public
+   */
+  typeIdentifier: string | undefined;
+
+  /**
+   * <p>The revision type of the time series data points form.</p>
+   * @public
+   */
+  typeRevision?: string;
+
+  /**
+   * <p>The timestamp of the time series data points form.</p>
+   * @public
+   */
+  timestamp: Date | undefined;
+
+  /**
+   * <p>The content of the time series data points form.</p>
+   * @public
+   */
+  content?: string;
+
+  /**
+   * <p>The ID of the time series data points form.</p>
+   * @public
+   */
+  id?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetTimeSeriesDataPointOutput {
+  /**
+   * <p>The ID of the Amazon DataZone domain that houses the asset data point that you want to
+   *          get.</p>
+   * @public
+   */
+  domainId?: string;
+
+  /**
+   * <p>The ID of the asset for which you want to get the data point.</p>
+   * @public
+   */
+  entityId?: string;
+
+  /**
+   * <p>The type of the asset for which you want to get the data point.</p>
+   * @public
+   */
+  entityType?: TimeSeriesEntityType;
+
+  /**
+   * <p>The name of the time series form that houses the data point that you want to get.</p>
+   * @public
+   */
+  formName?: string;
+
+  /**
+   * <p>The time series form that houses the data point that you want to get.</p>
+   * @public
+   */
+  form?: TimeSeriesDataPointFormOutput;
 }
 
 /**
@@ -10779,236 +11044,6 @@ export interface ListSubscriptionsOutput {
 }
 
 /**
- * @public
- */
-export interface ListSubscriptionTargetsInput {
-  /**
-   * <p>The identifier of the Amazon DataZone domain where you want to list subscription
-   *          targets.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The identifier of the environment where you want to list subscription targets.</p>
-   * @public
-   */
-  environmentIdentifier: string | undefined;
-
-  /**
-   * <p>Specifies the way in which the results of this action are to be sorted.</p>
-   * @public
-   */
-  sortBy?: SortKey;
-
-  /**
-   * <p>Specifies the sort order for the results of this action.</p>
-   * @public
-   */
-  sortOrder?: SortOrder;
-
-  /**
-   * <p>The maximum number of subscription targets to return in a single call to
-   *             <code>ListSubscriptionTargets</code>. When the number of subscription targets to be
-   *          listed is greater than the value of <code>MaxResults</code>, the response contains a
-   *             <code>NextToken</code> value that you can use in a subsequent call to
-   *             <code>ListSubscriptionTargets</code> to list the next set of subscription targets.
-   *       </p>
-   * @public
-   */
-  maxResults?: number;
-
-  /**
-   * <p>When the number of subscription targets is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of subscription targets, the
-   *          response includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to
-   *             <code>ListSubscriptionTargets</code> to list the next set of subscription
-   *          targets.</p>
-   * @public
-   */
-  nextToken?: string;
-}
-
-/**
- * <p>The details of the subscription target.</p>
- * @public
- */
-export interface SubscriptionTargetSummary {
-  /**
-   * <p>The identifier of the subscription target.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The authorized principals included in the subscription target.</p>
-   * @public
-   */
-  authorizedPrincipals: string[] | undefined;
-
-  /**
-   * <p>The identifier of the Amazon DataZone domain in which the subscription target exists.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>The identifier of the project specified in the subscription target.</p>
-   * @public
-   */
-  projectId: string | undefined;
-
-  /**
-   * <p>The identifier of the environment of the subscription target.</p>
-   * @public
-   */
-  environmentId: string | undefined;
-
-  /**
-   * <p>The name of the subscription target.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The type of the subscription target.</p>
-   * @public
-   */
-  type: string | undefined;
-
-  /**
-   * <p>The Amazon DataZone user who created the subscription target.</p>
-   * @public
-   */
-  createdBy: string | undefined;
-
-  /**
-   * <p>The Amazon DataZone user who updated the subscription target.</p>
-   * @public
-   */
-  updatedBy?: string;
-
-  /**
-   * <p>The timestamp of when the subscription target was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp of when the subscription target was updated.</p>
-   * @public
-   */
-  updatedAt?: Date;
-
-  /**
-   * <p>The manage access role specified in the subscription target.</p>
-   * @public
-   */
-  manageAccessRole: string | undefined;
-
-  /**
-   * <p>The asset types included in the subscription target.</p>
-   * @public
-   */
-  applicableAssetTypes: string[] | undefined;
-
-  /**
-   * <p>The configuration of the subscription target.</p>
-   * @public
-   */
-  subscriptionTargetConfig: SubscriptionTargetForm[] | undefined;
-
-  /**
-   * <p>The provider of the subscription target.</p>
-   * @public
-   */
-  provider: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListSubscriptionTargetsOutput {
-  /**
-   * <p>The results of the <code>ListSubscriptionTargets</code> action.</p>
-   * @public
-   */
-  items: SubscriptionTargetSummary[] | undefined;
-
-  /**
-   * <p>When the number of subscription targets is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of subscription targets, the
-   *          response includes a pagination token named <code>NextToken</code>. You can specify this
-   *             <code>NextToken</code> value in a subsequent call to
-   *             <code>ListSubscriptionTargets</code> to list the next set of subscription
-   *          targets.</p>
-   * @public
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceRequest {
-  /**
-   * <p>The ARN of the resource whose tags you want to list.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceResponse {
-  /**
-   * <p>The tags of the specified resource.</p>
-   * @public
-   */
-  tags?: Record<string, string>;
-}
-
-/**
- * @public
- */
-export interface GetMetadataGenerationRunInput {
-  /**
-   * <p>The ID of the Amazon DataZone domain the metadata generation run of which you want to
-   *          get.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The identifier of the metadata generation run.</p>
-   * @public
-   */
-  identifier: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const MetadataGenerationRunStatus = {
-  CANCELED: "CANCELED",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  SUBMITTED: "SUBMITTED",
-  SUCCEEDED: "SUCCEEDED",
-} as const;
-
-/**
- * @public
- */
-export type MetadataGenerationRunStatus =
-  (typeof MetadataGenerationRunStatus)[keyof typeof MetadataGenerationRunStatus];
-
-/**
  * @internal
  */
 export const AcceptChoiceFilterSensitiveLog = (obj: AcceptChoice): any => ({
@@ -11990,20 +12025,4 @@ export const SubscriptionSummaryFilterSensitiveLog = (obj: SubscriptionSummary):
 export const ListSubscriptionsOutputFilterSensitiveLog = (obj: ListSubscriptionsOutput): any => ({
   ...obj,
   ...(obj.items && { items: obj.items.map((item) => SubscriptionSummaryFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const SubscriptionTargetSummaryFilterSensitiveLog = (obj: SubscriptionTargetSummary): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListSubscriptionTargetsOutputFilterSensitiveLog = (obj: ListSubscriptionTargetsOutput): any => ({
-  ...obj,
-  ...(obj.items && { items: obj.items.map((item) => SubscriptionTargetSummaryFilterSensitiveLog(item)) }),
 });

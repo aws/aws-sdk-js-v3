@@ -61,6 +61,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceOutput, _
  *           ],
  *         },
  *       ],
+ *       autoImportDataQualityResult: true || false,
  *     },
  *     redshiftRunConfiguration: { // RedshiftRunConfigurationInput
  *       dataAccessRole: "STRING_VALUE",
@@ -136,6 +137,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceOutput, _
  * //           ],
  * //         },
  * //       ],
+ * //       autoImportDataQualityResult: true || false,
  * //     },
  * //     redshiftRunConfiguration: { // RedshiftRunConfigurationOutput
  * //       accountId: "STRING_VALUE",

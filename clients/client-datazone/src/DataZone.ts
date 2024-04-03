@@ -184,6 +184,11 @@ import {
   DeleteSubscriptionTargetCommandInput,
   DeleteSubscriptionTargetCommandOutput,
 } from "./commands/DeleteSubscriptionTargetCommand";
+import {
+  DeleteTimeSeriesDataPointsCommand,
+  DeleteTimeSeriesDataPointsCommandInput,
+  DeleteTimeSeriesDataPointsCommandOutput,
+} from "./commands/DeleteTimeSeriesDataPointsCommand";
 import { GetAssetCommand, GetAssetCommandInput, GetAssetCommandOutput } from "./commands/GetAssetCommand";
 import {
   GetAssetTypeCommand,
@@ -265,6 +270,11 @@ import {
   GetSubscriptionTargetCommandInput,
   GetSubscriptionTargetCommandOutput,
 } from "./commands/GetSubscriptionTargetCommand";
+import {
+  GetTimeSeriesDataPointCommand,
+  GetTimeSeriesDataPointCommandInput,
+  GetTimeSeriesDataPointCommandOutput,
+} from "./commands/GetTimeSeriesDataPointCommand";
 import {
   GetUserProfileCommand,
   GetUserProfileCommandInput,
@@ -356,6 +366,16 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListTimeSeriesDataPointsCommand,
+  ListTimeSeriesDataPointsCommandInput,
+  ListTimeSeriesDataPointsCommandOutput,
+} from "./commands/ListTimeSeriesDataPointsCommand";
+import {
+  PostTimeSeriesDataPointsCommand,
+  PostTimeSeriesDataPointsCommandInput,
+  PostTimeSeriesDataPointsCommandOutput,
+} from "./commands/PostTimeSeriesDataPointsCommand";
 import {
   PutEnvironmentBlueprintConfigurationCommand,
   PutEnvironmentBlueprintConfigurationCommandInput,
@@ -510,6 +530,7 @@ const commands = {
   DeleteSubscriptionGrantCommand,
   DeleteSubscriptionRequestCommand,
   DeleteSubscriptionTargetCommand,
+  DeleteTimeSeriesDataPointsCommand,
   GetAssetCommand,
   GetAssetTypeCommand,
   GetDataSourceCommand,
@@ -531,6 +552,7 @@ const commands = {
   GetSubscriptionGrantCommand,
   GetSubscriptionRequestDetailsCommand,
   GetSubscriptionTargetCommand,
+  GetTimeSeriesDataPointCommand,
   GetUserProfileCommand,
   ListAssetRevisionsCommand,
   ListDataSourceRunActivitiesCommand,
@@ -550,6 +572,8 @@ const commands = {
   ListSubscriptionsCommand,
   ListSubscriptionTargetsCommand,
   ListTagsForResourceCommand,
+  ListTimeSeriesDataPointsCommand,
+  PostTimeSeriesDataPointsCommand,
   PutEnvironmentBlueprintConfigurationCommand,
   RejectPredictionsCommand,
   RejectSubscriptionRequestCommand,
@@ -1165,6 +1189,23 @@ export interface DataZone {
   ): void;
 
   /**
+   * @see {@link DeleteTimeSeriesDataPointsCommand}
+   */
+  deleteTimeSeriesDataPoints(
+    args: DeleteTimeSeriesDataPointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTimeSeriesDataPointsCommandOutput>;
+  deleteTimeSeriesDataPoints(
+    args: DeleteTimeSeriesDataPointsCommandInput,
+    cb: (err: any, data?: DeleteTimeSeriesDataPointsCommandOutput) => void
+  ): void;
+  deleteTimeSeriesDataPoints(
+    args: DeleteTimeSeriesDataPointsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTimeSeriesDataPointsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetAssetCommand}
    */
   getAsset(args: GetAssetCommandInput, options?: __HttpHandlerOptions): Promise<GetAssetCommandOutput>;
@@ -1459,6 +1500,23 @@ export interface DataZone {
     args: GetSubscriptionTargetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetSubscriptionTargetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTimeSeriesDataPointCommand}
+   */
+  getTimeSeriesDataPoint(
+    args: GetTimeSeriesDataPointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTimeSeriesDataPointCommandOutput>;
+  getTimeSeriesDataPoint(
+    args: GetTimeSeriesDataPointCommandInput,
+    cb: (err: any, data?: GetTimeSeriesDataPointCommandOutput) => void
+  ): void;
+  getTimeSeriesDataPoint(
+    args: GetTimeSeriesDataPointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTimeSeriesDataPointCommandOutput) => void
   ): void;
 
   /**
@@ -1765,6 +1823,40 @@ export interface DataZone {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTimeSeriesDataPointsCommand}
+   */
+  listTimeSeriesDataPoints(
+    args: ListTimeSeriesDataPointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTimeSeriesDataPointsCommandOutput>;
+  listTimeSeriesDataPoints(
+    args: ListTimeSeriesDataPointsCommandInput,
+    cb: (err: any, data?: ListTimeSeriesDataPointsCommandOutput) => void
+  ): void;
+  listTimeSeriesDataPoints(
+    args: ListTimeSeriesDataPointsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTimeSeriesDataPointsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PostTimeSeriesDataPointsCommand}
+   */
+  postTimeSeriesDataPoints(
+    args: PostTimeSeriesDataPointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PostTimeSeriesDataPointsCommandOutput>;
+  postTimeSeriesDataPoints(
+    args: PostTimeSeriesDataPointsCommandInput,
+    cb: (err: any, data?: PostTimeSeriesDataPointsCommandOutput) => void
+  ): void;
+  postTimeSeriesDataPoints(
+    args: PostTimeSeriesDataPointsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PostTimeSeriesDataPointsCommandOutput) => void
   ): void;
 
   /**

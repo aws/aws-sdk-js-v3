@@ -136,6 +136,10 @@ import {
   DeleteSubscriptionTargetCommandInput,
   DeleteSubscriptionTargetCommandOutput,
 } from "./commands/DeleteSubscriptionTargetCommand";
+import {
+  DeleteTimeSeriesDataPointsCommandInput,
+  DeleteTimeSeriesDataPointsCommandOutput,
+} from "./commands/DeleteTimeSeriesDataPointsCommand";
 import { GetAssetCommandInput, GetAssetCommandOutput } from "./commands/GetAssetCommand";
 import { GetAssetTypeCommandInput, GetAssetTypeCommandOutput } from "./commands/GetAssetTypeCommand";
 import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "./commands/GetDataSourceCommand";
@@ -181,6 +185,10 @@ import {
   GetSubscriptionTargetCommandInput,
   GetSubscriptionTargetCommandOutput,
 } from "./commands/GetSubscriptionTargetCommand";
+import {
+  GetTimeSeriesDataPointCommandInput,
+  GetTimeSeriesDataPointCommandOutput,
+} from "./commands/GetTimeSeriesDataPointCommand";
 import { GetUserProfileCommandInput, GetUserProfileCommandOutput } from "./commands/GetUserProfileCommand";
 import { ListAssetRevisionsCommandInput, ListAssetRevisionsCommandOutput } from "./commands/ListAssetRevisionsCommand";
 import {
@@ -230,6 +238,14 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListTimeSeriesDataPointsCommandInput,
+  ListTimeSeriesDataPointsCommandOutput,
+} from "./commands/ListTimeSeriesDataPointsCommand";
+import {
+  PostTimeSeriesDataPointsCommandInput,
+  PostTimeSeriesDataPointsCommandOutput,
+} from "./commands/PostTimeSeriesDataPointsCommand";
 import {
   PutEnvironmentBlueprintConfigurationCommandInput,
   PutEnvironmentBlueprintConfigurationCommandOutput,
@@ -332,6 +348,7 @@ export type ServiceInputTypes =
   | DeleteSubscriptionGrantCommandInput
   | DeleteSubscriptionRequestCommandInput
   | DeleteSubscriptionTargetCommandInput
+  | DeleteTimeSeriesDataPointsCommandInput
   | GetAssetCommandInput
   | GetAssetTypeCommandInput
   | GetDataSourceCommandInput
@@ -353,6 +370,7 @@ export type ServiceInputTypes =
   | GetSubscriptionGrantCommandInput
   | GetSubscriptionRequestDetailsCommandInput
   | GetSubscriptionTargetCommandInput
+  | GetTimeSeriesDataPointCommandInput
   | GetUserProfileCommandInput
   | ListAssetRevisionsCommandInput
   | ListDataSourceRunActivitiesCommandInput
@@ -372,6 +390,8 @@ export type ServiceInputTypes =
   | ListSubscriptionTargetsCommandInput
   | ListSubscriptionsCommandInput
   | ListTagsForResourceCommandInput
+  | ListTimeSeriesDataPointsCommandInput
+  | PostTimeSeriesDataPointsCommandInput
   | PutEnvironmentBlueprintConfigurationCommandInput
   | RejectPredictionsCommandInput
   | RejectSubscriptionRequestCommandInput
@@ -440,6 +460,7 @@ export type ServiceOutputTypes =
   | DeleteSubscriptionGrantCommandOutput
   | DeleteSubscriptionRequestCommandOutput
   | DeleteSubscriptionTargetCommandOutput
+  | DeleteTimeSeriesDataPointsCommandOutput
   | GetAssetCommandOutput
   | GetAssetTypeCommandOutput
   | GetDataSourceCommandOutput
@@ -461,6 +482,7 @@ export type ServiceOutputTypes =
   | GetSubscriptionGrantCommandOutput
   | GetSubscriptionRequestDetailsCommandOutput
   | GetSubscriptionTargetCommandOutput
+  | GetTimeSeriesDataPointCommandOutput
   | GetUserProfileCommandOutput
   | ListAssetRevisionsCommandOutput
   | ListDataSourceRunActivitiesCommandOutput
@@ -480,6 +502,8 @@ export type ServiceOutputTypes =
   | ListSubscriptionTargetsCommandOutput
   | ListSubscriptionsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListTimeSeriesDataPointsCommandOutput
+  | PostTimeSeriesDataPointsCommandOutput
   | PutEnvironmentBlueprintConfigurationCommandOutput
   | RejectPredictionsCommandOutput
   | RejectSubscriptionRequestCommandOutput

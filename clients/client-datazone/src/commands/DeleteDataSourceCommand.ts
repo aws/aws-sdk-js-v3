@@ -71,6 +71,7 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceOutput, _
  * //           ],
  * //         },
  * //       ],
+ * //       autoImportDataQualityResult: true || false,
  * //     },
  * //     redshiftRunConfiguration: { // RedshiftRunConfigurationOutput
  * //       accountId: "STRING_VALUE",

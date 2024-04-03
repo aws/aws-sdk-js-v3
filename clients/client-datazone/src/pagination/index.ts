@@ -17,6 +17,7 @@ export * from "./ListSubscriptionGrantsPaginator";
 export * from "./ListSubscriptionRequestsPaginator";
 export * from "./ListSubscriptionTargetsPaginator";
 export * from "./ListSubscriptionsPaginator";
+export * from "./ListTimeSeriesDataPointsPaginator";
 export * from "./SearchGroupProfilesPaginator";
 export * from "./SearchListingsPaginator";
 export * from "./SearchPaginator";

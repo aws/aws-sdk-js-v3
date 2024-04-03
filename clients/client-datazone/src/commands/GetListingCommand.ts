@@ -56,6 +56,16 @@ export interface GetListingCommandOutput extends GetListingOutput, __MetadataBea
  * //       assetType: "STRING_VALUE",
  * //       createdAt: new Date("TIMESTAMP"),
  * //       forms: "STRING_VALUE",
+ * //       latestTimeSeriesDataPointForms: [ // TimeSeriesDataPointSummaryFormOutputList
+ * //         { // TimeSeriesDataPointSummaryFormOutput
+ * //           formName: "STRING_VALUE", // required
+ * //           typeIdentifier: "STRING_VALUE", // required
+ * //           typeRevision: "STRING_VALUE",
+ * //           timestamp: new Date("TIMESTAMP"), // required
+ * //           contentSummary: "STRING_VALUE",
+ * //           id: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //       glossaryTerms: [ // DetailedGlossaryTerms
  * //         { // DetailedGlossaryTerm
  * //           name: "STRING_VALUE",

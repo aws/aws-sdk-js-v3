@@ -25,12 +25,12 @@ import {
   GroupProfileStatus,
   Import,
   ImportFilterSensitiveLog,
-  MetadataGenerationRunStatus,
   Model,
   ProjectDeletionError,
   ProjectStatus,
   ProvisioningProperties,
   Resource,
+  SortKey,
   SortOrder,
   SubscribedAsset,
   SubscribedListing,
@@ -43,11 +43,326 @@ import {
   SubscriptionStatus,
   SubscriptionTargetForm,
   TermRelations,
+  TimeSeriesDataPointFormOutput,
+  TimeSeriesDataPointSummaryFormOutput,
+  TimeSeriesEntityType,
   UserProfileDetails,
   UserProfileDetailsFilterSensitiveLog,
   UserProfileStatus,
   UserProfileType,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListSubscriptionTargetsInput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain where you want to list subscription
+   *          targets.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the environment where you want to list subscription targets.</p>
+   * @public
+   */
+  environmentIdentifier: string | undefined;
+
+  /**
+   * <p>Specifies the way in which the results of this action are to be sorted.</p>
+   * @public
+   */
+  sortBy?: SortKey;
+
+  /**
+   * <p>Specifies the sort order for the results of this action.</p>
+   * @public
+   */
+  sortOrder?: SortOrder;
+
+  /**
+   * <p>The maximum number of subscription targets to return in a single call to
+   *             <code>ListSubscriptionTargets</code>. When the number of subscription targets to be
+   *          listed is greater than the value of <code>MaxResults</code>, the response contains a
+   *             <code>NextToken</code> value that you can use in a subsequent call to
+   *             <code>ListSubscriptionTargets</code> to list the next set of subscription targets.
+   *       </p>
+   * @public
+   */
+  maxResults?: number;
+
+  /**
+   * <p>When the number of subscription targets is greater than the default value for the
+   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
+   *             <code>MaxResults</code> that is less than the number of subscription targets, the
+   *          response includes a pagination token named <code>NextToken</code>. You can specify this
+   *             <code>NextToken</code> value in a subsequent call to
+   *             <code>ListSubscriptionTargets</code> to list the next set of subscription
+   *          targets.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * <p>The details of the subscription target.</p>
+ * @public
+ */
+export interface SubscriptionTargetSummary {
+  /**
+   * <p>The identifier of the subscription target.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The authorized principals included in the subscription target.</p>
+   * @public
+   */
+  authorizedPrincipals: string[] | undefined;
+
+  /**
+   * <p>The identifier of the Amazon DataZone domain in which the subscription target exists.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The identifier of the project specified in the subscription target.</p>
+   * @public
+   */
+  projectId: string | undefined;
+
+  /**
+   * <p>The identifier of the environment of the subscription target.</p>
+   * @public
+   */
+  environmentId: string | undefined;
+
+  /**
+   * <p>The name of the subscription target.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of the subscription target.</p>
+   * @public
+   */
+  type: string | undefined;
+
+  /**
+   * <p>The Amazon DataZone user who created the subscription target.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+
+  /**
+   * <p>The Amazon DataZone user who updated the subscription target.</p>
+   * @public
+   */
+  updatedBy?: string;
+
+  /**
+   * <p>The timestamp of when the subscription target was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the subscription target was updated.</p>
+   * @public
+   */
+  updatedAt?: Date;
+
+  /**
+   * <p>The manage access role specified in the subscription target.</p>
+   * @public
+   */
+  manageAccessRole: string | undefined;
+
+  /**
+   * <p>The asset types included in the subscription target.</p>
+   * @public
+   */
+  applicableAssetTypes: string[] | undefined;
+
+  /**
+   * <p>The configuration of the subscription target.</p>
+   * @public
+   */
+  subscriptionTargetConfig: SubscriptionTargetForm[] | undefined;
+
+  /**
+   * <p>The provider of the subscription target.</p>
+   * @public
+   */
+  provider: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSubscriptionTargetsOutput {
+  /**
+   * <p>The results of the <code>ListSubscriptionTargets</code> action.</p>
+   * @public
+   */
+  items: SubscriptionTargetSummary[] | undefined;
+
+  /**
+   * <p>When the number of subscription targets is greater than the default value for the
+   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
+   *             <code>MaxResults</code> that is less than the number of subscription targets, the
+   *          response includes a pagination token named <code>NextToken</code>. You can specify this
+   *             <code>NextToken</code> value in a subsequent call to
+   *             <code>ListSubscriptionTargets</code> to list the next set of subscription
+   *          targets.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The ARN of the resource whose tags you want to list.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>The tags of the specified resource.</p>
+   * @public
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface ListTimeSeriesDataPointsInput {
+  /**
+   * <p>The ID of the Amazon DataZone domain that houses the assets for which you want to list
+   *          time series data points.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the asset for which you want to list data points.</p>
+   * @public
+   */
+  entityIdentifier: string | undefined;
+
+  /**
+   * <p>The type of the asset for which you want to list data points.</p>
+   * @public
+   */
+  entityType: TimeSeriesEntityType | undefined;
+
+  /**
+   * <p>The name of the time series data points form.</p>
+   * @public
+   */
+  formName: string | undefined;
+
+  /**
+   * <p>The timestamp at which the data points that you want to list started.</p>
+   * @public
+   */
+  startedAt?: Date;
+
+  /**
+   * <p>The timestamp at which the data points that you wanted to list ended.</p>
+   * @public
+   */
+  endedAt?: Date;
+
+  /**
+   * <p>When the number of data points is greater than the default value for the MaxResults
+   *          parameter, or if you explicitly specify a value for MaxResults that is less than the number
+   *          of data points, the response includes a pagination token named NextToken. You can specify
+   *          this NextToken value in a subsequent call to ListTimeSeriesDataPoints to list the next set
+   *          of data points.</p>
+   * @public
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of data points to return in a single call to
+   *          ListTimeSeriesDataPoints. When the number of data points to be listed is greater than the
+   *          value of MaxResults, the response contains a NextToken value that you can use in a
+   *          subsequent call to ListTimeSeriesDataPoints to list the next set of data points.</p>
+   * @public
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListTimeSeriesDataPointsOutput {
+  /**
+   * <p>The results of the ListTimeSeriesDataPoints action. </p>
+   * @public
+   */
+  items?: TimeSeriesDataPointSummaryFormOutput[];
+
+  /**
+   * <p>When the number of data points is greater than the default value for the MaxResults
+   *          parameter, or if you explicitly specify a value for MaxResults that is less than the number
+   *          of data points, the response includes a pagination token named NextToken. You can specify
+   *          this NextToken value in a subsequent call to ListTimeSeriesDataPoints to list the next set
+   *          of data points.</p>
+   * @public
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetMetadataGenerationRunInput {
+  /**
+   * <p>The ID of the Amazon DataZone domain the metadata generation run of which you want to
+   *          get.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the metadata generation run.</p>
+   * @public
+   */
+  identifier: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MetadataGenerationRunStatus = {
+  CANCELED: "CANCELED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUBMITTED: "SUBMITTED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type MetadataGenerationRunStatus =
+  (typeof MetadataGenerationRunStatus)[keyof typeof MetadataGenerationRunStatus];
 
 /**
  * @public
@@ -361,6 +676,109 @@ export interface StartMetadataGenerationRunOutput {
    * @public
    */
   owningProjectId?: string;
+}
+
+/**
+ * <p>The time series data points form.</p>
+ * @public
+ */
+export interface TimeSeriesDataPointFormInput {
+  /**
+   * <p>The name of the time series data points form.</p>
+   * @public
+   */
+  formName: string | undefined;
+
+  /**
+   * <p>The ID of the type of the time series data points form.</p>
+   * @public
+   */
+  typeIdentifier: string | undefined;
+
+  /**
+   * <p>The revision type of the time series data points form.</p>
+   * @public
+   */
+  typeRevision?: string;
+
+  /**
+   * <p>The timestamp of the time series data points form.</p>
+   * @public
+   */
+  timestamp: Date | undefined;
+
+  /**
+   * <p>The content of the time series data points form.</p>
+   * @public
+   */
+  content?: string;
+}
+
+/**
+ * @public
+ */
+export interface PostTimeSeriesDataPointsInput {
+  /**
+   * <p>The ID of the Amazon DataZone domain in which you want to post time series data
+   *          points.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The ID of the asset for which you want to post time series data points.</p>
+   * @public
+   */
+  entityIdentifier: string | undefined;
+
+  /**
+   * <p>The type of the asset for which you want to post data points.</p>
+   * @public
+   */
+  entityType: TimeSeriesEntityType | undefined;
+
+  /**
+   * <p>The forms that contain the data points that you want to post.</p>
+   * @public
+   */
+  forms: TimeSeriesDataPointFormInput[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
+   *          request.</p>
+   * @public
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface PostTimeSeriesDataPointsOutput {
+  /**
+   * <p>The ID of the Amazon DataZone domain in which you want to post time series data
+   *          points.</p>
+   * @public
+   */
+  domainId?: string;
+
+  /**
+   * <p>The ID of the asset for which you want to post time series data points.</p>
+   * @public
+   */
+  entityId?: string;
+
+  /**
+   * <p>The type of the asset for which you want to post data points.</p>
+   * @public
+   */
+  entityType?: TimeSeriesEntityType;
+
+  /**
+   * <p>The forms that contain the data points that you have posted.</p>
+   * @public
+   */
+  forms?: TimeSeriesDataPointFormOutput[];
 }
 
 /**
@@ -683,6 +1101,7 @@ export interface RevokeSubscriptionOutput {
  */
 export const SearchOutputAdditionalAttribute = {
   FORMS: "FORMS",
+  TIME_SERIES_DATA_POINT_FORMS: "TIME_SERIES_DATA_POINT_FORMS",
 } as const;
 
 /**
@@ -2731,6 +3150,22 @@ export interface SearchTypesInput {
    */
   managed: boolean | undefined;
 }
+
+/**
+ * @internal
+ */
+export const SubscriptionTargetSummaryFilterSensitiveLog = (obj: SubscriptionTargetSummary): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListSubscriptionTargetsOutputFilterSensitiveLog = (obj: ListSubscriptionTargetsOutput): any => ({
+  ...obj,
+  ...(obj.items && { items: obj.items.map((item) => SubscriptionTargetSummaryFilterSensitiveLog(item)) }),
+});
 
 /**
  * @internal
