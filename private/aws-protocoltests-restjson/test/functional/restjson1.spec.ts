@@ -56,6 +56,8 @@ import { QueryParamsAsStringListMapCommand } from "../../src/commands/QueryParam
 import { QueryPrecedenceCommand } from "../../src/commands/QueryPrecedenceCommand";
 import { RecursiveShapesCommand } from "../../src/commands/RecursiveShapesCommand";
 import { SimpleScalarPropertiesCommand } from "../../src/commands/SimpleScalarPropertiesCommand";
+import { SparseJsonListsCommand } from "../../src/commands/SparseJsonListsCommand";
+import { SparseJsonMapsCommand } from "../../src/commands/SparseJsonMapsCommand";
 import { StreamingTraitsCommand } from "../../src/commands/StreamingTraitsCommand";
 import { StreamingTraitsRequireLengthCommand } from "../../src/commands/StreamingTraitsRequireLengthCommand";
 import { StreamingTraitsWithMediaTypeCommand } from "../../src/commands/StreamingTraitsWithMediaTypeCommand";
@@ -594,9 +596,9 @@ it("RestJsonZeroAndFalseQueryValues:Request", async () => {
     queryBoolean: false,
 
     queryParamsMapOfStringList: {
-      queryInteger: ["0"],
+      Integer: ["0"],
 
-      queryBoolean: ["false"],
+      Boolean: ["false"],
     } as any,
   } as any);
   try {
@@ -4763,47 +4765,6 @@ it("RestJsonListsEmpty:Request", async () => {
 });
 
 /**
- * Serializes null values in lists
- */
-it("RestJsonListsSerializeNull:Request", async () => {
-  const client = new RestJsonProtocolClient({
-    ...clientParams,
-    requestHandler: new RequestSerializationTestHandler(),
-  });
-
-  const command = new JsonListsCommand({
-    sparseStringList: [null, "hi"],
-  } as any);
-  try {
-    await client.send(command);
-    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
-    return;
-  } catch (err) {
-    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
-      fail(err);
-      return;
-    }
-    const r = err.request;
-    expect(r.method).toBe("PUT");
-    expect(r.path).toBe("/JsonLists");
-
-    expect(r.headers["content-type"]).toBeDefined();
-    expect(r.headers["content-type"]).toBe("application/json");
-
-    expect(r.body).toBeDefined();
-    const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `{
-        \"sparseStringList\": [
-            null,
-            \"hi\"
-        ]
-    }`;
-    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
-    expect(unequalParts).toBeUndefined();
-  }
-});
-
-/**
  * Serializes JSON lists
  */
 it("RestJsonLists:Response", async () => {
@@ -4971,49 +4932,6 @@ it("RestJsonListsEmpty:Response", async () => {
 });
 
 /**
- * Serializes null values in sparse lists
- */
-it("RestJsonListsSerializeNull:Response", async () => {
-  const client = new RestJsonProtocolClient({
-    ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(
-      true,
-      200,
-      {
-        "content-type": "application/json",
-      },
-      `{
-          "sparseStringList": [
-              null,
-              "hi"
-          ]
-      }`
-    ),
-  });
-
-  const params: any = {};
-  const command = new JsonListsCommand(params);
-
-  let r: any;
-  try {
-    r = await client.send(command);
-  } catch (err) {
-    fail("Expected a valid response to be returned, got " + err);
-    return;
-  }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
-  const paramsToValidate: any = [
-    {
-      sparseStringList: [null, "hi"],
-    },
-  ][0];
-  Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
-  });
-});
-
-/**
  * Serializes JSON maps
  */
 it("RestJsonJsonMaps:Request", async () => {
@@ -5024,16 +4942,6 @@ it("RestJsonJsonMaps:Request", async () => {
 
   const command = new JsonMapsCommand({
     denseStructMap: {
-      foo: {
-        hi: "there",
-      } as any,
-
-      baz: {
-        hi: "bye",
-      } as any,
-    } as any,
-
-    sparseStructMap: {
       foo: {
         hi: "there",
       } as any,
@@ -5069,77 +4977,6 @@ it("RestJsonJsonMaps:Request", async () => {
             \"baz\": {
                 \"hi\": \"bye\"
             }
-        },
-        \"sparseStructMap\": {
-            \"foo\": {
-                \"hi\": \"there\"
-            },
-            \"baz\": {
-                \"hi\": \"bye\"
-            }
-        }
-    }`;
-    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
-    expect(unequalParts).toBeUndefined();
-  }
-});
-
-/**
- * Serializes JSON map values in sparse maps
- */
-it("RestJsonSerializesNullMapValues:Request", async () => {
-  const client = new RestJsonProtocolClient({
-    ...clientParams,
-    requestHandler: new RequestSerializationTestHandler(),
-  });
-
-  const command = new JsonMapsCommand({
-    sparseBooleanMap: {
-      x: null,
-    } as any,
-
-    sparseNumberMap: {
-      x: null,
-    } as any,
-
-    sparseStringMap: {
-      x: null,
-    } as any,
-
-    sparseStructMap: {
-      x: null,
-    } as any,
-  } as any);
-  try {
-    await client.send(command);
-    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
-    return;
-  } catch (err) {
-    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
-      fail(err);
-      return;
-    }
-    const r = err.request;
-    expect(r.method).toBe("POST");
-    expect(r.path).toBe("/JsonMaps");
-
-    expect(r.headers["content-type"]).toBeDefined();
-    expect(r.headers["content-type"]).toBe("application/json");
-
-    expect(r.body).toBeDefined();
-    const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `{
-        \"sparseBooleanMap\": {
-            \"x\": null
-        },
-        \"sparseNumberMap\": {
-            \"x\": null
-        },
-        \"sparseStringMap\": {
-            \"x\": null
-        },
-        \"sparseStructMap\": {
-            \"x\": null
         }
     }`;
     const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
@@ -5161,15 +4998,7 @@ it("RestJsonSerializesZeroValuesInMaps:Request", async () => {
       x: 0,
     } as any,
 
-    sparseNumberMap: {
-      x: 0,
-    } as any,
-
     denseBooleanMap: {
-      x: false,
-    } as any,
-
-    sparseBooleanMap: {
       x: false,
     } as any,
   } as any);
@@ -5195,59 +5024,8 @@ it("RestJsonSerializesZeroValuesInMaps:Request", async () => {
         \"denseNumberMap\": {
             \"x\": 0
         },
-        \"sparseNumberMap\": {
-            \"x\": 0
-        },
         \"denseBooleanMap\": {
             \"x\": false
-        },
-        \"sparseBooleanMap\": {
-            \"x\": false
-        }
-    }`;
-    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
-    expect(unequalParts).toBeUndefined();
-  }
-});
-
-/**
- * A request that contains a sparse map of sets
- */
-it("RestJsonSerializesSparseSetMap:Request", async () => {
-  const client = new RestJsonProtocolClient({
-    ...clientParams,
-    requestHandler: new RequestSerializationTestHandler(),
-  });
-
-  const command = new JsonMapsCommand({
-    sparseSetMap: {
-      x: [],
-
-      y: ["a", "b"],
-    } as any,
-  } as any);
-  try {
-    await client.send(command);
-    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
-    return;
-  } catch (err) {
-    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
-      fail(err);
-      return;
-    }
-    const r = err.request;
-    expect(r.method).toBe("POST");
-    expect(r.path).toBe("/JsonMaps");
-
-    expect(r.headers["content-type"]).toBeDefined();
-    expect(r.headers["content-type"]).toBe("application/json");
-
-    expect(r.body).toBeDefined();
-    const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `{
-        \"sparseSetMap\": {
-            \"x\": [],
-            \"y\": [\"a\", \"b\"]
         }
     }`;
     const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
@@ -5301,54 +5079,6 @@ it("RestJsonSerializesDenseSetMap:Request", async () => {
 });
 
 /**
- * A request that contains a sparse map of sets.
- */
-it("RestJsonSerializesSparseSetMapAndRetainsNull:Request", async () => {
-  const client = new RestJsonProtocolClient({
-    ...clientParams,
-    requestHandler: new RequestSerializationTestHandler(),
-  });
-
-  const command = new JsonMapsCommand({
-    sparseSetMap: {
-      x: [],
-
-      y: ["a", "b"],
-
-      z: null,
-    } as any,
-  } as any);
-  try {
-    await client.send(command);
-    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
-    return;
-  } catch (err) {
-    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
-      fail(err);
-      return;
-    }
-    const r = err.request;
-    expect(r.method).toBe("POST");
-    expect(r.path).toBe("/JsonMaps");
-
-    expect(r.headers["content-type"]).toBeDefined();
-    expect(r.headers["content-type"]).toBe("application/json");
-
-    expect(r.body).toBeDefined();
-    const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `{
-        \"sparseSetMap\": {
-            \"x\": [],
-            \"y\": [\"a\", \"b\"],
-            \"z\": null
-        }
-    }`;
-    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
-    expect(unequalParts).toBeUndefined();
-  }
-});
-
-/**
  * Deserializes JSON maps
  */
 it("RestJsonJsonMaps:Response", async () => {
@@ -5368,15 +5098,7 @@ it("RestJsonJsonMaps:Response", async () => {
               "baz": {
                   "hi": "bye"
               }
-          },
-          "sparseStructMap": {
-              "foo": {
-                  "hi": "there"
-              },
-              "baz": {
-                  "hi": "bye"
-              }
-         }
+          }
       }`
     ),
   });
@@ -5403,81 +5125,6 @@ it("RestJsonJsonMaps:Response", async () => {
           hi: "bye",
         },
       },
-
-      sparseStructMap: {
-        foo: {
-          hi: "there",
-        },
-
-        baz: {
-          hi: "bye",
-        },
-      },
-    },
-  ][0];
-  Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
-  });
-});
-
-/**
- * Deserializes null JSON map values
- */
-it("RestJsonDeserializesNullMapValues:Response", async () => {
-  const client = new RestJsonProtocolClient({
-    ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(
-      true,
-      200,
-      {
-        "content-type": "application/json",
-      },
-      `{
-          "sparseBooleanMap": {
-              "x": null
-          },
-          "sparseNumberMap": {
-              "x": null
-          },
-          "sparseStringMap": {
-              "x": null
-          },
-          "sparseStructMap": {
-              "x": null
-          }
-      }`
-    ),
-  });
-
-  const params: any = {};
-  const command = new JsonMapsCommand(params);
-
-  let r: any;
-  try {
-    r = await client.send(command);
-  } catch (err) {
-    fail("Expected a valid response to be returned, got " + err);
-    return;
-  }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
-  const paramsToValidate: any = [
-    {
-      sparseBooleanMap: {
-        x: null,
-      },
-
-      sparseNumberMap: {
-        x: null,
-      },
-
-      sparseStringMap: {
-        x: null,
-      },
-
-      sparseStructMap: {
-        x: null,
-      },
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -5502,13 +5149,7 @@ it("RestJsonDeserializesZeroValuesInMaps:Response", async () => {
           "denseNumberMap": {
               "x": 0
           },
-          "sparseNumberMap": {
-              "x": 0
-          },
           "denseBooleanMap": {
-              "x": false
-          },
-          "sparseBooleanMap": {
               "x": false
           }
       }`
@@ -5532,63 +5173,8 @@ it("RestJsonDeserializesZeroValuesInMaps:Response", async () => {
         x: 0,
       },
 
-      sparseNumberMap: {
-        x: 0,
-      },
-
       denseBooleanMap: {
         x: false,
-      },
-
-      sparseBooleanMap: {
-        x: false,
-      },
-    },
-  ][0];
-  Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
-  });
-});
-
-/**
- * A response that contains a sparse map of sets
- */
-it("RestJsonDeserializesSparseSetMap:Response", async () => {
-  const client = new RestJsonProtocolClient({
-    ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(
-      true,
-      200,
-      {
-        "content-type": "application/json",
-      },
-      `{
-          "sparseSetMap": {
-              "x": [],
-              "y": ["a", "b"]
-          }
-      }`
-    ),
-  });
-
-  const params: any = {};
-  const command = new JsonMapsCommand(params);
-
-  let r: any;
-  try {
-    r = await client.send(command);
-  } catch (err) {
-    fail("Expected a valid response to be returned, got " + err);
-    return;
-  }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
-  const paramsToValidate: any = [
-    {
-      sparseSetMap: {
-        x: [],
-
-        y: ["a", "b"],
       },
     },
   ][0];
@@ -5636,56 +5222,6 @@ it("RestJsonDeserializesDenseSetMap:Response", async () => {
         x: [],
 
         y: ["a", "b"],
-      },
-    },
-  ][0];
-  Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
-  });
-});
-
-/**
- * A response that contains a sparse map of sets.
- */
-it("RestJsonDeserializesSparseSetMapAndRetainsNull:Response", async () => {
-  const client = new RestJsonProtocolClient({
-    ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(
-      true,
-      200,
-      {
-        "content-type": "application/json",
-      },
-      `{
-          "sparseSetMap": {
-              "x": [],
-              "y": ["a", "b"],
-              "z": null
-          }
-      }`
-    ),
-  });
-
-  const params: any = {};
-  const command = new JsonMapsCommand(params);
-
-  let r: any;
-  try {
-    r = await client.send(command);
-  } catch (err) {
-    fail("Expected a valid response to be returned, got " + err);
-    return;
-  }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
-  const paramsToValidate: any = [
-    {
-      sparseSetMap: {
-        x: [],
-
-        y: ["a", "b"],
-
-        z: null,
       },
     },
   ][0];
@@ -8643,6 +8179,616 @@ it("RestJsonSupportsNegativeInfinityFloatInputs:Response", async () => {
       floatValue: -Infinity,
 
       doubleValue: -Infinity,
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Serializes null values in sparse lists
+ */
+it("RestJsonSparseListsSerializeNull:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new SparseJsonListsCommand({
+    sparseStringList: [null, "hi"],
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/SparseJsonLists");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{
+        \"sparseStringList\": [
+            null,
+            \"hi\"
+        ]
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes null values in sparse lists
+ */
+it("RestJsonSparseListsSerializeNull:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "sparseStringList": [
+              null,
+              "hi"
+          ]
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new SparseJsonListsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      sparseStringList: [null, "hi"],
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Serializes JSON maps
+ */
+it("RestJsonSparseJsonMaps:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new SparseJsonMapsCommand({
+    sparseStructMap: {
+      foo: {
+        hi: "there",
+      } as any,
+
+      baz: {
+        hi: "bye",
+      } as any,
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/SparseJsonMaps");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{
+        \"sparseStructMap\": {
+            \"foo\": {
+                \"hi\": \"there\"
+            },
+            \"baz\": {
+                \"hi\": \"bye\"
+            }
+        }
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes JSON map values in sparse maps
+ */
+it("RestJsonSerializesSparseNullMapValues:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new SparseJsonMapsCommand({
+    sparseBooleanMap: {
+      x: null,
+    } as any,
+
+    sparseNumberMap: {
+      x: null,
+    } as any,
+
+    sparseStringMap: {
+      x: null,
+    } as any,
+
+    sparseStructMap: {
+      x: null,
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/SparseJsonMaps");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{
+        \"sparseBooleanMap\": {
+            \"x\": null
+        },
+        \"sparseNumberMap\": {
+            \"x\": null
+        },
+        \"sparseStringMap\": {
+            \"x\": null
+        },
+        \"sparseStructMap\": {
+            \"x\": null
+        }
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Ensure that 0 and false are sent over the wire in all maps and lists
+ */
+it("RestJsonSerializesZeroValuesInSparseMaps:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new SparseJsonMapsCommand({
+    sparseNumberMap: {
+      x: 0,
+    } as any,
+
+    sparseBooleanMap: {
+      x: false,
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/SparseJsonMaps");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{
+        \"sparseNumberMap\": {
+            \"x\": 0
+        },
+        \"sparseBooleanMap\": {
+            \"x\": false
+        }
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * A request that contains a sparse map of sets
+ */
+it("RestJsonSerializesSparseSetMap:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new SparseJsonMapsCommand({
+    sparseSetMap: {
+      x: [],
+
+      y: ["a", "b"],
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/SparseJsonMaps");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{
+        \"sparseSetMap\": {
+            \"x\": [],
+            \"y\": [\"a\", \"b\"]
+        }
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * A request that contains a sparse map of sets.
+ */
+it("RestJsonSerializesSparseSetMapAndRetainsNull:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new SparseJsonMapsCommand({
+    sparseSetMap: {
+      x: [],
+
+      y: ["a", "b"],
+
+      z: null,
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/SparseJsonMaps");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{
+        \"sparseSetMap\": {
+            \"x\": [],
+            \"y\": [\"a\", \"b\"],
+            \"z\": null
+        }
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Deserializes JSON maps
+ */
+it("RestJsonSparseJsonMaps:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "sparseStructMap": {
+              "foo": {
+                  "hi": "there"
+              },
+              "baz": {
+                  "hi": "bye"
+              }
+         }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new SparseJsonMapsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      sparseStructMap: {
+        foo: {
+          hi: "there",
+        },
+
+        baz: {
+          hi: "bye",
+        },
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Deserializes null JSON map values
+ */
+it("RestJsonDeserializesSparseNullMapValues:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "sparseBooleanMap": {
+              "x": null
+          },
+          "sparseNumberMap": {
+              "x": null
+          },
+          "sparseStringMap": {
+              "x": null
+          },
+          "sparseStructMap": {
+              "x": null
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new SparseJsonMapsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      sparseBooleanMap: {
+        x: null,
+      },
+
+      sparseNumberMap: {
+        x: null,
+      },
+
+      sparseStringMap: {
+        x: null,
+      },
+
+      sparseStructMap: {
+        x: null,
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Ensure that 0 and false are sent over the wire in all maps and lists
+ */
+it("RestJsonDeserializesZeroValuesInSparseMaps:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "sparseNumberMap": {
+              "x": 0
+          },
+          "sparseBooleanMap": {
+              "x": false
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new SparseJsonMapsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      sparseNumberMap: {
+        x: 0,
+      },
+
+      sparseBooleanMap: {
+        x: false,
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * A response that contains a sparse map of sets
+ */
+it("RestJsonDeserializesSparseSetMap:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "sparseSetMap": {
+              "x": [],
+              "y": ["a", "b"]
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new SparseJsonMapsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      sparseSetMap: {
+        x: [],
+
+        y: ["a", "b"],
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * A response that contains a sparse map of sets.
+ */
+it("RestJsonDeserializesSparseSetMapAndRetainsNull:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "sparseSetMap": {
+              "x": [],
+              "y": ["a", "b"],
+              "z": null
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new SparseJsonMapsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      sparseSetMap: {
+        x: [],
+
+        y: ["a", "b"],
+
+        z: null,
+      },
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {

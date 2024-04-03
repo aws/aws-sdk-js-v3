@@ -42,9 +42,6 @@ export interface JsonListsCommandOutput extends JsonListsInputOutput, __Metadata
  *   stringList: [ // StringList
  *     "STRING_VALUE",
  *   ],
- *   sparseStringList: [ // SparseStringList
- *     "STRING_VALUE",
- *   ],
  *   stringSet: [ // StringSet
  *     "STRING_VALUE",
  *   ],
@@ -79,9 +76,6 @@ export interface JsonListsCommandOutput extends JsonListsInputOutput, __Metadata
  * const response = await client.send(command);
  * // { // JsonListsInputOutput
  * //   stringList: [ // StringList
- * //     "STRING_VALUE",
- * //   ],
- * //   sparseStringList: [ // SparseStringList
  * //     "STRING_VALUE",
  * //   ],
  * //   stringSet: [ // StringSet

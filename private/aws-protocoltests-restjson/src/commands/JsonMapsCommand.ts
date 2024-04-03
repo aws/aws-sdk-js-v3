@@ -38,11 +38,6 @@ export interface JsonMapsCommandOutput extends JsonMapsInputOutput, __MetadataBe
  *       hi: "STRING_VALUE",
  *     },
  *   },
- *   sparseStructMap: { // SparseStructMap
- *     "<keys>": {
- *       hi: "STRING_VALUE",
- *     },
- *   },
  *   denseNumberMap: { // DenseNumberMap
  *     "<keys>": Number("int"),
  *   },
@@ -52,22 +47,8 @@ export interface JsonMapsCommandOutput extends JsonMapsInputOutput, __MetadataBe
  *   denseStringMap: { // DenseStringMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   sparseNumberMap: { // SparseNumberMap
- *     "<keys>": Number("int"),
- *   },
- *   sparseBooleanMap: { // SparseBooleanMap
- *     "<keys>": true || false,
- *   },
- *   sparseStringMap: { // SparseStringMap
- *     "<keys>": "STRING_VALUE",
- *   },
  *   denseSetMap: { // DenseSetMap
  *     "<keys>": [ // StringSet
- *       "STRING_VALUE",
- *     ],
- *   },
- *   sparseSetMap: { // SparseSetMap
- *     "<keys>": [
  *       "STRING_VALUE",
  *     ],
  *   },
@@ -80,11 +61,6 @@ export interface JsonMapsCommandOutput extends JsonMapsInputOutput, __MetadataBe
  * //       hi: "STRING_VALUE",
  * //     },
  * //   },
- * //   sparseStructMap: { // SparseStructMap
- * //     "<keys>": {
- * //       hi: "STRING_VALUE",
- * //     },
- * //   },
  * //   denseNumberMap: { // DenseNumberMap
  * //     "<keys>": Number("int"),
  * //   },
@@ -94,22 +70,8 @@ export interface JsonMapsCommandOutput extends JsonMapsInputOutput, __MetadataBe
  * //   denseStringMap: { // DenseStringMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
- * //   sparseNumberMap: { // SparseNumberMap
- * //     "<keys>": Number("int"),
- * //   },
- * //   sparseBooleanMap: { // SparseBooleanMap
- * //     "<keys>": true || false,
- * //   },
- * //   sparseStringMap: { // SparseStringMap
- * //     "<keys>": "STRING_VALUE",
- * //   },
  * //   denseSetMap: { // DenseSetMap
  * //     "<keys>": [ // StringSet
- * //       "STRING_VALUE",
- * //     ],
- * //   },
- * //   sparseSetMap: { // SparseSetMap
- * //     "<keys>": [
  * //       "STRING_VALUE",
  * //     ],
  * //   },

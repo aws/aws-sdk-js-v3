@@ -403,6 +403,16 @@ import {
   SimpleScalarPropertiesCommandOutput,
 } from "./commands/SimpleScalarPropertiesCommand";
 import {
+  SparseJsonListsCommand,
+  SparseJsonListsCommandInput,
+  SparseJsonListsCommandOutput,
+} from "./commands/SparseJsonListsCommand";
+import {
+  SparseJsonMapsCommand,
+  SparseJsonMapsCommandInput,
+  SparseJsonMapsCommandOutput,
+} from "./commands/SparseJsonMapsCommand";
+import {
   StreamingTraitsCommand,
   StreamingTraitsCommandInput,
   StreamingTraitsCommandOutput,
@@ -534,6 +544,8 @@ const commands = {
   QueryPrecedenceCommand,
   RecursiveShapesCommand,
   SimpleScalarPropertiesCommand,
+  SparseJsonListsCommand,
+  SparseJsonMapsCommand,
   StreamingTraitsCommand,
   StreamingTraitsRequireLengthCommand,
   StreamingTraitsWithMediaTypeCommand,
@@ -1925,6 +1937,36 @@ export interface RestJsonProtocol {
     args: SimpleScalarPropertiesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SimpleScalarPropertiesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SparseJsonListsCommand}
+   */
+  sparseJsonLists(): Promise<SparseJsonListsCommandOutput>;
+  sparseJsonLists(
+    args: SparseJsonListsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SparseJsonListsCommandOutput>;
+  sparseJsonLists(args: SparseJsonListsCommandInput, cb: (err: any, data?: SparseJsonListsCommandOutput) => void): void;
+  sparseJsonLists(
+    args: SparseJsonListsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SparseJsonListsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SparseJsonMapsCommand}
+   */
+  sparseJsonMaps(): Promise<SparseJsonMapsCommandOutput>;
+  sparseJsonMaps(
+    args: SparseJsonMapsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SparseJsonMapsCommandOutput>;
+  sparseJsonMaps(args: SparseJsonMapsCommandInput, cb: (err: any, data?: SparseJsonMapsCommandOutput) => void): void;
+  sparseJsonMaps(
+    args: SparseJsonMapsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SparseJsonMapsCommandOutput) => void
   ): void;
 
   /**

@@ -295,6 +295,8 @@ import {
   SimpleScalarPropertiesCommandInput,
   SimpleScalarPropertiesCommandOutput,
 } from "./commands/SimpleScalarPropertiesCommand";
+import { SparseJsonListsCommandInput, SparseJsonListsCommandOutput } from "./commands/SparseJsonListsCommand";
+import { SparseJsonMapsCommandInput, SparseJsonMapsCommandOutput } from "./commands/SparseJsonMapsCommand";
 import { StreamingTraitsCommandInput, StreamingTraitsCommandOutput } from "./commands/StreamingTraitsCommand";
 import {
   StreamingTraitsRequireLengthCommandInput,
@@ -409,6 +411,8 @@ export type ServiceInputTypes =
   | QueryPrecedenceCommandInput
   | RecursiveShapesCommandInput
   | SimpleScalarPropertiesCommandInput
+  | SparseJsonListsCommandInput
+  | SparseJsonMapsCommandInput
   | StreamingTraitsCommandInput
   | StreamingTraitsRequireLengthCommandInput
   | StreamingTraitsWithMediaTypeCommandInput
@@ -507,6 +511,8 @@ export type ServiceOutputTypes =
   | QueryPrecedenceCommandOutput
   | RecursiveShapesCommandOutput
   | SimpleScalarPropertiesCommandOutput
+  | SparseJsonListsCommandOutput
+  | SparseJsonMapsCommandOutput
   | StreamingTraitsCommandOutput
   | StreamingTraitsRequireLengthCommandOutput
   | StreamingTraitsWithMediaTypeCommandOutput

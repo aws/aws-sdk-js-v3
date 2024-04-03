@@ -287,6 +287,8 @@ import {
   SimpleScalarPropertiesCommandInput,
   SimpleScalarPropertiesCommandOutput,
 } from "../commands/SimpleScalarPropertiesCommand";
+import { SparseJsonListsCommandInput, SparseJsonListsCommandOutput } from "../commands/SparseJsonListsCommand";
+import { SparseJsonMapsCommandInput, SparseJsonMapsCommandOutput } from "../commands/SparseJsonMapsCommand";
 import { StreamingTraitsCommandInput, StreamingTraitsCommandOutput } from "../commands/StreamingTraitsCommand";
 import {
   StreamingTraitsRequireLengthCommandInput,
@@ -1161,7 +1163,6 @@ export const se_JsonListsCommand = async (
       intEnumList: (_) => _json(_),
       integerList: (_) => _json(_),
       nestedStringList: (_) => _json(_),
-      sparseStringList: (_) => se_SparseStringList(_, context),
       stringList: (_) => _json(_),
       stringSet: (_) => _json(_),
       myStructureList: [, (_) => se_StructureList(_, context), `structureList`],
@@ -1192,11 +1193,6 @@ export const se_JsonMapsCommand = async (
       denseSetMap: (_) => _json(_),
       denseStringMap: (_) => _json(_),
       denseStructMap: (_) => _json(_),
-      sparseBooleanMap: (_) => se_SparseBooleanMap(_, context),
-      sparseNumberMap: (_) => se_SparseNumberMap(_, context),
-      sparseSetMap: (_) => se_SparseSetMap(_, context),
-      sparseStringMap: (_) => se_SparseStringMap(_, context),
-      sparseStructMap: (_) => se_SparseStructMap(_, context),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -2289,6 +2285,54 @@ export const se_SimpleScalarPropertiesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1SparseJsonListsCommand
+ */
+export const se_SparseJsonListsCommand = async (
+  input: SparseJsonListsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/SparseJsonLists");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      sparseStringList: (_) => se_SparseStringList(_, context),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1SparseJsonMapsCommand
+ */
+export const se_SparseJsonMapsCommand = async (
+  input: SparseJsonMapsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/SparseJsonMaps");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      sparseBooleanMap: (_) => se_SparseBooleanMap(_, context),
+      sparseNumberMap: (_) => se_SparseNumberMap(_, context),
+      sparseSetMap: (_) => se_SparseSetMap(_, context),
+      sparseStringMap: (_) => se_SparseStringMap(_, context),
+      sparseStructMap: (_) => se_SparseStructMap(_, context),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1StreamingTraitsCommand
  */
 export const se_StreamingTraitsCommand = async (
@@ -3186,7 +3230,6 @@ export const de_JsonListsCommand = async (
     intEnumList: _json,
     integerList: _json,
     nestedStringList: _json,
-    sparseStringList: (_) => de_SparseStringList(_, context),
     stringList: _json,
     stringSet: _json,
     structureList: [, (_) => de_StructureList(_, context), `myStructureList`],
@@ -3216,11 +3259,6 @@ export const de_JsonMapsCommand = async (
     denseSetMap: _json,
     denseStringMap: _json,
     denseStructMap: _json,
-    sparseBooleanMap: (_) => de_SparseBooleanMap(_, context),
-    sparseNumberMap: (_) => de_SparseNumberMap(_, context),
-    sparseSetMap: (_) => de_SparseSetMap(_, context),
-    sparseStringMap: (_) => de_SparseStringMap(_, context),
-    sparseStructMap: (_) => de_SparseStructMap(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -4115,6 +4153,52 @@ export const de_SimpleScalarPropertiesCommand = async (
     shortValue: __expectShort,
     stringValue: __expectString,
     trueBooleanValue: __expectBoolean,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SparseJsonListsCommand
+ */
+export const de_SparseJsonListsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SparseJsonListsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    sparseStringList: (_) => de_SparseStringList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SparseJsonMapsCommand
+ */
+export const de_SparseJsonMapsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SparseJsonMapsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    sparseBooleanMap: (_) => de_SparseBooleanMap(_, context),
+    sparseNumberMap: (_) => de_SparseNumberMap(_, context),
+    sparseSetMap: (_) => de_SparseSetMap(_, context),
+    sparseStringMap: (_) => de_SparseStringMap(_, context),
+    sparseStructMap: (_) => de_SparseStructMap(_, context),
   });
   Object.assign(contents, doc);
   return contents;
