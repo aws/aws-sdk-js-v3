@@ -267,6 +267,11 @@ import {
   StopDBClusterCommandInput,
   StopDBClusterCommandOutput,
 } from "./commands/StopDBClusterCommand";
+import {
+  SwitchoverGlobalClusterCommand,
+  SwitchoverGlobalClusterCommandInput,
+  SwitchoverGlobalClusterCommandOutput,
+} from "./commands/SwitchoverGlobalClusterCommand";
 import { DocDBClient, DocDBClientConfig } from "./DocDBClient";
 
 const commands = {
@@ -323,6 +328,7 @@ const commands = {
   RestoreDBClusterToPointInTimeCommand,
   StartDBClusterCommand,
   StopDBClusterCommand,
+  SwitchoverGlobalClusterCommand,
 };
 
 export interface DocDB {
@@ -1217,6 +1223,23 @@ export interface DocDB {
     args: StopDBClusterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StopDBClusterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SwitchoverGlobalClusterCommand}
+   */
+  switchoverGlobalCluster(
+    args: SwitchoverGlobalClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SwitchoverGlobalClusterCommandOutput>;
+  switchoverGlobalCluster(
+    args: SwitchoverGlobalClusterCommandInput,
+    cb: (err: any, data?: SwitchoverGlobalClusterCommandOutput) => void
+  ): void;
+  switchoverGlobalCluster(
+    args: SwitchoverGlobalClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SwitchoverGlobalClusterCommandOutput) => void
   ): void;
 }
 

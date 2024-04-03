@@ -52,3 +52,4 @@ export * from "./RestoreDBClusterFromSnapshotCommand";
 export * from "./RestoreDBClusterToPointInTimeCommand";
 export * from "./StartDBClusterCommand";
 export * from "./StopDBClusterCommand";
+export * from "./SwitchoverGlobalClusterCommand";

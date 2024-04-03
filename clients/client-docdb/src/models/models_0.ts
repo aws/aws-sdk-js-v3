@@ -6351,3 +6351,57 @@ export interface StopDBClusterResult {
    */
   DBCluster?: DBCluster;
 }
+
+/**
+ * @public
+ */
+export interface SwitchoverGlobalClusterMessage {
+  /**
+   * <p>The identifier of the Amazon DocumentDB global database cluster to switch over.
+   *         The identifier is the unique key assigned by the user when the cluster is created.
+   *         In other words, it's the name of the global cluster.
+   *         This parameter isn’t case-sensitive.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must match the identifier of an existing global cluster (Amazon DocumentDB global database).</p>
+   *             </li>
+   *             <li>
+   *                <p>Minimum length of 1. Maximum length of 255.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Pattern: <code>[A-Za-z][0-9A-Za-z-:._]*</code>
+   *          </p>
+   * @public
+   */
+  GlobalClusterIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the secondary Amazon DocumentDB cluster to promote to the new primary for the global database cluster.
+   *             Use the Amazon Resource Name (ARN) for the identifier so that Amazon DocumentDB can locate the cluster in its Amazon Web Services region.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must match the identifier of an existing secondary cluster.</p>
+   *             </li>
+   *             <li>
+   *                <p>Minimum length of 1. Maximum length of 255.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Pattern: <code>[A-Za-z][0-9A-Za-z-:._]*</code>
+   *          </p>
+   * @public
+   */
+  TargetDbClusterIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SwitchoverGlobalClusterResult {
+  /**
+   * <p>A data type representing an Amazon DocumentDB global cluster.</p>
+   * @public
+   */
+  GlobalCluster?: GlobalCluster;
+}
