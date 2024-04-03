@@ -185,6 +185,10 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //           ChannelsOut: Number("int"),
  * //         },
  * //         StreamName: "STRING_VALUE",
+ * //         AudioDashRoles: [ // __listOfDashRoleAudio
+ * //           "ALTERNATE" || "COMMENTARY" || "DESCRIPTION" || "DUB" || "EMERGENCY" || "ENHANCED-AUDIO-INTELLIGIBILITY" || "KARAOKE" || "MAIN" || "SUPPLEMENTARY",
+ * //         ],
+ * //         DvbDashAccessibility: "DVBDASH_1_VISUALLY_IMPAIRED" || "DVBDASH_2_HARD_OF_HEARING" || "DVBDASH_3_SUPPLEMENTAL_COMMENTARY" || "DVBDASH_4_DIRECTORS_COMMENTARY" || "DVBDASH_5_EDUCATIONAL_NOTES" || "DVBDASH_6_MAIN_PROGRAM" || "DVBDASH_7_CLEAN_FEED",
  * //       },
  * //     ],
  * //     AvailBlanking: { // AvailBlanking
@@ -307,6 +311,10 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //         LanguageCode: "STRING_VALUE",
  * //         LanguageDescription: "STRING_VALUE",
  * //         Name: "STRING_VALUE", // required
+ * //         CaptionDashRoles: [ // __listOfDashRoleCaption
+ * //           "ALTERNATE" || "CAPTION" || "COMMENTARY" || "DESCRIPTION" || "DUB" || "EASYREADER" || "EMERGENCY" || "FORCED-SUBTITLE" || "KARAOKE" || "MAIN" || "METADATA" || "SUBTITLE" || "SUPPLEMENTARY",
+ * //         ],
+ * //         DvbDashAccessibility: "DVBDASH_1_VISUALLY_IMPAIRED" || "DVBDASH_2_HARD_OF_HEARING" || "DVBDASH_3_SUPPLEMENTAL_COMMENTARY" || "DVBDASH_4_DIRECTORS_COMMENTARY" || "DVBDASH_5_EDUCATIONAL_NOTES" || "DVBDASH_6_MAIN_PROGRAM" || "DVBDASH_7_CLEAN_FEED",
  * //       },
  * //     ],
  * //     FeatureActivations: { // FeatureActivations
@@ -507,6 +515,14 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //             InputLossAction: "DROP_PROGRAM" || "DROP_TS" || "EMIT_PROGRAM",
  * //             TimedMetadataId3Frame: "NONE" || "PRIV" || "TDRL",
  * //             TimedMetadataId3Period: Number("int"),
+ * //           },
+ * //           CmafIngestGroupSettings: { // CmafIngestGroupSettings
+ * //             Destination: "<OutputLocationRef>", // required
+ * //             NielsenId3Behavior: "NO_PASSTHROUGH" || "PASSTHROUGH",
+ * //             Scte35Type: "NONE" || "SCTE_35_WITHOUT_SEGMENTATION",
+ * //             SegmentLength: Number("int"),
+ * //             SegmentLengthUnits: "MILLISECONDS" || "SECONDS",
+ * //             SendDelayMs: Number("int"),
  * //           },
  * //         },
  * //         Outputs: [ // __listOfOutput // required
@@ -718,6 +734,9 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //                   IncludeFec: "COLUMN" || "COLUMN_AND_ROW",
  * //                   RowLength: Number("int"),
  * //                 },
+ * //               },
+ * //               CmafIngestOutputSettings: { // CmafIngestOutputSettings
+ * //                 NameModifier: "STRING_VALUE",
  * //               },
  * //             },
  * //             VideoDescriptionName: "STRING_VALUE",

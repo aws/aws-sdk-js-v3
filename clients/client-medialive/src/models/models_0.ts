@@ -39,6 +39,27 @@ export interface AudioChannelMapping {
  * @public
  * @enum
  */
+export const DashRoleAudio = {
+  ALTERNATE: "ALTERNATE",
+  COMMENTARY: "COMMENTARY",
+  DESCRIPTION: "DESCRIPTION",
+  DUB: "DUB",
+  EMERGENCY: "EMERGENCY",
+  ENHANCED_AUDIO_INTELLIGIBILITY: "ENHANCED-AUDIO-INTELLIGIBILITY",
+  KARAOKE: "KARAOKE",
+  MAIN: "MAIN",
+  SUPPLEMENTARY: "SUPPLEMENTARY",
+} as const;
+
+/**
+ * @public
+ */
+export type DashRoleAudio = (typeof DashRoleAudio)[keyof typeof DashRoleAudio];
+
+/**
+ * @public
+ * @enum
+ */
 export const AudioNormalizationAlgorithm = {
   ITU_1770_1: "ITU_1770_1",
   ITU_1770_2: "ITU_1770_2",
@@ -1144,6 +1165,25 @@ export interface AudioCodecSettings {
  * @public
  * @enum
  */
+export const DvbDashAccessibility = {
+  DVBDASH_1_VISUALLY_IMPAIRED: "DVBDASH_1_VISUALLY_IMPAIRED",
+  DVBDASH_2_HARD_OF_HEARING: "DVBDASH_2_HARD_OF_HEARING",
+  DVBDASH_3_SUPPLEMENTAL_COMMENTARY: "DVBDASH_3_SUPPLEMENTAL_COMMENTARY",
+  DVBDASH_4_DIRECTORS_COMMENTARY: "DVBDASH_4_DIRECTORS_COMMENTARY",
+  DVBDASH_5_EDUCATIONAL_NOTES: "DVBDASH_5_EDUCATIONAL_NOTES",
+  DVBDASH_6_MAIN_PROGRAM: "DVBDASH_6_MAIN_PROGRAM",
+  DVBDASH_7_CLEAN_FEED: "DVBDASH_7_CLEAN_FEED",
+} as const;
+
+/**
+ * @public
+ */
+export type DvbDashAccessibility = (typeof DvbDashAccessibility)[keyof typeof DvbDashAccessibility];
+
+/**
+ * @public
+ * @enum
+ */
 export const AudioDescriptionLanguageCodeControl = {
   FOLLOW_INPUT: "FOLLOW_INPUT",
   USE_CONFIGURED: "USE_CONFIGURED",
@@ -1253,6 +1293,18 @@ export interface AudioDescription {
    * @public
    */
   StreamName?: string;
+
+  /**
+   * Identifies the DASH roles to assign to this audio output. Applies only when the audio output is configured for DVB DASH accessibility signaling.
+   * @public
+   */
+  AudioDashRoles?: DashRoleAudio[];
+
+  /**
+   * Identifies DVB DASH accessibility signaling in this audio output. Used in Microsoft Smooth Streaming outputs to signal accessibility information to packagers.
+   * @public
+   */
+  DvbDashAccessibility?: DvbDashAccessibility;
 }
 
 /**
@@ -1496,6 +1548,31 @@ export const AccessibilityType = {
  * @public
  */
 export type AccessibilityType = (typeof AccessibilityType)[keyof typeof AccessibilityType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DashRoleCaption = {
+  ALTERNATE: "ALTERNATE",
+  CAPTION: "CAPTION",
+  COMMENTARY: "COMMENTARY",
+  DESCRIPTION: "DESCRIPTION",
+  DUB: "DUB",
+  EASYREADER: "EASYREADER",
+  EMERGENCY: "EMERGENCY",
+  FORCED_SUBTITLE: "FORCED-SUBTITLE",
+  KARAOKE: "KARAOKE",
+  MAIN: "MAIN",
+  METADATA: "METADATA",
+  SUBTITLE: "SUBTITLE",
+  SUPPLEMENTARY: "SUPPLEMENTARY",
+} as const;
+
+/**
+ * @public
+ */
+export type DashRoleCaption = (typeof DashRoleCaption)[keyof typeof DashRoleCaption];
 
 /**
  * Arib Destination Settings
@@ -2227,6 +2304,18 @@ export interface CaptionDescription {
    * @public
    */
   Name: string | undefined;
+
+  /**
+   * Identifies the DASH roles to assign to this captions output. Applies only when the captions output is configured for DVB DASH accessibility signaling.
+   * @public
+   */
+  CaptionDashRoles?: DashRoleCaption[];
+
+  /**
+   * Identifies DVB DASH accessibility signaling in this captions output. Used in Microsoft Smooth Streaming outputs to signal accessibility information to packagers.
+   * @public
+   */
+  DvbDashAccessibility?: DvbDashAccessibility;
 }
 
 /**
@@ -5674,6 +5763,18 @@ export interface ArchiveOutputSettings {
 }
 
 /**
+ * Cmaf Ingest Output Settings
+ * @public
+ */
+export interface CmafIngestOutputSettings {
+  /**
+   * String concatenated to the end of the destination filename.  Required for multiple outputs of the same type.
+   * @public
+   */
+  NameModifier?: string;
+}
+
+/**
  * Frame Capture Output Settings
  * @public
  */
@@ -6339,6 +6440,12 @@ export interface OutputSettings {
    * @public
    */
   UdpOutputSettings?: UdpOutputSettings;
+
+  /**
+   * Cmaf Ingest Output Settings
+   * @public
+   */
+  CmafIngestOutputSettings?: CmafIngestOutputSettings;
 }
 
 /**
@@ -6439,6 +6546,91 @@ export interface ArchiveGroupSettings {
    * @public
    */
   RolloverInterval?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CmafNielsenId3Behavior = {
+  NO_PASSTHROUGH: "NO_PASSTHROUGH",
+  PASSTHROUGH: "PASSTHROUGH",
+} as const;
+
+/**
+ * @public
+ */
+export type CmafNielsenId3Behavior = (typeof CmafNielsenId3Behavior)[keyof typeof CmafNielsenId3Behavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const Scte35Type = {
+  NONE: "NONE",
+  SCTE_35_WITHOUT_SEGMENTATION: "SCTE_35_WITHOUT_SEGMENTATION",
+} as const;
+
+/**
+ * @public
+ */
+export type Scte35Type = (typeof Scte35Type)[keyof typeof Scte35Type];
+
+/**
+ * @public
+ * @enum
+ */
+export const CmafIngestSegmentLengthUnits = {
+  MILLISECONDS: "MILLISECONDS",
+  SECONDS: "SECONDS",
+} as const;
+
+/**
+ * @public
+ */
+export type CmafIngestSegmentLengthUnits =
+  (typeof CmafIngestSegmentLengthUnits)[keyof typeof CmafIngestSegmentLengthUnits];
+
+/**
+ * Cmaf Ingest Group Settings
+ * @public
+ */
+export interface CmafIngestGroupSettings {
+  /**
+   * A HTTP destination for the tracks
+   * @public
+   */
+  Destination: OutputLocationRef | undefined;
+
+  /**
+   * If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
+   * @public
+   */
+  NielsenId3Behavior?: CmafNielsenId3Behavior;
+
+  /**
+   * Type of scte35 track to add. none or scte35WithoutSegmentation
+   * @public
+   */
+  Scte35Type?: Scte35Type;
+
+  /**
+   * The nominal duration of segments. The units are specified in SegmentLengthUnits. The segments will end on the next keyframe after the specified duration, so the actual segment length might be longer, and it might be a fraction of the units.
+   * @public
+   */
+  SegmentLength?: number;
+
+  /**
+   * Time unit for segment length parameter.
+   * @public
+   */
+  SegmentLengthUnits?: CmafIngestSegmentLengthUnits;
+
+  /**
+   * Number of milliseconds to delay the output from the second pipeline.
+   * @public
+   */
+  SendDelayMs?: number;
 }
 
 /**
@@ -6553,184 +6745,3 @@ export const HlsDiscontinuityTags = {
  * @public
  */
 export type HlsDiscontinuityTags = (typeof HlsDiscontinuityTags)[keyof typeof HlsDiscontinuityTags];
-
-/**
- * @public
- * @enum
- */
-export const HlsEncryptionType = {
-  AES128: "AES128",
-  SAMPLE_AES: "SAMPLE_AES",
-} as const;
-
-/**
- * @public
- */
-export type HlsEncryptionType = (typeof HlsEncryptionType)[keyof typeof HlsEncryptionType];
-
-/**
- * @public
- * @enum
- */
-export const HlsAkamaiHttpTransferMode = {
-  CHUNKED: "CHUNKED",
-  NON_CHUNKED: "NON_CHUNKED",
-} as const;
-
-/**
- * @public
- */
-export type HlsAkamaiHttpTransferMode = (typeof HlsAkamaiHttpTransferMode)[keyof typeof HlsAkamaiHttpTransferMode];
-
-/**
- * Hls Akamai Settings
- * @public
- */
-export interface HlsAkamaiSettings {
-  /**
-   * Number of seconds to wait before retrying connection to the CDN if the connection is lost.
-   * @public
-   */
-  ConnectionRetryInterval?: number;
-
-  /**
-   * Size in seconds of file cache for streaming outputs.
-   * @public
-   */
-  FilecacheDuration?: number;
-
-  /**
-   * Specify whether or not to use chunked transfer encoding to Akamai. User should contact Akamai to enable this feature.
-   * @public
-   */
-  HttpTransferMode?: HlsAkamaiHttpTransferMode;
-
-  /**
-   * Number of retry attempts that will be made before the Live Event is put into an error state. Applies only if the CDN destination URI begins with "s3" or "mediastore". For other URIs, the value is always 3.
-   * @public
-   */
-  NumRetries?: number;
-
-  /**
-   * If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-   * @public
-   */
-  RestartDelay?: number;
-
-  /**
-   * Salt for authenticated Akamai.
-   * @public
-   */
-  Salt?: string;
-
-  /**
-   * Token parameter for authenticated akamai. If not specified, _gda_ is used.
-   * @public
-   */
-  Token?: string;
-}
-
-/**
- * Hls Basic Put Settings
- * @public
- */
-export interface HlsBasicPutSettings {
-  /**
-   * Number of seconds to wait before retrying connection to the CDN if the connection is lost.
-   * @public
-   */
-  ConnectionRetryInterval?: number;
-
-  /**
-   * Size in seconds of file cache for streaming outputs.
-   * @public
-   */
-  FilecacheDuration?: number;
-
-  /**
-   * Number of retry attempts that will be made before the Live Event is put into an error state. Applies only if the CDN destination URI begins with "s3" or "mediastore". For other URIs, the value is always 3.
-   * @public
-   */
-  NumRetries?: number;
-
-  /**
-   * If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-   * @public
-   */
-  RestartDelay?: number;
-}
-
-/**
- * @public
- * @enum
- */
-export const HlsMediaStoreStorageClass = {
-  TEMPORAL: "TEMPORAL",
-} as const;
-
-/**
- * @public
- */
-export type HlsMediaStoreStorageClass = (typeof HlsMediaStoreStorageClass)[keyof typeof HlsMediaStoreStorageClass];
-
-/**
- * Hls Media Store Settings
- * @public
- */
-export interface HlsMediaStoreSettings {
-  /**
-   * Number of seconds to wait before retrying connection to the CDN if the connection is lost.
-   * @public
-   */
-  ConnectionRetryInterval?: number;
-
-  /**
-   * Size in seconds of file cache for streaming outputs.
-   * @public
-   */
-  FilecacheDuration?: number;
-
-  /**
-   * When set to temporal, output files are stored in non-persistent memory for faster reading and writing.
-   * @public
-   */
-  MediaStoreStorageClass?: HlsMediaStoreStorageClass;
-
-  /**
-   * Number of retry attempts that will be made before the Live Event is put into an error state. Applies only if the CDN destination URI begins with "s3" or "mediastore". For other URIs, the value is always 3.
-   * @public
-   */
-  NumRetries?: number;
-
-  /**
-   * If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-   * @public
-   */
-  RestartDelay?: number;
-}
-
-/**
- * Hls S3 Settings
- * @public
- */
-export interface HlsS3Settings {
-  /**
-   * Specify the canned ACL to apply to each S3 request. Defaults to none.
-   * @public
-   */
-  CannedAcl?: S3CannedAcl;
-}
-
-/**
- * @public
- * @enum
- */
-export const HlsWebdavHttpTransferMode = {
-  CHUNKED: "CHUNKED",
-  NON_CHUNKED: "NON_CHUNKED",
-} as const;
-
-/**
- * @public
- */
-export type HlsWebdavHttpTransferMode = (typeof HlsWebdavHttpTransferMode)[keyof typeof HlsWebdavHttpTransferMode];
