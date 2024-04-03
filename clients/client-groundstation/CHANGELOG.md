@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.548.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.547.0...v3.548.0) (2024-04-03)
+
+
+### Features
+
+* **client-groundstation:** This release adds visibilityStartTime and visibilityEndTime to DescribeContact and ListContacts responses. ([10f0af2](https://github.com/aws/aws-sdk-js-v3/commit/10f0af275035a41cfea2e5c2f5e7ace11a16977d))
+
+
+
+
+
 # [3.540.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.539.0...v3.540.0) (2024-03-22)
 
 

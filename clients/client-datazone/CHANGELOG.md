@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.548.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.547.0...v3.548.0) (2024-04-03)
+
+
+### Features
+
+* **client-datazone:** This release supports the feature of dataQuality to enrich asset with dataQualityResult in Amazon DataZone. ([21c6b46](https://github.com/aws/aws-sdk-js-v3/commit/21c6b46258189bbb52eabe43b4eea49de36fd269))
+
+
+
+
+
 # [3.546.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.545.0...v3.546.0) (2024-04-01)
 
 

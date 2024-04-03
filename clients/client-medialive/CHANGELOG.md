@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.548.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.547.0...v3.548.0) (2024-04-03)
+
+
+### Features
+
+* **client-medialive:** Cmaf Ingest outputs are now supported in Media Live ([e6543fe](https://github.com/aws/aws-sdk-js-v3/commit/e6543febeebec5a16022ffa806947fd4014dcc98))
+
+
+
+
+
 # [3.541.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.540.0...v3.541.0) (2024-03-25)
 
 
