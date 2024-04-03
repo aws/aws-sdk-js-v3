@@ -22,7 +22,7 @@
     "@smithy/eventstream-serde-node": "^2.2.0",
     "@smithy/hash-node": "^2.2.0",
     "@smithy/hash-stream-node": "^2.2.0",
-    "@smithy/middleware-retry": "^2.2.0",
+    "@smithy/middleware-retry": "^2.3.0",
     "@smithy/node-config-provider": "^2.3.0",
     "@smithy/node-http-handler": "^2.5.0",
     "@smithy/smithy-client": "^2.5.0",
