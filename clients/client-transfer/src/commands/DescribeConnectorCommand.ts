@@ -73,6 +73,7 @@ export interface DescribeConnectorCommandOutput extends DescribeConnectorRespons
  * //     ServiceManagedEgressIpAddresses: [ // ServiceManagedEgressIpAddresses
  * //       "STRING_VALUE",
  * //     ],
+ * //     SecurityPolicyName: "STRING_VALUE",
  * //   },
  * // };
  *

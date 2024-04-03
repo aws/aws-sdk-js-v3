@@ -1057,6 +1057,12 @@ export interface CreateConnectorRequest {
    * @public
    */
   SftpConfig?: SftpConnectorConfig;
+
+  /**
+   * <p>Specifies the name of the security policy for the connector.</p>
+   * @public
+   */
+  SecurityPolicyName?: string;
 }
 
 /**
@@ -1827,7 +1833,7 @@ export interface CreateServerRequest {
   ProtocolDetails?: ProtocolDetails;
 
   /**
-   * <p>Specifies the name of the security policy that is attached to the server.</p>
+   * <p>Specifies the name of the security policy for the server.</p>
    * @public
    */
   SecurityPolicyName?: string;
@@ -3116,6 +3122,12 @@ export interface DescribedConnector {
    * @public
    */
   ServiceManagedEgressIpAddresses?: string[];
+
+  /**
+   * <p>The text name of the security policy for the specified connector.</p>
+   * @public
+   */
+  SecurityPolicyName?: string;
 }
 
 /**
@@ -3590,52 +3602,108 @@ export interface DescribedProfile {
 }
 
 /**
- * <p>Describes the properties of a security policy that was specified. For more information
+ * @public
+ * @enum
+ */
+export const SecurityPolicyProtocol = {
+  FTPS: "FTPS",
+  SFTP: "SFTP",
+} as const;
+
+/**
+ * @public
+ */
+export type SecurityPolicyProtocol = (typeof SecurityPolicyProtocol)[keyof typeof SecurityPolicyProtocol];
+
+/**
+ * @public
+ * @enum
+ */
+export const SecurityPolicyResourceType = {
+  CONNECTOR: "CONNECTOR",
+  SERVER: "SERVER",
+} as const;
+
+/**
+ * @public
+ */
+export type SecurityPolicyResourceType = (typeof SecurityPolicyResourceType)[keyof typeof SecurityPolicyResourceType];
+
+/**
+ * <p>Describes the properties of a security policy that you specify. For more information
  *       about security policies, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html">Working with security
- *         policies</a>.</p>
+ *         policies for servers</a> or <a href="https://docs.aws.amazon.com/transfer/latest/userguide/security-policies-connectors.html">Working with security
+ *           policies for SFTP connectors</a>.</p>
  * @public
  */
 export interface DescribedSecurityPolicy {
   /**
-   * <p>Specifies whether this policy enables Federal Information Processing Standards
-   *       (FIPS).</p>
+   * <p>Specifies whether this policy enables Federal Information Processing Standards (FIPS).
+   *       This parameter applies to both server and connector security policies.</p>
    * @public
    */
   Fips?: boolean;
 
   /**
-   * <p>Specifies the name of the security policy that is attached to the server.</p>
+   * <p>The text name of the specified security policy.</p>
    * @public
    */
   SecurityPolicyName: string | undefined;
 
   /**
-   * <p>Specifies the enabled Secure Shell (SSH) cipher encryption algorithms in the security
-   *       policy that is attached to the server.</p>
+   * <p>Lists the enabled Secure Shell (SSH) cipher encryption algorithms in the security policy
+   *       that is attached to the server or connector. This parameter applies to both server and
+   *       connector security policies.</p>
    * @public
    */
   SshCiphers?: string[];
 
   /**
-   * <p>Specifies the enabled SSH key exchange (KEX) encryption algorithms in the security policy
-   *       that is attached to the server.</p>
+   * <p>Lists the enabled SSH key exchange (KEX) encryption algorithms in the security policy that
+   *       is attached to the server or connector. This parameter applies to both server and connector
+   *       security policies.</p>
    * @public
    */
   SshKexs?: string[];
 
   /**
-   * <p>Specifies the enabled SSH message authentication code (MAC) encryption algorithms in the
-   *       security policy that is attached to the server.</p>
+   * <p>Lists the enabled SSH message authentication code (MAC) encryption algorithms in the
+   *       security policy that is attached to the server or connector. This parameter applies to both
+   *       server and connector security policies.</p>
    * @public
    */
   SshMacs?: string[];
 
   /**
-   * <p>Specifies the enabled Transport Layer Security (TLS) cipher encryption algorithms in the
+   * <p>Lists the enabled Transport Layer Security (TLS) cipher encryption algorithms in the
    *       security policy that is attached to the server.</p>
+   *          <note>
+   *             <p>This parameter only applies to security policies for servers.</p>
+   *          </note>
    * @public
    */
   TlsCiphers?: string[];
+
+  /**
+   * <p>Lists the host key algorithms for the security policy.</p>
+   *          <note>
+   *             <p>This parameter only applies to security policies for connectors.</p>
+   *          </note>
+   * @public
+   */
+  SshHostKeyAlgorithms?: string[];
+
+  /**
+   * <p>The resource type to which the security policy applies, either server or connector.</p>
+   * @public
+   */
+  Type?: SecurityPolicyResourceType;
+
+  /**
+   * <p>Lists the file transfer protocols that the security policy applies to.</p>
+   * @public
+   */
+  Protocols?: SecurityPolicyProtocol[];
 }
 
 /**
@@ -3846,7 +3914,7 @@ export interface DescribedServer {
   Protocols?: Protocol[];
 
   /**
-   * <p>Specifies the name of the security policy that is attached to the server.</p>
+   * <p>Specifies the name of the security policy for the server.</p>
    * @public
    */
   SecurityPolicyName?: string;
@@ -4197,7 +4265,7 @@ export interface DescribeProfileResponse {
  */
 export interface DescribeSecurityPolicyRequest {
   /**
-   * <p>Specifies the name of the security policy that is attached to the server.</p>
+   * <p>Specify the text name of the security policy for which you want the details.</p>
    * @public
    */
   SecurityPolicyName: string | undefined;
@@ -6179,6 +6247,12 @@ export interface UpdateConnectorRequest {
    * @public
    */
   SftpConfig?: SftpConnectorConfig;
+
+  /**
+   * <p>Specifies the name of the security policy for the connector.</p>
+   * @public
+   */
+  SecurityPolicyName?: string;
 }
 
 /**
@@ -6480,7 +6554,7 @@ export interface UpdateServerRequest {
   Protocols?: Protocol[];
 
   /**
-   * <p>Specifies the name of the security policy that is attached to the server.</p>
+   * <p>Specifies the name of the security policy for the server.</p>
    * @public
    */
   SecurityPolicyName?: string;

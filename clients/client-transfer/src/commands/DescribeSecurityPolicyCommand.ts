@@ -27,10 +27,10 @@ export interface DescribeSecurityPolicyCommandInput extends DescribeSecurityPoli
 export interface DescribeSecurityPolicyCommandOutput extends DescribeSecurityPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the security policy that is attached to your file transfer protocol-enabled
- *       server. The response contains a description of the security policy's properties. For more
+ * <p>Describes the security policy that is attached to your server or SFTP connector. The response contains a description of the security policy's properties. For more
  *       information about security policies, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html">Working with security
- *         policies</a>.</p>
+ *         policies for servers</a> or <a href="https://docs.aws.amazon.com/transfer/latest/userguide/security-policies-connectors.html">Working with security
+ *           policies for SFTP connectors</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +57,13 @@ export interface DescribeSecurityPolicyCommandOutput extends DescribeSecurityPol
  * //     ],
  * //     TlsCiphers: [
  * //       "STRING_VALUE",
+ * //     ],
+ * //     SshHostKeyAlgorithms: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Type: "SERVER" || "CONNECTOR",
+ * //     Protocols: [ // SecurityPolicyProtocols
+ * //       "SFTP" || "FTPS",
  * //     ],
  * //   },
  * // };
