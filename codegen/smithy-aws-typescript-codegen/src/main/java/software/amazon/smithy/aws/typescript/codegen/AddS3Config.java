@@ -26,6 +26,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 import java.util.logging.Logger;
+import java.util.stream.Stream;
+
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.codegen.core.SymbolProvider;
@@ -36,8 +38,13 @@ import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
+import software.amazon.smithy.model.shapes.ShapeId;
+import software.amazon.smithy.model.shapes.StringShape;
 import software.amazon.smithy.model.shapes.StructureShape;
+import software.amazon.smithy.model.shapes.TimestampShape;
+import software.amazon.smithy.model.traits.DeprecatedTrait;
 import software.amazon.smithy.model.traits.DocumentationTrait;
+import software.amazon.smithy.model.traits.HttpHeaderTrait;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
@@ -106,6 +113,89 @@ public final class AddS3Config implements TypeScriptIntegration {
             });
         }
         LOGGER.info("Patching " + inputShapes.size() + " input shapes with CRT notification");
+
+        boolean expiresShapeIsPresent = model.getShape(ShapeId.from("com.amazonaws.s3#Expires")).isPresent();
+        if (expiresShapeIsPresent) {
+            // ExpiresString customization part 1:
+            // enforce that "com.amazonaws.s3#Expires" retains type=timestamp.
+            // add a shape "com.amazonaws.s3#ExpiresString" of type=string.
+            Shape expiresShape = model.getShape(ShapeId.from("com.amazonaws.s3#Expires")).get();
+            TimestampShape expiresTimestampShape = TimestampShape.builder()
+                .id(expiresShape.getId())
+                .build();
+            StringShape expiresStringShape = StringShape.builder()
+                .id("com.amazonaws.s3#ExpiresString")
+                .build();
+            modelBuilder
+                .removeShape(expiresShape.getId())
+                .addShapes(expiresTimestampShape, expiresStringShape);
+
+            // ExpiresString customization part 2:
+            // for any output shape member targeting Expires, add a member ExpiresString targeting ExpiresString.
+            // and mark Expires deprecated in favor of ExpiresString.
+            // move Expires documentation trait to ExpiresString.
+            // set the httpHeader trait of ExpiresString to be ExpiresString.
+            // SDK middleware will take care of copying expires header to expiresstring header prior to deserialization.
+            for (OperationShape operationShape : topDownIndex.getContainedOperations(serviceShape)) {
+                if (operationShape.getOutput().isEmpty()) {
+                    continue;
+                }
+                StructureShape structureShape = model.expectShape(operationShape.getOutputShape(), StructureShape.class);
+
+                Set<Map.Entry<String, MemberShape>> memberEntries = structureShape
+                    .getAllMembers()
+                    .entrySet();
+                StructureShape.Builder structureShapeBuilder = structureShape.toBuilder();
+
+                boolean isTargetingExpires = structureShape
+                    .getAllMembers()
+                    .values()
+                    .stream()
+                    .anyMatch(memberShape -> memberShape.getTarget().equals(expiresShape.getId()));
+
+                if (isTargetingExpires) {
+                    for (Map.Entry<String, MemberShape> entry : memberEntries) {
+                        String memberName = entry.getKey();
+                        MemberShape memberShape = entry.getValue();
+
+                        if (memberShape.getTarget().equals(expiresShape.getId())) {
+                            structureShapeBuilder
+                                .removeMember(memberName)
+                                .addMember(
+                                    memberName,
+                                    expiresTimestampShape.getId(),
+                                    (m) -> {
+                                        m
+                                            .addTrait(new DocumentationTrait("Deprecated in favor of ExpiresString."))
+                                            .addTrait(memberShape.getTrait(HttpHeaderTrait.class).get())
+                                            .addTrait(DeprecatedTrait.builder().build());
+                                    }
+                                )
+                                .addMember(
+                                    "ExpiresString",
+                                    expiresStringShape.getId(),
+                                    (m) -> {
+                                        m
+                                            .addTrait(memberShape.getTrait(DocumentationTrait.class).get())
+                                            .addTrait(new HttpHeaderTrait("ExpiresString"));
+                                    }
+                                );
+                        } else {
+                            // This is done to preserve the member order
+                            // and insert ExpiresString adjacent to Expires.
+                            structureShapeBuilder
+                                .removeMember(memberName)
+                                .addMember(memberName, memberShape.getTarget(), (m) -> {
+                                    m.addTraits(memberShape.getAllTraits().values());
+                                });
+                        }
+                    }
+                    modelBuilder
+                        .addShape(structureShapeBuilder.build());
+                }
+            }
+        }
+
         return modelBuilder.addShapes(inputShapes).build();
     }
 
