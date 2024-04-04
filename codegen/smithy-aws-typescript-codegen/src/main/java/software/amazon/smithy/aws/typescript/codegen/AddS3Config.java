@@ -26,8 +26,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 import java.util.logging.Logger;
-import java.util.stream.Stream;
-
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.codegen.core.SymbolProvider;
@@ -140,7 +138,9 @@ public final class AddS3Config implements TypeScriptIntegration {
                 if (operationShape.getOutput().isEmpty()) {
                     continue;
                 }
-                StructureShape structureShape = model.expectShape(operationShape.getOutputShape(), StructureShape.class);
+                StructureShape structureShape = model.expectShape(
+                    operationShape.getOutputShape(), StructureShape.class
+                );
 
                 Set<Map.Entry<String, MemberShape>> memberEntries = structureShape
                     .getAllMembers()
