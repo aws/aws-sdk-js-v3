@@ -69,6 +69,26 @@ export const TranscodePreset = {
 export type TranscodePreset = (typeof TranscodePreset)[keyof typeof TranscodePreset];
 
 /**
+ * <p>Specifies information needed to stream using the SRT protocol.</p>
+ * @public
+ */
+export interface Srt {
+  /**
+   * <p>The endpoint to be used when streaming with IVS using the SRT protocol.</p>
+   * @public
+   */
+  endpoint?: string;
+
+  /**
+   * <p>Auto-generated passphrase to enable encryption. This field is applicable only if the end
+   *       user has <i>not</i> enabled the <code>insecureIngest</code> option for the
+   *       channel.</p>
+   * @public
+   */
+  passphrase?: string;
+}
+
+/**
  * @public
  * @enum
  */
@@ -119,8 +139,8 @@ export interface Channel {
   type?: ChannelType;
 
   /**
-   * <p>Recording-configuration ARN. A valid ARN value here both specifies the ARN and enables recording.
-   *     Default: "" (empty string, recording is disabled).</p>
+   * <p>Recording-configuration ARN. A valid ARN value here both specifies the ARN and enables
+   *       recording. Default: "" (empty string, recording is disabled).</p>
    * @public
    */
   recordingConfigurationArn?: string;
@@ -171,7 +191,15 @@ export interface Channel {
   preset?: TranscodePreset;
 
   /**
-   * <p>Playback-restriction-policy ARN. A valid ARN value here both specifies the ARN and enables playback restriction. Default: "" (empty string, no playback restriction policy is applied).</p>
+   * <p>Specifies the endpoint and optional passphrase for streaming with the SRT protocol.</p>
+   * @public
+   */
+  srt?: Srt;
+
+  /**
+   * <p>Playback-restriction-policy ARN. A valid ARN value here both specifies the ARN and enables
+   *       playback restriction. Default: "" (empty string, no playback restriction policy is
+   *       applied).</p>
    * @public
    */
   playbackRestrictionPolicyArn?: string;
@@ -487,7 +515,7 @@ export interface CreateChannelRequest {
   tags?: Record<string, string>;
 
   /**
-   * <p>Whether the channel allows insecure RTMP ingest. Default: <code>false</code>.</p>
+   * <p>Whether the channel allows insecure RTMP and SRT ingest. Default: <code>false</code>.</p>
    * @public
    */
   insecureIngest?: boolean;
@@ -636,14 +664,16 @@ export interface PlaybackRestrictionPolicy {
 
   /**
    * <p>A list of country codes that control geoblocking restriction. Allowed values are the
-   *       officially assigned <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> codes. Default: All countries (an empty array).</p>
+   *       officially assigned <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1
+   *         alpha-2</a> codes. Default: All countries (an empty array).</p>
    * @public
    */
   allowedCountries: string[] | undefined;
 
   /**
    * <p>A list of origin sites that control CORS restriction. Allowed values are the same as valid
-   *       values of the Origin header defined at <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin</a>. Default: All origins (an empty array).</p>
+   *       values of the Origin header defined at <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin</a>. Default: All
+   *       origins (an empty array).</p>
    * @public
    */
   allowedOrigins: string[] | undefined;
@@ -1735,8 +1765,8 @@ export interface ChannelSummary {
   authorized?: boolean;
 
   /**
-   * <p>Recording-configuration ARN. A valid ARN value here both specifies the ARN and enables recording.
-   *       Default: "" (empty string, recording is disabled).</p>
+   * <p>Recording-configuration ARN. A valid ARN value here both specifies the ARN and enables
+   *       recording. Default: "" (empty string, recording is disabled).</p>
    * @public
    */
   recordingConfigurationArn?: string;
@@ -1776,8 +1806,9 @@ export interface ChannelSummary {
   preset?: TranscodePreset;
 
   /**
-   * <p>Playback-restriction-policy ARN. A valid ARN value here both specifies the ARN and enables playback restriction.
-   *     Default: "" (empty string, no playback restriction policy is applied).</p>
+   * <p>Playback-restriction-policy ARN. A valid ARN value here both specifies the ARN and enables
+   *       playback restriction. Default: "" (empty string, no playback restriction policy is
+   *       applied).</p>
    * @public
    */
   playbackRestrictionPolicyArn?: string;
@@ -1904,7 +1935,8 @@ export interface PlaybackRestrictionPolicySummary {
 
   /**
    * <p>A list of origin sites that control CORS restriction. Allowed values are the same as valid
-   *       values of the Origin header defined at <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin</a>. Default: All origins (an empty array).</p>
+   *       values of the Origin header defined at <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin</a>. Default: All
+   *       origins (an empty array).</p>
    * @public
    */
   allowedOrigins: string[] | undefined;
@@ -2482,7 +2514,7 @@ export interface UpdateChannelRequest {
   recordingConfigurationArn?: string;
 
   /**
-   * <p>Whether the channel allows insecure RTMP ingest. Default: <code>false</code>.</p>
+   * <p>Whether the channel allows insecure RTMP and SRT ingest. Default: <code>false</code>.</p>
    * @public
    */
   insecureIngest?: boolean;
@@ -2570,6 +2602,30 @@ export interface UpdatePlaybackRestrictionPolicyResponse {
 /**
  * @internal
  */
+export const SrtFilterSensitiveLog = (obj: Srt): any => ({
+  ...obj,
+  ...(obj.passphrase && { passphrase: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ChannelFilterSensitiveLog = (obj: Channel): any => ({
+  ...obj,
+  ...(obj.srt && { srt: SrtFilterSensitiveLog(obj.srt) }),
+});
+
+/**
+ * @internal
+ */
+export const BatchGetChannelResponseFilterSensitiveLog = (obj: BatchGetChannelResponse): any => ({
+  ...obj,
+  ...(obj.channels && { channels: obj.channels.map((item) => ChannelFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
 export const StreamKeyFilterSensitiveLog = (obj: StreamKey): any => ({
   ...obj,
   ...(obj.value && { value: SENSITIVE_STRING }),
@@ -2588,6 +2644,7 @@ export const BatchGetStreamKeyResponseFilterSensitiveLog = (obj: BatchGetStreamK
  */
 export const CreateChannelResponseFilterSensitiveLog = (obj: CreateChannelResponse): any => ({
   ...obj,
+  ...(obj.channel && { channel: ChannelFilterSensitiveLog(obj.channel) }),
   ...(obj.streamKey && { streamKey: StreamKeyFilterSensitiveLog(obj.streamKey) }),
 });
 
@@ -2602,6 +2659,14 @@ export const CreateStreamKeyResponseFilterSensitiveLog = (obj: CreateStreamKeyRe
 /**
  * @internal
  */
+export const GetChannelResponseFilterSensitiveLog = (obj: GetChannelResponse): any => ({
+  ...obj,
+  ...(obj.channel && { channel: ChannelFilterSensitiveLog(obj.channel) }),
+});
+
+/**
+ * @internal
+ */
 export const GetStreamKeyResponseFilterSensitiveLog = (obj: GetStreamKeyResponse): any => ({
   ...obj,
   ...(obj.streamKey && { streamKey: StreamKeyFilterSensitiveLog(obj.streamKey) }),
@@ -2610,7 +2675,31 @@ export const GetStreamKeyResponseFilterSensitiveLog = (obj: GetStreamKeyResponse
 /**
  * @internal
  */
+export const StreamSessionFilterSensitiveLog = (obj: StreamSession): any => ({
+  ...obj,
+  ...(obj.channel && { channel: ChannelFilterSensitiveLog(obj.channel) }),
+});
+
+/**
+ * @internal
+ */
+export const GetStreamSessionResponseFilterSensitiveLog = (obj: GetStreamSessionResponse): any => ({
+  ...obj,
+  ...(obj.streamSession && { streamSession: StreamSessionFilterSensitiveLog(obj.streamSession) }),
+});
+
+/**
+ * @internal
+ */
 export const PutMetadataRequestFilterSensitiveLog = (obj: PutMetadataRequest): any => ({
   ...obj,
   ...(obj.metadata && { metadata: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateChannelResponseFilterSensitiveLog = (obj: UpdateChannelResponse): any => ({
+  ...obj,
+  ...(obj.channel && { channel: ChannelFilterSensitiveLog(obj.channel) }),
 });

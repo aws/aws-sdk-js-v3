@@ -68,6 +68,10 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //     },
  * //     insecureIngest: true || false,
  * //     preset: "HIGHER_BANDWIDTH_DELIVERY" || "CONSTRAINED_BANDWIDTH_DELIVERY",
+ * //     srt: { // Srt
+ * //       endpoint: "STRING_VALUE",
+ * //       passphrase: "STRING_VALUE",
+ * //     },
  * //     playbackRestrictionPolicyArn: "STRING_VALUE",
  * //   },
  * //   streamKey: { // StreamKey
