@@ -542,6 +542,26 @@ export interface CreateVirtualClusterResponse {
 }
 
 /**
+ * <p>The request exceeded the Amazon EKS API operation limits.</p>
+ * @public
+ */
+export class EKSRequestThrottledException extends __BaseException {
+  readonly name: "EKSRequestThrottledException" = "EKSRequestThrottledException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EKSRequestThrottledException, __BaseException>) {
+    super({
+      name: "EKSRequestThrottledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EKSRequestThrottledException.prototype);
+  }
+}
+
+/**
  * @public
  */
 export interface DeleteJobTemplateRequest {
@@ -1170,6 +1190,14 @@ export interface ListVirtualClustersRequest {
    * @public
    */
   nextToken?: string;
+
+  /**
+   * <p>Optional Boolean that specifies whether the operation should return the
+   *          virtual clusters that have the access entry integration enabled or disabled. If not specified,
+   *       the operation returns all applicable virtual clusters.</p>
+   * @public
+   */
+  eksAccessEntryIntegrated?: boolean;
 }
 
 /**

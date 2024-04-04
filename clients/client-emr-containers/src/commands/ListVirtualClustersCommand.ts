@@ -49,6 +49,7 @@ export interface ListVirtualClustersCommandOutput extends ListVirtualClustersRes
  *   ],
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
+ *   eksAccessEntryIntegrated: true || false,
  * };
  * const command = new ListVirtualClustersCommand(input);
  * const response = await client.send(command);
