@@ -69,6 +69,11 @@ import {
   SimpleScalarPropertiesCommandInput,
   SimpleScalarPropertiesCommandOutput,
 } from "./commands/SimpleScalarPropertiesCommand";
+import {
+  SparseNullsOperationCommand,
+  SparseNullsOperationCommandInput,
+  SparseNullsOperationCommandOutput,
+} from "./commands/SparseNullsOperationCommand";
 import { JsonProtocolClient, JsonProtocolClientConfig } from "./JsonProtocolClient";
 
 const commands = {
@@ -87,6 +92,7 @@ const commands = {
   PutAndGetInlineDocumentsCommand,
   PutWithContentEncodingCommand,
   SimpleScalarPropertiesCommand,
+  SparseNullsOperationCommand,
 };
 
 export interface JsonProtocol {
@@ -333,6 +339,24 @@ export interface JsonProtocol {
     args: SimpleScalarPropertiesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SimpleScalarPropertiesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SparseNullsOperationCommand}
+   */
+  sparseNullsOperation(): Promise<SparseNullsOperationCommandOutput>;
+  sparseNullsOperation(
+    args: SparseNullsOperationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SparseNullsOperationCommandOutput>;
+  sparseNullsOperation(
+    args: SparseNullsOperationCommandInput,
+    cb: (err: any, data?: SparseNullsOperationCommandOutput) => void
+  ): void;
+  sparseNullsOperation(
+    args: SparseNullsOperationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SparseNullsOperationCommandOutput) => void
   ): void;
 }
 

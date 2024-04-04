@@ -1510,7 +1510,7 @@ it("Ec2Query:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=SimpleInputParams&Version=2020-01-08&A=Hi`;
+    const bodyString = `Action=SimpleInputParams&Version=2020-01-08&HasQueryName=Hi`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1547,7 +1547,7 @@ it("Ec2QueryIsPreferred:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=SimpleInputParams&Version=2020-01-08&B=Hi`;
+    const bodyString = `Action=SimpleInputParams&Version=2020-01-08&HasQueryAndXmlName=Hi`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1584,7 +1584,7 @@ it("Ec2XmlNameIsUppercased:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `Action=SimpleInputParams&Version=2020-01-08&C=Hi`;
+    const bodyString = `Action=SimpleInputParams&Version=2020-01-08&UsesXmlName=Hi`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }

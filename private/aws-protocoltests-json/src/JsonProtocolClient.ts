@@ -96,6 +96,10 @@ import {
   SimpleScalarPropertiesCommandInput,
   SimpleScalarPropertiesCommandOutput,
 } from "./commands/SimpleScalarPropertiesCommand";
+import {
+  SparseNullsOperationCommandInput,
+  SparseNullsOperationCommandOutput,
+} from "./commands/SparseNullsOperationCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 import { resolveRuntimeExtensions, RuntimeExtension, RuntimeExtensionsConfig } from "./runtimeExtensions";
 
@@ -119,7 +123,8 @@ export type ServiceInputTypes =
   | OperationWithOptionalInputOutputCommandInput
   | PutAndGetInlineDocumentsCommandInput
   | PutWithContentEncodingCommandInput
-  | SimpleScalarPropertiesCommandInput;
+  | SimpleScalarPropertiesCommandInput
+  | SparseNullsOperationCommandInput;
 
 /**
  * @public
@@ -139,7 +144,8 @@ export type ServiceOutputTypes =
   | OperationWithOptionalInputOutputCommandOutput
   | PutAndGetInlineDocumentsCommandOutput
   | PutWithContentEncodingCommandOutput
-  | SimpleScalarPropertiesCommandOutput;
+  | SimpleScalarPropertiesCommandOutput
+  | SparseNullsOperationCommandOutput;
 
 /**
  * @public

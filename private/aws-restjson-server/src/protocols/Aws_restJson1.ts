@@ -307,6 +307,8 @@ import {
   SimpleScalarPropertiesServerInput,
   SimpleScalarPropertiesServerOutput,
 } from "../server/operations/SimpleScalarProperties";
+import { SparseJsonListsServerInput, SparseJsonListsServerOutput } from "../server/operations/SparseJsonLists";
+import { SparseJsonMapsServerInput, SparseJsonMapsServerOutput } from "../server/operations/SparseJsonMaps";
 import { StreamingTraitsServerInput, StreamingTraitsServerOutput } from "../server/operations/StreamingTraits";
 import {
   StreamingTraitsRequireLengthServerInput,
@@ -1575,7 +1577,6 @@ export const deserializeJsonListsRequest = async (
     intEnumList: (_) => de_IntegerEnumList(_, context),
     integerList: (_) => de_IntegerList(_, context),
     nestedStringList: (_) => de_NestedStringList(_, context),
-    sparseStringList: (_) => de_SparseStringList(_, context),
     stringList: (_) => de_StringList(_, context),
     stringSet: (_) => de_StringSet(_, context),
     structureList: [, (_) => de_StructureList(_, context), `myStructureList`],
@@ -1613,11 +1614,6 @@ export const deserializeJsonMapsRequest = async (
     denseSetMap: (_) => de_DenseSetMap(_, context),
     denseStringMap: (_) => de_DenseStringMap(_, context),
     denseStructMap: (_) => de_DenseStructMap(_, context),
-    sparseBooleanMap: (_) => de_SparseBooleanMap(_, context),
-    sparseNumberMap: (_) => de_SparseNumberMap(_, context),
-    sparseSetMap: (_) => de_SparseSetMap(_, context),
-    sparseStringMap: (_) => de_SparseStringMap(_, context),
-    sparseStructMap: (_) => de_SparseStructMap(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -3359,6 +3355,68 @@ export const deserializeSimpleScalarPropertiesRequest = async (
   return contents;
 };
 
+export const deserializeSparseJsonListsRequest = async (
+  output: __HttpRequest,
+  context: __SerdeContext
+): Promise<SparseJsonListsServerInput> => {
+  const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
+    (key) => key.toLowerCase() === "content-type"
+  );
+  if (contentTypeHeaderKey != null) {
+    const contentType = output.headers[contentTypeHeaderKey];
+    if (contentType !== undefined && contentType !== "application/json") {
+      throw new __UnsupportedMediaTypeException();
+    }
+  }
+  const acceptHeaderKey: string | undefined = Object.keys(output.headers).find((key) => key.toLowerCase() === "accept");
+  if (acceptHeaderKey != null) {
+    const accept = output.headers[acceptHeaderKey];
+    if (!__acceptMatches(accept, "application/json")) {
+      throw new __NotAcceptableException();
+    }
+  }
+  const contents: any = map({});
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    sparseStringList: (_) => de_SparseStringList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+export const deserializeSparseJsonMapsRequest = async (
+  output: __HttpRequest,
+  context: __SerdeContext
+): Promise<SparseJsonMapsServerInput> => {
+  const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
+    (key) => key.toLowerCase() === "content-type"
+  );
+  if (contentTypeHeaderKey != null) {
+    const contentType = output.headers[contentTypeHeaderKey];
+    if (contentType !== undefined && contentType !== "application/json") {
+      throw new __UnsupportedMediaTypeException();
+    }
+  }
+  const acceptHeaderKey: string | undefined = Object.keys(output.headers).find((key) => key.toLowerCase() === "accept");
+  if (acceptHeaderKey != null) {
+    const accept = output.headers[acceptHeaderKey];
+    if (!__acceptMatches(accept, "application/json")) {
+      throw new __NotAcceptableException();
+    }
+  }
+  const contents: any = map({});
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    sparseBooleanMap: (_) => de_SparseBooleanMap(_, context),
+    sparseNumberMap: (_) => de_SparseNumberMap(_, context),
+    sparseSetMap: (_) => de_SparseSetMap(_, context),
+    sparseStringMap: (_) => de_SparseStringMap(_, context),
+    sparseStructMap: (_) => de_SparseStructMap(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
 export const deserializeStreamingTraitsRequest = async (
   output: __HttpRequest,
   context: __SerdeContext
@@ -4935,7 +4993,6 @@ export const serializeJsonListsResponse = async (
       intEnumList: (_) => se_IntegerEnumList(_, context),
       integerList: (_) => se_IntegerList(_, context),
       nestedStringList: (_) => se_NestedStringList(_, context),
-      sparseStringList: (_) => se_SparseStringList(_, context),
       stringList: (_) => se_StringList(_, context),
       stringSet: (_) => se_StringSet(_, context),
       myStructureList: [, (_) => se_StructureList(_, context), `structureList`],
@@ -4985,11 +5042,6 @@ export const serializeJsonMapsResponse = async (
       denseSetMap: (_) => se_DenseSetMap(_, context),
       denseStringMap: (_) => se_DenseStringMap(_, context),
       denseStructMap: (_) => se_DenseStructMap(_, context),
-      sparseBooleanMap: (_) => se_SparseBooleanMap(_, context),
-      sparseNumberMap: (_) => se_SparseNumberMap(_, context),
-      sparseSetMap: (_) => se_SparseSetMap(_, context),
-      sparseStringMap: (_) => se_SparseStringMap(_, context),
-      sparseStructMap: (_) => se_SparseStructMap(_, context),
     })
   );
   if (
@@ -6758,6 +6810,92 @@ export const serializeSimpleScalarPropertiesResponse = async (
       shortValue: [],
       stringValue: [],
       trueBooleanValue: [],
+    })
+  );
+  if (
+    body &&
+    Object.keys(headers)
+      .map((str) => str.toLowerCase())
+      .indexOf("content-length") === -1
+  ) {
+    const length = calculateBodyLength(body);
+    if (length !== undefined) {
+      headers = { ...headers, "content-length": String(length) };
+    }
+  }
+  return new __HttpResponse({
+    headers,
+    body,
+    statusCode,
+  });
+};
+
+export const serializeSparseJsonListsResponse = async (
+  input: SparseJsonListsServerOutput,
+  ctx: ServerSerdeContext
+): Promise<__HttpResponse> => {
+  const context: __SerdeContext = {
+    ...ctx,
+    endpoint: () =>
+      Promise.resolve({
+        protocol: "",
+        hostname: "",
+        path: "",
+      }),
+  };
+  const statusCode = 200;
+  let headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      sparseStringList: (_) => se_SparseStringList(_, context),
+    })
+  );
+  if (
+    body &&
+    Object.keys(headers)
+      .map((str) => str.toLowerCase())
+      .indexOf("content-length") === -1
+  ) {
+    const length = calculateBodyLength(body);
+    if (length !== undefined) {
+      headers = { ...headers, "content-length": String(length) };
+    }
+  }
+  return new __HttpResponse({
+    headers,
+    body,
+    statusCode,
+  });
+};
+
+export const serializeSparseJsonMapsResponse = async (
+  input: SparseJsonMapsServerOutput,
+  ctx: ServerSerdeContext
+): Promise<__HttpResponse> => {
+  const context: __SerdeContext = {
+    ...ctx,
+    endpoint: () =>
+      Promise.resolve({
+        protocol: "",
+        hostname: "",
+        path: "",
+      }),
+  };
+  const statusCode = 200;
+  let headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      sparseBooleanMap: (_) => se_SparseBooleanMap(_, context),
+      sparseNumberMap: (_) => se_SparseNumberMap(_, context),
+      sparseSetMap: (_) => se_SparseSetMap(_, context),
+      sparseStringMap: (_) => se_SparseStringMap(_, context),
+      sparseStructMap: (_) => se_SparseStructMap(_, context),
     })
   );
   if (

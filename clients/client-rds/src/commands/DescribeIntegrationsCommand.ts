@@ -109,6 +109,7 @@ export interface DescribeIntegrationsCommandOutput extends DescribeIntegrationsR
  *   "Integrations": [
  *     {
  *       "CreateTime": "2023-12-28T17:20:20.629Z",
+ *       "IntegrationArn": "arn:aws:rds:us-east-1:123456789012:integration:5b9f3d79-7392-4a3e-896c-58eaa1b53231",
  *       "IntegrationName": "my-integration",
  *       "KMSKeyId": "arn:aws:kms:us-east-1:123456789012:key/a1b2c3d4-5678-90ab-cdef-EXAMPLEaaaaa",
  *       "SourceArn": "arn:aws:rds:us-east-1:123456789012:cluster:my-cluster",

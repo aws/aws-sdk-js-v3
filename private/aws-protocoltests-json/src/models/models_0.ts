@@ -379,8 +379,6 @@ export interface UnionInputOutput {
  */
 export interface NullOperationInputOutput {
   string?: string;
-  sparseStringList?: string[];
-  sparseStringMap?: Record<string, string>;
 }
 
 /**
@@ -418,6 +416,14 @@ export interface PutWithContentEncodingInput {
 export interface SimpleScalarPropertiesInputOutput {
   floatValue?: number;
   doubleValue?: number;
+}
+
+/**
+ * @public
+ */
+export interface SparseNullsOperationInputOutput {
+  sparseStringList?: string[];
+  sparseStringMap?: Record<string, string>;
 }
 
 /**

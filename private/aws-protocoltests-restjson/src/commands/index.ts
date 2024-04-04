@@ -83,6 +83,8 @@ export * from "./QueryParamsAsStringListMapCommand";
 export * from "./QueryPrecedenceCommand";
 export * from "./RecursiveShapesCommand";
 export * from "./SimpleScalarPropertiesCommand";
+export * from "./SparseJsonListsCommand";
+export * from "./SparseJsonMapsCommand";
 export * from "./StreamingTraitsCommand";
 export * from "./StreamingTraitsRequireLengthCommand";
 export * from "./StreamingTraitsWithMediaTypeCommand";

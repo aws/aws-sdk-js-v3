@@ -487,7 +487,6 @@ export interface StructureListMember {
  */
 export interface JsonListsInputOutput {
   stringList?: string[];
-  sparseStringList?: string[];
   stringSet?: string[];
   integerList?: number[];
   booleanList?: boolean[];
@@ -508,15 +507,10 @@ export interface JsonListsInputOutput {
  */
 export interface JsonMapsInputOutput {
   denseStructMap?: Record<string, GreetingStruct>;
-  sparseStructMap?: Record<string, GreetingStruct>;
   denseNumberMap?: Record<string, number>;
   denseBooleanMap?: Record<string, boolean>;
   denseStringMap?: Record<string, string>;
-  sparseNumberMap?: Record<string, number>;
-  sparseBooleanMap?: Record<string, boolean>;
-  sparseStringMap?: Record<string, string>;
   denseSetMap?: Record<string, string[]>;
-  sparseSetMap?: Record<string, string[]>;
 }
 
 /**
@@ -1256,6 +1250,24 @@ export interface SimpleScalarPropertiesInputOutput {
   longValue?: number;
   floatValue?: number;
   doubleValue?: number;
+}
+
+/**
+ * @public
+ */
+export interface SparseJsonListsInputOutput {
+  sparseStringList?: string[];
+}
+
+/**
+ * @public
+ */
+export interface SparseJsonMapsInputOutput {
+  sparseStructMap?: Record<string, GreetingStruct>;
+  sparseNumberMap?: Record<string, number>;
+  sparseBooleanMap?: Record<string, boolean>;
+  sparseStringMap?: Record<string, string>;
+  sparseSetMap?: Record<string, string[]>;
 }
 
 /**

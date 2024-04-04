@@ -1932,9 +1932,6 @@ it.skip("RestXmlHttpPayloadWithUnsetUnion:Request", async () => {
     expect(r.method).toBe("PUT");
     expect(r.path).toBe("/HttpPayloadWithUnion");
 
-    expect(r.headers["content-type"]).toBeDefined();
-    expect(r.headers["content-type"]).toBe("application/xml");
-
     expect(r.body).toBeFalsy();
   }
 });

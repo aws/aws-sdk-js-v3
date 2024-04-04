@@ -351,6 +351,8 @@ import {
   SimpleScalarPropertiesSerializer,
   SimpleScalarPropertiesServerInput,
 } from "./operations/SimpleScalarProperties";
+import { SparseJsonLists, SparseJsonListsSerializer, SparseJsonListsServerInput } from "./operations/SparseJsonLists";
+import { SparseJsonMaps, SparseJsonMapsSerializer, SparseJsonMapsServerInput } from "./operations/SparseJsonMaps";
 import { StreamingTraits, StreamingTraitsSerializer, StreamingTraitsServerInput } from "./operations/StreamingTraits";
 import {
   StreamingTraitsRequireLength,
@@ -470,6 +472,8 @@ export type RestJsonServiceOperations =
   | "QueryPrecedence"
   | "RecursiveShapes"
   | "SimpleScalarProperties"
+  | "SparseJsonLists"
+  | "SparseJsonMaps"
   | "StreamingTraits"
   | "StreamingTraitsRequireLength"
   | "StreamingTraitsWithMediaType"
@@ -564,6 +568,8 @@ export interface RestJsonService<Context> {
   QueryPrecedence: QueryPrecedence<Context>;
   RecursiveShapes: RecursiveShapes<Context>;
   SimpleScalarProperties: SimpleScalarProperties<Context>;
+  SparseJsonLists: SparseJsonLists<Context>;
+  SparseJsonMaps: SparseJsonMaps<Context>;
   StreamingTraits: StreamingTraits<Context>;
   StreamingTraitsRequireLength: StreamingTraitsRequireLength<Context>;
   StreamingTraitsWithMediaType: StreamingTraitsWithMediaType<Context>;
@@ -1672,6 +1678,30 @@ export class RestJsonServiceHandler<Context> implements __ServiceHandler<Context
           this.validationCustomizer
         );
       }
+      case "SparseJsonLists": {
+        return handle(
+          request,
+          context,
+          "SparseJsonLists",
+          this.serializerFactory("SparseJsonLists"),
+          this.service.SparseJsonLists,
+          this.serializeFrameworkException,
+          SparseJsonListsServerInput.validate,
+          this.validationCustomizer
+        );
+      }
+      case "SparseJsonMaps": {
+        return handle(
+          request,
+          context,
+          "SparseJsonMaps",
+          this.serializerFactory("SparseJsonMaps"),
+          this.service.SparseJsonMaps,
+          this.serializeFrameworkException,
+          SparseJsonMapsServerInput.validate,
+          this.validationCustomizer
+        );
+      }
       case "StreamingTraits": {
         return handle(
           request,
@@ -2308,6 +2338,18 @@ export const getRestJsonServiceHandler = <Context>(
       [],
       { service: "RestJson", operation: "SimpleScalarProperties" }
     ),
+    new httpbinding.UriSpec<"RestJson", "SparseJsonLists">(
+      "PUT",
+      [{ type: "path_literal", value: "SparseJsonLists" }],
+      [],
+      { service: "RestJson", operation: "SparseJsonLists" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "SparseJsonMaps">(
+      "POST",
+      [{ type: "path_literal", value: "SparseJsonMaps" }],
+      [],
+      { service: "RestJson", operation: "SparseJsonMaps" }
+    ),
     new httpbinding.UriSpec<"RestJson", "StreamingTraits">(
       "POST",
       [{ type: "path_literal", value: "StreamingTraits" }],
@@ -2531,6 +2573,10 @@ export const getRestJsonServiceHandler = <Context>(
         return new RecursiveShapesSerializer();
       case "SimpleScalarProperties":
         return new SimpleScalarPropertiesSerializer();
+      case "SparseJsonLists":
+        return new SparseJsonListsSerializer();
+      case "SparseJsonMaps":
+        return new SparseJsonMapsSerializer();
       case "StreamingTraits":
         return new StreamingTraitsSerializer();
       case "StreamingTraitsRequireLength":
