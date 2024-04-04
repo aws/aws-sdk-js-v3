@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 export * from "./BatchGetCollaborationAnalysisTemplateCommand";
+export * from "./BatchGetSchemaAnalysisRuleCommand";
 export * from "./BatchGetSchemaCommand";
 export * from "./CreateAnalysisTemplateCommand";
 export * from "./CreateCollaborationCommand";

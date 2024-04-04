@@ -237,13 +237,24 @@ export const ScalarFunctions = {
   CAST: "CAST",
   CEILING: "CEILING",
   COALESCE: "COALESCE",
+  CONVERT: "CONVERT",
+  CURRENT_DATE: "CURRENT_DATE",
+  DATEADD: "DATEADD",
+  EXTRACT: "EXTRACT",
   FLOOR: "FLOOR",
+  GETDATE: "GETDATE",
   LN: "LN",
   LOG: "LOG",
   LOWER: "LOWER",
   ROUND: "ROUND",
   RTRIM: "RTRIM",
   SQRT: "SQRT",
+  SUBSTRING: "SUBSTRING",
+  TO_CHAR: "TO_CHAR",
+  TO_DATE: "TO_DATE",
+  TO_NUMBER: "TO_NUMBER",
+  TO_TIMESTAMP: "TO_TIMESTAMP",
+  TRIM: "TRIM",
   TRUNC: "TRUNC",
   UPPER: "UPPER",
 } as const;
@@ -338,13 +349,13 @@ export interface DifferentialPrivacyConfiguration {
  */
 export interface AnalysisRuleCustom {
   /**
-   * <p>The analysis templates that are allowed by the custom analysis rule.</p>
+   * <p>The ARN of the analysis templates that are allowed by the custom analysis rule.</p>
    * @public
    */
   allowedAnalyses: string[] | undefined;
 
   /**
-   * <p>The Amazon Web Services accounts that are allowed to query by the custom analysis rule. Required when
+   * <p>The IDs of the Amazon Web Services accounts that are allowed to query by the custom analysis rule. Required when
    *             <code>allowedAnalyses</code> is <code>ANY_QUERY</code>.</p>
    * @public
    */
@@ -1354,7 +1365,8 @@ export interface BatchGetSchemaInput {
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>The names for the schema objects to retrieve.&gt;</p>
+   * <p>The names for the schema objects to
+   *          retrieve.</p>
    * @public
    */
   names: string[] | undefined;
@@ -1401,6 +1413,98 @@ export interface Column {
    * @public
    */
   type: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SchemaConfiguration = {
+  DIFFERENTIAL_PRIVACY: "DIFFERENTIAL_PRIVACY",
+} as const;
+
+/**
+ * @public
+ */
+export type SchemaConfiguration = (typeof SchemaConfiguration)[keyof typeof SchemaConfiguration];
+
+/**
+ * @public
+ * @enum
+ */
+export const SchemaStatusReasonCode = {
+  ANALYSIS_PROVIDERS_NOT_CONFIGURED: "ANALYSIS_PROVIDERS_NOT_CONFIGURED",
+  ANALYSIS_RULE_MISSING: "ANALYSIS_RULE_MISSING",
+  ANALYSIS_TEMPLATES_NOT_CONFIGURED: "ANALYSIS_TEMPLATES_NOT_CONFIGURED",
+  DIFFERENTIAL_PRIVACY_POLICY_NOT_CONFIGURED: "DIFFERENTIAL_PRIVACY_POLICY_NOT_CONFIGURED",
+} as const;
+
+/**
+ * @public
+ */
+export type SchemaStatusReasonCode = (typeof SchemaStatusReasonCode)[keyof typeof SchemaStatusReasonCode];
+
+/**
+ * <p>A reason why the schema status is set to its current value.</p>
+ * @public
+ */
+export interface SchemaStatusReason {
+  /**
+   * <p>The schema status reason code.</p>
+   * @public
+   */
+  code: SchemaStatusReasonCode | undefined;
+
+  /**
+   * <p>An explanation of the schema status reason code.</p>
+   * @public
+   */
+  message: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SchemaStatus = {
+  NOT_READY: "NOT_READY",
+  READY: "READY",
+} as const;
+
+/**
+ * @public
+ */
+export type SchemaStatus = (typeof SchemaStatus)[keyof typeof SchemaStatus];
+
+/**
+ * <p>Information about the schema status.</p>
+ *          <p>A status of <code>READY</code> means that based on the schema analysis rule, queries of the given analysis rule type are properly configured to run queries on this schema.</p>
+ * @public
+ */
+export interface SchemaStatusDetail {
+  /**
+   * <p>The status of the schema.</p>
+   * @public
+   */
+  status: SchemaStatus | undefined;
+
+  /**
+   * <p>The reasons why the schema status is set to its current state.</p>
+   * @public
+   */
+  reasons?: SchemaStatusReason[];
+
+  /**
+   * <p>The analysis rule type for which the schema status has been evaluated.</p>
+   * @public
+   */
+  analysisRuleType?: AnalysisRuleType;
+
+  /**
+   * <p>The configuration details of the schema analysis rule for the given type.</p>
+   * @public
+   */
+  configurations?: SchemaConfiguration[];
 }
 
 /**
@@ -1495,6 +1599,12 @@ export interface Schema {
    * @public
    */
   type: SchemaType | undefined;
+
+  /**
+   * <p>Details about the status of the schema. Currently, only one entry is present.</p>
+   * @public
+   */
+  schemaStatusDetails: SchemaStatusDetail[] | undefined;
 }
 
 /**
@@ -1513,6 +1623,88 @@ export interface BatchGetSchemaOutput {
    * @public
    */
   errors: BatchGetSchemaError[] | undefined;
+}
+
+/**
+ * <p>Defines the information that's necessary to retrieve an analysis rule schema. Schema analysis rules are uniquely identiﬁed by a combination of the schema name and the analysis rule type for a given collaboration.</p>
+ * @public
+ */
+export interface SchemaAnalysisRuleRequest {
+  /**
+   * <p>The name of the analysis rule schema that you are requesting.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of analysis rule schema that you are requesting.</p>
+   * @public
+   */
+  type: AnalysisRuleType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetSchemaAnalysisRuleInput {
+  /**
+   * <p>The unique identifier of the collaboration that contains the schema analysis rule.</p>
+   * @public
+   */
+  collaborationIdentifier: string | undefined;
+
+  /**
+   * <p>The information that's necessary to retrieve a schema analysis rule.</p>
+   * @public
+   */
+  schemaAnalysisRuleRequests: SchemaAnalysisRuleRequest[] | undefined;
+}
+
+/**
+ * <p>An error that describes why a schema could not be fetched.</p>
+ * @public
+ */
+export interface BatchGetSchemaAnalysisRuleError {
+  /**
+   * <p>An error name for the error.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The analysis rule type.</p>
+   * @public
+   */
+  type: AnalysisRuleType | undefined;
+
+  /**
+   * <p>An error code for the error.</p>
+   * @public
+   */
+  code: string | undefined;
+
+  /**
+   * <p>A description of why the call failed.</p>
+   * @public
+   */
+  message: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetSchemaAnalysisRuleOutput {
+  /**
+   * <p>The retrieved list of analysis rules.</p>
+   * @public
+   */
+  analysisRules: AnalysisRule[] | undefined;
+
+  /**
+   * <p>Error reasons for schemas that could not be retrieved. One error is returned for every schema that could not be retrieved.</p>
+   * @public
+   */
+  errors: BatchGetSchemaAnalysisRuleError[] | undefined;
 }
 
 /**

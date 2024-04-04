@@ -66,6 +66,21 @@ export interface GetSchemaCommandOutput extends GetSchemaOutput, __MetadataBeare
  * //     createTime: new Date("TIMESTAMP"), // required
  * //     updateTime: new Date("TIMESTAMP"), // required
  * //     type: "TABLE", // required
+ * //     schemaStatusDetails: [ // SchemaStatusDetailList // required
+ * //       { // SchemaStatusDetail
+ * //         status: "READY" || "NOT_READY", // required
+ * //         reasons: [ // SchemaStatusReasonList
+ * //           { // SchemaStatusReason
+ * //             code: "ANALYSIS_RULE_MISSING" || "ANALYSIS_TEMPLATES_NOT_CONFIGURED" || "ANALYSIS_PROVIDERS_NOT_CONFIGURED" || "DIFFERENTIAL_PRIVACY_POLICY_NOT_CONFIGURED", // required
+ * //             message: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //         analysisRuleType: "AGGREGATION" || "LIST" || "CUSTOM",
+ * //         configurations: [ // SchemaConfigurationList
+ * //           "DIFFERENTIAL_PRIVACY",
+ * //         ],
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

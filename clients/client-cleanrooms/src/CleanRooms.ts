@@ -9,6 +9,11 @@ import {
   BatchGetCollaborationAnalysisTemplateCommandOutput,
 } from "./commands/BatchGetCollaborationAnalysisTemplateCommand";
 import {
+  BatchGetSchemaAnalysisRuleCommand,
+  BatchGetSchemaAnalysisRuleCommandInput,
+  BatchGetSchemaAnalysisRuleCommandOutput,
+} from "./commands/BatchGetSchemaAnalysisRuleCommand";
+import {
   BatchGetSchemaCommand,
   BatchGetSchemaCommandInput,
   BatchGetSchemaCommandOutput,
@@ -301,6 +306,7 @@ import {
 const commands = {
   BatchGetCollaborationAnalysisTemplateCommand,
   BatchGetSchemaCommand,
+  BatchGetSchemaAnalysisRuleCommand,
   CreateAnalysisTemplateCommand,
   CreateCollaborationCommand,
   CreateConfiguredAudienceModelAssociationCommand,
@@ -393,6 +399,23 @@ export interface CleanRooms {
     args: BatchGetSchemaCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchGetSchemaCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetSchemaAnalysisRuleCommand}
+   */
+  batchGetSchemaAnalysisRule(
+    args: BatchGetSchemaAnalysisRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetSchemaAnalysisRuleCommandOutput>;
+  batchGetSchemaAnalysisRule(
+    args: BatchGetSchemaAnalysisRuleCommandInput,
+    cb: (err: any, data?: BatchGetSchemaAnalysisRuleCommandOutput) => void
+  ): void;
+  batchGetSchemaAnalysisRule(
+    args: BatchGetSchemaAnalysisRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetSchemaAnalysisRuleCommandOutput) => void
   ): void;
 
   /**
