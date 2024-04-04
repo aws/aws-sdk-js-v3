@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.549.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.548.0...v3.549.0) (2024-04-04)
+
+
+### Features
+
+* **client-b2bi:** Adding support for X12 5010 HIPAA EDI version and associated transaction sets. ([f4cb659](https://github.com/aws/aws-sdk-js-v3/commit/f4cb659c7ac40c43fb007dc0f15a8480963f5321))
+* **client-cleanrooms:** Feature: New schemaStatusDetails field to the existing Schema object that displays a status on Schema API responses to show whether a schema is queryable or not. New BatchGetSchemaAnalysisRule API to retrieve multiple schemaAnalysisRules using a single API call. ([30e75ea](https://github.com/aws/aws-sdk-js-v3/commit/30e75ea75a7e3a8195eb6e54d4cf962f77702546))
+* **client-ec2:** Amazon EC2 G6 instances powered by NVIDIA L4 Tensor Core GPUs can be used for a wide range of graphics-intensive and machine learning use cases. Gr6 instances also feature NVIDIA L4 GPUs and can be used for graphics workloads with higher memory requirements. ([379b756](https://github.com/aws/aws-sdk-js-v3/commit/379b756b05ad7b0cf768380d5bdc305a9e7b28ec))
+* **client-emr-containers:** This release adds support for integration with EKS AccessEntry APIs to enable automatic Cluster Access for EMR on EKS. ([36c6750](https://github.com/aws/aws-sdk-js-v3/commit/36c6750825ab702cf2de15bf17bfcdfdcabfcb43))
+* **client-ivs:** API update to include an SRT ingest endpoint and passphrase for all channels. ([9d14837](https://github.com/aws/aws-sdk-js-v3/commit/9d1483717e4c7b24dbbd2555d3ab9cb3e9548b0d))
+* **client-verifiedpermissions:** Adds GroupConfiguration field to Identity Source API's ([d2d80fd](https://github.com/aws/aws-sdk-js-v3/commit/d2d80fda4cf3b18d9ec0b03624feb759b17b180e))
+* **clients:** update client endpoints as of 2024-04-04 ([da490a1](https://github.com/aws/aws-sdk-js-v3/commit/da490a15c0891e7b5a4aad1b4bf510c5e9d150ab))
+
+
+
+
+
 # [3.548.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.547.0...v3.548.0) (2024-04-03)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.549.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.548.0...v3.549.0) (2024-04-04)
+
+
+### Features
+
+* **client-b2bi:** Adding support for X12 5010 HIPAA EDI version and associated transaction sets. ([f4cb659](https://github.com/aws/aws-sdk-js-v3/commit/f4cb659c7ac40c43fb007dc0f15a8480963f5321))
+
+
+
+
+
 # [3.545.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.544.0...v3.545.0) (2024-03-29)
 
 
