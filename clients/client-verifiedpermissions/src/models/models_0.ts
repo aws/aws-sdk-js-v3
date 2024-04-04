@@ -358,12 +358,59 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * <p>The type of entity that a policy store maps to groups from an Amazon Cognito user
+ *             pool identity source.</p>
+ *          <p>This data type is part of a <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CognitoUserPoolConfiguration.html">CognitoUserPoolConfiguration</a> structure and is a request parameter in <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html">CreateIdentitySource</a>.</p>
+ * @public
+ */
+export interface CognitoGroupConfiguration {
+  /**
+   * <p>The name of the schema entity type that's mapped to the user pool group. Defaults
+   *             to <code>AWS::CognitoGroup</code>.</p>
+   * @public
+   */
+  groupEntityType: string | undefined;
+}
+
+/**
+ * <p>The type of entity that a policy store maps to groups from an Amazon Cognito user
+ *             pool identity source.</p>
+ *          <p>This data type is part of an <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CognitoUserPoolConfigurationItem.html">CognitoUserPoolConfigurationDetail</a> structure and is a response parameter to
+ *             <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_GetIdentitySource.html">GetIdentitySource</a>.</p>
+ * @public
+ */
+export interface CognitoGroupConfigurationDetail {
+  /**
+   * <p>The name of the schema entity type that's mapped to the user pool group. Defaults
+   *             to <code>AWS::CognitoGroup</code>.</p>
+   * @public
+   */
+  groupEntityType?: string;
+}
+
+/**
+ * <p>The type of entity that a policy store maps to groups from an Amazon Cognito user
+ *             pool identity source.</p>
+ *          <p>This data type is part of an <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CognitoUserPoolConfigurationDetail.html">CognitoUserPoolConfigurationItem</a> structure and is a response parameter to
+ *             <a href="http://forums.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListIdentitySources.html">ListIdentitySources</a>.</p>
+ * @public
+ */
+export interface CognitoGroupConfigurationItem {
+  /**
+   * <p>The name of the schema entity type that's mapped to the user pool group. Defaults
+   *             to <code>AWS::CognitoGroup</code>.</p>
+   * @public
+   */
+  groupEntityType?: string;
+}
+
+/**
  * <p>The configuration for an identity source that represents a connection to an Amazon Cognito user pool used
  *             as an identity provider for Verified Permissions.</p>
  *          <p>This data type is used as a field that is part of an <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_Configuration.html">Configuration</a> structure that is
  *             used as a parameter to <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html">CreateIdentitySource</a>.</p>
  *          <p>Example:<code>"CognitoUserPoolConfiguration":\{"UserPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","ClientIds":
- *                 ["a1b2c3d4e5f6g7h8i9j0kalbmc"]\}</code>
+ *             ["a1b2c3d4e5f6g7h8i9j0kalbmc"],"groupConfiguration": \{"groupEntityType": "MyCorp::Group"\}\}</code>
  *          </p>
  * @public
  */
@@ -386,6 +433,13 @@ export interface CognitoUserPoolConfiguration {
    * @public
    */
   clientIds?: string[];
+
+  /**
+   * <p>The type of entity that a policy store maps to groups from an Amazon Cognito user
+   *             pool identity source.</p>
+   * @public
+   */
+  groupConfiguration?: CognitoGroupConfiguration;
 }
 
 /**
@@ -394,7 +448,7 @@ export interface CognitoUserPoolConfiguration {
  *          <p>This data type is used as a field that is part of an <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ConfigurationDetail.html">ConfigurationDetail</a> structure that is
  *             part of the response to <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_GetIdentitySource.html">GetIdentitySource</a>.</p>
  *          <p>Example:<code>"CognitoUserPoolConfiguration":\{"UserPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","ClientIds":
- *             ["a1b2c3d4e5f6g7h8i9j0kalbmc"]\}</code>
+ *             ["a1b2c3d4e5f6g7h8i9j0kalbmc"],"groupConfiguration": \{"groupEntityType": "MyCorp::Group"\}\}</code>
  *          </p>
  * @public
  */
@@ -427,6 +481,13 @@ export interface CognitoUserPoolConfigurationDetail {
    * @public
    */
   issuer: string | undefined;
+
+  /**
+   * <p>The type of entity that a policy store maps to groups from an Amazon Cognito user
+   *             pool identity source.</p>
+   * @public
+   */
+  groupConfiguration?: CognitoGroupConfigurationDetail;
 }
 
 /**
@@ -435,7 +496,7 @@ export interface CognitoUserPoolConfigurationDetail {
  *          <p>This data type is used as a field that is part of the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ConfigurationItem.html">ConfigurationItem</a> structure that is
  *             part of the response to <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListIdentitySources.html">ListIdentitySources</a>.</p>
  *          <p>Example:<code>"CognitoUserPoolConfiguration":\{"UserPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","ClientIds":
- *             ["a1b2c3d4e5f6g7h8i9j0kalbmc"]\}</code>
+ *             ["a1b2c3d4e5f6g7h8i9j0kalbmc"],"groupConfiguration": \{"groupEntityType": "MyCorp::Group"\}\}</code>
  *          </p>
  * @public
  */
@@ -468,6 +529,13 @@ export interface CognitoUserPoolConfigurationItem {
    * @public
    */
   issuer: string | undefined;
+
+  /**
+   * <p>The type of entity that a policy store maps to groups from an Amazon Cognito user
+   *             pool identity source.</p>
+   * @public
+   */
+  groupConfiguration?: CognitoGroupConfigurationItem;
 }
 
 /**
@@ -475,7 +543,7 @@ export interface CognitoUserPoolConfigurationItem {
  *          <note>
  *             <p>At this time, the only valid member of this structure is a Amazon Cognito user pool
  *                 configuration.</p>
- *             <p>You must specify a <code>userPoolArn</code>, and optionally, a
+ *             <p>Specifies a <code>userPoolArn</code>, a <code>groupConfiguration</code>, and a
  *                     <code>ClientId</code>.</p>
  *          </note>
  *          <p>This data type is used as a request parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html">CreateIdentitySource</a>
@@ -494,7 +562,7 @@ export namespace Configuration {
    *             and one or more application client IDs.</p>
    *          <p>Example:
    *                 <code>"configuration":\{"cognitoUserPoolConfiguration":\{"userPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","clientIds":
-   *                 ["a1b2c3d4e5f6g7h8i9j0kalbmc"]\}\}</code>
+   *                     ["a1b2c3d4e5f6g7h8i9j0kalbmc"],"groupConfiguration": \{"groupEntityType": "MyCorp::Group"\}\}\}</code>
    *          </p>
    * @public
    */
@@ -539,11 +607,12 @@ export type ConfigurationDetail =
 export namespace ConfigurationDetail {
   /**
    * <p>Contains configuration details of a Amazon Cognito user pool that Verified Permissions can use as a source of
-   *             authenticated identities as entities. It specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of a Amazon Cognito user pool
+   *             authenticated identities as entities. It specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of a Amazon Cognito user pool,
+   *             the policy store entity that you want to assign to user groups,
    *             and one or more application client IDs.</p>
    *          <p>Example:
    *             <code>"configuration":\{"cognitoUserPoolConfiguration":\{"userPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","clientIds":
-   *                 ["a1b2c3d4e5f6g7h8i9j0kalbmc"]\}\}</code>
+   *                 ["a1b2c3d4e5f6g7h8i9j0kalbmc"],"groupConfiguration": \{"groupEntityType": "MyCorp::Group"\}\}\}</code>
    *          </p>
    * @public
    */
@@ -586,11 +655,12 @@ export type ConfigurationItem = ConfigurationItem.CognitoUserPoolConfigurationMe
 export namespace ConfigurationItem {
   /**
    * <p>Contains configuration details of a Amazon Cognito user pool that Verified Permissions can use as a source of
-   *             authenticated identities as entities. It specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of a Amazon Cognito user pool
+   *             authenticated identities as entities. It specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of a Amazon Cognito user pool,
+   *             the policy store entity that you want to assign to user groups,
    *             and one or more application client IDs.</p>
    *          <p>Example:
    *             <code>"configuration":\{"cognitoUserPoolConfiguration":\{"userPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","clientIds":
-   *                 ["a1b2c3d4e5f6g7h8i9j0kalbmc"]\}\}</code>
+   *                 ["a1b2c3d4e5f6g7h8i9j0kalbmc"],"groupConfiguration": \{"groupEntityType": "MyCorp::Group"\}\}\}</code>
    *          </p>
    * @public
    */
@@ -1998,6 +2068,20 @@ export interface ListIdentitySourcesOutput {
 }
 
 /**
+ * <p>The user group entities from an Amazon Cognito user pool identity
+ *             source.</p>
+ * @public
+ */
+export interface UpdateCognitoGroupConfiguration {
+  /**
+   * <p>The name of the schema entity type that's mapped to the user pool group. Defaults
+   *             to <code>AWS::CognitoGroup</code>.</p>
+   * @public
+   */
+  groupEntityType: string | undefined;
+}
+
+/**
  * <p>Contains configuration details of a Amazon Cognito user pool for use with an identity source.</p>
  * @public
  */
@@ -2014,6 +2098,13 @@ export interface UpdateCognitoUserPoolConfiguration {
    * @public
    */
   clientIds?: string[];
+
+  /**
+   * <p>The configuration of the user groups from an Amazon Cognito user pool identity
+   *             source.</p>
+   * @public
+   */
+  groupConfiguration?: UpdateCognitoGroupConfiguration;
 }
 
 /**
@@ -2188,6 +2279,12 @@ export interface IsAuthorizedWithTokenOutput {
    * @public
    */
   errors: EvaluationErrorItem[] | undefined;
+
+  /**
+   * <p>The identifier of the principal in the ID or access token.</p>
+   * @public
+   */
+  principal?: EntityIdentifier;
 }
 
 /**
@@ -3305,14 +3402,15 @@ export interface BatchIsAuthorizedInputItem {
   principal?: EntityIdentifier;
 
   /**
-   * <p>Specifies the requested action to be authorized. For example, is the principal
-   *             authorized to perform this action on the resource?</p>
+   * <p>Specifies the requested action to be authorized. For example,
+   *                 <code>PhotoFlash::ReadPhoto</code>.</p>
    * @public
    */
   action?: ActionIdentifier;
 
   /**
-   * <p>Specifies the resource for which the authorization decision is to be made.</p>
+   * <p>Specifies the resource that you want an authorization decision for. For example,
+   *                 <code>PhotoFlash::Photo</code>.</p>
    * @public
    */
   resource?: EntityIdentifier;
@@ -3356,8 +3454,8 @@ export interface BatchIsAuthorizedOutputItem {
   determiningPolicies: DeterminingPolicyItem[] | undefined;
 
   /**
-   * <p>Errors that occurred while making an authorization decision, for example, a policy
-   *             references an Entity or entity Attribute that does not exist in the slice.</p>
+   * <p>Errors that occurred while making an authorization decision. For example, a policy
+   *             might reference an entity or attribute that doesn't exist in the request.</p>
    * @public
    */
   errors: EvaluationErrorItem[] | undefined;
@@ -3605,9 +3703,36 @@ export const EvaluationErrorItemFilterSensitiveLog = (obj: EvaluationErrorItem):
 /**
  * @internal
  */
+export const CognitoGroupConfigurationFilterSensitiveLog = (obj: CognitoGroupConfiguration): any => ({
+  ...obj,
+  ...(obj.groupEntityType && { groupEntityType: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CognitoGroupConfigurationDetailFilterSensitiveLog = (obj: CognitoGroupConfigurationDetail): any => ({
+  ...obj,
+  ...(obj.groupEntityType && { groupEntityType: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CognitoGroupConfigurationItemFilterSensitiveLog = (obj: CognitoGroupConfigurationItem): any => ({
+  ...obj,
+  ...(obj.groupEntityType && { groupEntityType: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const CognitoUserPoolConfigurationFilterSensitiveLog = (obj: CognitoUserPoolConfiguration): any => ({
   ...obj,
   ...(obj.clientIds && { clientIds: SENSITIVE_STRING }),
+  ...(obj.groupConfiguration && {
+    groupConfiguration: CognitoGroupConfigurationFilterSensitiveLog(obj.groupConfiguration),
+  }),
 });
 
 /**
@@ -3616,6 +3741,9 @@ export const CognitoUserPoolConfigurationFilterSensitiveLog = (obj: CognitoUserP
 export const CognitoUserPoolConfigurationDetailFilterSensitiveLog = (obj: CognitoUserPoolConfigurationDetail): any => ({
   ...obj,
   ...(obj.clientIds && { clientIds: SENSITIVE_STRING }),
+  ...(obj.groupConfiguration && {
+    groupConfiguration: CognitoGroupConfigurationDetailFilterSensitiveLog(obj.groupConfiguration),
+  }),
 });
 
 /**
@@ -3624,6 +3752,9 @@ export const CognitoUserPoolConfigurationDetailFilterSensitiveLog = (obj: Cognit
 export const CognitoUserPoolConfigurationItemFilterSensitiveLog = (obj: CognitoUserPoolConfigurationItem): any => ({
   ...obj,
   ...(obj.clientIds && { clientIds: SENSITIVE_STRING }),
+  ...(obj.groupConfiguration && {
+    groupConfiguration: CognitoGroupConfigurationItemFilterSensitiveLog(obj.groupConfiguration),
+  }),
 });
 
 /**
@@ -3874,9 +4005,20 @@ export const ListIdentitySourcesOutputFilterSensitiveLog = (obj: ListIdentitySou
 /**
  * @internal
  */
+export const UpdateCognitoGroupConfigurationFilterSensitiveLog = (obj: UpdateCognitoGroupConfiguration): any => ({
+  ...obj,
+  ...(obj.groupEntityType && { groupEntityType: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const UpdateCognitoUserPoolConfigurationFilterSensitiveLog = (obj: UpdateCognitoUserPoolConfiguration): any => ({
   ...obj,
   ...(obj.clientIds && { clientIds: SENSITIVE_STRING }),
+  ...(obj.groupConfiguration && {
+    groupConfiguration: UpdateCognitoGroupConfigurationFilterSensitiveLog(obj.groupConfiguration),
+  }),
 });
 
 /**
@@ -3917,6 +4059,7 @@ export const IsAuthorizedOutputFilterSensitiveLog = (obj: IsAuthorizedOutput): a
 export const IsAuthorizedWithTokenOutputFilterSensitiveLog = (obj: IsAuthorizedWithTokenOutput): any => ({
   ...obj,
   ...(obj.errors && { errors: SENSITIVE_STRING }),
+  ...(obj.principal && { principal: EntityIdentifierFilterSensitiveLog(obj.principal) }),
 });
 
 /**

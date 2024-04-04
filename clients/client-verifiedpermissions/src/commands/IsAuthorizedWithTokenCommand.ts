@@ -135,6 +135,10 @@ export interface IsAuthorizedWithTokenCommandOutput extends IsAuthorizedWithToke
  * //       errorDescription: "STRING_VALUE", // required
  * //     },
  * //   ],
+ * //   principal: { // EntityIdentifier
+ * //     entityType: "STRING_VALUE", // required
+ * //     entityId: "STRING_VALUE", // required
+ * //   },
  * // };
  *
  * ```

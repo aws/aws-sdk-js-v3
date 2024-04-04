@@ -82,6 +82,9 @@ export interface CreateIdentitySourceCommandOutput extends CreateIdentitySourceO
  *       clientIds: [ // ClientIds
  *         "STRING_VALUE",
  *       ],
+ *       groupConfiguration: { // CognitoGroupConfiguration
+ *         groupEntityType: "STRING_VALUE", // required
+ *       },
  *     },
  *   },
  *   principalEntityType: "STRING_VALUE",

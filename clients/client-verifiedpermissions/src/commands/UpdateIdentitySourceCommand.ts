@@ -58,6 +58,9 @@ export interface UpdateIdentitySourceCommandOutput extends UpdateIdentitySourceO
  *       clientIds: [ // ClientIds
  *         "STRING_VALUE",
  *       ],
+ *       groupConfiguration: { // UpdateCognitoGroupConfiguration
+ *         groupEntityType: "STRING_VALUE", // required
+ *       },
  *     },
  *   },
  *   principalEntityType: "STRING_VALUE",

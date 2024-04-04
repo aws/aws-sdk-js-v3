@@ -86,6 +86,7 @@ import {
   BatchIsAuthorizedInputItem,
   BatchIsAuthorizedOutput,
   BatchIsAuthorizedOutputItem,
+  CognitoGroupConfiguration,
   CognitoUserPoolConfiguration,
   Configuration,
   ConflictException,
@@ -142,6 +143,7 @@ import {
   StaticPolicyDefinition,
   TemplateLinkedPolicyDefinition,
   ThrottlingException,
+  UpdateCognitoGroupConfiguration,
   UpdateCognitoUserPoolConfiguration,
   UpdateConfiguration,
   UpdateIdentitySourceInput,
@@ -1181,6 +1183,8 @@ const se_BatchIsAuthorizedInputList = (input: BatchIsAuthorizedInputItem[], cont
 
 // se_ClientIds omitted.
 
+// se_CognitoGroupConfiguration omitted.
+
 // se_CognitoUserPoolConfiguration omitted.
 
 // se_Configuration omitted.
@@ -1400,6 +1404,8 @@ const se_SetAttribute = (input: AttributeValue[], context: __SerdeContext): any 
 
 // se_TemplateLinkedPolicyDefinition omitted.
 
+// se_UpdateCognitoGroupConfiguration omitted.
+
 // se_UpdateCognitoUserPoolConfiguration omitted.
 
 // se_UpdateConfiguration omitted.
@@ -1499,6 +1505,10 @@ const de_BatchIsAuthorizedOutputList = (output: any, context: __SerdeContext): B
 };
 
 // de_ClientIds omitted.
+
+// de_CognitoGroupConfigurationDetail omitted.
+
+// de_CognitoGroupConfigurationItem omitted.
 
 // de_CognitoUserPoolConfigurationDetail omitted.
 
