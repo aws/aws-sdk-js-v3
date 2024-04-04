@@ -42,7 +42,7 @@
     "typescript": "~4.9.5"
   },
   "peerDependencies": {
-    "@aws-sdk/credential-provider-node": "^3.540.0"
+    "@aws-sdk/credential-provider-node": "*"
   },
   "types": "./dist-types/index.d.ts",
   "engines": {
