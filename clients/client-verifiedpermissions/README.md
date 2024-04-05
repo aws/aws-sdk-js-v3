@@ -277,6 +277,14 @@ BatchIsAuthorized
 </details>
 <details>
 <summary>
+BatchIsAuthorizedWithToken
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/verifiedpermissions/command/BatchIsAuthorizedWithTokenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-verifiedpermissions/Interface/BatchIsAuthorizedWithTokenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-verifiedpermissions/Interface/BatchIsAuthorizedWithTokenCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateIdentitySource
 </summary>
 

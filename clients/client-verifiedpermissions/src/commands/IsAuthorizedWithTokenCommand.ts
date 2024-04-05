@@ -44,15 +44,6 @@ export interface IsAuthorizedWithTokenCommandOutput extends IsAuthorizedWithToke
  *             matching policies in the specified policy store. The result of the decision is either
  *                 <code>Allow</code> or <code>Deny</code>, along with a list of the policies that
  *             resulted in the decision.</p>
- *          <important>
- *             <p>If you specify the <code>identityToken</code> parameter, then this operation
- *                 derives the principal from that token. You must not also include that principal in
- *                 the <code>entities</code> parameter or the operation fails and reports a conflict
- *                 between the two entity sources.</p>
- *             <p>If you provide only an <code>accessToken</code>, then you can include the entity
- *                 as part of the <code>entities</code> parameter to provide additional
- *                 attributes.</p>
- *          </important>
  *          <p>At this time, Verified Permissions accepts tokens from only Amazon Cognito.</p>
  *          <p>Verified Permissions validates each token that is specified in a request by checking its expiration
  *             date and its signature.</p>

@@ -55,6 +55,10 @@ import {
 } from "./auth/httpAuthSchemeProvider";
 import { BatchIsAuthorizedCommandInput, BatchIsAuthorizedCommandOutput } from "./commands/BatchIsAuthorizedCommand";
 import {
+  BatchIsAuthorizedWithTokenCommandInput,
+  BatchIsAuthorizedWithTokenCommandOutput,
+} from "./commands/BatchIsAuthorizedWithTokenCommand";
+import {
   CreateIdentitySourceCommandInput,
   CreateIdentitySourceCommandOutput,
 } from "./commands/CreateIdentitySourceCommand";
@@ -121,6 +125,7 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | BatchIsAuthorizedCommandInput
+  | BatchIsAuthorizedWithTokenCommandInput
   | CreateIdentitySourceCommandInput
   | CreatePolicyCommandInput
   | CreatePolicyStoreCommandInput
@@ -151,6 +156,7 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | BatchIsAuthorizedCommandOutput
+  | BatchIsAuthorizedWithTokenCommandOutput
   | CreateIdentitySourceCommandOutput
   | CreatePolicyCommandOutput
   | CreatePolicyStoreCommandOutput
