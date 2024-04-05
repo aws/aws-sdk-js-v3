@@ -77,6 +77,7 @@ export interface CreateAccountSubscriptionCommandOutput extends CreateAccountSub
  *   LastName: "STRING_VALUE",
  *   EmailAddress: "STRING_VALUE",
  *   ContactNumber: "STRING_VALUE",
+ *   IAMIdentityCenterInstanceArn: "STRING_VALUE",
  * };
  * const command = new CreateAccountSubscriptionCommand(input);
  * const response = await client.send(command);

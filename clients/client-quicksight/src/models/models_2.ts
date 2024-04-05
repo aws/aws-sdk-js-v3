@@ -4392,6 +4392,12 @@ export interface CreateAccountSubscriptionRequest {
    * @public
    */
   ContactNumber?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the IAM Identity Center instance.</p>
+   * @public
+   */
+  IAMIdentityCenterInstanceArn?: string;
 }
 
 /**

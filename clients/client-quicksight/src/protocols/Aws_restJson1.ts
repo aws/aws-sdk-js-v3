@@ -1315,6 +1315,7 @@ export const se_CreateAccountSubscriptionCommand = async (
       Edition: [],
       EmailAddress: [],
       FirstName: [],
+      IAMIdentityCenterInstanceArn: [],
       LastName: [],
       NotificationEmail: [],
       ReaderGroup: (_) => _json(_),
