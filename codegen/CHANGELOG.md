@@ -1,5 +1,11 @@
 # Smithy AWS Typescript Codegen Changelog
 
+## 0.20.1 (2024-04-05)
+
+### Features
+* Add option to prevent md5 computation ([#5953](https://github.com/aws/aws-sdk-js-v3/pull/5953)) 
+* Update Smithy to 1.47.0 ([#5956](https://github.com/aws/aws-sdk-js-v3/pull/5956))
+
 ## 0.20.0 (2024-03-27)
 
 ### Features
