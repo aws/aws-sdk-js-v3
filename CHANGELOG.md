@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.550.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.549.0...v3.550.0) (2024-04-05)
+
+
+### Features
+
+* **client-quicksight:** Adding IAMIdentityCenterInstanceArn parameter to CreateAccountSubscription ([a837f79](https://github.com/aws/aws-sdk-js-v3/commit/a837f7987384ac9938fbef01ff344e93d33b8e44))
+* **client-resource-groups:** Added a new QueryErrorCode RESOURCE_TYPE_NOT_SUPPORTED that is returned by the ListGroupResources operation if the group query contains unsupported resource types. ([73a6573](https://github.com/aws/aws-sdk-js-v3/commit/73a6573a50e8184567a16b1b5709fea82322ce06))
+* **client-verifiedpermissions:** Adding BatchIsAuthorizedWithToken API which supports multiple authorization requests against a PolicyStore given a bearer token. ([8f5691c](https://github.com/aws/aws-sdk-js-v3/commit/8f5691c86bf2fe266df08268be71919b605bd464))
+* **clients:** update client endpoints as of 2024-04-05 ([e31f957](https://github.com/aws/aws-sdk-js-v3/commit/e31f957ed56dc0f9dc71904d9020b5dc1b97ec6c))
+
+
+
+
+
 # [3.549.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.548.0...v3.549.0) (2024-04-04)
 
 
